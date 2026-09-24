@@ -12050,6 +12050,20 @@
    "count": 8
   },
   {
+   "id": "obj-container-carton",
+   "name": "Carton",
+   "type": "kind",
+   "description": "carton, milk carton",
+   "count": 4
+  },
+  {
+   "id": "obj-container-trashcan",
+   "name": "Trashcan",
+   "type": "kind",
+   "description": "trashcan, trash can, litter bin",
+   "count": 3
+  },
+  {
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
@@ -14789,6 +14803,13 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-carton": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-chest": {
    "high.min": 0.2,
    "high.max": 0.5,
@@ -14841,6 +14862,13 @@
   "obj-container-pot-vase": {
    "high.min": 0.1,
    "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-trashcan": {
+   "high.min": 0.1,
+   "high.max": 1,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 10000
@@ -42247,7 +42275,7 @@
   {
    "kit": "isa-bakery",
    "name": "milk-carton",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.1,
@@ -49708,7 +49736,7 @@
   {
    "kit": "isa-park",
    "name": "trashcan",
-   "kind": "obj-container",
+   "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
     0.3,
@@ -120572,7 +120600,7 @@
   {
    "kit": "ken-food",
    "name": "carton-small",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.1,
@@ -120616,7 +120644,7 @@
   {
    "kit": "ken-food",
    "name": "carton",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.1,
@@ -130851,7 +130879,7 @@
   {
    "kit": "ken-furniture",
    "name": "trashcan",
-   "kind": "obj-container",
+   "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
     0.2,
@@ -215539,7 +215567,7 @@
   {
    "kit": "styloo-furniture",
    "name": "trash-can",
-   "kind": "obj-container",
+   "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
     0.15,
@@ -216467,7 +216495,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "milk-carton",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.05,
