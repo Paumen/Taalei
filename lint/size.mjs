@@ -1,13 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildLimits, findingsFor, isExempt } from './rules.mjs';
+import { buildLimits, buildScales, findingsFor, isExempt } from './rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
 
 const VARS = read('lint/variables.json');
-const LIMITS = buildLimits(read(VARS.kinds));
+const KINDS = read(VARS.kinds);
+const LIMITS = buildLimits(KINDS);
+const SCALES = buildScales(KINDS);
 const { models } = read(VARS.models);
 
 const findings = [];
@@ -17,7 +19,7 @@ let skipped = 0;
 for (const m of models) {
   if (!m.kind || isExempt(m, VARS)) { skipped++; continue; }
   checked++;
-  for (const f of findingsFor(m, LIMITS.get(m.kind), VARS)) {
+  for (const f of findingsFor(m, LIMITS.get(m.kind), VARS, SCALES)) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }

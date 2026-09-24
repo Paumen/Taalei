@@ -1,5 +1,5 @@
 import { kindName, kindAncestors, kindIs } from './kinds.mjs';
-import { buildLimits, isExempt } from '../../lint/rules.mjs';
+import { buildLimits, buildScales, isExempt, limitsForModel, scaleTagOf } from '../../lint/rules.mjs';
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +11,7 @@ const KIND_LIMITS = JSON.parse(readFileSync(join(ROOT, 'lint', 'kinds.json'), 'u
 const VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
 
 const LIMITS = buildLimits(KIND_LIMITS);
+const SCALES = buildScales(KIND_LIMITS);
 
 const NODE = new Map();
 const readNodes = (node) => {
@@ -27,8 +28,9 @@ const ownLongest = (kind) => {
   return own && !fromKind('high.min') && !fromKind('high.max');
 };
 
-const limitsOf = (kind) => {
-  const found = Object.entries(LIMITS.get(kind) ?? {}).map(([field, { value }]) => [field, value]);
+const limitsOf = (kind, scale) => {
+  const { limits } = limitsForModel({ kind, tags: scale ? [scale] : [] }, LIMITS.get(kind), SCALES);
+  const found = Object.entries(limits ?? {}).map(([field, { value }]) => [field, value]);
   return found.length ? Object.fromEntries(found) : undefined;
 };
 
@@ -101,22 +103,25 @@ export function buildScaleGroups(models) {
     if (!m.kind || isExempt(m, VARS) || SKIP.has(m.id)) continue;
     if (SKIP_RULE(m)) continue;
     if (m.tags?.some((t) => VARS.exemptTags.includes(t))) continue;
-    if (!perKind.has(m.kind)) perKind.set(m.kind, []);
-    perKind.get(m.kind).push(m);
+    const scale = scaleTagOf(m)?.join(' ') ?? '';
+    const key = `${m.kind}|${scale}`;
+    if (!perKind.has(key)) perKind.set(key, []);
+    perKind.get(key).push(m);
   }
 
   const groups = [];
-  for (const [kind, items] of perKind) {
+  for (const [key, items] of perKind) {
+    const [kind, scale] = key.split('|');
     if (items.length < 2) continue;
     groups.push({
-      slug: kind,
-      name: breadcrumb(kind),
+      slug: scale ? `${kind}-${scale.replace(/ /g, '-')}` : kind,
+      name: breadcrumb(kind) + (scale ? ` · ${scale}` : ''),
       category: tabOf(kind).id,
       topView: TOP_VIEW.has(kind) || undefined,
       byLongest: byLongest(kind) || undefined,
       wideRow: WIDE_ROW.has(kind) || undefined,
       rulerHeight: rulerHeight(kind),
-      limits: limitsOf(kind),
+      limits: limitsOf(kind, scale),
       items: items.map((m) => ({
         slug: m.kit,
         model: m.name,

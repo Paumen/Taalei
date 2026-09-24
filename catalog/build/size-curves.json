@@ -575,17 +575,10 @@
   },
   {
    "kind": "env-flora-plant-cactus",
-   "curve": false,
-   "reason": "no real size"
-  },
-  {
-   "kind": "env-flora-plant-cactus-high",
-   "real": 1.5,
-   "curve": true
-  },
-  {
-   "kind": "env-flora-plant-cactus-low",
-   "real": 0.3,
+   "scale": {
+    "small": 0.3,
+    "big": 1.5
+   },
    "curve": true
   },
   {
@@ -1772,17 +1765,10 @@
   },
   {
    "kind": "str-access-ladder",
-   "curve": false,
-   "reason": "no real size"
-  },
-  {
-   "kind": "str-access-ladder-long",
-   "real": 4,
-   "curve": true
-  },
-  {
-   "kind": "str-access-ladder-short",
-   "real": 2,
+   "scale": {
+    "small": 2,
+    "big": 4
+   },
    "curve": true
   },
   {
@@ -1806,20 +1792,12 @@
    "reason": "no real size"
   },
   {
-   "kind": "str-barrier-fence-high",
-   "real": 2,
-   "high": true,
-   "curve": true
-  },
-  {
-   "kind": "str-barrier-fence-low",
-   "real": 0.6,
-   "high": true,
-   "curve": true
-  },
-  {
    "kind": "str-barrier-fence-mid",
    "real": 1.2,
+   "scale": {
+    "small": 0.6,
+    "big": 2
+   },
    "high": true,
    "curve": true
   },
@@ -1994,11 +1972,9 @@
   {
    "kind": "str-marker-flag",
    "real": 1.5,
-   "curve": true
-  },
-  {
-   "kind": "str-marker-flag-small",
-   "real": 0.75,
+   "scale": {
+    "small": 0.75
+   },
    "curve": true
   },
   {
@@ -2042,18 +2018,12 @@
    "reason": "dropped"
   },
   {
-   "kind": "str-part-floor-double",
-   "real": 6,
-   "curve": true
-  },
-  {
-   "kind": "str-part-floor-half",
-   "real": 1.5,
-   "curve": true
-  },
-  {
    "kind": "str-part-floor-unit",
    "real": 3,
+   "scale": {
+    "small": 1.5,
+    "big": 6
+   },
    "curve": true
   },
   {
