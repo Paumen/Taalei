@@ -5025,6 +5025,7 @@ window.KENNEY_KITS = [
    "can-broken",
    "can-red",
    "compass",
+   "compass-anim",
    "first-aid-bag",
    "first-aid-kit",
    "flare-gun",
