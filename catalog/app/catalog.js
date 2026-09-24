@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=07a5c94453';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=07a5c94453';
-import { colorSwatches, setBands } from './color-edits.js?v=07a5c94453';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=07a5c94453';
-import { mountExtractBar, setPageParts } from './extract.js?v=07a5c94453';
-import './bouwstempel.js?v=07a5c94453';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=3a6ba0fde5';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=3a6ba0fde5';
+import { colorSwatches, setBands } from './color-edits.js?v=3a6ba0fde5';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=3a6ba0fde5';
+import { mountExtractBar, setPageParts } from './extract.js?v=3a6ba0fde5';
+import './bouwstempel.js?v=3a6ba0fde5';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -169,43 +169,6 @@ function setLighting(viewer, shadow) {
     viewer.setAttribute('shadow-intensity', shadow);
     viewer.setAttribute('exposure', '1.5');
   }
-}
-
-function orderSmoke(viewer) {
-  const key = Object.getOwnPropertySymbols(viewer).find((s) => s.description === 'scene');
-  const scene = key ? viewer[key] : null;
-  const clip = scene?.animations?.[0];
-  if (!clip) return;
-  const puffs = [];
-  for (const track of clip.tracks) {
-    const name = track.name.replace(/\.position$/, '');
-    if (name === track.name || !/_puff_\d+$/.test(name)) continue;
-    const meshes = [];
-    scene.getObjectByName(name)?.traverse((o) => {
-      if (o.isMesh && o.material.transparent) meshes.push(o);
-    });
-    if (!meshes.length) continue;
-    let wrap = 0;
-    let drop = 0;
-    for (let k = 1; k < track.times.length; k++) {
-      const d = track.values[k * 3 - 2] - track.values[k * 3 + 1];
-      if (d > drop) {
-        drop = d;
-        wrap = track.times[k];
-      }
-    }
-    puffs.push({ meshes, wrap });
-  }
-  if (!puffs.length) return;
-  const step = () => {
-    if (!viewer.isConnected) return;
-    for (const { meshes, wrap } of puffs) {
-      const age = ((((viewer.currentTime - wrap) / clip.duration) % 1) + 1) % 1;
-      for (const mesh of meshes) mesh.renderOrder = Math.round((1 - age) * 1000);
-    }
-    requestAnimationFrame(step);
-  };
-  step();
 }
 
 function attachViewer(box) {
@@ -855,7 +818,6 @@ function showDetail(model) {
   viewer.addEventListener('load', () => {
     const orbit = viewer.getCameraOrbit?.();
     if (orbit) viewer.dataset.framedRadius = String(orbit.radius);
-    orderSmoke(viewer);
   }, { once: true });
   // auto-rotate picks up again a few seconds after a drag ends, so the camera at the
   // moment a note is saved is wherever the spin reached. Keep the last one the reader
