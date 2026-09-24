@@ -176,6 +176,7 @@ const scaleRule = (value) => {
 const ownRules = (node) => Object.entries(node).filter(([k]) => !OWN_SKIP.has(k)).map(([k, v]) => {
   if (k === 'has') return `has ${v.map((alt) => (Array.isArray(alt) ? alt.join(' | ') : alt)).join(' & ')}`;
   if (k === 'scale') return `scale ${Object.entries(v).map(([name, rule]) => `${name} ${scaleRule(rule)}`).join(', ')}`;
+  if (k === 'defaults') return `defaults ${Object.entries(v).map(([field, value]) => `${field} ${value}`).join(', ')}`;
   return `${k} ${Array.isArray(v) ? v.join(', ') : v}`;
 });
 
