@@ -252,6 +252,7 @@ const DROPPED_KINDS = [
   'obj-transport-watercraft-accessory',
   'str-access-bridge',
   'str-access-bridge-long',
+  'str-building-commercial-skyscraper',
   'str-canopy-tent',
   'str-part-floor',
   'str-part-roof',
