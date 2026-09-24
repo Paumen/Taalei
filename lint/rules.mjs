@@ -79,6 +79,14 @@ function scaledLimits(limits, tag, scale) {
   return out;
 }
 
+export function attributeKinds(tagId, vars, scales) {
+  const [family, ...rest] = tagId.split('-');
+  if (`${family}-` === SCALE_PREFIX) {
+    return [...scales].filter(([id, at]) => at?.from === id && at.config[rest.join('-')] !== undefined).map(([id]) => id);
+  }
+  return vars.attributeKinds?.[family] ?? null;
+}
+
 export function scaleTagOf(model) {
   const found = (model.tags ?? []).filter((t) => t.startsWith(SCALE_PREFIX));
   return found.length ? found : null;
