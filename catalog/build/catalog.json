@@ -1911,7 +1911,7 @@
     "Tiny Planes": 21
    },
    "scales": {
-    "0.0015": 21
+    "0.003": 21
    },
    "smooth": {
     "none": 21
@@ -12050,6 +12050,20 @@
    "count": 8
   },
   {
+   "id": "obj-container-carton",
+   "name": "Carton",
+   "type": "kind",
+   "description": "carton, milk carton",
+   "count": 4
+  },
+  {
+   "id": "obj-container-trashcan",
+   "name": "Trashcan",
+   "type": "kind",
+   "description": "trashcan, trash can, litter bin",
+   "count": 3
+  },
+  {
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
@@ -14367,14 +14381,14 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1697
+   "count": 1685
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 757
+   "count": 769
   },
   {
    "id": "ken",
@@ -14789,6 +14803,13 @@
    "longest.max": 10,
    "tpu.max": 10000
   },
+  "obj-container-carton": {
+   "high.min": 0.1,
+   "high.max": 1,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
   "obj-container-chest": {
    "high.min": 0.2,
    "high.max": 0.5,
@@ -14841,6 +14862,13 @@
   "obj-container-pot-vase": {
    "high.min": 0.1,
    "high.max": 0.4,
+   "longest.min": 0.05,
+   "longest.max": 10,
+   "tpu.max": 10000
+  },
+  "obj-container-trashcan": {
+   "high.min": 0.1,
+   "high.max": 1,
    "longest.min": 0.05,
    "longest.max": 10,
    "tpu.max": 10000
@@ -42247,7 +42275,7 @@
   {
    "kit": "isa-bakery",
    "name": "milk-carton",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.1,
@@ -49708,7 +49736,7 @@
   {
    "kit": "isa-park",
    "name": "trashcan",
-   "kind": "obj-container",
+   "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
     0.3,
@@ -120572,7 +120600,7 @@
   {
    "kit": "ken-food",
    "name": "carton-small",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.1,
@@ -120616,7 +120644,7 @@
   {
    "kit": "ken-food",
    "name": "carton",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.1,
@@ -130851,7 +130879,7 @@
   {
    "kit": "ken-furniture",
    "name": "trashcan",
-   "kind": "obj-container",
+   "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
     0.2,
@@ -215539,7 +215567,7 @@
   {
    "kit": "styloo-furniture",
    "name": "trash-can",
-   "kind": "obj-container",
+   "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
     0.15,
@@ -216467,7 +216495,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "milk-carton",
-   "kind": "obj-container",
+   "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
     0.05,
@@ -217080,21 +217108,21 @@
    "kind": "obj-transport",
    "size": "l",
    "wdh": [
-    5.15,
-    3.15,
-    0.85
+    10.25,
+    6.25,
+    1.7
    ],
    "tris": 20916,
-   "tpu": 1549,
+   "tpu": 194,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 823320,
+   "bytes": 823316,
    "vtx": 21762,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00072,
+   "avgTri": 0.00289,
    "anglePct": 45,
    "vpt": 1.04,
    "grad": 0.1,
@@ -217125,29 +217153,36 @@
    "tags": [
     "glass",
     "metal"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 10.25 over max 10 (obj)"
+    }
    ]
   },
   {
    "kit": "styloo-planes",
    "name": "plane-animal-b",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.95,
-    1.05,
-    0.3
+    1.85,
+    2.05,
+    0.6
    ],
    "tris": 9696,
-   "tpu": 14435,
+   "tpu": 3609,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 218852,
+   "bytes": 218848,
    "vtx": 4976,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00012,
+   "minEdge": 0.001,
+   "avgTri": 0.00049,
    "anglePct": 17,
    "vpt": 0.51,
    "grad": 0.9,
@@ -217169,36 +217204,29 @@
     "glass",
     "metal"
    ],
-   "variant": "v895",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 14435 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v895"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-animal",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.95,
-    1.05,
-    0.25
+    1.85,
+    2.05,
+    0.45
    ],
    "tris": 6716,
-   "tpu": 9999,
+   "tpu": 2500,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 152704,
+   "bytes": 152700,
    "vtx": 3468,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00015,
+   "minEdge": 0.001,
+   "avgTri": 0.00062,
    "anglePct": 25,
    "vpt": 0.52,
    "grad": 0.88,
@@ -217226,23 +217254,23 @@
    "kit": "styloo-planes",
    "name": "plane-azer-anim",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    0.8,
-    0.3
+    2.5,
+    1.65,
+    0.6
    ],
    "tris": 17580,
-   "tpu": 24792,
+   "tpu": 6200,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 424584,
+   "bytes": 424580,
    "vtx": 9882,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00027,
    "anglePct": 17,
    "vpt": 0.56,
    "grad": 0.32,
@@ -217285,36 +217313,29 @@
    "anim": [
     "spin"
    ],
-   "variant": "v896",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 24792 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v896"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-azer-hunter-anim",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    0.8,
-    0.3
+    2.5,
+    1.65,
+    0.6
    ],
    "tris": 17580,
-   "tpu": 24812,
+   "tpu": 6200,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 420164,
+   "bytes": 420160,
    "vtx": 9743,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00027,
    "anglePct": 17,
    "vpt": 0.55,
    "grad": 0.23,
@@ -217357,36 +217378,29 @@
    "anim": [
     "spin"
    ],
-   "variant": "v896",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 24812 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v896"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-azer-hunter",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    0.8,
-    0.3
+    2.5,
+    1.65,
+    0.6
    ],
    "tris": 17580,
-   "tpu": 24812,
+   "tpu": 6200,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 418704,
+   "bytes": 418700,
    "vtx": 9743,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00027,
    "anglePct": 17,
    "vpt": 0.55,
    "grad": 0.23,
@@ -217425,36 +217439,29 @@
     "plastic",
     "tba"
    ],
-   "variant": "v896",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 24812 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v896"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-azer",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    0.8,
-    0.3
+    2.5,
+    1.65,
+    0.6
    ],
    "tris": 17580,
-   "tpu": 24792,
+   "tpu": 6200,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 423144,
+   "bytes": 423140,
    "vtx": 9882,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00027,
    "anglePct": 17,
    "vpt": 0.56,
    "grad": 0.32,
@@ -217493,14 +217500,7 @@
     "plastic",
     "tba"
    ],
-   "variant": "v896",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 24792 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v896"
   },
   {
    "kit": "styloo-planes",
@@ -217508,21 +217508,21 @@
    "kind": "obj-transport",
    "size": "l",
    "wdh": [
-    1.2,
-    1.7,
-    0.35
+    2.4,
+    3.45,
+    0.75
    ],
    "tris": 17232,
-   "tpu": 12039,
+   "tpu": 2858,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 399368,
+   "bytes": 399364,
    "vtx": 9204,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00006,
+   "avgTri": 0.00026,
    "anglePct": 11,
    "vpt": 0.53,
    "grad": 0.82,
@@ -217549,14 +217549,7 @@
     "glass",
     "metal"
    ],
-   "variant": "v897",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 12039 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v897"
   },
   {
    "kit": "styloo-planes",
@@ -217564,21 +217557,21 @@
    "kind": "obj-transport",
    "size": "l",
    "wdh": [
-    1.2,
-    1.7,
-    0.3
+    2.4,
+    3.45,
+    0.6
    ],
    "tris": 13904,
-   "tpu": 9714,
+   "tpu": 2428,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 325120,
+   "bytes": 325116,
    "vtx": 7508,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00007,
+   "avgTri": 0.00029,
    "anglePct": 13,
    "vpt": 0.54,
    "grad": 0.74,
@@ -217611,23 +217604,23 @@
    "kit": "styloo-planes",
    "name": "plane-sty-anim",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    1.1,
-    0.25
+    2.5,
+    2.2,
+    0.55
    ],
    "tris": 16108,
-   "tpu": 16924,
+   "tpu": 4233,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 374876,
+   "bytes": 374872,
    "vtx": 8605,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00008,
+   "avgTri": 0.00031,
    "anglePct": 20,
    "vpt": 0.53,
    "grad": 0.89,
@@ -217670,36 +217663,29 @@
    "anim": [
     "spin"
    ],
-   "variant": "v898",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 16924 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v898"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-sty-b-anim",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    1.1,
-    0.4
+    2.5,
+    2.2,
+    0.75
    ],
    "tris": 18472,
-   "tpu": 19408,
+   "tpu": 4536,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 444532,
+   "bytes": 444528,
    "vtx": 10338,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00028,
    "anglePct": 21,
    "vpt": 0.56,
    "grad": 0.15,
@@ -217742,36 +217728,29 @@
    "anim": [
     "spin"
    ],
-   "variant": "v898",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 19408 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v898"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-sty-b",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    1.1,
-    0.4
+    2.5,
+    2.2,
+    0.75
    ],
    "tris": 18472,
-   "tpu": 19408,
+   "tpu": 4536,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 443096,
+   "bytes": 443092,
    "vtx": 10338,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00028,
    "anglePct": 21,
    "vpt": 0.56,
    "grad": 0.15,
@@ -217810,36 +217789,29 @@
     "plastic",
     "tba"
    ],
-   "variant": "v898",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 19408 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v898"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-sty-hunter-anim",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    1.1,
-    0.25
+    2.5,
+    2.2,
+    0.55
    ],
    "tris": 16108,
-   "tpu": 16924,
+   "tpu": 4233,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 388892,
+   "bytes": 388888,
    "vtx": 9042,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00008,
+   "avgTri": 0.00031,
    "anglePct": 20,
    "vpt": 0.56,
    "grad": 0.12,
@@ -217882,36 +217854,29 @@
    "anim": [
     "spin"
    ],
-   "variant": "v898",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 16924 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v898"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-sty-hunter",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    1.1,
-    0.25
+    2.5,
+    2.2,
+    0.55
    ],
    "tris": 16108,
-   "tpu": 16924,
+   "tpu": 4233,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 387440,
+   "bytes": 387436,
    "vtx": 9042,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00008,
+   "avgTri": 0.00031,
    "anglePct": 20,
    "vpt": 0.56,
    "grad": 0.12,
@@ -217950,36 +217915,29 @@
     "plastic",
     "tba"
    ],
-   "variant": "v898",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 16924 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v898"
   },
   {
    "kit": "styloo-planes",
    "name": "plane-sty",
    "kind": "obj-transport",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    1.1,
-    0.25
+    2.5,
+    2.2,
+    0.55
    ],
    "tris": 16108,
-   "tpu": 16924,
+   "tpu": 4233,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 373440,
+   "bytes": 373436,
    "vtx": 8605,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00008,
+   "avgTri": 0.00031,
    "anglePct": 20,
    "vpt": 0.53,
    "grad": 0.89,
@@ -218018,14 +217976,7 @@
     "plastic",
     "tba"
    ],
-   "variant": "v898",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 16924 over max 10000 (obj)"
-    }
-   ]
+   "variant": "v898"
   },
   {
    "kit": "styloo-planes",
@@ -218033,21 +217984,21 @@
    "kind": "obj-transport",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.35
+    1.3,
+    1.35,
+    0.75
    ],
    "tris": 16704,
-   "tpu": 48700,
+   "tpu": 13103,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 443632,
+   "bytes": 443628,
    "vtx": 10640,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00004,
+   "avgTri": 0.00016,
    "anglePct": 6,
    "vpt": 0.64,
    "grad": 0.27,
@@ -218095,7 +218046,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 48700 over max 10000 (obj)"
+     "text": "tpu 13103 over max 10000 (obj)"
     }
    ]
   },
@@ -218105,21 +218056,21 @@
    "kind": "obj-transport",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.35
+    1.3,
+    1.35,
+    0.75
    ],
    "tris": 16704,
-   "tpu": 48700,
+   "tpu": 13103,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 442168,
+   "bytes": 442164,
    "vtx": 10640,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00004,
+   "avgTri": 0.00016,
    "anglePct": 6,
    "vpt": 0.64,
    "grad": 0.27,
@@ -218163,7 +218114,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 48700 over max 10000 (obj)"
+     "text": "tpu 13103 over max 10000 (obj)"
     }
    ]
   },
@@ -218173,21 +218124,21 @@
    "kind": "obj-transport",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.35
+    1.3,
+    1.35,
+    0.75
    ],
    "tris": 16704,
-   "tpu": 48700,
+   "tpu": 13103,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 443604,
+   "bytes": 443600,
    "vtx": 10640,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00004,
+   "avgTri": 0.00016,
    "anglePct": 6,
    "vpt": 0.64,
    "grad": 0.29,
@@ -218235,7 +218186,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 48700 over max 10000 (obj)"
+     "text": "tpu 13103 over max 10000 (obj)"
     }
    ]
   },
@@ -218245,21 +218196,21 @@
    "kind": "obj-transport",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.35
+    1.3,
+    1.35,
+    0.75
    ],
    "tris": 16704,
-   "tpu": 48700,
+   "tpu": 13103,
    "mat": 1,
    "bands": 4,
    "calls": 2,
-   "bytes": 443636,
+   "bytes": 443632,
    "vtx": 10640,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00004,
+   "avgTri": 0.00016,
    "anglePct": 6,
    "vpt": 0.64,
    "grad": 0.29,
@@ -218302,7 +218253,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 48700 over max 10000 (obj)"
+     "text": "tpu 13103 over max 10000 (obj)"
     }
    ]
   },
@@ -218312,21 +218263,21 @@
    "kind": "obj-transport",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.35
+    1.3,
+    1.35,
+    0.75
    ],
    "tris": 16704,
-   "tpu": 48700,
+   "tpu": 13103,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 442168,
+   "bytes": 442164,
    "vtx": 10640,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00004,
+   "avgTri": 0.00016,
    "anglePct": 6,
    "vpt": 0.64,
    "grad": 0.29,
@@ -218365,7 +218316,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 48700 over max 10000 (obj)"
+     "text": "tpu 13103 over max 10000 (obj)"
     }
    ]
   },
@@ -218375,21 +218326,21 @@
    "kind": "obj-transport",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.35
+    1.3,
+    1.35,
+    0.75
    ],
    "tris": 16704,
-   "tpu": 48700,
+   "tpu": 13103,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 442160,
+   "bytes": 442156,
    "vtx": 10640,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00004,
+   "avgTri": 0.00016,
    "anglePct": 6,
    "vpt": 0.64,
    "grad": 0.29,
@@ -218433,7 +218384,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 48700 over max 10000 (obj)"
+     "text": "tpu 13103 over max 10000 (obj)"
     }
    ]
   },
