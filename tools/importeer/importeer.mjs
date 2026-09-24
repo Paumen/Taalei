@@ -91,6 +91,39 @@ function bandUv(band, normaalY) {
   return [(kolom + 0.5) / KOLOMMEN, (rij + LICHT + SPREIDING * donker) / RIJEN];
 }
 
+function treffers(posities, driehoeken, o, d, zelf) {
+  let n = 0;
+  for (const [f, tri] of driehoeken.entries()) {
+    if (f === zelf) continue;
+    const [a, b, c] = tri.hoeken.map((i) => [posities[i * 3], posities[i * 3 + 1], posities[i * 3 + 2]]);
+    const e1 = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+    const e2 = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+    const p = [d[1] * e2[2] - d[2] * e2[1], d[2] * e2[0] - d[0] * e2[2], d[0] * e2[1] - d[1] * e2[0]];
+    const det = e1[0] * p[0] + e1[1] * p[1] + e1[2] * p[2];
+    if (Math.abs(det) < 1e-12) continue;
+    const s = [o[0] - a[0], o[1] - a[1], o[2] - a[2]];
+    const u = (s[0] * p[0] + s[1] * p[1] + s[2] * p[2]) / det;
+    if (u < 0 || u > 1) continue;
+    const q = [s[1] * e1[2] - s[2] * e1[1], s[2] * e1[0] - s[0] * e1[2], s[0] * e1[1] - s[1] * e1[0]];
+    const v = (d[0] * q[0] + d[1] * q[1] + d[2] * q[2]) / det;
+    if (v < 0 || u + v > 1) continue;
+    if ((e2[0] * q[0] + e2[1] * q[1] + e2[2] * q[2]) / det > 1e-6) n++;
+  }
+  return n;
+}
+
+function keerBinnenstebuiten(posities, driehoeken) {
+  for (const [f, tri] of driehoeken.entries()) {
+    const n = vlakNormaal(posities, ...tri.hoeken);
+    const lengte = Math.hypot(...n);
+    if (!lengte) continue;
+    const d = n.map((v) => v / lengte);
+    const o = [0, 1, 2].map((k) => tri.hoeken.reduce((som, i) => som + posities[i * 3 + k], 0) / 3);
+    if (treffers(posities, driehoeken, o, d.map((v) => -v), f) > 0) continue;
+    if (treffers(posities, driehoeken, o, d, f) > 0) tri.hoeken.reverse();
+  }
+}
+
 function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
   const opNaam = new Map(alleBestanden(uitgepakt).map((pad) => [basename(pad).toLowerCase(), pad]));
   const gevraagd = (pad) => texturen[basename(pad)] ?? basename(pad);
@@ -113,6 +146,14 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
       : null;
     for (let t = 0; t < p.indices.length; t += 3) {
       const hoeken = [0, 1, 2].map((k) => punt(p, p.indices[t + k]));
+      if (p.normalen) {
+        const vlak = vlakNormaal(posities, ...hoeken);
+        let langs = 0;
+        for (let k = 0; k < 3; k++) {
+          for (let a = 0; a < 3; a++) langs += vlak[a] * p.normalen[p.indices[t + k] * 3 + a];
+        }
+        if (langs < 0) hoeken.reverse();
+      }
       let kleur;
       if (textuur && p.uvs) {
         let u = 0, v = 0;
@@ -125,6 +166,7 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
       driehoeken.push({ hoeken, kleur });
     }
   }
+  keerBinnenstebuiten(posities, driehoeken);
   return { posities, driehoeken };
 }
 
