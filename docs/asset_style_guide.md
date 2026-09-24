@@ -282,7 +282,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
 | `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-baked` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
-| `B39` | `*` chocolate | model | is | `chestnut` |
+| `B39` | `*` chocolate | model | is | `chestnut`, `umber` |
 | `B40` | `kind:obj-equipment-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
 | `B42` | `kind:obj-transport-watercraft & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
 | `B43` | `kind:obj-transport-watercraft-accessory` sails \| `kind:str-canopy` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
