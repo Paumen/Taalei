@@ -96,8 +96,10 @@ export function limitsForModel(model, limits, scales) {
   const tags = scaleTagOf(model);
   if (!tags) return { limits };
   if (tags.length > 1) return { refused: tags.join(' '), why: 'one scale value at most' };
-  const scaled = scaledLimits(limits, tags[0], scales?.get(model.kind));
-  return scaled ? { limits: scaled, scale: tags[0] } : { refused: tags[0], why: 'kind sets no scale' };
+  const scale = scales?.get(model.kind);
+  const scaled = scaledLimits(limits, tags[0], scale);
+  if (scaled) return { limits: scaled, scale: tags[0] };
+  return { refused: tags[0], why: scale ? `${scale.from} sets no ${tags[0]}` : 'kind sets no scale' };
 }
 
 const median = (values) => {
@@ -123,17 +125,18 @@ export function buildKitScales(models, { vars, limits: kindLimits, scales }) {
     const value = range && (range.measure === 'high' ? m.wdh[2] : Math.max(...m.wdh));
     if (!(value > 0)) continue;
     const group = `${m.kind} ${scaleTagOf(m)?.join(' ') ?? ''}`;
-    const kinds = byKit.get(m.kit) ?? new Map();
-    kinds.set(group, [...(kinds.get(group) ?? []), Math.log(value / Math.sqrt(range.lo * range.hi))]);
-    byKit.set(m.kit, kinds);
+    const kit = byKit.get(m.kit) ?? { groups: new Map(), kinds: new Set() };
+    kit.groups.set(group, [...(kit.groups.get(group) ?? []), Math.log(value / Math.sqrt(range.lo * range.hi))]);
+    kit.kinds.add(m.kind);
+    byKit.set(m.kit, kit);
   }
   const out = new Map();
-  for (const [kit, kinds] of byKit) {
+  for (const [slug, { groups, kinds }] of byKit) {
     if (kinds.size < vars.kit.minKinds) continue;
-    const offset = median([...kinds.values()].map(median));
-    const level = Math.abs(offset) > Math.log(vars.kit.error) + EPSILON ? 'error'
-      : Math.abs(offset) > Math.log(vars.kit.warn) + EPSILON ? 'warning' : undefined;
-    out.set(kit, { offset, factor: Math.round(Math.exp(offset) * 100) / 100, kinds: kinds.size, level });
+    const factor = Math.round(Math.exp(median([...groups.values()].map(median))) * 100) / 100;
+    const off = Math.abs(Math.log(factor));
+    const level = off > Math.log(vars.kit.error) + EPSILON ? 'error' : off > Math.log(vars.kit.warn) + EPSILON ? 'warning' : undefined;
+    out.set(slug, { factor, kinds: kinds.size, level });
   }
   return out;
 }
@@ -448,21 +451,21 @@ export function findingsFor(model, kindLimits, vars, scales, kitScale) {
   const out = [];
   const { limits, refused, why } = limitsForModel(model, kindLimits, scales);
   if (refused) return [{ level: 'error', measure: 'scale', value: refused, bound: 'not on', limit: model.kind, from: why }];
-  const kit = kitScale ? Math.exp(kitScale.offset) : 1;
-  const kitNote = kitScale ? ` · kit ×${kitScale.factor}` : '';
-  const unkit = (v) => Math.round((v / kit) * 1000) / 1000;
-  const measures = { high: unkit(model.wdh[2]), longest: unkit(Math.max(...model.wdh)), tpu: model.tpu };
+  const factor = kitScale?.factor ?? 1;
+  const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
   const tags = model.tags ?? [];
   for (const [field, { value: limit, from }] of Object.entries(limits ?? {})) {
     const [measure, bound] = field.split('.');
     const value = measures[measure];
     if (value === null || value === undefined) continue;
     if (tags.some((t) => (vars[measure]?.exemptTags ?? vars.exemptTags).includes(t))) continue;
-    const deviation = bound === 'min' ? (limit - value) / limit : (value - limit) / limit;
+    const byKit = factor !== 1 && measure !== 'tpu' && from !== 'defaults';
+    const compared = byKit ? Math.round((value / factor) * 1000) / 1000 : value;
+    const deviation = bound === 'min' ? (limit - compared) / limit : (compared - limit) / limit;
     if (deviation <= EPSILON) continue;
     out.push({
       level: deviation <= vars.warnBand + EPSILON ? 'warning' : 'error',
-      measure, value, bound, limit, from: measure === 'tpu' ? from : from + kitNote,
+      measure, value, bound, limit, from: byKit ? `${from} · ${compared} at kit ×${factor}` : from,
     });
   }
   return out;

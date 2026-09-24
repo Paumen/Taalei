@@ -7,7 +7,7 @@ import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs'
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
-import { attributeKinds, buildChecks, buildKitScales, checkModel } from '../../lint/rules.mjs';
+import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -661,10 +661,22 @@ const rows = models.map((m) => {
   };
   return row;
 });
-LINT_CHECKS.kitScales = buildKitScales(rows, LINT_CHECKS);
+LINT_CHECKS.kitScales = buildKitScales(rows.map((row, i) => ({ ...row, wdh: models[i].wdh })), LINT_CHECKS);
 const kitCheckOf = (slug) => {
   const k = LINT_CHECKS.kitScales.get(slug);
   return k && { factor: k.factor, kinds: k.kinds, level: k.level };
+};
+const scaledLimitKeys = () => {
+  const out = {};
+  for (const [kind, scale] of LINT_CHECKS.scales) {
+    if (!scale) continue;
+    for (const value of Object.keys(scale.config)) {
+      const tag = `${SCALE_PREFIX}${value}`;
+      const { limits } = limitsForModel({ kind, tags: [tag] }, LINT_CHECKS.limits.get(kind), LINT_CHECKS.scales);
+      if (limits) out[`${kind} ${tag}`] = Object.fromEntries(Object.entries(limits).map(([field, { value: v }]) => [field, v]));
+    }
+  }
+  return out;
 };
 
 const output = {
@@ -691,7 +703,7 @@ const output = {
   limits: Object.fromEntries([...new Set(models.map((m) => m.kind).filter(Boolean))].sort()
     .map((kind) => [kind, Object.fromEntries(
       Object.entries(LINT_CHECKS.limits.get(kind) ?? {}).map(([field, { value }]) => [field, value]),
-    )])),
+    )]).concat(Object.entries(scaledLimitKeys()))),
   models: rows.map((row) => ({ ...row, ...checkModel(row, LINT_CHECKS) })),
 };
 

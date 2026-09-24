@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildKitScales, buildLimits, buildScales, findingsFor, isExempt } from './rules.mjs';
+import { buildLimits, buildScales, findingsFor, isExempt } from './rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
@@ -10,8 +10,8 @@ const VARS = read('lint/variables.json');
 const KINDS = read(VARS.kinds);
 const LIMITS = buildLimits(KINDS);
 const SCALES = buildScales(KINDS);
-const { models } = read(VARS.models);
-const KITS = buildKitScales(models, { vars: VARS, limits: LIMITS, scales: SCALES });
+const { models, kits } = read(VARS.models);
+const KITS = new Map(kits.filter((k) => k.kitCheck).map((k) => [k.slug, k.kitCheck]));
 
 const findings = [];
 let checked = 0;
