@@ -2348,45 +2348,138 @@
    }
   },
   {
-   "slug": "wizp-arena",
-   "name": "wizp-arena",
-   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-arena/LICENSE.txt.",
+   "slug": "wizp-grave",
+   "name": "wizp-grave",
    "artist": "WizP",
    "licenseLabel": "CC0",
-   "count": 2,
+   "count": 40,
    "packs": [
-    "Cementery Arena Pack"
+    "Cementery Arena Pack",
+    "Cementery Pack"
    ],
    "origins": {
-    "Cementery Arena Pack": 2
+    "Cementery Arena Pack": 2,
+    "Cementery Pack": 38
    },
    "scales": {
-    "0.15": 2
+    "0.2": 40
    },
    "smooth": {
-    "60": 2
+    "60": 2,
+    "none": 38
+   },
+   "members": [
+    {
+     "slug": "wizp-arena",
+     "name": "wizp-arena",
+     "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-arena/LICENSE.txt.",
+     "artist": "WizP",
+     "licenseLabel": "CC0",
+     "count": 2,
+     "packs": [
+      "Cementery Arena Pack"
+     ],
+     "origins": {
+      "Cementery Arena Pack": 2
+     },
+     "scales": {
+      "0.2": 2
+     },
+     "smooth": {
+      "60": 2
+     }
+    },
+    {
+     "slug": "wizp-grave",
+     "name": "wizp-grave",
+     "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-grave/LICENSE.txt.",
+     "artist": "WizP",
+     "licenseLabel": "CC0",
+     "count": 38,
+     "packs": [
+      "Cementery Pack"
+     ],
+     "origins": {
+      "Cementery Pack": 38
+     },
+     "scales": {
+      "0.2": 38
+     },
+     "smooth": {
+      "none": 38
+     }
+    }
+   ],
+   "kitCheck": {
+    "factor": 0.96,
+    "kinds": 8
    }
   },
   {
-   "slug": "wizp-asia",
-   "name": "wizp-asia",
-   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-asia/LICENSE.txt.",
+   "slug": "wizp-eastern",
+   "name": "wizp-eastern",
    "artist": "WizP",
    "licenseLabel": "CC0",
-   "count": 106,
+   "count": 123,
    "packs": [
-    "Asian Pack"
+    "Asian Pack",
+    "Village Pack"
    ],
    "origins": {
-    "Asian Pack": 106
+    "Asian Pack": 106,
+    "Village Pack": 17
    },
    "scales": {
-    "0.5": 106
+    "0.5": 123
    },
    "smooth": {
-    "60": 1,
-    "none": 105
+    "60": 7,
+    "none": 116
    },
+   "members": [
+    {
+     "slug": "wizp-asia",
+     "name": "wizp-asia",
+     "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-asia/LICENSE.txt.",
+     "artist": "WizP",
+     "licenseLabel": "CC0",
+     "count": 106,
+     "packs": [
+      "Asian Pack"
+     ],
+     "origins": {
+      "Asian Pack": 106
+     },
+     "scales": {
+      "0.5": 106
+     },
+     "smooth": {
+      "60": 1,
+      "none": 105
+     }
+    },
+    {
+     "slug": "wizp-village",
+     "name": "wizp-village",
+     "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-village/LICENSE.txt.",
+     "artist": "WizP",
+     "licenseLabel": "CC0",
+     "count": 17,
+     "packs": [
+      "Village Pack"
+     ],
+     "origins": {
+      "Village Pack": 17
+     },
+     "scales": {
+      "0.5": 17
+     },
+     "smooth": {
+      "60": 6,
+      "none": 11
+     }
+    }
+   ],
    "kitCheck": {
     "factor": 1.43,
     "kinds": 21,
@@ -2415,30 +2508,6 @@
    "kitCheck": {
     "factor": 0.86,
     "kinds": 3
-   }
-  },
-  {
-   "slug": "wizp-grave",
-   "name": "wizp-grave",
-   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-grave/LICENSE.txt.",
-   "artist": "WizP",
-   "licenseLabel": "CC0",
-   "count": 38,
-   "packs": [
-    "Cementery Pack"
-   ],
-   "origins": {
-    "Cementery Pack": 38
-   },
-   "scales": {
-    "0.18": 38
-   },
-   "smooth": {
-    "none": 38
-   },
-   "kitCheck": {
-    "factor": 0.89,
-    "kinds": 7
    }
   },
   {
@@ -2508,27 +2577,6 @@
    "kitCheck": {
     "factor": 0.94,
     "kinds": 9
-   }
-  },
-  {
-   "slug": "wizp-village",
-   "name": "wizp-village",
-   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-village/LICENSE.txt.",
-   "artist": "WizP",
-   "licenseLabel": "CC0",
-   "count": 17,
-   "packs": [
-    "Village Pack"
-   ],
-   "origins": {
-    "Village Pack": 17
-   },
-   "scales": {
-    "0.5": 17
-   },
-   "smooth": {
-    "60": 6,
-    "none": 11
    }
   }
  ],
@@ -14758,21 +14806,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2120
+   "count": 2116
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1680
+   "count": 1682
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 765
+   "count": 767
   },
   {
    "id": "ken",
@@ -228108,25 +228156,27 @@
   },
   {
    "kit": "wizp-arena",
+   "collection": "wizp-grave",
    "name": "grass-tuft",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.15
+    0.25,
+    0.25,
+    0.2
    ],
    "tris": 154,
    "tpu": 449,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8936,
+   "bytes": 8932,
    "vtx": 205,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00054,
+   "minEdge": 0.021,
+   "avgTri": 0.00095,
    "anglePct": 2,
    "vpt": 1.33,
    "grad": 0.9,
@@ -228146,25 +228196,26 @@
   },
   {
    "kit": "wizp-arena",
+   "collection": "wizp-grave",
    "name": "grass-tufts",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.15
+    0.45,
+    0.45,
+    0.2
    ],
    "tris": 616,
    "tpu": 1796,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31404,
+   "bytes": 31400,
    "vtx": 820,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00057,
+   "minEdge": 0.022,
+   "avgTri": 0.00101,
    "anglePct": 1,
    "vpt": 1.33,
    "grad": 0.9,
@@ -228185,6 +228236,7 @@
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "altar-a",
    "kind": "str-building-religious-shrine",
    "size": "l",
@@ -228246,12 +228298,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "altar-b",
    "kind": "str-building-religious-shrine",
    "size": "l",
@@ -228313,12 +228366,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "arch-beam",
    "kind": "str-part",
    "size": "l",
@@ -228360,12 +228414,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bamboo-a",
    "kind": "env-flora-plant-bamboo",
    "size": "m",
@@ -228414,12 +228469,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bamboo-b",
    "kind": "env-flora-plant-bamboo",
    "size": "m",
@@ -228468,12 +228524,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bamboo-c",
    "kind": "env-flora-plant-bamboo",
    "size": "l",
@@ -228522,12 +228579,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "barrel-a",
    "kind": "obj-container-barrel",
    "size": "m",
@@ -228580,12 +228638,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "barrel-b",
    "kind": "obj-container-barrel",
    "size": "m",
@@ -228638,12 +228697,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bell-loose",
    "kind": "obj-art-instrument-bell",
    "size": "m",
@@ -228684,12 +228744,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bell",
    "kind": "obj-art-instrument",
    "size": "l",
@@ -228742,12 +228803,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "brazier",
    "kind": "obj-lighting-torch",
    "size": "s",
@@ -228794,12 +228856,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bridge-stone",
    "kind": "str-access-bridge-section",
    "size": "l",
@@ -228845,12 +228908,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "bridge-wood",
    "kind": "str-access-bridge-long",
    "size": "l",
@@ -228891,12 +228955,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "cart",
    "kind": "obj-transport-cart",
    "size": "m",
@@ -228943,12 +229008,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "clover",
    "kind": "env-flora-plant",
    "size": "m",
@@ -228990,12 +229056,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "door-left",
    "kind": "str-part-gate-single",
    "size": "l",
@@ -229037,12 +229104,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "door-right",
    "kind": "str-part-gate-single",
    "size": "l",
@@ -229084,12 +229152,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "drum-loose",
    "kind": "obj-art-instrument",
    "size": "m",
@@ -229148,12 +229217,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "drum",
    "kind": "obj-art-instrument",
    "size": "m",
@@ -229212,12 +229282,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "egg",
    "kind": "obj-food-egg",
    "size": "s",
@@ -229258,12 +229329,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "fence-a",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -229306,12 +229378,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "fence-b",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -229354,12 +229427,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -229401,12 +229475,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "forge",
    "kind": "obj-lighting",
    "size": "m",
@@ -229459,12 +229534,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "frame-wood",
    "kind": "str-part-pillar",
    "size": "l",
@@ -229512,12 +229588,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "garden-wall-a",
    "kind": "str-barrier",
    "size": "l",
@@ -229565,12 +229642,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "garden-wall-b",
    "kind": "str-barrier",
    "size": "l",
@@ -229624,12 +229702,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "garden-wall-c",
    "kind": "str-barrier",
    "size": "l",
@@ -229677,12 +229756,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "garden-wall-d",
    "kind": "str-barrier",
    "size": "l",
@@ -229730,12 +229810,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "garden-wall-e",
    "kind": "str-barrier",
    "size": "l",
@@ -229776,12 +229857,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "gong",
    "kind": "obj-art-instrument",
    "size": "l",
@@ -229835,12 +229917,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "granary",
    "kind": "str-building-agricultural-silo",
    "size": "l",
@@ -229894,12 +229977,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "grave-a",
    "kind": "str-marker-grave",
    "size": "m",
@@ -229941,12 +230025,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "grave-b",
    "kind": "str-marker-grave",
    "size": "m",
@@ -229988,12 +230073,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "grave-c",
    "kind": "str-marker-grave",
    "size": "m",
@@ -230035,12 +230121,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "grave-d",
    "kind": "str-marker-grave",
    "size": "m",
@@ -230082,12 +230169,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "gravel-a",
    "kind": "env-rock-pebble",
    "size": "m",
@@ -230130,12 +230218,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "gravel-b",
    "kind": "env-rock-pebble",
    "size": "m",
@@ -230178,12 +230267,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "gravel-c",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -230226,12 +230316,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "graves-a",
    "kind": "str-marker-grave",
    "size": "m",
@@ -230274,12 +230365,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "graves-b",
    "kind": "str-marker-grave",
    "size": "m",
@@ -230322,12 +230414,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "hive",
    "kind": "env-remains",
    "size": "m",
@@ -230368,12 +230461,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "house-a",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -230439,12 +230533,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "house-b",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -230510,12 +230605,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "house-c",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -230581,12 +230677,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "market-house",
    "kind": "str-building-commercial",
    "size": "l",
@@ -230652,12 +230749,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "market-stand",
    "kind": "str-canopy-stall",
    "size": "m",
@@ -230714,12 +230812,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "nest",
    "kind": "env-remains",
    "size": "m",
@@ -230760,12 +230859,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "net",
    "kind": "obj-tool-supplies",
    "size": "m",
@@ -230812,12 +230912,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "ore-gold",
    "kind": "env-rock",
    "size": "m",
@@ -230859,12 +230960,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "ore-jade",
    "kind": "env-rock",
    "size": "m",
@@ -230906,12 +231008,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-a-tall",
    "kind": "str-part-pillar",
    "size": "m",
@@ -230959,12 +231062,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-a",
    "kind": "str-part-pillar",
    "size": "m",
@@ -231012,12 +231116,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-b-tall",
    "kind": "str-part-pillar",
    "size": "m",
@@ -231065,12 +231170,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-b",
    "kind": "str-part-pillar",
    "size": "m",
@@ -231118,12 +231224,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-c-tall",
    "kind": "str-part-pillar",
    "size": "m",
@@ -231164,12 +231271,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-c",
    "kind": "str-part-pillar",
    "size": "m",
@@ -231210,12 +231318,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pillar-wood",
    "kind": "str-part-pillar",
    "size": "m",
@@ -231262,12 +231371,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plank-a",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -231309,12 +231419,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plank-b",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -231356,12 +231467,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plank-c",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -231403,12 +231515,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plank-d",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -231450,12 +231563,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plant-a",
    "kind": "env-flora-plant-leafy",
    "size": "m",
@@ -231496,12 +231610,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plant-b",
    "kind": "env-flora-plant-leafy",
    "size": "m",
@@ -231549,12 +231664,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plant-c",
    "kind": "env-flora-plant-leafy",
    "size": "m",
@@ -231596,12 +231712,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "plant-d",
    "kind": "env-flora-plant-leafy",
    "size": "m",
@@ -231643,12 +231760,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "platform-stone",
    "kind": "str-platform-deck",
    "size": "l",
@@ -231689,6 +231807,7 @@
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "post-a",
    "kind": "str-barrier-post",
    "size": "m",
@@ -231735,12 +231854,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "post-b",
    "kind": "str-barrier-post",
    "size": "m",
@@ -231787,12 +231907,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pot-large",
    "kind": "obj-container-pot",
    "size": "m",
@@ -231833,12 +231954,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "pot-small",
    "kind": "obj-container-pot",
    "size": "s",
@@ -231879,12 +232001,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-block-a",
    "kind": "env-rock-cobble",
    "size": "m",
@@ -231926,12 +232049,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-block-b",
    "kind": "env-rock-cobble",
    "size": "m",
@@ -231973,12 +232097,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-block-c",
    "kind": "env-rock-cobble",
    "size": "m",
@@ -232020,12 +232145,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-large-a",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -232067,12 +232193,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-large-b",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -232114,12 +232241,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-large-c",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -232161,12 +232289,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-medium-a",
    "kind": "env-rock-boulder",
    "size": "l",
@@ -232208,12 +232337,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-medium-b",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -232255,12 +232385,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-medium-c",
    "kind": "env-rock-boulder",
    "size": "l",
@@ -232302,12 +232433,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-medium-d",
    "kind": "env-rock-boulder",
    "size": "l",
@@ -232349,12 +232481,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-small-a",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -232396,12 +232529,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-small-b",
    "kind": "env-rock-cobble",
    "size": "m",
@@ -232443,12 +232577,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-small-c",
    "kind": "env-rock-cobble",
    "size": "m",
@@ -232490,12 +232625,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-small-d",
    "kind": "env-rock-cobble",
    "size": "s",
@@ -232536,12 +232672,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "rock-small-e",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -232582,12 +232719,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "roof-pagoda",
    "kind": "str-part-roof-unit",
    "size": "l",
@@ -232636,12 +232774,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "shrine-large",
    "kind": "str-building-religious-shrine",
    "size": "l",
@@ -232701,12 +232840,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "shrine-small",
    "kind": "str-building-religious-shrine",
    "size": "m",
@@ -232772,12 +232912,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "statue-frog",
    "kind": "obj-art-sculpture",
    "size": "m",
@@ -232818,12 +232959,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "statue-monk",
    "kind": "obj-art-sculpture",
    "size": "m",
@@ -232864,12 +233006,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "steps-stone",
    "kind": "str-access-stairs",
    "size": "m",
@@ -232911,12 +233054,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "stone-lantern",
    "kind": "obj-lighting-lantern",
    "size": "m",
@@ -232963,12 +233107,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "torii",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -233015,12 +233160,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "tower",
    "kind": "str-building-agricultural-silo",
    "size": "l",
@@ -233080,12 +233226,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "training-post",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
@@ -233132,12 +233279,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "tree-garden",
    "kind": "env-flora-tree",
    "size": "l",
@@ -233184,12 +233332,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "urn-a",
    "kind": "obj-container-pot-urn",
    "size": "s",
@@ -233230,12 +233379,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "urn-b",
    "kind": "obj-container-pot-urn",
    "size": "s",
@@ -233276,12 +233426,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "wall-decor-a",
    "kind": "obj-art-sculpture",
    "size": "s",
@@ -233322,12 +233473,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "wall-decor-b",
    "kind": "obj-art-sculpture",
    "size": "s",
@@ -233368,12 +233520,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "wall-decor-c",
    "kind": "obj-art-sculpture",
    "size": "m",
@@ -233414,12 +233567,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "wall-decor-d",
    "kind": "obj-art-sculpture",
    "size": "m",
@@ -233460,12 +233614,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "waterwheel-anim",
    "kind": "str-building-industrial-mill",
    "size": "l",
@@ -233519,12 +233674,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "waterwheel",
    "kind": "str-building-industrial-mill",
    "size": "l",
@@ -233574,12 +233730,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-asia",
+   "collection": "wizp-eastern",
    "name": "well",
    "kind": "str-utility-well",
    "size": "m",
@@ -233627,7 +233784,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
@@ -234305,25 +234462,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "arch-stone",
    "kind": "str-part",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.5,
+    1.65,
     0.3,
-    0.6
+    0.65
    ],
    "tris": 352,
-   "tpu": 1026,
+   "tpu": 989,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 26048,
+   "bytes": 26044,
    "vtx": 704,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00483,
+   "minEdge": 0.009,
+   "avgTri": 0.00597,
    "anglePct": 26,
    "vpt": 2,
    "grad": 0.41,
@@ -234345,6 +234503,7 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "bones-a",
    "kind": "env-remains-bones",
    "size": "s",
@@ -234358,13 +234517,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 36580,
+   "bytes": 36576,
    "vtx": 976,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.0002,
+   "avgTri": 0.00025,
    "anglePct": 6,
    "vpt": 1.49,
    "grad": 0.73,
@@ -234387,12 +234545,13 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "bones-b",
    "kind": "env-remains-bones",
    "size": "s",
    "wdh": [
     0.3,
-    0.2,
+    0.25,
     0.15
    ],
    "tris": 1014,
@@ -234400,12 +234559,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 62892,
+   "bytes": 62888,
    "vtx": 1731,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00016,
+   "avgTri": 0.0002,
    "anglePct": 6,
    "vpt": 1.71,
    "grad": 0.68,
@@ -234428,12 +234587,13 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "bones-pile",
    "kind": "env-remains-bones",
    "size": "s",
    "wdh": [
-    0.4,
-    0.4,
+    0.45,
+    0.45,
     0.2
    ],
    "tris": 1568,
@@ -234441,12 +234601,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 88908,
+   "bytes": 88904,
    "vtx": 2440,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00025,
+   "avgTri": 0.00031,
    "anglePct": 4,
    "vpt": 1.56,
    "grad": 0.7,
@@ -234468,25 +234628,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "bones",
    "kind": "env-remains-bones",
    "size": "s",
    "wdh": [
     0.2,
     0.2,
-    0.06
+    0.07
    ],
    "tris": 260,
    "tpu": 758,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14604,
+   "bytes": 14596,
    "vtx": 362,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00019,
+   "minEdge": 0.01,
+   "avgTri": 0.00023,
    "anglePct": 4,
    "vpt": 1.39,
    "grad": 0.61,
@@ -234508,12 +234669,13 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "coffin-a",
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
-    0.5,
-    0.7,
+    0.55,
+    0.8,
     0.25
    ],
    "tris": 316,
@@ -234521,12 +234683,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20612,
+   "bytes": 20608,
    "vtx": 541,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00296,
+   "avgTri": 0.00365,
    "anglePct": 57,
    "vpt": 1.71,
    "grad": 0.83,
@@ -234548,25 +234710,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "coffin-b",
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
-    0.5,
-    0.7,
-    0.25
+    0.55,
+    0.8,
+    0.3
    ],
    "tris": 450,
    "tpu": 1312,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 32368,
+   "bytes": 32364,
    "vtx": 883,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00221,
+   "avgTri": 0.00273,
    "anglePct": 59,
    "vpt": 1.96,
    "grad": 0.9,
@@ -234588,25 +234751,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "column-medium",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.85
+    0.45,
+    0.45,
+    0.95
    ],
    "tris": 262,
-   "tpu": 618,
+   "tpu": 556,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19496,
+   "bytes": 19492,
    "vtx": 516,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00469,
+   "avgTri": 0.00579,
    "anglePct": 20,
    "vpt": 1.97,
    "grad": 0.77,
@@ -234628,25 +234792,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "column-short",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.7
+    0.45,
+    0.45,
+    0.75
    ],
    "tris": 202,
-   "tpu": 589,
+   "tpu": 545,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15424,
+   "bytes": 15420,
    "vtx": 400,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00506,
+   "avgTri": 0.00625,
    "anglePct": 18,
    "vpt": 1.98,
    "grad": 0.62,
@@ -234668,25 +234833,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "column-tall",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    1.05
+    0.45,
+    0.45,
+    1.15
    ],
    "tris": 300,
-   "tpu": 594,
+   "tpu": 534,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22540,
+   "bytes": 22536,
    "vtx": 604,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00517,
+   "avgTri": 0.00638,
    "anglePct": 22,
    "vpt": 2.01,
    "grad": 0.79,
@@ -234708,25 +234874,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.35,
+    0.35,
+    0.35
    ],
    "tris": 238,
    "tpu": 694,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23856,
+   "bytes": 23852,
    "vtx": 657,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00275,
+   "avgTri": 0.0034,
    "anglePct": 93,
    "vpt": 2.76,
    "grad": 0.9,
@@ -234747,25 +234914,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "floor-tile-a",
    "kind": "str-part-floor",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.09
+    0.4,
+    0.4,
+    0.1
    ],
    "tris": 38,
    "tpu": 111,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3932,
+   "bytes": 3928,
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00541,
+   "minEdge": 0.025,
+   "avgTri": 0.00668,
    "anglePct": 32,
    "vpt": 1.89,
    "grad": 0.42,
@@ -234787,25 +234955,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "floor-tile-b",
    "kind": "str-part-floor",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.09
+    0.4,
+    0.4,
+    0.1
    ],
    "tris": 72,
    "tpu": 210,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6320,
+   "bytes": 6316,
    "vtx": 140,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00286,
+   "avgTri": 0.00353,
    "anglePct": 31,
    "vpt": 1.94,
    "grad": 0.65,
@@ -234827,25 +234996,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "floor-tile-c",
    "kind": "str-part-floor",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.09
+    0.4,
+    0.4,
+    0.1
    ],
    "tris": 83,
    "tpu": 242,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7476,
+   "bytes": 7472,
    "vtx": 174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00248,
+   "minEdge": 0.012,
+   "avgTri": 0.00307,
    "anglePct": 31,
    "vpt": 2.1,
    "grad": 0.66,
@@ -234867,25 +235037,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "floor-tile-d",
    "kind": "str-part-floor",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.09
+    0.4,
+    0.4,
+    0.1
    ],
    "tris": 115,
    "tpu": 335,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12884,
+   "bytes": 12880,
    "vtx": 337,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00208,
+   "avgTri": 0.00257,
    "anglePct": 25,
    "vpt": 2.93,
    "grad": 0.79,
@@ -234907,25 +235078,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "floor-tile-e",
    "kind": "str-part-floor",
    "size": "s",
    "wdh": [
+    0.4,
     0.35,
-    0.3,
-    0.09
+    0.1
    ],
    "tris": 96,
    "tpu": 280,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11072,
+   "bytes": 11068,
    "vtx": 284,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "avgTri": 0.00161,
+   "avgTri": 0.00198,
    "anglePct": 27,
    "vpt": 2.96,
    "grad": 0.79,
@@ -234947,25 +235119,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-bars",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1,
-    0.06,
-    1
+    1.1,
+    0.07,
+    1.1
    ],
    "tris": 416,
-   "tpu": 852,
+   "tpu": 766,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31056,
+   "bytes": 31052,
    "vtx": 848,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00169,
+   "minEdge": 0.018,
+   "avgTri": 0.00208,
    "anglePct": 39,
    "vpt": 2.04,
    "grad": 0.54,
@@ -234987,25 +235160,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-broken",
    "kind": "str-barrier-fence-mid",
    "size": "s",
    "wdh": [
-    0.45,
-    0.2,
-    0.45
+    0.5,
+    0.25,
+    0.5
    ],
    "tris": 465,
    "tpu": 1356,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 48416,
+   "bytes": 48412,
    "vtx": 1381,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00136,
+   "minEdge": 0.004,
+   "avgTri": 0.00167,
    "anglePct": 48,
    "vpt": 2.97,
    "grad": 0.7,
@@ -235033,25 +235207,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-large",
    "kind": "str-barrier-fence-mid",
    "size": "l",
    "wdh": [
-    1.85,
-    0.3,
-    0.5
+    2.1,
+    0.35,
+    0.6
    ],
    "tris": 4012,
-   "tpu": 9623,
+   "tpu": 7803,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 259232,
+   "bytes": 259228,
    "vtx": 7304,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00094,
+   "avgTri": 0.00116,
    "anglePct": 40,
    "vpt": 1.82,
    "grad": 0.76,
@@ -235079,25 +235254,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-medium",
    "kind": "str-barrier-fence-mid",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.45,
-    0.3,
-    0.5
+    1.6,
+    0.35,
+    0.6
    ],
    "tris": 3547,
-   "tpu": 10341,
+   "tpu": 8957,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 212280,
+   "bytes": 212276,
    "vtx": 5924,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00088,
+   "avgTri": 0.00109,
    "anglePct": 38,
    "vpt": 1.67,
    "grad": 0.76,
@@ -235121,36 +235297,30 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v649",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 10341 over max 10000 (str-barrier-fence)"
-    }
-   ]
+   "variant": "v649"
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-post-a",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
     0.35,
-    0.3,
-    0.5
+    0.35,
+    0.6
    ],
    "tris": 1361,
    "tpu": 3968,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 64956,
+   "bytes": 64952,
    "vtx": 1730,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00072,
+   "avgTri": 0.00089,
    "anglePct": 32,
    "vpt": 1.27,
    "grad": 0.74,
@@ -235173,25 +235343,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-post-b",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.5
+    0.35,
+    0.35,
+    0.6
    ],
    "tris": 1301,
    "tpu": 3793,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 58936,
+   "bytes": 58932,
    "vtx": 1553,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00072,
+   "avgTri": 0.00088,
    "anglePct": 32,
    "vpt": 1.19,
    "grad": 0.74,
@@ -235214,25 +235385,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-post-c",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.5
+    0.35,
+    0.35,
+    0.6
    ],
    "tris": 1316,
    "tpu": 3837,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 60688,
+   "bytes": 60684,
    "vtx": 1605,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00072,
+   "avgTri": 0.00088,
    "anglePct": 30,
    "vpt": 1.22,
    "grad": 0.74,
@@ -235255,25 +235427,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-run",
    "kind": "str-barrier-fence-mid",
    "size": "l",
    "wdh": [
-    1.65,
-    0.4,
-    1.05
+    1.85,
+    0.45,
+    1.15
    ],
    "tris": 1016,
-   "tpu": 1512,
+   "tpu": 1101,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 73308,
+   "bytes": 73304,
    "vtx": 2056,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00374,
+   "avgTri": 0.00462,
    "anglePct": 25,
    "vpt": 2.02,
    "grad": 0.69,
@@ -235301,25 +235474,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "iron-fence-short",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1,
-    0.3,
-    0.5
+    1.1,
+    0.35,
+    0.6
    ],
    "tris": 3082,
    "tpu": 8985,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 164916,
+   "bytes": 164912,
    "vtx": 4531,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00081,
+   "avgTri": 0.001,
    "anglePct": 35,
    "vpt": 1.47,
    "grad": 0.75,
@@ -235346,25 +235520,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "lamppost",
    "kind": "obj-lighting-lantern-handheld",
    "size": "s",
    "wdh": [
+    0.25,
     0.2,
-    0.2,
-    0.35
+    0.4
    ],
    "tris": 166,
    "tpu": 484,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10848,
+   "bytes": 10844,
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00089,
+   "minEdge": 0.016,
+   "avgTri": 0.0011,
    "anglePct": 14,
    "vpt": 1.59,
    "grad": 0.9,
@@ -235391,25 +235566,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "ribs",
    "kind": "env-remains-bones",
    "size": "s",
    "wdh": [
     0.15,
-    0.15,
-    0.1
+    0.2,
+    0.15
    ],
    "tris": 138,
    "tpu": 402,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9104,
+   "bytes": 9100,
    "vtx": 212,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00033,
+   "minEdge": 0.009,
+   "avgTri": 0.00041,
    "anglePct": 15,
    "vpt": 1.54,
    "grad": 0.62,
@@ -235431,25 +235607,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
-    0.1,
     0.15,
-    0.09
+    0.15,
+    0.1
    ],
    "tris": 258,
    "tpu": 752,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15900,
+   "bytes": 15896,
    "vtx": 402,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00015,
+   "avgTri": 0.00018,
    "anglePct": 0,
    "vpt": 1.56,
    "grad": 0.69,
@@ -235470,25 +235647,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "statue-mourner",
    "kind": "obj-art-sculpture",
    "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.55
+    0.4,
+    0.4,
+    0.6
    ],
    "tris": 501,
    "tpu": 1461,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25224,
+   "bytes": 25220,
    "vtx": 650,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "avgTri": 0.00136,
+   "avgTri": 0.00167,
    "anglePct": 35,
    "vpt": 1.3,
    "grad": 0.89,
@@ -235509,25 +235687,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "stone-block",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
-    0.4,
-    0.4,
-    0.35
+    0.45,
+    0.45,
+    0.4
    ],
    "tris": 523,
    "tpu": 1525,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 44488,
+   "bytes": 44484,
    "vtx": 1248,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00187,
+   "avgTri": 0.00231,
    "anglePct": 94,
    "vpt": 2.39,
    "grad": 0.75,
@@ -235548,25 +235727,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tomb-a",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.45
+    0.4,
+    0.4,
+    0.55
    ],
    "tris": 244,
    "tpu": 711,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15888,
+   "bytes": 15884,
    "vtx": 407,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00294,
+   "minEdge": 0.008,
+   "avgTri": 0.00363,
    "anglePct": 54,
    "vpt": 1.67,
    "grad": 0.65,
@@ -235588,25 +235768,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tomb-b",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.45
+    0.4,
+    0.4,
+    0.5
    ],
    "tris": 398,
    "tpu": 1160,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25360,
+   "bytes": 25356,
    "vtx": 674,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00172,
+   "avgTri": 0.00212,
    "anglePct": 48,
    "vpt": 1.69,
    "grad": 0.88,
@@ -235628,25 +235809,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tomb-obelisk",
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.8
+    0.4,
+    0.4,
+    0.9
    ],
    "tris": 328,
-   "tpu": 822,
+   "tpu": 740,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25136,
+   "bytes": 25132,
    "vtx": 680,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00355,
+   "minEdge": 0.008,
+   "avgTri": 0.00438,
    "anglePct": 35,
    "vpt": 2.07,
    "grad": 0.9,
@@ -235667,25 +235849,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tombstone-a",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.15,
-    0.5
+    0.35,
+    0.2,
+    0.55
    ],
    "tris": 124,
    "tpu": 362,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6988,
+   "bytes": 6984,
    "vtx": 151,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00361,
+   "minEdge": 0.014,
+   "avgTri": 0.00446,
    "anglePct": 17,
    "vpt": 1.22,
    "grad": 0.65,
@@ -235707,25 +235890,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tombstone-b",
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.45,
-    0.25,
-    0.55
+    0.5,
+    0.3,
+    0.6
    ],
    "tris": 176,
    "tpu": 513,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10656,
+   "bytes": 10652,
    "vtx": 256,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00416,
+   "avgTri": 0.00513,
    "anglePct": 26,
    "vpt": 1.45,
    "grad": 0.73,
@@ -235747,25 +235931,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tombstone-c",
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
     0.35,
     0.2,
-    0.55
+    0.6
    ],
    "tris": 98,
    "tpu": 286,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7120,
+   "bytes": 7116,
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00587,
+   "minEdge": 0.017,
+   "avgTri": 0.00724,
    "anglePct": 19,
    "vpt": 1.63,
    "grad": 0.8,
@@ -235787,25 +235972,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tombstone-d",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.15,
-    0.5
+    0.4,
+    0.2,
+    0.55
    ],
    "tris": 152,
    "tpu": 443,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10036,
+   "bytes": 10032,
    "vtx": 241,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00308,
+   "minEdge": 0.01,
+   "avgTri": 0.00381,
    "anglePct": 6,
    "vpt": 1.59,
    "grad": 0.76,
@@ -235827,25 +236013,26 @@
   },
   {
    "kit": "wizp-grave",
+   "collection": "wizp-grave",
    "name": "tombstone-e",
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.4,
+    0.45,
     0.25,
-    0.55
+    0.65
    ],
    "tris": 118,
    "tpu": 344,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8548,
+   "bytes": 8544,
    "vtx": 201,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00553,
+   "minEdge": 0.013,
+   "avgTri": 0.00682,
    "anglePct": 27,
    "vpt": 1.7,
    "grad": 0.82,
@@ -239147,6 +239334,7 @@
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "bridge-arched-a",
    "kind": "str-access-bridge-section",
    "size": "l",
@@ -239192,14 +239380,15 @@
    "variant": "v439",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.85 over max 1.8 (str-access-bridge-section)"
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
     }
    ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "bridge-arched-b",
    "kind": "str-access-bridge-section",
    "size": "l",
@@ -239242,10 +239431,18 @@
     "wizp",
     "wood-beam"
    ],
-   "variant": "v439"
+   "variant": "v439",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "granary-large",
    "kind": "str-building-agricultural-silo",
    "size": "l",
@@ -239306,10 +239503,18 @@
     "wizp",
     "wood-beam",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "house-a",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -239371,10 +239576,18 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v440"
+   "variant": "v440",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "house-b",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -239436,10 +239649,18 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v440"
+   "variant": "v440",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "house-c",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -239501,10 +239722,18 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v440"
+   "variant": "v440",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "plank-a",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -239540,10 +239769,18 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v746"
+   "variant": "v746",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "plank-b",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -239579,10 +239816,18 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v746"
+   "variant": "v746",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "plank-c",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -239618,10 +239863,18 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v746"
+   "variant": "v746",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "plank-d",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -239657,10 +239910,18 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v746"
+   "variant": "v746",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "platform-stone",
    "kind": "str-platform-deck",
    "size": "l",
@@ -239706,6 +239967,7 @@
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "pot-stone-a",
    "kind": "obj-container-pot",
    "size": "m",
@@ -239741,10 +240003,18 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v747"
+   "variant": "v747",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "pot-stone-b",
    "kind": "obj-container-pot",
    "size": "s",
@@ -239780,10 +240050,18 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v747"
+   "variant": "v747",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "shop",
    "kind": "str-building-commercial",
    "size": "l",
@@ -239838,10 +240116,18 @@
     "storeys-1",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "shrine",
    "kind": "str-building-religious-shrine",
    "size": "m",
@@ -239896,10 +240182,18 @@
     "storeys-0-5",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "tower",
    "kind": "str-building-military-tower",
    "size": "l",
@@ -239954,10 +240248,18 @@
     "storeys-2",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-village",
+   "collection": "wizp-eastern",
    "name": "wall-stone-low",
    "kind": "str-barrier",
    "size": "l",
@@ -239992,6 +240294,13 @@
    "tags": [
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-eastern, 21 kinds)"
+    }
    ]
   }
  ]

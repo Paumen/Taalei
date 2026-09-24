@@ -29,7 +29,7 @@ function kitRows() {
   const packsOf = (slug) => (packs ?? []).filter((p) => p.kit === slug);
 
   return catalog.kits.map((kit) => {
-    const own = packsOf(kit.slug);
+    const own = (kit.members?.map((m) => m.slug) ?? [kit.slug]).flatMap(packsOf);
     const origins = Object.keys(kit.origins ?? {}).filter((o) => o !== 'none');
     const sources = kit.packs?.length ? kit.packs : origins;
     const formats = [...new Set(own.flatMap((p) => p.format))];
@@ -48,6 +48,7 @@ function kitRows() {
 
     return {
       kit: kit.slug,
+      members: kit.members?.map((m) => m.slug) ?? null,
       url: kit.url,
       artist: kit.artist ?? null,
       source: sources.join(', ') || null,
@@ -74,7 +75,8 @@ function kitRows() {
 }
 
 const KIT_COLUMNS = [
-  { key: 'kit', label: 'Kit', cell: (r) => (r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.kit)}</a>` : esc(r.kit)) },
+  { key: 'kit', label: 'Kit', cell: (r) => (r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.kit)}</a>` : esc(r.kit))
+    + (r.members ? ` <span class="extra" title="collection of ${r.members.length} kits">${r.members.map(esc).join(' + ')}</span>` : '') },
   { key: 'artist', label: 'Artist' },
   { key: 'source', label: 'Source', wrap: true },
   { key: 'license', label: 'License' },
@@ -198,7 +200,7 @@ function kindTree() {
       leaf: !node.children?.length,
       own: models.filter((m) => m.kind === node.id).length,
       total: inTree.length,
-      kits: new Set(inTree.map((m) => m.kit)).size,
+      kits: new Set(inTree.map((m) => m.collection ?? m.kit)).size,
       limits: limits.get(node.id),
       bands: bandsMax.get(node.id)['bands.max'],
       curve: curveOf.get(node.id),

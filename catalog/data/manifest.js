@@ -5519,5 +5519,21 @@ window.KENNEY_KITS = [
    "tram-modern",
    "tram-round"
   ]
+ },
+ {
+  "collection": "wizp-eastern",
+  "name": "wizp-eastern",
+  "kits": [
+   "wizp-asia",
+   "wizp-village"
+  ]
+ },
+ {
+  "collection": "wizp-grave",
+  "name": "wizp-grave",
+  "kits": [
+   "wizp-grave",
+   "wizp-arena"
+  ]
  }
 ]
