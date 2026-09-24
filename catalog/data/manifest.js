@@ -346,6 +346,7 @@ window.KENNEY_KITS = [
    "rocks",
    "sign",
    "spring",
+   "spring-anim",
    "star",
    "stones",
    "tree",
@@ -3649,6 +3650,7 @@ window.KENNEY_KITS = [
    "house-b-anim",
    "ladder",
    "lumbermill",
+   "lumbermill-anim",
    "market",
    "mine",
    "mountain-a",
@@ -4093,6 +4095,7 @@ window.KENNEY_KITS = [
    "bread",
    "bread-oven",
    "cash-register",
+   "cash-register-anim",
    "chair",
    "coffee-machine",
    "cookie",
@@ -4352,25 +4355,6 @@ window.KENNEY_KITS = [
    "yogurt",
    "yogurt-sienna",
    "yogurt-terracotta"
-  ]
- },
- {
-  "slug": "gob-nature",
-  "name": "gob-nature",
-  "url": "https://gobkit.com/freebies",
-  "licenseLabel": "CC0 1.0",
-  "models": [
-   "bush-a",
-   "bush-b",
-   "conifer",
-   "conifer-large",
-   "conifer-small",
-   "rock-a",
-   "rock-b",
-   "rock-c",
-   "tree-a",
-   "tree-b",
-   "tree-c"
   ]
  },
  {
@@ -4999,6 +4983,7 @@ window.KENNEY_KITS = [
    "battery",
    "battery-slim",
    "bear-trap",
+   "bear-trap-anim",
    "bonfire",
    "can",
    "can-broken",
