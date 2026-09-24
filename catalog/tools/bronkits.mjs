@@ -127,11 +127,11 @@ export const BRONKITS = [
   { map: '3D_Food_Styloo', naam: '3D Food', kit: 'styloo-food', formaat: 'gltf' },
   { map: 'Food_Kitchen_Styloo', naam: 'Food and Kitchen Asset Pack', kit: 'styloo-kitchen', formaat: 'glb' },
 
-  { map: 'kenney_car-kit', naam: 'Kenney Car Kit', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'kenney_train-kit', naam: 'Kenney Train Kit', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'kenney_mini-arcade_1', naam: 'Kenney Mini Arcade', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'kenney_city-kit-suburban_20', naam: 'Kenney City Kit Suburban', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'kenney_city-kit-commercial_2.1', naam: 'Kenney City Kit Commercial', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'kenney_city-kit-industrial_2.0', naam: 'Kenney City Kit Industrial', kit: null, source: 'ken', formaat: 'glb' },
-  { map: 'KayKit_City_Builder_Bits_1.0_FREE', naam: 'KayKit City Builder Bits', kit: null, source: 'kay', formaat: 'gltf' },
+  { map: 'kenney_car-kit', naam: 'Kenney Car Kit', kit: 'ken-car', source: 'ken', formaat: 'glb' },
+  { map: 'kenney_train-kit', naam: 'Kenney Train Kit', kit: 'ken-train', source: 'ken', formaat: 'glb' },
+  { map: 'kenney_mini-arcade_1', naam: 'Kenney Mini Arcade', kit: 'ken-arcade', source: 'ken', formaat: 'glb' },
+  { map: 'kenney_city-kit-suburban_20', naam: 'Kenney City Kit Suburban', kit: 'ken-suburban', source: 'ken', formaat: 'glb' },
+  { map: 'kenney_city-kit-commercial_2.1', naam: 'Kenney City Kit Commercial', kit: 'ken-commercial', source: 'ken', formaat: 'glb' },
+  { map: 'kenney_city-kit-industrial_2.0', naam: 'Kenney City Kit Industrial', kit: 'ken-industrial', source: 'ken', formaat: 'glb' },
+  { map: 'KayKit_City_Builder_Bits_1.0_FREE', naam: 'KayKit City Builder Bits', kit: 'kay-city', source: 'kay', formaat: 'gltf' },
 ];
