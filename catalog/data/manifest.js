@@ -488,9 +488,13 @@ window.KENNEY_KITS = [
    "boat-speed-i",
    "boat-speed-j",
    "boat-tow-a",
+   "boat-tow-a-anim",
    "boat-tow-b",
+   "boat-tow-b-anim",
    "boat-tug-a",
+   "boat-tug-a-anim",
    "boat-tug-b",
+   "boat-tug-b-anim",
    "boat-tug-c",
    "buoy",
    "buoy-flag",
@@ -498,10 +502,14 @@ window.KENNEY_KITS = [
    "ramp",
    "ramp-wide",
    "ship-cargo-a",
+   "ship-cargo-a-anim",
    "ship-cargo-b",
+   "ship-cargo-b-anim",
    "ship-cargo-c",
    "ship-ocean-liner",
-   "ship-ocean-liner-small"
+   "ship-ocean-liner-anim",
+   "ship-ocean-liner-small",
+   "ship-ocean-liner-small-anim"
   ]
  },
  {
