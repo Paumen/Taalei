@@ -470,6 +470,7 @@ window.KENNEY_KITS = [
    "arrow",
    "arrow-standing",
    "boat-fan",
+   "boat-fan-anim",
    "boat-fishing-small",
    "boat-house-a",
    "boat-house-b",
@@ -2753,6 +2754,7 @@ window.KENNEY_KITS = [
    "sawmill-saw",
    "smoke",
    "well",
+   "well-anim",
    "window-2"
   ]
  },
@@ -2925,6 +2927,7 @@ window.KENNEY_KITS = [
    "forceps",
    "furnace",
    "grinder",
+   "grinder-anim",
    "shield",
    "shield-2",
    "stairs",
@@ -3520,6 +3523,7 @@ window.KENNEY_KITS = [
    "church",
    "cottage",
    "ferris-wheel",
+   "ferris-wheel-anim",
    "fortress"
   ]
  },
@@ -3709,6 +3713,7 @@ window.KENNEY_KITS = [
    "waterplant",
    "weapon-rack",
    "well",
+   "well-anim",
    "wheelbarrow",
    "windmill",
    "windmill-anim"
@@ -3750,7 +3755,8 @@ window.KENNEY_KITS = [
    "watchtower",
    "watermill",
    "watermill-anim",
-   "well"
+   "well",
+   "well-anim"
   ]
  },
 
