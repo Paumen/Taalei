@@ -10396,28 +10396,44 @@
    "id": "obj-kitchenware-appliance",
    "name": "Appliance",
    "type": "kind",
-   "description": "Kitchen appliance: stove, oven, fridge, toaster, blender.",
+   "description": "Kitchen appliance: stove, oven, fridge, toaster, blender, extractor hood.",
    "models": [
     "kay-mixed/wood-stove",
-    "ken-furniture/hood-large",
-    "ken-furniture/hood-modern",
-    "ken-furniture/kitchen-blender",
     "ken-furniture/kitchen-coffee-machine",
     "ken-furniture/kitchen-microwave",
     "ken-market/freezer-chest",
     "cooking-assets/rice-cooker",
-    "cooking-assets/food-processor",
-    "cooking-assets/blender",
     "isa-bakery/coffee-machine",
     "isa-bakery/stand-mixer",
     "isa-bakery/stand-mixer-anim",
+    "cooking-assets/toaster-oven",
+    "styloo-kitchen/toaster",
+    "styloo-furniture/washing-machine"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-appliance-extractor",
+   "name": "Extractor",
+   "type": "kind",
+   "description": "Hood that draws cooking fumes away above a stove: extractor hood, range hood.",
+   "models": [
     "isa-kitchen/extractor-hood",
     "kay-food/extractor-hood",
-    "cooking-assets/toaster-oven",
-    "styloo-kitchen/blender",
-    "styloo-kitchen/toaster",
     "styloo-furniture/extractor-hood",
-    "styloo-furniture/washing-machine"
+    "ken-furniture/hood-large",
+    "ken-furniture/hood-modern"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-appliance-blender",
+   "name": "Blender",
+   "type": "kind",
+   "description": "Appliance that blends or chops food in a jug or bowl: blender, food processor.",
+   "models": [
+    "ken-furniture/kitchen-blender",
+    "cooking-assets/food-processor",
+    "cooking-assets/blender",
+    "styloo-kitchen/blender"
    ]
   },
   {
@@ -10485,16 +10501,13 @@
    "id": "obj-kitchenware-cookware-utensil",
    "name": "Utensil",
    "type": "kind",
-   "description": "ladle, rice paddle, wooden paddle",
+   "description": "rice paddle, wooden paddle",
    "models": [
     "cooking-assets/rice-paddle",
-    "cooking-assets/ladle-b",
-    "cooking-assets/ladle-a",
     "cooking-assets/wooden-paddle",
     "ken-food/cake-slicer",
     "ken-food/cheese-slicer",
     "ken-food/cooking-fork",
-    "ken-food/spoon-cooking",
     "ken-food/cookie-cutter",
     "ken-food/pizza-cutter",
     "cooking-assets/funnel",
@@ -10502,13 +10515,24 @@
     "cooking-assets/bottle-opener",
     "cooking-assets/measuring-cup-small",
     "cooking-assets/measuring-cup-large",
-    "cooking-assets/cooking-spoon",
-    "cooking-assets/wooden-spoon",
-    "styloo-kitchen/cleaver",
+    "styloo-kitchen/cleaver"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-spoon",
+   "name": "Spoon",
+   "type": "kind",
+   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon, ladle.",
+   "models": [
     "styloo-kitchen/wooden-spoon-a",
     "styloo-kitchen/wooden-spoon-b",
     "styloo-kitchen/wooden-spoon-c",
-    "styloo-furniture/wooden-spoon"
+    "styloo-furniture/wooden-spoon",
+    "cooking-assets/wooden-spoon",
+    "ken-food/spoon-cooking",
+    "cooking-assets/cooking-spoon",
+    "cooking-assets/ladle-a",
+    "cooking-assets/ladle-b"
    ]
   },
   {
@@ -11516,14 +11540,8 @@
    "description": "Tool swung or pushed with both hands on a long shaft.",
    "models": [
     "asia-rg/rake",
-    "small-props/fishing-rod-b",
-    "small-props/fishing-rod-c",
     "small-props/pitchfork-a",
-    "styloo-farm/fishing-rod-hunter",
-    "aq-hallow/scythe",
-    "quat-fishing/fishing-rod-c",
-    "quat-fishing/fishing-rod-d",
-    "quat-fishing/fishing-rod-e"
+    "aq-hallow/scythe"
    ]
   },
   {
@@ -11535,7 +11553,13 @@
     "styloo-farm/fishing-rod",
     "quat-fishing/fishing-rod-a",
     "small-props/fishing-rod-a",
-    "quat-fishing/fishing-rod-b"
+    "quat-fishing/fishing-rod-b",
+    "styloo-farm/fishing-rod-hunter",
+    "quat-fishing/fishing-rod-e",
+    "quat-fishing/fishing-rod-c",
+    "quat-fishing/fishing-rod-d",
+    "small-props/fishing-rod-b",
+    "small-props/fishing-rod-c"
    ]
   },
   {
@@ -11604,36 +11628,12 @@
    "id": "obj-transport",
    "name": "Transport",
    "type": "kind",
-   "description": "saddle, balloon",
+   "description": "saddle",
    "color": "#5a7a9c",
    "models": [
-    "taalei-kit/balloon",
-    "taalei-kit/balloon-basket-round",
-    "taalei-kit/balloon-basket-square",
     "ken-proto/vehicle-convertible",
     "quat-shoot/tank",
-    "ken-proto/wheelchair",
-    "styloo-planes/plane-stylized",
-    "styloo-planes/plane-stylized-anim",
-    "styloo-planes/plane-stylized-amber",
-    "styloo-planes/plane-stylized-amber-anim",
-    "styloo-planes/plane-stylized-sienna",
-    "styloo-planes/plane-stylized-sienna-anim",
-    "styloo-planes/plane-azer",
-    "styloo-planes/plane-azer-anim",
-    "styloo-planes/plane-azer-hunter",
-    "styloo-planes/plane-azer-hunter-anim",
-    "styloo-planes/plane-sty",
-    "styloo-planes/plane-sty-anim",
-    "styloo-planes/plane-sty-b",
-    "styloo-planes/plane-sty-b-anim",
-    "styloo-planes/plane-sty-hunter",
-    "styloo-planes/plane-sty-hunter-anim",
-    "styloo-planes/plane-animal",
-    "styloo-planes/plane-animal-b",
-    "styloo-planes/plane-helice",
-    "styloo-planes/plane-helice-b",
-    "styloo-planes/airliner"
+    "ken-proto/wheelchair"
    ]
   },
   {
@@ -11664,6 +11664,38 @@
     "ken-train/tram-round",
     "ken-train/tram-modern",
     "ken-train/tram-classic"
+   ]
+  },
+  {
+   "id": "obj-transport-air",
+   "name": "Air",
+   "type": "kind",
+   "description": "Aircraft: airplane, airliner, hot-air balloon.",
+   "models": [
+    "styloo-planes/plane-stylized-anim",
+    "styloo-planes/plane-stylized-amber",
+    "styloo-planes/plane-stylized-amber-anim",
+    "styloo-planes/plane-stylized",
+    "styloo-planes/plane-stylized-sienna",
+    "styloo-planes/plane-stylized-sienna-anim",
+    "styloo-planes/plane-sty-hunter-anim",
+    "styloo-planes/plane-sty-anim",
+    "styloo-planes/plane-sty-b",
+    "styloo-planes/plane-sty-b-anim",
+    "styloo-planes/plane-sty-hunter",
+    "styloo-planes/plane-sty",
+    "styloo-planes/plane-helice",
+    "styloo-planes/plane-helice-b",
+    "styloo-planes/plane-azer-anim",
+    "styloo-planes/plane-azer",
+    "styloo-planes/plane-azer-hunter",
+    "styloo-planes/plane-azer-hunter-anim",
+    "styloo-planes/plane-animal",
+    "styloo-planes/plane-animal-b",
+    "taalei-kit/balloon-basket-round",
+    "taalei-kit/balloon",
+    "taalei-kit/balloon-basket-square",
+    "styloo-planes/airliner"
    ]
   },
   {
