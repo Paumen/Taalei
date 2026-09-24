@@ -793,8 +793,8 @@
     "none": 33
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 5
+    "factor": 1.21,
+    "kinds": 6
    }
   },
   {
@@ -965,8 +965,8 @@
     "60": 17
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 7
+    "factor": 1.05,
+    "kinds": 6
    }
   },
   {
@@ -12329,7 +12329,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2296,
+   "count": 2293,
    "color": "#c07c8a"
   },
   {
@@ -12337,7 +12337,7 @@
    "name": "Household",
    "type": "kind",
    "description": "Household item in everyday use.",
-   "count": 28
+   "count": 32
   },
   {
    "id": "obj-household-electronics",
@@ -12372,7 +12372,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 379,
+   "count": 375,
    "color": "#dd9f79"
   },
   {
@@ -12506,7 +12506,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot, planter, amphora, jug, pitcher, ewer",
-   "count": 54
+   "count": 50
   },
   {
    "id": "obj-container-pot-jar",
@@ -12577,7 +12577,7 @@
    "name": "Food",
    "type": "kind",
    "description": "honey",
-   "count": 358,
+   "count": 362,
    "color": "#c25b4e"
   },
   {
@@ -12739,7 +12739,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 254,
+   "count": 248,
    "color": "#c07c8a"
   },
   {
@@ -12810,7 +12810,7 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser",
-   "count": 75
+   "count": 74
   },
   {
    "id": "obj-furnishing-storage-cabinet",
@@ -12824,7 +12824,7 @@
    "name": "Shelf",
    "type": "kind",
    "description": "Boards carried on brackets or a frame, open on the front.",
-   "count": 22
+   "count": 21
   },
   {
    "id": "obj-furnishing-table",
@@ -12845,7 +12845,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 327,
+   "count": 326,
    "color": "#9c3f2e"
   },
   {
@@ -12860,7 +12860,7 @@
    "name": "Appliance",
    "type": "kind",
    "description": "Kitchen appliance: stove, oven, fridge, toaster, blender, extractor hood.",
-   "count": 49
+   "count": 48
   },
   {
    "id": "obj-kitchenware-appliance-extractor",
@@ -12888,7 +12888,7 @@
    "name": "Stove",
    "type": "kind",
    "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-kitchenware-appliance-oven",
@@ -12930,7 +12930,7 @@
    "name": "Spatula",
    "type": "kind",
    "description": "spatula, turner",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-kitchenware-cookware-utensil-whisk",
@@ -13341,7 +13341,7 @@
    "name": "Road vehicle",
    "type": "kind",
    "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
-   "count": 29
+   "count": 30
   },
   {
    "id": "obj-transport-watercraft",
@@ -13369,7 +13369,7 @@
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 41
+   "count": 43
   },
   {
    "id": "obj-transport-cart",
@@ -14206,7 +14206,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 133,
+   "count": 136,
    "color": "#b5651d"
   },
   {
@@ -15928,6 +15928,12 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "obj-household": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-household-electronics": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -16355,12 +16361,6 @@
    "high.max": 30,
    "longest.min": 1.05,
    "longest.max": 1.7,
-   "tpu.max": 10000
-  },
-  "obj-transport-watercraft": {
-   "high.max": 30,
-   "longest.min": 0.05,
-   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-transport-watercraft-accessory": {
@@ -29337,7 +29337,7 @@
   {
    "kit": "cooking-assets",
    "name": "wooden-paddle",
-   "kind": "obj-kitchenware-cookware-utensil",
+   "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
     0.08,
@@ -50162,13 +50162,13 @@
    "vpt": 0.56,
    "grad": 0.96,
    "spread": {
-    "1,1": [
+    "3,1": [
      0.016,
      0.977
     ]
    },
    "colors": [
-    "#23562c"
+    "#68872d"
    ],
    "tags": [
     "foliage",
@@ -50239,13 +50239,13 @@
    "vpt": 0.52,
    "grad": 0.96,
    "spread": {
-    "1,1": [
+    "3,1": [
      0.016,
      0.977
     ]
    },
    "colors": [
-    "#23562c"
+    "#68872d"
    ],
    "tags": [
     "foliage",
@@ -67175,13 +67175,13 @@
    "avgTri": 0.03023,
    "anglePct": 53,
    "vpt": 1.39,
-   "grad": 0.3,
+   "grad": 0.31,
    "spread": {
     "2,0": [
      0.445,
      0.75
     ],
-    "13,3": [
+    "8,0": [
      0.148,
      0.445
     ],
@@ -67196,7 +67196,7 @@
    },
    "colors": [
     "#343745",
-    "#5b5550",
+    "#7f3927",
     "#88848a",
     "#8b5936"
    ],
@@ -101254,7 +101254,7 @@
   {
    "kit": "kay-holiday",
    "name": "wreath",
-   "kind": "obj-furnishing",
+   "kind": "set",
    "size": "s",
    "wdh": [
     0.4,
@@ -101304,13 +101304,6 @@
     "kay",
     "metal-gold",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 7155 over max 5000 (obj-furnishing)"
-    }
    ]
   },
   {
@@ -104316,7 +104309,7 @@
   {
    "kit": "kay-mixed",
    "name": "wood-stove",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-kitchenware-appliance-stove",
    "size": "m",
    "wdh": [
     0.35,
@@ -104356,6 +104349,13 @@
     "metal-iron-cast",
     "metal-iron-wrought",
     "tba"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.8 over max 0.55 (obj-kitchenware-appliance-stove · 0.661 at kit ×1.21)"
+    }
    ]
   },
   {
@@ -115744,6 +115744,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1 over max 0.95 (obj-household-electronics-arcade · 0.952 at kit ×1.05)"
+    }
    ]
   },
   {
@@ -115859,6 +115866,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1 over max 0.95 (obj-household-electronics-arcade · 0.952 at kit ×1.05)"
+    }
    ]
   },
   {
@@ -116077,7 +116091,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.05 over max 0.95 (obj-household-electronics-arcade · 0.981 at kit ×1.07)"
+     "text": "longest 1.05 over max 0.95 (obj-household-electronics-arcade · 1 at kit ×1.05)"
     }
    ]
   },
@@ -116189,7 +116203,7 @@
   {
    "kit": "ken-arcade",
    "name": "prize-shelf",
-   "kind": "obj-furnishing-storage-shelf",
+   "kind": "set",
    "size": "m",
    "wdh": [
     0.8,
@@ -118444,7 +118458,7 @@
    "tris": 172,
    "tpu": 501,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 8180,
    "vtx": 176,
@@ -118454,13 +118468,9 @@
    "avgTri": 0.0031,
    "anglePct": 60,
    "vpt": 1.02,
-   "grad": 0.28,
+   "grad": 0.44,
    "spread": {
     "5,0": [
-     0.148,
-     0.375
-    ],
-    "8,0": [
      0.148,
      0.75
     ],
@@ -118470,7 +118480,6 @@
     ]
    },
    "colors": [
-    "#7f3927",
     "#d07b56",
     "#d8d1bd"
    ],
@@ -121114,7 +121123,7 @@
    "tris": 1794,
    "tpu": 153,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 92660,
    "vtx": 2511,
@@ -121140,7 +121149,7 @@
     ],
     "1,1": [
      0.148,
-     0.75
+     0.578
     ],
     "5,2": [
      0.445,
@@ -121149,12 +121158,17 @@
     "4,2": [
      0.445,
      0.445
+    ],
+    "8,0": [
+     0.148,
+     0.75
     ]
    },
    "colors": [
     "#1367a6",
     "#23562c",
     "#343745",
+    "#7f3927",
     "#88848a",
     "#d07b56",
     "#d8d1bd"
@@ -121165,6 +121179,18 @@
     "metal",
     "stone-masonry",
     "storeys-4"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 7 wants max 6"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G15 bands 7 wants max 6"
+    }
    ]
   },
   {
@@ -121274,16 +121300,16 @@
      0.445,
      0.445
     ],
-    "1,1": [
+    "8,0": [
      0.156,
      0.734
     ]
    },
    "colors": [
     "#1367a6",
-    "#23562c",
     "#343745",
     "#5b5550",
+    "#7f3927",
     "#88848a",
     "#d8d1bd"
    ],
@@ -121525,7 +121551,7 @@
      0.148,
      0.445
     ],
-    "1,1": [
+    "8,0": [
      0.148,
      0.75
     ],
@@ -121536,8 +121562,8 @@
    },
    "colors": [
     "#1367a6",
-    "#23562c",
     "#343745",
+    "#7f3927",
     "#88848a",
     "#d8d1bd"
    ],
@@ -121586,7 +121612,7 @@
      0.148,
      0.445
     ],
-    "1,1": [
+    "8,0": [
      0.18,
      0.445
     ],
@@ -121597,8 +121623,8 @@
    },
    "colors": [
     "#1367a6",
-    "#23562c",
     "#343745",
+    "#7f3927",
     "#88848a",
     "#d8d1bd"
    ],
@@ -123630,13 +123656,13 @@
      0.5,
      0.5
     ],
-    "3,1": [
+    "8,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#68872d",
+    "#7f3927",
     "#88848a",
     "#8b5936"
    ],
@@ -130678,7 +130704,7 @@
   {
    "kit": "ken-furniture",
    "name": "dryer",
-   "kind": "obj-furnishing",
+   "kind": "obj-household",
    "size": "s",
    "wdh": [
     0.35,
@@ -134375,7 +134401,7 @@
   {
    "kit": "ken-furniture",
    "name": "washer-dryer-stacked",
-   "kind": "obj-furnishing",
+   "kind": "obj-household",
    "size": "m",
    "wdh": [
     0.35,
@@ -134419,7 +134445,7 @@
   {
    "kit": "ken-furniture",
    "name": "washer",
-   "kind": "obj-furnishing",
+   "kind": "obj-household",
    "size": "s",
    "wdh": [
     0.35,
@@ -139504,7 +139530,7 @@
   {
    "kit": "ken-holiday",
    "name": "wreath-decorated",
-   "kind": "obj-furnishing",
+   "kind": "set",
    "size": "s",
    "wdh": [
     0.35,
@@ -151216,13 +151242,13 @@
      0.5,
      0.5
     ],
-    "1,1": [
+    "3,1": [
      0.344,
      0.633
     ]
    },
    "colors": [
-    "#23562c",
+    "#68872d",
     "#88848a"
    ],
    "tags": [
@@ -151256,7 +151282,7 @@
    "vpt": 0.78,
    "grad": 0.12,
    "spread": {
-    "1,1": [
+    "3,1": [
      0.344,
      0.633
     ],
@@ -151266,7 +151292,7 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#68872d",
     "#88848a"
    ],
    "tags": [
@@ -152494,7 +152520,7 @@
   {
    "kit": "ken-proto",
    "name": "vehicle-convertible",
-   "kind": "obj-transport",
+   "kind": "obj-transport-road",
    "size": "m",
    "wdh": [
     1.05,
@@ -162503,14 +162529,14 @@
      0.164,
      0.773
     ],
-    "6,0": [
+    "4,2": [
      0.344,
      0.688
     ]
    },
    "colors": [
-    "#d8d1bd",
-    "#f2a93c"
+    "#1367a6",
+    "#d8d1bd"
    ],
    "tags": [
     "ken",
@@ -162555,14 +162581,14 @@
      0.492,
      0.492
     ],
-    "6,0": [
+    "4,2": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#d8d1bd",
-    "#f2a93c"
+    "#1367a6",
+    "#d8d1bd"
    ],
    "tags": [
     "ken",
@@ -163813,7 +163839,7 @@
   {
    "kit": "ken-water",
    "name": "boat-tow-a-anim",
-   "kind": "obj-transport-watercraft",
+   "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
     0.85,
@@ -163879,6 +163905,11 @@
     {
      "level": "error",
      "check": "size",
+     "text": "longest 1.85 over max 2.95 (obj-transport-watercraft-boat · 3.7 at kit ×0.5)"
+    },
+    {
+     "level": "error",
+     "check": "size",
      "text": "kit ×0.5 off the size curve (ken-water, 3 kinds)"
     }
    ]
@@ -163886,7 +163917,7 @@
   {
    "kit": "ken-water",
    "name": "boat-tow-a",
-   "kind": "obj-transport-watercraft",
+   "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
     0.85,
@@ -163943,6 +163974,11 @@
    "pbr": true,
    "variant": "v775",
    "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.85 over max 2.95 (obj-transport-watercraft-boat · 3.7 at kit ×0.5)"
+    },
     {
      "level": "error",
      "check": "size",
@@ -203243,7 +203279,7 @@
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 24680,
    "vtx": 648,
@@ -203253,10 +203289,14 @@
    "avgTri": 0.00019,
    "anglePct": 98,
    "vpt": 1.64,
-   "grad": 0.47,
+   "grad": 0.38,
    "spread": {
     "6,0": [
      0.148,
+     0.75
+    ],
+    "1,0": [
+     0.438,
      0.75
     ],
     "0,0": [
@@ -203270,6 +203310,7 @@
    },
    "colors": [
     "#7f3927",
+    "#b58158",
     "#dbae80",
     "#f2a93c"
    ],
@@ -203842,7 +203883,7 @@
      0.148,
      0.75
     ],
-    "8,0": [
+    "5,2": [
      0.445,
      0.453
     ]
@@ -203850,7 +203891,7 @@
    "colors": [
     "#1367a6",
     "#5b5550",
-    "#7f3927"
+    "#d8d1bd"
    ],
    "tags": [
     "plastic",
@@ -218552,13 +218593,13 @@
    "vpt": 1.48,
    "grad": 0.32,
    "spread": {
-    "1,1": [
+    "3,1": [
      0.625,
      0.945
     ]
    },
    "colors": [
-    "#23562c"
+    "#68872d"
    ],
    "tags": [
     "foliage"
@@ -220714,7 +220755,7 @@
   {
    "kit": "styloo-farm",
    "name": "yogurt-sienna",
-   "kind": "obj-container-pot",
+   "kind": "obj-food",
    "size": "s",
    "wdh": [
     0.15,
@@ -220752,7 +220793,7 @@
   {
    "kit": "styloo-farm",
    "name": "yogurt-terracotta",
-   "kind": "obj-container-pot",
+   "kind": "obj-food",
    "size": "s",
    "wdh": [
     0.15,
@@ -220790,7 +220831,7 @@
   {
    "kit": "styloo-farm",
    "name": "yogurt",
-   "kind": "obj-container-pot",
+   "kind": "obj-food",
    "size": "s",
    "wdh": [
     0.15,
@@ -223815,7 +223856,7 @@
   {
    "kit": "styloo-furniture",
    "name": "washing-machine",
-   "kind": "obj-kitchenware-appliance",
+   "kind": "obj-household",
    "size": "s",
    "wdh": [
     0.35,
@@ -225206,7 +225247,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "yogurt",
-   "kind": "obj-container-pot",
+   "kind": "obj-food",
    "size": "s",
    "wdh": [
     0.1,
