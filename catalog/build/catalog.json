@@ -2381,15 +2381,16 @@
     "Asian Pack": 106
    },
    "scales": {
-    "0.36": 106
+    "0.5": 106
    },
    "smooth": {
     "60": 1,
     "none": 105
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 21
+    "factor": 1.43,
+    "kinds": 21,
+    "level": "error"
    }
   },
   {
@@ -2523,7 +2524,7 @@
     "Village Pack": 17
    },
    "scales": {
-    "0.45": 17
+    "0.5": 17
    },
    "smooth": {
     "60": 6,
@@ -14757,21 +14758,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2136
+   "count": 2120
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1682
+   "count": 1680
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 747
+   "count": 765
   },
   {
    "id": "ken",
@@ -228188,21 +228189,22 @@
    "kind": "str-building-religious-shrine",
    "size": "l",
    "wdh": [
-    2.15,
-    2.15,
-    1.8
+    3,
+    3,
+    2.5
    ],
    "tris": 7164,
-   "tpu": 843,
+   "tpu": 315,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 380560,
+   "bytes": 380556,
    "vtx": 10505,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00377,
+   "minEdge": 0.005,
+   "avgTri": 0.00728,
    "anglePct": 56,
    "vpt": 1.47,
    "grad": 0.78,
@@ -228239,7 +228241,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v385"
+   "variant": "v385",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -228247,21 +228256,22 @@
    "kind": "str-building-religious-shrine",
    "size": "l",
    "wdh": [
-    2.15,
-    2.15,
-    1.8
+    3,
+    3,
+    2.5
    ],
    "tris": 8464,
-   "tpu": 996,
+   "tpu": 372,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 438472,
+   "bytes": 438468,
    "vtx": 12071,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00343,
+   "minEdge": 0.005,
+   "avgTri": 0.00661,
    "anglePct": 53,
    "vpt": 1.43,
    "grad": 0.76,
@@ -228298,7 +228308,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v385"
+   "variant": "v385",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -228306,21 +228323,21 @@
    "kind": "str-part",
    "size": "l",
    "wdh": [
-    1.7,
-    0.15,
-    0.3
+    2.35,
+    0.25,
+    0.45
    ],
    "tris": 188,
-   "tpu": 548,
+   "tpu": 490,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10080,
+   "bytes": 10076,
    "vtx": 236,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.054,
-   "avgTri": 0.00703,
+   "minEdge": 0.075,
+   "avgTri": 0.01355,
    "anglePct": 61,
    "vpt": 1.26,
    "grad": 0.75,
@@ -228338,6 +228355,13 @@
     "comp",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -228346,22 +228370,21 @@
    "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    1
+    0.7,
+    0.7,
+    1.35
    ],
    "tris": 2728,
-   "tpu": 5675,
+   "tpu": 4085,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 128216,
+   "bytes": 128212,
    "vtx": 3451,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00027,
+   "minEdge": 0.002,
+   "avgTri": 0.00052,
    "anglePct": 6,
    "vpt": 1.27,
    "grad": 0.9,
@@ -228386,7 +228409,14 @@
     "vegetation",
     "wizp"
    ],
-   "variant": "v348"
+   "variant": "v348",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -228394,21 +228424,21 @@
    "kind": "env-flora-plant-bamboo",
    "size": "m",
    "wdh": [
-    0.7,
-    0.4,
-    0.95
+    0.95,
+    0.6,
+    1.3
    ],
    "tris": 4224,
-   "tpu": 9112,
+   "tpu": 5800,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 197704,
+   "bytes": 197700,
    "vtx": 5342,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00019,
+   "avgTri": 0.00037,
    "anglePct": 6,
    "vpt": 1.26,
    "grad": 0.9,
@@ -228433,29 +228463,36 @@
     "vegetation",
     "wizp"
    ],
-   "variant": "v348"
+   "variant": "v348",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "bamboo-c",
    "kind": "env-flora-plant-bamboo",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.75,
-    0.75,
-    1.2
+    1.1,
+    1,
+    1.65
    ],
    "tris": 6952,
-   "tpu": 10247,
+   "tpu": 3826,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 324380,
+   "bytes": 324376,
    "vtx": 8789,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00021,
+   "avgTri": 0.00041,
    "anglePct": 6,
    "vpt": 1.26,
    "grad": 0.9,
@@ -228480,29 +228517,36 @@
     "vegetation",
     "wizp"
    ],
-   "variant": "v348"
+   "variant": "v348",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "barrel-a",
    "kind": "obj-container-barrel",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.45,
-    0.35
+    0.5,
+    0.6,
+    0.5
    ],
    "tris": 700,
    "tpu": 2041,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 40044,
+   "bytes": 40040,
    "vtx": 1076,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00116,
+   "minEdge": 0.004,
+   "avgTri": 0.00224,
    "anglePct": 27,
    "vpt": 1.54,
    "grad": 0.75,
@@ -228531,29 +228575,36 @@
     "wizp",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "barrel-b",
    "kind": "obj-container-barrel",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.45,
-    0.35
+    0.5,
+    0.65,
+    0.5
    ],
    "tris": 622,
    "tpu": 1813,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 38200,
+   "bytes": 38196,
    "vtx": 1033,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00131,
+   "minEdge": 0.004,
+   "avgTri": 0.00253,
    "anglePct": 28,
    "vpt": 1.66,
    "grad": 0.63,
@@ -228582,6 +228633,13 @@
     "wizp",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -228590,21 +228648,21 @@
    "kind": "obj-art-instrument-bell",
    "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.6
+    0.65,
+    0.65,
+    0.85
    ],
    "tris": 520,
-   "tpu": 1516,
+   "tpu": 1266,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31196,
+   "bytes": 31192,
    "vtx": 834,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00177,
+   "minEdge": 0.018,
+   "avgTri": 0.00341,
    "anglePct": 24,
    "vpt": 1.6,
    "grad": 0.9,
@@ -228621,29 +228679,36 @@
     "asia",
     "metal-gold",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "bell",
    "kind": "obj-art-instrument",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.45,
-    0.45,
-    1.05
+    2,
+    0.65,
+    1.45
    ],
    "tris": 2104,
-   "tpu": 3007,
+   "tpu": 1121,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 104528,
+   "bytes": 104524,
    "vtx": 2828,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00198,
+   "minEdge": 0.008,
+   "avgTri": 0.00382,
    "anglePct": 34,
    "vpt": 1.34,
    "grad": 0.81,
@@ -228672,6 +228737,13 @@
     "stone-masonry",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -228680,21 +228752,21 @@
    "kind": "obj-lighting-torch",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.25
+    0.45,
+    0.4,
+    0.3
    ],
    "tris": 654,
    "tpu": 1907,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37784,
+   "bytes": 37780,
    "vtx": 1014,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00048,
+   "minEdge": 0.006,
+   "avgTri": 0.00092,
    "anglePct": 13,
    "vpt": 1.55,
    "grad": 0.9,
@@ -228717,6 +228789,13 @@
     "metal-iron-cast",
     "metal-iron-wrought",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -228725,21 +228804,21 @@
    "kind": "str-access-bridge-section",
    "size": "l",
    "wdh": [
-    1.8,
-    1.9,
-    1.3
+    2.45,
+    2.65,
+    1.8
    ],
    "tris": 824,
-   "tpu": 185,
+   "tpu": 69,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 43928,
+   "bytes": 43924,
    "vtx": 1174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "avgTri": 0.01667,
+   "minEdge": 0.025,
+   "avgTri": 0.03216,
    "anglePct": 74,
    "vpt": 1.42,
    "grad": 0.85,
@@ -228761,7 +228840,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.9 over max 1.8 (str-access-bridge-section · 1.845 at kit ×1.03)"
+     "text": "longest 2.65 over max 1.8 (str-access-bridge-section · 1.853 at kit ×1.43)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
     }
    ]
   },
@@ -228771,21 +228855,21 @@
    "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
-    2.4,
-    1.75,
-    0.75
+    3.35,
+    2.45,
+    1.05
    ],
    "tris": 1644,
-   "tpu": 508,
+   "tpu": 189,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 87532,
+   "bytes": 87528,
    "vtx": 2383,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00944,
+   "avgTri": 0.01822,
    "anglePct": 24,
    "vpt": 1.45,
    "grad": 0.8,
@@ -228802,6 +228886,13 @@
     "asia",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -228810,21 +228901,21 @@
    "kind": "obj-transport-cart",
    "size": "m",
    "wdh": [
-    0.45,
-    0.95,
-    0.4
+    0.65,
+    1.35,
+    0.55
    ],
    "tris": 1056,
-   "tpu": 3079,
+   "tpu": 1706,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 56444,
+   "bytes": 56440,
    "vtx": 1522,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00138,
+   "minEdge": 0.003,
+   "avgTri": 0.00265,
    "anglePct": 18,
    "vpt": 1.44,
    "grad": 0.73,
@@ -228847,6 +228938,13 @@
     "wizp",
     "wood-beam",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -228855,21 +228953,21 @@
    "kind": "env-flora-plant",
    "size": "m",
    "wdh": [
-    0.85,
-    0.9,
-    0.03
+    1.15,
+    1.3,
+    0.04
    ],
    "tris": 1980,
-   "tpu": 3677,
+   "tpu": 1908,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 88172,
+   "bytes": 88168,
    "vtx": 2340,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00017,
+   "minEdge": 0.004,
+   "avgTri": 0.00033,
    "anglePct": 2,
    "vpt": 1.18,
    "grad": 0.85,
@@ -228887,29 +228985,36 @@
     "foliage",
     "plural",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "door-left",
    "kind": "str-part-gate-single",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.4,
-    0.2,
-    1.1
+    0.55,
+    0.25,
+    1.5
    ],
    "tris": 1150,
-   "tpu": 2173,
+   "tpu": 1565,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 71580,
+   "bytes": 71576,
    "vtx": 1977,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00142,
+   "minEdge": 0.006,
+   "avgTri": 0.00274,
    "anglePct": 81,
    "vpt": 1.72,
    "grad": 0.82,
@@ -228927,29 +229032,36 @@
     "metal-gold",
     "wizp"
    ],
-   "variant": "v581"
+   "variant": "v581",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "door-right",
    "kind": "str-part-gate-single",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.4,
-    0.2,
-    1.1
+    0.55,
+    0.25,
+    1.5
    ],
    "tris": 1150,
-   "tpu": 2173,
+   "tpu": 1565,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 71580,
+   "bytes": 71576,
    "vtx": 1977,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00137,
+   "minEdge": 0.006,
+   "avgTri": 0.00265,
    "anglePct": 81,
    "vpt": 1.72,
    "grad": 0.82,
@@ -228967,7 +229079,14 @@
     "metal-gold",
     "wizp"
    ],
-   "variant": "v581"
+   "variant": "v581",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -228975,21 +229094,21 @@
    "kind": "obj-art-instrument",
    "size": "m",
    "wdh": [
-    0.8,
-    0.9,
-    0.75
+    1.15,
+    1.25,
+    1.05
    ],
    "tris": 1272,
-   "tpu": 2342,
+   "tpu": 874,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 68992,
+   "bytes": 68988,
    "vtx": 1874,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00213,
+   "minEdge": 0.012,
+   "avgTri": 0.00412,
    "anglePct": 0,
    "vpt": 1.47,
    "grad": 0.78,
@@ -229024,6 +229143,13 @@
     "metal-iron-wrought",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -229032,21 +229158,21 @@
    "kind": "obj-art-instrument",
    "size": "m",
    "wdh": [
-    0.8,
-    0.9,
-    0.9
+    1.15,
+    1.25,
+    1.25
    ],
    "tris": 1624,
-   "tpu": 2481,
+   "tpu": 925,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 85836,
+   "bytes": 85832,
    "vtx": 2334,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00266,
+   "minEdge": 0.012,
+   "avgTri": 0.00513,
    "anglePct": 11,
    "vpt": 1.44,
    "grad": 0.77,
@@ -229081,6 +229207,13 @@
     "metal-iron-wrought",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -229089,21 +229222,21 @@
    "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.2
+    0.2,
+    0.2,
+    0.3
    ],
    "tris": 207,
    "tpu": 603,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6704,
+   "bytes": 6700,
    "vtx": 127,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00045,
+   "minEdge": 0.015,
+   "avgTri": 0.00086,
    "anglePct": 6,
    "vpt": 0.61,
    "grad": 0.9,
@@ -229120,6 +229253,13 @@
     "asia",
     "bone",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -229128,21 +229268,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.2,
-    0.3
+    1.25,
+    0.25,
+    0.45
    ],
    "tris": 184,
    "tpu": 536,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12616,
+   "bytes": 12612,
    "vtx": 316,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00413,
+   "avgTri": 0.00796,
    "anglePct": 43,
    "vpt": 1.72,
    "grad": 0.8,
@@ -229161,7 +229301,14 @@
     "wizp",
     "wood-beam"
    ],
-   "variant": "v570"
+   "variant": "v570",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -229169,21 +229316,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.2,
-    0.3
+    1.25,
+    0.25,
+    0.45
    ],
    "tris": 182,
    "tpu": 531,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12220,
+   "bytes": 12216,
    "vtx": 304,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00422,
+   "avgTri": 0.00813,
    "anglePct": 53,
    "vpt": 1.67,
    "grad": 0.77,
@@ -229202,7 +229349,14 @@
     "wizp",
     "wood-beam"
    ],
-   "variant": "v570"
+   "variant": "v570",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -229210,21 +229364,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.3
+    1.25,
+    1.25,
+    0.45
    ],
    "tris": 328,
-   "tpu": 598,
+   "tpu": 310,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21136,
+   "bytes": 21132,
    "vtx": 555,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00401,
+   "avgTri": 0.00774,
    "anglePct": 59,
    "vpt": 1.69,
    "grad": 0.77,
@@ -229242,29 +229396,36 @@
     "scale-small",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "forge",
    "kind": "obj-lighting",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.35
+    0.6,
+    0.6,
+    0.5
    ],
    "tris": 387,
    "tpu": 1128,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27852,
+   "bytes": 27848,
    "vtx": 754,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00099,
+   "avgTri": 0.00192,
    "anglePct": 6,
    "vpt": 1.95,
    "grad": 0.81,
@@ -229293,29 +229454,36 @@
     "metal-iron-wrought",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "frame-wood",
    "kind": "str-part-pillar",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.25,
-    0.3,
-    0.75
+    1.75,
+    0.4,
+    1.05
    ],
    "tris": 694,
-   "tpu": 1906,
+   "tpu": 993,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 43720,
+   "bytes": 43716,
    "vtx": 1192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00226,
+   "minEdge": 0.011,
+   "avgTri": 0.00437,
    "anglePct": 83,
    "vpt": 1.72,
    "grad": 0.7,
@@ -229339,29 +229507,36 @@
     "metal-gold",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "garden-wall-a",
    "kind": "str-barrier",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.2,
-    0.25,
-    0.55
+    1.65,
+    0.3,
+    0.75
    ],
    "tris": 375,
-   "tpu": 1093,
+   "tpu": 955,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19056,
+   "bytes": 19052,
    "vtx": 481,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00496,
+   "minEdge": 0.007,
+   "avgTri": 0.00956,
    "anglePct": 85,
    "vpt": 1.28,
    "grad": 0.48,
@@ -229385,29 +229560,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v361"
+   "variant": "v361",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "garden-wall-b",
    "kind": "str-barrier",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.2,
-    0.25,
-    0.55
+    1.65,
+    0.3,
+    0.75
    ],
    "tris": 548,
-   "tpu": 1598,
+   "tpu": 1395,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 32544,
+   "bytes": 32540,
    "vtx": 870,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00383,
+   "minEdge": 0.003,
+   "avgTri": 0.00739,
    "anglePct": 64,
    "vpt": 1.59,
    "grad": 0.61,
@@ -229437,29 +229619,36 @@
     "wizp",
     "wood-beam"
    ],
-   "variant": "v361"
+   "variant": "v361",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "garden-wall-c",
    "kind": "str-barrier",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.2,
-    0.25,
-    0.55
+    1.65,
+    0.3,
+    0.75
    ],
    "tris": 374,
-   "tpu": 1090,
+   "tpu": 952,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19112,
+   "bytes": 19108,
    "vtx": 483,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00497,
+   "minEdge": 0.006,
+   "avgTri": 0.00958,
    "anglePct": 85,
    "vpt": 1.29,
    "grad": 0.48,
@@ -229483,29 +229672,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v361"
+   "variant": "v361",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "garden-wall-d",
    "kind": "str-barrier",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.2,
-    0.25,
-    0.55
+    1.65,
+    0.3,
+    0.75
    ],
    "tris": 276,
-   "tpu": 805,
+   "tpu": 703,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15004,
+   "bytes": 15000,
    "vtx": 373,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.00673,
+   "minEdge": 0.041,
+   "avgTri": 0.01299,
    "anglePct": 85,
    "vpt": 1.35,
    "grad": 0.47,
@@ -229529,29 +229725,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v361"
+   "variant": "v361",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "garden-wall-e",
    "kind": "str-barrier",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.2,
-    0.25,
-    0.35
+    1.65,
+    0.3,
+    0.5
    ],
    "tris": 276,
-   "tpu": 805,
+   "tpu": 762,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15004,
+   "bytes": 15000,
    "vtx": 373,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.005,
+   "minEdge": 0.041,
+   "avgTri": 0.00964,
    "anglePct": 81,
    "vpt": 1.35,
    "grad": 0.63,
@@ -229568,29 +229771,36 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "gong",
    "kind": "obj-art-instrument",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.45,
-    0.4,
-    1.05
+    2,
+    0.55,
+    1.45
    ],
    "tris": 2368,
-   "tpu": 3946,
+   "tpu": 1472,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 123200,
+   "bytes": 123196,
    "vtx": 3362,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00157,
+   "minEdge": 0.007,
+   "avgTri": 0.00303,
    "anglePct": 33,
    "vpt": 1.42,
    "grad": 0.68,
@@ -229620,29 +229830,36 @@
     "stone-masonry",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "granary",
    "kind": "str-building-agricultural-silo",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.8,
-    0.9,
-    1.45
+    1.1,
+    1.25,
+    2
    ],
    "tris": 1853,
-   "tpu": 1736,
+   "tpu": 648,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 108080,
+   "bytes": 108076,
    "vtx": 2986,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00459,
+   "minEdge": 0.009,
+   "avgTri": 0.00886,
    "anglePct": 47,
    "vpt": 1.61,
    "grad": 0.75,
@@ -229672,29 +229889,36 @@
     "storeys-2",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "grave-a",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.3,
-    0.45
+    0.45,
+    0.45,
+    0.65
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10128,
+   "bytes": 10124,
    "vtx": 251,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00396,
+   "minEdge": 0.012,
+   "avgTri": 0.00764,
    "anglePct": 25,
    "vpt": 2.16,
    "grad": 0.87,
@@ -229712,29 +229936,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v353"
+   "variant": "v353",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "grave-b",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.5
+    0.5,
+    0.45,
+    0.7
    ],
    "tris": 90,
    "tpu": 262,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8976,
+   "bytes": 8972,
    "vtx": 220,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.0051,
+   "minEdge": 0.012,
+   "avgTri": 0.00984,
    "anglePct": 22,
    "vpt": 2.44,
    "grad": 0.87,
@@ -229752,29 +229983,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v353"
+   "variant": "v353",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "grave-c",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.5
+    0.45,
+    0.4,
+    0.7
    ],
    "tris": 126,
    "tpu": 367,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10636,
+   "bytes": 10632,
    "vtx": 265,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00369,
+   "minEdge": 0.01,
+   "avgTri": 0.00712,
    "anglePct": 23,
    "vpt": 2.1,
    "grad": 0.79,
@@ -229792,29 +230030,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v354"
+   "variant": "v354",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "grave-d",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.5
+    0.5,
+    0.45,
+    0.7
    ],
    "tris": 114,
    "tpu": 332,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10048,
+   "bytes": 10044,
    "vtx": 249,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00403,
+   "minEdge": 0.012,
+   "avgTri": 0.00777,
    "anglePct": 22,
    "vpt": 2.18,
    "grad": 0.87,
@@ -229832,7 +230077,14 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v354"
+   "variant": "v354",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -229840,22 +230092,21 @@
    "kind": "env-rock-pebble",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.03
+    0.7,
+    0.7,
+    0.04
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8760,
+   "bytes": 8756,
    "vtx": 200,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00097,
+   "minEdge": 0.021,
+   "avgTri": 0.00186,
    "anglePct": 28,
    "vpt": 1.25,
    "grad": 0.48,
@@ -229874,7 +230125,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v634"
+   "variant": "v634",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -229882,21 +230140,21 @@
    "kind": "env-rock-pebble",
    "size": "m",
    "wdh": [
-    0.35,
     0.5,
-    0.03
+    0.7,
+    0.04
    ],
    "tris": 96,
    "tpu": 280,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5816,
+   "bytes": 5812,
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.0013,
+   "minEdge": 0.03,
+   "avgTri": 0.00252,
    "anglePct": 30,
    "vpt": 1.25,
    "grad": 0.48,
@@ -229915,7 +230173,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v634"
+   "variant": "v634",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -229923,21 +230188,21 @@
    "kind": "env-rock-pebble",
    "size": "s",
    "wdh": [
-    0.3,
-    0.2,
-    0.03
+    0.45,
+    0.25,
+    0.04
    ],
    "tris": 64,
    "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4340,
+   "bytes": 4336,
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00078,
+   "minEdge": 0.03,
+   "avgTri": 0.0015,
    "anglePct": 25,
    "vpt": 1.25,
    "grad": 0.48,
@@ -229956,7 +230221,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v634"
+   "variant": "v634",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -229964,21 +230236,21 @@
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.45
+    1.15,
+    1.15,
+    0.6
    ],
    "tris": 566,
-   "tpu": 1170,
+   "tpu": 606,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 32904,
+   "bytes": 32900,
    "vtx": 878,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.0023,
+   "minEdge": 0.011,
+   "avgTri": 0.00443,
    "anglePct": 21,
    "vpt": 1.55,
    "grad": 0.69,
@@ -229997,7 +230269,14 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v355"
+   "variant": "v355",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230005,21 +230284,21 @@
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.45
+    1.15,
+    1.15,
+    0.6
    ],
    "tris": 471,
-   "tpu": 973,
+   "tpu": 504,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 29036,
+   "bytes": 29032,
    "vtx": 775,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00276,
+   "minEdge": 0.008,
+   "avgTri": 0.00533,
    "anglePct": 19,
    "vpt": 1.65,
    "grad": 0.69,
@@ -230038,29 +230317,36 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v355"
+   "variant": "v355",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "hive",
    "kind": "env-remains",
-   "size": "s",
+   "size": "m",
    "wdh": [
+    0.6,
     0.45,
-    0.35,
-    0.4
+    0.55
    ],
    "tris": 216,
    "tpu": 630,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12992,
+   "bytes": 12988,
    "vtx": 322,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.002,
+   "minEdge": 0.022,
+   "avgTri": 0.00386,
    "anglePct": 7,
    "vpt": 1.49,
    "grad": 0.9,
@@ -230077,6 +230363,13 @@
     "asia",
     "food",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230085,21 +230378,21 @@
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    1.7,
-    1.1,
-    1.25
+    2.35,
+    1.5,
+    1.75
    ],
    "tris": 4445,
-   "tpu": 1923,
+   "tpu": 718,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 256984,
+   "bytes": 256980,
    "vtx": 7153,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.0026,
+   "minEdge": 0.006,
+   "avgTri": 0.00501,
    "anglePct": 60,
    "vpt": 1.61,
    "grad": 0.81,
@@ -230141,6 +230434,13 @@
     "wood-beam",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230149,21 +230449,21 @@
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    1.7,
-    1.1,
-    1.7
+    2.35,
+    1.5,
+    2.35
    ],
    "tris": 7241,
-   "tpu": 2327,
+   "tpu": 868,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 415876,
+   "bytes": 415872,
    "vtx": 11594,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00211,
+   "avgTri": 0.00408,
    "anglePct": 61,
    "vpt": 1.6,
    "grad": 0.82,
@@ -230205,29 +230505,36 @@
     "wood-beam",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "house-c",
    "kind": "str-building-residential-house",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.3,
-    1.1,
-    1.25
+    1.85,
+    1.5,
+    1.75
    ],
    "tris": 3453,
-   "tpu": 1925,
+   "tpu": 719,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 196504,
+   "bytes": 196500,
    "vtx": 5449,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00269,
+   "avgTri": 0.00519,
    "anglePct": 59,
    "vpt": 1.58,
    "grad": 0.8,
@@ -230269,29 +230576,36 @@
     "wood-beam",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "market-house",
    "kind": "str-building-commercial",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.3,
-    1.1,
-    1.25
+    1.85,
+    1.5,
+    1.7
    ],
    "tris": 3240,
-   "tpu": 1828,
+   "tpu": 683,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 182068,
+   "bytes": 182064,
    "vtx": 5038,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00339,
+   "avgTri": 0.00653,
    "anglePct": 66,
    "vpt": 1.55,
    "grad": 0.74,
@@ -230333,6 +230647,13 @@
     "wood-beam",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230341,21 +230662,21 @@
    "kind": "str-canopy-stall",
    "size": "m",
    "wdh": [
-    0.45,
     0.65,
-    0.7
+    0.9,
+    1
    ],
    "tris": 1044,
-   "tpu": 3009,
+   "tpu": 1777,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 74652,
+   "bytes": 74648,
    "vtx": 2093,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00209,
+   "minEdge": 0.006,
+   "avgTri": 0.00404,
    "anglePct": 66,
    "vpt": 2,
    "grad": 0.82,
@@ -230388,29 +230709,36 @@
     "food",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "nest",
    "kind": "env-remains",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.4,
-    0.15
+    0.6,
+    0.6,
+    0.2
    ],
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 32128,
+   "bytes": 32124,
    "vtx": 886,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00097,
+   "avgTri": 0.00188,
    "anglePct": 7,
    "vpt": 2.24,
    "grad": 0.9,
@@ -230427,6 +230755,13 @@
     "asia",
     "vegetation",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230435,21 +230770,21 @@
    "kind": "obj-tool-supplies",
    "size": "m",
    "wdh": [
-    0.85,
-    0.09,
-    0.8
+    1.15,
+    0.15,
+    1.1
    ],
    "tris": 2080,
-   "tpu": 5477,
+   "tpu": 3945,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 154816,
+   "bytes": 154812,
    "vtx": 4404,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00045,
+   "minEdge": 0.013,
+   "avgTri": 0.00087,
    "anglePct": 16,
    "vpt": 2.12,
    "grad": 0.89,
@@ -230472,6 +230807,13 @@
     "rope",
     "wizp",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230480,21 +230822,21 @@
    "kind": "env-rock",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.25
+    0.7,
+    0.7,
+    0.3
    ],
    "tris": 240,
-   "tpu": 700,
+   "tpu": 659,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19392,
+   "bytes": 19388,
    "vtx": 517,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00224,
+   "minEdge": 0.018,
+   "avgTri": 0.00432,
    "anglePct": 5,
    "vpt": 2.15,
    "grad": 0.73,
@@ -230512,7 +230854,14 @@
     "metal-gold",
     "wizp"
    ],
-   "variant": "v400"
+   "variant": "v400",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230520,21 +230869,21 @@
    "kind": "env-rock",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.25
+    0.7,
+    0.7,
+    0.3
    ],
    "tris": 240,
-   "tpu": 700,
+   "tpu": 659,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19852,
+   "bytes": 19848,
    "vtx": 530,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00224,
+   "minEdge": 0.018,
+   "avgTri": 0.00432,
    "anglePct": 5,
    "vpt": 2.21,
    "grad": 0.91,
@@ -230552,7 +230901,14 @@
     "gemstone",
     "wizp"
    ],
-   "variant": "v400"
+   "variant": "v400",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230560,21 +230916,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    1
+    0.55,
+    0.55,
+    1.4
    ],
    "tris": 566,
-   "tpu": 1149,
+   "tpu": 828,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 26764,
+   "bytes": 26760,
    "vtx": 686,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00197,
+   "minEdge": 0.007,
+   "avgTri": 0.00381,
    "anglePct": 27,
    "vpt": 1.21,
    "grad": 0.56,
@@ -230598,7 +230954,14 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v380"
+   "variant": "v380",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230606,21 +230969,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.75
+    0.55,
+    0.55,
+    1.05
    ],
    "tris": 566,
-   "tpu": 1494,
+   "tpu": 1077,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 26752,
+   "bytes": 26748,
    "vtx": 686,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00169,
+   "minEdge": 0.007,
+   "avgTri": 0.00327,
    "anglePct": 26,
    "vpt": 1.21,
    "grad": 0.56,
@@ -230644,7 +231007,14 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v380"
+   "variant": "v380",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230652,21 +231022,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    1
+    0.55,
+    0.55,
+    1.4
    ],
    "tris": 650,
-   "tpu": 1321,
+   "tpu": 951,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30372,
+   "bytes": 30368,
    "vtx": 783,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00196,
+   "minEdge": 0.008,
+   "avgTri": 0.00378,
    "anglePct": 28,
    "vpt": 1.2,
    "grad": 0.56,
@@ -230690,7 +231060,14 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v381"
+   "variant": "v381",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230698,21 +231075,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.75
+    0.55,
+    0.55,
+    1.05
    ],
    "tris": 650,
-   "tpu": 1716,
+   "tpu": 1236,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30360,
+   "bytes": 30356,
    "vtx": 783,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00172,
+   "minEdge": 0.008,
+   "avgTri": 0.00331,
    "anglePct": 27,
    "vpt": 1.2,
    "grad": 0.56,
@@ -230736,7 +231113,14 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v381"
+   "variant": "v381",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230744,21 +231128,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    1
+    0.55,
+    0.55,
+    1.4
    ],
    "tris": 334,
-   "tpu": 678,
+   "tpu": 489,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15004,
+   "bytes": 15000,
    "vtx": 362,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.00301,
+   "minEdge": 0.027,
+   "avgTri": 0.00582,
    "anglePct": 30,
    "vpt": 1.08,
    "grad": 0.63,
@@ -230775,6 +231159,13 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230783,21 +231174,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.75
+    0.55,
+    0.55,
+    1.05
    ],
    "tris": 334,
-   "tpu": 882,
+   "tpu": 635,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14992,
+   "bytes": 14988,
    "vtx": 362,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.00254,
+   "minEdge": 0.027,
+   "avgTri": 0.0049,
    "anglePct": 29,
    "vpt": 1.08,
    "grad": 0.63,
@@ -230814,6 +231205,13 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230822,21 +231220,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.75
+    0.4,
+    0.4,
+    1.05
    ],
    "tris": 367,
-   "tpu": 1008,
+   "tpu": 726,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23452,
+   "bytes": 23448,
    "vtx": 620,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00214,
+   "minEdge": 0.011,
+   "avgTri": 0.00413,
    "anglePct": 83,
    "vpt": 1.69,
    "grad": 0.67,
@@ -230859,6 +231257,13 @@
     "metal-gold",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -230867,21 +231272,21 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    0.2,
-    0.75,
-    0.07
+    0.25,
+    1.05,
+    0.09
    ],
    "tris": 64,
    "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5620,
+   "bytes": 5616,
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00577,
+   "minEdge": 0.016,
+   "avgTri": 0.01112,
    "anglePct": 74,
    "vpt": 1.88,
    "grad": 0.77,
@@ -230899,7 +231304,14 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v616"
+   "variant": "v616",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230907,21 +231319,21 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    0.2,
-    0.7,
-    0.07
+    0.25,
+    1,
+    0.09
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6684,
+   "bytes": 6680,
    "vtx": 149,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00425,
+   "avgTri": 0.0082,
    "anglePct": 77,
    "vpt": 1.73,
    "grad": 0.75,
@@ -230939,7 +231351,14 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v616"
+   "variant": "v616",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230947,21 +231366,21 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    0.2,
-    0.75,
-    0.07
+    0.25,
+    1.05,
+    0.09
    ],
    "tris": 62,
    "tpu": 181,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5484,
+   "bytes": 5480,
    "vtx": 116,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00607,
+   "minEdge": 0.019,
+   "avgTri": 0.01172,
    "anglePct": 81,
    "vpt": 1.87,
    "grad": 0.77,
@@ -230979,7 +231398,14 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v616"
+   "variant": "v616",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -230987,21 +231413,21 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    0.2,
-    0.75,
-    0.07
+    0.25,
+    1,
+    0.09
    ],
    "tris": 70,
    "tpu": 204,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5628,
+   "bytes": 5624,
    "vtx": 119,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00519,
+   "avgTri": 0.01001,
    "anglePct": 82,
    "vpt": 1.7,
    "grad": 0.76,
@@ -231019,7 +231445,14 @@
     "wizp",
     "wood-planks"
    ],
-   "variant": "v616"
+   "variant": "v616",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231027,21 +231460,21 @@
    "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.75
+    0.7,
+    0.7,
+    1
    ],
    "tris": 1770,
-   "tpu": 4948,
+   "tpu": 3430,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 72296,
+   "bytes": 72292,
    "vtx": 1883,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00052,
+   "minEdge": 0.002,
+   "avgTri": 0.00101,
    "anglePct": 3,
    "vpt": 1.06,
    "grad": 0.4,
@@ -231061,9 +231494,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.75 over max 0.7 (env-flora-plant-leafy · 0.728 at kit ×1.03)"
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
     }
    ]
   },
@@ -231073,21 +231506,22 @@
    "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
-    0.55,
-    0.55,
-    0.25
+    0.75,
+    0.75,
+    0.35
    ],
    "tris": 1674,
-   "tpu": 4880,
+   "tpu": 4385,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 75332,
+   "bytes": 75328,
    "vtx": 1996,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00033,
+   "avgTri": 0.00064,
    "anglePct": 4,
    "vpt": 1.19,
    "grad": 0.88,
@@ -231110,6 +231544,13 @@
     "foliage",
     "vegetation",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -231118,21 +231559,21 @@
    "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
-    0.55,
-    0.5,
-    0.25
+    0.75,
+    0.7,
+    0.4
    ],
    "tris": 1632,
-   "tpu": 4758,
+   "tpu": 4205,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 55912,
+   "bytes": 55908,
    "vtx": 1397,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00028,
+   "minEdge": 0.004,
+   "avgTri": 0.00054,
    "anglePct": 2,
    "vpt": 0.86,
    "grad": 0.9,
@@ -231150,7 +231591,14 @@
     "foliage",
     "wizp"
    ],
-   "variant": "v637"
+   "variant": "v637",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231158,21 +231606,21 @@
    "kind": "env-flora-plant-leafy",
    "size": "m",
    "wdh": [
-    0.55,
-    0.5,
-    0.25
+    0.75,
+    0.7,
+    0.4
    ],
    "tris": 1632,
-   "tpu": 4758,
+   "tpu": 4205,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 60712,
+   "bytes": 60708,
    "vtx": 1547,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00028,
+   "minEdge": 0.004,
+   "avgTri": 0.00054,
    "anglePct": 2,
    "vpt": 0.95,
    "grad": 0.7,
@@ -231190,7 +231638,14 @@
     "vegetation",
     "wizp"
    ],
-   "variant": "v637"
+   "variant": "v637",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231198,21 +231653,22 @@
    "kind": "str-platform-deck",
    "size": "l",
    "wdh": [
-    2.15,
-    2.15,
-    0.3
+    3,
+    3,
+    0.45
    ],
    "tris": 174,
-   "tpu": 53,
+   "tpu": 27,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12912,
+   "bytes": 12908,
    "vtx": 327,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.05569,
+   "minEdge": 0.041,
+   "avgTri": 0.10743,
    "anglePct": 96,
    "vpt": 1.88,
    "grad": 0.9,
@@ -231237,21 +231693,21 @@
    "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.85
+    0.4,
+    0.4,
+    1.2
    ],
    "tris": 515,
-   "tpu": 1229,
+   "tpu": 885,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 29968,
+   "bytes": 29964,
    "vtx": 796,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00119,
+   "minEdge": 0.008,
+   "avgTri": 0.00229,
    "anglePct": 3,
    "vpt": 1.55,
    "grad": 0.68,
@@ -231274,6 +231730,13 @@
     "rope",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -231282,21 +231745,21 @@
    "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
-    0.25,
-    0.45,
-    0.75
+    0.35,
+    0.65,
+    1.05
    ],
    "tris": 729,
-   "tpu": 1935,
+   "tpu": 1393,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 41496,
+   "bytes": 41492,
    "vtx": 1116,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00076,
+   "minEdge": 0.007,
+   "avgTri": 0.00147,
    "anglePct": 17,
    "vpt": 1.53,
    "grad": 0.73,
@@ -231319,6 +231782,13 @@
     "rope",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -231327,21 +231797,21 @@
    "kind": "obj-container-pot",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.45
+    0.85,
+    0.85,
+    0.6
    ],
    "tris": 490,
-   "tpu": 1429,
+   "tpu": 1016,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17656,
+   "bytes": 17652,
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00222,
+   "minEdge": 0.007,
+   "avgTri": 0.00428,
    "anglePct": 17,
    "vpt": 0.85,
    "grad": 0.33,
@@ -231358,6 +231828,13 @@
     "asia",
     "ceramic",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -231366,21 +231843,21 @@
    "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.45,
+    0.45,
+    0.4
    ],
    "tris": 490,
    "tpu": 1429,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17656,
+   "bytes": 17652,
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00067,
+   "minEdge": 0.005,
+   "avgTri": 0.0013,
    "anglePct": 10,
    "vpt": 0.85,
    "grad": 0.33,
@@ -231397,29 +231874,36 @@
     "asia",
     "ceramic",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "rock-block-a",
    "kind": "env-rock-cobble",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.45
+    0.55,
+    0.55,
+    0.6
    ],
    "tris": 50,
    "tpu": 146,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6508,
+   "bytes": 6504,
    "vtx": 150,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.01448,
+   "minEdge": 0.003,
+   "avgTri": 0.02794,
    "anglePct": 0,
    "vpt": 3,
    "grad": 0.52,
@@ -231437,29 +231921,36 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v343"
+   "variant": "v343",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "rock-block-b",
    "kind": "env-rock-cobble",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.3
+    0.55,
+    0.55,
+    0.4
    ],
    "tris": 53,
    "tpu": 155,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6816,
+   "bytes": 6812,
    "vtx": 159,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.034,
-   "avgTri": 0.00947,
+   "minEdge": 0.047,
+   "avgTri": 0.01827,
    "anglePct": 17,
    "vpt": 3,
    "grad": 0.53,
@@ -231477,29 +231968,36 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v343"
+   "variant": "v343",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "rock-block-c",
    "kind": "env-rock-cobble",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.55,
+    0.55,
+    0.55
    ],
    "tris": 50,
    "tpu": 146,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6508,
+   "bytes": 6504,
    "vtx": 150,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.01329,
+   "minEdge": 0.003,
+   "avgTri": 0.02564,
    "anglePct": 39,
    "vpt": 3,
    "grad": 0.55,
@@ -231517,7 +232015,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v343"
+   "variant": "v343",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231525,21 +232030,21 @@
    "kind": "env-terrain-mountain",
    "size": "l",
    "wdh": [
-    1.6,
-    1.6,
-    1.95
+    2.25,
+    2.25,
+    2.7
    ],
    "tris": 308,
-   "tpu": 61,
+   "tpu": 23,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17652,
+   "bytes": 17648,
    "vtx": 450,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.02906,
+   "minEdge": 0.001,
+   "avgTri": 0.05606,
    "anglePct": 0,
    "vpt": 1.46,
    "grad": 0.8,
@@ -231557,7 +232062,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v344"
+   "variant": "v344",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231565,21 +232077,21 @@
    "kind": "env-terrain-mountain",
    "size": "l",
    "wdh": [
-    1.65,
-    1.25,
-    2
+    2.3,
+    1.7,
+    2.75
    ],
    "tris": 216,
-   "tpu": 54,
+   "tpu": 20,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13744,
+   "bytes": 13740,
    "vtx": 345,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.03617,
+   "minEdge": 0.003,
+   "avgTri": 0.06978,
    "anglePct": 1,
    "vpt": 1.6,
    "grad": 0.8,
@@ -231597,7 +232109,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v344"
+   "variant": "v344",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231605,21 +232124,21 @@
    "kind": "env-terrain-mountain",
    "size": "l",
    "wdh": [
-    2.4,
-    2.35,
-    3.05
+    3.35,
+    3.3,
+    4.25
    ],
    "tris": 374,
-   "tpu": 21,
+   "tpu": 8,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21092,
+   "bytes": 21088,
    "vtx": 545,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.05617,
+   "minEdge": 0.027,
+   "avgTri": 0.10836,
    "anglePct": 0,
    "vpt": 1.46,
    "grad": 0.84,
@@ -231637,29 +232156,36 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v344"
+   "variant": "v344",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "rock-medium-a",
    "kind": "env-rock-boulder",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.95,
-    0.95,
-    1.15
+    1.3,
+    1.3,
+    1.6
    ],
    "tris": 132,
-   "tpu": 130,
+   "tpu": 49,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8344,
+   "bytes": 8340,
    "vtx": 192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.02513,
+   "minEdge": 0.041,
+   "avgTri": 0.04848,
    "anglePct": 3,
    "vpt": 1.45,
    "grad": 0.88,
@@ -231677,7 +232203,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v345"
+   "variant": "v345",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231685,21 +232218,21 @@
    "kind": "env-rock-boulder",
    "size": "m",
    "wdh": [
-    0.6,
-    0.55,
-    0.85
+    0.85,
+    0.75,
+    1.15
    ],
    "tris": 128,
-   "tpu": 311,
+   "tpu": 171,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8672,
+   "bytes": 8668,
    "vtx": 203,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.01176,
+   "minEdge": 0.027,
+   "avgTri": 0.02269,
    "anglePct": 1,
    "vpt": 1.59,
    "grad": 0.84,
@@ -231717,7 +232250,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v345"
+   "variant": "v345",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231725,21 +232265,21 @@
    "kind": "env-rock-boulder",
    "size": "l",
    "wdh": [
+    1.6,
     1.15,
-    0.85,
-    1.55
+    2.15
    ],
    "tris": 176,
-   "tpu": 119,
+   "tpu": 44,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10884,
+   "bytes": 10880,
    "vtx": 263,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.02392,
+   "minEdge": 0.026,
+   "avgTri": 0.04615,
    "anglePct": 0,
    "vpt": 1.49,
    "grad": 0.83,
@@ -231757,7 +232297,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v345"
+   "variant": "v345",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231765,21 +232312,21 @@
    "kind": "env-rock-boulder",
    "size": "l",
    "wdh": [
-    1.2,
-    1.05,
-    1.55
+    1.7,
+    1.45,
+    2.15
    ],
    "tris": 290,
-   "tpu": 147,
+   "tpu": 55,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17424,
+   "bytes": 17420,
    "vtx": 446,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.01829,
+   "minEdge": 0.019,
+   "avgTri": 0.03528,
    "anglePct": 1,
    "vpt": 1.54,
    "grad": 0.84,
@@ -231797,7 +232344,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v345"
+   "variant": "v345",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231805,21 +232359,21 @@
    "kind": "env-rock-boulder",
    "size": "m",
    "wdh": [
-    0.75,
-    0.55,
-    0.35
+    1.05,
+    0.8,
+    0.5
    ],
    "tris": 76,
-   "tpu": 222,
+   "tpu": 136,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5316,
+   "bytes": 5312,
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.032,
-   "avgTri": 0.01331,
+   "minEdge": 0.044,
+   "avgTri": 0.02567,
    "anglePct": 14,
    "vpt": 1.42,
    "grad": 0.56,
@@ -231837,29 +232391,36 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v346"
+   "variant": "v346",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "rock-small-b",
    "kind": "env-rock-cobble",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.45,
-    0.35
+    0.5,
+    0.6,
+    0.5
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5788,
+   "bytes": 5784,
    "vtx": 122,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.00551,
+   "minEdge": 0.038,
+   "avgTri": 0.01064,
    "anglePct": 0,
    "vpt": 1.53,
    "grad": 0.61,
@@ -231877,29 +232438,36 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v346"
+   "variant": "v346",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "name": "rock-small-c",
    "kind": "env-rock-cobble",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.5,
-    0.4,
-    0.35
+    0.7,
+    0.55,
+    0.5
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5472,
+   "bytes": 5468,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00587,
+   "minEdge": 0.034,
+   "avgTri": 0.01133,
    "anglePct": 1,
    "vpt": 1.4,
    "grad": 0.61,
@@ -231917,7 +232485,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v346"
+   "variant": "v346",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -231925,21 +232500,21 @@
    "kind": "env-rock-cobble",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.4,
+    0.45,
+    0.4
    ],
    "tris": 70,
    "tpu": 204,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5380,
+   "bytes": 5376,
    "vtx": 111,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.00389,
+   "minEdge": 0.028,
+   "avgTri": 0.00751,
    "anglePct": 1,
    "vpt": 1.59,
    "grad": 0.61,
@@ -231956,6 +232531,13 @@
     "asia",
     "stone-rock",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -231964,21 +232546,21 @@
    "kind": "env-rock-boulder",
    "size": "m",
    "wdh": [
-    0.7,
-    0.35,
-    0.2
+    0.95,
+    0.5,
+    0.25
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5380,
+   "bytes": 5376,
    "vtx": 110,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.00697,
+   "minEdge": 0.041,
+   "avgTri": 0.01344,
    "anglePct": 33,
    "vpt": 1.45,
    "grad": 0.58,
@@ -231995,6 +232577,13 @@
     "asia",
     "stone-rock",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232003,21 +232592,22 @@
    "kind": "str-part-roof-unit",
    "size": "l",
    "wdh": [
-    1.8,
-    1.8,
-    0.6
+    2.5,
+    2.5,
+    0.85
    ],
    "tris": 3090,
-   "tpu": 1353,
+   "tpu": 569,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 195664,
+   "bytes": 195660,
    "vtx": 5491,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00368,
+   "minEdge": 0.005,
+   "avgTri": 0.0071,
    "anglePct": 44,
    "vpt": 1.78,
    "grad": 0.85,
@@ -232041,29 +232631,36 @@
     "comp",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "shrine-large",
    "kind": "str-building-religious-shrine",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.3,
-    1.1,
-    1.25
+    1.85,
+    1.5,
+    1.7
    ],
    "tris": 4092,
-   "tpu": 2313,
+   "tpu": 864,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 202548,
+   "bytes": 202544,
    "vtx": 5518,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00195,
+   "minEdge": 0.006,
+   "avgTri": 0.00376,
    "anglePct": 37,
    "vpt": 1.35,
    "grad": 0.65,
@@ -232099,6 +232696,13 @@
     "storeys-1",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232107,21 +232711,21 @@
    "kind": "str-building-religious-shrine",
    "size": "m",
    "wdh": [
-    0.65,
-    0.7,
-    1
+    0.9,
+    1,
+    1.35
    ],
    "tris": 2902,
-   "tpu": 5988,
+   "tpu": 2398,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 162220,
+   "bytes": 162216,
    "vtx": 4481,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00136,
+   "avgTri": 0.00261,
    "anglePct": 61,
    "vpt": 1.54,
    "grad": 0.67,
@@ -232163,6 +232767,13 @@
     "wood-beam",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232171,21 +232782,21 @@
    "kind": "obj-art-sculpture",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.55
+    0.9,
+    0.9,
+    0.75
    ],
    "tris": 2088,
-   "tpu": 6087,
+   "tpu": 3294,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 89244,
+   "bytes": 89240,
    "vtx": 2353,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00094,
+   "minEdge": 0.007,
+   "avgTri": 0.00181,
    "anglePct": 36,
    "vpt": 1.13,
    "grad": 0.73,
@@ -232202,6 +232813,13 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232210,21 +232828,21 @@
    "kind": "obj-art-sculpture",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.9
+    0.9,
+    0.9,
+    1.2
    ],
    "tris": 752,
-   "tpu": 1752,
+   "tpu": 743,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 34824,
+   "bytes": 34820,
    "vtx": 903,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00295,
+   "minEdge": 0.012,
+   "avgTri": 0.00568,
    "anglePct": 31,
    "vpt": 1.2,
    "grad": 0.78,
@@ -232241,6 +232859,13 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232249,21 +232874,21 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
+    1,
     0.7,
-    0.5,
-    0.3
+    0.4
    ],
    "tris": 264,
-   "tpu": 770,
+   "tpu": 571,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21420,
+   "bytes": 21416,
    "vtx": 576,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.00716,
+   "minEdge": 0.027,
+   "avgTri": 0.01381,
    "anglePct": 82,
    "vpt": 2.18,
    "grad": 0.88,
@@ -232281,6 +232906,13 @@
     "comp",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232289,21 +232921,21 @@
    "kind": "obj-lighting-lantern",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.6
+    0.4,
+    0.45,
+    0.85
    ],
    "tris": 734,
-   "tpu": 2140,
+   "tpu": 1769,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 36276,
+   "bytes": 36272,
    "vtx": 952,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00089,
+   "minEdge": 0.004,
+   "avgTri": 0.00172,
    "anglePct": 13,
    "vpt": 1.3,
    "grad": 0.85,
@@ -232326,29 +232958,36 @@
     "metal-iron-wrought",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "torii",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.35,
-    0.3,
-    1.1
+    1.85,
+    0.4,
+    1.55
    ],
    "tris": 1218,
-   "tpu": 2247,
+   "tpu": 1064,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 67208,
+   "bytes": 67204,
    "vtx": 1828,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00169,
+   "minEdge": 0.008,
+   "avgTri": 0.00325,
    "anglePct": 27,
    "vpt": 1.5,
    "grad": 0.72,
@@ -232371,6 +233010,13 @@
     "wizp",
     "wood-beam",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232379,21 +233025,21 @@
    "kind": "str-building-agricultural-silo",
    "size": "l",
    "wdh": [
-    0.9,
-    1,
-    1.55
+    1.2,
+    1.4,
+    2.15
    ],
    "tris": 2619,
-   "tpu": 1911,
+   "tpu": 712,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 149892,
+   "bytes": 149888,
    "vtx": 4149,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00355,
+   "avgTri": 0.00684,
    "anglePct": 62,
    "vpt": 1.58,
    "grad": 0.83,
@@ -232429,6 +233075,13 @@
     "wizp",
     "wood-beam",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232437,21 +233090,21 @@
    "kind": "obj-equipment-target-dummy",
    "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.7
+    0.65,
+    0.65,
+    1
    ],
    "tris": 1811,
-   "tpu": 5198,
+   "tpu": 3745,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 101284,
+   "bytes": 101280,
    "vtx": 2781,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00029,
+   "avgTri": 0.00056,
    "anglePct": 17,
    "vpt": 1.54,
    "grad": 0.66,
@@ -232474,6 +233127,13 @@
     "rope",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232482,21 +233142,21 @@
    "kind": "env-flora-tree",
    "size": "l",
    "wdh": [
-    1.2,
-    1.15,
-    1.6
+    1.7,
+    1.6,
+    2.25
    ],
    "tris": 3468,
-   "tpu": 1539,
+   "tpu": 574,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 111768,
+   "bytes": 111764,
    "vtx": 2798,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00207,
+   "avgTri": 0.004,
    "anglePct": 11,
    "vpt": 0.81,
    "grad": 0.82,
@@ -232519,6 +233179,13 @@
     "foliage",
     "wizp",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232527,21 +233194,21 @@
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
-    0.3,
-    0.25,
-    0.35
+    0.4,
+    0.4,
+    0.5
    ],
    "tris": 496,
    "tpu": 1446,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31164,
+   "bytes": 31160,
    "vtx": 837,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00084,
+   "minEdge": 0.009,
+   "avgTri": 0.00161,
    "anglePct": 34,
    "vpt": 1.69,
    "grad": 0.7,
@@ -232558,6 +233225,13 @@
     "asia",
     "ceramic",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232566,21 +233240,21 @@
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
-    0.3,
-    0.25,
-    0.35
+    0.4,
+    0.4,
+    0.5
    ],
    "tris": 496,
    "tpu": 1446,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31164,
+   "bytes": 31160,
    "vtx": 837,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00084,
+   "minEdge": 0.009,
+   "avgTri": 0.00161,
    "anglePct": 34,
    "vpt": 1.69,
    "grad": 0.38,
@@ -232597,6 +233271,13 @@
     "asia",
     "ceramic",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232605,21 +233286,21 @@
    "kind": "obj-art-sculpture",
    "size": "s",
    "wdh": [
-    0.3,
-    0.15,
-    0.25
+    0.45,
+    0.2,
+    0.35
    ],
    "tris": 574,
    "tpu": 1673,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 30428,
+   "bytes": 30424,
    "vtx": 799,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.0007,
+   "minEdge": 0.012,
+   "avgTri": 0.00134,
    "anglePct": 24,
    "vpt": 1.39,
    "grad": 0.66,
@@ -232636,6 +233317,13 @@
     "asia",
     "metal-gold",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232644,21 +233332,21 @@
    "kind": "obj-art-sculpture",
    "size": "s",
    "wdh": [
-    0.3,
-    0.15,
-    0.25
+    0.45,
+    0.2,
+    0.35
    ],
    "tris": 574,
    "tpu": 1673,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 30428,
+   "bytes": 30424,
    "vtx": 799,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.0007,
+   "minEdge": 0.012,
+   "avgTri": 0.00134,
    "anglePct": 24,
    "vpt": 1.39,
    "grad": 0.64,
@@ -232675,29 +233363,36 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "wall-decor-c",
    "kind": "obj-art-sculpture",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.2,
-    0.4
+    0.55,
+    0.25,
+    0.55
    ],
    "tris": 1230,
    "tpu": 3586,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 64448,
+   "bytes": 64444,
    "vtx": 1739,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00031,
+   "minEdge": 0.004,
+   "avgTri": 0.0006,
    "anglePct": 15,
    "vpt": 1.41,
    "grad": 0.73,
@@ -232714,29 +233409,36 @@
     "asia",
     "stone-masonry",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
    "kit": "wizp-asia",
    "name": "wall-decor-d",
    "kind": "obj-art-sculpture",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.2,
-    0.4
+    0.55,
+    0.25,
+    0.55
    ],
    "tris": 1230,
    "tpu": 3586,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 64448,
+   "bytes": 64444,
    "vtx": 1739,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00031,
+   "minEdge": 0.004,
+   "avgTri": 0.0006,
    "anglePct": 15,
    "vpt": 1.41,
    "grad": 0.77,
@@ -232753,6 +233455,13 @@
     "asia",
     "metal-gold",
     "wizp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -232761,22 +233470,21 @@
    "kind": "str-building-industrial-mill",
    "size": "l",
    "wdh": [
-    1,
-    1.5,
-    1.5
+    1.4,
+    2.1,
+    2.1
    ],
    "tris": 2352,
-   "tpu": 1054,
+   "tpu": 393,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 132788,
+   "bytes": 132784,
    "vtx": 3644,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00373,
+   "avgTri": 0.00719,
    "anglePct": 53,
    "vpt": 1.55,
    "grad": 0.87,
@@ -232806,7 +233514,14 @@
    "anim": [
     "spin"
    ],
-   "variant": "v935"
+   "variant": "v935",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -232814,22 +233529,21 @@
    "kind": "str-building-industrial-mill",
    "size": "l",
    "wdh": [
-    1,
-    1.5,
-    1.5
+    1.4,
+    2.1,
+    2.1
    ],
    "tris": 2352,
-   "tpu": 1054,
+   "tpu": 393,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 132132,
+   "bytes": 132128,
    "vtx": 3644,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00373,
+   "avgTri": 0.00719,
    "anglePct": 53,
    "vpt": 1.55,
    "grad": 0.87,
@@ -232855,7 +233569,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v935"
+   "variant": "v935",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -232863,21 +233584,22 @@
    "kind": "str-utility-well",
    "size": "m",
    "wdh": [
-    0.7,
-    0.75,
-    0.3
+    1,
+    1,
+    0.45
    ],
    "tris": 489,
-   "tpu": 1348,
+   "tpu": 699,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27916,
+   "bytes": 27912,
    "vtx": 737,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00395,
+   "minEdge": 0.009,
+   "avgTri": 0.00762,
    "anglePct": 43,
    "vpt": 1.51,
    "grad": 0.65,
@@ -232900,6 +233622,13 @@
     "stone-masonry",
     "wizp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.43 off the size curve (wizp-asia, 21 kinds)"
+    }
    ]
   },
   {
@@ -238422,21 +239151,21 @@
    "kind": "str-access-bridge-section",
    "size": "l",
    "wdh": [
-    1.65,
-    1.2,
-    1.2
+    1.85,
+    1.3,
+    1.3
    ],
    "tris": 3342,
-   "tpu": 1438,
+   "tpu": 1049,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 154540,
+   "bytes": 154536,
    "vtx": 4157,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.0029,
+   "avgTri": 0.00358,
    "anglePct": 62,
    "vpt": 1.24,
    "grad": 0.73,
@@ -238460,7 +239189,14 @@
     "wizp",
     "wood-beam"
    ],
-   "variant": "v439"
+   "variant": "v439",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.85 over max 1.8 (str-access-bridge-section)"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
@@ -238468,21 +239204,21 @@
    "kind": "str-access-bridge-section",
    "size": "l",
    "wdh": [
-    1.6,
-    1.2,
-    1.2
+    1.8,
+    1.3,
+    1.3
    ],
    "tris": 3344,
-   "tpu": 1492,
+   "tpu": 1088,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 154968,
+   "bytes": 154964,
    "vtx": 4170,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00288,
+   "avgTri": 0.00355,
    "anglePct": 61,
    "vpt": 1.25,
    "grad": 0.73,
@@ -238514,21 +239250,21 @@
    "kind": "str-building-agricultural-silo",
    "size": "l",
    "wdh": [
-    2.8,
-    2.95,
-    2.85
+    3.1,
+    3.25,
+    3.15
    ],
    "tris": 10123,
-   "tpu": 435,
+   "tpu": 317,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 580356,
+   "bytes": 580352,
    "vtx": 16192,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00877,
+   "avgTri": 0.01083,
    "anglePct": 51,
    "vpt": 1.6,
    "grad": 0.89,
@@ -238578,21 +239314,21 @@
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    2.15,
-    1.35,
-    1.55
+    2.35,
+    1.5,
+    1.75
    ],
    "tris": 6693,
-   "tpu": 1482,
+   "tpu": 1081,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 374968,
+   "bytes": 374964,
    "vtx": 10417,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00286,
+   "minEdge": 0.006,
+   "avgTri": 0.00353,
    "anglePct": 55,
    "vpt": 1.56,
    "grad": 0.83,
@@ -238643,21 +239379,21 @@
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    2.15,
-    1.35,
-    2.1
+    2.35,
+    1.5,
+    2.35
    ],
    "tris": 9509,
-   "tpu": 1564,
+   "tpu": 1140,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 528472,
+   "bytes": 528468,
    "vtx": 14686,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00261,
+   "avgTri": 0.00322,
    "anglePct": 57,
    "vpt": 1.54,
    "grad": 0.83,
@@ -238708,21 +239444,21 @@
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    1.65,
-    1.35,
-    1.55
+    1.85,
+    1.5,
+    1.75
    ],
    "tris": 5785,
-   "tpu": 1651,
+   "tpu": 1204,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 324108,
+   "bytes": 324104,
    "vtx": 8998,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00269,
+   "avgTri": 0.00332,
    "anglePct": 52,
    "vpt": 1.56,
    "grad": 0.83,
@@ -238774,20 +239510,20 @@
    "size": "m",
    "wdh": [
     0.25,
-    0.95,
-    0.08
+    1.05,
+    0.09
    ],
    "tris": 64,
    "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4924,
+   "bytes": 4920,
    "vtx": 98,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00901,
+   "minEdge": 0.016,
+   "avgTri": 0.01112,
    "anglePct": 74,
    "vpt": 1.53,
    "grad": 0.96,
@@ -238813,20 +239549,20 @@
    "size": "m",
    "wdh": [
     0.25,
-    0.9,
-    0.08
+    1,
+    0.09
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5476,
+   "bytes": 5472,
    "vtx": 111,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00664,
+   "avgTri": 0.0082,
    "anglePct": 77,
    "vpt": 1.29,
    "grad": 0.96,
@@ -238852,20 +239588,20 @@
    "size": "m",
    "wdh": [
     0.25,
-    0.95,
-    0.08
+    1.05,
+    0.09
    ],
    "tris": 62,
    "tpu": 181,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4752,
+   "bytes": 4748,
    "vtx": 93,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.00949,
+   "minEdge": 0.019,
+   "avgTri": 0.01172,
    "anglePct": 81,
    "vpt": 1.5,
    "grad": 0.96,
@@ -238891,20 +239627,20 @@
    "size": "m",
    "wdh": [
     0.25,
-    0.9,
-    0.08
+    1,
+    0.09
    ],
    "tris": 70,
    "tpu": 204,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4864,
+   "bytes": 4860,
    "vtx": 95,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00811,
+   "avgTri": 0.01001,
    "anglePct": 82,
    "vpt": 1.36,
    "grad": 0.96,
@@ -238929,21 +239665,22 @@
    "kind": "str-platform-deck",
    "size": "l",
    "wdh": [
-    2.7,
-    2.7,
-    0.4
+    3,
+    3,
+    0.45
    ],
    "tris": 174,
-   "tpu": 34,
+   "tpu": 27,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12480,
+   "bytes": 12476,
    "vtx": 313,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.037,
-   "avgTri": 0.08702,
+   "minEdge": 0.041,
+   "avgTri": 0.10743,
    "anglePct": 96,
    "vpt": 1.8,
    "grad": 0.63,
@@ -238973,22 +239710,21 @@
    "kind": "obj-container-pot",
    "size": "m",
    "wdh": [
-    0.75,
-    0.75,
-    0.55
+    0.85,
+    0.85,
+    0.6
    ],
    "tris": 490,
-   "tpu": 1254,
+   "tpu": 1016,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16260,
+   "bytes": 16256,
    "vtx": 372,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00347,
+   "minEdge": 0.007,
+   "avgTri": 0.00428,
    "anglePct": 17,
    "vpt": 0.76,
    "grad": 0.96,
@@ -239013,21 +239749,21 @@
    "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
-    0.4,
-    0.4,
-    0.35
+    0.45,
+    0.45,
+    0.4
    ],
    "tris": 490,
    "tpu": 1429,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16260,
+   "bytes": 16256,
    "vtx": 372,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00105,
+   "avgTri": 0.0013,
    "anglePct": 10,
    "vpt": 0.76,
    "grad": 0.94,
@@ -239052,21 +239788,21 @@
    "kind": "str-building-commercial",
    "size": "l",
    "wdh": [
-    1.65,
-    1.35,
-    1.55
+    1.85,
+    1.5,
+    1.7
    ],
    "tris": 3240,
-   "tpu": 936,
+   "tpu": 683,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 158200,
+   "bytes": 158196,
    "vtx": 4292,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00529,
+   "avgTri": 0.00653,
    "anglePct": 66,
    "vpt": 1.32,
    "grad": 0.9,
@@ -239110,21 +239846,21 @@
    "kind": "str-building-religious-shrine",
    "size": "m",
    "wdh": [
-    0.8,
     0.9,
-    1.25
+    1,
+    1.35
    ],
    "tris": 2902,
-   "tpu": 3291,
+   "tpu": 2398,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 142804,
+   "bytes": 142800,
    "vtx": 3874,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00212,
+   "avgTri": 0.00261,
    "anglePct": 61,
    "vpt": 1.33,
    "grad": 0.88,
@@ -239168,21 +239904,21 @@
    "kind": "str-building-military-tower",
    "size": "l",
    "wdh": [
-    1.1,
-    1.25,
-    1.95
+    1.2,
+    1.4,
+    2.15
    ],
    "tris": 2619,
-   "tpu": 977,
+   "tpu": 712,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 130416,
+   "bytes": 130412,
    "vtx": 3540,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00554,
+   "avgTri": 0.00684,
    "anglePct": 62,
    "vpt": 1.35,
    "grad": 0.94,
@@ -239224,23 +239960,23 @@
    "kit": "wizp-village",
    "name": "wall-stone-low",
    "kind": "str-barrier",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.5,
+    1.65,
     0.3,
-    0.45
+    0.5
    ],
    "tris": 276,
-   "tpu": 805,
+   "tpu": 762,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13060,
+   "bytes": 13056,
    "vtx": 312,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.037,
-   "avgTri": 0.00781,
+   "minEdge": 0.041,
+   "avgTri": 0.00964,
    "anglePct": 81,
    "vpt": 1.13,
    "grad": 0.96,
