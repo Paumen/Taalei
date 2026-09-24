@@ -2,8 +2,10 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readKindTree } from './kinds.mjs';
+import { isExempt } from '../../lint/rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
 
 const SIZES = {
   'char': 1.7,
@@ -252,7 +254,6 @@ const DROPPED_KINDS = [
   'obj-transport-watercraft-accessory',
   'str-access-bridge',
   'str-access-bridge-long',
-  'str-building-commercial-skyscraper',
   'str-canopy-tent',
   'str-part-floor',
   'str-part-roof',
@@ -260,7 +261,7 @@ const DROPPED_KINDS = [
   'str-platform-deck',
 ];
 
-const DROPPED_TAGS = ['plural', 'broken', 'comp', 'pickup', 'piece'];
+const DROPPED_TAGS = VARS.exemptTags;
 
 const STOREYS = {
   'storeys-0-5': 0.5,
@@ -319,7 +320,7 @@ const realOf = (model) => {
 };
 
 const counted = (model) => {
-  if (DROPPED_KINDS.includes(model.kind)) return false;
+  if (DROPPED_KINDS.includes(model.kind) || isExempt(model, VARS)) return false;
   if (model.kind !== 'char' && model.kind !== 'env-fungi' && depth(model.kind) < 3) return false;
   if ((model.tags ?? []).some((t) => DROPPED_TAGS.includes(t))) return false;
   return true;
@@ -411,7 +412,7 @@ const sizeRows = Object.entries(SIZES)
 const curveKinds = [...readKindTree().keys()].sort().map((kind) => {
   const building = isBuilding(kind);
   const row = { kind, real: SIZES[kind], high: HIGH.has(kind) || building || undefined, storeys: building || undefined };
-  if (DROPPED_KINDS.includes(kind)) return { ...row, curve: false, reason: 'dropped' };
+  if (DROPPED_KINDS.includes(kind) || isExempt({ kind }, VARS)) return { ...row, curve: false, reason: 'dropped' };
   if (kind !== 'char' && kind !== 'env-fungi' && depth(kind) < 3) return { ...row, curve: false, reason: 'too broad' };
   if (row.real === undefined && !building) return { ...row, curve: false, reason: 'no real size' };
   return { ...row, curve: true };
@@ -558,11 +559,8 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
       <ul>
         <li>all root kinds except <code>char</code> &mdash; <code>set</code> among them</li>
         <li>all root +1 except <code>env-fungi</code></li>
-        <li><code>tag:plural</code></li>
-        <li><code>tag:broken</code></li>
-        <li><code>tag:comp</code></li>
-        <li><code>tag:pickup</code></li>
-        <li><code>tag:piece</code></li>
+        ${VARS.exemptKinds.map((k) => `<li><code>kind:${k}</code></li>`).join('\n        ')}
+        ${DROPPED_TAGS.map((t) => `<li><code>tag:${t}</code></li>`).join('\n        ')}
       </ul>
     </div>
     <div class="rule">
