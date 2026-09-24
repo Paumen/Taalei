@@ -495,7 +495,6 @@ window.KENNEY_KITS = [
    "boat-tug-a-anim",
    "boat-tug-a-anim-fade",
    "boat-tug-a-anim-fade-single",
-   "boat-tug-a-anim-dissolve",
    "boat-tug-b",
    "boat-tug-b-anim",
    "boat-tug-c",
@@ -513,7 +512,6 @@ window.KENNEY_KITS = [
    "ship-ocean-liner-anim",
    "ship-ocean-liner-anim-fade",
    "ship-ocean-liner-anim-fade-single",
-   "ship-ocean-liner-anim-dissolve",
    "ship-ocean-liner-small",
    "ship-ocean-liner-small-anim"
   ]
@@ -3669,7 +3667,6 @@ window.KENNEY_KITS = [
    "house-a-anim",
    "house-a-anim-fade",
    "house-a-anim-fade-single",
-   "house-a-anim-dissolve",
    "house-b",
    "house-b-anim",
    "ladder",
@@ -3822,7 +3819,6 @@ window.KENNEY_KITS = [
    "smithy-anim",
    "smithy-anim-fade",
    "smithy-anim-fade-single",
-   "smithy-anim-dissolve",
    "weapon-shop",
    "windmill",
    "wizard-tower"
