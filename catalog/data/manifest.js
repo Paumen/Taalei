@@ -3704,11 +3704,13 @@ window.KENNEY_KITS = [
    "waterlily-a",
    "waterlily-b",
    "watermill",
+   "watermill-anim",
    "waterplant",
    "weapon-rack",
    "well",
    "wheelbarrow",
-   "windmill"
+   "windmill",
+   "windmill-anim"
   ]
  },
  {
@@ -3730,6 +3732,7 @@ window.KENNEY_KITS = [
    "lumbermill",
    "market",
    "mill",
+   "mill-anim",
    "mine",
    "mountain",
    "rocks",
@@ -3745,6 +3748,7 @@ window.KENNEY_KITS = [
    "wall-straight",
    "watchtower",
    "watermill",
+   "watermill-anim",
    "well"
   ]
  },
@@ -3813,6 +3817,7 @@ window.KENNEY_KITS = [
    "smithy-anim",
    "weapon-shop",
    "windmill",
+   "windmill-anim",
    "wizard-tower"
   ]
  },
@@ -3900,7 +3905,8 @@ window.KENNEY_KITS = [
    "rail-fence",
    "silo",
    "silo-house",
-   "windmill"
+   "windmill",
+   "windmill-anim"
   ]
  },
  {
@@ -4053,6 +4059,7 @@ window.KENNEY_KITS = [
    "fence-straight-long-open",
    "fence-straight-open",
    "merry-go-round",
+   "merry-go-round-anim",
    "monkey-bars-a",
    "monkey-bars-b",
    "picnic-table",
@@ -4146,6 +4153,7 @@ window.KENNEY_KITS = [
    "scale",
    "serving-tray",
    "stand-mixer",
+   "stand-mixer-anim",
    "table-round",
    "table-round-b",
    "tin-a",
@@ -4350,8 +4358,11 @@ window.KENNEY_KITS = [
    "watering-can-slate",
    "wheat",
    "windmill",
+   "windmill-anim",
    "windmill-large",
+   "windmill-large-anim",
    "windmill-small",
+   "windmill-small-anim",
    "yogurt",
    "yogurt-sienna",
    "yogurt-terracotta"
@@ -4782,6 +4793,7 @@ window.KENNEY_KITS = [
    "cardboard-box-closed",
    "cardboard-box-open",
    "ceiling-fan",
+   "ceiling-fan-anim",
    "chair",
    "chair-cushion",
    "chair-desk",
@@ -5137,15 +5149,23 @@ window.KENNEY_KITS = [
    "plane-animal",
    "plane-animal-b",
    "plane-azer",
+   "plane-azer-anim",
    "plane-azer-hunter",
+   "plane-azer-hunter-anim",
    "plane-helice",
    "plane-helice-b",
    "plane-sty",
+   "plane-sty-anim",
    "plane-sty-b",
+   "plane-sty-b-anim",
    "plane-sty-hunter",
+   "plane-sty-hunter-anim",
    "plane-stylized",
+   "plane-stylized-anim",
    "plane-stylized-amber",
-   "plane-stylized-sienna"
+   "plane-stylized-amber-anim",
+   "plane-stylized-sienna",
+   "plane-stylized-sienna-anim"
   ]
  },
  {
