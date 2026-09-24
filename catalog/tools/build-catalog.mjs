@@ -7,7 +7,7 @@ import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs'
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
-import { buildChecks, buildKitScales, checkModel } from '../../lint/rules.mjs';
+import { attributeKinds, buildChecks, buildKitScales, checkModel } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -685,6 +685,7 @@ const output = {
     id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
     ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
     ...(t.color ? { color: t.color } : {}),
+    ...(t.type === 'attribute' ? { kinds: attributeKinds(t.id, LINT_CHECKS.vars, LINT_CHECKS.scales) ?? undefined } : {}),
   })),
   byLongest: [...new Set(models.map((m) => m.kind).filter(Boolean))].sort().filter(byLongest),
   limits: Object.fromEntries([...new Set(models.map((m) => m.kind).filter(Boolean))].sort()

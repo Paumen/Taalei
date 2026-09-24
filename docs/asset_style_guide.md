@@ -149,7 +149,7 @@ Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.mi
 
 A kit with models in at least `kit.minKinds` kinds gets a kit size: the median, over its kinds, of how far its models sit from the middle of their kind's range. Past `kit.warn` either way is a warning, past `kit.error` an error, both in `lint/variables.json`. Each model is then held to its kind's range after dividing by its kit size, so a kit at the wrong scale is one kit finding, not a finding on every model.
 
-A `scale-small` or `scale-big` model is held to its kind's `scale` in `lint/kinds.json`: a number multiplies the kind's own limits, not the `defaults`; an object gives the limits for that value. A kind without `scale` refuses both.
+A `scale-small` or `scale-big` model is held to its kind's `scale` in `lint/kinds.json`: a number multiplies the kind's own limits, not the `defaults`; an object gives the limits for that value. A kind without `scale` refuses both. `attributeKinds` in `lint/variables.json` names the kinds each other attribute is offered on: `storeys` on `str-building`.
 
 Past a limit by no more than `warnBand` is a warning; further is an error.
 
