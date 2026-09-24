@@ -36,7 +36,10 @@
         "trunk",
         "coffer",
         "strong box"
-       ]
+       ],
+       "scale": {
+        "small": 0.5
+       }
       },
       {
        "id": "obj-container-coffin",
@@ -118,7 +121,10 @@
          "nouns": [
           "cube crate",
           "cube box"
-         ]
+         ],
+         "scale": {
+          "big": 2
+         }
         }
        ]
       },
@@ -697,6 +703,9 @@
         "fish (as food)",
         "tentacle"
        ],
+       "scale": {
+        "big": 2
+       },
        "children": [
         {
          "id": "obj-food-fish-sushi",
@@ -808,6 +817,9 @@
           "roll",
           "baguette"
          ],
+         "scale": {
+          "small": 0.5
+         },
          "children": [
           {
            "id": "obj-food-baked-bread-sandwich",
@@ -1021,7 +1033,8 @@
           "sling",
           "throwing knife",
           "javelin",
-          "shuriken"
+          "shuriken",
+          "dart"
          ],
          "children": [
           {
@@ -1047,8 +1060,7 @@
            "longest.max": 0.55,
            "nouns": [
             "arrow",
-            "bolt (crossbow)",
-            "dart"
+            "bolt (crossbow)"
            ]
           },
           {
@@ -1363,6 +1375,9 @@
         "tongs",
         "brush"
        ],
+       "scale": {
+        "small": 0.5
+       },
        "children": [
         {
          "id": "obj-tool-hand-hammer",
@@ -1639,7 +1654,10 @@
         "candle",
         "candlestick",
         "candelabra"
-       ]
+       ],
+       "scale": {
+        "big": 2
+       }
       },
       {
        "id": "obj-lighting-campfire",
@@ -1879,11 +1897,13 @@
          "longest.max": 0.85,
          "nouns": [
           "cabinet",
-          "bookcase",
           "wardrobe",
           "cupboard",
           "closet"
-         ]
+         ],
+         "scale": {
+          "small": 0.5
+         }
         },
         {
          "id": "obj-furnishing-storage-shelf",
@@ -1892,7 +1912,8 @@
          "nouns": [
           "shelf",
           "wall shelf",
-          "shelving"
+          "shelving",
+          "bookcase"
          ]
         }
        ]
@@ -2135,7 +2156,10 @@
         {
          "id": "str-part-wall-unit",
          "high.min": 0.65,
-         "high.max": 1.2
+         "high.max": 1.2,
+         "scale": {
+          "small": 0.5
+         }
         },
         {
          "id": "str-part-wall-rampart",
@@ -2573,7 +2597,10 @@
        "longest.max": 1.1,
        "nouns": [
         "banner"
-       ]
+       ],
+       "scale": {
+        "big": 2
+       }
       }
      ]
     },
