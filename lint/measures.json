@@ -1,6 +1,6 @@
 {
  "rows": [
-  { "id": "I08", "when": "*", "except": "mat:glass", "field": "alpha", "assert": "is", "value": false },
+  { "id": "I08", "when": "*", "except": "mat:glass | tag:animation", "field": "alpha", "assert": "is", "value": false },
   { "id": "I09", "when": "*", "except": "mat:glass", "field": "pbr", "assert": "is", "value": false },
   { "id": "I11", "when": "*", "except": "mat:glass | tag:animation | tag:tba", "field": "calls", "assert": "max", "value": 1 },
   { "id": "G05", "when": "*", "except": "tag:plural | kind:set", "field": "grounded", "assert": "is", "value": true, "level": "warning" },
