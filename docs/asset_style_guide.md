@@ -324,7 +324,7 @@ Importing a pack:
 - **`P12`** — 3–4 source colours: may drop 1.
 - **`P13`** — 5 source colours: may drop 2.
 - **`P14`** — 6 or more source colours: keep at least 3.
-- **`P15`** — Kits of one style whose source packs share units form a collection: a `catalog/data/manifest.js` row with `collection` (slug), `name` and `kits`. Its kits share one scale factor and keep their own folders, model ids and manifest rows. The catalogue, swipe, scale and curves pages, the overview and the kit size treat a collection as one kit; TBD and reject do not. Collections: `wizp-eastern` (`wizp-asia`, `wizp-village`), `wizp-grave` (`wizp-grave`, `wizp-arena`), `wizp-western` (`wizp-mediev`, `wizp-fish`), `ken-mini` (`ken-arcade`, `ken-forest-mini`, `ken-market`, `ken-mini-dun`), `ken-transport` (`ken-car`, `ken-train`, `ken-water`), `ken-city` (`ken-commercial`, `ken-industrial`, `ken-suburban`).
+- **`P15`** — Kits of one style whose source packs share units form a collection: a `catalog/data/manifest.js` row with `collection` (slug), `name` and `kits`. Its kits share one scale factor and keep their own folders, model ids and manifest rows. The catalogue, swipe, scale and curves pages, the overview and the kit size treat a collection as one kit; TBD and reject do not. Collections: `wizp-eastern` (`wizp-asia`, `wizp-village`), `wizp-grave` (`wizp-grave`, `wizp-arena`), `wizp-western` (`wizp-mediev`, `wizp-fish`), `ken-mini` (`ken-arcade`, `ken-forest-mini`, `ken-market`, `ken-mini-dun`), `ken-transport` (`ken-car`, `ken-train`, `ken-water`), `ken-city` (`ken-commercial`, `ken-industrial`, `ken-suburban`), `isa-tt` (`isa-plants`, `isa-food`, `isa-kitchen`, `isa-bakery`), `kay-chars` (`kay-adventurers`, `kay-skeleton`), `kay-rpg` (`kay-tools`, `kay-weapons`).
 
 ---
 
