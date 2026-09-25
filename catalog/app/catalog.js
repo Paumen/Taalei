@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=1d4878c8b7';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=1d4878c8b7';
-import { colorSwatches, setBands } from './color-edits.js?v=1d4878c8b7';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=1d4878c8b7';
-import { mountExtractBar, setPageParts } from './extract.js?v=1d4878c8b7';
-import './bouwstempel.js?v=1d4878c8b7';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=60f698b31e';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=60f698b31e';
+import { colorSwatches, setBands } from './color-edits.js?v=60f698b31e';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=60f698b31e';
+import { mountExtractBar, setPageParts } from './extract.js?v=60f698b31e';
+import './bouwstempel.js?v=60f698b31e';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
