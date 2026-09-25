@@ -78,6 +78,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D04` | variant group | models that read as one thing; `main` is the one shown |
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
+| `D13` | turned vessel | `kind:obj-container-pot \| kind:obj-container-bottle \| kind:obj-container-bucket \| kind:obj-kitchenware-tableware & !kind:obj-kitchenware-tableware-cutlery \| kind:obj-kitchenware-cookware & !kind:obj-kitchenware-cookware-utensil & !kind:obj-kitchenware-cookware-board` |
 
 **Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest.
 
@@ -301,6 +302,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B60` | `kind:env-flora-tree-conifer & !tag:plural` | `part:trunk` | is | UV 0.80 of the band where the foliage starts to 0.20 at the base |
 | `B61` | `kind:env-flora-tree & !kind:env-flora-tree-conifer & !kind:env-flora-tree-palm & !tag:plural`, except `wizp-tree/banana-tree`, `wizp-asia/tree-garden`, `quat-shoot/tree-b` | `part:foliage` | is | per canopy blob, UV 0.08 of the band at the blob top to 0.85 at its bottom; undersides 0.92. A blob is foliage bounded by undersides |
 | `B62` | as `B61` | `part:trunk, branch` | is | as `B60` |
+| `B63` | `D13 & !tag:plural`, except `props/plate-a`, `props/jug-c` | model | is | per part, keeping its mean UV and each vertex's offset from its own gradient: outside UV 0.72 of the band at the model base to 0.12 at its top; inside from 0.12 at the rim to 0.90 one rim radius down; both ramps scaled by 2 × height ÷ width, at most 1 |
 
 ---
 
