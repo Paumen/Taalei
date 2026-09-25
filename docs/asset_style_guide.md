@@ -299,6 +299,8 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 | `B59` | `kind:env-flora-tree-conifer & !tag:plural` | `part:foliage` | is | per tier, UV 0.08 of the band at the tier top to 0.85 at its rim; undersides 0.92. A tier is foliage bounded by undersides |
 | `B60` | `kind:env-flora-tree-conifer & !tag:plural` | `part:trunk` | is | UV 0.80 of the band where the foliage starts to 0.20 at the base |
+| `B61` | `kind:env-flora-tree & !kind:env-flora-tree-conifer & !kind:env-flora-tree-palm & !tag:plural`, except `wizp-tree/banana-tree`, `wizp-asia/tree-garden`, `quat-shoot/tree-b` | `part:foliage` | is | per canopy blob, UV 0.08 of the band at the blob top to 0.85 at its bottom; undersides 0.92. A blob is foliage bounded by undersides |
+| `B62` | as `B61` | `part:trunk, branch` | is | as `B60` |
 
 ---
 
