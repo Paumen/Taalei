@@ -5504,5 +5504,57 @@ window.KENNEY_KITS = [
    "tram-modern",
    "tram-round"
   ]
+ },
+ {
+  "collection": "wizp-eastern",
+  "name": "wizp-eastern",
+  "kits": [
+   "wizp-asia",
+   "wizp-village"
+  ]
+ },
+ {
+  "collection": "wizp-grave",
+  "name": "wizp-grave",
+  "kits": [
+   "wizp-grave",
+   "wizp-arena"
+  ]
+ },
+ {
+  "collection": "wizp-western",
+  "name": "wizp-western",
+  "kits": [
+   "wizp-mediev",
+   "wizp-fish"
+  ]
+ },
+ {
+  "collection": "ken-mini",
+  "name": "ken-mini",
+  "kits": [
+   "ken-arcade",
+   "ken-forest-mini",
+   "ken-market",
+   "ken-mini-dun"
+  ]
+ },
+ {
+  "collection": "ken-transport",
+  "name": "ken-transport",
+  "kits": [
+   "ken-car",
+   "ken-train",
+   "ken-water"
+  ]
+ },
+ {
+  "collection": "ken-city",
+  "name": "ken-city",
+  "kits": [
+   "ken-commercial",
+   "ken-industrial",
+   "ken-suburban"
+  ]
  }
 ]

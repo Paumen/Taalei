@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=8bc95af56d';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=8bc95af56d';
-import { colorSwatches, setBands } from './color-edits.js?v=8bc95af56d';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=8bc95af56d';
-import { mountExtractBar, setPageParts } from './extract.js?v=8bc95af56d';
-import './bouwstempel.js?v=8bc95af56d';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=e12548e9bc';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=e12548e9bc';
+import { colorSwatches, setBands } from './color-edits.js?v=e12548e9bc';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=e12548e9bc';
+import { mountExtractBar, setPageParts } from './extract.js?v=e12548e9bc';
+import './bouwstempel.js?v=e12548e9bc';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -38,6 +38,7 @@ const thumbs = new Map();
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
   m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
+  m.group = m.collection ?? m.kit;
   return m;
 }
 
@@ -252,17 +253,17 @@ function glyph(kind, sign, hint) {
 }
 
 function makeCard(model, kits, variants = []) {
-  const kit = kits.get(model.kit);
+  const kit = kits.get(model.group);
 
   const card = document.createElement('button');
   card.type = 'button';
   card.className = 'kaart';
-  card.style.setProperty('--merk-kleur', KIT_COLORS[model.kit] ?? 'currentColor');
+  card.style.setProperty('--merk-kleur', KIT_COLORS[model.group] ?? 'currentColor');
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
   box.dataset.src = modelUrl(model.path);
-  box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
+  box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.group}`;
   const thumb = thumbs.get(model.id);
   if (thumb) {
     box.dataset.thumb = `${THUMB_PATH}/${model.kit}/${model.name}`;
@@ -293,7 +294,7 @@ function makeCard(model, kits, variants = []) {
   text.className = 'kaart-tekst';
   const meta = span('kaart-meta');
   meta.append(
-    span('kaart-merk', kit?.name ?? model.kit),
+    span('kaart-merk', kit?.name ?? model.group),
     span('kaart-grootte', readableBytes(model.bytes)),
   );
   text.append(span('kaart-naam', model.name), meta);
@@ -439,7 +440,7 @@ const num = (v) => v ?? 0;
 const bool = (v) => (v ? 1 : 0);
 
 const SORTINGS = {
-  naam: (a, b) => a.name.localeCompare(b.name, 'en') || a.kit.localeCompare(b.kit),
+  naam: (a, b) => a.name.localeCompare(b.name, 'en') || a.group.localeCompare(b.group) || a.kit.localeCompare(b.kit),
   groot: (a, b) => longest(b) - longest(a),
   klein: (a, b) => longest(a) - longest(b),
   zwaar: (a, b) => b.tris - a.tris,
@@ -562,7 +563,7 @@ function sectionsFor(models) {
 
   if (type === 'kit') {
     return perKey(
-      (m) => [m.kit],
+      (m) => [m.group],
       catalog.kits.map((k) => ({
         id: k.slug,
         title: k.name,
@@ -742,10 +743,10 @@ function fillFacts(lines) {
 }
 
 function showDetail(model) {
-  const kit = register.kits.get(model.kit);
+  const kit = register.kits.get(model.group);
   activePath = model.path;
   document.querySelector('#detail-naam').textContent = model.name;
-  document.querySelector('#detail-herkomst').textContent = kit?.name ?? model.kit;
+  document.querySelector('#detail-herkomst').textContent = kit?.name ?? model.group;
 
   const lines = [
     [{ kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh) }],
