@@ -5563,6 +5563,7 @@ window.KENNEY_KITS = [
   "kits": [
    "isa-plants",
    "isa-food",
+   "isa-kitchen",
    "isa-bakery"
   ]
  },
