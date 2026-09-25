@@ -5543,5 +5543,15 @@ window.KENNEY_KITS = [
    "wizp-mediev",
    "wizp-fish"
   ]
+ },
+ {
+  "collection": "ken-mini",
+  "name": "ken-mini",
+  "kits": [
+   "ken-arcade",
+   "ken-forest-mini",
+   "ken-market",
+   "ken-mini-dun"
+  ]
  }
 ]
