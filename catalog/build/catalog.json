@@ -987,26 +987,32 @@
    "slug": "ken-mini",
    "name": "ken-mini",
    "artist": "Kenney",
-   "count": 59,
+   "count": 92,
    "packs": [
     "Kenney Mini Arcade",
+    "Kenney Mini Arena",
+    "Kenney Mini Characters",
     "Kenney Mini Forest",
     "Kenney Mini Market",
-    "Kenney Mini Dungeon"
+    "Kenney Mini Dungeon",
+    "Kenney Mini Skate"
    ],
    "origins": {
     "Kenney Mini Arcade": 17,
+    "Kenney Mini Arena": 18,
+    "Kenney Mini Characters": 8,
     "none": 9,
     "Kenney Mini Forest": 5,
     "Kenney Mini Market": 15,
-    "Kenney Mini Dungeon": 13
+    "Kenney Mini Dungeon": 13,
+    "Kenney Mini Skate": 7
    },
    "scales": {
-    "0.95": 59
+    "0.95": 92
    },
    "smooth": {
     "60": 32,
-    "none": 27
+    "none": 60
    },
    "members": [
     {
@@ -1027,6 +1033,46 @@
      },
      "smooth": {
       "60": 17
+     }
+    },
+    {
+     "slug": "ken-arena",
+     "name": "ken-arena",
+     "url": "https://kenney.nl/assets/mini-arena",
+     "artist": "Kenney",
+     "licenseLabel": "CC0 1.0",
+     "count": 18,
+     "packs": [
+      "Kenney Mini Arena"
+     ],
+     "origins": {
+      "Kenney Mini Arena": 18
+     },
+     "scales": {
+      "0.95": 18
+     },
+     "smooth": {
+      "none": 18
+     }
+    },
+    {
+     "slug": "ken-chars",
+     "name": "ken-chars",
+     "url": "https://kenney.nl/assets/mini-characters",
+     "artist": "Kenney",
+     "licenseLabel": "CC0 1.0",
+     "count": 8,
+     "packs": [
+      "Kenney Mini Characters"
+     ],
+     "origins": {
+      "Kenney Mini Characters": 8
+     },
+     "scales": {
+      "0.95": 8
+     },
+     "smooth": {
+      "none": 8
      }
     },
     {
@@ -1089,11 +1135,31 @@
      "smooth": {
       "none": 13
      }
+    },
+    {
+     "slug": "ken-skate",
+     "name": "ken-skate",
+     "url": "https://kenney.nl/assets/mini-skate",
+     "artist": "Kenney",
+     "licenseLabel": "CC0 1.0",
+     "count": 7,
+     "packs": [
+      "Kenney Mini Skate"
+     ],
+     "origins": {
+      "Kenney Mini Skate": 7
+     },
+     "scales": {
+      "0.95": 7
+     },
+     "smooth": {
+      "none": 7
+     }
     }
    ],
    "kitCheck": {
-    "factor": 1,
-    "kinds": 26
+    "factor": 0.98,
+    "kinds": 29
    }
   },
   {
@@ -1238,22 +1304,25 @@
    "name": "ken-city",
    "artist": "Kenney",
    "licenseLabel": "CC0 1.0",
-   "count": 99,
+   "count": 128,
    "packs": [
     "Kenney City Kit Commercial",
     "Kenney City Kit Industrial",
+    "Kenney City Kit Roads",
     "Kenney City Kit Suburban"
    ],
    "origins": {
     "Kenney City Kit Commercial": 39,
     "Kenney City Kit Industrial": 37,
+    "Kenney City Kit Roads": 29,
     "Kenney City Kit Suburban": 23
    },
    "scales": {
-    "2": 99
+    "2": 128
    },
    "smooth": {
-    "60": 99
+    "60": 99,
+    "none": 29
    },
    "members": [
     {
@@ -1297,6 +1366,26 @@
      }
     },
     {
+     "slug": "ken-roads",
+     "name": "ken-roads",
+     "url": "https://kenney.nl/assets/city-kit-roads",
+     "artist": "Kenney",
+     "licenseLabel": "CC0 1.0",
+     "count": 29,
+     "packs": [
+      "Kenney City Kit Roads"
+     ],
+     "origins": {
+      "Kenney City Kit Roads": 29
+     },
+     "scales": {
+      "2": 29
+     },
+     "smooth": {
+      "none": 29
+     }
+    },
+    {
      "slug": "ken-suburban",
      "name": "ken-suburban",
      "url": "https://kenney.nl/assets/city-kit-suburban",
@@ -1318,9 +1407,9 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.42,
-    "kinds": 5,
-    "level": "error"
+    "factor": 1.4,
+    "kinds": 8,
+    "level": "warning"
    }
   },
   {
@@ -1503,22 +1592,23 @@
    "url": "https://kenney.nl/assets/prototype-kit",
    "artist": "Kenney",
    "licenseLabel": "CC0",
-   "count": 20,
+   "count": 22,
    "packs": [
     "Kenney Prototype Kit"
    ],
    "origins": {
-    "Kenney Prototype Kit": 20
+    "Kenney Prototype Kit": 22
    },
    "scales": {
-    "0.75": 20
+    "0.75": 22
    },
    "smooth": {
-    "none": 20
+    "none": 22
    },
    "kitCheck": {
-    "factor": 0.8,
-    "kinds": 9
+    "factor": 0.79,
+    "kinds": 10,
+    "level": "warning"
    }
   },
   {
@@ -12181,6 +12271,177 @@
     "isa-bakery/cash-register-anim",
     "isa-bakery/cash-register"
    ]
+  },
+  {
+   "id": "v979",
+   "type": "detail-variant",
+   "main": "ken-roads/traffic-light",
+   "members": [
+    "ken-roads/traffic-light",
+    "ken-roads/traffic-light-hanging"
+   ]
+  },
+  {
+   "id": "v980",
+   "type": "detail-variant",
+   "main": "ken-roads/traffic-light-object-vertical",
+   "members": [
+    "ken-roads/traffic-light-object-vertical",
+    "ken-roads/traffic-light-object-horizontal",
+    "ken-roads/traffic-light-object-hanging"
+   ]
+  },
+  {
+   "id": "v981",
+   "type": "detail-variant",
+   "main": "ken-roads/sign-highway",
+   "members": [
+    "ken-roads/sign-highway",
+    "ken-roads/sign-highway-wide",
+    "ken-roads/sign-highway-detailed"
+   ]
+  },
+  {
+   "id": "v982",
+   "type": "detail-variant",
+   "main": "ken-roads/road-sign-stop",
+   "members": [
+    "ken-roads/road-sign-stop",
+    "ken-roads/road-sign-warning",
+    "ken-roads/road-sign-street",
+    "ken-roads/road-sign-empty",
+    "ken-roads/road-sign-empty-hanging"
+   ]
+  },
+  {
+   "id": "v983",
+   "type": "detail-variant",
+   "main": "ken-roads/road-sign-object-stop",
+   "members": [
+    "ken-roads/road-sign-object-stop",
+    "ken-roads/road-sign-object-warning",
+    "ken-roads/road-sign-object-street"
+   ]
+  },
+  {
+   "id": "v984",
+   "type": "detail-variant",
+   "main": "ken-roads/light-square",
+   "members": [
+    "ken-roads/light-square",
+    "ken-roads/light-square-double",
+    "ken-roads/light-square-cross"
+   ]
+  },
+  {
+   "id": "v985",
+   "type": "detail-variant",
+   "main": "ken-roads/light-curved",
+   "members": [
+    "ken-roads/light-curved",
+    "ken-roads/light-curved-double",
+    "ken-roads/light-curved-cross"
+   ]
+  },
+  {
+   "id": "v986",
+   "type": "maatvariant",
+   "main": "ken-roads/bridge-pillar",
+   "members": [
+    "ken-roads/bridge-pillar",
+    "ken-roads/bridge-pillar-wide"
+   ]
+  },
+  {
+   "id": "v987",
+   "type": "detail-variant",
+   "main": "ken-proto/target-a-round",
+   "members": [
+    "ken-proto/target-a-round",
+    "ken-proto/target-b-round"
+   ]
+  },
+  {
+   "id": "v988",
+   "type": "color-variant",
+   "main": "ken-chars/aid-defibrillator-red",
+   "members": [
+    "ken-chars/aid-defibrillator-red",
+    "ken-chars/aid-defibrillator-green"
+   ]
+  },
+  {
+   "id": "v989",
+   "type": "detail-variant",
+   "main": "ken-chars/aid-glasses",
+   "members": [
+    "ken-chars/aid-glasses",
+    "ken-chars/aid-sunglasses"
+   ]
+  },
+  {
+   "id": "v990",
+   "type": "detail-variant",
+   "main": "ken-chars/wheelchair",
+   "members": [
+    "ken-chars/wheelchair",
+    "ken-chars/wheelchair-deluxe"
+   ]
+  },
+  {
+   "id": "v991",
+   "type": "detail-variant",
+   "main": "ken-chars/wheelchair-power",
+   "members": [
+    "ken-chars/wheelchair-power",
+    "ken-chars/wheelchair-power-deluxe"
+   ]
+  },
+  {
+   "id": "v992",
+   "type": "detail-variant",
+   "main": "ken-arena/column",
+   "members": [
+    "ken-arena/column",
+    "ken-arena/column-damaged"
+   ]
+  },
+  {
+   "id": "v993",
+   "type": "detail-variant",
+   "main": "ken-arena/stairs",
+   "members": [
+    "ken-arena/stairs",
+    "ken-arena/stairs-corner",
+    "ken-arena/stairs-corner-inner"
+   ]
+  },
+  {
+   "id": "v994",
+   "type": "detail-variant",
+   "main": "ken-arena/border-straight",
+   "members": [
+    "ken-arena/border-straight",
+    "ken-arena/border-corner"
+   ]
+  },
+  {
+   "id": "v995",
+   "type": "detail-variant",
+   "main": "ken-arena/wall",
+   "members": [
+    "ken-arena/wall",
+    "ken-arena/wall-corner"
+   ]
+  },
+  {
+   "id": "v996",
+   "type": "maatvariant",
+   "main": "ken-skate/rail-low",
+   "members": [
+    "ken-skate/rail-low",
+    "ken-skate/rail-high"
+   ]
   }
  ],
  "bands": [
@@ -12251,7 +12512,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 231
+   "count": 258
   },
   {
    "id": "metal-iron",
@@ -12266,7 +12527,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 598,
+   "count": 608,
    "parent": "metal-iron"
   },
   {
@@ -12282,7 +12543,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 259,
+   "count": 261,
    "parent": "metal-iron"
   },
   {
@@ -12290,7 +12551,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 153,
+   "count": 156,
    "parent": "metal"
   },
   {
@@ -12313,7 +12574,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 389,
+   "count": 390,
    "parent": "wood"
   },
   {
@@ -12321,7 +12582,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 736,
+   "count": 741,
    "parent": "wood"
   },
   {
@@ -12329,7 +12590,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 948,
+   "count": 953,
    "parent": "wood"
   },
   {
@@ -12345,7 +12606,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 254,
+   "count": 255,
    "parent": "wood"
   },
   {
@@ -12360,7 +12621,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 681,
+   "count": 697,
    "parent": "stone"
   },
   {
@@ -12391,7 +12652,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 485
+   "count": 488
   },
   {
    "id": "leather",
@@ -12405,7 +12666,7 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 414
+   "count": 415
   },
   {
    "id": "ceramic",
@@ -12419,7 +12680,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 277
+   "count": 301
   },
   {
    "id": "bone",
@@ -12468,7 +12729,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 70
+   "count": 76
   },
   {
    "id": "rope",
@@ -12518,7 +12779,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2296,
+   "count": 2320,
    "color": "#c07c8a"
   },
   {
@@ -12526,14 +12787,14 @@
    "name": "Household",
    "type": "kind",
    "description": "Household item in everyday use.",
-   "count": 32
+   "count": 34
   },
   {
    "id": "obj-household-electronics",
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
-   "count": 28
+   "count": 30
   },
   {
    "id": "obj-household-electronics-arcade",
@@ -12561,7 +12822,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 375,
+   "count": 376,
    "color": "#dd9f79"
   },
   {
@@ -12730,7 +12991,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 366,
+   "count": 372,
    "color": "#6b5b95"
   },
   {
@@ -12745,7 +13006,7 @@
    "name": "Apparel",
    "type": "kind",
    "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
-   "count": 24
+   "count": 26
   },
   {
    "id": "obj-equipment-apparel-glove",
@@ -13245,7 +13506,7 @@
    "name": "Lighting",
    "type": "kind",
    "description": "chandelier, streetlight",
-   "count": 78,
+   "count": 84,
    "color": "#f2cb45"
   },
   {
@@ -13267,7 +13528,7 @@
    "name": "Lantern",
    "type": "kind",
    "description": "lantern, lamp",
-   "count": 37
+   "count": 43
   },
   {
    "id": "obj-lighting-lantern-handheld",
@@ -13281,7 +13542,7 @@
    "name": "On post",
    "type": "kind",
    "description": "lamp post, street lamp, lantern post",
-   "count": 13
+   "count": 19
   },
   {
    "id": "obj-lighting-torch",
@@ -13366,7 +13627,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 105,
+   "count": 106,
    "color": "#4f7d8c"
   },
   {
@@ -13381,7 +13642,7 @@
    "name": "Stone",
    "type": "kind",
    "description": "brick (loose), cut block",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-resource-textile",
@@ -13430,7 +13691,7 @@
    "name": "Pallet",
    "type": "kind",
    "description": "pallet",
-   "count": 6
+   "count": 7
   },
   {
    "id": "obj-tool",
@@ -13508,7 +13769,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 197,
+   "count": 203,
    "color": "#5a7a9c"
   },
   {
@@ -13628,7 +13889,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 203,
+   "count": 205,
    "color": "#4c5468"
   },
   {
@@ -13650,7 +13911,7 @@
    "name": "Melee",
    "type": "kind",
    "description": "scythe (weapon), knuckles, claws, gauntlet blade",
-   "count": 97
+   "count": 98
   },
   {
    "id": "obj-equipment-weapon-melee-axe",
@@ -13699,7 +13960,7 @@
    "name": "Sword",
    "type": "kind",
    "description": "sword, rapier, scimitar, katana",
-   "count": 31
+   "count": 32
   },
   {
    "id": "obj-equipment-weapon-melee-sword-broad",
@@ -13776,7 +14037,7 @@
    "name": "Target",
    "type": "kind",
    "description": "Target with no leaf that fits.",
-   "count": 14
+   "count": 16
   },
   {
    "id": "obj-equipment-target-dummy",
@@ -13790,7 +14051,7 @@
    "name": "Bullseye",
    "type": "kind",
    "description": "Ringed face to shoot or throw at.",
-   "count": 7
+   "count": 9
   },
   {
    "id": "char",
@@ -13805,7 +14066,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 810,
+   "count": 811,
    "color": "#6cb588"
   },
   {
@@ -13828,7 +14089,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 293,
+   "count": 294,
    "color": "#6cb588"
   },
   {
@@ -13934,14 +14195,14 @@
    "name": "Tree",
    "type": "kind",
    "description": "tree, oak, birch, willow, bush (tree-sized)",
-   "count": 107
+   "count": 108
   },
   {
    "id": "env-flora-tree-conifer",
    "name": "Conifer",
    "type": "kind",
    "description": "conifer, pine, spruce, fir",
-   "count": 56
+   "count": 57
   },
   {
    "id": "env-flora-tree-palm",
@@ -14058,7 +14319,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1292,
+   "count": 1331,
    "color": "#877a63"
   },
   {
@@ -14066,7 +14327,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 90,
+   "count": 94,
    "color": "#c98a5a"
   },
   {
@@ -14109,14 +14370,14 @@
    "name": "Stairs",
    "type": "kind",
    "description": "stairs, steps, ramp",
-   "count": 34
+   "count": 38
   },
   {
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 183,
+   "count": 192,
    "color": "#b08968"
   },
   {
@@ -14131,7 +14392,7 @@
    "name": "Traffic",
    "type": "kind",
    "description": "Barrier that guides road traffic: traffic cone, traffic barrier, traffic drum.",
-   "count": 10
+   "count": 18
   },
   {
    "id": "str-barrier-fence",
@@ -14160,7 +14421,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 484,
+   "count": 495,
    "color": "#a8762a"
   },
   {
@@ -14196,7 +14457,7 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 28
+   "count": 29
   },
   {
    "id": "str-part-gate-gateway",
@@ -14210,28 +14471,28 @@
    "name": "Single",
    "type": "kind",
    "description": "The gate leaf on its own, without the opening it hangs in.",
-   "count": 8
+   "count": 9
   },
   {
    "id": "str-part-floor",
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 100
+   "count": 103
   },
   {
    "id": "str-part-floor-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
-   "count": 79
+   "count": 80
   },
   {
    "id": "str-part-frame",
    "name": "Frame",
    "type": "kind",
    "description": "frame, framework, post-and-beam frame, scaffold, structure (open)",
-   "count": 25
+   "count": 26
   },
   {
    "id": "str-part-frame-scaffold",
@@ -14245,7 +14506,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support",
-   "count": 41
+   "count": 45
   },
   {
    "id": "str-part-roof",
@@ -14266,14 +14527,14 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 90
+   "count": 92
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 66
+   "count": 68
   },
   {
    "id": "str-part-wall-rampart",
@@ -14301,7 +14562,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 76,
+   "count": 88,
    "color": "#ffb349"
   },
   {
@@ -14316,7 +14577,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 12
+   "count": 23
   },
   {
    "id": "str-marker-grave",
@@ -14337,14 +14598,14 @@
    "name": "Banner",
    "type": "kind",
    "description": "Cloth hung from a crossbar or a wall, read from one side.",
-   "count": 6
+   "count": 7
   },
   {
    "id": "str-platform",
    "name": "Platform",
    "type": "kind",
    "description": "Platform with no leaf that fits.",
-   "count": 57,
+   "count": 58,
    "color": "#877a63"
   },
   {
@@ -14352,7 +14613,7 @@
    "name": "Deck",
    "type": "kind",
    "description": "deck, boardwalk",
-   "count": 46
+   "count": 47
   },
   {
    "id": "str-platform-dock",
@@ -14432,14 +14693,14 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 142
+   "count": 150
   },
   {
    "id": "plural",
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 214
+   "count": 215
   },
   {
    "id": "pickup",
@@ -14453,7 +14714,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 81
+   "count": 82
   },
   {
    "id": "piece",
@@ -14516,14 +14777,14 @@
    "name": "Art",
    "type": "kind",
    "description": "Art object with no leaf that fits.",
-   "count": 55
+   "count": 57
   },
   {
    "id": "obj-art-sculpture",
    "name": "Sculpture",
    "type": "kind",
    "description": "Statue.",
-   "count": 23
+   "count": 25
   },
   {
    "id": "obj-toy",
@@ -14664,7 +14925,7 @@
    "name": "Playground",
    "type": "kind",
    "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes.",
-   "count": 20,
+   "count": 22,
    "color": "#e0a93b"
   },
   {
@@ -14946,28 +15207,28 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2074
+   "count": 2091
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1714
+   "count": 1757
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 770
+   "count": 774
   },
   {
    "id": "ken",
    "name": "Kenney",
    "type": "artist",
    "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1020
+   "count": 1084
   },
   {
    "id": "kay",
@@ -113297,6 +113558,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 over max 0.95 (obj-household-electronics-arcade · 0.969 at kit ×0.98)"
+    }
    ]
   },
   {
@@ -113414,6 +113682,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 over max 0.95 (obj-household-electronics-arcade · 0.969 at kit ×0.98)"
+    }
    ]
   },
   {
@@ -113631,6 +113906,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 over max 0.95 (obj-household-electronics-arcade · 0.969 at kit ×0.98)"
+    }
    ]
   },
   {
@@ -114170,6 +114452,788 @@
     "ken",
     "plastic",
     "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "banner",
+   "kind": "str-marker-banner",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.2,
+    0.95
+   ],
+   "tris": 228,
+   "tpu": 478,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 12516,
+   "vtx": 304,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.027,
+   "avgTri": 0.00505,
+   "anglePct": 90,
+   "vpt": 1.33,
+   "grad": 0.7,
+   "spread": {
+    "8,0": [
+     0.016,
+     0.813
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "6,0": [
+     0.273,
+     0.688
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#8b5936",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal-gold",
+    "metal-iron-cast",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "block",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.5
+   ],
+   "tris": 12,
+   "tpu": 19,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2164,
+   "vtx": 24,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.475,
+   "avgTri": 0.30083,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0,
+   "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "border-corner",
+   "kind": "str-part-floor",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.4
+   ],
+   "tris": 122,
+   "tpu": 302,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7280,
+   "vtx": 160,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.048,
+   "avgTri": 0.01826,
+   "anglePct": 90,
+   "vpt": 1.31,
+   "grad": 0.69,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.836
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v994"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "border-straight",
+   "kind": "str-part-floor",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.55,
+    0.4
+   ],
+   "tris": 60,
+   "tpu": 158,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4704,
+   "vtx": 92,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.067,
+   "avgTri": 0.04207,
+   "anglePct": 100,
+   "vpt": 1.53,
+   "grad": 0.69,
+   "spread": {
+    "14,3": [
+     0.242,
+     0.93
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v994"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "bricks",
+   "kind": "obj-resource-stone",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.8,
+    0.4
+   ],
+   "tris": 120,
+   "tpu": 291,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8536,
+   "vtx": 200,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.043,
+   "avgTri": 0.01456,
+   "anglePct": 74,
+   "vpt": 1.67,
+   "grad": 0.48,
+   "spread": {
+    "14,3": [
+     0.273,
+     0.75
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "plural",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "column-damaged",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.7
+   ],
+   "tris": 148,
+   "tpu": 431,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8080,
+   "vtx": 180,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.01302,
+   "anglePct": 94,
+   "vpt": 1.22,
+   "grad": 0.67,
+   "spread": {
+    "14,3": [
+     0.117,
+     0.789
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "broken",
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v992"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "column",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.95
+   ],
+   "tris": 168,
+   "tpu": 361,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8808,
+   "vtx": 200,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.02071,
+   "anglePct": 92,
+   "vpt": 1.19,
+   "grad": 0.67,
+   "spread": {
+    "14,3": [
+     0.086,
+     0.758
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v992"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "stairs-corner-inner",
+   "kind": "str-access-stairs",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.5
+   ],
+   "tris": 72,
+   "tpu": 114,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5188,
+   "vtx": 106,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.033,
+   "avgTri": 0.05019,
+   "anglePct": 99,
+   "vpt": 1.47,
+   "grad": 0.67,
+   "spread": {
+    "14,3": [
+     0.234,
+     0.906
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v993"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "stairs-corner",
+   "kind": "str-access-stairs",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.5
+   ],
+   "tris": 84,
+   "tpu": 133,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5760,
+   "vtx": 122,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.033,
+   "avgTri": 0.03599,
+   "anglePct": 98,
+   "vpt": 1.45,
+   "grad": 0.68,
+   "spread": {
+    "14,3": [
+     0.164,
+     0.844
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v993"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "stairs",
+   "kind": "str-access-stairs",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.5
+   ],
+   "tris": 44,
+   "tpu": 70,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3772,
+   "vtx": 68,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.095,
+   "avgTri": 0.0751,
+   "anglePct": 99,
+   "vpt": 1.55,
+   "grad": 0.67,
+   "spread": {
+    "14,3": [
+     0.188,
+     0.859
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v993"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "statue",
+   "kind": "obj-art-sculpture",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.65,
+    1.25
+   ],
+   "tris": 549,
+   "tpu": 882,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 26888,
+   "vtx": 693,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "avgTri": 0.00724,
+   "anglePct": 71,
+   "vpt": 1.26,
+   "grad": 0.93,
+   "spread": {
+    "14,3": [
+     0.125,
+     0.805
+    ],
+    "6,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal-gold",
+    "stone-masonry"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "tree",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    0.6,
+    0.6,
+    1.8
+   ],
+   "tris": 330,
+   "tpu": 370,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11552,
+   "vtx": 255,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00826,
+   "anglePct": 3,
+   "vpt": 0.77,
+   "grad": 0.96,
+   "spread": {
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "3,0": [
+     0.016,
+     0.945
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b"
+   ],
+   "tags": [
+    "foliage",
+    "ken",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "trophy",
+   "kind": "obj-art-sculpture",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.45,
+    0.45
+   ],
+   "tris": 244,
+   "tpu": 711,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 10816,
+   "vtx": 248,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.035,
+   "avgTri": 0.00412,
+   "anglePct": 53,
+   "vpt": 1.02,
+   "grad": 0.53,
+   "spread": {
+    "6,1": [
+     0.32,
+     0.617
+    ],
+    "6,0": [
+     0.195,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal-gold"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "wall-corner",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    0.75,
+    0.75,
+    0.95
+   ],
+   "tris": 226,
+   "tpu": 412,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10508,
+   "vtx": 242,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.01659,
+   "anglePct": 79,
+   "vpt": 1.07,
+   "grad": 0.55,
+   "spread": {
+    "15,3": [
+     0.25,
+     0.797
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v995"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "wall-gate",
+   "kind": "str-part-gate-single",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.55,
+    0.95
+   ],
+   "tris": 322,
+   "tpu": 626,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 17456,
+   "vtx": 442,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.01422,
+   "anglePct": 85,
+   "vpt": 1.37,
+   "grad": 0.58,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.844
+    ],
+    "1,0": [
+     0.5,
+     0.5
+    ],
+    "2,0": [
+     0.43,
+     0.547
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry",
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "wall",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.55,
+    0.95
+   ],
+   "tris": 174,
+   "tpu": 338,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8360,
+   "vtx": 186,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.02563,
+   "anglePct": 93,
+   "vpt": 1.07,
+   "grad": 0.73,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.75
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v995"
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "weapon-rack",
+   "kind": "obj-equipment-weapon",
+   "size": "m",
+   "wdh": [
+    0.7,
+    0.3,
+    0.45
+   ],
+   "tris": 212,
+   "tpu": 618,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 12176,
+   "vtx": 296,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.047,
+   "avgTri": 0.00486,
+   "anglePct": 96,
+   "vpt": 1.4,
+   "grad": 0.09,
+   "spread": {
+    "2,0": [
+     0.313,
+     0.523
+    ],
+    "1,0": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "ken-arena",
+   "collection": "ken-mini",
+   "name": "weapon-sword",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.06,
+    0.5
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5428,
+   "vtx": 110,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00153,
+   "anglePct": 51,
+   "vpt": 1.38,
+   "grad": 0.14,
+   "spread": {
+    "15,3": [
+     0.453,
+     0.586
+    ],
+    "1,0": [
+     0.414,
+     0.555
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#b58158"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "wood-worked"
    ]
   },
   {
@@ -118029,6 +119093,371 @@
    ]
   },
   {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "aid-defibrillator-green",
+   "kind": "obj-household-electronics",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.15,
+    0.3
+   ],
+   "tris": 86,
+   "tpu": 251,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 5300,
+   "vtx": 104,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00242,
+   "anglePct": 73,
+   "vpt": 1.21,
+   "grad": 0.32,
+   "spread": {
+    "15,3": [
+     0.289,
+     0.703
+    ],
+    "1,1": [
+     0.398,
+     0.578
+    ],
+    "5,0": [
+     0.43,
+     0.594
+    ],
+    "5,2": [
+     0.281,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v988"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "aid-defibrillator-red",
+   "kind": "obj-household-electronics",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.15,
+    0.3
+   ],
+   "tris": 86,
+   "tpu": 251,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 5296,
+   "vtx": 104,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00242,
+   "anglePct": 73,
+   "vpt": 1.21,
+   "grad": 0.73,
+   "spread": {
+    "15,3": [
+     0.117,
+     0.875
+    ],
+    "8,0": [
+     0.18,
+     0.828
+    ],
+    "5,2": [
+     0.281,
+     0.977
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v988"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "aid-glasses",
+   "kind": "obj-equipment-apparel",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.15,
+    0.09
+   ],
+   "tris": 52,
+   "tpu": 152,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3852,
+   "vtx": 66,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "avgTri": 0.00073,
+   "anglePct": 100,
+   "vpt": 1.27,
+   "grad": 0.81,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.828
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel"
+   ],
+   "variant": "v989"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "aid-sunglasses",
+   "kind": "obj-equipment-apparel",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.15,
+    0.09
+   ],
+   "tris": 62,
+   "tpu": 181,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4172,
+   "vtx": 74,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00091,
+   "anglePct": 100,
+   "vpt": 1.19,
+   "grad": 0.39,
+   "spread": {
+    "13,3": [
+     0.367,
+     0.758
+    ]
+   },
+   "colors": [
+    "#5b5550"
+   ],
+   "tags": [
+    "ken",
+    "plastic"
+   ],
+   "variant": "v989"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "wheelchair-deluxe",
+   "kind": "obj-transport",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.45
+   ],
+   "tris": 696,
+   "tpu": 2029,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 27832,
+   "vtx": 694,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00194,
+   "anglePct": 65,
+   "vpt": 1,
+   "grad": 0.87,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.906
+    ],
+    "8,0": [
+     0.117,
+     0.766
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "textile"
+   ],
+   "variant": "v990"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "wheelchair-power-deluxe",
+   "kind": "obj-transport",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.5,
+    0.6
+   ],
+   "tris": 1040,
+   "tpu": 3032,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 42264,
+   "vtx": 1080,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00178,
+   "anglePct": 72,
+   "vpt": 1.04,
+   "grad": 0.85,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.906
+    ],
+    "8,0": [
+     0.141,
+     0.797
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v991"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "wheelchair-power",
+   "kind": "obj-transport",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.5,
+    0.55
+   ],
+   "tris": 880,
+   "tpu": 2566,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 35592,
+   "vtx": 902,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.015,
+   "avgTri": 0.00189,
+   "anglePct": 75,
+   "vpt": 1.02,
+   "grad": 0.9,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.914
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel"
+   ],
+   "variant": "v991"
+  },
+  {
+   "kit": "ken-chars",
+   "collection": "ken-mini",
+   "name": "wheelchair",
+   "kind": "obj-transport",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.55,
+    0.45
+   ],
+   "tris": 656,
+   "tpu": 1913,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 26044,
+   "vtx": 646,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00188,
+   "anglePct": 61,
+   "vpt": 0.98,
+   "grad": 0.9,
+   "spread": {
+    "1,1": [
+     0.141,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.93
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "textile"
+   ],
+   "variant": "v990"
+  },
+  {
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "awning-wide",
@@ -118081,9 +119510,9 @@
    "variant": "v954",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118140,9 +119569,9 @@
    "variant": "v954",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118209,9 +119638,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118273,9 +119702,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118347,9 +119776,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118421,9 +119850,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118490,9 +119919,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118569,9 +119998,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     },
     {
      "level": "error",
@@ -118648,9 +120077,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118723,9 +120152,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118792,9 +120221,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118866,9 +120295,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -118940,9 +120369,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119009,9 +120438,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119078,9 +120507,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119147,9 +120576,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119211,9 +120640,9 @@
    "variant": "v955",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119275,9 +120704,9 @@
    "variant": "v955",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119339,9 +120768,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119408,9 +120837,9 @@
      "text": "high 8.95 over max 8 (defaults)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119487,9 +120916,9 @@
      "text": "high 8.15 over max 8 (defaults)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119566,9 +120995,9 @@
      "text": "high 10.95 over max 8 (defaults)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -119640,9 +121069,9 @@
      "text": "high 8.15 over max 8 (defaults)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -125794,7 +127223,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.25 over max 1.2 (str-part-roof-unit)"
+     "text": "longest 1.25 over max 1.2 (str-part-roof-unit · 1.276 at kit ×0.98)"
     }
    ]
   },
@@ -137216,9 +138645,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137290,9 +138719,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137364,9 +138793,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137433,9 +138862,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137497,9 +138926,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137566,9 +138995,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137630,9 +139059,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137699,9 +139128,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137773,9 +139202,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137847,9 +139276,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137911,9 +139340,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -137985,9 +139414,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138054,9 +139483,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138123,9 +139552,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138187,9 +139616,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138261,9 +139690,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138325,9 +139754,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138394,9 +139823,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138463,9 +139892,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138537,9 +139966,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138591,12 +140020,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.162 at kit ×1.42)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.179 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138648,12 +140077,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.162 at kit ×1.42)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.179 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138705,12 +140134,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.162 at kit ×1.42)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.179 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138766,9 +140195,9 @@
    "variant": "v940",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138820,12 +140249,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.4 over max 2 (str-part-pillar · 2.394 at kit ×1.42)"
+     "text": "longest 3.4 over max 2 (str-part-pillar · 2.429 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138888,12 +140317,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.85 over max 2 (str-part-pillar · 2.711 at kit ×1.42)"
+     "text": "longest 3.85 over max 2 (str-part-pillar · 2.75 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138949,9 +140378,9 @@
    "variant": "v940",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139011,9 +140440,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139075,9 +140504,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139138,9 +140567,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139202,9 +140631,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139265,9 +140694,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139316,9 +140745,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139367,9 +140796,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139429,9 +140858,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139488,9 +140917,9 @@
    "variant": "v942",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139547,9 +140976,9 @@
    "variant": "v942",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -139836,7 +141265,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.9 (obj-kitchenware-appliance-fridge)"
+     "text": "longest 0.95 over max 0.9 (obj-kitchenware-appliance-fridge · 0.969 at kit ×0.98)"
     }
    ]
   },
@@ -149761,6 +151190,13 @@
     "ken",
     "metal-gold",
     "pickup"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -149811,6 +151247,13 @@
     "metal-gold",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -149849,6 +151292,13 @@
    "tags": [
     "ken",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -149888,7 +151338,14 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v868"
+   "variant": "v868",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -149927,7 +151384,14 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v868"
+   "variant": "v868",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -149966,7 +151430,14 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v868"
+   "variant": "v868",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150010,6 +151481,13 @@
     "ken",
     "metal-iron-cast",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -150054,6 +151532,13 @@
     "ken",
     "textile",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -150093,6 +151578,13 @@
     "comp",
     "ken",
     "metal-iron-cast"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -150132,6 +151624,13 @@
     "ken",
     "metal-iron-cast",
     "scale-small"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -150171,6 +151670,115 @@
    "tags": [
     "ken",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-proto",
+   "name": "target-a-round",
+   "kind": "obj-equipment-target-bullseye",
+   "size": "s",
+   "wdh": [
+    0.09,
+    0.35,
+    0.35
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4444,
+   "vtx": 80,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.036,
+   "avgTri": 0.00397,
+   "anglePct": 65,
+   "vpt": 1.05,
+   "grad": 0.8,
+   "spread": {
+    "8,0": [
+     0.188,
+     0.82
+    ],
+    "5,2": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "plastic"
+   ],
+   "variant": "v987",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-proto",
+   "name": "target-b-round",
+   "kind": "obj-equipment-target-bullseye",
+   "size": "s",
+   "wdh": [
+    0.09,
+    0.35,
+    0.35
+   ],
+   "tris": 92,
+   "tpu": 268,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5056,
+   "vtx": 96,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.036,
+   "avgTri": 0.00328,
+   "anglePct": 65,
+   "vpt": 1.04,
+   "grad": 0.8,
+   "spread": {
+    "8,0": [
+     0.188,
+     0.82
+    ],
+    "5,2": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "plastic"
+   ],
+   "variant": "v987",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -150227,7 +151835,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v870"
+   "variant": "v870",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150283,7 +151898,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v870"
+   "variant": "v870",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150327,7 +151949,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v522"
+   "variant": "v522",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150366,7 +151995,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v522"
+   "variant": "v522",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150405,7 +152041,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v869"
+   "variant": "v869",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150444,7 +152087,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v869"
+   "variant": "v869",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150483,7 +152133,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v869"
+   "variant": "v869",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150522,7 +152179,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v522"
+   "variant": "v522",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -150582,6 +152246,1940 @@
     "metal-iron-steel",
     "plastic",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "bridge-pillar-wide",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.3,
+    1
+   ],
+   "tris": 38,
+   "tpu": 78,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 3816,
+   "vtx": 68,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.06,
+   "avgTri": 0.02663,
+   "anglePct": 88,
+   "vpt": 1.79,
+   "grad": 0,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v986",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "bridge-pillar",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.2,
+    1
+   ],
+   "tris": 38,
+   "tpu": 78,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 3804,
+   "vtx": 68,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.06,
+   "avgTri": 0.01553,
+   "anglePct": 87,
+   "vpt": 1.79,
+   "grad": 0,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "variant": "v986",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "construction-barrier",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.45,
+    0.25
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 3452,
+   "vtx": 52,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00866,
+   "anglePct": 65,
+   "vpt": 0.87,
+   "grad": 0.28,
+   "spread": {
+    "14,3": [
+     0.32,
+     0.727
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "ken",
+    "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "construction-cone",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.2
+   ],
+   "tris": 66,
+   "tpu": 192,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4112,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "avgTri": 0.00155,
+   "anglePct": 64,
+   "vpt": 1.09,
+   "grad": 0.2,
+   "spread": {
+    "5,2": [
+     0.336,
+     0.656
+    ],
+    "5,0": [
+     0.422,
+     0.594
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.2 under min 0.15 (str-barrier-traffic · 0.143 at kit ×1.4)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "construction-fence",
+   "kind": "str-barrier",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.75,
+    0.35
+   ],
+   "tris": 136,
+   "tpu": 397,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5832,
+   "vtx": 112,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.038,
+   "avgTri": 0.00344,
+   "anglePct": 79,
+   "vpt": 0.82,
+   "grad": 0.73,
+   "spread": {
+    "15,3": [
+     0.109,
+     0.836
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "construction-light",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.45
+   ],
+   "tris": 144,
+   "tpu": 420,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 7676,
+   "vtx": 168,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "avgTri": 0.00182,
+   "anglePct": 84,
+   "vpt": 1.17,
+   "grad": 0.69,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "5,0": [
+     0.336,
+     0.664
+    ],
+    "13,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#88848a",
+    "#d07b56"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "dumpster",
+   "kind": "obj-container",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.75,
+    0.4
+   ],
+   "tris": 234,
+   "tpu": 682,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 10884,
+   "vtx": 252,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01114,
+   "anglePct": 62,
+   "vpt": 1.08,
+   "grad": 0.44,
+   "spread": {
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "15,3": [
+     0.461,
+     0.547
+    ],
+    "5,2": [
+     0.438,
+     0.555
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#88848a",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "light-curved-cross",
+   "kind": "obj-lighting-lantern-onpost",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.8,
+    1.35
+   ],
+   "tris": 270,
+   "tpu": 312,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14064,
+   "vtx": 344,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "avgTri": 0.00257,
+   "anglePct": 77,
+   "vpt": 1.27,
+   "grad": 0.5,
+   "spread": {
+    "15,3": [
+     0.438,
+     0.977
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "ken",
+    "metal"
+   ],
+   "variant": "v985",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "light-curved-double",
+   "kind": "obj-lighting-lantern-onpost",
+   "size": "m",
+   "wdh": [
+    0.1,
+    0.8,
+    1.35
+   ],
+   "tris": 152,
+   "tpu": 230,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8556,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.029,
+   "avgTri": 0.00332,
+   "anglePct": 80,
+   "vpt": 1.28,
+   "grad": 0.52,
+   "spread": {
+    "15,3": [
+     0.398,
+     0.953
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "ken",
+    "metal"
+   ],
+   "variant": "v985",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "light-curved",
+   "kind": "obj-lighting-lantern-onpost",
+   "size": "m",
+   "wdh": [
+    0.1,
+    0.45,
+    1.35
+   ],
+   "tris": 92,
+   "tpu": 139,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5812,
+   "vtx": 120,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.043,
+   "avgTri": 0.0044,
+   "anglePct": 83,
+   "vpt": 1.3,
+   "grad": 0.53,
+   "spread": {
+    "15,3": [
+     0.359,
+     0.914
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "ken",
+    "metal"
+   ],
+   "variant": "v985",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "light-square-cross",
+   "kind": "obj-lighting-lantern-onpost",
+   "size": "m",
+   "wdh": [
+    0.85,
+    0.85,
+    1.2
+   ],
+   "tris": 134,
+   "tpu": 155,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8252,
+   "vtx": 188,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.036,
+   "avgTri": 0.00518,
+   "anglePct": 89,
+   "vpt": 1.4,
+   "grad": 0.48,
+   "spread": {
+    "15,3": [
+     0.406,
+     0.953
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "ken",
+    "metal"
+   ],
+   "variant": "v984",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "light-square-double",
+   "kind": "obj-lighting-lantern-onpost",
+   "size": "m",
+   "wdh": [
+    0.1,
+    0.85,
+    1.2
+   ],
+   "tris": 88,
+   "tpu": 150,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5868,
+   "vtx": 122,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.026,
+   "avgTri": 0.00567,
+   "anglePct": 89,
+   "vpt": 1.39,
+   "grad": 0.49,
+   "spread": {
+    "15,3": [
+     0.367,
+     0.906
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "ken",
+    "metal"
+   ],
+   "variant": "v984",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "light-square",
+   "kind": "obj-lighting-lantern-onpost",
+   "size": "m",
+   "wdh": [
+    0.1,
+    0.5,
+    1.2
+   ],
+   "tris": 60,
+   "tpu": 102,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4464,
+   "vtx": 84,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.04,
+   "avgTri": 0.00665,
+   "anglePct": 89,
+   "vpt": 1.4,
+   "grad": 0.51,
+   "spread": {
+    "15,3": [
+     0.32,
+     0.867
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "ken",
+    "metal"
+   ],
+   "variant": "v984",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-empty-hanging",
+   "kind": "str-marker-sign",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.6,
+    0.95
+   ],
+   "tris": 112,
+   "tpu": 241,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6984,
+   "vtx": 152,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.025,
+   "avgTri": 0.00421,
+   "anglePct": 92,
+   "vpt": 1.36,
+   "grad": 0.8,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.953
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal"
+   ],
+   "variant": "v982",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-empty",
+   "kind": "str-marker-sign",
+   "size": "m",
+   "wdh": [
+    0.1,
+    0.1,
+    0.95
+   ],
+   "tris": 42,
+   "tpu": 90,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3592,
+   "vtx": 60,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.033,
+   "avgTri": 0.00569,
+   "anglePct": 82,
+   "vpt": 1.43,
+   "grad": 0.37,
+   "spread": {
+    "15,3": [
+     0.383,
+     0.75
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal"
+   ],
+   "variant": "v982",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-object-stop",
+   "kind": "str-marker-sign",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.25,
+    0.25
+   ],
+   "tris": 62,
+   "tpu": 181,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 4112,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00281,
+   "anglePct": 62,
+   "vpt": 1.16,
+   "grad": 0.24,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "8,0": [
+     0.219,
+     0.781
+    ],
+    "5,2": [
+     0.102,
+     0.898
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v983",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-object-street",
+   "kind": "str-marker-sign",
+   "size": "s",
+   "wdh": [
+    0.09,
+    0.4,
+    0.1
+   ],
+   "tris": 56,
+   "tpu": 163,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 3824,
+   "vtx": 64,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00233,
+   "anglePct": 100,
+   "vpt": 1.14,
+   "grad": 0.44,
+   "spread": {
+    "15,3": [
+     0.477,
+     0.523
+    ],
+    "6,1": [
+     0.016,
+     0.672
+    ],
+    "1,1": [
+     0.438,
+     0.547
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#88848a"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v983",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-object-warning",
+   "kind": "str-marker-sign",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.25,
+    0.25
+   ],
+   "tris": 62,
+   "tpu": 181,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4116,
+   "vtx": 72,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00255,
+   "anglePct": 60,
+   "vpt": 1.16,
+   "grad": 0.06,
+   "spread": {
+    "6,0": [
+     0.234,
+     0.742
+    ],
+    "6,1": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v983",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-stop",
+   "kind": "str-marker-sign",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.3,
+    1
+   ],
+   "tris": 104,
+   "tpu": 215,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 6276,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00422,
+   "anglePct": 73,
+   "vpt": 1.27,
+   "grad": 0.51,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "8,0": [
+     0.188,
+     0.789
+    ],
+    "15,3": [
+     0.016,
+     0.836
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v982",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-street",
+   "kind": "str-marker-sign",
+   "size": "m",
+   "wdh": [
+    0.4,
+    0.4,
+    0.95
+   ],
+   "tris": 154,
+   "tpu": 331,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8368,
+   "vtx": 188,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00325,
+   "anglePct": 91,
+   "vpt": 1.22,
+   "grad": 0.76,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.906
+    ],
+    "1,1": [
+     0.438,
+     0.547
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v982",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "road-sign-warning",
+   "kind": "str-marker-sign",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.3,
+    1
+   ],
+   "tris": 104,
+   "tpu": 213,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 6276,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.00403,
+   "anglePct": 73,
+   "vpt": 1.27,
+   "grad": 0.2,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "6,0": [
+     0.227,
+     0.734
+    ],
+    "15,3": [
+     0.383,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v982",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "sign-highway-detailed",
+   "kind": "str-marker-sign",
+   "size": "l",
+   "wdh": [
+    0.25,
+    2,
+    1.65
+   ],
+   "tris": 256,
+   "tpu": 294,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 13188,
+   "vtx": 319,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.01424,
+   "anglePct": 98,
+   "vpt": 1.25,
+   "grad": 0.9,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.969
+    ],
+    "1,1": [
+     0.336,
+     0.648
+    ],
+    "6,0": [
+     0.359,
+     0.641
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v981",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.429 at kit ×1.4)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "sign-highway-wide",
+   "kind": "str-marker-sign",
+   "size": "l",
+   "wdh": [
+    0.25,
+    2,
+    1.4
+   ],
+   "tris": 144,
+   "tpu": 192,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 8440,
+   "vtx": 192,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.02193,
+   "anglePct": 98,
+   "vpt": 1.33,
+   "grad": 0.86,
+   "spread": {
+    "15,3": [
+     0.07,
+     0.977
+    ],
+    "5,2": [
+     0.461,
+     0.523
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v981",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.429 at kit ×1.4)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "sign-highway",
+   "kind": "str-marker-sign",
+   "size": "l",
+   "wdh": [
+    0.25,
+    2,
+    1.4
+   ],
+   "tris": 180,
+   "tpu": 240,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 9928,
+   "vtx": 232,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "avgTri": 0.0173,
+   "anglePct": 98,
+   "vpt": 1.29,
+   "grad": 0.88,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.461,
+     0.523
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v981",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.429 at kit ×1.4)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "traffic-light-hanging",
+   "kind": "str-barrier-traffic",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.6,
+    1
+   ],
+   "tris": 230,
+   "tpu": 461,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 12104,
+   "vtx": 290,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00314,
+   "anglePct": 95,
+   "vpt": 1.26,
+   "grad": 0.94,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "6,0": [
+     0.133,
+     0.977
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v979",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "traffic-light-object-hanging",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.1,
+    0.3
+   ],
+   "tris": 114,
+   "tpu": 332,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 6364,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00218,
+   "anglePct": 100,
+   "vpt": 1.16,
+   "grad": 0.7,
+   "spread": {
+    "6,1": [
+     0.133,
+     0.727
+    ],
+    "6,0": [
+     0.133,
+     0.977
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v980",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "traffic-light-object-horizontal",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.3,
+    0.1
+   ],
+   "tris": 118,
+   "tpu": 344,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 6900,
+   "vtx": 148,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00205,
+   "anglePct": 100,
+   "vpt": 1.25,
+   "grad": 0.69,
+   "spread": {
+    "6,0": [
+     0.086,
+     0.977
+    ],
+    "6,1": [
+     0.109,
+     0.68
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v980",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "traffic-light-object-vertical",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.1,
+    0.3
+   ],
+   "tris": 132,
+   "tpu": 385,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 7244,
+   "vtx": 156,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00206,
+   "anglePct": 100,
+   "vpt": 1.18,
+   "grad": 0.68,
+   "spread": {
+    "6,1": [
+     0.195,
+     0.789
+    ],
+    "6,0": [
+     0.133,
+     0.977
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "comp",
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v980",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-roads",
+   "collection": "ken-city",
+   "name": "traffic-light",
+   "kind": "str-barrier-traffic",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.2,
+    1.05
+   ],
+   "tris": 212,
+   "tpu": 420,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 11148,
+   "vtx": 264,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.0029,
+   "anglePct": 94,
+   "vpt": 1.25,
+   "grad": 0.94,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "6,0": [
+     0.133,
+     0.977
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ken",
+    "metal",
+    "plastic"
+   ],
+   "variant": "v979",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "pallet",
+   "kind": "obj-transport-pallet",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.15
+   ],
+   "tris": 108,
+   "tpu": 315,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7824,
+   "vtx": 180,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.032,
+   "avgTri": 0.00689,
+   "anglePct": 100,
+   "vpt": 1.67,
+   "grad": 0.96,
+   "spread": {
+    "0,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "ken",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "rail-high",
+   "kind": "str-playground",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.95,
+    0.45
+   ],
+   "tris": 90,
+   "tpu": 262,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6444,
+   "vtx": 140,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.0062,
+   "anglePct": 98,
+   "vpt": 1.56,
+   "grad": 0.05,
+   "spread": {
+    "8,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.461,
+     0.516
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal"
+   ],
+   "variant": "v996"
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "rail-low",
+   "kind": "str-playground",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.95,
+    0.25
+   ],
+   "tris": 90,
+   "tpu": 262,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6424,
+   "vtx": 140,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.00489,
+   "anglePct": 86,
+   "vpt": 1.56,
+   "grad": 0.1,
+   "spread": {
+    "8,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.438,
+     0.555
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal"
+   ],
+   "variant": "v996"
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "skateboard",
+   "kind": "obj-transport",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.65,
+    0.15
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 12084,
+   "vtx": 288,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "avgTri": 0.00244,
+   "anglePct": 91,
+   "vpt": 1.2,
+   "grad": 0.74,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.016,
+     0.977
+    ],
+    "1,0": [
+     0.5,
+     0.5
+    ],
+    "13,3": [
+     0.375,
+     0.742
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#7f3927",
+    "#88848a",
+    "#b58158",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-steel",
+    "plastic",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "steps",
+   "kind": "str-access-stairs",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.4
+   ],
+   "tris": 84,
+   "tpu": 133,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6080,
+   "vtx": 132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.03,
+   "avgTri": 0.03734,
+   "anglePct": 100,
+   "vpt": 1.57,
+   "grad": 0.6,
+   "spread": {
+    "1,0": [
+     0.219,
+     0.766
+    ],
+    "6,1": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#b58158"
+   ],
+   "tags": [
+    "ken",
+    "metal-iron-cast",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "structure-platform",
+   "kind": "str-platform-deck",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.5,
+    0.75
+   ],
+   "tris": 108,
+   "tpu": 290,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8940,
+   "vtx": 216,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.047,
+   "avgTri": 0.03136,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "ken-skate",
+   "collection": "ken-mini",
+   "name": "structure-wood",
+   "kind": "str-part-frame",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.95,
+    0.65
+   ],
+   "tris": 184,
+   "tpu": 291,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14252,
+   "vtx": 368,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.047,
+   "avgTri": 0.01444,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.55,
+   "spread": {
+    "2,0": [
+     0.195,
+     0.75
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "ken",
+    "wood-beam"
    ]
   },
   {
@@ -150632,12 +154230,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.8 under min 0.9 (str-access-road · 0.563 at kit ×1.42)"
+     "text": "longest 0.8 under min 0.9 (str-access-road · 0.571 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -150689,12 +154287,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 under min 0.9 (str-access-road · 0.493 at kit ×1.42)"
+     "text": "longest 0.7 under min 0.9 (str-access-road · 0.5 at kit ×1.4)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -150766,9 +154364,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -150840,9 +154438,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -150914,9 +154512,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -150988,9 +154586,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151062,9 +154660,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151136,9 +154734,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151210,9 +154808,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151279,9 +154877,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151353,9 +154951,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151422,9 +155020,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151496,9 +155094,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151570,9 +155168,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151644,9 +155242,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151718,9 +155316,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151792,9 +155390,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151866,9 +155464,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -151940,9 +155538,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -152014,9 +155612,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -152088,9 +155686,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -152162,9 +155760,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -152236,9 +155834,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (ken-city, 5 kinds)"
+     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -200896,11 +204494,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.35 under min 0.35 (str-marker-sign · 0.315 at kit ×1.11)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has plastic (str-marker-sign)"
     }
    ]
   },

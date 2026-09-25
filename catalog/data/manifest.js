@@ -1475,6 +1475,8 @@ window.KENNEY_KITS = [
    "ladder",
    "ladder-top",
    "stairs-diagonal",
+   "target-a-round",
+   "target-b-round",
    "vehicle",
    "vehicle-convertible",
    "wall",
@@ -5506,6 +5508,100 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "slug": "ken-roads",
+  "name": "ken-roads",
+  "url": "https://kenney.nl/assets/city-kit-roads",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "bridge-pillar",
+   "bridge-pillar-wide",
+   "construction-barrier",
+   "construction-cone",
+   "construction-fence",
+   "construction-light",
+   "dumpster",
+   "light-curved",
+   "light-curved-cross",
+   "light-curved-double",
+   "light-square",
+   "light-square-cross",
+   "light-square-double",
+   "road-sign-empty",
+   "road-sign-empty-hanging",
+   "road-sign-object-stop",
+   "road-sign-object-street",
+   "road-sign-object-warning",
+   "road-sign-stop",
+   "road-sign-street",
+   "road-sign-warning",
+   "sign-highway",
+   "sign-highway-detailed",
+   "sign-highway-wide",
+   "traffic-light",
+   "traffic-light-hanging",
+   "traffic-light-object-hanging",
+   "traffic-light-object-horizontal",
+   "traffic-light-object-vertical"
+  ]
+ },
+ {
+  "slug": "ken-chars",
+  "name": "ken-chars",
+  "url": "https://kenney.nl/assets/mini-characters",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "aid-defibrillator-green",
+   "aid-defibrillator-red",
+   "aid-glasses",
+   "aid-sunglasses",
+   "wheelchair",
+   "wheelchair-deluxe",
+   "wheelchair-power",
+   "wheelchair-power-deluxe"
+  ]
+ },
+ {
+  "slug": "ken-skate",
+  "name": "ken-skate",
+  "url": "https://kenney.nl/assets/mini-skate",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "pallet",
+   "rail-high",
+   "rail-low",
+   "skateboard",
+   "steps",
+   "structure-platform",
+   "structure-wood"
+  ]
+ },
+ {
+  "slug": "ken-arena",
+  "name": "ken-arena",
+  "url": "https://kenney.nl/assets/mini-arena",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "banner",
+   "block",
+   "border-corner",
+   "border-straight",
+   "bricks",
+   "column",
+   "column-damaged",
+   "stairs",
+   "stairs-corner",
+   "stairs-corner-inner",
+   "statue",
+   "tree",
+   "trophy",
+   "wall",
+   "wall-corner",
+   "wall-gate",
+   "weapon-rack",
+   "weapon-sword"
+  ]
+ },
+ {
   "collection": "wizp-eastern",
   "name": "wizp-eastern",
   "kits": [
@@ -5536,7 +5632,10 @@ window.KENNEY_KITS = [
    "ken-arcade",
    "ken-forest-mini",
    "ken-market",
-   "ken-mini-dun"
+   "ken-mini-dun",
+   "ken-chars",
+   "ken-skate",
+   "ken-arena"
   ]
  },
  {
@@ -5554,7 +5653,8 @@ window.KENNEY_KITS = [
   "kits": [
    "ken-commercial",
    "ken-industrial",
-   "ken-suburban"
+   "ken-suburban",
+   "ken-roads"
   ]
  },
  {
