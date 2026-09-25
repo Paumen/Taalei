@@ -1,10 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=2c5af6f320';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=2c5af6f320';
-import { colorSwatches, setBands } from './color-edits.js?v=2c5af6f320';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=2c5af6f320';
-import { mountExtractBar, setPageParts } from './extract.js?v=2c5af6f320';
-import { bob } from './bob.js?v=2c5af6f320';
-import './bouwstempel.js?v=2c5af6f320';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=ed26319a00';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=ed26319a00';
+import { colorSwatches, setBands } from './color-edits.js?v=ed26319a00';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=ed26319a00';
+import { mountExtractBar, setPageParts } from './extract.js?v=ed26319a00';
+import './bouwstempel.js?v=ed26319a00';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -852,7 +851,6 @@ function showDetail(model) {
   );
 
   detailViewer.replaceChildren(viewer);
-  bob(viewer, model, () => detail.open);
 
   const lintBlock = document.querySelector('#detail-lint');
   const lintList = document.querySelector('#detail-lint-lijst');
