@@ -597,7 +597,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   width: 30px;
   height: 30px;
   padding: 4px;
-  background-clip: content-box;
   border: 4px solid transparent;
   border-radius: 999px;
   background: none;
@@ -1283,9 +1282,8 @@ body:has(.selectiebalk:not([hidden])):has(.tagedit-balk:not([hidden])) { padding
 
 .kitbalk-knoppen::-webkit-scrollbar { display: none; }
 
-.kitbalk-knoppen button { flex: none; }
-
 .kitbalk-knoppen button {
+  flex: none;
   padding: 4px 10px;
   border: 1px solid var(--lijn);
   border-radius: 999px;

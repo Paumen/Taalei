@@ -1,10 +1,10 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=ed9ef9e919';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=ed9ef9e919';
-import { colorSwatches, setBands } from './color-edits.js?v=ed9ef9e919';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=ed9ef9e919';
-import { mountExtractBar, setPageParts } from './extract.js?v=ed9ef9e919';
-import { bob } from './bob.js?v=ed9ef9e919';
-import './bouwstempel.js?v=ed9ef9e919';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=dd73e36984';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=dd73e36984';
+import { colorSwatches, setBands } from './color-edits.js?v=dd73e36984';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=dd73e36984';
+import { mountExtractBar, setPageParts } from './extract.js?v=dd73e36984';
+import { bob } from './bob.js?v=dd73e36984';
+import './bouwstempel.js?v=dd73e36984';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -151,10 +151,6 @@ const observer = new IntersectionObserver(
   },
   { rootMargin: '800px 0px' },
 );
-
-function demoClip(clips) {
-  return clips.find((name) => name === 'open-close' || name === 'toggle') ?? clips[0];
-}
 
 const FLAT_ENVIRONMENT = 'catalog/app/effen-omgeving.png';
 const SOFT_ENVIRONMENT = 'catalog/app/zachte-omgeving.png';

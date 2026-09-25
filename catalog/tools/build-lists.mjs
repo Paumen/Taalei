@@ -24,7 +24,6 @@ const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'preview-c
 const AFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'rejects.json'), 'utf8'));
 
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
-const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 
 function kitGegevens(slug, bron) {
   const dir = join(WERK_DIR, slug);
