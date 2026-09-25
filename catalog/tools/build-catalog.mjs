@@ -195,7 +195,7 @@ function laneColor(atlas, lane) {
 const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
 
 const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js', 'color-edits.js', 'comments.js',
-  'extract.js', 'bouwstempel.js', 'bob.js'];
+  'extract.js', 'bouwstempel.js'];
 const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'list.js', 'tag-edits.js', 'extract.js'];
 const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
 
