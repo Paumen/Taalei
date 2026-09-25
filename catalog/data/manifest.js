@@ -5535,5 +5535,13 @@ window.KENNEY_KITS = [
    "wizp-grave",
    "wizp-arena"
   ]
+ },
+ {
+  "collection": "wizp-western",
+  "name": "wizp-western",
+  "kits": [
+   "wizp-mediev",
+   "wizp-fish"
+  ]
  }
 ]

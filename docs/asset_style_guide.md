@@ -324,7 +324,7 @@ Importing a pack:
 - **`P12`** — 3–4 source colours: may drop 1.
 - **`P13`** — 5 source colours: may drop 2.
 - **`P14`** — 6 or more source colours: keep at least 3.
-- **`P15`** — Kits of one style whose source packs share units form a collection: a `catalog/data/manifest.js` row with `collection` (slug), `name` and `kits`. Its kits share one scale factor and keep their own folders, model ids and manifest rows. The catalogue, swipe, scale and curves pages, the overview and the kit size treat a collection as one kit; TBD and reject do not. Collections: `wizp-eastern` (`wizp-asia`, `wizp-village`), `wizp-grave` (`wizp-grave`, `wizp-arena`).
+- **`P15`** — Kits of one style whose source packs share units form a collection: a `catalog/data/manifest.js` row with `collection` (slug), `name` and `kits`. Its kits share one scale factor and keep their own folders, model ids and manifest rows. The catalogue, swipe, scale and curves pages, the overview and the kit size treat a collection as one kit; TBD and reject do not. Collections: `wizp-eastern` (`wizp-asia`, `wizp-village`), `wizp-grave` (`wizp-grave`, `wizp-arena`), `wizp-western` (`wizp-mediev`, `wizp-fish`).
 
 ---
 
