@@ -5556,5 +5556,30 @@ window.KENNEY_KITS = [
    "ken-industrial",
    "ken-suburban"
   ]
+ },
+ {
+  "collection": "isa-tt",
+  "name": "isa-tt",
+  "kits": [
+   "isa-plants",
+   "isa-food",
+   "isa-bakery"
+  ]
+ },
+ {
+  "collection": "kay-chars",
+  "name": "kay-chars",
+  "kits": [
+   "kay-adventurers",
+   "kay-skeleton"
+  ]
+ },
+ {
+  "collection": "kay-rpg",
+  "name": "kay-rpg",
+  "kits": [
+   "kay-tools",
+   "kay-weapons"
+  ]
  }
 ]
