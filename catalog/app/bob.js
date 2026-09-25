@@ -42,11 +42,11 @@ export function bob(viewer, model, isShown = () => true) {
   let base = null;
 
   const step = (now) => {
-    if (!viewer.isConnected) return;
+    if (!viewer.isConnected || !isShown()) return;
     requestAnimationFrame(step);
     const scene = viewer[sceneKey];
     const target = scene?.model;
-    if (!viewer.loaded || !target || !isShown()) return;
+    if (!viewer.loaded || !target) return;
     base ??= target.position.clone();
 
     const a = (now / 1000 / m.period) * Math.PI * 2 + m.phase;
