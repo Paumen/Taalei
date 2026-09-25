@@ -5564,7 +5564,10 @@ window.KENNEY_KITS = [
    "isa-plants",
    "isa-food",
    "isa-kitchen",
-   "isa-bakery"
+   "isa-bakery",
+   "isa-picnic",
+   "isa-park",
+   "isa-playground"
   ]
  },
  {
@@ -5580,7 +5583,24 @@ window.KENNEY_KITS = [
   "name": "kay-rpg",
   "kits": [
    "kay-tools",
-   "kay-weapons"
+   "kay-weapons",
+   "kay-resources"
+  ]
+ },
+ {
+  "collection": "kay-undead",
+  "name": "kay-undead",
+  "kits": [
+   "kay-spook",
+   "kay-skeleton-1"
+  ]
+ },
+ {
+  "collection": "fs-modular",
+  "name": "fs-modular",
+  "kits": [
+   "fs-terrain",
+   "fs-town"
   ]
  }
 ]
