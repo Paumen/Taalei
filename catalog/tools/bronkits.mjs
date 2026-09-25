@@ -93,7 +93,7 @@ export const BRONKITS = [
   { map: 'gobkit_minion-pack', naam: 'Gobkit Minion Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_dino-pack', naam: 'Gobkit Dinosaur Pack', kit: null, formaat: 'glb' },
   { map: 'gobkit_nature-kit', naam: 'Gobkit Nature Kit', kit: null, formaat: 'glb' },
-  { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'kay-apocalyp', source: 'kay', formaat: 'glb' },
+  { map: 'Post_Apocolypse_Pack', naam: 'Post Apocalypse Pack', kit: 'quat-apocalypse', source: 'qua', formaat: 'glb' },
   { map: 'Scythian_Decoration', naam: 'Scythian Decoration', kit: 'scythian', formaat: 'obj' },
 
   { map: 'KayKit_Holiday_Bits_1.0_FREE', naam: 'KayKit Holiday Bits', kit: 'kay-holiday', source: 'kay', formaat: 'gltf' },

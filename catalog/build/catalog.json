@@ -456,32 +456,6 @@
    }
   },
   {
-   "slug": "kay-apocalyp",
-   "name": "kay-apocalyp",
-   "note": "Source zip with no licence file and no author named; see kits/workfiles/kay-apocalyp/LICENSE.txt.",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 35,
-   "packs": [
-    "Post Apocalypse Pack"
-   ],
-   "origins": {
-    "Post Apocalypse Pack": 35
-   },
-   "scales": {
-    "0.5": 35
-   },
-   "smooth": {
-    "60": 19,
-    "none": 16
-   },
-   "kitCheck": {
-    "factor": 1.32,
-    "kinds": 15,
-    "level": "warning"
-   }
-  },
-  {
    "slug": "kay-builder",
    "name": "kay-builder",
    "url": "https://www.kaylousberg.com",
@@ -1672,6 +1646,32 @@
     "factor": 1.41,
     "kinds": 18,
     "level": "error"
+   }
+  },
+  {
+   "slug": "quat-apocalypse",
+   "name": "quat-apocalypse",
+   "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-apocalypse/LICENSE.txt.",
+   "artist": "Quaternius",
+   "licenseLabel": "CC0",
+   "count": 35,
+   "packs": [
+    "Post Apocalypse Pack"
+   ],
+   "origins": {
+    "Post Apocalypse Pack": 35
+   },
+   "scales": {
+    "0.5": 35
+   },
+   "smooth": {
+    "60": 19,
+    "none": 16
+   },
+   "kitCheck": {
+    "factor": 1.32,
+    "kinds": 15,
+    "level": "warning"
    }
   },
   {
@@ -7285,28 +7285,28 @@
   {
    "id": "v482",
    "type": "color-variant",
-   "main": "kay-apocalyp/chest-hunter",
+   "main": "quat-apocalypse/chest-hunter",
    "members": [
-    "kay-apocalyp/chest-hunter",
-    "kay-apocalyp/chest-sienna"
+    "quat-apocalypse/chest-hunter",
+    "quat-apocalypse/chest-sienna"
    ]
   },
   {
    "id": "v483",
    "type": "detail-variant",
-   "main": "kay-apocalyp/pallet",
+   "main": "quat-apocalypse/pallet",
    "members": [
-    "kay-apocalyp/pallet",
-    "kay-apocalyp/pallet-broken"
+    "quat-apocalypse/pallet",
+    "quat-apocalypse/pallet-broken"
    ]
   },
   {
    "id": "v484",
    "type": "detail-variant",
-   "main": "kay-apocalyp/trash-bag",
+   "main": "quat-apocalypse/trash-bag",
    "members": [
-    "kay-apocalyp/trash-bag",
-    "kay-apocalyp/trash-bags"
+    "quat-apocalypse/trash-bag",
+    "quat-apocalypse/trash-bags"
    ]
   },
   {
@@ -9819,19 +9819,19 @@
   {
    "id": "v737",
    "type": "color-variant",
-   "main": "kay-apocalyp/container-hunter",
+   "main": "quat-apocalypse/container-hunter",
    "members": [
-    "kay-apocalyp/container-hunter",
-    "kay-apocalyp/container-sienna"
+    "quat-apocalypse/container-hunter",
+    "quat-apocalypse/container-sienna"
    ]
   },
   {
    "id": "v738",
    "type": "detail-variant",
-   "main": "kay-apocalyp/wheel",
+   "main": "quat-apocalypse/wheel",
    "members": [
-    "kay-apocalyp/wheel",
-    "kay-apocalyp/wheels"
+    "quat-apocalypse/wheel",
+    "quat-apocalypse/wheels"
    ]
   },
   {
@@ -14887,14 +14887,14 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1148
+   "count": 1113
   },
   {
    "id": "qua",
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 697
+   "count": 732
   },
   {
    "id": "isa",
@@ -60249,2074 +60249,6 @@
     "kay",
     "textile",
     "wood-beam"
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "axe",
-   "kind": "obj-equipment-weapon-melee-axe-single",
-   "size": "m",
-   "wdh": [
-    0.15,
-    0.04,
-    0.65
-   ],
-   "tris": 790,
-   "tpu": 2303,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 40144,
-   "vtx": 1056,
-   "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00023,
-   "anglePct": 52,
-   "vpt": 1.34,
-   "grad": 0.81,
-   "spread": {
-    "14,3": [
-     0.781,
-     0.961
-    ],
-    "15,3": [
-     0.031,
-     0.961
-    ],
-    "1,0": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#88848a",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-steel",
-    "rope",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ],
-   "mark": [
-    "grounded"
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "barrel",
-   "kind": "obj-container-barrel",
-   "size": "m",
-   "wdh": [
-    0.35,
-    0.35,
-    0.55
-   ],
-   "tris": 882,
-   "tpu": 2571,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 37004,
-   "vtx": 945,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00153,
-   "anglePct": 30,
-   "vpt": 1.07,
-   "grad": 0,
-   "spread": {
-    "6,1": [
-     0.5,
-     0.5
-    ],
-    "8,0": [
-     0.492,
-     0.492
-    ]
-   },
-   "colors": [
-    "#343745",
-    "#7f3927"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-cast"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "bat-barbed",
-   "kind": "obj-equipment-weapon-melee-club",
-   "size": "m",
-   "wdh": [
-    0.09,
-    0.1,
-    0.6
-   ],
-   "tris": 2188,
-   "tpu": 6379,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 104300,
-   "vtx": 2798,
-   "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00008,
-   "anglePct": 8,
-   "vpt": 1.28,
-   "grad": 0.7,
-   "spread": {
-    "1,0": [
-     0.266,
-     0.961
-    ],
-    "15,3": [
-     0.117,
-     0.813
-    ]
-   },
-   "colors": [
-    "#88848a",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-steel",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ],
-   "mark": [
-    "grounded"
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "bat-saw",
-   "kind": "obj-equipment-weapon-melee-club",
-   "size": "m",
-   "wdh": [
-    0.2,
-    0.7,
-    0.1
-   ],
-   "tris": 2308,
-   "tpu": 6729,
-   "mat": 1,
-   "bands": 4,
-   "calls": 1,
-   "bytes": 72228,
-   "vtx": 1778,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00012,
-   "anglePct": 28,
-   "vpt": 0.77,
-   "grad": 0.08,
-   "spread": {
-    "14,3": [
-     0.5,
-     0.5
-    ],
-    "6,1": [
-     0.492,
-     0.492
-    ],
-    "1,0": [
-     0.5,
-     0.5
-    ],
-    "15,3": [
-     0.461,
-     0.633
-    ]
-   },
-   "colors": [
-    "#343745",
-    "#88848a",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-cast",
-    "metal-iron-steel",
-    "rope",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "chest-hunter",
-   "kind": "obj-container-chest",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.25,
-    0.2
-   ],
-   "tris": 3190,
-   "tpu": 9300,
-   "mat": 1,
-   "bands": 4,
-   "calls": 1,
-   "bytes": 117968,
-   "vtx": 3041,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00023,
-   "anglePct": 91,
-   "vpt": 0.95,
-   "grad": 0.21,
-   "spread": {
-    "1,1": [
-     0.031,
-     0.211
-    ],
-    "2,0": [
-     0.75,
-     0.961
-    ],
-    "6,1": [
-     0.031,
-     0.242
-    ],
-    "15,3": [
-     0.117,
-     0.813
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#343745",
-    "#88848a",
-    "#8b5936"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-cast",
-    "metal-iron-steel",
-    "wood-beam"
-   ],
-   "variant": "v482",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.152 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "chest-sienna",
-   "kind": "obj-container-chest",
-   "size": "s",
-   "wdh": [
-    0.45,
-    0.25,
-    0.2
-   ],
-   "tris": 3422,
-   "tpu": 9977,
-   "mat": 1,
-   "bands": 4,
-   "calls": 1,
-   "bytes": 125324,
-   "vtx": 3227,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00027,
-   "anglePct": 91,
-   "vpt": 0.94,
-   "grad": 0.22,
-   "spread": {
-    "8,0": [
-     0.766,
-     0.961
-    ],
-    "2,0": [
-     0.75,
-     0.961
-    ],
-    "6,1": [
-     0.031,
-     0.242
-    ],
-    "15,3": [
-     0.117,
-     0.813
-    ]
-   },
-   "colors": [
-    "#343745",
-    "#7f3927",
-    "#88848a",
-    "#8b5936"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-cast",
-    "metal-iron-steel",
-    "wood-beam"
-   ],
-   "variant": "v482",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.152 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "cinder-block",
-   "kind": "obj-resource-stone",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.1,
-    0.1
-   ],
-   "tris": 368,
-   "tpu": 1073,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 14888,
-   "vtx": 350,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00046,
-   "anglePct": 93,
-   "vpt": 0.95,
-   "grad": 0,
-   "spread": {
-    "15,3": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#88848a"
-   ],
-   "tags": [
-    "kay",
-    "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "container-hunter",
-   "kind": "obj-container-cargo",
-   "size": "l",
-   "wdh": [
-    2.85,
-    1.3,
-    1.3
-   ],
-   "tris": 1336,
-   "tpu": 281,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 64864,
-   "vtx": 1730,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.01654,
-   "anglePct": 97,
-   "vpt": 1.29,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "1,1": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#5b5550"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-wrought"
-   ],
-   "variant": "v737",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.159 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "container-sienna",
-   "kind": "obj-container-cargo",
-   "size": "l",
-   "wdh": [
-    2.85,
-    1.3,
-    1.3
-   ],
-   "tris": 1032,
-   "tpu": 217,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 52064,
-   "vtx": 1387,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.01822,
-   "anglePct": 97,
-   "vpt": 1.34,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "8,0": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#7f3927"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-wrought"
-   ],
-   "variant": "v737",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.159 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "couch-damaged",
-   "kind": "obj-furnishing-seating-bench-backrest",
-   "size": "l",
-   "wdh": [
-    1.5,
-    0.6,
-    0.6
-   ],
-   "tris": 3078,
-   "tpu": 4807,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 115284,
-   "vtx": 2979,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00234,
-   "anglePct": 60,
-   "vpt": 0.97,
-   "grad": 0,
-   "spread": {
-    "15,3": [
-     0.5,
-     0.5
-    ],
-    "8,0": [
-     0.5,
-     0.5
-    ],
-    "3,0": [
-     0.492,
-     0.492
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#7f3927",
-    "#88848a"
-   ],
-   "tags": [
-    "broken",
-    "kay",
-    "leather",
-    "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "dog-pug",
-   "kind": "env-fauna",
-   "size": "m",
-   "wdh": [
-    0.2,
-    0.55,
-    0.4
-   ],
-   "tris": 3603,
-   "tpu": 10504,
-   "mat": 1,
-   "bands": 5,
-   "calls": 1,
-   "bytes": 128320,
-   "vtx": 3287,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00015,
-   "anglePct": 4,
-   "vpt": 0.91,
-   "grad": 0.51,
-   "spread": {
-    "3,0": [
-     0.273,
-     0.961
-    ],
-    "8,0": [
-     0.148,
-     0.43
-    ],
-    "1,1": [
-     0.031,
-     0.961
-    ],
-    "15,3": [
-     0.031,
-     0.211
-    ],
-    "0,0": [
-     0.766,
-     0.961
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#563b2b",
-    "#7f3927",
-    "#88848a",
-    "#dbae80"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "skin",
-    "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 10504 over max 10000 (env-fauna)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "dog-shepherd",
-   "kind": "env-fauna",
-   "size": "m",
-   "wdh": [
-    0.25,
-    0.75,
-    0.45
-   ],
-   "tris": 4898,
-   "tpu": 14280,
-   "mat": 1,
-   "bands": 5,
-   "calls": 1,
-   "bytes": 172160,
-   "vtx": 4414,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00016,
-   "anglePct": 3,
-   "vpt": 0.9,
-   "grad": 0.55,
-   "spread": {
-    "3,0": [
-     0.031,
-     0.961
-    ],
-    "0,0": [
-     0.766,
-     0.961
-    ],
-    "8,0": [
-     0.063,
-     0.398
-    ],
-    "1,0": [
-     0.781,
-     0.961
-    ],
-    "14,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#7f3927",
-    "#8b7561",
-    "#b58158",
-    "#dbae80"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "skin",
-    "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 14280 over max 10000 (env-fauna)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "fire-hydrant",
-   "kind": "str",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.2,
-    0.4
-   ],
-   "tris": 976,
-   "tpu": 2845,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 34280,
-   "vtx": 841,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00029,
-   "anglePct": 37,
-   "vpt": 0.86,
-   "grad": 0.7,
-   "spread": {
-    "8,0": [
-     0.055,
-     0.75
-    ]
-   },
-   "colors": [
-    "#7f3927"
-   ],
-   "tags": [
-    "kay",
-    "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "guitar",
-   "kind": "obj-art-instrument",
-   "size": "m",
-   "wdh": [
-    0.35,
-    0.9,
-    0.07
-   ],
-   "tris": 2325,
-   "tpu": 6778,
-   "mat": 1,
-   "bands": 5,
-   "calls": 1,
-   "bytes": 124744,
-   "vtx": 3416,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00018,
-   "anglePct": 67,
-   "vpt": 1.47,
-   "grad": 0.2,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "3,0": [
-     0.336,
-     0.742
-    ],
-    "15,3": [
-     0.492,
-     0.664
-    ],
-    "1,0": [
-     0.398,
-     0.664
-    ],
-    "14,3": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#5b5550",
-    "#88848a",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "plastic",
-    "textile",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 6778 over max 5000 (obj-art-instrument)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "knife",
-   "kind": "obj-equipment-weapon-melee-dagger",
-   "size": "s",
-   "wdh": [
-    0.08,
-    0.04,
-    0.4
-   ],
-   "tris": 860,
-   "tpu": 2507,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 35320,
-   "vtx": 892,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00007,
-   "anglePct": 38,
-   "vpt": 1.04,
-   "grad": 0.8,
-   "spread": {
-    "15,3": [
-     0.031,
-     0.961
-    ],
-    "3,0": [
-     0.766,
-     0.961
-    ],
-    "1,0": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#88848a",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "pallet-broken",
-   "kind": "obj-transport-pallet",
-   "size": "m",
-   "wdh": [
-    0.45,
-    0.6,
-    0.08
-   ],
-   "tris": 216,
-   "tpu": 630,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 16564,
-   "vtx": 430,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00445,
-   "anglePct": 97,
-   "vpt": 1.99,
-   "grad": 0.2,
-   "spread": {
-    "0,0": [
-     0.766,
-     0.961
-    ]
-   },
-   "colors": [
-    "#dbae80"
-   ],
-   "tags": [
-    "broken",
-    "kay",
-    "wood-planks"
-   ],
-   "variant": "v483",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "pallet",
-   "kind": "obj-transport-pallet",
-   "size": "m",
-   "wdh": [
-    0.45,
-    0.6,
-    0.07
-   ],
-   "tris": 240,
-   "tpu": 700,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 18292,
-   "vtx": 480,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00446,
-   "anglePct": 100,
-   "vpt": 2,
-   "grad": 0.2,
-   "spread": {
-    "0,0": [
-     0.766,
-     0.961
-    ]
-   },
-   "colors": [
-    "#dbae80"
-   ],
-   "tags": [
-    "kay",
-    "wood-planks"
-   ],
-   "variant": "v483",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "pipes",
-   "kind": "obj-resource-metal",
-   "size": "l",
-   "wdh": [
-    0.35,
-    1.7,
-    0.35
-   ],
-   "tris": 1496,
-   "tpu": 3405,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 49128,
-   "vtx": 1208,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.0036,
-   "anglePct": 1,
-   "vpt": 0.81,
-   "grad": 0.22,
-   "spread": {
-    "13,3": [
-     0.031,
-     0.211
-    ],
-    "6,1": [
-     0.031,
-     0.242
-    ],
-    "6,0": [
-     0.469,
-     0.961
-    ]
-   },
-   "colors": [
-    "#343745",
-    "#5b5550",
-    "#f2a93c"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-cast",
-    "plural"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "pistol",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
-   "size": "s",
-   "wdh": [
-    0.07,
-    0.5,
-    0.15
-   ],
-   "tris": 1446,
-   "tpu": 4216,
-   "mat": 1,
-   "bands": 4,
-   "calls": 1,
-   "bytes": 63360,
-   "vtx": 1663,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00014,
-   "anglePct": 67,
-   "vpt": 1.15,
-   "grad": 0.28,
-   "spread": {
-    "3,0": [
-     0.078,
-     0.922
-    ],
-    "15,3": [
-     0.477,
-     0.648
-    ],
-    "1,0": [
-     0.25,
-     0.508
-    ],
-    "14,3": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#88848a",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "textile",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "plastic-barrier",
-   "kind": "str-barrier-traffic",
-   "size": "m",
-   "wdh": [
-    0.5,
-    0.15,
-    0.3
-   ],
-   "tris": 852,
-   "tpu": 2484,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 36840,
-   "vtx": 945,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00063,
-   "anglePct": 73,
-   "vpt": 1.11,
-   "grad": 0,
-   "spread": {
-    "6,0": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#f2a93c"
-   ],
-   "tags": [
-    "kay",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "rifle",
-   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
-   "size": "m",
-   "wdh": [
-    0.06,
-    0.8,
-    0.25
-   ],
-   "tris": 2103,
-   "tpu": 6131,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 100684,
-   "vtx": 2706,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00016,
-   "anglePct": 51,
-   "vpt": 1.29,
-   "grad": 0.26,
-   "spread": {
-    "13,3": [
-     0.328,
-     0.977
-    ],
-    "15,3": [
-     0.469,
-     0.648
-    ],
-    "1,0": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#88848a",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-steel",
-    "metal-iron-wrought",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "shotgun",
-   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
-   "size": "m",
-   "wdh": [
-    0.55,
-    0.05,
-    0.15
-   ],
-   "tris": 1542,
-   "tpu": 4496,
-   "mat": 1,
-   "bands": 5,
-   "calls": 1,
-   "bytes": 59392,
-   "vtx": 1518,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00012,
-   "anglePct": 54,
-   "vpt": 0.98,
-   "grad": 0.61,
-   "spread": {
-    "2,0": [
-     0.75,
-     0.961
-    ],
-    "15,3": [
-     0.117,
-     0.961
-    ],
-    "14,3": [
-     0.797,
-     0.945
-    ],
-    "3,0": [
-     0.273,
-     0.953
-    ],
-    "1,0": [
-     0.781,
-     0.938
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#88848a",
-    "#8b5936",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "textile",
-    "wood-beam",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "smg",
-   "kind": "obj-equipment-weapon-ranged-firearm",
-   "size": "s",
-   "wdh": [
-    0.08,
-    0.5,
-    0.25
-   ],
-   "tris": 2497,
-   "tpu": 7280,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 126280,
-   "vtx": 3432,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.0001,
-   "anglePct": 51,
-   "vpt": 1.37,
-   "grad": 0.26,
-   "spread": {
-    "13,3": [
-     0.484,
-     0.781
-    ],
-    "15,3": [
-     0.477,
-     0.648
-    ],
-    "8,0": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#7f3927",
-    "#88848a"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-steel",
-    "metal-iron-wrought",
-    "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "spear",
-   "kind": "obj-equipment-weapon-melee-spear",
-   "size": "m",
-   "wdh": [
-    0.07,
-    0.08,
-    1
-   ],
-   "tris": 3200,
-   "tpu": 6492,
-   "mat": 1,
-   "bands": 4,
-   "calls": 1,
-   "bytes": 143380,
-   "vtx": 3830,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00005,
-   "anglePct": 11,
-   "vpt": 1.2,
-   "grad": 0.87,
-   "spread": {
-    "15,3": [
-     0.031,
-     0.961
-    ],
-    "3,0": [
-     0.766,
-     0.961
-    ],
-    "1,0": [
-     0.109,
-     0.961
-    ],
-    "14,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#88848a",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "rope",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ],
-   "mark": [
-    "grounded"
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "survivor-lis",
-   "kind": "char",
-   "size": "m",
-   "wdh": [
-    1,
-    0.7,
-    0.85
-   ],
-   "tris": 7785,
-   "tpu": 12311,
-   "mat": 1,
-   "bands": 6,
-   "calls": 1,
-   "bytes": 250624,
-   "vtx": 6325,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00014,
-   "anglePct": 8,
-   "vpt": 0.81,
-   "grad": 0.55,
-   "spread": {
-    "15,3": [
-     0.031,
-     0.961
-    ],
-    "3,0": [
-     0.031,
-     0.961
-    ],
-    "5,2": [
-     0.781,
-     0.961
-    ],
-    "14,3": [
-     0.781,
-     0.961
-    ],
-    "0,0": [
-     0.766,
-     0.961
-    ],
-    "1,1": [
-     0.07,
-     0.211
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#563b2b",
-    "#88848a",
-    "#8b7561",
-    "#d8d1bd",
-    "#dbae80"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "rope",
-    "skin",
-    "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "survivor-matt",
-   "kind": "char",
-   "size": "m",
-   "wdh": [
-    1,
-    0.45,
-    0.75
-   ],
-   "tris": 7070,
-   "tpu": 19136,
-   "mat": 1,
-   "bands": 6,
-   "calls": 1,
-   "bytes": 219912,
-   "vtx": 5499,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00013,
-   "anglePct": 4,
-   "vpt": 0.78,
-   "grad": 0.73,
-   "spread": {
-    "15,3": [
-     0.055,
-     0.961
-    ],
-    "3,0": [
-     0.031,
-     0.961
-    ],
-    "1,0": [
-     0.797,
-     0.914
-    ],
-    "1,1": [
-     0.031,
-     0.211
-    ],
-    "8,0": [
-     0.031,
-     0.211
-    ],
-    "0,0": [
-     0.773,
-     0.961
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#563b2b",
-    "#7f3927",
-    "#88848a",
-    "#b58158",
-    "#dbae80"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "skin",
-    "textile",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "survivor-sam",
-   "kind": "char",
-   "size": "m",
-   "wdh": [
-    1,
-    0.6,
-    0.75
-   ],
-   "tris": 9636,
-   "tpu": 20191,
-   "mat": 1,
-   "bands": 6,
-   "calls": 1,
-   "bytes": 291592,
-   "vtx": 7258,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00015,
-   "anglePct": 3,
-   "vpt": 0.75,
-   "grad": 0.79,
-   "spread": {
-    "14,3": [
-     0.82,
-     0.93
-    ],
-    "15,3": [
-     0.031,
-     0.945
-    ],
-    "1,0": [
-     0.844,
-     0.914
-    ],
-    "3,0": [
-     0.031,
-     0.961
-    ],
-    "8,0": [
-     0.031,
-     0.492
-    ],
-    "13,3": [
-     0.766,
-     0.961
-    ]
-   },
-   "colors": [
-    "#563b2b",
-    "#5b5550",
-    "#7f3927",
-    "#88848a",
-    "#8b7561",
-    "#b58158"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "rope",
-    "skin",
-    "textile",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "survivor-shaun",
-   "kind": "char",
-   "size": "m",
-   "wdh": [
-    1,
-    0.65,
-    0.75
-   ],
-   "tris": 10758,
-   "tpu": 20768,
-   "mat": 1,
-   "bands": 6,
-   "calls": 1,
-   "bytes": 368156,
-   "vtx": 9440,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00017,
-   "anglePct": 7,
-   "vpt": 0.88,
-   "grad": 0.78,
-   "spread": {
-    "8,0": [
-     0.031,
-     0.961
-    ],
-    "1,1": [
-     0.031,
-     0.844
-    ],
-    "1,0": [
-     0.125,
-     0.961
-    ],
-    "15,3": [
-     0.039,
-     0.797
-    ],
-    "0,0": [
-     0.766,
-     0.961
-    ],
-    "3,0": [
-     0.031,
-     0.961
-    ]
-   },
-   "colors": [
-    "#23562c",
-    "#563b2b",
-    "#7f3927",
-    "#88848a",
-    "#b58158",
-    "#dbae80"
-   ],
-   "tags": [
-    "kay",
-    "leather",
-    "metal-iron-steel",
-    "skin",
-    "textile",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "traffic-barrier",
-   "kind": "str-barrier-traffic",
-   "size": "m",
-   "wdh": [
-    0.8,
-    0.4,
-    0.4
-   ],
-   "tris": 364,
-   "tpu": 1061,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 19028,
-   "vtx": 480,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00152,
-   "anglePct": 67,
-   "vpt": 1.32,
-   "grad": 0,
-   "spread": {
-    "15,3": [
-     0.5,
-     0.5
-    ],
-    "5,2": [
-     0.492,
-     0.492
-    ],
-    "5,0": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#88848a",
-    "#d07b56",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "kay",
-    "metal",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "traffic-cone",
-   "kind": "str-barrier-traffic",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.25,
-    0.35
-   ],
-   "tris": 134,
-   "tpu": 391,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 6884,
-   "vtx": 144,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.0019,
-   "anglePct": 58,
-   "vpt": 1.07,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "5,0": [
-     0.5,
-     0.5
-    ],
-    "5,2": [
-     0.492,
-     0.492
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#d07b56",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "kay",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "traffic-drum",
-   "kind": "str-barrier-traffic",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.3,
-    0.35
-   ],
-   "tris": 460,
-   "tpu": 1341,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 18652,
-   "vtx": 450,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00071,
-   "anglePct": 56,
-   "vpt": 0.98,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "5,0": [
-     0.5,
-     0.5
-    ],
-    "5,2": [
-     0.492,
-     0.492
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#d07b56",
-    "#d8d1bd"
-   ],
-   "tags": [
-    "kay",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "trash-bag",
-   "kind": "obj-container-bag-sack",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.25,
-    0.3
-   ],
-   "tris": 1044,
-   "tpu": 3044,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 30552,
-   "vtx": 712,
-   "gridMod": true,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00018,
-   "anglePct": 1,
-   "vpt": 0.68,
-   "grad": 0.18,
-   "spread": {
-    "14,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#8b7561"
-   ],
-   "tags": [
-    "kay",
-    "textile"
-   ],
-   "variant": "v484",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "trash-bags",
-   "kind": "obj-container-bag-sack",
-   "size": "s",
-   "wdh": [
-    0.45,
-    0.25,
-    0.25
-   ],
-   "tris": 2088,
-   "tpu": 6087,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 60472,
-   "vtx": 1451,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00017,
-   "anglePct": 3,
-   "vpt": 0.69,
-   "grad": 0.18,
-   "spread": {
-    "14,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#8b7561"
-   ],
-   "tags": [
-    "kay",
-    "plural",
-    "textile"
-   ],
-   "variant": "v484",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "wheel",
-   "kind": "obj-transport-accessory-wheel",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.3,
-    0.1
-   ],
-   "tris": 608,
-   "tpu": 1773,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 19448,
-   "vtx": 448,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00034,
-   "anglePct": 1,
-   "vpt": 0.74,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "15,3": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#88848a"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-steel"
-   ],
-   "variant": "v738",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-transport-accessory-wheel · 0.227 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "kay-apocalyp",
-   "name": "wheels",
-   "kind": "obj-transport-accessory-wheel",
-   "size": "s",
-   "wdh": [
-    0.35,
-    0.3,
-    0.3
-   ],
-   "tris": 1824,
-   "tpu": 5318,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 61576,
-   "vtx": 1536,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00034,
-   "anglePct": 1,
-   "vpt": 0.84,
-   "grad": 0,
-   "spread": {
-    "13,3": [
-     0.5,
-     0.5
-    ],
-    "15,3": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#88848a"
-   ],
-   "tags": [
-    "kay",
-    "metal-iron-steel",
-    "plural"
-   ],
-   "variant": "v738",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (kay-apocalyp, 15 kinds)"
-    }
    ]
   },
   {
@@ -177192,6 +175124,2074 @@
    ],
    "mark": [
     "centered"
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "axe",
+   "kind": "obj-equipment-weapon-melee-axe-single",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.04,
+    0.65
+   ],
+   "tris": 790,
+   "tpu": 2303,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 40144,
+   "vtx": 1056,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00023,
+   "anglePct": 52,
+   "vpt": 1.34,
+   "grad": 0.81,
+   "spread": {
+    "14,3": [
+     0.781,
+     0.961
+    ],
+    "15,3": [
+     0.031,
+     0.961
+    ],
+    "1,0": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "rope",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ],
+   "mark": [
+    "grounded"
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "barrel",
+   "kind": "obj-container-barrel",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.35,
+    0.55
+   ],
+   "tris": 882,
+   "tpu": 2571,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 37004,
+   "vtx": 945,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00153,
+   "anglePct": 30,
+   "vpt": 1.07,
+   "grad": 0,
+   "spread": {
+    "6,1": [
+     0.5,
+     0.5
+    ],
+    "8,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "bat-barbed",
+   "kind": "obj-equipment-weapon-melee-club",
+   "size": "m",
+   "wdh": [
+    0.09,
+    0.1,
+    0.6
+   ],
+   "tris": 2188,
+   "tpu": 6379,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 104300,
+   "vtx": 2798,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00008,
+   "anglePct": 8,
+   "vpt": 1.28,
+   "grad": 0.7,
+   "spread": {
+    "1,0": [
+     0.266,
+     0.961
+    ],
+    "15,3": [
+     0.117,
+     0.813
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ],
+   "mark": [
+    "grounded"
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "bat-saw",
+   "kind": "obj-equipment-weapon-melee-club",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.7,
+    0.1
+   ],
+   "tris": 2308,
+   "tpu": 6729,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 72228,
+   "vtx": 1778,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00012,
+   "anglePct": 28,
+   "vpt": 0.77,
+   "grad": 0.08,
+   "spread": {
+    "14,3": [
+     0.5,
+     0.5
+    ],
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "1,0": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.461,
+     0.633
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "metal-iron-steel",
+    "qua",
+    "rope",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "chest-hunter",
+   "kind": "obj-container-chest",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.25,
+    0.2
+   ],
+   "tris": 3190,
+   "tpu": 9300,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 117968,
+   "vtx": 3041,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00023,
+   "anglePct": 91,
+   "vpt": 0.95,
+   "grad": 0.21,
+   "spread": {
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "2,0": [
+     0.75,
+     0.961
+    ],
+    "6,1": [
+     0.031,
+     0.242
+    ],
+    "15,3": [
+     0.117,
+     0.813
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "metal-iron-steel",
+    "qua",
+    "wood-beam"
+   ],
+   "variant": "v482",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.152 at kit ×1.32)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "chest-sienna",
+   "kind": "obj-container-chest",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.25,
+    0.2
+   ],
+   "tris": 3422,
+   "tpu": 9977,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 125324,
+   "vtx": 3227,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00027,
+   "anglePct": 91,
+   "vpt": 0.94,
+   "grad": 0.22,
+   "spread": {
+    "8,0": [
+     0.766,
+     0.961
+    ],
+    "2,0": [
+     0.75,
+     0.961
+    ],
+    "6,1": [
+     0.031,
+     0.242
+    ],
+    "15,3": [
+     0.117,
+     0.813
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "metal-iron-steel",
+    "qua",
+    "wood-beam"
+   ],
+   "variant": "v482",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.152 at kit ×1.32)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "cinder-block",
+   "kind": "obj-resource-stone",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.1,
+    0.1
+   ],
+   "tris": 368,
+   "tpu": 1073,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14888,
+   "vtx": 350,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00046,
+   "anglePct": 93,
+   "vpt": 0.95,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "qua",
+    "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "container-hunter",
+   "kind": "obj-container-cargo",
+   "size": "l",
+   "wdh": [
+    2.85,
+    1.3,
+    1.3
+   ],
+   "tris": 1336,
+   "tpu": 281,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 64864,
+   "vtx": 1730,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.01654,
+   "anglePct": 97,
+   "vpt": 1.29,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#5b5550"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "qua"
+   ],
+   "variant": "v737",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.159 at kit ×1.32)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "container-sienna",
+   "kind": "obj-container-cargo",
+   "size": "l",
+   "wdh": [
+    2.85,
+    1.3,
+    1.3
+   ],
+   "tris": 1032,
+   "tpu": 217,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 52064,
+   "vtx": 1387,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.01822,
+   "anglePct": 97,
+   "vpt": 1.34,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#7f3927"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "qua"
+   ],
+   "variant": "v737",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.159 at kit ×1.32)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "couch-damaged",
+   "kind": "obj-furnishing-seating-bench-backrest",
+   "size": "l",
+   "wdh": [
+    1.5,
+    0.6,
+    0.6
+   ],
+   "tris": 3078,
+   "tpu": 4807,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 115284,
+   "vtx": 2979,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00234,
+   "anglePct": 60,
+   "vpt": 0.97,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "broken",
+    "leather",
+    "metal-iron-steel",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "dog-pug",
+   "kind": "env-fauna",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.55,
+    0.4
+   ],
+   "tris": 3603,
+   "tpu": 10504,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 128320,
+   "vtx": 3287,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00015,
+   "anglePct": 4,
+   "vpt": 0.91,
+   "grad": 0.51,
+   "spread": {
+    "3,0": [
+     0.273,
+     0.961
+    ],
+    "8,0": [
+     0.148,
+     0.43
+    ],
+    "1,1": [
+     0.031,
+     0.961
+    ],
+    "15,3": [
+     0.031,
+     0.211
+    ],
+    "0,0": [
+     0.766,
+     0.961
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#7f3927",
+    "#88848a",
+    "#dbae80"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "skin",
+    "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 10504 over max 10000 (env-fauna)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "dog-shepherd",
+   "kind": "env-fauna",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.75,
+    0.45
+   ],
+   "tris": 4898,
+   "tpu": 14280,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 172160,
+   "vtx": 4414,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00016,
+   "anglePct": 3,
+   "vpt": 0.9,
+   "grad": 0.55,
+   "spread": {
+    "3,0": [
+     0.031,
+     0.961
+    ],
+    "0,0": [
+     0.766,
+     0.961
+    ],
+    "8,0": [
+     0.063,
+     0.398
+    ],
+    "1,0": [
+     0.781,
+     0.961
+    ],
+    "14,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#7f3927",
+    "#8b7561",
+    "#b58158",
+    "#dbae80"
+   ],
+   "tags": [
+    "leather",
+    "qua",
+    "skin",
+    "textile"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 14280 over max 10000 (env-fauna)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "fire-hydrant",
+   "kind": "str",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.2,
+    0.4
+   ],
+   "tris": 976,
+   "tpu": 2845,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 34280,
+   "vtx": 841,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00029,
+   "anglePct": 37,
+   "vpt": 0.86,
+   "grad": 0.7,
+   "spread": {
+    "8,0": [
+     0.055,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7f3927"
+   ],
+   "tags": [
+    "metal",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "guitar",
+   "kind": "obj-art-instrument",
+   "size": "m",
+   "wdh": [
+    0.35,
+    0.9,
+    0.07
+   ],
+   "tris": 2325,
+   "tpu": 6778,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 124744,
+   "vtx": 3416,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00018,
+   "anglePct": 67,
+   "vpt": 1.47,
+   "grad": 0.2,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "3,0": [
+     0.336,
+     0.742
+    ],
+    "15,3": [
+     0.492,
+     0.664
+    ],
+    "1,0": [
+     0.398,
+     0.664
+    ],
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#5b5550",
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "plastic",
+    "qua",
+    "textile",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 6778 over max 5000 (obj-art-instrument)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "knife",
+   "kind": "obj-equipment-weapon-melee-dagger",
+   "size": "s",
+   "wdh": [
+    0.08,
+    0.04,
+    0.4
+   ],
+   "tris": 860,
+   "tpu": 2507,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 35320,
+   "vtx": 892,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "anglePct": 38,
+   "vpt": 1.04,
+   "grad": 0.8,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.961
+    ],
+    "3,0": [
+     0.766,
+     0.961
+    ],
+    "1,0": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#88848a",
+    "#b58158"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "pallet-broken",
+   "kind": "obj-transport-pallet",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.6,
+    0.08
+   ],
+   "tris": 216,
+   "tpu": 630,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16564,
+   "vtx": 430,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "avgTri": 0.00445,
+   "anglePct": 97,
+   "vpt": 1.99,
+   "grad": 0.2,
+   "spread": {
+    "0,0": [
+     0.766,
+     0.961
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "broken",
+    "qua",
+    "wood-planks"
+   ],
+   "variant": "v483",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "pallet",
+   "kind": "obj-transport-pallet",
+   "size": "m",
+   "wdh": [
+    0.45,
+    0.6,
+    0.07
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 18292,
+   "vtx": 480,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "avgTri": 0.00446,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.2,
+   "spread": {
+    "0,0": [
+     0.766,
+     0.961
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "qua",
+    "wood-planks"
+   ],
+   "variant": "v483",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "pipes",
+   "kind": "obj-resource-metal",
+   "size": "l",
+   "wdh": [
+    0.35,
+    1.7,
+    0.35
+   ],
+   "tris": 1496,
+   "tpu": 3405,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 49128,
+   "vtx": 1208,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.0036,
+   "anglePct": 1,
+   "vpt": 0.81,
+   "grad": 0.22,
+   "spread": {
+    "13,3": [
+     0.031,
+     0.211
+    ],
+    "6,1": [
+     0.031,
+     0.242
+    ],
+    "6,0": [
+     0.469,
+     0.961
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "plural",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "pistol",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "size": "s",
+   "wdh": [
+    0.07,
+    0.5,
+    0.15
+   ],
+   "tris": 1446,
+   "tpu": 4216,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 63360,
+   "vtx": 1663,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00014,
+   "anglePct": 67,
+   "vpt": 1.15,
+   "grad": 0.28,
+   "spread": {
+    "3,0": [
+     0.078,
+     0.922
+    ],
+    "15,3": [
+     0.477,
+     0.648
+    ],
+    "1,0": [
+     0.25,
+     0.508
+    ],
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "textile",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "plastic-barrier",
+   "kind": "str-barrier-traffic",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.15,
+    0.3
+   ],
+   "tris": 852,
+   "tpu": 2484,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 36840,
+   "vtx": 945,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00063,
+   "anglePct": 73,
+   "vpt": 1.11,
+   "grad": 0,
+   "spread": {
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#f2a93c"
+   ],
+   "tags": [
+    "plastic",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "rifle",
+   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
+   "size": "m",
+   "wdh": [
+    0.06,
+    0.8,
+    0.25
+   ],
+   "tris": 2103,
+   "tpu": 6131,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 100684,
+   "vtx": 2706,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00016,
+   "anglePct": 51,
+   "vpt": 1.29,
+   "grad": 0.26,
+   "spread": {
+    "13,3": [
+     0.328,
+     0.977
+    ],
+    "15,3": [
+     0.469,
+     0.648
+    ],
+    "1,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#88848a",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "qua",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "shotgun",
+   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.05,
+    0.15
+   ],
+   "tris": 1542,
+   "tpu": 4496,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 59392,
+   "vtx": 1518,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00012,
+   "anglePct": 54,
+   "vpt": 0.98,
+   "grad": 0.61,
+   "spread": {
+    "2,0": [
+     0.75,
+     0.961
+    ],
+    "15,3": [
+     0.117,
+     0.961
+    ],
+    "14,3": [
+     0.797,
+     0.945
+    ],
+    "3,0": [
+     0.273,
+     0.953
+    ],
+    "1,0": [
+     0.781,
+     0.938
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#88848a",
+    "#8b5936",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "textile",
+    "wood-beam",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "smg",
+   "kind": "obj-equipment-weapon-ranged-firearm",
+   "size": "s",
+   "wdh": [
+    0.08,
+    0.5,
+    0.25
+   ],
+   "tris": 2497,
+   "tpu": 7280,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 126280,
+   "vtx": 3432,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
+   "anglePct": 51,
+   "vpt": 1.37,
+   "grad": 0.26,
+   "spread": {
+    "13,3": [
+     0.484,
+     0.781
+    ],
+    "15,3": [
+     0.477,
+     0.648
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "qua",
+    "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "spear",
+   "kind": "obj-equipment-weapon-melee-spear",
+   "size": "m",
+   "wdh": [
+    0.07,
+    0.08,
+    1
+   ],
+   "tris": 3200,
+   "tpu": 6492,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 143380,
+   "vtx": 3830,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "anglePct": 11,
+   "vpt": 1.2,
+   "grad": 0.87,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.961
+    ],
+    "3,0": [
+     0.766,
+     0.961
+    ],
+    "1,0": [
+     0.109,
+     0.961
+    ],
+    "14,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "rope",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ],
+   "mark": [
+    "grounded"
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "survivor-lis",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    1,
+    0.7,
+    0.85
+   ],
+   "tris": 7785,
+   "tpu": 12311,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 250624,
+   "vtx": 6325,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00014,
+   "anglePct": 8,
+   "vpt": 0.81,
+   "grad": 0.55,
+   "spread": {
+    "15,3": [
+     0.031,
+     0.961
+    ],
+    "3,0": [
+     0.031,
+     0.961
+    ],
+    "5,2": [
+     0.781,
+     0.961
+    ],
+    "14,3": [
+     0.781,
+     0.961
+    ],
+    "0,0": [
+     0.766,
+     0.961
+    ],
+    "1,1": [
+     0.07,
+     0.211
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#88848a",
+    "#8b7561",
+    "#d8d1bd",
+    "#dbae80"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "rope",
+    "skin",
+    "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "survivor-matt",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    1,
+    0.45,
+    0.75
+   ],
+   "tris": 7070,
+   "tpu": 19136,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 219912,
+   "vtx": 5499,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00013,
+   "anglePct": 4,
+   "vpt": 0.78,
+   "grad": 0.73,
+   "spread": {
+    "15,3": [
+     0.055,
+     0.961
+    ],
+    "3,0": [
+     0.031,
+     0.961
+    ],
+    "1,0": [
+     0.797,
+     0.914
+    ],
+    "1,1": [
+     0.031,
+     0.211
+    ],
+    "8,0": [
+     0.031,
+     0.211
+    ],
+    "0,0": [
+     0.773,
+     0.961
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#7f3927",
+    "#88848a",
+    "#b58158",
+    "#dbae80"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "skin",
+    "textile",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "survivor-sam",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    1,
+    0.6,
+    0.75
+   ],
+   "tris": 9636,
+   "tpu": 20191,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 291592,
+   "vtx": 7258,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00015,
+   "anglePct": 3,
+   "vpt": 0.75,
+   "grad": 0.79,
+   "spread": {
+    "14,3": [
+     0.82,
+     0.93
+    ],
+    "15,3": [
+     0.031,
+     0.945
+    ],
+    "1,0": [
+     0.844,
+     0.914
+    ],
+    "3,0": [
+     0.031,
+     0.961
+    ],
+    "8,0": [
+     0.031,
+     0.492
+    ],
+    "13,3": [
+     0.766,
+     0.961
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#5b5550",
+    "#7f3927",
+    "#88848a",
+    "#8b7561",
+    "#b58158"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "rope",
+    "skin",
+    "textile",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "survivor-shaun",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    1,
+    0.65,
+    0.75
+   ],
+   "tris": 10758,
+   "tpu": 20768,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 368156,
+   "vtx": 9440,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00017,
+   "anglePct": 7,
+   "vpt": 0.88,
+   "grad": 0.78,
+   "spread": {
+    "8,0": [
+     0.031,
+     0.961
+    ],
+    "1,1": [
+     0.031,
+     0.844
+    ],
+    "1,0": [
+     0.125,
+     0.961
+    ],
+    "15,3": [
+     0.039,
+     0.797
+    ],
+    "0,0": [
+     0.766,
+     0.961
+    ],
+    "3,0": [
+     0.031,
+     0.961
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#7f3927",
+    "#88848a",
+    "#b58158",
+    "#dbae80"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-steel",
+    "qua",
+    "skin",
+    "textile",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "traffic-barrier",
+   "kind": "str-barrier-traffic",
+   "size": "m",
+   "wdh": [
+    0.8,
+    0.4,
+    0.4
+   ],
+   "tris": 364,
+   "tpu": 1061,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 19028,
+   "vtx": 480,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00152,
+   "anglePct": 67,
+   "vpt": 1.32,
+   "grad": 0,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal",
+    "plastic",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "traffic-cone",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.35
+   ],
+   "tris": 134,
+   "tpu": 391,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 6884,
+   "vtx": 144,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.0019,
+   "anglePct": 58,
+   "vpt": 1.07,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "plastic",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "traffic-drum",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.35
+   ],
+   "tris": 460,
+   "tpu": 1341,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 18652,
+   "vtx": 450,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00071,
+   "anglePct": 56,
+   "vpt": 0.98,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "plastic",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "trash-bag",
+   "kind": "obj-container-bag-sack",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.3
+   ],
+   "tris": 1044,
+   "tpu": 3044,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 30552,
+   "vtx": 712,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00018,
+   "anglePct": 1,
+   "vpt": 0.68,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "qua",
+    "textile"
+   ],
+   "variant": "v484",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "trash-bags",
+   "kind": "obj-container-bag-sack",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.25,
+    0.25
+   ],
+   "tris": 2088,
+   "tpu": 6087,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 60472,
+   "vtx": 1451,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00017,
+   "anglePct": 3,
+   "vpt": 0.69,
+   "grad": 0.18,
+   "spread": {
+    "14,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#8b7561"
+   ],
+   "tags": [
+    "plural",
+    "qua",
+    "textile"
+   ],
+   "variant": "v484",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "wheel",
+   "kind": "obj-transport-accessory-wheel",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.1
+   ],
+   "tris": 608,
+   "tpu": 1773,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19448,
+   "vtx": 448,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00034,
+   "anglePct": 1,
+   "vpt": 0.74,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#88848a"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua"
+   ],
+   "variant": "v738",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.3 under min 0.35 (obj-transport-accessory-wheel · 0.227 at kit ×1.32)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-apocalypse",
+   "name": "wheels",
+   "kind": "obj-transport-accessory-wheel",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.3,
+    0.3
+   ],
+   "tris": 1824,
+   "tpu": 5318,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 61576,
+   "vtx": 1536,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00034,
+   "anglePct": 1,
+   "vpt": 0.84,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#88848a"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "plural",
+    "qua"
+   ],
+   "variant": "v738",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+    }
    ]
   },
   {

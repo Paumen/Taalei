@@ -4202,10 +4202,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "kay-apocalyp",
-  "name": "kay-apocalyp",
+  "slug": "quat-apocalypse",
+  "name": "quat-apocalypse",
   "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/kay-apocalyp/LICENSE.txt.",
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-apocalypse/LICENSE.txt.",
   "models": [
    "axe",
    "barrel",
