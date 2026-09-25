@@ -166,6 +166,11 @@ Run `node lint/size.mjs`.
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
 | `G23` | `kind:str-marker-flag \| kind:str-canopy \| kind:obj-transport-watercraft-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
+| `G24` | `mat:rope` | — | `part:cord` | min | 0.006 thick |
+| `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
+| `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
+
+A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units.
 
 ---
 
