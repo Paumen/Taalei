@@ -274,7 +274,6 @@ const ROOF_M = 1.5;
 
 const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
-const round2 = (v) => Math.round(v * 100) / 100;
 const round3 = (v) => Math.round(v * 1000) / 1000;
 
 const wmedian = (items) => {
