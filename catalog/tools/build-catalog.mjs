@@ -3,7 +3,7 @@ import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
-import { readKindTree, kindIs, kindAncestors, SIZES, sizeOf } from './kinds.mjs';
+import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
 import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';

@@ -34,8 +34,7 @@
 .kop-sub { display: none; }
 .kop-titel { flex: 0 1 auto; min-width: 0; }
 .kop-bediening { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; gap: 5px; min-width: 0; }
-.kop-bediening .knop { flex: 0 0 auto; }
-.kop-bediening .knop { min-height: 34px; padding: 6px 10px; }
+.kop-bediening .knop { flex: 0 0 auto; min-height: 34px; padding: 6px 10px; }
 
 .knop {
   display: inline-flex;
@@ -655,12 +654,10 @@ kbd {
     align-items: flex-end;
   }
 
-  .kop-sub { display: block; }
-  .kop-bediening { flex-wrap: wrap; }
+  .kop-sub { display: block; font-size: 13px; }
+  .kop-bediening { flex-wrap: wrap; gap: 10px; }
   .kop-bediening .knop { min-height: 36px; padding: 7px 13px; }
   .kop h1 { font-size: 19px; }
-  .kop-sub { font-size: 13px; }
-  .kop-bediening { gap: 10px; }
 
   .breed { display: inline; }
 
