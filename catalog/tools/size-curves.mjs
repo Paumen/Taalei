@@ -146,6 +146,7 @@ const SIZES = {
   'obj-lighting-lantern': 0.3,
   'obj-lighting-lantern-handheld': 0.3,
   'obj-lighting-lantern-onpost': 2.5,
+  'obj-lighting-lantern-street': 4.5,
   'obj-lighting-torch': 0.6,
   'obj-resource-metal': 0.2,
   'obj-resource-stone': 0.4,
