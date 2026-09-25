@@ -2226,7 +2226,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.23,
+    "factor": 1.19,
     "kinds": 16
    }
   },
@@ -13000,7 +13000,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 372,
+   "count": 371,
    "color": "#6b5b95"
   },
   {
@@ -13572,7 +13572,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 80,
+   "count": 79,
    "color": "#f1976c"
   },
   {
@@ -13714,7 +13714,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "lever, spring, gear, pulley, grindstone",
-   "count": 117,
+   "count": 118,
    "color": "#6d738a"
   },
   {
@@ -13729,7 +13729,7 @@
    "name": "Hand",
    "type": "kind",
    "description": "chisel, trowel, wrench, tongs, brush",
-   "count": 47
+   "count": 48
   },
   {
    "id": "obj-tool-hand-hammer",
@@ -91568,15 +91568,15 @@
    "mat": 2,
    "bands": 3,
    "calls": 2,
-   "bytes": 28208,
-   "vtx": 703,
+   "bytes": 28340,
+   "vtx": 709,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "avgTri": 0.00113,
-   "anglePct": 43,
-   "vpt": 1.22,
-   "grad": 0.81,
+   "avgTri": 0.00115,
+   "anglePct": 42,
+   "vpt": 1.23,
+   "grad": 0.78,
    "spread": {
     "6,0": [
      0.07,
@@ -91588,7 +91588,7 @@
     ],
     "2,0": [
      0.078,
-     0.891
+     0.852
     ]
    },
    "colors": [
@@ -138130,7 +138130,7 @@
    "tris": 870,
    "tpu": 2536,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 30924,
    "vtx": 759,
@@ -138140,7 +138140,7 @@
    "avgTri": 0.00085,
    "anglePct": 13,
    "vpt": 0.87,
-   "grad": 0.92,
+   "grad": 0.91,
    "spread": {
     "1,0": [
      0.016,
@@ -138150,6 +138150,10 @@
      0.047,
      0.859
     ],
+    "8,0": [
+     0.242,
+     0.969
+    ],
     "13,3": [
      0.297,
      0.734
@@ -138157,6 +138161,7 @@
    },
    "colors": [
     "#5b5550",
+    "#7f3927",
     "#b58158",
     "#d8d1bd"
    ],
@@ -138168,7 +138173,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 3 wants max 2"
+     "text": "G11 bands 4 wants max 2"
     }
    ]
   },
@@ -144535,7 +144540,7 @@
    "tris": 196,
    "tpu": 282,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 12696,
    "vtx": 316,
@@ -144550,15 +144555,10 @@
     "15,3": [
      0.5,
      0.5
-    ],
-    "14,3": [
-     0.5,
-     0.5
     ]
    },
    "colors": [
-    "#88848a",
-    "#8b7561"
+    "#88848a"
    ],
    "tags": [
     "ken",
@@ -144578,7 +144578,7 @@
    "tris": 38,
    "tpu": 74,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 3956,
    "vtx": 72,
@@ -144590,18 +144590,13 @@
    "vpt": 1.89,
    "grad": 0,
    "spread": {
-    "14,3": [
-     0.5,
-     0.5
-    ],
     "15,3": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#88848a",
-    "#8b7561"
+    "#88848a"
    ],
    "tags": [
     "ken",
@@ -144621,7 +144616,7 @@
    "tris": 76,
    "tpu": 162,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 5656,
    "vtx": 118,
@@ -144636,15 +144631,10 @@
     "15,3": [
      0.5,
      0.5
-    ],
-    "14,3": [
-     0.5,
-     0.5
     ]
    },
    "colors": [
-    "#88848a",
-    "#8b7561"
+    "#88848a"
    ],
    "tags": [
     "ken",
@@ -205375,7 +205365,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.35 (obj-lighting-campfire · 0.285 at kit ×1.23)"
+     "text": "longest 0.35 under min 0.35 (obj-lighting-campfire · 0.294 at kit ×1.19)"
     }
    ]
   },
@@ -205518,7 +205508,7 @@
   {
    "kit": "quat-survival",
    "name": "compass-anim",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-tool-hand",
    "size": "s",
    "wdh": [
     0.15,
@@ -205579,7 +205569,19 @@
     "hop",
     "hop-settle"
    ],
-   "variant": "v938"
+   "variant": "v938",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-tool-hand · 0.126 at kit ×1.19)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs metal-iron, has metal-gold (obj-tool)"
+    }
+   ]
   },
   {
    "kit": "quat-survival",
@@ -206380,7 +206382,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.25 over max 1 (obj-transport-watercraft-accessory-paddle · 1.829 at kit ×1.23)"
+     "text": "longest 2.25 over max 1 (obj-transport-watercraft-accessory-paddle · 1.891 at kit ×1.19)"
     }
    ]
   },
@@ -206425,6 +206427,13 @@
    "tags": [
     "plastic",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 3.55 over max 2.95 (obj-transport-watercraft-boat · 2.983 at kit ×1.19)"
+    }
    ]
   },
   {
@@ -206530,7 +206539,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.75 over max 1.25 (str-canopy-tent-camping · 3.049 at kit ×1.23)"
+     "text": "longest 3.75 over max 1.25 (str-canopy-tent-camping · 3.151 at kit ×1.19)"
     }
    ]
   },
