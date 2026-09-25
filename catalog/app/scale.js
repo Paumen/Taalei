@@ -1,6 +1,6 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=8bc95af56d';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=8bc95af56d';
-import './bouwstempel.js?v=8bc95af56d';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=e12548e9bc';
+import { drawFamily, loadModel, version } from './scale-draw.js?v=e12548e9bc';
+import './bouwstempel.js?v=e12548e9bc';
 
 const MODEL_PATH = 'kits/workfiles';
 
@@ -21,7 +21,8 @@ const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, 
 for (const group of groups) {
   for (const item of group.items) {
     item.path = `${MODEL_PATH}/${item.slug}/${item.model}.glb`;
-    item.kit = shortKit(item.slug);
+    item.group = item.collection ?? item.slug;
+    item.kit = shortKit(item.group);
   }
 }
 
@@ -65,7 +66,7 @@ for (const item of allItems) {
   item.sizeId = sizeOf(item);
 }
 
-const KIT_IDS = [...new Set(allItems.map((i) => i.slug))];
+const KIT_IDS = [...new Set(allItems.map((i) => i.group))];
 const SIZE_IDS = SIZE_CLASSES.map((k) => k.id);
 
 const colorState = new Map();
@@ -131,7 +132,7 @@ const passesFilter = (item) =>
   matches(item.colors ?? [], colorState) &&
   matches(item.tagIds, tagState) &&
   matches([item.sizeId], sizeState, { any: SIZE_IDS }) &&
-  matches([item.slug], kitState, { any: KIT_IDS });
+  matches([item.group], kitState, { any: KIT_IDS });
 
 const filtered = () =>
   groups.map((g) => ({ ...g, items: g.items.filter(passesFilter) })).filter((g) => g.items.length);
@@ -312,7 +313,7 @@ function buildFilters() {
     buildChipRow(
       container,
       'Kit',
-      KIT_IDS.map((slug) => ({ id: slug, name: shortKit(slug), count: count((i) => i.slug === slug) })),
+      KIT_IDS.map((slug) => ({ id: slug, name: shortKit(slug), count: count((i) => i.group === slug) })),
       kitState,
       'kits',
       { byCount: true },

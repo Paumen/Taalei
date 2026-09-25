@@ -20,7 +20,7 @@ let skipped = 0;
 for (const m of models) {
   if (!m.kind || isExempt(m, VARS)) { skipped++; continue; }
   checked++;
-  for (const f of findingsFor(m, LIMITS.get(m.kind), VARS, SCALES, KITS.get(m.kit))) {
+  for (const f of findingsFor(m, LIMITS.get(m.kind), VARS, SCALES, KITS.get(m.collection ?? m.kit))) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }

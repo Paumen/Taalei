@@ -334,7 +334,8 @@ const gather = () => {
     const u = assumed.high ? model.wdh[2] : Math.max(...model.wdh);
     if (!(u > 0)) continue;
     picked.push({
-      kit: model.kit, name: model.name, kind: assumed.group ?? model.kind, wdh: model.wdh.join(','),
+      kit: model.collection ?? model.kit, name: model.collection ? `${model.kit}/${model.name}` : model.name,
+      kind: assumed.group ?? model.kind, wdh: model.wdh.join(','),
       u, real: assumed.real, high: assumed.high,
     });
   }

@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=8bc95af56d';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=8bc95af56d';
-import { renderCommentBox } from './comments.js?v=8bc95af56d';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=8bc95af56d';
-import './bouwstempel.js?v=8bc95af56d';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=e12548e9bc';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=e12548e9bc';
+import { renderCommentBox } from './comments.js?v=e12548e9bc';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=e12548e9bc';
+import './bouwstempel.js?v=e12548e9bc';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -69,6 +69,7 @@ const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : p
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
   m.path = `${modelPath}/${m.kit}/${m.name}.glb`;
+  m.group = m.collection ?? m.kit;
   return m;
 }
 
@@ -180,7 +181,7 @@ function passes(mine, own) {
 
 function matches(model) {
   const { search, kits, kinds, tags } = state.filters;
-  if (!passes([model.kit], kits)) return false;
+  if (!passes([model.group], kits)) return false;
   const chain = model.kind ? kindChain(model.kind) : [WITHOUT];
   if (!passes(chain, kinds)) return false;
   if (!passes(tagsOf(model), tags)) return false;
@@ -302,7 +303,7 @@ function filterItems() {
       id: k.slug,
       name: (k.name ?? k.slug).replace(/\s+Kit$/, ''),
       full: k.name,
-      count: count((m) => m.kit === k.slug),
+      count: count((m) => m.group === k.slug),
     }))
     .filter((k) => k.count > 0);
 
@@ -377,7 +378,7 @@ function setLighting(viewer) {
 }
 
 function makeCard(model, depth) {
-  const kit = register.kits.get(model.kit);
+  const kit = register.kits.get(model.group);
 
   const card = document.createElement('article');
   card.className = 'swipe-kaart';
@@ -390,7 +391,7 @@ function makeCard(model, depth) {
   box.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
   viewer.src = modelUrl(`../../${model.path}`);
-  viewer.alt = `3D model ${model.name} from ${kit?.name ?? model.kit}`;
+  viewer.alt = `3D model ${model.name} from ${kit?.name ?? model.group}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
   viewer.setAttribute('interaction-prompt', 'none');
@@ -404,7 +405,7 @@ function makeCard(model, depth) {
   name.textContent = model.name;
   const origin = document.createElement('p');
   origin.className = 'herkomst';
-  origin.textContent = `${kit?.name ?? model.kit} · ${kindLabel(model.kind)}`;
+  origin.textContent = `${kit?.name ?? model.group} · ${kindLabel(model.kind)}`;
   const meta = document.createElement('p');
   meta.className = 'meta';
   meta.textContent = [
@@ -428,7 +429,7 @@ function makeCard(model, depth) {
   const tags = document.createElement('div');
   tags.className = 'swipe-tags';
   renderTagEditor(tags, model, register.tags, {
-    onChange: () => { origin.textContent = `${kit?.name ?? model.kit} · ${kindLabel(effectiveKind(model, register.tags))}`; },
+    onChange: () => { origin.textContent = `${kit?.name ?? model.group} · ${kindLabel(effectiveKind(model, register.tags))}`; },
   });
   const schaal = document.createElement('div');
   schaal.className = 'swipe-schaal';
@@ -472,7 +473,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=8bc95af56d'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=e12548e9bc'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
@@ -857,8 +858,8 @@ async function start() {
 
   if (kit) {
     state.filters.kits = [kit];
-    state.order = state.order.filter((id) => register.perId.get(id)?.kit === kit);
-    state.choices = state.choices.filter((k) => register.perId.get(k.id)?.kit === kit);
+    state.order = state.order.filter((id) => register.perId.get(id)?.group === kit);
+    state.choices = state.choices.filter((k) => register.perId.get(k.id)?.group === kit);
     state.started = state.started && state.order.length > 0;
   }
 
@@ -938,7 +939,7 @@ async function start() {
   });
 
   if (!state.started) {
-    state.order = register.models.filter((m) => !kit || m.kit === kit).map((m) => m.id);
+    state.order = register.models.filter((m) => !kit || m.group === kit).map((m) => m.id);
     state.started = true;
     save();
   }
