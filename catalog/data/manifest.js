@@ -3171,14 +3171,11 @@ window.KENNEY_KITS = [
   "url": null,
   "models": [
    "axe",
-   "axe-double",
    "brush",
-   "hammer-bar",
    "hammer-square",
    "pickaxe",
    "saw-coarse",
    "saw-crosscut",
-   "saw-large",
    "sword"
   ]
  },
