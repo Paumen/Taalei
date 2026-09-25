@@ -574,8 +574,8 @@
     "60": 39
    },
    "kitCheck": {
-    "factor": 1.36,
-    "kinds": 7,
+    "factor": 1.38,
+    "kinds": 8,
     "level": "warning"
    }
   },
@@ -1407,9 +1407,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.4,
-    "kinds": 8,
-    "level": "warning"
+    "factor": 1.25,
+    "kinds": 8
    }
   },
   {
@@ -2181,8 +2180,8 @@
     "none": 36
    },
    "kitCheck": {
-    "factor": 1.11,
-    "kinds": 18
+    "factor": 1.12,
+    "kinds": 19
    }
   },
   {
@@ -13542,7 +13541,14 @@
    "name": "On post",
    "type": "kind",
    "description": "lamp post, street lamp, lantern post",
-   "count": 19
+   "count": 13
+  },
+  {
+   "id": "obj-lighting-lantern-street",
+   "name": "Street light",
+   "type": "kind",
+   "description": "street light, street lantern",
+   "count": 8
   },
   {
    "id": "obj-lighting-torch",
@@ -15399,6 +15405,7 @@
   "obj-lighting-campfire",
   "obj-lighting-lantern-handheld",
   "obj-lighting-lantern-onpost",
+  "obj-lighting-lantern-street",
   "obj-lighting-torch",
   "obj-resource-haystack",
   "obj-resource-textile",
@@ -16618,6 +16625,12 @@
    "high.max": 8,
    "longest.min": 0.65,
    "longest.max": 1.3,
+   "tpu.max": 5000
+  },
+  "obj-lighting-lantern-street": {
+   "high.max": 8,
+   "longest.min": 0.9,
+   "longest.max": 2,
    "tpu.max": 5000
   },
   "obj-lighting-torch": {
@@ -62755,12 +62768,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.2 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.147 at kit ×1.36)"
+     "text": "high 0.2 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.145 at kit ×1.38)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -62811,7 +62824,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -62857,7 +62870,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -62931,7 +62944,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63006,7 +63019,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63080,7 +63093,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63155,7 +63168,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63229,7 +63242,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63304,7 +63317,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63378,7 +63391,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63452,7 +63465,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63526,7 +63539,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63601,7 +63614,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63675,7 +63688,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63750,7 +63763,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63824,7 +63837,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63899,7 +63912,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -63973,7 +63986,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64048,7 +64061,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64104,7 +64117,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64171,7 +64184,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64244,7 +64257,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64317,7 +64330,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64389,7 +64402,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64462,7 +64475,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64518,7 +64531,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64563,7 +64576,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64614,7 +64627,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64676,7 +64689,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64738,7 +64751,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64800,7 +64813,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64862,7 +64875,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64924,7 +64937,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -64986,14 +64999,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
   {
    "kit": "kay-city",
    "name": "street-light",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-street",
    "size": "l",
    "wdh": [
     0.55,
@@ -65037,7 +65050,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -65104,7 +65117,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -65171,12 +65184,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.9 over max 1.2 (str-barrier-traffic · 1.397 at kit ×1.36)"
+     "text": "high 1.9 over max 1.2 (str-barrier-traffic · 1.377 at kit ×1.38)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -65248,12 +65261,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.95 over max 1.2 (str-barrier-traffic · 1.434 at kit ×1.36)"
+     "text": "high 1.95 over max 1.2 (str-barrier-traffic · 1.413 at kit ×1.38)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -65315,7 +65328,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "kit ×1.38 off the size curve (kay-city, 8 kinds)"
     }
    ]
   },
@@ -119507,14 +119520,7 @@
     "metal",
     "textile"
    ],
-   "variant": "v954",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v954"
   },
   {
    "kit": "ken-commercial",
@@ -119566,14 +119572,7 @@
     "metal",
     "textile"
    ],
-   "variant": "v954",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v954"
   },
   {
    "kit": "ken-commercial",
@@ -119635,13 +119634,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -119699,13 +119691,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -119773,13 +119758,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -119847,13 +119825,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -119916,13 +119887,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -119998,11 +119962,6 @@
    ],
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    },
-    {
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
@@ -120074,13 +120033,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120149,13 +120101,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120218,13 +120163,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120292,13 +120230,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120366,13 +120297,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120435,13 +120359,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120504,13 +120421,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120573,13 +120483,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120637,14 +120540,7 @@
     "plastic",
     "textile"
    ],
-   "variant": "v955",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v955"
   },
   {
    "kit": "ken-commercial",
@@ -120701,14 +120597,7 @@
     "plastic",
     "textile"
    ],
-   "variant": "v955",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v955"
   },
   {
    "kit": "ken-commercial",
@@ -120765,13 +120654,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -120835,11 +120717,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 8.95 over max 8 (defaults)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -120914,11 +120791,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 8.15 over max 8 (defaults)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -120993,11 +120865,6 @@
      "level": "error",
      "check": "size",
      "text": "high 10.95 over max 8 (defaults)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -121067,11 +120934,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 8.15 over max 8 (defaults)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
     }
    ]
   },
@@ -138642,13 +138504,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -138716,13 +138571,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -138790,13 +138638,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -138859,13 +138700,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -138923,13 +138757,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -138992,13 +138819,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139056,13 +138876,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139125,13 +138938,6 @@
     "metal",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139199,13 +139005,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139273,13 +139072,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139337,13 +139129,6 @@
     "metal",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139411,13 +139196,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139480,13 +139258,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139549,13 +139320,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139613,13 +139377,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139687,13 +139444,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139751,13 +139501,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139820,13 +139563,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139889,13 +139625,6 @@
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -139963,13 +139692,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -140020,12 +139742,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.179 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.32 at kit ×1.25)"
     }
    ]
   },
@@ -140077,12 +139794,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.179 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.32 at kit ×1.25)"
     }
    ]
   },
@@ -140134,12 +139846,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.179 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.32 at kit ×1.25)"
     }
    ]
   },
@@ -140192,14 +139899,7 @@
     "metal",
     "stone-masonry"
    ],
-   "variant": "v940",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v940"
   },
   {
    "kit": "ken-industrial",
@@ -140247,14 +139947,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 3.4 over max 2 (str-part-pillar · 2.429 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 3.4 over max 2 (str-part-pillar · 2.72 at kit ×1.25)"
     }
    ]
   },
@@ -140317,12 +140012,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.85 over max 2 (str-part-pillar · 2.75 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 3.85 over max 2 (str-part-pillar · 3.08 at kit ×1.25)"
     }
    ]
   },
@@ -140375,14 +140065,7 @@
     "metal",
     "stone-masonry"
    ],
-   "variant": "v940",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v940"
   },
   {
    "kit": "ken-industrial",
@@ -140437,13 +140120,6 @@
     "glass",
     "ken",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -140501,14 +140177,7 @@
     "metal",
     "plural"
    ],
-   "variant": "v941",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v941"
   },
   {
    "kit": "ken-industrial",
@@ -140564,14 +140233,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v941",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v941"
   },
   {
    "kit": "ken-industrial",
@@ -140628,14 +140290,7 @@
     "metal",
     "plural"
    ],
-   "variant": "v941",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v941"
   },
   {
    "kit": "ken-industrial",
@@ -140691,14 +140346,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v941",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v941"
   },
   {
    "kit": "ken-industrial",
@@ -140742,13 +140390,6 @@
    "tags": [
     "ken",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -140793,13 +140434,6 @@
    "tags": [
     "ken",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -140860,7 +140494,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 4.3 over max 3.1 (str-utility-tank · 3.44 at kit ×1.25)"
     }
    ]
   },
@@ -140914,14 +140548,7 @@
     "plastic",
     "storeys-4"
    ],
-   "variant": "v942",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v942"
   },
   {
    "kit": "ken-industrial",
@@ -140973,14 +140600,7 @@
     "plastic",
     "storeys-5"
    ],
-   "variant": "v942",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v942"
   },
   {
    "kit": "ken-market",
@@ -152298,14 +151918,7 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v986",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v986"
   },
   {
    "kit": "ken-roads",
@@ -152350,14 +151963,7 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v986",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v986"
   },
   {
    "kit": "ken-roads",
@@ -152401,13 +152007,6 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -152452,18 +152051,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.2 under min 0.15 (str-barrier-traffic · 0.143 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -152503,13 +152090,6 @@
    "tags": [
     "ken",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -152560,13 +152140,6 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -152622,20 +152195,13 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "light-curved-cross",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern-street",
    "size": "m",
    "wdh": [
     0.8,
@@ -152675,20 +152241,13 @@
     "ken",
     "metal"
    ],
-   "variant": "v985",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v985"
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "light-curved-double",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern-street",
    "size": "m",
    "wdh": [
     0.1,
@@ -152728,20 +152287,13 @@
     "ken",
     "metal"
    ],
-   "variant": "v985",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v985"
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "light-curved",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern-street",
    "size": "m",
    "wdh": [
     0.1,
@@ -152781,20 +152333,13 @@
     "ken",
     "metal"
    ],
-   "variant": "v985",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v985"
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "light-square-cross",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern-street",
    "size": "m",
    "wdh": [
     0.85,
@@ -152834,20 +152379,13 @@
     "ken",
     "metal"
    ],
-   "variant": "v984",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v984"
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "light-square-double",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern-street",
    "size": "m",
    "wdh": [
     0.1,
@@ -152887,20 +152425,13 @@
     "ken",
     "metal"
    ],
-   "variant": "v984",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v984"
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "light-square",
-   "kind": "obj-lighting-lantern-onpost",
+   "kind": "obj-lighting-lantern-street",
    "size": "m",
    "wdh": [
     0.1,
@@ -152940,14 +152471,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v984",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v984"
   },
   {
    "kit": "ken-roads",
@@ -152987,14 +152511,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v982",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v982"
   },
   {
    "kit": "ken-roads",
@@ -153034,14 +152551,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v982",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v982"
   },
   {
    "kit": "ken-roads",
@@ -153093,14 +152603,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v983",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v983"
   },
   {
    "kit": "ken-roads",
@@ -153152,14 +152655,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v983",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v983"
   },
   {
    "kit": "ken-roads",
@@ -153206,14 +152702,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v983",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v983"
   },
   {
    "kit": "ken-roads",
@@ -153264,14 +152753,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v982",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v982"
   },
   {
    "kit": "ken-roads",
@@ -153317,14 +152799,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v982",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v982"
   },
   {
    "kit": "ken-roads",
@@ -153375,14 +152850,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v982",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v982"
   },
   {
    "kit": "ken-roads",
@@ -153439,12 +152907,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2 over max 0.9 (str-marker-sign · 1.429 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.6 at kit ×1.25)"
     }
    ]
   },
@@ -153503,12 +152966,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2 over max 0.9 (str-marker-sign · 1.429 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.6 at kit ×1.25)"
     }
    ]
   },
@@ -153567,12 +153025,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2 over max 0.9 (str-marker-sign · 1.429 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.6 at kit ×1.25)"
     }
    ]
   },
@@ -153625,14 +153078,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v979",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v979"
   },
   {
    "kit": "ken-roads",
@@ -153684,14 +153130,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v980",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v980"
   },
   {
    "kit": "ken-roads",
@@ -153743,14 +153182,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v980",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v980"
   },
   {
    "kit": "ken-roads",
@@ -153802,14 +153234,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v980",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v980"
   },
   {
    "kit": "ken-roads",
@@ -153860,14 +153285,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v979",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
-   ]
+   "variant": "v979"
   },
   {
    "kit": "ken-skate",
@@ -154230,12 +153648,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.8 under min 0.9 (str-access-road · 0.571 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 0.8 under min 0.9 (str-access-road · 0.64 at kit ×1.25)"
     }
    ]
   },
@@ -154287,12 +153700,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 under min 0.9 (str-access-road · 0.5 at kit ×1.4)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 0.7 under min 0.9 (str-access-road · 0.56 at kit ×1.25)"
     }
    ]
   },
@@ -154361,13 +153769,6 @@
     "ken",
     "stone-masonry",
     "storeys-1-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154435,13 +153836,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154509,13 +153903,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154583,13 +153970,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154657,13 +154037,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154731,13 +154104,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154805,13 +154171,6 @@
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154874,13 +154233,6 @@
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -154948,13 +154300,6 @@
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155017,13 +154362,6 @@
     "ken",
     "stone-masonry",
     "storeys-1-5"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155091,13 +154429,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155165,13 +154496,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155239,13 +154563,6 @@
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155313,13 +154630,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155387,13 +154697,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155461,13 +154764,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155535,13 +154831,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155609,13 +154898,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155683,13 +154965,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155757,13 +155032,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -155831,13 +155099,6 @@
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.4 off the size curve (ken-city, 8 kinds)"
-    }
    ]
   },
   {
@@ -202459,7 +201720,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.7 (obj-container-barrel · 0.811 at kit ×1.11)"
+     "text": "longest 0.9 over max 0.7 (obj-container-barrel · 0.804 at kit ×1.12)"
     }
    ]
   },
@@ -203116,7 +202377,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.75 over max 0.6 (obj-container-crate-cube · 0.676 at kit ×1.11)"
+     "text": "longest 0.75 over max 0.6 (obj-container-crate-cube · 0.67 at kit ×1.12)"
     },
     {
      "level": "error",
@@ -203260,7 +202521,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.315 at kit ×1.11)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.312 at kit ×1.12)"
     }
    ]
   },
@@ -203350,7 +202611,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.315 at kit ×1.11)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.312 at kit ×1.12)"
     }
    ]
   },
@@ -204481,7 +203742,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.35 (str-marker-sign · 0.315 at kit ×1.11)"
+     "text": "longest 0.35 under min 0.35 (str-marker-sign · 0.312 at kit ×1.12)"
     }
    ]
   },
@@ -204706,7 +203967,7 @@
   {
    "kit": "quat-shoot",
    "name": "street-light",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-street",
    "size": "l",
    "wdh": [
     0.15,
