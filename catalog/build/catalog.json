@@ -165,50 +165,71 @@
    }
   },
   {
-   "slug": "fs-terrain",
-   "name": "fs-terrain",
+   "slug": "fs-modular",
+   "name": "fs-modular",
    "licenseLabel": "CC0",
-   "count": 87,
+   "count": 233,
    "packs": [
-    "Modular Terrain Collection"
-   ],
-   "origins": {
-    "Modular Terrain Collection": 87
-   },
-   "scales": {
-    "0.5": 87
-   },
-   "smooth": {
-    "60": 18,
-    "62": 69
-   },
-   "kitCheck": {
-    "factor": 0.91,
-    "kinds": 21
-   }
-  },
-  {
-   "slug": "fs-town",
-   "name": "fs-town",
-   "licenseLabel": "CC0",
-   "count": 146,
-   "packs": [
+    "Modular Terrain Collection",
     "Modular Village"
    ],
    "origins": {
+    "Modular Terrain Collection": 87,
     "Modular Village": 146
    },
    "scales": {
-    "0.45": 146
+    "0.5": 233
    },
    "smooth": {
     "20": 75,
-    "60": 1,
+    "60": 19,
+    "62": 69,
     "none": 70
    },
+   "members": [
+    {
+     "slug": "fs-terrain",
+     "name": "fs-terrain",
+     "licenseLabel": "CC0",
+     "count": 87,
+     "packs": [
+      "Modular Terrain Collection"
+     ],
+     "origins": {
+      "Modular Terrain Collection": 87
+     },
+     "scales": {
+      "0.5": 87
+     },
+     "smooth": {
+      "60": 18,
+      "62": 69
+     }
+    },
+    {
+     "slug": "fs-town",
+     "name": "fs-town",
+     "licenseLabel": "CC0",
+     "count": 146,
+     "packs": [
+      "Modular Village"
+     ],
+     "origins": {
+      "Modular Village": 146
+     },
+     "scales": {
+      "0.5": 146
+     },
+     "smooth": {
+      "20": 75,
+      "60": 1,
+      "none": 70
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 0.93,
-    "kinds": 20
+    "factor": 1.01,
+    "kinds": 36
    }
   },
   {
@@ -216,25 +237,32 @@
    "name": "isa-tt",
    "artist": "Isa",
    "licenseLabel": "CC0",
-   "count": 210,
+   "count": 315,
    "packs": [
     "Tiny Treats Bakery Interior",
     "Tiny Treats Baked Goods",
     "Tiny Treats Charming Kitchen",
-    "Tiny Treats House Plants"
+    "Pretty Park Set",
+    "Tiny Treats Pleasant Picnic",
+    "Tiny Treats House Plants",
+    "Tiny Treats Fun Playground"
    ],
    "origins": {
     "Tiny Treats Bakery Interior": 71,
     "Tiny Treats Baked Goods": 32,
     "Tiny Treats Charming Kitchen": 33,
     "Charming Kitchen Set": 19,
-    "Tiny Treats House Plants": 55
+    "Pretty Park Set": 17,
+    "Tiny Treats Pleasant Picnic": 41,
+    "Tiny Treats House Plants": 55,
+    "Tiny Treats Fun Playground": 47
    },
    "scales": {
-    "0.32": 210
+    "0.32": 315
    },
    "smooth": {
-    "none": 210
+    "60": 10,
+    "none": 305
    },
    "members": [
     {
@@ -298,6 +326,46 @@
      }
     },
     {
+     "slug": "isa-park",
+     "name": "isa-park",
+     "artist": "Isa",
+     "licenseLabel": "CC0",
+     "count": 17,
+     "packs": [
+      "Pretty Park Set"
+     ],
+     "origins": {
+      "Pretty Park Set": 17
+     },
+     "scales": {
+      "0.32": 17
+     },
+     "smooth": {
+      "none": 17
+     }
+    },
+    {
+     "slug": "isa-picnic",
+     "name": "isa-picnic",
+     "url": "https://www.isalousberg.com",
+     "artist": "Isa",
+     "licenseLabel": "CC0",
+     "count": 41,
+     "packs": [
+      "Tiny Treats Pleasant Picnic"
+     ],
+     "origins": {
+      "Tiny Treats Pleasant Picnic": 41
+     },
+     "scales": {
+      "0.32": 41
+     },
+     "smooth": {
+      "60": 10,
+      "none": 31
+     }
+    },
+    {
      "slug": "isa-plants",
      "name": "isa-plants",
      "url": "https://www.isalousberg.com",
@@ -316,11 +384,31 @@
      "smooth": {
       "none": 55
      }
+    },
+    {
+     "slug": "isa-playground",
+     "name": "isa-playground",
+     "url": "https://www.isalousberg.com",
+     "artist": "Isa",
+     "licenseLabel": "CC0",
+     "count": 47,
+     "packs": [
+      "Tiny Treats Fun Playground"
+     ],
+     "origins": {
+      "Tiny Treats Fun Playground": 47
+     },
+     "scales": {
+      "0.32": 47
+     },
+     "smooth": {
+      "none": 47
+     }
     }
    ],
    "kitCheck": {
-    "factor": 1.11,
-    "kinds": 46
+    "factor": 1.13,
+    "kinds": 67
    }
   },
   {
@@ -348,79 +436,6 @@
     "factor": 0.35,
     "kinds": 8,
     "level": "error"
-   }
-  },
-  {
-   "slug": "isa-park",
-   "name": "isa-park",
-   "artist": "Isa",
-   "licenseLabel": "CC0",
-   "count": 17,
-   "packs": [
-    "Pretty Park Set"
-   ],
-   "origins": {
-    "Pretty Park Set": 17
-   },
-   "scales": {
-    "0.32": 17
-   },
-   "smooth": {
-    "none": 17
-   },
-   "kitCheck": {
-    "factor": 0.91,
-    "kinds": 7
-   }
-  },
-  {
-   "slug": "isa-picnic",
-   "name": "isa-picnic",
-   "url": "https://www.isalousberg.com",
-   "artist": "Isa",
-   "licenseLabel": "CC0",
-   "count": 41,
-   "packs": [
-    "Tiny Treats Pleasant Picnic"
-   ],
-   "origins": {
-    "Tiny Treats Pleasant Picnic": 41
-   },
-   "scales": {
-    "0.32": 41
-   },
-   "smooth": {
-    "60": 10,
-    "none": 31
-   },
-   "kitCheck": {
-    "factor": 1.52,
-    "kinds": 17,
-    "level": "error"
-   }
-  },
-  {
-   "slug": "isa-playground",
-   "name": "isa-playground",
-   "url": "https://www.isalousberg.com",
-   "artist": "Isa",
-   "licenseLabel": "CC0",
-   "count": 47,
-   "packs": [
-    "Tiny Treats Fun Playground"
-   ],
-   "origins": {
-    "Tiny Treats Fun Playground": 47
-   },
-   "scales": {
-    "0.32": 47
-   },
-   "smooth": {
-    "none": 47
-   },
-   "kitCheck": {
-    "factor": 1.03,
-    "kinds": 8
    }
   },
   {
@@ -808,102 +823,49 @@
    }
   },
   {
-   "slug": "kay-resources",
-   "name": "kay-resources",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 63,
-   "packs": [
-    "KayKit Resource Bits"
-   ],
-   "origins": {
-    "KayKit Resource Bits": 63
-   },
-   "scales": {
-    "0.3": 63
-   },
-   "smooth": {
-    "none": 63
-   },
-   "kitCheck": {
-    "factor": 0.77,
-    "kinds": 6,
-    "level": "warning"
-   }
-  },
-  {
-   "slug": "kay-skeleton-1",
-   "name": "kay-skeleton-1",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 22,
-   "packs": [
-    "KayKit Skeletons 1.0"
-   ],
-   "origins": {
-    "KayKit Skeletons 1.0": 22
-   },
-   "scales": {
-    "0.35": 22
-   },
-   "smooth": {
-    "60": 4,
-    "none": 18
-   },
-   "kitCheck": {
-    "factor": 1.01,
-    "kinds": 8
-   }
-  },
-  {
-   "slug": "kay-spook",
-   "name": "kay-spook",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 33,
-   "packs": [
-    "KayKit Spooktober Seasonal Pack"
-   ],
-   "origins": {
-    "KayKit Spooktober Seasonal Pack": 33
-   },
-   "scales": {
-    "0.35": 33
-   },
-   "smooth": {
-    "60": 28,
-    "none": 5
-   },
-   "kitCheck": {
-    "factor": 0.95,
-    "kinds": 11
-   }
-  },
-  {
    "slug": "kay-rpg",
    "name": "kay-rpg",
    "url": "https://www.kaylousberg.com",
    "artist": "KayKit",
    "licenseLabel": "CC0",
-   "count": 76,
+   "count": 139,
    "packs": [
+    "KayKit Resource Bits",
     "KayKit RPG Tools Bits",
     "KayKit Fantasy Weapons Bits"
    ],
    "origins": {
+    "KayKit Resource Bits": 63,
     "KayKit RPG Tools Bits": 45,
     "KayKit Fantasy Weapons Bits": 31
    },
    "scales": {
-    "0.3": 76
+    "0.3": 139
    },
    "smooth": {
-    "none": 76
+    "none": 139
    },
    "members": [
+    {
+     "slug": "kay-resources",
+     "name": "kay-resources",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 63,
+     "packs": [
+      "KayKit Resource Bits"
+     ],
+     "origins": {
+      "KayKit Resource Bits": 63
+     },
+     "scales": {
+      "0.3": 63
+     },
+     "smooth": {
+      "none": 63
+     }
+    },
     {
      "slug": "kay-tools",
      "name": "kay-tools",
@@ -946,8 +908,79 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 24
+    "factor": 1.02,
+    "kinds": 30
+   }
+  },
+  {
+   "slug": "kay-undead",
+   "name": "kay-undead",
+   "url": "https://www.kaylousberg.com",
+   "artist": "KayKit",
+   "licenseLabel": "CC0",
+   "count": 55,
+   "packs": [
+    "KayKit Skeletons 1.0",
+    "KayKit Spooktober Seasonal Pack"
+   ],
+   "origins": {
+    "KayKit Skeletons 1.0": 22,
+    "KayKit Spooktober Seasonal Pack": 33
+   },
+   "scales": {
+    "0.35": 55
+   },
+   "smooth": {
+    "60": 32,
+    "none": 23
+   },
+   "members": [
+    {
+     "slug": "kay-skeleton-1",
+     "name": "kay-skeleton-1",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 22,
+     "packs": [
+      "KayKit Skeletons 1.0"
+     ],
+     "origins": {
+      "KayKit Skeletons 1.0": 22
+     },
+     "scales": {
+      "0.35": 22
+     },
+     "smooth": {
+      "60": 4,
+      "none": 18
+     }
+    },
+    {
+     "slug": "kay-spook",
+     "name": "kay-spook",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 33,
+     "packs": [
+      "KayKit Spooktober Seasonal Pack"
+     ],
+     "origins": {
+      "KayKit Spooktober Seasonal Pack": 33
+     },
+     "scales": {
+      "0.35": 33
+     },
+     "smooth": {
+      "60": 28,
+      "none": 5
+     }
+    }
+   ],
+   "kitCheck": {
+    "factor": 0.97,
+    "kinds": 19
    }
   },
   {
@@ -14913,21 +14946,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2121
+   "count": 2074
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1668
+   "count": 1714
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 769
+   "count": 770
   },
   {
    "id": "ken",
@@ -30517,6 +30550,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-coconut",
    "kind": "obj-food-fruit-coconut",
    "size": "s",
@@ -30554,6 +30588,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-docks-corner-supports",
    "kind": "str-part",
    "size": "m",
@@ -30594,6 +30629,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-docks-corner",
    "kind": "str-part",
    "size": "m",
@@ -30638,6 +30674,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-docks-steps",
    "kind": "str-access-stairs",
    "size": "m",
@@ -30683,6 +30720,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-docks-straight-supports",
    "kind": "str-part-pillar",
    "size": "m",
@@ -30728,6 +30766,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-docks-straight",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -30767,12 +30806,20 @@
     "wood-bark",
     "wood-planks"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.644 at kit ×1.01)"
+    }
+   ],
    "mark": [
     "grounded"
    ]
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-shell-a",
    "kind": "env-remains",
    "size": "s",
@@ -30815,6 +30862,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-shell-b",
    "kind": "env-remains",
    "size": "s",
@@ -30857,6 +30905,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-starfish-a",
    "kind": "env-fauna",
    "size": "s",
@@ -30892,6 +30941,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-starfish-b",
    "kind": "env-fauna",
    "size": "s",
@@ -30927,6 +30977,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-tree-palm-a",
    "kind": "env-flora-tree-palm",
    "size": "l",
@@ -30976,6 +31027,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-tree-palm-b",
    "kind": "env-flora-tree-palm",
    "size": "l",
@@ -31025,6 +31077,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "beach-prop-tree-palm-c",
    "kind": "env-flora-tree-palm",
    "size": "l",
@@ -31074,6 +31127,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-branch-a",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
@@ -31112,6 +31166,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-branch-b",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
@@ -31150,6 +31205,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-branch-c",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
@@ -31188,6 +31244,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-bush-a",
    "kind": "env-flora-plant-bush",
    "size": "m",
@@ -31226,6 +31283,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-bush-b",
    "kind": "env-flora-plant-bush",
    "size": "s",
@@ -31264,6 +31322,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-bush-c",
    "kind": "env-flora-plant-bush",
    "size": "m",
@@ -31302,6 +31361,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-bush-d",
    "kind": "env-flora-plant-bush",
    "size": "m",
@@ -31340,6 +31400,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-camp-campfire",
    "kind": "obj-lighting-campfire",
    "size": "m",
@@ -31385,17 +31446,11 @@
     "robin-hood",
     "wood-bark",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.7 over max 0.75 (obj-lighting-campfire · 0.769 at kit ×0.91)"
-    }
    ]
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-camp-sitting-log",
    "kind": "obj-resource-wood-log",
    "size": "m",
@@ -31439,6 +31494,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-camp-wood-pile",
    "kind": "obj-resource-wood-log",
    "size": "s",
@@ -31482,6 +31538,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-cattail-a",
    "kind": "env-flora-waterplant-cattail",
    "size": "s",
@@ -31525,14 +31582,15 @@
    "variant": "v73",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.385 at kit ×0.91)"
+     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.347 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-cattail-b",
    "kind": "env-flora-waterplant-cattail",
    "size": "s",
@@ -31573,10 +31631,18 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v73"
+   "variant": "v73",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.5 under min 0.5 (env-flora-waterplant-cattail · 0.495 at kit ×1.01)"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-boards-a",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31618,6 +31684,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-boards-b",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31659,6 +31726,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-boards-c",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31700,6 +31768,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-boards-d",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31741,6 +31810,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-curve-1x1",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31785,6 +31855,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-curve-2x2",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31831,6 +31902,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-curve-3x3",
    "kind": "str-barrier-fence-mid",
    "size": "l",
@@ -31875,6 +31947,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-gate-a",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31921,6 +31994,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-gate-b",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -31967,6 +32041,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-post-a",
    "kind": "str-barrier-post",
    "size": "s",
@@ -32007,6 +32082,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-post-b",
    "kind": "str-barrier-post",
    "size": "s",
@@ -32047,6 +32123,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-post-c",
    "kind": "str-barrier-post",
    "size": "s",
@@ -32087,6 +32164,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-fence-post-d",
    "kind": "str-barrier-post",
    "size": "s",
@@ -32127,6 +32205,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-flower-daisy",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -32175,6 +32254,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-flower-lily-blue",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -32223,6 +32303,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-flower-lily-pink",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -32271,6 +32352,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-flower-rose",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -32314,6 +32396,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-flower-sunflower",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -32362,6 +32445,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-flower-tulip",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -32410,6 +32494,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-grass-clump-a",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -32448,6 +32533,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-grass-clump-b",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -32486,6 +32572,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-grass-clump-c",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -32524,6 +32611,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-grass-clump-d",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -32562,6 +32650,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-mushroom-a",
    "kind": "env-fungi",
    "size": "s",
@@ -32605,6 +32694,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-mushroom-b",
    "kind": "env-fungi",
    "size": "s",
@@ -32648,6 +32738,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-rock-a",
    "kind": "env-rock-cobble",
    "size": "s",
@@ -32686,6 +32777,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-rock-b",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -32725,6 +32817,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-rock-c",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -32764,6 +32857,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-rock-d",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -32803,6 +32897,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-ruins-pillar-a",
    "kind": "str-part-pillar",
    "size": "m",
@@ -32842,6 +32937,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-ruins-pillar-b",
    "kind": "str-part-pillar",
    "size": "m",
@@ -32881,6 +32977,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-ruins-pillar-c",
    "kind": "str-part-pillar",
    "size": "m",
@@ -32920,6 +33017,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-ruins-pillar-d",
    "kind": "str-part-pillar",
    "size": "m",
@@ -32959,6 +33057,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-ruins-pillar-e",
    "kind": "str-part-pillar",
    "size": "m",
@@ -32998,6 +33097,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-a",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33036,6 +33136,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-b",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33074,6 +33175,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-c",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33112,6 +33214,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-d",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33150,6 +33253,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-e",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33188,6 +33292,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-f",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33226,6 +33331,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-g",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33264,6 +33370,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stepping-stones-h",
    "kind": "env-rock-pebble",
    "size": "s",
@@ -33302,6 +33409,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-stump",
    "kind": "env-remains-deadwood-stump",
    "size": "s",
@@ -33345,6 +33453,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-cedar-a",
    "kind": "env-flora-tree",
    "size": "m",
@@ -33389,6 +33498,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-cedar-b",
    "kind": "env-flora-tree",
    "size": "m",
@@ -33433,6 +33543,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-oak-a",
    "kind": "env-flora-tree",
    "size": "m",
@@ -33477,6 +33588,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-oak-b",
    "kind": "env-flora-tree",
    "size": "l",
@@ -33521,6 +33633,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-oak-c",
    "kind": "env-flora-tree",
    "size": "l",
@@ -33565,6 +33678,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-oak-d",
    "kind": "env-flora-tree",
    "size": "l",
@@ -33609,6 +33723,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-pine-a",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -33653,6 +33768,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-pine-b",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -33697,6 +33813,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "hilly-prop-tree-pine-c",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -33741,6 +33858,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "mountain-a",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -33780,6 +33898,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "mountain-b",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -33819,6 +33938,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "mountain-c",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -33858,6 +33978,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "mountain-d",
    "kind": "env-terrain-mountain",
    "size": "l",
@@ -33897,6 +34018,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "shared-prop-boulder-a",
    "kind": "env-rock-boulder",
    "size": "s",
@@ -33935,6 +34057,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "shared-prop-boulder-b",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -33974,6 +34097,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "shared-prop-boulder-c",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -34013,6 +34137,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "shared-prop-boulder-d",
    "kind": "env-rock-boulder",
    "size": "s",
@@ -34051,6 +34176,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "shared-prop-boulder-e",
    "kind": "env-rock-boulder",
    "size": "l",
@@ -34090,6 +34216,7 @@
   },
   {
    "kit": "fs-terrain",
+   "collection": "fs-modular",
    "name": "shared-prop-boulder-f",
    "kind": "env-rock-boulder",
    "size": "m",
@@ -34128,12 +34255,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "barrel-a-open",
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
+    0.25,
+    0.25,
     0.25
    ],
    "tris": 642,
@@ -34141,12 +34269,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 36188,
+   "bytes": 36184,
    "vtx": 961,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00059,
+   "minEdge": 0.004,
+   "avgTri": 0.00073,
    "anglePct": 61,
    "vpt": 1.5,
    "grad": 0.64,
@@ -34172,18 +34301,19 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.269 at kit ×0.93)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "barrel-a",
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
+    0.25,
+    0.25,
     0.25
    ],
    "tris": 452,
@@ -34191,12 +34321,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25392,
+   "bytes": 25388,
    "vtx": 660,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.0005,
+   "minEdge": 0.004,
+   "avgTri": 0.00062,
    "anglePct": 59,
    "vpt": 1.46,
    "grad": 0.62,
@@ -34223,31 +34354,33 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.269 at kit ×0.93)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "barrel-b",
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
-    0.2,
     0.25,
-    0.25
+    0.25,
+    0.3
    ],
    "tris": 480,
    "tpu": 1399,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30328,
+   "bytes": 30324,
    "vtx": 808,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00054,
+   "minEdge": 0.003,
+   "avgTri": 0.00067,
    "anglePct": 22,
    "vpt": 1.68,
    "grad": 0.54,
@@ -34274,31 +34407,32 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.269 at kit ×0.93)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.297 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "bell-a",
    "kind": "obj-art-instrument",
    "size": "m",
    "wdh": [
-    0.45,
-    0.2,
-    0.55
+    0.5,
+    0.25,
+    0.6
    ],
    "tris": 410,
    "tpu": 1195,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27916,
+   "bytes": 27912,
    "vtx": 744,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00084,
+   "avgTri": 0.00104,
    "anglePct": 46,
    "vpt": 1.81,
    "grad": 0.59,
@@ -34329,24 +34463,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "boat-a",
    "kind": "obj-transport-watercraft-boat",
    "size": "m",
    "wdh": [
-    0.5,
-    1.05,
-    0.25
+    0.55,
+    1.15,
+    0.3
    ],
    "tris": 184,
-   "tpu": 499,
+   "tpu": 404,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13124,
+   "bytes": 13120,
    "vtx": 332,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.01006,
+   "minEdge": 0.031,
+   "avgTri": 0.01242,
    "anglePct": 43,
    "vpt": 1.8,
    "grad": 0.32,
@@ -34370,24 +34505,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "boat-b",
    "kind": "obj-transport-watercraft-boat",
    "size": "m",
    "wdh": [
-    0.5,
-    1.1,
-    0.2
+    0.55,
+    1.25,
+    0.25
    ],
    "tris": 200,
-   "tpu": 528,
+   "tpu": 428,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13872,
+   "bytes": 13868,
    "vtx": 352,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00938,
+   "minEdge": 0.011,
+   "avgTri": 0.01158,
    "anglePct": 42,
    "vpt": 1.76,
    "grad": 0.32,
@@ -34411,23 +34547,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "boat-oars-a",
    "kind": "obj-transport-watercraft-accessory-paddle",
    "size": "m",
    "wdh": [
     0.3,
-    0.65,
-    0.02
+    0.75,
+    0.03
    ],
    "tris": 124,
    "tpu": 362,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12764,
+   "bytes": 12760,
    "vtx": 329,
    "minEdge": 0.007,
-   "avgTri": 0.00096,
+   "avgTri": 0.00119,
    "anglePct": 35,
    "vpt": 2.65,
    "grad": 0.7,
@@ -34452,23 +34589,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "boat-oars-b",
    "kind": "obj-transport-watercraft-accessory-paddle",
    "size": "m",
    "wdh": [
     0.2,
-    0.7,
-    0.05
+    0.8,
+    0.06
    ],
    "tris": 124,
    "tpu": 362,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12860,
+   "bytes": 12856,
    "vtx": 332,
    "minEdge": 0.007,
-   "avgTri": 0.00096,
+   "avgTri": 0.00119,
    "anglePct": 18,
    "vpt": 2.68,
    "grad": 0.7,
@@ -34493,24 +34631,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "broom",
    "kind": "obj-tool-twohand-broom",
    "size": "s",
    "wdh": [
     0.06,
-    0.07,
-    0.35
+    0.08,
+    0.4
    ],
    "tris": 236,
    "tpu": 688,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15824,
+   "bytes": 15820,
    "vtx": 404,
    "grounded": true,
+   "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00009,
+   "avgTri": 0.00011,
    "anglePct": 16,
    "vpt": 1.71,
    "grad": 0.21,
@@ -34536,33 +34676,31 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.4 (obj-tool-twohand-broom · 0.376 at kit ×0.93)"
+     "text": "longest 0.4 under min 0.4 (obj-tool-twohand-broom · 0.396 at kit ×1.01)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-beam-short",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
     0.05,
     0.05,
-    0.7
+    0.75
    ],
    "tris": 12,
-   "tpu": 35,
+   "tpu": 33,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2304,
+   "bytes": 2300,
    "vtx": 24,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.01046,
+   "minEdge": 0.05,
+   "avgTri": 0.01292,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -34586,24 +34724,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-beam",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
     0.05,
     0.05,
-    0.9
+    1
    ],
    "tris": 12,
-   "tpu": 27,
+   "tpu": 24,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2280,
+   "bytes": 2276,
    "vtx": 24,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.01384,
+   "minEdge": 0.05,
+   "avgTri": 0.01708,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -34627,25 +34766,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-corner",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.55
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7188,
+   "bytes": 7184,
    "vtx": 160,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.01888,
+   "minEdge": 0.05,
+   "avgTri": 0.0233,
    "anglePct": 68,
    "vpt": 1.86,
    "grad": 0.7,
@@ -34675,24 +34814,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-full",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.5,
     0.6,
-    0.55
+    0.65,
+    0.6
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9448,
+   "bytes": 9444,
    "vtx": 224,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.01836,
+   "minEdge": 0.05,
+   "avgTri": 0.02267,
    "anglePct": 64,
    "vpt": 1.87,
    "grad": 0.7,
@@ -34722,25 +34862,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-ramp-corner",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.55
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7496,
+   "bytes": 7492,
    "vtx": 169,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.01571,
+   "minEdge": 0.05,
+   "avgTri": 0.0194,
    "anglePct": 28,
    "vpt": 1.97,
    "grad": 0.63,
@@ -34770,24 +34910,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-ramp-full",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.5,
     0.6,
-    0.55
+    0.65,
+    0.6
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9948,
+   "bytes": 9944,
    "vtx": 239,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.0152,
+   "minEdge": 0.05,
+   "avgTri": 0.01877,
    "anglePct": 32,
    "vpt": 1.99,
    "grad": 0.63,
@@ -34817,24 +34958,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-ramp-mid",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
+    0.6,
     0.5,
-    0.45,
-    0.55
+    0.6
    ],
    "tris": 52,
    "tpu": 152,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5020,
+   "bytes": 5016,
    "vtx": 99,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.01688,
+   "minEdge": 0.05,
+   "avgTri": 0.02084,
    "anglePct": 22,
    "vpt": 1.9,
    "grad": 0.63,
@@ -34864,24 +35006,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-side",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.45,
     0.5,
-    0.55
+    0.6,
+    0.6
    ],
    "tris": 52,
    "tpu": 152,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4940,
+   "bytes": 4936,
    "vtx": 97,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.02007,
+   "minEdge": 0.05,
+   "avgTri": 0.02478,
    "anglePct": 77,
    "vpt": 1.87,
    "grad": 0.7,
@@ -34911,25 +35054,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-sides-opposite",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.45,
-    0.6,
-    0.55
+    0.5,
+    0.65,
+    0.6
    ],
    "tris": 92,
    "tpu": 268,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7640,
+   "bytes": 7636,
    "vtx": 172,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.045,
-   "avgTri": 0.0173,
+   "minEdge": 0.05,
+   "avgTri": 0.02136,
    "anglePct": 70,
    "vpt": 1.87,
    "grad": 0.7,
@@ -34956,24 +35100,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "canopy-top",
    "kind": "str-canopy",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.05
+    0.5,
+    0.5,
+    0.06
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2248,
+   "bytes": 2244,
    "vtx": 24,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.05,
-   "avgTri": 0.0413,
+   "minEdge": 0.056,
+   "avgTri": 0.05098,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -34996,25 +35142,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cart-a-barrels",
    "kind": "obj-transport-cart",
    "size": "l",
    "wdh": [
-    0.8,
-    1.5,
-    0.6
+    0.9,
+    1.7,
+    0.65
    ],
    "tris": 2944,
-   "tpu": 3429,
+   "tpu": 2778,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 136836,
+   "bytes": 136832,
    "vtx": 3678,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00195,
+   "minEdge": 0.003,
+   "avgTri": 0.00241,
    "anglePct": 32,
    "vpt": 1.25,
    "grad": 0.22,
@@ -35047,30 +35194,32 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.5 over max 1.15 (obj-transport-cart · 1.613 at kit ×0.93)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-cart · 1.683 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cart-a",
    "kind": "obj-transport-cart",
    "size": "l",
    "wdh": [
-    0.8,
-    1.5,
-    0.6
+    0.9,
+    1.7,
+    0.65
    ],
    "tris": 1040,
-   "tpu": 1212,
+   "tpu": 981,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 64340,
+   "bytes": 64336,
    "vtx": 1766,
    "grounded": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00442,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00545,
    "anglePct": 39,
    "vpt": 1.7,
    "grad": 0.9,
@@ -35091,32 +35240,30 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.5 over max 1.15 (obj-transport-cart · 1.613 at kit ×0.93)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-cart · 1.683 at kit ×1.01)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "chimney-pipe-anim",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.35,
-    0.15,
-    0.75
+    0.4,
+    0.2,
+    0.8
    ],
    "tris": 1740,
-   "tpu": 4825,
+   "tpu": 4341,
    "mat": 2,
    "bands": 1,
    "calls": 2,
-   "bytes": 377728,
+   "bytes": 377724,
    "vtx": 4963,
-   "minEdge": 0.002,
-   "avgTri": 0.00021,
+   "minEdge": 0.003,
+   "avgTri": 0.00025,
    "anglePct": 32,
    "vpt": 2.85,
    "grad": 0.7,
@@ -35147,23 +35294,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "chimney-pipe",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.35,
-    0.15,
-    0.5
+    0.4,
+    0.2,
+    0.6
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17852,
+   "bytes": 17848,
    "vtx": 463,
-   "minEdge": 0.01,
-   "avgTri": 0.00107,
+   "minEdge": 0.011,
+   "avgTri": 0.00132,
    "anglePct": 44,
    "vpt": 1.93,
    "grad": 0.7,
@@ -35187,23 +35335,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-a",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 480,
-   "tpu": 847,
+   "tpu": 686,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 27792,
+   "bytes": 27788,
    "vtx": 729,
+   "gridMod": true,
    "minEdge": 0.001,
-   "avgTri": 0.00413,
+   "avgTri": 0.0051,
    "anglePct": 97,
    "vpt": 1.52,
    "grad": 0.7,
@@ -35227,23 +35377,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-b",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 432,
-   "tpu": 762,
+   "tpu": 617,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25264,
+   "bytes": 25260,
    "vtx": 659,
+   "gridMod": true,
    "minEdge": 0.001,
-   "avgTri": 0.00459,
+   "avgTri": 0.00566,
    "anglePct": 97,
    "vpt": 1.53,
    "grad": 0.7,
@@ -35267,23 +35419,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-c",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 448,
-   "tpu": 790,
+   "tpu": 640,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 26128,
+   "bytes": 26124,
    "vtx": 683,
+   "gridMod": true,
    "minEdge": 0.001,
-   "avgTri": 0.00441,
+   "avgTri": 0.00544,
    "anglePct": 97,
    "vpt": 1.52,
    "grad": 0.7,
@@ -35307,23 +35461,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-corner-a",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 376,
-   "tpu": 663,
+   "tpu": 537,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 18376,
+   "bytes": 18372,
    "vtx": 456,
+   "gridMod": true,
    "minEdge": 0.001,
-   "avgTri": 0.00522,
+   "avgTri": 0.00644,
    "anglePct": 98,
    "vpt": 1.21,
    "grad": 0.7,
@@ -35347,23 +35503,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-corner-b",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 436,
-   "tpu": 769,
+   "tpu": 623,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21168,
+   "bytes": 21164,
    "vtx": 532,
+   "gridMod": true,
    "minEdge": 0.001,
-   "avgTri": 0.00451,
+   "avgTri": 0.00557,
    "anglePct": 98,
    "vpt": 1.22,
    "grad": 0.7,
@@ -35387,23 +35545,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-corner-c",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 322,
-   "tpu": 568,
+   "tpu": 460,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16320,
+   "bytes": 16316,
    "vtx": 402,
+   "gridMod": true,
    "minEdge": 0,
-   "avgTri": 0.00608,
+   "avgTri": 0.00751,
    "anglePct": 99,
    "vpt": 1.25,
    "grad": 0.7,
@@ -35427,23 +35587,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-corner-d",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 352,
-   "tpu": 621,
+   "tpu": 503,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17560,
+   "bytes": 17556,
    "vtx": 435,
+   "gridMod": true,
    "minEdge": 0.001,
-   "avgTri": 0.00557,
+   "avgTri": 0.00688,
    "anglePct": 99,
    "vpt": 1.24,
    "grad": 0.7,
@@ -35467,23 +35629,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-dirt-transition-d",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 424,
-   "tpu": 748,
+   "tpu": 606,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25024,
+   "bytes": 25020,
    "vtx": 653,
+   "gridMod": true,
    "minEdge": 0,
-   "avgTri": 0.00467,
+   "avgTri": 0.00576,
    "anglePct": 97,
    "vpt": 1.54,
    "grad": 0.7,
@@ -35507,23 +35671,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "cobblestone-floor-a",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    1,
+    1,
     0.1
    ],
    "tris": 1318,
-   "tpu": 2325,
+   "tpu": 1883,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 73876,
+   "bytes": 73872,
    "vtx": 2013,
+   "gridMod": true,
    "minEdge": 0,
-   "avgTri": 0.00155,
+   "avgTri": 0.00192,
    "anglePct": 92,
    "vpt": 1.53,
    "grad": 0.7,
@@ -35547,25 +35713,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "crate-a-open",
    "kind": "obj-container-crate-cube",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.45
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 508,
    "tpu": 1481,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 26724,
+   "bytes": 26720,
    "vtx": 696,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00469,
+   "minEdge": 0.013,
+   "avgTri": 0.00579,
    "anglePct": 100,
    "vpt": 1.37,
    "grad": 0.4,
@@ -35586,25 +35754,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "crate-a",
    "kind": "obj-container-crate-cube",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.45
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 412,
    "tpu": 1201,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24444,
+   "bytes": 24440,
    "vtx": 640,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00469,
+   "minEdge": 0.013,
+   "avgTri": 0.00579,
    "anglePct": 90,
    "vpt": 1.55,
    "grad": 0.44,
@@ -35625,23 +35795,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "dirt-fading-gathered",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.7,
-    0.45,
-    0.09
+    0.75,
+    0.5,
+    0.1
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2276,
+   "bytes": 2272,
    "vtx": 24,
-   "minEdge": 0.045,
-   "avgTri": 0.06334,
+   "gridMod": true,
+   "minEdge": 0.05,
+   "avgTri": 0.07819,
    "anglePct": 60,
    "vpt": 2,
    "grad": 0.7,
@@ -35665,23 +35837,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "dirt-fading",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.9,
-    0.45,
-    0.09
+    1,
+    0.5,
+    0.1
    ],
    "tris": 12,
-   "tpu": 35,
+   "tpu": 34,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2236,
+   "bytes": 2232,
    "vtx": 24,
-   "minEdge": 0.045,
-   "avgTri": 0.08273,
+   "gridMod": true,
+   "minEdge": 0.05,
+   "avgTri": 0.10214,
    "anglePct": 59,
    "vpt": 2,
    "grad": 0.7,
@@ -35705,23 +35879,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "dirt-gathered-corner",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
+    0.75,
+    0.75,
     0.1
    ],
    "tris": 36,
-   "tpu": 105,
+   "tpu": 91,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3888,
+   "bytes": 3884,
    "vtx": 66,
-   "minEdge": 0.088,
-   "avgTri": 0.02282,
+   "gridMod": true,
+   "minEdge": 0.098,
+   "avgTri": 0.02818,
    "anglePct": 53,
    "vpt": 1.83,
    "grad": 0.7,
@@ -35744,12 +35920,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "dirt-gathered-straight",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.1
    ],
    "tris": 16,
@@ -35757,10 +35934,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2620,
+   "bytes": 2616,
    "vtx": 30,
-   "minEdge": 0.088,
-   "avgTri": 0.03592,
+   "gridMod": true,
+   "minEdge": 0.098,
+   "avgTri": 0.04435,
    "anglePct": 65,
    "vpt": 1.88,
    "grad": 0.7,
@@ -35784,24 +35962,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "door-simple",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.08,
+    0.09,
     0.35,
-    0.6
+    0.7
    ],
    "tris": 268,
    "tpu": 781,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17132,
+   "bytes": 17128,
    "vtx": 440,
    "grounded": true,
    "minEdge": 0.003,
-   "avgTri": 0.00223,
+   "avgTri": 0.00275,
    "anglePct": 98,
    "vpt": 1.64,
    "grad": 0.7,
@@ -35834,25 +36013,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "ladder-a",
    "kind": "str-access-ladder",
    "size": "l",
    "wdh": [
-    0.5,
-    0.3,
-    1.75
+    0.55,
+    0.35,
+    1.95
    ],
    "tris": 420,
-   "tpu": 485,
+   "tpu": 437,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19572,
+   "bytes": 19568,
    "vtx": 488,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00291,
+   "minEdge": 0.017,
+   "avgTri": 0.00359,
    "anglePct": 42,
    "vpt": 1.16,
    "grad": 0.32,
@@ -35873,30 +36053,31 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.75 over max 1.6 (str-access-ladder scale-big · 1.882 at kit ×0.93)"
+     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 1.931 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "lamp-street",
    "kind": "obj-lighting-lantern-onpost",
    "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.1,
-    0.55
+    0.65
    ],
    "tris": 470,
    "tpu": 1370,
    "mat": 2,
    "bands": 4,
    "calls": 2,
-   "bytes": 30872,
+   "bytes": 30868,
    "vtx": 800,
    "grounded": true,
    "minEdge": 0.002,
-   "avgTri": 0.00102,
+   "avgTri": 0.00126,
    "anglePct": 75,
    "vpt": 1.7,
    "grad": 0.66,
@@ -35938,7 +36119,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.55 under min 0.65 (obj-lighting-lantern-onpost · 0.591 at kit ×0.93)"
+     "text": "longest 0.65 under min 0.65 (obj-lighting-lantern-onpost · 0.644 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -35947,23 +36128,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "lamp-wall",
    "kind": "obj-lighting-lantern",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.1,
-    0.3
+    0.35
    ],
    "tris": 446,
    "tpu": 1300,
    "mat": 2,
    "bands": 4,
    "calls": 2,
-   "bytes": 29212,
+   "bytes": 29208,
    "vtx": 752,
    "minEdge": 0.002,
-   "avgTri": 0.00055,
+   "avgTri": 0.00068,
    "anglePct": 54,
    "vpt": 1.69,
    "grad": 0.68,
@@ -36008,54 +36190,14 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-accent-rake-concave",
    "kind": "str-part-roof",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.3
-   ],
-   "tris": 36,
-   "tpu": 105,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 3740,
-   "vtx": 60,
-   "minEdge": 0.09,
-   "avgTri": 0.00526,
-   "anglePct": 64,
-   "vpt": 1.67,
-   "grad": 0.68,
-   "spread": {
-    "2,0": [
-     0.156,
-     0.836
-    ]
-   },
-   "colors": [
-    "#8b5936"
-   ],
-   "tags": [
-    "comp",
-    "wood-beam"
-   ],
-   "variant": "v593",
-   "mark": [
-    "grounded",
-    "centered"
-   ]
-  },
-  {
-   "kit": "fs-town",
-   "name": "roof-accent-rake-convex",
-   "kind": "str-part-roof",
-   "size": "s",
-   "wdh": [
-    0.45,
-    0.09,
-    0.3
+    0.5,
+    0.1,
+    0.35
    ],
    "tris": 36,
    "tpu": 105,
@@ -36064,8 +36206,8 @@
    "calls": 1,
    "bytes": 3736,
    "vtx": 60,
-   "minEdge": 0.09,
-   "avgTri": 0.00526,
+   "minEdge": 0.1,
+   "avgTri": 0.00649,
    "anglePct": 64,
    "vpt": 1.67,
    "grad": 0.68,
@@ -36090,12 +36232,55 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
+   "name": "roof-accent-rake-convex",
+   "kind": "str-part-roof",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.1,
+    0.35
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3732,
+   "vtx": 60,
+   "minEdge": 0.1,
+   "avgTri": 0.00649,
+   "anglePct": 64,
+   "vpt": 1.67,
+   "grad": 0.68,
+   "spread": {
+    "2,0": [
+     0.156,
+     0.836
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "comp",
+    "wood-beam"
+   ],
+   "variant": "v593",
+   "mark": [
+    "grounded",
+    "centered"
+   ]
+  },
+  {
+   "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-accent-rake-eave",
    "kind": "str-part-roof",
    "size": "s",
    "wdh": [
     0.15,
-    0.09,
+    0.1,
     0.2
    ],
    "tris": 12,
@@ -36103,10 +36288,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2344,
+   "bytes": 2340,
    "vtx": 24,
-   "minEdge": 0.09,
-   "avgTri": 0.00623,
+   "minEdge": 0.1,
+   "avgTri": 0.00769,
    "anglePct": 58,
    "vpt": 2,
    "grad": 0.51,
@@ -36131,23 +36316,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-accent-rake-straight",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.55
+    0.5,
+    0.1,
+    0.6
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2340,
+   "bytes": 2336,
    "vtx": 24,
-   "minEdge": 0.09,
-   "avgTri": 0.01765,
+   "minEdge": 0.1,
+   "avgTri": 0.02179,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.49,
@@ -36172,11 +36358,12 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-accent-ridge-end",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.7,
+    0.75,
     0.15,
     0.15
    ],
@@ -36185,11 +36372,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2968,
+   "bytes": 2964,
    "vtx": 40,
-   "grounded": true,
-   "minEdge": 0.09,
-   "avgTri": 0.01434,
+   "minEdge": 0.1,
+   "avgTri": 0.0177,
    "anglePct": 54,
    "vpt": 1.82,
    "grad": 0.36,
@@ -36208,28 +36394,30 @@
    ],
    "variant": "v593",
    "mark": [
+    "grounded",
     "centered"
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-accent-ridge",
    "kind": "str-part-roof",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.09
+    0.5,
+    0.1,
+    0.1
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2308,
+   "bytes": 2304,
    "vtx": 24,
-   "minEdge": 0.09,
-   "avgTri": 0.01485,
+   "minEdge": 0.1,
+   "avgTri": 0.01833,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -36254,25 +36442,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-corner-inner",
    "kind": "str-part-roof-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.3
+    0.5,
+    0.5,
+    0.35
    ],
    "tris": 96,
    "tpu": 280,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8288,
+   "bytes": 8284,
    "vtx": 192,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00998,
+   "avgTri": 0.01232,
    "anglePct": 81,
    "vpt": 2,
    "grad": 0.79,
@@ -36297,23 +36487,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-corner-outer-eave",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.35
+    0.65,
+    0.65,
+    0.4
    ],
    "tris": 152,
    "tpu": 443,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12340,
+   "bytes": 12336,
    "vtx": 305,
-   "minEdge": 0.015,
-   "avgTri": 0.00727,
+   "minEdge": 0.017,
+   "avgTri": 0.00897,
    "anglePct": 67,
    "vpt": 2.01,
    "grad": 0.79,
@@ -36342,25 +36533,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-corner-outer",
    "kind": "str-part-roof-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.3
+    0.5,
+    0.5,
+    0.35
    ],
    "tris": 94,
    "tpu": 274,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7732,
+   "bytes": 7728,
    "vtx": 174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.00832,
+   "minEdge": 0.031,
+   "avgTri": 0.01027,
    "anglePct": 75,
    "vpt": 1.85,
    "grad": 0.79,
@@ -36385,23 +36577,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-side-eave-edge",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
+    0.65,
     0.6,
-    0.55,
-    0.45
+    0.5
    ],
    "tris": 176,
    "tpu": 513,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 13180,
+   "bytes": 13176,
    "vtx": 328,
-   "minEdge": 0.015,
-   "avgTri": 0.00687,
+   "minEdge": 0.017,
+   "avgTri": 0.00848,
    "anglePct": 71,
    "vpt": 1.86,
    "grad": 0.77,
@@ -36436,23 +36629,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-side-eave",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.6,
-    0.45,
-    0.35
+    0.65,
+    0.5,
+    0.4
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9372,
+   "bytes": 9368,
    "vtx": 224,
-   "minEdge": 0.015,
-   "avgTri": 0.00843,
+   "minEdge": 0.017,
+   "avgTri": 0.01041,
    "anglePct": 75,
    "vpt": 1.87,
    "grad": 0.8,
@@ -36481,23 +36675,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-side-edge",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.45,
-    0.55,
-    0.45
+    0.5,
+    0.6,
+    0.5
    ],
    "tris": 146,
    "tpu": 426,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11120,
+   "bytes": 11116,
    "vtx": 270,
-   "minEdge": 0.028,
-   "avgTri": 0.00712,
+   "minEdge": 0.031,
+   "avgTri": 0.00879,
    "anglePct": 75,
    "vpt": 1.85,
    "grad": 0.75,
@@ -36532,25 +36727,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-concave-side",
    "kind": "str-part-roof-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.3
+    0.5,
+    0.5,
+    0.35
    ],
    "tris": 88,
    "tpu": 257,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7412,
+   "bytes": 7408,
    "vtx": 170,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.00984,
+   "minEdge": 0.031,
+   "avgTri": 0.01215,
    "anglePct": 79,
    "vpt": 1.93,
    "grad": 0.78,
@@ -36575,25 +36771,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-corner-inner",
    "kind": "str-part-roof-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.3
+    0.5,
+    0.5,
+    0.35
    ],
    "tris": 94,
    "tpu": 274,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8208,
+   "bytes": 8204,
    "vtx": 190,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.01044,
+   "avgTri": 0.01289,
    "anglePct": 83,
    "vpt": 2.02,
    "grad": 0.79,
@@ -36618,23 +36816,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-corner-outer-eave",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.35
+    0.65,
+    0.65,
+    0.4
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11200,
+   "bytes": 11196,
    "vtx": 272,
    "minEdge": 0,
-   "avgTri": 0.00821,
+   "avgTri": 0.01014,
    "anglePct": 68,
    "vpt": 1.89,
    "grad": 0.82,
@@ -36663,25 +36862,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-corner-outer",
    "kind": "str-part-roof-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.3
+    0.55,
+    0.55,
+    0.35
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7424,
+   "bytes": 7420,
    "vtx": 166,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.01,
+   "minEdge": 0.031,
+   "avgTri": 0.01234,
    "anglePct": 76,
    "vpt": 1.93,
    "grad": 0.79,
@@ -36706,23 +36906,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-side-eave-edge",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
+    0.65,
     0.6,
-    0.55,
-    0.45
+    0.5
    ],
    "tris": 176,
    "tpu": 513,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 13048,
+   "bytes": 13044,
    "vtx": 324,
-   "minEdge": 0.015,
-   "avgTri": 0.00701,
+   "minEdge": 0.017,
+   "avgTri": 0.00865,
    "anglePct": 72,
    "vpt": 1.84,
    "grad": 0.77,
@@ -36757,23 +36958,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-side-eave",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.6,
-    0.45,
-    0.35
+    0.65,
+    0.5,
+    0.4
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9368,
+   "bytes": 9364,
    "vtx": 224,
-   "minEdge": 0.015,
-   "avgTri": 0.00885,
+   "minEdge": 0.017,
+   "avgTri": 0.01092,
    "anglePct": 76,
    "vpt": 1.87,
    "grad": 0.8,
@@ -36802,23 +37004,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-side-edge",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.5,
     0.55,
-    0.45
+    0.6,
+    0.5
    ],
    "tris": 146,
    "tpu": 426,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11116,
+   "bytes": 11112,
    "vtx": 270,
-   "minEdge": 0.028,
-   "avgTri": 0.00729,
+   "minEdge": 0.031,
+   "avgTri": 0.009,
    "anglePct": 76,
    "vpt": 1.85,
    "grad": 0.75,
@@ -36853,25 +37056,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-convex-side",
    "kind": "str-part-roof-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
+    0.55,
     0.5,
-    0.45,
-    0.3
+    0.35
    ],
    "tris": 88,
    "tpu": 257,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7408,
+   "bytes": 7404,
    "vtx": 170,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.01041,
+   "minEdge": 0.031,
+   "avgTri": 0.01285,
    "anglePct": 80,
    "vpt": 1.93,
    "grad": 0.78,
@@ -36896,25 +37100,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-corner-inner",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.55
+    0.5,
+    0.5,
+    0.6
    ],
    "tris": 102,
    "tpu": 297,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8296,
+   "bytes": 8292,
    "vtx": 191,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.01311,
+   "minEdge": 0.01,
+   "avgTri": 0.01619,
    "anglePct": 79,
    "vpt": 1.87,
    "grad": 0.79,
@@ -36939,23 +37145,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-corner-outer-eave",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.6
+    0.65,
+    0.65,
+    0.65
    ],
    "tris": 142,
    "tpu": 414,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10688,
+   "bytes": 10684,
    "vtx": 256,
-   "minEdge": 0.015,
-   "avgTri": 0.00934,
+   "minEdge": 0.017,
+   "avgTri": 0.01153,
    "anglePct": 63,
    "vpt": 1.8,
    "grad": 0.81,
@@ -36984,26 +37191,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-corner-outer",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.55
+    0.55,
+    0.55,
+    0.6
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7068,
+   "bytes": 7064,
    "vtx": 158,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.032,
-   "avgTri": 0.01167,
+   "minEdge": 0.035,
+   "avgTri": 0.01441,
    "anglePct": 67,
    "vpt": 1.84,
    "grad": 0.78,
@@ -37028,23 +37235,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-side-eave-edge",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
+    0.65,
     0.6,
-    0.55,
-    0.65
+    0.75
    ],
    "tris": 152,
-   "tpu": 443,
+   "tpu": 428,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11460,
+   "bytes": 11456,
    "vtx": 282,
-   "minEdge": 0.015,
-   "avgTri": 0.00989,
+   "minEdge": 0.017,
+   "avgTri": 0.01221,
    "anglePct": 71,
    "vpt": 1.86,
    "grad": 0.79,
@@ -37079,23 +37287,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-side-eave",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.6,
-    0.45,
-    0.6
+    0.65,
+    0.5,
+    0.65
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9376,
+   "bytes": 9372,
    "vtx": 224,
-   "minEdge": 0.015,
-   "avgTri": 0.01092,
+   "minEdge": 0.017,
+   "avgTri": 0.01348,
    "anglePct": 72,
    "vpt": 1.87,
    "grad": 0.8,
@@ -37124,23 +37333,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-side-edge",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.5,
     0.55,
-    0.65
+    0.6,
+    0.75
    ],
    "tris": 122,
-   "tpu": 356,
+   "tpu": 343,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9628,
+   "bytes": 9624,
    "vtx": 231,
-   "minEdge": 0.032,
-   "avgTri": 0.01094,
+   "minEdge": 0.035,
+   "avgTri": 0.0135,
    "anglePct": 74,
    "vpt": 1.89,
    "grad": 0.77,
@@ -37175,25 +37385,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "roof-straight-side",
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
+    0.55,
     0.5,
-    0.45,
-    0.55
+    0.6
    ],
    "tris": 88,
    "tpu": 257,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7420,
+   "bytes": 7416,
    "vtx": 170,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.032,
-   "avgTri": 0.01324,
+   "minEdge": 0.035,
+   "avgTri": 0.01635,
    "anglePct": 75,
    "vpt": 1.93,
    "grad": 0.78,
@@ -37218,23 +37429,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "sign-a",
    "kind": "str-marker-sign",
    "size": "m",
    "wdh": [
-    0.7,
-    0.09,
-    0.45
+    0.8,
+    0.1,
+    0.5
    ],
    "tris": 734,
    "tpu": 2140,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 46316,
+   "bytes": 46312,
    "vtx": 1260,
    "minEdge": 0.002,
-   "avgTri": 0.00082,
+   "avgTri": 0.00101,
    "anglePct": 47,
    "vpt": 1.72,
    "grad": 0.64,
@@ -37269,23 +37481,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-arch",
    "kind": "str-part-wall",
    "size": "m",
    "wdh": [
-    0.45,
-    0.9,
-    0.65
+    0.5,
+    1,
+    0.7
    ],
    "tris": 44,
-   "tpu": 128,
+   "tpu": 124,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4072,
+   "bytes": 4068,
    "vtx": 72,
-   "minEdge": 0.034,
-   "avgTri": 0.05146,
+   "gridMod": true,
+   "minEdge": 0.037,
+   "avgTri": 0.06354,
    "anglePct": 80,
    "vpt": 1.64,
    "grad": 0.7,
@@ -37309,12 +37523,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-curb-a",
    "kind": "str-part",
    "size": "s",
    "wdh": [
-    0.09,
-    0.3,
+    0.1,
+    0.35,
     0.15
    ],
    "tris": 284,
@@ -37322,11 +37537,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22820,
+   "bytes": 22816,
    "vtx": 616,
    "grounded": true,
    "minEdge": 0.007,
-   "avgTri": 0.00059,
+   "avgTri": 0.00072,
    "anglePct": 98,
    "vpt": 2.17,
    "grad": 0.29,
@@ -37349,12 +37564,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-curb-b",
    "kind": "str-part",
    "size": "s",
    "wdh": [
-    0.09,
-    0.3,
+    0.1,
+    0.35,
     0.15
    ],
    "tris": 244,
@@ -37362,11 +37578,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19764,
+   "bytes": 19760,
    "vtx": 528,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00067,
+   "minEdge": 0.012,
+   "avgTri": 0.00083,
    "anglePct": 98,
    "vpt": 2.16,
    "grad": 0.29,
@@ -37389,12 +37605,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-curb-c",
    "kind": "str-part",
    "size": "s",
    "wdh": [
-    0.09,
-    0.3,
+    0.1,
+    0.35,
     0.15
    ],
    "tris": 284,
@@ -37402,11 +37619,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22820,
+   "bytes": 22816,
    "vtx": 616,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00058,
+   "minEdge": 0.012,
+   "avgTri": 0.00072,
    "anglePct": 98,
    "vpt": 2.17,
    "grad": 0.29,
@@ -37429,12 +37646,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-curb-d",
    "kind": "str-part",
    "size": "s",
    "wdh": [
-    0.09,
-    0.3,
+    0.1,
+    0.35,
     0.15
    ],
    "tris": 284,
@@ -37442,11 +37660,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22756,
+   "bytes": 22752,
    "vtx": 614,
    "grounded": true,
    "minEdge": 0.007,
-   "avgTri": 0.00058,
+   "avgTri": 0.00072,
    "anglePct": 98,
    "vpt": 2.16,
    "grad": 0.29,
@@ -37469,25 +37687,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-doorway-narrow-tall-a",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.9
+    0.6,
+    0.55,
+    1
    ],
    "tris": 104,
-   "tpu": 236,
+   "tpu": 212,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7924,
+   "bytes": 7920,
    "vtx": 178,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.012,
-   "avgTri": 0.01516,
+   "minEdge": 0.013,
+   "avgTri": 0.01872,
    "anglePct": 98,
    "vpt": 1.71,
    "grad": 0.46,
@@ -37516,25 +37734,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-doorway-narrow-tall-b",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.9
+    0.6,
+    0.55,
+    1
    ],
    "tris": 134,
-   "tpu": 304,
+   "tpu": 273,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9640,
+   "bytes": 9636,
    "vtx": 226,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01177,
+   "minEdge": 0.012,
+   "avgTri": 0.01453,
    "anglePct": 98,
    "vpt": 1.69,
    "grad": 0.42,
@@ -37563,24 +37781,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-doorway-wide-tall-a",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.55,
-    1.05,
-    0.9
+    0.6,
+    1.15,
+    1
    ],
    "tris": 800,
-   "tpu": 1590,
+   "tpu": 1159,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 55944,
+   "bytes": 55940,
    "vtx": 1548,
    "grounded": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00548,
+   "minEdge": 0.008,
+   "avgTri": 0.00677,
    "anglePct": 96,
    "vpt": 1.94,
    "grad": 0.61,
@@ -37609,24 +37828,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-doorway-wide-tall-b",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.55,
-    1.05,
-    0.9
+    0.6,
+    1.15,
+    1
    ],
    "tris": 830,
-   "tpu": 1650,
+   "tpu": 1203,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 57852,
+   "bytes": 57848,
    "vtx": 1602,
    "grounded": true,
    "minEdge": 0.007,
-   "avgTri": 0.00528,
+   "avgTri": 0.00652,
    "anglePct": 96,
    "vpt": 1.93,
    "grad": 0.61,
@@ -37655,24 +37875,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-stucco-doorway-wide-tall-a",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.55,
-    1.05,
-    0.9
+    0.6,
+    1.15,
+    1
    ],
    "tris": 636,
-   "tpu": 1264,
+   "tpu": 922,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 46096,
+   "bytes": 46092,
    "vtx": 1270,
    "grounded": true,
    "minEdge": 0.007,
-   "avgTri": 0.00783,
+   "avgTri": 0.00966,
    "anglePct": 98,
    "vpt": 2,
    "grad": 0.61,
@@ -37706,24 +37927,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-stucco-doorway-wide-tall-b",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.55,
-    1.05,
-    0.9
+    0.6,
+    1.15,
+    1
    ],
    "tris": 676,
-   "tpu": 1344,
+   "tpu": 980,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 48576,
+   "bytes": 48572,
    "vtx": 1340,
    "grounded": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00737,
+   "minEdge": 0.008,
+   "avgTri": 0.00909,
    "anglePct": 98,
    "vpt": 1.98,
    "grad": 0.61,
@@ -37757,24 +37979,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-wall-a",
    "kind": "str-part-wall-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.03,
-    0.45,
-    0.45
+    0.5,
+    0.5
    ],
    "tris": 98,
    "tpu": 286,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14884,
+   "bytes": 14880,
    "vtx": 182,
    "grounded": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00456,
+   "minEdge": 0.018,
+   "avgTri": 0.00563,
    "anglePct": 88,
    "vpt": 1.86,
    "grad": 0.29,
@@ -37793,9 +38016,9 @@
    "variant": "v04",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.65 (str-part-wall-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -37804,24 +38027,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-wall-b",
    "kind": "str-part-wall-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.03,
-    0.45,
-    0.45
+    0.5,
+    0.5
    ],
    "tris": 122,
    "tpu": 356,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9472,
+   "bytes": 9468,
    "vtx": 226,
    "grounded": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00367,
+   "minEdge": 0.018,
+   "avgTri": 0.00453,
    "anglePct": 87,
    "vpt": 1.85,
    "grad": 0.29,
@@ -37840,9 +38064,9 @@
    "variant": "v04",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.65 (str-part-wall-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -37851,24 +38075,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-wall-c",
    "kind": "str-part-wall-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.03,
-    0.45,
-    0.45
+    0.5,
+    0.5
    ],
    "tris": 122,
    "tpu": 356,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17988,
+   "bytes": 17984,
    "vtx": 226,
    "grounded": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00367,
+   "minEdge": 0.018,
+   "avgTri": 0.00453,
    "anglePct": 87,
    "vpt": 1.85,
    "grad": 0.29,
@@ -37887,9 +38112,9 @@
    "variant": "v04",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.65 (str-part-wall-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -37898,24 +38123,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-wall-d",
    "kind": "str-part-wall-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.03,
-    0.45,
-    0.45
+    0.5,
+    0.5
    ],
    "tris": 152,
    "tpu": 443,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21676,
+   "bytes": 21672,
    "vtx": 280,
    "grounded": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00294,
+   "minEdge": 0.018,
+   "avgTri": 0.00363,
    "anglePct": 85,
    "vpt": 1.84,
    "grad": 0.29,
@@ -37934,9 +38160,9 @@
    "variant": "v04",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.65 (str-part-wall-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -37945,24 +38171,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stone-wall-e",
    "kind": "str-part-wall-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.03,
-    0.45,
-    0.45
+    0.5,
+    0.5
    ],
    "tris": 110,
    "tpu": 321,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16340,
+   "bytes": 16336,
    "vtx": 204,
    "grounded": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00407,
+   "minEdge": 0.018,
+   "avgTri": 0.00502,
    "anglePct": 87,
    "vpt": 1.85,
    "grad": 0.29,
@@ -37981,9 +38208,9 @@
    "variant": "v04",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.65 (str-part-wall-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -37992,24 +38219,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-arch-half-outer",
    "kind": "str-part-wall",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.3
+    0.55,
+    0.55,
+    0.35
    ],
    "tris": 56,
    "tpu": 163,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5008,
+   "bytes": 5004,
    "vtx": 96,
-   "gridMod": true,
-   "minEdge": 0.047,
-   "avgTri": 0.01473,
+   "minEdge": 0.052,
+   "avgTri": 0.01819,
    "anglePct": 79,
    "vpt": 1.71,
    "grad": 0.7,
@@ -38039,24 +38266,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-arch-half",
    "kind": "str-part-wall",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.2
+    0.5,
+    0.5,
+    0.25
    ],
    "tris": 16,
    "tpu": 47,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2576,
+   "bytes": 2572,
    "vtx": 30,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.148,
-   "avgTri": 0.03775,
+   "minEdge": 0.164,
+   "avgTri": 0.04661,
    "anglePct": 87,
    "vpt": 1.88,
    "grad": 0.7,
@@ -38087,25 +38316,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-block",
    "kind": "str-part-wall",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.45
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2224,
+   "bytes": 2220,
    "vtx": 24,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.45,
-   "avgTri": 0.10125,
+   "minEdge": 0.5,
+   "avgTri": 0.125,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -38131,25 +38362,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-doorway-narrow-tall",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.9
+    0.6,
+    0.55,
+    1
    ],
    "tris": 60,
-   "tpu": 136,
+   "tpu": 122,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4984,
+   "bytes": 4980,
    "vtx": 98,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.023,
-   "avgTri": 0.02626,
+   "minEdge": 0.025,
+   "avgTri": 0.03242,
    "anglePct": 100,
    "vpt": 1.63,
    "grad": 0.7,
@@ -38176,24 +38407,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-doorway-wide-tall",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.5,
-    0.9,
-    0.9
+    0.6,
+    1,
+    1
    ],
    "tris": 76,
-   "tpu": 172,
+   "tpu": 132,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5816,
+   "bytes": 5812,
    "vtx": 122,
    "grounded": true,
-   "minEdge": 0.022,
-   "avgTri": 0.0527,
+   "minEdge": 0.025,
+   "avgTri": 0.06507,
    "anglePct": 100,
    "vpt": 1.61,
    "grad": 0.7,
@@ -38220,23 +38452,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-angled-large",
    "kind": "str-part",
    "size": "m",
    "wdh": [
     0.05,
-    0.45,
-    0.55
+    0.5,
+    0.6
    ],
    "tris": 16,
    "tpu": 47,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2676,
+   "bytes": 2672,
    "vtx": 30,
    "minEdge": 0.003,
-   "avgTri": 0.00775,
+   "avgTri": 0.00957,
    "anglePct": 100,
    "vpt": 1.88,
    "grad": 0.48,
@@ -38261,24 +38494,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-angled-low",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.05,
-    0.45,
-    0.25
+    0.5,
+    0.3
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2344,
+   "bytes": 2340,
    "vtx": 24,
-   "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.00784,
+   "minEdge": 0.05,
+   "avgTri": 0.00968,
    "anglePct": 52,
    "vpt": 2,
    "grad": 0.63,
@@ -38297,29 +38530,31 @@
    ],
    "variant": "v582",
    "mark": [
+    "grounded",
     "centered"
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-angled-small",
    "kind": "str-part",
    "size": "s",
    "wdh": [
     0.05,
-    0.25,
-    0.25
+    0.3,
+    0.3
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2352,
+   "bytes": 2348,
    "vtx": 24,
    "grounded": true,
-   "minEdge": 0.045,
-   "avgTri": 0.0054,
+   "minEdge": 0.05,
+   "avgTri": 0.00666,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.59,
@@ -38343,23 +38578,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-beam-a",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.45,
-    0.09
+    0.1,
+    0.5,
+    0.1
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2332,
+   "bytes": 2328,
    "vtx": 24,
-   "minEdge": 0.09,
-   "avgTri": 0.01485,
+   "minEdge": 0.1,
+   "avgTri": 0.01833,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -38384,23 +38620,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-beam-b",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.45,
-    0.09
+    0.1,
+    0.5,
+    0.1
    ],
    "tris": 20,
    "tpu": 58,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2704,
+   "bytes": 2700,
    "vtx": 36,
-   "minEdge": 0.032,
-   "avgTri": 0.00888,
+   "minEdge": 0.035,
+   "avgTri": 0.01096,
    "anglePct": 99,
    "vpt": 1.8,
    "grad": 0.68,
@@ -38425,23 +38662,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-beam-c",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.45,
-    0.09
+    0.1,
+    0.5,
+    0.1
    ],
    "tris": 20,
    "tpu": 58,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2704,
+   "bytes": 2700,
    "vtx": 36,
-   "minEdge": 0.032,
-   "avgTri": 0.00889,
+   "minEdge": 0.035,
+   "avgTri": 0.01098,
    "anglePct": 99,
    "vpt": 1.8,
    "grad": 0.68,
@@ -38466,24 +38704,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-pillar-a",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.09,
-    0.45
+    0.1,
+    0.1,
+    0.5
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2332,
+   "bytes": 2328,
    "vtx": 24,
    "grounded": true,
-   "minEdge": 0.09,
-   "avgTri": 0.01485,
+   "minEdge": 0.1,
+   "avgTri": 0.01833,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -38507,24 +38746,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-pillar-b",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.09,
-    0.45
+    0.1,
+    0.1,
+    0.5
    ],
    "tris": 20,
    "tpu": 58,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2708,
+   "bytes": 2704,
    "vtx": 36,
    "grounded": true,
-   "minEdge": 0.032,
-   "avgTri": 0.00888,
+   "minEdge": 0.035,
+   "avgTri": 0.01096,
    "anglePct": 99,
    "vpt": 1.8,
    "grad": 0.68,
@@ -38548,24 +38788,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-support-pillar-c",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.09,
-    0.45
+    0.1,
+    0.1,
+    0.5
    ],
    "tris": 20,
    "tpu": 58,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2708,
+   "bytes": 2704,
    "vtx": 36,
    "grounded": true,
-   "minEdge": 0.032,
-   "avgTri": 0.00889,
+   "minEdge": 0.035,
+   "avgTri": 0.01098,
    "anglePct": 99,
    "vpt": 1.8,
    "grad": 0.68,
@@ -38589,25 +38830,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-double-narrow-tall",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.9
+    0.6,
+    0.55,
+    1
    ],
    "tris": 216,
-   "tpu": 490,
+   "tpu": 441,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 14008,
+   "bytes": 14004,
    "vtx": 324,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01146,
+   "minEdge": 0.013,
+   "avgTri": 0.01415,
    "anglePct": 100,
    "vpt": 1.5,
    "grad": 0.7,
@@ -38639,25 +38880,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-double-narrow",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.45
+    0.6,
+    0.55,
+    0.5
    ],
    "tris": 216,
    "tpu": 630,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 14000,
+   "bytes": 13996,
    "vtx": 324,
-   "gridMod": true,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00771,
+   "minEdge": 0.012,
+   "avgTri": 0.00952,
    "anglePct": 100,
    "vpt": 1.5,
    "grad": 0.7,
@@ -38689,24 +38930,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-double-wide-tall",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
-    0.5,
-    0.9,
-    0.9
+    0.6,
+    1,
+    1
    ],
    "tris": 224,
-   "tpu": 508,
+   "tpu": 390,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 14272,
+   "bytes": 14268,
    "vtx": 332,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01655,
+   "minEdge": 0.012,
+   "avgTri": 0.02043,
    "anglePct": 100,
    "vpt": 1.48,
    "grad": 0.7,
@@ -38738,24 +38980,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-double-wide",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
-    0.5,
-    0.9,
-    0.45
+    0.6,
+    1,
+    0.5
    ],
    "tris": 224,
-   "tpu": 653,
+   "tpu": 557,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 14264,
+   "bytes": 14260,
    "vtx": 332,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01112,
+   "minEdge": 0.012,
+   "avgTri": 0.01373,
    "anglePct": 100,
    "vpt": 1.48,
    "grad": 0.7,
@@ -38787,24 +39030,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-rounded-narrow-tall",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.6,
     0.5,
-    0.45,
-    0.9
+    1
    ],
    "tris": 180,
-   "tpu": 408,
+   "tpu": 367,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 12436,
+   "bytes": 12432,
    "vtx": 280,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01308,
+   "minEdge": 0.013,
+   "avgTri": 0.01614,
    "anglePct": 96,
    "vpt": 1.56,
    "grad": 0.7,
@@ -38836,24 +39080,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-rounded-narrow",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.6,
     0.5,
-    0.45,
-    0.45
+    0.5
    ],
    "tris": 180,
    "tpu": 525,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 12428,
+   "bytes": 12424,
    "vtx": 280,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00858,
+   "minEdge": 0.012,
+   "avgTri": 0.01059,
    "anglePct": 94,
    "vpt": 1.56,
    "grad": 0.7,
@@ -38883,7 +39128,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.45 under min 0.75 (str-part-window-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -38892,24 +39137,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-rounded-wide-tall",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.9,
-    0.9
+    0.6,
+    1,
+    1
    ],
    "tris": 182,
-   "tpu": 413,
+   "tpu": 317,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 12500,
+   "bytes": 12496,
    "vtx": 282,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01961,
+   "minEdge": 0.012,
+   "avgTri": 0.02421,
    "anglePct": 98,
    "vpt": 1.55,
    "grad": 0.7,
@@ -38941,24 +39187,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-rounded-wide",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.9,
-    0.45
+    0.6,
+    1,
+    0.5
    ],
    "tris": 182,
-   "tpu": 531,
+   "tpu": 452,
    "mat": 2,
    "bands": 2,
    "calls": 2,
-   "bytes": 12496,
+   "bytes": 12492,
    "vtx": 282,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01293,
+   "minEdge": 0.012,
+   "avgTri": 0.01597,
    "anglePct": 96,
    "vpt": 1.55,
    "grad": 0.7,
@@ -38988,7 +39235,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.45 under min 0.75 (str-part-window-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -38997,73 +39244,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "stucco-window-single-narrow-tall",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.6,
     0.5,
-    0.45,
-    0.9
+    1
    ],
    "tris": 148,
-   "tpu": 336,
-   "mat": 2,
-   "bands": 2,
-   "calls": 2,
-   "bytes": 10460,
-   "vtx": 226,
-   "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.0159,
-   "anglePct": 100,
-   "vpt": 1.53,
-   "grad": 0.7,
-   "spread": {
-    "1,0": [
-     0.148,
-     0.844
-    ],
-    "5,2": [
-     0.148,
-     0.844
-    ]
-   },
-   "colors": [
-    "#b58158",
-    "#d8d1bd",
-    "#ffffff"
-   ],
-   "tags": [
-    "glass",
-    "wood-worked"
-   ],
-   "alpha": true,
-   "pbr": true,
-   "variant": "v607",
-   "mark": [
-    "centered"
-   ]
-  },
-  {
-   "kit": "fs-town",
-   "name": "stucco-window-single-narrow",
-   "kind": "str-part-window-unit",
-   "size": "m",
-   "wdh": [
-    0.5,
-    0.45,
-    0.45
-   ],
-   "tris": 148,
-   "tpu": 431,
+   "tpu": 302,
    "mat": 2,
    "bands": 2,
    "calls": 2,
    "bytes": 10456,
    "vtx": 226,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01042,
+   "minEdge": 0.013,
+   "avgTri": 0.01963,
    "anglePct": 100,
    "vpt": 1.53,
    "grad": 0.7,
@@ -39089,86 +39288,138 @@
    "alpha": true,
    "pbr": true,
    "variant": "v607",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.45 under min 0.75 (str-part-window-unit · 0.484 at kit ×0.93)"
-    }
-   ],
    "mark": [
     "centered"
    ]
   },
   {
    "kit": "fs-town",
-   "name": "stucco-window-single-wide-tall",
+   "collection": "fs-modular",
+   "name": "stucco-window-single-narrow",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.6,
     0.5,
-    0.9,
-    0.9
-   ],
-   "tris": 148,
-   "tpu": 336,
-   "mat": 2,
-   "bands": 2,
-   "calls": 2,
-   "bytes": 10448,
-   "vtx": 226,
-   "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.02411,
-   "anglePct": 100,
-   "vpt": 1.53,
-   "grad": 0.7,
-   "spread": {
-    "5,2": [
-     0.148,
-     0.844
-    ],
-    "1,0": [
-     0.148,
-     0.844
-    ]
-   },
-   "colors": [
-    "#b58158",
-    "#d8d1bd",
-    "#ffffff"
-   ],
-   "tags": [
-    "glass",
-    "wood-worked"
-   ],
-   "alpha": true,
-   "pbr": true,
-   "variant": "v607",
-   "mark": [
-    "centered"
-   ]
-  },
-  {
-   "kit": "fs-town",
-   "name": "stucco-window-single-wide",
-   "kind": "str-part-window-unit",
-   "size": "m",
-   "wdh": [
-    0.5,
-    0.9,
-    0.45
+    0.5
    ],
    "tris": 148,
    "tpu": 431,
    "mat": 2,
    "bands": 2,
    "calls": 2,
+   "bytes": 10452,
+   "vtx": 226,
+   "grounded": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01287,
+   "anglePct": 100,
+   "vpt": 1.53,
+   "grad": 0.7,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.844
+    ],
+    "5,2": [
+     0.148,
+     0.844
+    ]
+   },
+   "colors": [
+    "#b58158",
+    "#d8d1bd",
+    "#ffffff"
+   ],
+   "tags": [
+    "glass",
+    "wood-worked"
+   ],
+   "alpha": true,
+   "pbr": true,
+   "variant": "v607",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+    }
+   ],
+   "mark": [
+    "centered"
+   ]
+  },
+  {
+   "kit": "fs-town",
+   "collection": "fs-modular",
+   "name": "stucco-window-single-wide-tall",
+   "kind": "str-part-window-unit",
+   "size": "m",
+   "wdh": [
+    0.6,
+    1,
+    1
+   ],
+   "tris": 148,
+   "tpu": 257,
+   "mat": 2,
+   "bands": 2,
+   "calls": 2,
    "bytes": 10444,
    "vtx": 226,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.0159,
+   "minEdge": 0.012,
+   "avgTri": 0.02976,
+   "anglePct": 100,
+   "vpt": 1.53,
+   "grad": 0.7,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.844
+    ],
+    "1,0": [
+     0.148,
+     0.844
+    ]
+   },
+   "colors": [
+    "#b58158",
+    "#d8d1bd",
+    "#ffffff"
+   ],
+   "tags": [
+    "glass",
+    "wood-worked"
+   ],
+   "alpha": true,
+   "pbr": true,
+   "variant": "v607",
+   "mark": [
+    "centered"
+   ]
+  },
+  {
+   "kit": "fs-town",
+   "collection": "fs-modular",
+   "name": "stucco-window-single-wide",
+   "kind": "str-part-window-unit",
+   "size": "m",
+   "wdh": [
+    0.6,
+    1,
+    0.5
+   ],
+   "tris": 148,
+   "tpu": 368,
+   "mat": 2,
+   "bands": 2,
+   "calls": 2,
+   "bytes": 10440,
+   "vtx": 226,
+   "grounded": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01963,
    "anglePct": 100,
    "vpt": 1.53,
    "grad": 0.7,
@@ -39198,7 +39449,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.45 under min 0.75 (str-part-window-unit · 0.484 at kit ×0.93)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -39207,24 +39458,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-brace-double",
    "kind": "str-building-industrial-mill",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.05,
-    0.45
+    0.5
    ],
    "tris": 24,
    "tpu": 70,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3172,
+   "bytes": 3168,
    "vtx": 48,
    "grounded": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00753,
+   "minEdge": 0.025,
+   "avgTri": 0.0093,
    "anglePct": 71,
    "vpt": 2,
    "grad": 0.54,
@@ -39247,24 +39499,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-brace",
    "kind": "str-building-industrial-mill",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.02,
-    0.45
+    0.5,
+    0.03,
+    0.5
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2280,
+   "bytes": 2276,
    "vtx": 24,
    "grounded": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00753,
+   "minEdge": 0.025,
+   "avgTri": 0.0093,
    "anglePct": 71,
    "vpt": 2,
    "grad": 0.54,
@@ -39287,25 +39540,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-curved",
    "kind": "str-building-industrial-mill",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.1
+    0.4,
+    0.4,
+    0.15
    ],
    "tris": 72,
    "tpu": 210,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5976,
+   "bytes": 5972,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00402,
+   "minEdge": 0.025,
+   "avgTri": 0.00497,
    "anglePct": 44,
    "vpt": 1.78,
    "grad": 0.25,
@@ -39326,11 +39580,12 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-end",
    "kind": "str-building-industrial-mill",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.25,
     0.2
    ],
@@ -39339,10 +39594,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4556,
+   "bytes": 4552,
    "vtx": 88,
    "minEdge": 0,
-   "avgTri": 0.00595,
+   "avgTri": 0.00735,
    "anglePct": 5,
    "vpt": 1.83,
    "grad": 0.32,
@@ -39367,25 +39622,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-pillar",
    "kind": "str-part-pillar",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
-    0.09,
-    0.45
+    0.1,
+    0.1,
+    0.5
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2340,
+   "bytes": 2336,
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.09,
-   "avgTri": 0.01485,
+   "minEdge": 0.1,
+   "avgTri": 0.01833,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -39405,17 +39661,18 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.5 (str-part-pillar · 0.484 at kit ×0.93)"
+     "text": "longest 0.5 under min 0.5 (str-part-pillar · 0.495 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-ramp-supported",
    "kind": "str-building-industrial-mill",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.25,
     0.25
    ],
@@ -39424,12 +39681,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4860,
+   "bytes": 4856,
    "vtx": 96,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.0078,
+   "minEdge": 0.025,
+   "avgTri": 0.00964,
    "anglePct": 13,
    "vpt": 1.85,
    "grad": 0.68,
@@ -39450,11 +39708,12 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-ramp",
    "kind": "str-building-industrial-mill",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.25,
     0.25
    ],
@@ -39463,12 +39722,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3980,
+   "bytes": 3976,
    "vtx": 72,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00923,
+   "minEdge": 0.025,
+   "avgTri": 0.01139,
    "anglePct": 7,
    "vpt": 1.8,
    "grad": 0.32,
@@ -39489,25 +39749,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel-flume-straight",
    "kind": "str-building-industrial-mill",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.25,
-    0.1
+    0.15
    ],
    "tris": 40,
    "tpu": 117,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3996,
+   "bytes": 3992,
    "vtx": 72,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00911,
+   "minEdge": 0.025,
+   "avgTri": 0.01124,
    "anglePct": 42,
    "vpt": 1.8,
    "grad": 0.32,
@@ -39528,23 +39790,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "waterwheel",
    "kind": "str-building-industrial-mill",
    "size": "l",
    "wdh": [
-    0.7,
-    2,
-    2
+    0.75,
+    2.2,
+    2.2
    ],
    "tris": 1464,
-   "tpu": 554,
+   "tpu": 404,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 87432,
+   "bytes": 87428,
    "vtx": 2393,
-   "minEdge": 0.011,
-   "avgTri": 0.00871,
+   "minEdge": 0.012,
+   "avgTri": 0.01076,
    "anglePct": 71,
    "vpt": 1.63,
    "grad": 0.68,
@@ -39574,24 +39837,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "well-a",
    "kind": "str-utility-well",
    "size": "m",
    "wdh": [
-    0.6,
-    0.5,
-    0.7
+    0.7,
+    0.55,
+    0.75
    ],
    "tris": 1424,
-   "tpu": 4152,
+   "tpu": 3839,
    "mat": 1,
    "bands": 4,
    "calls": 3,
-   "bytes": 101044,
+   "bytes": 101040,
    "vtx": 2753,
    "grounded": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00158,
+   "minEdge": 0.01,
+   "avgTri": 0.00195,
    "anglePct": 81,
    "vpt": 1.93,
    "grad": 0.79,
@@ -39638,12 +39902,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "well-base-cobblestone",
    "kind": "str-utility-well",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.1
    ],
    "tris": 296,
@@ -39651,11 +39916,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17308,
+   "bytes": 17304,
    "vtx": 437,
+   "gridMod": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00181,
+   "avgTri": 0.00223,
    "anglePct": 98,
    "vpt": 1.48,
    "grad": 0.7,
@@ -39679,24 +39945,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "well-base-dirt",
    "kind": "str-utility-well",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.09
+    0.5,
+    0.5,
+    0.1
    ],
    "tris": 64,
    "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4616,
+   "bytes": 4612,
    "vtx": 88,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.054,
-   "avgTri": 0.0083,
+   "minEdge": 0.06,
+   "avgTri": 0.01025,
    "anglePct": 100,
    "vpt": 1.38,
    "grad": 0.7,
@@ -39720,25 +39988,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "well-base-grass",
    "kind": "str-utility-well",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
-    0.09
+    0.5,
+    0.5,
+    0.1
    ],
    "tris": 64,
    "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4620,
+   "bytes": 4616,
    "vtx": 88,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.054,
-   "avgTri": 0.0083,
+   "minEdge": 0.06,
+   "avgTri": 0.01025,
    "anglePct": 100,
    "vpt": 1.38,
    "grad": 0.7,
@@ -39759,25 +40029,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "well-inside",
    "kind": "str-utility-well",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.45
+    0.35,
+    0.35,
+    0.5
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5524,
+   "bytes": 5520,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "avgTri": 0.01036,
+   "minEdge": 0.047,
+   "avgTri": 0.01279,
    "anglePct": 100,
    "vpt": 1.4,
    "grad": 0.7,
@@ -39797,25 +40068,27 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "well-plaza",
    "kind": "set",
    "size": "l",
    "wdh": [
-    2.7,
-    2.7,
-    0.85
+    3,
+    3,
+    0.95
    ],
    "tris": 6308,
-   "tpu": 1005,
+   "tpu": 732,
    "mat": 1,
    "bands": 3,
    "calls": 4,
-   "bytes": 585120,
+   "bytes": 585116,
    "vtx": 9663,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00327,
+   "avgTri": 0.00403,
    "anglePct": 95,
    "vpt": 1.53,
    "grad": 0.55,
@@ -39852,23 +40125,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "windmill-blades",
    "kind": "str-building-industrial-mill",
    "size": "l",
    "wdh": [
-    0.45,
-    3.15,
-    3.15
+    0.5,
+    3.5,
+    3.5
    ],
    "tris": 640,
-   "tpu": 141,
+   "tpu": 102,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46852,
+   "bytes": 46848,
    "vtx": 1277,
+   "gridMod": true,
    "minEdge": 0.006,
-   "avgTri": 0.01706,
+   "avgTri": 0.02106,
    "anglePct": 19,
    "vpt": 2,
    "grad": 0.67,
@@ -39904,24 +40179,26 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "window-upper-convex",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.55,
-    1.2,
-    1.2
+    0.6,
+    1.3,
+    1.35
    ],
    "tris": 560,
-   "tpu": 725,
+   "tpu": 528,
    "mat": 2,
    "bands": 3,
    "calls": 2,
-   "bytes": 36460,
+   "bytes": 36456,
    "vtx": 956,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.0104,
+   "centered": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01284,
    "anglePct": 86,
    "vpt": 1.71,
    "grad": 0.07,
@@ -39956,33 +40233,31 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.2 over max 1.25 (str-part-window-unit · 1.29 at kit ×0.93)"
+     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.337 at kit ×1.01)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "window-upper-straight",
    "kind": "str-part-wall-unit",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.55,
-    1.2,
-    1.45
+    0.6,
+    1.3,
+    1.6
    ],
    "tris": 472,
-   "tpu": 515,
+   "tpu": 376,
    "mat": 2,
    "bands": 3,
    "calls": 2,
-   "bytes": 31244,
+   "bytes": 31240,
    "vtx": 814,
    "grounded": true,
-   "minEdge": 0.011,
-   "avgTri": 0.01338,
+   "minEdge": 0.012,
+   "avgTri": 0.01652,
    "anglePct": 86,
    "vpt": 1.72,
    "grad": 0.69,
@@ -40017,7 +40292,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.45 over max 1.2 (str-part-wall-unit · 1.559 at kit ×0.93)"
+     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.584 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -40026,23 +40301,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-baseboard",
    "kind": "str-part",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.1
+    0.5,
+    0.1,
+    0.15
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2296,
+   "bytes": 2292,
    "vtx": 24,
-   "minEdge": 0.09,
-   "avgTri": 0.01688,
+   "minEdge": 0.1,
+   "avgTri": 0.02083,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.7,
@@ -40066,12 +40342,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-floor-corner",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.05
    ],
    "tris": 116,
@@ -40079,11 +40356,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8300,
+   "bytes": 8296,
    "vtx": 190,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00478,
+   "minEdge": 0.025,
+   "avgTri": 0.0059,
    "anglePct": 78,
    "vpt": 1.64,
    "grad": 0.36,
@@ -40107,12 +40385,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-floor-straight-a",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.05
    ],
    "tris": 92,
@@ -40120,11 +40399,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6828,
+   "bytes": 6824,
    "vtx": 148,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00597,
+   "minEdge": 0.025,
+   "avgTri": 0.00737,
    "anglePct": 80,
    "vpt": 1.61,
    "grad": 0.36,
@@ -40148,12 +40428,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-floor-straight-b",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.05
    ],
    "tris": 104,
@@ -40161,11 +40442,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7540,
+   "bytes": 7536,
    "vtx": 168,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00531,
+   "minEdge": 0.025,
+   "avgTri": 0.00655,
    "anglePct": 79,
    "vpt": 1.62,
    "grad": 0.36,
@@ -40189,12 +40471,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-floor-straight-c",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.05
    ],
    "tris": 92,
@@ -40202,11 +40485,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6828,
+   "bytes": 6824,
    "vtx": 148,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00597,
+   "minEdge": 0.025,
+   "avgTri": 0.00737,
    "anglePct": 80,
    "vpt": 1.61,
    "grad": 0.36,
@@ -40230,12 +40514,13 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-floor-straight-d",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.5,
+    0.5,
     0.05
    ],
    "tris": 104,
@@ -40243,11 +40528,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7540,
+   "bytes": 7536,
    "vtx": 168,
+   "gridMod": true,
    "centered": true,
-   "minEdge": 0.023,
-   "avgTri": 0.00531,
+   "minEdge": 0.025,
+   "avgTri": 0.00655,
    "anglePct": 79,
    "vpt": 1.62,
    "grad": 0.36,
@@ -40271,23 +40557,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-post-large",
    "kind": "str-barrier-post",
    "size": "s",
    "wdh": [
     0.1,
     0.1,
-    0.45
+    0.5
    ],
    "tris": 28,
    "tpu": 82,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3456,
+   "bytes": 3452,
    "vtx": 56,
-   "minEdge": 0.033,
-   "avgTri": 0.00703,
+   "minEdge": 0.037,
+   "avgTri": 0.00868,
    "anglePct": 90,
    "vpt": 2,
    "grad": 0.7,
@@ -40311,24 +40598,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-post-small",
    "kind": "str-barrier-post",
    "size": "s",
    "wdh": [
-    0.08,
-    0.08,
-    0.25
+    0.09,
+    0.09,
+    0.3
    ],
    "tris": 20,
    "tpu": 58,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2876,
+   "bytes": 2872,
    "vtx": 40,
    "grounded": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00432,
+   "minEdge": 0.028,
+   "avgTri": 0.00534,
    "anglePct": 94,
    "vpt": 2,
    "grad": 0.7,
@@ -40349,7 +40637,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.25 under min 0.35 (str-barrier-post · 0.269 at kit ×0.93)"
+     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.297 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -40358,24 +40646,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-railing-corner",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.3
+    0.55,
+    0.55,
+    0.35
    ],
    "tris": 148,
    "tpu": 431,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11416,
+   "bytes": 11412,
    "vtx": 284,
-   "gridMod": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00472,
+   "minEdge": 0.025,
+   "avgTri": 0.00583,
    "anglePct": 100,
    "vpt": 1.92,
    "grad": 0.36,
@@ -40400,23 +40688,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-railing-stairs",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.09,
-    0.75
+    1,
+    0.1,
+    0.85
    ],
    "tris": 128,
-   "tpu": 345,
+   "tpu": 311,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10272,
+   "bytes": 10268,
    "vtx": 252,
-   "minEdge": 0.022,
-   "avgTri": 0.0057,
+   "minEdge": 0.025,
+   "avgTri": 0.00704,
    "anglePct": 61,
    "vpt": 1.97,
    "grad": 0.36,
@@ -40441,23 +40730,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-railing-straight",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.3
+    0.5,
+    0.1,
+    0.35
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6920,
+   "bytes": 6916,
    "vtx": 156,
-   "minEdge": 0.022,
-   "avgTri": 0.00454,
+   "minEdge": 0.025,
+   "avgTri": 0.0056,
    "anglePct": 100,
    "vpt": 1.95,
    "grad": 0.36,
@@ -40482,24 +40772,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-rope-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.45
+    0.55,
+    0.55,
+    0.5
    ],
    "tris": 172,
    "tpu": 501,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13880,
+   "bytes": 13876,
    "vtx": 352,
-   "gridMod": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00402,
+   "minEdge": 0.017,
+   "avgTri": 0.00497,
    "anglePct": 86,
    "vpt": 2.05,
    "grad": 0.7,
@@ -40527,7 +40817,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.45 over max 0.425 (str-barrier-fence-mid scale-small · 0.484 at kit ×0.93)"
+     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.495 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -40537,23 +40827,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-rope-stairs",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.09,
-    0.75
+    1,
+    0.1,
+    0.8
    ],
    "tris": 152,
-   "tpu": 420,
+   "tpu": 378,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13644,
+   "bytes": 13640,
    "vtx": 348,
-   "minEdge": 0.016,
-   "avgTri": 0.00403,
+   "minEdge": 0.017,
+   "avgTri": 0.00497,
    "anglePct": 51,
    "vpt": 2.29,
    "grad": 0.68,
@@ -40584,23 +40875,24 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-rope-straight",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.3
+    0.5,
+    0.1,
+    0.35
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6908,
+   "bytes": 6904,
    "vtx": 152,
-   "minEdge": 0.015,
-   "avgTri": 0.00341,
+   "minEdge": 0.017,
+   "avgTri": 0.00421,
    "anglePct": 85,
    "vpt": 2,
    "grad": 0.7,
@@ -40631,23 +40923,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-steps-stucco",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.9,
-    0.45,
-    0.45
+    1,
+    0.5,
+    0.5
    ],
    "tris": 144,
-   "tpu": 420,
+   "tpu": 411,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9420,
+   "bytes": 9416,
    "vtx": 222,
-   "minEdge": 0.011,
-   "avgTri": 0.01252,
+   "gridMod": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01545,
    "anglePct": 86,
    "vpt": 1.54,
    "grad": 0.35,
@@ -40676,23 +40970,25 @@
   },
   {
    "kit": "fs-town",
+   "collection": "fs-modular",
    "name": "wood-steps",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.9,
-    0.45,
-    0.5
+    1,
+    0.5,
+    0.55
    ],
    "tris": 148,
-   "tpu": 431,
+   "tpu": 423,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9688,
+   "bytes": 9684,
    "vtx": 228,
-   "minEdge": 0.011,
-   "avgTri": 0.00958,
+   "gridMod": true,
+   "minEdge": 0.012,
+   "avgTri": 0.01183,
    "anglePct": 50,
    "vpt": 1.54,
    "grad": 0.36,
@@ -40859,7 +41155,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.8 (obj-kitchenware-appliance-oven · 0.856 at kit ×1.11)"
+     "text": "longest 0.95 over max 0.8 (obj-kitchenware-appliance-oven · 0.841 at kit ×1.13)"
     }
    ]
   },
@@ -44078,7 +44374,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.35 (obj-food-baked-bread · 0.36 at kit ×1.11)"
+     "text": "longest 0.4 over max 0.35 (obj-food-baked-bread · 0.354 at kit ×1.13)"
     }
    ]
   },
@@ -47585,7 +47881,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.586 at kit ×1.11)"
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.575 at kit ×1.13)"
     }
    ]
   },
@@ -47943,7 +48239,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-equipment-apparel-glove · 0.135 at kit ×1.11)"
+     "text": "longest 0.15 under min 0.15 (obj-equipment-apparel-glove · 0.133 at kit ×1.13)"
     }
    ]
   },
@@ -48254,7 +48550,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 over max 0.55 (obj-kitchenware-appliance-stove · 0.586 at kit ×1.11)"
+     "text": "longest 0.65 over max 0.55 (obj-kitchenware-appliance-stove · 0.575 at kit ×1.13)"
     }
    ]
   },
@@ -48597,7 +48893,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet · 0.27 at kit ×1.11)"
+     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet · 0.265 at kit ×1.13)"
     }
    ]
   },
@@ -48650,7 +48946,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet · 0.27 at kit ×1.11)"
+     "text": "longest 0.3 under min 0.35 (obj-furnishing-storage-cabinet · 0.265 at kit ×1.13)"
     }
    ]
   },
@@ -49415,6 +49711,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "bench",
    "kind": "obj-furnishing-seating-bench-backrest",
    "size": "m",
@@ -49459,6 +49756,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "bush",
    "kind": "env-flora-plant-bush",
    "size": "s",
@@ -49498,12 +49796,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (env-flora-plant-bush · 0.33 at kit ×0.91)"
+     "text": "longest 0.3 under min 0.35 (env-flora-plant-bush · 0.265 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "cobble-stones-large",
    "kind": "env-rock-cobble",
    "size": "m",
@@ -49544,6 +49843,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "cobble-stones",
    "kind": "env-rock-cobble",
    "size": "s",
@@ -49584,6 +49884,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "floor-grass",
    "kind": "env-terrain-ground",
    "size": "m",
@@ -49622,6 +49923,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "flower-a",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -49667,6 +49969,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "flower-b",
    "kind": "env-flora-plant-flower",
    "size": "s",
@@ -49712,6 +50015,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "fountain",
    "kind": "str-utility-fountain",
    "size": "m",
@@ -49756,6 +50060,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "grass-a",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -49796,6 +50101,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "grass-b",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -49836,6 +50142,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "hedge-corner",
    "kind": "str-barrier-hedge",
    "size": "m",
@@ -49874,6 +50181,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "hedge-straight-long",
    "kind": "str-barrier-hedge",
    "size": "m",
@@ -49913,6 +50221,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "hedge-straight",
    "kind": "str-barrier-hedge",
    "size": "m",
@@ -49952,6 +50261,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "street-lantern",
    "kind": "obj-lighting-lantern-onpost",
    "size": "m",
@@ -49992,17 +50302,11 @@
     "emissive",
     "isa",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.45 over max 1.3 (obj-lighting-lantern-onpost · 1.593 at kit ×0.91)"
-    }
    ]
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "trashcan",
    "kind": "obj-container-trashcan",
    "size": "s",
@@ -50046,6 +50350,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "tree-large",
    "kind": "env-flora-tree",
    "size": "l",
@@ -50090,6 +50395,7 @@
   },
   {
    "kit": "isa-park",
+   "collection": "isa-tt",
    "name": "tree",
    "kind": "env-flora-tree",
    "size": "m",
@@ -50130,10 +50436,18 @@
     "foliage",
     "isa",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.15 under min 1.05 (env-flora-tree · 1.018 at kit ×1.13)"
+    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "apple-cut",
    "kind": "obj-food-fruit-apple",
    "size": "s",
@@ -50180,17 +50494,11 @@
     "isa",
     "vegetation"
    ],
-   "variant": "v459",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v459"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "apple-piece",
    "kind": "obj-food-fruit-apple",
    "size": "s",
@@ -50237,17 +50545,11 @@
     "isa",
     "piece"
    ],
-   "variant": "v459",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v459"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "apple",
    "kind": "obj-food-fruit-apple",
    "size": "s",
@@ -50289,17 +50591,11 @@
     "isa",
     "vegetation"
    ],
-   "variant": "v459",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v459"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "basket-round",
    "kind": "obj-container-basket",
    "size": "m",
@@ -50344,14 +50640,15 @@
    "variant": "v466",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
+     "text": "longest 0.6 over max 0.5 (obj-container-basket · 0.531 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "basket-square",
    "kind": "obj-container-basket",
    "size": "m",
@@ -50404,12 +50701,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
+     "text": "longest 0.75 over max 0.5 (obj-container-basket · 0.664 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "bowl",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
@@ -50444,17 +50742,11 @@
    "tags": [
     "ceramic",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "cheese-wedge",
    "kind": "obj-food-cheese",
    "size": "s",
@@ -50489,17 +50781,11 @@
    "tags": [
     "food",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "cheese-wheel",
    "kind": "obj-food-cheese",
    "size": "s",
@@ -50534,22 +50820,11 @@
    "tags": [
     "food",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.07 under min 0.05 (obj-food-cheese · 0.046 at kit ×1.52)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "cooler",
    "kind": "obj-container-basket",
    "size": "m",
@@ -50589,17 +50864,11 @@
    "tags": [
     "isa",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "drink-can",
    "kind": "obj-container-can",
    "size": "s",
@@ -50639,17 +50908,11 @@
    "tags": [
     "isa",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "fork",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
@@ -50690,17 +50953,11 @@
     "isa",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "frisbee",
    "kind": "obj-toy",
    "size": "s",
@@ -50736,17 +50993,11 @@
    "tags": [
     "isa",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "grapes-bowl",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
@@ -50788,17 +51039,11 @@
     "food",
     "isa",
     "plural"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "grapes",
    "kind": "obj-food-fruit-grapes",
    "size": "s",
@@ -50839,22 +51084,11 @@
     "food",
     "isa",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.2 under min 0.15 (obj-food-fruit-grapes · 0.132 at kit ×1.52)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "jam-jar",
    "kind": "obj-container-pot-jar",
    "size": "s",
@@ -50896,17 +51130,11 @@
     "isa",
     "paper",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
@@ -50947,17 +51175,11 @@
     "isa",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "mug",
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
@@ -50992,17 +51214,11 @@
    "tags": [
     "ceramic",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "picnic-blanket-hunter-folded",
    "kind": "obj-furnishing",
    "size": "s",
@@ -51038,17 +51254,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v461",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v461"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "picnic-blanket-hunter",
    "kind": "obj-furnishing-rug",
    "size": "l",
@@ -51087,14 +51297,15 @@
    "variant": "v460",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
+     "text": "longest 1.9 over max 1.5 (obj-furnishing-rug · 1.681 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "picnic-blanket-sienna-folded",
    "kind": "obj-furnishing",
    "size": "s",
@@ -51130,17 +51341,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v461",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v461"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "picnic-blanket-sienna",
    "kind": "obj-furnishing-rug",
    "size": "l",
@@ -51179,19 +51384,15 @@
    "variant": "v460",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.4 over max 1.5 (obj-furnishing-rug · 1.579 at kit ×1.52)"
-    },
-    {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
+     "text": "longest 2.4 over max 1.5 (obj-furnishing-rug · 2.124 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "picnic-blanket-taupe-folded",
    "kind": "obj-furnishing",
    "size": "s",
@@ -51227,17 +51428,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v461",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v461"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "picnic-blanket-taupe",
    "kind": "obj-furnishing-rug",
    "size": "l",
@@ -51278,17 +51473,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.9 over max 1.5 (obj-furnishing-rug · 1.908 at kit ×1.52)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
+     "text": "longest 2.9 over max 1.5 (obj-furnishing-rug · 2.566 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "pillow-large-hunter",
    "kind": "obj-furnishing-pillow",
    "size": "s",
@@ -51324,17 +51515,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v462",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v462"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "pillow-large-sienna",
    "kind": "obj-furnishing-pillow",
    "size": "s",
@@ -51370,17 +51555,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v462",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v462"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "pillow-large-taupe",
    "kind": "obj-furnishing-pillow",
    "size": "s",
@@ -51416,17 +51595,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v462",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v462"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "pillow-small-hunter",
    "kind": "obj-furnishing-pillow",
    "size": "m",
@@ -51462,17 +51635,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v463",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v463"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "pillow-small-sienna",
    "kind": "obj-furnishing-pillow",
    "size": "m",
@@ -51508,17 +51675,11 @@
     "isa",
     "textile"
    ],
-   "variant": "v463",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v463"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "pillow-small-taupe",
    "kind": "obj-furnishing-pillow",
    "size": "m",
@@ -51553,17 +51714,11 @@
    "tags": [
     "isa",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "plate-flower",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -51599,17 +51754,11 @@
     "ceramic",
     "isa"
    ],
-   "variant": "v465",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v465"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "plate",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -51650,17 +51799,11 @@
     "ceramic",
     "isa"
    ],
-   "variant": "v465",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v465"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "radio",
    "kind": "obj-household-electronics-radio",
    "size": "s",
@@ -51711,17 +51854,11 @@
     "isa",
     "metal-iron-steel",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "sandwich",
    "kind": "obj-food-baked-bread-sandwich",
    "size": "s",
@@ -51777,17 +51914,11 @@
     "food",
     "isa",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "spoon",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
@@ -51828,17 +51959,11 @@
     "isa",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "teapot",
    "kind": "obj-kitchenware-cookware-kettle",
    "size": "s",
@@ -51873,17 +51998,11 @@
    "tags": [
     "ceramic",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "thermos",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -51924,17 +52043,11 @@
     "isa",
     "metal-iron-steel",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "tray-round",
    "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
@@ -51970,17 +52083,11 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v464",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v464"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "tray-square-handles",
    "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
@@ -52016,17 +52123,11 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v464",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v464"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "tray-square",
    "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
@@ -52062,17 +52163,11 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v464",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
-   ]
+   "variant": "v464"
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "wine-bottle",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -52124,12 +52219,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
+     "text": "longest 0.45 over max 0.3 (obj-container-bottle · 0.398 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-picnic",
+   "collection": "isa-tt",
    "name": "wine-glass",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
@@ -52164,13 +52260,6 @@
    "tags": [
     "glass",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.52 off the size curve (isa-picnic, 17 kinds)"
-    }
    ]
   },
   {
@@ -52364,7 +52453,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (env-flora-plant-cactus scale-small · 0.09 at kit ×1.11)"
+     "text": "longest 0.1 under min 0.1 (env-flora-plant-cactus scale-small · 0.088 at kit ×1.13)"
     }
    ]
   },
@@ -52621,7 +52710,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.7 (env-flora-plant-leafy · 1.081 at kit ×1.11)"
+     "text": "longest 1.2 over max 0.7 (env-flora-plant-leafy · 1.062 at kit ×1.13)"
     }
    ]
   },
@@ -53039,7 +53128,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 over max 0.7 (env-flora-plant-leafy · 0.721 at kit ×1.11)"
+     "text": "longest 0.8 over max 0.7 (env-flora-plant-leafy · 0.708 at kit ×1.13)"
     },
     {
      "level": "error",
@@ -53232,7 +53321,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.85 over max 0.7 (env-flora-plant-leafy · 0.766 at kit ×1.11)"
+     "text": "longest 0.85 over max 0.7 (env-flora-plant-leafy · 0.752 at kit ×1.13)"
     }
    ]
   },
@@ -53319,7 +53408,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (env-flora-plant-leafy · 0.225 at kit ×1.11)"
+     "text": "longest 0.25 under min 0.25 (env-flora-plant-leafy · 0.221 at kit ×1.13)"
     }
    ]
   },
@@ -53372,7 +53461,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.991 at kit ×1.11)"
+     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.973 at kit ×1.13)"
     }
    ]
   },
@@ -53511,7 +53600,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.5 over max 0.35 (obj-kitchenware-tableware-plate · 0.45 at kit ×1.11)"
+     "text": "longest 0.5 over max 0.35 (obj-kitchenware-tableware-plate · 0.442 at kit ×1.13)"
     }
    ]
   },
@@ -54335,7 +54424,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.7 (env-flora-plant-leafy · 0.856 at kit ×1.11)"
+     "text": "longest 0.95 over max 0.7 (env-flora-plant-leafy · 0.841 at kit ×1.13)"
     },
     {
      "level": "warning",
@@ -54626,7 +54715,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.991 at kit ×1.11)"
+     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.973 at kit ×1.13)"
     },
     {
      "level": "error",
@@ -54741,6 +54830,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "bucket",
    "kind": "obj-container-bucket",
    "size": "s",
@@ -54791,6 +54881,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "cart",
    "kind": "obj-transport-cart-small",
    "size": "m",
@@ -54846,6 +54937,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -54885,6 +54977,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-post",
    "kind": "str-barrier-post",
    "size": "m",
@@ -54923,6 +55016,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-rails-long",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -54962,6 +55056,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-rails",
    "kind": "str-barrier-fence-mid",
    "size": "s",
@@ -55002,6 +55097,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-straight-long-open",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -55042,6 +55138,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-straight-long",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -55081,6 +55178,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-straight-open",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -55121,6 +55219,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "fence-straight",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -55161,6 +55260,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "merry-go-round-anim",
    "kind": "str-playground",
    "size": "m",
@@ -55216,6 +55316,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "merry-go-round",
    "kind": "str-playground",
    "size": "m",
@@ -55267,6 +55368,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "monkey-bars-a",
    "kind": "str-playground",
    "size": "m",
@@ -55311,6 +55413,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "monkey-bars-b",
    "kind": "str-playground",
    "size": "m",
@@ -55355,6 +55458,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "picnic-table",
    "kind": "obj-furnishing-table",
    "size": "m",
@@ -55393,6 +55497,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandbox-round-decorated",
    "kind": "set",
    "size": "m",
@@ -55443,6 +55548,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandbox-round",
    "kind": "str-playground",
    "size": "m",
@@ -55488,6 +55594,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandbox-square-decorated",
    "kind": "set",
    "size": "m",
@@ -55544,6 +55651,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandbox-square",
    "kind": "str-playground",
    "size": "m",
@@ -55595,6 +55703,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandcastle-a",
    "kind": "obj-art",
    "size": "s",
@@ -55634,6 +55743,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandcastle-b",
    "kind": "obj-art",
    "size": "s",
@@ -55673,6 +55783,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "sandcastle-c",
    "kind": "obj-art",
    "size": "s",
@@ -55712,6 +55823,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "seesaw-large",
    "kind": "str-playground",
    "size": "l",
@@ -55762,6 +55874,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "seesaw-small",
    "kind": "str-playground",
    "size": "m",
@@ -55812,6 +55925,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "shovel-plastic",
    "kind": "obj-tool-hand",
    "size": "s",
@@ -55850,6 +55964,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "shovel",
    "kind": "obj-tool-hand",
    "size": "s",
@@ -55888,6 +56003,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "slide-a",
    "kind": "str-playground",
    "size": "l",
@@ -55939,6 +56055,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "slide-b",
    "kind": "str-playground",
    "size": "l",
@@ -55989,6 +56106,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "spring-horse-a",
    "kind": "str-playground",
    "size": "m",
@@ -56044,6 +56162,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "spring-horse-b",
    "kind": "str-playground",
    "size": "m",
@@ -56099,6 +56218,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stump-amber",
    "kind": "str-playground",
    "size": "s",
@@ -56138,6 +56258,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stump-azure",
    "kind": "str-playground",
    "size": "s",
@@ -56177,6 +56298,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stump-large",
    "kind": "obj",
    "size": "s",
@@ -56216,6 +56338,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stump-medium",
    "kind": "obj",
    "size": "s",
@@ -56255,6 +56378,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stump-sienna",
    "kind": "str-playground",
    "size": "s",
@@ -56294,6 +56418,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stump-small",
    "kind": "obj",
    "size": "s",
@@ -56333,6 +56458,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stumps-plastic",
    "kind": "str-playground",
    "size": "s",
@@ -56382,6 +56508,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "stepping-stumps",
    "kind": "obj",
    "size": "s",
@@ -56421,6 +56548,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "swing-a-large",
    "kind": "str-playground",
    "size": "l",
@@ -56471,6 +56599,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "swing-a-small",
    "kind": "str-playground",
    "size": "m",
@@ -56521,6 +56650,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "swing-b-large",
    "kind": "str-playground",
    "size": "l",
@@ -56576,6 +56706,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "swing-b-small",
    "kind": "str-playground",
    "size": "m",
@@ -56631,6 +56762,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "tire-amber",
    "kind": "obj-transport-accessory-wheel",
    "size": "s",
@@ -56671,12 +56803,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.35 (obj-transport-accessory-wheel · 0.243 at kit ×1.03)"
+     "text": "longest 0.25 under min 0.35 (obj-transport-accessory-wheel · 0.221 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "tire-azure",
    "kind": "obj-transport-accessory-wheel",
    "size": "s",
@@ -56717,12 +56850,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.35 (obj-transport-accessory-wheel · 0.243 at kit ×1.03)"
+     "text": "longest 0.25 under min 0.35 (obj-transport-accessory-wheel · 0.221 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "tire-sienna",
    "kind": "obj-transport-accessory-wheel",
    "size": "s",
@@ -56763,12 +56897,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.35 (obj-transport-accessory-wheel · 0.243 at kit ×1.03)"
+     "text": "longest 0.25 under min 0.35 (obj-transport-accessory-wheel · 0.221 at kit ×1.13)"
     }
    ]
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "tree-large",
    "kind": "env-flora-tree-conifer",
    "size": "m",
@@ -56814,6 +56949,7 @@
   },
   {
    "kit": "isa-playground",
+   "collection": "isa-tt",
    "name": "tree-small",
    "kind": "env-flora-tree-conifer",
    "size": "m",
@@ -56860,7 +56996,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 under min 1.05 (env-flora-tree-conifer · 0.874 at kit ×1.03)"
+     "text": "longest 0.9 under min 1.05 (env-flora-tree-conifer · 0.796 at kit ×1.13)"
     }
    ]
   },
@@ -102141,6 +102277,7 @@
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-bar",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102176,17 +102313,11 @@
     "kay",
     "metal-copper"
    ],
-   "variant": "v11",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v11"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-bars-stack-large",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -102223,17 +102354,11 @@
     "metal-copper",
     "plural"
    ],
-   "variant": "v13",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v13"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-bars-stack-medium",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -102270,17 +102395,11 @@
     "metal-copper",
     "plural"
    ],
-   "variant": "v14",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v14"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-bars-stack-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102317,17 +102436,11 @@
     "metal-copper",
     "plural"
    ],
-   "variant": "v15",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v15"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-bars",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102370,17 +102483,11 @@
     "metal-copper",
     "plural"
    ],
-   "variant": "v12",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v12"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-nugget-large",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102416,17 +102523,11 @@
     "kay",
     "metal-copper"
    ],
-   "variant": "v16",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v16"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-nugget-medium",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102462,17 +102563,11 @@
     "kay",
     "metal-copper"
    ],
-   "variant": "v17",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v17"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-nugget-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102508,17 +102603,11 @@
     "kay",
     "metal-copper"
    ],
-   "variant": "v18",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v18"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "copper-nuggets",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -102554,17 +102643,11 @@
     "kay",
     "metal-copper"
    ],
-   "variant": "v19",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v19"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrel-a-dirty",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102616,12 +102699,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.294 at kit ×1.02)"
     }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrel-a",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102668,17 +102752,11 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v652",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v652"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrel-b-dirty",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102730,12 +102808,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.294 at kit ×1.02)"
     }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrel-b",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102782,17 +102861,11 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v652",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v652"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrel-c-dirty",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102850,12 +102923,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.294 at kit ×1.02)"
     }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrel-c",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102902,17 +102976,11 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v652",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v652"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrels-a",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -102960,17 +103028,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v729",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v729"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrels-b",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -103018,17 +103080,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v729",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v729"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-barrels-c",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -103082,17 +103138,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v729",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v729"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "fuel-jerrycan-a",
    "kind": "obj-container-can-gas",
    "size": "s",
@@ -103138,17 +103188,11 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-bar",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103184,17 +103228,11 @@
     "kay",
     "metal-gold"
    ],
-   "variant": "v11",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v11"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-bars-stack-large",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -103231,17 +103269,11 @@
     "metal-gold",
     "plural"
    ],
-   "variant": "v13",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v13"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-bars-stack-medium",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -103278,17 +103310,11 @@
     "metal-gold",
     "plural"
    ],
-   "variant": "v14",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v14"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-bars-stack-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103325,17 +103351,11 @@
     "metal-gold",
     "plural"
    ],
-   "variant": "v15",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v15"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-bars",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103378,17 +103398,11 @@
     "metal-gold",
     "plural"
    ],
-   "variant": "v12",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v12"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-nugget-large",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103424,17 +103438,11 @@
     "kay",
     "metal-gold"
    ],
-   "variant": "v16",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v16"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-nugget-medium",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103470,17 +103478,11 @@
     "kay",
     "metal-gold"
    ],
-   "variant": "v17",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v17"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-nugget-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103516,17 +103518,11 @@
     "kay",
     "metal-gold"
    ],
-   "variant": "v18",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v18"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "gold-nuggets",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103562,17 +103558,11 @@
     "kay",
     "metal-gold"
    ],
-   "variant": "v19",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v19"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-bar",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103608,17 +103598,11 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v11",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v11"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-bars-stack-large",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -103655,17 +103639,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v13",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v13"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-bars-stack-medium",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -103702,17 +103680,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v14",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v14"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-bars-stack-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103749,17 +103721,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v15",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v15"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-bars",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103802,17 +103768,11 @@
     "metal-iron-wrought",
     "plural"
    ],
-   "variant": "v12",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v12"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-nugget-large",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103848,17 +103808,11 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v16",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v16"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-nugget-medium",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103894,17 +103848,11 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v17",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v17"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-nugget-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103940,17 +103888,11 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v18",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v18"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "iron-nuggets",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -103986,17 +103928,11 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v19",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v19"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "pallet-wood-covered-a",
    "kind": "obj-resource-textile",
    "size": "m",
@@ -104037,17 +103973,11 @@
     "kay",
     "leather",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "pallet-wood",
    "kind": "obj-transport-pallet",
    "size": "m",
@@ -104082,17 +104012,11 @@
    "tags": [
     "kay",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "parts-cog",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -104127,17 +104051,11 @@
    "tags": [
     "kay",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "parts-pile-large",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -104179,16 +104097,12 @@
      "level": "error",
      "check": "size",
      "text": "tpu 7977 over max 5000 (obj-resource)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
     }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "parts-pile-medium",
    "kind": "obj-resource-metal",
    "size": "m",
@@ -104236,17 +104150,11 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v258",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v258"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "parts-pile-small",
    "kind": "obj-resource-metal",
    "size": "s",
@@ -104281,17 +104189,11 @@
    "tags": [
     "kay",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "stone-brick",
    "kind": "obj-resource-stone",
    "size": "s",
@@ -104326,17 +104228,11 @@
    "tags": [
     "kay",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "stone-bricks-stack-large",
    "kind": "obj-resource-stone",
    "size": "m",
@@ -104378,17 +104274,11 @@
     "leather",
     "plural",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "stone-bricks-stack-medium",
    "kind": "obj-resource-stone",
    "size": "m",
@@ -104430,17 +104320,11 @@
     "leather",
     "plural",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "stone-bricks-stack-small",
    "kind": "obj-resource-stone",
    "size": "s",
@@ -104482,17 +104366,11 @@
     "leather",
     "plural",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "stone-chunks-large",
    "kind": "obj-resource-stone",
    "size": "m",
@@ -104528,17 +104406,11 @@
     "kay",
     "stone-rock"
    ],
-   "variant": "v284",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v284"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "stone-chunks-small",
    "kind": "obj-resource-stone",
    "size": "s",
@@ -104574,17 +104446,11 @@
     "kay",
     "stone-rock"
    ],
-   "variant": "v284",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v284"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "textiles-a",
    "kind": "obj-resource-textile",
    "size": "s",
@@ -104625,12 +104491,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
+     "text": "longest 0.35 under min 0.35 (obj-resource-textile · 0.343 at kit ×1.02)"
     }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "textiles-b",
    "kind": "obj-resource-textile",
    "size": "s",
@@ -104673,17 +104540,11 @@
     "plural",
     "textile"
    ],
-   "variant": "v188",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v188"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "textiles-c",
    "kind": "obj-resource-textile",
    "size": "m",
@@ -104724,17 +104585,11 @@
     "kay",
     "leather",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "textiles-stack-large",
    "kind": "obj-resource-textile",
    "size": "m",
@@ -104786,17 +104641,11 @@
     "leather",
     "plural",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "textiles-stack-small",
    "kind": "obj-resource-textile",
    "size": "m",
@@ -104843,17 +104692,11 @@
     "leather",
     "plural",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-log-a",
    "kind": "obj-resource-wood-log",
    "size": "s",
@@ -104902,17 +104745,11 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v46",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v46"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-log-b",
    "kind": "obj-resource-wood-log",
    "size": "s",
@@ -104955,17 +104792,11 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v46",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v46"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-log-stack",
    "kind": "obj-resource-wood-log",
    "size": "m",
@@ -105008,17 +104839,11 @@
     "robin-hood",
     "wood-bark",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-plank-a",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -105054,17 +104879,11 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v29",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v29"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-plank-b",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -105100,17 +104919,11 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v29",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v29"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-plank-c",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -105146,17 +104959,11 @@
     "kay",
     "wood-planks"
    ],
-   "variant": "v29",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v29"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-planks-stack-large",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -105193,17 +105000,11 @@
     "plural",
     "wood-planks"
    ],
-   "variant": "v259",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v259"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-planks-stack-medium",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -105240,17 +105041,11 @@
     "plural",
     "wood-planks"
    ],
-   "variant": "v259",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v259"
   },
   {
    "kit": "kay-resources",
+   "collection": "kay-rpg",
    "name": "wood-planks-stack-small",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -105287,14 +105082,7 @@
     "plural",
     "wood-planks"
    ],
-   "variant": "v259",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.77 off the size curve (kay-resources, 6 kinds)"
-    }
-   ]
+   "variant": "v259"
   },
   {
    "kit": "kay-skeleton",
@@ -106948,6 +106736,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "bone-half",
    "kind": "env-remains-bones-limb",
    "size": "s",
@@ -106989,6 +106778,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "bone",
    "kind": "env-remains-bones-limb",
    "size": "s",
@@ -107031,6 +106821,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "bow",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "m",
@@ -107085,6 +106876,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "helmet-horned-full",
    "kind": "obj-equipment-armor",
    "size": "s",
@@ -107139,6 +106931,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "helmet-horned",
    "kind": "obj-equipment-armor",
    "size": "s",
@@ -107193,6 +106986,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "hood-masked",
    "kind": "obj-equipment-apparel-headgear",
    "size": "s",
@@ -107234,6 +107028,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "hood",
    "kind": "obj-equipment-apparel-headgear",
    "size": "s",
@@ -107275,6 +107070,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "mage-cloak",
    "kind": "obj-equipment-apparel",
    "size": "s",
@@ -107316,6 +107112,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "mage-cowl",
    "kind": "obj-equipment-apparel",
    "size": "s",
@@ -107357,6 +107154,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "quiver-b",
    "kind": "obj-equipment-apparel-quiver",
    "size": "s",
@@ -107402,7 +107200,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-equipment-apparel-quiver · 0.198 at kit ×1.01)"
+     "text": "longest 0.2 under min 0.25 (obj-equipment-apparel-quiver · 0.206 at kit ×0.97)"
     }
    ],
    "mark": [
@@ -107411,6 +107209,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "ribcage-broken",
    "kind": "env-remains-bones-ribcage",
    "size": "s",
@@ -107454,6 +107253,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "shield-round-arrows",
    "kind": "obj-equipment-shield",
    "size": "s",
@@ -107509,19 +107309,13 @@
     "wood-worked"
    ],
    "variant": "v331",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-equipment-shield · 0.198 at kit ×1.01)"
-    }
-   ],
    "mark": [
     "grounded"
    ]
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "shield-round",
    "kind": "obj-equipment-shield",
    "size": "s",
@@ -107564,19 +107358,13 @@
     "wood-worked"
    ],
    "variant": "v331",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-equipment-shield · 0.198 at kit ×1.01)"
-    }
-   ],
    "mark": [
     "grounded"
    ]
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "skull-broken",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -107625,6 +107413,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "skull-claw",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -107673,6 +107462,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -107720,6 +107510,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "spellbook",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
@@ -107771,6 +107562,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "spine-ribs",
    "kind": "env-remains-bones",
    "size": "s",
@@ -107811,6 +107603,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "staff-gem-broken",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "s",
@@ -107866,6 +107659,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "staff-gem",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",
@@ -107925,6 +107719,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "sword-broken-half",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
@@ -107973,6 +107768,7 @@
   },
   {
    "kit": "kay-skeleton-1",
+   "collection": "kay-undead",
    "name": "sword-broken",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
@@ -108021,6 +107817,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "branches",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
@@ -108062,6 +107859,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candle-bundle",
    "kind": "obj-lighting-candle",
    "size": "s",
@@ -108114,6 +107912,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candle-large",
    "kind": "obj-lighting-candle",
    "size": "s",
@@ -108166,6 +107965,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candle-small",
    "kind": "obj-lighting-candle",
    "size": "s",
@@ -108218,6 +108018,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candy-a",
    "kind": "obj-food-sweet",
    "size": "s",
@@ -108263,6 +108064,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candy-b",
    "kind": "obj-food-sweet",
    "size": "s",
@@ -108308,6 +108110,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candy-bag",
    "kind": "set",
    "size": "s",
@@ -108368,6 +108171,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "candy-bucket",
    "kind": "set",
    "size": "s",
@@ -108433,6 +108237,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "cauldron",
    "kind": "obj-kitchenware-cookware-cookpot-cauldron",
    "size": "s",
@@ -108491,6 +108296,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "coffin-a-lid",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -108545,6 +108351,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "coffin-a",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -108598,6 +108405,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "coffin-b-lid",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -108652,6 +108460,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "coffin-b",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -108705,6 +108514,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -108752,6 +108562,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "fence-double",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -108798,6 +108609,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "fence-post",
    "kind": "str-barrier-post",
    "size": "s",
@@ -108838,6 +108650,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "fence-single",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -108884,6 +108697,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -108924,6 +108738,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "gravestone",
    "kind": "str-marker-grave",
    "size": "m",
@@ -108964,6 +108779,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "jack",
    "kind": "char",
    "size": "m",
@@ -109015,6 +108831,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "jackolantern-large",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -109056,12 +108873,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.4 (obj-food-vegetable-pumpkin · 0.421 at kit ×0.95)"
+     "text": "longest 0.4 over max 0.4 (obj-food-vegetable-pumpkin · 0.412 at kit ×0.97)"
     }
    ]
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "jackolantern-small",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -109102,6 +108920,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "lamp-post",
    "kind": "obj-lighting-lantern-onpost",
    "size": "m",
@@ -109147,6 +108966,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "lollipop-a",
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
@@ -109199,12 +109019,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.4 over max 0.3 (obj-food-sweet-lollipop · 0.421 at kit ×0.95)"
+     "text": "longest 0.4 over max 0.3 (obj-food-sweet-lollipop · 0.412 at kit ×0.97)"
     }
    ]
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "lollipop-b",
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
@@ -109257,12 +109078,13 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.4 over max 0.3 (obj-food-sweet-lollipop · 0.421 at kit ×0.95)"
+     "text": "longest 0.4 over max 0.3 (obj-food-sweet-lollipop · 0.412 at kit ×0.97)"
     }
    ]
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "path-cobbled",
    "kind": "env-terrain-ground",
    "size": "m",
@@ -109303,6 +109125,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "pumpkin-large",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -109349,6 +109172,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "pumpkin-small",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -109395,6 +109219,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "shrine",
    "kind": "str-building-religious-shrine",
    "size": "m",
@@ -109437,6 +109262,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "tree-dead-a",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -109478,6 +109304,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "tree-dead-b",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -109519,6 +109346,7 @@
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "tree-dead-c",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -109561,12 +109389,13 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.85 under min 0.9 (env-remains-deadwood-tree · 0.895 at kit ×0.95)"
+     "text": "longest 0.85 under min 0.9 (env-remains-deadwood-tree · 0.876 at kit ×0.97)"
     }
    ]
   },
   {
    "kit": "kay-spook",
+   "collection": "kay-undead",
    "name": "tree-dead-d",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -110641,7 +110470,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.5 (obj-equipment-pocketitem-scroll · 0.577 at kit ×1.04)"
+     "text": "longest 0.6 over max 0.5 (obj-equipment-pocketitem-scroll · 0.588 at kit ×1.02)"
     }
    ]
   },
@@ -110742,7 +110571,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.5 (obj-equipment-pocketitem-scroll · 0.577 at kit ×1.04)"
+     "text": "longest 0.6 over max 0.5 (obj-equipment-pocketitem-scroll · 0.588 at kit ×1.02)"
     }
    ]
   },
@@ -111015,7 +110844,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-tool-hand · 0.096 at kit ×1.04)"
+     "text": "longest 0.1 under min 0.15 (obj-tool-hand · 0.098 at kit ×1.02)"
     }
    ]
   },
@@ -112014,7 +111843,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.35 (obj-equipment-weapon-melee-axe-double · 0.337 at kit ×1.04)"
+     "text": "longest 0.35 under min 0.35 (obj-equipment-weapon-melee-axe-double · 0.343 at kit ×1.02)"
     }
    ]
   },
@@ -113352,7 +113181,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.8 (obj-equipment-weapon-melee-sword · 0.962 at kit ×1.04)"
+     "text": "longest 1 over max 0.8 (obj-equipment-weapon-melee-sword · 0.98 at kit ×1.02)"
     }
    ]
   },
