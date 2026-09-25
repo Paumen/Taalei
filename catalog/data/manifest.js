@@ -5553,5 +5553,23 @@ window.KENNEY_KITS = [
    "ken-market",
    "ken-mini-dun"
   ]
+ },
+ {
+  "collection": "ken-transport",
+  "name": "ken-transport",
+  "kits": [
+   "ken-car",
+   "ken-train",
+   "ken-water"
+  ]
+ },
+ {
+  "collection": "ken-city",
+  "name": "ken-city",
+  "kits": [
+   "ken-commercial",
+   "ken-industrial",
+   "ken-suburban"
+  ]
  }
 ]
