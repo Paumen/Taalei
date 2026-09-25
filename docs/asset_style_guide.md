@@ -79,7 +79,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
 
-**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`.
+**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest.
 
 | band | lane |
 |---|---|
@@ -297,6 +297,10 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel` |
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
+| `B59` | `kind:env-flora-tree-conifer & !tag:plural` | `part:foliage` | is | per tier, UV 0.08 of the band at the tier top to 0.85 at its rim; undersides 0.92. A tier is foliage bounded by undersides |
+| `B60` | `kind:env-flora-tree-conifer & !tag:plural` | `part:trunk` | is | UV 0.80 of the band where the foliage starts to 0.20 at the base |
+| `B61` | `kind:env-flora-tree & !kind:env-flora-tree-conifer & !kind:env-flora-tree-palm & !tag:plural`, except `wizp-tree/banana-tree`, `wizp-asia/tree-garden`, `quat-shoot/tree-b` | `part:foliage` | is | per canopy blob, UV 0.08 of the band at the blob top to 0.85 at its bottom; undersides 0.92. A blob is foliage bounded by undersides |
+| `B62` | as `B61` | `part:trunk, branch` | is | as `B60` |
 
 ---
 
