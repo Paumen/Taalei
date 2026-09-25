@@ -134,4 +134,8 @@ export const BRONKITS = [
   { map: 'kenney_city-kit-commercial_2.1', naam: 'Kenney City Kit Commercial', kit: 'ken-commercial', source: 'ken', formaat: 'glb' },
   { map: 'kenney_city-kit-industrial_2.0', naam: 'Kenney City Kit Industrial', kit: 'ken-industrial', source: 'ken', formaat: 'glb' },
   { map: 'KayKit_City_Builder_Bits_1.0_FREE', naam: 'KayKit City Builder Bits', kit: 'kay-city', source: 'kay', formaat: 'gltf' },
+  { map: 'kenney_mini-characters', naam: 'Kenney Mini Characters', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_mini-skate', naam: 'Kenney Mini Skate', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_mini-arena_1', naam: 'Kenney Mini Arena', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_city-kit-roads', naam: 'Kenney City Kit Roads', kit: null, source: 'ken', formaat: 'glb' },
 ];
