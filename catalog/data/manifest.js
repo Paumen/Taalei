@@ -3354,6 +3354,7 @@ window.KENNEY_KITS = [
    "bone",
    "bone-half",
    "bow",
+   "bow-with-string",
    "helmet-horned",
    "helmet-horned-full",
    "hood",
