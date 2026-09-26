@@ -4,9 +4,7 @@
   "longest.min": 0.05,
   "longest.max": 30,
   "bands.max": 5,
-  "tube.min": 0.006,
-  "tube.share": 0.0333,
-  "tube.cap": 0.026
+  "tube.min": 0.026
  },
  "kinds": [
   {
@@ -28,7 +26,6 @@
      "children": [
       {
        "id": "obj-container-chest",
-       "tube.share": 0,
        "high.min": 0.2,
        "high.max": 0.5,
        "mat.metal": "metal-iron",
@@ -161,7 +158,7 @@
       },
       {
        "id": "obj-container-bag",
-       "tube.share": 0,
+       "tube.min": 0.006,
        "nouns": [
         "bag",
         "backpack"
@@ -312,7 +309,7 @@
          "children": [
           {
            "id": "obj-kitchenware-tableware-cutlery-chopsticks",
-           "tube.share": 0,
+           "tube.min": 0.006,
            "longest.min": 0.1,
            "longest.max": 0.4,
            "nouns": [
@@ -496,7 +493,7 @@
          "children": [
           {
            "id": "obj-kitchenware-cookware-utensil-spoon",
-           "tube.share": 0,
+           "tube.min": 0.006,
            "longest.min": 0.1,
            "longest.max": 0.4,
            "nouns": [
@@ -507,6 +504,7 @@
           },
           {
            "id": "obj-kitchenware-cookware-utensil-spatula",
+           "tube.min": 0.006,
            "longest.min": 0.15,
            "longest.max": 0.45,
            "nouns": [
@@ -516,7 +514,7 @@
           },
           {
            "id": "obj-kitchenware-cookware-utensil-whisk",
-           "tube.share": 0,
+           "tube.min": 0.006,
            "longest.min": 0.1,
            "longest.max": 0.4,
            "nouns": [
@@ -533,7 +531,7 @@
           },
           {
            "id": "obj-kitchenware-cookware-utensil-knife",
-           "tube.share": 0,
+           "tube.min": 0.006,
            "longest.min": 0.15,
            "longest.max": 0.45,
            "nouns": [
@@ -609,6 +607,7 @@
     },
     {
      "id": "obj-food",
+     "tube.min": 0.012,
      "tpu.max": 5000,
      "nouns": [
       "honey"
@@ -1080,6 +1079,7 @@
       },
       {
        "id": "obj-equipment-weapon",
+       "tube.min": 0.012,
        "mat.metal-iron": "metal-iron-steel",
        "children": [
         {
@@ -1117,7 +1117,6 @@
           },
           {
            "id": "obj-equipment-weapon-melee-dagger",
-           "tube.share": 0,
            "longest.min": 0.15,
            "longest.max": 0.45,
            "nouns": [
@@ -1194,7 +1193,7 @@
          "children": [
           {
            "id": "obj-equipment-weapon-ranged-bow",
-           "tube.share": 0,
+           "tube.min": 0.006,
            "longest.min": 0.4,
            "longest.max": 0.9,
            "nouns": [
@@ -1204,7 +1203,7 @@
           },
           {
            "id": "obj-equipment-weapon-ranged-crossbow",
-           "tube.share": 0,
+           "tube.min": 0.006,
            "longest.min": 0.25,
            "longest.max": 0.65,
            "nouns": [
@@ -1398,7 +1397,7 @@
       },
       {
        "id": "obj-equipment-pocketitem",
-       "tube.share": 0,
+       "tube.min": 0.006,
        "nouns": [
         "compass",
         "hourglass",
@@ -1431,6 +1430,7 @@
         },
         {
          "id": "obj-equipment-pocketitem-book",
+         "tube.min": 0.012,
          "longest.min": 0.15,
          "longest.max": 0.45,
          "band": [
@@ -1493,6 +1493,7 @@
       },
       {
        "id": "obj-equipment-jewellery",
+       "tube.min": 0.006,
        "has": [
         [
          "metal-gold",
@@ -1526,7 +1527,6 @@
      "children": [
       {
        "id": "obj-tool-hand",
-       "tube.share": 0,
        "longest.min": 0.15,
        "longest.max": 0.45,
        "mat.wood": "wood-planks",
@@ -1600,7 +1600,7 @@
         },
         {
          "id": "obj-tool-twohand-rod",
-         "tube.share": 0,
+         "tube.min": 0.006,
          "longest.min": 0.6,
          "longest.max": 1.1,
          "nouns": [
@@ -1648,7 +1648,7 @@
       },
       {
        "id": "obj-tool-stationery",
-       "tube.share": 0,
+       "tube.min": 0.006,
        "longest.min": 0.08,
        "longest.max": 0.5,
        "nouns": [
@@ -1813,7 +1813,7 @@
      "children": [
       {
        "id": "obj-lighting-lantern",
-       "tube.share": 0,
+       "tube.min": 0.006,
        "nouns": [
         "lantern"
        ],
@@ -1991,7 +1991,7 @@
       },
       {
        "id": "obj-art-instrument",
-       "tube.share": 0,
+       "tube.min": 0.006,
        "tpu.max": 5000,
        "nouns": [
         "gong",
@@ -3137,7 +3137,7 @@
         },
         {
          "id": "env-remains-bones-fishbone",
-         "tube.share": 0,
+         "tube.min": 0.006,
          "longest.min": 0.15,
          "longest.max": 0.4,
          "nouns": [
@@ -3331,6 +3331,7 @@
         },
         {
          "id": "env-flora-plant-leafy",
+         "tube.min": 0.006,
          "longest.min": 0.25,
          "longest.max": 0.7,
          "nouns": [
@@ -3361,6 +3362,7 @@
         },
         {
          "id": "env-flora-plant-flower",
+         "tube.min": 0.006,
          "longest.min": 0.15,
          "longest.max": 0.75,
          "nouns": [
@@ -3425,6 +3427,7 @@
       },
       {
        "id": "env-flora-waterplant",
+       "tube.min": 0.006,
        "nouns": [
         "waterplant"
        ],
