@@ -1805,7 +1805,11 @@
    "name": "Avocado"
   },
   {
-   "id": "obj-food-cheese",
+   "id": "obj-food-dairy",
+   "name": "Dairy"
+  },
+  {
+   "id": "obj-food-dairy-cheese",
    "name": "Cheese"
   },
   {
@@ -1823,6 +1827,10 @@
   {
    "id": "obj-food-egg",
    "name": "Egg"
+  },
+  {
+   "id": "obj-food-meal",
+   "name": "Meal"
   },
   {
    "id": "obj-food-baked",
@@ -2093,6 +2101,14 @@
    "name": "Station"
   },
   {
+   "id": "obj-tool-mechanism",
+   "name": "Mechanism"
+  },
+  {
+   "id": "obj-tool-stationery",
+   "name": "Stationery"
+  },
+  {
    "id": "obj-transport",
    "name": "Transport"
   },
@@ -2169,6 +2185,10 @@
    "name": "Handheld"
   },
   {
+   "id": "obj-lighting-lantern-lamp",
+   "name": "Lamp"
+  },
+  {
    "id": "obj-lighting-torch",
    "name": "Torch"
   },
@@ -2233,6 +2253,10 @@
    "name": "Bell"
   },
   {
+   "id": "obj-art-frame",
+   "name": "Picture frame"
+  },
+  {
    "id": "obj-symbol",
    "name": "Symbol"
   },
@@ -2295,6 +2319,10 @@
   {
    "id": "obj-furnishing-rug",
    "name": "Rug"
+  },
+  {
+   "id": "obj-furnishing-bathroom",
+   "name": "Bathroom"
   },
   {
    "id": "obj-toy",
@@ -2407,6 +2435,10 @@
   {
    "id": "str-part-frame-scaffold",
    "name": "Scaffold"
+  },
+  {
+   "id": "str-part-corridor",
+   "name": "Corridor"
   },
   {
    "id": "str-building",
@@ -2629,6 +2661,10 @@
    "name": "Playground"
   },
   {
+   "id": "str-leisure",
+   "name": "Leisure"
+  },
+  {
    "id": "env",
    "name": "Environment"
   },
@@ -2643,6 +2679,14 @@
   {
    "id": "env-fauna-fish",
    "name": "Fish"
+  },
+  {
+   "id": "env-fauna-bird",
+   "name": "Bird"
+  },
+  {
+   "id": "env-fauna-insect",
+   "name": "Insect"
   },
   {
    "id": "env-remains",
@@ -8279,7 +8323,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "button-round",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.2,
@@ -8296,7 +8340,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "button-square",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.2,
@@ -8785,7 +8829,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "button-floor-square-small",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.4,
     0.1,
@@ -8802,7 +8846,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "button-floor-square",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.8,
     0.1,
@@ -12730,7 +12774,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_ingredient_cheese_slice",
-   "kind": "obj-food-cheese",
+   "kind": "obj-food-dairy-cheese",
    "wdh": [
     0.2,
     0.1,
@@ -13085,7 +13129,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "stew_bowl",
-   "kind": "obj-kitchenware-tableware-bowl",
    "wdh": [
     0.2,
     0.1,
@@ -13102,7 +13145,6 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "stew_pot",
-   "kind": "obj-container-pot",
    "wdh": [
     0.1,
     0.1,
@@ -16763,7 +16805,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Cave_Prop_Hanging_Lamp_1",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-lamp",
    "wdh": [
     0.1,
     0.4,
@@ -26156,7 +26198,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "Cheese_Singles",
-   "kind": "obj-food-cheese",
+   "kind": "obj-food-dairy-cheese",
    "wdh": [
     0.2,
     0.1,
@@ -29831,7 +29873,7 @@
   {
    "kit": "Cementery_Arena_Pack",
    "name": "lamp",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-lamp",
    "wdh": [
     0.2,
     0.4,
@@ -31743,7 +31785,7 @@
   {
    "kit": "Village_Pack",
    "name": "lamp",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-lamp",
    "wdh": [
     0.4,
     0.8,
@@ -32922,6 +32964,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "misc_scissors",
+   "kind": "obj-tool-stationery",
    "wdh": [
     0.1,
     0.1,
@@ -37472,7 +37515,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "button_teamBlue",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -37490,7 +37533,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "button_teamRed",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -37508,7 +37551,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "button_teamYellow",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -50648,7 +50691,7 @@
   {
    "kit": "Kitchen_Styloo",
    "name": "lamp_001",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-lamp",
    "wdh": [
     0.2,
     0.4,
@@ -50666,7 +50709,7 @@
   {
    "kit": "Kitchen_Styloo",
    "name": "lamp_002",
-   "kind": "obj-lighting-lantern",
+   "kind": "obj-lighting-lantern-lamp",
    "wdh": [
     0.2,
     0.4,
@@ -54437,7 +54480,6 @@
   {
    "kit": "Food_Pack",
    "name": "yogurt_orange",
-   "kind": "obj-food-fruit-orange",
    "wdh": [
     0.1,
     0.1,
