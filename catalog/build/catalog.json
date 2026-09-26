@@ -1167,7 +1167,7 @@
    "slug": "ken-transport",
    "name": "ken-transport",
    "artist": "Kenney",
-   "count": 111,
+   "count": 112,
    "packs": [
     "Kenney Car Kit",
     "Kenney Train Kit",
@@ -1175,15 +1175,15 @@
    ],
    "origins": {
     "Kenney Car Kit": 41,
-    "Kenney Train Kit": 26,
+    "Kenney Train Kit": 27,
     "Kenney Watercraft Pack": 44
    },
    "scales": {
-    "0.55": 111
+    "0.55": 112
    },
    "smooth": {
     "60": 63,
-    "none": 48
+    "none": 49
    },
    "members": [
     {
@@ -1212,19 +1212,19 @@
      "url": "https://kenney.nl/assets/train-kit",
      "artist": "Kenney",
      "licenseLabel": "CC0 1.0",
-     "count": 26,
+     "count": 27,
      "packs": [
       "Kenney Train Kit"
      ],
      "origins": {
-      "Kenney Train Kit": 26
+      "Kenney Train Kit": 27
      },
      "scales": {
-      "0.55": 26
+      "0.55": 27
      },
      "smooth": {
       "60": 22,
-      "none": 4
+      "none": 5
      }
     },
     {
@@ -12540,7 +12540,8 @@
     "ken-train/train-bullet",
     "ken-train/train-subway",
     "ken-train/train-double",
-    "ken-train/train-square"
+    "ken-train/train-square",
+    "ken-train/train-city"
    ]
   }
  ],
@@ -12612,7 +12613,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 263
+   "count": 264
   },
   {
    "id": "metal-iron",
@@ -12815,7 +12816,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 369
+   "count": 370
   },
   {
    "id": "liquid",
@@ -12829,7 +12830,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 80
+   "count": 81
   },
   {
    "id": "rope",
@@ -12879,7 +12880,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2325,
+   "count": 2326,
    "color": "#c07c8a"
   },
   {
@@ -13876,7 +13877,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 206,
+   "count": 207,
    "color": "#5a7a9c"
   },
   {
@@ -13884,7 +13885,7 @@
    "name": "Rail vehicle",
    "type": "kind",
    "description": "Vehicle running on rails: train, locomotive, tram, railway carriage.",
-   "count": 26
+   "count": 27
   },
   {
    "id": "obj-transport-air",
@@ -15328,14 +15329,14 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 794
+   "count": 795
   },
   {
    "id": "ken",
    "name": "Kenney",
    "type": "artist",
    "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1106
+   "count": 1107
   },
   {
    "id": "kay",
@@ -165351,6 +165352,75 @@
     "metal"
    ],
    "variant": "v1004"
+  },
+  {
+   "kit": "ken-train",
+   "collection": "ken-transport",
+   "name": "train-city",
+   "kind": "obj-transport-rail",
+   "size": "l",
+   "wdh": [
+    0.7,
+    5.75,
+    1.2
+   ],
+   "tris": 5096,
+   "tpu": 1019,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 234968,
+   "vtx": 6342,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00565,
+   "anglePct": 88,
+   "vpt": 1.24,
+   "grad": 0.59,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.227,
+     0.445
+    ],
+    "6,0": [
+     0.445,
+     0.445
+    ],
+    "5,0": [
+     0.445,
+     0.445
+    ],
+    "6,1": [
+     0.148,
+     0.727
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#88848a",
+    "#d07b56",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "glass",
+    "ken",
+    "metal"
+   ],
+   "variant": "v1004",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.2 over max 1.3 (obj-transport-rail · 1.304 at kit ×0.92)"
+    }
+   ]
   },
   {
    "kit": "ken-train",
