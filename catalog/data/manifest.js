@@ -5739,5 +5739,63 @@ window.KENNEY_KITS = [
    "fs-terrain",
    "fs-town"
   ]
+ },
+ {
+  "slug": "jb-kitchen",
+  "name": "jb-kitchen",
+  "url": "https://mortaleh.itch.io/",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "bench",
+   "book",
+   "bottle",
+   "bottle-yellow",
+   "bowl",
+   "chair",
+   "cookpot",
+   "cookpot-lid",
+   "cup",
+   "frying-pan",
+   "jar",
+   "jar-yellow",
+   "kettle",
+   "kitchen-knife",
+   "ladle",
+   "pepper-shaker",
+   "plate",
+   "sink",
+   "spoon",
+   "stool",
+   "table-long",
+   "table-plank",
+   "table-square"
+  ]
+ },
+ {
+  "slug": "rg-weapons",
+  "name": "rg-weapons",
+  "url": null,
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/rg-weapons/LICENSE.txt.",
+  "models": [
+   "arrow-a",
+   "arrow-b",
+   "axe-a",
+   "axe-b",
+   "battleaxe",
+   "bow",
+   "club-spiked-a",
+   "club-spiked-b",
+   "shield-a",
+   "shield-a-blue",
+   "shield-a-white",
+   "shield-b",
+   "shield-b-red",
+   "shield-b-white",
+   "staff-druid-a",
+   "staff-druid-b",
+   "sword-a",
+   "sword-b",
+   "war-horn"
+  ]
  }
 ]

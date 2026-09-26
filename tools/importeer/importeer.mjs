@@ -306,7 +306,7 @@ for (const rij of config.modellen) {
     rij.naam,
     bron,
     banden,
-    config.schaal,
+    config.schaal * (rij.factor ?? 1),
     config.drempel,
     config.bron,
     model.bestand,
