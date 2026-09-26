@@ -11127,29 +11127,17 @@
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "cabbage, turnip, onion, potato, tomato",
+   "description": "cabbage, onion, potato, tomato",
    "models": [
     "kay-food/food-ingredient-potato",
     "kay-food/food-ingredient-potato-chopped",
-    "quat-food/broccoli",
-    "ken-nature/turnip",
-    "styloo-farm/corn",
-    "ken-food/broccoli",
-    "ken-food/corn",
     "ken-food/leek",
-    "ken-food/radish",
-    "quat-food/turnip",
     "quat-sushi/cucumber",
     "quat-sushi/cucumber-slices",
     "food-pack-2/squash",
     "food-pack-2/potato",
     "food-pack-2/courgette",
-    "food-pack-2/broccoli",
     "food-pack-2/garlic",
-    "food-pack-2/corn",
-    "food-pack-2/beetroot",
-    "food-pack-2/radish-white",
-    "food-pack-2/radish-red",
     "food-pack-2/asparagus",
     "food-pack-2/cucumber"
    ]
@@ -11184,7 +11172,7 @@
    ]
   },
   {
-   "id": "obj-food-vegetable-carrot",
+   "id": "obj-food-vegetable-root-carrot",
    "name": "Carrot",
    "type": "kind",
    "description": "carrot",
@@ -11269,41 +11257,9 @@
    "type": "kind",
    "description": "Fruit, whole or cut.",
    "models": [
-    "quat-food/avocado",
-    "styloo-farm/cherries",
-    "styloo-farm/mango",
-    "ken-food/cherries",
-    "ken-food/lemon-half",
-    "ken-food/lemon",
-    "ken-food/orange",
-    "ken-food/pear-half",
-    "ken-food/pear",
-    "ken-food/pineapple",
-    "ken-food/watermelon",
-    "food-pack/orange",
-    "food-pack/pear",
-    "food-pack/pineapple",
-    "quat-sushi/avocado",
-    "styloo-kitchen/mango",
-    "styloo-kitchen/orange",
-    "styloo-kitchen/watermelon",
-    "styloo-food/lemon",
-    "styloo-food/lemon-half",
-    "styloo-food/lemon-slice",
-    "styloo-food/lemon-slice-half",
     "styloo-food/strawberry",
     "styloo-food/strawberry-half",
-    "food-pack-2/orange",
-    "food-pack-2/orange-leaf",
-    "food-pack-2/orange-leaves",
-    "food-pack-2/pear-leaves",
-    "food-pack-2/pear",
-    "food-pack-2/pear-leaf",
-    "food-pack-2/lemon",
-    "food-pack-2/lemon-leaf",
-    "food-pack-2/lemon-leaves",
     "food-pack-2/kiwi",
-    "food-pack-2/pineapple",
     "food-pack-2/peach",
     "food-pack-2/peach-leaf",
     "food-pack-2/peach-leaves",
@@ -11313,20 +11269,8 @@
     "food-pack-2/apricot",
     "food-pack-2/apricot-leaf",
     "food-pack-2/apricot-leaves",
-    "food-pack-2/mango",
-    "food-pack-2/mango-leaf",
-    "food-pack-2/mango-leaves",
     "food-pack-2/raspberry",
     "food-pack-2/blackberry",
-    "food-pack-2/cherry",
-    "food-pack-2/cherries",
-    "food-pack-2/watermelon",
-    "food-pack-2/melon-yellow",
-    "food-pack-2/melon",
-    "food-pack-2/avocado",
-    "food-pack-2/avocado-half-a",
-    "food-pack-2/avocado-half-b",
-    "food-pack-2/avocado-seed",
     "food-pack-2/prickly-pear"
    ]
   },
@@ -13537,9 +13481,7 @@
    "name": "Ammunition",
    "description": "What a siege weapon throws, with no leaf that fits.",
    "type": "kind",
-   "models": [
-    "quat-shoot/grenade"
-   ]
+   "models": []
   },
   {
    "id": "obj-equipment-weapon-siege-ammunition-cannonball",
@@ -13553,7 +13495,6 @@
     "quat-pirate/cannonball",
     "kay-hexagon/catapult-ball",
     "kay-adventurers/smokebomb",
-    "quat-shoot/grenade-fire",
     "kay-minigame/bomb-red",
     "kay-platformer/bomb-azure",
     "kay-platformer/bomb-striped",
@@ -13800,9 +13741,7 @@
     "styloo-weapons/shuriken-c",
     "styloo-weapons/shuriken-d",
     "ken-blaster/bullet-foam-tip-thick",
-    "ken-blaster/bullet-foam-tip",
-    "ken-blaster/grenade-a",
-    "ken-blaster/grenade-b"
+    "ken-blaster/bullet-foam-tip"
    ]
   },
   {
@@ -14684,23 +14623,14 @@
    "id": "env-remains",
    "name": "Remains",
    "type": "kind",
-   "description": "shell, egg (wild), nest, feather",
+   "description": "egg (wild), nest, feather",
    "color": "#cfc6ad",
    "models": [
     "wizp-asia/hive",
     "wizp-asia/nest",
-    "fs-terrain/beach-prop-shell-a",
-    "fs-terrain/beach-prop-shell-b",
-    "natuur/shell-layered",
-    "natuur/shell-salmon",
-    "natuur/shell-slate",
     "rpg-mini/feather-black",
     "rpg-mini/feather-brown",
-    "rpg-mini/feather-white",
-    "quat-ocean/shell-spiral",
-    "quat-ocean/shell-scallop",
-    "quat-ocean/shell-clam",
-    "quat-ocean/shell-oyster"
+    "rpg-mini/feather-white"
    ]
   },
   {
@@ -15372,29 +15302,22 @@
    "id": "str-barrier-traffic",
    "name": "Traffic",
    "type": "kind",
-   "description": "Barrier that guides road traffic: traffic cone, traffic barrier, traffic drum.",
+   "description": "Barrier that guides road traffic: traffic barrier, traffic drum.",
    "models": [
     "quat-apocalypse/traffic-barrier",
     "quat-apocalypse/plastic-barrier",
     "quat-apocalypse/traffic-drum",
-    "quat-shoot/traffic-cone",
-    "quat-apocalypse/traffic-cone",
     "kay-city/traffic-light-a",
     "kay-city/traffic-light-b",
     "kay-city/traffic-light-c",
-    "ken-car/traffic-cone",
-    "ken-car/traffic-cone-flat",
     "ken-roads/traffic-light-object-vertical",
     "ken-roads/traffic-light-object-horizontal",
     "ken-roads/traffic-light-object-hanging",
     "ken-roads/traffic-light-hanging",
     "ken-roads/traffic-light",
-    "ken-roads/construction-cone",
     "ken-roads/construction-barrier",
     "ken-roads/construction-light",
     "quat-apocalypse/traffic-barrier-triple",
-    "kay-platformer/cone-azure",
-    "kay-platformer/cone",
     "kay-platformer/sign-arrows-left",
     "kay-platformer/sign-arrows-right",
     "kay-platformer/sign-arrows-left-azure",
@@ -15404,7 +15327,6 @@
     "ken-racing/light-colored",
     "ken-racing/light-red",
     "ken-racing/light-red-double",
-    "ken-racing/pylon",
     "ken-racing/rail",
     "ken-racing/rail-double",
     "ken-factory/cone"
@@ -20838,6 +20760,195 @@
     "small-props/broom-a",
     "fs-town/broom",
     "aq-hallow/broom"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-ranged-grenade",
+   "name": "Grenade",
+   "type": "kind",
+   "description": "grenade",
+   "models": [
+    "ken-blaster/grenade-b",
+    "ken-blaster/grenade-a",
+    "quat-shoot/grenade-fire",
+    "quat-shoot/grenade"
+   ]
+  },
+  {
+   "id": "obj-food-vegetable-broccoli",
+   "name": "Broccoli",
+   "type": "kind",
+   "description": "broccoli",
+   "models": [
+    "quat-food/broccoli",
+    "ken-food/broccoli",
+    "food-pack-2/broccoli"
+   ]
+  },
+  {
+   "id": "obj-food-vegetable-corn",
+   "name": "Corn",
+   "type": "kind",
+   "description": "corn, maize",
+   "models": [
+    "food-pack-2/corn",
+    "styloo-farm/corn",
+    "ken-food/corn"
+   ]
+  },
+  {
+   "id": "obj-food-vegetable-root",
+   "name": "Root vegetable",
+   "type": "kind",
+   "description": "turnip, radish, beetroot",
+   "models": [
+    "food-pack-2/beetroot",
+    "ken-food/radish",
+    "quat-food/turnip",
+    "ken-nature/turnip",
+    "food-pack-2/radish-white",
+    "food-pack-2/radish-red"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-lemon",
+   "name": "Lemon",
+   "type": "kind",
+   "description": "lemon",
+   "models": [
+    "food-pack-2/lemon",
+    "food-pack-2/lemon-leaf",
+    "food-pack-2/lemon-leaves",
+    "ken-food/lemon",
+    "ken-food/lemon-half",
+    "styloo-food/lemon",
+    "styloo-food/lemon-half",
+    "styloo-food/lemon-slice",
+    "styloo-food/lemon-slice-half"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-mango",
+   "name": "Mango",
+   "type": "kind",
+   "description": "mango",
+   "models": [
+    "styloo-kitchen/mango",
+    "styloo-farm/mango",
+    "food-pack-2/mango",
+    "food-pack-2/mango-leaf",
+    "food-pack-2/mango-leaves"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-orange",
+   "name": "Orange",
+   "type": "kind",
+   "description": "orange",
+   "models": [
+    "food-pack/orange",
+    "styloo-kitchen/orange",
+    "ken-food/orange",
+    "food-pack-2/orange",
+    "food-pack-2/orange-leaf",
+    "food-pack-2/orange-leaves"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-pineapple",
+   "name": "Pineapple",
+   "type": "kind",
+   "description": "pineapple",
+   "models": [
+    "ken-food/pineapple",
+    "food-pack-2/pineapple",
+    "food-pack/pineapple"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-pear",
+   "name": "Pear",
+   "type": "kind",
+   "description": "pear",
+   "models": [
+    "ken-food/pear",
+    "ken-food/pear-half",
+    "food-pack-2/pear",
+    "food-pack-2/pear-leaf",
+    "food-pack-2/pear-leaves",
+    "food-pack/pear"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-melon",
+   "name": "Melon",
+   "type": "kind",
+   "description": "melon, watermelon",
+   "models": [
+    "styloo-kitchen/watermelon",
+    "ken-food/watermelon",
+    "food-pack-2/watermelon",
+    "food-pack-2/melon",
+    "food-pack-2/melon-yellow"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-cherry",
+   "name": "Cherry",
+   "type": "kind",
+   "description": "cherry, cherries",
+   "models": [
+    "food-pack-2/cherry",
+    "food-pack-2/cherries",
+    "styloo-farm/cherries",
+    "ken-food/cherries"
+   ]
+  },
+  {
+   "id": "obj-food-fruit-avocado",
+   "name": "Avocado",
+   "type": "kind",
+   "description": "avocado",
+   "models": [
+    "quat-sushi/avocado",
+    "quat-food/avocado",
+    "food-pack-2/avocado",
+    "food-pack-2/avocado-half-a",
+    "food-pack-2/avocado-half-b",
+    "food-pack-2/avocado-seed"
+   ]
+  },
+  {
+   "id": "env-remains-shell",
+   "name": "Shell",
+   "type": "kind",
+   "description": "shell, seashell",
+   "models": [
+    "fs-terrain/beach-prop-shell-b",
+    "fs-terrain/beach-prop-shell-a",
+    "quat-ocean/shell-spiral",
+    "quat-ocean/shell-scallop",
+    "quat-ocean/shell-oyster",
+    "natuur/shell-salmon",
+    "natuur/shell-layered",
+    "natuur/shell-slate",
+    "quat-ocean/shell-clam"
+   ]
+  },
+  {
+   "id": "str-barrier-traffic-cone",
+   "name": "Traffic cone",
+   "type": "kind",
+   "description": "traffic cone, pylon",
+   "models": [
+    "kay-platformer/cone",
+    "kay-platformer/cone-azure",
+    "ken-roads/construction-cone",
+    "quat-shoot/traffic-cone",
+    "quat-apocalypse/traffic-cone",
+    "ken-car/traffic-cone",
+    "ken-car/traffic-cone-flat",
+    "ken-racing/pylon"
    ]
   }
  ]

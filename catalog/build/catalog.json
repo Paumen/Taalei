@@ -160,8 +160,8 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 0.96,
-    "kinds": 11
+    "factor": 1.19,
+    "kinds": 14
    }
   },
   {
@@ -183,8 +183,8 @@
     "none": 172
    },
    "kitCheck": {
-    "factor": 1.19,
-    "kinds": 27
+    "factor": 1.21,
+    "kinds": 38
    }
   },
   {
@@ -251,8 +251,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 36
+    "factor": 1,
+    "kinds": 37
    }
   },
   {
@@ -910,8 +910,8 @@
     "none": 47
    },
    "kitCheck": {
-    "factor": 1.06,
-    "kinds": 8
+    "factor": 1.05,
+    "kinds": 9
    }
   },
   {
@@ -1323,8 +1323,8 @@
     "60": 34
    },
    "kitCheck": {
-    "factor": 1,
-    "kinds": 3
+    "factor": 0.91,
+    "kinds": 4
    }
   },
   {
@@ -1573,9 +1573,9 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.32,
-    "kinds": 8,
-    "level": "warning"
+    "factor": 1.42,
+    "kinds": 9,
+    "level": "error"
    }
   },
   {
@@ -1624,8 +1624,8 @@
     "none": 16
    },
    "kitCheck": {
-    "factor": 1.23,
-    "kinds": 50
+    "factor": 1.22,
+    "kinds": 59
    }
   },
   {
@@ -1742,8 +1742,8 @@
     "none": 51
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 13
+    "factor": 1.07,
+    "kinds": 14
    }
   },
   {
@@ -1841,8 +1841,8 @@
     "60": 47
    },
    "kitCheck": {
-    "factor": 1.09,
-    "kinds": 10
+    "factor": 1.05,
+    "kinds": 11
    }
   },
   {
@@ -2080,8 +2080,8 @@
     "none": 87
    },
    "kitCheck": {
-    "factor": 0.79,
-    "kinds": 15,
+    "factor": 0.74,
+    "kinds": 16,
     "level": "warning"
    }
   },
@@ -2131,8 +2131,8 @@
     "none": 18
    },
    "kitCheck": {
-    "factor": 1.32,
-    "kinds": 15,
+    "factor": 1.29,
+    "kinds": 16,
     "level": "warning"
    }
   },
@@ -2294,8 +2294,8 @@
     "none": 5
    },
    "kitCheck": {
-    "factor": 1.32,
-    "kinds": 28,
+    "factor": 1.33,
+    "kinds": 31,
     "level": "warning"
    }
   },
@@ -2486,7 +2486,7 @@
    },
    "kitCheck": {
     "factor": 1.12,
-    "kinds": 18
+    "kinds": 17
    }
   },
   {
@@ -2555,8 +2555,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 24
+    "factor": 1.04,
+    "kinds": 25
    }
   },
   {
@@ -2711,8 +2711,8 @@
     "none": 96
    },
    "kitCheck": {
-    "factor": 1.06,
-    "kinds": 34
+    "factor": 1.07,
+    "kinds": 37
    }
   },
   {
@@ -2736,8 +2736,8 @@
     "60": 55
    },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 16
+    "factor": 0.91,
+    "kinds": 17
    }
   },
   {
@@ -2786,8 +2786,8 @@
     "none": 33
    },
    "kitCheck": {
-    "factor": 0.9,
-    "kinds": 18
+    "factor": 1.02,
+    "kinds": 21
    }
   },
   {
@@ -15016,7 +15016,7 @@
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "cabbage, turnip, onion, potato, tomato",
+   "description": "cabbage, onion, potato, tomato",
    "count": 94
   },
   {
@@ -15027,7 +15027,7 @@
    "count": 21
   },
   {
-   "id": "obj-food-vegetable-carrot",
+   "id": "obj-food-vegetable-root-carrot",
    "name": "Carrot",
    "type": "kind",
    "description": "carrot",
@@ -15773,7 +15773,7 @@
    "name": "Siege",
    "type": "kind",
    "description": "Siege weapon with no leaf that fits.",
-   "count": 29
+   "count": 27
   },
   {
    "id": "obj-equipment-weapon-siege-cannon",
@@ -15787,14 +15787,14 @@
    "name": "Ammunition",
    "type": "kind",
    "description": "What a siege weapon throws, with no leaf that fits.",
-   "count": 12
+   "count": 10
   },
   {
    "id": "obj-equipment-weapon-siege-ammunition-cannonball",
    "name": "Cannonball",
    "type": "kind",
    "description": "cannonball, bomb, catapult ball",
-   "count": 11
+   "count": 10
   },
   {
    "id": "obj-equipment-weapon",
@@ -15893,7 +15893,7 @@
    "name": "Ranged",
    "type": "kind",
    "description": "sling, throwing knife, javelin",
-   "count": 106
+   "count": 108
   },
   {
    "id": "obj-equipment-apparel-quiver",
@@ -16135,7 +16135,7 @@
    "id": "env-remains",
    "name": "Remains",
    "type": "kind",
-   "description": "shell, egg (wild), nest, feather",
+   "description": "egg (wild), nest, feather",
    "count": 148,
    "color": "#cfc6ad"
   },
@@ -16303,7 +16303,7 @@
    "id": "str-barrier-traffic",
    "name": "Traffic",
    "type": "kind",
-   "description": "Barrier that guides road traffic: traffic cone, traffic barrier, traffic drum.",
+   "description": "Barrier that guides road traffic: traffic barrier, traffic drum.",
    "count": 34
   },
   {
@@ -17157,6 +17157,104 @@
    "count": 3
   },
   {
+   "id": "obj-equipment-weapon-ranged-grenade",
+   "name": "Grenade",
+   "type": "kind",
+   "description": "grenade",
+   "count": 4
+  },
+  {
+   "id": "obj-food-vegetable-broccoli",
+   "name": "Broccoli",
+   "type": "kind",
+   "description": "broccoli",
+   "count": 3
+  },
+  {
+   "id": "obj-food-vegetable-corn",
+   "name": "Corn",
+   "type": "kind",
+   "description": "corn, maize",
+   "count": 3
+  },
+  {
+   "id": "obj-food-vegetable-root",
+   "name": "Root vegetable",
+   "type": "kind",
+   "description": "turnip, radish, beetroot",
+   "count": 16
+  },
+  {
+   "id": "obj-food-fruit-lemon",
+   "name": "Lemon",
+   "type": "kind",
+   "description": "lemon",
+   "count": 9
+  },
+  {
+   "id": "obj-food-fruit-mango",
+   "name": "Mango",
+   "type": "kind",
+   "description": "mango",
+   "count": 5
+  },
+  {
+   "id": "obj-food-fruit-orange",
+   "name": "Orange",
+   "type": "kind",
+   "description": "orange",
+   "count": 6
+  },
+  {
+   "id": "obj-food-fruit-pineapple",
+   "name": "Pineapple",
+   "type": "kind",
+   "description": "pineapple",
+   "count": 3
+  },
+  {
+   "id": "obj-food-fruit-pear",
+   "name": "Pear",
+   "type": "kind",
+   "description": "pear",
+   "count": 6
+  },
+  {
+   "id": "obj-food-fruit-melon",
+   "name": "Melon",
+   "type": "kind",
+   "description": "melon, watermelon",
+   "count": 5
+  },
+  {
+   "id": "obj-food-fruit-cherry",
+   "name": "Cherry",
+   "type": "kind",
+   "description": "cherry, cherries",
+   "count": 4
+  },
+  {
+   "id": "obj-food-fruit-avocado",
+   "name": "Avocado",
+   "type": "kind",
+   "description": "avocado",
+   "count": 6
+  },
+  {
+   "id": "env-remains-shell",
+   "name": "Shell",
+   "type": "kind",
+   "description": "shell, seashell",
+   "count": 9
+  },
+  {
+   "id": "str-barrier-traffic-cone",
+   "name": "Traffic cone",
+   "type": "kind",
+   "description": "traffic cone, pylon",
+   "count": 8
+  },
+  {
    "id": "s",
    "name": "Small",
    "type": "size",
@@ -17242,6 +17340,7 @@
   "env-remains-deadwood-branch",
   "env-remains-deadwood-stump",
   "env-remains-deadwood-tree",
+  "env-remains-shell",
   "env-rock-boulder",
   "env-rock-cobble",
   "env-rock-pebble",
@@ -17289,7 +17388,7 @@
   "obj-equipment-weapon-ranged-firearm-hand",
   "obj-equipment-weapon-ranged-firearm-rifle",
   "obj-equipment-weapon-ranged-firearm-shotgun",
-  "obj-equipment-weapon-siege-ammunition",
+  "obj-equipment-weapon-ranged-grenade",
   "obj-equipment-weapon-siege-ammunition-cannonball",
   "obj-equipment-weapon-siege-cannon",
   "obj-food-baked-bread",
@@ -17303,20 +17402,31 @@
   "obj-food-fish",
   "obj-food-fish-sushi",
   "obj-food-fruit-apple",
+  "obj-food-fruit-avocado",
   "obj-food-fruit-banana",
+  "obj-food-fruit-cherry",
   "obj-food-fruit-coconut",
   "obj-food-fruit-grapes",
+  "obj-food-fruit-lemon",
+  "obj-food-fruit-mango",
+  "obj-food-fruit-melon",
+  "obj-food-fruit-orange",
+  "obj-food-fruit-pear",
+  "obj-food-fruit-pineapple",
   "obj-food-meat-ham",
   "obj-food-meat-sausage",
   "obj-food-meat-steak",
   "obj-food-sweet-icecream",
   "obj-food-sweet-lollipop",
-  "obj-food-vegetable-carrot",
+  "obj-food-vegetable-broccoli",
+  "obj-food-vegetable-corn",
   "obj-food-vegetable-eggplant",
   "obj-food-vegetable-leafy",
   "obj-food-vegetable-onion",
   "obj-food-vegetable-pepper",
   "obj-food-vegetable-pumpkin",
+  "obj-food-vegetable-root",
+  "obj-food-vegetable-root-carrot",
   "obj-food-vegetable-tomato",
   "obj-furnishing-bed",
   "obj-furnishing-pillow",
@@ -17574,6 +17684,12 @@
    "high.max": 8,
    "longest.min": 0.9,
    "longest.max": 2.3,
+   "tpu.max": 5000
+  },
+  "env-remains-shell": {
+   "high.max": 8,
+   "longest.min": 0.03,
+   "longest.max": 0.3,
    "tpu.max": 5000
   },
   "env-rock": {
@@ -18027,16 +18143,16 @@
    "longest.max": 0.7,
    "tpu.max": 10000
   },
+  "obj-equipment-weapon-ranged-grenade": {
+   "high.max": 8,
+   "longest.min": 0.06,
+   "longest.max": 0.3,
+   "tpu.max": 10000
+  },
   "obj-equipment-weapon-siege": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "obj-equipment-weapon-siege-ammunition": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.3,
    "tpu.max": 10000
   },
   "obj-equipment-weapon-siege-ammunition-cannonball": {
@@ -18155,10 +18271,22 @@
    "longest.max": 0.25,
    "tpu.max": 5000
   },
+  "obj-food-fruit-avocado": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.2,
+   "tpu.max": 5000
+  },
   "obj-food-fruit-banana": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.3,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-cherry": {
+   "high.max": 8,
+   "longest.min": 0.02,
+   "longest.max": 0.15,
    "tpu.max": 5000
   },
   "obj-food-fruit-coconut": {
@@ -18171,6 +18299,42 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-lemon": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.15,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-mango": {
+   "high.max": 8,
+   "longest.min": 0.08,
+   "longest.max": 0.2,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-melon": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.45,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-orange": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.2,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-pear": {
+   "high.max": 8,
+   "longest.min": 0.08,
+   "longest.max": 0.2,
+   "tpu.max": 5000
+  },
+  "obj-food-fruit-pineapple": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.4,
    "tpu.max": 5000
   },
   "obj-food-grain": {
@@ -18227,10 +18391,16 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "obj-food-vegetable-carrot": {
+  "obj-food-vegetable-broccoli": {
    "high.max": 8,
-   "longest.min": 0.05,
+   "longest.min": 0.1,
    "longest.max": 0.3,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-corn": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.35,
    "tpu.max": 5000
   },
   "obj-food-vegetable-eggplant": {
@@ -18261,6 +18431,18 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.4,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-root": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.4,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-root-carrot": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.3,
    "tpu.max": 5000
   },
   "obj-food-vegetable-tomato": {
@@ -18901,6 +19083,13 @@
   "str-barrier-traffic": {
    "high.min": 0.15,
    "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-traffic-cone": {
+   "high.min": 0.15,
+   "high.max": 0.8,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
@@ -32084,7 +32273,14 @@
     "foliage",
     "food"
    ],
-   "variant": "v731"
+   "variant": "v731",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-food-baked-bread-sandwich · 0.126 at kit ×1.19)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32138,12 +32334,19 @@
     "foliage",
     "food"
    ],
-   "variant": "v731"
+   "variant": "v731",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-food-baked-bread-sandwich · 0.126 at kit ×1.19)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
    "name": "carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.03,
@@ -32682,7 +32885,7 @@
   {
    "kit": "food-pack",
    "name": "orange",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
     0.15,
@@ -32731,7 +32934,7 @@
   {
    "kit": "food-pack",
    "name": "pear",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
     0.15,
@@ -32774,7 +32977,7 @@
   {
    "kit": "food-pack",
    "name": "pineapple",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
     0.15,
@@ -33371,7 +33574,7 @@
   {
    "kit": "food-pack-2",
    "name": "avocado-half-a",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-avocado",
    "size": "s",
    "wdh": [
     0.06,
@@ -33415,7 +33618,7 @@
   {
    "kit": "food-pack-2",
    "name": "avocado-half-b",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-avocado",
    "size": "s",
    "wdh": [
     0.06,
@@ -33459,7 +33662,7 @@
   {
    "kit": "food-pack-2",
    "name": "avocado-seed",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-avocado",
    "size": "s",
    "wdh": [
     0.06,
@@ -33498,7 +33701,7 @@
   {
    "kit": "food-pack-2",
    "name": "avocado",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-avocado",
    "size": "s",
    "wdh": [
     0.1,
@@ -33578,7 +33781,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.35 (obj-food-baked-bread · 0.504 at kit ×1.19)"
+     "text": "longest 0.6 over max 0.35 (obj-food-baked-bread · 0.496 at kit ×1.21)"
     }
    ]
   },
@@ -33759,7 +33962,7 @@
   {
    "kit": "food-pack-2",
    "name": "beetroot",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-root",
    "size": "s",
    "wdh": [
     0.09,
@@ -34078,7 +34281,7 @@
   {
    "kit": "food-pack-2",
    "name": "broccoli",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-broccoli",
    "size": "s",
    "wdh": [
     0.15,
@@ -34753,14 +34956,14 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.04 under min 0.05 (obj-food-cheese · 0.034 at kit ×1.19)"
+     "text": "high 0.04 under min 0.05 (obj-food-cheese · 0.033 at kit ×1.21)"
     }
    ]
   },
   {
    "kit": "food-pack-2",
    "name": "carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.04,
@@ -34917,7 +35120,7 @@
   {
    "kit": "food-pack-2",
    "name": "cherries",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
     0.08,
@@ -34962,7 +35165,7 @@
   {
    "kit": "food-pack-2",
    "name": "cherry",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
     0.05,
@@ -35273,7 +35476,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-fruit-coconut · 0.126 at kit ×1.19)"
+     "text": "longest 0.15 under min 0.15 (obj-food-fruit-coconut · 0.124 at kit ×1.21)"
     }
    ]
   },
@@ -35755,7 +35958,7 @@
   {
    "kit": "food-pack-2",
    "name": "corn",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-corn",
    "size": "s",
    "wdh": [
     0.08,
@@ -36810,7 +37013,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-vegetable-eggplant · 0.126 at kit ×1.19)"
+     "text": "longest 0.15 under min 0.15 (obj-food-vegetable-eggplant · 0.124 at kit ×1.21)"
     }
    ]
   },
@@ -37096,7 +37299,7 @@
   {
    "kit": "food-pack-2",
    "name": "lemon-leaf",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.15,
@@ -37140,7 +37343,7 @@
   {
    "kit": "food-pack-2",
    "name": "lemon-leaves",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.15,
@@ -37184,7 +37387,7 @@
   {
    "kit": "food-pack-2",
    "name": "lemon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.15,
@@ -37227,7 +37430,7 @@
   {
    "kit": "food-pack-2",
    "name": "mango-leaf",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-mango",
    "size": "s",
    "wdh": [
     0.1,
@@ -37277,7 +37480,7 @@
   {
    "kit": "food-pack-2",
    "name": "mango-leaves",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-mango",
    "size": "s",
    "wdh": [
     0.1,
@@ -37327,7 +37530,7 @@
   {
    "kit": "food-pack-2",
    "name": "mango",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-mango",
    "size": "s",
    "wdh": [
     0.1,
@@ -37413,7 +37616,7 @@
   {
    "kit": "food-pack-2",
    "name": "melon-yellow",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-melon",
    "size": "s",
    "wdh": [
     0.25,
@@ -37455,7 +37658,7 @@
   {
    "kit": "food-pack-2",
    "name": "melon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-melon",
    "size": "s",
    "wdh": [
     0.2,
@@ -38008,7 +38211,7 @@
   {
    "kit": "food-pack-2",
    "name": "orange-leaf",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
     0.2,
@@ -38052,7 +38255,7 @@
   {
    "kit": "food-pack-2",
    "name": "orange-leaves",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
     0.2,
@@ -38096,7 +38299,7 @@
   {
    "kit": "food-pack-2",
    "name": "orange",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
     0.2,
@@ -38583,7 +38786,7 @@
   {
    "kit": "food-pack-2",
    "name": "pear-leaf",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
     0.15,
@@ -38633,7 +38836,7 @@
   {
    "kit": "food-pack-2",
    "name": "pear-leaves",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
     0.15,
@@ -38683,7 +38886,7 @@
   {
    "kit": "food-pack-2",
    "name": "pear",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
     0.1,
@@ -39005,7 +39208,7 @@
   {
    "kit": "food-pack-2",
    "name": "pineapple",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
     0.15,
@@ -39176,7 +39379,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.35 (obj-kitchenware-tableware-plate · 0.378 at kit ×1.19)"
+     "text": "longest 0.45 over max 0.35 (obj-kitchenware-tableware-plate · 0.372 at kit ×1.21)"
     }
    ]
   },
@@ -39346,7 +39549,7 @@
   {
    "kit": "food-pack-2",
    "name": "radish-red",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-root",
    "size": "s",
    "wdh": [
     0.08,
@@ -39388,7 +39591,7 @@
   {
    "kit": "food-pack-2",
    "name": "radish-white",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-root",
    "size": "s",
    "wdh": [
     0.09,
@@ -39636,7 +39839,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-baked-bread-sandwich · 0.126 at kit ×1.19)"
+     "text": "longest 0.15 under min 0.15 (obj-food-baked-bread-sandwich · 0.124 at kit ×1.21)"
     }
    ]
   },
@@ -39764,13 +39967,6 @@
    ],
    "tags": [
     "food"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 over max 0.25 (obj-food-vegetable-onion · 0.252 at kit ×1.19)"
-    }
    ]
   },
   {
@@ -40166,7 +40362,7 @@
   {
    "kit": "food-pack-2",
    "name": "watermelon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-melon",
    "size": "s",
    "wdh": [
     0.4,
@@ -40605,7 +40801,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.644 at kit ×1.01)"
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit)"
     }
    ],
    "mark": [
@@ -40616,7 +40812,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-shell-a",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.05,
@@ -40659,7 +40855,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-shell-b",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.07,
@@ -41382,7 +41578,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.347 at kit ×1.01)"
+     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail)"
     }
    ]
   },
@@ -41430,14 +41626,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v73",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.5 under min 0.5 (env-flora-waterplant-cattail · 0.495 at kit ×1.01)"
-    }
-   ]
+   "variant": "v73"
   },
   {
    "kit": "fs-terrain",
@@ -44104,7 +44293,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.01)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel)"
     }
    ]
   },
@@ -44157,7 +44346,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.01)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel)"
     }
    ]
   },
@@ -44205,14 +44394,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "variant": "v102",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.297 at kit ×1.01)"
-    }
-   ]
+   "variant": "v102"
   },
   {
    "kit": "fs-town",
@@ -44476,13 +44658,6 @@
    "tags": [
     "vegetation",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 under min 0.4 (obj-tool-twohand-broom · 0.396 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -45000,7 +45175,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-cart · 1.683 at kit ×1.01)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-cart)"
     }
    ]
   },
@@ -45047,7 +45222,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-cart · 1.683 at kit ×1.01)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-cart)"
     }
    ]
   },
@@ -45860,7 +46035,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 1.931 at kit ×1.01)"
+     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big)"
     }
    ]
   },
@@ -45923,13 +46098,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v183",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.65 under min 0.65 (obj-lighting-lantern-onpost · 0.644 at kit ×1.01)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -48025,7 +48193,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ],
    "mark": [
@@ -48073,7 +48241,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ],
    "mark": [
@@ -48121,7 +48289,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ],
    "mark": [
@@ -48169,7 +48337,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ],
    "mark": [
@@ -48217,7 +48385,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ],
    "mark": [
@@ -49135,7 +49303,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
     }
    ],
    "mark": [
@@ -49242,7 +49410,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
     }
    ],
    "mark": [
@@ -49349,7 +49517,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
     }
    ],
    "mark": [
@@ -49456,7 +49624,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
     }
    ],
    "mark": [
@@ -49663,13 +49831,6 @@
    ],
    "tags": [
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.5 under min 0.5 (str-part-pillar · 0.495 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -50246,7 +50407,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.337 at kit ×1.01)"
+     "text": "high 1.35 over max 1.25 (str-part-window-unit)"
     }
    ]
   },
@@ -50305,7 +50466,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.584 at kit ×1.01)"
+     "text": "high 1.6 over max 1.2 (str-part-wall-unit)"
     }
    ],
    "mark": [
@@ -50650,7 +50811,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.297 at kit ×1.01)"
+     "text": "high 0.3 under min 0.35 (str-barrier-post)"
     }
    ],
    "mark": [
@@ -50834,7 +50995,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.495 at kit ×1.01)"
+     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small)"
     }
    ],
    "mark": [
@@ -91710,7 +91871,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-carrot-chopped",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.25,
@@ -91756,7 +91917,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-carrot-pieces",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.1,
@@ -91795,7 +91956,7 @@
   {
    "kit": "kay-food",
    "name": "food-ingredient-carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.1,
@@ -114239,7 +114400,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-toy-ball · 0.566 at kit ×1.06)"
+     "text": "longest 0.6 over max 0.45 (obj-toy-ball · 0.571 at kit ×1.05)"
     }
    ]
   },
@@ -114295,7 +114456,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-toy-ball · 0.566 at kit ×1.06)"
+     "text": "longest 0.6 over max 0.45 (obj-toy-ball · 0.571 at kit ×1.05)"
     }
    ]
   },
@@ -114538,7 +114699,7 @@
   {
    "kit": "kay-platformer",
    "name": "cone-azure",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.15,
@@ -114577,7 +114738,7 @@
   {
    "kit": "kay-platformer",
    "name": "cone",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.15,
@@ -115421,7 +115582,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (str-part-pillar · 0.283 at kit ×1.06)"
+     "text": "longest 0.3 under min 0.5 (str-part-pillar · 0.286 at kit ×1.05)"
     }
    ]
   },
@@ -115551,7 +115712,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.4 over max 2 (str-part-pillar · 2.264 at kit ×1.06)"
+     "text": "longest 2.4 over max 2 (str-part-pillar · 2.286 at kit ×1.05)"
     }
    ]
   },
@@ -115677,7 +115838,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.4 over max 2 (str-part-pillar · 2.264 at kit ×1.06)"
+     "text": "longest 2.4 over max 2 (str-part-pillar · 2.286 at kit ×1.05)"
     }
    ]
   },
@@ -115901,7 +116062,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (str-marker-sign · 0.283 at kit ×1.06)"
+     "text": "longest 0.3 under min 0.35 (str-marker-sign · 0.286 at kit ×1.05)"
     }
    ]
   },
@@ -132658,6 +132819,13 @@
    "tags": [
     "ken",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.4 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.44 at kit ×0.91)"
+    }
    ]
   },
   {
@@ -132953,6 +133121,13 @@
    "tags": [
     "ken",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.4 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.44 at kit ×0.91)"
+    }
    ]
   },
   {
@@ -133829,7 +134004,7 @@
   {
    "kit": "ken-blaster",
    "name": "grenade-a",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
    "wdh": [
     0.08,
@@ -133872,7 +134047,7 @@
   {
    "kit": "ken-blaster",
    "name": "grenade-b",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
    "wdh": [
     0.09,
@@ -134192,7 +134367,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.2 under min 0.35 (obj-equipment-target-bullseye)"
+     "text": "longest 0.2 under min 0.35 (obj-equipment-target-bullseye · 0.22 at kit ×0.91)"
     }
    ]
   },
@@ -134243,7 +134418,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.15 under min 0.35 (obj-equipment-target-bullseye)"
+     "text": "longest 0.15 under min 0.35 (obj-equipment-target-bullseye · 0.165 at kit ×0.91)"
     }
    ]
   },
@@ -135870,7 +136045,7 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "traffic-cone-flat",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.25,
@@ -135916,7 +136091,7 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "traffic-cone",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.25,
@@ -138527,9 +138702,9 @@
    "variant": "v954",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -138586,9 +138761,9 @@
    "variant": "v954",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -138656,9 +138831,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -138720,9 +138895,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -138795,9 +138970,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -138869,9 +139044,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -138938,9 +139113,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139017,9 +139192,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     },
     {
      "level": "error",
@@ -139097,9 +139272,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139173,9 +139348,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139242,9 +139417,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139317,9 +139492,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139392,9 +139567,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139462,9 +139637,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139531,9 +139706,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139601,9 +139776,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139665,9 +139840,9 @@
    "variant": "v955",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139729,9 +139904,9 @@
    "variant": "v955",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139793,9 +139968,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139862,9 +140037,9 @@
      "text": "high 8.95 over max 8 (defaults)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -139942,9 +140117,9 @@
      "text": "high 8.15 over max 8 (defaults)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -140022,9 +140197,9 @@
      "text": "high 10.95 over max 8 (defaults)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -140097,9 +140272,9 @@
      "text": "high 8.15 over max 8 (defaults)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -145460,7 +145635,7 @@
   {
    "kit": "ken-food",
    "name": "broccoli",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-broccoli",
    "size": "s",
    "wdh": [
     0.2,
@@ -145931,7 +146106,7 @@
   {
    "kit": "ken-food",
    "name": "carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.2,
@@ -146189,7 +146364,7 @@
   {
    "kit": "ken-food",
    "name": "cherries",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
     0.05,
@@ -146586,7 +146761,7 @@
   {
    "kit": "ken-food",
    "name": "corn",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-corn",
    "size": "s",
    "wdh": [
     0.2,
@@ -146719,7 +146894,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.081 at kit ×1.23)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.082 at kit ×1.22)"
     }
    ]
   },
@@ -146809,7 +146984,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.081 at kit ×1.23)"
+     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.082 at kit ×1.22)"
     }
    ]
   },
@@ -147784,7 +147959,7 @@
   {
    "kit": "ken-food",
    "name": "lemon-half",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.09,
@@ -147829,7 +148004,7 @@
   {
    "kit": "ken-food",
    "name": "lemon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.09,
@@ -148357,7 +148532,7 @@
   {
    "kit": "ken-food",
    "name": "orange",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
     0.09,
@@ -148643,7 +148818,7 @@
   {
    "kit": "ken-food",
    "name": "pear-half",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
     0.05,
@@ -148693,7 +148868,7 @@
   {
    "kit": "ken-food",
    "name": "pear",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
     0.1,
@@ -148876,7 +149051,7 @@
   {
    "kit": "ken-food",
    "name": "pineapple",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
     0.1,
@@ -149204,7 +149379,7 @@
   {
    "kit": "ken-food",
    "name": "radish",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-root",
    "size": "s",
    "wdh": [
     0.2,
@@ -149854,7 +150029,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.325 at kit ×1.23)"
+     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.328 at kit ×1.22)"
     }
    ]
   },
@@ -150215,7 +150390,7 @@
   {
    "kit": "ken-food",
    "name": "watermelon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-melon",
    "size": "s",
    "wdh": [
     0.25,
@@ -161927,9 +162102,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162002,9 +162177,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162077,9 +162252,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162147,9 +162322,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162212,9 +162387,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162282,9 +162457,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162347,9 +162522,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162417,9 +162592,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162492,9 +162667,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162567,9 +162742,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162632,9 +162807,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162707,9 +162882,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162777,9 +162952,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162847,9 +163022,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162912,9 +163087,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -162987,9 +163162,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163052,9 +163227,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163122,9 +163297,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163192,9 +163367,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163267,9 +163442,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163322,12 +163497,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.25 at kit ×1.32)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.162 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163380,12 +163555,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.25 at kit ×1.32)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.162 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163438,12 +163613,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.25 at kit ×1.32)"
+     "text": "longest 1.65 under min 1.35 (obj-container-cargo · 1.162 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163500,9 +163675,9 @@
    "variant": "v940",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163552,14 +163727,14 @@
    ],
    "lint": [
     {
-     "level": "error",
-     "check": "size",
-     "text": "longest 3.4 over max 2 (str-part-pillar · 2.576 at kit ×1.32)"
-    },
-    {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 3.4 over max 2 (str-part-pillar · 2.394 at kit ×1.42)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163623,12 +163798,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.85 over max 2 (str-part-pillar · 2.917 at kit ×1.32)"
+     "text": "longest 3.85 over max 2 (str-part-pillar · 2.711 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163684,9 +163859,9 @@
    "variant": "v940",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163746,9 +163921,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163810,9 +163985,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163873,9 +164048,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -163937,9 +164112,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -164000,9 +164175,9 @@
    "variant": "v941",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -164051,9 +164226,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -164102,9 +164277,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -164164,14 +164339,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4.3 over max 3.1 (str-utility-tank · 3.258 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -164229,9 +164399,9 @@
    "variant": "v942",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -164289,9 +164459,9 @@
    "variant": "v942",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -167065,7 +167235,7 @@
   {
    "kit": "ken-nature",
    "name": "carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "m",
    "wdh": [
     0.4,
@@ -167109,7 +167279,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.75 over max 0.3 (obj-food-vegetable-carrot · 0.743 at kit ×1.01)"
+     "text": "longest 0.75 over max 0.3 (obj-food-vegetable-root-carrot · 0.701 at kit ×1.07)"
     }
    ]
   },
@@ -168984,7 +169154,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.5 (env-rock-cobble · 0.594 at kit ×1.01)"
+     "text": "longest 0.6 over max 0.5 (env-rock-cobble · 0.561 at kit ×1.07)"
     }
    ]
   },
@@ -169068,7 +169238,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.55 over max 0.5 (env-rock-cobble · 0.545 at kit ×1.01)"
+     "text": "longest 0.55 over max 0.5 (env-rock-cobble · 0.514 at kit ×1.07)"
     }
    ]
   },
@@ -169113,7 +169283,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.8 over max 0.5 (env-rock-cobble · 0.792 at kit ×1.01)"
+     "text": "longest 0.8 over max 0.5 (env-rock-cobble · 0.748 at kit ×1.07)"
     }
    ]
   },
@@ -169158,7 +169328,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.55 over max 0.5 (env-rock-cobble · 0.545 at kit ×1.01)"
+     "text": "longest 0.55 over max 0.5 (env-rock-cobble · 0.514 at kit ×1.07)"
     }
    ]
   },
@@ -169241,7 +169411,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.5 (env-rock-cobble · 0.594 at kit ×1.01)"
+     "text": "longest 0.6 over max 0.5 (env-rock-cobble · 0.561 at kit ×1.07)"
     }
    ]
   },
@@ -169801,7 +169971,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.75 under min 0.75 (str-canopy-tent-camping · 0.743 at kit ×1.01)"
+     "text": "longest 0.75 under min 0.75 (str-canopy-tent-camping · 0.701 at kit ×1.07)"
     }
    ]
   },
@@ -169848,7 +170018,14 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v502"
+   "variant": "v502",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.8 under min 0.75 (str-canopy-tent-camping · 0.748 at kit ×1.07)"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -170018,6 +170195,13 @@
    "tags": [
     "foliage",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.1 under min 1.05 (env-flora-tree-conifer · 1.028 at kit ×1.07)"
+    }
    ]
   },
   {
@@ -170423,7 +170607,7 @@
   {
    "kit": "ken-nature",
    "name": "turnip",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-root",
    "size": "m",
    "wdh": [
     0.4,
@@ -170462,6 +170646,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.8 over max 0.4 (obj-food-vegetable-root · 0.748 at kit ×1.07)"
+    }
    ]
   },
   {
@@ -176284,7 +176475,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.5 over max 1.1 (str-marker-banner · 1.376 at kit ×1.09)"
+     "text": "longest 1.5 over max 1.1 (str-marker-banner · 1.429 at kit ×1.05)"
     }
    ]
   },
@@ -176329,7 +176520,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.138 at kit ×1.09)"
+     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.143 at kit ×1.05)"
     }
    ]
   },
@@ -176380,7 +176571,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.138 at kit ×1.09)"
+     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.143 at kit ×1.05)"
     }
    ]
   },
@@ -176441,9 +176632,9 @@
    "variant": "v1084",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.9 (str-marker-sign · 1.101 at kit ×1.09)"
+     "text": "longest 1.2 over max 0.9 (str-marker-sign · 1.143 at kit ×1.05)"
     }
    ]
   },
@@ -176504,9 +176695,9 @@
    "variant": "v1084",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.9 (str-marker-sign · 1.101 at kit ×1.09)"
+     "text": "longest 1.2 over max 0.9 (str-marker-sign · 1.143 at kit ×1.05)"
     }
    ]
   },
@@ -176623,9 +176814,9 @@
    "variant": "v1084",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.9 (str-marker-sign · 1.101 at kit ×1.09)"
+     "text": "longest 1.2 over max 0.9 (str-marker-sign · 1.143 at kit ×1.05)"
     }
    ]
   },
@@ -176715,7 +176906,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1 over max 0.85 (str-barrier-fence · 0.917 at kit ×1.09)"
+     "text": "high 1 over max 0.85 (str-barrier-fence · 0.952 at kit ×1.05)"
     }
    ]
   },
@@ -176770,11 +176961,6 @@
    ],
    "variant": "v1085",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.35 under min 0.325 (str-marker-flag scale-small · 0.321 at kit ×1.09)"
-    },
     {
      "level": "error",
      "check": "mat",
@@ -177264,14 +177450,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1089",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 under min 0.9 (obj-lighting-lantern-street · 0.872 at kit ×1.09)"
-    }
-   ]
+   "variant": "v1089"
   },
   {
    "kit": "ken-racing",
@@ -177316,14 +177495,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1089",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 under min 0.9 (obj-lighting-lantern-street · 0.872 at kit ×1.09)"
-    }
-   ]
+   "variant": "v1089"
   },
   {
    "kit": "ken-racing",
@@ -177368,14 +177540,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1089",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 under min 0.9 (obj-lighting-lantern-street · 0.872 at kit ×1.09)"
-    }
-   ]
+   "variant": "v1089"
   },
   {
    "kit": "ken-racing",
@@ -177982,7 +178147,7 @@
   {
    "kit": "ken-racing",
    "name": "pylon",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.15,
@@ -178020,7 +178185,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.138 at kit ×1.09)"
+     "text": "high 0.15 under min 0.15 (str-barrier-traffic-cone · 0.143 at kit ×1.05)"
     }
    ]
   },
@@ -178662,9 +178827,9 @@
    "variant": "v986",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -178714,9 +178879,9 @@
    "variant": "v986",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -178765,9 +178930,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -178775,7 +178940,7 @@
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "construction-cone",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.15,
@@ -178818,7 +178983,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "high 0.2 under min 0.15 (str-barrier-traffic-cone · 0.141 at kit ×1.42)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -178862,9 +179032,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -178924,9 +179094,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -178986,9 +179156,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179051,9 +179221,9 @@
    "variant": "v999",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179116,9 +179286,9 @@
    "variant": "v999",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179181,9 +179351,9 @@
    "variant": "v999",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179229,9 +179399,9 @@
    "variant": "v1000",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179277,9 +179447,9 @@
    "variant": "v1000",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179330,9 +179500,9 @@
    "variant": "v985",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179383,9 +179553,9 @@
    "variant": "v985",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179436,9 +179606,9 @@
    "variant": "v985",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179491,7 +179661,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 1.2 under min 0.9 (obj-lighting-lantern-street · 0.845 at kit ×1.42)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179544,7 +179719,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 1.2 under min 0.9 (obj-lighting-lantern-street · 0.845 at kit ×1.42)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179597,7 +179777,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "longest 1.2 under min 0.9 (obj-lighting-lantern-street · 0.845 at kit ×1.42)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179653,9 +179838,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179711,9 +179896,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179770,9 +179955,9 @@
    "variant": "v1001",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179828,9 +180013,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179886,14 +180071,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4 over max 3 (str-access-road · 3.03 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -179949,14 +180129,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4 over max 3 (str-access-road · 3.03 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180012,9 +180187,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180071,9 +180246,9 @@
    "variant": "v1002",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180130,9 +180305,9 @@
    "variant": "v1002",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180190,12 +180365,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 6 over max 3 (str-access-road · 4.545 at kit ×1.32)"
+     "text": "longest 6 over max 3 (str-access-road · 4.225 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180240,9 +180415,9 @@
    "variant": "v982",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180287,9 +180462,9 @@
    "variant": "v982",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180346,9 +180521,9 @@
    "variant": "v983",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180405,9 +180580,9 @@
    "variant": "v983",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180459,9 +180634,9 @@
    "variant": "v983",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180517,9 +180692,9 @@
    "variant": "v982",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180570,9 +180745,9 @@
    "variant": "v982",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180628,9 +180803,9 @@
    "variant": "v982",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180680,14 +180855,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4 over max 3 (str-access-road · 3.03 at kit ×1.32)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180744,9 +180914,9 @@
    "variant": "v1001",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180805,12 +180975,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2 over max 0.9 (str-marker-sign · 1.515 at kit ×1.32)"
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.408 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180869,12 +181039,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2 over max 0.9 (str-marker-sign · 1.515 at kit ×1.32)"
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.408 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180933,12 +181103,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2 over max 0.9 (str-marker-sign · 1.515 at kit ×1.32)"
+     "text": "longest 2 over max 0.9 (str-marker-sign · 1.408 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -180999,9 +181169,9 @@
    "variant": "v979",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -181063,9 +181233,9 @@
    "variant": "v980",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -181127,9 +181297,9 @@
    "variant": "v980",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -181191,9 +181361,9 @@
    "variant": "v980",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -181254,9 +181424,9 @@
    "variant": "v979",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -188749,12 +188919,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.8 under min 0.9 (str-access-road · 0.606 at kit ×1.32)"
+     "text": "longest 0.8 under min 0.9 (str-access-road · 0.563 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -188806,12 +188976,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 under min 0.9 (str-access-road · 0.53 at kit ×1.32)"
+     "text": "longest 0.7 under min 0.9 (str-access-road · 0.493 at kit ×1.42)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -188883,9 +189053,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -188958,9 +189128,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189032,9 +189202,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189106,9 +189276,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189181,9 +189351,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189255,9 +189425,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189329,9 +189499,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189398,9 +189568,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189472,9 +189642,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189541,9 +189711,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189616,9 +189786,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189691,9 +189861,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189765,9 +189935,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189840,9 +190010,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189914,9 +190084,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -189989,9 +190159,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -190064,9 +190234,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -190138,9 +190308,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -190212,9 +190382,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -190287,9 +190457,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -190361,9 +190531,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (ken-city, 8 kinds)"
+     "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
     }
    ]
   },
@@ -207366,7 +207536,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207412,12 +207582,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 1.1 (env-remains-deadwood-branch · 1.266 at kit ×0.79)"
+     "text": "longest 1 over max 1.1 (env-remains-deadwood-branch · 1.351 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207463,12 +207633,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 1.1 (env-remains-deadwood-branch · 1.203 at kit ×0.79)"
+     "text": "longest 0.95 over max 1.1 (env-remains-deadwood-branch · 1.284 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207512,7 +207682,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207564,12 +207734,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 over max 0.75 (obj-lighting-campfire · 0.823 at kit ×0.79)"
+     "text": "longest 0.65 over max 0.75 (obj-lighting-campfire · 0.878 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207620,7 +207790,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207671,12 +207841,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.5 (env-flora-waterplant-cattail · 0.316 at kit ×0.79)"
+     "text": "longest 0.25 under min 0.5 (env-flora-waterplant-cattail · 0.338 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207722,12 +207892,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.38 at kit ×0.79)"
+     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.405 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207774,12 +207944,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.38 at kit ×0.79)"
+     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.405 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207825,12 +207995,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.38 at kit ×0.79)"
+     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.405 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207876,12 +208046,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.443 at kit ×0.79)"
+     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.473 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207925,12 +208095,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-coconut · 0.127 at kit ×0.79)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-coconut · 0.135 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -207986,7 +208156,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208042,7 +208212,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208098,7 +208268,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208154,7 +208324,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208210,7 +208380,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208266,7 +208436,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208322,7 +208492,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208378,7 +208548,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208434,7 +208604,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208490,7 +208660,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208546,7 +208716,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208602,7 +208772,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208658,7 +208828,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208714,7 +208884,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208770,7 +208940,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208815,7 +208985,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208860,7 +209030,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208905,7 +209075,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -208957,7 +209127,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209009,7 +209179,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209061,7 +209231,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209113,7 +209283,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209165,12 +209335,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 1.2 (obj-resource-wood-log · 1.203 at kit ×0.79)"
+     "text": "longest 0.95 over max 1.2 (obj-resource-wood-log · 1.284 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209220,7 +209390,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209276,7 +209446,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209327,7 +209497,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209378,7 +209548,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209424,7 +209594,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209469,7 +209639,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209514,7 +209684,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209559,7 +209729,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209604,7 +209774,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209649,7 +209819,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209694,7 +209864,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209739,7 +209909,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209784,7 +209954,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209830,7 +210000,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209876,7 +210046,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209922,7 +210092,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -209968,7 +210138,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210014,7 +210184,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210060,14 +210230,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
   {
    "kit": "natuur",
    "name": "shell-layered",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.06,
@@ -210107,7 +210277,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     },
     {
      "level": "error",
@@ -210119,7 +210289,7 @@
   {
    "kit": "natuur",
    "name": "shell-salmon",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.07,
@@ -210159,7 +210329,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     },
     {
      "level": "error",
@@ -210171,7 +210341,7 @@
   {
    "kit": "natuur",
    "name": "shell-slate",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.04,
@@ -210211,12 +210381,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.04 under min 0.05 (defaults)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     },
     {
      "level": "error",
@@ -210263,7 +210428,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210305,7 +210470,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210350,7 +210515,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "longest 0.3 over max 0.4 (env-rock-pebble · 0.405 at kit ×0.74)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210395,7 +210565,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "longest 0.3 over max 0.4 (env-rock-pebble · 0.405 at kit ×0.74)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210441,7 +210616,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210486,7 +210661,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "longest 0.3 over max 0.4 (env-rock-pebble · 0.405 at kit ×0.74)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210537,12 +210717,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.25 (env-remains-deadwood-stump · 0.19 at kit ×0.79)"
+     "text": "longest 0.15 under min 0.25 (env-remains-deadwood-stump · 0.203 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210593,7 +210773,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210643,12 +210823,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 over max 0.65 (env-remains-deadwood-stump · 0.886 at kit ×0.79)"
+     "text": "longest 0.7 over max 0.65 (env-remains-deadwood-stump · 0.946 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210699,7 +210879,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210750,7 +210930,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210801,7 +210981,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210852,7 +211032,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210905,7 +211085,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -210958,7 +211138,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211010,7 +211190,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211055,7 +211235,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211098,14 +211278,14 @@
    "variant": "v107",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 2.2 over max 2.3 (env-remains-deadwood-tree · 2.785 at kit ×0.79)"
+     "text": "longest 2.2 over max 2.3 (env-remains-deadwood-tree · 2.973 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211150,12 +211330,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.05 over max 2.3 (env-remains-deadwood-tree · 2.595 at kit ×0.79)"
+     "text": "longest 2.05 over max 2.3 (env-remains-deadwood-tree · 2.77 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211200,12 +211380,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.95 over max 2.3 (env-remains-deadwood-tree · 2.468 at kit ×0.79)"
+     "text": "longest 1.95 over max 2.3 (env-remains-deadwood-tree · 2.635 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211250,12 +211430,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.35 over max 2.3 (env-remains-deadwood-tree · 2.975 at kit ×0.79)"
+     "text": "longest 2.35 over max 2.3 (env-remains-deadwood-tree · 3.176 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211300,12 +211480,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3 over max 2.3 (env-remains-deadwood-tree · 3.797 at kit ×0.79)"
+     "text": "longest 3 over max 2.3 (env-remains-deadwood-tree · 4.054 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211362,7 +211542,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211419,7 +211599,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211475,7 +211655,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211531,7 +211711,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211587,7 +211767,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211644,7 +211824,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211696,7 +211876,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -211748,12 +211928,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.7 over max 3.4 (env-flora-tree-conifer · 3.418 at kit ×0.79)"
+     "text": "longest 2.7 over max 3.4 (env-flora-tree-conifer · 3.649 at kit ×0.74)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 15 kinds)"
+     "text": "kit ×0.74 off the size curve (natuur, 16 kinds)"
     }
    ]
   },
@@ -212529,7 +212709,7 @@
   {
    "kit": "props",
    "name": "carrot-a",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.04,
@@ -213604,7 +213784,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ],
    "mark": [
@@ -213657,7 +213837,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -213708,7 +213888,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ],
    "mark": [
@@ -213775,7 +213955,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -213839,12 +214019,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.152 at kit ×1.32)"
+     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.155 at kit ×1.29)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -213908,12 +214088,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.152 at kit ×1.32)"
+     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.155 at kit ×1.29)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -213958,7 +214138,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214009,12 +214189,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.159 at kit ×1.32)"
+     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.209 at kit ×1.29)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214065,12 +214245,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.159 at kit ×1.32)"
+     "text": "longest 2.85 over max 2 (obj-container-cargo · 2.209 at kit ×1.29)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214128,7 +214308,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214201,7 +214381,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214274,7 +214454,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214319,7 +214499,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214394,7 +214574,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214452,7 +214632,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214499,7 +214679,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214545,7 +214725,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214602,7 +214782,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214666,7 +214846,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214712,7 +214892,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214770,7 +214950,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214840,7 +215020,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214898,7 +215078,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -214961,7 +215141,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ],
    "mark": [
@@ -215038,7 +215218,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215113,7 +215293,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215188,7 +215368,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215263,7 +215443,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215319,7 +215499,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215375,14 +215555,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
   {
    "kit": "quat-apocalypse",
    "name": "traffic-cone",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.25,
@@ -215431,7 +215611,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215486,7 +215666,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215533,7 +215713,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215580,7 +215760,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215631,12 +215811,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-transport-accessory-wheel · 0.227 at kit ×1.32)"
+     "text": "longest 0.3 under min 0.35 (obj-transport-accessory-wheel · 0.233 at kit ×1.29)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215688,7 +215868,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -215756,7 +215936,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-apocalypse, 15 kinds)"
+     "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
    ]
   },
@@ -220729,14 +220909,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
   {
    "kit": "quat-food",
    "name": "avocado",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-avocado",
    "size": "s",
    "wdh": [
     0.15,
@@ -220785,7 +220965,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -220841,7 +221021,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -220897,7 +221077,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -220942,7 +221122,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221000,7 +221180,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221063,7 +221243,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221110,7 +221290,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221156,14 +221336,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
   {
    "kit": "quat-food",
    "name": "broccoli",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-broccoli",
    "size": "s",
    "wdh": [
     0.15,
@@ -221208,14 +221388,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
   {
    "kit": "quat-food",
    "name": "carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.15,
@@ -221259,12 +221439,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.3 (obj-food-vegetable-carrot · 0.341 at kit ×1.32)"
+     "text": "longest 0.45 over max 0.3 (obj-food-vegetable-root-carrot · 0.338 at kit ×1.33)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221315,7 +221495,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221360,7 +221540,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221406,7 +221586,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221459,7 +221639,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221504,12 +221684,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-fruit-coconut · 0.114 at kit ×1.32)"
+     "text": "longest 0.15 under min 0.15 (obj-food-fruit-coconut · 0.113 at kit ×1.33)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221561,7 +221741,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221607,7 +221787,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221653,7 +221833,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221705,7 +221885,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221751,7 +221931,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221797,7 +221977,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221842,7 +222022,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221897,7 +222077,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -221963,7 +222143,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     },
     {
      "level": "error",
@@ -222024,7 +222204,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222070,7 +222250,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222126,7 +222306,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222172,7 +222352,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222223,7 +222403,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222270,7 +222450,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222325,7 +222505,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222370,7 +222550,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222422,7 +222602,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ],
    "mark": [
@@ -222478,7 +222658,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222534,7 +222714,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222590,7 +222770,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222651,7 +222831,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     },
     {
      "level": "error",
@@ -222712,7 +222892,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222768,7 +222948,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222815,7 +222995,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222862,7 +223042,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222907,7 +223087,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -222952,7 +223132,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223002,7 +223182,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223047,7 +223227,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223104,12 +223284,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.076 at kit ×1.32)"
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.075 at kit ×1.33)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223160,7 +223340,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223211,7 +223391,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223257,7 +223437,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223303,7 +223483,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223355,7 +223535,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223417,7 +223597,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223470,7 +223650,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223521,7 +223701,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223572,12 +223752,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-plate · 0.076 at kit ×1.32)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-plate · 0.075 at kit ×1.33)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223622,7 +223802,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223673,7 +223853,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223723,7 +223903,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223780,12 +223960,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.05 under min 0.05 (obj-food-fish-sushi · 0.038 at kit ×1.32)"
+     "text": "longest 0.05 under min 0.05 (obj-food-fish-sushi · 0.038 at kit ×1.33)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223847,12 +224027,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.05 under min 0.05 (obj-food-fish-sushi · 0.038 at kit ×1.32)"
+     "text": "longest 0.05 under min 0.05 (obj-food-fish-sushi · 0.038 at kit ×1.33)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223902,7 +224082,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -223949,14 +224129,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
   {
    "kit": "quat-food",
    "name": "turnip",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-root",
    "size": "s",
    "wdh": [
     0.2,
@@ -224000,7 +224180,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -224045,7 +224225,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.32 off the size curve (quat-food, 28 kinds)"
+     "text": "kit ×1.33 off the size curve (quat-food, 31 kinds)"
     }
    ]
   },
@@ -227916,7 +228096,7 @@
   {
    "kit": "quat-ocean",
    "name": "shell-clam",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.15,
@@ -227957,7 +228137,7 @@
   {
    "kit": "quat-ocean",
    "name": "shell-oyster",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.15,
@@ -227998,7 +228178,7 @@
   {
    "kit": "quat-ocean",
    "name": "shell-scallop",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.15,
@@ -228039,7 +228219,7 @@
   {
    "kit": "quat-ocean",
    "name": "shell-spiral",
-   "kind": "env-remains",
+   "kind": "env-remains-shell",
    "size": "s",
    "wdh": [
     0.25,
@@ -239169,7 +239349,7 @@
   {
    "kit": "quat-shoot",
    "name": "grenade-fire",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
    "wdh": [
     0.2,
@@ -239220,6 +239400,11 @@
    ],
    "variant": "v775",
    "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-weapon)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -239281,7 +239466,7 @@
   {
    "kit": "quat-shoot",
    "name": "grenade",
-   "kind": "obj-equipment-weapon-siege-ammunition",
+   "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
    "wdh": [
     0.2,
@@ -239330,7 +239515,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (obj-equipment-weapon-siege)"
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-equipment-weapon)"
     },
     {
      "level": "error",
@@ -240821,7 +241006,7 @@
   {
    "kit": "quat-shoot",
    "name": "traffic-cone",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
     0.25,
@@ -243080,7 +243265,7 @@
   {
    "kit": "quat-sushi",
    "name": "avocado",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-avocado",
    "size": "s",
    "wdh": [
     0.09,
@@ -243167,6 +243352,13 @@
     "qua",
     "textile",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.15 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.144 at kit ×1.04)"
+    }
    ]
   },
   {
@@ -243349,6 +243541,13 @@
     "food",
     "qua",
     "scale-small"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.05 under min 0.05 (obj-food-baked-bread scale-small · 0.048 at kit ×1.04)"
+    }
    ]
   },
   {
@@ -243433,14 +243632,7 @@
     "qua",
     "wood-beam"
    ],
-   "variant": "v829",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.8 over max 0.8 (obj-furnishing-storage-shelf · 0.816 at kit ×0.98)"
-    }
-   ]
+   "variant": "v829"
   },
   {
    "kit": "quat-sushi",
@@ -243479,14 +243671,7 @@
     "qua",
     "wood-beam"
    ],
-   "variant": "v829",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.8 over max 0.8 (obj-furnishing-storage-shelf · 0.816 at kit ×0.98)"
-    }
-   ]
+   "variant": "v829"
   },
   {
    "kit": "quat-sushi",
@@ -243535,7 +243720,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.2 under min 0.3 (obj-furnishing-seating-chair · 0.204 at kit ×0.98)"
+     "text": "longest 0.2 under min 0.3 (obj-furnishing-seating-chair · 0.192 at kit ×1.04)"
     }
    ]
   },
@@ -245203,7 +245388,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.95 (char · 1.02 at kit ×0.98)"
+     "text": "longest 1 over max 0.95 (char · 0.962 at kit ×1.04)"
     },
     {
      "level": "error",
@@ -246132,6 +246317,13 @@
     "qua",
     "textile",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.2 under min 0.2 (obj-furnishing-seating-stool · 0.192 at kit ×1.04)"
+    }
    ]
   },
   {
@@ -246654,6 +246846,13 @@
    "tags": [
     "qua",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-serving · 0.144 at kit ×1.04)"
+    }
    ]
   },
   {
@@ -257048,7 +257247,7 @@
   {
    "kit": "styloo-farm",
    "name": "carrot",
-   "kind": "obj-food-vegetable-carrot",
+   "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
     0.15,
@@ -257179,7 +257378,7 @@
   {
    "kit": "styloo-farm",
    "name": "cherries",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
     0.1,
@@ -257229,7 +257428,7 @@
   {
    "kit": "styloo-farm",
    "name": "corn",
-   "kind": "obj-food-vegetable",
+   "kind": "obj-food-vegetable-corn",
    "size": "s",
    "wdh": [
     0.2,
@@ -257317,7 +257516,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.7 (obj-container-crate · 0.943 at kit ×1.06)"
+     "text": "longest 1 over max 0.7 (obj-container-crate · 0.935 at kit ×1.07)"
     }
    ]
   },
@@ -257375,7 +257574,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.7 (obj-container-crate · 0.943 at kit ×1.06)"
+     "text": "longest 1 over max 0.7 (obj-container-crate · 0.935 at kit ×1.07)"
     }
    ]
   },
@@ -257891,7 +258090,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -257943,7 +258142,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -257995,7 +258194,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -258047,7 +258246,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.425 at kit ×1.06)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -258233,7 +258432,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.226 at kit ×1.06)"
+     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.215 at kit ×1.07)"
     }
    ]
   },
@@ -258290,7 +258489,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.226 at kit ×1.06)"
+     "text": "longest 1.3 over max 1.1 (obj-tool-twohand-rod · 1.215 at kit ×1.07)"
     }
    ]
   },
@@ -258468,7 +258667,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.377 at kit ×1.06)"
+     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.374 at kit ×1.07)"
     }
    ]
   },
@@ -258588,7 +258787,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.425 at kit ×1.06)"
+     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -258634,7 +258833,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.33 at kit ×1.06)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
     },
     {
      "level": "error",
@@ -258722,7 +258921,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.33 at kit ×1.06)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
     }
    ]
   },
@@ -258861,7 +259060,7 @@
   {
    "kit": "styloo-farm",
    "name": "mango",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-mango",
    "size": "s",
    "wdh": [
     0.1,
@@ -259377,7 +259576,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (env-rock-cobble · 0.142 at kit ×1.06)"
+     "text": "longest 0.15 under min 0.15 (env-rock-cobble · 0.14 at kit ×1.07)"
     }
    ]
   },
@@ -261734,7 +261933,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.337 at kit ×0.89)"
+     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.33 at kit ×0.91)"
     }
    ]
   },
@@ -261784,7 +261983,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.337 at kit ×0.89)"
+     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.33 at kit ×0.91)"
     }
    ]
   },
@@ -261834,7 +262033,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.337 at kit ×0.89)"
+     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.33 at kit ×0.91)"
     }
    ]
   },
@@ -261885,7 +262084,7 @@
   {
    "kit": "styloo-food",
    "name": "lemon-half",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.06,
@@ -261924,7 +262123,7 @@
   {
    "kit": "styloo-food",
    "name": "lemon-slice-half",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.01,
@@ -261963,7 +262162,7 @@
   {
    "kit": "styloo-food",
    "name": "lemon-slice",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.01,
@@ -262002,7 +262201,7 @@
   {
    "kit": "styloo-food",
    "name": "lemon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
     0.1,
@@ -262793,7 +262992,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.08 under min 0.1 (obj-container-bottle · 0.09 at kit ×0.89)"
+     "text": "longest 0.08 under min 0.1 (obj-container-bottle · 0.088 at kit ×0.91)"
     }
    ]
   },
@@ -262914,7 +263113,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-meat-steak · 0.112 at kit ×0.89)"
+     "text": "longest 0.1 under min 0.15 (obj-food-meat-steak · 0.11 at kit ×0.91)"
     }
    ]
   },
@@ -263225,7 +263424,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.45 (obj-kitchenware-tableware-serving · 0.506 at kit ×0.89)"
+     "text": "longest 0.45 over max 0.45 (obj-kitchenware-tableware-serving · 0.495 at kit ×0.91)"
     }
    ]
   },
@@ -264685,6 +264884,13 @@
    ],
    "tags": [
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.147 at kit ×1.02)"
+    }
    ]
   },
   {
@@ -264770,7 +264976,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.111 at kit ×0.9)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.098 at kit ×1.02)"
     }
    ]
   },
@@ -264814,7 +265020,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "mango",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-mango",
    "size": "s",
    "wdh": [
     0.08,
@@ -264930,7 +265136,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "orange",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
     0.15,
@@ -264999,6 +265205,13 @@
    ],
    "tags": [
     "ceramic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-plate · 0.147 at kit ×1.02)"
+    }
    ]
   },
   {
@@ -265111,7 +265324,14 @@
    "tags": [
     "wood-worked"
    ],
-   "variant": "v884"
+   "variant": "v884",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-cookware-utensil-spatula · 0.147 at kit ×1.02)"
+    }
+   ]
   },
   {
    "kit": "styloo-kitchen",
@@ -265187,7 +265407,14 @@
    "tags": [
     "metal-iron-steel"
    ],
-   "variant": "v885"
+   "variant": "v885",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.147 at kit ×1.02)"
+    }
+   ]
   },
   {
    "kit": "styloo-kitchen",
@@ -265273,7 +265500,7 @@
   {
    "kit": "styloo-kitchen",
    "name": "watermelon",
-   "kind": "obj-food-fruit",
+   "kind": "obj-food-fruit-melon",
    "size": "s",
    "wdh": [
     0.3,
@@ -265342,6 +265569,13 @@
    ],
    "tags": [
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-cookware-utensil-spatula · 0.147 at kit ×1.02)"
+    }
    ]
   },
   {
