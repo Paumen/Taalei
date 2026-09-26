@@ -3629,6 +3629,7 @@ window.KENNEY_KITS = [
    "building-site-b",
    "building-site-c",
    "castle",
+   "catapult",
    "catapult-ball",
    "cattail",
    "cattails",
