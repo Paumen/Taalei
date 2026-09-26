@@ -577,6 +577,26 @@
    }
   },
   {
+   "slug": "kay-blocks",
+   "name": "kay-blocks",
+   "url": "https://www.kaylousberg.com",
+   "artist": "KayKit",
+   "licenseLabel": "CC0 1.0",
+   "count": 2,
+   "packs": [
+    "KayKit Block Bits"
+   ],
+   "origins": {
+    "KayKit Block Bits": 2
+   },
+   "scales": {
+    "0.3": 2
+   },
+   "smooth": {
+    "none": 2
+   }
+  },
+  {
    "slug": "kay-builder",
    "name": "kay-builder",
    "url": "https://www.kaylousberg.com",
@@ -868,6 +888,30 @@
     "factor": 1.41,
     "kinds": 5,
     "level": "error"
+   }
+  },
+  {
+   "slug": "kay-platformer",
+   "name": "kay-platformer",
+   "url": "https://www.kaylousberg.com",
+   "artist": "KayKit",
+   "licenseLabel": "CC0 1.0",
+   "count": 47,
+   "packs": [
+    "KayKit Platformer Pack"
+   ],
+   "origins": {
+    "KayKit Platformer Pack": 47
+   },
+   "scales": {
+    "0.3": 47
+   },
+   "smooth": {
+    "none": 47
+   },
+   "kitCheck": {
+    "factor": 1.06,
+    "kinds": 8
    }
   },
   {
@@ -13071,6 +13115,132 @@
     "food-pack-2/chili-red",
     "food-pack-2/chili-green"
    ]
+  },
+  {
+   "id": "v1050",
+   "type": "maatvariant",
+   "main": "kay-platformer/arch",
+   "members": [
+    "kay-platformer/arch",
+    "kay-platformer/arch-wide"
+   ]
+  },
+  {
+   "id": "v1051",
+   "type": "color-variant",
+   "main": "kay-platformer/ball",
+   "members": [
+    "kay-platformer/ball",
+    "kay-platformer/ball-azure"
+   ]
+  },
+  {
+   "id": "v1052",
+   "type": "color-variant",
+   "main": "kay-platformer/bomb",
+   "members": [
+    "kay-platformer/bomb",
+    "kay-platformer/bomb-azure",
+    "kay-platformer/bomb-striped"
+   ]
+  },
+  {
+   "id": "v1053",
+   "type": "maatvariant",
+   "main": "kay-platformer/bracing-large",
+   "members": [
+    "kay-platformer/bracing-large",
+    "kay-platformer/bracing-medium"
+   ]
+  },
+  {
+   "id": "v1054",
+   "type": "color-variant",
+   "main": "kay-platformer/cone",
+   "members": [
+    "kay-platformer/cone",
+    "kay-platformer/cone-azure"
+   ]
+  },
+  {
+   "id": "v1055",
+   "type": "maatvariant",
+   "main": "kay-platformer/flag-b",
+   "members": [
+    "kay-platformer/flag-a",
+    "kay-platformer/flag-b",
+    "kay-platformer/flag-c"
+   ]
+  },
+  {
+   "id": "v1056",
+   "type": "detail-variant",
+   "main": "kay-platformer/hoop",
+   "members": [
+    "kay-platformer/hoop",
+    "kay-platformer/hoop-angled"
+   ]
+  },
+  {
+   "id": "v1057",
+   "type": "detail-variant",
+   "main": "kay-platformer/lever-wall-a",
+   "members": [
+    "kay-platformer/lever-wall-a",
+    "kay-platformer/lever-wall-b"
+   ]
+  },
+  {
+   "id": "v1058",
+   "type": "detail-variant",
+   "main": "kay-platformer/pipe-180-a",
+   "members": [
+    "kay-platformer/pipe-180-a",
+    "kay-platformer/pipe-180-b"
+   ]
+  },
+  {
+   "id": "v1059",
+   "type": "color-variant",
+   "main": "kay-platformer/sign-arrows-left",
+   "members": [
+    "kay-platformer/sign-arrows-left",
+    "kay-platformer/sign-arrows-right",
+    "kay-platformer/sign-arrows-left-azure",
+    "kay-platformer/sign-arrows-right-azure"
+   ]
+  },
+  {
+   "id": "v1060",
+   "type": "maatvariant",
+   "main": "kay-platformer/finish-line",
+   "members": [
+    "kay-platformer/finish-line",
+    "kay-platformer/finish-line-wide"
+   ]
+  },
+  {
+   "id": "v1061",
+   "type": "maatvariant",
+   "main": "kay-platformer/pillar-1x1x4",
+   "members": [
+    "kay-platformer/pillar-1x1x1",
+    "kay-platformer/pillar-1x1x2",
+    "kay-platformer/pillar-1x1x4",
+    "kay-platformer/pillar-1x1x8",
+    "kay-platformer/pillar-2x2x2",
+    "kay-platformer/pillar-2x2x4",
+    "kay-platformer/pillar-2x2x8"
+   ]
+  },
+  {
+   "id": "v1062",
+   "type": "color-variant",
+   "main": "kay-blocks/decorative-block-azure",
+   "members": [
+    "kay-blocks/decorative-block-azure",
+    "kay-blocks/decorative-block-amber"
+   ]
   }
  ],
  "bands": [
@@ -13156,7 +13326,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 625,
+   "count": 632,
    "parent": "metal-iron"
   },
   {
@@ -13172,7 +13342,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 271,
+   "count": 289,
    "parent": "metal-iron"
   },
   {
@@ -13211,7 +13381,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 752,
+   "count": 753,
    "parent": "wood"
   },
   {
@@ -13250,7 +13420,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 713,
+   "count": 722,
    "parent": "stone"
   },
   {
@@ -13309,7 +13479,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 316
+   "count": 352
   },
   {
    "id": "bone",
@@ -13372,14 +13542,14 @@
    "name": "Cork",
    "type": "material",
    "description": "A cork stopper in a bottle or flask, or anything cut from cork.",
-   "count": 63
+   "count": 66
   },
   {
    "id": "gemstone",
    "name": "Gemstone",
    "type": "material",
    "description": "A cut stone set in jewellery or a hilt.",
-   "count": 34
+   "count": 35
   },
   {
    "id": "special",
@@ -13408,7 +13578,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2535,
+   "count": 2553,
    "color": "#c07c8a"
   },
   {
@@ -13444,14 +13614,14 @@
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
-   "count": 9
+   "count": 13
   },
   {
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 382,
+   "count": 383,
    "color": "#dd9f79"
   },
   {
@@ -13571,14 +13741,14 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 62
+   "count": 63
   },
   {
    "id": "obj-container-crate-cube",
    "name": "Cube",
    "type": "kind",
    "description": "cube crate, cube box",
-   "count": 26
+   "count": 27
   },
   {
    "id": "obj-container-pot",
@@ -13620,7 +13790,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 391,
+   "count": 396,
    "color": "#6b5b95"
   },
   {
@@ -14263,7 +14433,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "hide, raw stock",
-   "count": 106,
+   "count": 108,
    "color": "#4f7d8c"
   },
   {
@@ -14278,7 +14448,7 @@
    "name": "Stone",
    "type": "kind",
    "description": "brick (loose), cut block",
-   "count": 11
+   "count": 13
   },
   {
    "id": "obj-resource-textile",
@@ -14334,7 +14504,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "lever, spring, gear, pulley, grindstone",
-   "count": 118,
+   "count": 122,
    "color": "#6d738a"
   },
   {
@@ -14497,7 +14667,7 @@
    "name": "Siege",
    "type": "kind",
    "description": "Siege weapon with no leaf that fits.",
-   "count": 24
+   "count": 27
   },
   {
    "id": "obj-equipment-weapon-siege-cannon",
@@ -14511,21 +14681,21 @@
    "name": "Ammunition",
    "type": "kind",
    "description": "What a siege weapon throws, with no leaf that fits.",
-   "count": 9
+   "count": 12
   },
   {
    "id": "obj-equipment-weapon-siege-ammunition-cannonball",
    "name": "Cannonball",
    "type": "kind",
    "description": "cannonball, bomb, catapult ball",
-   "count": 8
+   "count": 11
   },
   {
    "id": "obj-equipment-weapon",
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 218,
+   "count": 221,
    "color": "#4c5468"
   },
   {
@@ -14673,7 +14843,7 @@
    "name": "Target",
    "type": "kind",
    "description": "Target with no leaf that fits.",
-   "count": 16
+   "count": 18
   },
   {
    "id": "obj-equipment-target-dummy",
@@ -14955,7 +15125,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1349,
+   "count": 1380,
    "color": "#877a63"
   },
   {
@@ -15013,7 +15183,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 193,
+   "count": 199,
    "color": "#b08968"
   },
   {
@@ -15028,7 +15198,7 @@
    "name": "Traffic",
    "type": "kind",
    "description": "Barrier that guides road traffic: traffic cone, traffic barrier, traffic drum.",
-   "count": 19
+   "count": 25
   },
   {
    "id": "str-barrier-fence",
@@ -15057,7 +15227,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 495,
+   "count": 510,
    "color": "#a8762a"
   },
   {
@@ -15093,14 +15263,14 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 29
+   "count": 33
   },
   {
    "id": "str-part-gate-gateway",
    "name": "Gateway",
    "type": "kind",
    "description": "The opening a gate hangs in, with the structure around it.",
-   "count": 19
+   "count": 23
   },
   {
    "id": "str-part-gate-single",
@@ -15128,7 +15298,7 @@
    "name": "Frame",
    "type": "kind",
    "description": "frame, framework, post-and-beam frame, scaffold, structure (open)",
-   "count": 26
+   "count": 28
   },
   {
    "id": "str-part-frame-scaffold",
@@ -15142,7 +15312,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support",
-   "count": 45
+   "count": 52
   },
   {
    "id": "str-part-roof",
@@ -15198,7 +15368,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 88,
+   "count": 94,
    "color": "#ffb349"
   },
   {
@@ -15206,14 +15376,14 @@
    "name": "Flag",
    "type": "kind",
    "description": "flag, pennant",
-   "count": 14
+   "count": 17
   },
   {
    "id": "str-marker-sign",
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 22
+   "count": 25
   },
   {
    "id": "str-marker-grave",
@@ -15329,7 +15499,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 154
+   "count": 161
   },
   {
    "id": "plural",
@@ -15343,7 +15513,7 @@
    "name": "Pickup",
    "type": "tag",
    "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token.",
-   "count": 64
+   "count": 68
   },
   {
    "id": "broken",
@@ -15427,14 +15597,14 @@
    "name": "Toy",
    "type": "kind",
    "description": "Thing made to play with: ball, frisbee, plushie.",
-   "count": 13
+   "count": 15
   },
   {
    "id": "obj-toy-ball",
    "name": "Ball",
    "type": "kind",
    "description": "Ball to play with: football, basketball, beach ball.",
-   "count": 3
+   "count": 5
   },
   {
    "id": "str-utility-fountain",
@@ -15539,7 +15709,7 @@
    "name": "Utility",
    "type": "kind",
    "description": "Standing works that serve a settlement.",
-   "count": 37,
+   "count": 40,
    "color": "#6e8f86"
   },
   {
@@ -15561,7 +15731,7 @@
    "name": "Playground",
    "type": "kind",
    "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes.",
-   "count": 22,
+   "count": 23,
    "color": "#e0a93b"
   },
   {
@@ -15660,7 +15830,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 95,
+   "count": 96,
    "kinds": [
     "obj-container-chest",
     "obj-food-baked-bread",
@@ -15843,21 +16013,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2297
+   "count": 2315
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1783
+   "count": 1803
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 796
+   "count": 807
   },
   {
    "id": "ken",
@@ -15871,7 +16041,7 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1115
+   "count": 1164
   },
   {
    "id": "qua",
@@ -70003,6 +70173,110 @@
    ]
   },
   {
+   "kit": "kay-blocks",
+   "name": "decorative-block-amber",
+   "kind": "obj-resource-stone",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 1824,
+   "tpu": 5318,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 82908,
+   "vtx": 2206,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.00146,
+   "anglePct": 51,
+   "vpt": 1.21,
+   "grad": 0.69,
+   "spread": {
+    "6,0": [
+     0.039,
+     0.797
+    ],
+    "15,3": [
+     0.289,
+     0.695
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "plastic",
+    "stone-masonry"
+   ],
+   "variant": "v1062",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5318 over max 5000 (obj-resource)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-blocks",
+   "name": "decorative-block-azure",
+   "kind": "obj-resource-stone",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 1824,
+   "tpu": 5318,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 82904,
+   "vtx": 2206,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.00146,
+   "anglePct": 51,
+   "vpt": 1.21,
+   "grad": 0.85,
+   "spread": {
+    "4,2": [
+     0.016,
+     0.969
+    ],
+    "15,3": [
+     0.289,
+     0.695
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "plastic",
+    "stone-masonry"
+   ],
+   "variant": "v1062",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5318 over max 5000 (obj-resource)"
+    }
+   ]
+  },
+  {
    "kit": "kay-builder",
    "name": "archery-range",
    "kind": "str-building-military-barracks",
@@ -112375,6 +112649,2188 @@
      "check": "size",
      "text": "kit ×1.41 off the size curve (kay-mixed, 5 kinds)"
     }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "arch-wide",
+   "kind": "str-part-gate-gateway",
+   "size": "l",
+   "wdh": [
+    1.75,
+    0.25,
+    1.15
+   ],
+   "tris": 960,
+   "tpu": 1719,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 29536,
+   "vtx": 700,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "avgTri": 0.00165,
+   "anglePct": 25,
+   "vpt": 0.73,
+   "grad": 0.7,
+   "spread": {
+    "6,1": [
+     0.063,
+     0.969
+    ],
+    "4,2": [
+     0.289,
+     0.695
+    ],
+    "5,2": [
+     0.148,
+     0.883
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1050"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "arch",
+   "kind": "str-part-gate-gateway",
+   "size": "m",
+   "wdh": [
+    1.15,
+    0.25,
+    1.1
+   ],
+   "tris": 936,
+   "tpu": 1721,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 29000,
+   "vtx": 688,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "avgTri": 0.00145,
+   "anglePct": 24,
+   "vpt": 0.74,
+   "grad": 0.7,
+   "spread": {
+    "6,1": [
+     0.063,
+     0.969
+    ],
+    "4,2": [
+     0.289,
+     0.695
+    ],
+    "5,2": [
+     0.148,
+     0.883
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1050"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "ball-azure",
+   "kind": "obj-toy-ball",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 528,
+   "tpu": 1539,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15776,
+   "vtx": 350,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00211,
+   "anglePct": 0,
+   "vpt": 0.66,
+   "grad": 0.75,
+   "spread": {
+    "4,2": [
+     0.07,
+     0.977
+    ],
+    "5,2": [
+     0.203,
+     0.805
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1051",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.6 over max 0.45 (obj-toy-ball · 0.566 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "ball",
+   "kind": "obj-toy-ball",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 528,
+   "tpu": 1539,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 15764,
+   "vtx": 350,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "avgTri": 0.00211,
+   "anglePct": 0,
+   "vpt": 0.66,
+   "grad": 0.73,
+   "spread": {
+    "8,0": [
+     0.023,
+     0.867
+    ],
+    "5,2": [
+     0.203,
+     0.805
+    ],
+    "4,2": [
+     0.07,
+     0.977
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1051",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.6 over max 0.45 (obj-toy-ball · 0.566 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "bomb-azure",
+   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.3
+   ],
+   "tris": 688,
+   "tpu": 2006,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19192,
+   "vtx": 426,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00029,
+   "anglePct": 0,
+   "vpt": 0.62,
+   "grad": 0.69,
+   "spread": {
+    "4,2": [
+     0.227,
+     0.969
+    ],
+    "14,3": [
+     0.422,
+     0.633
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#8b7561"
+   ],
+   "tags": [
+    "cork",
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1052"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "bomb-striped",
+   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.3
+   ],
+   "tris": 880,
+   "tpu": 2566,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 28024,
+   "vtx": 666,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00023,
+   "anglePct": 0,
+   "vpt": 0.76,
+   "grad": 0.83,
+   "spread": {
+    "6,1": [
+     0.016,
+     0.969
+    ],
+    "4,2": [
+     0.195,
+     0.852
+    ],
+    "14,3": [
+     0.422,
+     0.633
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#8b7561"
+   ],
+   "tags": [
+    "cork",
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1052"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "bomb",
+   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.3
+   ],
+   "tris": 688,
+   "tpu": 2006,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19180,
+   "vtx": 426,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00029,
+   "anglePct": 0,
+   "vpt": 0.62,
+   "grad": 0.88,
+   "spread": {
+    "6,1": [
+     0.016,
+     0.969
+    ],
+    "14,3": [
+     0.422,
+     0.633
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#8b7561"
+   ],
+   "tags": [
+    "cork",
+    "kay",
+    "metal-iron-cast"
+   ],
+   "variant": "v1052"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "bracing-large",
+   "kind": "str-part",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.06,
+    0.3
+   ],
+   "tris": 124,
+   "tpu": 362,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6868,
+   "vtx": 148,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00203,
+   "anglePct": 91,
+   "vpt": 1.19,
+   "grad": 0.55,
+   "spread": {
+    "4,2": [
+     0.203,
+     0.82
+    ],
+    "6,1": [
+     0.195,
+     0.719
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1053"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "bracing-medium",
+   "kind": "str-part",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.06,
+    0.2
+   ],
+   "tris": 124,
+   "tpu": 362,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6920,
+   "vtx": 148,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "avgTri": 0.00088,
+   "anglePct": 84,
+   "vpt": 1.19,
+   "grad": 0.55,
+   "spread": {
+    "4,2": [
+     0.203,
+     0.82
+    ],
+    "6,1": [
+     0.195,
+     0.719
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1053"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "cone-azure",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.2
+   ],
+   "tris": 120,
+   "tpu": 350,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5988,
+   "vtx": 122,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00073,
+   "anglePct": 64,
+   "vpt": 1.02,
+   "grad": 0.82,
+   "spread": {
+    "4,2": [
+     0.086,
+     0.906
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1054"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "cone",
+   "kind": "str-barrier-traffic",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.2
+   ],
+   "tris": 120,
+   "tpu": 350,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5976,
+   "vtx": 122,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "avgTri": 0.00073,
+   "anglePct": 64,
+   "vpt": 1.02,
+   "grad": 0.38,
+   "spread": {
+    "5,0": [
+     0.266,
+     0.648
+    ]
+   },
+   "colors": [
+    "#d07b56"
+   ],
+   "tags": [
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1054"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "crate",
+   "kind": "obj-container-crate-cube",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 344,
+   "tpu": 1003,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 26972,
+   "vtx": 736,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00246,
+   "anglePct": 100,
+   "vpt": 2.14,
+   "grad": 0.68,
+   "spread": {
+    "1,0": [
+     0.219,
+     0.898
+    ]
+   },
+   "colors": [
+    "#b58158"
+   ],
+   "tags": [
+    "kay",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "diamond",
+   "kind": "obj-symbol",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.25
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5996,
+   "vtx": 125,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "avgTri": 0.0025,
+   "anglePct": 12,
+   "vpt": 1.3,
+   "grad": 0.66,
+   "spread": {
+    "4,2": [
+     0.313,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "gemstone",
+    "kay",
+    "pickup"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "finish-line-wide",
+   "kind": "str-part-gate-gateway",
+   "size": "l",
+   "wdh": [
+    2.8,
+    0.15,
+    1.35
+   ],
+   "tris": 812,
+   "tpu": 1228,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 46160,
+   "vtx": 1245,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.3014,
+   "avgTri": 0.00413,
+   "anglePct": 58,
+   "vpt": 1.53,
+   "grad": 0.74,
+   "spread": {
+    "5,2": [
+     0.25,
+     0.742
+    ],
+    "13,3": [
+     0.016,
+     0.977
+    ],
+    "6,1": [
+     0.063,
+     0.734
+    ],
+    "6,0": [
+     0.156,
+     0.805
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1060"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "finish-line",
+   "kind": "str-part-gate-gateway",
+   "size": "l",
+   "wdh": [
+    1.6,
+    0.15,
+    1.35
+   ],
+   "tris": 652,
+   "tpu": 986,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 35908,
+   "vtx": 955,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.3014,
+   "avgTri": 0.00355,
+   "anglePct": 48,
+   "vpt": 1.46,
+   "grad": 0.72,
+   "spread": {
+    "5,2": [
+     0.25,
+     0.742
+    ],
+    "13,3": [
+     0.016,
+     0.977
+    ],
+    "6,1": [
+     0.039,
+     0.711
+    ],
+    "6,0": [
+     0.156,
+     0.805
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1060"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "flag-a",
+   "kind": "str-marker-flag",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.5,
+    0.6
+   ],
+   "tris": 502,
+   "tpu": 1464,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20888,
+   "vtx": 514,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00066,
+   "anglePct": 40,
+   "vpt": 1.02,
+   "grad": 0.9,
+   "spread": {
+    "4,2": [
+     0.195,
+     0.969
+    ],
+    "6,1": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic",
+    "scale-small"
+   ],
+   "variant": "v1055",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs textile, has metal-iron-cast plastic (str-marker-flag)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has metal-iron-cast plastic (str-marker-flag)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "flag-b",
+   "kind": "str-marker-flag",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.5,
+    0.9
+   ],
+   "tris": 502,
+   "tpu": 1115,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20888,
+   "vtx": 514,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00074,
+   "anglePct": 36,
+   "vpt": 1.02,
+   "grad": 0.9,
+   "spread": {
+    "4,2": [
+     0.195,
+     0.969
+    ],
+    "6,1": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1055",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs textile, has metal-iron-cast plastic (str-marker-flag)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has metal-iron-cast plastic (str-marker-flag)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "flag-c",
+   "kind": "str-marker-flag",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.5,
+    1.2
+   ],
+   "tris": 502,
+   "tpu": 840,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20888,
+   "vtx": 514,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00082,
+   "anglePct": 32,
+   "vpt": 1.02,
+   "grad": 0.9,
+   "spread": {
+    "4,2": [
+     0.195,
+     0.969
+    ],
+    "6,1": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1055",
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs textile, has metal-iron-cast plastic (str-marker-flag)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "— needs wood, has metal-iron-cast plastic (str-marker-flag)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "frame-b",
+   "kind": "str-part-frame",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.35
+   ],
+   "tris": 432,
+   "tpu": 1259,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16816,
+   "vtx": 400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "minTube": 0.0449,
+   "avgTri": 0.00213,
+   "anglePct": 2,
+   "vpt": 0.93,
+   "grad": 0.68,
+   "spread": {
+    "6,1": [
+     0.156,
+     0.836
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "metal-iron-cast"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "frame-c",
+   "kind": "str-part-frame",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.55,
+    0.6
+   ],
+   "tris": 176,
+   "tpu": 513,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10140,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.019,
+   "minTube": 0.0542,
+   "avgTri": 0.00527,
+   "anglePct": 2,
+   "vpt": 1.36,
+   "grad": 0,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "metal-iron-cast"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "heart",
+   "kind": "obj-symbol",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.15,
+    0.25
+   ],
+   "tris": 242,
+   "tpu": 706,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7032,
+   "vtx": 130,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "avgTri": 0.00081,
+   "anglePct": 2,
+   "vpt": 0.54,
+   "grad": 0.91,
+   "spread": {
+    "4,2": [
+     0.055,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "kay",
+    "pickup",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "hoop-angled",
+   "kind": "obj-equipment-target",
+   "size": "m",
+   "wdh": [
+    1.15,
+    0.75,
+    1.3
+   ],
+   "tris": 1344,
+   "tpu": 1245,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 38848,
+   "vtx": 918,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "minTube": 0.1939,
+   "avgTri": 0.00157,
+   "anglePct": 22,
+   "vpt": 0.68,
+   "grad": 0.51,
+   "spread": {
+    "15,3": [
+     0.305,
+     0.727
+    ],
+    "4,2": [
+     0.32,
+     0.727
+    ],
+    "5,2": [
+     0.148,
+     0.883
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#88848a",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v1056"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "hoop",
+   "kind": "obj-equipment-target",
+   "size": "m",
+   "wdh": [
+    1,
+    0.25,
+    1.4
+   ],
+   "tris": 768,
+   "tpu": 1112,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20656,
+   "vtx": 458,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "avgTri": 0.00169,
+   "anglePct": 9,
+   "vpt": 0.6,
+   "grad": 0.42,
+   "spread": {
+    "15,3": [
+     0.305,
+     0.727
+    ],
+    "4,2": [
+     0.297,
+     0.711
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v1056"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "lever-floor",
+   "kind": "obj-tool",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.35,
+    0.5
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 15504,
+   "vtx": 357,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00115,
+   "anglePct": 61,
+   "vpt": 0.81,
+   "grad": 0.8,
+   "spread": {
+    "15,3": [
+     0.07,
+     0.836
+    ],
+    "8,0": [
+     0.094,
+     0.883
+    ],
+    "4,2": [
+     0.125,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "lever-wall-a",
+   "kind": "obj-tool",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.35,
+    0.35
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 15220,
+   "vtx": 348,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00105,
+   "anglePct": 67,
+   "vpt": 0.79,
+   "grad": 0.71,
+   "spread": {
+    "15,3": [
+     0.219,
+     0.766
+    ],
+    "8,0": [
+     0.117,
+     0.805
+    ],
+    "4,2": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v1057"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "lever-wall-b",
+   "kind": "obj-tool",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.3,
+    0.35
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 11452,
+   "vtx": 268,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "minTube": 0.0431,
+   "avgTri": 0.00213,
+   "anglePct": 67,
+   "vpt": 1.12,
+   "grad": 0.76,
+   "spread": {
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "8,0": [
+     0.109,
+     0.961
+    ],
+    "4,2": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#7f3927",
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "variant": "v1057"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "lightning",
+   "kind": "obj-symbol",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.1,
+    0.35
+   ],
+   "tris": 160,
+   "tpu": 466,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8272,
+   "vtx": 184,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00138,
+   "anglePct": 36,
+   "vpt": 1.15,
+   "grad": 0.77,
+   "spread": {
+    "4,2": [
+     0.195,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "kay",
+    "pickup",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-1x1x1",
+   "kind": "str-part-pillar",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.3
+   ],
+   "tris": 248,
+   "tpu": 723,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14628,
+   "vtx": 366,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "avgTri": 0.00175,
+   "anglePct": 97,
+   "vpt": 1.48,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.117,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.3 under min 0.5 (str-part-pillar · 0.283 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-1x1x2",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.25,
+    0.6
+   ],
+   "tris": 248,
+   "tpu": 723,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14692,
+   "vtx": 368,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.1623,
+   "avgTri": 0.00235,
+   "anglePct": 98,
+   "vpt": 1.48,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.117,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-1x1x4",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.25,
+    0.25,
+    1.2
+   ],
+   "tris": 248,
+   "tpu": 422,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14612,
+   "vtx": 366,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.1623,
+   "avgTri": 0.00355,
+   "anglePct": 98,
+   "vpt": 1.48,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.117,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-1x1x8",
+   "kind": "str-part-pillar",
+   "size": "l",
+   "wdh": [
+    0.25,
+    0.25,
+    2.4
+   ],
+   "tris": 248,
+   "tpu": 211,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14612,
+   "vtx": 366,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.1623,
+   "avgTri": 0.00596,
+   "anglePct": 99,
+   "vpt": 1.48,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.117,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.4 over max 2 (str-part-pillar · 2.264 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-2x2x2",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    0.6
+   ],
+   "tris": 248,
+   "tpu": 723,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14624,
+   "vtx": 366,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "avgTri": 0.00699,
+   "anglePct": 97,
+   "vpt": 1.48,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.117,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-2x2x4",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    1.2
+   ],
+   "tris": 296,
+   "tpu": 503,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16624,
+   "vtx": 420,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "minTube": 0.3247,
+   "avgTri": 0.00791,
+   "anglePct": 98,
+   "vpt": 1.42,
+   "grad": 0.62,
+   "spread": {
+    "15,3": [
+     0.125,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pillar-2x2x8",
+   "kind": "str-part-pillar",
+   "size": "l",
+   "wdh": [
+    0.5,
+    0.5,
+    2.4
+   ],
+   "tris": 344,
+   "tpu": 293,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 18452,
+   "vtx": 468,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "minTube": 0.3247,
+   "avgTri": 0.0103,
+   "anglePct": 98,
+   "vpt": 1.36,
+   "grad": 0.61,
+   "spread": {
+    "15,3": [
+     0.133,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "stone-masonry"
+   ],
+   "variant": "v1061",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.4 over max 2 (str-part-pillar · 2.264 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pipe-180-a",
+   "kind": "str-utility",
+   "size": "l",
+   "wdh": [
+    0.6,
+    1.8,
+    0.9
+   ],
+   "tris": 1088,
+   "tpu": 1119,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 27364,
+   "vtx": 608,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.059,
+   "avgTri": 0.006,
+   "anglePct": 3,
+   "vpt": 0.56,
+   "grad": 0.74,
+   "spread": {
+    "4,2": [
+     0.125,
+     0.867
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1058"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pipe-180-b",
+   "kind": "str-utility",
+   "size": "l",
+   "wdh": [
+    0.6,
+    1.8,
+    0.9
+   ],
+   "tris": 1280,
+   "tpu": 1321,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 34488,
+   "vtx": 794,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.029,
+   "avgTri": 0.00519,
+   "anglePct": 3,
+   "vpt": 0.62,
+   "grad": 0.73,
+   "spread": {
+    "4,2": [
+     0.172,
+     0.906
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "plastic"
+   ],
+   "variant": "v1058"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "pipe-90",
+   "kind": "str-utility",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.9,
+    0.9
+   ],
+   "tris": 576,
+   "tpu": 1185,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16132,
+   "vtx": 352,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.059,
+   "avgTri": 0.00584,
+   "anglePct": 6,
+   "vpt": 0.61,
+   "grad": 0.53,
+   "spread": {
+    "4,2": [
+     0.219,
+     0.75
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "comp",
+    "kay",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-arrow-stand",
+   "kind": "str-marker-sign",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.1,
+    0.6
+   ],
+   "tris": 292,
+   "tpu": 851,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 13264,
+   "vtx": 316,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0487,
+   "avgTri": 0.00126,
+   "anglePct": 83,
+   "vpt": 1.08,
+   "grad": 0.8,
+   "spread": {
+    "6,1": [
+     0.422,
+     0.617
+    ],
+    "5,2": [
+     0.016,
+     0.789
+    ],
+    "4,2": [
+     0.125,
+     0.969
+    ],
+    "6,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-arrow-wall",
+   "kind": "str-marker-sign",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.06,
+    0.3
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8348,
+   "vtx": 182,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00124,
+   "anglePct": 76,
+   "vpt": 0.97,
+   "grad": 0.95,
+   "spread": {
+    "4,2": [
+     0.016,
+     0.969
+    ],
+    "5,2": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.3 under min 0.35 (str-marker-sign · 0.283 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-arrows-left-azure",
+   "kind": "str-barrier-traffic",
+   "size": "l",
+   "wdh": [
+    1.6,
+    0.2,
+    0.45
+   ],
+   "tris": 1156,
+   "tpu": 3370,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 46412,
+   "vtx": 1188,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00142,
+   "anglePct": 10,
+   "vpt": 1.03,
+   "grad": 0.81,
+   "spread": {
+    "6,1": [
+     0.07,
+     0.969
+    ],
+    "5,2": [
+     0.016,
+     0.727
+    ],
+    "4,2": [
+     0.125,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1059"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-arrows-left",
+   "kind": "str-barrier-traffic",
+   "size": "l",
+   "wdh": [
+    1.6,
+    0.2,
+    0.45
+   ],
+   "tris": 1156,
+   "tpu": 3370,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 46208,
+   "vtx": 1182,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00142,
+   "anglePct": 10,
+   "vpt": 1.02,
+   "grad": 0.7,
+   "spread": {
+    "6,1": [
+     0.156,
+     0.969
+    ],
+    "6,0": [
+     0.266,
+     0.852
+    ],
+    "13,3": [
+     0.375,
+     0.625
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1059"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-arrows-right-azure",
+   "kind": "str-barrier-traffic",
+   "size": "l",
+   "wdh": [
+    1.6,
+    0.2,
+    0.45
+   ],
+   "tris": 1156,
+   "tpu": 3370,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 46412,
+   "vtx": 1188,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00142,
+   "anglePct": 10,
+   "vpt": 1.03,
+   "grad": 0.81,
+   "spread": {
+    "6,1": [
+     0.07,
+     0.969
+    ],
+    "5,2": [
+     0.016,
+     0.727
+    ],
+    "4,2": [
+     0.125,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1059"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-arrows-right",
+   "kind": "str-barrier-traffic",
+   "size": "l",
+   "wdh": [
+    1.6,
+    0.2,
+    0.45
+   ],
+   "tris": 1156,
+   "tpu": 3370,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 46212,
+   "vtx": 1182,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00142,
+   "anglePct": 10,
+   "vpt": 1.02,
+   "grad": 0.7,
+   "spread": {
+    "6,1": [
+     0.156,
+     0.969
+    ],
+    "6,0": [
+     0.266,
+     0.852
+    ],
+    "13,3": [
+     0.375,
+     0.625
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-cast",
+    "plastic"
+   ],
+   "variant": "v1059"
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "sign-caution",
+   "kind": "str-marker-sign",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.4
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 25088,
+   "vtx": 657,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "avgTri": 0.00089,
+   "anglePct": 4,
+   "vpt": 1.49,
+   "grad": 0.67,
+   "spread": {
+    "6,0": [
+     0.156,
+     0.844
+    ],
+    "13,3": [
+     0.016,
+     0.695
+    ],
+    "5,2": [
+     0.133,
+     0.734
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "kay",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "spring-pad",
+   "kind": "str-playground",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.3
+   ],
+   "tris": 712,
+   "tpu": 2076,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22416,
+   "vtx": 524,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "avgTri": 0.00093,
+   "anglePct": 46,
+   "vpt": 0.74,
+   "grad": 0.64,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.813
+    ],
+    "4,2": [
+     0.344,
+     0.711
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel",
+    "plastic"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "spring",
+   "kind": "obj-tool",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.3,
+    0.65
+   ],
+   "tris": 1000,
+   "tpu": 2915,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 28412,
+   "vtx": 657,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00052,
+   "anglePct": 4,
+   "vpt": 0.66,
+   "grad": 0.81,
+   "spread": {
+    "15,3": [
+     0.023,
+     0.836
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "kay",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "kit": "kay-platformer",
+   "name": "star",
+   "kind": "obj-symbol",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.15,
+    0.35
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4976,
+   "vtx": 100,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "avgTri": 0.00237,
+   "anglePct": 0,
+   "vpt": 1.67,
+   "grad": 0.93,
+   "spread": {
+    "4,2": [
+     0.039,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6"
+   ],
+   "tags": [
+    "kay",
+    "pickup",
+    "plastic"
    ]
   },
   {

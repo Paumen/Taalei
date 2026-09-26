@@ -151,6 +151,6 @@ export const BRONKITS = [
   { map: 'kenney_space-station-kit', naam: 'Kenney Space Station Kit', kit: null, source: 'ken', formaat: 'glb' },
   { map: 'KayKit_Space_Base_Bits_1.0_FREE', naam: 'KayKit Space Base Bits', kit: null, source: 'kay', formaat: 'gltf' },
   { map: 'KayKit_Prototype_Bits_1.1_FREE', naam: 'KayKit Prototype Bits', kit: null, source: 'kay', formaat: 'gltf' },
-  { map: 'KayKit_BlockBits_1.0_FREE', naam: 'KayKit Block Bits', kit: null, source: 'kay', formaat: 'gltf' },
-  { map: 'KayKit_Platformer_Pack_1.0_FREE', naam: 'KayKit Platformer Pack', kit: null, source: 'kay', formaat: 'gltf', alleMappen: true },
+  { map: 'KayKit_BlockBits_1.0_FREE', naam: 'KayKit Block Bits', kit: 'kay-blocks', source: 'kay', formaat: 'gltf' },
+  { map: 'KayKit_Platformer_Pack_1.0_FREE', naam: 'KayKit Platformer Pack', kit: 'kay-platformer', source: 'kay', formaat: 'gltf', alleMappen: true },
 ];
