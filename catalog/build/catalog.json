@@ -462,6 +462,30 @@
    }
   },
   {
+   "slug": "jb-kitchen",
+   "name": "jb-kitchen",
+   "url": "https://mortaleh.itch.io/",
+   "licenseLabel": "CC0 1.0",
+   "count": 23,
+   "packs": [
+    "Low Poly Medieval Kitchen Furniture"
+   ],
+   "origins": {
+    "Low Poly Medieval Kitchen Furniture": 23
+   },
+   "scales": {
+    "0.7": 20,
+    "1.4": 3
+   },
+   "smooth": {
+    "60": 23
+   },
+   "kitCheck": {
+    "factor": 1.06,
+    "kinds": 19
+   }
+  },
+  {
    "slug": "kay-chars",
    "name": "kay-chars",
    "url": "https://www.kaylousberg.com",
@@ -2301,6 +2325,29 @@
     "factor": 1.59,
     "kinds": 7,
     "level": "error"
+   }
+  },
+  {
+   "slug": "rg-weapons",
+   "name": "rg-weapons",
+   "note": "Source zip with no licence file and no author named; see kits/workfiles/rg-weapons/LICENSE.txt.",
+   "licenseLabel": "CC0",
+   "count": 19,
+   "packs": [
+    "Medieval Weapons Small Low Poly Pack"
+   ],
+   "origins": {
+    "Medieval Weapons Small Low Poly Pack": 19
+   },
+   "scales": {
+    "0.4": 19
+   },
+   "smooth": {
+    "none": 19
+   },
+   "kitCheck": {
+    "factor": 1.11,
+    "kinds": 8
    }
   },
   {
@@ -12543,6 +12590,80 @@
     "ken-train/train-square",
     "ken-train/train-city"
    ]
+  },
+  {
+   "id": "v1005",
+   "type": "color-variant",
+   "main": "jb-kitchen/bottle",
+   "members": [
+    "jb-kitchen/bottle",
+    "jb-kitchen/bottle-yellow"
+   ]
+  },
+  {
+   "id": "v1006",
+   "type": "color-variant",
+   "main": "jb-kitchen/jar",
+   "members": [
+    "jb-kitchen/jar",
+    "jb-kitchen/jar-yellow"
+   ]
+  },
+  {
+   "id": "v1007",
+   "type": "detail-variant",
+   "main": "jb-kitchen/cookpot",
+   "members": [
+    "jb-kitchen/cookpot",
+    "jb-kitchen/cookpot-lid"
+   ]
+  },
+  {
+   "id": "v1008",
+   "type": "color-variant",
+   "main": "rg-weapons/shield-a",
+   "members": [
+    "rg-weapons/shield-a",
+    "rg-weapons/shield-a-blue",
+    "rg-weapons/shield-a-white"
+   ]
+  },
+  {
+   "id": "v1009",
+   "type": "color-variant",
+   "main": "rg-weapons/shield-b",
+   "members": [
+    "rg-weapons/shield-b",
+    "rg-weapons/shield-b-red",
+    "rg-weapons/shield-b-white"
+   ]
+  },
+  {
+   "id": "v1010",
+   "type": "color-variant",
+   "main": "rg-weapons/sword-a",
+   "members": [
+    "rg-weapons/sword-a",
+    "rg-weapons/sword-b"
+   ]
+  },
+  {
+   "id": "v1011",
+   "type": "detail-variant",
+   "main": "rg-weapons/arrow-a",
+   "members": [
+    "rg-weapons/arrow-a",
+    "rg-weapons/arrow-b"
+   ]
+  },
+  {
+   "id": "v1012",
+   "type": "detail-variant",
+   "main": "rg-weapons/club-spiked-a",
+   "members": [
+    "rg-weapons/club-spiked-a",
+    "rg-weapons/club-spiked-b"
+   ]
   }
  ],
  "bands": [
@@ -12628,7 +12749,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 605,
+   "count": 625,
    "parent": "metal-iron"
   },
   {
@@ -12636,7 +12757,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 289,
+   "count": 290,
    "parent": "metal-iron"
   },
   {
@@ -12644,7 +12765,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 266,
+   "count": 271,
    "parent": "metal-iron"
   },
   {
@@ -12683,7 +12804,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 744,
+   "count": 752,
    "parent": "wood"
   },
   {
@@ -12691,7 +12812,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 954,
+   "count": 983,
    "parent": "wood"
   },
   {
@@ -12707,7 +12828,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
-   "count": 260,
+   "count": 261,
    "parent": "wood"
   },
   {
@@ -12746,14 +12867,14 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 177
+   "count": 178
   },
   {
    "id": "textile",
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 499
+   "count": 512
   },
   {
    "id": "leather",
@@ -12767,14 +12888,14 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 420
+   "count": 422
   },
   {
    "id": "ceramic",
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 480
+   "count": 484
   },
   {
    "id": "plastic",
@@ -12788,7 +12909,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 96
+   "count": 97
   },
   {
    "id": "food",
@@ -12816,7 +12937,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 370
+   "count": 371
   },
   {
    "id": "liquid",
@@ -12830,28 +12951,28 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 81
+   "count": 82
   },
   {
    "id": "rope",
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 90
+   "count": 91
   },
   {
    "id": "cork",
    "name": "Cork",
    "type": "material",
    "description": "A cork stopper in a bottle or flask, or anything cut from cork.",
-   "count": 61
+   "count": 63
   },
   {
    "id": "gemstone",
    "name": "Gemstone",
    "type": "material",
    "description": "A cut stone set in jewellery or a hilt.",
-   "count": 33
+   "count": 34
   },
   {
    "id": "special",
@@ -12866,7 +12987,7 @@
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 156
+   "count": 157
   },
   {
    "id": "skin",
@@ -12880,7 +13001,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2327,
+   "count": 2369,
    "color": "#c07c8a"
   },
   {
@@ -12923,7 +13044,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 376,
+   "count": 380,
    "color": "#dd9f79"
   },
   {
@@ -13008,7 +13129,7 @@
    "name": "Bottle",
    "type": "kind",
    "description": "bottle, flask, vial",
-   "count": 67
+   "count": 69
   },
   {
    "id": "obj-container-bottle-vial",
@@ -13057,14 +13178,14 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot, planter, amphora, jug, pitcher, ewer",
-   "count": 50
+   "count": 52
   },
   {
    "id": "obj-container-pot-jar",
    "name": "Jar",
    "type": "kind",
    "description": "jar, canister, tin",
-   "count": 15
+   "count": 17
   },
   {
    "id": "obj-container-pot-vase",
@@ -13092,7 +13213,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 372,
+   "count": 391,
    "color": "#6b5b95"
   },
   {
@@ -13121,7 +13242,7 @@
    "name": "Shield",
    "type": "kind",
    "description": "shield, buckler",
-   "count": 23
+   "count": 29
   },
   {
    "id": "obj-food",
@@ -13290,7 +13411,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 248,
+   "count": 255,
    "color": "#c07c8a"
   },
   {
@@ -13319,21 +13440,21 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 71
+   "count": 74
   },
   {
    "id": "obj-furnishing-seating-bench",
    "name": "Bench",
    "type": "kind",
    "description": "bench, pew",
-   "count": 29
+   "count": 30
   },
   {
    "id": "obj-furnishing-seating-bench-nobackrest",
    "name": "No backrest",
    "type": "kind",
    "description": "backless bench",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-furnishing-seating-bench-backrest",
@@ -13347,28 +13468,28 @@
    "name": "Chair",
    "type": "kind",
    "description": "chair, armchair, throne",
-   "count": 28
+   "count": 29
   },
   {
    "id": "obj-furnishing-seating-stool",
    "name": "Stool",
    "type": "kind",
    "description": "stool, footstool",
-   "count": 14
+   "count": 15
   },
   {
    "id": "obj-furnishing-storage",
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser",
-   "count": 74
+   "count": 75
   },
   {
    "id": "obj-furnishing-storage-cabinet",
    "name": "Cabinet",
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
-   "count": 53
+   "count": 54
   },
   {
    "id": "obj-furnishing-storage-shelf",
@@ -13382,21 +13503,21 @@
    "name": "Table",
    "type": "kind",
    "description": "table, desk, workbench",
-   "count": 48
+   "count": 51
   },
   {
    "id": "obj-furnishing-table-square",
    "name": "Square",
    "type": "kind",
    "description": "square table",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-kitchenware",
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 329,
+   "count": 340,
    "color": "#9c3f2e"
   },
   {
@@ -13404,7 +13525,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit",
-   "count": 129
+   "count": 135
   },
   {
    "id": "obj-kitchenware-appliance",
@@ -13460,21 +13581,21 @@
    "name": "Utensil",
    "type": "kind",
    "description": "rice paddle, wooden paddle",
-   "count": 48
+   "count": 50
   },
   {
    "id": "obj-kitchenware-cookware-utensil-spoon",
    "name": "Spoon",
    "type": "kind",
    "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon, ladle.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-kitchenware-cookware-utensil-knife",
    "name": "Knife",
    "type": "kind",
    "description": "Kitchen knife for cutting food: chef knife, bread knife, cleaver.",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-kitchenware-cookware-utensil-spatula",
@@ -13502,28 +13623,28 @@
    "name": "Pan",
    "type": "kind",
    "description": "pan",
-   "count": 28
+   "count": 29
   },
   {
    "id": "obj-kitchenware-cookware-pan-frying",
    "name": "Frying pan",
    "type": "kind",
    "description": "Shallow pan with one long handle, for frying.",
-   "count": 14
+   "count": 15
   },
   {
    "id": "obj-kitchenware-cookware-cookpot",
    "name": "Cookpot",
    "type": "kind",
    "description": "Deep pot cooked in over heat: cooking pot, crockpot, stockpot.",
-   "count": 36
+   "count": 38
   },
   {
    "id": "obj-kitchenware-cookware-kettle",
    "name": "Kettle",
    "type": "kind",
    "description": "Closed pot with a spout, for boiling or pouring.",
-   "count": 4
+   "count": 5
   },
   {
    "id": "obj-kitchenware-cookware-board",
@@ -13544,14 +13665,14 @@
    "name": "Tableware",
    "type": "kind",
    "description": "and any tableware with no leaf that fits",
-   "count": 147
+   "count": 152
   },
   {
    "id": "obj-kitchenware-tableware-cutlery",
    "name": "Cutlery",
    "type": "kind",
    "description": "knife (table), fork, spoon",
-   "count": 32
+   "count": 33
   },
   {
    "id": "obj-kitchenware-tableware-cutlery-chopsticks",
@@ -13565,28 +13686,28 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, saucer",
-   "count": 36
+   "count": 37
   },
   {
    "id": "obj-kitchenware-tableware-serving",
    "name": "Serving",
    "type": "kind",
    "description": "Plate or stand that carries food to the table rather than holding one portion.",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-kitchenware-tableware-bowl",
    "name": "Bowl",
    "type": "kind",
    "description": "bowl",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-kitchenware-tableware-drinkware",
    "name": "Drinkware",
    "type": "kind",
    "description": "cup, tankard, glass",
-   "count": 48
+   "count": 49
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-mug",
@@ -13664,7 +13785,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 79,
+   "count": 80,
    "color": "#f1976c"
   },
   {
@@ -13672,7 +13793,7 @@
    "name": "Book",
    "type": "kind",
    "description": "book, tome, journal, spell book",
-   "count": 30
+   "count": 31
   },
   {
    "id": "obj-equipment-pocketitem-book-open",
@@ -13686,7 +13807,7 @@
    "name": "Closed",
    "type": "kind",
    "description": "closed book",
-   "count": 20
+   "count": 21
   },
   {
    "id": "obj-equipment-pocketitem-coin",
@@ -13997,7 +14118,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 206,
+   "count": 218,
    "color": "#4c5468"
   },
   {
@@ -14005,42 +14126,42 @@
    "name": "Magic",
    "type": "kind",
    "description": "wand, orb, focus (magic)",
-   "count": 11
+   "count": 13
   },
   {
    "id": "obj-equipment-weapon-magic-staff",
    "name": "Staff",
    "type": "kind",
    "description": "staff, wizard staff",
-   "count": 9
+   "count": 11
   },
   {
    "id": "obj-equipment-weapon-melee",
    "name": "Melee",
    "type": "kind",
    "description": "scythe (weapon), knuckles, claws, gauntlet blade",
-   "count": 97
+   "count": 104
   },
   {
    "id": "obj-equipment-weapon-melee-axe",
    "name": "Axe",
    "type": "kind",
    "description": "Axe with no leaf that fits.",
-   "count": 26
+   "count": 29
   },
   {
    "id": "obj-equipment-weapon-melee-axe-single",
    "name": "Single axe",
    "type": "kind",
    "description": "Axe with one blade.",
-   "count": 15
+   "count": 17
   },
   {
    "id": "obj-equipment-weapon-melee-axe-double",
    "name": "Double axe",
    "type": "kind",
    "description": "Axe with a blade on both sides of the haft.",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-equipment-weapon-melee-dagger",
@@ -14061,14 +14182,14 @@
    "name": "Club",
    "type": "kind",
    "description": "club, bat",
-   "count": 6
+   "count": 8
   },
   {
    "id": "obj-equipment-weapon-melee-sword",
    "name": "Sword",
    "type": "kind",
    "description": "sword, rapier, scimitar, katana",
-   "count": 32
+   "count": 34
   },
   {
    "id": "obj-equipment-weapon-melee-sword-broad",
@@ -14089,7 +14210,7 @@
    "name": "Ranged",
    "type": "kind",
    "description": "sling, throwing knife, javelin",
-   "count": 70
+   "count": 73
   },
   {
    "id": "obj-equipment-apparel-quiver",
@@ -14103,14 +14224,14 @@
    "name": "Arrow",
    "type": "kind",
    "description": "Shaft shot from a bow or crossbow, and the dart thrown by hand.",
-   "count": 15
+   "count": 17
   },
   {
    "id": "obj-equipment-weapon-ranged-bow",
    "name": "Bow",
    "type": "kind",
    "description": "bow, longbow",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-equipment-weapon-ranged-crossbow",
@@ -14871,7 +14992,7 @@
    "name": "Instrument",
    "type": "kind",
    "description": "Musical instrument: gong, drum.",
-   "count": 15
+   "count": 16
   },
   {
    "id": "obj-art-instrument-bell",
@@ -14885,7 +15006,7 @@
    "name": "Art",
    "type": "kind",
    "description": "Art object with no leaf that fits.",
-   "count": 57
+   "count": 58
   },
   {
    "id": "obj-art-sculpture",
@@ -15315,14 +15436,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2102
+   "count": 2129
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1765
+   "count": 1780
   },
   {
    "id": "l",
@@ -58544,6 +58665,1003 @@
     "isa"
    ],
    "variant": "v281"
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "bench",
+   "kind": "obj-furnishing-seating-bench-nobackrest",
+   "size": "m",
+   "wdh": [
+    1.2,
+    0.2,
+    0.3
+   ],
+   "tris": 544,
+   "tpu": 1586,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17900,
+   "vtx": 408,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0531,
+   "avgTri": 0.00184,
+   "anglePct": 76,
+   "vpt": 0.75,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "book",
+   "kind": "obj-equipment-pocketitem-book-closed",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.04,
+    0.2
+   ],
+   "tris": 172,
+   "tpu": 501,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 8396,
+   "vtx": 181,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.0005,
+   "anglePct": 93,
+   "vpt": 1.05,
+   "grad": 0.6,
+   "spread": {
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "paper",
+    "textile"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "bottle-yellow",
+   "kind": "obj-container-bottle",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.3
+   ],
+   "tris": 759,
+   "tpu": 2213,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19100,
+   "vtx": 405,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
+   "anglePct": 4,
+   "vpt": 0.53,
+   "grad": 0.55,
+   "spread": {
+    "5,0": [
+     0.148,
+     0.742
+    ],
+    "14,3": [
+     0.148,
+     0.445
+    ]
+   },
+   "colors": [
+    "#8b7561",
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "cork"
+   ],
+   "variant": "v1005"
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "bottle",
+   "kind": "obj-container-bottle",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.3
+   ],
+   "tris": 759,
+   "tpu": 2213,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19080,
+   "vtx": 405,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00009,
+   "anglePct": 4,
+   "vpt": 0.53,
+   "grad": 0.55,
+   "spread": {
+    "1,1": [
+     0.148,
+     0.742
+    ],
+    "14,3": [
+     0.148,
+     0.445
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#8b7561"
+   ],
+   "tags": [
+    "cork",
+    "glass"
+   ],
+   "variant": "v1005"
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "bowl",
+   "kind": "obj-kitchenware-tableware-bowl",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.05
+   ],
+   "tris": 838,
+   "tpu": 2443,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 20080,
+   "vtx": 421,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "anglePct": 9,
+   "vpt": 0.5,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.05 under min 0.05 (obj-kitchenware-tableware-bowl · 0.047 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "chair",
+   "kind": "obj-furnishing-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.3,
+    0.65
+   ],
+   "tris": 728,
+   "tpu": 2122,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 23192,
+   "vtx": 540,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0279,
+   "avgTri": 0.00071,
+   "anglePct": 68,
+   "vpt": 0.74,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "cookpot-lid",
+   "kind": "obj-kitchenware-cookware-cookpot",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.15
+   ],
+   "tris": 1780,
+   "tpu": 5190,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 48512,
+   "vtx": 1132,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00016,
+   "anglePct": 32,
+   "vpt": 0.64,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "metal-iron-cast"
+   ],
+   "variant": "v1007",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5190 over max 5000 (obj-kitchenware)"
+    }
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "cookpot",
+   "kind": "obj-kitchenware-cookware-cookpot",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "tris": 1148,
+   "tpu": 3347,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 30560,
+   "vtx": 690,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00019,
+   "anglePct": 32,
+   "vpt": 0.6,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "metal-iron-cast"
+   ],
+   "variant": "v1007"
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "cup",
+   "kind": "obj-kitchenware-tableware-drinkware",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.15
+   ],
+   "tris": 516,
+   "tpu": 1504,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12992,
+   "vtx": 260,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00016,
+   "anglePct": 17,
+   "vpt": 0.5,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "frying-pan",
+   "kind": "obj-kitchenware-cookware-pan-frying",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.2,
+    0.05
+   ],
+   "tris": 1022,
+   "tpu": 2980,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 26156,
+   "vtx": 576,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0152,
+   "avgTri": 0.0001,
+   "anglePct": 23,
+   "vpt": 0.56,
+   "grad": 0.59,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "metal-iron-cast"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "jar-yellow",
+   "kind": "obj-container-pot-jar",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 320,
+   "tpu": 933,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9700,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00015,
+   "anglePct": 30,
+   "vpt": 0.61,
+   "grad": 0.3,
+   "spread": {
+    "5,0": [
+     0.453,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.469
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#d07b56"
+   ],
+   "tags": [
+    "ceramic",
+    "wood-beam"
+   ],
+   "variant": "v1006",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.094 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "jar",
+   "kind": "obj-container-pot-jar",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 320,
+   "tpu": 933,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9680,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00015,
+   "anglePct": 30,
+   "vpt": 0.61,
+   "grad": 0.3,
+   "spread": {
+    "8,0": [
+     0.453,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.469
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#8b5936"
+   ],
+   "tags": [
+    "ceramic",
+    "wood-beam"
+   ],
+   "variant": "v1006",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.094 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "kettle",
+   "kind": "obj-kitchenware-cookware-kettle",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 1174,
+   "tpu": 3423,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 31308,
+   "vtx": 708,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.0001,
+   "anglePct": 29,
+   "vpt": 0.6,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "metal-iron-cast"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "kitchen-knife",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.01,
+    0.03
+   ],
+   "tris": 602,
+   "tpu": 1755,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17780,
+   "vtx": 392,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00002,
+   "anglePct": 77,
+   "vpt": 0.65,
+   "grad": 0.56,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "15,3": [
+     0.148,
+     0.656
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "ladle",
+   "kind": "obj-kitchenware-cookware-utensil-spoon",
+   "size": "s",
+   "wdh": [
+    0.07,
+    0.1,
+    0.15
+   ],
+   "tris": 528,
+   "tpu": 1539,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15716,
+   "vtx": 342,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00004,
+   "anglePct": 1,
+   "vpt": 0.65,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745"
+   ],
+   "tags": [
+    "metal-iron-cast"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "pepper-shaker",
+   "kind": "obj-kitchenware-tableware-serving",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.25
+   ],
+   "tris": 732,
+   "tpu": 2134,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 18304,
+   "vtx": 384,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00014,
+   "anglePct": 14,
+   "vpt": 0.52,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "plate",
+   "kind": "obj-kitchenware-tableware-plate",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.01
+   ],
+   "tris": 396,
+   "tpu": 1155,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10376,
+   "vtx": 200,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00025,
+   "anglePct": 52,
+   "vpt": 0.51,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "sink",
+   "kind": "obj-furnishing-storage-cabinet",
+   "size": "m",
+   "wdh": [
+    1.2,
+    0.6,
+    0.95
+   ],
+   "tris": 1916,
+   "tpu": 2763,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 57060,
+   "vtx": 1375,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00231,
+   "anglePct": 98,
+   "vpt": 0.72,
+   "grad": 0.6,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#b58158",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "ceramic",
+    "metal-iron-steel",
+    "wood-beam",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.2 over max 0.85 (obj-furnishing-storage-cabinet · 1.132 at kit ×1.06)"
+    }
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "spoon",
+   "kind": "obj-kitchenware-tableware-cutlery",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.05,
+    0.03
+   ],
+   "tris": 232,
+   "tpu": 676,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8480,
+   "vtx": 172,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00007,
+   "anglePct": 40,
+   "vpt": 0.74,
+   "grad": 0.59,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88848a"
+   ],
+   "tags": [
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "stool",
+   "kind": "obj-furnishing-seating-stool",
+   "size": "s",
+   "wdh": [
+    0.35,
+    0.35,
+    0.5
+   ],
+   "tris": 290,
+   "tpu": 845,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 9248,
+   "vtx": 186,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "minTube": 0.0736,
+   "avgTri": 0.00185,
+   "anglePct": 33,
+   "vpt": 0.64,
+   "grad": 0.45,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.43,
+     0.75
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "table-long",
+   "kind": "obj-furnishing-table",
+   "size": "m",
+   "wdh": [
+    1.15,
+    0.6,
+    0.45
+   ],
+   "tris": 540,
+   "tpu": 1120,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17336,
+   "vtx": 392,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0705,
+   "avgTri": 0.00431,
+   "anglePct": 89,
+   "vpt": 0.73,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "table-plank",
+   "kind": "obj-furnishing-table",
+   "size": "m",
+   "wdh": [
+    1.25,
+    0.65,
+    0.5
+   ],
+   "tris": 1000,
+   "tpu": 1800,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 27172,
+   "vtx": 611,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0944,
+   "avgTri": 0.00365,
+   "anglePct": 87,
+   "vpt": 0.61,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ],
+    "13,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "wood-beam",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "jb-kitchen",
+   "name": "table-square",
+   "kind": "obj-furnishing-table-square",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.6,
+    0.45
+   ],
+   "tris": 484,
+   "tpu": 1411,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 16008,
+   "vtx": 360,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0705,
+   "avgTri": 0.00295,
+   "anglePct": 85,
+   "vpt": 0.74,
+   "grad": 0.59,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "wood-beam",
+    "wood-worked"
+   ]
   },
   {
    "kit": "kay-adventurers",
@@ -219950,6 +221068,948 @@
     "qua",
     "stone-masonry",
     "wood-beam"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "arrow-a",
+   "kind": "obj-equipment-weapon-ranged-arrow",
+   "size": "s",
+   "wdh": [
+    0.03,
+    0.04,
+    0.4
+   ],
+   "tris": 179,
+   "tpu": 522,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 10032,
+   "vtx": 235,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0147,
+   "avgTri": 0.00009,
+   "anglePct": 17,
+   "vpt": 1.31,
+   "grad": 0.75,
+   "spread": {
+    "2,0": [
+     0.094,
+     0.906
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.32,
+     0.773
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1011"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "arrow-b",
+   "kind": "obj-equipment-weapon-ranged-arrow",
+   "size": "s",
+   "wdh": [
+    0.04,
+    0.04,
+    0.4
+   ],
+   "tris": 302,
+   "tpu": 880,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 16052,
+   "vtx": 400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0135,
+   "avgTri": 0.00007,
+   "anglePct": 49,
+   "vpt": 1.32,
+   "grad": 0.82,
+   "spread": {
+    "2,0": [
+     0.234,
+     0.906
+    ],
+    "5,2": [
+     0.016,
+     0.813
+    ],
+    "15,3": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1011"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "axe-a",
+   "kind": "obj-equipment-weapon-melee-axe-single",
+   "size": "s",
+   "wdh": [
+    0.04,
+    0.15,
+    0.35
+   ],
+   "tris": 396,
+   "tpu": 1155,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 19180,
+   "vtx": 480,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
+   "anglePct": 26,
+   "vpt": 1.21,
+   "grad": 0.48,
+   "spread": {
+    "14,3": [
+     0.336,
+     0.688
+    ],
+    "2,0": [
+     0.281,
+     0.68
+    ],
+    "15,3": [
+     0.289,
+     0.805
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "axe-b",
+   "kind": "obj-equipment-weapon-melee-axe-single",
+   "size": "m",
+   "wdh": [
+    0.05,
+    0.15,
+    0.5
+   ],
+   "tris": 818,
+   "tpu": 2385,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 35700,
+   "vtx": 917,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0367,
+   "avgTri": 0.00012,
+   "anglePct": 25,
+   "vpt": 1.12,
+   "grad": 0.91,
+   "spread": {
+    "2,0": [
+     0.156,
+     0.977
+    ],
+    "14,3": [
+     0.445,
+     0.781
+    ],
+    "15,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "battleaxe",
+   "kind": "obj-equipment-weapon-melee-axe-double",
+   "size": "m",
+   "wdh": [
+    0.06,
+    0.25,
+    0.55
+   ],
+   "tris": 976,
+   "tpu": 2845,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 49424,
+   "vtx": 1316,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0375,
+   "avgTri": 0.00014,
+   "anglePct": 38,
+   "vpt": 1.35,
+   "grad": 0.9,
+   "spread": {
+    "2,0": [
+     0.242,
+     0.977
+    ],
+    "14,3": [
+     0.148,
+     0.695
+    ],
+    "15,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "bow",
+   "kind": "obj-equipment-weapon-ranged-bow",
+   "size": "m",
+   "wdh": [
+    0.03,
+    0.65,
+    0.1
+   ],
+   "tris": 898,
+   "tpu": 2618,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 38608,
+   "vtx": 993,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0061,
+   "avgTri": 0.00007,
+   "anglePct": 42,
+   "vpt": 1.11,
+   "grad": 0.77,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "14,3": [
+     0.016,
+     0.867
+    ],
+    "15,3": [
+     0.313,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "rope",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "club-spiked-a",
+   "kind": "obj-equipment-weapon-melee-club",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.2,
+    0.55
+   ],
+   "tris": 512,
+   "tpu": 1493,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 26020,
+   "vtx": 672,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0312,
+   "avgTri": 0.00027,
+   "anglePct": 5,
+   "vpt": 1.31,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "wood-beam"
+   ],
+   "variant": "v1012"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "club-spiked-b",
+   "kind": "obj-equipment-weapon-melee-club",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.2,
+    0.55
+   ],
+   "tris": 980,
+   "tpu": 2857,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 48012,
+   "vtx": 1271,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0285,
+   "avgTri": 0.00013,
+   "anglePct": 16,
+   "vpt": 1.3,
+   "grad": 0.87,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.953
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "14,3": [
+     0.227,
+     0.727
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1012"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "shield-a-blue",
+   "kind": "obj-equipment-shield",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.25,
+    0.3
+   ],
+   "tris": 854,
+   "tpu": 2490,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 40020,
+   "vtx": 1045,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0002,
+   "anglePct": 24,
+   "vpt": 1.22,
+   "grad": 0.96,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1008"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "shield-a-white",
+   "kind": "obj-equipment-shield",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.25,
+    0.3
+   ],
+   "tris": 854,
+   "tpu": 2490,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 40020,
+   "vtx": 1045,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0002,
+   "anglePct": 24,
+   "vpt": 1.22,
+   "grad": 0.93,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.32,
+     0.875
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1008"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "shield-a",
+   "kind": "obj-equipment-shield",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.25,
+    0.3
+   ],
+   "tris": 854,
+   "tpu": 2490,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 39052,
+   "vtx": 1015,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.0002,
+   "anglePct": 24,
+   "vpt": 1.19,
+   "grad": 0.96,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "wood-beam"
+   ],
+   "variant": "v1008"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "shield-b-red",
+   "kind": "obj-equipment-shield",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.25,
+    0.3
+   ],
+   "tris": 1116,
+   "tpu": 3254,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 51832,
+   "vtx": 1365,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0211,
+   "avgTri": 0.00017,
+   "anglePct": 22,
+   "vpt": 1.22,
+   "grad": 0.94,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "8,0": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.297,
+     0.969
+    ],
+    "2,0": [
+     0.047,
+     0.977
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1009"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "shield-b-white",
+   "kind": "obj-equipment-shield",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.25,
+    0.3
+   ],
+   "tris": 1116,
+   "tpu": 3254,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 51832,
+   "vtx": 1365,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0211,
+   "avgTri": 0.00017,
+   "anglePct": 22,
+   "vpt": 1.22,
+   "grad": 0.94,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.297,
+     0.969
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1009"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "shield-b",
+   "kind": "obj-equipment-shield",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.25,
+    0.3
+   ],
+   "tris": 1116,
+   "tpu": 3254,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 50868,
+   "vtx": 1335,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0211,
+   "avgTri": 0.00017,
+   "anglePct": 22,
+   "vpt": 1.2,
+   "grad": 0.96,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "wood-beam"
+   ],
+   "variant": "v1009"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "staff-druid-a",
+   "kind": "obj-equipment-weapon-magic-staff",
+   "size": "m",
+   "wdh": [
+    0.07,
+    0.3,
+    0.55
+   ],
+   "tris": 1298,
+   "tpu": 3784,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 59744,
+   "vtx": 1578,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0186,
+   "avgTri": 0.00007,
+   "anglePct": 3,
+   "vpt": 1.22,
+   "grad": 0.86,
+   "spread": {
+    "3,0": [
+     0.016,
+     0.969
+    ],
+    "3,1": [
+     0.016,
+     0.969
+    ],
+    "6,0": [
+     0.445,
+     0.555
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#68872d",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "foliage",
+    "wood-bark"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "staff-druid-b",
+   "kind": "obj-equipment-weapon-magic-staff",
+   "size": "m",
+   "wdh": [
+    0.15,
+    0.15,
+    0.55
+   ],
+   "tris": 904,
+   "tpu": 2636,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 43876,
+   "vtx": 1156,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00011,
+   "anglePct": 2,
+   "vpt": 1.28,
+   "grad": 0.77,
+   "spread": {
+    "1,0": [
+     0.016,
+     0.969
+    ],
+    "1,1": [
+     0.102,
+     0.977
+    ],
+    "3,1": [
+     0.016,
+     0.969
+    ],
+    "6,0": [
+     0.461,
+     0.586
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#68872d",
+    "#b58158",
+    "#f2a93c"
+   ],
+   "tags": [
+    "foliage",
+    "vegetation",
+    "wood-worked"
+   ]
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "sword-a",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "size": "m",
+   "wdh": [
+    0.03,
+    0.1,
+    0.55
+   ],
+   "tris": 413,
+   "tpu": 1204,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 18544,
+   "vtx": 457,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0232,
+   "avgTri": 0.00011,
+   "anglePct": 40,
+   "vpt": 1.11,
+   "grad": 0.81,
+   "spread": {
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
+     0.156,
+     0.859
+    ],
+    "14,3": [
+     0.375,
+     0.625
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b5936",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile",
+    "wood-beam"
+   ],
+   "variant": "v1010"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "sword-b",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "size": "m",
+   "wdh": [
+    0.03,
+    0.1,
+    0.55
+   ],
+   "tris": 413,
+   "tpu": 1204,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 18544,
+   "vtx": 457,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0232,
+   "avgTri": 0.00011,
+   "anglePct": 40,
+   "vpt": 1.11,
+   "grad": 0.51,
+   "spread": {
+    "15,3": [
+     0.313,
+     0.82
+    ],
+    "14,3": [
+     0.172,
+     0.672
+    ]
+   },
+   "colors": [
+    "#88848a",
+    "#8b7561"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "textile"
+   ],
+   "variant": "v1010"
+  },
+  {
+   "kit": "rg-weapons",
+   "name": "war-horn",
+   "kind": "obj-art-instrument",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.1,
+    0.09
+   ],
+   "tris": 398,
+   "tpu": 1160,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 15672,
+   "vtx": 370,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "anglePct": 13,
+   "vpt": 0.93,
+   "grad": 0.88,
+   "spread": {
+    "5,2": [
+     0.016,
+     0.82
+    ],
+    "8,0": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.898
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#88848a",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "gemstone",
+    "metal-iron-steel"
    ]
   },
   {
