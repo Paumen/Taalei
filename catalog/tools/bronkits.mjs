@@ -138,4 +138,8 @@ export const BRONKITS = [
   { map: 'kenney_mini-skate', naam: 'Kenney Mini Skate', kit: 'ken-skate', source: 'ken', formaat: 'glb' },
   { map: 'kenney_mini-arena_1', naam: 'Kenney Mini Arena', kit: 'ken-arena', source: 'ken', formaat: 'glb' },
   { map: 'kenney_city-kit-roads', naam: 'Kenney City Kit Roads', kit: 'ken-roads', source: 'ken', formaat: 'glb' },
+
+  { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: null, formaat: 'glb', extraFormaten: ['fbx'] },
+  { map: 'JayBee_Medieval_Kitchen', naam: 'Low Poly Medieval Kitchen Furniture', kit: null, formaat: 'glb', extraFormaten: ['fbx'], schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Food_Pack', naam: 'Food Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
 ];
