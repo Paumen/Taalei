@@ -658,7 +658,6 @@
       {
        "id": "obj-food-vegetable",
        "nouns": [
-        "turnip",
         "potato"
        ],
        "children": [
@@ -669,14 +668,6 @@
          "nouns": [
           "pumpkin",
           "jackolantern"
-         ]
-        },
-        {
-         "id": "obj-food-vegetable-carrot",
-         "longest.min": 0.05,
-         "longest.max": 0.3,
-         "nouns": [
-          "carrot"
          ]
         },
         {
@@ -722,6 +713,43 @@
           "capsicum",
           "bell pepper"
          ]
+        },
+        {
+         "id": "obj-food-vegetable-broccoli",
+         "longest.min": 0.1,
+         "longest.max": 0.3,
+         "nouns": [
+          "broccoli"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-corn",
+         "longest.min": 0.15,
+         "longest.max": 0.35,
+         "nouns": [
+          "corn",
+          "maize"
+         ]
+        },
+        {
+         "id": "obj-food-vegetable-root",
+         "longest.min": 0.05,
+         "longest.max": 0.4,
+         "nouns": [
+          "turnip",
+          "radish",
+          "beetroot"
+         ],
+         "children": [
+          {
+           "id": "obj-food-vegetable-root-carrot",
+           "longest.min": 0.05,
+           "longest.max": 0.3,
+           "nouns": [
+            "carrot"
+           ]
+          }
+         ]
         }
        ]
       },
@@ -758,8 +786,7 @@
       {
        "id": "obj-food-fruit",
        "nouns": [
-        "fruit",
-        "avocado"
+        "fruit"
        ],
        "children": [
         {
@@ -792,6 +819,72 @@
          "longest.max": 0.35,
          "nouns": [
           "grapes"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-lemon",
+         "longest.min": 0.05,
+         "longest.max": 0.15,
+         "nouns": [
+          "lemon"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-mango",
+         "longest.min": 0.08,
+         "longest.max": 0.2,
+         "nouns": [
+          "mango"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-orange",
+         "longest.min": 0.05,
+         "longest.max": 0.2,
+         "nouns": [
+          "orange"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-pineapple",
+         "longest.min": 0.2,
+         "longest.max": 0.4,
+         "nouns": [
+          "pineapple"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-pear",
+         "longest.min": 0.08,
+         "longest.max": 0.2,
+         "nouns": [
+          "pear"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-melon",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "melon",
+          "watermelon"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-cherry",
+         "longest.min": 0.02,
+         "longest.max": 0.15,
+         "nouns": [
+          "cherry",
+          "cherries"
+         ]
+        },
+        {
+         "id": "obj-food-fruit-avocado",
+         "longest.min": 0.05,
+         "longest.max": 0.2,
+         "nouns": [
+          "avocado"
          ]
         }
        ]
@@ -1136,6 +1229,14 @@
               "rifle"
              ]
             }
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-ranged-grenade",
+           "longest.min": 0.06,
+           "longest.max": 0.3,
+           "nouns": [
+            "grenade"
            ]
           }
          ]
@@ -2534,10 +2635,20 @@
        "high.min": 0.15,
        "high.max": 1.2,
        "nouns": [
-        "traffic cone",
         "traffic barrier",
         "traffic drum",
         "traffic light"
+       ],
+       "children": [
+        {
+         "id": "str-barrier-traffic-cone",
+         "high.min": 0.15,
+         "high.max": 0.8,
+         "nouns": [
+          "traffic cone",
+          "pylon"
+         ]
+        }
        ]
       },
       {
@@ -2878,7 +2989,6 @@
     {
      "id": "env-remains",
      "nouns": [
-      "shell",
       "egg (wild)",
       "nest",
       "feather"
@@ -2964,6 +3074,15 @@
           "driftwood"
          ]
         }
+       ]
+      },
+      {
+       "id": "env-remains-shell",
+       "longest.min": 0.03,
+       "longest.max": 0.3,
+       "nouns": [
+        "shell",
+        "seashell"
        ]
       }
      ]
