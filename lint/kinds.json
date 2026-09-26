@@ -890,13 +890,25 @@
        ]
       },
       {
-       "id": "obj-food-cheese",
-       "high.min": 0.05,
-       "high.max": 0.25,
+       "id": "obj-food-dairy",
+       "longest.min": 0.05,
+       "longest.max": 0.17,
        "nouns": [
-        "cheese",
-        "cheese wheel",
-        "cheese wedge"
+        "yogurt",
+        "yoghurt",
+        "dairy"
+       ],
+       "children": [
+        {
+         "id": "obj-food-dairy-cheese",
+         "high.min": 0.05,
+         "high.max": 0.25,
+         "nouns": [
+          "cheese",
+          "cheese wheel",
+          "cheese wedge"
+         ]
+        }
        ]
       },
       {
@@ -932,6 +944,18 @@
        "longest.max": 0.25,
        "nouns": [
         "egg"
+       ]
+      },
+      {
+       "id": "obj-food-meal",
+       "longest.min": 0.14,
+       "longest.max": 0.4,
+       "nouns": [
+        "meal",
+        "plated meal",
+        "stew",
+        "soup",
+        "taco"
        ]
       },
       {
@@ -1498,13 +1522,7 @@
      "id": "obj-tool",
      "mat.metal": "metal-iron",
      "mat.metal-iron": "metal-iron-steel",
-     "nouns": [
-      "lever",
-      "spring",
-      "gear",
-      "pulley",
-      "button (floor)"
-     ],
+     "nouns": [],
      "children": [
       {
        "id": "obj-tool-hand",
@@ -1614,6 +1632,35 @@
         "grindstone",
         "workbench (grinding)"
        ]
+      },
+      {
+       "id": "obj-tool-mechanism",
+       "longest.min": 0.13,
+       "longest.max": 1.15,
+       "nouns": [
+        "lever",
+        "spring",
+        "gear",
+        "pulley",
+        "button (floor)",
+        "bear trap"
+       ]
+      },
+      {
+       "id": "obj-tool-stationery",
+       "tube.share": 0,
+       "longest.min": 0.08,
+       "longest.max": 0.5,
+       "nouns": [
+        "pencil",
+        "pen",
+        "scissors",
+        "drafting compass",
+        "ruler"
+       ],
+       "scale": {
+        "small": 0.5
+       }
       }
      ]
     },
@@ -1768,8 +1815,7 @@
        "id": "obj-lighting-lantern",
        "tube.share": 0,
        "nouns": [
-        "lantern",
-        "lamp"
+        "lantern"
        ],
        "children": [
         {
@@ -1799,6 +1845,18 @@
           "hand lantern",
           "hanging lantern",
           "standing lantern"
+         ]
+        },
+        {
+         "id": "obj-lighting-lantern-lamp",
+         "longest.min": 0.14,
+         "longest.max": 1.1,
+         "nouns": [
+          "lamp",
+          "table lamp",
+          "floor lamp",
+          "wall lamp",
+          "ceiling lamp"
          ]
         }
        ]
@@ -1947,6 +2005,16 @@
           "bell"
          ]
         }
+       ]
+      },
+      {
+       "id": "obj-art-frame",
+       "longest.min": 0.06,
+       "longest.max": 0.9,
+       "nouns": [
+        "picture frame",
+        "painting",
+        "photo"
        ]
       }
      ]
@@ -2102,6 +2170,19 @@
         "rug",
         "carpet",
         "picnic blanket"
+       ]
+      },
+      {
+       "id": "obj-furnishing-bathroom",
+       "longest.min": 0.23,
+       "longest.max": 1.35,
+       "nouns": [
+        "toilet",
+        "bathtub",
+        "shower",
+        "bathroom sink",
+        "bathroom mirror",
+        "towel rail"
        ]
       }
      ]
@@ -2383,6 +2464,16 @@
           "scaffolding"
          ]
         }
+       ]
+      },
+      {
+       "id": "str-part-corridor",
+       "longest.min": 0.5,
+       "longest.max": 3.2,
+       "nouns": [
+        "corridor",
+        "tunnel",
+        "hallway"
        ]
       }
      ]
@@ -2933,6 +3024,17 @@
       "sandbox",
       "stepping stumps"
      ]
+    },
+    {
+     "id": "str-leisure",
+     "longest.min": 0.8,
+     "longest.max": 4.1,
+     "nouns": [
+      "ferris wheel",
+      "grandstand",
+      "grand stand",
+      "bleachers"
+     ]
     }
    ]
   },
@@ -2966,8 +3068,6 @@
      "tpu.max": 10000,
      "nouns": [
       "mammal",
-      "bird",
-      "insect",
       "starfish",
       "octopus",
       "crab",
@@ -2982,6 +3082,23 @@
        "longest.max": 0.4,
        "nouns": [
         "fish"
+       ]
+      },
+      {
+       "id": "env-fauna-bird",
+       "longest.min": 0.05,
+       "longest.max": 0.3,
+       "nouns": [
+        "bird"
+       ]
+      },
+      {
+       "id": "env-fauna-insect",
+       "longest.min": 0.07,
+       "longest.max": 0.14,
+       "nouns": [
+        "insect",
+        "dragonfly"
        ]
       }
      ]

@@ -1141,7 +1141,11 @@
    "name": "Avocado"
   },
   {
-   "id": "obj-food-cheese",
+   "id": "obj-food-dairy",
+   "name": "Dairy"
+  },
+  {
+   "id": "obj-food-dairy-cheese",
    "name": "Cheese"
   },
   {
@@ -1159,6 +1163,10 @@
   {
    "id": "obj-food-egg",
    "name": "Egg"
+  },
+  {
+   "id": "obj-food-meal",
+   "name": "Meal"
   },
   {
    "id": "obj-food-baked",
@@ -1429,6 +1437,14 @@
    "name": "Station"
   },
   {
+   "id": "obj-tool-mechanism",
+   "name": "Mechanism"
+  },
+  {
+   "id": "obj-tool-stationery",
+   "name": "Stationery"
+  },
+  {
    "id": "obj-transport",
    "name": "Transport"
   },
@@ -1505,6 +1521,10 @@
    "name": "Handheld"
   },
   {
+   "id": "obj-lighting-lantern-lamp",
+   "name": "Lamp"
+  },
+  {
    "id": "obj-lighting-torch",
    "name": "Torch"
   },
@@ -1569,6 +1589,10 @@
    "name": "Bell"
   },
   {
+   "id": "obj-art-frame",
+   "name": "Picture frame"
+  },
+  {
    "id": "obj-symbol",
    "name": "Symbol"
   },
@@ -1631,6 +1655,10 @@
   {
    "id": "obj-furnishing-rug",
    "name": "Rug"
+  },
+  {
+   "id": "obj-furnishing-bathroom",
+   "name": "Bathroom"
   },
   {
    "id": "obj-toy",
@@ -1743,6 +1771,10 @@
   {
    "id": "str-part-frame-scaffold",
    "name": "Scaffold"
+  },
+  {
+   "id": "str-part-corridor",
+   "name": "Corridor"
   },
   {
    "id": "str-building",
@@ -1965,6 +1997,10 @@
    "name": "Playground"
   },
   {
+   "id": "str-leisure",
+   "name": "Leisure"
+  },
+  {
    "id": "env",
    "name": "Environment"
   },
@@ -1979,6 +2015,14 @@
   {
    "id": "env-fauna-fish",
    "name": "Fish"
+  },
+  {
+   "id": "env-fauna-bird",
+   "name": "Bird"
+  },
+  {
+   "id": "env-fauna-insect",
+   "name": "Insect"
   },
   {
    "id": "env-remains",
@@ -4250,7 +4294,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "button-floor-round-small",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.2,
     0.1,
@@ -4266,7 +4310,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "button-floor-round",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.4,
     0.1,
@@ -4470,7 +4514,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "lever-double",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.4,
     0.3,
@@ -4486,7 +4530,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "lever-single",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.4,
     0.3,
@@ -7532,7 +7576,7 @@
   {
    "kit": "Pretty_park_set",
    "name": "Bird",
-   "kind": "env-fauna",
+   "kind": "env-fauna-bird",
    "wdh": [
     0.1,
     0.1,
@@ -14012,7 +14056,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "button-floor-square-small",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.3,
     0.1,
@@ -14028,7 +14072,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "button-floor-square",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -19304,6 +19348,7 @@
   {
    "kit": "KayKit_Space_Base_Bits_1.0_FREE",
    "name": "tunnel_diagonal_short_B",
+   "kind": "str-part-corridor",
    "wdh": [
     1,
     0.7,
@@ -19319,6 +19364,7 @@
   {
    "kit": "KayKit_Space_Base_Bits_1.0_FREE",
    "name": "tunnel_straight_B",
+   "kind": "str-part-corridor",
    "wdh": [
     2.2,
     0.7,
@@ -20898,7 +20944,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "button_base_blue",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -21897,7 +21943,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "button_base_green",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -22874,7 +22920,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "spring_pad_green",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.3,
@@ -23546,7 +23592,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "button_base_red",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -24512,7 +24558,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "spring_pad_red",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.3,
@@ -24884,7 +24930,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "button_base_yellow",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.1,
@@ -25861,7 +25907,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "spring_pad_yellow",
-   "kind": "obj-tool",
+   "kind": "obj-tool-mechanism",
    "wdh": [
     0.5,
     0.3,
