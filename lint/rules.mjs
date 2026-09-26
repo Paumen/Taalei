@@ -1,5 +1,5 @@
 export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
-export const KIND_FIELDS = ['bands.max'];
+export const KIND_FIELDS = ['bands.max', 'tube.min', 'tube.share', 'tube.cap'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
@@ -161,7 +161,7 @@ export function buildKindFields(kinds) {
   return byKind;
 }
 
-function withKindFields(model, kindFields) {
+export function withKindFields(model, kindFields) {
   if (!kindFields) return model;
   const fields = kindFields.get(model.kind) ?? kindFields.get(null);
   return {
@@ -321,8 +321,14 @@ const NUMERIC_OPS = {
   '<=': (a, b) => a <= b,
 };
 
+export function tubeNeed(model) {
+  const share = Math.max(...(model.wdh ?? [0])) * (model.tubeshare ?? 0);
+  return Math.max(model.tubemin ?? 0, Math.min(model.tubecap ?? Infinity, share));
+}
+
 export function fieldOf(model, name, materialIds, vars) {
   if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
+  if (name === 'tubeneed') return tubeNeed(model);
   if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
   return model[name];
 }
