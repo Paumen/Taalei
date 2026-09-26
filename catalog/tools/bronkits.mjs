@@ -142,4 +142,15 @@ export const BRONKITS = [
   { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: 'rg-weapons', formaat: 'glb', extraFormaten: ['fbx'] },
   { map: 'JayBee_Medieval_Kitchen', naam: 'Low Poly Medieval Kitchen Furniture', kit: 'jb-kitchen', formaat: 'glb', extraFormaten: ['fbx'], schaalPerFormaat: { fbx: 0.01 } },
   { map: 'Food_Pack', naam: 'Food Pack', kit: 'food-pack-2', formaat: 'glb', splitsPerMesh: true },
+
+  { map: 'kenney_blaster-kit_2.1', naam: 'Kenney Blaster Kit', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_factory-kit_3.0', naam: 'Kenney Factory Kit', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_racing-kit', naam: 'Kenney Racing Kit', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_space-kit', naam: 'Kenney Space Kit', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_modular-buildings', naam: 'Kenney Modular Buildings', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_space-station-kit', naam: 'Kenney Space Station Kit', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'KayKit_Space_Base_Bits_1.0_FREE', naam: 'KayKit Space Base Bits', kit: null, source: 'kay', formaat: 'gltf' },
+  { map: 'KayKit_Prototype_Bits_1.1_FREE', naam: 'KayKit Prototype Bits', kit: null, source: 'kay', formaat: 'gltf' },
+  { map: 'KayKit_BlockBits_1.0_FREE', naam: 'KayKit Block Bits', kit: null, source: 'kay', formaat: 'gltf' },
+  { map: 'KayKit_Platformer_Pack_1.0_FREE', naam: 'KayKit Platformer Pack', kit: null, source: 'kay', formaat: 'gltf', alleMappen: true },
 ];
