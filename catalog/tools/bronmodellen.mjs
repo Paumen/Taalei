@@ -82,6 +82,7 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
   if (!mappen) return null;
 
   const wortel = gemeenschappelijkeMap(mappen);
+  const schaal = bronkit.schaalPerFormaat?.[formaat] ?? 1;
 
   const modellen = [];
   for (const map of mappen) {
@@ -93,6 +94,7 @@ function bronFormaatModellen(bronkit, uitgepakt, formaat) {
       const bestand = relative(wortel, join(map, naamBestand));
       const primitieven = leesBron(join(map, naamBestand), formaat);
       if (primitieven.length === 0) continue;
+      if (schaal !== 1) for (const p of primitieven) p.posities = p.posities.map((v) => v * schaal);
 
       if (bronkit.splitsPerMesh) {
         const perMesh = new Map();
