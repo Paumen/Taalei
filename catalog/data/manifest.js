@@ -5517,6 +5517,7 @@ window.KENNEY_KITS = [
    "locomotive-b",
    "locomotive-c",
    "train-bullet",
+   "train-city",
    "train-double",
    "train-square",
    "train-subway",
