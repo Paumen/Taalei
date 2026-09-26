@@ -661,7 +661,7 @@ const rows = models.map((m) => {
     grounded: m.isGrounded || undefined,
     centered: m.pivotIsCenter || undefined,
     minEdge: round(m.minEdgeLength, 4),
-    minTube: m.minTube === null ? undefined : round(m.minTube, 4),
+    minTube: m.minTube === null ? undefined : Math.floor(m.minTube * 1e4) / 1e4,
     avgTri: round(m.averageTriangleArea, 5),
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
