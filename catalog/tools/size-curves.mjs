@@ -348,7 +348,8 @@ const gather = () => {
     if (!(u > 0)) continue;
     picked.push({
       kit: model.collection ?? model.kit, name: model.collection ? `${model.kit}/${model.name}` : model.name,
-      kind: assumed.group ?? model.kind, wdh: model.wdh.join(','),
+      kind: assumed.group ?? model.kind,
+      shape: [...model.wdh.slice(0, 2).sort((a, b) => a - b), model.wdh[2]].join(','),
       u, real: assumed.real, high: assumed.high,
     });
   }
@@ -368,7 +369,7 @@ const pointsOf = (models) => {
     const reals = members.map((m) => m.real).sort((a, b) => a - b);
     const mid = (arr) => (arr.length % 2 ? arr[(arr.length - 1) / 2] : (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2);
     pts.push({
-      kind, n: members.length, d: new Set(members.map((m) => m.wdh)).size,
+      kind, n: members.length, d: new Set(members.map((m) => m.shape)).size,
       x: round3(Math.log2(mid(reals))), y: round3(mid(ratios)), members,
     });
   }
