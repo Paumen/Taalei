@@ -13,7 +13,10 @@ const HELP = `adopt.mjs <plan.json>
 
 Writes a workfile in kits/workfiles/<kit> for every entry of the plan, from the
 model the entry names in a source pack. Geometry, normals and triangles are the
-source's; the pack's own colours are replaced by the bands of kits/colormap.png.
+source's, except that of two coincident triangles facing opposite ways the one
+facing into the model moves along its normal by 0.2% of the longest extent, so
+the two no longer fight; the pack's own colours are replaced by the bands of
+kits/colormap.png.
 
 A plan is a list of entries:
 
@@ -21,7 +24,9 @@ A plan is a list of entries:
   src        model name in that pack, as the TBD tab spells it
   kit        kit slug under kits/workfiles
   name       workfile name, without .glb
-  bands      one band per source colour cluster, in cluster order
+  bands      one band per source colour cluster, in cluster order; clusters
+             given the same band keep their lightness relative to each other,
+             and a triangle takes the band most of its corners have
   threshold  optional: how far apart two source colours are one cluster (48)
   scale      optional: overrides the kit's own scale
 
@@ -189,6 +194,79 @@ function clusters(model, images, threshold) {
   return merged.sort((a, b) => b.n - a.n);
 }
 
+function hits(positions, triangles, origin, direction, self) {
+  let n = 0;
+  for (let t = 0; t < triangles.length; t += 3) {
+    if (t === self) continue;
+    const [a, b, c] = [0, 1, 2].map((k) => positions.slice(triangles[t + k] * 3, triangles[t + k] * 3 + 3));
+    const e1 = [0, 1, 2].map((k) => b[k] - a[k]);
+    const e2 = [0, 1, 2].map((k) => c[k] - a[k]);
+    const p = [
+      direction[1] * e2[2] - direction[2] * e2[1],
+      direction[2] * e2[0] - direction[0] * e2[2],
+      direction[0] * e2[1] - direction[1] * e2[0],
+    ];
+    const det = e1[0] * p[0] + e1[1] * p[1] + e1[2] * p[2];
+    if (Math.abs(det) < 1e-12) continue;
+    const s = [0, 1, 2].map((k) => origin[k] - a[k]);
+    const u = (s[0] * p[0] + s[1] * p[1] + s[2] * p[2]) / det;
+    if (u < 0 || u > 1) continue;
+    const q = [s[1] * e1[2] - s[2] * e1[1], s[2] * e1[0] - s[0] * e1[2], s[0] * e1[1] - s[1] * e1[0]];
+    const v = (direction[0] * q[0] + direction[1] * q[1] + direction[2] * q[2]) / det;
+    if (v < 0 || u + v > 1) continue;
+    if ((e2[0] * q[0] + e2[1] * q[1] + e2[2] * q[2]) / det > 1e-6) n++;
+  }
+  return n;
+}
+
+function insetInnerTwins(positions, normals, triangles) {
+  const key = (t) => [0, 1, 2]
+    .map((k) => positions.slice(triangles[t + k] * 3, triangles[t + k] * 3 + 3).map((v) => Math.round(v * 1e5)).join(','))
+    .sort()
+    .join(' ');
+  const byKey = new Map();
+  for (let t = 0; t < triangles.length; t += 3) {
+    const k = key(t);
+    if (byKey.has(k)) byKey.get(k).push(t);
+    else byKey.set(k, [t]);
+  }
+  const inner = [];
+  for (const twins of byKey.values()) {
+    if (twins.length < 2) continue;
+    for (const t of twins) {
+      const [a, b, c] = [0, 1, 2].map((k) => positions.slice(triangles[t + k] * 3, triangles[t + k] * 3 + 3));
+      const e1 = [0, 1, 2].map((k) => b[k] - a[k]);
+      const e2 = [0, 1, 2].map((k) => c[k] - a[k]);
+      const face = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+      const area = Math.hypot(...face);
+      if (!area) continue;
+      const out = face.map((v) => v / area);
+      const middle = [0, 1, 2].map((k) => (a[k] + b[k] + c[k]) / 3);
+      const ahead = hits(positions, triangles, middle, out, t) === 0;
+      const behind = hits(positions, triangles, middle, out.map((v) => -v), t) === 0;
+      if (behind && !ahead) inner.push(t);
+    }
+  }
+  if (!inner.length) return;
+  let longest = 0;
+  for (let k = 0; k < 3; k++) {
+    const axis = positions.filter((_, i) => i % 3 === k);
+    longest = Math.max(longest, Math.max(...axis) - Math.min(...axis));
+  }
+  const step = longest * 0.002;
+  const moved = new Set();
+  for (const t of inner) {
+    for (let k = 0; k < 3; k++) {
+      const i = triangles[t + k];
+      if (moved.has(i)) continue;
+      moved.add(i);
+      const n = normals.slice(i * 3, i * 3 + 3);
+      const length = Math.hypot(...n) || 1;
+      for (let j = 0; j < 3; j++) positions[i * 3 + j] = Math.fround(positions[i * 3 + j] + (n[j] / length) * step);
+    }
+  }
+}
+
 function adopt(entry) {
   const { pack, src, kit, name, bands, threshold = 48 } = entry;
   const { bronkit, modellen, images } = loadPack(pack);
@@ -201,12 +279,18 @@ function adopt(entry) {
     throw new Error(`${kit}/${name}: ${groups.length} source colours, ${bands.length} bands given`);
   }
 
+  const pooled = new Map();
+  groups.forEach((group, i) => {
+    const sum = pooled.get(bands[i]) ?? { weight: 0, n: 0 };
+    sum.weight += group.lightness * group.n;
+    sum.n += group.n;
+    pooled.set(bands[i], sum);
+  });
   const bandPerColor = new Map();
   groups.forEach((group, i) => {
-    for (const one of group.colors) {
-      bandPerColor.set(one.color.join(','), { band: bands[i], lightness: group.lightness });
-    }
+    for (const one of group.colors) bandPerColor.set(one.color.join(','), bands[i]);
   });
+  const middleOf = (band) => pooled.get(band).weight / pooled.get(band).n;
 
   const low = [Infinity, Infinity, Infinity];
   const high = [-Infinity, -Infinity, -Infinity];
@@ -228,15 +312,12 @@ function adopt(entry) {
 
   for (const primitive of model.primitieven) {
     const colors = sourceColors(primitive, images);
-    const moved = new Int32Array(colors.length).fill(-1);
-    for (const index of primitive.indices) {
-      if (moved[index] >= 0) continue;
+    const vertex = (index, band) => {
       const position = [0, 1, 2].map((k) => Math.fround(primitive.posities[index * 3 + k] - middle[k]));
       const normal = primitive.normalen
         ? [0, 1, 2].map((k) => Math.fround(primitive.normalen[index * 3 + k]))
         : [0, 1, 0];
-      const from = bandPerColor.get(colors[index].join(','));
-      const uv = bandUv(from.band, lane(from.band).middle + (lightness(colors[index]) - from.lightness));
+      const uv = bandUv(band, lane(band).middle + (lightness(colors[index]) - middleOf(band)));
       const key = [...position, ...normal, ...uv].join(',');
       let at = known.get(key);
       if (at === undefined) {
@@ -246,11 +327,14 @@ function adopt(entry) {
         normals.push(...normal);
         uvs.push(Math.fround(uv[0]), Math.fround(uv[1]));
       }
-      moved[index] = at;
-    }
+      return at;
+    };
 
     for (let t = 0; t < primitive.indices.length; t += 3) {
-      const corner = [0, 1, 2].map((k) => moved[primitive.indices[t + k]]);
+      const indices = [0, 1, 2].map((k) => primitive.indices[t + k]);
+      const cornerBands = indices.map((index) => bandPerColor.get(colors[index].join(',')));
+      const band = cornerBands.find((one, k) => cornerBands.indexOf(one) !== k) ?? cornerBands[0];
+      const corner = indices.map((index) => vertex(index, band));
       const point = corner.map((i) => positions.slice(i * 3, i * 3 + 3));
       const edge1 = [0, 1, 2].map((k) => point[1][k] - point[0][k]);
       const edge2 = [0, 1, 2].map((k) => point[2][k] - point[0][k]);
@@ -268,6 +352,8 @@ function adopt(entry) {
       else triangles.push(...corner);
     }
   }
+
+  insetInnerTwins(positions, normals, triangles);
 
   const count = positions.length / 3;
   const min = [Infinity, Infinity, Infinity];
