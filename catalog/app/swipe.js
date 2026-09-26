@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=a6483e2000';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=a6483e2000';
-import { renderCommentBox } from './comments.js?v=a6483e2000';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a6483e2000';
-import './bouwstempel.js?v=a6483e2000';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=77e2f34fd2';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=77e2f34fd2';
+import { renderCommentBox } from './comments.js?v=77e2f34fd2';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=77e2f34fd2';
+import './bouwstempel.js?v=77e2f34fd2';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -473,7 +473,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=a6483e2000'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=77e2f34fd2'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
