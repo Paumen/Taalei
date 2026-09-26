@@ -11,6 +11,7 @@
   { "id": "G13", "when": "*", "except": "kind:char | size:l | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "bandsmax" },
   { "id": "G14", "when": "kind:char", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
   { "id": "G15", "when": "size:l", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
-  { "id": "G19", "when": "kind:obj-container-barrel", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" }
+  { "id": "G19", "when": "kind:obj-container-barrel", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" },
+  { "id": "G27", "when": "minTube>0", "field": "minTube", "assert": "min", "value": 0.006 }
  ]
 }

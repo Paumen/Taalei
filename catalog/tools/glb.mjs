@@ -381,3 +381,127 @@ export function trianglesPerUnit(triangles, wdh) {
   const cells = Math.max(0.49, wdh[0] * wdh[1]) * Math.max(0.7, wdh[2]);
   return Math.round(triangles / cells);
 }
+
+function worldMatrices(json) {
+  const nodes = json.nodes ?? [];
+  const world = new Array(nodes.length).fill(null);
+  const setWorld = (index, parent) => {
+    if (world[index] || !nodes[index]) return;
+    world[index] = multiplyMatrix(parent, nodeMatrix(nodes[index]));
+    for (const child of nodes[index].children ?? []) setWorld(child, world[index]);
+  };
+  for (const index of json.scenes?.[json.scene ?? 0]?.nodes ?? []) setWorld(index, IDENTITY_MATRIX);
+  return world;
+}
+
+function symmetricEigen(c) {
+  const a = c.map((r) => r.slice());
+  const v = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+  for (let it = 0; it < 50; it++) {
+    let p = 0, q = 1, m = Math.abs(a[0][1]);
+    if (Math.abs(a[0][2]) > m) { p = 0; q = 2; m = Math.abs(a[0][2]); }
+    if (Math.abs(a[1][2]) > m) { p = 1; q = 2; m = Math.abs(a[1][2]); }
+    if (m < 1e-18) break;
+    const th = 0.5 * Math.atan2(2 * a[p][q], a[q][q] - a[p][p]);
+    const cs = Math.cos(th), sn = Math.sin(th);
+    for (let k = 0; k < 3; k++) { const x = a[k][p], y = a[k][q]; a[k][p] = cs * x - sn * y; a[k][q] = sn * x + cs * y; }
+    for (let k = 0; k < 3; k++) { const x = a[p][k], y = a[q][k]; a[p][k] = cs * x - sn * y; a[q][k] = sn * x + cs * y; }
+    for (let k = 0; k < 3; k++) { const x = v[k][p], y = v[k][q]; v[k][p] = cs * x - sn * y; v[k][q] = sn * x + cs * y; }
+  }
+  return [0, 1, 2].map((i) => ({ value: a[i][i], vector: [v[0][i], v[1][i], v[2][i]] })).sort((x, y) => y.value - x.value);
+}
+
+export const TUBE_SLICES = 8;
+
+export function measureTubes(glb) {
+  const { json } = glb;
+  const world = worldMatrices(json);
+  const scaleOf = new Map();
+  (json.nodes ?? []).forEach((node, i) => {
+    if (node.mesh === undefined || scaleOf.has(node.mesh) || !world[i]) return;
+    const m = world[i];
+    const det = m[0] * (m[5] * m[10] - m[9] * m[6]) - m[4] * (m[1] * m[10] - m[9] * m[2]) + m[8] * (m[1] * m[6] - m[5] * m[2]);
+    scaleOf.set(node.mesh, node.skin === undefined ? Math.cbrt(Math.abs(det)) : 1);
+  });
+  const meshOf = new Map();
+  (json.meshes ?? []).forEach((mesh, i) => { for (const prim of mesh.primitives ?? []) meshOf.set(prim, i); });
+
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+  const tubes = [];
+  let shellBase = 0;
+  for (const group of meshShells(glb)) {
+    const scale = scaleOf.get(meshOf.get(group.prim)) ?? 1;
+    const pos = readAccessor(glb, group.prim.attributes.POSITION);
+    const key = (i) => [0, 1, 2].map((k) => Math.round(pos.data[i * 3 + k] * 1e4)).join(',');
+    const parent = group.members.map((_, i) => i);
+    const find = (i) => { while (parent[i] !== i) i = parent[i] = parent[parent[i]]; return i; };
+    const owner = new Map();
+    group.members.forEach((members, s) => {
+      for (const v of members) {
+        const k = key(v);
+        if (!owner.has(k)) { owner.set(k, s); continue; }
+        const a = find(owner.get(k)), b = find(s);
+        if (a !== b) parent[Math.max(a, b)] = Math.min(a, b);
+      }
+    });
+    const parts = new Map();
+    group.members.forEach((members, s) => {
+      const root = find(s);
+      if (!parts.has(root)) parts.set(root, { shells: [], vertices: [], points: new Map() });
+      const part = parts.get(root);
+      part.shells.push(shellBase + s + 1);
+      for (const v of members) {
+        part.vertices.push(v);
+        part.points.set(key(v), [pos.data[v * 3], pos.data[v * 3 + 1], pos.data[v * 3 + 2]]);
+      }
+    });
+    shellBase += group.members.length;
+
+    for (const part of parts.values()) {
+      const points = [...part.points.values()];
+      if (points.length < 10) continue;
+      const center = [0, 1, 2].map((k) => points.reduce((s, p) => s + p[k], 0) / points.length);
+      const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+      for (const p of points) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) cov[i][j] += (p[i] - center[i]) * (p[j] - center[j]);
+      const [{ vector: axis }, { vector: u }, { vector: w }] = symmetricEigen(cov);
+      const local = points.map((p) => {
+        const d = [p[0] - center[0], p[1] - center[1], p[2] - center[2]];
+        return [dot(d, axis), dot(d, u), dot(d, w)];
+      });
+      const tMin = Math.min(...local.map((l) => l[0]));
+      const span = Math.max(...local.map((l) => l[0])) - tMin;
+      if (!(span > 0)) continue;
+      const slices = Array.from({ length: TUBE_SLICES }, () => []);
+      for (const l of local) slices[Math.min(TUBE_SLICES - 1, Math.floor((l[0] - tMin) / span * TUBE_SLICES))].push(l);
+      const rings = [];
+      let round = true;
+      for (const slice of slices) {
+        if (slice.length < 5) continue;
+        const cu = slice.reduce((s, l) => s + l[1], 0) / slice.length;
+        const cw = slice.reduce((s, l) => s + l[2], 0) / slice.length;
+        const reach = slice.map((l) => Math.hypot(l[1] - cu, l[2] - cw));
+        const far = Math.max(...reach);
+        const rim = slice.filter((_, i) => reach[i] > 0.35 * far);
+        const radii = reach.filter((r) => r > 0.35 * far).sort((a, b) => a - b);
+        const directions = new Set(rim.map((l) => Math.round(Math.atan2(l[2] - cw, l[1] - cu) / (Math.PI / 12))));
+        if (directions.size < 5 || radii[radii.length - 1] / radii[0] > 2.5) { round = false; break; }
+        const t = slice.reduce((s, l) => s + l[0], 0) / slice.length;
+        rings.push({ t, cu, cw, radius: radii[Math.floor(radii.length / 2)] });
+      }
+      if (!round || rings.length < 2) continue;
+      const radii = rings.map((r) => r.radius).sort((a, b) => a - b);
+      const radius = radii[Math.floor(radii.length / 2)];
+      if (!(radius > 0) || span < 5 * radius || radii[radii.length - 1] > 2.5 * radii[0]) continue;
+      tubes.push({
+        prim: group.prim,
+        shells: part.shells,
+        vertices: part.vertices,
+        diameter: 2 * radius * scale,
+        length: span * scale,
+        scale,
+        frame: { center, axis, u, w, rings },
+      });
+    }
+  }
+  return tubes;
+}

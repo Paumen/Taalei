@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, trianglesPerUnit } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, measureTubes, trianglesPerUnit } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
@@ -297,6 +297,7 @@ for (const slug of kitSlugs) {
     const glb = readGlb(join(dir, file));
     const gltf = glb.json;
     const scene = measureScene(glb);
+    const tubes = measureTubes(glb);
     const origin = gltf.asset?.extras?.taaleiland ?? {};
     tally(scales, origin.schaal ?? 'none');
     tally(smooth, origin.schaduw?.modus === 'glad' ? origin.schaduw.drempel : 'none');
@@ -329,6 +330,7 @@ for (const slug of kitSlugs) {
       isGrounded: scene.isGrounded,
       pivotIsCenter: scene.pivotIsCenter,
       minEdgeLength: scene.minEdgeLength,
+      minTube: tubes.length ? Math.min(...tubes.map((t) => t.diameter)) : null,
       averageTriangleArea: scene.averageTriangleArea,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
@@ -659,6 +661,7 @@ const rows = models.map((m) => {
     grounded: m.isGrounded || undefined,
     centered: m.pivotIsCenter || undefined,
     minEdge: round(m.minEdgeLength, 4),
+    minTube: m.minTube === null ? undefined : round(m.minTube, 4),
     avgTri: round(m.averageTriangleArea, 5),
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
