@@ -1,5 +1,5 @@
 export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
-export const KIND_FIELDS = ['bands.max', 'tube.min', 'tube.share', 'tube.cap'];
+export const KIND_FIELDS = ['bands.max', 'tube.min'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
@@ -322,8 +322,7 @@ const NUMERIC_OPS = {
 };
 
 export function tubeNeed(model) {
-  const share = Math.max(...(model.wdh ?? [0])) * (model.tubeshare ?? 0);
-  return Math.max(model.tubemin ?? 0, Math.min(model.tubecap ?? Infinity, share));
+  return model.tubemin ?? 0;
 }
 
 export function fieldOf(model, name, materialIds, vars) {
