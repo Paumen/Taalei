@@ -1,0 +1,1658 @@
+{
+ "kit": "ken-space",
+ "map": "kenney_space-kit",
+ "bron": "Kenney Space Kit",
+ "url": "https://kenney.nl/assets/space-kit",
+ "licenseLabel": "CC0 1.0",
+ "schaal": 1.3,
+ "drempel": 60,
+ "varianten": [
+  {
+   "leden": [
+    "chimney",
+    "chimney-detailed"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "corridor",
+    "corridor-detailed",
+    "corridor-window",
+    "corridor-window-closed"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "corridor-corner-round",
+    "corridor-corner-round-window"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "craft-cargo-a",
+    "craft-cargo-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "craft-speeder-a",
+    "craft-speeder-b",
+    "craft-speeder-c",
+    "craft-speeder-d"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "desk-chair",
+    "desk-chair-arms"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "desk-computer",
+    "desk-computer-screen"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "gate-complex",
+    "gate-simple"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "hangar-large-a",
+    "hangar-large-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "hangar-round-a",
+    "hangar-round-b",
+    "hangar-round-glass"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "hangar-small-a",
+    "hangar-small-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "machine-barrel",
+    "machine-barrel-large"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "machine-generator",
+    "machine-generator-large"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "machine-wireless",
+    "machine-wireless-cable"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "platform-high",
+    "platform-low"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "rail",
+    "rail-corner"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "rocket-base-a",
+    "rocket-base-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "rocket-fuel-a",
+    "rocket-fuel-b"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "rocket-sides-a",
+    "rocket-sides-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "rocket-top-a",
+    "rocket-top-b"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "satellite-dish",
+    "satellite-dish-detailed",
+    "satellite-dish-large"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "stairs",
+    "stairs-short"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "structure",
+    "structure-closed",
+    "structure-detailed",
+    "structure-diagonal"
+   ],
+   "type": "detail-variant"
+  },
+  {
+   "leden": [
+    "supports-high",
+    "supports-low"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "turret-single",
+    "turret-double"
+   ],
+   "type": "detail-variant"
+  }
+ ],
+ "modellen": [
+  {
+   "bron": "bones",
+   "naam": "bones",
+   "kind": "env-remains-bones-ribcage",
+   "materialen": [
+    "bone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,237,227": "ivory"
+   }
+  },
+  {
+   "bron": "chimney",
+   "naam": "chimney",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "chimney_detailed",
+   "naam": "chimney-detailed",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "corridor",
+   "naam": "corridor",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "corridor_corner",
+   "naam": "corridor-corner",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "corridor_cornerRound",
+   "naam": "corridor-corner-round",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "corridor_cross",
+   "naam": "corridor-cross",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,255,255": "azure"
+   }
+  },
+  {
+   "bron": "corridor_detailed",
+   "naam": "corridor-detailed",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "corridor_end",
+   "naam": "corridor-end",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "corridor_open",
+   "naam": "corridor-open",
+   "kind": "str-part",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "corridor_split",
+   "naam": "corridor-split",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "255,255,255": "azure"
+   }
+  },
+  {
+   "bron": "corridor_cornerRoundWindow",
+   "naam": "corridor-corner-round-window",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "corridor_window",
+   "naam": "corridor-window",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "corridor_windowClosed",
+   "naam": "corridor-window-closed",
+   "kind": "str-part",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "corridor_roof",
+   "naam": "corridor-roof",
+   "kind": "str-part-roof-unit",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "corridor_wall",
+   "naam": "corridor-wall",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "corridor_wallCorner",
+   "naam": "corridor-wall-corner",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "255,255,255": "azure",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "craft_cargoA",
+   "naam": "craft-cargo-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "143,148,158": "slate",
+    "255,208,124": "amber",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "craft_cargoB",
+   "naam": "craft-cargo-b",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "143,148,158": "slate",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "craft_miner",
+   "naam": "craft-miner",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "craft_racer",
+   "naam": "craft-racer",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "craft_speederA",
+   "naam": "craft-speeder-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "143,148,158": "slate",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "craft_speederB",
+   "naam": "craft-speeder-b",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "craft_speederC",
+   "naam": "craft-speeder-c",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "craft_speederD",
+   "naam": "craft-speeder-d",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "craterLarge",
+   "naam": "crater-large",
+   "kind": "env-terrain-ground",
+   "materialen": [
+    "stone-soil"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "218,164,140": "terracotta",
+    "245,190,167": "terracotta"
+   }
+  },
+  {
+   "bron": "desk_chair",
+   "naam": "desk-chair",
+   "kind": "obj-furnishing-seating-chair",
+   "materialen": [
+    "plastic",
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "desk_chairArms",
+   "naam": "desk-chair-arms",
+   "kind": "obj-furnishing-seating-chair",
+   "materialen": [
+    "plastic",
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "desk_chairStool",
+   "naam": "desk-chair-stool",
+   "kind": "obj-furnishing-seating-stool",
+   "materialen": [
+    "plastic",
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "desk_computer",
+   "naam": "desk-computer",
+   "kind": "obj-furnishing-table",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "desk_computerCorner",
+   "naam": "desk-computer-corner",
+   "kind": "obj-furnishing-table",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "desk_computerScreen",
+   "naam": "desk-computer-screen",
+   "kind": "obj-furnishing-table",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "143,148,158": "slate",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "gate_complex",
+   "naam": "gate-complex",
+   "kind": "str-part-gate-gateway",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "143,148,158": "slate",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "gate_simple",
+   "naam": "gate-simple",
+   "kind": "str-part-gate-gateway",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "hangar_largeA",
+   "naam": "hangar-large-a",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "hangar_largeB",
+   "naam": "hangar-large-b",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "hangar_roundA",
+   "naam": "hangar-round-a",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "hangar_roundB",
+   "naam": "hangar-round-b",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "hangar_smallA",
+   "naam": "hangar-small-a",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "hangar_smallB",
+   "naam": "hangar-small-b",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "hangar_roundGlass",
+   "naam": "hangar-round-glass",
+   "kind": "str-building-industrial",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "214,219,228": "nickel",
+    "255,255,255": "azure",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "machine_barrel",
+   "naam": "machine-barrel",
+   "kind": "str-utility-tank",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "machine_barrelLarge",
+   "naam": "machine-barrel-large",
+   "kind": "str-utility-tank",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "machine_generator",
+   "naam": "machine-generator",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "255,255,255": "azure",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "machine_generatorLarge",
+   "naam": "machine-generator-large",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "143,148,158": "slate",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "machine_wireless",
+   "naam": "machine-wireless",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "machine_wirelessCable",
+   "naam": "machine-wireless-cable",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "143,148,158": "slate",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "monorail_trainBox",
+   "naam": "monorail-train-box",
+   "kind": "obj-transport-rail",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "monorail_trainCargo",
+   "naam": "monorail-train-cargo",
+   "kind": "obj-transport-rail",
+   "materialen": [
+    "metal",
+    "glass",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "143,148,158": "slate",
+    "214,219,228": "nickel",
+    "255,255,255": "azure"
+   }
+  },
+  {
+   "bron": "monorail_trainEnd",
+   "naam": "monorail-train-end",
+   "kind": "obj-transport-rail",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "143,148,158": "slate",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "monorail_trainFlat",
+   "naam": "monorail-train-flat",
+   "kind": "obj-transport-rail",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "143,148,158": "slate",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "monorail_trainFront",
+   "naam": "monorail-train-front",
+   "kind": "obj-transport-rail",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "monorail_trainPassenger",
+   "naam": "monorail-train-passenger",
+   "kind": "obj-transport-rail",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "pipe_corner",
+   "naam": "pipe-corner",
+   "kind": "str-utility",
+   "materialen": [
+    "metal"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "platform_high",
+   "naam": "platform-high",
+   "kind": "str-platform-deck",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,255,255": "azure"
+   }
+  },
+  {
+   "bron": "platform_low",
+   "naam": "platform-low",
+   "kind": "str-platform-deck",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "rail",
+   "naam": "rail",
+   "kind": "str-barrier-fence",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "rail_corner",
+   "naam": "rail-corner",
+   "kind": "str-barrier-fence",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "rocket_baseA",
+   "naam": "rocket-base-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "rocket_baseB",
+   "naam": "rocket-base-b",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "rocket_finsA",
+   "naam": "rocket-fins-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "143,148,158": "slate",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "rocket_fuelA",
+   "naam": "rocket-fuel-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "rocket_fuelB",
+   "naam": "rocket-fuel-b",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "rocket_sidesA",
+   "naam": "rocket-sides-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "rocket_sidesB",
+   "naam": "rocket-sides-b",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "rocket_topA",
+   "naam": "rocket-top-a",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "255,208,124": "amber",
+    "255,255,255": "azure",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "rocket_topB",
+   "naam": "rocket-top-b",
+   "kind": "obj-transport-air",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "vlaggen": [
+    "comp"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "255,255,255": "azure",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "rover",
+   "naam": "rover",
+   "kind": "obj-transport-road",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "237,240,245": "ivory",
+    "255,208,124": "amber",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "satelliteDish",
+   "naam": "satellite-dish",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "143,148,158": "slate",
+    "255,255,255": "azure",
+    "237,240,245": "ivory",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "satelliteDish_detailed",
+   "naam": "satellite-dish-detailed",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,255,255": "azure",
+    "255,208,124": "amber",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "satelliteDish_large",
+   "naam": "satellite-dish-large",
+   "kind": "str-utility",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "237,240,245": "ivory",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "stairs",
+   "naam": "stairs",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "214,219,228": "nickel",
+    "143,148,158": "slate",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "stairs_corner",
+   "naam": "stairs-corner",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  },
+  {
+   "bron": "stairs_short",
+   "naam": "stairs-short",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "structure",
+   "naam": "structure",
+   "kind": "str-part-frame",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "structure_closed",
+   "naam": "structure-closed",
+   "kind": "str-part-frame",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "structure_detailed",
+   "naam": "structure-detailed",
+   "kind": "str-part-frame",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "structure_diagonal",
+   "naam": "structure-diagonal",
+   "kind": "str-part-frame",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel"
+   }
+  },
+  {
+   "bron": "supports_high",
+   "naam": "supports-high",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "supports_low",
+   "naam": "supports-low",
+   "kind": "str-part-pillar",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "214,219,228": "nickel",
+    "237,240,245": "ivory"
+   }
+  },
+  {
+   "bron": "turret_double",
+   "naam": "turret-double",
+   "kind": "obj-equipment-weapon-siege-cannon",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "turret_single",
+   "naam": "turret-single",
+   "kind": "obj-equipment-weapon-siege-cannon",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "143,148,158": "slate",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "255,208,124": "amber"
+   }
+  },
+  {
+   "bron": "weapon_gun",
+   "naam": "weapon-gun",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "255,208,124": "amber",
+    "237,240,245": "ivory",
+    "214,219,228": "nickel",
+    "143,148,158": "slate"
+   }
+  }
+ ]
+}
