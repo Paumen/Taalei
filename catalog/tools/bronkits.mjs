@@ -144,10 +144,10 @@ export const BRONKITS = [
   { map: 'Food_Pack', naam: 'Food Pack', kit: 'food-pack-2', formaat: 'glb', splitsPerMesh: true },
 
   { map: 'kenney_blaster-kit_2.1', naam: 'Kenney Blaster Kit', kit: 'ken-blaster', source: 'ken', formaat: 'glb' },
-  { map: 'kenney_factory-kit_3.0', naam: 'Kenney Factory Kit', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_factory-kit_3.0', naam: 'Kenney Factory Kit', kit: 'ken-factory', source: 'ken', formaat: 'glb' },
   { map: 'kenney_racing-kit', naam: 'Kenney Racing Kit', kit: 'ken-racing', source: 'ken', formaat: 'glb' },
   { map: 'kenney_space-kit', naam: 'Kenney Space Kit', kit: 'ken-space', source: 'ken', formaat: 'glb' },
-  { map: 'kenney_modular-buildings', naam: 'Kenney Modular Buildings', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'kenney_modular-buildings', naam: 'Kenney Modular Buildings', kit: 'ken-modular', source: 'ken', formaat: 'glb' },
   { map: 'kenney_space-station-kit', naam: 'Kenney Space Station Kit', kit: 'ken-station', source: 'ken', formaat: 'glb' },
   { map: 'KayKit_Space_Base_Bits_1.0_FREE', naam: 'KayKit Space Base Bits', kit: 'kay-space', source: 'kay', formaat: 'gltf' },
   { map: 'KayKit_Prototype_Bits_1.1_FREE', naam: 'KayKit Prototype Bits', kit: 'kay-proto', source: 'kay', formaat: 'gltf' },
