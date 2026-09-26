@@ -141,5 +141,5 @@ export const BRONKITS = [
 
   { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: 'rg-weapons', formaat: 'glb', extraFormaten: ['fbx'] },
   { map: 'JayBee_Medieval_Kitchen', naam: 'Low Poly Medieval Kitchen Furniture', kit: 'jb-kitchen', formaat: 'glb', extraFormaten: ['fbx'], schaalPerFormaat: { fbx: 0.01 } },
-  { map: 'Food_Pack', naam: 'Food Pack', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Food_Pack', naam: 'Food Pack', kit: 'food-pack-2', formaat: 'glb', splitsPerMesh: true },
 ];
