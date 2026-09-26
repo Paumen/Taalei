@@ -10180,9 +10180,7 @@
     "small-props/trough-1-a",
     "small-props/trough-3-a",
     "rpg-mini/inkbottle",
-    "isa-pond/clawfoot-bathtub",
     "quat-shoot/dumpster",
-    "aq-pond/bathtub",
     "quat-survival/matchbox",
     "quat-survival/propane-tank",
     "ken-food/takeaway-box",
@@ -10870,23 +10868,10 @@
    "description": "honey",
    "color": "#c25b4e",
    "models": [
-    "kay-dun-1/plate-full",
-    "kay-dun-1/plate-half",
-    "props/plate-food-a",
-    "kay-mixed/taco",
-    "kay-food/food-stew",
     "quat-sushi/rice-mound",
     "kay-food/food-ingredient-veggie-patty",
-    "ken-food/taco",
     "ken-food/corn-dog",
-    "quat-sushi/squid",
-    "styloo-farm/yogurt",
-    "styloo-farm/yogurt-sienna",
-    "styloo-farm/yogurt-terracotta",
-    "styloo-kitchen/yogurt",
-    "food-pack-2/yogurt-azure",
-    "food-pack-2/yogurt-red",
-    "food-pack-2/yogurt-green"
+    "quat-sushi/squid"
    ]
   },
   {
@@ -10911,6 +10896,22 @@
     "food-pack-2/egg-brown-shell-b",
     "food-pack-2/egg-brown",
     "food-pack-2/egg-brown-shell-a"
+   ]
+  },
+  {
+   "id": "obj-food-meal",
+   "name": "Meal",
+   "type": "kind",
+   "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco.",
+   "models": [
+    "kay-dun-1/plate-full",
+    "kay-dun-1/plate-half",
+    "kay-dun-2/plate-food-a",
+    "kay-dun-2/plate-food-b",
+    "props/plate-food-a",
+    "kay-food/food-stew",
+    "kay-mixed/taco",
+    "ken-food/taco"
    ]
   },
   {
@@ -11073,8 +11074,6 @@
    "type": "kind",
    "description": "meat, sausage, roast, leg",
    "models": [
-    "kay-dun-2/plate-food-a",
-    "kay-dun-2/plate-food-b",
     "props/roast-a",
     "quat-food/bacon-cooked",
     "ken-food/skewer-vegetables",
@@ -11285,6 +11284,21 @@
    ]
   },
   {
+   "id": "obj-food-dairy",
+   "name": "Dairy",
+   "type": "kind",
+   "description": "Dairy food: yogurt, and cheese in its own leaf.",
+   "models": [
+    "food-pack-2/yogurt-azure",
+    "food-pack-2/yogurt-green",
+    "food-pack-2/yogurt-red",
+    "styloo-farm/yogurt",
+    "styloo-farm/yogurt-sienna",
+    "styloo-farm/yogurt-terracotta",
+    "styloo-kitchen/yogurt"
+   ]
+  },
+  {
    "id": "obj-food-fruit-apple",
    "name": "Apple",
    "type": "kind",
@@ -11308,7 +11322,7 @@
    ]
   },
   {
-   "id": "obj-food-cheese",
+   "id": "obj-food-dairy-cheese",
    "name": "Cheese",
    "type": "kind",
    "description": "Cheese, whole or portioned.",
@@ -11416,18 +11430,9 @@
     "isa-picnic/picnic-blanket-taupe-folded",
     "isa-bakery/curtains",
     "isa-homely/doormat",
-    "ken-furniture/bathroom-mirror",
-    "ken-furniture/bathroom-sink",
-    "ken-furniture/bathroom-sink-square",
-    "ken-furniture/bathtub",
     "ken-furniture/coat-rack",
     "ken-furniture/coat-rack-standing",
-    "ken-furniture/shower",
-    "ken-furniture/shower-round",
-    "ken-furniture/toilet",
-    "ken-furniture/toilet-square",
     "isa-kitchen/blinds",
-    "kay-food/towel-rail",
     "ken-holiday/wreath",
     "ken-furniture/rug-doormat"
    ]
@@ -11453,6 +11458,25 @@
     "ken-furniture/rug-round",
     "ken-furniture/rug-rounded",
     "ken-furniture/rug-square"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom",
+   "name": "Bathroom",
+   "type": "kind",
+   "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail.",
+   "models": [
+    "ken-furniture/toilet",
+    "ken-furniture/toilet-square",
+    "ken-furniture/shower",
+    "ken-furniture/shower-round",
+    "ken-furniture/bathtub",
+    "ken-furniture/bathroom-sink",
+    "ken-furniture/bathroom-sink-square",
+    "ken-furniture/bathroom-mirror",
+    "kay-food/towel-rail",
+    "aq-pond/bathtub",
+    "isa-pond/clawfoot-bathtub"
    ]
   },
   {
@@ -12437,18 +12461,12 @@
    "id": "obj-lighting-lantern",
    "name": "Lantern",
    "type": "kind",
-   "description": "lantern, lamp",
+   "description": "lantern",
    "models": [
     "asia-rg/lantern-paper-a",
     "asia-rg/lantern-paper-b",
     "asia-rg/stone-lantern",
-    "fs-town/lamp-wall",
-    "wizp-asia/stone-lantern",
-    "kay-furniture/lamp-table",
-    "ken-furniture/lamp-round-table",
-    "ken-furniture/lamp-square-ceiling",
-    "ken-furniture/lamp-square-table",
-    "styloo-furniture/lamp"
+    "wizp-asia/stone-lantern"
    ]
   },
   {
@@ -12472,6 +12490,23 @@
    ]
   },
   {
+   "id": "obj-lighting-lantern-lamp",
+   "name": "Lamp",
+   "type": "kind",
+   "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
+   "models": [
+    "fs-town/lamp-wall",
+    "kay-furniture/lamp-table",
+    "ken-furniture/lamp-round-table",
+    "ken-furniture/lamp-square-ceiling",
+    "ken-furniture/lamp-square-table",
+    "styloo-furniture/lamp",
+    "kay-furniture/lamp-standing",
+    "ken-furniture/lamp-round-floor",
+    "ken-furniture/lamp-square-floor"
+   ]
+  },
+  {
    "id": "obj-lighting-lantern-onpost",
    "name": "On post",
    "type": "kind",
@@ -12487,9 +12522,6 @@
     "kay-spook/lamp-post",
     "aq-hallow/lamp-post",
     "aq-hallow/lantern-staff",
-    "kay-furniture/lamp-standing",
-    "ken-furniture/lamp-round-floor",
-    "ken-furniture/lamp-square-floor",
     "ken-factory/warning-orange",
     "ken-grave/lightpost-double"
    ]
@@ -12909,26 +12941,12 @@
    "id": "obj-tool",
    "name": "Tool",
    "type": "kind",
-   "description": "lever, spring, gear, pulley, grindstone, floor button",
+   "description": "Tool with no leaf that fits.",
    "color": "#6d738a",
    "models": [
-    "ken-platformer/lever",
-    "ken-platformer/spring",
-    "ken-platformer/spring-anim",
-    "quat-shoot/bear-trap",
     "isa-bakery/scale",
-    "quat-survival/bear-trap",
-    "quat-survival/bear-trap-anim",
     "isa-bakery/cash-register",
-    "isa-bakery/cash-register-anim",
-    "kay-platformer/lever-floor",
-    "kay-platformer/lever-wall-a",
-    "kay-platformer/lever-wall-b",
-    "kay-platformer/spring",
-    "ken-factory/button-floor-round-small",
-    "ken-factory/button-floor-round",
-    "ken-factory/lever-double",
-    "ken-factory/lever-single"
+    "isa-bakery/cash-register-anim"
    ]
   },
   {
@@ -12947,6 +12965,43 @@
    ]
   },
   {
+   "id": "obj-tool-mechanism",
+   "name": "Mechanism",
+   "type": "kind",
+   "description": "Mechanism worked by hand or foot: lever, spring, gear, pulley, floor button, bear trap.",
+   "models": [
+    "kay-platformer/lever-floor",
+    "kay-platformer/lever-wall-a",
+    "kay-platformer/lever-wall-b",
+    "kay-platformer/spring",
+    "ken-factory/button-floor-round-small",
+    "ken-factory/button-floor-round",
+    "ken-factory/lever-double",
+    "ken-factory/lever-single",
+    "ken-platformer/lever",
+    "ken-platformer/spring-anim",
+    "ken-platformer/spring",
+    "quat-shoot/bear-trap",
+    "quat-survival/bear-trap-anim",
+    "quat-survival/bear-trap"
+   ]
+  },
+  {
+   "id": "obj-tool-stationery",
+   "name": "Stationery",
+   "type": "kind",
+   "description": "Writing and drawing tool: pencil, pen, scissors, drafting compass, ruler.",
+   "models": [
+    "kay-tools/pencil-a-long",
+    "kay-tools/pencil-a-short",
+    "kay-tools/pencil-b-long",
+    "kay-tools/pencil-b-short",
+    "kay-tools/drafting-compass",
+    "kay-tools/compass-base",
+    "kay-tools/scissors"
+   ]
+  },
+  {
    "id": "obj-tool-hand",
    "name": "Hand",
    "type": "kind",
@@ -12955,18 +13010,11 @@
     "isa-plants/shovel",
     "kay-tools/axe",
     "kay-tools/chisel",
-    "kay-tools/compass-base",
-    "kay-tools/drafting-compass",
     "kay-tools/file",
     "kay-tools/handdrill",
     "kay-tools/handplane",
     "kay-tools/knife",
     "kay-tools/magnifying-glass",
-    "kay-tools/pencil-a-long",
-    "kay-tools/pencil-a-short",
-    "kay-tools/pencil-b-long",
-    "kay-tools/pencil-b-short",
-    "kay-tools/scissors",
     "kay-tools/screwdriver-a-long",
     "kay-tools/screwdriver-a-short",
     "kay-tools/screwdriver-b-long",
@@ -13990,7 +14038,7 @@
    "id": "env-fauna",
    "name": "Fauna",
    "type": "kind",
-   "description": "mammal, bird, insect, starfish, octopus, crab, lobster, frog, snail",
+   "description": "mammal, starfish, octopus, crab, lobster, frog, snail",
    "color": "#3e8fd0",
    "models": [
     "quat-fish/dolphin",
@@ -14005,20 +14053,9 @@
     "natuur/starfish-salmon",
     "quat-pirate/shark",
     "quat-pirate/tentacle",
-    "isa-pond/bird",
-    "isa-pond/brown-bird",
-    "isa-pond/dragonfly",
     "isa-pond/green-frog",
-    "isa-pond/red-dragonfly",
-    "isa-pond/round-bird",
     "isa-pond/yellow-frog",
     "styloo-farm/shark",
-    "aq-pond/bird-a",
-    "aq-pond/bird-b",
-    "aq-pond/bird-c",
-    "aq-pond/dragonfly-a",
-    "aq-pond/dragonfly-b",
-    "aq-pond/dragonfly-c",
     "aq-pond/frog-a",
     "aq-pond/frog-b",
     "aq-pond/frog-c",
@@ -14050,6 +14087,33 @@
     "quat-ocean/fish-clown",
     "quat-ocean/fish-dory",
     "quat-ocean/fish-tuna"
+   ]
+  },
+  {
+   "id": "env-fauna-bird",
+   "name": "Bird",
+   "type": "kind",
+   "description": "bird",
+   "models": [
+    "aq-pond/bird-a",
+    "aq-pond/bird-b",
+    "aq-pond/bird-c",
+    "isa-pond/bird",
+    "isa-pond/brown-bird",
+    "isa-pond/round-bird"
+   ]
+  },
+  {
+   "id": "env-fauna-insect",
+   "name": "Insect",
+   "type": "kind",
+   "description": "insect, dragonfly",
+   "models": [
+    "aq-pond/dragonfly-a",
+    "aq-pond/dragonfly-b",
+    "aq-pond/dragonfly-c",
+    "isa-pond/dragonfly",
+    "isa-pond/red-dragonfly"
    ]
   },
   {
@@ -15077,15 +15141,8 @@
    "color": "#877a63",
    "models": [
     "quat-town/mine",
-    "architecture/ferris-wheel",
-    "architecture/ferris-wheel-anim",
     "kay-builder/mine",
-    "kay-hexagon/mine",
-    "ken-racing/grand-stand",
-    "ken-racing/grand-stand-awning",
-    "ken-racing/grand-stand-covered",
-    "ken-racing/grand-stand-covered-round",
-    "ken-racing/grand-stand-round"
+    "kay-hexagon/mine"
    ]
   },
   {
@@ -15420,22 +15477,7 @@
     "ken-town/wall-wood-doorway-square-wide-curved",
     "ken-pirate/tower-base-door",
     "kay-platformer/bracing-large",
-    "kay-platformer/bracing-medium",
-    "kay-space/tunnel-diagonal-long-a",
-    "kay-space/tunnel-diagonal-long-b",
-    "kay-space/tunnel-diagonal-short-a",
-    "kay-space/tunnel-straight-a",
-    "ken-space/corridor",
-    "ken-space/corridor-corner",
-    "ken-space/corridor-corner-round",
-    "ken-space/corridor-cross",
-    "ken-space/corridor-detailed",
-    "ken-space/corridor-end",
-    "ken-space/corridor-open",
-    "ken-space/corridor-split",
-    "ken-space/corridor-corner-round-window",
-    "ken-space/corridor-window",
-    "ken-space/corridor-window-closed"
+    "kay-platformer/bracing-medium"
    ]
   },
   {
@@ -15782,6 +15824,29 @@
     "ken-factory/structure-yellow-medium",
     "ken-factory/structure-yellow-short",
     "ken-factory/structure-yellow-tall"
+   ]
+  },
+  {
+   "id": "str-part-corridor",
+   "name": "Corridor",
+   "type": "kind",
+   "description": "Enclosed passage piece: corridor, tunnel.",
+   "models": [
+    "kay-space/tunnel-diagonal-long-a",
+    "kay-space/tunnel-diagonal-long-b",
+    "kay-space/tunnel-diagonal-short-a",
+    "kay-space/tunnel-straight-a",
+    "ken-space/corridor",
+    "ken-space/corridor-corner",
+    "ken-space/corridor-corner-round",
+    "ken-space/corridor-corner-round-window",
+    "ken-space/corridor-cross",
+    "ken-space/corridor-detailed",
+    "ken-space/corridor-end",
+    "ken-space/corridor-open",
+    "ken-space/corridor-split",
+    "ken-space/corridor-window",
+    "ken-space/corridor-window-closed"
    ]
   },
   {
@@ -18986,6 +19051,23 @@
    ]
   },
   {
+   "id": "obj-art-frame",
+   "name": "Picture frame",
+   "type": "kind",
+   "description": "Framed picture or photo, hung or standing.",
+   "models": [
+    "kay-furniture/picture-frame-large-a",
+    "kay-furniture/picture-frame-large-b",
+    "kay-furniture/picture-frame-medium",
+    "kay-furniture/picture-frame-small-a",
+    "kay-furniture/picture-frame-small-b",
+    "kay-furniture/picture-frame-small-c",
+    "kay-furniture/picture-frame-standing-a",
+    "kay-furniture/picture-frame-standing-b",
+    "kay-mixed/instant-camera-picture"
+   ]
+  },
+  {
    "id": "obj-art-instrument-bell",
    "name": "Bell",
    "type": "kind",
@@ -19011,16 +19093,7 @@
     "kay-holiday/snowman-hat",
     "isa-playground/sandcastle-a",
     "isa-playground/sandcastle-b",
-    "isa-playground/sandcastle-c",
-    "kay-mixed/instant-camera-picture",
-    "kay-furniture/picture-frame-large-a",
-    "kay-furniture/picture-frame-large-b",
-    "kay-furniture/picture-frame-medium",
-    "kay-furniture/picture-frame-small-a",
-    "kay-furniture/picture-frame-small-b",
-    "kay-furniture/picture-frame-small-c",
-    "kay-furniture/picture-frame-standing-a",
-    "kay-furniture/picture-frame-standing-b"
+    "isa-playground/sandcastle-c"
    ]
   },
   {
@@ -19601,6 +19674,21 @@
     "ken-skate/rail-low",
     "ken-skate/rail-high",
     "kay-platformer/spring-pad"
+   ]
+  },
+  {
+   "id": "str-leisure",
+   "name": "Leisure",
+   "type": "kind",
+   "description": "Fixed structure for leisure or watching: ferris wheel, grandstand.",
+   "models": [
+    "architecture/ferris-wheel",
+    "architecture/ferris-wheel-anim",
+    "ken-racing/grand-stand",
+    "ken-racing/grand-stand-awning",
+    "ken-racing/grand-stand-covered",
+    "ken-racing/grand-stand-covered-round",
+    "ken-racing/grand-stand-round"
    ]
   },
   {
