@@ -1,10 +1,18 @@
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { basename, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor, measureTubes } from '../../catalog/tools/glb.mjs';
+import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 
 const HELP = `thicken.mjs [--min <diameter>] [--list] <workfile.glb> [...]
 
-Widens every tube thinner than --min (0.006 by default) to just over it, around its
-own centre line, keeping its length. --list prints the tubes and changes nothing.`;
+Widens every tube thinner than --min to just over it, around its own centre line,
+keeping its length. Without --min each model takes the diameter G27 asks of it,
+from its kind in lint/kinds.json and its size in catalog/build/catalog.json. --list prints the tubes
+and changes nothing.`;
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
 
 const MARGIN = 1.02;
 
@@ -95,7 +103,7 @@ function bound(glb, accessorIndex) {
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(args.length ? 0 : 1); }
-let min = 0.006;
+let min = null;
 let list = false;
 const files = [];
 for (let i = 0; i < args.length; i++) {
@@ -103,9 +111,23 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === '--list') list = true;
   else files.push(args[i]);
 }
-if (!(min > 0)) throw new Error('--min needs a positive number');
+if (min !== null && !(min > 0)) throw new Error('--min needs a positive number');
+
+let models = null;
+let kindFields = null;
+function minOf(file) {
+  if (min !== null) return min;
+  if (!models) {
+    models = new Map(readJson('catalog/build/catalog.json').models.map((m) => [`${m.kit}/${m.name}`, m]));
+    kindFields = buildKindFields(readJson('lint/kinds.json'));
+  }
+  const id = `${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`;
+  if (!models.has(id)) throw new Error(`${file}: not in the catalogue, give --min`);
+  return tubeNeed(withKindFields(models.get(id), kindFields));
+}
 
 for (const file of files) {
+  const min = minOf(file);
   const glb = readGlb(file);
   glb.bin = Buffer.from(glb.bin);
   const tubes = measureTubes(glb);
