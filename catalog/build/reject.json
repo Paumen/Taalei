@@ -309,6 +309,14 @@
   {
    "slug": "3D_Food_Styloo",
    "name": "3D Food"
+  },
+  {
+   "slug": "Food_Kitchen_Styloo",
+   "name": "Food and Kitchen Asset Pack"
+  },
+  {
+   "slug": "kenney_train-kit",
+   "name": "Kenney Train Kit"
   }
  ],
  "sources": [
@@ -870,7 +878,7 @@
    "kit": "cooking-assets",
    "format": "obj",
    "inSource": 130,
-   "inCatalog": 82,
+   "inCatalog": 83,
    "listed": 37,
    "unmatched": 0,
    "scale": 0.044
@@ -1008,7 +1016,7 @@
    "kit": "quat-apocalypse",
    "format": "glb",
    "inSource": 54,
-   "inCatalog": 35,
+   "inCatalog": 36,
    "listed": 11,
    "unmatched": 0,
    "scale": 0.5
@@ -1055,7 +1063,7 @@
    "kit": "ken-nature",
    "format": "glb",
    "inSource": 329,
-   "inCatalog": 102,
+   "inCatalog": 103,
    "listed": 171,
    "unmatched": 0,
    "scale": 1.2,
@@ -1138,7 +1146,7 @@
    "kit": "nature-assets",
    "format": "fbx",
    "inSource": 48,
-   "inCatalog": 31,
+   "inCatalog": 35,
    "listed": 14,
    "unmatched": 0,
    "scale": 0.003,
@@ -1185,8 +1193,8 @@
    "kit": "styloo-furniture",
    "format": "fbx",
    "inSource": 58,
-   "inCatalog": 20,
-   "listed": 18,
+   "inCatalog": 21,
+   "listed": 20,
    "unmatched": 0,
    "scale": 0.00125,
    "folder": "individualsfiles"
@@ -1214,6 +1222,30 @@
    "unmatched": 0,
    "scale": 0.6,
    "folder": "3dFoodStyloo/GLTF"
+  },
+  {
+   "slug": "Food_Kitchen_Styloo",
+   "name": "Food and Kitchen Asset Pack",
+   "kit": "styloo-kitchen",
+   "format": "glb",
+   "inSource": 36,
+   "inCatalog": 33,
+   "listed": 1,
+   "unmatched": 0,
+   "scale": 0.294,
+   "folder": "stylooFoodAndKitchenAssetPackFreePack/glb"
+  },
+  {
+   "slug": "kenney_train-kit",
+   "name": "Kenney Train Kit",
+   "kit": "ken-train",
+   "format": "glb",
+   "inSource": 103,
+   "inCatalog": 27,
+   "listed": 10,
+   "unmatched": 0,
+   "scale": 0.55,
+   "folder": "Models/GLB format"
   }
  ],
  "kinds": [
@@ -46774,6 +46806,23 @@
   },
   {
    "kit": "Kitchen_Styloo",
+   "name": "lamp_001",
+   "kind": "obj-lighting-lantern",
+   "wdh": [
+    0.2,
+    0.4,
+    0.2
+   ],
+   "tris": 2422,
+   "tpu": 7061,
+   "mat": 3,
+   "bytes": 117500,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "lamp_001.fbx"
+  },
+  {
+   "kit": "Kitchen_Styloo",
    "name": "poseustensils",
    "wdh": [
     0.1,
@@ -46968,6 +47017,22 @@
    "scaled": true,
    "reason": "style",
    "file": "ustensilwood.fbx"
+  },
+  {
+   "kit": "Kitchen_Styloo",
+   "name": "ustensilwood_003",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 5604,
+   "tpu": 16338,
+   "mat": 1,
+   "bytes": 235116,
+   "scaled": true,
+   "reason": "style",
+   "file": "ustensilwood_003.fbx"
   },
   {
    "kit": "Kitchen_Styloo",
@@ -48212,6 +48277,192 @@
    "scaled": true,
    "reason": "style",
    "file": "tomatoslice.gltf"
+  },
+  {
+   "kit": "Food_Kitchen_Styloo",
+   "name": "ustensils7",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 246,
+   "tpu": 717,
+   "mat": 1,
+   "bytes": 9104,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "ustensils7.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-bullet-b",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    0.9,
+    1.4
+   ],
+   "tris": 1394,
+   "tpu": 1514,
+   "mat": 3,
+   "bytes": 66196,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-bullet-b.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-bullet-c",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    0.9,
+    1.4
+   ],
+   "tris": 1138,
+   "tpu": 1236,
+   "mat": 3,
+   "bytes": 55440,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-bullet-c.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-city-b",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    1.2,
+    1.5
+   ],
+   "tris": 1500,
+   "tpu": 1157,
+   "mat": 4,
+   "bytes": 72780,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-city-b.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-city-c",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.6,
+    0.9,
+    1.5
+   ],
+   "tris": 1336,
+   "tpu": 1607,
+   "mat": 3,
+   "bytes": 64180,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-city-c.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-double-b",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    1.1,
+    1.5
+   ],
+   "tris": 1462,
+   "tpu": 1348,
+   "mat": 3,
+   "bytes": 69548,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-double-b.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-double-c",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    1.1,
+    1.5
+   ],
+   "tris": 1262,
+   "tpu": 1163,
+   "mat": 3,
+   "bytes": 60664,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-double-c.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-square-b",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    1,
+    1.4
+   ],
+   "tris": 1418,
+   "tpu": 1414,
+   "mat": 3,
+   "bytes": 68004,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-square-b.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-square-c",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.6,
+    1,
+    1.4
+   ],
+   "tris": 1362,
+   "tpu": 1606,
+   "mat": 3,
+   "bytes": 65364,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-square-c.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-subway-b",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.6,
+    0.9,
+    1.4
+   ],
+   "tris": 1310,
+   "tpu": 1752,
+   "mat": 3,
+   "bytes": 63000,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-subway-b.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "train-electric-subway-c",
+   "kind": "obj-transport-rail",
+   "wdh": [
+    0.7,
+    0.9,
+    1.4
+   ],
+   "tris": 1554,
+   "tpu": 1694,
+   "mat": 3,
+   "bytes": 73688,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-electric-subway-c.glb"
   }
  ]
 }
