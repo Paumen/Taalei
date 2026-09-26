@@ -9,7 +9,8 @@ what the catalogue reads about them.
 A config holds the kit slug, the `BRONKITS` folder it reads, the pack's scale
 and shading threshold, the source colour → band table, and a row per model with
 its source name, its workfile name, its kind, its materials and its flags. A row
-may override the table for its own model. Where a pack's materials ask for a
+may override the table for its own model, and may carry a `factor` on top of the
+pack's scale where the style guide's `P10` names one. Where a pack's materials ask for a
 texture file the pack does not carry under that name, `texturen` maps the name
 asked for to the file that is there; anything but a PNG is converted on read.
 
