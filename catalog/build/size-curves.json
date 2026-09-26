@@ -91,10 +91,22 @@
    "scatter": 0.149
   },
   {
+   "kit": "ken-station",
+   "n": 10,
+   "slope": -0.571,
+   "scatter": 0.251
+  },
+  {
    "kit": "ken-survival",
    "n": 27,
    "slope": -0.569,
    "scatter": 0.217
+  },
+  {
+   "kit": "kay-rpg",
+   "n": 32,
+   "slope": -0.56,
+   "scatter": 0.239
   },
   {
    "kit": "quat-pirate",
@@ -119,12 +131,6 @@
    "n": 40,
    "slope": -0.527,
    "scatter": 0.297
-  },
-  {
-   "kit": "kay-rpg",
-   "n": 32,
-   "slope": -0.525,
-   "scatter": 0.199
   },
   {
    "kit": "mek-tools",
@@ -157,16 +163,16 @@
    "scatter": 0.106
   },
   {
-   "kit": "fs-modular",
-   "n": 42,
-   "slope": -0.481,
-   "scatter": 0.335
-  },
-  {
    "kit": "ken-proto",
    "n": 9,
    "slope": -0.477,
    "scatter": 0.156
+  },
+  {
+   "kit": "fs-modular",
+   "n": 41,
+   "slope": -0.476,
+   "scatter": 0.331
   },
   {
    "kit": "isa-tt",
@@ -193,12 +199,6 @@
    "scatter": 0.234
   },
   {
-   "kit": "ken-station",
-   "n": 10,
-   "slope": -0.457,
-   "scatter": 0.235
-  },
-  {
    "kit": "aq-hallow",
    "n": 17,
    "slope": -0.451,
@@ -209,12 +209,6 @@
    "n": 19,
    "slope": -0.451,
    "scatter": 0.268
-  },
-  {
-   "kit": "ken-space",
-   "n": 13,
-   "slope": -0.446,
-   "scatter": 0.271
   },
   {
    "kit": "wizp-grave",
@@ -307,6 +301,12 @@
    "scatter": 0.147
   },
   {
+   "kit": "ken-space",
+   "n": 11,
+   "slope": -0.345,
+   "scatter": 0.33
+  },
+  {
    "kit": "medieval-forge",
    "n": 12,
    "slope": -0.34,
@@ -349,12 +349,6 @@
    "scatter": 0.32
   },
   {
-   "kit": "kay-furniture",
-   "n": 14,
-   "slope": -0.315,
-   "scatter": 0.464
-  },
-  {
    "kit": "styloo-food",
    "n": 15,
    "slope": -0.307,
@@ -362,9 +356,9 @@
   },
   {
    "kit": "kay-dun-2",
-   "n": 23,
-   "slope": -0.298,
-   "scatter": 0.333
+   "n": 22,
+   "slope": -0.291,
+   "scatter": 0.291
   },
   {
    "kit": "styloo-kitchen",
@@ -409,16 +403,22 @@
    "scatter": 0
   },
   {
-   "kit": "ken-furniture",
-   "n": 23,
-   "slope": -0.249,
-   "scatter": 0.383
-  },
-  {
    "kit": "jb-kitchen",
    "n": 17,
    "slope": -0.214,
    "scatter": 0.214
+  },
+  {
+   "kit": "kay-furniture",
+   "n": 12,
+   "slope": -0.208,
+   "scatter": 0.385
+  },
+  {
+   "kit": "ken-furniture",
+   "n": 21,
+   "slope": -0.193,
+   "scatter": 0.318
   },
   {
    "kit": "quat-dun-2",
@@ -433,16 +433,16 @@
    "scatter": 0.375
   },
   {
-   "kit": "styloo-furniture",
-   "n": 9,
-   "slope": -0.161,
-   "scatter": 0.144
-  },
-  {
    "kit": "aq-pond",
    "n": 7,
    "slope": -0.155,
    "scatter": 0.091
+  },
+  {
+   "kit": "styloo-furniture",
+   "n": 8,
+   "slope": -0.154,
+   "scatter": 0.084
   },
   {
    "kit": "quat-props",
@@ -537,9 +537,19 @@
    "reason": "too broad"
   },
   {
+   "kind": "env-fauna-bird",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "env-fauna-fish",
    "curve": false,
    "reason": "dropped"
+  },
+  {
+   "kind": "env-fauna-insect",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "env-flora",
@@ -729,6 +739,11 @@
    "kind": "obj-art",
    "curve": false,
    "reason": "too broad"
+  },
+  {
+   "kind": "obj-art-frame",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-art-instrument",
@@ -1154,7 +1169,12 @@
    "curve": true
   },
   {
-   "kind": "obj-food-cheese",
+   "kind": "obj-food-dairy",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
+   "kind": "obj-food-dairy-cheese",
    "real": 0.25,
    "curve": true
   },
@@ -1243,6 +1263,11 @@
    "real": 0.2,
    "curve": false,
    "reason": "dropped"
+  },
+  {
+   "kind": "obj-food-meal",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-food-meat",
@@ -1339,6 +1364,11 @@
    "kind": "obj-furnishing",
    "curve": false,
    "reason": "too broad"
+  },
+  {
+   "kind": "obj-furnishing-bathroom",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-furnishing-bed",
@@ -1616,6 +1646,11 @@
    "curve": true
   },
   {
+   "kind": "obj-lighting-lantern-lamp",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "obj-lighting-lantern-onpost",
    "real": 2.5,
    "curve": true
@@ -1701,9 +1736,19 @@
    "curve": true
   },
   {
+   "kind": "obj-tool-mechanism",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "obj-tool-station",
    "real": 0.8,
    "curve": true
+  },
+  {
+   "kind": "obj-tool-stationery",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-tool-supplies",
@@ -2048,6 +2093,11 @@
    "curve": true
   },
   {
+   "kind": "str-leisure",
+   "curve": false,
+   "reason": "too broad"
+  },
+  {
    "kind": "str-marker",
    "curve": false,
    "reason": "too broad"
@@ -2079,6 +2129,11 @@
    "kind": "str-part",
    "curve": false,
    "reason": "too broad"
+  },
+  {
+   "kind": "str-part-corridor",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "str-part-door",

@@ -96,7 +96,7 @@ const SIZES = {
   'obj-food-baked-pastry-donut': 0.1,
   'obj-food-baked-pastry-waffle': 0.15,
   'obj-food-baked-pie': 0.25,
-  'obj-food-cheese': 0.25,
+  'obj-food-dairy-cheese': 0.25,
   'obj-food-egg': 0.06,
   'obj-food-fish': 0.3,
   'obj-food-fruit': 0.1,
