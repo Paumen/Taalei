@@ -413,15 +413,42 @@ function symmetricEigen(c) {
 
 export const TUBE_SLICES = 8;
 
+function primitiveGroups(glb) {
+  const { json } = glb;
+  const groups = meshShells(glb).map((g) => ({ ...g, numbered: true }));
+  const seen = new Set(groups.map((g) => g.prim.attributes.POSITION));
+  for (const mesh of json.meshes ?? []) {
+    for (const prim of mesh.primitives ?? []) {
+      const position = prim.attributes?.POSITION;
+      if (position === undefined || seen.has(position) || (prim.mode ?? 4) !== 4) continue;
+      seen.add(position);
+      const count = json.accessors[position].count;
+      const parent = new Int32Array(count);
+      for (let i = 0; i < count; i++) parent[i] = i;
+      const find = (i) => { while (parent[i] !== i) i = parent[i] = parent[parent[i]]; return i; };
+      const union = (a, b) => { const ra = find(a), rb = find(b); if (ra !== rb) parent[Math.max(ra, rb)] = Math.min(ra, rb); };
+      const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, i) => i);
+      for (let t = 0; t + 2 < idx.length; t += 3) { union(idx[t], idx[t + 1]); union(idx[t + 1], idx[t + 2]); }
+      const byRoot = new Map();
+      for (let i = 0; i < count; i++) {
+        const r = find(i);
+        if (!byRoot.has(r)) byRoot.set(r, []);
+        byRoot.get(r).push(i);
+      }
+      groups.push({ prim, members: [...byRoot.values()], numbered: false });
+    }
+  }
+  return groups;
+}
+
 export function measureTubes(glb) {
   const { json } = glb;
   const world = worldMatrices(json);
-  const scaleOf = new Map();
+  const linearOf = new Map();
   (json.nodes ?? []).forEach((node, i) => {
-    if (node.mesh === undefined || scaleOf.has(node.mesh) || !world[i]) return;
+    if (node.mesh === undefined || linearOf.has(node.mesh) || !world[i]) return;
     const m = world[i];
-    const det = m[0] * (m[5] * m[10] - m[9] * m[6]) - m[4] * (m[1] * m[10] - m[9] * m[2]) + m[8] * (m[1] * m[6] - m[5] * m[2]);
-    scaleOf.set(node.mesh, node.skin === undefined ? Math.cbrt(Math.abs(det)) : 1);
+    linearOf.set(node.mesh, node.skin === undefined ? [m[0], m[1], m[2], m[4], m[5], m[6], m[8], m[9], m[10]] : [1, 0, 0, 0, 1, 0, 0, 0, 1]);
   });
   const meshOf = new Map();
   (json.meshes ?? []).forEach((mesh, i) => { for (const prim of mesh.primitives ?? []) meshOf.set(prim, i); });
@@ -429,8 +456,13 @@ export function measureTubes(glb) {
   const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
   const tubes = [];
   let shellBase = 0;
-  for (const group of meshShells(glb)) {
-    const scale = scaleOf.get(meshOf.get(group.prim)) ?? 1;
+  for (const group of primitiveGroups(glb)) {
+    const linear = linearOf.get(meshOf.get(group.prim)) ?? [1, 0, 0, 0, 1, 0, 0, 0, 1];
+    const apply = (x, y, z) => [
+      linear[0] * x + linear[3] * y + linear[6] * z,
+      linear[1] * x + linear[4] * y + linear[7] * z,
+      linear[2] * x + linear[5] * y + linear[8] * z,
+    ];
     const pos = readAccessor(glb, group.prim.attributes.POSITION);
     const key = (i) => [0, 1, 2].map((k) => Math.round(pos.data[i * 3 + k] * 1e4)).join(',');
     const parent = group.members.map((_, i) => i);
@@ -449,13 +481,13 @@ export function measureTubes(glb) {
       const root = find(s);
       if (!parts.has(root)) parts.set(root, { shells: [], vertices: [], points: new Map() });
       const part = parts.get(root);
-      part.shells.push(shellBase + s + 1);
+      if (group.numbered) part.shells.push(shellBase + s + 1);
       for (const v of members) {
         part.vertices.push(v);
-        part.points.set(key(v), [pos.data[v * 3], pos.data[v * 3 + 1], pos.data[v * 3 + 2]]);
+        part.points.set(key(v), apply(pos.data[v * 3], pos.data[v * 3 + 1], pos.data[v * 3 + 2]));
       }
     });
-    shellBase += group.members.length;
+    if (group.numbered) shellBase += group.members.length;
 
     for (const part of parts.values()) {
       const points = [...part.points.values()];
@@ -496,9 +528,9 @@ export function measureTubes(glb) {
         prim: group.prim,
         shells: part.shells,
         vertices: part.vertices,
-        diameter: 2 * radius * scale,
-        length: span * scale,
-        scale,
+        diameter: 2 * radius,
+        length: span,
+        linear,
         frame: { center, axis, u, w, rings },
       });
     }

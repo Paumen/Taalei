@@ -29,23 +29,57 @@ function ringAt(rings, t) {
   return { cu: a.cu + (b.cu - a.cu) * f, cw: a.cw + (b.cw - a.cw) * f };
 }
 
+function invert3(m) {
+  const [a, b, c, d, e, f, g, h, i] = m;
+  const A = e * i - f * h, B = -(d * i - f * g), C = d * h - e * g;
+  const det = a * A + b * B + c * C;
+  return [A, -(b * i - c * h), b * f - c * e, B, a * i - c * g, -(a * f - c * d), C, -(a * h - b * g), a * e - b * d].map((x) => x / det);
+}
+
+const times = (m, p) => [
+  m[0] * p[0] + m[3] * p[1] + m[6] * p[2],
+  m[1] * p[0] + m[4] * p[1] + m[7] * p[2],
+  m[2] * p[0] + m[5] * p[1] + m[8] * p[2],
+];
+
 function widen(glb, tube, factor) {
   const { center, axis, u, w, rings } = tube.frame;
+  const back = invert3(tube.linear);
   const position = writer(glb, tube.prim.attributes.POSITION);
-  const normal = tube.prim.attributes.NORMAL !== undefined ? writer(glb, tube.prim.attributes.NORMAL) : null;
   for (const v of new Set(tube.vertices)) {
     const p = position(v);
-    const d = [p[0] - center[0], p[1] - center[1], p[2] - center[2]];
+    const q = times(tube.linear, p);
+    const d = [q[0] - center[0], q[1] - center[1], q[2] - center[2]];
     const t = dot(d, axis);
     const { cu, cw } = ringAt(rings, t);
     const a = cu + (dot(d, u) - cu) * factor;
     const b = cw + (dot(d, w) - cw) * factor;
-    for (let k = 0; k < 3; k++) p[k] = center[k] + t * axis[k] + a * u[k] + b * w[k];
-    if (!normal) continue;
-    const n = normal(v);
-    const nt = dot(n, axis), nu = dot(n, u) / factor, nw = dot(n, w) / factor;
-    const len = Math.hypot(nt, nu, nw) || 1;
-    for (let k = 0; k < 3; k++) n[k] = (nt * axis[k] + nu * u[k] + nw * w[k]) / len;
+    const moved = times(back, [0, 1, 2].map((k) => center[k] + t * axis[k] + a * u[k] + b * w[k]));
+    for (let k = 0; k < 3; k++) p[k] = moved[k];
+  }
+}
+
+function renormal(glb, prim, vertices) {
+  if (prim.attributes.NORMAL === undefined) return;
+  const position = writer(glb, prim.attributes.POSITION);
+  const normal = writer(glb, prim.attributes.NORMAL);
+  const count = glb.json.accessors[prim.attributes.POSITION].count;
+  const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, i) => i);
+  const sum = new Map([...vertices].map((v) => [v, [0, 0, 0]]));
+  for (let t = 0; t + 2 < idx.length; t += 3) {
+    const tri = [idx[t], idx[t + 1], idx[t + 2]];
+    if (!tri.some((v) => sum.has(v))) continue;
+    const [p0, p1, p2] = tri.map((v) => position(v));
+    const e1 = [p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2]];
+    const e2 = [p2[0] - p0[0], p2[1] - p0[1], p2[2] - p0[2]];
+    const n = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    for (const v of tri) if (sum.has(v)) for (let k = 0; k < 3; k++) sum.get(v)[k] += n[k];
+  }
+  for (const [v, n] of sum) {
+    const len = Math.hypot(...n);
+    if (!len) continue;
+    const out = normal(v);
+    for (let k = 0; k < 3; k++) out[k] = n[k] / len;
   }
 }
 
@@ -77,15 +111,19 @@ for (const file of files) {
   const tubes = measureTubes(glb);
   const thin = tubes.filter((t) => t.diameter < min);
   for (const t of tubes) {
-    console.log(`${file}  shells ${t.shells.join(',')}  diameter ${t.diameter.toFixed(4)}  length ${t.length.toFixed(3)}${t.diameter < min ? '  thin' : ''}`);
+    console.log(`${file}  shells ${t.shells.join(',') || '-'}  diameter ${t.diameter.toFixed(4)}  length ${t.length.toFixed(3)}${t.diameter < min ? '  thin' : ''}`);
   }
   if (list || !thin.length) continue;
-  const touched = new Set();
+  const touched = new Map();
   for (const t of thin) {
     widen(glb, t, (min * MARGIN) / t.diameter);
-    touched.add(t.prim.attributes.POSITION);
+    if (!touched.has(t.prim)) touched.set(t.prim, new Set());
+    for (const v of t.vertices) touched.get(t.prim).add(v);
   }
-  for (const accessor of touched) bound(glb, accessor);
+  for (const [prim, vertices] of touched) {
+    renormal(glb, prim, vertices);
+    bound(glb, prim.attributes.POSITION);
+  }
   writeGlb(file, glb.json, glb.bin, writeFileSync);
   console.log(`${file}: widened ${thin.length} tube(s)`);
 }
