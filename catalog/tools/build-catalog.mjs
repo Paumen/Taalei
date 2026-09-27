@@ -372,6 +372,7 @@ const SOURCES = [
   { id: 'styloo', name: 'Styloo', description: 'Kits from Styloo (styloo.itch.io).' },
   { id: 'fs', name: 'FS', description: 'Kits from FS.' },
   { id: 'lpa', name: 'LPA', description: 'Kits from LPA.' },
+  { id: 'shmiggy', name: 'OG Shmiggy', description: 'Kits from OG Shmiggy (og-shmiggy.itch.io).' },
 ];
 
 function readSourcePerKit() {

@@ -2559,7 +2559,9 @@ window.KENNEY_KITS = [
  {
   "slug": "clay-props",
   "name": "clay-props",
-  "url": "https://glitchpixelinteractive.com/",
+  "url": "https://og-shmiggy.itch.io/clay-items",
+  "licenseLabel": "CC0 1.0",
+  "note": "OG Shmiggy; the pack's itch.io page states CC0, see kits/sources/ClayItems_FreeTier_1.1/clay-items-itch-page.mhtml.",
   "models": [
    "bowl",
    "crockpot",
