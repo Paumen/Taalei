@@ -47,6 +47,7 @@ const SHORT_NAME = {
   textile: 'Textil',
   vegetation: 'Vegetn',
   'wood-bark': 'Bark',
+  'wood-cardboard': 'Cardbd',
   'wood-beam': 'Beam',
   'wood-log': 'Log',
   'wood-planks': 'Planks',
