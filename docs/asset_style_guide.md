@@ -148,7 +148,7 @@ Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 ### 2.3 Size and budget
 
-`kind:set`, `kind:str-building-commercial-skyscraper`, `kind:str-building-military-castle` and `kind:str-platform-deck` are exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken`, `tag:pickup` and `tag:piece` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
+`kind:set`, `kind:str-building-tower-skyscraper`, `kind:str-building-military-castle` and `kind:str-access-platform-deck` are exempt. Of the rest, `tag:comp`, `tag:plural`, `tag:broken`, `tag:pickup` and `tag:piece` are exempt from the extents and only `tag:plural` from the budget, per measure in `lint/variables.json`.
 
 Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. A kind can also set `defaults` of its own, which replace the global ones for everything under it: `obj-transport` raises `high.max` to 30. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is held to one measure, `high` or `longest`: the nearest kind in its chain that sets either decides which. Limits of that measure inherit per `F10`; limits of the other come only from `defaults`.
 
@@ -170,7 +170,7 @@ Run `node lint/size.mjs`.
 | `G18` | `kind:obj-container-barrel` | — | `part:side plank` | range | 8–14 |
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
-| `G23` | `kind:str-marker-flag \| kind:str-canopy \| kind:obj-transport-watercraft-accessory` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
+| `G23` | `kind:str-fixture-marker-flag \| kind:str-canopy \| kind:obj-transport-part` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
 | `G24` | `mat:rope` | — | `part:cord` | min | 0.006 thick |
 | `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
 | `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
@@ -245,16 +245,16 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
 | `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
 | `M13` | `kind:obj-kitchenware-tableware-drinkware` cup, tankard | model | has | `wood:`, `ceramic` |
-| `M15` | `kind:obj-equipment-weapon \| kind:obj-tool` | `part:handle` | is | `wood:`, `textile` |
+| `M15` | `kind:obj-equipment-weapon \| kind:obj-equipment-tool` | `part:handle` | is | `wood:`, `textile` |
 | `M16` | `kind:obj-equipment-weapon` | `part:strap` | is | `textile`, `leather` |
-| `M17` | `kind:obj-equipment-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
+| `M17` | `kind:obj-equipment-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-armor-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
 | `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | is | `leather` |
 | `M21` | `kind:obj-equipment-apparel` belt, shoe, strap | model | has | `leather` |
-| `M24` | `kind:obj-transport-watercraft-accessory` | `part:sail` | is | `textile` |
+| `M24` | `kind:obj-transport-part` | `part:sail` | is | `textile` |
 | `M25` | `kind:obj-transport-watercraft` | `mat:wood` | min | 2 |
 | `M28` | `kind:obj-equipment-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron:` |
 | `M32` | `*` sticks, unworked poles | model | is | `wood-bark` |
-| `M33` | `kind:obj-art-instrument` bells | model | has | `metal-copper`, `metal-gold` |
+| `M33` | `kind:obj-leisure-art-instrument` bells | model | has | `metal-copper`, `metal-gold` |
 | `M35` | `kind:str-part-roof` carrying `sienna` or `terracotta` | model | has | `ceramic` |
 | `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` |
 
@@ -298,9 +298,9 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-baked` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
 | `B39` | `*` chocolate | model | is | `chestnut`, `umber` |
-| `B40` | `kind:obj-equipment-weapon \| kind:obj-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
+| `B40` | `kind:obj-equipment-weapon \| kind:obj-equipment-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
 | `B42` | `kind:obj-transport-watercraft & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
-| `B43` | `kind:obj-transport-watercraft-accessory` sails \| `kind:str-canopy` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
+| `B43` | `kind:obj-transport-part` sails \| `kind:str-canopy` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
 | `B46` | `kind:obj-equipment-pocketitem-scroll` | `part:text` | is | `slate` |
 | `B47` | `kind:obj-equipment-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
@@ -369,7 +369,7 @@ What holds of every group:
 
 ## Appendix
 
-The kind tree is `lint/kinds.json`, written as `kind — nouns that resolve here`. Parent lines list nouns that have no leaf yet. Match with the deepest reasonable tier: ground you walk on is `env-terrain`, a rock set on it is `env-rock`.
+The kind tree is `lint/kinds.json`, written as `kind — nouns that resolve here`. Parent lines list nouns that have no leaf yet. Match with the deepest reasonable tier: ground you walk on is `env-terrain-ground`, a rock set on it is `env-terrain-rock`.
 
 Main:
 `obj` = manufactured/portable thing
