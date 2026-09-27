@@ -55,6 +55,7 @@ const SHORT_NAME = {
   kay: 'Kay',
   ken: 'Ken',
   qua: 'Qua',
+  aq: 'AQ',
   animation: 'Anim',
   halloween: 'Hallown',
   'robin-hood': 'Robin',
