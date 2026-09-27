@@ -2726,15 +2726,16 @@
     "3D Food": 55
    },
    "scales": {
-    "0.6": 47,
-    "0.3": 8
+    "0.5": 47,
+    "0.25": 8
    },
    "smooth": {
     "60": 55
    },
    "kitCheck": {
-    "factor": 0.91,
-    "kinds": 17
+    "factor": 0.76,
+    "kinds": 17,
+    "level": "warning"
    }
   },
   {
@@ -262230,9 +262231,9 @@
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.05
+    0.08,
+    0.08,
+    0.04
    ],
    "tris": 108,
    "tpu": 315,
@@ -262243,8 +262244,8 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00027,
+   "minEdge": 0.006,
+   "avgTri": 0.00018,
    "anglePct": 16,
    "vpt": 0.89,
    "grad": 0.59,
@@ -262259,6 +262260,13 @@
    ],
    "tags": [
     "ceramic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262280,8 +262288,8 @@
    "vtx": 132,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00043,
+   "minEdge": 0.004,
+   "avgTri": 0.0003,
    "anglePct": 78,
    "vpt": 1.06,
    "grad": 0.6,
@@ -262298,7 +262306,14 @@
     "food",
     "piece"
    ],
-   "variant": "v905"
+   "variant": "v905",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262306,8 +262321,8 @@
    "kind": "obj-food-baked-bread",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
+    0.15,
+    0.15,
     0.15
    ],
    "tris": 992,
@@ -262319,8 +262334,8 @@
    "vtx": 1056,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00043,
+   "minEdge": 0.004,
+   "avgTri": 0.0003,
    "anglePct": 68,
    "vpt": 1.06,
    "grad": 0.6,
@@ -262338,7 +262353,14 @@
     "piece",
     "plural"
    ],
-   "variant": "v905"
+   "variant": "v905",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262355,12 +262377,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4876,
+   "bytes": 4872,
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00046,
+   "minEdge": 0.006,
+   "avgTri": 0.00032,
    "anglePct": 69,
    "vpt": 0.65,
    "grad": 0.6,
@@ -262376,6 +262398,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262386,7 +262415,7 @@
    "wdh": [
     0.15,
     0.15,
-    0.07
+    0.06
    ],
    "tris": 142,
    "tpu": 414,
@@ -262397,8 +262426,8 @@
    "vtx": 76,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00046,
+   "minEdge": 0.01,
+   "avgTri": 0.00032,
    "anglePct": 31,
    "vpt": 0.54,
    "grad": 0.57,
@@ -262419,6 +262448,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262427,8 +262463,8 @@
    "kind": "obj-food-baked-bread-sandwich",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
+    0.15,
+    0.15,
     0.15
    ],
    "tris": 1012,
@@ -262441,7 +262477,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00033,
+   "avgTri": 0.00023,
    "anglePct": 42,
    "vpt": 0.84,
    "grad": 0.6,
@@ -262477,6 +262513,13 @@
    "tags": [
     "foliage",
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262485,9 +262528,9 @@
    "kind": "obj-food-baked-pie",
    "size": "s",
    "wdh": [
-    0.2,
-    0.1,
-    0.1
+    0.15,
+    0.08,
+    0.08
    ],
    "tris": 340,
    "tpu": 991,
@@ -262499,7 +262542,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00021,
+   "avgTri": 0.00015,
    "anglePct": 20,
    "vpt": 1.19,
    "grad": 0.59,
@@ -262515,6 +262558,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262523,8 +262573,8 @@
    "kind": "obj-food-baked-pie",
    "size": "s",
    "wdh": [
-    0.15,
-    0.09,
+    0.1,
+    0.08,
     0.1
    ],
    "tris": 142,
@@ -262536,8 +262586,8 @@
    "vtx": 149,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00046,
+   "minEdge": 0.006,
+   "avgTri": 0.00032,
    "anglePct": 80,
    "vpt": 1.05,
    "grad": 0.44,
@@ -262558,6 +262608,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262568,19 +262625,19 @@
    "wdh": [
     0.15,
     0.15,
-    0.04
+    0.03
    ],
    "tris": 150,
    "tpu": 437,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7412,
+   "bytes": 7408,
    "vtx": 154,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00031,
+   "avgTri": 0.00022,
    "anglePct": 35,
    "vpt": 1.03,
    "grad": 0.59,
@@ -262596,6 +262653,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262605,7 +262669,7 @@
    "size": "s",
    "wdh": [
     0.01,
-    0.3,
+    0.25,
     0.01
    ],
    "tris": 28,
@@ -262615,11 +262679,12 @@
    "calls": 1,
    "bytes": 2764,
    "vtx": 32,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0125,
-   "avgTri": 0.00029,
+   "minTube": 0.0104,
+   "avgTri": 0.0002,
    "anglePct": 2,
    "vpt": 1.14,
    "grad": 0.59,
@@ -262635,7 +262700,14 @@
    "tags": [
     "wood-worked"
    ],
-   "variant": "v895"
+   "variant": "v895",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262644,7 +262716,7 @@
    "size": "s",
    "wdh": [
     0.04,
-    0.3,
+    0.25,
     0.01
    ],
    "tris": 56,
@@ -262657,8 +262729,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0125,
-   "avgTri": 0.00029,
+   "minTube": 0.0104,
+   "avgTri": 0.0002,
    "anglePct": 1,
    "vpt": 1.14,
    "grad": 0.59,
@@ -262674,7 +262746,14 @@
    "tags": [
     "wood-worked"
    ],
-   "variant": "v895"
+   "variant": "v895",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262682,8 +262761,8 @@
    "kind": "obj-food-baked-pastry-cookie",
    "size": "s",
    "wdh": [
-    0.06,
-    0.06,
+    0.05,
+    0.05,
     0.01
    ],
    "tris": 68,
@@ -262695,8 +262774,8 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00009,
+   "minEdge": 0.004,
+   "avgTri": 0.00006,
    "anglePct": 39,
    "vpt": 1.06,
    "grad": 0.59,
@@ -262716,6 +262795,13 @@
    ],
    "tags": [
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262725,8 +262811,8 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.15,
-    0.08
+    0.1,
+    0.07
    ],
    "tris": 268,
    "tpu": 781,
@@ -262738,7 +262824,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.0002,
+   "avgTri": 0.00014,
    "anglePct": 3,
    "vpt": 1.06,
    "grad": 0.59,
@@ -262755,7 +262841,14 @@
     "food",
     "piece"
    ],
-   "variant": "v900"
+   "variant": "v900",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262763,9 +262856,9 @@
    "kind": "obj-food-baked-pastry-croissant",
    "size": "s",
    "wdh": [
-    0.25,
-    0.15,
-    0.08
+    0.2,
+    0.1,
+    0.07
    ],
    "tris": 474,
    "tpu": 1382,
@@ -262777,7 +262870,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00016,
+   "avgTri": 0.00011,
    "anglePct": 2,
    "vpt": 1.08,
    "grad": 0.59,
@@ -262793,7 +262886,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v900"
+   "variant": "v900",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262802,7 +262902,7 @@
    "size": "s",
    "wdh": [
     0.04,
-    0.07,
+    0.05,
     0.02
    ],
    "tris": 158,
@@ -262815,7 +262915,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00004,
+   "avgTri": 0.00003,
    "anglePct": 32,
    "vpt": 0.59,
    "grad": 0.54,
@@ -262836,6 +262936,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -262844,9 +262951,9 @@
    "kind": "obj-food-grain",
    "size": "s",
    "wdh": [
-    0.35,
+    0.3,
     0.2,
-    0.35
+    0.3
    ],
    "tris": 767,
    "tpu": 2236,
@@ -262858,7 +262965,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00044,
+   "avgTri": 0.0003,
    "anglePct": 2,
    "vpt": 0.77,
    "grad": 0.55,
@@ -262880,7 +262987,14 @@
     "food",
     "textile"
    ],
-   "variant": "v901"
+   "variant": "v901",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262888,21 +263002,21 @@
    "kind": "obj-food-grain",
    "size": "s",
    "wdh": [
-    0.35,
+    0.3,
     0.2,
-    0.3
+    0.25
    ],
    "tris": 696,
    "tpu": 2029,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22732,
+   "bytes": 22728,
    "vtx": 530,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00044,
+   "avgTri": 0.0003,
    "anglePct": 2,
    "vpt": 0.76,
    "grad": 0.59,
@@ -262918,7 +263032,14 @@
    "tags": [
     "textile"
    ],
-   "variant": "v901"
+   "variant": "v901",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -262927,8 +263048,8 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.15,
-    0.3
+    0.1,
+    0.25
    ],
    "tris": 278,
    "tpu": 810,
@@ -262940,7 +263061,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.0003,
+   "avgTri": 0.00021,
    "anglePct": 1,
    "vpt": 0.88,
    "grad": 0.53,
@@ -262966,7 +263087,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.33 at kit ×0.91)"
+     "text": "longest 0.25 over max 0.3 (obj-food-sweet-icecream · 0.329 at kit ×0.76)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
     }
    ]
   },
@@ -262977,20 +263103,20 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.15,
-    0.3
+    0.1,
+    0.25
    ],
    "tris": 278,
    "tpu": 810,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11076,
+   "bytes": 11080,
    "vtx": 244,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.0003,
+   "avgTri": 0.00021,
    "anglePct": 1,
    "vpt": 0.88,
    "grad": 0.53,
@@ -263016,7 +263142,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.33 at kit ×0.91)"
+     "text": "longest 0.25 over max 0.3 (obj-food-sweet-icecream · 0.329 at kit ×0.76)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
     }
    ]
   },
@@ -263027,8 +263158,8 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.15,
-    0.3
+    0.1,
+    0.25
    ],
    "tris": 278,
    "tpu": 810,
@@ -263040,7 +263171,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.0003,
+   "avgTri": 0.00021,
    "anglePct": 1,
    "vpt": 0.88,
    "grad": 0.53,
@@ -263066,7 +263197,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-food-sweet-icecream · 0.33 at kit ×0.91)"
+     "text": "longest 0.25 over max 0.3 (obj-food-sweet-icecream · 0.329 at kit ×0.76)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
     }
    ]
   },
@@ -263076,8 +263212,8 @@
    "kind": "obj-kitchenware-tableware-drinkware",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
+    0.09,
+    0.09,
     0.2
    ],
    "tris": 362,
@@ -263090,7 +263226,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00019,
+   "avgTri": 0.00013,
    "anglePct": 7,
    "vpt": 0.93,
    "grad": 0.57,
@@ -263111,6 +263247,13 @@
    "tags": [
     "paper",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263119,9 +263262,9 @@
    "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
-    0.06,
-    0.08,
-    0.08
+    0.05,
+    0.07,
+    0.07
    ],
    "tris": 110,
    "tpu": 321,
@@ -263132,8 +263275,8 @@
    "vtx": 65,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00015,
+   "minEdge": 0.003,
+   "avgTri": 0.00011,
    "anglePct": 28,
    "vpt": 0.59,
    "grad": 0.59,
@@ -263150,7 +263293,14 @@
     "food",
     "piece"
    ],
-   "variant": "v903"
+   "variant": "v903",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263159,8 +263309,8 @@
    "size": "s",
    "wdh": [
     0.01,
-    0.08,
-    0.04
+    0.07,
+    0.03
    ],
    "tris": 16,
    "tpu": 47,
@@ -263171,8 +263321,8 @@
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00037,
+   "minEdge": 0.006,
+   "avgTri": 0.00026,
    "anglePct": 86,
    "vpt": 1.5,
    "grad": 0.59,
@@ -263189,7 +263339,14 @@
     "food",
     "piece"
    ],
-   "variant": "v903"
+   "variant": "v903",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263198,8 +263355,8 @@
    "size": "s",
    "wdh": [
     0.01,
-    0.08,
-    0.08
+    0.07,
+    0.07
    ],
    "tris": 28,
    "tpu": 82,
@@ -263210,8 +263367,8 @@
    "vtx": 32,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00039,
+   "minEdge": 0.006,
+   "avgTri": 0.00027,
    "anglePct": 84,
    "vpt": 1.14,
    "grad": 0.59,
@@ -263228,7 +263385,14 @@
     "food",
     "piece"
    ],
-   "variant": "v903"
+   "variant": "v903",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263237,8 +263401,8 @@
    "size": "s",
    "wdh": [
     0.1,
-    0.08,
-    0.08
+    0.07,
+    0.07
    ],
    "tris": 208,
    "tpu": 606,
@@ -263249,8 +263413,8 @@
    "vtx": 106,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00012,
+   "minEdge": 0.003,
+   "avgTri": 0.00008,
    "anglePct": 0,
    "vpt": 0.51,
    "grad": 0.6,
@@ -263266,7 +263430,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v903"
+   "variant": "v903",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263274,7 +263445,7 @@
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.2,
+    0.15,
     0.15,
     0.02
    ],
@@ -263288,7 +263459,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00027,
+   "avgTri": 0.00019,
    "anglePct": 1,
    "vpt": 1.02,
    "grad": 0.59,
@@ -263304,6 +263475,13 @@
    "tags": [
     "foliage",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263312,9 +263490,9 @@
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.15
+    0.04,
+    0.04,
+    0.1
    ],
    "tris": 238,
    "tpu": 694,
@@ -263327,8 +263505,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0122,
-   "avgTri": 0.00004,
-   "anglePct": 19,
+   "avgTri": 0.00003,
+   "anglePct": 18,
    "vpt": 0.83,
    "grad": 0.57,
    "spread": {
@@ -263349,7 +263527,14 @@
     "food",
     "paper"
    ],
-   "variant": "v904"
+   "variant": "v904",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263357,9 +263542,9 @@
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.15
+    0.04,
+    0.04,
+    0.1
    ],
    "tris": 238,
    "tpu": 694,
@@ -263372,8 +263557,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0122,
-   "avgTri": 0.00004,
-   "anglePct": 19,
+   "avgTri": 0.00003,
+   "anglePct": 18,
    "vpt": 0.83,
    "grad": 0.57,
    "spread": {
@@ -263394,7 +263579,14 @@
     "food",
     "paper"
    ],
-   "variant": "v904"
+   "variant": "v904",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263402,9 +263594,9 @@
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.15
+    0.04,
+    0.04,
+    0.1
    ],
    "tris": 238,
    "tpu": 694,
@@ -263417,8 +263609,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0122,
-   "avgTri": 0.00004,
-   "anglePct": 19,
+   "avgTri": 0.00003,
+   "anglePct": 18,
    "vpt": 0.83,
    "grad": 0.57,
    "spread": {
@@ -263439,7 +263631,14 @@
     "food",
     "paper"
    ],
-   "variant": "v904"
+   "variant": "v904",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263447,23 +263646,23 @@
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.15
+    0.04,
+    0.04,
+    0.1
    ],
    "tris": 238,
    "tpu": 694,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9356,
+   "bytes": 9352,
    "vtx": 198,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0122,
-   "avgTri": 0.00004,
-   "anglePct": 19,
+   "avgTri": 0.00003,
+   "anglePct": 18,
    "vpt": 0.83,
    "grad": 0.57,
    "spread": {
@@ -263484,7 +263683,14 @@
     "food",
     "paper"
    ],
-   "variant": "v904"
+   "variant": "v904",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263492,21 +263698,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.04
+    0.04,
+    0.04,
+    0.03
    ],
    "tris": 44,
    "tpu": 128,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 3640,
+   "bytes": 3644,
    "vtx": 56,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00022,
+   "minEdge": 0.01,
+   "avgTri": 0.00015,
    "anglePct": 37,
    "vpt": 1.27,
    "grad": 0.34,
@@ -263533,7 +263739,14 @@
     "foliage",
     "food"
    ],
-   "variant": "v898"
+   "variant": "v898",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263541,21 +263754,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.04
+    0.04,
+    0.04,
+    0.03
    ],
    "tris": 44,
    "tpu": 128,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 3636,
+   "bytes": 3640,
    "vtx": 56,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00022,
+   "minEdge": 0.01,
+   "avgTri": 0.00015,
    "anglePct": 37,
    "vpt": 1.27,
    "grad": 0.34,
@@ -263585,6 +263798,11 @@
    "variant": "v898",
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    },
+    {
      "level": "error",
      "check": "palette",
      "text": "foliage wants moss hunter, has slate sienna ivory"
@@ -263597,8 +263815,8 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.1,
-    0.05,
+    0.08,
+    0.04,
     0.05
    ],
    "tris": 160,
@@ -263606,12 +263824,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6644,
+   "bytes": 6648,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00014,
+   "minEdge": 0.005,
+   "avgTri": 0.00009,
    "anglePct": 2,
    "vpt": 0.8,
    "grad": 0.6,
@@ -263632,7 +263850,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v896"
+   "variant": "v896",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263640,21 +263865,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.1,
-    0.05,
-    0.06
+    0.08,
+    0.04,
+    0.05
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6396,
+   "bytes": 6400,
    "vtx": 121,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00012,
+   "minEdge": 0.006,
+   "avgTri": 0.00008,
    "anglePct": 1,
    "vpt": 0.76,
    "grad": 0.6,
@@ -263675,7 +263900,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v896"
+   "variant": "v896",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -263683,8 +263915,8 @@
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
+    0.08,
+    0.08,
     0.01
    ],
    "tris": 64,
@@ -263696,8 +263928,8 @@
    "vtx": 83,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00012,
+   "minEdge": 0.006,
+   "avgTri": 0.00008,
    "anglePct": 50,
    "vpt": 1.3,
    "grad": 0.43,
@@ -263718,6 +263950,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263726,9 +263965,9 @@
    "kind": "obj-food-baked-pastry",
    "size": "s",
    "wdh": [
-    0.2,
     0.15,
-    0.09
+    0.1,
+    0.07
    ],
    "tris": 256,
    "tpu": 746,
@@ -263739,8 +263978,8 @@
    "vtx": 130,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00026,
+   "minEdge": 0.004,
+   "avgTri": 0.00018,
    "anglePct": 7,
    "vpt": 0.51,
    "grad": 0.59,
@@ -263755,6 +263994,13 @@
    ],
    "tags": [
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263763,21 +264009,21 @@
    "kind": "obj-food-baked-pastry",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.1
+    0.15,
+    0.15,
+    0.09
    ],
    "tris": 1080,
    "tpu": 3149,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46372,
+   "bytes": 46368,
    "vtx": 1197,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00039,
+   "avgTri": 0.00027,
    "anglePct": 58,
    "vpt": 1.11,
    "grad": 0.6,
@@ -263798,6 +264044,13 @@
    "tags": [
     "food",
     "plural"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263808,7 +264061,7 @@
    "wdh": [
     0.15,
     0.15,
-    0.04
+    0.03
    ],
    "tris": 124,
    "tpu": 362,
@@ -263819,8 +264072,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00048,
+   "minEdge": 0.008,
+   "avgTri": 0.00033,
    "anglePct": 65,
    "vpt": 0.65,
    "grad": 0.6,
@@ -263835,6 +264088,13 @@
    ],
    "tags": [
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263843,21 +264103,22 @@
    "kind": "obj-container",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.04
+    0.25,
+    0.25,
+    0.03
    ],
    "tris": 56,
    "tpu": 163,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4956,
+   "bytes": 4960,
    "vtx": 96,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00729,
+   "minEdge": 0.005,
+   "avgTri": 0.00506,
    "anglePct": 92,
    "vpt": 1.71,
    "grad": 0.6,
@@ -263872,6 +264133,13 @@
    ],
    "tags": [
     "paper"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263880,8 +264148,8 @@
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
+    0.25,
+    0.25,
     0.02
    ],
    "tris": 124,
@@ -263889,12 +264157,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5316,
+   "bytes": 5320,
    "vtx": 96,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00129,
+   "minEdge": 0.004,
+   "avgTri": 0.0009,
    "anglePct": 67,
    "vpt": 0.77,
    "grad": 0.59,
@@ -263909,6 +264178,13 @@
    ],
    "tags": [
     "ceramic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263919,7 +264195,7 @@
    "wdh": [
     0.2,
     0.2,
-    0.1
+    0.08
    ],
    "tris": 284,
    "tpu": 828,
@@ -263930,8 +264206,8 @@
    "vtx": 208,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00041,
+   "minEdge": 0.005,
+   "avgTri": 0.00029,
    "anglePct": 16,
    "vpt": 0.73,
    "grad": 0.6,
@@ -263946,6 +264222,13 @@
    ],
    "tags": [
     "ceramic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263954,9 +264237,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.09,
+    0.07,
     0.25,
-    0.08
+    0.07
    ],
    "tris": 410,
    "tpu": 1195,
@@ -263967,8 +264250,8 @@
    "vtx": 285,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00008,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
    "anglePct": 1,
    "vpt": 0.7,
    "grad": 0.59,
@@ -263983,6 +264266,13 @@
    ],
    "tags": [
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -263991,21 +264281,21 @@
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.05,
-    0.05,
-    0.08
+    0.04,
+    0.04,
+    0.07
    ],
    "tris": 154,
    "tpu": 449,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6584,
+   "bytes": 6588,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00009,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
    "anglePct": 25,
    "vpt": 0.83,
    "grad": 0.41,
@@ -264031,7 +264321,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.08 under min 0.1 (obj-container-bottle · 0.088 at kit ×0.91)"
+     "text": "longest 0.07 under min 0.1 (obj-container-bottle · 0.092 at kit ×0.76)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
     }
    ]
   },
@@ -264041,8 +264336,8 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.1,
-    0.05,
+    0.08,
+    0.04,
     0.01
    ],
    "tris": 80,
@@ -264050,12 +264345,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4684,
+   "bytes": 4688,
    "vtx": 82,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00013,
+   "minEdge": 0.008,
+   "avgTri": 0.00009,
    "anglePct": 12,
    "vpt": 1.02,
    "grad": 0.59,
@@ -264071,7 +264366,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v897"
+   "variant": "v897",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264079,8 +264381,8 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.1,
-    0.04,
+    0.08,
+    0.03,
     0.02
    ],
    "tris": 80,
@@ -264088,12 +264390,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4428,
+   "bytes": 4432,
    "vtx": 74,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00009,
+   "minEdge": 0.004,
+   "avgTri": 0.00006,
    "anglePct": 11,
    "vpt": 0.93,
    "grad": 0.59,
@@ -264109,7 +264411,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v897"
+   "variant": "v897",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264119,7 +264428,7 @@
    "wdh": [
     0.1,
     0.1,
-    0.02
+    0.01
    ],
    "tris": 84,
    "tpu": 245,
@@ -264130,8 +264439,8 @@
    "vtx": 91,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.0003,
+   "minEdge": 0.009,
+   "avgTri": 0.00021,
    "anglePct": 70,
    "vpt": 1.08,
    "grad": 0.6,
@@ -264150,9 +264459,14 @@
    "variant": "v899",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-meat-steak · 0.11 at kit ×0.91)"
+     "text": "longest 0.1 under min 0.15 (obj-food-meat-steak · 0.132 at kit ×0.76)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
     }
    ]
   },
@@ -264175,8 +264489,8 @@
    "vtx": 200,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00018,
+   "minEdge": 0.004,
+   "avgTri": 0.00013,
    "anglePct": 79,
    "vpt": 1.02,
    "grad": 0.6,
@@ -264192,7 +264506,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v899"
+   "variant": "v899",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264202,7 +264523,7 @@
    "wdh": [
     0.15,
     0.1,
-    0.02
+    0.01
    ],
    "tris": 124,
    "tpu": 362,
@@ -264213,8 +264534,8 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00028,
+   "minEdge": 0.011,
+   "avgTri": 0.0002,
    "anglePct": 80,
    "vpt": 1.03,
    "grad": 0.6,
@@ -264230,7 +264551,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v899"
+   "variant": "v899",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264238,7 +264566,7 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.04,
+    0.03,
     0.02,
     0.04
    ],
@@ -264269,7 +264597,14 @@
     "food",
     "piece"
    ],
-   "variant": "v906"
+   "variant": "v906",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264277,9 +264612,9 @@
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.04,
     0.03,
-    0.05
+    0.03,
+    0.04
    ],
    "tris": 288,
    "tpu": 840,
@@ -264313,7 +264648,19 @@
     "foliage",
     "food"
    ],
-   "variant": "v906"
+   "variant": "v906",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.04 under min 0.05 (defaults)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264321,22 +264668,22 @@
    "kind": "env-flora-plant-flower",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.25
+    0.1,
+    0.1,
+    0.2
    ],
    "tris": 698,
    "tpu": 2035,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 33800,
+   "bytes": 33804,
    "vtx": 876,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0084,
-   "avgTri": 0.00004,
+   "minTube": 0.007,
+   "avgTri": 0.00003,
    "anglePct": 3,
    "vpt": 1.26,
    "grad": 0.43,
@@ -264362,6 +264709,13 @@
    "tags": [
     "foliage",
     "vegetation"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
    ]
   },
   {
@@ -264370,21 +264724,21 @@
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.45,
-    0.15,
-    0.07
+    0.4,
+    0.1,
+    0.06
    ],
    "tris": 674,
    "tpu": 1965,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 34164,
+   "bytes": 34168,
    "vtx": 891,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00026,
+   "minEdge": 0.004,
+   "avgTri": 0.00018,
    "anglePct": 57,
    "vpt": 1.32,
    "grad": 0.55,
@@ -264429,8 +264783,8 @@
    "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
    "wdh": [
-    0.45,
-    0.15,
+    0.4,
+    0.1,
     0.02
    ],
    "tris": 126,
@@ -264438,12 +264792,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6576,
+   "bytes": 6584,
    "vtx": 133,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00084,
+   "minEdge": 0.005,
+   "avgTri": 0.00058,
    "anglePct": 85,
    "vpt": 1.06,
    "grad": 0.6,
@@ -264463,7 +264817,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.45 (obj-kitchenware-tableware-serving · 0.495 at kit ×0.91)"
+     "text": "longest 0.4 over max 0.45 (obj-kitchenware-tableware-serving · 0.526 at kit ×0.76)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
     }
    ]
   },
@@ -264473,21 +264832,21 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.08,
-    0.1,
-    0.04
+    0.07,
+    0.09,
+    0.03
    ],
    "tris": 94,
    "tpu": 274,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4476,
+   "bytes": 4472,
    "vtx": 73,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00021,
+   "minEdge": 0.012,
+   "avgTri": 0.00015,
    "anglePct": 22,
    "vpt": 0.78,
    "grad": 0.59,
@@ -264504,7 +264863,14 @@
     "food",
     "piece"
    ],
-   "variant": "v907"
+   "variant": "v907",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -264512,21 +264878,21 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.09
+    0.09,
+    0.09,
+    0.08
    ],
    "tris": 246,
    "tpu": 717,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8288,
+   "bytes": 8292,
    "vtx": 164,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 0,
    "vpt": 0.67,
    "grad": 0.51,
@@ -264548,7 +264914,14 @@
     "foliage",
     "food"
    ],
-   "variant": "v907"
+   "variant": "v907",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.76 off the size curve (styloo-food, 17 kinds)"
+    }
+   ]
   },
   {
    "kit": "styloo-furniture",
