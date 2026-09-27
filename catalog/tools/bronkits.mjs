@@ -24,12 +24,12 @@ export const BRONKITS = [
   { map: 'FantasyProps_glTF_1k', naam: 'Fantasy Props MegaKit', kit: 'quat-props', source: 'qua', formaat: 'gltf' },
   { map: 'Ultimate_Nature_Pack_by_Quaternius_OBJ', naam: 'Ultimate Nature Pack', kit: 'quat-nature', source: 'qua', formaat: 'obj' },
   { map: 'nature_kit', naam: 'Nature Kit', kit: 'natuur', formaat: 'obj' },
-  { map: 'Modular Village', naam: 'Modular Village', kit: 'fs-town', formaat: 'obj' },
-  { map: 'modular_terrain_collection', naam: 'Modular Terrain Collection', kit: 'fs-terrain', formaat: 'obj' },
+  { map: 'Modular Village', naam: 'Modular Village', kit: 'fs-town', source: 'fs', formaat: 'obj' },
+  { map: 'modular_terrain_collection', naam: 'Modular Terrain Collection', kit: 'fs-terrain', source: 'fs', formaat: 'obj' },
 
   { map: 'PropsLite_FBX', naam: 'Medieval Props Lite', kit: 'props', formaat: 'fbx' },
   { map: 'Rocks', naam: 'Rocks', kit: 'rocks', formaat: 'fbx', splitsPerMesh: true },
-  { map: 'ocean', naam: 'Ocean', kit: 'quat-ocean', formaat: 'fbx' },
+  { map: 'ocean', naam: 'Ocean', kit: 'quat-ocean', source: 'qua', formaat: 'fbx' },
   { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: 'tropical-island', formaat: 'fbx' },
 
   { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'kay-dun-1', source: 'kay', formaat: 'glb' },
@@ -45,7 +45,7 @@ export const BRONKITS = [
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', source: 'qua', formaat: 'fbx' },
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
-  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'lpa-tools', formaat: 'fbx' },
+  { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'lpa-tools', source: 'lpa', formaat: 'fbx' },
 
   { map: 'Animated_Fish_Pack_by_Quaternius_OBJ_FBX', naam: 'Animated Fish Pack', kit: 'quat-fish', source: 'qua', formaat: 'obj' },
   { map: 'Ultimate_Food_Pack_by_Quaternius_OBJ', naam: 'Ultimate Food Pack', kit: 'quat-food', source: 'qua', formaat: 'obj' },
@@ -58,7 +58,7 @@ export const BRONKITS = [
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'quat-medieval', source: 'qua', formaat: 'glb' },
 
   { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'quat-town', source: 'qua', formaat: 'glb' },
-  { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'lpa-desert', formaat: 'fbx', alleMappen: true },
+  { map: 'Low_Poly_Desert_Buildings', naam: 'Low Poly Desert Buildings', kit: 'lpa-desert', source: 'lpa', formaat: 'fbx', alleMappen: true },
 
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', naam: 'Asian Pack', kit: 'wizp-asia', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'CementeryPack', naam: 'Cementery Pack', kit: 'wizp-grave', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
@@ -101,7 +101,7 @@ export const BRONKITS = [
   { map: 'kenney_watercraft-pack_1', naam: 'Kenney Watercraft Pack', kit: 'ken-water', source: 'ken', formaat: 'glb' },
   { map: 'kenney_nature-kit', naam: 'Kenney Nature Kit', kit: 'ken-nature', source: 'ken', formaat: 'glb' },
 
-  { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: 'styloo-farm', formaat: 'glb' },
+  { map: 'Cozy_Farm', naam: 'Cozy Farm', kit: 'styloo-farm', source: 'styloo', formaat: 'glb' },
 
   { map: 'kenney_food-kit', naam: 'Kenney Food Kit', kit: 'ken-food', source: 'ken', formaat: 'glb' },
   { map: 'Food_Asset_Pack', naam: 'Food Asset Pack', kit: 'food-pack', formaat: 'fbx' },
@@ -121,11 +121,11 @@ export const BRONKITS = [
   { map: 'Animated_Fish_Bundle', naam: 'Animated Fish Bundle', kit: 'quat-fishing', source: 'qua', formaat: 'glb' },
   { map: 'Survival_Pack', naam: 'Survival Pack', kit: 'quat-survival', source: 'qua', formaat: 'glb' },
 
-  { map: 'Weapons_Assets_Pack_Styloo', naam: 'Weapons Assets Pack', kit: 'styloo-weapons', formaat: 'fbx' },
-  { map: 'Kitchen_Styloo', naam: 'Kitchen', kit: 'styloo-furniture', formaat: 'fbx' },
-  { map: 'Tiny_Planes_Styloo', naam: 'Tiny Planes', kit: 'styloo-planes', formaat: 'fbx' },
-  { map: '3D_Food_Styloo', naam: '3D Food', kit: 'styloo-food', formaat: 'gltf' },
-  { map: 'Food_Kitchen_Styloo', naam: 'Food and Kitchen Asset Pack', kit: 'styloo-kitchen', formaat: 'glb' },
+  { map: 'Weapons_Assets_Pack_Styloo', naam: 'Weapons Assets Pack', kit: 'styloo-weapons', source: 'styloo', formaat: 'fbx' },
+  { map: 'Kitchen_Styloo', naam: 'Kitchen', kit: 'styloo-furniture', source: 'styloo', formaat: 'fbx' },
+  { map: 'Tiny_Planes_Styloo', naam: 'Tiny Planes', kit: 'styloo-planes', source: 'styloo', formaat: 'fbx' },
+  { map: '3D_Food_Styloo', naam: '3D Food', kit: 'styloo-food', source: 'styloo', formaat: 'gltf' },
+  { map: 'Food_Kitchen_Styloo', naam: 'Food and Kitchen Asset Pack', kit: 'styloo-kitchen', source: 'styloo', formaat: 'glb' },
 
   { map: 'kenney_car-kit', naam: 'Kenney Car Kit', kit: 'ken-car', source: 'ken', formaat: 'glb' },
   { map: 'kenney_train-kit', naam: 'Kenney Train Kit', kit: 'ken-train', source: 'ken', formaat: 'glb' },
