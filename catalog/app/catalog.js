@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=61776dd6a0';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=61776dd6a0';
-import { colorSwatches, setBands } from './color-edits.js?v=61776dd6a0';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=61776dd6a0';
-import { mountExtractBar, setPageParts } from './extract.js?v=61776dd6a0';
-import './bouwstempel.js?v=61776dd6a0';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=fb5fd047ca';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=fb5fd047ca';
+import { colorSwatches, setBands } from './color-edits.js?v=fb5fd047ca';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=fb5fd047ca';
+import { mountExtractBar, setPageParts } from './extract.js?v=fb5fd047ca';
+import './bouwstempel.js?v=fb5fd047ca';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -75,7 +75,7 @@ const detail = document.querySelector('#detail');
 const cards = [];
 const sections = [];
 
-let grouping = 'kindauto';
+let grouping = 'kind6';
 let sorting = 'naam';
 
 const chosenPaths = new Set();
@@ -528,7 +528,7 @@ function kindSections(models, depth, splitOver = 0) {
     return null;
   };
   return [...bucket.keys()].sort(compare).map((id) => ({
-    id, title: title(id), color: color(id), hint: register.kinds.get(id)?.description, models: bucket.get(id),
+    id, title: title(id), color: color(id), models: bucket.get(id),
   }));
 }
 
@@ -1145,7 +1145,7 @@ function buildTagBar(tags) {
     SIZE_CLASSES.map((k) => ({ id: k.id, name: k.sign, hint: k.hint })),
     sizeState,
     'sizes',
-    { shareRow: shape },
+    { shareRow: shape, extra: true },
   );
   buildChipRow(
     container,
@@ -1319,6 +1319,7 @@ async function start() {
     syncSubtypes();
     reorder();
     filter();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   const lightButton = document.querySelector('#licht');
