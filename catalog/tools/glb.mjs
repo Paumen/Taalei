@@ -382,7 +382,7 @@ export function trianglesPerUnit(triangles, wdh) {
   return Math.round(triangles / cells);
 }
 
-function worldMatrices(json) {
+export function worldMatrices(json) {
   const nodes = json.nodes ?? [];
   const world = new Array(nodes.length).fill(null);
   const setWorld = (index, parent) => {
@@ -394,7 +394,7 @@ function worldMatrices(json) {
   return world;
 }
 
-function symmetricEigen(c) {
+export function symmetricEigen(c) {
   const a = c.map((r) => r.slice());
   const v = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
   for (let it = 0; it < 50; it++) {
