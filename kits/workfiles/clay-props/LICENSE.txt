@@ -3,62 +3,64 @@
 			------------------------------
 
 	Clay Items — Free Tier (1.1)
-	Gemaakt door Glitch Pixel Interactive —
-	https://glitchpixelinteractive.com
+	Made by OG Shmiggy —
+	https://og-shmiggy.itch.io/clay-items
 
-	Licentie: (Creative Commons Zero, CC0)
+	License: Creative Commons Zero (CC0)
 	http://creativecommons.org/publicdomain/zero/1.0/
 
-	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
-	commerciële projecten. De licentie staat in de pack zelf. De naam
-	en het logo van Glitch Pixel Interactive vallen er niet onder en
-	zijn niet meegekomen.
+	The itch.io pack page names OG Shmiggy as author and CC0 1.0
+	Universal as the licence; a copy of that page is in
+	kits/sources/ClayItems_FreeTier_1.1/clay-items-itch-page.mhtml.
+	The licence file in the zip names Glitch Pixel Interactive
+	(https://glitchpixelinteractive.com) as affirmer.
+
+	You may use this content for personal, educational and commercial
+	purposes. The licence is in the pack itself. The Glitch Pixel
+	Interactive name and logo are not covered by it and did not come
+	along.
 
 			------------------------------
 
-	Herkomst en bewerking
+	Origin and edits
 
-	Namen die aan elkaar geschreven stonden zijn uit elkaar gehaald en
-	alles is klein gezet: CrockpotLid wordt crockpot-lid en WideVase
-	wordt wide-vase. Er is geen model overgeslagen: alle 10 modellen
-	van de free tier staan in de kit.
+	Names written together are split and lower-cased: CrockpotLid
+	becomes crockpot-lid and WideVase becomes wide-vase. No model was
+	skipped: all 10 models of the free tier are in the kit.
 
-	Op 0,65 gezet, tegen het tafelgerei aan dat er al staat. plate
-	meet zo 0,20 breed, precies restaurant/plate en dungeon/plate, en
-	bowl 0,19 naast restaurant/bowl met 0,2. jug komt op 0,22 × 0,23
-	uit naast props/jug-a met 0,2 × 0,2.
+	Scaled to 0,65, against the tableware already in the catalogue.
+	plate measures 0,20 wide, exactly restaurant/plate and
+	dungeon/plate, and bowl 0,19 beside restaurant/bowl at 0,2. jug
+	comes to 0,22 × 0,23 beside props/jug-a at 0,2 × 0,2.
 
-	Wat er met de bestanden is gebeurd, staat in
-	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong
-	op y = 0 en het grondvlak gecentreerd in X en Z. De schaal (0,65)
-	staat op de wortelnode, niet in de hoekpunten.
+	What happened to the files is in tools/importeer/aanvullen.mjs:
+	converted to .glb, origin at y = 0 and the footprint centred in X
+	and Z. The scale (0,65) is on the root node, not in the vertices.
 
-	Deze pack werkt niet met een rooster van banen maar met een
-	geschilderde albedotextuur, plus een normal- en een roughnessmap.
-	Die twee laatste zijn niet meegekomen — de stijlgids vraagt
-	roughness 1 en metallic 0 (§1). De albedo is per driehoek
-	bemonsterd en op de gedeelde kits/colormap.png gelegd, zodat de
-	modellen dezelfde kleuren delen met de andere kits en in hetzelfde
-	kleurfilter meedoen.
+	This pack does not use a grid of bands but a painted albedo
+	texture, plus a normal and a roughness map. Those last two did not
+	come along — the style guide asks for roughness 1 and metallic 0
+	(§1). The albedo is sampled per triangle and mapped onto the shared
+	kits/colormap.png, so the models share their colours with the other
+	kits and take part in the same colour filter.
 
-	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk
-	zichtbaar verschil betekent; de afstanden hieronder staan in die
-	maat, op een schaal waar 100 het hele bereik is.
+	Compared in Oklab, where equal distance means roughly equal visible
+	difference; the distances below are in that measure, on a scale
+	where 100 is the whole range.
 
-	De hele pack is één materiaal, gebakken klei, en komt daarom op
-	één baan uit: terracotta 5,0. De verste sprong is de crockpot en
-	de wide-vase met 7,7 — het gebrande roodbruin van de pack (#9f4624)
-	is op de gedeelde sheet iets lichter en oranjer.
+	The whole pack is one material, fired clay, and so lands on one
+	band: terracotta 5,0. The largest jump is the crockpot and the
+	wide-vase at 7,7 — the pack's burnt red-brown (#9f4624) is a little
+	lighter and more orange on the shared sheet.
 
-	Twee dingen om te weten. De modellen zijn glad geschaduwd rond een
-	ronde doorsnede in plaats van vlak gefacetteerd; ze dragen daarom
-	`ngons`, en §2 telt hun vlakken. En omdat elk model precies één
-	baan gebruikt is er per model één materiaal getagd, `ceramic`, wat
-	N1 tot en met N3 precies haalt.
+	Two things to know. The models are smooth-shaded around a round
+	cross-section rather than flat-faceted; they therefore carry
+	`ngons`, and §2 counts their faces. And because each model uses
+	exactly one band, one material is tagged per model, `ceramic`,
+	which meets N1 to N3 exactly.
 
-	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
-	die het deelt, anders zou één hoekpunt de kleuren van twee
-	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
-	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
-	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
-	of verplaatst.
+	Every vertex was split from the triangles it shares before
+	remapping, otherwise one vertex would drag the colours of two
+	neighbouring faces over each other. Equal vertices (same position,
+	normal and UV) were then merged again. The geometry is untouched:
+	no triangle was added, removed or moved.
