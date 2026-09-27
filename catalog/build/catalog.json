@@ -2296,6 +2296,32 @@
    }
   },
   {
+   "slug": "quat-guns",
+   "name": "quat-guns",
+   "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-guns/LICENSE.txt.",
+   "artist": "Quaternius",
+   "licenseLabel": "CC0",
+   "count": 10,
+   "packs": [
+    "Ultimate Guns Pack"
+   ],
+   "origins": {
+    "Ultimate Guns Pack": 10
+   },
+   "scales": {
+    "0.15": 10
+   },
+   "smooth": {
+    "60": 7,
+    "none": 3
+   },
+   "kitCheck": {
+    "factor": 1.56,
+    "kinds": 4,
+    "level": "error"
+   }
+  },
+  {
    "slug": "quat-medieval",
    "name": "quat-medieval",
    "artist": "Quaternius",
@@ -2968,31 +2994,6 @@
    },
    "smooth": {
     "none": 3
-   }
-  },
-  {
-   "slug": "ultimate-guns",
-   "name": "ultimate-guns",
-   "note": "Source zip with no licence file and no author named; see kits/workfiles/ultimate-guns/LICENSE.txt.",
-   "licenseLabel": "CC0",
-   "count": 10,
-   "packs": [
-    "Ultimate Guns Pack"
-   ],
-   "origins": {
-    "Ultimate Guns Pack": 10
-   },
-   "scales": {
-    "0.15": 10
-   },
-   "smooth": {
-    "60": 7,
-    "none": 3
-   },
-   "kitCheck": {
-    "factor": 1.56,
-    "kinds": 4,
-    "level": "error"
    }
   },
   {
@@ -7662,20 +7663,20 @@
   {
    "id": "v457",
    "type": "detail-variant",
-   "main": "ultimate-guns/revolver",
+   "main": "quat-guns/revolver",
    "members": [
-    "ultimate-guns/revolver",
-    "ultimate-guns/revolver-ribbed",
-    "ultimate-guns/revolver-steel"
+    "quat-guns/revolver",
+    "quat-guns/revolver-ribbed",
+    "quat-guns/revolver-steel"
    ]
   },
   {
    "id": "v458",
    "type": "detail-variant",
-   "main": "ultimate-guns/shotgun",
+   "main": "quat-guns/shotgun",
    "members": [
-    "ultimate-guns/shotgun",
-    "ultimate-guns/shotgun-pump"
+    "quat-guns/shotgun",
+    "quat-guns/shotgun-pump"
    ]
   },
   {
@@ -17820,7 +17821,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 745
+   "count": 755
   },
   {
    "id": "isa",
@@ -223050,6 +223051,535 @@
    ]
   },
   {
+   "kit": "quat-guns",
+   "name": "bayonet",
+   "kind": "obj-equipment-weapon-melee-dagger",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.02,
+    0.04
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17744,
+   "vtx": 465,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0227,
+   "avgTri": 0.00004,
+   "anglePct": 7,
+   "vpt": 1.94,
+   "grad": 0.34,
+   "spread": {
+    "13,3": [
+     0.445,
+     0.758
+    ],
+    "15,3": [
+     0.32,
+     0.742
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "rubber"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.2 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.128 at kit ×1.56)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "pistol",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.05,
+    0.15
+   ],
+   "tris": 1040,
+   "tpu": 3032,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 71668,
+   "vtx": 2000,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00012,
+   "anglePct": 62,
+   "vpt": 1.92,
+   "grad": 0.4,
+   "spread": {
+    "2,0": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
+     0.211,
+     0.727
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "revolver-ribbed",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.04,
+    0.15
+   ],
+   "tris": 1434,
+   "tpu": 4181,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 58640,
+   "vtx": 1516,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0173,
+   "avgTri": 0.00007,
+   "anglePct": 72,
+   "vpt": 1.06,
+   "grad": 0.18,
+   "spread": {
+    "2,0": [
+     0.758,
+     0.961
+    ],
+    "15,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-beam"
+   ],
+   "variant": "v457",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "revolver-steel",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.04,
+    0.15
+   ],
+   "tris": 1334,
+   "tpu": 3889,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 51128,
+   "vtx": 1300,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0131,
+   "avgTri": 0.00006,
+   "anglePct": 68,
+   "vpt": 0.97,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua"
+   ],
+   "variant": "v457",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "revolver",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "size": "s",
+   "wdh": [
+    0.3,
+    0.04,
+    0.15
+   ],
+   "tris": 1046,
+   "tpu": 3050,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 41256,
+   "vtx": 1046,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0185,
+   "avgTri": 0.00009,
+   "anglePct": 75,
+   "vpt": 1,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.781,
+     0.961
+    ],
+    "1,0": [
+     0.789,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-worked"
+   ],
+   "variant": "v457",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "shotgun-pistol-grip",
+   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.04,
+    0.15
+   ],
+   "tris": 1612,
+   "tpu": 4700,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 59936,
+   "vtx": 1523,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0237,
+   "avgTri": 0.0001,
+   "anglePct": 51,
+   "vpt": 0.94,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.781,
+     0.961
+    ],
+    "1,0": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "shotgun-pump",
+   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
+   "size": "m",
+   "wdh": [
+    0.85,
+    0.04,
+    0.15
+   ],
+   "tris": 978,
+   "tpu": 2851,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 38868,
+   "vtx": 984,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0235,
+   "avgTri": 0.00019,
+   "anglePct": 55,
+   "vpt": 1.01,
+   "grad": 0.18,
+   "spread": {
+    "1,0": [
+     0.781,
+     0.961
+    ],
+    "15,3": [
+     0.781,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-worked"
+   ],
+   "variant": "v458",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "shotgun-sawed-off",
+   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.06,
+    0.15
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 36024,
+   "vtx": 899,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0261,
+   "avgTri": 0.00018,
+   "anglePct": 40,
+   "vpt": 0.94,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.781,
+     0.961
+    ],
+    "1,0": [
+     0.789,
+     0.961
+    ],
+    "2,0": [
+     0.75,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-beam",
+    "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "shotgun",
+   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
+   "size": "m",
+   "wdh": [
+    0.85,
+    0.04,
+    0.15
+   ],
+   "tris": 746,
+   "tpu": 2175,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 32536,
+   "vtx": 830,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0235,
+   "avgTri": 0.00027,
+   "anglePct": 60,
+   "vpt": 1.11,
+   "grad": 0.18,
+   "spread": {
+    "15,3": [
+     0.781,
+     0.961
+    ],
+    "1,0": [
+     0.781,
+     0.961
+    ],
+    "2,0": [
+     0.758,
+     0.961
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua",
+    "wood-beam",
+    "wood-worked"
+   ],
+   "variant": "v458",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-guns",
+   "name": "sniper-rifle",
+   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
+   "size": "m",
+   "wdh": [
+    0.95,
+    0.07,
+    0.2
+   ],
+   "tris": 1344,
+   "tpu": 3918,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 90460,
+   "vtx": 2530,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0198,
+   "avgTri": 0.00015,
+   "anglePct": 38,
+   "vpt": 1.88,
+   "grad": 0.68,
+   "spread": {
+    "15,3": [
+     0.258,
+     0.938
+    ]
+   },
+   "colors": [
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+    }
+   ]
+  },
+  {
    "kit": "quat-medieval",
    "name": "bag-open",
    "kind": "obj-container-bag",
@@ -281034,525 +281564,6 @@
     "rope",
     "textile",
     "wood-bark"
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "bayonet",
-   "kind": "obj-equipment-weapon-melee-dagger",
-   "size": "s",
-   "wdh": [
-    0.2,
-    0.02,
-    0.04
-   ],
-   "tris": 240,
-   "tpu": 700,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 17744,
-   "vtx": 465,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0227,
-   "avgTri": 0.00004,
-   "anglePct": 7,
-   "vpt": 1.94,
-   "grad": 0.34,
-   "spread": {
-    "13,3": [
-     0.445,
-     0.758
-    ],
-    "15,3": [
-     0.32,
-     0.742
-    ]
-   },
-   "colors": [
-    "#5b5550",
-    "#82868e"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "rubber"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.2 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.128 at kit ×1.56)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "pistol",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
-   "size": "s",
-   "wdh": [
-    0.25,
-    0.05,
-    0.15
-   ],
-   "tris": 1040,
-   "tpu": 3032,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 71668,
-   "vtx": 2000,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00012,
-   "anglePct": 62,
-   "vpt": 1.92,
-   "grad": 0.4,
-   "spread": {
-    "2,0": [
-     0.5,
-     0.5
-    ],
-    "15,3": [
-     0.211,
-     0.727
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#8b5936"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "revolver-ribbed",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.04,
-    0.15
-   ],
-   "tris": 1434,
-   "tpu": 4181,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 58640,
-   "vtx": 1516,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0173,
-   "avgTri": 0.00007,
-   "anglePct": 72,
-   "vpt": 1.06,
-   "grad": 0.18,
-   "spread": {
-    "2,0": [
-     0.758,
-     0.961
-    ],
-    "15,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#8b5936"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-beam"
-   ],
-   "variant": "v457",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "revolver-steel",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.04,
-    0.15
-   ],
-   "tris": 1334,
-   "tpu": 3889,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 51128,
-   "vtx": 1300,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0131,
-   "avgTri": 0.00006,
-   "anglePct": 68,
-   "vpt": 0.97,
-   "grad": 0.18,
-   "spread": {
-    "15,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e"
-   ],
-   "tags": [
-    "metal-iron-steel"
-   ],
-   "variant": "v457",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "revolver",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.04,
-    0.15
-   ],
-   "tris": 1046,
-   "tpu": 3050,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 41256,
-   "vtx": 1046,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0185,
-   "avgTri": 0.00009,
-   "anglePct": 75,
-   "vpt": 1,
-   "grad": 0.18,
-   "spread": {
-    "15,3": [
-     0.781,
-     0.961
-    ],
-    "1,0": [
-     0.789,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#b58158"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-worked"
-   ],
-   "variant": "v457",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "shotgun-pistol-grip",
-   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
-   "size": "m",
-   "wdh": [
-    0.65,
-    0.04,
-    0.15
-   ],
-   "tris": 1612,
-   "tpu": 4700,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 59936,
-   "vtx": 1523,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0237,
-   "avgTri": 0.0001,
-   "anglePct": 51,
-   "vpt": 0.94,
-   "grad": 0.18,
-   "spread": {
-    "15,3": [
-     0.781,
-     0.961
-    ],
-    "1,0": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#b58158"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "shotgun-pump",
-   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
-   "size": "m",
-   "wdh": [
-    0.85,
-    0.04,
-    0.15
-   ],
-   "tris": 978,
-   "tpu": 2851,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 38868,
-   "vtx": 984,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0235,
-   "avgTri": 0.00019,
-   "anglePct": 55,
-   "vpt": 1.01,
-   "grad": 0.18,
-   "spread": {
-    "1,0": [
-     0.781,
-     0.961
-    ],
-    "15,3": [
-     0.781,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#b58158"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-worked"
-   ],
-   "variant": "v458",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "shotgun-sawed-off",
-   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
-   "size": "m",
-   "wdh": [
-    0.55,
-    0.06,
-    0.15
-   ],
-   "tris": 956,
-   "tpu": 2787,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 36024,
-   "vtx": 899,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0261,
-   "avgTri": 0.00018,
-   "anglePct": 40,
-   "vpt": 0.94,
-   "grad": 0.18,
-   "spread": {
-    "15,3": [
-     0.781,
-     0.961
-    ],
-    "1,0": [
-     0.789,
-     0.961
-    ],
-    "2,0": [
-     0.75,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#8b5936",
-    "#b58158"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-beam",
-    "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "shotgun",
-   "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
-   "size": "m",
-   "wdh": [
-    0.85,
-    0.04,
-    0.15
-   ],
-   "tris": 746,
-   "tpu": 2175,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 32536,
-   "vtx": 830,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0235,
-   "avgTri": 0.00027,
-   "anglePct": 60,
-   "vpt": 1.11,
-   "grad": 0.18,
-   "spread": {
-    "15,3": [
-     0.781,
-     0.961
-    ],
-    "1,0": [
-     0.781,
-     0.961
-    ],
-    "2,0": [
-     0.758,
-     0.961
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#8b5936",
-    "#b58158"
-   ],
-   "tags": [
-    "metal-iron-steel",
-    "wood-beam",
-    "wood-worked"
-   ],
-   "variant": "v458",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
-   ]
-  },
-  {
-   "kit": "ultimate-guns",
-   "name": "sniper-rifle",
-   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
-   "size": "m",
-   "wdh": [
-    0.95,
-    0.07,
-    0.2
-   ],
-   "tris": 1344,
-   "tpu": 3918,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 90460,
-   "vtx": 2530,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0198,
-   "avgTri": 0.00015,
-   "anglePct": 38,
-   "vpt": 1.88,
-   "grad": 0.68,
-   "spread": {
-    "15,3": [
-     0.258,
-     0.938
-    ]
-   },
-   "colors": [
-    "#82868e"
-   ],
-   "tags": [
-    "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
-    }
    ]
   },
   {
