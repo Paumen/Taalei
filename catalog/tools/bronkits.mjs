@@ -40,7 +40,7 @@ export const BRONKITS = [
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-props', formaat: 'gltf' },
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'quat-dun-2', source: 'qua', formaat: 'obj' },
   { map: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', naam: 'Modular Dungeons Pack', kit: 'quat-dun-1', source: 'qua', formaat: 'obj' },
-  { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'rgp-props', formaat: 'fbx' },
+  { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'rgp-props', source: 'rgp', formaat: 'fbx' },
 
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', source: 'qua', formaat: 'fbx' },
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },
@@ -63,7 +63,7 @@ export const BRONKITS = [
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'Asian_Pack', naam: 'Asian Pack', kit: 'wizp-asia', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'CementeryPack', naam: 'Cementery Pack', kit: 'wizp-grave', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Asian_Cementery_Rocks_Packs', submap: 'RocksPack', naam: 'Rocks Pack', kit: 'wizp-rock', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', formaat: 'fbx' },
+  { map: 'Stylized_Asia_RG', naam: 'Stylized Asia RG', kit: 'asia-rg', source: 'rgp', formaat: 'fbx' },
 
   { map: 'Medieval_Pack', naam: 'Stylized Medieval Village', kit: 'wizp-mediev', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Fishing_Village_Pack', naam: 'Fishing Village Pack', kit: 'wizp-fish', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
@@ -139,7 +139,7 @@ export const BRONKITS = [
   { map: 'kenney_mini-arena_1', naam: 'Kenney Mini Arena', kit: 'ken-arena', source: 'ken', formaat: 'glb' },
   { map: 'kenney_city-kit-roads', naam: 'Kenney City Kit Roads', kit: 'ken-roads', source: 'ken', formaat: 'glb' },
 
-  { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: 'rgp-weapons', formaat: 'glb', extraFormaten: ['fbx'] },
+  { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: 'rgp-weapons', source: 'rgp', formaat: 'glb', extraFormaten: ['fbx'] },
   { map: 'JayBee_Medieval_Kitchen', naam: 'Low Poly Medieval Kitchen Furniture', kit: 'jb-kitchen', formaat: 'glb', extraFormaten: ['fbx'], schaalPerFormaat: { fbx: 0.01 } },
   { map: 'Food_Pack', naam: 'Food Pack', kit: 'food-pack-2', formaat: 'glb', splitsPerMesh: true },
 
@@ -155,6 +155,6 @@ export const BRONKITS = [
   { map: 'KayKit_Platformer_Pack_1.0_FREE', naam: 'KayKit Platformer Pack', kit: 'kay-platformer', source: 'kay', formaat: 'gltf', alleMappen: true },
 
   { map: 'Stylized_Medieval_Kingdom', naam: 'Stylized Medieval Kingdom', kit: null, formaat: 'fbx', alleMappen: true },
-  { map: 'Stylized_Explosives', naam: 'Stylized Explosives', kit: null, formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
-  { map: 'Vintage_Room', naam: 'Vintage Room', kit: null, formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Stylized_Explosives', naam: 'Stylized Explosives', kit: 'rgp-explosives', source: 'rgp', formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Vintage_Room', naam: 'Vintage Room', kit: 'rgp-vintage', source: 'rgp', formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
 ];
