@@ -517,12 +517,14 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
   <nav class="paginabalk" aria-label="Pages">
     <a href="../../index.html">Catalog</a>
     <a href="scale-obj-gen.html">Scale</a>
-    <span aria-current="page">Curves</span>
-    <a href="overview.html">Overview</a>
+    <span aria-current="page">Overview</span>
     <a href="swipe.html">Swipe</a>
     <a href="tbd.html">TBD</a>
-    <a href="reject.html">Reject</a>
-    <a href="swipe.html?source=lint">Lint</a>
+  </nav>
+
+  <nav class="paginabalk sub-bar" aria-label="Overview pages">
+    <a href="overview.html">Overview</a>
+    <span aria-current="page">Curves</span>
   </nav>
 </header>
 
