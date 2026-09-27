@@ -15577,15 +15577,15 @@
    "id": "obj-leisure-game",
    "name": "Game",
    "type": "kind",
-   "description": "Game piece or kit: dice, cards, chips, trading cards, and pickup icons.",
-   "count": 28
+   "description": "Game or sport gear: cards, chips, dice, bowling pins, air hockey gear, pool floats.",
+   "count": 39
   },
   {
-   "id": "obj-leisure-sport",
-   "name": "Sport",
+   "id": "obj-leisure-game-ball",
+   "name": "Ball",
    "type": "kind",
-   "description": "Loose sport gear that is not gym equipment: bowling pins, pool floats, air hockey gear.",
-   "count": 4
+   "description": "Ball for games or sport: football, basketball, beach ball, bowling ball, medicine ball.",
+   "count": 7
   },
   {
    "id": "obj-device-electronics",
@@ -17614,15 +17614,8 @@
    "id": "obj-leisure-toy",
    "name": "Toy",
    "type": "kind",
-   "description": "Thing made to play with: ball, frisbee, plushie.",
-   "count": 17
-  },
-  {
-   "id": "obj-leisure-toy-ball",
-   "name": "Ball",
-   "type": "kind",
-   "description": "Ball to play with: football, basketball, beach ball.",
-   "count": 7
+   "description": "Thing made to play with: frisbee, plushie, puzzle cube.",
+   "count": 10
   },
   {
    "id": "str-fixture-utility-fountain",
@@ -18537,7 +18530,7 @@
   "obj-kitchenware-tableware-drinkware-mug",
   "obj-kitchenware-tableware-serving",
   "obj-leisure-art-frame",
-  "obj-leisure-toy-ball",
+  "obj-leisure-game-ball",
   "obj-resource-haystack",
   "obj-resource-textile",
   "obj-resource-wheat",
@@ -19987,13 +19980,13 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "obj-leisure-game-symbol": {
+  "obj-leisure-game-ball": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
+   "longest.min": 0.15,
+   "longest.max": 0.45,
    "tpu.max": 10000
   },
-  "obj-leisure-sport": {
+  "obj-leisure-game-symbol": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -20003,12 +19996,6 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "obj-leisure-toy-ball": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.45,
    "tpu.max": 10000
   },
   "obj-resource": {
@@ -107284,7 +107271,7 @@
   {
    "kit": "kay-holiday",
    "name": "basketball",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "s",
    "wdh": [
     0.2,
@@ -107847,7 +107834,7 @@
   {
    "kit": "kay-holiday",
    "name": "football",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "s",
    "wdh": [
     0.15,
@@ -107890,7 +107877,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-leisure-toy-ball · 0.143 at kit ×1.05)"
+     "text": "longest 0.15 under min 0.15 (obj-leisure-game-ball · 0.143 at kit ×1.05)"
     }
    ]
   },
@@ -109796,7 +109783,7 @@
   {
    "kit": "kay-minigame",
    "name": "beach-ball",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "m",
    "wdh": [
     0.6,
@@ -109849,7 +109836,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-toy-ball · 0.698 at kit ×0.86)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.698 at kit ×0.86)"
     },
     {
      "level": "error",
@@ -112953,7 +112940,7 @@
   {
    "kit": "kay-platformer",
    "name": "ball-azure",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "m",
    "wdh": [
     0.6,
@@ -112997,14 +112984,14 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-toy-ball · 0.571 at kit ×1.05)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.571 at kit ×1.05)"
     }
    ]
   },
   {
    "kit": "kay-platformer",
    "name": "ball",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "m",
    "wdh": [
     0.6,
@@ -113053,7 +113040,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-toy-ball · 0.571 at kit ×1.05)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.571 at kit ×1.05)"
     }
    ]
   },
@@ -270343,7 +270330,7 @@
    "kit": "sq-arcade",
    "collection": "sq-props",
    "name": "air-hockey-gear",
-   "kind": "obj-leisure-sport",
+   "kind": "obj-leisure-game",
    "size": "s",
    "wdh": [
     0.15,
@@ -272418,7 +272405,7 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "bowling-pin",
-   "kind": "obj-leisure-sport",
+   "kind": "obj-leisure-game",
    "size": "s",
    "wdh": [
     0.06,
@@ -272535,7 +272522,7 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "house-balls",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "s",
    "wdh": [
     0.25,
@@ -272950,7 +272937,7 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "pin-formation",
-   "kind": "obj-leisure-sport",
+   "kind": "obj-leisure-game",
    "size": "m",
    "wdh": [
     0.5,
@@ -278215,7 +278202,7 @@
    "kit": "sq-gym",
    "collection": "sq-props",
    "name": "medicine-balls",
-   "kind": "obj-leisure-toy-ball",
+   "kind": "obj-leisure-game-ball",
    "size": "s",
    "wdh": [
     0.35,
@@ -281484,7 +281471,7 @@
    "kit": "sq-pool",
    "collection": "sq-props",
    "name": "float-stack",
-   "kind": "obj-leisure-sport",
+   "kind": "obj-leisure-game",
    "size": "s",
    "wdh": [
     0.45,
