@@ -52,6 +52,7 @@ function kitRows() {
       url: kit.url,
       artist: kit.artist ?? null,
       source: sources.join(', ') || null,
+      sources,
       license: kit.licenseLabel ?? null,
       scale: scaleValue,
       scaleRest: scale.rest,
@@ -76,9 +77,10 @@ function kitRows() {
 
 const KIT_COLUMNS = [
   { key: 'kit', label: 'Kit', cell: (r) => (r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.kit)}</a>` : esc(r.kit))
-    + (r.members ? ` <span class="extra" title="collection of ${r.members.length} kits">${r.members.map(esc).join(' + ')}</span>` : '') },
+    + (r.members ? `<span class="leden" title="collection of ${r.members.length} kits">${r.members.map((m) => `<span>${esc(m)}</span>`).join(' + ')}</span>` : '') },
   { key: 'artist', label: 'Artist' },
-  { key: 'source', label: 'Source', wrap: true },
+  { key: 'source', label: 'Source', cell: (r) => (r.source === null ? DASH
+    : esc(r.sources[0]) + extra(r.sources.length - 1, r.sources.slice(1).join(', '))) },
   { key: 'license', label: 'License' },
   { key: 'scale', label: 'Scale', num: true, cell: (r) => (r.scale === null ? DASH : r.scale + extra(r.scaleRest, r.scaleTitle)) },
   { key: 'count', label: 'In catalog', num: true },
