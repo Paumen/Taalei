@@ -40,7 +40,7 @@ export const BRONKITS = [
   { map: 'ClayItems_FreeTier_1.1', naam: 'Clay Items Free Tier', kit: 'clay-props', formaat: 'gltf' },
   { map: 'Updated_Modular_Dungeon_2019', naam: 'Updated Modular Dungeon', kit: 'quat-dun-2', source: 'qua', formaat: 'obj' },
   { map: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', naam: 'Modular Dungeons Pack', kit: 'quat-dun-1', source: 'qua', formaat: 'obj' },
-  { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'small-props', formaat: 'fbx' },
+  { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'rgp-props', formaat: 'fbx' },
 
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', source: 'qua', formaat: 'fbx' },
   { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },
@@ -139,7 +139,7 @@ export const BRONKITS = [
   { map: 'kenney_mini-arena_1', naam: 'Kenney Mini Arena', kit: 'ken-arena', source: 'ken', formaat: 'glb' },
   { map: 'kenney_city-kit-roads', naam: 'Kenney City Kit Roads', kit: 'ken-roads', source: 'ken', formaat: 'glb' },
 
-  { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: 'rg-weapons', formaat: 'glb', extraFormaten: ['fbx'] },
+  { map: 'RG_Poly_Medieval_Weapons', naam: 'Medieval Weapons Small Low Poly Pack', kit: 'rgp-weapons', formaat: 'glb', extraFormaten: ['fbx'] },
   { map: 'JayBee_Medieval_Kitchen', naam: 'Low Poly Medieval Kitchen Furniture', kit: 'jb-kitchen', formaat: 'glb', extraFormaten: ['fbx'], schaalPerFormaat: { fbx: 0.01 } },
   { map: 'Food_Pack', naam: 'Food Pack', kit: 'food-pack-2', formaat: 'glb', splitsPerMesh: true },
 

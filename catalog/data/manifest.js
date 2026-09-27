@@ -2445,8 +2445,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "small-props",
-  "name": "small-props",
+  "slug": "rgp-props",
+  "name": "rgp-props",
   "url": null,
   "models": [
    "anvil-b",
@@ -6044,10 +6044,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "rg-weapons",
-  "name": "rg-weapons",
+  "slug": "rgp-weapons",
+  "name": "rgp-weapons",
   "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/rg-weapons/LICENSE.txt.",
+  "note": "By RG Poly: shares its texture atlas with rgp-props (Small Props Pack, licence names RG Poly). Source zip has no licence file; see kits/workfiles/rgp-weapons/LICENSE.txt.",
   "models": [
    "arrow-a",
    "arrow-b",
