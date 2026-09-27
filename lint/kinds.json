@@ -397,9 +397,7 @@
           "chestnut"
          ],
          "nouns": [
-          "cup",
-          "tankard",
-          "glass"
+          "tankard"
          ],
          "children": [
           {
@@ -425,6 +423,36 @@
             "chalice",
             "wine glass"
            ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-cup",
+           "nouns": [
+            "cup",
+            "teacup",
+            "demitasse"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-glass",
+           "longest.min": 0.05,
+           "longest.max": 0.3,
+           "nouns": [
+            "glass",
+            "drinking glass",
+            "beer glass",
+            "shot glass",
+            "milk glass"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-takeaway",
+           "nouns": [
+            "takeaway cup",
+            "to-go cup",
+            "soda cup",
+            "frappe",
+            "iced coffee"
+           ]
           }
          ]
         },
@@ -435,7 +463,8 @@
           "pepper shaker",
           "pepper mill",
           "pepper grinder",
-          "shaker"
+          "shaker",
+          "soy sauce dish"
          ]
         }
        ]
@@ -626,7 +655,8 @@
       {
        "id": "obj-food-vegetable",
        "nouns": [
-        "potato"
+        "potato",
+        "veggie patty"
        ],
        "children": [
         {
@@ -725,7 +755,8 @@
        "id": "obj-food-grain",
        "nouns": [
         "wheat sheaf",
-        "flour sack"
+        "flour sack",
+        "rice"
        ]
       },
       {
@@ -935,9 +966,7 @@
          "longest.max": 0.35,
          "nouns": [
           "bread",
-          "loaf",
-          "roll",
-          "baguette"
+          "loaf"
          ],
          "scale": {
           "small": 0.5
@@ -950,6 +979,24 @@
            "nouns": [
             "sandwich",
             "sub"
+           ]
+          },
+          {
+           "id": "obj-food-baked-bread-baguette",
+           "longest.min": 0.35,
+           "longest.max": 0.8,
+           "nouns": [
+            "baguette",
+            "french bread"
+           ]
+          },
+          {
+           "id": "obj-food-baked-bread-bun",
+           "nouns": [
+            "bun",
+            "roll",
+            "burger bun",
+            "steamed bun"
            ]
           }
          ]
@@ -1221,6 +1268,16 @@
              "longest.max": 0.85,
              "nouns": [
               "rifle"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-ranged-firearm-part",
+             "nouns": [
+              "magazine (gun)",
+              "clip (gun)",
+              "scope",
+              "silencer",
+              "gun attachment"
              ]
             }
            ]
@@ -1593,7 +1650,8 @@
           "rope",
           "chain",
           "hook",
-          "wire"
+          "wire",
+          "matchbox"
          ]
         },
         {
@@ -1633,7 +1691,9 @@
           "pen",
           "scissors",
           "drafting compass",
-          "ruler"
+          "ruler",
+          "ink bottle",
+          "inkwell"
          ],
          "scale": {
           "small": 0.5
@@ -1880,7 +1940,8 @@
        "tpu.max": 5000,
        "nouns": [
         "chandelier",
-        "match"
+        "match",
+        "ceiling fan"
        ],
        "children": [
         {
@@ -2091,8 +2152,7 @@
            "nouns": [
             "shelf",
             "wall shelf",
-            "shelving",
-            "bookcase"
+            "shelving"
            ],
            "children": [
             {
@@ -2107,7 +2167,28 @@
              ]
             }
            ]
+          },
+          {
+           "id": "obj-furnishing-furniture-storage-bookcase",
+           "nouns": [
+            "bookcase",
+            "bookshelf",
+            "shelving unit",
+            "cubby"
+           ]
           }
+         ]
+        },
+        {
+         "id": "obj-furnishing-furniture-counter",
+         "nouns": [
+          "counter",
+          "kitchen counter",
+          "worktop",
+          "kitchen sink",
+          "sink",
+          "kitchen bar",
+          "prep table"
          ]
         }
        ]
@@ -2139,8 +2220,15 @@
           "rug",
           "carpet",
           "picnic blanket",
-          "doormat",
           "folded blanket"
+         ]
+        },
+        {
+         "id": "obj-furnishing-textile-mat",
+         "nouns": [
+          "mat",
+          "doormat",
+          "yoga mat"
          ]
         }
        ]
@@ -2154,9 +2242,7 @@
      "children": [
       {
        "id": "obj-device-appliance",
-       "nouns": [
-        "ceiling fan"
-       ],
+       "nouns": [],
        "children": [
         {
          "id": "obj-device-appliance-blender",
@@ -2288,7 +2374,8 @@
           "screen",
           "monitor",
           "display",
-          "television"
+          "television",
+          "tv antenna"
          ]
         },
         {
@@ -2330,7 +2417,8 @@
          "nouns": [
           "speaker",
           "loudspeaker",
-          "studio monitor"
+          "studio monitor",
+          "dj booth"
          ]
         },
         {
@@ -2429,7 +2517,11 @@
         "bowling pin",
         "roulette wheel",
         "prize wheel",
-        "wheel of fortune"
+        "wheel of fortune",
+        "casino table",
+        "card table",
+        "poker table",
+        "chip tray"
        ],
        "children": [
         {
@@ -2446,16 +2538,6 @@
          ]
         },
         {
-         "id": "obj-leisure-game-symbol",
-         "nouns": [
-          "symbol",
-          "icon",
-          "heart (icon)",
-          "star (icon)",
-          "lightning bolt"
-         ]
-        },
-        {
          "id": "obj-leisure-game-gym",
          "nouns": [
           "dumbbell",
@@ -2469,6 +2551,16 @@
         }
        ]
       }
+     ]
+    },
+    {
+     "id": "obj-symbol",
+     "nouns": [
+      "symbol",
+      "icon",
+      "heart (icon)",
+      "star (icon)",
+      "lightning bolt"
      ]
     }
    ]
@@ -2854,7 +2946,9 @@
      "id": "str-barrier",
      "nouns": [
       "wall (low, garden)",
-      "barricade"
+      "barricade",
+      "curb",
+      "kerb"
      ],
      "children": [
       {
@@ -3189,7 +3283,8 @@
        "nouns": [
         "utility pole",
         "power line",
-        "night deposit"
+        "night deposit",
+        "radar"
        ],
        "children": [
         {
