@@ -14454,7 +14454,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 564
+   "count": 586
   },
   {
    "id": "metal-iron",
@@ -14469,7 +14469,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 642,
+   "count": 637,
    "parent": "metal-iron"
   },
   {
@@ -14602,7 +14602,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 549
+   "count": 550
   },
   {
    "id": "leather",
@@ -14623,14 +14623,21 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 497
+   "count": 506
   },
   {
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
-   "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 570
+   "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
+   "count": 477
+  },
+  {
+   "id": "rubber",
+   "name": "Rubber",
+   "type": "material",
+   "description": "Rubber: tyres, belts, seals.",
+   "count": 33
   },
   {
    "id": "bone",
@@ -14665,7 +14672,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 456
+   "count": 473
   },
   {
    "id": "liquid",
@@ -28937,7 +28944,7 @@
    "tags": [
     "glass",
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -28980,7 +28987,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -30045,7 +30052,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -30709,7 +30716,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -30962,8 +30969,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron-steel",
-    "plastic"
+    "metal",
+    "rubber"
    ],
    "lint": [
     {
@@ -31575,7 +31582,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -31705,7 +31712,7 @@
    ],
    "tags": [
     "glass",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -57927,15 +57934,8 @@
    ],
    "tags": [
     "isa",
-    "plastic",
+    "textile",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has camel ivory"
-    }
    ]
   },
   {
@@ -114175,8 +114175,7 @@
    ],
    "tags": [
     "kay",
-    "paper",
-    "plastic"
+    "paper"
    ],
    "lint": [
     {
@@ -125260,7 +125259,7 @@
     "comp",
     "kay",
     "metal",
-    "plastic",
+    "rubber",
     "space"
    ],
    "lint": [
@@ -125972,7 +125971,7 @@
    "tags": [
     "kay",
     "metal",
-    "plastic",
+    "rubber",
     "space"
    ],
    "lint": [
@@ -126400,9 +126399,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "kay",
     "metal",
-    "plastic",
     "space"
    ],
    "lint": [
@@ -126410,11 +126409,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.39 off the size curve (kay-space, 6 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel slate ivory"
     }
    ]
   },
@@ -135264,7 +135258,7 @@
    ],
    "tags": [
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -135310,7 +135304,7 @@
     "comp",
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1080"
   },
@@ -135357,7 +135351,7 @@
     "comp",
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1080"
   },
@@ -135404,7 +135398,7 @@
     "comp",
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1080"
   },
@@ -135450,7 +135444,7 @@
    "tags": [
     "comp",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1081"
   },
@@ -135496,7 +135490,7 @@
    "tags": [
     "comp",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1081"
   },
@@ -136165,7 +136159,7 @@
    "tags": [
     "broken",
     "ken",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -137559,7 +137553,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v956"
   },
@@ -137606,7 +137600,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v956"
   },
@@ -137762,7 +137756,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v957"
   },
@@ -137809,7 +137803,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v958"
   },
@@ -137908,7 +137902,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v956"
   },
@@ -139637,15 +139631,16 @@
    "vpt": 1.19,
    "grad": 0.39,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.367,
      0.758
     ]
    },
    "colors": [
-    "#5b5550"
+    "#7f3927"
    ],
    "tags": [
+    "glass",
     "ken",
     "plastic"
    ],
@@ -143251,7 +143246,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1159"
   },
@@ -143472,7 +143467,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1159"
   },
@@ -143518,7 +143513,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1154"
   },
@@ -143564,7 +143559,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1154"
   },
@@ -143610,7 +143605,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "lint": [
     {
@@ -145646,9 +145641,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145690,9 +145685,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145734,9 +145729,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145778,9 +145773,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145822,9 +145817,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145866,9 +145861,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145910,9 +145905,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145954,9 +145949,9 @@
     "#88848a"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -146002,7 +145997,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1152"
   },
@@ -146049,7 +146044,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1151"
   },
@@ -146095,7 +146090,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1150"
   },
@@ -146142,7 +146137,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1153"
   },
@@ -148669,15 +148664,8 @@
    ],
    "tags": [
     "food",
-    "ken",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has chestnut ivory tan"
-    }
+    "glass",
+    "ken"
    ]
   },
   {
@@ -154017,7 +154005,7 @@
    ],
    "tags": [
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -154059,8 +154047,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -154317,7 +154306,7 @@
    ],
    "tags": [
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v826"
   },
@@ -155099,18 +155088,10 @@
     "glass",
     "ken",
     "metal-iron-steel",
-    "plastic",
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v805",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has camel ivory chestnut nickel"
-    }
-   ]
+   "variant": "v805"
   },
   {
    "kit": "ken-furniture",
@@ -155152,17 +155133,9 @@
    ],
    "tags": [
     "ken",
-    "metal-iron-steel",
-    "plastic"
+    "metal"
    ],
-   "variant": "v805",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel"
-    }
-   ]
+   "variant": "v805"
   },
   {
    "kit": "ken-furniture",
@@ -155210,8 +155183,7 @@
    "tags": [
     "glass",
     "ken",
-    "metal-iron-steel",
-    "plastic"
+    "metal"
    ],
    "variant": "v805"
   },
@@ -155261,8 +155233,7 @@
    "tags": [
     "glass",
     "ken",
-    "metal-iron-steel",
-    "plastic"
+    "metal"
    ],
    "variant": "v805"
   },
@@ -155307,7 +155278,7 @@
    "tags": [
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -155740,8 +155711,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -156286,8 +156258,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic",
+    "metal",
     "wood-worked"
    ]
   },
@@ -156721,7 +156694,7 @@
    ],
    "tags": [
     "ken",
-    "plastic",
+    "rubber",
     "wood-worked"
    ],
    "variant": "v818"
@@ -156766,7 +156739,7 @@
    ],
    "tags": [
     "ken",
-    "plastic",
+    "rubber",
     "wood-worked"
    ],
    "variant": "v818"
@@ -157569,8 +157542,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -157617,8 +157591,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic",
+    "metal",
     "wood-worked"
    ]
   },
@@ -157763,7 +157738,7 @@
    "vpt": 1.56,
    "grad": 0.51,
    "spread": {
-    "5,2": [
+    "1,1": [
      0.445,
      0.75
     ],
@@ -157773,8 +157748,8 @@
     ]
    },
    "colors": [
-    "#5b5550",
-    "#d8d1bd"
+    "#23562c",
+    "#5b5550"
    ],
    "tags": [
     "ken",
@@ -158012,7 +157987,7 @@
    "tags": [
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -158056,7 +158031,7 @@
    "tags": [
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v826"
   },
@@ -177910,7 +177885,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084",
@@ -177973,7 +177947,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084",
@@ -178036,7 +178009,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084"
@@ -178092,7 +178064,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084",
@@ -178144,15 +178115,7 @@
    ],
    "tags": [
     "ken",
-    "metal",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate ivory"
-    }
+    "metal"
    ]
   },
   {
@@ -181124,7 +181087,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181132,6 +181094,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181182,7 +181149,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181190,6 +181156,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181240,7 +181211,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1001",
@@ -181249,6 +181219,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181299,7 +181274,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181307,6 +181281,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181357,7 +181336,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181365,6 +181343,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181415,7 +181398,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181423,6 +181405,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181473,7 +181460,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181481,6 +181467,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181531,7 +181522,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1002",
@@ -181540,6 +181530,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181590,7 +181585,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1002",
@@ -181599,6 +181593,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181649,7 +181648,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181662,6 +181660,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -182199,7 +182202,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1001",
@@ -182208,6 +182210,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -183118,9 +183125,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1098",
@@ -183129,11 +183136,6 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.6 over max 2 (str-part-pillar · 2.549 at kit ×1.02)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
     }
    ]
   },
@@ -184824,19 +184826,12 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
-   "variant": "v1105",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate ivory nickel"
-    }
-   ]
+   "variant": "v1105"
   },
   {
    "kit": "ken-space",
@@ -186422,18 +186417,11 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "comp",
     "ken",
     "metal",
-    "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory slate nickel"
-    }
    ]
   },
   {
@@ -186623,20 +186611,13 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "comp",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
-   "variant": "v1116",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
-    }
-   ]
+   "variant": "v1116"
   },
   {
    "kit": "ken-space",
@@ -186966,19 +186947,12 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
-   "variant": "v1118",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel ivory slate"
-    }
-   ]
+   "variant": "v1118"
   },
   {
    "kit": "ken-space",
@@ -187085,17 +187059,10 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
-    }
    ]
   },
   {
@@ -187143,9 +187110,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1119",
@@ -187154,11 +187121,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.49 at kit ×1.02)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate nickel ivory"
     }
    ]
   },
@@ -187207,19 +187169,12 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
-   "variant": "v1119",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel slate ivory"
-    }
-   ]
+   "variant": "v1119"
   },
   {
    "kit": "ken-space",
@@ -216169,7 +216124,6 @@
    "tags": [
     "leather",
     "metal-iron-steel",
-    "plastic",
     "qua",
     "textile",
     "wood-worked"
@@ -221470,13 +221424,13 @@
    "vpt": 1.96,
    "grad": 0,
    "spread": {
-    "13,3": [
+    "1,1": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#5b5550"
+    "#23562c"
    ],
    "tags": [
     "plastic",
@@ -221569,7 +221523,7 @@
    "vpt": 1.93,
    "grad": 0,
    "spread": {
-    "13,3": [
+    "1,1": [
      0.5,
      0.5
     ],
@@ -221579,7 +221533,7 @@
     ]
    },
    "colors": [
-    "#5b5550",
+    "#23562c",
     "#8b5936"
    ],
    "tags": [
@@ -222152,14 +222106,14 @@
      0.5,
      0.5
     ],
-    "5,2": [
+    "6,0": [
      0.492,
      0.492
     ]
    },
    "colors": [
     "#5b5550",
-    "#d8d1bd"
+    "#f2a93c"
    ],
    "tags": [
     "metal-iron-wrought",
@@ -240394,8 +240348,8 @@
    "tags": [
     "broken",
     "metal",
-    "plastic",
-    "qua"
+    "qua",
+    "rubber"
    ]
   },
   {
@@ -242677,9 +242631,9 @@
     "#5b5550"
    ],
    "tags": [
-    "plastic",
     "plural",
-    "qua"
+    "qua",
+    "rubber"
    ]
   },
   {
@@ -244351,7 +244305,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "plastic",
+    "glass",
+    "metal",
     "qua"
    ]
   },
@@ -263611,15 +263566,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "paper",
-    "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory chestnut"
-    }
+    "paper"
    ]
   },
   {
@@ -264482,13 +264429,13 @@
    "vpt": 0.7,
    "grad": 0.59,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.148,
      0.742
     ]
    },
    "colors": [
-    "#5b5550"
+    "#7f3927"
    ],
    "tags": [
     "plastic"
@@ -265216,7 +265163,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -265382,7 +265329,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -265639,7 +265586,7 @@
    "vpt": 0.81,
    "grad": 0.49,
    "spread": {
-    "13,3": [
+    "1,1": [
      0.148,
      0.75
     ],
@@ -265649,7 +265596,7 @@
     ]
    },
    "colors": [
-    "#5b5550",
+    "#23562c",
     "#d8d1bd"
    ],
    "tags": [
@@ -265782,8 +265729,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron-steel",
-    "plastic"
+    "glass",
+    "metal"
    ]
   },
   {
@@ -266160,7 +266107,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -267006,7 +266953,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -269729,7 +269676,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ],
    "lint": [
     {
