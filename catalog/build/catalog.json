@@ -14465,7 +14465,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 641,
+   "count": 642,
    "parent": "metal-iron"
   },
   {
@@ -14473,7 +14473,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 292,
+   "count": 290,
    "parent": "metal-iron"
   },
   {
@@ -14481,7 +14481,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 291,
+   "count": 292,
    "parent": "metal-iron"
   },
   {
@@ -93846,7 +93846,7 @@
    "vpt": 1.39,
    "grad": 0.75,
    "spread": {
-    "15,3": [
+    "6,1": [
      0.016,
      0.789
     ],
@@ -93856,20 +93856,13 @@
     ]
    },
    "colors": [
-    "#88848a",
+    "#343745",
     "#d8d1bd"
    ],
    "tags": [
     "kay",
-    "metal-iron-steel",
+    "metal-iron-cast",
     "paper"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
-    }
    ]
   },
   {
@@ -175863,28 +175856,21 @@
      0.094,
      0.898
     ],
-    "13,3": [
+    "15,3": [
      0.094,
      0.898
     ]
    },
    "colors": [
-    "#5b5550",
+    "#88848a",
     "#d07b56",
     "#f2a93c"
    ],
    "tags": [
     "ken",
     "metal-gold",
-    "metal-iron-wrought",
+    "metal-iron-steel",
     "pickup"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-tool)"
-    }
    ]
   },
   {
@@ -237472,16 +237458,16 @@
    "vpt": 0.87,
    "grad": 0.2,
    "spread": {
-    "13,3": [
+    "15,3": [
      0.766,
      0.961
     ]
    },
    "colors": [
-    "#5b5550"
+    "#88848a"
    ],
    "tags": [
-    "metal-iron-wrought",
+    "metal-iron-steel",
     "pickup",
     "qua"
    ],
@@ -237490,11 +237476,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.38 off the size curve (quat-rpg, 19 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-tool)"
     }
    ]
   },
