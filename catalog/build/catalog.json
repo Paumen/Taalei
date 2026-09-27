@@ -90,6 +90,7 @@
   {
    "slug": "asia-rg",
    "name": "asia-rg",
+   "artist": "RGP",
    "licenseLabel": "CC0",
    "count": 68,
    "packs": [
@@ -2601,8 +2602,33 @@
    }
   },
   {
+   "slug": "rgp-explosives",
+   "name": "rgp-explosives",
+   "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-explosives/LICENSE.txt.",
+   "artist": "RGP",
+   "licenseLabel": "CC0",
+   "count": 13,
+   "packs": [
+    "Stylized Explosives"
+   ],
+   "origins": {
+    "Stylized Explosives": 13
+   },
+   "scales": {
+    "0.44": 13
+   },
+   "smooth": {
+    "none": 13
+   },
+   "kitCheck": {
+    "factor": 1.17,
+    "kinds": 4
+   }
+  },
+  {
    "slug": "rgp-props",
    "name": "rgp-props",
+   "artist": "RGP",
    "licenseLabel": "CC0",
    "count": 28,
    "packs": [
@@ -2623,9 +2649,34 @@
    }
   },
   {
+   "slug": "rgp-vintage",
+   "name": "rgp-vintage",
+   "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-vintage/LICENSE.txt.",
+   "artist": "RGP",
+   "licenseLabel": "CC0",
+   "count": 17,
+   "packs": [
+    "Vintage Room"
+   ],
+   "origins": {
+    "Vintage Room": 17
+   },
+   "scales": {
+    "0.44": 17
+   },
+   "smooth": {
+    "none": 17
+   },
+   "kitCheck": {
+    "factor": 1.18,
+    "kinds": 7
+   }
+  },
+  {
    "slug": "rgp-weapons",
    "name": "rgp-weapons",
    "note": "By RG Poly: shares its texture atlas with rgp-props (Small Props Pack, licence names RG Poly). Source zip has no licence file; see kits/workfiles/rgp-weapons/LICENSE.txt.",
+   "artist": "RGP",
    "licenseLabel": "CC0",
    "count": 19,
    "packs": [
@@ -14380,6 +14431,36 @@
     "ken-station/bed-single-covered",
     "ken-station/bed-double-covered"
    ]
+  },
+  {
+   "id": "v1163",
+   "type": "detail-variant",
+   "main": "rgp-explosives/bomb-a",
+   "members": [
+    "rgp-explosives/bomb-a",
+    "rgp-explosives/bomb-b",
+    "rgp-explosives/bomb-c"
+   ]
+  },
+  {
+   "id": "v1164",
+   "type": "detail-variant",
+   "main": "rgp-explosives/dynamite-a",
+   "members": [
+    "rgp-explosives/dynamite-a",
+    "rgp-explosives/dynamite-b",
+    "rgp-explosives/dynamite-c",
+    "rgp-explosives/dynamite-d"
+   ]
+  },
+  {
+   "id": "v1165",
+   "type": "detail-variant",
+   "main": "rgp-vintage/gramophone",
+   "members": [
+    "rgp-vintage/gramophone",
+    "rgp-vintage/gramophone-record"
+   ]
   }
  ],
  "bands": [
@@ -14454,7 +14535,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 586
+   "count": 587
   },
   {
    "id": "metal-iron",
@@ -14469,7 +14550,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 637,
+   "count": 642,
    "parent": "metal-iron"
   },
   {
@@ -14477,7 +14558,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 290,
+   "count": 291,
    "parent": "metal-iron"
   },
   {
@@ -14485,7 +14566,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 292,
+   "count": 295,
    "parent": "metal-iron"
   },
   {
@@ -14493,7 +14574,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 159,
+   "count": 162,
    "parent": "metal"
   },
   {
@@ -14516,7 +14597,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 396,
+   "count": 398,
    "parent": "wood"
   },
   {
@@ -14524,7 +14605,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 764,
+   "count": 765,
    "parent": "wood"
   },
   {
@@ -14532,7 +14613,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 986,
+   "count": 999,
    "parent": "wood"
   },
   {
@@ -14595,21 +14676,21 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 189
+   "count": 197
   },
   {
    "id": "textile",
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 549
+   "count": 554
   },
   {
    "id": "leather",
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 116
+   "count": 119
   },
   {
    "id": "foliage",
@@ -14623,14 +14704,14 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 506
+   "count": 507
   },
   {
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 477
+   "count": 481
   },
   {
    "id": "rubber",
@@ -14693,7 +14774,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 96
+   "count": 104
   },
   {
    "id": "cork",
@@ -14736,7 +14817,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2721,
+   "count": 2748,
    "color": "#c07c8a"
   },
   {
@@ -14744,14 +14825,14 @@
    "name": "Household",
    "type": "kind",
    "description": "Household item in everyday use.",
-   "count": 58
+   "count": 61
   },
   {
    "id": "obj-household-electronics",
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
-   "count": 49
+   "count": 52
   },
   {
    "id": "obj-household-electronics-screen",
@@ -14786,7 +14867,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 410,
+   "count": 412,
    "color": "#dd9f79"
   },
   {
@@ -14857,7 +14938,7 @@
    "name": "Barrel",
    "type": "kind",
    "description": "barrel, cask",
-   "count": 45
+   "count": 46
   },
   {
    "id": "obj-container-barrel-keg",
@@ -14906,7 +14987,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 70
+   "count": 71
   },
   {
    "id": "obj-container-crate-cube",
@@ -14955,7 +15036,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "ring, necklace, amulet, bracelet, crown, goggles, earring",
-   "count": 440,
+   "count": 454,
    "color": "#6b5b95"
   },
   {
@@ -14970,7 +15051,7 @@
    "name": "Apparel",
    "type": "kind",
    "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
-   "count": 24
+   "count": 25
   },
   {
    "id": "obj-equipment-apparel-glove",
@@ -15167,7 +15248,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 277,
+   "count": 284,
    "color": "#c07c8a"
   },
   {
@@ -15203,14 +15284,14 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 83
+   "count": 86
   },
   {
    "id": "obj-furnishing-seating-bench",
    "name": "Bench",
    "type": "kind",
    "description": "bench, pew",
-   "count": 30
+   "count": 31
   },
   {
    "id": "obj-furnishing-seating-bench-nobackrest",
@@ -15224,14 +15305,14 @@
    "name": "Backrest",
    "type": "kind",
    "description": "couch, sofa, backed bench",
-   "count": 18
+   "count": 19
   },
   {
    "id": "obj-furnishing-seating-chair",
    "name": "Chair",
    "type": "kind",
    "description": "chair, armchair, throne",
-   "count": 37
+   "count": 39
   },
   {
    "id": "obj-furnishing-seating-stool",
@@ -15245,7 +15326,7 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser",
-   "count": 75
+   "count": 76
   },
   {
    "id": "obj-furnishing-storage-cabinet",
@@ -15266,7 +15347,7 @@
    "name": "Table",
    "type": "kind",
    "description": "table, desk, workbench",
-   "count": 55
+   "count": 56
   },
   {
    "id": "obj-furnishing-table-square",
@@ -15555,7 +15636,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, dice, mirror (hand)",
-   "count": 81,
+   "count": 83,
    "color": "#f1976c"
   },
   {
@@ -15563,14 +15644,14 @@
    "name": "Book",
    "type": "kind",
    "description": "book, tome, journal, spell book",
-   "count": 31
+   "count": 32
   },
   {
    "id": "obj-equipment-pocketitem-book-open",
    "name": "Open",
    "type": "kind",
    "description": "open book",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-equipment-pocketitem-book-closed",
@@ -15591,7 +15672,7 @@
    "name": "Key",
    "type": "kind",
    "description": "key",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-equipment-pocketitem-scroll",
@@ -15874,7 +15955,7 @@
    "name": "Siege",
    "type": "kind",
    "description": "Siege weapon with no leaf that fits.",
-   "count": 27
+   "count": 30
   },
   {
    "id": "obj-equipment-weapon-siege-cannon",
@@ -15888,21 +15969,21 @@
    "name": "Ammunition",
    "type": "kind",
    "description": "What a siege weapon throws, with no leaf that fits.",
-   "count": 10
+   "count": 13
   },
   {
    "id": "obj-equipment-weapon-siege-ammunition-cannonball",
    "name": "Cannonball",
    "type": "kind",
    "description": "cannonball, bomb, catapult ball",
-   "count": 10
+   "count": 13
   },
   {
    "id": "obj-equipment-weapon",
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 257,
+   "count": 268,
    "color": "#4c5468"
   },
   {
@@ -15994,7 +16075,7 @@
    "name": "Ranged",
    "type": "kind",
    "description": "sling, throwing knife, javelin",
-   "count": 108
+   "count": 116
   },
   {
    "id": "obj-equipment-apparel-quiver",
@@ -16346,7 +16427,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1602,
+   "count": 1605,
    "color": "#877a63"
   },
   {
@@ -16448,7 +16529,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 579,
+   "count": 582,
    "color": "#a8762a"
   },
   {
@@ -16505,14 +16586,14 @@
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 105
+   "count": 106
   },
   {
    "id": "str-part-floor-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
-   "count": 82
+   "count": 83
   },
   {
    "id": "str-part-frame",
@@ -16540,7 +16621,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support",
-   "count": 57
+   "count": 58
   },
   {
    "id": "str-part-roof",
@@ -16561,14 +16642,14 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 98
+   "count": 99
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 74
+   "count": 75
   },
   {
    "id": "str-part-wall-rampart",
@@ -16741,14 +16822,14 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 222
+   "count": 225
   },
   {
    "id": "pickup",
    "name": "Pickup",
    "type": "tag",
    "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token.",
-   "count": 71
+   "count": 72
   },
   {
    "id": "broken",
@@ -17298,7 +17379,7 @@
    "name": "Grenade",
    "type": "kind",
    "description": "grenade",
-   "count": 4
+   "count": 12
   },
   {
    "id": "obj-food-vegetable-broccoli",
@@ -17396,14 +17477,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2365
+   "count": 2385
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2079
+   "count": 2089
   },
   {
    "id": "l",
@@ -17446,6 +17527,13 @@
    "type": "artist",
    "description": "Kits from WizP (wizp.itch.io). Derived from the models themselves, so not tracked in catalog/tags.json.",
    "count": 244
+  },
+  {
+   "id": "rgp",
+   "name": "RGP",
+   "type": "artist",
+   "description": "Kits from RG Poly. Derived from the models themselves, so not tracked in catalog/tags.json.",
+   "count": 145
   },
   {
    "id": "animation",
@@ -18690,6 +18778,12 @@
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-storage": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "obj-furnishing-storage-cabinet": {
@@ -25055,7 +25149,8 @@
    "tags": [
     "asia",
     "foliage",
-    "plural"
+    "plural",
+    "rgp"
    ],
    "lint": [
     {
@@ -25106,6 +25201,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -25153,7 +25249,8 @@
    "tags": [
     "asia",
     "broken",
-    "ceramic"
+    "ceramic",
+    "rgp"
    ],
    "lint": [
     {
@@ -25198,7 +25295,8 @@
    ],
    "tags": [
     "asia",
-    "ceramic"
+    "ceramic",
+    "rgp"
    ],
    "lint": [
     {
@@ -25250,6 +25348,7 @@
    "tags": [
     "asia",
     "metal-iron-wrought",
+    "rgp",
     "wood-worked"
    ],
    "lint": [
@@ -25300,7 +25399,8 @@
    ],
    "tags": [
     "asia",
-    "metal-iron-cast"
+    "metal-iron-cast",
+    "rgp"
    ],
    "lint": [
     {
@@ -25358,7 +25458,8 @@
     "asia",
     "metal-copper",
     "metal-gold",
-    "pickup"
+    "pickup",
+    "rgp"
    ],
    "lint": [
     {
@@ -25404,7 +25505,8 @@
    ],
    "tags": [
     "asia",
-    "metal-gold"
+    "metal-gold",
+    "rgp"
    ],
    "lint": [
     {
@@ -25467,6 +25569,7 @@
     "asia",
     "leather",
     "metal-iron-steel",
+    "rgp",
     "wood-beam",
     "wood-worked"
    ],
@@ -25524,6 +25627,7 @@
    "tags": [
     "asia",
     "paper",
+    "rgp",
     "wood-beam"
    ],
    "lint": [
@@ -25569,6 +25673,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam"
    ],
    "variant": "v643",
@@ -25615,6 +25720,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam"
    ],
    "variant": "v643",
@@ -25667,6 +25773,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -25720,6 +25827,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -25790,6 +25898,7 @@
     "asia",
     "ceramic",
     "paper",
+    "rgp",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -25866,6 +25975,7 @@
     "asia",
     "ceramic",
     "paper",
+    "rgp",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -25926,6 +26036,7 @@
    "tags": [
     "asia",
     "ceramic",
+    "rgp",
     "wood-beam"
    ],
    "lint": [
@@ -25983,6 +26094,7 @@
    "tags": [
     "asia",
     "ceramic",
+    "rgp",
     "storeys-1",
     "wood-beam",
     "wood-planks"
@@ -26030,6 +26142,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "skin"
    ],
    "variant": "v329",
@@ -26081,6 +26194,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "skin",
     "wood-beam"
    ],
@@ -26139,6 +26253,7 @@
    "tags": [
     "asia",
     "metal-gold",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -26186,7 +26301,8 @@
    "tags": [
     "asia",
     "foliage",
-    "plural"
+    "plural",
+    "rgp"
    ],
    "lint": [
     {
@@ -26253,6 +26369,7 @@
     "metal-gold",
     "metal-iron-steel",
     "metal-iron-wrought",
+    "rgp",
     "textile",
     "wood-worked"
    ],
@@ -26314,6 +26431,7 @@
     "asia",
     "metal-iron-steel",
     "metal-iron-wrought",
+    "rgp",
     "textile"
    ],
    "lint": [
@@ -26360,6 +26478,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "scale-big",
     "wood-beam"
    ],
@@ -26418,6 +26537,7 @@
    "tags": [
     "asia",
     "emissive",
+    "rgp",
     "rope"
    ],
    "lint": [
@@ -26469,6 +26589,7 @@
    "tags": [
     "asia",
     "emissive",
+    "rgp",
     "rope"
    ],
    "lint": [
@@ -26514,7 +26635,8 @@
    ],
    "tags": [
     "asia",
-    "foliage"
+    "foliage",
+    "rgp"
    ],
    "lint": [
     {
@@ -26572,6 +26694,7 @@
     "asia",
     "metal-iron-steel",
     "metal-iron-wrought",
+    "rgp",
     "wood-beam"
    ],
    "lint": [
@@ -26623,6 +26746,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-masonry",
     "wood-beam"
    ],
@@ -26680,6 +26804,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -26731,6 +26856,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam",
     "wood-planks"
    ]
@@ -26775,6 +26901,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-masonry"
    ]
   },
@@ -26823,6 +26950,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-masonry",
     "wood-beam",
     "wood-planks"
@@ -26864,6 +26992,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam"
    ],
    "lint": [
@@ -26916,6 +27045,7 @@
    "tags": [
     "asia",
     "metal-iron-cast",
+    "rgp",
     "wood-beam"
    ],
    "lint": [
@@ -26974,6 +27104,7 @@
     "asia",
     "foliage",
     "plural",
+    "rgp",
     "vegetation"
    ],
    "lint": [
@@ -27025,6 +27156,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam",
     "wood-planks"
    ],
@@ -27076,6 +27208,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27121,6 +27254,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27166,6 +27300,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27211,6 +27346,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27256,6 +27392,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27301,6 +27438,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27352,6 +27490,7 @@
    "tags": [
     "asia",
     "metal-gold",
+    "rgp",
     "rope"
    ],
    "lint": [
@@ -27397,6 +27536,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "rope",
     "textile"
    ],
@@ -27449,6 +27589,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "rope",
     "textile"
    ],
@@ -27524,6 +27665,7 @@
     "asia",
     "ceramic",
     "metal-gold",
+    "rgp",
     "stone-masonry",
     "storeys-1",
     "wood-beam",
@@ -27578,7 +27720,8 @@
    "tags": [
     "asia",
     "metal-iron-steel",
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "rgp"
    ],
    "lint": [
     {
@@ -27628,6 +27771,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam",
     "wood-planks"
    ],
@@ -27674,6 +27818,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "variant": "v629",
@@ -27720,6 +27865,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "variant": "v629",
@@ -27766,6 +27912,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "variant": "v629",
@@ -27812,6 +27959,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "variant": "v629",
@@ -27858,6 +28006,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "variant": "v629",
@@ -27904,6 +28053,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27949,6 +28099,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-rock"
    ],
    "lint": [
@@ -27996,6 +28147,7 @@
     "asia",
     "grave",
     "halloween",
+    "rgp",
     "stone-masonry"
    ],
    "lint": [
@@ -28042,6 +28194,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-worked"
    ],
    "lint": [
@@ -28088,6 +28241,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-worked"
    ],
    "lint": [
@@ -28133,7 +28287,8 @@
    ],
    "tags": [
     "asia",
-    "ceramic"
+    "ceramic",
+    "rgp"
    ],
    "lint": [
     {
@@ -28184,6 +28339,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "rope",
     "wood-worked"
    ],
@@ -28230,6 +28386,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-worked"
    ],
    "lint": [
@@ -28281,6 +28438,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "stone-masonry",
     "wood-beam"
    ],
@@ -28333,6 +28491,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -28386,6 +28545,7 @@
    "tags": [
     "asia",
     "foliage",
+    "rgp",
     "stone-masonry"
    ],
    "lint": [
@@ -28431,7 +28591,8 @@
    ],
    "tags": [
     "asia",
-    "ceramic"
+    "ceramic",
+    "rgp"
    ],
    "lint": [
     {
@@ -28481,6 +28642,7 @@
    ],
    "tags": [
     "asia",
+    "rgp",
     "wood-beam",
     "wood-planks"
    ]
@@ -254038,6 +254200,643 @@
    ]
   },
   {
+   "kit": "rgp-explosives",
+   "name": "ammo-crate",
+   "kind": "obj-container-crate",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.25,
+    0.2
+   ],
+   "tris": 1116,
+   "tpu": 3254,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 33248,
+   "vtx": 785,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0262,
+   "avgTri": 0.00095,
+   "anglePct": 82,
+   "vpt": 0.7,
+   "grad": 0.96,
+   "spread": {
+    "0,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "rgp",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "barrel-tnt",
+   "kind": "obj-container-barrel",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.5
+   ],
+   "tris": 2744,
+   "tpu": 8000,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 70156,
+   "vtx": 1633,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00055,
+   "anglePct": 20,
+   "vpt": 0.6,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "rgp",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G19 tris 2744 wants range 100–1500"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "bomb-a",
+   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.15
+   ],
+   "tris": 632,
+   "tpu": 1843,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 30468,
+   "vtx": 791,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "anglePct": 3,
+   "vpt": 1.25,
+   "grad": 0.35,
+   "spread": {
+    "6,1": [
+     0.016,
+     0.969
+    ],
+    "14,2": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#907a66"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1163"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "bomb-b",
+   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.15
+   ],
+   "tris": 584,
+   "tpu": 1703,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 25604,
+   "vtx": 648,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "anglePct": 3,
+   "vpt": 1.11,
+   "grad": 0.41,
+   "spread": {
+    "6,1": [
+     0.016,
+     0.977
+    ],
+    "14,2": [
+     0.031,
+     0.109
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#907a66"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1163"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "bomb-c",
+   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.15
+   ],
+   "tris": 608,
+   "tpu": 1773,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 28180,
+   "vtx": 724,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00007,
+   "anglePct": 3,
+   "vpt": 1.19,
+   "grad": 0.39,
+   "spread": {
+    "6,1": [
+     0.016,
+     0.969
+    ],
+    "14,2": [
+     0.031,
+     0.133
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#907a66"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1163"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "claymore",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.06,
+    0.1
+   ],
+   "tris": 670,
+   "tpu": 1953,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 22684,
+   "vtx": 538,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0122,
+   "avgTri": 0.00003,
+   "anglePct": 57,
+   "vpt": 0.8,
+   "grad": 0.96,
+   "spread": {
+    "1,1": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c"
+   ],
+   "tags": [
+    "plastic",
+    "rgp"
+   ]
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "dynamite-a",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.04,
+    0.04,
+    0.2
+   ],
+   "tris": 428,
+   "tpu": 1248,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 21096,
+   "vtx": 536,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0122,
+   "avgTri": 0.00006,
+   "anglePct": 10,
+   "vpt": 1.25,
+   "grad": 0.39,
+   "spread": {
+    "8,0": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.258,
+     0.633
+    ],
+    "14,2": [
+     0.031,
+     0.141
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#907a66",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "paper",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1164"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "dynamite-b",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.04,
+    0.05,
+    0.2
+   ],
+   "tris": 480,
+   "tpu": 1399,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 21340,
+   "vtx": 534,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.037,
+   "avgTri": 0.00005,
+   "anglePct": 9,
+   "vpt": 1.11,
+   "grad": 0.46,
+   "spread": {
+    "8,0": [
+     0.023,
+     0.938
+    ],
+    "5,2": [
+     0.266,
+     0.977
+    ],
+    "14,2": [
+     0.031,
+     0.164
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#907a66",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "paper",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1164"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "dynamite-bundle-a",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.09,
+    0.09,
+    0.25
+   ],
+   "tris": 2040,
+   "tpu": 5948,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 107616,
+   "vtx": 2937,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0318,
+   "avgTri": 0.00004,
+   "anglePct": 45,
+   "vpt": 1.44,
+   "grad": 0.31,
+   "spread": {
+    "8,0": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.016,
+     0.703
+    ],
+    "14,3": [
+     0.258,
+     0.555
+    ],
+    "14,2": [
+     0.031,
+     0.172
+    ],
+    "3,0": [
+     0.969,
+     0.969
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#7f3927",
+    "#8b7561",
+    "#907a66",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "leather",
+    "paper",
+    "plural",
+    "rgp",
+    "rope"
+   ]
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "dynamite-bundle-b",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.15
+   ],
+   "tris": 3742,
+   "tpu": 10910,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 94808,
+   "vtx": 2216,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0318,
+   "avgTri": 0.00004,
+   "anglePct": 30,
+   "vpt": 0.59,
+   "grad": 0.92,
+   "spread": {
+    "3,0": [
+     0.016,
+     0.969
+    ],
+    "4,2": [
+     0.32,
+     0.656
+    ],
+    "8,0": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#563b2b",
+    "#7f3927",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "leather",
+    "paper",
+    "plastic",
+    "plural",
+    "rgp"
+   ]
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "dynamite-c",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.04,
+    0.2
+   ],
+   "tris": 480,
+   "tpu": 1399,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 21336,
+   "vtx": 534,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0402,
+   "avgTri": 0.00005,
+   "anglePct": 9,
+   "vpt": 1.11,
+   "grad": 0.44,
+   "spread": {
+    "8,0": [
+     0.016,
+     0.961
+    ],
+    "5,2": [
+     0.273,
+     0.789
+    ],
+    "14,2": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#907a66",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "paper",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1164"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "dynamite-d",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.05,
+    0.04,
+    0.15
+   ],
+   "tris": 608,
+   "tpu": 1773,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 31876,
+   "vtx": 839,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00004,
+   "anglePct": 9,
+   "vpt": 1.38,
+   "grad": 0.34,
+   "spread": {
+    "8,0": [
+     0.023,
+     0.977
+    ],
+    "5,2": [
+     0.25,
+     0.977
+    ],
+    "14,2": [
+     0.031,
+     0.117
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#907a66",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "paper",
+    "rgp",
+    "rope"
+   ],
+   "variant": "v1164"
+  },
+  {
+   "kit": "rgp-explosives",
+   "name": "grenade-stick",
+   "kind": "obj-equipment-weapon-ranged-grenade",
+   "size": "s",
+   "wdh": [
+    0.03,
+    0.03,
+    0.15
+   ],
+   "tris": 1492,
+   "tpu": 4350,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 42584,
+   "vtx": 1006,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0136,
+   "avgTri": 0.00001,
+   "anglePct": 24,
+   "vpt": 0.67,
+   "grad": 0.94,
+   "spread": {
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "1,0": [
+     0.109,
+     0.969
+    ],
+    "3,0": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#563b2b",
+    "#b58158"
+   ],
+   "tags": [
+    "metal",
+    "rgp",
+    "wood-worked"
+   ]
+  },
+  {
    "kit": "rgp-props",
    "name": "anvil-b",
    "kind": "obj-tool-station",
@@ -254071,7 +254870,8 @@
     "#82868e"
    ],
    "tags": [
-    "metal-iron-steel"
+    "metal-iron-steel",
+    "rgp"
    ]
   },
   {
@@ -254113,6 +254913,7 @@
     "#b58158"
    ],
    "tags": [
+    "rgp",
     "textile"
    ],
    "variant": "v193"
@@ -254156,6 +254957,7 @@
     "#b58158"
    ],
    "tags": [
+    "rgp",
     "textile"
    ],
    "variant": "v193",
@@ -254206,6 +255008,7 @@
     "#b58158"
    ],
    "tags": [
+    "rgp",
     "textile"
    ],
    "variant": "v193"
@@ -254250,6 +255053,7 @@
    ],
    "tags": [
     "metal-iron-wrought",
+    "rgp",
     "wood-worked"
    ]
   },
@@ -254288,6 +255092,7 @@
    ],
    "tags": [
     "pirate",
+    "rgp",
     "sailing",
     "wood-beam"
    ]
@@ -254337,6 +255142,7 @@
     "#907a66"
    ],
    "tags": [
+    "rgp",
     "rope",
     "vegetation",
     "wood-beam"
@@ -254387,6 +255193,7 @@
    ],
    "tags": [
     "metal-iron-wrought",
+    "rgp",
     "sailing",
     "wood-beam",
     "wood-planks"
@@ -254444,6 +255251,7 @@
    ],
    "tags": [
     "metal-iron-wrought",
+    "rgp",
     "wood-worked"
    ],
    "lint": [
@@ -254497,6 +255305,7 @@
     "#dbae80"
    ],
    "tags": [
+    "rgp",
     "wood-bark",
     "wood-log"
    ],
@@ -254564,6 +255373,7 @@
    ],
    "tags": [
     "food",
+    "rgp",
     "rope",
     "wood-worked"
    ]
@@ -254602,7 +255412,8 @@
     "#343745"
    ],
    "tags": [
-    "metal-iron-cast"
+    "metal-iron-cast",
+    "rgp"
    ],
    "lint": [
     {
@@ -254661,6 +255472,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -254720,6 +255532,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -254785,6 +255598,7 @@
    "tags": [
     "leather",
     "metal-iron-steel",
+    "rgp",
     "rope",
     "wood-beam"
    ],
@@ -254841,6 +255655,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "wood-planks"
    ]
   },
@@ -254901,6 +255716,7 @@
    "tags": [
     "leather",
     "metal-iron-wrought",
+    "rgp",
     "rope",
     "textile",
     "wood-beam"
@@ -254968,6 +255784,7 @@
    "tags": [
     "bone",
     "metal-iron-steel",
+    "rgp",
     "robin-hood",
     "rope",
     "vegetation",
@@ -255049,6 +255866,7 @@
    "tags": [
     "bone",
     "metal-iron-steel",
+    "rgp",
     "robin-hood",
     "rope",
     "vegetation",
@@ -255097,7 +255915,8 @@
     "#5b5550"
    ],
    "tags": [
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "rgp"
    ]
   },
   {
@@ -255145,6 +255964,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "wood-beam"
    ]
   },
@@ -255198,6 +256018,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "rgp",
     "robin-hood",
     "rope",
     "wood-beam"
@@ -255254,6 +256075,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "rgp",
     "robin-hood",
     "rope",
     "wood-beam"
@@ -255311,6 +256133,7 @@
    ],
    "tags": [
     "leather",
+    "rgp",
     "rope",
     "wood-log"
    ]
@@ -255349,6 +256172,7 @@
     "#b58158"
    ],
    "tags": [
+    "rgp",
     "wood-worked"
    ],
    "lint": [
@@ -255405,6 +256229,7 @@
    ],
    "tags": [
     "metal-iron-wrought",
+    "rgp",
     "wood-beam",
     "wood-planks"
    ],
@@ -255462,6 +256287,7 @@
    "tags": [
     "liquid",
     "metal-iron-wrought",
+    "rgp",
     "wood-beam",
     "wood-planks"
    ],
@@ -255507,8 +256333,825 @@
    ],
    "tags": [
     "comp",
+    "rgp",
     "wood-beam",
     "wood-worked"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "armchair",
+   "kind": "obj-furnishing-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.4,
+    0.55
+   ],
+   "tris": 1484,
+   "tpu": 4327,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 39800,
+   "vtx": 921,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "avgTri": 0.00091,
+   "anglePct": 33,
+   "vpt": 0.62,
+   "grad": 0.95,
+   "spread": {
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
+     0.078,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "beam",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.06,
+    0.4,
+    1.2
+   ],
+   "tris": 210,
+   "tpu": 352,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7884,
+   "vtx": 163,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00174,
+   "anglePct": 92,
+   "vpt": 0.78,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "book-open",
+   "kind": "obj-equipment-pocketitem-book-open",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.15,
+    0.01
+   ],
+   "tris": 196,
+   "tpu": 571,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7104,
+   "vtx": 141,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00026,
+   "anglePct": 34,
+   "vpt": 0.72,
+   "grad": 0.9,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.977
+    ],
+    "3,0": [
+     0.016,
+     0.969
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "leather",
+    "paper",
+    "rgp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.15 under min 0.2 (obj-equipment-pocketitem-book-open · 0.127 at kit ×1.18)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "chair",
+   "kind": "obj-furnishing-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.3,
+    0.35,
+    0.7
+   ],
+   "tris": 818,
+   "tpu": 2385,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 25136,
+   "vtx": 588,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "minTube": 0.0422,
+   "avgTri": 0.00069,
+   "anglePct": 34,
+   "vpt": 0.72,
+   "grad": 0.92,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "1,1": [
+     0.141,
+     0.859
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "clock",
+   "kind": "obj-furnishing",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.1,
+    0.3
+   ],
+   "tris": 3113,
+   "tpu": 9076,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 98888,
+   "vtx": 2462,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.0001,
+   "anglePct": 78,
+   "vpt": 0.79,
+   "grad": 0.77,
+   "spread": {
+    "6,0": [
+     0.367,
+     0.695
+    ],
+    "5,2": [
+     0.438,
+     0.492
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "13,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#8b5936",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "ceramic",
+    "metal-gold",
+    "rgp",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 9076 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "coat-rack",
+   "kind": "obj-furnishing-storage",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.5,
+    0.8
+   ],
+   "tris": 3516,
+   "tpu": 9118,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 96348,
+   "vtx": 2307,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
+   "anglePct": 39,
+   "vpt": 0.66,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 9118 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "console-table",
+   "kind": "obj-furnishing-table",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.2,
+    0.4
+   ],
+   "tris": 2044,
+   "tpu": 5959,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 55172,
+   "vtx": 1296,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0268,
+   "avgTri": 0.00028,
+   "anglePct": 73,
+   "vpt": 0.63,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5959 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "floor-parquet",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    0.9,
+    0.9,
+    0.03
+   ],
+   "tris": 12,
+   "tpu": 22,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2176,
+   "vtx": 24,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.029,
+   "avgTri": 0.1375,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.2,
+   "spread": {
+    "0,0": [
+     0.422,
+     0.625
+    ]
+   },
+   "colors": [
+    "#dbae80"
+   ],
+   "tags": [
+    "rgp",
+    "wood-planks"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "globe",
+   "kind": "obj-furnishing",
+   "size": "s",
+   "wdh": [
+    0.25,
+    0.25,
+    0.35
+   ],
+   "tris": 3754,
+   "tpu": 10945,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 104956,
+   "vtx": 2531,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0265,
+   "avgTri": 0.00008,
+   "anglePct": 25,
+   "vpt": 0.67,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.977
+    ],
+    "5,2": [
+     0.492,
+     0.977
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "paper",
+    "rgp",
+    "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 10945 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "gramophone-record",
+   "kind": "obj-household-electronics",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.25,
+    0.3
+   ],
+   "tris": 5555,
+   "tpu": 16195,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 143740,
+   "vtx": 3405,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00005,
+   "anglePct": 45,
+   "vpt": 0.61,
+   "grad": 0.7,
+   "spread": {
+    "15,3": [
+     0.305,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "13,3": [
+     0.461,
+     0.57
+    ],
+    "6,0": [
+     0.359,
+     0.977
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e",
+    "#8b5936",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-steel",
+    "plastic",
+    "rgp",
+    "wood-beam"
+   ],
+   "variant": "v1165",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 16195 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "gramophone",
+   "kind": "obj-household-electronics",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.25,
+    0.3
+   ],
+   "tris": 5229,
+   "tpu": 15245,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 136492,
+   "vtx": 3240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00005,
+   "anglePct": 42,
+   "vpt": 0.62,
+   "grad": 0.73,
+   "spread": {
+    "15,3": [
+     0.305,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "6,0": [
+     0.359,
+     0.977
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-steel",
+    "rgp",
+    "wood-beam"
+   ],
+   "variant": "v1165",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 15245 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "keys",
+   "kind": "obj-equipment-pocketitem-key",
+   "size": "s",
+   "wdh": [
+    0.05,
+    0.07,
+    0.01
+   ],
+   "tris": 1638,
+   "tpu": 4776,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 45140,
+   "vtx": 1059,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0061,
+   "avgTri": 0,
+   "anglePct": 0,
+   "vpt": 0.65,
+   "grad": 0.96,
+   "spread": {
+    "13,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#5b5550"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "pickup",
+    "plural",
+    "rgp"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "record",
+   "kind": "obj-household-electronics",
+   "size": "s",
+   "wdh": [
+    0.1,
+    0.1,
+    0.01
+   ],
+   "tris": 326,
+   "tpu": 950,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8616,
+   "vtx": 164,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00005,
+   "anglePct": 99,
+   "vpt": 0.5,
+   "grad": 0.11,
+   "spread": {
+    "13,3": [
+     0.453,
+     0.563
+    ]
+   },
+   "colors": [
+    "#5b5550"
+   ],
+   "tags": [
+    "plastic",
+    "rgp"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure, has basalt"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "sofa",
+   "kind": "obj-furnishing-seating-bench-backrest",
+   "size": "m",
+   "wdh": [
+    1.15,
+    0.35,
+    0.4
+   ],
+   "tris": 1732,
+   "tpu": 5050,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 45472,
+   "vtx": 1052,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00137,
+   "anglePct": 57,
+   "vpt": 0.61,
+   "grad": 0.96,
+   "spread": {
+    "8,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#7f3927"
+   ],
+   "tags": [
+    "rgp",
+    "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5050 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "telescope",
+   "kind": "obj",
+   "size": "m",
+   "wdh": [
+    0.2,
+    0.4,
+    0.6
+   ],
+   "tris": 2432,
+   "tpu": 7090,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 73268,
+   "vtx": 1789,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0418,
+   "avgTri": 0.0001,
+   "anglePct": 36,
+   "vpt": 0.74,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#8b5936"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "rgp",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "umbrella",
+   "kind": "obj-equipment-apparel",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.2,
+    0.45
+   ],
+   "tris": 1360,
+   "tpu": 3965,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 39184,
+   "vtx": 925,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0265,
+   "avgTri": 0.0003,
+   "anglePct": 3,
+   "vpt": 0.68,
+   "grad": 0.95,
+   "spread": {
+    "8,0": [
+     0.016,
+     0.969
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "textile",
+    "wood-beam"
+   ]
+  },
+  {
+   "kit": "rgp-vintage",
+   "name": "wall-panelled",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    0.9,
+    0.03,
+    1.2
+   ],
+   "tris": 116,
+   "tpu": 199,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5504,
+   "vtx": 106,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0433,
+   "avgTri": 0.01107,
+   "anglePct": 95,
+   "vpt": 0.91,
+   "grad": 0.96,
+   "spread": {
+    "2,0": [
+     0.016,
+     0.977
+    ],
+    "1,1": [
+     0.016,
+     0.906
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#8b5936"
+   ],
+   "tags": [
+    "rgp",
+    "textile",
+    "wood-beam"
    ]
   },
   {
@@ -255557,6 +257200,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -255608,6 +257252,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -255658,6 +257303,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ]
@@ -255708,6 +257354,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ]
@@ -255758,6 +257405,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ]
@@ -255813,6 +257461,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "rope",
     "textile",
     "wood-beam"
@@ -255859,6 +257508,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "wood-beam"
    ],
    "variant": "v1012"
@@ -255909,6 +257559,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -255959,6 +257610,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -256009,6 +257661,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -256054,6 +257707,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "wood-beam"
    ],
    "variant": "v1008"
@@ -256109,6 +257763,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -256160,6 +257815,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -256206,6 +257862,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "wood-beam"
    ],
    "variant": "v1009"
@@ -256257,6 +257914,7 @@
    "tags": [
     "emissive",
     "foliage",
+    "rgp",
     "wood-bark"
    ]
   },
@@ -256310,6 +257968,7 @@
    ],
    "tags": [
     "foliage",
+    "rgp",
     "vegetation",
     "wood-worked"
    ]
@@ -256360,6 +258019,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile",
     "wood-beam"
    ],
@@ -256406,6 +258066,7 @@
    ],
    "tags": [
     "metal-iron-steel",
+    "rgp",
     "textile"
    ],
    "variant": "v1010"
@@ -256456,7 +258117,8 @@
    "tags": [
     "bone",
     "gemstone",
-    "metal-iron-steel"
+    "metal-iron-steel",
+    "rgp"
    ]
   },
   {
