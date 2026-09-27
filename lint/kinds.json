@@ -12,17 +12,14 @@
    "tpu.max": 10000,
    "nouns": [
     "barrel stand",
-    "easel",
-    "signboard (freestanding)",
-    "telescope"
+    "signboard (freestanding)"
    ],
    "children": [
     {
      "id": "obj-container",
      "nouns": [
       "trough",
-      "bin",
-      "dumpster"
+      "bin"
      ],
      "children": [
       {
@@ -60,7 +57,8 @@
        "has": [
         [
          "wood",
-         "metal"
+         "metal",
+         "plastic"
         ]
        ],
        "nouns": [
@@ -99,13 +97,15 @@
       },
       {
        "id": "obj-container-crate",
-       "longest.min": 0.2,
-       "longest.max": 0.7,
+       "longest.min": 0.15,
+       "longest.max": 1,
        "mat.metal": "metal-iron",
        "has": [
         [
          "wood",
-         "paper"
+         "paper",
+         "plastic",
+         "metal"
         ]
        ],
        "nouns": [
@@ -132,8 +132,8 @@
       },
       {
        "id": "obj-container-bottle",
-       "longest.min": 0.1,
-       "longest.max": 0.3,
+       "longest.min": 0.06,
+       "longest.max": 0.5,
        "has": [
         [
          "glass",
@@ -287,6 +287,24 @@
        "nouns": [
         "basket"
        ]
+      },
+      {
+       "id": "obj-container-dumpster",
+       "nouns": [
+        "dumpster",
+        "skip"
+       ]
+      },
+      {
+       "id": "obj-container-cylinder",
+       "nouns": [
+        "gas cylinder",
+        "gas tank",
+        "propane tank",
+        "gas bottle",
+        "fire extinguisher",
+        "vat"
+       ]
       }
      ]
     },
@@ -348,8 +366,7 @@
           "tray",
           "platter",
           "pastry stand",
-          "cloche",
-          "pepper shaker"
+          "cloche"
          ]
         },
         {
@@ -380,9 +397,7 @@
           "chestnut"
          ],
          "nouns": [
-          "cup",
-          "tankard",
-          "glass"
+          "tankard"
          ],
          "children": [
           {
@@ -408,7 +423,48 @@
             "chalice",
             "wine glass"
            ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-cup",
+           "nouns": [
+            "cup",
+            "teacup",
+            "demitasse"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-glass",
+           "longest.min": 0.05,
+           "longest.max": 0.3,
+           "nouns": [
+            "glass",
+            "drinking glass",
+            "beer glass",
+            "shot glass",
+            "milk glass"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-takeaway",
+           "nouns": [
+            "takeaway cup",
+            "to-go cup",
+            "soda cup",
+            "frappe",
+            "iced coffee"
+           ]
           }
+         ]
+        },
+        {
+         "id": "obj-kitchenware-tableware-condiment",
+         "nouns": [
+          "salt shaker",
+          "pepper shaker",
+          "pepper mill",
+          "pepper grinder",
+          "shaker",
+          "soy sauce dish"
          ]
         }
        ]
@@ -419,7 +475,8 @@
         "grill",
         "spit",
         "trivet",
-        "pot holder"
+        "pot holder",
+        "kitchen scale"
        ],
        "children": [
         {
@@ -543,66 +600,6 @@
          ]
         }
        ]
-      },
-      {
-       "id": "obj-kitchenware-appliance",
-       "children": [
-        {
-         "id": "obj-kitchenware-appliance-blender",
-         "longest.min": 0.15,
-         "longest.max": 0.45,
-         "nouns": [
-          "blender",
-          "food processor"
-         ]
-        },
-        {
-         "id": "obj-kitchenware-appliance-extractor",
-         "longest.min": 0.3,
-         "longest.max": 0.7,
-         "nouns": [
-          "extractor hood",
-          "range hood",
-          "cooker hood"
-         ]
-        },
-        {
-         "id": "obj-kitchenware-appliance-fridge",
-         "longest.min": 0.4,
-         "longest.max": 0.9,
-         "nouns": [
-          "fridge",
-          "refrigerator",
-          "freezer"
-         ]
-        },
-        {
-         "id": "obj-kitchenware-appliance-oven",
-         "longest.min": 0.35,
-         "longest.max": 0.8,
-         "nouns": [
-          "oven"
-         ]
-        },
-        {
-         "id": "obj-kitchenware-appliance-stove",
-         "longest.min": 0.25,
-         "longest.max": 0.55,
-         "nouns": [
-          "stove",
-          "range",
-          "cooktop"
-         ]
-        },
-        {
-         "id": "obj-kitchenware-appliance-toaster",
-         "longest.min": 0.15,
-         "longest.max": 0.45,
-         "nouns": [
-          "toaster"
-         ]
-        }
-       ]
       }
      ]
     },
@@ -658,7 +655,8 @@
       {
        "id": "obj-food-vegetable",
        "nouns": [
-        "potato"
+        "potato",
+        "veggie patty"
        ],
        "children": [
         {
@@ -757,7 +755,8 @@
        "id": "obj-food-grain",
        "nouns": [
         "wheat sheaf",
-        "flour sack"
+        "flour sack",
+        "rice"
        ]
       },
       {
@@ -967,9 +966,7 @@
          "longest.max": 0.35,
          "nouns": [
           "bread",
-          "loaf",
-          "roll",
-          "baguette"
+          "loaf"
          ],
          "scale": {
           "small": 0.5
@@ -982,6 +979,24 @@
            "nouns": [
             "sandwich",
             "sub"
+           ]
+          },
+          {
+           "id": "obj-food-baked-bread-baguette",
+           "longest.min": 0.35,
+           "longest.max": 0.8,
+           "nouns": [
+            "baguette",
+            "french bread"
+           ]
+          },
+          {
+           "id": "obj-food-baked-bread-bun",
+           "nouns": [
+            "bun",
+            "roll",
+            "burger bun",
+            "steamed bun"
            ]
           }
          ]
@@ -1066,16 +1081,18 @@
         "pauldron",
         "greaves",
         "gauntlet"
-       ]
-      },
-      {
-       "id": "obj-equipment-shield",
-       "longest.min": 0.2,
-       "longest.max": 0.7,
-       "mat.metal-iron": "metal-iron-steel",
-       "nouns": [
-        "shield",
-        "buckler"
+       ],
+       "children": [
+        {
+         "id": "obj-equipment-armor-shield",
+         "longest.min": 0.2,
+         "longest.max": 0.7,
+         "mat.metal-iron": "metal-iron-steel",
+         "nouns": [
+          "shield",
+          "buckler"
+         ]
+        }
        ]
       },
       {
@@ -1252,6 +1269,16 @@
              "nouns": [
               "rifle"
              ]
+            },
+            {
+             "id": "obj-equipment-weapon-ranged-firearm-part",
+             "nouns": [
+              "magazine (gun)",
+              "clip (gun)",
+              "scope",
+              "silencer",
+              "gun attachment"
+             ]
             }
            ]
           },
@@ -1365,7 +1392,10 @@
         "boots",
         "shoes",
         "belt",
-        "umbrella"
+        "umbrella",
+        "glasses",
+        "sunglasses",
+        "hand fan"
        ],
        "children": [
         {
@@ -1396,6 +1426,32 @@
           "mitt",
           "oven mitt"
          ]
+        },
+        {
+         "id": "obj-equipment-apparel-jewellery",
+         "tube.min": 0.006,
+         "has": [
+          [
+           "metal-gold",
+           "gemstone"
+          ]
+         ],
+         "nouns": [
+          "necklace",
+          "amulet",
+          "bracelet",
+          "earring",
+          "pendant",
+          "brooch"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-apparel-jewellery-ring",
+           "nouns": [
+            "ring"
+           ]
+          }
+         ]
         }
        ]
       },
@@ -1405,7 +1461,6 @@
        "nouns": [
         "compass",
         "hourglass",
-        "dice",
         "mirror (hand)"
        ],
        "children": [
@@ -1496,177 +1551,155 @@
        ]
       },
       {
-       "id": "obj-equipment-jewellery",
-       "tube.min": 0.006,
-       "has": [
-        [
-         "metal-gold",
-         "gemstone"
-        ]
-       ],
-       "nouns": [
-        "necklace",
-        "amulet",
-        "bracelet",
-        "earring",
-        "pendant",
-        "brooch"
-       ],
+       "id": "obj-equipment-tool",
+       "mat.metal": "metal-iron",
+       "mat.metal-iron": "metal-iron-steel",
+       "nouns": [],
        "children": [
         {
-         "id": "obj-equipment-jewellery-ring",
-         "nouns": [
-          "ring"
-         ]
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "id": "obj-tool",
-     "mat.metal": "metal-iron",
-     "mat.metal-iron": "metal-iron-steel",
-     "nouns": [],
-     "children": [
-      {
-       "id": "obj-tool-hand",
-       "longest.min": 0.15,
-       "longest.max": 0.45,
-       "mat.wood": "wood-planks",
-       "nouns": [
-        "chisel",
-        "trowel",
-        "wrench",
-        "tongs",
-        "brush"
-       ],
-       "scale": {
-        "small": 0.5
-       },
-       "children": [
-        {
-         "id": "obj-tool-hand-hammer",
+         "id": "obj-equipment-tool-hand",
          "longest.min": 0.15,
          "longest.max": 0.45,
+         "mat.wood": "wood-planks",
          "nouns": [
-          "hammer",
-          "mallet"
+          "chisel",
+          "trowel",
+          "wrench",
+          "tongs",
+          "brush"
+         ],
+         "scale": {
+          "small": 0.5
+         },
+         "children": [
+          {
+           "id": "obj-equipment-tool-hand-hammer",
+           "longest.min": 0.15,
+           "longest.max": 0.45,
+           "nouns": [
+            "hammer",
+            "mallet"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-hand-saw",
+           "longest.min": 0.2,
+           "longest.max": 0.6,
+           "nouns": [
+            "saw"
+           ]
+          }
          ]
         },
         {
-         "id": "obj-tool-hand-saw",
-         "longest.min": 0.2,
-         "longest.max": 0.6,
+         "id": "obj-equipment-tool-twohand",
+         "longest.min": 0.45,
+         "longest.max": 0.95,
+         "mat.wood": "wood-beam",
          "nouns": [
-          "saw"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-tool-twohand",
-       "longest.min": 0.45,
-       "longest.max": 0.95,
-       "mat.wood": "wood-beam",
-       "nouns": [
-        "rake",
-        "hoe",
-        "pitchfork",
-        "scythe (tool)"
-       ],
-       "children": [
-        {
-         "id": "obj-tool-twohand-pickaxe",
-         "longest.min": 0.25,
-         "longest.max": 0.75,
-         "nouns": [
-          "pickaxe",
-          "mattock"
+          "rake",
+          "hoe",
+          "pitchfork",
+          "scythe (tool)"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-tool-twohand-pickaxe",
+           "longest.min": 0.25,
+           "longest.max": 0.75,
+           "nouns": [
+            "pickaxe",
+            "mattock"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-twohand-shovel",
+           "longest.min": 0.35,
+           "longest.max": 0.85,
+           "nouns": [
+            "shovel",
+            "spade"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-twohand-broom",
+           "longest.min": 0.4,
+           "longest.max": 0.9,
+           "nouns": [
+            "broom"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-twohand-rod",
+           "tube.min": 0.006,
+           "longest.min": 0.6,
+           "longest.max": 1.1,
+           "nouns": [
+            "fishing rod"
+           ]
+          }
          ]
         },
         {
-         "id": "obj-tool-twohand-shovel",
-         "longest.min": 0.35,
-         "longest.max": 0.85,
+         "id": "obj-equipment-tool-supplies",
+         "mat.metal-iron": "metal-iron-wrought",
          "nouns": [
-          "shovel",
-          "spade"
+          "screw",
+          "nail",
+          "bolt (fastener)",
+          "rope",
+          "chain",
+          "hook",
+          "wire",
+          "matchbox"
          ]
         },
         {
-         "id": "obj-tool-twohand-broom",
-         "longest.min": 0.4,
-         "longest.max": 0.9,
+         "id": "obj-equipment-tool-station",
+         "longest.min": 0.3,
+         "longest.max": 0.7,
          "nouns": [
-          "broom"
+          "anvil",
+          "grinder",
+          "grindstone",
+          "workbench (grinding)",
+          "forge (hearth)"
          ]
         },
         {
-         "id": "obj-tool-twohand-rod",
+         "id": "obj-equipment-tool-mechanism",
+         "longest.min": 0.13,
+         "longest.max": 1.15,
+         "nouns": [
+          "lever",
+          "spring",
+          "gear",
+          "pulley",
+          "button (floor)",
+          "bear trap",
+          "lock",
+          "padlock"
+         ]
+        },
+        {
+         "id": "obj-equipment-tool-stationery",
          "tube.min": 0.006,
-         "longest.min": 0.6,
-         "longest.max": 1.1,
+         "longest.min": 0.08,
+         "longest.max": 0.5,
          "nouns": [
-          "fishing rod"
-         ]
+          "pencil",
+          "pen",
+          "scissors",
+          "drafting compass",
+          "ruler",
+          "ink bottle",
+          "inkwell"
+         ],
+         "scale": {
+          "small": 0.5
+         }
         }
        ]
-      },
-      {
-       "id": "obj-tool-supplies",
-       "mat.metal-iron": "metal-iron-wrought",
-       "nouns": [
-        "screw",
-        "nail",
-        "bolt (fastener)",
-        "rope",
-        "chain",
-        "hook",
-        "wire"
-       ]
-      },
-      {
-       "id": "obj-tool-station",
-       "longest.min": 0.3,
-       "longest.max": 0.7,
-       "nouns": [
-        "anvil",
-        "grinder",
-        "grindstone",
-        "workbench (grinding)"
-       ]
-      },
-      {
-       "id": "obj-tool-mechanism",
-       "longest.min": 0.13,
-       "longest.max": 1.15,
-       "nouns": [
-        "lever",
-        "spring",
-        "gear",
-        "pulley",
-        "button (floor)",
-        "bear trap",
-        "lock",
-        "padlock"
-       ]
-      },
-      {
-       "id": "obj-tool-stationery",
-       "tube.min": 0.006,
-       "longest.min": 0.08,
-       "longest.max": 0.5,
-       "nouns": [
-        "pencil",
-        "pen",
-        "scissors",
-        "drafting compass",
-        "ruler"
-       ],
-       "scale": {
-        "small": 0.5
-       }
       }
      ]
     },
@@ -1683,29 +1716,6 @@
       "saddle"
      ],
      "children": [
-      {
-       "id": "obj-transport-cart",
-       "longest.min": 0.55,
-       "longest.max": 1.15,
-       "nouns": [
-        "cart",
-        "wagon",
-        "carriage"
-       ],
-       "children": [
-        {
-         "id": "obj-transport-cart-small",
-         "longest.min": 0.4,
-         "longest.max": 0.9,
-         "nouns": [
-          "wheelbarrow",
-          "sled",
-          "minecart",
-          "small cart"
-         ]
-        }
-       ]
-      },
       {
        "id": "obj-transport-watercraft",
        "children": [
@@ -1731,25 +1741,34 @@
           "raft",
           "dinghy"
          ]
+        }
+       ]
+      },
+      {
+       "id": "obj-transport-part",
+       "nouns": [
+        "anchor",
+        "sail",
+        "rudder",
+        "mast"
+       ],
+       "children": [
+        {
+         "id": "obj-transport-part-paddle",
+         "longest.min": 0.5,
+         "longest.max": 1,
+         "nouns": [
+          "paddle",
+          "oar"
+         ]
         },
         {
-         "id": "obj-transport-watercraft-accessory",
+         "id": "obj-transport-part-wheel",
+         "longest.min": 0.35,
+         "longest.max": 0.75,
          "nouns": [
-          "anchor",
-          "sail",
-          "rudder",
-          "mast"
-         ],
-         "children": [
-          {
-           "id": "obj-transport-watercraft-accessory-paddle",
-           "longest.min": 0.5,
-           "longest.max": 1,
-           "nouns": [
-            "paddle",
-            "oar"
-           ]
-          }
+          "wheel",
+          "tire"
          ]
         }
        ]
@@ -1763,42 +1782,6 @@
        ]
       },
       {
-       "id": "obj-transport-accessory",
-       "children": [
-        {
-         "id": "obj-transport-accessory-wheel",
-         "longest.min": 0.35,
-         "longest.max": 0.75,
-         "nouns": [
-          "wheel",
-          "tire"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-transport-road",
-       "longest.min": 1.05,
-       "longest.max": 1.7,
-       "nouns": [
-        "car",
-        "truck",
-        "tractor"
-       ]
-      },
-      {
-       "id": "obj-transport-rail",
-       "high.min": 0.8,
-       "high.max": 1.3,
-       "nouns": [
-        "train",
-        "locomotive",
-        "tram",
-        "railway carriage",
-        "freight wagon"
-       ]
-      },
-      {
        "id": "obj-transport-air",
        "nouns": [
         "airplane",
@@ -1807,97 +1790,56 @@
         "balloon",
         "hot-air balloon"
        ]
-      }
-     ]
-    },
-    {
-     "id": "obj-lighting",
-     "tpu.max": 5000,
-     "nouns": [
-      "chandelier",
-      "match"
-     ],
-     "children": [
+      },
       {
-       "id": "obj-lighting-lantern",
-       "tube.min": 0.006,
-       "nouns": [
-        "lantern"
-       ],
+       "nouns": [],
+       "id": "obj-transport-land",
        "children": [
         {
-         "id": "obj-lighting-lantern-onpost",
-         "longest.min": 0.65,
-         "longest.max": 1.3,
+         "id": "obj-transport-land-cart",
+         "longest.min": 0.55,
+         "longest.max": 1.15,
          "nouns": [
-          "lamp post",
-          "street lamp",
-          "lantern post"
+          "cart",
+          "wagon",
+          "carriage"
+         ],
+         "children": [
+          {
+           "id": "obj-transport-land-cart-small",
+           "longest.min": 0.4,
+           "longest.max": 0.9,
+           "nouns": [
+            "wheelbarrow",
+            "sled",
+            "minecart",
+            "small cart"
+           ]
+          }
          ]
         },
         {
-         "id": "obj-lighting-lantern-street",
-         "longest.min": 0.9,
-         "longest.max": 2,
+         "id": "obj-transport-land-road",
+         "longest.min": 1.05,
+         "longest.max": 1.7,
          "nouns": [
-          "street light",
-          "street lantern"
+          "car",
+          "truck",
+          "tractor"
          ]
         },
         {
-         "id": "obj-lighting-lantern-handheld",
-         "longest.min": 0.15,
-         "longest.max": 0.45,
+         "id": "obj-transport-land-rail",
+         "high.min": 0.8,
+         "high.max": 1.3,
          "nouns": [
-          "hand lantern",
-          "hanging lantern",
-          "standing lantern"
-         ]
-        },
-        {
-         "id": "obj-lighting-lantern-lamp",
-         "longest.min": 0.14,
-         "longest.max": 1.1,
-         "nouns": [
-          "lamp",
-          "table lamp",
-          "floor lamp",
-          "wall lamp",
-          "ceiling lamp"
+          "train",
+          "locomotive",
+          "tram",
+          "railway carriage",
+          "freight wagon"
          ]
         }
-       ]
-      },
-      {
-       "id": "obj-lighting-torch",
-       "longest.min": 0.25,
-       "longest.max": 0.65,
-       "nouns": [
-        "torch",
-        "brazier"
-       ]
-      },
-      {
-       "id": "obj-lighting-candle",
-       "high.min": 0.1,
-       "high.max": 0.35,
-       "nouns": [
-        "candle",
-        "candlestick",
-        "candelabra"
-       ],
-       "scale": {
-        "big": 2
-       }
-      },
-      {
-       "id": "obj-lighting-campfire",
-       "longest.min": 0.35,
-       "longest.max": 0.75,
-       "nouns": [
-        "campfire",
-        "bonfire",
-        "fire pit"
        ]
       }
      ]
@@ -1987,41 +1929,626 @@
      ]
     },
     {
-     "id": "obj-art",
+     "id": "obj-furnishing",
+     "tpu.max": 5000,
+     "nouns": [
+      "clock"
+     ],
      "children": [
       {
-       "id": "obj-art-sculpture",
-       "nouns": [
-        "statue",
-        "obelisk"
-       ]
-      },
-      {
-       "id": "obj-art-instrument",
-       "tube.min": 0.006,
+       "id": "obj-furnishing-light",
        "tpu.max": 5000,
        "nouns": [
-        "gong",
-        "drum",
-        "lute"
+        "chandelier",
+        "match",
+        "ceiling fan"
        ],
        "children": [
         {
-         "id": "obj-art-instrument-bell",
+         "id": "obj-furnishing-light-lantern",
+         "tube.min": 0.006,
          "nouns": [
-          "bell"
+          "lantern",
+          "hand lantern",
+          "hanging lantern",
+          "standing lantern"
+         ],
+         "longest.min": 0.15,
+         "longest.max": 0.45
+        },
+        {
+         "id": "obj-furnishing-light-lamp",
+         "tube.min": 0.006,
+         "longest.min": 0.14,
+         "longest.max": 1.1,
+         "nouns": [
+          "lamp",
+          "table lamp",
+          "floor lamp",
+          "wall lamp",
+          "ceiling lamp"
+         ]
+        },
+        {
+         "id": "obj-furnishing-light-torch",
+         "longest.min": 0.25,
+         "longest.max": 0.65,
+         "nouns": [
+          "torch",
+          "brazier"
+         ]
+        },
+        {
+         "id": "obj-furnishing-light-candle",
+         "high.min": 0.1,
+         "high.max": 0.35,
+         "nouns": [
+          "candle",
+          "candlestick",
+          "candelabra"
+         ],
+         "scale": {
+          "big": 2
+         }
+        },
+        {
+         "id": "obj-furnishing-light-campfire",
+         "longest.min": 0.35,
+         "longest.max": 0.75,
+         "nouns": [
+          "campfire",
+          "bonfire",
+          "fire pit"
          ]
         }
        ]
       },
       {
-       "id": "obj-art-frame",
-       "longest.min": 0.06,
-       "longest.max": 0.9,
+       "id": "obj-furnishing-bathroom",
+       "band.textile": [
+        "sienna"
+       ],
+       "longest.min": 0.23,
+       "longest.max": 1.35,
        "nouns": [
-        "picture frame",
-        "painting",
-        "photo"
+        "toilet",
+        "bathtub",
+        "shower",
+        "bathroom sink",
+        "bathroom mirror",
+        "towel rail",
+        "changing stall"
+       ]
+      },
+      {
+       "id": "obj-furnishing-furniture",
+       "band.textile": [
+        "sienna"
+       ],
+       "nouns": [],
+       "children": [
+        {
+         "id": "obj-furnishing-furniture-seating",
+         "longest.min": 0.3,
+         "longest.max": 0.85,
+         "children": [
+          {
+           "id": "obj-furnishing-furniture-seating-bench",
+           "high.min": 0.25,
+           "high.max": 0.65,
+           "nouns": [
+            "bench",
+            "pew"
+           ],
+           "children": [
+            {
+             "id": "obj-furnishing-furniture-seating-bench-backrest",
+             "high.min": 0.25,
+             "high.max": 0.75,
+             "nouns": [
+              "backed bench"
+             ]
+            },
+            {
+             "id": "obj-furnishing-furniture-seating-bench-nobackrest",
+             "high.min": 0.15,
+             "high.max": 0.55,
+             "nouns": [
+              "backless bench"
+             ]
+            }
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-seating-chair",
+           "longest.min": 0.3,
+           "longest.max": 0.8,
+           "nouns": [
+            "chair",
+            "armchair",
+            "throne"
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-seating-stool",
+           "longest.min": 0.2,
+           "longest.max": 0.6,
+           "nouns": [
+            "stool",
+            "footstool"
+           ]
+          },
+          {
+           "high.min": 0.25,
+           "high.max": 0.75,
+           "nouns": [
+            "couch",
+            "sofa"
+           ],
+           "id": "obj-furnishing-furniture-seating-sofa"
+          }
+         ]
+        },
+        {
+         "id": "obj-furnishing-furniture-table",
+         "high.min": 0.2,
+         "high.max": 0.6,
+         "nouns": [
+          "table",
+          "desk"
+         ],
+         "children": [
+          {
+           "id": "obj-furnishing-furniture-table-square",
+           "high.min": 0.2,
+           "high.max": 0.6,
+           "nouns": [
+            "square table"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-furnishing-furniture-bed",
+         "longest.min": 0.55,
+         "longest.max": 1.05,
+         "nouns": [
+          "bed",
+          "bedroll",
+          "bunk",
+          "cot",
+          "hammock"
+         ]
+        },
+        {
+         "id": "obj-furnishing-furniture-storage",
+         "nouns": [
+          "chest of drawers",
+          "dresser",
+          "coat rack",
+          "weapon rack",
+          "weapon stand",
+          "plate tree"
+         ],
+         "children": [
+          {
+           "id": "obj-furnishing-furniture-storage-cabinet",
+           "longest.min": 0.35,
+           "longest.max": 0.85,
+           "nouns": [
+            "cabinet",
+            "wardrobe",
+            "cupboard",
+            "closet"
+           ],
+           "scale": {
+            "small": 0.5
+           }
+          },
+          {
+           "id": "obj-furnishing-furniture-storage-shelf",
+           "longest.min": 0.3,
+           "longest.max": 0.8,
+           "nouns": [
+            "shelf",
+            "wall shelf",
+            "shelving"
+           ],
+           "children": [
+            {
+             "id": "obj-furnishing-furniture-storage-shelf-rack",
+             "nouns": [
+              "rack",
+              "display rack",
+              "spinner rack",
+              "slat wall",
+              "ball rack",
+              "dumbbell rack"
+             ]
+            }
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-storage-bookcase",
+           "nouns": [
+            "bookcase",
+            "bookshelf",
+            "shelving unit",
+            "cubby"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-furnishing-furniture-counter",
+         "nouns": [
+          "counter",
+          "kitchen counter",
+          "worktop",
+          "kitchen sink",
+          "sink",
+          "kitchen bar",
+          "prep table"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-furnishing-textile",
+       "band.textile": [
+        "sienna"
+       ],
+       "nouns": [
+        "curtain",
+        "blinds"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-textile-pillow",
+         "longest.min": 0.2,
+         "longest.max": 0.6,
+         "nouns": [
+          "pillow",
+          "cushion"
+         ]
+        },
+        {
+         "id": "obj-furnishing-textile-rug",
+         "longest.min": 0.5,
+         "longest.max": 1.5,
+         "nouns": [
+          "rug",
+          "carpet",
+          "picnic blanket",
+          "folded blanket"
+         ]
+        },
+        {
+         "id": "obj-furnishing-textile-mat",
+         "nouns": [
+          "mat",
+          "doormat",
+          "yoga mat"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "obj-device",
+     "tpu.max": 5000,
+     "nouns": [],
+     "children": [
+      {
+       "id": "obj-device-appliance",
+       "nouns": [],
+       "children": [
+        {
+         "id": "obj-device-appliance-blender",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "blender",
+          "food processor"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-extractor",
+         "longest.min": 0.3,
+         "longest.max": 0.7,
+         "nouns": [
+          "extractor hood",
+          "range hood",
+          "cooker hood"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-fridge",
+         "longest.min": 0.4,
+         "longest.max": 0.9,
+         "nouns": [
+          "fridge",
+          "refrigerator",
+          "freezer"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-oven",
+         "longest.min": 0.35,
+         "longest.max": 0.8,
+         "nouns": [
+          "oven"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-stove",
+         "longest.min": 0.25,
+         "longest.max": 0.55,
+         "nouns": [
+          "stove",
+          "range",
+          "cooktop"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-toaster",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "toaster"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-laundry",
+         "nouns": [
+          "washing machine",
+          "washer",
+          "dryer",
+          "washer-dryer"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-kitchen",
+         "longest.min": 0.15,
+         "longest.max": 1,
+         "nouns": [
+          "coffee machine",
+          "microwave",
+          "toaster oven",
+          "rice cooker",
+          "stand mixer",
+          "hot plate",
+          "fryer",
+          "popcorn machine"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-drink",
+         "nouns": [
+          "soda fountain",
+          "drink dispenser",
+          "shake machine",
+          "water cooler"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-device-electronics",
+       "nouns": [
+        "phone",
+        "battery",
+        "gramophone",
+        "record"
+       ],
+       "children": [
+        {
+         "id": "obj-device-electronics-radio",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "radio"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-arcade",
+         "longest.min": 0.45,
+         "longest.max": 0.95,
+         "nouns": [
+          "arcade machine",
+          "pinball",
+          "claw machine",
+          "slot machine",
+          "air hockey",
+          "ticket machine",
+          "dance machine",
+          "basketball game"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-screen",
+         "longest.min": 0.15,
+         "longest.max": 1.3,
+         "nouns": [
+          "screen",
+          "monitor",
+          "display",
+          "television",
+          "tv antenna"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-vending",
+         "longest.min": 0.4,
+         "longest.max": 1.1,
+         "nouns": [
+          "vending machine",
+          "atm",
+          "kiosk",
+          "coin changer",
+          "token changer",
+          "gacha machine"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-register",
+         "longest.min": 0.2,
+         "longest.max": 1,
+         "nouns": [
+          "cash register",
+          "register",
+          "till",
+          "pos terminal"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-computer",
+         "nouns": [
+          "computer",
+          "laptop",
+          "keyboard (computer)",
+          "computer desk",
+          "console (computer)"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-audio",
+         "nouns": [
+          "speaker",
+          "loudspeaker",
+          "studio monitor",
+          "dj booth"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-camera",
+         "nouns": [
+          "camera",
+          "security camera",
+          "film camera",
+          "projector"
+         ]
+        }
+       ]
+      },
+      {
+       "nouns": [
+        "telescope",
+        "orrery",
+        "armillary sphere",
+        "globe",
+        "centrifuge",
+        "autoclave",
+        "bunsen burner",
+        "microscope",
+        "defibrillator"
+       ],
+       "id": "obj-device-science"
+      }
+     ]
+    },
+    {
+     "nouns": [],
+     "id": "obj-leisure",
+     "children": [
+      {
+       "id": "obj-leisure-art",
+       "children": [
+        {
+         "id": "obj-leisure-art-sculpture",
+         "nouns": [
+          "statue",
+          "obelisk",
+          "snowman",
+          "sandcastle"
+         ]
+        },
+        {
+         "id": "obj-leisure-art-instrument",
+         "tube.min": 0.006,
+         "tpu.max": 5000,
+         "nouns": [
+          "gong",
+          "drum",
+          "lute"
+         ],
+         "children": [
+          {
+           "id": "obj-leisure-art-instrument-bell",
+           "nouns": [
+            "bell"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "obj-leisure-art-frame",
+         "longest.min": 0.06,
+         "longest.max": 0.9,
+         "nouns": [
+          "picture frame",
+          "painting",
+          "photo",
+          "easel"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "obj-leisure-toy",
+       "bands.max": 7,
+       "nouns": [
+        "toy",
+        "frisbee",
+        "plushie",
+        "puzzle cube"
+       ]
+      },
+      {
+       "id": "obj-leisure-game",
+       "tube.min": 0.006,
+       "nouns": [
+        "dice",
+        "card deck",
+        "playing card",
+        "casino chip",
+        "trading card",
+        "bowling pin",
+        "roulette wheel",
+        "prize wheel",
+        "wheel of fortune",
+        "casino table",
+        "card table",
+        "poker table",
+        "chip tray"
+       ],
+       "children": [
+        {
+         "id": "obj-leisure-game-ball",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "ball",
+          "football",
+          "basketball",
+          "beach ball",
+          "bowling ball",
+          "medicine ball"
+         ]
+        },
+        {
+         "id": "obj-leisure-game-gym",
+         "nouns": [
+          "dumbbell",
+          "barbell",
+          "kettlebell",
+          "weight plate",
+          "treadmill",
+          "exercise bike",
+          "power rack"
+         ]
+        }
        ]
       }
      ]
@@ -2034,254 +2561,6 @@
       "heart (icon)",
       "star (icon)",
       "lightning bolt"
-     ]
-    },
-    {
-     "id": "obj-furnishing",
-     "tpu.max": 5000,
-     "band.textile": [
-      "sienna"
-     ],
-     "children": [
-      {
-       "id": "obj-furnishing-seating",
-       "longest.min": 0.3,
-       "longest.max": 0.85,
-       "children": [
-        {
-         "id": "obj-furnishing-seating-bench",
-         "high.min": 0.25,
-         "high.max": 0.65,
-         "nouns": [
-          "bench",
-          "pew"
-         ],
-         "children": [
-          {
-           "id": "obj-furnishing-seating-bench-backrest",
-           "high.min": 0.25,
-           "high.max": 0.75,
-           "nouns": [
-            "couch",
-            "sofa",
-            "backed bench"
-           ]
-          },
-          {
-           "id": "obj-furnishing-seating-bench-nobackrest",
-           "high.min": 0.15,
-           "high.max": 0.55,
-           "nouns": [
-            "backless bench"
-           ]
-          }
-         ]
-        },
-        {
-         "id": "obj-furnishing-seating-chair",
-         "longest.min": 0.3,
-         "longest.max": 0.8,
-         "nouns": [
-          "chair",
-          "armchair",
-          "throne"
-         ]
-        },
-        {
-         "id": "obj-furnishing-seating-stool",
-         "longest.min": 0.2,
-         "longest.max": 0.6,
-         "nouns": [
-          "stool",
-          "footstool"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-furnishing-table",
-       "high.min": 0.2,
-       "high.max": 0.6,
-       "nouns": [
-        "table",
-        "desk"
-       ],
-       "children": [
-        {
-         "id": "obj-furnishing-table-square",
-         "high.min": 0.2,
-         "high.max": 0.6,
-         "nouns": [
-          "square table"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-furnishing-bed",
-       "longest.min": 0.55,
-       "longest.max": 1.05,
-       "nouns": [
-        "bed",
-        "bedroll",
-        "bunk",
-        "cot",
-        "hammock"
-       ]
-      },
-      {
-       "id": "obj-furnishing-storage",
-       "nouns": [
-        "chest of drawers",
-        "dresser",
-        "coat rack"
-       ],
-       "children": [
-        {
-         "id": "obj-furnishing-storage-cabinet",
-         "longest.min": 0.35,
-         "longest.max": 0.85,
-         "nouns": [
-          "cabinet",
-          "wardrobe",
-          "cupboard",
-          "closet"
-         ],
-         "scale": {
-          "small": 0.5
-         }
-        },
-        {
-         "id": "obj-furnishing-storage-shelf",
-         "longest.min": 0.3,
-         "longest.max": 0.8,
-         "nouns": [
-          "shelf",
-          "wall shelf",
-          "shelving",
-          "bookcase"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "obj-furnishing-pillow",
-       "longest.min": 0.2,
-       "longest.max": 0.6,
-       "nouns": [
-        "pillow",
-        "cushion"
-       ]
-      },
-      {
-       "id": "obj-furnishing-rug",
-       "longest.min": 0.5,
-       "longest.max": 1.5,
-       "nouns": [
-        "rug",
-        "carpet",
-        "picnic blanket"
-       ]
-      },
-      {
-       "id": "obj-furnishing-bathroom",
-       "longest.min": 0.23,
-       "longest.max": 1.35,
-       "nouns": [
-        "toilet",
-        "bathtub",
-        "shower",
-        "bathroom sink",
-        "bathroom mirror",
-        "towel rail"
-       ]
-      }
-     ],
-     "nouns": [
-      "clock",
-      "globe"
-     ]
-    },
-    {
-     "id": "obj-toy",
-     "bands.max": 7,
-     "nouns": [
-      "toy",
-      "frisbee",
-      "plushie",
-      "puzzle cube"
-     ],
-     "children": [
-      {
-       "id": "obj-toy-ball",
-       "longest.min": 0.15,
-       "longest.max": 0.45,
-       "nouns": [
-        "ball",
-        "football",
-        "basketball",
-        "beach ball"
-       ]
-      }
-     ]
-    },
-    {
-     "id": "obj-household",
-     "nouns": [],
-     "children": [
-      {
-       "id": "obj-household-electronics",
-       "nouns": [
-        "television",
-        "laptop",
-        "computer",
-        "keyboard (computer)",
-        "speaker",
-        "camera",
-        "phone",
-        "battery",
-        "cash register",
-        "vending machine",
-        "gramophone",
-        "record"
-       ],
-       "children": [
-        {
-         "id": "obj-household-electronics-radio",
-         "longest.min": 0.15,
-         "longest.max": 0.45,
-         "nouns": [
-          "radio"
-         ]
-        },
-        {
-         "id": "obj-household-electronics-arcade",
-         "longest.min": 0.45,
-         "longest.max": 0.95,
-         "nouns": [
-          "arcade machine",
-          "pinball",
-          "claw machine",
-          "slot machine",
-          "air hockey",
-          "prize wheel",
-          "ticket machine",
-          "dance machine",
-          "basketball game"
-         ]
-        },
-        {
-         "id": "obj-household-electronics-screen",
-         "longest.min": 0.25,
-         "longest.max": 0.75,
-         "nouns": [
-          "screen",
-          "monitor",
-          "display"
-         ]
-        }
-       ]
-      }
      ]
     }
    ]
@@ -2347,8 +2626,7 @@
        "id": "str-part-gate",
        "nouns": [
         "gate (building)",
-        "portcullis",
-        "torii"
+        "portcullis"
        ],
        "children": [
         {
@@ -2361,7 +2639,8 @@
          "high.min": 0.7,
          "high.max": 2.15,
          "nouns": [
-          "gateway"
+          "gateway",
+          "torii"
          ]
         }
        ]
@@ -2501,70 +2780,20 @@
      "children": [
       {
        "id": "str-building-residential",
+       "nouns": [
+        "apartment building"
+       ],
        "children": [
         {
          "id": "str-building-residential-house",
          "nouns": [
           "house (whole)",
           "hut",
-          "cottage"
+          "cottage",
+          "annex",
+          "lean-to"
          ]
         }
-       ],
-       "nouns": [
-        "apartment building"
-       ]
-      },
-      {
-       "id": "str-building-agricultural",
-       "nouns": [
-        "farm",
-        "chicken coop",
-        "farmhouse",
-        "barn"
-       ],
-       "children": [
-        {
-         "id": "str-building-agricultural-silo",
-         "nouns": [
-          "silo",
-          "granary"
-         ]
-        }
-       ]
-      },
-      {
-       "id": "str-building-industrial",
-       "children": [
-        {
-         "id": "str-building-industrial-workshop",
-         "nouns": [
-          "blacksmith",
-          "smithy",
-          "forge",
-          "sawmill",
-          "lumbermill"
-         ]
-        },
-        {
-         "id": "str-building-industrial-mill",
-         "nouns": [
-          "watermill",
-          "windmill",
-          "mill",
-          "waterwheel",
-          "water wheel",
-          "windmill blade",
-          "sail (windmill)",
-          "wind turbine"
-         ]
-        }
-       ],
-       "nouns": [
-        "factory",
-        "plant",
-        "mine",
-        "mine entrance"
        ]
       },
       {
@@ -2588,14 +2817,22 @@
           "fortress",
           "keep"
          ]
-        },
+        }
+       ]
+      },
+      {
+       "id": "str-building-tower",
+       "nouns": [
+        "tower",
+        "watchtower",
+        "belltower",
+        "lighthouse"
+       ],
+       "children": [
         {
-         "id": "str-building-military-tower",
+         "id": "str-building-tower-skyscraper",
          "nouns": [
-          "tower",
-          "watchtower",
-          "belltower",
-          "lighthouse"
+          "skyscraper"
          ]
         }
        ]
@@ -2633,55 +2870,74 @@
        ]
       },
       {
-       "id": "str-building-commercial",
-       "nouns": [
-        "inn",
-        "tavern",
-        "storage",
-        "warehouse",
-        "market house",
-        "office",
-        "shop"
-       ],
+       "nouns": [],
+       "id": "str-building-work",
        "children": [
         {
-         "id": "str-building-commercial-skyscraper",
+         "id": "str-building-work-agricultural",
          "nouns": [
-          "skyscraper"
+          "farm",
+          "chicken coop",
+          "farmhouse",
+          "barn"
+         ],
+         "children": [
+          {
+           "id": "str-building-work-agricultural-silo",
+           "nouns": [
+            "silo",
+            "granary"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "str-building-work-industrial",
+         "nouns": [
+          "factory",
+          "plant",
+          "mine",
+          "mine entrance"
+         ],
+         "children": [
+          {
+           "id": "str-building-work-industrial-workshop",
+           "nouns": [
+            "blacksmith",
+            "smithy",
+            "forge",
+            "sawmill",
+            "lumbermill"
+           ]
+          },
+          {
+           "id": "str-building-work-industrial-mill",
+           "nouns": [
+            "watermill",
+            "windmill",
+            "mill",
+            "waterwheel",
+            "water wheel",
+            "windmill blade",
+            "sail (windmill)",
+            "flume",
+            "water channel"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "str-building-work-commercial",
+         "nouns": [
+          "inn",
+          "tavern",
+          "storage",
+          "warehouse",
+          "market house",
+          "office",
+          "shop"
          ]
         }
-       ]
-      }
-     ]
-    },
-    {
-     "id": "str-platform",
-     "children": [
-      {
-       "id": "str-platform-deck",
-       "nouns": [
-        "deck",
-        "boardwalk"
-       ]
-      },
-      {
-       "id": "str-platform-dock",
-       "longest.min": 1.15,
-       "longest.max": 4,
-       "nouns": [
-        "dock",
-        "pier",
-        "jetty"
-       ]
-      },
-      {
-       "id": "str-platform-catwalk",
-       "longest.min": 0.4,
-       "longest.max": 1.2,
-       "nouns": [
-        "catwalk",
-        "walkway (raised)",
-        "gangway"
        ]
       }
      ]
@@ -2690,7 +2946,9 @@
      "id": "str-barrier",
      "nouns": [
       "wall (low, garden)",
-      "barricade"
+      "barricade",
+      "curb",
+      "kerb"
      ],
      "children": [
       {
@@ -2745,8 +3003,7 @@
        "high.max": 1.2,
        "nouns": [
         "traffic barrier",
-        "traffic drum",
-        "traffic light"
+        "traffic drum"
        ],
        "children": [
         {
@@ -2773,6 +3030,38 @@
     {
      "id": "str-access",
      "children": [
+      {
+       "id": "str-access-platform",
+       "children": [
+        {
+         "id": "str-access-platform-deck",
+         "nouns": [
+          "deck",
+          "boardwalk"
+         ]
+        },
+        {
+         "id": "str-access-platform-dock",
+         "longest.min": 1.15,
+         "longest.max": 4,
+         "nouns": [
+          "dock",
+          "pier",
+          "jetty"
+         ]
+        },
+        {
+         "id": "str-access-platform-catwalk",
+         "longest.min": 0.4,
+         "longest.max": 1.2,
+         "nouns": [
+          "catwalk",
+          "walkway (raised)",
+          "gangway"
+         ]
+        }
+       ]
+      },
       {
        "id": "str-access-stairs",
        "longest.min": 0.5,
@@ -2844,72 +3133,6 @@
      ]
     },
     {
-     "id": "str-marker",
-     "nouns": [
-      "milestone",
-      "waystone",
-      "totem",
-      "buoy",
-      "mailbox",
-      "menu",
-      "price card"
-     ],
-     "children": [
-      {
-       "id": "str-marker-sign",
-       "longest.min": 0.35,
-       "longest.max": 0.9,
-       "nouns": [
-        "sign",
-        "signpost",
-        "notice board",
-        "direction arrow"
-       ]
-      },
-      {
-       "id": "str-marker-flag",
-       "longest.min": 0.65,
-       "longest.max": 1.6,
-       "has": [
-        "textile",
-        "wood"
-       ],
-       "nouns": [
-        "flag",
-        "pennant"
-       ],
-       "scale": {
-        "small": 0.5
-       }
-      },
-      {
-       "id": "str-marker-grave",
-       "longest.min": 0.35,
-       "longest.max": 1.2,
-       "nouns": [
-        "grave",
-        "grave marker",
-        "gravestone",
-        "tombstone",
-        "tomb",
-        "cross (grave)",
-        "memorial"
-       ]
-      },
-      {
-       "id": "str-marker-banner",
-       "longest.min": 0.5,
-       "longest.max": 1.1,
-       "nouns": [
-        "banner"
-       ],
-       "scale": {
-        "big": 2
-       }
-      }
-     ]
-    },
-    {
      "id": "str-canopy",
      "nouns": [
       "canopy",
@@ -2946,114 +3169,283 @@
      ]
     },
     {
-     "id": "str-utility",
+     "nouns": [],
+     "id": "str-fixture",
      "children": [
       {
-       "id": "str-utility-well",
-       "longest.min": 0.5,
-       "longest.max": 1,
+       "id": "str-fixture-marker",
        "nouns": [
-        "well"
+        "milestone",
+        "waystone",
+        "totem",
+        "buoy"
+       ],
+       "children": [
+        {
+         "id": "str-fixture-marker-sign",
+         "longest.min": 0.2,
+         "longest.max": 1.6,
+         "nouns": [
+          "sign",
+          "notice board",
+          "menu board",
+          "price card"
+         ],
+         "children": [
+          {
+           "id": "str-fixture-marker-sign-signpost",
+           "longest.min": 0.4,
+           "longest.max": 2,
+           "nouns": [
+            "signpost",
+            "direction sign",
+            "direction arrow",
+            "sign on a post"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-lettering",
+           "nouns": [
+            "lettering",
+            "letter sign",
+            "name sign",
+            "marquee"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-road",
+           "longest.min": 0.25,
+           "longest.max": 3,
+           "nouns": [
+            "road sign",
+            "stop sign",
+            "highway sign",
+            "chevron sign"
+           ]
+          }
+         ]
+        },
+        {
+         "id": "str-fixture-marker-flag",
+         "longest.min": 0.65,
+         "longest.max": 1.6,
+         "has": [
+          "textile",
+          "wood"
+         ],
+         "nouns": [
+          "flag",
+          "pennant"
+         ],
+         "scale": {
+          "small": 0.5
+         }
+        },
+        {
+         "id": "str-fixture-marker-grave",
+         "longest.min": 0.35,
+         "longest.max": 1.2,
+         "nouns": [
+          "grave",
+          "grave marker",
+          "gravestone",
+          "tombstone",
+          "tomb",
+          "cross (grave)",
+          "memorial",
+          "grave border",
+          "grave mound"
+         ]
+        },
+        {
+         "id": "str-fixture-marker-banner",
+         "longest.min": 0.5,
+         "longest.max": 1.1,
+         "nouns": [
+          "banner"
+         ],
+         "scale": {
+          "big": 2
+         }
+        },
+        {
+         "id": "str-fixture-marker-mailbox",
+         "nouns": [
+          "mailbox",
+          "letterbox",
+          "post box"
+         ]
+        }
        ]
       },
       {
-       "id": "str-utility-fountain",
-       "high.min": 0.2,
-       "high.max": 1.8,
+       "id": "str-fixture-utility",
        "nouns": [
-        "fountain"
+        "utility pole",
+        "power line",
+        "night deposit",
+        "radar"
+       ],
+       "children": [
+        {
+         "id": "str-fixture-utility-well",
+         "longest.min": 0.5,
+         "longest.max": 1,
+         "nouns": [
+          "well"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-fountain",
+         "high.min": 0.2,
+         "high.max": 1.8,
+         "nouns": [
+          "fountain"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-tank",
+         "longest.min": 0.8,
+         "longest.max": 3.1,
+         "nouns": [
+          "tank",
+          "storage tank",
+          "water tower"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-solar",
+         "longest.min": 0.65,
+         "longest.max": 1.55,
+         "nouns": [
+          "solar panel"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-conveyor",
+         "longest.min": 0.4,
+         "longest.max": 1.2,
+         "nouns": [
+          "conveyor",
+          "conveyor belt"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-pipe",
+         "longest.min": 0.4,
+         "longest.max": 1.2,
+         "nouns": [
+          "pipe",
+          "pipe section",
+          "pipe valve"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-machine",
+         "longest.min": 0.4,
+         "longest.max": 2.2,
+         "nouns": [
+          "machine",
+          "industrial machine",
+          "press",
+          "piston",
+          "scanner (industrial)",
+          "robot arm",
+          "industrial crane"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-hopper",
+         "longest.min": 0.4,
+         "longest.max": 1,
+         "nouns": [
+          "hopper",
+          "funnel (industrial)"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-hydrant",
+         "nouns": [
+          "fire hydrant",
+          "hydrant"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-turbine",
+         "nouns": [
+          "wind turbine"
+         ]
+        }
        ]
       },
       {
-       "id": "str-utility-tank",
+       "id": "str-fixture-leisure",
        "longest.min": 0.8,
-       "longest.max": 3.1,
+       "longest.max": 4.1,
        "nouns": [
-        "tank",
-        "storage tank",
-        "water tower"
+        "ferris wheel",
+        "grandstand",
+        "grand stand",
+        "bleachers"
+       ],
+       "children": [
+        {
+         "id": "str-fixture-leisure-playground",
+         "longest.min": 0.08,
+         "longest.max": 3,
+         "mat.metal-iron": "metal-iron-steel",
+         "nouns": [
+          "slide",
+          "swing",
+          "seesaw",
+          "monkey bars",
+          "merry-go-round",
+          "spring rider",
+          "sandbox",
+          "stepping stumps"
+         ]
+        }
        ]
       },
       {
-       "id": "str-utility-solar",
-       "longest.min": 0.65,
-       "longest.max": 1.55,
+       "id": "str-fixture-light",
+       "tube.min": 0.006,
+       "mat.metal-iron": "metal-iron-wrought",
        "nouns": [
-        "solar panel"
-       ]
-      },
-      {
-       "id": "str-utility-conveyor",
-       "longest.min": 0.4,
-       "longest.max": 1.2,
-       "nouns": [
-        "conveyor",
-        "conveyor belt"
-       ]
-      },
-      {
-       "id": "str-utility-pipe",
-       "longest.min": 0.4,
-       "longest.max": 1.2,
-       "nouns": [
-        "pipe",
-        "pipe section",
-        "pipe valve"
-       ]
-      },
-      {
-       "id": "str-utility-machine",
-       "longest.min": 0.4,
-       "longest.max": 2.2,
-       "nouns": [
-        "machine",
-        "industrial machine",
-        "press",
-        "piston",
-        "scanner (industrial)",
-        "robot arm",
-        "industrial crane"
-       ]
-      },
-      {
-       "id": "str-utility-hopper",
-       "longest.min": 0.4,
-       "longest.max": 1,
-       "nouns": [
-        "hopper",
-        "funnel (industrial)"
+        "stone lantern"
+       ],
+       "children": [
+        {
+         "id": "str-fixture-light-post",
+         "longest.min": 0.65,
+         "longest.max": 1.3,
+         "nouns": [
+          "lamp post",
+          "street lamp",
+          "lantern post"
+         ]
+        },
+        {
+         "id": "str-fixture-light-street",
+         "longest.min": 0.9,
+         "longest.max": 2,
+         "mat.metal-iron": "metal-iron-steel",
+         "nouns": [
+          "street light",
+          "street lantern"
+         ]
+        },
+        {
+         "id": "str-fixture-light-traffic",
+         "mat.metal-iron": "metal-iron-steel",
+         "nouns": [
+          "traffic light",
+          "traffic signal",
+          "start light"
+         ]
+        }
        ]
       }
-     ],
-     "nouns": [
-      "fire hydrant",
-      "utility pole",
-      "power line"
-     ]
-    },
-    {
-     "id": "str-playground",
-     "mat.metal-iron": "metal-iron-steel",
-     "nouns": [
-      "slide",
-      "swing",
-      "seesaw",
-      "monkey bars",
-      "merry-go-round",
-      "spring rider",
-      "sandbox",
-      "stepping stumps"
-     ]
-    },
-    {
-     "id": "str-leisure",
-     "longest.min": 0.8,
-     "longest.max": 4.1,
-     "nouns": [
-      "ferris wheel",
-      "grandstand",
-      "grand stand",
-      "bleachers"
      ]
     }
    ]
@@ -3087,13 +3479,13 @@
      "id": "env-fauna",
      "tpu.max": 10000,
      "nouns": [
-      "mammal",
       "starfish",
       "octopus",
       "crab",
       "lobster",
       "frog",
-      "snail"
+      "snail",
+      "worm"
      ],
      "children": [
       {
@@ -3120,6 +3512,18 @@
         "insect",
         "dragonfly"
        ]
+      },
+      {
+       "nouns": [
+        "mammal",
+        "dog",
+        "horse",
+        "pig",
+        "sheep",
+        "whale",
+        "dolphin"
+       ],
+       "id": "env-fauna-mammal"
       }
      ]
     },
@@ -3225,56 +3629,6 @@
      ]
     },
     {
-     "id": "env-rock",
-     "nouns": [
-      "crystal",
-      "ore (in rock)",
-      "stalagmite"
-     ],
-     "children": [
-      {
-       "id": "env-rock-formation",
-       "nouns": [
-        "arch (rock)",
-        "monolith",
-        "spire",
-        "cliff",
-        "cliff prop",
-        "outcrop"
-       ]
-      },
-      {
-       "id": "env-rock-boulder",
-       "longest.min": 0.35,
-       "longest.max": 2.5,
-       "nouns": [
-        "boulder",
-        "rock (large)"
-       ]
-      },
-      {
-       "id": "env-rock-cobble",
-       "longest.min": 0.15,
-       "longest.max": 0.5,
-       "nouns": [
-        "cobble",
-        "rock (small)",
-        "stone (loose)"
-       ]
-      },
-      {
-       "id": "env-rock-pebble",
-       "longest.min": 0.05,
-       "longest.max": 0.4,
-       "nouns": [
-        "pebble",
-        "stone (small)",
-        "gravel"
-       ]
-      }
-     ]
-    },
-    {
      "id": "env-terrain",
      "tpu.max": 3000,
      "nouns": [
@@ -3283,6 +3637,57 @@
       "riverbed"
      ],
      "children": [
+      {
+       "id": "env-terrain-rock",
+       "tpu.max": 5000,
+       "nouns": [
+        "crystal",
+        "ore (in rock)",
+        "stalagmite"
+       ],
+       "children": [
+        {
+         "id": "env-terrain-rock-formation",
+         "nouns": [
+          "arch (rock)",
+          "monolith",
+          "spire",
+          "cliff",
+          "cliff prop",
+          "outcrop"
+         ]
+        },
+        {
+         "id": "env-terrain-rock-boulder",
+         "longest.min": 0.35,
+         "longest.max": 2.5,
+         "nouns": [
+          "boulder",
+          "rock (large)"
+         ]
+        },
+        {
+         "id": "env-terrain-rock-cobble",
+         "longest.min": 0.15,
+         "longest.max": 0.5,
+         "nouns": [
+          "cobble",
+          "rock (small)",
+          "stone (loose)"
+         ]
+        },
+        {
+         "id": "env-terrain-rock-pebble",
+         "longest.min": 0.05,
+         "longest.max": 0.4,
+         "nouns": [
+          "pebble",
+          "stone (small)",
+          "gravel"
+         ]
+        }
+       ]
+      },
       {
        "id": "env-terrain-mountain",
        "high.max": 30,
@@ -3302,19 +3707,10 @@
         "stone path",
         "cobbled path",
         "sand",
-        "snow patch"
-       ]
-      },
-      {
-       "id": "env-terrain-water",
-       "nouns": [
-        "water",
-        "pond",
-        "wave",
-        "waterfall",
-        "ice",
-        "pool",
-        "lake"
+        "snow patch",
+        "farm field",
+        "farm plot",
+        "crop row"
        ]
       }
      ]
