@@ -79,7 +79,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
 
-**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest.
+**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it.
 
 | band | lane |
 |---|---|
@@ -96,6 +96,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `slate` | 6,1 |
 | `azure` | 4,2 |
 | `ivory` | 5,2 |
+| `twine` | 14,2 |
 | `basalt` | 13,3 |
 | `taupe` | 14,3 |
 | `nickel` | 15,3 |
@@ -174,7 +175,7 @@ Run `node lint/size.mjs`.
 | `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
 | `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
 
-A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units.
+A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units. `node tools/import/twine.mjs` moves round taupe rope strands onto `twine` and unwraps them so the stripes wind round the strand; `--list` prints the strands it would move.
 
 ---
 
