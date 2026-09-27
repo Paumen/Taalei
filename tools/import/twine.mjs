@@ -8,7 +8,8 @@ const HELP = `twine.mjs [--from <band>] [--min <diameter>] [--list] <workfile.gl
 Moves every tube on the --from band (default taupe) at least --min thick (default 0.02)
 onto the twine band and unwraps it: u runs around the strand, v along it, so the
 diagonal stripes of twine wind round it as a helix. Each tube triangle gets its own
-vertices, shifted by whole stripe periods to stay inside the cell. --list prints the
+vertices, shifted by whole stripe periods to stay inside the cell. Only triangles wholly
+on --from move, so wood welded into a strand keeps its colour. --list prints the
 tubes it would move and changes nothing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -51,12 +52,16 @@ function arcLength(rings) {
   };
 }
 
+function cellAt(uv, v) {
+  const u = uv[v * 2] - Math.floor(uv[v * 2]), w = uv[v * 2 + 1] - Math.floor(uv[v * 2 + 1]);
+  return `${Math.min(COLUMNS - 1, Math.floor(u * COLUMNS))},${Math.min(ROWS - 1, Math.floor(w * ROWS))}`;
+}
+
 function majorityCell(glb, prim, vertices) {
   const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
   const count = new Map();
   for (const v of new Set(vertices)) {
-    const u = uv[v * 2] - Math.floor(uv[v * 2]), w = uv[v * 2 + 1] - Math.floor(uv[v * 2 + 1]);
-    const k = `${Math.min(COLUMNS - 1, Math.floor(u * COLUMNS))},${Math.min(ROWS - 1, Math.floor(w * ROWS))}`;
+    const k = cellAt(uv, v);
     count.set(k, (count.get(k) ?? 0) + 1);
   }
   return [...count].sort((a, b) => b[1] - a[1])[0][0];
@@ -68,11 +73,12 @@ function fit(values, low, high) {
   return Math.max(...out) <= high ? out : null;
 }
 
-function unwrap(glb, prim, tubes, twine) {
+function unwrap(glb, prim, tubes, twine, source) {
   const { json } = glb;
   const x0 = twine[0] * CELL_W, y0 = twine[1] * CELL_H;
+  const uvIn = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
   const owner = new Map();
-  tubes.forEach((t, i) => { for (const v of t.vertices) owner.set(v, i); });
+  tubes.forEach((t, i) => { for (const v of t.vertices) if (cellAt(uvIn, v) === source) owner.set(v, i); });
   const position = readAccessor(glb, prim.attributes.POSITION).data;
   const place = new Map();
   const stretched = new Set();
@@ -214,7 +220,7 @@ for (const file of files) {
   let moved = 0, stretched = 0;
   for (const [prim, group] of byPrim) {
     if (prim.indices === undefined) throw new Error(`${file}: unindexed primitive`);
-    const r = unwrap(glb, prim, group, twine);
+    const r = unwrap(glb, prim, group, twine, source);
     moved += r.moved; stretched += r.stretched;
   }
   repack(glb);
