@@ -368,8 +368,36 @@
    "name": "Food Pack"
   },
   {
+   "slug": "kenney_blaster-kit_2.1",
+   "name": "Kenney Blaster Kit"
+  },
+  {
+   "slug": "kenney_factory-kit_3.0",
+   "name": "Kenney Factory Kit"
+  },
+  {
+   "slug": "kenney_racing-kit",
+   "name": "Kenney Racing Kit"
+  },
+  {
+   "slug": "kenney_space-kit",
+   "name": "Kenney Space Kit"
+  },
+  {
+   "slug": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "KayKit Space Base Bits"
+  },
+  {
    "slug": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "KayKit Prototype Bits"
+  },
+  {
+   "slug": "KayKit_BlockBits_1.0_FREE",
+   "name": "KayKit Block Bits"
+  },
+  {
+   "slug": "Stylized_Medieval_Kingdom",
+   "name": "Stylized Medieval Kingdom"
   }
  ],
  "sources": [
@@ -416,7 +444,7 @@
    "format": "glb",
    "inSource": 167,
    "inCatalog": 82,
-   "listed": 44,
+   "listed": 53,
    "unmatched": 0,
    "scale": 0.9,
    "folder": "Models/GLB format"
@@ -476,7 +504,7 @@
    "format": "glb",
    "inSource": 99,
    "inCatalog": 45,
-   "listed": 27,
+   "listed": 30,
    "unmatched": 0,
    "scale": 0.5,
    "folder": "Models/GLB format"
@@ -619,7 +647,7 @@
    "format": "obj",
    "inSource": 115,
    "inCatalog": 87,
-   "listed": 7,
+   "listed": 11,
    "unmatched": 0,
    "scale": 0.4,
    "folder": "Nature Kit/models"
@@ -631,7 +659,7 @@
    "format": "obj",
    "inSource": 155,
    "inCatalog": 151,
-   "listed": 3,
+   "listed": 5,
    "unmatched": 6,
    "scale": 0.5,
    "folder": "Modular Village"
@@ -1437,10 +1465,70 @@
    "format": "glb",
    "inSource": 211,
    "inCatalog": 172,
-   "listed": 27,
+   "listed": 39,
    "unmatched": 0,
    "scale": 1,
    "folder": "foodpack"
+  },
+  {
+   "slug": "kenney_blaster-kit_2.1",
+   "name": "Kenney Blaster Kit",
+   "kit": "ken-blaster",
+   "format": "glb",
+   "inSource": 40,
+   "inCatalog": 34,
+   "listed": 3,
+   "unmatched": 0,
+   "scale": 0.5,
+   "folder": "Models/GLB format"
+  },
+  {
+   "slug": "kenney_factory-kit_3.0",
+   "name": "Kenney Factory Kit",
+   "kit": "ken-factory",
+   "format": "glb",
+   "inSource": 143,
+   "inCatalog": 93,
+   "listed": 4,
+   "unmatched": 0,
+   "scale": 0.5,
+   "folder": "Models/GLB format"
+  },
+  {
+   "slug": "kenney_racing-kit",
+   "name": "Kenney Racing Kit",
+   "kit": "ken-racing",
+   "format": "glb",
+   "inSource": 112,
+   "inCatalog": 47,
+   "listed": 1,
+   "unmatched": 0,
+   "scale": 1.2,
+   "folder": "Models/GLTF format"
+  },
+  {
+   "slug": "kenney_space-kit",
+   "name": "Kenney Space Kit",
+   "kit": "ken-space",
+   "format": "glb",
+   "inSource": 153,
+   "inCatalog": 87,
+   "listed": 17,
+   "unmatched": 2,
+   "scale": 1.3,
+   "folder": "Models/GLTF format"
+  },
+  {
+   "slug": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "KayKit Space Base Bits",
+   "kit": "kay-space",
+   "format": "gltf",
+   "inSource": 57,
+   "inCatalog": 42,
+   "listed": 9,
+   "unmatched": 0,
+   "scale": 1.1,
+   "folder": "KayKit_Space_Base_Bits_1.0_FREE/Assets/gltf"
   },
   {
    "slug": "KayKit_Prototype_Bits_1.1_FREE",
@@ -1453,6 +1541,30 @@
    "unmatched": 0,
    "scale": 0.3,
    "folder": "KayKit_Prototype_Bits_1.1_FREE/Assets/gltf"
+  },
+  {
+   "slug": "KayKit_BlockBits_1.0_FREE",
+   "name": "KayKit Block Bits",
+   "kit": "kay-blocks",
+   "format": "gltf",
+   "inSource": 40,
+   "inCatalog": 2,
+   "listed": 10,
+   "unmatched": 0,
+   "scale": 0.3,
+   "folder": "KayKit_BlockBits_1.0_FREE/Assets/gltf"
+  },
+  {
+   "slug": "Stylized_Medieval_Kingdom",
+   "name": "Stylized Medieval Kingdom",
+   "kit": "rgp-medieval",
+   "format": "fbx",
+   "inSource": 207,
+   "inCatalog": 180,
+   "listed": 7,
+   "unmatched": 0,
+   "scale": 0.44,
+   "folder": "Assets/Stylized Medieval Kingdom URP/Models"
   }
  ],
  "kinds": [
@@ -5745,10 +5857,36 @@
   },
   {
    "id": "v333",
+   "main": "Food_Pack/burger_chicken",
+   "members": [
+    "Food_Pack/burger_chicken",
+    "Food_Pack/burger_cooked",
+    "Food_Pack/burger_chicken_cooked"
+   ]
+  },
+  {
+   "id": "v334",
    "main": "Food_Pack/sausage_chicken",
    "members": [
     "Food_Pack/sausage_chicken",
     "Food_Pack/sausage_cooked"
+   ]
+  },
+  {
+   "id": "v335",
+   "main": "KayKit_BlockBits_1.0_FREE/dirt_with_grass",
+   "members": [
+    "KayKit_BlockBits_1.0_FREE/dirt_with_grass",
+    "KayKit_BlockBits_1.0_FREE/sand_with_grass"
+   ]
+  },
+  {
+   "id": "v336",
+   "main": "KayKit_BlockBits_1.0_FREE/dirt_with_snow",
+   "members": [
+    "KayKit_BlockBits_1.0_FREE/dirt_with_snow",
+    "KayKit_BlockBits_1.0_FREE/gravel_with_snow",
+    "KayKit_BlockBits_1.0_FREE/sand_with_snow"
    ]
   }
  ],
@@ -6201,6 +6339,157 @@
    "scaled": true,
    "reason": "style",
    "file": "weapon-bow.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-bend",
+   "kind": "str-access-road",
+   "wdh": [
+    2.7,
+    0.1,
+    2.7
+   ],
+   "tris": 280,
+   "tpu": 212,
+   "mat": 1,
+   "bytes": 12396,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-bend.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-corner-inner",
+   "wdh": [
+    0.9,
+    0.1,
+    0.9
+   ],
+   "tris": 146,
+   "tpu": 331,
+   "mat": 1,
+   "bytes": 7284,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-corner-inner.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-corner",
+   "wdh": [
+    0.9,
+    0.1,
+    0.9
+   ],
+   "tris": 150,
+   "tpu": 340,
+   "mat": 1,
+   "bytes": 7424,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-corner.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-curb-end",
+   "kind": "str-access-road",
+   "wdh": [
+    0.9,
+    0.1,
+    0.9
+   ],
+   "tris": 36,
+   "tpu": 82,
+   "mat": 1,
+   "bytes": 3440,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-curb-end.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-curb",
+   "kind": "str-access-road",
+   "wdh": [
+    0.9,
+    0.1,
+    0.9
+   ],
+   "tris": 12,
+   "tpu": 27,
+   "mat": 1,
+   "bytes": 2132,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-curb.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-edge-slope",
+   "kind": "str-access-road",
+   "wdh": [
+    0.9,
+    0.2,
+    0.9
+   ],
+   "tris": 38,
+   "tpu": 86,
+   "mat": 1,
+   "bytes": 3444,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-edge-slope.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-edge",
+   "kind": "str-access-road",
+   "wdh": [
+    0.9,
+    0.1,
+    0.9
+   ],
+   "tris": 36,
+   "tpu": 82,
+   "mat": 1,
+   "bytes": 3432,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-edge.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road-slope",
+   "kind": "str-access-road",
+   "wdh": [
+    0.9,
+    0.2,
+    0.9
+   ],
+   "tris": 12,
+   "tpu": 27,
+   "mat": 1,
+   "bytes": 2136,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-slope.glb"
+  },
+  {
+   "kit": "kenney_fantasy-town-kit_2.0",
+   "name": "road",
+   "kind": "str-access-road",
+   "wdh": [
+    0.9,
+    0.1,
+    0.9
+   ],
+   "tris": 12,
+   "tpu": 27,
+   "mat": 1,
+   "bytes": 2124,
+   "scaled": true,
+   "reason": "style",
+   "file": "road.glb"
   },
   {
    "kit": "kenney_fantasy-town-kit_2.0",
@@ -10548,6 +10837,55 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "sock-green.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "trainset-rail-bend",
+   "wdh": [
+    0.4,
+    0.1,
+    0.4
+   ],
+   "tris": 136,
+   "tpu": 397,
+   "mat": 1,
+   "bytes": 6156,
+   "scaled": true,
+   "reason": "style",
+   "file": "trainset-rail-bend.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "trainset-rail-corner",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 72,
+   "tpu": 210,
+   "mat": 1,
+   "bytes": 4248,
+   "scaled": true,
+   "reason": "style",
+   "file": "trainset-rail-corner.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "trainset-rail-straight",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 24,
+   "tpu": 70,
+   "mat": 1,
+   "bytes": 2776,
+   "scaled": true,
+   "reason": "style",
+   "file": "trainset-rail-straight.glb"
   },
   {
    "kit": "kenney_holidaykit",
@@ -16270,6 +16608,70 @@
   },
   {
    "kit": "nature_kit",
+   "name": "Bush_2",
+   "wdh": [
+    0.5,
+    0.4,
+    0.5
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3856,
+   "scaled": true,
+   "reason": "style",
+   "file": "Bush_2.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_3",
+   "wdh": [
+    0.5,
+    0.4,
+    0.5
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3856,
+   "scaled": true,
+   "reason": "style",
+   "file": "Bush_3.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_4",
+   "wdh": [
+    0.5,
+    0.4,
+    0.5
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3856,
+   "scaled": true,
+   "reason": "style",
+   "file": "Bush_4.obj"
+  },
+  {
+   "kit": "nature_kit",
+   "name": "Bush_5",
+   "wdh": [
+    0.5,
+    0.4,
+    0.5
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "bytes": 3856,
+   "scaled": true,
+   "reason": "style",
+   "file": "Bush_5.obj"
+  },
+  {
+   "kit": "nature_kit",
    "name": "Lamp_Post",
    "kind": "obj-lighting-lantern-onpost",
    "wdh": [
@@ -16420,6 +16822,38 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "Prop_Well_1.obj"
+  },
+  {
+   "kit": "Modular Village",
+   "name": "Stone_Sewer_Grate_1",
+   "wdh": [
+    0.1,
+    0.6,
+    0.5
+   ],
+   "tris": 318,
+   "tpu": 927,
+   "mat": 3,
+   "bytes": 19060,
+   "scaled": true,
+   "reason": "style",
+   "file": "Stone_Sewer_Grate_1.obj"
+  },
+  {
+   "kit": "Modular Village",
+   "name": "Stone_Sewer_Grate_2",
+   "wdh": [
+    0.1,
+    0.6,
+    0.5
+   ],
+   "tris": 332,
+   "tpu": 968,
+   "mat": 3,
+   "bytes": 19620,
+   "scaled": true,
+   "reason": "style",
+   "file": "Stone_Sewer_Grate_2.obj"
   },
   {
    "kit": "Modular Village",
@@ -54236,6 +54670,22 @@
   },
   {
    "kit": "Food_Pack",
+   "name": "leaf",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bytes": 2384,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
    "name": "apple_green",
    "kind": "obj-food-fruit-apple",
    "wdh": [
@@ -54369,6 +54819,22 @@
   },
   {
    "kit": "Food_Pack",
+   "name": "dragonfruit_split_b",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 266,
+   "tpu": 776,
+   "mat": 1,
+   "bytes": 9788,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
    "name": "peach_seed",
    "wdh": [
     0.1,
@@ -54385,6 +54851,54 @@
   },
   {
    "kit": "Food_Pack",
+   "name": "grape",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 1,
+   "bytes": 8260,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "fig",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 320,
+   "tpu": 933,
+   "mat": 1,
+   "bytes": 8960,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "blueberry",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 266,
+   "tpu": 776,
+   "mat": 1,
+   "bytes": 8616,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
    "name": "theobroma_cacao",
    "wdh": [
     0.1,
@@ -54397,6 +54911,38 @@
    "bytes": 11544,
    "scaled": true,
    "reason": "dedupe",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "date",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 412,
+   "tpu": 1201,
+   "mat": 1,
+   "bytes": 12176,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "bun_sliced_a",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 110,
+   "tpu": 321,
+   "mat": 1,
+   "bytes": 3832,
+   "scaled": true,
+   "reason": "style",
    "file": "foodPack.glb"
   },
   {
@@ -54462,6 +55008,38 @@
    "tpu": 128,
    "mat": 1,
    "bytes": 2372,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "camembert",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 144,
+   "tpu": 420,
+   "mat": 1,
+   "bytes": 6120,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "edam",
+   "wdh": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "tris": 144,
+   "tpu": 420,
+   "mat": 1,
+   "bytes": 4568,
    "scaled": true,
    "reason": "style",
    "file": "foodPack.glb"
@@ -54564,6 +55142,57 @@
   },
   {
    "kit": "Food_Pack",
+   "name": "burger_chicken",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 68,
+   "tpu": 198,
+   "mat": 1,
+   "bytes": 2916,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb",
+   "variant": "v333"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "burger_cooked",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 68,
+   "tpu": 198,
+   "mat": 1,
+   "bytes": 2912,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb",
+   "variant": "v333"
+  },
+  {
+   "kit": "Food_Pack",
+   "name": "burger_chicken_cooked",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 68,
+   "tpu": 198,
+   "mat": 1,
+   "bytes": 2928,
+   "scaled": true,
+   "reason": "style",
+   "file": "foodPack.glb",
+   "variant": "v333"
+  },
+  {
+   "kit": "Food_Pack",
    "name": "sausage_chicken",
    "kind": "obj-food-meat-sausage",
    "wdh": [
@@ -54578,7 +55207,7 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "foodPack.glb",
-   "variant": "v333"
+   "variant": "v334"
   },
   {
    "kit": "Food_Pack",
@@ -54596,7 +55225,7 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "foodPack.glb",
-   "variant": "v333"
+   "variant": "v334"
   },
   {
    "kit": "Food_Pack",
@@ -54682,6 +55311,556 @@
    "file": "foodPack.glb"
   },
   {
+   "kit": "kenney_blaster-kit_2.1",
+   "name": "bullet-foam-thick",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 28,
+   "tpu": 82,
+   "mat": 1,
+   "bytes": 2572,
+   "scaled": true,
+   "reason": "style",
+   "file": "bullet-foam-thick.glb"
+  },
+  {
+   "kit": "kenney_blaster-kit_2.1",
+   "name": "bullet-foam",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 28,
+   "tpu": 82,
+   "mat": 1,
+   "bytes": 2560,
+   "scaled": true,
+   "reason": "style",
+   "file": "bullet-foam.glb"
+  },
+  {
+   "kit": "kenney_blaster-kit_2.1",
+   "name": "smoke",
+   "kind": "env",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 380,
+   "tpu": 1108,
+   "mat": 1,
+   "bytes": 10044,
+   "scaled": true,
+   "reason": "style",
+   "file": "smoke.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
+   "name": "indicator-special-area",
+   "wdh": [
+    0.5,
+    0.1,
+    0.5
+   ],
+   "tris": 18,
+   "mat": 1,
+   "bytes": 2308,
+   "scaled": true,
+   "reason": "style",
+   "file": "indicator-special-area.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
+   "name": "indicator-special-arrow",
+   "kind": "obj-equipment-weapon-ranged-arrow",
+   "wdh": [
+    0.5,
+    0.1,
+    0.5
+   ],
+   "tris": 15,
+   "mat": 1,
+   "bytes": 1940,
+   "scaled": true,
+   "reason": "style",
+   "file": "indicator-special-arrow.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
+   "name": "indicator-special-cross",
+   "kind": "str-marker-grave",
+   "wdh": [
+    0.5,
+    0.1,
+    0.5
+   ],
+   "tris": 22,
+   "mat": 1,
+   "bytes": 2204,
+   "scaled": true,
+   "reason": "style",
+   "file": "indicator-special-cross.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
+   "name": "indicator-special-lines",
+   "wdh": [
+    0.5,
+    0.1,
+    0.5
+   ],
+   "tris": 16,
+   "mat": 1,
+   "bytes": 2360,
+   "scaled": true,
+   "reason": "style",
+   "file": "indicator-special-lines.glb"
+  },
+  {
+   "kit": "kenney_racing-kit",
+   "name": "treeSmall",
+   "kind": "env-flora-tree",
+   "wdh": [
+    0.3,
+    1.3,
+    0.4
+   ],
+   "tris": 72,
+   "tpu": 210,
+   "mat": 2,
+   "bytes": 8672,
+   "scaled": true,
+   "reason": "style",
+   "file": "treeSmall.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "alien",
+   "wdh": [
+    0.6,
+    1.1,
+    0.4
+   ],
+   "tris": 292,
+   "tpu": 606,
+   "mat": 18,
+   "bytes": 48064,
+   "scaled": true,
+   "reason": "style",
+   "file": "alien.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "astronautA",
+   "wdh": [
+    0.6,
+    1,
+    0.4
+   ],
+   "tris": 296,
+   "tpu": 653,
+   "mat": 18,
+   "bytes": 47508,
+   "scaled": true,
+   "reason": "style",
+   "file": "astronautA.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "astronautB",
+   "wdh": [
+    0.6,
+    1,
+    0.4
+   ],
+   "tris": 314,
+   "tpu": 693,
+   "mat": 17,
+   "bytes": 44296,
+   "scaled": true,
+   "reason": "style",
+   "file": "astronautB.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 2,
+   "mat": 1,
+   "bytes": 1132,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_ramp",
+   "kind": "str-access-stairs",
+   "wdh": [
+    1.3,
+    0.7,
+    1.3
+   ],
+   "tris": 4,
+   "tpu": 4,
+   "mat": 2,
+   "bytes": 2236,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_ramp.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_rampLarge",
+   "kind": "str-access-stairs",
+   "wdh": [
+    1.3,
+    0.7,
+    2.6
+   ],
+   "tris": 4,
+   "tpu": 2,
+   "mat": 2,
+   "bytes": 2240,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_rampLarge.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_rampLarge_detailed",
+   "kind": "str-access-stairs",
+   "wdh": [
+    1.3,
+    0.7,
+    2.6
+   ],
+   "tris": 12,
+   "tpu": 5,
+   "mat": 2,
+   "bytes": 2896,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_rampLarge_detailed.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_roadCorner",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 98,
+   "mat": 2,
+   "bytes": 5032,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_roadCorner.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_roadCross",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 50,
+   "mat": 2,
+   "bytes": 3780,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_roadCross.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_roadEnd",
+   "kind": "str-access-road",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 58,
+   "mat": 2,
+   "bytes": 3724,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_roadEnd.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_roadSplit",
+   "kind": "str-access-road",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 162,
+   "tpu": 254,
+   "mat": 2,
+   "bytes": 7092,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_roadSplit.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_roadStraight",
+   "kind": "str-access-road",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 10,
+   "mat": 2,
+   "bytes": 2388,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_roadStraight.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_side",
+   "wdh": [
+    1.3,
+    0.7,
+    1.3
+   ],
+   "tris": 2,
+   "tpu": 2,
+   "mat": 1,
+   "bytes": 1144,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_side.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_sideCliff",
+   "kind": "env-rock-formation",
+   "wdh": [
+    1.3,
+    0.7,
+    1.3
+   ],
+   "tris": 12,
+   "tpu": 11,
+   "mat": 2,
+   "bytes": 2732,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_sideCliff.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_sideCorner",
+   "kind": "str-part-wall",
+   "wdh": [
+    1.3,
+    0.7,
+    1.3
+   ],
+   "tris": 12,
+   "tpu": 11,
+   "mat": 2,
+   "bytes": 2736,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_sideCorner.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_sideCornerInner",
+   "kind": "str-part-wall",
+   "wdh": [
+    1.3,
+    0.7,
+    1.3
+   ],
+   "tris": 10,
+   "tpu": 9,
+   "mat": 2,
+   "bytes": 2404,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_sideCornerInner.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "terrain_sideEnd",
+   "wdh": [
+    1.3,
+    0.7,
+    1.3
+   ],
+   "tris": 9,
+   "tpu": 8,
+   "mat": 3,
+   "bytes": 3808,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_sideEnd.glb"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "rock_A",
+   "wdh": [
+    0.6,
+    0.3,
+    0.6
+   ],
+   "tris": 30,
+   "tpu": 87,
+   "mat": 1,
+   "bytes": 3032,
+   "scaled": true,
+   "reason": "style",
+   "file": "rock_A.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "rock_B",
+   "wdh": [
+    0.8,
+    0.4,
+    0.9
+   ],
+   "tris": 36,
+   "tpu": 83,
+   "mat": 1,
+   "bytes": 3244,
+   "scaled": true,
+   "reason": "style",
+   "file": "rock_B.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_low",
+   "wdh": [
+    2.2,
+    1.1,
+    2.2
+   ],
+   "tris": 12,
+   "tpu": 2,
+   "mat": 1,
+   "bytes": 2120,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_low.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_low_curved",
+   "wdh": [
+    2.2,
+    1.1,
+    2.2
+   ],
+   "tris": 36,
+   "tpu": 7,
+   "mat": 1,
+   "bytes": 3436,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_low_curved.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_slope",
+   "wdh": [
+    2.2,
+    2.2,
+    2.2
+   ],
+   "tris": 28,
+   "tpu": 3,
+   "mat": 1,
+   "bytes": 2736,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_slope.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_slope_inner_corner",
+   "kind": "str-part-wall",
+   "wdh": [
+    2.2,
+    2.2,
+    2.2
+   ],
+   "tris": 34,
+   "tpu": 3,
+   "mat": 1,
+   "bytes": 3056,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_slope_inner_corner.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_slope_outer_corner",
+   "kind": "str-part-wall",
+   "wdh": [
+    2.2,
+    2.2,
+    2.2
+   ],
+   "tris": 34,
+   "tpu": 3,
+   "mat": 1,
+   "bytes": 3056,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_slope_outer_corner.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_tall",
+   "wdh": [
+    2.2,
+    2.2,
+    2.2
+   ],
+   "tris": 12,
+   "tpu": 1,
+   "mat": 1,
+   "bytes": 2120,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_tall.gltf"
+  },
+  {
+   "kit": "KayKit_Space_Base_Bits_1.0_FREE",
+   "name": "terrain_tall_curved",
+   "wdh": [
+    2.2,
+    2.2,
+    2.2
+   ],
+   "tris": 36,
+   "tpu": 3,
+   "mat": 1,
+   "bytes": 3436,
+   "scaled": true,
+   "reason": "style",
+   "file": "terrain_tall_curved.gltf"
+  },
+  {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "target_stand_B",
    "kind": "obj-equipment-target-bullseye",
@@ -54713,6 +55892,297 @@
    "scaled": true,
    "reason": "style",
    "file": "target_wall_large_A.gltf"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "dirt_with_grass",
+   "kind": "env-flora-plant-grass",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 922,
+   "tpu": 2688,
+   "mat": 1,
+   "bytes": 42736,
+   "scaled": true,
+   "reason": "style",
+   "file": "dirt_with_grass.gltf",
+   "variant": "v335"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "dirt_with_snow",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 1250,
+   "tpu": 3644,
+   "mat": 1,
+   "bytes": 55040,
+   "scaled": true,
+   "reason": "style",
+   "file": "dirt_with_snow.gltf",
+   "variant": "v336"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "glass",
+   "kind": "obj-kitchenware-tableware-drinkware",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 216,
+   "tpu": 630,
+   "mat": 1,
+   "bytes": 9488,
+   "scaled": true,
+   "reason": "style",
+   "file": "glass.gltf"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "grass",
+   "kind": "env-flora-plant-grass",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 520,
+   "tpu": 1516,
+   "mat": 1,
+   "bytes": 18008,
+   "scaled": true,
+   "reason": "style",
+   "file": "grass.gltf"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "grass_with_snow",
+   "kind": "env-flora-plant-grass",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 848,
+   "tpu": 2472,
+   "mat": 1,
+   "bytes": 30332,
+   "scaled": true,
+   "reason": "style",
+   "file": "grass_with_snow.gltf"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "gravel_with_snow",
+   "kind": "env-rock-pebble",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 1250,
+   "tpu": 3644,
+   "mat": 1,
+   "bytes": 55044,
+   "scaled": true,
+   "reason": "style",
+   "file": "gravel_with_snow.gltf",
+   "variant": "v336"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "sand_with_grass",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 922,
+   "tpu": 2688,
+   "mat": 1,
+   "bytes": 42736,
+   "scaled": true,
+   "reason": "style",
+   "file": "sand_with_grass.gltf",
+   "variant": "v335"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "sand_with_snow",
+   "kind": "env-terrain-ground",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 1250,
+   "tpu": 3644,
+   "mat": 1,
+   "bytes": 55040,
+   "scaled": true,
+   "reason": "style",
+   "file": "sand_with_snow.gltf",
+   "variant": "v336"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "tree",
+   "kind": "env-flora-tree",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 584,
+   "tpu": 1703,
+   "mat": 1,
+   "bytes": 19768,
+   "scaled": true,
+   "reason": "style",
+   "file": "tree.gltf"
+  },
+  {
+   "kit": "KayKit_BlockBits_1.0_FREE",
+   "name": "tree_with_snow",
+   "kind": "env-flora-tree",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 848,
+   "tpu": 2472,
+   "mat": 1,
+   "bytes": 30332,
+   "scaled": true,
+   "reason": "style",
+   "file": "tree_with_snow.gltf"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "Grinder",
+   "kind": "obj-tool-station",
+   "wdh": [
+    0.6,
+    0.7,
+    0.4
+   ],
+   "tris": 842,
+   "tpu": 2455,
+   "mat": 5,
+   "bytes": 32840,
+   "scaled": true,
+   "reason": "style",
+   "file": "Grinder.fbx"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "Flower_1",
+   "kind": "env-flora-plant-flower",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 20,
+   "tpu": 58,
+   "mat": 2,
+   "bytes": 3312,
+   "scaled": true,
+   "reason": "style",
+   "file": "Plants/Flower_1.fbx"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "Flower_1_Multi",
+   "kind": "env-flora-plant-flower",
+   "wdh": [
+    0.7,
+    0.3,
+    0.7
+   ],
+   "tris": 308,
+   "tpu": 876,
+   "mat": 2,
+   "bytes": 18008,
+   "scaled": true,
+   "reason": "style",
+   "file": "Plants/Flower_1_Multi.fbx"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "Flower_2",
+   "kind": "env-flora-plant-flower",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 42,
+   "tpu": 122,
+   "mat": 1,
+   "bytes": 3056,
+   "scaled": true,
+   "reason": "style",
+   "file": "Plants/Flower_2.fbx"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "Flower_2_Multi",
+   "kind": "env-flora-plant-flower",
+   "wdh": [
+    0.5,
+    0.2,
+    0.5
+   ],
+   "tris": 504,
+   "tpu": 1469,
+   "mat": 1,
+   "bytes": 21340,
+   "scaled": true,
+   "reason": "style",
+   "file": "Plants/Flower_2_Multi.fbx"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "Mushroom 4",
+   "kind": "env-fungi",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 148,
+   "tpu": 431,
+   "mat": 2,
+   "bytes": 6144,
+   "scaled": true,
+   "reason": "style",
+   "file": "Plants/Mushroom 4.fbx"
+  },
+  {
+   "kit": "Stylized_Medieval_Kingdom",
+   "name": "TreeTrunk_3",
+   "wdh": [
+    0.8,
+    0.3,
+    0.7
+   ],
+   "tris": 331,
+   "tpu": 958,
+   "mat": 2,
+   "bytes": 12628,
+   "scaled": true,
+   "reason": "style",
+   "file": "Plants/TreeTrunk_3.fbx"
   }
  ]
 }
