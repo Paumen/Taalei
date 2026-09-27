@@ -175,7 +175,7 @@ Run `node lint/size.mjs`.
 | `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
 | `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
 
-A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units. `node tools/import/twine.mjs` moves round taupe rope strands onto `twine` and unwraps them so the stripes wind round the strand; `--list` prints the strands it would move.
+A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units. `node tools/import/twine.mjs` moves round taupe rope strands onto `twine` and unwraps them so the stripes wind round the strand; `--parts` does the same for any taupe part (wraps, coils, knots, ties) by the numbers `--list` prints, and `--list` prints what it would move.
 
 ---
 
