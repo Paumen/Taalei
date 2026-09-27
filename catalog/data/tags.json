@@ -11095,10 +11095,7 @@
    "name": "Appliance",
    "type": "kind",
    "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
-   "models": [
-    "ken-furniture/ceiling-fan-anim",
-    "ken-furniture/ceiling-fan"
-   ]
+   "models": []
   },
   {
    "id": "obj-device-appliance-drink",
@@ -11121,7 +11118,6 @@
     "isa-bakery/coffee-machine",
     "ken-furniture/kitchen-coffee-machine",
     "ken-furniture/kitchen-microwave",
-    "cooking-assets/toaster-oven",
     "cooking-assets/rice-cooker",
     "isa-bakery/stand-mixer-anim",
     "isa-bakery/stand-mixer",
@@ -11197,7 +11193,12 @@
     "sq-pool/float-stack",
     "sq-casino/roulette-wheel",
     "ken-arcade/prize-wheel",
-    "sq-casino/big-six"
+    "sq-casino/big-six",
+    "sq-casino/roulette-table",
+    "sq-casino/poker-table",
+    "sq-casino/craps-table",
+    "sq-cards/play-table",
+    "sq-casino/chip-tray"
    ]
   },
   {
@@ -11239,8 +11240,6 @@
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, phone, battery, cash register, console.",
    "models": [
-    "ken-furniture/television-antenna",
-    "ken-racing/radar-equipment",
     "quat-survival/battery-slim",
     "quat-survival/battery",
     "quat-survival/phone",
@@ -11269,7 +11268,8 @@
     "ken-furniture/speaker",
     "sq-rink/speaker-stack",
     "sq-studio/studio-monitors",
-    "ken-furniture/speaker-small"
+    "ken-furniture/speaker-small",
+    "sq-rink/dj-booth"
    ]
   },
   {
@@ -11344,7 +11344,8 @@
     "ken-station/table-display-planet",
     "ken-station/table-inset",
     "ken-station/table-display-small",
-    "ken-station/table-inset-small"
+    "ken-station/table-inset-small",
+    "ken-furniture/television-antenna"
    ]
   },
   {
@@ -11384,27 +11385,6 @@
     "isa-picnic/radio",
     "ken-furniture/radio",
     "quat-survival/radio"
-   ]
-  },
-  {
-   "id": "obj-leisure-game-symbol",
-   "name": "Symbol",
-   "type": "kind",
-   "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
-   "models": [
-    "kay-minigame/lightning",
-    "kay-minigame/star",
-    "kay-platformer/diamond",
-    "kay-platformer/heart",
-    "kay-platformer/lightning",
-    "kay-platformer/star",
-    "ken-platformer/heart",
-    "ken-platformer/star",
-    "ken-water/arrow-standing",
-    "ken-water/arrow",
-    "quat-pirate/red-x",
-    "quat-rpg/heart",
-    "quat-rpg/star"
    ]
   },
   {
@@ -11523,7 +11503,8 @@
     "sq-laundry/box-brand-b",
     "sq-cards/booster-display",
     "styloo-kitchen/egg-carton",
-    "ken-food/takeaway-box"
+    "ken-food/takeaway-box",
+    "styloo-food/pizza-box"
    ]
   },
   {
@@ -11706,13 +11687,11 @@
     "kay-food/mustard",
     "ken-food/bottle-mustard",
     "ken-food/bottle-ketchup",
-    "styloo-food/salt-shaker",
     "jb-kitchen/bottle",
     "jb-kitchen/bottle-yellow",
     "sq-lab/alembic",
     "sq-lab/flask-beaker",
-    "sq-laundry/jug-brand-a",
-    "rpg-mini/inkbottle"
+    "sq-laundry/jug-brand-a"
    ]
   },
   {
@@ -11906,10 +11885,7 @@
     "ken-blaster/crate-medium",
     "kay-mixed/comic-box-closed",
     "sq-lab/first-aid-kit",
-    "quat-survival/matchbox",
-    "styloo-food/pizza-box",
     "sq-bank/coin-trays",
-    "sq-casino/chip-tray",
     "kay-mixed/comic-box-open",
     "kay-mixed/comic-box-filled",
     "kay-space/cargo-a-packed",
@@ -12164,10 +12140,7 @@
    "description": "honey",
    "color": "#c25b4e",
    "models": [
-    "quat-sushi/rice-mound",
-    "kay-food/food-ingredient-veggie-patty",
-    "ken-food/corn-dog",
-    "quat-sushi/squid"
+    "ken-food/corn-dog"
    ]
   },
   {
@@ -12243,7 +12216,8 @@
     "isa-bakery/dough-rolled-b",
     "ken-food/rice-ball",
     "styloo-food/flour-sack-open",
-    "styloo-food/flour-sack"
+    "styloo-food/flour-sack",
+    "quat-sushi/rice-mound"
    ]
   },
   {
@@ -12252,39 +12226,55 @@
    "type": "kind",
    "description": "bread, loaf, roll, baguette",
    "models": [
-    "isa-food/baguette",
-    "isa-food/baguette-slice",
-    "isa-food/bread-roll",
     "quat-food/bread",
     "quat-food/bread-slice",
     "isa-food/bread",
     "isa-food/bread-half",
     "isa-food/bread-slice",
     "isa-bakery/bread",
-    "isa-food/baguette-half",
     "ken-food/bread",
-    "ken-food/baguette",
     "ken-food/loaf-round",
     "ken-food/loaf",
     "food-pack/toast",
-    "quat-sushi/bun",
-    "kay-food/food-ingredient-bun-bottom",
-    "kay-food/food-ingredient-bun-top",
-    "styloo-food/bun-bottom",
-    "styloo-food/bun-top",
     "styloo-food/bread-slice",
     "styloo-food/bread-slices",
     "food-pack-2/bread",
     "food-pack-2/bread-slice",
     "food-pack-2/bread-sliced",
-    "food-pack-2/bun",
-    "food-pack-2/bun-half",
     "food-pack-2/toast",
     "food-pack-2/toast-sliced",
     "food-pack-2/toast-slice",
-    "food-pack-2/baguette",
     "rgp-medieval/bread-loaf",
     "rgp-medieval/bread-round"
+   ]
+  },
+  {
+   "id": "obj-food-baked-bread-bun",
+   "name": "Bun",
+   "type": "kind",
+   "description": "Bun or bread roll, whole or as burger top and bottom.",
+   "models": [
+    "food-pack-2/bun",
+    "quat-sushi/bun",
+    "styloo-food/bun-bottom",
+    "styloo-food/bun-top",
+    "kay-food/food-ingredient-bun-bottom",
+    "kay-food/food-ingredient-bun-top",
+    "isa-food/bread-roll",
+    "food-pack-2/bun-half"
+   ]
+  },
+  {
+   "id": "obj-food-baked-bread-baguette",
+   "name": "Baguette",
+   "type": "kind",
+   "description": "Baguette, whole or cut.",
+   "models": [
+    "food-pack-2/baguette",
+    "isa-food/baguette-half",
+    "ken-food/baguette",
+    "isa-food/baguette-slice",
+    "isa-food/baguette"
    ]
   },
   {
@@ -12448,7 +12438,8 @@
     "food-pack-2/courgette",
     "food-pack-2/garlic",
     "food-pack-2/asparagus",
-    "food-pack-2/cucumber"
+    "food-pack-2/cucumber",
+    "kay-food/food-ingredient-veggie-patty"
    ]
   },
   {
@@ -12528,7 +12519,8 @@
     "quat-sushi/tentacle",
     "food-pack-2/salmon",
     "rgp-medieval/fish-hanging",
-    "rgp-medieval/fish"
+    "rgp-medieval/fish",
+    "quat-sushi/squid"
    ]
   },
   {
@@ -12745,6 +12737,42 @@
    "models": []
   },
   {
+   "id": "obj-furnishing-furniture-counter",
+   "name": "Counter",
+   "type": "kind",
+   "description": "Kitchen or shop counter with worktop, including counter sinks and kitchen bars.",
+   "models": [
+    "kay-food/counter-a",
+    "kay-food/counter-inner-corner",
+    "kay-food/counter-sink",
+    "isa-bakery/counter-closet-a-large",
+    "isa-bakery/counter-closet-b-large",
+    "quat-sushi/counter-corner",
+    "quat-sushi/counter-straight",
+    "quat-sushi/counter-end",
+    "isa-kitchen/counter-single",
+    "isa-kitchen/counter-sink",
+    "jb-kitchen/sink",
+    "ken-furniture/kitchen-bar",
+    "ken-furniture/kitchen-bar-end",
+    "ken-furniture/kitchen-cabinet",
+    "ken-furniture/kitchen-cabinet-corner-inner",
+    "ken-furniture/kitchen-cabinet-corner-round",
+    "ken-furniture/kitchen-sink",
+    "sq-fastfood/prep-table",
+    "isa-bakery/counter-closet-a-small",
+    "isa-bakery/counter-closet-b-small",
+    "ken-furniture/kitchen-cabinet-drawer",
+    "quat-sushi/counter-straight-ledge",
+    "quat-sushi/counter-doors",
+    "quat-sushi/counter-drawers",
+    "quat-sushi/counter-door",
+    "quat-sushi/counter-sink",
+    "kay-food/counter-outer-corner",
+    "kay-food/counter-b"
+   ]
+  },
+  {
    "id": "obj-furnishing-textile",
    "name": "Textile",
    "type": "kind",
@@ -12755,13 +12783,23 @@
    ]
   },
   {
+   "id": "obj-furnishing-textile-mat",
+   "name": "Mat",
+   "type": "kind",
+   "description": "Small floor mat: doormat, yoga mat.",
+   "models": [
+    "isa-homely/doormat",
+    "ken-furniture/rug-doormat",
+    "sq-gym/yoga-mats"
+   ]
+  },
+  {
    "id": "obj-furnishing-textile-rug",
    "name": "Rug",
    "type": "kind",
    "description": "Flat textile on the floor: rug, carpet, doormat, picnic blanket, folded or spread.",
    "models": [
     "isa-bakery/rug",
-    "isa-homely/doormat",
     "isa-picnic/picnic-blanket-hunter-folded",
     "isa-picnic/picnic-blanket-hunter",
     "isa-picnic/picnic-blanket-sienna-folded",
@@ -12774,13 +12812,11 @@
     "kay-furniture/rug-rectangle-stripes-a",
     "kay-holiday/carpet-round-large",
     "kay-holiday/carpet-round-small",
-    "ken-furniture/rug-doormat",
     "ken-furniture/rug-rectangle",
     "ken-furniture/rug-round",
     "ken-furniture/rug-rounded",
     "ken-furniture/rug-square",
-    "props/carpet-a",
-    "sq-gym/yoga-mats"
+    "props/carpet-a"
    ]
   },
   {
@@ -13019,65 +13055,56 @@
    ]
   },
   {
+   "id": "obj-furnishing-furniture-storage-bookcase",
+   "name": "Bookcase",
+   "type": "kind",
+   "description": "Free-standing shelving unit or bookcase, open or with doors.",
+   "models": [
+    "kay-dun-1/bookcase",
+    "kay-dun-1/bookcase-broken",
+    "kay-dun-1/bookcase-wide",
+    "ken-furniture/bookcase-closed",
+    "ken-furniture/bookcase-open",
+    "ken-furniture/bookcase-open-low",
+    "rgp-medieval/shelf-a",
+    "rgp-medieval/shelf-b",
+    "sq-lab/shelf-unit",
+    "sq-bank/vault-shelving",
+    "quat-sushi/cabinet-shelves",
+    "quat-sushi/cabinet-shelves-plain",
+    "sq-bowling/cubby-wall",
+    "kay-dun-1/bookcase-wide-broken",
+    "ken-furniture/bookcase-closed-doors",
+    "ken-furniture/bookcase-closed-wide"
+   ]
+  },
+  {
    "id": "obj-furnishing-furniture-storage-cabinet",
    "name": "Cabinet",
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
    "models": [
-    "isa-bakery/counter-closet-a-large",
-    "isa-bakery/counter-closet-a-small",
-    "isa-bakery/counter-closet-b-large",
-    "isa-bakery/counter-closet-b-small",
     "isa-bakery/display-case-long",
     "isa-bakery/display-case-short",
-    "isa-kitchen/counter-single",
-    "isa-kitchen/counter-sink",
     "isa-kitchen/wall-cabinet-corner",
     "isa-kitchen/wall-cabinet-left",
     "isa-kitchen/wall-cabinet-right",
     "isa-kitchen/wall-cabinet",
-    "jb-kitchen/sink",
-    "kay-dun-1/bookcase-broken",
-    "kay-dun-1/bookcase-wide-broken",
-    "kay-dun-1/bookcase-wide",
     "kay-food/cabinet-corner",
     "kay-food/cabinet",
-    "kay-food/counter-a",
-    "kay-food/counter-b",
-    "kay-food/counter-inner-corner",
-    "kay-food/counter-outer-corner",
-    "kay-food/counter-sink",
     "kay-furniture/cabinet-medium",
     "kay-furniture/cabinet-small",
     "ken-furniture/bathroom-cabinet-drawer",
     "ken-furniture/bathroom-cabinet",
-    "ken-furniture/bookcase-closed-doors",
-    "ken-furniture/bookcase-closed-wide",
-    "ken-furniture/bookcase-closed",
     "ken-furniture/cabinet-bed-drawer-table",
     "ken-furniture/cabinet-bed-drawer",
     "ken-furniture/cabinet-bed",
     "ken-furniture/cabinet-television-doors",
     "ken-furniture/cabinet-television",
-    "ken-furniture/kitchen-bar-end",
-    "ken-furniture/kitchen-bar",
-    "ken-furniture/kitchen-cabinet-corner-inner",
-    "ken-furniture/kitchen-cabinet-corner-round",
-    "ken-furniture/kitchen-cabinet-drawer",
     "ken-furniture/kitchen-cabinet-upper-double",
     "ken-furniture/kitchen-cabinet-upper-low",
     "ken-furniture/kitchen-cabinet-upper",
-    "ken-furniture/kitchen-cabinet",
-    "ken-furniture/kitchen-sink",
     "quat-sushi/cabinet-doors",
-    "quat-sushi/counter-corner",
-    "quat-sushi/counter-door",
-    "quat-sushi/counter-doors",
-    "quat-sushi/counter-drawers",
-    "quat-sushi/counter-end",
-    "quat-sushi/counter-sink",
-    "quat-sushi/counter-straight-ledge",
-    "quat-sushi/counter-straight",
     "sq-bank/deposit-box-wall",
     "sq-bowling/trophy-case",
     "sq-cards/display-tower",
@@ -13100,7 +13127,6 @@
     "isa-kitchen/wall-shelf-corner",
     "isa-kitchen/wall-shelf-hooks",
     "isa-kitchen/wall-shelf",
-    "kay-dun-1/bookcase",
     "kay-dun-2/shelf-large",
     "kay-dun-2/shelf-small",
     "kay-food/shelf-paper-towel",
@@ -13108,15 +13134,6 @@
     "kay-furniture/shelf-a-small",
     "kay-furniture/shelf-b-large",
     "kay-furniture/shelf-b-small",
-    "ken-furniture/bookcase-open-low",
-    "ken-furniture/bookcase-open",
-    "quat-sushi/cabinet-shelves-plain",
-    "quat-sushi/cabinet-shelves",
-    "rgp-medieval/shelf-a",
-    "rgp-medieval/shelf-b",
-    "sq-bank/vault-shelving",
-    "sq-bowling/cubby-wall",
-    "sq-lab/shelf-unit",
     "styloo-furniture/shelf"
    ]
   },
@@ -13193,16 +13210,10 @@
     "rgp-vintage/console-table",
     "sq-bank/managers-desk",
     "sq-bowling/shoe-counter",
-    "sq-cards/play-table",
-    "sq-casino/craps-table",
-    "sq-casino/poker-table",
-    "sq-casino/roulette-table",
     "sq-cinema/concession-counter",
-    "sq-fastfood/prep-table",
     "sq-lab/lab-bench",
     "sq-laundry/folding-table",
-    "sq-observatory/chart-desk",
-    "sq-rink/dj-booth"
+    "sq-observatory/chart-desk"
    ]
   },
   {
@@ -13285,7 +13296,8 @@
     "cooking-assets/toaster",
     "isa-kitchen/toaster",
     "ken-furniture/toaster",
-    "styloo-kitchen/toaster"
+    "styloo-kitchen/toaster",
+    "cooking-assets/toaster-oven"
    ]
   },
   {
@@ -13574,8 +13586,7 @@
    "description": "and any tableware with no leaf that fits",
    "models": [
     "rgp-asia/bowl",
-    "rgp-asia/bowl-shard",
-    "cooking-assets/shot-glass"
+    "rgp-asia/bowl-shard"
    ]
   },
   {
@@ -13587,7 +13598,9 @@
     "ken-food/pepper-mill",
     "cooking-assets/pepper-grinder",
     "jb-kitchen/pepper-shaker",
-    "cooking-assets/shaker"
+    "cooking-assets/shaker",
+    "quat-food/soy-sauce",
+    "styloo-food/salt-shaker"
    ]
   },
   {
@@ -13649,7 +13662,6 @@
     "clay-props/plate",
     "clay-props/platter",
     "cooking-assets/platter-oval",
-    "quat-food/soy-sauce",
     "quat-props/table-plate",
     "isa-plants/saucer-a-large",
     "isa-plants/saucer-a-medium",
@@ -13737,27 +13749,50 @@
    "name": "Drinkware",
    "type": "kind",
    "description": "cup, tankard, glass",
+   "models": []
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-takeaway",
+   "name": "Takeaway cup",
+   "type": "kind",
+   "description": "Disposable drink cup, often with lid and straw.",
    "models": [
-    "clay-props/cup",
-    "cooking-assets/tankard",
-    "cooking-assets/teacup",
-    "kay-holiday/milk",
     "isa-bakery/cup-takeaway",
-    "ken-food/cup-tea-a",
-    "ken-food/cup-tea-b",
-    "ken-food/cup",
-    "cooking-assets/pilsner-glass",
-    "cooking-assets/glass",
-    "cooking-assets/demitasse",
-    "cooking-assets/vodka-glass",
-    "cooking-assets/weizen-glass",
-    "isa-bakery/cup-takeaway-stacked",
     "ken-food/frappe",
     "ken-food/soda",
     "styloo-food/iced-coffee",
-    "jb-kitchen/cup",
+    "isa-bakery/cup-takeaway-stacked"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-glass",
+   "name": "Glass",
+   "type": "kind",
+   "description": "Drinking glass: tumbler, beer glass, shot glass, glass of milk.",
+   "models": [
+    "cooking-assets/glass",
+    "cooking-assets/pilsner-glass",
+    "cooking-assets/vodka-glass",
+    "cooking-assets/weizen-glass",
+    "cooking-assets/shot-glass",
     "food-pack-2/milk-glass",
+    "kay-holiday/milk",
     "food-pack-2/milk-glass-chocolate"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-cup",
+   "name": "Cup",
+   "type": "kind",
+   "description": "Cup or teacup, with or without a handle.",
+   "models": [
+    "clay-props/cup",
+    "jb-kitchen/cup",
+    "ken-food/cup",
+    "ken-food/cup-tea-a",
+    "cooking-assets/demitasse",
+    "cooking-assets/teacup",
+    "ken-food/cup-tea-b"
    ]
   },
   {
@@ -13783,7 +13818,8 @@
     "props/cup-b",
     "ken-food/mug",
     "styloo-kitchen/mug",
-    "rgp-medieval/tankard"
+    "rgp-medieval/tankard",
+    "cooking-assets/tankard"
    ]
   },
   {
@@ -13817,7 +13853,9 @@
    "models": [
     "ken-holiday/lights-colored",
     "quat-survival/match-burnt",
-    "quat-survival/match"
+    "quat-survival/match",
+    "ken-furniture/ceiling-fan",
+    "ken-furniture/ceiling-fan-anim"
    ]
   },
   {
@@ -14422,7 +14460,8 @@
     "kay-tools/pencil-b-short",
     "kay-tools/scissors",
     "quat-survival/compass-anim",
-    "quat-survival/compass"
+    "quat-survival/compass",
+    "rpg-mini/inkbottle"
    ]
   },
   {
@@ -14584,7 +14623,8 @@
     "rgp-medieval/nail",
     "rgp-medieval/rope",
     "rgp-props/nail-a",
-    "wizp-asia/net"
+    "wizp-asia/net",
+    "quat-survival/matchbox"
    ]
   },
   {
@@ -14600,6 +14640,27 @@
     "ken-chars/wheelchair",
     "ken-chars/wheelchair-deluxe",
     "ken-skate/skateboard"
+   ]
+  },
+  {
+   "id": "obj-symbol",
+   "name": "Symbol",
+   "type": "kind",
+   "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
+   "models": [
+    "kay-minigame/lightning",
+    "kay-minigame/star",
+    "kay-platformer/diamond",
+    "kay-platformer/heart",
+    "kay-platformer/lightning",
+    "kay-platformer/star",
+    "ken-platformer/heart",
+    "ken-platformer/star",
+    "ken-water/arrow-standing",
+    "ken-water/arrow",
+    "quat-pirate/red-x",
+    "quat-rpg/heart",
+    "quat-rpg/star"
    ]
   },
   {
@@ -15319,7 +15380,15 @@
     "kay-minigame/blaster-amber",
     "quat-apocalypse/smg",
     "quat-shoot/smg",
-    "quat-shoot/grenade-launcher",
+    "quat-shoot/grenade-launcher"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-ranged-firearm-part",
+   "name": "Firearm part",
+   "type": "kind",
+   "description": "Gun attachment or magazine: scope, silencer, clip.",
+   "models": [
     "ken-blaster/clip-large",
     "ken-blaster/clip-small",
     "ken-blaster/scope-large-a",
@@ -16686,11 +16755,7 @@
     "ken-roads/road-roundabout",
     "ken-roads/road-straight",
     "ken-roads/road-slant-curve",
-    "ken-roads/road-bridge",
-    "fs-town/stone-curb-a",
-    "fs-town/stone-curb-b",
-    "fs-town/stone-curb-c",
-    "fs-town/stone-curb-d"
+    "ken-roads/road-bridge"
    ]
   },
   {
@@ -16832,7 +16897,10 @@
     "fs-town/stone-steps",
     "ken-station/stairs-small-edges-handrail",
     "rgp-medieval/stairs-stone",
-    "rgp-medieval/stairs-wood"
+    "rgp-medieval/stairs-wood",
+    "ken-space/platform-high",
+    "ken-space/platform-low",
+    "ken-skate/structure-platform"
    ]
   },
   {
@@ -16859,7 +16927,11 @@
     "rgp-medieval/stakes-b",
     "sq-bowling/lane-bumpers",
     "sq-pool/lane-ropes",
-    "sq-rink/exchange-turnstile"
+    "sq-rink/exchange-turnstile",
+    "fs-town/stone-curb-a",
+    "fs-town/stone-curb-b",
+    "fs-town/stone-curb-c",
+    "fs-town/stone-curb-d"
    ]
   },
   {
@@ -18034,9 +18106,6 @@
     "ken-platformer/platform-fortified",
     "ken-platformer/platform-ramp",
     "ken-platformer/platform",
-    "ken-skate/structure-platform",
-    "ken-space/platform-high",
-    "ken-space/platform-low",
     "medieval-forge/wooden-platform-2",
     "medieval-forge/wooden-platform",
     "rgp-asia/platform-deck",
@@ -18832,7 +18901,8 @@
     "ken-space/satellite-dish-detailed",
     "ken-space/satellite-dish-large",
     "ken-space/satellite-dish",
-    "sq-bank/night-deposit"
+    "sq-bank/night-deposit",
+    "ken-racing/radar-equipment"
    ],
    "color": "#6e8f86"
   },

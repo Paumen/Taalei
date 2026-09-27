@@ -65,7 +65,7 @@ const tabOf = (kind) => {
   return best;
 };
 
-const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-furnishing-textile-rug',
+const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-furnishing-textile-rug', 'obj-furnishing-textile-mat',
   'str-part-floor', 'obj-furnishing', 'env-remains', 'env-terrain-ground']);
 
 export const byLongest = (kind) => ownLongest(kind) && !TOP_VIEW.has(kind);
