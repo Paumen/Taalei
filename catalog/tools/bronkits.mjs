@@ -154,7 +154,7 @@ export const BRONKITS = [
   { map: 'KayKit_BlockBits_1.0_FREE', naam: 'KayKit Block Bits', kit: 'kay-blocks', source: 'kay', formaat: 'gltf' },
   { map: 'KayKit_Platformer_Pack_1.0_FREE', naam: 'KayKit Platformer Pack', kit: 'kay-platformer', source: 'kay', formaat: 'gltf', alleMappen: true },
 
-  { map: 'Stylized_Medieval_Kingdom', naam: 'Stylized Medieval Kingdom', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Stylized_Medieval_Kingdom', naam: 'Stylized Medieval Kingdom', kit: 'rgp-medieval', source: 'rgp', formaat: 'fbx', alleMappen: true },
   { map: 'Stylized_Explosives', naam: 'Stylized Explosives', kit: 'rgp-explosives', source: 'rgp', formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
   { map: 'Vintage_Room', naam: 'Vintage Room', kit: 'rgp-vintage', source: 'rgp', formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
 ];
