@@ -76,12 +76,9 @@ function kitRows() {
 
 const KIT_COLUMNS = [
   { key: 'kit', label: 'Kit', cell: (r) => (r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.kit)}</a>` : esc(r.kit)) },
-  { key: 'artist', label: 'Artist' },
   { key: 'scale', label: 'Scale', num: true, cell: (r) => (r.scale === null ? DASH : r.scale + extra(r.scaleRest, r.scaleTitle)) },
-  { key: 'count', label: 'In catalog', num: true },
-  { key: 'inSource', label: 'In source', num: true },
-  { key: 'format', label: 'Format' },
-  { key: 'smooth', label: 'Auto smooth', cell: (r) => (r.smooth === null ? DASH : r.smooth + extra(r.smoothRest, r.smoothTitle)) },
+  { key: 'count', label: 'Cat/src', num: true, cell: (r) => `<span title="in catalog / in source">${r.count ?? '—'}/${r.inSource ?? '—'}</span>` },
+  { key: 'smooth', label: 'Smooth', cell: (r) => (r.smooth === null ? DASH : r.smooth + extra(r.smoothRest, r.smoothTitle)) },
   { key: 'angle', label: 'Angle °', num: true, cell: (r) => (r.angle === null ? DASH : r.angle + extra(r.angleRest, r.angleTitle)) },
   { key: 'slope', label: 'Slope', num: true, cell: (r) => (r.slope === null ? DASH : r.slope.toFixed(2)) },
   { key: 'scatter', label: 'Scatter', num: true, cell: (r) => (r.scatter === null ? DASH : r.scatter.toFixed(2)) },
@@ -90,6 +87,8 @@ const KIT_COLUMNS = [
   { key: 'source', label: 'Source', cell: (r) => (r.source === null ? DASH
     : esc(r.sources[0]) + extra(r.sources.length - 1, r.sources.slice(1).join(', '))) },
   { key: 'license', label: 'License' },
+  { key: 'format', label: 'Format' },
+  { key: 'artist', label: 'Artist' },
 ];
 
 function sortableTable(table, columns, rows, initial) {
