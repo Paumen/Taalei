@@ -2697,9 +2697,8 @@
     "none": 28
    },
    "kitCheck": {
-    "factor": 1.26,
-    "kinds": 13,
-    "level": "warning"
+    "factor": 1.14,
+    "kinds": 14
    }
   },
   {
@@ -14718,7 +14717,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, weapon stand, easel, signboard (freestanding), cage",
-   "count": 2723,
+   "count": 2721,
    "color": "#c07c8a"
   },
   {
@@ -14726,14 +14725,14 @@
    "name": "Household",
    "type": "kind",
    "description": "Household item in everyday use.",
-   "count": 56
+   "count": 58
   },
   {
    "id": "obj-household-electronics",
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
-   "count": 47
+   "count": 49
   },
   {
    "id": "obj-household-electronics-screen",
@@ -15473,7 +15472,7 @@
    "name": "Lighting",
    "type": "kind",
    "description": "chandelier, streetlight",
-   "count": 90,
+   "count": 93,
    "color": "#f2cb45"
   },
   {
@@ -15530,7 +15529,7 @@
    "name": "Torch",
    "type": "kind",
    "description": "torch, brazier",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-equipment-pocketitem",
@@ -15679,7 +15678,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 126,
+   "count": 128,
    "color": "#6d738a"
   },
   {
@@ -15694,7 +15693,7 @@
    "name": "Mechanism",
    "type": "kind",
    "description": "Mechanism worked by hand or foot: lever, spring, gear, pulley, floor button, bear trap.",
-   "count": 14
+   "count": 16
   },
   {
    "id": "obj-tool-stationery",
@@ -16328,7 +16327,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1600,
+   "count": 1602,
    "color": "#877a63"
   },
   {
@@ -16422,7 +16421,7 @@
    "name": "Building",
    "type": "kind",
    "description": "gazebo, well",
-   "count": 331,
+   "count": 334,
    "color": "#7d4f3a"
   },
   {
@@ -16578,7 +16577,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 104,
+   "count": 106,
    "color": "#ffb349"
   },
   {
@@ -17012,7 +17011,7 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 89
+   "count": 92
   },
   {
    "id": "str-barrier-fence-mid",
@@ -19193,12 +19192,6 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30
-  },
-  "str": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
   },
   "str-access-bridge-long": {
    "high.max": 8,
@@ -53650,7 +53643,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "pricing-card",
-   "kind": "obj",
+   "kind": "str-marker",
    "size": "s",
    "wdh": [
     0.08,
@@ -73266,7 +73259,7 @@
   {
    "kit": "kay-builder",
    "name": "mine",
-   "kind": "str",
+   "kind": "str-building-industrial",
    "size": "l",
    "wdh": [
     2.9,
@@ -93831,7 +93824,7 @@
   {
    "kit": "kay-food",
    "name": "menu",
-   "kind": "obj",
+   "kind": "str-marker",
    "size": "s",
    "wdh": [
     0.1,
@@ -93870,6 +93863,13 @@
     "kay",
     "metal-iron-steel",
     "paper"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
+    }
    ]
   },
   {
@@ -107164,7 +107164,7 @@
   {
    "kit": "kay-hexagon",
    "name": "mine",
-   "kind": "str",
+   "kind": "str-building-industrial",
    "size": "l",
    "wdh": [
     2.75,
@@ -175833,7 +175833,7 @@
   {
    "kit": "ken-platformer",
    "name": "lock",
-   "kind": "obj",
+   "kind": "obj-tool-mechanism",
    "size": "s",
    "wdh": [
     0.3,
@@ -175878,6 +175878,13 @@
     "metal-gold",
     "metal-iron-wrought",
     "pickup"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-tool)"
+    }
    ]
   },
   {
@@ -184554,7 +184561,7 @@
   {
    "kit": "ken-space",
    "name": "desk-computer-corner",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "m",
    "wdh": [
     1,
@@ -184655,7 +184662,7 @@
   {
    "kit": "ken-space",
    "name": "desk-computer",
-   "kind": "obj",
+   "kind": "obj-household-electronics",
    "size": "m",
    "wdh": [
     0.7,
@@ -237443,7 +237450,7 @@
   {
    "kit": "quat-rpg",
    "name": "padlock",
-   "kind": "obj",
+   "kind": "obj-tool-mechanism",
    "size": "s",
    "wdh": [
     0.2,
@@ -237483,6 +237490,11 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.38 off the size curve (quat-rpg, 19 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-tool)"
     }
    ]
   },
@@ -244016,7 +244028,7 @@
   {
    "kit": "quat-survival",
    "name": "match-burnt",
-   "kind": "obj",
+   "kind": "obj-lighting",
    "size": "s",
    "wdh": [
     0.01,
@@ -244057,7 +244069,7 @@
   {
    "kit": "quat-survival",
    "name": "match",
-   "kind": "obj",
+   "kind": "obj-lighting",
    "size": "s",
    "wdh": [
     0.01,
@@ -251120,7 +251132,7 @@
   {
    "kit": "quat-town",
    "name": "mine",
-   "kind": "str",
+   "kind": "str-building-industrial",
    "size": "l",
    "wdh": [
     2.85,
@@ -256639,18 +256651,6 @@
    ],
    "tags": [
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.35 under min 0.3 (obj-tool-station · 0.278 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -256694,14 +256694,7 @@
    "tags": [
     "textile"
    ],
-   "variant": "v193",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v193"
   },
   {
    "kit": "small-props",
@@ -256749,12 +256742,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-container-bag-sack · 0.119 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 0.15 under min 0.15 (obj-container-bag-sack · 0.132 at kit ×1.14)"
     }
    ]
   },
@@ -256799,14 +256787,7 @@
    "tags": [
     "textile"
    ],
-   "variant": "v193",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v193"
   },
   {
    "kit": "small-props",
@@ -256849,13 +256830,6 @@
    "tags": [
     "metal-iron-wrought",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -256895,13 +256869,6 @@
     "pirate",
     "sailing",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -256946,13 +256913,6 @@
    "tags": [
     "rope",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -257008,12 +256968,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.159 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.175 at kit ×1.14)"
     }
    ]
   },
@@ -257068,12 +257023,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.95 over max 1.15 (obj-transport-cart · 1.548 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 1.95 over max 1.15 (obj-transport-cart · 1.711 at kit ×1.14)"
     }
    ],
    "mark": [
@@ -257127,12 +257077,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-resource-wood-log · 0.238 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 0.3 under min 0.3 (obj-resource-wood-log · 0.263 at kit ×1.14)"
     }
    ]
   },
@@ -257194,7 +257139,7 @@
   {
    "kit": "small-props",
    "name": "fireplace-1-1-a",
-   "kind": "obj",
+   "kind": "obj-lighting-torch",
    "size": "s",
    "wdh": [
     0.35,
@@ -257231,7 +257176,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "tpu 5114 over max 5000 (obj-lighting)"
     }
    ]
   },
@@ -257292,12 +257237,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.111 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.228 at kit ×1.14)"
     }
    ],
    "mark": [
@@ -257356,12 +257296,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.111 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.228 at kit ×1.14)"
     }
    ],
    "mark": [
@@ -257426,12 +257361,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.111 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 1.4 over max 1.1 (obj-tool-twohand-rod · 1.228 at kit ×1.14)"
     }
    ],
    "mark": [
@@ -257480,13 +257410,6 @@
    "tags": [
     "metal-iron-steel",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -257608,14 +257531,7 @@
     "vegetation",
     "wood-log"
    ],
-   "variant": "v179",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v179"
   },
   {
    "kit": "small-props",
@@ -257687,11 +257603,6 @@
    "variant": "v179",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    },
-    {
      "level": "error",
      "check": "measures",
      "text": "G13 bands 6 wants max 5"
@@ -257733,13 +257644,6 @@
    ],
    "tags": [
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -257788,13 +257692,6 @@
    "tags": [
     "metal-iron-steel",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -257851,19 +257748,7 @@
     "rope",
     "wood-beam"
    ],
-   "variant": "v180",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 under min 0.35 (obj-equipment-target-bullseye · 0.317 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v180"
   },
   {
    "kit": "small-props",
@@ -257919,14 +257804,7 @@
     "rope",
     "wood-beam"
    ],
-   "variant": "v180",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v180"
   },
   {
    "kit": "small-props",
@@ -257971,13 +257849,6 @@
     "leather",
     "rope",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
@@ -258020,12 +257891,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-furnishing-seating-stool · 0.159 at kit ×1.26)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
+     "text": "longest 0.2 under min 0.2 (obj-furnishing-seating-stool · 0.175 at kit ×1.14)"
     }
    ]
   },
@@ -258078,14 +257944,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v224",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v224"
   },
   {
    "kit": "small-props",
@@ -258142,14 +258001,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v224",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
-   ]
+   "variant": "v224"
   },
   {
    "kit": "small-props",
@@ -258193,13 +258045,6 @@
     "comp",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.26 off the size curve (small-props, 13 kinds)"
-    }
    ]
   },
   {
