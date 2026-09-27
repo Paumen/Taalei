@@ -465,14 +465,14 @@
     "Homely House Set": 28
    },
    "scales": {
-    "0.32": 28
+    "0.64": 28
    },
    "smooth": {
     "60": 27,
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.35,
+    "factor": 0.71,
     "kinds": 8,
     "level": "error"
    }
@@ -2277,13 +2277,13 @@
     "Animated Fish Bundle": 27
    },
    "scales": {
-    "0.22": 27
+    "0.18": 27
    },
    "smooth": {
     "none": 27
    },
    "kitCheck": {
-    "factor": 2.22,
+    "factor": 1.82,
     "kinds": 5,
     "level": "error"
    }
@@ -2839,15 +2839,14 @@
     "Weapons Assets Pack": 14
    },
    "scales": {
-    "0.005": 14
+    "0.007": 14
    },
    "smooth": {
     "none": 14
    },
    "kitCheck": {
-    "factor": 0.65,
-    "kinds": 5,
-    "level": "error"
+    "factor": 0.92,
+    "kinds": 5
    }
   },
   {
@@ -2898,14 +2897,14 @@
     "Ultimate Guns Pack": 10
    },
    "scales": {
-    "0.2": 10
+    "0.15": 10
    },
    "smooth": {
     "60": 7,
     "none": 3
    },
    "kitCheck": {
-    "factor": 2.07,
+    "factor": 1.56,
     "kinds": 4,
     "level": "error"
    }
@@ -17379,14 +17378,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2377
+   "count": 2365
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2067
+   "count": 2079
   },
   {
    "id": "l",
@@ -56438,11 +56437,11 @@
    "kit": "isa-homely",
    "name": "bench-a",
    "kind": "obj-furnishing-seating-bench-backrest",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.2,
-    0.25
+    0.65,
+    0.4,
+    0.45
    ],
    "tris": 676,
    "tpu": 1971,
@@ -56453,9 +56452,9 @@
    "vtx": 548,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0382,
-   "avgTri": 0.00049,
+   "minEdge": 0.017,
+   "minTube": 0.0765,
+   "avgTri": 0.00196,
    "anglePct": 61,
    "vpt": 0.81,
    "grad": 0.59,
@@ -56482,7 +56481,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     },
     {
      "level": "error",
@@ -56495,11 +56494,11 @@
    "kit": "isa-homely",
    "name": "bench-b",
    "kind": "obj-furnishing-seating-bench-nobackrest",
-   "size": "s",
+   "size": "m",
    "wdh": [
+    0.65,
     0.3,
-    0.15,
-    0.08
+    0.15
    ],
    "tris": 204,
    "tpu": 595,
@@ -56510,8 +56509,8 @@
    "vtx": 236,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00083,
+   "minEdge": 0.023,
+   "avgTri": 0.00333,
    "anglePct": 99,
    "vpt": 1.16,
    "grad": 0.41,
@@ -56538,7 +56537,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56548,9 +56547,9 @@
    "kind": "obj-equipment-apparel",
    "size": "s",
    "wdh": [
-    0.15,
-    0.1,
-    0.09
+    0.3,
+    0.25,
+    0.2
    ],
    "tris": 644,
    "tpu": 1878,
@@ -56561,8 +56560,8 @@
    "vtx": 434,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00013,
+   "minEdge": 0.009,
+   "avgTri": 0.0005,
    "anglePct": 21,
    "vpt": 0.67,
    "grad": 0.6,
@@ -56584,7 +56583,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56592,11 +56591,11 @@
    "kit": "isa-homely",
    "name": "cobblestones",
    "kind": "env-rock-cobble",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.25,
-    0.03
+    0.55,
+    0.55,
+    0.06
    ],
    "tris": 484,
    "tpu": 1411,
@@ -56607,8 +56606,8 @@
    "vtx": 318,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00019,
+   "minEdge": 0.002,
+   "avgTri": 0.00077,
    "anglePct": 65,
    "vpt": 0.66,
    "grad": 0.6,
@@ -56630,7 +56629,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56640,9 +56639,9 @@
    "kind": "obj-furnishing",
    "size": "s",
    "wdh": [
+    0.4,
     0.2,
-    0.1,
-    0.02
+    0.03
    ],
    "tris": 180,
    "tpu": 525,
@@ -56653,8 +56652,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00028,
+   "minEdge": 0.011,
+   "avgTri": 0.00111,
    "anglePct": 98,
    "vpt": 0.93,
    "grad": 0.6,
@@ -56680,7 +56679,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56688,24 +56687,24 @@
    "kit": "isa-homely",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.2
+    0.8,
+    0.8,
+    0.4
    ],
    "tris": 344,
-   "tpu": 1003,
+   "tpu": 795,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13720,
+   "bytes": 13716,
    "vtx": 314,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00108,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.00433,
    "anglePct": 70,
    "vpt": 0.91,
    "grad": 0.59,
@@ -56726,7 +56725,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56734,11 +56733,11 @@
    "kit": "isa-homely",
    "name": "fence-open-long",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.05,
-    0.2
+    0.7,
+    0.1,
+    0.4
    ],
    "tris": 144,
    "tpu": 420,
@@ -56749,9 +56748,9 @@
    "vtx": 132,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00115,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.0046,
    "anglePct": 73,
    "vpt": 0.92,
    "grad": 0.6,
@@ -56773,7 +56772,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56781,11 +56780,11 @@
    "kit": "isa-homely",
    "name": "fence-open-wide-long",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.35,
-    0.05,
-    0.2
+    0.7,
+    0.1,
+    0.4
    ],
    "tris": 88,
    "tpu": 257,
@@ -56796,9 +56795,9 @@
    "vtx": 82,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00136,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.00546,
    "anglePct": 81,
    "vpt": 0.93,
    "grad": 0.6,
@@ -56820,7 +56819,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56830,9 +56829,9 @@
    "kind": "str-barrier-fence-mid",
    "size": "s",
    "wdh": [
-    0.2,
-    0.05,
-    0.2
+    0.4,
+    0.1,
+    0.4
    ],
    "tris": 88,
    "tpu": 257,
@@ -56843,9 +56842,9 @@
    "vtx": 82,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00094,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.00376,
    "anglePct": 73,
    "vpt": 0.93,
    "grad": 0.6,
@@ -56867,7 +56866,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56877,9 +56876,9 @@
    "kind": "str-barrier-post",
    "size": "s",
    "wdh": [
-    0.08,
-    0.05,
-    0.2
+    0.15,
+    0.1,
+    0.4
    ],
    "tris": 56,
    "tpu": 163,
@@ -56890,8 +56889,8 @@
    "vtx": 50,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00081,
+   "minEdge": 0.012,
+   "avgTri": 0.00324,
    "anglePct": 50,
    "vpt": 0.89,
    "grad": 0.53,
@@ -56912,7 +56911,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56920,11 +56919,11 @@
    "kit": "isa-homely",
    "name": "fence-rails-long",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.03,
-    0.1
+    0.65,
+    0.06,
+    0.2
    ],
    "tris": 32,
    "tpu": 93,
@@ -56935,9 +56934,9 @@
    "vtx": 32,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.039,
-   "avgTri": 0.00234,
+   "minEdge": 0.014,
+   "minTube": 0.0781,
+   "avgTri": 0.00934,
    "anglePct": 100,
    "vpt": 1,
    "grad": 0.59,
@@ -56960,7 +56959,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -56970,9 +56969,9 @@
    "kind": "str-barrier-fence-mid",
    "size": "s",
    "wdh": [
-    0.15,
-    0.03,
-    0.1
+    0.3,
+    0.06,
+    0.2
    ],
    "tris": 32,
    "tpu": 93,
@@ -56983,9 +56982,9 @@
    "vtx": 32,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.039,
-   "avgTri": 0.00117,
+   "minEdge": 0.014,
+   "minTube": 0.0781,
+   "avgTri": 0.00467,
    "anglePct": 100,
    "vpt": 1,
    "grad": 0.59,
@@ -57008,7 +57007,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57016,24 +57015,24 @@
    "kit": "isa-homely",
    "name": "fence-straight-long",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.05,
-    0.2
+    0.8,
+    0.1,
+    0.4
    ],
    "tris": 200,
    "tpu": 583,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8648,
+   "bytes": 8652,
    "vtx": 182,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00105,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.00422,
    "anglePct": 68,
    "vpt": 0.91,
    "grad": 0.6,
@@ -57055,7 +57054,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57065,22 +57064,22 @@
    "kind": "str-barrier-fence-mid",
    "size": "s",
    "wdh": [
-    0.25,
-    0.05,
-    0.2
+    0.5,
+    0.1,
+    0.4
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6700,
+   "bytes": 6696,
    "vtx": 132,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00081,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.00325,
    "anglePct": 61,
    "vpt": 0.92,
    "grad": 0.6,
@@ -57102,7 +57101,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57110,11 +57109,11 @@
    "kit": "isa-homely",
    "name": "fence-wide-long",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.05,
-    0.2
+    0.8,
+    0.1,
+    0.4
    ],
    "tris": 144,
    "tpu": 420,
@@ -57125,9 +57124,9 @@
    "vtx": 132,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.039,
-   "avgTri": 0.00107,
+   "minEdge": 0.012,
+   "minTube": 0.0781,
+   "avgTri": 0.00429,
    "anglePct": 71,
    "vpt": 0.92,
    "grad": 0.6,
@@ -57149,7 +57148,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57159,12 +57158,12 @@
    "kind": "env-terrain-ground",
    "size": "l",
    "wdh": [
-    3.2,
-    2.55,
-    0.15
+    6.4,
+    5.1,
+    0.3
    ],
    "tris": 196,
-   "tpu": 34,
+   "tpu": 9,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -57172,8 +57171,8 @@
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.09075,
+   "minEdge": 0.033,
+   "avgTri": 0.36301,
    "anglePct": 96,
    "vpt": 0.82,
    "grad": 0.42,
@@ -57194,7 +57193,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57204,9 +57203,9 @@
    "kind": "env-flora-plant-bush",
    "size": "s",
    "wdh": [
-    0.08,
-    0.07,
-    0.07
+    0.15,
+    0.15,
+    0.15
    ],
    "tris": 260,
    "tpu": 758,
@@ -57217,8 +57216,8 @@
    "vtx": 256,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00006,
+   "minEdge": 0.007,
+   "avgTri": 0.00024,
    "anglePct": 3,
    "vpt": 0.98,
    "grad": 0.59,
@@ -57241,7 +57240,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57251,21 +57250,21 @@
    "kind": "env-flora-plant-bush",
    "size": "s",
    "wdh": [
-    0.1,
-    0.07,
-    0.07
+    0.25,
+    0.15,
+    0.15
    ],
    "tris": 390,
    "tpu": 1137,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16288,
+   "bytes": 16284,
    "vtx": 386,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00006,
+   "minEdge": 0.007,
+   "avgTri": 0.00024,
    "anglePct": 3,
    "vpt": 0.99,
    "grad": 0.59,
@@ -57285,14 +57284,9 @@
    "variant": "v717",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.1 under min 0.35 (env-flora-plant-bush · 0.286 at kit ×0.35)"
-    },
-    {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57302,21 +57296,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "s",
    "wdh": [
-    0.15,
-    0.05,
-    0.2
+    0.3,
+    0.1,
+    0.35
    ],
    "tris": 376,
    "tpu": 1096,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13708,
+   "bytes": 13704,
    "vtx": 308,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00021,
+   "minEdge": 0.008,
+   "avgTri": 0.00083,
    "anglePct": 81,
    "vpt": 0.82,
    "grad": 0.59,
@@ -57345,7 +57339,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57355,9 +57349,9 @@
    "kind": "str-barrier-fence-mid",
    "size": "s",
    "wdh": [
-    0.15,
-    0.05,
-    0.2
+    0.3,
+    0.1,
+    0.35
    ],
    "tris": 376,
    "tpu": 1096,
@@ -57368,8 +57362,8 @@
    "vtx": 308,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00021,
+   "minEdge": 0.008,
+   "avgTri": 0.00083,
    "anglePct": 81,
    "vpt": 0.82,
    "grad": 0.59,
@@ -57398,7 +57392,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57406,11 +57400,11 @@
    "kit": "isa-homely",
    "name": "gate-single",
    "kind": "str-barrier-fence-mid",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.05,
-    0.2
+    0.65,
+    0.1,
+    0.35
    ],
    "tris": 456,
    "tpu": 1329,
@@ -57421,8 +57415,8 @@
    "vtx": 414,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.0003,
+   "minEdge": 0.008,
+   "avgTri": 0.00121,
    "anglePct": 85,
    "vpt": 0.91,
    "grad": 0.59,
@@ -57449,7 +57443,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57457,24 +57451,24 @@
    "kit": "isa-homely",
    "name": "house-anim",
    "kind": "str-building-residential-house",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.95,
-    1.05,
-    1.45
+    1.9,
+    2.1,
+    2.85
    ],
    "tris": 5259,
-   "tpu": 3729,
+   "tpu": 466,
    "mat": 2,
    "bands": 6,
    "calls": 2,
-   "bytes": 515052,
+   "bytes": 515048,
    "vtx": 8593,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0311,
-   "avgTri": 0.00194,
+   "minEdge": 0.008,
+   "minTube": 0.0622,
+   "avgTri": 0.00776,
    "anglePct": 72,
    "vpt": 1.63,
    "grad": 0.6,
@@ -57532,12 +57526,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57545,24 +57534,24 @@
    "kit": "isa-homely",
    "name": "house",
    "kind": "str-building-residential-house",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.95,
-    1.05,
-    1.05
+    1.9,
+    2.1,
+    2.1
    ],
    "tris": 3759,
-   "tpu": 3657,
+   "tpu": 457,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 155128,
+   "bytes": 155124,
    "vtx": 4093,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0311,
-   "avgTri": 0.00262,
+   "minEdge": 0.008,
+   "minTube": 0.0622,
+   "avgTri": 0.01049,
    "anglePct": 74,
    "vpt": 1.09,
    "grad": 0.6,
@@ -57613,12 +57602,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57628,9 +57612,9 @@
    "kind": "obj-equipment-pocketitem-scroll",
    "size": "s",
    "wdh": [
-    0.08,
-    0.02,
-    0.06
+    0.15,
+    0.05,
+    0.1
    ],
    "tris": 100,
    "tpu": 292,
@@ -57641,8 +57625,8 @@
    "vtx": 154,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "minEdge": 0.004,
+   "avgTri": 0.00053,
    "anglePct": 85,
    "vpt": 1.54,
    "grad": 0.58,
@@ -57668,7 +57652,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57676,11 +57660,11 @@
    "kit": "isa-homely",
    "name": "mailbox",
    "kind": "str-marker",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.09,
     0.2,
-    0.35
+    0.4,
+    0.65
    ],
    "tris": 508,
    "tpu": 1481,
@@ -57691,9 +57675,9 @@
    "vtx": 530,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.039,
-   "avgTri": 0.00039,
+   "minEdge": 0.003,
+   "minTube": 0.0781,
+   "avgTri": 0.00157,
    "anglePct": 84,
    "vpt": 1.04,
    "grad": 0.6,
@@ -57732,7 +57716,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     },
     {
      "level": "error",
@@ -57747,9 +57731,9 @@
    "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.08
+    0.3,
+    0.25,
+    0.15
    ],
    "tris": 220,
    "tpu": 641,
@@ -57760,8 +57744,8 @@
    "vtx": 292,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00034,
+   "minEdge": 0.006,
+   "avgTri": 0.00137,
    "anglePct": 92,
    "vpt": 1.33,
    "grad": 0.39,
@@ -57799,7 +57783,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57807,14 +57791,14 @@
    "kit": "isa-homely",
    "name": "tree-large",
    "kind": "env-flora-tree-conifer",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.45,
-    0.45,
-    0.75
+    0.9,
+    0.9,
+    1.5
    ],
    "tris": 384,
-   "tpu": 1039,
+   "tpu": 308,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -57822,8 +57806,8 @@
    "vtx": 322,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "avgTri": 0.00256,
+   "minEdge": 0.037,
+   "avgTri": 0.01026,
    "anglePct": 16,
    "vpt": 0.84,
    "grad": 0.8,
@@ -57851,7 +57835,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -57861,12 +57845,12 @@
    "kind": "env-flora-tree-conifer",
    "size": "m",
    "wdh": [
-    0.35,
-    0.35,
-    0.55
+    0.75,
+    0.75,
+    1.1
    ],
    "tris": 276,
-   "tpu": 805,
+   "tpu": 466,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -57874,8 +57858,8 @@
    "vtx": 231,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00199,
+   "minEdge": 0.03,
+   "avgTri": 0.00797,
    "anglePct": 28,
    "vpt": 0.84,
    "grad": 0.79,
@@ -57903,7 +57887,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×0.35 off the size curve (isa-homely, 8 kinds)"
+     "text": "kit ×0.71 off the size curve (isa-homely, 8 kinds)"
     }
    ]
   },
@@ -220881,12 +220865,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.85,
-    1.2,
-    0.75
+    0.7,
+    1,
+    0.6
    ],
    "tris": 1870,
-   "tpu": 2477,
+   "tpu": 3919,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -220895,7 +220879,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00095,
+   "avgTri": 0.00064,
    "anglePct": 5,
    "vpt": 1.37,
    "grad": 0,
@@ -220935,12 +220919,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.4 (env-fauna-fish · 0.541 at kit ×2.22)"
+     "text": "longest 1 over max 0.4 (env-fauna-fish · 0.549 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -220950,12 +220934,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.7,
-    1.25,
-    0.75
+    0.55,
+    1,
+    0.6
    ],
    "tris": 1456,
-   "tpu": 2352,
+   "tpu": 3735,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -220964,7 +220948,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.0012,
+   "avgTri": 0.0008,
    "anglePct": 26,
    "vpt": 1.49,
    "grad": 0,
@@ -220994,12 +220978,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.25 over max 0.4 (env-fauna-fish · 0.563 at kit ×2.22)"
+     "text": "longest 1 over max 0.4 (env-fauna-fish · 0.549 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221009,12 +220993,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
+    0.8,
     0.95,
-    1.15,
-    0.65
+    0.55
    ],
    "tris": 1530,
-   "tpu": 1981,
+   "tpu": 2960,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221023,7 +221007,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.0011,
+   "avgTri": 0.00074,
    "anglePct": 15,
    "vpt": 1.52,
    "grad": 0,
@@ -221049,12 +221033,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.518 at kit ×2.22)"
+     "text": "longest 0.95 over max 0.4 (env-fauna-fish · 0.522 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221064,12 +221048,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
+    0.8,
     0.95,
-    1.15,
-    0.65
+    0.55
    ],
    "tris": 1530,
-   "tpu": 1941,
+   "tpu": 2901,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -221078,7 +221062,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.0011,
+   "avgTri": 0.00074,
    "anglePct": 15,
    "vpt": 1.52,
    "grad": 0,
@@ -221109,12 +221093,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.518 at kit ×2.22)"
+     "text": "longest 0.95 over max 0.4 (env-fauna-fish · 0.522 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221124,12 +221108,12 @@
    "kind": "str-platform-dock",
    "size": "l",
    "wdh": [
-    2.05,
-    4.75,
-    1.25
+    1.65,
+    3.9,
+    1
    ],
    "tris": 1484,
-   "tpu": 123,
+   "tpu": 225,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221137,9 +221121,9 @@
    "vtx": 2888,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "minTube": 0.1973,
-   "avgTri": 0.01877,
+   "minEdge": 0.016,
+   "minTube": 0.1614,
+   "avgTri": 0.01256,
    "anglePct": 55,
    "vpt": 1.95,
    "grad": 0,
@@ -221168,7 +221152,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221178,12 +221162,12 @@
    "kind": "str-platform-dock",
    "size": "l",
    "wdh": [
-    2.05,
-    4.75,
-    1.7
+    1.65,
+    3.9,
+    1.4
    ],
    "tris": 1688,
-   "tpu": 102,
+   "tpu": 186,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -221191,9 +221175,9 @@
    "vtx": 3296,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "minTube": 0.2002,
-   "avgTri": 0.01795,
+   "minEdge": 0.016,
+   "minTube": 0.1638,
+   "avgTri": 0.01202,
    "anglePct": 53,
    "vpt": 1.95,
    "grad": 0,
@@ -221228,7 +221212,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221238,12 +221222,12 @@
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
-    1.9,
-    2.1,
-    1.7
+    1.55,
+    1.7,
+    1.35
    ],
    "tris": 628,
-   "tpu": 94,
+   "tpu": 171,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221251,9 +221235,9 @@
    "vtx": 1220,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "minTube": 0.1973,
-   "avgTri": 0.02162,
+   "minEdge": 0.016,
+   "minTube": 0.1614,
+   "avgTri": 0.01447,
    "anglePct": 49,
    "vpt": 1.94,
    "grad": 0,
@@ -221281,7 +221265,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221291,12 +221275,12 @@
    "kind": "str-platform-dock",
    "size": "l",
    "wdh": [
-    3.2,
-    4.75,
-    1.7
+    2.65,
+    3.9,
+    1.4
    ],
    "tris": 1688,
-   "tpu": 65,
+   "tpu": 119,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -221304,9 +221288,9 @@
    "vtx": 3296,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "minTube": 0.0416,
-   "avgTri": 0.02558,
+   "minEdge": 0.016,
+   "minTube": 0.034,
+   "avgTri": 0.01712,
    "anglePct": 57,
    "vpt": 1.95,
    "grad": 0,
@@ -221341,7 +221325,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221351,12 +221335,12 @@
    "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
-    0.05,
-    0.15,
-    1.4
+    0.04,
+    0.1,
+    1.15
    ],
    "tris": 308,
-   "tpu": 453,
+   "tpu": 554,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -221364,8 +221348,8 @@
    "vtx": 612,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00041,
+   "minEdge": 0.004,
+   "avgTri": 0.00028,
    "anglePct": 54,
    "vpt": 1.99,
    "grad": 0,
@@ -221387,7 +221371,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221397,12 +221381,12 @@
    "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
+    0.07,
     0.08,
-    0.1,
-    1.45
+    1.2
    ],
    "tris": 910,
-   "tpu": 1281,
+   "tpu": 1565,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221411,8 +221395,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0084,
-   "avgTri": 0.00012,
+   "minTube": 0.0069,
+   "avgTri": 0.00008,
    "anglePct": 85,
    "vpt": 1.96,
    "grad": 0,
@@ -221439,7 +221423,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221447,14 +221431,14 @@
    "kit": "quat-fishing",
    "name": "fishing-rod-c",
    "kind": "obj-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
     0.15,
-    0.1,
-    1.7
+    0.09,
+    1.4
    ],
    "tris": 1174,
-   "tpu": 1400,
+   "tpu": 1711,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221463,8 +221447,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0122,
-   "avgTri": 0.00013,
+   "minTube": 0.01,
+   "avgTri": 0.00009,
    "anglePct": 73,
    "vpt": 1.95,
    "grad": 0,
@@ -221491,7 +221475,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221499,14 +221483,14 @@
    "kit": "quat-fishing",
    "name": "fishing-rod-d",
    "kind": "obj-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.15,
     0.1,
-    1.6
+    0.09,
+    1.35
    ],
    "tris": 898,
-   "tpu": 1129,
+   "tpu": 1380,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221515,8 +221499,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0115,
-   "avgTri": 0.00015,
+   "minTube": 0.0094,
+   "avgTri": 0.0001,
    "anglePct": 75,
    "vpt": 1.93,
    "grad": 0,
@@ -221544,7 +221528,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221554,12 +221538,12 @@
    "kind": "obj-tool-twohand-rod",
    "size": "m",
    "wdh": [
-    0.1,
-    0.1,
-    1.4
+    0.09,
+    0.09,
+    1.15
    ],
    "tris": 522,
-   "tpu": 764,
+   "tpu": 934,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221567,9 +221551,9 @@
    "vtx": 988,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.011,
-   "avgTri": 0.00032,
+   "minEdge": 0.003,
+   "minTube": 0.009,
+   "avgTri": 0.00022,
    "anglePct": 63,
    "vpt": 1.89,
    "grad": 0,
@@ -221597,7 +221581,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221607,12 +221591,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.45,
-    1.05,
-    0.9
+    0.4,
+    0.85,
+    0.75
    ],
    "tris": 1638,
-   "tpu": 3752,
+   "tpu": 4586,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -221621,7 +221605,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00098,
+   "avgTri": 0.00066,
    "anglePct": 14,
    "vpt": 1.32,
    "grad": 0,
@@ -221656,12 +221640,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.05 over max 0.4 (env-fauna-fish · 0.473 at kit ×2.22)"
+     "text": "longest 0.85 over max 0.4 (env-fauna-fish · 0.467 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221669,14 +221653,14 @@
    "kit": "quat-fishing",
    "name": "lionfish-basalt",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.85,
-    1.5,
-    1.35
+    0.7,
+    1.25,
+    1.1
    ],
    "tris": 1974,
-   "tpu": 1155,
+   "tpu": 2110,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -221684,8 +221668,8 @@
    "vtx": 3268,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00118,
+   "minEdge": 0.003,
+   "avgTri": 0.00079,
    "anglePct": 14,
    "vpt": 1.66,
    "grad": 0,
@@ -221711,12 +221695,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.5 over max 0.4 (env-fauna-fish · 0.676 at kit ×2.22)"
+     "text": "longest 1.25 over max 0.4 (env-fauna-fish · 0.687 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221726,12 +221710,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.85,
-    1.4,
-    1.15
+    0.7,
+    1.15,
+    0.95
    ],
    "tris": 1938,
-   "tpu": 1439,
+   "tpu": 2627,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -221739,8 +221723,8 @@
    "vtx": 3137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00118,
+   "minEdge": 0.003,
+   "avgTri": 0.00079,
    "anglePct": 15,
    "vpt": 1.62,
    "grad": 0,
@@ -221776,12 +221760,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.4 over max 0.4 (env-fauna-fish · 0.631 at kit ×2.22)"
+     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.632 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221791,9 +221775,9 @@
    "kind": "obj-tool-supplies",
    "size": "s",
    "wdh": [
-    0.15,
-    0.4,
-    0.15
+    0.1,
+    0.35,
+    0.1
    ],
    "tris": 878,
    "tpu": 2560,
@@ -221805,7 +221789,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 10,
    "vpt": 2.03,
    "grad": 0,
@@ -221838,7 +221822,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221848,9 +221832,9 @@
    "kind": "obj-tool-supplies",
    "size": "s",
    "wdh": [
-    0.15,
-    0.4,
-    0.15
+    0.1,
+    0.35,
+    0.1
    ],
    "tris": 878,
    "tpu": 2560,
@@ -221862,7 +221846,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 10,
    "vpt": 2.03,
    "grad": 0,
@@ -221895,7 +221879,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221905,9 +221889,9 @@
    "kind": "obj-tool-supplies",
    "size": "s",
    "wdh": [
-    0.15,
-    0.4,
-    0.15
+    0.1,
+    0.35,
+    0.1
    ],
    "tris": 872,
    "tpu": 2542,
@@ -221919,7 +221903,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -221947,7 +221931,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -221957,9 +221941,9 @@
    "kind": "obj-tool-supplies",
    "size": "s",
    "wdh": [
-    0.15,
-    0.4,
-    0.15
+    0.1,
+    0.35,
+    0.1
    ],
    "tris": 872,
    "tpu": 2542,
@@ -221971,7 +221955,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -222009,7 +221993,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -222019,9 +222003,9 @@
    "kind": "obj-tool-supplies",
    "size": "s",
    "wdh": [
-    0.15,
-    0.4,
-    0.15
+    0.1,
+    0.35,
+    0.1
    ],
    "tris": 872,
    "tpu": 2542,
@@ -222033,7 +222017,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -222071,7 +222055,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -222081,9 +222065,9 @@
    "kind": "obj-tool-supplies",
    "size": "s",
    "wdh": [
-    0.15,
-    0.4,
-    0.15
+    0.1,
+    0.35,
+    0.1
    ],
    "tris": 872,
    "tpu": 2542,
@@ -222095,7 +222079,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00009,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -222123,7 +222107,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -222133,12 +222117,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.6,
-    1,
-    0.45
+    0.5,
+    0.8,
+    0.35
    ],
    "tris": 1378,
-   "tpu": 3472,
+   "tpu": 4017,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -222146,8 +222130,8 @@
    "vtx": 2662,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00073,
+   "minEdge": 0.002,
+   "avgTri": 0.00049,
    "anglePct": 16,
    "vpt": 1.93,
    "grad": 0,
@@ -222177,12 +222161,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.4 (env-fauna-fish · 0.45 at kit ×2.22)"
+     "text": "longest 0.8 over max 0.4 (env-fauna-fish · 0.44 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -222192,12 +222176,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.75,
-    0.9,
-    0.6
+    0.6,
+    0.7,
+    0.45
    ],
    "tris": 2142,
-   "tpu": 4538,
+   "tpu": 6245,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -222205,9 +222189,9 @@
    "vtx": 3696,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.0303,
-   "avgTri": 0.00095,
+   "minEdge": 0.005,
+   "minTube": 0.0248,
+   "avgTri": 0.00064,
    "anglePct": 4,
    "vpt": 1.73,
    "grad": 0,
@@ -222235,14 +222219,14 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.9 over max 0.4 (env-fauna-fish · 0.405 at kit ×2.22)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     },
     {
      "level": "error",
-     "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "check": "measures",
+     "text": "G27 minTube 0.0248 wants min 0.026"
     }
    ]
   },
@@ -222252,12 +222236,12 @@
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
-    1.05,
-    2,
-    0.45
+    0.85,
+    1.6,
+    0.35
    ],
    "tris": 224,
-   "tpu": 157,
+   "tpu": 235,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -222265,8 +222249,8 @@
    "vtx": 402,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.026,
-   "avgTri": 0.02367,
+   "minEdge": 0.021,
+   "avgTri": 0.01585,
    "anglePct": 35,
    "vpt": 1.79,
    "grad": 0,
@@ -222292,9 +222276,14 @@
    ],
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.6 under min 0.9 (obj-transport-watercraft-boat · 0.879 at kit ×1.82)"
+    },
+    {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -222304,12 +222293,12 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.7,
-    1.15,
-    0.6
+    0.55,
+    0.95,
+    0.5
    ],
    "tris": 1416,
-   "tpu": 2487,
+   "tpu": 3712,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -222317,8 +222306,8 @@
    "vtx": 2113,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00115,
+   "minEdge": 0.004,
+   "avgTri": 0.00077,
    "anglePct": 13,
    "vpt": 1.49,
    "grad": 0,
@@ -222353,12 +222342,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.15 over max 0.4 (env-fauna-fish · 0.518 at kit ×2.22)"
+     "text": "longest 0.95 over max 0.4 (env-fauna-fish · 0.522 at kit ×1.82)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -222368,9 +222357,9 @@
    "kind": "env-fauna",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.1
+    0.09,
+    0.08,
+    0.09
    ],
    "tris": 240,
    "tpu": 700,
@@ -222381,8 +222370,8 @@
    "vtx": 516,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00011,
+   "minEdge": 0.004,
+   "avgTri": 0.00007,
    "anglePct": 5,
    "vpt": 2.15,
    "grad": 0,
@@ -222407,7 +222396,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.22 off the size curve (quat-fishing, 5 kinds)"
+     "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
     }
    ]
   },
@@ -268573,20 +268562,20 @@
    "size": "s",
    "wdh": [
     0.02,
-    0.08,
-    0.3
+    0.1,
+    0.4
    ],
    "tris": 12304,
    "tpu": 35872,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 834308,
+   "bytes": 834352,
    "vtx": 23718,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
+   "minTube": 0.0171,
    "avgTri": 0,
    "anglePct": 44,
    "vpt": 1.93,
@@ -268620,11 +268609,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 35872 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268634,22 +268618,22 @@
    "kind": "obj-equipment-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
-    0.15,
+    0.2,
     0.02,
-    0.3
+    0.4
    ],
    "tris": 13604,
    "tpu": 39662,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 912088,
+   "bytes": 912132,
    "vtx": 25906,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
-   "avgTri": 0,
+   "minTube": 0.0171,
+   "avgTri": 0.00001,
    "anglePct": 52,
    "vpt": 1.9,
    "grad": 0,
@@ -268682,11 +268666,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 39662 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268696,22 +268675,22 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.04,
-    0.02,
-    0.2
+    0.06,
+    0.03,
+    0.25
    ],
    "tris": 5387,
    "tpu": 15706,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 352448,
+   "bytes": 352492,
    "vtx": 9959,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0132,
-   "avgTri": 0,
+   "minTube": 0.0186,
+   "avgTri": 0.00001,
    "anglePct": 41,
    "vpt": 1.85,
    "grad": 0,
@@ -268739,11 +268718,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 15706 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268753,21 +268727,21 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
+    0.03,
     0.02,
-    0.01,
-    0.15
+    0.25
    ],
    "tris": 5028,
    "tpu": 14659,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 333248,
+   "bytes": 333292,
    "vtx": 9426,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0129,
+   "minTube": 0.0181,
    "avgTri": 0,
    "anglePct": 58,
    "vpt": 1.87,
@@ -268796,11 +268770,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 14659 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268808,24 +268777,24 @@
    "kit": "styloo-weapons",
    "name": "katana",
    "kind": "obj-equipment-weapon-melee-sword",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.08,
-    0.03,
-    0.45
+    0.1,
+    0.04,
+    0.6
    ],
    "tris": 412,
    "tpu": 1201,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26672,
+   "bytes": 26720,
    "vtx": 712,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.021,
-   "avgTri": 0.00007,
+   "minTube": 0.0295,
+   "avgTri": 0.00014,
    "anglePct": 16,
    "vpt": 1.73,
    "grad": 0,
@@ -268853,13 +268822,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -268868,16 +268830,16 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.03,
+    0.04,
     0.01,
-    0.15
+    0.2
    ],
    "tris": 3452,
    "tpu": 10064,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 239748,
+   "bytes": 239792,
    "vtx": 6800,
    "grounded": true,
    "centered": true,
@@ -268916,11 +268878,6 @@
      "level": "warning",
      "check": "size",
      "text": "tpu 10064 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268930,22 +268887,22 @@
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.2,
-    0.03,
-    0.55
+    0.25,
+    0.04,
+    0.75
    ],
    "tris": 804,
-   "tpu": 2344,
+   "tpu": 2179,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 57140,
+   "bytes": 57184,
    "vtx": 1590,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0296,
-   "avgTri": 0.00008,
+   "minTube": 0.0415,
+   "avgTri": 0.00015,
    "anglePct": 26,
    "vpt": 1.98,
    "grad": 0,
@@ -268982,12 +268939,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.55 over max 0.8 (obj-equipment-weapon-melee-sword · 0.846 at kit ×0.65)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
+     "text": "longest 0.75 over max 0.8 (obj-equipment-weapon-melee-sword · 0.815 at kit ×0.92)"
     }
    ]
   },
@@ -268997,22 +268949,22 @@
    "kind": "obj-tool-twohand-pickaxe",
    "size": "s",
    "wdh": [
-    0.2,
-    0.02,
-    0.25
+    0.3,
+    0.03,
+    0.35
    ],
    "tris": 2780,
    "tpu": 8105,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 190936,
+   "bytes": 190980,
    "vtx": 5400,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0265,
-   "avgTri": 0.00001,
+   "minTube": 0.0371,
+   "avgTri": 0.00002,
    "anglePct": 27,
    "vpt": 1.94,
    "grad": 0,
@@ -269033,13 +268985,6 @@
    "tags": [
     "metal-iron-steel",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -269048,16 +268993,16 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.08,
+    0.1,
     0.01,
-    0.08
+    0.1
    ],
    "tris": 2384,
    "tpu": 6950,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 80764,
+   "bytes": 80808,
    "vtx": 2032,
    "grounded": true,
    "centered": true,
@@ -269085,14 +269030,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v886",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
-   ]
+   "variant": "v886"
   },
   {
    "kit": "styloo-weapons",
@@ -269100,21 +269038,21 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.08,
+    0.1,
     0.01,
-    0.07
+    0.1
    ],
    "tris": 1928,
    "tpu": 5621,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 123088,
+   "bytes": 123132,
    "vtx": 3440,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0,
+   "avgTri": 0.00001,
    "anglePct": 73,
    "vpt": 1.78,
    "grad": 0,
@@ -269137,14 +269075,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v886",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
-   ]
+   "variant": "v886"
   },
   {
    "kit": "styloo-weapons",
@@ -269152,16 +269083,16 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.1,
+    0.15,
     0.01,
-    0.09
+    0.15
    ],
    "tris": 3992,
    "tpu": 11638,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 252852,
+   "bytes": 252896,
    "vtx": 7108,
    "grounded": true,
    "centered": true,
@@ -269195,11 +269126,6 @@
      "level": "warning",
      "check": "size",
      "text": "tpu 11638 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -269209,16 +269135,16 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.07,
+    0.1,
     0.01,
-    0.08
+    0.1
    ],
    "tris": 1164,
    "tpu": 3394,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 67428,
+   "bytes": 67472,
    "vtx": 1844,
    "grounded": true,
    "centered": true,
@@ -269246,14 +269172,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v886",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
-   ]
+   "variant": "v886"
   },
   {
    "kit": "styloo-weapons",
@@ -269261,21 +269180,21 @@
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
-    0.04,
-    0.02,
-    0.3
+    0.06,
+    0.03,
+    0.45
    ],
    "tris": 262,
    "tpu": 764,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19188,
+   "bytes": 19232,
    "vtx": 506,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00008,
+   "avgTri": 0.00015,
    "anglePct": 53,
    "vpt": 1.93,
    "grad": 0,
@@ -269302,13 +269221,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -269317,22 +269229,22 @@
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.08,
-    0.02,
-    0.5
+    0.1,
+    0.03,
+    0.7
    ],
    "tris": 588,
-   "tpu": 1714,
+   "tpu": 1683,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 39028,
+   "bytes": 39072,
    "vtx": 1064,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0169,
-   "avgTri": 0.00006,
+   "minEdge": 0.002,
+   "minTube": 0.0237,
+   "avgTri": 0.00012,
    "anglePct": 43,
    "vpt": 1.81,
    "grad": 0,
@@ -269359,13 +269271,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -269788,22 +269693,22 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.25,
-    0.03,
-    0.05
+    0.2,
+    0.02,
+    0.04
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17740,
+   "bytes": 17744,
    "vtx": 465,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0303,
-   "avgTri": 0.00008,
+   "minEdge": 0.001,
+   "minTube": 0.0227,
+   "avgTri": 0.00004,
    "anglePct": 7,
    "vpt": 1.94,
    "grad": 0.34,
@@ -269829,12 +269734,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.121 at kit ×2.07)"
+     "text": "longest 0.2 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.128 at kit ×1.56)"
     },
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -269844,21 +269749,21 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.35,
-    0.07,
-    0.25
+    0.25,
+    0.05,
+    0.15
    ],
    "tris": 1040,
    "tpu": 3032,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 71664,
+   "bytes": 71668,
    "vtx": 2000,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00022,
+   "avgTri": 0.00012,
    "anglePct": 62,
    "vpt": 1.92,
    "grad": 0.4,
@@ -269884,7 +269789,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -269894,22 +269799,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.4,
-    0.06,
-    0.2
+    0.3,
+    0.04,
+    0.15
    ],
    "tris": 1434,
    "tpu": 4181,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 58572,
+   "bytes": 58640,
    "vtx": 1516,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0231,
-   "avgTri": 0.00013,
+   "minTube": 0.0173,
+   "avgTri": 0.00007,
    "anglePct": 72,
    "vpt": 1.06,
    "grad": 0.18,
@@ -269936,7 +269841,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -269946,22 +269851,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.4,
-    0.06,
-    0.2
+    0.3,
+    0.04,
+    0.15
    ],
    "tris": 1334,
    "tpu": 3889,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 51060,
+   "bytes": 51128,
    "vtx": 1300,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0175,
-   "avgTri": 0.0001,
+   "minTube": 0.0131,
+   "avgTri": 0.00006,
    "anglePct": 68,
    "vpt": 0.97,
    "grad": 0.18,
@@ -269982,7 +269887,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -269992,22 +269897,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.4,
-    0.06,
-    0.2
+    0.3,
+    0.04,
+    0.15
    ],
    "tris": 1046,
    "tpu": 3050,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 41188,
+   "bytes": 41256,
    "vtx": 1046,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0246,
-   "avgTri": 0.00016,
+   "minTube": 0.0185,
+   "avgTri": 0.00009,
    "anglePct": 75,
    "vpt": 1,
    "grad": 0.18,
@@ -270034,7 +269939,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -270044,22 +269949,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.9,
-    0.05,
-    0.2
+    0.65,
+    0.04,
+    0.15
    ],
    "tris": 1612,
    "tpu": 4700,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 59868,
+   "bytes": 59936,
    "vtx": 1523,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0317,
-   "avgTri": 0.00018,
+   "minTube": 0.0237,
+   "avgTri": 0.0001,
    "anglePct": 51,
    "vpt": 0.94,
    "grad": 0.18,
@@ -270085,7 +269990,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -270095,22 +270000,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    1.15,
-    0.05,
-    0.2
+    0.85,
+    0.04,
+    0.15
    ],
    "tris": 978,
    "tpu": 2851,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 38800,
+   "bytes": 38868,
    "vtx": 984,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0314,
-   "avgTri": 0.00034,
+   "minTube": 0.0235,
+   "avgTri": 0.00019,
    "anglePct": 55,
    "vpt": 1.01,
    "grad": 0.18,
@@ -270137,7 +270042,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -270147,22 +270052,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.75,
-    0.08,
-    0.2
+    0.55,
+    0.06,
+    0.15
    ],
    "tris": 956,
    "tpu": 2787,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 35956,
+   "bytes": 36024,
    "vtx": 899,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0348,
-   "avgTri": 0.00032,
+   "minTube": 0.0261,
+   "avgTri": 0.00018,
    "anglePct": 40,
    "vpt": 0.94,
    "grad": 0.18,
@@ -270194,7 +270099,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -270204,22 +270109,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    1.15,
-    0.05,
-    0.2
+    0.85,
+    0.04,
+    0.15
    ],
    "tris": 746,
    "tpu": 2175,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 32468,
+   "bytes": 32536,
    "vtx": 830,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0314,
-   "avgTri": 0.00048,
+   "minTube": 0.0235,
+   "avgTri": 0.00027,
    "anglePct": 60,
    "vpt": 1.11,
    "grad": 0.18,
@@ -270252,7 +270157,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
@@ -270262,22 +270167,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "m",
    "wdh": [
-    1.25,
-    0.09,
-    0.25
+    0.95,
+    0.07,
+    0.2
    ],
    "tris": 1344,
    "tpu": 3918,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 90456,
+   "bytes": 90460,
    "vtx": 2530,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0264,
-   "avgTri": 0.00026,
+   "minTube": 0.0198,
+   "avgTri": 0.00015,
    "anglePct": 38,
    "vpt": 1.88,
    "grad": 0.68,
@@ -270297,7 +270202,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "kit ×2.07 off the size curve (ultimate-guns, 4 kinds)"
+     "text": "kit ×1.56 off the size curve (ultimate-guns, 4 kinds)"
     }
    ]
   },
