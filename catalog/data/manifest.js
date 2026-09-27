@@ -3994,10 +3994,10 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "ultimate-guns",
-  "name": "ultimate-guns",
+  "slug": "quat-guns",
+  "name": "quat-guns",
   "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/ultimate-guns/LICENSE.txt.",
+  "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-guns/LICENSE.txt.",
   "models": [
    "bayonet",
    "pistol",
