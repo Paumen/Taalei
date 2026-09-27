@@ -115,7 +115,7 @@ for (let i = 0; i < args.length; i++) {
   else files.push(args[i]);
 }
 if (min !== null && !(min > 0)) throw new Error('--min needs a positive number');
-if (max !== null && !(max > 0)) throw new Error('--max needs a positive number');
+if (max !== null && !(max > 0 && Number.isFinite(max))) throw new Error('--max needs a positive number');
 if (min !== null && max !== null) throw new Error('give --min or --max, not both');
 
 let models = null;
