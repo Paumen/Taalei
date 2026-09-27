@@ -14454,7 +14454,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 564
+   "count": 586
   },
   {
    "id": "metal-iron",
@@ -14469,7 +14469,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 642,
+   "count": 637,
    "parent": "metal-iron"
   },
   {
@@ -14508,7 +14508,7 @@
    "id": "wood",
    "name": "Wood",
    "type": "material",
-   "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits.",
+   "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log, bark or cardboard fits.",
    "count": 0
   },
   {
@@ -14516,7 +14516,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 397,
+   "count": 396,
    "parent": "wood"
   },
   {
@@ -14524,7 +14524,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 765,
+   "count": 764,
    "parent": "wood"
   },
   {
@@ -14552,6 +14552,14 @@
    "parent": "wood"
   },
   {
+   "id": "wood-cardboard",
+   "name": "Cardboard",
+   "type": "material",
+   "description": "Corrugated board: shipping boxes, parcels, cartons folded from brown board. Printed paper labels and tape on it are paper.",
+   "count": 20,
+   "parent": "wood"
+  },
+  {
    "id": "stone",
    "name": "Stone",
    "type": "material",
@@ -14563,7 +14571,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 744,
+   "count": 755,
    "parent": "stone"
   },
   {
@@ -14587,21 +14595,21 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 197
+   "count": 189
   },
   {
    "id": "textile",
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 538
+   "count": 549
   },
   {
    "id": "leather",
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers, strapping on bundles.",
-   "count": 118
+   "count": 116
   },
   {
    "id": "foliage",
@@ -14615,14 +14623,21 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 497
+   "count": 506
   },
   {
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
-   "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 571
+   "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
+   "count": 477
+  },
+  {
+   "id": "rubber",
+   "name": "Rubber",
+   "type": "material",
+   "description": "Rubber: tyres, belts, seals.",
+   "count": 33
   },
   {
    "id": "bone",
@@ -14657,7 +14672,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 456
+   "count": 473
   },
   {
    "id": "liquid",
@@ -14678,7 +14693,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 91
+   "count": 96
   },
   {
    "id": "cork",
@@ -14707,7 +14722,7 @@
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 157
+   "count": 158
   },
   {
    "id": "skin",
@@ -19804,16 +19819,16 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 59020,
-   "vtx": 1597,
+   "bytes": 64272,
+   "vtx": 1763,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0263,
    "avgTri": 0.00033,
    "anglePct": 1,
-   "vpt": 1.51,
-   "grad": 0.59,
+   "vpt": 1.66,
+   "grad": 0.51,
    "spread": {
     "14,3": [
      0.148,
@@ -19823,20 +19838,20 @@
      0.148,
      0.75
     ],
-    "1,1": [
-     0.172,
-     0.695
+    "14,2": [
+     0.031,
+     0.117
     ]
    },
    "colors": [
-    "#23562c",
     "#8b5936",
-    "#8b7561"
+    "#8b7561",
+    "#907a66"
    ],
    "tags": [
     "aq",
     "halloween",
-    "textile",
+    "rope",
     "vegetation",
     "wood-beam"
    ]
@@ -20894,7 +20909,7 @@
    "tris": 654,
    "tpu": 1907,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 19812,
    "vtx": 447,
@@ -20904,20 +20919,15 @@
    "avgTri": 0.00042,
    "anglePct": 2,
    "vpt": 0.68,
-   "grad": 0.28,
+   "grad": 0.6,
    "spread": {
     "3,0": [
-     0.469,
-     0.75
-    ],
-    "1,0": [
      0.148,
-     0.43
+     0.75
     ]
    },
    "colors": [
-    "#563b2b",
-    "#b58158"
+    "#563b2b"
    ],
    "tags": [
     "aq",
@@ -22976,7 +22986,7 @@
    "tris": 1094,
    "tpu": 3190,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 28204,
    "vtx": 632,
@@ -22990,10 +23000,6 @@
    "spread": {
     "5,2": [
      0.492,
-     0.492
-    ],
-    "14,3": [
-     0.5,
      0.5
     ],
     "6,0": [
@@ -23007,7 +23013,6 @@
    },
    "colors": [
     "#1367a6",
-    "#8b7561",
     "#d8d1bd",
     "#f2a93c"
    ],
@@ -28939,7 +28944,7 @@
    "tags": [
     "glass",
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -28982,7 +28987,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -29624,13 +29629,13 @@
    "vpt": 1.55,
    "grad": 0,
    "spread": {
-    "5,2": [
+    "1,1": [
      0.492,
      0.492
     ]
    },
    "colors": [
-    "#d8d1bd"
+    "#23562c"
    ],
    "tags": [
     "plastic"
@@ -29668,13 +29673,13 @@
    "vpt": 0.56,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic"
@@ -30047,7 +30052,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -30440,13 +30445,13 @@
    "vpt": 0.67,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.344,
      0.344
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic"
@@ -30711,7 +30716,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -30932,7 +30937,7 @@
    "tris": 7314,
    "tpu": 21324,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 261972,
    "vtx": 6770,
@@ -30956,21 +30961,16 @@
     "13,3": [
      0.5,
      0.5
-    ],
-    "14,3": [
-     0.5,
-     0.5
     ]
    },
    "colors": [
     "#5b5550",
     "#82868e",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron-steel",
-    "plastic"
+    "metal",
+    "rubber"
    ],
    "lint": [
     {
@@ -31582,7 +31582,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -31712,7 +31712,7 @@
    ],
    "tags": [
     "glass",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -31914,7 +31914,7 @@
    "tris": 664,
    "tpu": 1936,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 26212,
    "vtx": 650,
@@ -31937,17 +31937,12 @@
     "15,3": [
      0.5,
      0.5
-    ],
-    "14,3": [
-     0.5,
-     0.5
     ]
    },
    "colors": [
     "#5b5550",
     "#7f3927",
-    "#82868e",
-    "#8b7561"
+    "#82868e"
    ],
    "tags": [
     "metal-iron-steel",
@@ -40818,7 +40813,7 @@
    "vpt": 0.66,
    "grad": 0.08,
    "spread": {
-    "3,1": [
+    "1,1": [
      0.484,
      0.531
     ],
@@ -40828,10 +40823,11 @@
     ]
    },
    "colors": [
-    "#68872d",
+    "#23562c",
     "#d8d1bd"
    ],
    "tags": [
+    "paper",
     "plastic"
    ],
    "variant": "v1045"
@@ -44988,32 +44984,38 @@
    "tris": 236,
    "tpu": 688,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 15820,
-   "vtx": 404,
+   "bytes": 23264,
+   "vtx": 636,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00011,
    "anglePct": 16,
-   "vpt": 1.71,
-   "grad": 0.21,
+   "vpt": 2.69,
+   "grad": 0.13,
    "spread": {
     "2,0": [
      0.711,
      0.711
     ],
+    "14,2": [
+     0.039,
+     0.203
+    ],
     "14,3": [
      0.219,
-     0.469
+     0.219
     ]
    },
    "colors": [
     "#8b5936",
-    "#8b7561"
+    "#8b7561",
+    "#907a66"
    ],
    "tags": [
+    "rope",
     "vegetation",
     "wood-beam"
    ],
@@ -51714,7 +51716,8 @@
     "glass",
     "isa",
     "metal-iron-steel",
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "stone-masonry"
    ],
    "lint": [
     {
@@ -52504,6 +52507,7 @@
     "ceramic",
     "glass",
     "isa",
+    "stone-masonry",
     "wood-worked"
    ],
    "variant": "v842"
@@ -52556,6 +52560,7 @@
     "ceramic",
     "glass",
     "isa",
+    "stone-masonry",
     "wood-worked"
    ],
    "variant": "v842"
@@ -53266,13 +53271,13 @@
    "vpt": 0.92,
    "grad": 0.31,
    "spread": {
-    "14,3": [
+    "5,0": [
      0.305,
      0.617
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d07b56"
    ],
    "tags": [
     "ceramic",
@@ -56568,13 +56573,13 @@
    "vpt": 0.67,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "3,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#563b2b"
    ],
    "tags": [
     "isa",
@@ -57779,7 +57784,7 @@
     "isa",
     "paper",
     "rope",
-    "wood-planks"
+    "wood-cardboard"
    ],
    "lint": [
     {
@@ -57935,7 +57940,7 @@
    ],
    "tags": [
     "isa",
-    "plastic",
+    "textile",
     "wood-worked"
    ]
   },
@@ -58746,13 +58751,13 @@
    "vpt": 1.13,
    "grad": 0.07,
    "spread": {
-    "14,3": [
+    "5,0": [
      0.43,
      0.5
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d07b56"
    ],
    "tags": [
     "ceramic",
@@ -59107,7 +59112,7 @@
    "tris": 1356,
    "tpu": 3953,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 63312,
    "vtx": 1680,
@@ -59120,17 +59125,13 @@
    "vpt": 1.24,
    "grad": 0.88,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.016,
      0.992
     ],
     "15,3": [
      0.023,
      0.977
-    ],
-    "5,2": [
-     0.219,
-     0.641
     ],
     "13,3": [
      0.023,
@@ -59140,7 +59141,6 @@
    "colors": [
     "#5b5550",
     "#82868e",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
@@ -59329,7 +59329,7 @@
      0.211,
      0.977
     ],
-    "14,3": [
+    "5,2": [
      0.336,
      0.609
     ],
@@ -59341,7 +59341,7 @@
    "colors": [
     "#7f3927",
     "#82868e",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -63732,9 +63732,9 @@
    "tris": 6800,
    "tpu": 14232,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 261288,
+   "bytes": 261228,
    "vtx": 6843,
    "grounded": true,
    "centered": true,
@@ -63743,11 +63743,15 @@
    "avgTri": 0.00036,
    "anglePct": 14,
    "vpt": 1.01,
-   "grad": 0.61,
+   "grad": 0.6,
    "spread": {
+    "5,0": [
+     0.336,
+     0.828
+    ],
     "14,3": [
      0.242,
-     0.828
+     0.516
     ],
     "3,1": [
      0.125,
@@ -63756,7 +63760,8 @@
    },
    "colors": [
     "#68872d",
-    "#8b7561"
+    "#8b7561",
+    "#d07b56"
    ],
    "tags": [
     "ceramic",
@@ -63792,9 +63797,9 @@
    "tris": 3680,
    "tpu": 10729,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 142508,
+   "bytes": 142448,
    "vtx": 3716,
    "grounded": true,
    "centered": true,
@@ -63803,11 +63808,15 @@
    "avgTri": 0.00029,
    "anglePct": 14,
    "vpt": 1.01,
-   "grad": 0.57,
+   "grad": 0.56,
    "spread": {
+    "5,0": [
+     0.344,
+     0.789
+    ],
     "14,3": [
      0.242,
-     0.789
+     0.523
     ],
     "3,1": [
      0.141,
@@ -63816,7 +63825,8 @@
    },
    "colors": [
     "#68872d",
-    "#8b7561"
+    "#8b7561",
+    "#d07b56"
    ],
    "tags": [
     "ceramic",
@@ -63847,9 +63857,9 @@
    "tris": 1792,
    "tpu": 5224,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 69992,
+   "bytes": 69932,
    "vtx": 1804,
    "grounded": true,
    "centered": true,
@@ -63858,11 +63868,15 @@
    "avgTri": 0.00012,
    "anglePct": 17,
    "vpt": 1.01,
-   "grad": 0.56,
+   "grad": 0.55,
    "spread": {
+    "5,0": [
+     0.391,
+     0.75
+    ],
     "14,3": [
      0.242,
-     0.75
+     0.523
     ],
     "3,1": [
      0.141,
@@ -63871,7 +63885,8 @@
    },
    "colors": [
     "#68872d",
-    "#8b7561"
+    "#8b7561",
+    "#d07b56"
    ],
    "tags": [
     "ceramic",
@@ -67880,7 +67895,7 @@
    "tris": 1094,
    "tpu": 3190,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 28264,
    "vtx": 632,
@@ -67895,10 +67910,6 @@
    "spread": {
     "5,2": [
      0.492,
-     0.492
-    ],
-    "14,3": [
-     0.5,
      0.5
     ],
     "6,0": [
@@ -67912,7 +67923,6 @@
    },
    "colors": [
     "#1367a6",
-    "#8b7561",
     "#d8d1bd",
     "#f2a93c"
    ],
@@ -74391,7 +74401,8 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ],
    "variant": "v953",
    "lint": [
@@ -74437,7 +74448,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ],
    "variant": "v953",
    "lint": [
@@ -80363,7 +80374,7 @@
    "vpt": 0.66,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ],
@@ -80373,8 +80384,8 @@
     ]
    },
    "colors": [
-    "#8b7561",
-    "#d07b56"
+    "#d07b56",
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -80407,13 +80418,13 @@
    "vpt": 0.6,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -80446,7 +80457,7 @@
    "vpt": 0.69,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ],
@@ -80456,8 +80467,8 @@
     ]
    },
    "colors": [
-    "#8b7561",
-    "#d07b56"
+    "#d07b56",
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -80490,13 +80501,13 @@
    "vpt": 0.63,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -80529,7 +80540,7 @@
    "vpt": 0.77,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ],
@@ -80539,8 +80550,8 @@
     ]
    },
    "colors": [
-    "#8b7561",
-    "#d07b56"
+    "#d07b56",
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -80573,13 +80584,13 @@
    "vpt": 0.6,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -80963,13 +80974,13 @@
    "vpt": 0.61,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.523,
      0.523
     ]
    },
    "colors": [
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic",
@@ -86896,7 +86907,7 @@
    "tris": 547,
    "tpu": 1595,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 57308,
    "vtx": 1641,
@@ -86906,14 +86917,10 @@
    "avgTri": 0.00059,
    "anglePct": 18,
    "vpt": 3,
-   "grad": 0.55,
+   "grad": 0.59,
    "spread": {
-    "14,3": [
-     0.008,
-     0.57
-    ],
     "5,2": [
-     0.102,
+     0.008,
      0.633
     ],
     "1,1": [
@@ -86928,7 +86935,6 @@
    "colors": [
     "#23562c",
     "#7f3927",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
@@ -86952,7 +86958,7 @@
    "tris": 306,
    "tpu": 892,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 32700,
    "vtx": 918,
@@ -86962,11 +86968,11 @@
    "avgTri": 0.00055,
    "anglePct": 36,
    "vpt": 3,
-   "grad": 0.57,
+   "grad": 0.92,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.008,
-     0.57
+     0.984
     ],
     "8,0": [
      0.055,
@@ -86975,16 +86981,11 @@
     "1,1": [
      0.008,
      0.898
-    ],
-    "5,2": [
-     0.484,
-     0.984
     ]
    },
    "colors": [
     "#23562c",
     "#7f3927",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
@@ -88144,7 +88145,7 @@
    "tris": 2035,
    "tpu": 3920,
    "mat": 1,
-   "bands": 6,
+   "bands": 5,
    "calls": 1,
    "bytes": 85120,
    "vtx": 2232,
@@ -88155,7 +88156,7 @@
    "avgTri": 0.00203,
    "anglePct": 58,
    "vpt": 1.1,
-   "grad": 0.82,
+   "grad": 0.93,
    "spread": {
     "1,0": [
      0.016,
@@ -88164,10 +88165,6 @@
     "5,2": [
      0.039,
      0.977
-    ],
-    "14,3": [
-     0.297,
-     0.93
     ],
     "0,0": [
      0.016,
@@ -88185,7 +88182,6 @@
    "colors": [
     "#23562c",
     "#7f3927",
-    "#8b7561",
     "#b58158",
     "#d8d1bd",
     "#dbae80"
@@ -88403,7 +88399,7 @@
    "tris": 1200,
    "tpu": 3499,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
    "bytes": 53900,
    "vtx": 1413,
@@ -88414,7 +88410,7 @@
    "avgTri": 0.00216,
    "anglePct": 54,
    "vpt": 1.18,
-   "grad": 0.83,
+   "grad": 0.93,
    "spread": {
     "1,0": [
      0.016,
@@ -88422,10 +88418,6 @@
     ],
     "5,2": [
      0.039,
-     0.977
-    ],
-    "14,3": [
-     0.266,
      0.977
     ],
     "0,0": [
@@ -88439,7 +88431,6 @@
    },
    "colors": [
     "#23562c",
-    "#8b7561",
     "#b58158",
     "#d8d1bd",
     "#dbae80"
@@ -92056,7 +92047,8 @@
    "tags": [
     "ceramic",
     "kay",
-    "scale-small"
+    "scale-small",
+    "stone-masonry"
    ],
    "variant": "v663"
   },
@@ -92100,7 +92092,8 @@
    ],
    "tags": [
     "ceramic",
-    "kay"
+    "kay",
+    "stone-masonry"
    ],
    "variant": "v663"
   },
@@ -95892,7 +95885,8 @@
    "tags": [
     "ceramic",
     "kay",
-    "metal-iron-cast"
+    "metal-iron-cast",
+    "stone-masonry"
    ],
    "variant": "v526"
   },
@@ -95960,6 +95954,7 @@
     "kay",
     "metal-iron-cast",
     "plastic",
+    "stone-masonry",
     "wood-beam"
    ]
   },
@@ -96016,6 +96011,7 @@
     "ceramic",
     "kay",
     "metal-iron-cast",
+    "stone-masonry",
     "wood-beam"
    ]
   },
@@ -96066,7 +96062,8 @@
     "ceramic",
     "glass",
     "kay",
-    "metal-iron-cast"
+    "metal-iron-cast",
+    "stone-masonry"
    ]
   },
   {
@@ -96115,7 +96112,8 @@
    "tags": [
     "ceramic",
     "kay",
-    "metal-iron-cast"
+    "metal-iron-cast",
+    "stone-masonry"
    ],
    "variant": "v526"
   },
@@ -96159,7 +96157,8 @@
    ],
    "tags": [
     "ceramic",
-    "kay"
+    "kay",
+    "stone-masonry"
    ],
    "variant": "v526"
   },
@@ -111284,7 +111283,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory tan, has amber sienna"
+     "text": "paper wants ivory, has amber sienna"
     }
    ]
   },
@@ -111337,7 +111336,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory tan, has amber sienna"
+     "text": "paper wants ivory, has amber sienna"
     }
    ]
   },
@@ -114182,8 +114181,7 @@
    ],
    "tags": [
     "kay",
-    "paper",
-    "plastic"
+    "paper"
    ],
    "lint": [
     {
@@ -117395,7 +117393,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ]
   },
   {
@@ -117433,7 +117431,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ]
   },
   {
@@ -117922,6 +117920,7 @@
     "kay",
     "paper",
     "plastic",
+    "wood-cardboard",
     "wood-planks"
    ]
   },
@@ -118032,6 +118031,7 @@
     "metal",
     "paper",
     "plastic",
+    "wood-cardboard",
     "wood-worked"
    ]
   },
@@ -125265,7 +125265,7 @@
     "comp",
     "kay",
     "metal",
-    "plastic",
+    "rubber",
     "space"
    ],
    "lint": [
@@ -125977,7 +125977,7 @@
    "tags": [
     "kay",
     "metal",
-    "plastic",
+    "rubber",
     "space"
    ],
    "lint": [
@@ -126405,9 +126405,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "kay",
     "metal",
-    "plastic",
     "space"
    ],
    "lint": [
@@ -131000,6 +131000,7 @@
     "kay",
     "robin-hood",
     "rope",
+    "textile",
     "wood-beam"
    ],
    "variant": "v268"
@@ -131121,18 +131122,10 @@
     "kay",
     "metal-iron-steel",
     "robin-hood",
-    "rope",
     "textile",
     "wood-beam"
    ],
-   "variant": "v269",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants twine, has taupe chestnut nickel azure"
-    }
-   ]
+   "variant": "v269"
   },
   {
    "kit": "kay-weapons",
@@ -135271,7 +135264,7 @@
    ],
    "tags": [
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -135317,7 +135310,7 @@
     "comp",
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1080"
   },
@@ -135364,7 +135357,7 @@
     "comp",
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1080"
   },
@@ -135411,7 +135404,7 @@
     "comp",
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1080"
   },
@@ -135457,7 +135450,7 @@
    "tags": [
     "comp",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1081"
   },
@@ -135503,7 +135496,7 @@
    "tags": [
     "comp",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v1081"
   },
@@ -135708,7 +135701,7 @@
    "vpt": 1.19,
    "grad": 0.57,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.742
     ],
@@ -135718,12 +135711,13 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -136171,7 +136165,7 @@
    "tags": [
     "broken",
     "ken",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -137565,7 +137559,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v956"
   },
@@ -137612,7 +137606,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v956"
   },
@@ -137768,7 +137762,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v957"
   },
@@ -137815,7 +137809,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v958"
   },
@@ -137914,7 +137908,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v956"
   },
@@ -139643,15 +139637,16 @@
    "vpt": 1.19,
    "grad": 0.39,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.367,
      0.758
     ]
    },
    "colors": [
-    "#5b5550"
+    "#7f3927"
    ],
    "tags": [
+    "glass",
     "ken",
     "plastic"
    ],
@@ -142306,7 +142301,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142350,7 +142346,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142393,7 +142390,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142436,7 +142434,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -143253,7 +143252,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1159"
   },
@@ -143474,7 +143473,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1159"
   },
@@ -143520,7 +143519,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1154"
   },
@@ -143566,7 +143565,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1154"
   },
@@ -143612,7 +143611,7 @@
    "tags": [
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "lint": [
     {
@@ -145648,9 +145647,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145692,9 +145691,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145736,9 +145735,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145780,9 +145779,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145824,9 +145823,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145868,9 +145867,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145912,9 +145911,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -145956,9 +145955,9 @@
     "#82868e"
    ],
    "tags": [
+    "glass",
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -146004,7 +146003,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1152"
   },
@@ -146051,7 +146050,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1151"
   },
@@ -146097,7 +146096,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1150"
   },
@@ -146144,7 +146143,7 @@
     "comp",
     "ken",
     "metal",
-    "plastic"
+    "rubber"
    ],
    "variant": "v1153"
   },
@@ -148671,8 +148670,8 @@
    ],
    "tags": [
     "food",
-    "ken",
-    "plastic"
+    "glass",
+    "ken"
    ]
   },
   {
@@ -151475,7 +151474,7 @@
    ],
    "tags": [
     "ken",
-    "plastic"
+    "paper"
    ]
   },
   {
@@ -153469,26 +153468,19 @@
    "vpt": 1.33,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "wood-cardboard"
    ],
-   "variant": "v827",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory tan, has camel"
-    }
-   ]
+   "variant": "v827"
   },
   {
    "kit": "ken-furniture",
@@ -153515,26 +153507,19 @@
    "vpt": 1.2,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "wood-cardboard"
    ],
-   "variant": "v827",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory tan, has camel"
-    }
-   ]
+   "variant": "v827"
   },
   {
    "kit": "ken-furniture",
@@ -154015,18 +154000,18 @@
      0.148,
      0.75
     ],
-    "14,3": [
+    "5,2": [
      0.156,
      0.156
     ]
    },
    "colors": [
     "#5b5550",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -154068,8 +154053,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -154299,7 +154285,7 @@
    "tris": 262,
    "tpu": 764,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 13468,
    "vtx": 324,
@@ -154309,29 +154295,24 @@
    "avgTri": 0.00377,
    "anglePct": 78,
    "vpt": 1.24,
-   "grad": 0.56,
+   "grad": 0.6,
    "spread": {
     "5,2": [
      0.148,
      0.75
     ],
-    "14,3": [
+    "13,3": [
      0.148,
      0.742
-    ],
-    "13,3": [
-     0.375,
-     0.375
     ]
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v826"
   },
@@ -155113,7 +155094,6 @@
     "glass",
     "ken",
     "metal-iron-steel",
-    "plastic",
     "wood-beam",
     "wood-worked"
    ],
@@ -155159,8 +155139,7 @@
    ],
    "tags": [
     "ken",
-    "metal-iron-steel",
-    "plastic"
+    "metal"
    ],
    "variant": "v805"
   },
@@ -155210,8 +155189,7 @@
    "tags": [
     "glass",
     "ken",
-    "metal-iron-steel",
-    "plastic"
+    "metal"
    ],
    "variant": "v805"
   },
@@ -155261,8 +155239,7 @@
    "tags": [
     "glass",
     "ken",
-    "metal-iron-steel",
-    "plastic"
+    "metal"
    ],
    "variant": "v805"
   },
@@ -155279,7 +155256,7 @@
    "tris": 152,
    "tpu": 443,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 9064,
    "vtx": 206,
@@ -155289,30 +155266,25 @@
    "avgTri": 0.00224,
    "anglePct": 98,
    "vpt": 1.36,
-   "grad": 0.56,
+   "grad": 0.6,
    "spread": {
-    "14,3": [
+    "13,3": [
      0.148,
      0.75
     ],
     "5,2": [
      0.148,
      0.75
-    ],
-    "13,3": [
-     0.148,
-     0.445
     ]
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -155719,7 +155691,7 @@
    "tris": 68,
    "tpu": 198,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 4344,
    "vtx": 76,
@@ -155729,29 +155701,25 @@
    "avgTri": 0.00203,
    "anglePct": 52,
    "vpt": 1.12,
-   "grad": 0.47,
+   "grad": 0.51,
    "spread": {
     "13,3": [
      0.148,
      0.75
     ],
     "5,2": [
-     0.32,
-     0.32
-    ],
-    "14,3": [
      0.148,
-     0.148
+     0.32
     ]
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -156277,7 +156245,7 @@
    "vpt": 1.11,
    "grad": 0.6,
    "spread": {
-    "14,3": [
+    "13,3": [
      0.148,
      0.75
     ],
@@ -156291,13 +156259,14 @@
     ]
    },
    "colors": [
-    "#8b7561",
+    "#5b5550",
     "#b58158",
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic",
+    "metal",
     "wood-worked"
    ]
   },
@@ -156731,7 +156700,7 @@
    ],
    "tags": [
     "ken",
-    "plastic",
+    "rubber",
     "wood-worked"
    ],
    "variant": "v818"
@@ -156776,7 +156745,7 @@
    ],
    "tags": [
     "ken",
-    "plastic",
+    "rubber",
     "wood-worked"
    ],
    "variant": "v818"
@@ -157579,8 +157548,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -157596,7 +157566,7 @@
    "tris": 280,
    "tpu": 816,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 13468,
    "vtx": 320,
@@ -157606,7 +157576,7 @@
    "avgTri": 0.00143,
    "anglePct": 93,
    "vpt": 1.14,
-   "grad": 0.43,
+   "grad": 0.5,
    "spread": {
     "5,2": [
      0.445,
@@ -157616,10 +157586,6 @@
      0.148,
      0.75
     ],
-    "14,3": [
-     0.445,
-     0.75
-    ],
     "13,3": [
      0.148,
      0.75
@@ -157627,13 +157593,13 @@
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
     "#b58158",
     "#d8d1bd"
    ],
    "tags": [
+    "glass",
     "ken",
-    "plastic",
+    "metal",
     "wood-worked"
    ]
   },
@@ -157778,7 +157744,7 @@
    "vpt": 1.56,
    "grad": 0.51,
    "spread": {
-    "5,2": [
+    "1,1": [
      0.445,
      0.75
     ],
@@ -157788,8 +157754,8 @@
     ]
    },
    "colors": [
-    "#5b5550",
-    "#d8d1bd"
+    "#23562c",
+    "#5b5550"
    ],
    "tags": [
     "ken",
@@ -158011,7 +157977,7 @@
    "vpt": 1.06,
    "grad": 0,
    "spread": {
-    "14,3": [
+    "13,3": [
      0.5,
      0.5
     ],
@@ -158021,13 +157987,13 @@
     ]
    },
    "colors": [
-    "#8b7561",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -158043,7 +158009,7 @@
    "tris": 720,
    "tpu": 2099,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 25692,
    "vtx": 620,
@@ -158053,30 +158019,25 @@
    "avgTri": 0.00148,
    "anglePct": 72,
    "vpt": 0.86,
-   "grad": 0.59,
+   "grad": 0.6,
    "spread": {
     "5,2": [
      0.148,
      0.75
     ],
-    "14,3": [
+    "13,3": [
      0.148,
      0.742
-    ],
-    "13,3": [
-     0.375,
-     0.375
     ]
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
     "glass",
     "ken",
-    "plastic"
+    "metal"
    ],
    "variant": "v826"
   },
@@ -177930,7 +177891,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084",
@@ -177993,7 +177953,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084",
@@ -178056,7 +178015,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084"
@@ -178112,7 +178070,6 @@
    "tags": [
     "ken",
     "metal",
-    "plastic",
     "wood-planks"
    ],
    "variant": "v1084",
@@ -178164,8 +178121,7 @@
    ],
    "tags": [
     "ken",
-    "metal",
-    "plastic"
+    "metal"
    ]
   },
   {
@@ -181137,7 +181093,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181145,6 +181100,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181195,7 +181155,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181203,6 +181162,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181253,7 +181217,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1001",
@@ -181262,6 +181225,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181312,7 +181280,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181320,6 +181287,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181370,7 +181342,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181378,6 +181349,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181428,7 +181404,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181436,6 +181411,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181486,7 +181466,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181494,6 +181473,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181544,7 +181528,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1002",
@@ -181553,6 +181536,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181603,7 +181591,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1002",
@@ -181612,6 +181599,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -181662,7 +181654,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "lint": [
@@ -181675,6 +181666,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -182212,7 +182208,6 @@
    ],
    "tags": [
     "ken",
-    "plastic",
     "stone-masonry"
    ],
    "variant": "v1001",
@@ -182221,6 +182216,11 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.42 off the size curve (ken-city, 9 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -183131,9 +183131,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1098",
@@ -184832,9 +184832,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1105"
@@ -186423,10 +186423,10 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "comp",
     "ken",
     "metal",
-    "plastic",
     "space"
    ]
   },
@@ -186617,10 +186617,10 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "comp",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1116"
@@ -186953,9 +186953,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1118"
@@ -187065,9 +187065,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ]
   },
@@ -187116,9 +187116,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1119",
@@ -187175,9 +187175,9 @@
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "ken",
     "metal",
-    "plastic",
     "space"
    ],
    "variant": "v1119"
@@ -192451,7 +192451,7 @@
    "vpt": 1.28,
    "grad": 0.84,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.102,
      0.961
     ],
@@ -192461,13 +192461,13 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "ken",
     "paper",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v274"
   },
@@ -204859,6 +204859,7 @@
    ],
    "tags": [
     "rope",
+    "textile",
     "wood-beam"
    ]
   },
@@ -214799,7 +214800,7 @@
    "vpt": 2.47,
    "grad": 0.65,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.148,
      0.844
     ],
@@ -214810,7 +214811,7 @@
    },
    "colors": [
     "#7f3927",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic"
@@ -214848,7 +214849,7 @@
    "vpt": 2.53,
    "grad": 0.64,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.148,
      0.844
     ],
@@ -214859,7 +214860,7 @@
    },
    "colors": [
     "#23562c",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "ceramic"
@@ -214897,7 +214898,7 @@
    "vpt": 2.52,
    "grad": 0.61,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.148,
      0.844
     ],
@@ -214908,7 +214909,7 @@
    },
    "colors": [
     "#7f3927",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "broken",
@@ -214947,7 +214948,7 @@
    "vpt": 2.65,
    "grad": 0.66,
    "spread": {
-    "14,3": [
+    "5,2": [
      0.148,
      0.844
     ],
@@ -214958,7 +214959,7 @@
    },
    "colors": [
     "#23562c",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "broken",
@@ -215972,7 +215973,7 @@
    "tris": 4898,
    "tpu": 14280,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
    "bytes": 172160,
    "vtx": 4414,
@@ -215983,7 +215984,7 @@
    "avgTri": 0.00016,
    "anglePct": 3,
    "vpt": 0.9,
-   "grad": 0.55,
+   "grad": 0.63,
    "spread": {
     "3,0": [
      0.031,
@@ -215997,10 +215998,6 @@
      0.063,
      0.398
     ],
-    "1,0": [
-     0.781,
-     0.961
-    ],
     "14,3": [
      0.781,
      0.961
@@ -216010,7 +216007,6 @@
     "#563b2b",
     "#7f3927",
     "#8b7561",
-    "#b58158",
     "#dbae80"
    ],
    "tags": [
@@ -216134,7 +216130,6 @@
    "tags": [
     "leather",
     "metal-iron-steel",
-    "plastic",
     "qua",
     "textile",
     "wood-worked"
@@ -218867,13 +218862,13 @@
    "vpt": 0.58,
    "grad": 0.31,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.641,
      0.953
     ]
    },
    "colors": [
-    "#8b7561"
+    "#7f3927"
    ],
    "tags": [
     "ceramic",
@@ -219870,13 +219865,13 @@
    "vpt": 0.58,
    "grad": 0.31,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.641,
      0.953
     ]
    },
    "colors": [
-    "#8b7561"
+    "#7f3927"
    ],
    "tags": [
     "ceramic",
@@ -221422,7 +221417,7 @@
    "tris": 910,
    "tpu": 1565,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 63872,
    "vtx": 1780,
@@ -221435,18 +221430,13 @@
    "vpt": 1.96,
    "grad": 0,
    "spread": {
-    "14,3": [
-     0.5,
-     0.5
-    ],
-    "13,3": [
+    "1,1": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#5b5550",
-    "#8b7561"
+    "#23562c"
    ],
    "tags": [
     "plastic",
@@ -221539,7 +221529,7 @@
    "vpt": 1.93,
    "grad": 0,
    "spread": {
-    "13,3": [
+    "1,1": [
      0.5,
      0.5
     ],
@@ -221549,7 +221539,7 @@
     ]
    },
    "colors": [
-    "#5b5550",
+    "#23562c",
     "#8b5936"
    ],
    "tags": [
@@ -221889,7 +221879,7 @@
      0.5,
      0.5
     ],
-    "14,3": [
+    "5,2": [
      0.5,
      0.5
     ],
@@ -221901,7 +221891,7 @@
    "colors": [
     "#5b5550",
     "#7f3927",
-    "#8b7561"
+    "#d8d1bd"
    ],
    "tags": [
     "metal-iron-wrought",
@@ -222122,14 +222112,14 @@
      0.5,
      0.5
     ],
-    "5,2": [
+    "6,0": [
      0.492,
      0.492
     ]
    },
    "colors": [
     "#5b5550",
-    "#d8d1bd"
+    "#f2a93c"
    ],
    "tags": [
     "metal-iron-wrought",
@@ -230020,11 +230010,11 @@
     "#b58158"
    ],
    "tags": [
-    "leather",
     "metal-iron-steel",
     "pirate",
     "qua",
     "stone-masonry",
+    "textile",
     "wood-worked"
    ],
    "variant": "v326"
@@ -230120,11 +230110,11 @@
     "#b58158"
    ],
    "tags": [
-    "leather",
     "metal-iron-steel",
     "pirate",
     "qua",
     "stone-masonry",
+    "textile",
     "wood-worked"
    ],
    "variant": "v326"
@@ -235487,7 +235477,7 @@
    "tris": 1556,
    "tpu": 4217,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 63088,
    "vtx": 1634,
@@ -235504,16 +235494,21 @@
      0.219,
      0.961
     ],
-    "1,0": [
+    "14,3": [
+     0.805,
+     0.953
+    ],
+    "3,0": [
      0.781,
      0.961
     ],
-    "14,3": [
+    "1,0": [
      0.82,
      0.961
     ]
    },
    "colors": [
+    "#563b2b",
     "#82868e",
     "#8b7561",
     "#b58158"
@@ -235523,6 +235518,7 @@
     "metal-iron-steel",
     "qua",
     "stone-masonry",
+    "textile",
     "wood-worked"
    ],
    "variant": "v321",
@@ -235547,7 +235543,7 @@
    "tris": 966,
    "tpu": 2816,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 44136,
    "vtx": 1151,
@@ -235563,16 +235559,21 @@
      0.266,
      0.961
     ],
-    "1,0": [
+    "14,3": [
+     0.805,
+     0.953
+    ],
+    "3,0": [
      0.781,
      0.961
     ],
-    "14,3": [
+    "1,0": [
      0.82,
      0.961
     ]
    },
    "colors": [
+    "#563b2b",
     "#82868e",
     "#8b7561",
     "#b58158"
@@ -235582,6 +235583,7 @@
     "metal-iron-steel",
     "qua",
     "stone-masonry",
+    "textile",
     "wood-worked"
    ],
    "variant": "v321",
@@ -236260,7 +236262,8 @@
     "metal-gold",
     "qua",
     "robin-hood",
-    "rope"
+    "rope",
+    "textile"
    ],
    "variant": "v322",
    "lint": [
@@ -236319,6 +236322,7 @@
     "qua",
     "robin-hood",
     "rope",
+    "textile",
     "wood-beam"
    ],
    "variant": "v322",
@@ -237044,7 +237048,7 @@
    "tris": 1918,
    "tpu": 4428,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 78836,
    "vtx": 2058,
@@ -237054,22 +237058,27 @@
    "avgTri": 0.00024,
    "anglePct": 22,
    "vpt": 1.07,
-   "grad": 0.67,
+   "grad": 0.66,
    "spread": {
     "15,3": [
      0.07,
      0.961
     ],
-    "1,0": [
+    "14,3": [
+     0.836,
+     0.906
+    ],
+    "3,0": [
      0.781,
      0.961
     ],
-    "14,3": [
+    "1,0": [
      0.836,
      0.906
     ]
    },
    "colors": [
+    "#563b2b",
     "#82868e",
     "#8b7561",
     "#b58158"
@@ -237079,6 +237088,7 @@
     "metal-iron-steel",
     "qua",
     "stone-masonry",
+    "textile",
     "wood-worked"
    ],
    "lint": [
@@ -240344,8 +240354,8 @@
    "tags": [
     "broken",
     "metal",
-    "plastic",
-    "qua"
+    "qua",
+    "rubber"
    ]
   },
   {
@@ -240418,7 +240428,7 @@
    "vpt": 1.11,
    "grad": 0.17,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240429,12 +240439,12 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240463,7 +240473,7 @@
    "vpt": 1.11,
    "grad": 0.17,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240474,12 +240484,12 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240508,7 +240518,7 @@
    "vpt": 1.11,
    "grad": 0.19,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240519,13 +240529,13 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "plural",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240554,7 +240564,7 @@
    "vpt": 1.11,
    "grad": 0.19,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240565,13 +240575,13 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "plural",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -242627,9 +242637,9 @@
     "#5b5550"
    ],
    "tags": [
-    "plastic",
     "plural",
-    "qua"
+    "qua",
+    "rubber"
    ]
   },
   {
@@ -244212,8 +244222,8 @@
     "#f2a93c"
    ],
    "tags": [
-    "paper",
     "qua",
+    "wood-cardboard",
     "wood-planks"
    ]
   },
@@ -244275,7 +244285,7 @@
    "tris": 224,
    "tpu": 653,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 12524,
    "vtx": 300,
@@ -244291,10 +244301,6 @@
      0.445,
      0.445
     ],
-    "14,3": [
-     0.148,
-     0.75
-    ],
     "13,3": [
      0.148,
      0.75
@@ -244302,11 +244308,11 @@
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
     "#d8d1bd"
    ],
    "tags": [
-    "plastic",
+    "glass",
+    "metal",
     "qua"
    ]
   },
@@ -254295,26 +254301,30 @@
    "tris": 898,
    "tpu": 2618,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
-   "bytes": 38608,
-   "vtx": 993,
+   "bytes": 40276,
+   "vtx": 1047,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0061,
    "avgTri": 0.00007,
    "anglePct": 42,
-   "vpt": 1.11,
-   "grad": 0.77,
+   "vpt": 1.17,
+   "grad": 0.76,
    "spread": {
     "2,0": [
      0.016,
      0.977
     ],
     "14,3": [
-     0.016,
+     0.078,
      0.867
+    ],
+    "14,2": [
+     0.063,
+     0.953
     ],
     "15,3": [
      0.313,
@@ -254324,19 +254334,14 @@
    "colors": [
     "#82868e",
     "#8b5936",
-    "#8b7561"
+    "#8b7561",
+    "#907a66"
    ],
    "tags": [
     "metal-iron-steel",
     "rope",
+    "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants twine, has chestnut taupe nickel"
-    }
    ]
   },
   {
@@ -256292,13 +256297,13 @@
    "vpt": 0.81,
    "grad": 0.6,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#8b7561"
+    "#7f3927"
    ],
    "tags": [
     "ceramic"
@@ -256319,31 +256324,32 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17736,
-   "vtx": 438,
+   "bytes": 27468,
+   "vtx": 744,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00041,
    "anglePct": 19,
-   "vpt": 1.24,
-   "grad": 0.59,
+   "vpt": 2.11,
+   "grad": 0.38,
    "spread": {
     "3,0": [
      0.148,
      0.742
     ],
-    "1,0": [
-     0.148,
-     0.742
+    "14,2": [
+     0.031,
+     0.383
     ]
    },
    "colors": [
     "#563b2b",
-    "#b58158"
+    "#907a66"
    ],
    "tags": [
-    "leather"
+    "leather",
+    "rope"
    ],
    "variant": "v685"
   },
@@ -256362,31 +256368,32 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18832,
-   "vtx": 470,
+   "bytes": 28564,
+   "vtx": 776,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00034,
    "anglePct": 20,
-   "vpt": 1.29,
-   "grad": 0.59,
+   "vpt": 2.13,
+   "grad": 0.32,
    "spread": {
     "3,0": [
      0.148,
      0.742
     ],
-    "1,0": [
-     0.148,
-     0.742
+    "14,2": [
+     0.031,
+     0.313
     ]
    },
    "colors": [
     "#563b2b",
-    "#b58158"
+    "#907a66"
    ],
    "tags": [
-    "leather"
+    "leather",
+    "rope"
    ],
    "variant": "v685"
   },
@@ -256405,23 +256412,23 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22028,
-   "vtx": 557,
+   "bytes": 31764,
+   "vtx": 863,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00037,
    "anglePct": 17,
-   "vpt": 1.29,
-   "grad": 0.6,
+   "vpt": 2,
+   "grad": 0.41,
    "spread": {
     "3,0": [
      0.148,
      0.742
     ],
-    "1,0": [
-     0.148,
-     0.742
+    "14,2": [
+     0.031,
+     0.383
     ],
     "6,0": [
      0.273,
@@ -256430,12 +256437,13 @@
    },
    "colors": [
     "#563b2b",
-    "#b58158",
+    "#907a66",
     "#f2a93c"
    ],
    "tags": [
     "leather",
-    "metal-gold"
+    "metal-gold",
+    "rope"
    ],
    "variant": "v685"
   },
@@ -256454,24 +256462,24 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 25716,
-   "vtx": 644,
+   "bytes": 35452,
+   "vtx": 950,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0118,
    "avgTri": 0.00027,
    "anglePct": 19,
-   "vpt": 1.1,
-   "grad": 0.6,
+   "vpt": 1.63,
+   "grad": 0.42,
    "spread": {
     "3,0": [
      0.148,
      0.742
     ],
-    "1,0": [
-     0.148,
-     0.742
+    "14,2": [
+     0.031,
+     0.383
     ],
     "4,2": [
      0.148,
@@ -256481,11 +256489,12 @@
    "colors": [
     "#1367a6",
     "#563b2b",
-    "#b58158"
+    "#907a66"
    ],
    "tags": [
     "gemstone",
-    "leather"
+    "leather",
+    "rope"
    ],
    "variant": "v685"
   },
@@ -256514,7 +256523,7 @@
    "vpt": 1.04,
    "grad": 0.54,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.148,
      0.75
     ],
@@ -256529,7 +256538,7 @@
    },
    "colors": [
     "#5b5550",
-    "#8b7561",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -256563,7 +256572,7 @@
    "vpt": 1.04,
    "grad": 0.54,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.148,
      0.75
     ],
@@ -256578,7 +256587,7 @@
    },
    "colors": [
     "#563b2b",
-    "#8b7561",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -256612,7 +256621,7 @@
    "vpt": 1.04,
    "grad": 0.58,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.148,
      0.75
     ],
@@ -256622,7 +256631,7 @@
     ]
    },
    "colors": [
-    "#8b7561",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -256945,28 +256954,28 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 16232,
-   "vtx": 413,
+   "bytes": 22188,
+   "vtx": 599,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0265,
    "avgTri": 0.00039,
    "anglePct": 2,
-   "vpt": 1.65,
-   "grad": 0.45,
+   "vpt": 2.4,
+   "grad": 0.38,
    "spread": {
     "2,0": [
      0.031,
      0.961
     ],
+    "14,3": [
+     0.352,
+     0.641
+    ],
     "14,2": [
      0.031,
-     0.117
-    ],
-    "14,3": [
-     0.406,
-     0.523
+     0.125
     ]
    },
    "colors": [
@@ -256976,6 +256985,7 @@
    ],
    "tags": [
     "rope",
+    "vegetation",
     "wood-beam"
    ]
   },
@@ -257798,7 +257808,7 @@
    "tris": 644,
    "tpu": 1878,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
    "bytes": 46472,
    "vtx": 1281,
@@ -257809,7 +257819,7 @@
    "avgTri": 0.00058,
    "anglePct": 3,
    "vpt": 1.99,
-   "grad": 0.43,
+   "grad": 0.45,
    "spread": {
     "14,2": [
      0.031,
@@ -257817,10 +257827,6 @@
     ],
     "2,0": [
      0.031,
-     0.961
-    ],
-    "14,3": [
-     0.961,
      0.961
     ],
     "5,0": [
@@ -257834,7 +257840,6 @@
    },
    "colors": [
     "#8b5936",
-    "#8b7561",
     "#907a66",
     "#d07b56",
     "#d8d1bd"
@@ -257844,14 +257849,7 @@
     "rope",
     "wood-beam"
    ],
-   "variant": "v180",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "variant": "v180"
   },
   {
    "kit": "small-props",
@@ -257866,7 +257864,7 @@
    "tris": 1036,
    "tpu": 3020,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
    "bytes": 80340,
    "vtx": 2266,
@@ -257877,17 +257875,13 @@
    "avgTri": 0.0007,
    "anglePct": 4,
    "vpt": 2.19,
-   "grad": 0.42,
+   "grad": 0.49,
    "spread": {
     "8,0": [
      0.836,
      0.961
     ],
     "2,0": [
-     0.523,
-     0.961
-    ],
-    "14,3": [
      0.031,
      0.961
     ],
@@ -257903,7 +257897,6 @@
    "colors": [
     "#7f3927",
     "#8b5936",
-    "#8b7561",
     "#907a66",
     "#d8d1bd"
    ],
@@ -257912,14 +257905,7 @@
     "rope",
     "wood-beam"
    ],
-   "variant": "v180",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "variant": "v180"
   },
   {
    "kit": "small-props",
@@ -257934,7 +257920,7 @@
    "tris": 1014,
    "tpu": 1609,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 60036,
    "vtx": 1638,
@@ -257945,23 +257931,28 @@
    "avgTri": 0.00172,
    "anglePct": 25,
    "vpt": 1.62,
-   "grad": 0.69,
+   "grad": 0.56,
    "spread": {
     "1,0": [
      0.031,
      0.961
     ],
-    "14,3": [
+    "2,0": [
      0.031,
      0.961
     ],
     "14,2": [
      0.031,
      0.289
+    ],
+    "3,0": [
+     0.898,
+     0.961
     ]
    },
    "colors": [
-    "#8b7561",
+    "#563b2b",
+    "#8b5936",
     "#907a66",
     "#b58158"
    ],
@@ -261321,14 +261312,14 @@
      0.016,
      0.602
     ],
-    "1,0": [
+    "3,0": [
      0.039,
      0.602
     ]
    },
    "colors": [
-    "#8b5936",
-    "#b58158"
+    "#563b2b",
+    "#8b5936"
    ],
    "tags": [
     "leather",
@@ -263587,8 +263578,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "paper",
-    "plastic"
+    "paper"
    ]
   },
   {
@@ -264451,13 +264441,13 @@
    "vpt": 0.7,
    "grad": 0.59,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.148,
      0.742
     ]
    },
    "colors": [
-    "#5b5550"
+    "#7f3927"
    ],
    "tags": [
     "plastic"
@@ -265185,7 +265175,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -265351,7 +265341,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -265608,7 +265598,7 @@
    "vpt": 0.81,
    "grad": 0.49,
    "spread": {
-    "13,3": [
+    "1,1": [
      0.148,
      0.75
     ],
@@ -265618,7 +265608,7 @@
     ]
    },
    "colors": [
-    "#5b5550",
+    "#23562c",
     "#d8d1bd"
    ],
    "tags": [
@@ -265751,8 +265741,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron-steel",
-    "plastic"
+    "glass",
+    "metal"
    ]
   },
   {
@@ -266129,7 +266119,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -266975,7 +266965,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ]
   },
   {
@@ -269698,7 +269688,7 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "plastic"
+    "rubber"
    ],
    "lint": [
     {
@@ -271222,7 +271212,7 @@
      0.164,
      0.836
     ],
-    "1,0": [
+    "3,0": [
      0.328,
      0.477
     ],
@@ -271232,9 +271222,9 @@
     ]
    },
    "colors": [
+    "#563b2b",
     "#5b5550",
     "#8b5936",
-    "#b58158",
     "#f2a93c"
    ],
    "tags": [
@@ -271292,15 +271282,15 @@
      0.398,
      0.883
     ],
-    "1,0": [
+    "3,0": [
      0.328,
      0.477
     ]
    },
    "colors": [
+    "#563b2b",
     "#5b5550",
     "#8b5936",
-    "#b58158",
     "#f2a93c"
    ],
    "tags": [
@@ -275425,13 +275415,13 @@
    "vpt": 1.69,
    "grad": 0.7,
    "spread": {
-    "14,3": [
+    "8,0": [
      0.164,
      0.859
     ]
    },
    "colors": [
-    "#8b7561"
+    "#7f3927"
    ],
    "tags": [
     "asia",
@@ -276030,6 +276020,7 @@
     "metal-iron-cast",
     "rope",
     "sailing",
+    "textile",
     "wizp",
     "wood-beam",
     "wood-worked"
