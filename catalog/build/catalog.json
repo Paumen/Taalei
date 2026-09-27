@@ -2777,13 +2777,13 @@
    },
    "scales": {
     "0.294": 24,
-    "0.882": 9
+    "0.588": 9
    },
    "smooth": {
     "none": 33
    },
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 0.85,
     "kinds": 22
    }
   },
@@ -265726,6 +265726,13 @@
    ],
    "tags": [
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.45 over max 0.5 (obj-kitchenware-cookware-board · 0.529 at kit ×0.85)"
+    }
    ]
   },
   {
@@ -265776,9 +265783,9 @@
    "kind": "obj-container",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.15
+    0.15,
+    0.15,
+    0.1
    ],
    "tris": 1338,
    "tpu": 3901,
@@ -265790,7 +265797,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00023,
+   "avgTri": 0.0001,
    "anglePct": 12,
    "vpt": 0.58,
    "grad": 0.13,
@@ -265818,9 +265825,9 @@
    "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
-    0.08,
-    0.08,
-    0.1
+    0.05,
+    0.05,
+    0.08
    ],
    "tris": 312,
    "tpu": 910,
@@ -265831,8 +265838,8 @@
    "vtx": 167,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00008,
+   "minEdge": 0.005,
+   "avgTri": 0.00004,
    "anglePct": 1,
    "vpt": 0.54,
    "grad": 0.52,
@@ -265856,9 +265863,9 @@
    "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
-    0.08,
-    0.08,
-    0.1
+    0.05,
+    0.05,
+    0.08
    ],
    "tris": 312,
    "tpu": 910,
@@ -265869,8 +265876,8 @@
    "vtx": 167,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00008,
+   "minEdge": 0.005,
+   "avgTri": 0.00004,
    "anglePct": 1,
    "vpt": 0.54,
    "grad": 0.52,
@@ -265894,9 +265901,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.03,
+    0.02,
     0.01,
-    0.15
+    0.1
    ],
    "tris": 240,
    "tpu": 700,
@@ -265907,8 +265914,8 @@
    "vtx": 131,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00002,
+   "minEdge": 0,
+   "avgTri": 0.00001,
    "anglePct": 27,
    "vpt": 0.55,
    "grad": 0.23,
@@ -265928,7 +265935,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.146 at kit ×1.03)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
     }
    ]
   },
@@ -266013,9 +266020,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.097 at kit ×1.03)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.118 at kit ×0.85)"
     }
    ]
   },
@@ -266025,9 +266032,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.02,
     0.01,
-    0.2
+    0.01,
+    0.1
    ],
    "tris": 244,
    "tpu": 711,
@@ -266036,10 +266043,11 @@
    "calls": 1,
    "bytes": 7292,
    "vtx": 137,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00002,
+   "avgTri": 0.00001,
    "anglePct": 12,
    "vpt": 0.56,
    "grad": 0.17,
@@ -266054,6 +266062,13 @@
    ],
    "tags": [
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
+    }
    ]
   },
   {
@@ -266141,9 +266156,9 @@
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
    "wdh": [
-    0.15,
     0.1,
-    0.1
+    0.08,
+    0.08
    ],
    "tris": 314,
    "tpu": 915,
@@ -266154,8 +266169,8 @@
    "vtx": 157,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00034,
+   "minEdge": 0.002,
+   "avgTri": 0.00015,
    "anglePct": 39,
    "vpt": 0.5,
    "grad": 0,
@@ -266244,13 +266259,6 @@
    ],
    "tags": [
     "ceramic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-plate · 0.146 at kit ×1.03)"
-    }
    ]
   },
   {
@@ -266363,14 +266371,7 @@
    "tags": [
     "wood-worked"
    ],
-   "variant": "v884",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-cookware-utensil-spatula · 0.146 at kit ×1.03)"
-    }
-   ]
+   "variant": "v884"
   },
   {
    "kit": "styloo-kitchen",
@@ -266378,9 +266379,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.03,
     0.02,
-    0.25
+    0.01,
+    0.2
    ],
    "tris": 220,
    "tpu": 641,
@@ -266389,10 +266390,11 @@
    "calls": 1,
    "bytes": 6572,
    "vtx": 119,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00003,
+   "avgTri": 0.00001,
    "anglePct": 32,
    "vpt": 0.54,
    "grad": 0.21,
@@ -266416,9 +266418,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.04,
+    0.03,
     0.01,
-    0.15
+    0.1
    ],
    "tris": 140,
    "tpu": 408,
@@ -266430,7 +266432,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00004,
+   "avgTri": 0.00002,
    "anglePct": 51,
    "vpt": 0.59,
    "grad": 0.22,
@@ -266451,7 +266453,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.146 at kit ×1.03)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
     }
    ]
   },
@@ -266608,13 +266610,6 @@
    ],
    "tags": [
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-cookware-utensil-spatula · 0.146 at kit ×1.03)"
-    }
    ]
   },
   {
@@ -266737,9 +266732,9 @@
    "kind": "obj-food-dairy",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.1
+    0.08,
+    0.08,
+    0.07
    ],
    "tris": 188,
    "tpu": 548,
@@ -266751,7 +266746,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00028,
+   "avgTri": 0.00012,
    "anglePct": 57,
    "vpt": 0.59,
    "grad": 0.34,
