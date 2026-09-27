@@ -4,11 +4,12 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor, measureTubes } from '../../catalog/tools/glb.mjs';
 import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 
-const HELP = `thicken.mjs [--min <diameter>] [--list] <workfile.glb> [...]
+const HELP = `thicken.mjs [--min <diameter>] [--max <diameter>] [--list] <workfile.glb> [...]
 
 Widens every tube thinner than --min to just over it, around its own centre line,
 keeping its length. Without --min each model takes the diameter G27 asks of it,
-from its kind in lint/kinds.json and its size in catalog/build/catalog.json. --list prints the tubes
+from its kind in lint/kinds.json and its size in catalog/build/catalog.json. --max narrows
+every tube thicker than it down to it instead, and only that. --list prints the tubes
 and changes nothing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -104,14 +105,18 @@ function bound(glb, accessorIndex) {
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(args.length ? 0 : 1); }
 let min = null;
+let max = null;
 let list = false;
 const files = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--min') min = Number(args[++i]);
+  else if (args[i] === '--max') max = Number(args[++i]);
   else if (args[i] === '--list') list = true;
   else files.push(args[i]);
 }
 if (min !== null && !(min > 0)) throw new Error('--min needs a positive number');
+if (max !== null && !(max > 0 && Number.isFinite(max))) throw new Error('--max needs a positive number');
+if (min !== null && max !== null) throw new Error('give --min or --max, not both');
 
 let models = null;
 let kindFields = null;
@@ -127,18 +132,19 @@ function minOf(file) {
 }
 
 for (const file of files) {
-  const min = minOf(file);
+  const min = max === null ? minOf(file) : null;
   const glb = readGlb(file);
   glb.bin = Buffer.from(glb.bin);
   const tubes = measureTubes(glb);
-  const thin = tubes.filter((t) => t.diameter < min);
+  const off = (t) => (max === null ? t.diameter < min : t.diameter > max);
+  const thin = tubes.filter(off);
   for (const t of tubes) {
-    console.log(`${file}  shells ${t.shells.join(',') || '-'}  diameter ${t.diameter.toFixed(4)}  length ${t.length.toFixed(3)}${t.diameter < min ? '  thin' : ''}`);
+    console.log(`${file}  shells ${t.shells.join(',') || '-'}  diameter ${t.diameter.toFixed(4)}  length ${t.length.toFixed(3)}${off(t) ? (max === null ? '  thin' : '  thick') : ''}`);
   }
   if (list || !thin.length) continue;
   const touched = new Map();
   for (const t of thin) {
-    widen(glb, t, (min * MARGIN) / t.diameter);
+    widen(glb, t, (max === null ? min * MARGIN : max) / t.diameter);
     if (!touched.has(t.prim)) touched.set(t.prim, new Set());
     for (const v of t.vertices) touched.get(t.prim).add(v);
   }
@@ -147,5 +153,5 @@ for (const file of files) {
     bound(glb, prim.attributes.POSITION);
   }
   writeGlb(file, glb.json, glb.bin, writeFileSync);
-  console.log(`${file}: widened ${thin.length} tube(s)`);
+  console.log(`${file}: ${max === null ? 'widened' : 'narrowed'} ${thin.length} tube(s)`);
 }

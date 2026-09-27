@@ -79,7 +79,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
 
-**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest.
+**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it.
 
 | band | lane |
 |---|---|
@@ -96,6 +96,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `slate` | 6,1 |
 | `azure` | 4,2 |
 | `ivory` | 5,2 |
+| `twine` | 14,2 |
 | `basalt` | 13,3 |
 | `taupe` | 14,3 |
 | `nickel` | 15,3 |
@@ -139,7 +140,7 @@ Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (
 
 `minTube` is the diameter of the model's thinnest tube, in catalogue units; a model with no tube records none and `G27` passes it. A tube is a part (shells welded on shared positions) whose every slice across its main axis is a ring of at least five directions around the slice's own centre, no rim vertex more than 2.5 times as far out as another, and at least 2.5 diameters long; a curved stalk counts. Its diameter is twice the median slice radius, measured after the node transform.
 
-`G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, spatulas, bags, pocket items and stationery. Food, books and weapons set 0.012. `node tools/import/thicken.mjs` widens a model's thin tubes to what `G27` asks of it, around their centre line, keeping their length; `--min` sets the diameter instead, `--list` prints the tubes.
+`G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, spatulas, bags, pocket items and stationery. Food, books and weapons set 0.012. `node tools/import/thicken.mjs` widens a model's thin tubes to what `G27` asks of it, around their centre line, keeping their length; `--min` sets the diameter instead, `--max` narrows tubes thicker than it down to it, `--list` prints the tubes.
 
 `G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself.
 
@@ -174,7 +175,7 @@ Run `node lint/size.mjs`.
 | `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
 | `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
 
-A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units.
+A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units. `node tools/import/twine.mjs` moves round taupe rope strands onto `twine` and unwraps them so the stripes wind round the strand; `--parts` does the same for any taupe part (wraps, coils, knots, ties) by the numbers `--list` prints, and `--list` prints what it would move.
 
 ---
 

@@ -57,7 +57,7 @@ factor first.
 ## 3. Colour and bands
 
 Every asset colours itself from `kits/colormap.png`: 16 × 4 cells, one band
-per cell, each band a vertical gradient. Baked shading is kept — the spread
+per cell, each band a vertical gradient except `twine`, a striped rope tile. Baked shading is kept — the spread
 across the gradient carries over, it is not flattened to one colour;
 `node lint/measures.mjs` flags a model with no spread.
 
