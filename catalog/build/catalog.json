@@ -428,7 +428,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.11,
+    "factor": 1.14,
     "kinds": 68
    }
   },
@@ -1296,8 +1296,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 30
+    "factor": 1.01,
+    "kinds": 31
    }
   },
   {
@@ -3160,8 +3160,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.99,
-    "kinds": 34
+    "factor": 0.97,
+    "kinds": 35
    }
   },
   {
@@ -3189,8 +3189,8 @@
     "none": 96
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 39
+    "factor": 1.08,
+    "kinds": 38
    }
   },
   {
@@ -15563,7 +15563,7 @@
    "id": "obj-device-appliance",
    "name": "Appliance",
    "type": "kind",
-   "description": "Powered appliance for kitchen or home: fridge, stove, oven, washer, dryer, coffee machine, fan.",
+   "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
    "count": 65
   },
   {
@@ -15591,7 +15591,7 @@
    "id": "obj-device-electronics",
    "name": "Electronics",
    "type": "kind",
-   "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
+   "description": "Electronic device: television, computer, speaker, camera, phone, battery, cash register, console.",
    "count": 84
   },
   {
@@ -15802,7 +15802,7 @@
    "id": "obj-equipment",
    "name": "Equipment",
    "type": "kind",
-   "description": "Carried or worn gear with no leaf that fits, such as gym weights.",
+   "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
    "count": 607,
    "color": "#6b5b95"
   },
@@ -15817,7 +15817,7 @@
    "id": "obj-equipment-apparel",
    "name": "Apparel",
    "type": "kind",
-   "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
+   "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, glasses, umbrella, hand fan.",
    "count": 44
   },
   {
@@ -16036,14 +16036,14 @@
    "id": "obj-furnishing-textile-rug",
    "name": "Rug",
    "type": "kind",
-   "description": "rug, carpet, picnic blanket",
+   "description": "Flat textile on the floor: rug, carpet, doormat, picnic blanket, folded or spread.",
    "count": 21
   },
   {
    "id": "obj-furnishing-bathroom",
    "name": "Bathroom",
    "type": "kind",
-   "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail.",
+   "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail, changing stall.",
    "count": 12
   },
   {
@@ -16156,7 +16156,7 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit",
+   "description": "grill, spit, mortar and pestle, pepper mill, kitchen scale",
    "count": 137
   },
   {
@@ -16386,7 +16386,7 @@
   },
   {
    "id": "str-fixture-light-post",
-   "name": "On post",
+   "name": "Lamp post",
    "type": "kind",
    "description": "lamp post, street lamp, lantern post",
    "count": 12
@@ -16559,7 +16559,7 @@
    "id": "obj-equipment-tool-station",
    "name": "Station",
    "type": "kind",
-   "description": "Tool too heavy to carry, worked at where it stands.",
+   "description": "Tool too heavy to carry, worked at where it stands: anvil, grindstone, bellows, forge hearth.",
    "count": 10
   },
   {
@@ -17185,7 +17185,7 @@
    "id": "env-terrain-ground",
    "name": "Ground",
    "type": "kind",
-   "description": "ground, dirt path, stone path, sand, snow patch",
+   "description": "ground, dirt path, stone path, sand, snow patch, farm field, crop row",
    "count": 36
   },
   {
@@ -17492,7 +17492,7 @@
    "id": "str-fixture-marker-grave",
    "name": "Grave",
    "type": "kind",
-   "description": "Stone, cross or slab that marks a grave.",
+   "description": "Stone, cross, slab, mound or border that marks a grave.",
    "count": 42
   },
   {
@@ -17607,7 +17607,7 @@
    "id": "obj-leisure-art-sculpture",
    "name": "Sculpture",
    "type": "kind",
-   "description": "Statue.",
+   "description": "Statue or sculpted figure, including snowmen and sandcastles.",
    "count": 33
   },
   {
@@ -17726,7 +17726,7 @@
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement.",
+   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, satellite dish, wind turbine.",
    "count": 129,
    "color": "#6e8f86"
   },
@@ -17748,7 +17748,7 @@
    "id": "str-fixture-utility-pipe",
    "name": "Pipe",
    "type": "kind",
-   "description": "Large standing pipework: straight, bent and branching sections and valves.",
+   "description": "Large standing pipework or water channel: straight, bent and branching sections, valves, flume sections.",
    "count": 25
   },
   {
@@ -17776,7 +17776,7 @@
    "id": "str-fixture-leisure-playground",
    "name": "Playground",
    "type": "kind",
-   "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes.",
+   "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes, stepping stumps.",
    "count": 27,
    "color": "#e0a93b"
   },
@@ -18080,7 +18080,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 193
+   "count": 196
   },
   {
    "id": "plural",
@@ -18428,6 +18428,7 @@
   "obj-device-electronics-arcade",
   "obj-device-electronics-radio",
   "obj-device-electronics-screen",
+  "obj-device-electronics-vending",
   "obj-equipment-apparel-glove",
   "obj-equipment-apparel-headgear",
   "obj-equipment-apparel-quiver",
@@ -18517,7 +18518,6 @@
   "obj-furnishing-light-lantern",
   "obj-furnishing-light-torch",
   "obj-furnishing-textile-pillow",
-  "obj-furnishing-textile-rug",
   "obj-kitchenware-cookware-board",
   "obj-kitchenware-cookware-cookpot",
   "obj-kitchenware-cookware-cookpot-cauldron",
@@ -18973,79 +18973,79 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-appliance-blender": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-appliance-extractor": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.7,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-appliance-fridge": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 0.9,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-appliance-oven": {
    "high.max": 8,
    "longest.min": 0.35,
    "longest.max": 0.8,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-appliance-stove": {
    "high.max": 8,
    "longest.min": 0.25,
    "longest.max": 0.55,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-appliance-toaster": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-electronics": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-electronics-arcade": {
    "high.max": 8,
    "longest.min": 0.45,
    "longest.max": 0.95,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-electronics-radio": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-electronics-screen": {
    "high.max": 8,
    "longest.min": 0.25,
    "longest.max": 0.75,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-device-electronics-vending": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
+   "longest.min": 0.4,
+   "longest.max": 1.1,
+   "tpu.max": 5000
   },
   "obj-device-science": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "obj-equipment": {
    "high.max": 8,
@@ -20367,8 +20367,8 @@
   },
   "str-fixture-leisure-playground": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
+   "longest.min": 0.08,
+   "longest.max": 3,
    "tpu.max": 5000
   },
   "str-fixture-light": {
@@ -22195,11 +22195,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 1.6 over max 1.3 (str-fixture-light-post · 1.404 at kit ×1.14)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
     }
    ]
   },
@@ -22383,13 +22378,6 @@
     "emissive",
     "halloween",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -28091,6 +28079,13 @@
     "metal-iron-cast",
     "metal-iron-steel",
     "metal-iron-wrought"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 6500 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -28474,7 +28469,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 21324 over max 10000 (obj)"
+     "text": "tpu 21324 over max 5000 (obj-device)"
     }
    ]
   },
@@ -44104,11 +44099,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.65 under min 0.65 (str-fixture-light-post · 0.644 at kit ×1.01)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
     }
    ],
    "mark": [
@@ -49472,7 +49462,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.8 (obj-device-appliance-oven · 0.856 at kit ×1.11)"
+     "text": "longest 0.95 over max 0.8 (obj-device-appliance-oven · 0.833 at kit ×1.14)"
     }
    ]
   },
@@ -49585,6 +49575,11 @@
    ],
    "variant": "v978",
    "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 6327 over max 5000 (obj-device)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -52716,7 +52711,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.35 (obj-food-baked-bread · 0.36 at kit ×1.11)"
+     "text": "longest 0.4 over max 0.35 (obj-food-baked-bread · 0.351 at kit ×1.14)"
     }
    ]
   },
@@ -56236,7 +56231,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.586 at kit ×1.11)"
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.57 at kit ×1.14)"
     }
    ]
   },
@@ -56594,7 +56589,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-equipment-apparel-glove · 0.135 at kit ×1.11)"
+     "text": "longest 0.15 under min 0.15 (obj-equipment-apparel-glove · 0.132 at kit ×1.14)"
     }
    ]
   },
@@ -56902,7 +56897,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 over max 0.55 (obj-device-appliance-stove · 0.586 at kit ×1.11)"
+     "text": "longest 0.65 over max 0.55 (obj-device-appliance-stove · 0.57 at kit ×1.14)"
     }
    ]
   },
@@ -57248,7 +57243,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-furnishing-furniture-storage-cabinet · 0.27 at kit ×1.11)"
+     "text": "longest 0.3 under min 0.35 (obj-furnishing-furniture-storage-cabinet · 0.263 at kit ×1.14)"
     }
    ]
   },
@@ -57301,7 +57296,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (obj-furnishing-furniture-storage-cabinet · 0.27 at kit ×1.11)"
+     "text": "longest 0.3 under min 0.35 (obj-furnishing-furniture-storage-cabinet · 0.263 at kit ×1.14)"
     }
    ]
   },
@@ -58165,7 +58160,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (env-flora-plant-bush · 0.27 at kit ×1.11)"
+     "text": "longest 0.3 under min 0.35 (env-flora-plant-bush · 0.263 at kit ×1.14)"
     }
    ]
   },
@@ -58672,18 +58667,6 @@
     "emissive",
     "isa",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.45 over max 1.3 (str-fixture-light-post · 1.306 at kit ×1.11)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -58825,7 +58808,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.15 under min 1.05 (env-flora-tree · 1.036 at kit ×1.11)"
+     "text": "longest 1.15 under min 1.05 (env-flora-tree · 1.009 at kit ×1.14)"
     }
    ]
   },
@@ -59026,7 +59009,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.5 (obj-container-basket · 0.541 at kit ×1.11)"
+     "text": "longest 0.6 over max 0.5 (obj-container-basket · 0.526 at kit ×1.14)"
     }
    ]
   },
@@ -59086,7 +59069,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.75 over max 0.5 (obj-container-basket · 0.676 at kit ×1.11)"
+     "text": "longest 0.75 over max 0.5 (obj-container-basket · 0.658 at kit ×1.14)"
     }
    ]
   },
@@ -59644,7 +59627,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (obj-furnishing-textile-rug · 0.45 at kit ×1.11)"
+     "text": "longest 0.5 under min 0.5 (obj-furnishing-textile-rug · 0.439 at kit ×1.14)"
     }
    ]
   },
@@ -59691,7 +59674,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.9 over max 1.5 (obj-furnishing-textile-rug · 1.712 at kit ×1.11)"
+     "text": "longest 1.9 over max 1.5 (obj-furnishing-textile-rug · 1.667 at kit ×1.14)"
     }
    ]
   },
@@ -59738,7 +59721,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (obj-furnishing-textile-rug · 0.45 at kit ×1.11)"
+     "text": "longest 0.5 under min 0.5 (obj-furnishing-textile-rug · 0.439 at kit ×1.14)"
     }
    ]
   },
@@ -59785,7 +59768,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.4 over max 1.5 (obj-furnishing-textile-rug · 2.162 at kit ×1.11)"
+     "text": "longest 2.4 over max 1.5 (obj-furnishing-textile-rug · 2.105 at kit ×1.14)"
     }
    ]
   },
@@ -59832,7 +59815,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (obj-furnishing-textile-rug · 0.45 at kit ×1.11)"
+     "text": "longest 0.5 under min 0.5 (obj-furnishing-textile-rug · 0.439 at kit ×1.14)"
     }
    ]
   },
@@ -59879,7 +59862,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.9 over max 1.5 (obj-furnishing-textile-rug · 2.613 at kit ×1.11)"
+     "text": "longest 2.9 over max 1.5 (obj-furnishing-textile-rug · 2.544 at kit ×1.14)"
     }
    ]
   },
@@ -60407,13 +60390,6 @@
    "tags": [
     "ceramic",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.45 over max 0.4 (obj-kitchenware-cookware-kettle · 0.405 at kit ×1.11)"
-    }
    ]
   },
   {
@@ -60635,7 +60611,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.3 (obj-container-bottle · 0.405 at kit ×1.11)"
+     "text": "longest 0.45 over max 0.3 (obj-container-bottle · 0.395 at kit ×1.14)"
     }
    ]
   },
@@ -60871,7 +60847,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (env-flora-plant-cactus scale-small · 0.09 at kit ×1.11)"
+     "text": "longest 0.1 under min 0.1 (env-flora-plant-cactus scale-small · 0.088 at kit ×1.14)"
     }
    ]
   },
@@ -61133,7 +61109,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.2 over max 0.7 (env-flora-plant-leafy · 1.081 at kit ×1.11)"
+     "text": "longest 1.2 over max 0.7 (env-flora-plant-leafy · 1.053 at kit ×1.14)"
     }
    ]
   },
@@ -61562,7 +61538,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 over max 0.7 (env-flora-plant-leafy · 0.721 at kit ×1.11)"
+     "text": "longest 0.8 over max 0.7 (env-flora-plant-leafy · 0.702 at kit ×1.14)"
     },
     {
      "level": "error",
@@ -61768,7 +61744,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.85 over max 0.7 (env-flora-plant-leafy · 0.766 at kit ×1.11)"
+     "text": "longest 0.85 over max 0.7 (env-flora-plant-leafy · 0.746 at kit ×1.14)"
     }
    ]
   },
@@ -61857,7 +61833,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (env-flora-plant-leafy · 0.225 at kit ×1.11)"
+     "text": "longest 0.25 under min 0.25 (env-flora-plant-leafy · 0.219 at kit ×1.14)"
     }
    ]
   },
@@ -61911,7 +61887,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.991 at kit ×1.11)"
+     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.965 at kit ×1.14)"
     }
    ]
   },
@@ -62052,7 +62028,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.5 over max 0.35 (obj-kitchenware-tableware-plate · 0.45 at kit ×1.11)"
+     "text": "longest 0.5 over max 0.35 (obj-kitchenware-tableware-plate · 0.439 at kit ×1.14)"
     }
    ]
   },
@@ -62884,7 +62860,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.7 (env-flora-plant-leafy · 0.856 at kit ×1.11)"
+     "text": "longest 0.95 over max 0.7 (env-flora-plant-leafy · 0.833 at kit ×1.14)"
     },
     {
      "level": "warning",
@@ -63181,7 +63157,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.991 at kit ×1.11)"
+     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.965 at kit ×1.14)"
     },
     {
      "level": "error",
@@ -65297,7 +65273,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.35 (obj-transport-part-wheel · 0.225 at kit ×1.11)"
+     "text": "longest 0.25 under min 0.35 (obj-transport-part-wheel · 0.219 at kit ×1.14)"
     }
    ]
   },
@@ -65344,7 +65320,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.35 (obj-transport-part-wheel · 0.225 at kit ×1.11)"
+     "text": "longest 0.25 under min 0.35 (obj-transport-part-wheel · 0.219 at kit ×1.14)"
     }
    ]
   },
@@ -65391,7 +65367,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.35 (obj-transport-part-wheel · 0.225 at kit ×1.11)"
+     "text": "longest 0.25 under min 0.35 (obj-transport-part-wheel · 0.219 at kit ×1.14)"
     }
    ]
   },
@@ -65492,7 +65468,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 under min 1.05 (env-flora-tree-conifer · 0.811 at kit ×1.11)"
+     "text": "longest 0.9 under min 1.05 (env-flora-tree-conifer · 0.789 at kit ×1.14)"
     }
    ]
   },
@@ -101491,11 +101467,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
     }
    ]
   },
@@ -108175,13 +108146,6 @@
     "kay",
     "metal-iron-wrought",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -109491,13 +109455,6 @@
     "emissive",
     "kay",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -125692,13 +125649,6 @@
     "halloween",
     "kay",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -130084,13 +130034,6 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.969 at kit ×0.98)"
-    }
    ]
   },
   {
@@ -130208,13 +130151,6 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.969 at kit ×0.98)"
-    }
    ]
   },
   {
@@ -130432,13 +130368,6 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.969 at kit ×0.98)"
-    }
    ]
   },
   {
@@ -149596,7 +149525,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.25 over max 1.2 (str-part-roof-unit · 1.276 at kit ×0.98)"
+     "text": "longest 1.25 over max 1.2 (str-part-roof-unit · 1.238 at kit ×1.01)"
     }
    ]
   },
@@ -158088,13 +158017,6 @@
     "ken",
     "metal-iron-wrought",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -158147,13 +158069,6 @@
     "ken",
     "metal-iron-wrought",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ],
    "mark": [
     "centered"
@@ -160195,13 +160110,6 @@
     "emissive",
     "ken",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
    ]
   },
   {
@@ -163801,7 +163709,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge · 0.969 at kit ×0.98)"
+     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge · 0.941 at kit ×1.01)"
     }
    ]
   },
@@ -240683,13 +240591,6 @@
     "glass",
     "metal-iron-steel",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
-    }
    ]
   },
   {
@@ -244460,6 +244361,13 @@
     "glass",
     "plastic",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 6990 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -245313,6 +245221,13 @@
     "metal-iron-wrought",
     "plastic",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 6082 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -267357,9 +267272,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "tpu 10945 over max 10000 (obj)"
+     "text": "tpu 10945 over max 5000 (obj-device)"
     }
    ]
   },
@@ -267659,6 +267574,13 @@
     "metal-iron-steel",
     "rgp",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 7090 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -270531,7 +270453,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.979 at kit ×0.97)"
     }
    ]
   },
@@ -270706,7 +270628,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.979 at kit ×0.97)"
     }
    ]
   },
@@ -270776,7 +270698,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.979 at kit ×0.97)"
     }
    ]
   },
@@ -270846,7 +270768,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.95 (obj-device-electronics-arcade · 1.01 at kit ×0.99)"
+     "text": "longest 1 over max 0.95 (obj-device-electronics-arcade · 1.031 at kit ×0.97)"
     }
    ]
   },
@@ -270915,7 +270837,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.979 at kit ×0.97)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 6037 over max 5000 (obj-device)"
     }
    ]
   },
@@ -270983,7 +270910,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.95 (obj-device-electronics-arcade · 0.979 at kit ×0.97)"
     }
    ]
   },
@@ -271103,6 +271030,13 @@
     "metal-iron-cast",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 8035 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -271213,7 +271147,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.979 at kit ×0.97)"
     }
    ]
   },
@@ -271281,7 +271215,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.3 over max 0.95 (obj-device-electronics-arcade · 1.313 at kit ×0.99)"
+     "text": "longest 1.3 over max 0.95 (obj-device-electronics-arcade · 1.34 at kit ×0.97)"
     }
    ]
   },
@@ -271558,7 +271492,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-transport-pallet · 0.253 at kit ×0.99)"
+     "text": "longest 0.25 under min 0.3 (obj-transport-pallet · 0.258 at kit ×0.97)"
     }
    ]
   },
@@ -271723,7 +271657,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.928 at kit ×0.97)"
     },
     {
      "level": "error",
@@ -272178,7 +272112,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.928 at kit ×0.97)"
     }
    ]
   },
@@ -272476,7 +272410,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.9 (str-fixture-marker-sign · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.9 (str-fixture-marker-sign · 0.928 at kit ×0.97)"
     }
    ]
   },
@@ -272588,7 +272522,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.928 at kit ×0.97)"
     },
     {
      "level": "error",
@@ -272700,7 +272634,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.606 at kit ×0.99)"
+     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.619 at kit ×0.97)"
     }
    ]
   },
@@ -273310,7 +273244,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.928 at kit ×0.97)"
     },
     {
      "level": "error",
@@ -273633,7 +273567,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.928 at kit ×0.97)"
     }
    ]
   },
@@ -273746,6 +273680,13 @@
     "metal-iron-cast",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5691 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -274356,7 +274297,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.928 at kit ×0.97)"
     }
    ]
   },
@@ -274425,7 +274366,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.85 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.859 at kit ×0.99)"
+     "text": "longest 0.85 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.876 at kit ×0.97)"
     },
     {
      "level": "error",
@@ -275263,7 +275204,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.95 (obj-device-electronics-arcade · 1.01 at kit ×0.99)"
+     "text": "longest 1 over max 0.95 (obj-device-electronics-arcade · 1.031 at kit ×0.97)"
     }
    ]
   },
@@ -276085,7 +276026,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-device-electronics-arcade · 0.404 at kit ×0.99)"
+     "text": "longest 0.4 under min 0.45 (obj-device-electronics-arcade · 0.412 at kit ×0.97)"
     }
    ]
   },
@@ -276155,7 +276096,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.95 (obj-device-electronics-arcade · 1.01 at kit ×0.99)"
+     "text": "longest 1 over max 0.95 (obj-device-electronics-arcade · 1.031 at kit ×0.97)"
     }
    ]
   },
@@ -276382,7 +276323,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (str-fixture-marker-sign · 0.303 at kit ×0.99)"
+     "text": "longest 0.3 under min 0.35 (str-fixture-marker-sign · 0.309 at kit ×0.97)"
     }
    ]
   },
@@ -276548,6 +276489,13 @@
     "metal-gold",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 6294 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -277011,7 +276959,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.2 over max 1.2 (str-canopy-stall · 1.212 at kit ×0.99)"
+     "text": "longest 1.2 over max 1.2 (str-canopy-stall · 1.237 at kit ×0.97)"
     }
    ]
   },
@@ -277199,6 +277147,13 @@
     "metal-iron-steel",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "tpu 6892 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -277261,7 +277216,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.55 (obj-device-appliance-stove · 0.606 at kit ×0.99)"
+     "text": "longest 0.6 over max 0.55 (obj-device-appliance-stove · 0.619 at kit ×0.97)"
     }
    ]
   },
@@ -277461,7 +277416,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.7 over max 0.6 (obj-furnishing-furniture-table · 0.707 at kit ×0.99)"
+     "text": "high 0.7 over max 0.6 (obj-furnishing-furniture-table · 0.722 at kit ×0.97)"
     },
     {
      "level": "warning",
@@ -277530,6 +277485,13 @@
     "metal-iron-wrought",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5146 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -277592,6 +277554,13 @@
     "metal-iron-wrought",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5592 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -277659,7 +277628,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.85 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.859 at kit ×0.99)"
+     "text": "longest 0.85 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.876 at kit ×0.97)"
     }
    ]
   },
@@ -277877,7 +277846,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.202 at kit ×0.99)"
+     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.206 at kit ×0.97)"
     }
    ]
   },
@@ -279635,7 +279604,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (str-fixture-marker-sign · 0.303 at kit ×0.99)"
+     "text": "longest 0.3 under min 0.35 (str-fixture-marker-sign · 0.309 at kit ×0.97)"
     }
    ]
   },
@@ -279914,7 +279883,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.808 at kit ×0.99)"
+     "text": "longest 0.8 over max 0.8 (obj-furnishing-furniture-storage-shelf · 0.825 at kit ×0.97)"
     }
    ]
   },
@@ -279966,7 +279935,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 over max 0.3 (obj-container-pot-jar · 0.303 at kit ×0.99)"
+     "text": "longest 0.3 over max 0.3 (obj-container-pot-jar · 0.309 at kit ×0.97)"
     }
    ]
   },
@@ -280071,7 +280040,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.928 at kit ×0.97)"
     }
    ]
   },
@@ -280328,6 +280297,13 @@
     "metal-iron-cast",
     "plastic",
     "sidequest"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.35 under min 0.4 (obj-device-electronics-vending · 0.361 at kit ×0.97)"
+    }
    ]
   },
   {
@@ -281062,7 +281038,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 17773 over max 10000 (obj)"
+     "text": "tpu 17773 over max 5000 (obj-device)"
     }
    ]
   },
@@ -281121,7 +281097,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.6 over max 0.6 (obj-furnishing-furniture-table · 0.606 at kit ×0.99)"
+     "text": "high 0.6 over max 0.6 (obj-furnishing-furniture-table · 0.619 at kit ×0.97)"
     },
     {
      "level": "error",
@@ -281196,7 +281172,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 41796 over max 10000 (obj)"
+     "text": "tpu 41796 over max 5000 (obj-device)"
     }
    ]
   },
@@ -281266,7 +281242,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 24737 over max 10000 (obj)"
+     "text": "tpu 24737 over max 5000 (obj-device)"
     }
    ]
   },
@@ -281330,7 +281306,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 50771 over max 10000 (obj)"
+     "text": "tpu 50771 over max 5000 (obj-device)"
     }
    ]
   },
@@ -281500,7 +281476,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (str-fixture-marker-sign · 0.303 at kit ×0.99)"
+     "text": "longest 0.3 under min 0.35 (str-fixture-marker-sign · 0.309 at kit ×0.97)"
     }
    ]
   },
@@ -282483,7 +282459,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.909 at kit ×0.99)"
+     "text": "longest 0.9 over max 0.85 (obj-furnishing-furniture-storage-cabinet · 0.928 at kit ×0.97)"
     }
    ]
   },
@@ -282736,7 +282712,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.9 (str-fixture-marker-sign · 0.96 at kit ×0.99)"
+     "text": "longest 0.95 over max 0.9 (str-fixture-marker-sign · 0.979 at kit ×0.97)"
     }
    ]
   },
@@ -284167,7 +284143,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.7 (obj-container-crate · 0.935 at kit ×1.07)"
+     "text": "longest 1 over max 0.7 (obj-container-crate · 0.926 at kit ×1.08)"
     }
    ]
   },
@@ -284226,7 +284202,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.7 (obj-container-crate · 0.935 at kit ×1.07)"
+     "text": "longest 1 over max 0.7 (obj-container-crate · 0.926 at kit ×1.08)"
     }
    ]
   },
@@ -284628,17 +284604,11 @@
     "#8b5936"
    ],
    "tags": [
+    "comp",
     "styloo",
     "wood-beam"
    ],
-   "variant": "v551",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.1 under min 0.35 (str-barrier-fence · 0.093 at kit ×1.07)"
-    }
-   ]
+   "variant": "v551"
   },
   {
    "kit": "styloo-farm",
@@ -284675,17 +284645,11 @@
     "#8b5936"
    ],
    "tags": [
+    "comp",
     "styloo",
     "wood-beam"
    ],
-   "variant": "v551",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.1 under min 0.35 (str-barrier-fence · 0.093 at kit ×1.07)"
-    }
-   ]
+   "variant": "v551"
   },
   {
    "kit": "styloo-farm",
@@ -284721,17 +284685,11 @@
     "#8b5936"
    ],
    "tags": [
+    "comp",
     "styloo",
     "wood-beam"
    ],
-   "variant": "v551",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.1 under min 0.35 (str-barrier-fence · 0.093 at kit ×1.07)"
-    }
-   ]
+   "variant": "v551"
   },
   {
    "kit": "styloo-farm",
@@ -284775,7 +284733,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
     }
    ]
   },
@@ -284828,7 +284786,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
     }
    ]
   },
@@ -284881,7 +284839,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
     }
    ]
   },
@@ -284934,7 +284892,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
     }
    ]
   },
@@ -285124,7 +285082,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.215 at kit ×1.07)"
+     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.204 at kit ×1.08)"
     }
    ]
   },
@@ -285182,7 +285140,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.215 at kit ×1.07)"
+     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.204 at kit ×1.08)"
     }
    ]
   },
@@ -285364,7 +285322,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.374 at kit ×1.07)"
+     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.37 at kit ×1.08)"
     }
    ]
   },
@@ -285487,7 +285445,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.417 at kit ×1.08)"
     }
    ]
   },
@@ -285534,7 +285492,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.324 at kit ×1.08)"
     },
     {
      "level": "error",
@@ -285624,7 +285582,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.324 at kit ×1.08)"
     }
    ]
   },
@@ -286293,7 +286251,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (env-terrain-rock-cobble · 0.14 at kit ×1.07)"
+     "text": "longest 0.15 under min 0.15 (env-terrain-rock-cobble · 0.139 at kit ×1.08)"
     }
    ]
   },
@@ -291359,6 +291317,13 @@
     "glass",
     "plastic",
     "styloo"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "tpu 5437 over max 5000 (obj-device)"
+    }
    ]
   },
   {
@@ -300034,11 +299999,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
     }
    ]
   },
