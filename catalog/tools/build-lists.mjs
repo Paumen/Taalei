@@ -326,7 +326,12 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
 
     const pbr =
       attributes.TEXCOORD_0 !== undefined
-        ? { baseColorTexture: { index: beeldIndex.get(textuurNaam) }, metallicFactor: 0, roughnessFactor: 1 }
+        ? {
+            baseColorTexture: { index: beeldIndex.get(textuurNaam) },
+            ...(kleuren[n] ? { baseColorFactor: [...kleuren[n].map((v) => (v / 255) ** 2.2), 1] } : {}),
+            metallicFactor: 0,
+            roughnessFactor: 1,
+          }
         : {
             baseColorFactor: [
               ...(kleuren[n] ?? primitief.materiaal.kleur ?? [255, 255, 255]).map((v) => (v / 255) ** 2.2),
@@ -466,6 +471,12 @@ for (const bronkit of BRONKITS) {
   const { map, uitgepakt, modellen: bron } = bronModellen(bronkit);
   const afbeeldingen = alleBestanden(uitgepakt).filter((p) => AFBEELDINGEN.has(extname(p).toLowerCase()));
   const handkleuren = HANDKLEUREN[bronId(bronkit)] ?? HANDKLEUREN[bronkit.map] ?? {};
+  const kaartPad = join(uitgepakt, 'texture-map.json');
+  const textuurkaart = new Map(
+    existsSync(kaartPad)
+      ? Object.entries(JSON.parse(readFileSync(kaartPad, 'utf8'))).map(([bestand, regel]) => [basename(bestand), regel])
+      : [],
+  );
   const kit = bronkit.kit
     ? kitGegevens(bronkit.kit, BRONKITS.filter((b) => b.kit === bronkit.kit).length > 1 ? bronkit.naam : null)
     : { modellen: [], schaal: null, aantal: 0 };
@@ -586,8 +597,16 @@ for (const bronkit of BRONKITS) {
     for (const model of eigen) {
       const texturen = [];
       const kleuren = [];
+      const kaartregel = textuurkaart.get(basename(model.bestand));
       for (const primitief of model.primitieven) {
         const { textuur, naam } = primitief.materiaal;
+        const toegewezen = kaartregel?.materials?.[naam] ?? (kaartregel?.texture ? kaartregel : null);
+        if (toegewezen) {
+          const beeld = toegewezen.texture && vindTextuur(basename(toegewezen.texture), uitgepakt, afbeeldingen);
+          texturen.push(beeld?.zeker ? neemMee(beeld.pad) : null);
+          kleuren.push(toegewezen.tint ? uitHex(toegewezen.tint) : null);
+          continue;
+        }
         const gevonden = vindTextuur(textuur, uitgepakt, afbeeldingen);
         const gekozen = handkleuren[naam]
           ?? handkleuren[String(naam ?? '').replace(/\.\d+$/, '')]
