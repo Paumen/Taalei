@@ -309,7 +309,7 @@ for (const rij of config.modellen) {
     config.schaal * (rij.factor ?? 1),
     config.drempel,
     config.bron,
-    model.bestand,
+    bronkit.splitsPerMesh ? model.naam : model.bestand,
   );
   writeGlb(join(doel, `${rij.naam}.glb`), json, bin, writeFileSync);
   console.log(`${config.kit}/${rij.naam}  ${bron.driehoeken.length} tris`);
