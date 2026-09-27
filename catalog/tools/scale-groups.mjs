@@ -39,13 +39,13 @@ export const SCALE_TABS = [
   {
     id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
     branches: ['obj', 'obj-kitchenware', 'obj-furnishing', 'obj-food',
-      'obj-lighting', 'obj-resource'],
+      'obj-furnishing-light', 'obj-resource'],
   },
   { id: 'obj-container', name: 'Obj container', file: 'scale-obj-container.html', branches: ['obj-container'] },
   { id: 'obj-transport', name: 'Obj transport', file: 'scale-obj-transport.html', branches: ['obj-transport'] },
   {
     id: 'obj-equip', name: 'Obj equip', file: 'scale-obj-equip.html',
-    branches: ['obj-equipment', 'obj-tool', 'char'],
+    branches: ['obj-equipment', 'obj-equipment-tool', 'char'],
   },
   { id: 'str-gen', name: 'Str gen', file: 'scale-str-gen.html', branches: ['str'] },
   { id: 'str-part', name: 'Str part', file: 'scale-str-part.html', branches: ['str-part'] },
@@ -65,12 +65,12 @@ const tabOf = (kind) => {
   return best;
 };
 
-const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate',
+const TOP_VIEW = new Set(['obj-kitchenware-tableware-plate', 'obj-furnishing-textile-rug', 'obj-furnishing-textile-mat',
   'str-part-floor', 'obj-furnishing', 'env-remains', 'env-terrain-ground']);
 
 export const byLongest = (kind) => ownLongest(kind) && !TOP_VIEW.has(kind);
 
-const SHORT_RULER = new Set(['env-rock-pebble', 'env-remains-deadwood-branch',
+const SHORT_RULER = new Set(['env-terrain-rock-pebble', 'env-remains-deadwood-branch',
   'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
   'obj-container-chest', 'obj-container-bucket', 'obj-food',
   'obj-resource', 'obj-equipment-weapon-melee-dagger', 'obj-equipment-weapon-ranged-arrow']);
