@@ -6519,5 +6519,51 @@ window.KENNEY_KITS = [
    "tower-c",
    "tower-d"
   ]
+ },
+ {
+  "slug": "rgp-explosives",
+  "name": "rgp-explosives",
+  "url": null,
+  "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-explosives/LICENSE.txt.",
+  "models": [
+   "ammo-crate",
+   "barrel-tnt",
+   "bomb-a",
+   "bomb-b",
+   "bomb-c",
+   "claymore",
+   "dynamite-a",
+   "dynamite-b",
+   "dynamite-bundle-a",
+   "dynamite-bundle-b",
+   "dynamite-c",
+   "dynamite-d",
+   "grenade-stick"
+  ]
+ },
+ {
+  "slug": "rgp-vintage",
+  "name": "rgp-vintage",
+  "url": null,
+  "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-vintage/LICENSE.txt.",
+  "models": [
+   "armchair",
+   "beam",
+   "book-open",
+   "chair",
+   "clock",
+   "coat-rack",
+   "console-table",
+   "floor-parquet",
+   "globe",
+   "gramophone",
+   "gramophone-record",
+   "keys",
+   "record",
+   "sofa",
+   "telescope",
+   "umbrella",
+   "wall-panelled"
+  ]
  }
 ]

@@ -84,7 +84,11 @@ function loadPack(map) {
   const bronkit = BRONKITS.find((k) => bronId(k) === map);
   if (!bronkit) throw new Error(`no pack ${map} in bronkits.mjs`);
   const { modellen, uitgepakt } = bronModellen(bronkit);
-  const loaded = { bronkit, modellen, images: alleBestanden(uitgepakt).filter((f) => /\.(png|jpe?g)$/i.test(f)) };
+  const mapPath = join(uitgepakt, 'texture-map.json');
+  const textureMap = new Map(existsSync(mapPath)
+    ? Object.entries(JSON.parse(readFileSync(mapPath, 'utf8'))).map(([file, rule]) => [basename(file), rule])
+    : []);
+  const loaded = { bronkit, modellen, textureMap, images: alleBestanden(uitgepakt).filter((f) => /\.(png|jpe?g)$/i.test(f)) };
   packs.set(map, loaded);
   return loaded;
 }
@@ -123,10 +127,18 @@ function findTexture(wanted, images) {
   return images.find((f) => basename(f).toLowerCase() === name) ?? (images.length === 1 ? images[0] : null);
 }
 
-function sourceColors(primitive, images) {
+function mapped(primitive, rule) {
+  const assigned = rule?.materials?.[primitive.materiaal.naam] ?? (rule?.texture ? rule : null);
+  if (!assigned) return primitive.materiaal;
+  const tint = assigned.tint && [0, 2, 4].map((k) => parseInt(assigned.tint.replace('#', '').slice(k, k + 2), 16));
+  return { textuur: assigned.texture ? basename(assigned.texture) : null, kleur: tint || primitive.materiaal.kleur };
+}
+
+function sourceColors(primitive, images, rule) {
   const count = primitive.posities.length / 3;
   const out = new Array(count);
-  const texture = findTexture(primitive.materiaal.textuur, images);
+  const material = mapped(primitive, rule);
+  const texture = findTexture(material.textuur, images);
   if (texture && primitive.uvs) {
     const png = readImage(texture);
     for (let i = 0; i < count; i++) {
@@ -137,25 +149,25 @@ function sourceColors(primitive, images) {
     }
     return out;
   }
-  const flat = primitive.materiaal.kleur ?? [255, 255, 255];
+  const flat = material.kleur ?? [255, 255, 255];
   for (let i = 0; i < count; i++) out[i] = flat;
   return out;
 }
 
 const apart = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
 
-function clusters(model, images, threshold) {
+function clusters(model, images, threshold, rule) {
   const groups = [];
   for (const primitive of model.primitieven) {
     const counted = new Map();
-    for (const color of sourceColors(primitive, images)) {
+    for (const color of sourceColors(primitive, images, rule)) {
       const key = color.join(',');
       const seen = counted.get(key);
       if (seen) seen.n++;
       else counted.set(key, { color, n: 1 });
     }
     const colors = [...counted.values()].sort((a, b) => b.n - a.n);
-    if (!primitive.materiaal.textuur) {
+    if (!mapped(primitive, rule).textuur) {
       for (const one of colors) groups.push({ colors: [one], flat: true });
       continue;
     }
@@ -269,11 +281,12 @@ function insetInnerTwins(positions, normals, triangles) {
 
 function adopt(entry) {
   const { pack, src, kit, name, bands, threshold = 48 } = entry;
-  const { bronkit, modellen, images } = loadPack(pack);
+  const { bronkit, modellen, images, textureMap } = loadPack(pack);
   const model = modellen.find((m) => m.naam === src);
   if (!model) throw new Error(`${pack}: no model ${src}`);
+  const rule = textureMap.get(basename(model.bestand));
 
-  const groups = clusters(model, images, threshold);
+  const groups = clusters(model, images, threshold, rule);
   if (!bands) return { groups };
   if (bands.length !== groups.length) {
     throw new Error(`${kit}/${name}: ${groups.length} source colours, ${bands.length} bands given`);
@@ -311,7 +324,7 @@ function adopt(entry) {
   const known = new Map();
 
   for (const primitive of model.primitieven) {
-    const colors = sourceColors(primitive, images);
+    const colors = sourceColors(primitive, images, rule);
     const vertex = (index, band) => {
       const position = [0, 1, 2].map((k) => Math.fround(primitive.posities[index * 3 + k] - middle[k]));
       const normal = primitive.normalen
