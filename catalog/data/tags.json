@@ -11097,7 +11097,7 @@
    "id": "obj-device-appliance",
    "name": "Appliance",
    "type": "kind",
-   "description": "Powered appliance for kitchen or home: fridge, stove, oven, washer, dryer, coffee machine, fan.",
+   "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
    "models": [
     "cooking-assets/rice-cooker",
     "cooking-assets/toaster-oven",
@@ -11189,7 +11189,7 @@
    "id": "obj-device-electronics",
    "name": "Electronics",
    "type": "kind",
-   "description": "Electronic device: television, computer, speaker, camera, phone, battery.",
+   "description": "Electronic device: television, computer, speaker, camera, phone, battery, cash register, console.",
    "models": [
     "isa-bakery/cash-register-anim",
     "isa-bakery/cash-register",
@@ -11973,7 +11973,7 @@
    "id": "obj-equipment",
    "name": "Equipment",
    "type": "kind",
-   "description": "Carried or worn gear with no leaf that fits, such as gym weights.",
+   "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
    "color": "#6b5b95",
    "models": [
     "sq-gym/barbell-loaded",
@@ -12007,7 +12007,7 @@
    "id": "obj-equipment-apparel",
    "name": "Apparel",
    "type": "kind",
-   "description": "cape, cloak, robe, hat, hood, boots, shoes, belt, glove",
+   "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, glasses, umbrella, hand fan.",
    "models": [
     "kay-skeleton-1/mage-cloak",
     "kay-skeleton-1/mage-cowl",
@@ -12677,7 +12677,7 @@
    "id": "obj-furnishing-textile-rug",
    "name": "Rug",
    "type": "kind",
-   "description": "rug, carpet, picnic blanket",
+   "description": "Flat textile on the floor: rug, carpet, doormat, picnic blanket, folded or spread.",
    "models": [
     "isa-bakery/rug",
     "isa-homely/doormat",
@@ -12706,7 +12706,7 @@
    "id": "obj-furnishing-bathroom",
    "name": "Bathroom",
    "type": "kind",
-   "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail.",
+   "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail, changing stall.",
    "models": [
     "ken-furniture/toilet",
     "ken-furniture/toilet-square",
@@ -13153,7 +13153,7 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit",
+   "description": "grill, spit, mortar and pestle, pepper mill, kitchen scale",
    "models": [
     "ken-food/steamer",
     "cooking-assets/mortar-and-pestle",
@@ -13810,7 +13810,7 @@
   },
   {
    "id": "str-fixture-light-post",
-   "name": "On post",
+   "name": "Lamp post",
    "type": "kind",
    "description": "lamp post, street lamp, lantern post",
    "models": [
@@ -14272,7 +14272,7 @@
    "id": "obj-equipment-tool-station",
    "name": "Station",
    "type": "kind",
-   "description": "Tool too heavy to carry, worked at where it stands.",
+   "description": "Tool too heavy to carry, worked at where it stands: anvil, grindstone, bellows, forge hearth.",
    "models": [
     "kay-tools/anvil",
     "kay-tools/grindstone",
@@ -16446,7 +16446,7 @@
    "id": "env-terrain-ground",
    "name": "Ground",
    "type": "kind",
-   "description": "ground, dirt path, stone path, sand, snow patch",
+   "description": "ground, dirt path, stone path, sand, snow patch, farm field, crop row",
    "models": [
     "rgp-asia/tree-bed",
     "kay-hallow/path-a",
@@ -17767,7 +17767,7 @@
    "id": "str-fixture-marker-grave",
    "name": "Grave",
    "type": "kind",
-   "description": "Stone, cross or slab that marks a grave.",
+   "description": "Stone, cross, slab, mound or border that marks a grave.",
    "models": [
     "aq-hallow/gravestone-a",
     "aq-hallow/gravestone-b",
@@ -18272,7 +18272,7 @@
    "id": "obj-leisure-art-sculpture",
    "name": "Sculpture",
    "type": "kind",
-   "description": "Statue.",
+   "description": "Statue or sculpted figure, including snowmen and sandcastles.",
    "models": [
     "isa-playground/sandcastle-a",
     "isa-playground/sandcastle-b",
@@ -18693,7 +18693,7 @@
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement.",
+   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, satellite dish, wind turbine.",
    "models": [
     "kay-city/fire-hydrant",
     "kay-mixed/fire-hydrant",
@@ -18773,7 +18773,7 @@
    "id": "str-fixture-utility-pipe",
    "name": "Pipe",
    "type": "kind",
-   "description": "Large standing pipework: straight, bent and branching sections and valves.",
+   "description": "Large standing pipework or water channel: straight, bent and branching sections, valves, flume sections.",
    "models": [
     "fs-town/waterwheel-flume-brace-double",
     "fs-town/waterwheel-flume-brace",
@@ -18859,7 +18859,7 @@
    "id": "str-fixture-leisure-playground",
    "name": "Playground",
    "type": "kind",
-   "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes.",
+   "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes, stepping stumps.",
    "color": "#e0a93b",
    "models": [
     "isa-playground/merry-go-round-anim",
@@ -20638,7 +20638,10 @@
     "ken-factory/structure-yellow-short",
     "ken-factory/structure-yellow-tall",
     "ken-space/rocket-fins-b",
-    "sq-bowling/lane-section"
+    "sq-bowling/lane-section",
+    "styloo-farm/fence-rail",
+    "styloo-farm/fence-rail-clean",
+    "styloo-farm/fence-rail-mirror"
    ]
   },
   {

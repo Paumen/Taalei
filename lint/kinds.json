@@ -13,7 +13,8 @@
    "nouns": [
     "barrel stand",
     "easel",
-    "signboard (freestanding)"
+    "signboard (freestanding)",
+    "fire extinguisher"
    ],
    "children": [
     {
@@ -418,7 +419,8 @@
         "grill",
         "spit",
         "trivet",
-        "pot holder"
+        "pot holder",
+        "kitchen scale"
        ],
        "children": [
         {
@@ -994,7 +996,15 @@
     },
     {
      "id": "obj-equipment",
-     "nouns": [],
+     "nouns": [
+      "dumbbell",
+      "barbell",
+      "kettlebell",
+      "weight plate",
+      "treadmill",
+      "exercise bike",
+      "power rack"
+     ],
      "children": [
       {
        "id": "obj-equipment-armor",
@@ -1306,7 +1316,10 @@
         "boots",
         "shoes",
         "belt",
-        "umbrella"
+        "umbrella",
+        "glasses",
+        "sunglasses",
+        "hand fan"
        ],
        "children": [
         {
@@ -1572,7 +1585,8 @@
           "anvil",
           "grinder",
           "grindstone",
-          "workbench (grinding)"
+          "workbench (grinding)",
+          "forge (hearth)"
          ]
         },
         {
@@ -1922,7 +1936,8 @@
         "shower",
         "bathroom sink",
         "bathroom mirror",
-        "towel rail"
+        "towel rail",
+        "changing stall"
        ]
       },
       {
@@ -2030,7 +2045,10 @@
          "nouns": [
           "chest of drawers",
           "dresser",
-          "coat rack"
+          "coat rack",
+          "weapon rack",
+          "weapon stand",
+          "plate tree"
          ],
          "children": [
           {
@@ -2088,7 +2106,9 @@
          "nouns": [
           "rug",
           "carpet",
-          "picnic blanket"
+          "picnic blanket",
+          "doormat",
+          "folded blanket"
          ]
         }
        ]
@@ -2096,12 +2116,21 @@
      ]
     },
     {
-     "nouns": [],
      "id": "obj-device",
+     "tpu.max": 5000,
+     "nouns": [],
      "children": [
       {
        "id": "obj-device-appliance",
-       "nouns": [],
+       "nouns": [
+        "washing machine",
+        "washer",
+        "dryer",
+        "coffee machine",
+        "microwave",
+        "ceiling fan",
+        "water cooler"
+       ],
        "children": [
         {
          "id": "obj-device-appliance-blender",
@@ -2211,6 +2240,9 @@
          ]
         },
         {
+         "id": "obj-device-electronics-vending",
+         "longest.min": 0.4,
+         "longest.max": 1.1,
          "nouns": [
           "vending machine",
           "atm",
@@ -2218,8 +2250,7 @@
           "coin changer",
           "token changer",
           "gacha machine"
-         ],
-         "id": "obj-device-electronics-vending"
+         ]
         }
        ]
       },
@@ -2250,7 +2281,9 @@
          "id": "obj-leisure-art-sculpture",
          "nouns": [
           "statue",
-          "obelisk"
+          "obelisk",
+          "snowman",
+          "sandcastle"
          ]
         },
         {
@@ -2691,8 +2724,7 @@
             "waterwheel",
             "water wheel",
             "windmill blade",
-            "sail (windmill)",
-            "wind turbine"
+            "sail (windmill)"
            ]
           }
          ]
@@ -2992,7 +3024,9 @@
           "tombstone",
           "tomb",
           "cross (grave)",
-          "memorial"
+          "memorial",
+          "grave border",
+          "grave mound"
          ]
         },
         {
@@ -3013,7 +3047,8 @@
        "nouns": [
         "fire hydrant",
         "utility pole",
-        "power line"
+        "power line",
+        "wind turbine"
        ],
        "children": [
         {
@@ -3066,7 +3101,9 @@
          "nouns": [
           "pipe",
           "pipe section",
-          "pipe valve"
+          "pipe valve",
+          "flume",
+          "water channel"
          ]
         },
         {
@@ -3107,8 +3144,8 @@
        "children": [
         {
          "id": "str-fixture-leisure-playground",
-         "longest.min": 0.05,
-         "longest.max": 30,
+         "longest.min": 0.08,
+         "longest.max": 3,
          "mat.metal-iron": "metal-iron-steel",
          "nouns": [
           "slide",
@@ -3126,6 +3163,7 @@
       {
        "id": "str-fixture-light",
        "tube.min": 0.006,
+       "mat.metal-iron": "metal-iron-wrought",
        "nouns": [
         "stone lantern"
        ],
@@ -3144,6 +3182,7 @@
          "id": "str-fixture-light-street",
          "longest.min": 0.9,
          "longest.max": 2,
+         "mat.metal-iron": "metal-iron-steel",
          "nouns": [
           "street light",
           "street lantern"
@@ -3189,7 +3228,8 @@
       "crab",
       "lobster",
       "frog",
-      "snail"
+      "snail",
+      "worm"
      ],
      "children": [
       {
@@ -3411,7 +3451,10 @@
         "stone path",
         "cobbled path",
         "sand",
-        "snow patch"
+        "snow patch",
+        "farm field",
+        "farm plot",
+        "crop row"
        ]
       }
      ]

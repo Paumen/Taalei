@@ -349,7 +349,7 @@
    "high.max": 8,
    "longest.min": 0.35,
    "longest.max": 0.8,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -427,7 +427,7 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -495,7 +495,7 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -1239,7 +1239,7 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -1758,7 +1758,7 @@
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.7,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -4599,11 +4599,12 @@
   "slug": "obj-device-electronics-vending",
   "name": "Object › Device › Electronics › Vending",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
+   "longest.min": 0.4,
+   "longest.max": 1.1,
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -6754,6 +6755,7 @@
   "slug": "obj-leisure-game",
   "name": "Object › Leisure › Game",
   "category": "obj-gen",
+  "rulerHeight": 0.6,
   "limits": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -7679,7 +7681,7 @@
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 0.9,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -10696,7 +10698,7 @@
    "high.max": 8,
    "longest.min": 0.25,
    "longest.max": 0.55,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -10972,7 +10974,7 @@
    "high.max": 8,
    "longest.min": 0.25,
    "longest.max": 0.75,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -13551,7 +13553,7 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -18974,7 +18976,7 @@
   "slug": "obj-furnishing-textile-rug",
   "name": "Object › Furnishing › Textile › Rug",
   "category": "obj-gen",
-  "byLongest": true,
+  "topView": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.5,
@@ -19747,7 +19749,7 @@
    "high.max": 8,
    "longest.min": 0.45,
    "longest.max": 0.95,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -21140,7 +21142,7 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -23836,7 +23838,7 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
@@ -55297,7 +55299,7 @@
  },
  {
   "slug": "str-fixture-light-post",
-  "name": "Structure › Fixture › Light › On post",
+  "name": "Structure › Fixture › Light › Lamp post",
   "category": "str-gen",
   "byLongest": true,
   "limits": {
@@ -58201,6 +58203,363 @@
   ]
  },
  {
+  "slug": "str-barrier-fence",
+  "name": "Structure › Barrier › Fence",
+  "category": "str-gen",
+  "limits": {
+   "high.min": 0.35,
+   "high.max": 0.85,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "ken-racing",
+    "model": "fence-curved",
+    "wdh": [
+     1.2,
+     0.4,
+     1
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "textile"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "rail-corner",
+    "wdh": [
+     1.15,
+     1.15,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "rail",
+    "wdh": [
+     1.05,
+     0.07,
+     0.35
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-station",
+    "model": "balcony-rail-center",
+    "wdh": [
+     1,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-station",
+    "model": "balcony-rail",
+    "wdh": [
+     1,
+     0.7,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-station",
+    "model": "rail-narrow",
+    "wdh": [
+     0.5,
+     0.1,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#82868e",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-station",
+    "model": "rail",
+    "wdh": [
+     1,
+     0.1,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#82868e",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "fence-branch-a",
+    "wdh": [
+     1.45,
+     0.2,
+     0.6
+    ],
+    "tags": [
+     "rgp",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "fence-branch-b",
+    "wdh": [
+     1.45,
+     0.2,
+     0.65
+    ],
+    "tags": [
+     "rgp",
+     "wood-bark"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "fence-picket",
+    "wdh": [
+     1.55,
+     0.05,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "palisade-a",
+    "wdh": [
+     1.5,
+     0.2,
+     1.45
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "rope",
+     "wood-bark",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#563b2b",
+     "#8b5936",
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "palisade-b",
+    "wdh": [
+     1.5,
+     0.2,
+     1.45
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "rope",
+     "wood-bark",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#563b2b",
+     "#8b5936",
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "rock-fence-a",
+    "wdh": [
+     2.3,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "rgp",
+     "rope",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "rock-fence-b",
+    "wdh": [
+     1.4,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "rgp",
+     "rope",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "rock-fence-c",
+    "wdh": [
+     2.15,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "rgp",
+     "rope",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#8b5936",
+     "#8b7561",
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "sq-casino",
+    "collection": "sq-props",
+    "model": "rail-section",
+    "wdh": [
+     0.6,
+     0.03,
+     0.45
+    ],
+    "tags": [
+     "metal-gold",
+     "sidequest"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "rink-barrier-corner",
+    "wdh": [
+     0.55,
+     0.55,
+     0.45
+    ],
+    "tags": [
+     "plastic",
+     "rubber",
+     "sidequest"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "rink-barrier-straight",
+    "wdh": [
+     1,
+     0.07,
+     0.45
+    ],
+    "tags": [
+     "plastic",
+     "rubber",
+     "sidequest"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-fixture-utility-pipe",
   "name": "Structure › Fixture › Utility › Pipe",
   "category": "str-gen",
@@ -60358,411 +60717,6 @@
   ]
  },
  {
-  "slug": "str-barrier-fence",
-  "name": "Structure › Barrier › Fence",
-  "category": "str-gen",
-  "limits": {
-   "high.min": 0.35,
-   "high.max": 0.85,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "ken-racing",
-    "model": "fence-curved",
-    "wdh": [
-     1.2,
-     0.4,
-     1
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "textile"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "rail-corner",
-    "wdh": [
-     1.15,
-     1.15,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "rail",
-    "wdh": [
-     1.05,
-     0.07,
-     0.35
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-station",
-    "model": "balcony-rail-center",
-    "wdh": [
-     1,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-station",
-    "model": "balcony-rail",
-    "wdh": [
-     1,
-     0.7,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-station",
-    "model": "rail-narrow",
-    "wdh": [
-     0.5,
-     0.1,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#82868e",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-station",
-    "model": "rail",
-    "wdh": [
-     1,
-     0.1,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#82868e",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "fence-branch-a",
-    "wdh": [
-     1.45,
-     0.2,
-     0.6
-    ],
-    "tags": [
-     "rgp",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "fence-branch-b",
-    "wdh": [
-     1.45,
-     0.2,
-     0.65
-    ],
-    "tags": [
-     "rgp",
-     "wood-bark"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "fence-picket",
-    "wdh": [
-     1.55,
-     0.05,
-     0.7
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "palisade-a",
-    "wdh": [
-     1.5,
-     0.2,
-     1.45
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "rope",
-     "wood-bark",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#563b2b",
-     "#8b5936",
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "palisade-b",
-    "wdh": [
-     1.5,
-     0.2,
-     1.45
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "rope",
-     "wood-bark",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#563b2b",
-     "#8b5936",
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "rock-fence-a",
-    "wdh": [
-     2.3,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "rgp",
-     "rope",
-     "stone-rock",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561",
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "rock-fence-b",
-    "wdh": [
-     1.4,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "rgp",
-     "rope",
-     "stone-rock",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561",
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "rock-fence-c",
-    "wdh": [
-     2.15,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "rgp",
-     "rope",
-     "stone-rock",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936",
-     "#8b7561",
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "sq-casino",
-    "collection": "sq-props",
-    "model": "rail-section",
-    "wdh": [
-     0.6,
-     0.03,
-     0.45
-    ],
-    "tags": [
-     "metal-gold",
-     "sidequest"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "rink-barrier-corner",
-    "wdh": [
-     0.55,
-     0.55,
-     0.45
-    ],
-    "tags": [
-     "plastic",
-     "rubber",
-     "sidequest"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "rink-barrier-straight",
-    "wdh": [
-     1,
-     0.07,
-     0.45
-    ],
-    "tags": [
-     "plastic",
-     "rubber",
-     "sidequest"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "fence-rail-clean",
-    "wdh": [
-     0.5,
-     0.04,
-     0.1
-    ],
-    "tags": [
-     "styloo",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "fence-rail-mirror",
-    "wdh": [
-     0.5,
-     0.04,
-     0.1
-    ],
-    "tags": [
-     "styloo",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "fence-rail",
-    "wdh": [
-     0.5,
-     0.04,
-     0.1
-    ],
-    "tags": [
-     "styloo",
-     "wood-beam"
-    ],
-    "colors": [
-     "#8b5936"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-barrier-traffic",
   "name": "Structure › Barrier › Traffic",
   "category": "str-gen",
@@ -62761,8 +62715,8 @@
   "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
+   "longest.min": 0.08,
+   "longest.max": 3,
    "tpu.max": 5000
   },
   "items": [
