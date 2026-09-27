@@ -42,6 +42,11 @@ not resolve. A pack whose only image is not the map the material asks for gets
 that image anyway, so wrongly mapped colour is the same failure. Fix either by
 hand in `catalog/data/preview-colors.json`, keyed by pack and then by material or
 texture name; a hand colour beats every texture but an exact name match.
+A pack whose zip leaves out its textures can take them in a second zip in the
+same folder, with a `texture-map.json` at its root: per model file, a `texture`
+for the whole model or `materials` by material name, each with a `texture` and
+an optional `tint`. Models are matched by file name, textures by file name, and
+the map beats every other source.
 A map a preview carries goes in at 1024 texels at most, boxed down by a whole
 factor: a card holds its texture for as long as it is on the page, so a larger
 one costs the tab once per model in the pack.
