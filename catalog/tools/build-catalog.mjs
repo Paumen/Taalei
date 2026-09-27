@@ -369,6 +369,9 @@ const SOURCES = [
   { id: 'isa', name: 'Isa', description: 'Kits from Isa Lousberg (isalousberg.com).' },
   { id: 'wizp', name: 'WizP', description: 'Kits from WizP (wizp.itch.io).' },
   { id: 'rgp', name: 'RGP', description: 'Kits from RG Poly.' },
+  { id: 'styloo', name: 'Styloo', description: 'Kits from Styloo (styloo.itch.io).' },
+  { id: 'fs', name: 'FS', description: 'Kits from FS.' },
+  { id: 'lpa', name: 'LPA', description: 'Kits from LPA.' },
 ];
 
 function readSourcePerKit() {
