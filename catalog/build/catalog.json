@@ -169,15 +169,16 @@
     "Food Asset Pack": 22
    },
    "scales": {
-    "0.0046": 22
+    "0.005": 22
    },
    "smooth": {
     "90": 20,
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.19,
-    "kinds": 14
+    "factor": 1.3,
+    "kinds": 14,
+    "level": "warning"
    }
   },
   {
@@ -512,8 +513,7 @@
     "Low Poly Medieval Kitchen Furniture": 23
    },
    "scales": {
-    "0.7": 20,
-    "1.4": 3
+    "0.7": 23
    },
    "smooth": {
     "60": 23
@@ -796,14 +796,15 @@
     "KayKit Halloween Bits": 61
    },
    "scales": {
-    "0.25": 61
+    "0.3": 61
    },
    "smooth": {
     "none": 61
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 16
+    "factor": 1.28,
+    "kinds": 16,
+    "level": "warning"
    }
   },
   {
@@ -2562,14 +2563,14 @@
     "Modular Sushi Restaurant Kit": 77
    },
    "scales": {
-    "0.1955": 77
+    "0.2": 77
    },
    "smooth": {
     "60": 76,
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.04,
+    "factor": 1.07,
     "kinds": 25
    }
   },
@@ -2793,14 +2794,14 @@
     "Food and Kitchen Asset Pack": 33
    },
    "scales": {
-    "0.294": 24,
-    "0.588": 9
+    "0.3": 24,
+    "0.6": 9
    },
    "smooth": {
     "none": 33
    },
    "kitCheck": {
-    "factor": 0.85,
+    "factor": 0.86,
     "kinds": 22
    }
   },
@@ -17378,7 +17379,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2380
+   "count": 2377
   },
   {
    "id": "m",
@@ -17392,7 +17393,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 884
+   "count": 887
   },
   {
    "id": "ken",
@@ -32390,12 +32391,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6648,
+   "bytes": 6688,
    "vtx": 120,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00027,
+   "avgTri": 0.00032,
    "anglePct": 8,
    "vpt": 0.59,
    "grad": 0.59,
@@ -32416,6 +32417,13 @@
    "tags": [
     "food",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -32424,8 +32432,8 @@
    "kind": "obj-food-baked-bread-sandwich",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
+    0.2,
+    0.2,
     0.1
    ],
    "tris": 508,
@@ -32433,12 +32441,12 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 44308,
+   "bytes": 44348,
    "vtx": 1244,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00049,
+   "avgTri": 0.00058,
    "anglePct": 76,
    "vpt": 2.45,
    "grad": 0,
@@ -32480,7 +32488,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-baked-bread-sandwich · 0.126 at kit ×1.19)"
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
     }
    ]
   },
@@ -32490,8 +32498,8 @@
    "kind": "obj-food-baked-bread-sandwich",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
+    0.2,
+    0.2,
     0.1
    ],
    "tris": 343,
@@ -32499,12 +32507,12 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 27452,
+   "bytes": 27492,
    "vtx": 749,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00072,
+   "avgTri": 0.00085,
    "anglePct": 77,
    "vpt": 2.18,
    "grad": 0,
@@ -32541,7 +32549,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-baked-bread-sandwich · 0.126 at kit ×1.19)"
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
     }
    ]
   },
@@ -32553,19 +32561,19 @@
    "wdh": [
     0.03,
     0.03,
-    0.25
+    0.3
    ],
    "tris": 130,
    "tpu": 379,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5628,
+   "bytes": 5668,
    "vtx": 102,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00009,
+   "avgTri": 0.00011,
    "anglePct": 5,
    "vpt": 0.78,
    "grad": 0.39,
@@ -32586,6 +32594,13 @@
    "tags": [
     "foliage",
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -32596,19 +32611,19 @@
    "wdh": [
     0.2,
     0.2,
-    0.15
+    0.2
    ],
    "tris": 346,
    "tpu": 1009,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13196,
+   "bytes": 13240,
    "vtx": 297,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00037,
+   "avgTri": 0.00044,
    "anglePct": 65,
    "vpt": 0.86,
    "grad": 0.59,
@@ -32624,7 +32639,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v682"
+   "variant": "v682",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32634,19 +32656,19 @@
    "wdh": [
     0.2,
     0.2,
-    0.15
+    0.2
    ],
    "tris": 30,
    "tpu": 87,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2900,
+   "bytes": 2940,
    "vtx": 35,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.047,
-   "avgTri": 0.00354,
+   "minEdge": 0.051,
+   "avgTri": 0.00418,
    "anglePct": 70,
    "vpt": 1.17,
    "grad": 0.59,
@@ -32662,7 +32684,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v682"
+   "variant": "v682",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32671,20 +32700,20 @@
    "size": "s",
    "wdh": [
     0.35,
-    0.35,
-    0.15
+    0.4,
+    0.2
    ],
    "tris": 488,
    "tpu": 1423,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17048,
+   "bytes": 17092,
    "vtx": 390,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00071,
+   "avgTri": 0.00084,
    "anglePct": 50,
    "vpt": 0.8,
    "grad": 0.59,
@@ -32700,7 +32729,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v681"
+   "variant": "v681",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32709,20 +32745,20 @@
    "size": "s",
    "wdh": [
     0.35,
-    0.35,
-    0.15
+    0.4,
+    0.2
    ],
    "tris": 110,
    "tpu": 321,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4812,
+   "bytes": 4848,
    "vtx": 79,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.047,
-   "avgTri": 0.00283,
+   "minEdge": 0.051,
+   "avgTri": 0.00335,
    "anglePct": 48,
    "vpt": 0.72,
    "grad": 0.59,
@@ -32738,7 +32774,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v681"
+   "variant": "v681",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32746,21 +32789,21 @@
    "kind": "obj-food-dairy-cheese",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.15
+    0.4,
+    0.4,
+    0.2
    ],
    "tris": 120,
    "tpu": 350,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4272,
+   "bytes": 4316,
    "vtx": 62,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.047,
-   "avgTri": 0.00257,
+   "minEdge": 0.051,
+   "avgTri": 0.00303,
    "anglePct": 37,
    "vpt": 0.52,
    "grad": 0.6,
@@ -32776,7 +32819,14 @@
    "tags": [
     "food"
    ],
-   "variant": "v681"
+   "variant": "v681",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32793,12 +32843,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8184,
+   "bytes": 8224,
    "vtx": 171,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00008,
+   "avgTri": 0.0001,
    "anglePct": 41,
    "vpt": 0.91,
    "grad": 0.59,
@@ -32818,6 +32868,13 @@
    ],
    "tags": [
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -32826,7 +32883,7 @@
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.3,
+    0.35,
     0.25,
     0.2
    ],
@@ -32835,12 +32892,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5692,
+   "bytes": 5732,
    "vtx": 104,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00115,
+   "minEdge": 0.011,
+   "avgTri": 0.00136,
    "anglePct": 28,
    "vpt": 0.79,
    "grad": 0.58,
@@ -32861,6 +32918,13 @@
    "tags": [
     "bone",
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -32870,20 +32934,20 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.2,
-    0.02
+    0.25,
+    0.03
    ],
    "tris": 146,
    "tpu": 426,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7936,
+   "bytes": 7976,
    "vtx": 171,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00042,
+   "avgTri": 0.0005,
    "anglePct": 82,
    "vpt": 1.17,
    "grad": 0.6,
@@ -32904,6 +32968,13 @@
    "tags": [
     "bone",
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -32914,19 +32985,19 @@
    "wdh": [
     0.08,
     0.08,
-    0.08
+    0.09
    ],
    "tris": 118,
    "tpu": 344,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4308,
+   "bytes": 4348,
    "vtx": 63,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00014,
+   "minEdge": 0.004,
+   "avgTri": 0.00017,
    "anglePct": 7,
    "vpt": 0.53,
    "grad": 0.51,
@@ -32948,7 +33019,14 @@
     "food",
     "vegetation"
    ],
-   "variant": "v683"
+   "variant": "v683",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32958,19 +33036,19 @@
    "wdh": [
     0.08,
     0.08,
-    0.08
+    0.09
    ],
    "tris": 118,
    "tpu": 344,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4312,
+   "bytes": 4348,
    "vtx": 63,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00014,
+   "minEdge": 0.004,
+   "avgTri": 0.00017,
    "anglePct": 7,
    "vpt": 0.53,
    "grad": 0.51,
@@ -32992,7 +33070,14 @@
     "food",
     "vegetation"
    ],
-   "variant": "v683"
+   "variant": "v683",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -33009,12 +33094,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5396,
+   "bytes": 5436,
    "vtx": 93,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00016,
    "anglePct": 10,
    "vpt": 0.67,
    "grad": 0.53,
@@ -33036,7 +33121,14 @@
     "foliage",
     "food"
    ],
-   "variant": "v684"
+   "variant": "v684",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -33053,12 +33145,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5380,
+   "bytes": 5420,
    "vtx": 93,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "avgTri": 0.00016,
    "anglePct": 10,
    "vpt": 0.67,
    "grad": 0.53,
@@ -33080,7 +33172,14 @@
     "foliage",
     "food"
    ],
-   "variant": "v684"
+   "variant": "v684",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -33097,12 +33196,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6788,
+   "bytes": 6832,
    "vtx": 127,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00033,
+   "avgTri": 0.00039,
    "anglePct": 5,
    "vpt": 0.67,
    "grad": 0.51,
@@ -33129,6 +33228,13 @@
     "foliage",
     "food",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -33146,12 +33252,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8524,
+   "bytes": 8564,
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00022,
+   "minEdge": 0.005,
+   "avgTri": 0.00026,
    "anglePct": 2,
    "vpt": 0.55,
    "grad": 0.57,
@@ -33172,6 +33278,13 @@
    "tags": [
     "food",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -33180,8 +33293,8 @@
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
+    0.2,
+    0.2,
     0.35
    ],
    "tris": 308,
@@ -33189,12 +33302,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14192,
+   "bytes": 14232,
    "vtx": 336,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00039,
+   "minEdge": 0.006,
+   "avgTri": 0.00046,
    "anglePct": 1,
    "vpt": 1.09,
    "grad": 0.46,
@@ -33215,6 +33328,13 @@
    "tags": [
     "foliage",
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -33225,19 +33345,19 @@
    "wdh": [
     0.15,
     0.04,
-    0.07
+    0.08
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4496,
+   "bytes": 4536,
    "vtx": 75,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "avgTri": 0.00021,
+   "avgTri": 0.00024,
    "anglePct": 5,
    "vpt": 0.87,
    "grad": 0.59,
@@ -33252,6 +33372,13 @@
    ],
    "tags": [
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -33261,7 +33388,7 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.1,
+    0.15,
     0.01
    ],
    "tris": 180,
@@ -33269,12 +33396,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9748,
+   "bytes": 9788,
    "vtx": 222,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00016,
+   "avgTri": 0.00019,
    "anglePct": 89,
    "vpt": 1.23,
    "grad": 0.6,
@@ -33295,6 +33422,13 @@
    "tags": [
     "food",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -33303,21 +33437,21 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.09,
-    0.09,
-    0.08
+    0.1,
+    0.1,
+    0.09
    ],
    "tris": 230,
    "tpu": 671,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11248,
+   "bytes": 11288,
    "vtx": 259,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00011,
+   "avgTri": 0.00013,
    "anglePct": 10,
    "vpt": 1.13,
    "grad": 0.59,
@@ -33338,6 +33472,13 @@
    "tags": [
     "foliage",
     "food"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.3 off the size curve (food-pack, 14 kinds)"
+    }
    ]
   },
   {
@@ -68808,21 +68949,21 @@
    "kind": "obj-kitchenware-tableware-drinkware",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.15
+    0.05,
+    0.05,
+    0.07
    ],
    "tris": 516,
    "tpu": 1504,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12992,
+   "bytes": 12996,
    "vtx": 260,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00016,
+   "minEdge": 0.001,
+   "avgTri": 0.00004,
    "anglePct": 17,
    "vpt": 0.5,
    "grad": 0.59,
@@ -68837,6 +68978,13 @@
    ],
    "tags": [
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.07 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.066 at kit ×1.06)"
+    }
    ]
   },
   {
@@ -69103,21 +69251,21 @@
    "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.25
+    0.07,
+    0.07,
+    0.1
    ],
    "tris": 732,
    "tpu": 2134,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 18304,
+   "bytes": 18308,
    "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00014,
+   "minEdge": 0.001,
+   "avgTri": 0.00003,
    "anglePct": 14,
    "vpt": 0.52,
    "grad": 0.6,
@@ -69132,6 +69280,13 @@
    ],
    "tags": [
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-serving · 0.094 at kit ×1.06)"
+    }
    ]
   },
   {
@@ -69240,9 +69395,9 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.25,
-    0.05,
-    0.03
+    0.1,
+    0.03,
+    0.02
    ],
    "tris": 232,
    "tpu": 676,
@@ -69254,7 +69409,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00007,
+   "avgTri": 0.00002,
    "anglePct": 40,
    "vpt": 0.74,
    "grad": 0.59,
@@ -69269,6 +69424,13 @@
    ],
    "tags": [
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.094 at kit ×1.06)"
+    }
    ]
   },
   {
@@ -101314,21 +101476,21 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    1.15,
-    0.2,
-    1.2
+    1.4,
+    0.25,
+    1.45
    ],
    "tris": 436,
-   "tpu": 733,
+   "tpu": 611,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 30204,
+   "bytes": 30200,
    "vtx": 818,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00382,
+   "minEdge": 0.023,
+   "avgTri": 0.00551,
    "anglePct": 72,
    "vpt": 1.88,
    "grad": 0.84,
@@ -101347,7 +101509,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v212"
+   "variant": "v212",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101355,22 +101524,21 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.45,
-    0.05,
-    0.85
+    0.55,
+    0.06,
+    1
    ],
    "tris": 216,
-   "tpu": 534,
+   "tpu": 445,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16148,
+   "bytes": 16144,
    "vtx": 419,
    "grounded": true,
-   "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0287,
-   "avgTri": 0.00175,
+   "minEdge": 0.017,
+   "minTube": 0.0345,
+   "avgTri": 0.00251,
    "anglePct": 88,
    "vpt": 1.94,
    "grad": 0.6,
@@ -101389,7 +101557,17 @@
     "kay",
     "metal-iron-cast"
    ],
-   "variant": "v212"
+   "variant": "v212",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
+   "mark": [
+    "centered"
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101397,22 +101575,22 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    1.15,
-    0.2,
-    1.2
+    1.4,
+    0.25,
+    1.45
    ],
    "tris": 868,
-   "tpu": 1459,
+   "tpu": 1216,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 58840,
+   "bytes": 58836,
    "vtx": 1632,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0282,
-   "avgTri": 0.00279,
+   "minEdge": 0.017,
+   "minTube": 0.0339,
+   "avgTri": 0.00402,
    "anglePct": 77,
    "vpt": 1.88,
    "grad": 0.72,
@@ -101438,7 +101616,14 @@
     "stone-masonry",
     "tba"
    ],
-   "variant": "v212"
+   "variant": "v212",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101446,21 +101631,21 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    1.15,
-    0.2,
-    1.2
+    1.4,
+    0.25,
+    1.45
    ],
    "tris": 436,
-   "tpu": 733,
+   "tpu": 611,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 30180,
+   "bytes": 30176,
    "vtx": 818,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00382,
+   "minEdge": 0.023,
+   "avgTri": 0.00551,
    "anglePct": 72,
    "vpt": 1.88,
    "grad": 0.84,
@@ -101478,6 +101663,13 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -101486,9 +101678,9 @@
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.55,
-    0.3,
-    0.45
+    0.65,
+    0.35,
+    0.55
    ],
    "tris": 978,
    "tpu": 2851,
@@ -101500,8 +101692,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0333,
-   "avgTri": 0.00105,
+   "minTube": 0.0399,
+   "avgTri": 0.00152,
    "anglePct": 34,
    "vpt": 1.33,
    "grad": 0.81,
@@ -101551,8 +101743,8 @@
    "kind": "obj-furnishing-seating-bench-nobackrest",
    "size": "m",
    "wdh": [
-    0.55,
-    0.2,
+    0.65,
+    0.25,
     0.15
    ],
    "tris": 172,
@@ -101560,13 +101752,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12268,
+   "bytes": 12264,
    "vtx": 308,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0333,
-   "avgTri": 0.00288,
+   "minTube": 0.0399,
+   "avgTri": 0.00415,
    "anglePct": 64,
    "vpt": 1.79,
    "grad": 0.84,
@@ -101587,7 +101779,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.15 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.14 at kit ×1.07)"
+     "text": "high 0.15 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.117 at kit ×1.28)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -101597,9 +101794,9 @@
    "kind": "env-remains-bones-limb",
    "size": "s",
    "wdh": [
-    0.2,
-    0.06,
-    0.08
+    0.25,
+    0.07,
+    0.09
    ],
    "tris": 204,
    "tpu": 595,
@@ -101610,8 +101807,8 @@
    "vtx": 192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00018,
+   "minEdge": 0.013,
+   "avgTri": 0.00026,
    "anglePct": 14,
    "vpt": 0.94,
    "grad": 0.38,
@@ -101630,7 +101827,14 @@
     "halloween",
     "kay"
    ],
-   "variant": "v69"
+   "variant": "v69",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101638,22 +101842,22 @@
    "kind": "env-remains-bones",
    "size": "s",
    "wdh": [
-    0.15,
-    0.08,
-    0.05
+    0.2,
+    0.1,
+    0.06
    ],
    "tris": 220,
    "tpu": 641,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7512,
+   "bytes": 7504,
    "vtx": 148,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.0516,
-   "avgTri": 0.00015,
+   "minEdge": 0.008,
+   "minTube": 0.0619,
+   "avgTri": 0.00021,
    "anglePct": 20,
    "vpt": 0.67,
    "grad": 0.41,
@@ -101672,7 +101876,14 @@
     "halloween",
     "kay"
    ],
-   "variant": "v69"
+   "variant": "v69",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101680,9 +101891,9 @@
    "kind": "env-remains-bones-limb",
    "size": "s",
    "wdh": [
-    0.3,
-    0.06,
-    0.08
+    0.35,
+    0.07,
+    0.09
    ],
    "tris": 204,
    "tpu": 595,
@@ -101693,8 +101904,8 @@
    "vtx": 192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00024,
+   "minEdge": 0.013,
+   "avgTri": 0.00035,
    "anglePct": 16,
    "vpt": 0.94,
    "grad": 0.38,
@@ -101713,7 +101924,14 @@
     "halloween",
     "kay"
    ],
-   "variant": "v69"
+   "variant": "v69",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101721,22 +101939,22 @@
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.55,
-    0.85,
-    0.25
+    0.65,
+    1,
+    0.3
    ],
    "tris": 2064,
-   "tpu": 6017,
+   "tpu": 4513,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 80452,
+   "bytes": 80448,
    "vtx": 2083,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0294,
-   "avgTri": 0.00096,
+   "minEdge": 0.006,
+   "minTube": 0.0353,
+   "avgTri": 0.00138,
    "anglePct": 39,
    "vpt": 1.01,
    "grad": 0.84,
@@ -101767,22 +101985,21 @@
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
-    0.55,
-    0.85,
-    0.15
+    0.65,
+    1,
+    0.2
    ],
    "tris": 260,
-   "tpu": 758,
+   "tpu": 568,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 16336,
    "vtx": 416,
-   "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "minTube": 0.1274,
-   "avgTri": 0.00455,
+   "minEdge": 0.013,
+   "minTube": 0.1529,
+   "avgTri": 0.00655,
    "anglePct": 84,
    "vpt": 1.6,
    "grad": 0.44,
@@ -101808,7 +102025,17 @@
     "metal-iron-wrought",
     "wood-beam"
    ],
-   "variant": "v619"
+   "variant": "v619",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
+   "mark": [
+    "grounded"
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101816,22 +102043,22 @@
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
-    0.55,
-    0.85,
-    0.35
+    0.65,
+    1,
+    0.45
    ],
    "tris": 316,
-   "tpu": 921,
+   "tpu": 691,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18884,
+   "bytes": 18880,
    "vtx": 488,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "minTube": 0.1274,
-   "avgTri": 0.00836,
+   "minEdge": 0.013,
+   "minTube": 0.1529,
+   "avgTri": 0.01205,
    "anglePct": 66,
    "vpt": 1.54,
    "grad": 0.5,
@@ -101856,7 +102083,14 @@
     "metal-iron-wrought",
     "wood-beam"
    ],
-   "variant": "v619"
+   "variant": "v619",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101864,22 +102098,22 @@
    "kind": "str-building-religious-crypt",
    "size": "l",
    "wdh": [
-    1.65,
-    2.2,
-    2.2
+    2,
+    2.65,
+    2.65
    ],
    "tris": 952,
-   "tpu": 119,
+   "tpu": 69,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 59752,
+   "bytes": 59748,
    "vtx": 1646,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "minTube": 0.154,
-   "avgTri": 0.03439,
+   "minEdge": 0.029,
+   "minTube": 0.1848,
+   "avgTri": 0.04953,
    "anglePct": 80,
    "vpt": 1.73,
    "grad": 0.76,
@@ -101911,6 +102145,13 @@
     "stone-masonry",
     "storeys-0-5",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -101919,22 +102160,22 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1.1,
+    1.3,
     0.15,
-    0.6
+    0.75
    ],
    "tris": 446,
-   "tpu": 1300,
+   "tpu": 1254,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30368,
+   "bytes": 30364,
    "vtx": 822,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0284,
-   "avgTri": 0.00274,
+   "minEdge": 0.017,
+   "minTube": 0.034,
+   "avgTri": 0.00394,
    "anglePct": 67,
    "vpt": 1.84,
    "grad": 0.66,
@@ -101960,7 +102201,14 @@
     "metal-iron-cast",
     "stone-masonry"
    ],
-   "variant": "v650"
+   "variant": "v650",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -101968,22 +102216,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.45,
-    0.05,
-    0.85
+    0.55,
+    0.06,
+    1
    ],
    "tris": 216,
-   "tpu": 534,
+   "tpu": 445,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16148,
+   "bytes": 16144,
    "vtx": 419,
    "grounded": true,
-   "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0287,
-   "avgTri": 0.00175,
+   "minEdge": 0.017,
+   "minTube": 0.0345,
+   "avgTri": 0.00251,
    "anglePct": 88,
    "vpt": 1.94,
    "grad": 0.6,
@@ -102003,7 +102250,17 @@
     "metal-iron-cast",
     "scale-big"
    ],
-   "variant": "v211"
+   "variant": "v211",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
+   "mark": [
+    "centered"
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102011,21 +102268,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1.1,
+    1.3,
     0.15,
-    0.6
+    0.75
    ],
    "tris": 188,
-   "tpu": 548,
+   "tpu": 528,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14044,
+   "bytes": 14040,
    "vtx": 360,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00341,
+   "minEdge": 0.029,
+   "avgTri": 0.00491,
    "anglePct": 84,
    "vpt": 1.91,
    "grad": 0.73,
@@ -102050,7 +102307,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.6 under min 0.7 (str-barrier-fence-mid scale-big · 0.561 at kit ×1.07)"
+     "text": "high 0.75 under min 0.7 (str-barrier-fence-mid scale-big · 0.586 at kit ×1.28)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -102060,22 +102322,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.45,
-    0.05,
-    0.85
+    0.55,
+    0.06,
+    1
    ],
    "tris": 216,
-   "tpu": 534,
+   "tpu": 445,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16152,
+   "bytes": 16148,
    "vtx": 419,
    "grounded": true,
-   "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0287,
-   "avgTri": 0.00175,
+   "minEdge": 0.017,
+   "minTube": 0.0345,
+   "avgTri": 0.00251,
    "anglePct": 88,
    "vpt": 1.94,
    "grad": 0.6,
@@ -102095,7 +102356,17 @@
     "metal-iron-cast",
     "scale-big"
    ],
-   "variant": "v211"
+   "variant": "v211",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
+   "mark": [
+    "centered"
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102103,22 +102374,22 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    1.1,
+    1.3,
     0.15,
-    0.85
+    1
    ],
    "tris": 620,
-   "tpu": 1534,
+   "tpu": 1278,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 42676,
+   "bytes": 42672,
    "vtx": 1174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0282,
-   "avgTri": 0.00225,
+   "minEdge": 0.017,
+   "minTube": 0.0339,
+   "avgTri": 0.00324,
    "anglePct": 86,
    "vpt": 1.89,
    "grad": 0.64,
@@ -102144,7 +102415,14 @@
     "stone-masonry",
     "tba"
    ],
-   "variant": "v211"
+   "variant": "v211",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102154,19 +102432,19 @@
    "wdh": [
     0.15,
     0.15,
-    0.4
+    0.5
    ],
    "tris": 102,
    "tpu": 297,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7852,
+   "bytes": 7848,
    "vtx": 182,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00223,
+   "minEdge": 0.023,
+   "avgTri": 0.00321,
    "anglePct": 84,
    "vpt": 1.78,
    "grad": 0.61,
@@ -102186,7 +102464,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v229"
+   "variant": "v229",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102196,19 +102481,19 @@
    "wdh": [
     0.15,
     0.15,
-    0.6
+    0.75
    ],
    "tris": 94,
-   "tpu": 274,
+   "tpu": 264,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7716,
+   "bytes": 7712,
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00341,
+   "minEdge": 0.029,
+   "avgTri": 0.00491,
    "anglePct": 84,
    "vpt": 1.91,
    "grad": 0.73,
@@ -102227,7 +102512,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v229"
+   "variant": "v229",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102235,22 +102527,22 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1.1,
-    0.05,
-    0.55
+    1.3,
+    0.06,
+    0.65
    ],
    "tris": 354,
    "tpu": 1032,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25624,
+   "bytes": 25620,
    "vtx": 690,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0286,
-   "avgTri": 0.00152,
+   "minEdge": 0.017,
+   "minTube": 0.0344,
+   "avgTri": 0.00219,
    "anglePct": 78,
    "vpt": 1.95,
    "grad": 0.6,
@@ -102270,7 +102562,14 @@
     "kay",
     "metal-iron-cast"
    ],
-   "variant": "v228"
+   "variant": "v228",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102278,22 +102577,22 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1.1,
-    0.05,
-    0.55
+    1.3,
+    0.06,
+    0.65
    ],
    "tris": 312,
    "tpu": 910,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24136,
+   "bytes": 24132,
    "vtx": 652,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0287,
-   "avgTri": 0.00185,
+   "minEdge": 0.017,
+   "minTube": 0.0345,
+   "avgTri": 0.00266,
    "anglePct": 92,
    "vpt": 2.09,
    "grad": 0.6,
@@ -102312,7 +102611,14 @@
     "kay",
     "metal-iron-cast"
    ],
-   "variant": "v228"
+   "variant": "v228",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102320,22 +102626,22 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    1.1,
+    1.3,
     0.15,
-    0.6
+    0.75
    ],
    "tris": 380,
-   "tpu": 1108,
+   "tpu": 1068,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 28096,
+   "bytes": 28092,
    "vtx": 764,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0287,
-   "avgTri": 0.00382,
+   "minEdge": 0.017,
+   "minTube": 0.0345,
+   "avgTri": 0.0055,
    "anglePct": 90,
    "vpt": 2.01,
    "grad": 0.65,
@@ -102360,7 +102666,14 @@
     "metal-iron-cast",
     "stone-masonry"
    ],
-   "variant": "v650"
+   "variant": "v650",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102368,20 +102681,20 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    1.1,
-    1.1,
-    0.4
+    1.3,
+    1.3,
+    0.5
    ],
    "tris": 132,
-   "tpu": 156,
+   "tpu": 108,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 10376,
    "vtx": 251,
    "centered": true,
-   "minEdge": 0.029,
-   "avgTri": 0.02066,
+   "minEdge": 0.035,
+   "avgTri": 0.02975,
    "anglePct": 55,
    "vpt": 1.9,
    "grad": 0.73,
@@ -102400,6 +102713,13 @@
     "kay",
     "stone-soil"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
    "mark": [
     "grounded"
    ]
@@ -102410,9 +102730,9 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.55,
-    0.55,
-    0.15
+    0.65,
+    0.65,
+    0.2
    ],
    "tris": 80,
    "tpu": 233,
@@ -102423,8 +102743,8 @@
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
-   "avgTri": 0.01147,
+   "minEdge": 0.035,
+   "avgTri": 0.01651,
    "anglePct": 96,
    "vpt": 2,
    "grad": 0.74,
@@ -102443,6 +102763,13 @@
     "kay",
     "scale-small",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -102451,21 +102778,21 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    1.1,
-    1.1,
-    0.15
+    1.3,
+    1.3,
+    0.2
    ],
    "tris": 120,
-   "tpu": 142,
+   "tpu": 98,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9820,
+   "bytes": 9816,
    "vtx": 240,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
-   "avgTri": 0.02529,
+   "minEdge": 0.035,
+   "avgTri": 0.03642,
    "anglePct": 98,
    "vpt": 2,
    "grad": 0.74,
@@ -102483,6 +102810,13 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -102491,21 +102825,21 @@
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.55,
-    0.3,
-    0.6
+    0.7,
+    0.4,
+    0.7
    ],
    "tris": 416,
    "tpu": 1213,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24900,
+   "bytes": 24896,
    "vtx": 654,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00245,
+   "minEdge": 0.01,
+   "avgTri": 0.00352,
    "anglePct": 37,
    "vpt": 1.57,
    "grad": 0.86,
@@ -102525,7 +102859,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v163"
+   "variant": "v163",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102533,21 +102874,21 @@
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.55,
-    0.3,
-    0.6
+    0.65,
+    0.35,
+    0.7
    ],
    "tris": 323,
-   "tpu": 942,
+   "tpu": 938,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17012,
+   "bytes": 17008,
    "vtx": 428,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00293,
+   "minEdge": 0.01,
+   "avgTri": 0.00422,
    "anglePct": 86,
    "vpt": 1.33,
    "grad": 0.77,
@@ -102566,7 +102907,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v163"
+   "variant": "v163",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102574,21 +102922,21 @@
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.55,
-    0.3,
-    0.6
+    0.65,
+    0.35,
+    0.75
    ],
    "tris": 190,
-   "tpu": 554,
+   "tpu": 534,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14864,
+   "bytes": 14860,
    "vtx": 386,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00459,
+   "minEdge": 0.015,
+   "avgTri": 0.0066,
    "anglePct": 64,
    "vpt": 2.03,
    "grad": 0.59,
@@ -102607,7 +102955,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v163"
+   "variant": "v163",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102615,22 +102970,22 @@
    "kind": "str-marker-grave",
    "size": "s",
    "wdh": [
-    0.2,
-    0.08,
-    0.35
+    0.25,
+    0.09,
+    0.4
    ],
    "tris": 56,
    "tpu": 163,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5416,
+   "bytes": 5412,
    "vtx": 113,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0667,
-   "avgTri": 0.00178,
+   "minEdge": 0.011,
+   "minTube": 0.08,
+   "avgTri": 0.00257,
    "anglePct": 2,
    "vpt": 2.02,
    "grad": 0.45,
@@ -102654,7 +103009,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.35 (str-marker-grave · 0.327 at kit ×1.07)"
+     "text": "longest 0.4 under min 0.35 (str-marker-grave · 0.313 at kit ×1.28)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -102664,22 +103024,22 @@
    "kind": "str-marker-grave",
    "size": "s",
    "wdh": [
-    0.2,
-    0.1,
-    0.3
+    0.25,
+    0.15,
+    0.4
    ],
    "tris": 136,
    "tpu": 397,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12120,
+   "bytes": 12116,
    "vtx": 306,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0666,
-   "avgTri": 0.00084,
+   "minEdge": 0.011,
+   "minTube": 0.0799,
+   "avgTri": 0.00122,
    "anglePct": 6,
    "vpt": 2.25,
    "grad": 0.51,
@@ -102709,7 +103069,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.35 (str-marker-grave · 0.28 at kit ×1.07)"
+     "text": "longest 0.4 under min 0.35 (str-marker-grave · 0.313 at kit ×1.28)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     },
     {
      "level": "error",
@@ -102722,23 +103087,23 @@
    "kit": "kay-hallow",
    "name": "gravestone",
    "kind": "str-marker-grave",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.1,
-    0.45
+    0.45,
+    0.15,
+    0.55
    ],
    "tris": 271,
    "tpu": 790,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13700,
+   "bytes": 13696,
    "vtx": 334,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00194,
+   "minEdge": 0.01,
+   "avgTri": 0.00279,
    "anglePct": 85,
    "vpt": 1.23,
    "grad": 0.73,
@@ -102757,7 +103122,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v163"
+   "variant": "v163",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102767,7 +103139,7 @@
    "wdh": [
     0.2,
     0.2,
-    0.4
+    0.45
    ],
    "tris": 480,
    "tpu": 1399,
@@ -102777,8 +103149,8 @@
    "bytes": 22308,
    "vtx": 536,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00047,
+   "minEdge": 0.008,
+   "avgTri": 0.00068,
    "anglePct": 16,
    "vpt": 1.12,
    "grad": 0.67,
@@ -102813,6 +103185,13 @@
    ],
    "alpha": true,
    "pbr": true,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
    "mark": [
     "grounded"
    ]
@@ -102825,19 +103204,19 @@
    "wdh": [
     0.2,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 272,
    "tpu": 793,
    "mat": 2,
    "bands": 3,
    "calls": 2,
-   "bytes": 15196,
+   "bytes": 15192,
    "vtx": 354,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00076,
+   "minEdge": 0.009,
+   "avgTri": 0.00109,
    "anglePct": 17,
    "vpt": 1.3,
    "grad": 0.73,
@@ -102871,7 +103250,14 @@
     "metal-iron-wrought"
    ],
    "alpha": true,
-   "pbr": true
+   "pbr": true,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102879,8 +103265,8 @@
    "kind": "env-terrain-ground",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
+    0.65,
+    0.6,
     0.03
    ],
    "tris": 361,
@@ -102888,13 +103274,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16128,
+   "bytes": 16120,
    "vtx": 391,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0502,
-   "avgTri": 0.00089,
+   "minEdge": 0.017,
+   "minTube": 0.0603,
+   "avgTri": 0.00128,
    "anglePct": 59,
    "vpt": 1.08,
    "grad": 0.27,
@@ -102913,7 +103299,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v70"
+   "variant": "v70",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102921,8 +103314,8 @@
    "kind": "env-terrain-ground",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
+    0.6,
+    0.6,
     0.03
    ],
    "tris": 370,
@@ -102930,13 +103323,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16024,
+   "bytes": 16012,
    "vtx": 386,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00089,
+   "minEdge": 0.017,
+   "avgTri": 0.00128,
    "anglePct": 61,
    "vpt": 1.04,
    "grad": 0.27,
@@ -102955,7 +103347,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v70"
+   "variant": "v70",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -102963,8 +103362,8 @@
    "kind": "env-terrain-ground",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
+    0.6,
+    0.6,
     0.03
    ],
    "tris": 393,
@@ -102972,13 +103371,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17764,
+   "bytes": 17756,
    "vtx": 436,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00061,
+   "minEdge": 0.017,
+   "avgTri": 0.00088,
    "anglePct": 52,
    "vpt": 1.11,
    "grad": 0.27,
@@ -102997,16 +103395,23 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v70"
+   "variant": "v70",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
    "name": "path-d",
    "kind": "env-terrain-ground",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.45,
-    0.45,
+    0.55,
+    0.55,
     0.03
    ],
    "tris": 275,
@@ -103014,12 +103419,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12700,
+   "bytes": 12688,
    "vtx": 300,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00037,
+   "minEdge": 0.006,
+   "avgTri": 0.00054,
    "anglePct": 47,
    "vpt": 1.09,
    "grad": 0.27,
@@ -103038,7 +103443,14 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v70"
+   "variant": "v70",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -103046,21 +103458,21 @@
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    1.2
+    0.35,
+    0.35,
+    1.45
    ],
    "tris": 94,
-   "tpu": 159,
+   "tpu": 132,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7692,
+   "bytes": 7688,
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.048,
-   "avgTri": 0.01364,
+   "minEdge": 0.057,
+   "avgTri": 0.01963,
    "anglePct": 84,
    "vpt": 1.91,
    "grad": 0.73,
@@ -103078,6 +103490,13 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -103086,22 +103505,22 @@
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.55,
-    0.55,
-    0.3
+    0.65,
+    0.65,
+    0.35
    ],
    "tris": 418,
    "tpu": 1219,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 23452,
+   "bytes": 23448,
    "vtx": 611,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0485,
-   "avgTri": 0.00288,
+   "minEdge": 0.01,
+   "minTube": 0.0582,
+   "avgTri": 0.00415,
    "anglePct": 81,
    "vpt": 1.46,
    "grad": 0.61,
@@ -103138,21 +103557,21 @@
    "kind": "str-marker-grave",
    "size": "m",
    "wdh": [
-    0.55,
-    0.55,
-    0.1
+    0.65,
+    0.65,
+    0.15
    ],
    "tris": 88,
    "tpu": 257,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6880,
+   "bytes": 6876,
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.01116,
+   "minEdge": 0.023,
+   "avgTri": 0.01607,
    "anglePct": 94,
    "vpt": 1.77,
    "grad": 0.45,
@@ -103170,6 +103589,13 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -103180,17 +103606,17 @@
    "wdh": [
     0.2,
     0.2,
-    0.4
+    0.45
    ],
    "tris": 472,
    "tpu": 1376,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 20968,
+   "bytes": 20960,
    "vtx": 520,
-   "minEdge": 0.007,
-   "avgTri": 0.00041,
+   "minEdge": 0.008,
+   "avgTri": 0.00059,
    "anglePct": 19,
    "vpt": 1.1,
    "grad": 0.67,
@@ -103221,6 +103647,13 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -103233,11 +103666,11 @@
    "size": "m",
    "wdh": [
     0.2,
-    0.45,
-    0.9
+    0.5,
+    1.1
    ],
    "tris": 576,
-   "tpu": 1296,
+   "tpu": 1079,
    "mat": 2,
    "bands": 3,
    "calls": 2,
@@ -103245,8 +103678,8 @@
    "vtx": 709,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00115,
+   "minEdge": 0.008,
+   "avgTri": 0.00165,
    "anglePct": 42,
    "vpt": 1.23,
    "grad": 0.78,
@@ -103279,7 +103712,14 @@
     "wood-beam"
    ],
    "alpha": true,
-   "pbr": true
+   "pbr": true,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -103287,19 +103727,19 @@
    "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
-    0.2,
     0.25,
-    0.4
+    0.25,
+    0.45
    ],
    "tris": 680,
    "tpu": 1983,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25224,
+   "bytes": 25216,
    "vtx": 614,
-   "minEdge": 0.007,
-   "avgTri": 0.00032,
+   "minEdge": 0.008,
+   "avgTri": 0.00047,
    "anglePct": 4,
    "vpt": 0.9,
    "grad": 0.61,
@@ -103324,6 +103764,13 @@
     "kay",
     "metal-iron-wrought"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -103335,21 +103782,22 @@
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.2,
-    0.45,
-    0.9
+    0.25,
+    0.5,
+    1.1
    ],
    "tris": 776,
-   "tpu": 1746,
+   "tpu": 1454,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31296,
+   "bytes": 31288,
    "vtx": 787,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00085,
+   "minEdge": 0.008,
+   "avgTri": 0.00123,
    "anglePct": 38,
    "vpt": 1.01,
    "grad": 0.73,
@@ -103386,21 +103834,21 @@
    "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
-    0.1,
-    0.45,
-    0.9
+    0.15,
+    0.5,
+    1.1
    ],
    "tris": 96,
-   "tpu": 216,
+   "tpu": 180,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7548,
+   "bytes": 7544,
    "vtx": 173,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00459,
+   "minEdge": 0.014,
+   "avgTri": 0.00661,
    "anglePct": 56,
    "vpt": 1.8,
    "grad": 0.77,
@@ -103419,6 +103867,13 @@
     "halloween",
     "kay",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -103427,21 +103882,21 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
-    0.4,
-    0.4,
-    0.35
+    0.5,
+    0.45,
+    0.45
    ],
    "tris": 374,
    "tpu": 1090,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14860,
+   "bytes": 14856,
    "vtx": 347,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00129,
+   "minEdge": 0.004,
+   "avgTri": 0.00186,
    "anglePct": 0,
    "vpt": 0.93,
    "grad": 0.69,
@@ -103464,6 +103919,13 @@
     "halloween",
     "kay",
     "vegetation"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -103472,9 +103934,9 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 322,
    "tpu": 939,
@@ -103485,8 +103947,8 @@
    "vtx": 215,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00026,
+   "minEdge": 0.003,
+   "avgTri": 0.00038,
    "anglePct": 6,
    "vpt": 0.67,
    "grad": 0.71,
@@ -103514,7 +103976,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-food-vegetable-pumpkin · 0.14 at kit ×1.07)"
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -103524,21 +103986,21 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.2
+    0.35,
+    0.35,
+    0.25
    ],
    "tris": 306,
    "tpu": 892,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9740,
+   "bytes": 9736,
    "vtx": 200,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00072,
+   "minEdge": 0.006,
+   "avgTri": 0.00104,
    "anglePct": 5,
    "vpt": 0.65,
    "grad": 0.72,
@@ -103562,7 +104024,14 @@
     "halloween",
     "kay"
    ],
-   "variant": "v386"
+   "variant": "v386",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -103570,22 +104039,22 @@
    "kind": "env-remains-bones-ribcage",
    "size": "s",
    "wdh": [
+    0.3,
     0.25,
-    0.2,
-    0.25
+    0.3
    ],
    "tris": 1240,
    "tpu": 3615,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 53740,
+   "bytes": 53736,
    "vtx": 1401,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0294,
-   "avgTri": 0.00016,
+   "minEdge": 0.006,
+   "minTube": 0.0353,
+   "avgTri": 0.00022,
    "anglePct": 5,
    "vpt": 1.13,
    "grad": 0.52,
@@ -103608,7 +104077,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (env-remains-bones-ribcage · 0.234 at kit ×1.07)"
+     "text": "longest 0.3 under min 0.25 (env-remains-bones-ribcage · 0.234 at kit ×1.28)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -103616,24 +104090,24 @@
    "kit": "kay-hallow",
    "name": "shrine-candles",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.5
+    0.35,
+    0.35,
+    0.6
    ],
    "tris": 360,
    "tpu": 1050,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 20952,
+   "bytes": 20948,
    "vtx": 543,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.0344,
-   "avgTri": 0.00173,
+   "minEdge": 0.007,
+   "minTube": 0.0413,
+   "avgTri": 0.0025,
    "anglePct": 57,
    "vpt": 1.51,
    "grad": 0.63,
@@ -103670,21 +104144,21 @@
    "kind": "obj-art-sculpture",
    "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.65
+    0.35,
+    0.35,
+    0.8
    ],
    "tris": 94,
-   "tpu": 274,
+   "tpu": 242,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7580,
+   "bytes": 7576,
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.041,
-   "avgTri": 0.00885,
+   "minEdge": 0.049,
+   "avgTri": 0.01274,
    "anglePct": 61,
    "vpt": 1.87,
    "grad": 0.73,
@@ -103702,6 +104176,13 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
@@ -103710,23 +104191,22 @@
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.35
+    0.3,
+    0.3,
+    0.4
    ],
    "tris": 542,
    "tpu": 1580,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25016,
+   "bytes": 25012,
    "vtx": 634,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0485,
-   "avgTri": 0.00067,
+   "minEdge": 0.01,
+   "minTube": 0.0582,
+   "avgTri": 0.00096,
    "anglePct": 3,
    "vpt": 1.17,
    "grad": 0.79,
@@ -103758,22 +104238,21 @@
    "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.25
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 344,
    "tpu": 1003,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14016,
+   "bytes": 14008,
    "vtx": 328,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00071,
+   "minEdge": 0.01,
+   "avgTri": 0.00102,
    "anglePct": 2,
    "vpt": 0.95,
    "grad": 0.73,
@@ -103791,30 +104270,37 @@
     "grave",
     "halloween",
     "kay"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
    ]
   },
   {
    "kit": "kay-hallow",
    "name": "tree-dead-large-decorated",
    "kind": "set",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.65,
-    0.45,
-    1.5
+    0.75,
+    0.55,
+    1.8
    ],
    "tris": 1496,
-   "tpu": 2049,
+   "tpu": 1708,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 50548,
+   "bytes": 50540,
    "vtx": 1249,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0265,
-   "avgTri": 0.00063,
+   "minEdge": 0.006,
+   "minTube": 0.0318,
+   "avgTri": 0.00091,
    "anglePct": 16,
    "vpt": 0.83,
    "grad": 0.75,
@@ -103861,24 +104347,24 @@
    "kit": "kay-hallow",
    "name": "tree-dead-large",
    "kind": "env-remains-deadwood-tree",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.65,
-    0.4,
-    1.4
+    0.75,
+    0.45,
+    1.65
    ],
    "tris": 256,
-   "tpu": 375,
+   "tpu": 312,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8764,
+   "bytes": 8756,
    "vtx": 177,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0265,
-   "avgTri": 0.00183,
+   "minEdge": 0.006,
+   "minTube": 0.0318,
+   "avgTri": 0.00263,
    "anglePct": 25,
    "vpt": 0.69,
    "grad": 0.61,
@@ -103897,7 +104383,14 @@
     "kay",
     "wood-bark"
    ],
-   "variant": "v128"
+   "variant": "v128",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -103905,22 +104398,22 @@
    "kind": "env-remains-deadwood-tree",
    "size": "m",
    "wdh": [
-    0.5,
+    0.6,
     0.15,
-    1.15
+    1.4
    ],
    "tris": 216,
-   "tpu": 383,
+   "tpu": 319,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7136,
+   "bytes": 7128,
    "vtx": 134,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0265,
-   "avgTri": 0.00139,
+   "minEdge": 0.006,
+   "minTube": 0.0319,
+   "avgTri": 0.002,
    "anglePct": 19,
    "vpt": 0.62,
    "grad": 0.51,
@@ -103939,7 +104432,14 @@
     "kay",
     "wood-bark"
    ],
-   "variant": "v128"
+   "variant": "v128",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -103947,22 +104447,22 @@
    "kind": "env-remains-deadwood-tree",
    "size": "m",
    "wdh": [
-    0.4,
-    0.3,
-    0.8
+    0.45,
+    0.35,
+    1
    ],
    "tris": 184,
-   "tpu": 457,
+   "tpu": 381,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6628,
+   "bytes": 6632,
    "vtx": 124,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0265,
-   "avgTri": 0.00129,
+   "minEdge": 0.006,
+   "minTube": 0.0318,
+   "avgTri": 0.00186,
    "anglePct": 9,
    "vpt": 0.67,
    "grad": 0.34,
@@ -103986,7 +104486,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.9 (env-remains-deadwood-tree · 0.748 at kit ×1.07)"
+     "text": "longest 1 under min 0.9 (env-remains-deadwood-tree · 0.781 at kit ×1.28)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -103996,22 +104501,22 @@
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    1.3,
-    1.15,
-    2.05
+    1.55,
+    1.35,
+    2.45
    ],
    "tris": 318,
-   "tpu": 103,
+   "tpu": 60,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18936,
+   "bytes": 18932,
    "vtx": 487,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.057,
-   "minTube": 0.2213,
-   "avgTri": 0.02503,
+   "minEdge": 0.068,
+   "minTube": 0.2656,
+   "avgTri": 0.03604,
    "anglePct": 2,
    "vpt": 1.53,
    "grad": 0.81,
@@ -104035,7 +104540,14 @@
     "kay",
     "wood-bark"
    ],
-   "variant": "v209"
+   "variant": "v209",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -104043,22 +104555,22 @@
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    0.9,
-    0.85,
-    1.6
+    1.1,
+    1.05,
+    1.95
    ],
    "tris": 318,
-   "tpu": 251,
+   "tpu": 145,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18892,
+   "bytes": 18884,
    "vtx": 483,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "minTube": 0.1855,
-   "avgTri": 0.01309,
+   "minEdge": 0.046,
+   "minTube": 0.2226,
+   "avgTri": 0.01884,
    "anglePct": 1,
    "vpt": 1.52,
    "grad": 0.81,
@@ -104082,7 +104594,14 @@
     "kay",
     "wood-bark"
    ],
-   "variant": "v209"
+   "variant": "v209",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -104090,22 +104609,22 @@
    "kind": "env-flora-tree-conifer",
    "size": "m",
    "wdh": [
-    0.65,
-    0.6,
-    1.1
+    0.8,
+    0.75,
+    1.35
    ],
    "tris": 260,
-   "tpu": 477,
+   "tpu": 339,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15404,
+   "bytes": 15388,
    "vtx": 385,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "minTube": 0.0926,
-   "avgTri": 0.00719,
+   "minEdge": 0.037,
+   "minTube": 0.1111,
+   "avgTri": 0.01035,
    "anglePct": 5,
    "vpt": 1.48,
    "grad": 0.8,
@@ -104134,7 +104653,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.1 under min 1.05 (env-flora-tree-conifer · 1.028 at kit ×1.07)"
+     "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
    ]
   },
@@ -244277,23 +244796,23 @@
    "kit": "quat-sushi",
    "name": "arch",
    "kind": "str-part-wall",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.2,
+    1.25,
     0.1,
-    1.45
+    1.5
    ],
    "tris": 148,
-   "tpu": 205,
+   "tpu": 201,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7604,
+   "bytes": 7592,
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.084,
-   "avgTri": 0.00935,
+   "minEdge": 0.086,
+   "avgTri": 0.00978,
    "anglePct": 77,
    "vpt": 1.08,
    "grad": 0.59,
@@ -244327,12 +244846,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10192,
+   "bytes": 10184,
    "vtx": 206,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "avgTri": 0.0001,
+   "avgTri": 0.00011,
    "anglePct": 8,
    "vpt": 0.61,
    "grad": 0.58,
@@ -244366,7 +244885,7 @@
    "kind": "obj-furnishing-seating-bench-nobackrest",
    "size": "s",
    "wdh": [
-    0.15,
+    0.2,
     0.3,
     0.15
    ],
@@ -244375,12 +244894,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17104,
+   "bytes": 17092,
    "vtx": 416,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "avgTri": 0.00064,
+   "avgTri": 0.00067,
    "anglePct": 88,
    "vpt": 1.14,
    "grad": 0.6,
@@ -244407,7 +244926,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.15 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.144 at kit ×1.04)"
+     "text": "high 0.15 under min 0.15 (obj-furnishing-seating-bench-nobackrest · 0.14 at kit ×1.07)"
     }
    ]
   },
@@ -244426,12 +244945,12 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 54516,
+   "bytes": 54512,
    "vtx": 1346,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00029,
+   "avgTri": 0.0003,
    "anglePct": 68,
    "vpt": 0.82,
    "grad": 0.53,
@@ -244481,12 +245000,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13472,
+   "bytes": 13464,
    "vtx": 290,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00026,
+   "minEdge": 0.006,
+   "avgTri": 0.00027,
    "anglePct": 9,
    "vpt": 0.67,
    "grad": 0.32,
@@ -244512,14 +245031,14 @@
    "wdh": [
     0.2,
     0.2,
-    0.08
+    0.09
    ],
    "tris": 6364,
    "tpu": 18554,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 167948,
+   "bytes": 167940,
    "vtx": 4004,
    "grounded": true,
    "centered": true,
@@ -244569,7 +245088,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23944,
+   "bytes": 23928,
    "vtx": 536,
    "grounded": true,
    "centered": true,
@@ -244596,7 +245115,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.05 under min 0.05 (obj-food-baked-bread scale-small · 0.048 at kit ×1.04)"
+     "text": "longest 0.05 under min 0.05 (obj-food-baked-bread scale-small · 0.047 at kit ×1.07)"
     }
    ]
   },
@@ -244608,20 +245127,20 @@
    "wdh": [
     0.8,
     0.35,
-    0.25
+    0.3
    ],
    "tris": 868,
    "tpu": 2531,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 39072,
+   "bytes": 39064,
    "vtx": 1008,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0287,
-   "avgTri": 0.00405,
+   "minTube": 0.0294,
+   "avgTri": 0.00424,
    "anglePct": 96,
    "vpt": 1.16,
    "grad": 0.6,
@@ -244653,19 +245172,19 @@
    "wdh": [
     0.8,
     0.35,
-    0.25
+    0.3
    ],
    "tris": 336,
    "tpu": 980,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11432,
+   "bytes": 11424,
    "vtx": 244,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00596,
+   "avgTri": 0.00624,
    "anglePct": 92,
    "vpt": 0.73,
    "grad": 0.59,
@@ -244692,19 +245211,19 @@
    "wdh": [
     0.8,
     0.35,
-    0.25
+    0.3
    ],
    "tris": 432,
    "tpu": 1259,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15056,
+   "bytes": 15052,
    "vtx": 340,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00459,
+   "avgTri": 0.00481,
    "anglePct": 94,
    "vpt": 0.79,
    "grad": 0.59,
@@ -244738,12 +245257,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22180,
+   "bytes": 22200,
    "vtx": 542,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "avgTri": 0.00051,
+   "avgTri": 0.00054,
    "anglePct": 74,
    "vpt": 1.01,
    "grad": 0.6,
@@ -244770,7 +245289,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.2 under min 0.3 (obj-furnishing-seating-chair · 0.192 at kit ×1.04)"
+     "text": "longest 0.2 under min 0.3 (obj-furnishing-seating-chair · 0.187 at kit ×1.07)"
     }
    ]
   },
@@ -244789,12 +245308,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 16412,
+   "bytes": 16396,
    "vtx": 378,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00047,
+   "minEdge": 0.004,
+   "avgTri": 0.00049,
    "anglePct": 88,
    "vpt": 0.84,
    "grad": 0.6,
@@ -244830,8 +245349,8 @@
    "kind": "obj-furnishing-storage-cabinet",
    "size": "m",
    "wdh": [
-    0.55,
-    0.55,
+    0.6,
+    0.6,
     0.4
    ],
    "tris": 542,
@@ -244839,12 +245358,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 29072,
+   "bytes": 29060,
    "vtx": 756,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00626,
+   "minEdge": 0.005,
+   "avgTri": 0.00655,
    "anglePct": 97,
    "vpt": 1.39,
    "grad": 0.6,
@@ -244883,12 +245402,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20180,
+   "bytes": 20172,
    "vtx": 508,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00563,
+   "avgTri": 0.00589,
    "anglePct": 98,
    "vpt": 1.32,
    "grad": 0.6,
@@ -244928,13 +245447,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34308,
+   "bytes": 34300,
    "vtx": 896,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0305,
-   "avgTri": 0.00539,
+   "minTube": 0.0312,
+   "avgTri": 0.00564,
    "anglePct": 97,
    "vpt": 1.34,
    "grad": 0.6,
@@ -244974,13 +245493,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34312,
+   "bytes": 34304,
    "vtx": 896,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0305,
-   "avgTri": 0.00516,
+   "minTube": 0.0312,
+   "avgTri": 0.0054,
    "anglePct": 97,
    "vpt": 1.34,
    "grad": 0.6,
@@ -245020,12 +245539,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16700,
+   "bytes": 16692,
    "vtx": 414,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.0048,
+   "avgTri": 0.00502,
    "anglePct": 98,
    "vpt": 1.35,
    "grad": 0.6,
@@ -245064,13 +245583,13 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 38092,
+   "bytes": 38084,
    "vtx": 1000,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0305,
-   "avgTri": 0.0049,
+   "minTube": 0.0312,
+   "avgTri": 0.00513,
    "anglePct": 97,
    "vpt": 1.34,
    "grad": 0.6,
@@ -245116,13 +245635,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34868,
+   "bytes": 34860,
    "vtx": 917,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0374,
-   "avgTri": 0.00619,
+   "minTube": 0.0383,
+   "avgTri": 0.00647,
    "anglePct": 97,
    "vpt": 1.42,
    "grad": 0.6,
@@ -245162,13 +245681,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25664,
+   "bytes": 25656,
    "vtx": 664,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.0553,
-   "avgTri": 0.00731,
+   "minEdge": 0.008,
+   "minTube": 0.0566,
+   "avgTri": 0.00765,
    "anglePct": 97,
    "vpt": 1.43,
    "grad": 0.6,
@@ -245200,7 +245719,7 @@
    "size": "s",
    "wdh": [
     0.1,
-    0.08,
+    0.09,
     0.05
    ],
    "tris": 460,
@@ -245208,13 +245727,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19752,
+   "bytes": 19764,
    "vtx": 480,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0289,
-   "avgTri": 0.00011,
+   "minTube": 0.0295,
+   "avgTri": 0.00012,
    "anglePct": 63,
    "vpt": 1.04,
    "grad": 0.45,
@@ -245253,7 +245772,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16028,
+   "bytes": 16016,
    "vtx": 392,
    "grounded": true,
    "centered": true,
@@ -245284,21 +245803,21 @@
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.3,
+    0.35,
     0.06,
-    0.06
+    0.07
    ],
    "tris": 524,
    "tpu": 1528,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13200,
+   "bytes": 13192,
    "vtx": 264,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00011,
+   "avgTri": 0.00012,
    "anglePct": 23,
    "vpt": 0.5,
    "grad": 0.59,
@@ -245331,12 +245850,12 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 46368,
+   "bytes": 46360,
    "vtx": 1032,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0122,
+   "minTube": 0.0125,
    "avgTri": 0.00004,
    "anglePct": 19,
    "vpt": 0.53,
@@ -245380,19 +245899,19 @@
    "wdh": [
     0.8,
     0.15,
-    1
+    1.05
    ],
    "tris": 138,
-   "tpu": 279,
+   "tpu": 272,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8680,
+   "bytes": 8672,
    "vtx": 196,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.01147,
+   "minEdge": 0.029,
+   "avgTri": 0.012,
    "anglePct": 100,
    "vpt": 1.42,
    "grad": 0.53,
@@ -245425,19 +245944,19 @@
    "wdh": [
     0.45,
     0.25,
-    0.85
+    0.9
    ],
    "tris": 3004,
-   "tpu": 7154,
+   "tpu": 6990,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 90304,
+   "bytes": 90292,
    "vtx": 2208,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00106,
+   "avgTri": 0.00111,
    "anglePct": 87,
    "vpt": 0.74,
    "grad": 0.6,
@@ -245479,7 +245998,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 7154 over max 5000 (obj-kitchenware)"
+     "text": "tpu 6990 over max 5000 (obj-kitchenware)"
     }
    ]
   },
@@ -245498,12 +246017,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26404,
+   "bytes": 26408,
    "vtx": 642,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00006,
+   "avgTri": 0.00007,
    "anglePct": 5,
    "vpt": 0.91,
    "grad": 0.6,
@@ -245538,7 +246057,7 @@
    "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
-    0.45,
+    0.5,
     0.04,
     0.15
    ],
@@ -245547,7 +246066,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 39484,
+   "bytes": 39472,
    "vtx": 958,
    "grounded": true,
    "centered": true,
@@ -245595,7 +246114,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 21736,
+   "bytes": 21724,
    "vtx": 503,
    "grounded": true,
    "centered": true,
@@ -245639,16 +246158,16 @@
     0.1
    ],
    "tris": 144,
-   "tpu": 336,
+   "tpu": 321,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 8312,
+   "bytes": 8308,
    "vtx": 183,
    "grounded": true,
    "centered": true,
    "minEdge": 0.033,
-   "avgTri": 0.01062,
+   "avgTri": 0.01111,
    "anglePct": 100,
    "vpt": 1.27,
    "grad": 0.3,
@@ -245688,16 +246207,16 @@
     0.25
    ],
    "tris": 410,
-   "tpu": 958,
+   "tpu": 915,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22028,
+   "bytes": 22016,
    "vtx": 561,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "avgTri": 0.00659,
+   "avgTri": 0.00689,
    "anglePct": 91,
    "vpt": 1.37,
    "grad": 0.6,
@@ -245734,17 +246253,17 @@
     0.1
    ],
    "tris": 274,
-   "tpu": 640,
+   "tpu": 612,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16740,
+   "bytes": 16732,
    "vtx": 422,
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.1016,
-   "avgTri": 0.01052,
+   "minTube": 0.1039,
+   "avgTri": 0.01101,
    "anglePct": 100,
    "vpt": 1.54,
    "grad": 0.6,
@@ -245775,7 +246294,7 @@
    "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
-    0.25,
+    0.3,
     0.03,
     0.2
    ],
@@ -245784,7 +246303,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 61456,
+   "bytes": 61444,
    "vtx": 1518,
    "grounded": true,
    "centered": true,
@@ -245830,21 +246349,21 @@
    "kind": "obj-kitchenware-appliance-fridge",
    "size": "m",
    "wdh": [
+    0.5,
     0.45,
-    0.4,
-    0.8
+    0.85
    ],
    "tris": 1186,
-   "tpu": 2963,
+   "tpu": 2895,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 43828,
+   "bytes": 43816,
    "vtx": 1097,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00301,
+   "avgTri": 0.00315,
    "anglePct": 91,
    "vpt": 0.92,
    "grad": 0.6,
@@ -245888,7 +246407,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 28388,
+   "bytes": 28376,
    "vtx": 681,
    "grounded": true,
    "centered": true,
@@ -245919,19 +246438,19 @@
    "wdh": [
     0.8,
     0.05,
-    0.7
+    0.75
    ],
    "tris": 106,
-   "tpu": 299,
+   "tpu": 292,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9012,
+   "bytes": 9004,
    "vtx": 212,
    "grounded": true,
    "centered": true,
    "minEdge": 0.027,
-   "avgTri": 0.01472,
+   "avgTri": 0.0154,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.59,
@@ -245971,12 +246490,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22904,
+   "bytes": 22896,
    "vtx": 538,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00027,
+   "avgTri": 0.00029,
    "anglePct": 60,
    "vpt": 0.79,
    "grad": 0.55,
@@ -246021,7 +246540,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31216,
+   "bytes": 31204,
    "vtx": 739,
    "grounded": true,
    "centered": true,
@@ -246061,7 +246580,7 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.07,
+    0.08,
     0.06
    ],
    "tris": 256,
@@ -246069,12 +246588,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10084,
+   "bytes": 10096,
    "vtx": 216,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00016,
+   "avgTri": 0.00017,
    "anglePct": 3,
    "vpt": 0.84,
    "grad": 0.6,
@@ -246113,12 +246632,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10428,
+   "bytes": 10416,
    "vtx": 232,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00013,
+   "avgTri": 0.00014,
    "anglePct": 61,
    "vpt": 0.98,
    "grad": 0.38,
@@ -246153,7 +246672,7 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.08,
+    0.09,
     0.09
    ],
    "tris": 1436,
@@ -246161,12 +246680,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 43404,
+   "bytes": 43412,
    "vtx": 1035,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00004,
+   "avgTri": 0.00005,
    "anglePct": 3,
    "vpt": 0.72,
    "grad": 0.54,
@@ -246210,12 +246729,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 50188,
+   "bytes": 50176,
    "vtx": 1322,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00025,
+   "avgTri": 0.00026,
    "anglePct": 4,
    "vpt": 1.26,
    "grad": 0.52,
@@ -246251,14 +246770,14 @@
    "wdh": [
     0.1,
     0.04,
-    0.09
+    0.1
    ],
    "tris": 464,
    "tpu": 1353,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12312,
+   "bytes": 12304,
    "vtx": 248,
    "grounded": true,
    "centered": true,
@@ -246292,7 +246811,7 @@
    "kind": "obj-kitchenware-appliance-stove",
    "size": "s",
    "wdh": [
-    0.4,
+    0.45,
     0.4,
     0.45
    ],
@@ -246301,12 +246820,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 65900,
+   "bytes": 65892,
    "vtx": 1618,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00067,
+   "avgTri": 0.0007,
    "anglePct": 82,
    "vpt": 0.78,
    "grad": 0.6,
@@ -246358,12 +246877,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12076,
+   "bytes": 12084,
    "vtx": 253,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "avgTri": 0.00037,
+   "avgTri": 0.00038,
    "anglePct": 55,
    "vpt": 0.64,
    "grad": 0.6,
@@ -246396,12 +246915,12 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 83296,
+   "bytes": 83284,
    "vtx": 2090,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00038,
+   "avgTri": 0.0004,
    "anglePct": 4,
    "vpt": 0.85,
    "grad": 0.59,
@@ -246436,11 +246955,6 @@
    ],
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 0.95 (char · 0.962 at kit ×1.04)"
-    },
-    {
      "level": "error",
      "check": "palette",
      "text": "skin wants tan taupe umber, has terracotta basalt moss ivory"
@@ -246462,11 +246976,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11312,
+   "bytes": 11304,
    "vtx": 236,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.006,
    "avgTri": 0.00019,
    "anglePct": 10,
    "vpt": 0.66,
@@ -246500,12 +247014,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23644,
+   "bytes": 23636,
    "vtx": 568,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00032,
+   "avgTri": 0.00033,
    "anglePct": 35,
    "vpt": 0.88,
    "grad": 0.58,
@@ -246536,21 +247050,21 @@
    "kind": "char",
    "size": "m",
    "wdh": [
-    0.9,
-    0.35,
-    0.8
+    0.95,
+    0.4,
+    0.85
    ],
    "tris": 2282,
-   "tpu": 5728,
+   "tpu": 5598,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 78760,
+   "bytes": 78748,
    "vtx": 1983,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00039,
+   "avgTri": 0.00041,
    "anglePct": 4,
    "vpt": 0.87,
    "grad": 0.59,
@@ -246606,7 +247120,7 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 162368,
+   "bytes": 162356,
    "vtx": 3977,
    "grounded": true,
    "centered": true,
@@ -246670,12 +247184,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8696,
+   "bytes": 8688,
    "vtx": 162,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "avgTri": 0.00029,
+   "avgTri": 0.0003,
    "anglePct": 7,
    "vpt": 0.51,
    "grad": 0.6,
@@ -246708,7 +247222,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 32436,
+   "bytes": 32440,
    "vtx": 794,
    "grounded": true,
    "centered": true,
@@ -246752,12 +247266,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 21516,
+   "bytes": 21532,
    "vtx": 506,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00007,
+   "avgTri": 0.00008,
    "anglePct": 6,
    "vpt": 0.83,
    "grad": 0.6,
@@ -246801,7 +247315,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26072,
+   "bytes": 26060,
    "vtx": 620,
    "grounded": true,
    "centered": true,
@@ -246849,7 +247363,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 23864,
+   "bytes": 23852,
    "vtx": 560,
    "grounded": true,
    "centered": true,
@@ -246897,12 +247411,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9688,
+   "bytes": 9676,
    "vtx": 223,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "avgTri": 0.00025,
+   "avgTri": 0.00027,
    "anglePct": 2,
    "vpt": 1.45,
    "grad": 0.58,
@@ -246941,12 +247455,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10396,
+   "bytes": 10384,
    "vtx": 248,
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
-   "avgTri": 0.00031,
+   "avgTri": 0.00032,
    "anglePct": 2,
    "vpt": 1.75,
    "grad": 0.6,
@@ -246980,7 +247494,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 66072,
+   "bytes": 66060,
    "vtx": 1600,
    "grounded": true,
    "centered": true,
@@ -247022,19 +247536,19 @@
    "wdh": [
     0.8,
     0.15,
-    0.85
+    0.9
    ],
    "tris": 120,
-   "tpu": 283,
+   "tpu": 277,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10024,
+   "bytes": 10012,
    "vtx": 240,
    "grounded": true,
    "centered": true,
    "minEdge": 0.028,
-   "avgTri": 0.02876,
+   "avgTri": 0.0301,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.58,
@@ -247067,20 +247581,20 @@
    "wdh": [
     0.8,
     0.15,
-    1
+    1.05
    ],
    "tris": 418,
-   "tpu": 844,
+   "tpu": 825,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 25800,
+   "bytes": 25792,
    "vtx": 678,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0721,
-   "avgTri": 0.00884,
+   "minTube": 0.0737,
+   "avgTri": 0.00925,
    "anglePct": 100,
    "vpt": 1.62,
    "grad": 0.56,
@@ -247127,7 +247641,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19876,
+   "bytes": 19884,
    "vtx": 474,
    "grounded": true,
    "centered": true,
@@ -247161,8 +247675,8 @@
    "kind": "obj-furnishing-seating-bench-backrest",
    "size": "m",
    "wdh": [
-    0.75,
-    0.3,
+    0.8,
+    0.35,
     0.3
    ],
    "tris": 318,
@@ -247170,12 +247684,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11308,
+   "bytes": 11296,
    "vtx": 244,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00474,
+   "avgTri": 0.00496,
    "anglePct": 83,
    "vpt": 0.77,
    "grad": 0.6,
@@ -247208,7 +247722,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7772,
+   "bytes": 7760,
    "vtx": 152,
    "grounded": true,
    "centered": true,
@@ -247245,19 +247759,19 @@
    "wdh": [
     0.2,
     0.15,
-    0.45
+    0.5
    ],
    "tris": 1296,
    "tpu": 3778,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 39104,
+   "bytes": 39096,
    "vtx": 929,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00018,
+   "avgTri": 0.00019,
    "anglePct": 12,
    "vpt": 0.72,
    "grad": 0.56,
@@ -247286,7 +247800,7 @@
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.25,
+    0.3,
     0.2,
     0.25
    ],
@@ -247295,12 +247809,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 24432,
+   "bytes": 24420,
    "vtx": 592,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00036,
+   "avgTri": 0.00037,
    "anglePct": 23,
    "vpt": 0.92,
    "grad": 0.58,
@@ -247331,21 +247845,21 @@
    "kind": "obj-furnishing-seating-stool",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.15
+    0.25,
+    0.25,
+    0.2
    ],
    "tris": 308,
    "tpu": 898,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12388,
+   "bytes": 12384,
    "vtx": 280,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.00105,
+   "minEdge": 0.022,
+   "avgTri": 0.0011,
    "anglePct": 87,
    "vpt": 0.91,
    "grad": 0.6,
@@ -247367,13 +247881,6 @@
     "qua",
     "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-furnishing-seating-stool · 0.192 at kit ×1.04)"
-    }
    ]
   },
   {
@@ -247383,21 +247890,21 @@
    "size": "l",
    "wdh": [
     1,
-    1.55,
+    1.6,
     1.45
    ],
    "tris": 14628,
-   "tpu": 6584,
+   "tpu": 6148,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 491260,
+   "bytes": 491248,
    "vtx": 12558,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0265,
-   "avgTri": 0.00112,
+   "minTube": 0.0271,
+   "avgTri": 0.00117,
    "anglePct": 68,
    "vpt": 0.86,
    "grad": 0.6,
@@ -247457,12 +247964,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16840,
+   "bytes": 16832,
    "vtx": 408,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
-   "avgTri": 0.00187,
+   "avgTri": 0.00196,
    "anglePct": 92,
    "vpt": 1.12,
    "grad": 0.6,
@@ -247495,7 +248002,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 14444,
+   "bytes": 14460,
    "vtx": 318,
    "grounded": true,
    "centered": true,
@@ -247536,7 +248043,7 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.08,
+    0.09,
     0.07
    ],
    "tris": 1280,
@@ -247544,7 +248051,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37868,
+   "bytes": 37860,
    "vtx": 893,
    "grounded": true,
    "centered": true,
@@ -247579,22 +248086,22 @@
    "kind": "str-part-gate",
    "size": "m",
    "wdh": [
-    1.1,
-    0.15,
+    1.15,
+    0.2,
     1.05
    ],
    "tris": 236,
-   "tpu": 463,
+   "tpu": 453,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12760,
+   "bytes": 12748,
    "vtx": 304,
    "grounded": true,
    "centered": true,
    "minEdge": 0.036,
-   "minTube": 0.1415,
-   "avgTri": 0.00791,
+   "minTube": 0.1447,
+   "avgTri": 0.00828,
    "anglePct": 96,
    "vpt": 1.29,
    "grad": 0.6,
@@ -247628,12 +248135,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 45416,
+   "bytes": 45408,
    "vtx": 1114,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00004,
+   "avgTri": 0.00005,
    "anglePct": 9,
    "vpt": 0.82,
    "grad": 0.57,
@@ -247676,7 +248183,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 125056,
+   "bytes": 125048,
    "vtx": 3062,
    "grounded": true,
    "centered": true,
@@ -247728,19 +248235,19 @@
    "wdh": [
     0.75,
     0.07,
-    0.95
+    1
    ],
    "tris": 444,
-   "tpu": 934,
+   "tpu": 913,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31672,
+   "bytes": 31664,
    "vtx": 856,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00487,
+   "minEdge": 0.014,
+   "avgTri": 0.0051,
    "anglePct": 100,
    "vpt": 1.93,
    "grad": 0.6,
@@ -247774,20 +248281,20 @@
    "wdh": [
     0.8,
     0.2,
-    1
+    1.05
    ],
    "tris": 424,
-   "tpu": 853,
+   "tpu": 834,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25588,
+   "bytes": 25580,
    "vtx": 670,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0721,
-   "avgTri": 0.00817,
+   "minTube": 0.0737,
+   "avgTri": 0.00855,
    "anglePct": 100,
    "vpt": 1.58,
    "grad": 0.56,
@@ -247821,20 +248328,20 @@
    "wdh": [
     0.8,
     0.15,
-    1
+    1.05
    ],
    "tris": 340,
-   "tpu": 684,
+   "tpu": 669,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20264,
+   "bytes": 20252,
    "vtx": 520,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0721,
-   "avgTri": 0.00917,
+   "minTube": 0.0737,
+   "avgTri": 0.0096,
    "anglePct": 100,
    "vpt": 1.53,
    "grad": 0.55,
@@ -247875,12 +248382,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4924,
+   "bytes": 4912,
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00081,
+   "minEdge": 0.004,
+   "avgTri": 0.00085,
    "anglePct": 90,
    "vpt": 1.41,
    "grad": 0,
@@ -247901,7 +248408,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-serving · 0.144 at kit ×1.04)"
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-serving · 0.14 at kit ×1.07)"
     }
    ]
   },
@@ -265460,7 +265967,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9272,
+   "bytes": 9264,
    "vtx": 184,
    "grounded": true,
    "centered": true,
@@ -265509,7 +266016,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6424,
+   "bytes": 6416,
    "vtx": 117,
    "grounded": true,
    "centered": true,
@@ -265546,12 +266053,12 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 48300,
+   "bytes": 48292,
    "vtx": 1113,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.0001,
+   "avgTri": 0.00011,
    "anglePct": 35,
    "vpt": 0.6,
    "grad": 0.84,
@@ -265606,12 +266113,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12760,
+   "bytes": 12752,
    "vtx": 258,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00011,
+   "avgTri": 0.00012,
    "anglePct": 0,
    "vpt": 0.5,
    "grad": 0,
@@ -265643,7 +266150,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6988,
+   "bytes": 6980,
    "vtx": 130,
    "grounded": true,
    "centered": true,
@@ -265686,12 +266193,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 29292,
+   "bytes": 29284,
    "vtx": 656,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00038,
+   "avgTri": 0.00039,
    "anglePct": 37,
    "vpt": 0.57,
    "grad": 0.16,
@@ -265714,7 +266221,7 @@
    "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
-    0.45,
+    0.5,
     0.2,
     0.02
    ],
@@ -265723,12 +266230,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19460,
+   "bytes": 19452,
    "vtx": 437,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00027,
+   "avgTri": 0.00028,
    "anglePct": 56,
    "vpt": 0.65,
    "grad": 0.49,
@@ -265748,7 +266255,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.5 (obj-kitchenware-cookware-board · 0.529 at kit ×0.85)"
+     "text": "longest 0.5 over max 0.5 (obj-kitchenware-cookware-board · 0.581 at kit ×0.86)"
     }
    ]
   },
@@ -265758,7 +266265,7 @@
    "kind": "obj-food-baked-pastry-donut",
    "size": "s",
    "wdh": [
-    0.07,
+    0.08,
     0.07,
     0.03
    ],
@@ -265767,11 +266274,11 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9432,
+   "bytes": 9424,
    "vtx": 187,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "avgTri": 0.00004,
    "anglePct": 1,
    "vpt": 0.56,
@@ -265809,12 +266316,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34496,
+   "bytes": 34488,
    "vtx": 782,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.0001,
+   "avgTri": 0.00011,
    "anglePct": 12,
    "vpt": 0.58,
    "grad": 0.13,
@@ -265851,7 +266358,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8656,
+   "bytes": 8648,
    "vtx": 167,
    "grounded": true,
    "centered": true,
@@ -265889,7 +266396,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8648,
+   "bytes": 8640,
    "vtx": 167,
    "grounded": true,
    "centered": true,
@@ -265927,7 +266434,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7060,
+   "bytes": 7052,
    "vtx": 131,
    "grounded": true,
    "centered": true,
@@ -265952,7 +266459,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.116 at kit ×0.86)"
     }
    ]
   },
@@ -265964,14 +266471,14 @@
    "wdh": [
     0.45,
     0.25,
-    0.05
+    0.06
    ],
    "tris": 882,
    "tpu": 2571,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23560,
+   "bytes": 23552,
    "vtx": 526,
    "grounded": true,
    "centered": true,
@@ -266008,7 +266515,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16700,
+   "bytes": 16692,
    "vtx": 360,
    "grounded": true,
    "centered": true,
@@ -266039,7 +266546,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.118 at kit ×0.85)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-grapes · 0.116 at kit ×0.86)"
     }
    ]
   },
@@ -266058,7 +266565,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7292,
+   "bytes": 7284,
    "vtx": 137,
    "gridMod": true,
    "grounded": true,
@@ -266084,7 +266591,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.116 at kit ×0.86)"
     }
    ]
   },
@@ -266103,7 +266610,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6488,
+   "bytes": 6480,
    "vtx": 119,
    "grounded": true,
    "centered": true,
@@ -266140,12 +266647,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5988,
+   "bytes": 5980,
    "vtx": 109,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00019,
+   "avgTri": 0.0002,
    "anglePct": 81,
    "vpt": 0.64,
    "grad": 0.6,
@@ -266182,12 +266689,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8356,
+   "bytes": 8348,
    "vtx": 157,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00015,
+   "avgTri": 0.00016,
    "anglePct": 39,
    "vpt": 0.5,
    "grad": 0,
@@ -266219,12 +266726,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7416,
+   "bytes": 7408,
    "vtx": 139,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.0002,
+   "avgTri": 0.00021,
    "anglePct": 0,
    "vpt": 0.54,
    "grad": 0.8,
@@ -266256,7 +266763,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9512,
+   "bytes": 9504,
    "vtx": 193,
    "grounded": true,
    "centered": true,
@@ -266293,12 +266800,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16732,
+   "bytes": 16724,
    "vtx": 357,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00027,
+   "minEdge": 0.002,
+   "avgTri": 0.00029,
    "anglePct": 14,
    "vpt": 0.55,
    "grad": 0.96,
@@ -266330,7 +266837,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8992,
+   "bytes": 8984,
    "vtx": 195,
    "grounded": true,
    "centered": true,
@@ -266360,14 +266867,14 @@
    "wdh": [
     0.03,
     0.01,
-    0.15
+    0.2
    ],
    "tris": 188,
    "tpu": 548,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6564,
+   "bytes": 6556,
    "vtx": 125,
    "grounded": true,
    "centered": true,
@@ -266405,7 +266912,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6572,
+   "bytes": 6564,
    "vtx": 119,
    "gridMod": true,
    "grounded": true,
@@ -266444,7 +266951,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4892,
+   "bytes": 4884,
    "vtx": 82,
    "grounded": true,
    "centered": true,
@@ -266470,7 +266977,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.118 at kit ×0.85)"
+     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.116 at kit ×0.86)"
     }
    ]
   },
@@ -266489,12 +266996,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 24188,
+   "bytes": 24180,
    "vtx": 561,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.0001,
+   "avgTri": 0.00011,
    "anglePct": 57,
    "vpt": 0.71,
    "grad": 0.31,
@@ -266532,7 +267039,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7440,
+   "bytes": 7432,
    "vtx": 144,
    "grounded": true,
    "centered": true,
@@ -266570,12 +267077,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6780,
+   "bytes": 6772,
    "vtx": 125,
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
-   "avgTri": 0.00081,
+   "avgTri": 0.00085,
    "anglePct": 0,
    "vpt": 0.56,
    "grad": 0.96,
@@ -266600,14 +267107,14 @@
    "wdh": [
     0.03,
     0.01,
-    0.15
+    0.2
    ],
    "tris": 188,
    "tpu": 548,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6568,
+   "bytes": 6560,
    "vtx": 125,
    "grounded": true,
    "centered": true,
@@ -266636,7 +267143,7 @@
    "size": "s",
    "wdh": [
     0.03,
-    0.01,
+    0.02,
     0.15
    ],
    "tris": 238,
@@ -266644,12 +267151,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7672,
+   "bytes": 7664,
    "vtx": 150,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00002,
+   "avgTri": 0.00003,
    "anglePct": 1,
    "vpt": 0.63,
    "grad": 0.4,
@@ -266682,7 +267189,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7916,
+   "bytes": 7908,
    "vtx": 156,
    "grounded": true,
    "centered": true,
@@ -266720,7 +267227,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8492,
+   "bytes": 8484,
    "vtx": 170,
    "grounded": true,
    "centered": true,
@@ -266758,12 +267265,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6112,
+   "bytes": 6104,
    "vtx": 111,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00012,
+   "avgTri": 0.00013,
    "anglePct": 57,
    "vpt": 0.59,
    "grad": 0.34,
