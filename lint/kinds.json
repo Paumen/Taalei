@@ -12,17 +12,14 @@
    "tpu.max": 10000,
    "nouns": [
     "barrel stand",
-    "easel",
-    "signboard (freestanding)",
-    "fire extinguisher"
+    "signboard (freestanding)"
    ],
    "children": [
     {
      "id": "obj-container",
      "nouns": [
       "trough",
-      "bin",
-      "dumpster"
+      "bin"
      ],
      "children": [
       {
@@ -60,7 +57,8 @@
        "has": [
         [
          "wood",
-         "metal"
+         "metal",
+         "plastic"
         ]
        ],
        "nouns": [
@@ -99,13 +97,15 @@
       },
       {
        "id": "obj-container-crate",
-       "longest.min": 0.2,
-       "longest.max": 0.7,
+       "longest.min": 0.15,
+       "longest.max": 1,
        "mat.metal": "metal-iron",
        "has": [
         [
          "wood",
-         "paper"
+         "paper",
+         "plastic",
+         "metal"
         ]
        ],
        "nouns": [
@@ -132,8 +132,8 @@
       },
       {
        "id": "obj-container-bottle",
-       "longest.min": 0.1,
-       "longest.max": 0.3,
+       "longest.min": 0.06,
+       "longest.max": 0.5,
        "has": [
         [
          "glass",
@@ -287,6 +287,24 @@
        "nouns": [
         "basket"
        ]
+      },
+      {
+       "id": "obj-container-dumpster",
+       "nouns": [
+        "dumpster",
+        "skip"
+       ]
+      },
+      {
+       "id": "obj-container-cylinder",
+       "nouns": [
+        "gas cylinder",
+        "gas tank",
+        "propane tank",
+        "gas bottle",
+        "fire extinguisher",
+        "vat"
+       ]
       }
      ]
     },
@@ -348,8 +366,7 @@
           "tray",
           "platter",
           "pastry stand",
-          "cloche",
-          "pepper shaker"
+          "cloche"
          ]
         },
         {
@@ -409,6 +426,16 @@
             "wine glass"
            ]
           }
+         ]
+        },
+        {
+         "id": "obj-kitchenware-tableware-condiment",
+         "nouns": [
+          "salt shaker",
+          "pepper shaker",
+          "pepper mill",
+          "pepper grinder",
+          "shaker"
          ]
         }
        ]
@@ -996,15 +1023,7 @@
     },
     {
      "id": "obj-equipment",
-     "nouns": [
-      "dumbbell",
-      "barbell",
-      "kettlebell",
-      "weight plate",
-      "treadmill",
-      "exercise bike",
-      "power rack"
-     ],
+     "nouns": [],
      "children": [
       {
        "id": "obj-equipment-armor",
@@ -2074,6 +2093,19 @@
             "wall shelf",
             "shelving",
             "bookcase"
+           ],
+           "children": [
+            {
+             "id": "obj-furnishing-furniture-storage-shelf-rack",
+             "nouns": [
+              "rack",
+              "display rack",
+              "spinner rack",
+              "slat wall",
+              "ball rack",
+              "dumbbell rack"
+             ]
+            }
            ]
           }
          ]
@@ -2123,13 +2155,7 @@
       {
        "id": "obj-device-appliance",
        "nouns": [
-        "washing machine",
-        "washer",
-        "dryer",
-        "coffee machine",
-        "microwave",
-        "ceiling fan",
-        "water cooler"
+        "ceiling fan"
        ],
        "children": [
         {
@@ -2186,21 +2212,47 @@
          "nouns": [
           "toaster"
          ]
+        },
+        {
+         "id": "obj-device-appliance-laundry",
+         "nouns": [
+          "washing machine",
+          "washer",
+          "dryer",
+          "washer-dryer"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-kitchen",
+         "longest.min": 0.15,
+         "longest.max": 1,
+         "nouns": [
+          "coffee machine",
+          "microwave",
+          "toaster oven",
+          "rice cooker",
+          "stand mixer",
+          "hot plate",
+          "fryer",
+          "popcorn machine"
+         ]
+        },
+        {
+         "id": "obj-device-appliance-drink",
+         "nouns": [
+          "soda fountain",
+          "drink dispenser",
+          "shake machine",
+          "water cooler"
+         ]
         }
        ]
       },
       {
        "id": "obj-device-electronics",
        "nouns": [
-        "television",
-        "laptop",
-        "computer",
-        "keyboard (computer)",
-        "speaker",
-        "camera",
         "phone",
         "battery",
-        "cash register",
         "gramophone",
         "record"
        ],
@@ -2223,7 +2275,6 @@
           "claw machine",
           "slot machine",
           "air hockey",
-          "prize wheel",
           "ticket machine",
           "dance machine",
           "basketball game"
@@ -2231,12 +2282,13 @@
         },
         {
          "id": "obj-device-electronics-screen",
-         "longest.min": 0.25,
-         "longest.max": 0.75,
+         "longest.min": 0.15,
+         "longest.max": 1.3,
          "nouns": [
           "screen",
           "monitor",
-          "display"
+          "display",
+          "television"
          ]
         },
         {
@@ -2250,6 +2302,44 @@
           "coin changer",
           "token changer",
           "gacha machine"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-register",
+         "longest.min": 0.2,
+         "longest.max": 1,
+         "nouns": [
+          "cash register",
+          "register",
+          "till",
+          "pos terminal"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-computer",
+         "nouns": [
+          "computer",
+          "laptop",
+          "keyboard (computer)",
+          "computer desk",
+          "console (computer)"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-audio",
+         "nouns": [
+          "speaker",
+          "loudspeaker",
+          "studio monitor"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-camera",
+         "nouns": [
+          "camera",
+          "security camera",
+          "film camera",
+          "projector"
          ]
         }
        ]
@@ -2311,7 +2401,8 @@
          "nouns": [
           "picture frame",
           "painting",
-          "photo"
+          "photo",
+          "easel"
          ]
         }
        ]
@@ -2335,7 +2426,10 @@
         "playing card",
         "casino chip",
         "trading card",
-        "bowling pin"
+        "bowling pin",
+        "roulette wheel",
+        "prize wheel",
+        "wheel of fortune"
        ],
        "children": [
         {
@@ -2359,6 +2453,18 @@
           "heart (icon)",
           "star (icon)",
           "lightning bolt"
+         ]
+        },
+        {
+         "id": "obj-leisure-game-gym",
+         "nouns": [
+          "dumbbell",
+          "barbell",
+          "kettlebell",
+          "weight plate",
+          "treadmill",
+          "exercise bike",
+          "power rack"
          ]
         }
        ]
@@ -2428,8 +2534,7 @@
        "id": "str-part-gate",
        "nouns": [
         "gate (building)",
-        "portcullis",
-        "torii"
+        "portcullis"
        ],
        "children": [
         {
@@ -2442,7 +2547,8 @@
          "high.min": 0.7,
          "high.max": 2.15,
          "nouns": [
-          "gateway"
+          "gateway",
+          "torii"
          ]
         }
        ]
@@ -2591,7 +2697,9 @@
          "nouns": [
           "house (whole)",
           "hut",
-          "cottage"
+          "cottage",
+          "annex",
+          "lean-to"
          ]
         }
        ]
@@ -2719,7 +2827,9 @@
             "waterwheel",
             "water wheel",
             "windmill blade",
-            "sail (windmill)"
+            "sail (windmill)",
+            "flume",
+            "water channel"
            ]
           }
          ]
@@ -2799,8 +2909,7 @@
        "high.max": 1.2,
        "nouns": [
         "traffic barrier",
-        "traffic drum",
-        "traffic light"
+        "traffic drum"
        ],
        "children": [
         {
@@ -2975,21 +3084,51 @@
         "milestone",
         "waystone",
         "totem",
-        "buoy",
-        "mailbox",
-        "menu",
-        "price card"
+        "buoy"
        ],
        "children": [
         {
          "id": "str-fixture-marker-sign",
-         "longest.min": 0.35,
-         "longest.max": 0.9,
+         "longest.min": 0.2,
+         "longest.max": 1.6,
          "nouns": [
           "sign",
-          "signpost",
           "notice board",
-          "direction arrow"
+          "menu board",
+          "price card"
+         ],
+         "children": [
+          {
+           "id": "str-fixture-marker-sign-signpost",
+           "longest.min": 0.4,
+           "longest.max": 2,
+           "nouns": [
+            "signpost",
+            "direction sign",
+            "direction arrow",
+            "sign on a post"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-lettering",
+           "nouns": [
+            "lettering",
+            "letter sign",
+            "name sign",
+            "marquee"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-road",
+           "longest.min": 0.25,
+           "longest.max": 3,
+           "nouns": [
+            "road sign",
+            "stop sign",
+            "highway sign",
+            "chevron sign"
+           ]
+          }
          ]
         },
         {
@@ -3034,16 +3173,23 @@
          "scale": {
           "big": 2
          }
+        },
+        {
+         "id": "str-fixture-marker-mailbox",
+         "nouns": [
+          "mailbox",
+          "letterbox",
+          "post box"
+         ]
         }
        ]
       },
       {
        "id": "str-fixture-utility",
        "nouns": [
-        "fire hydrant",
         "utility pole",
         "power line",
-        "wind turbine"
+        "night deposit"
        ],
        "children": [
         {
@@ -3096,9 +3242,7 @@
          "nouns": [
           "pipe",
           "pipe section",
-          "pipe valve",
-          "flume",
-          "water channel"
+          "pipe valve"
          ]
         },
         {
@@ -3122,6 +3266,19 @@
          "nouns": [
           "hopper",
           "funnel (industrial)"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-hydrant",
+         "nouns": [
+          "fire hydrant",
+          "hydrant"
+         ]
+        },
+        {
+         "id": "str-fixture-utility-turbine",
+         "nouns": [
+          "wind turbine"
          ]
         }
        ]
@@ -3181,6 +3338,15 @@
          "nouns": [
           "street light",
           "street lantern"
+         ]
+        },
+        {
+         "id": "str-fixture-light-traffic",
+         "mat.metal-iron": "metal-iron-steel",
+         "nouns": [
+          "traffic light",
+          "traffic signal",
+          "start light"
          ]
         }
        ]
