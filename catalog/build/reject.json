@@ -1669,6 +1669,14 @@
    "name": "Basket"
   },
   {
+   "id": "obj-container-dumpster",
+   "name": "Dumpster"
+  },
+  {
+   "id": "obj-container-cylinder",
+   "name": "Cylinder"
+  },
+  {
    "id": "obj-kitchenware",
    "name": "Kitchenware"
   },
@@ -1707,6 +1715,10 @@
   {
    "id": "obj-kitchenware-tableware-drinkware-goblet",
    "name": "Goblet"
+  },
+  {
+   "id": "obj-kitchenware-tableware-condiment",
+   "name": "Condiment"
   },
   {
    "id": "obj-kitchenware-cookware",
@@ -2373,6 +2385,10 @@
    "name": "Shelf"
   },
   {
+   "id": "obj-furnishing-furniture-storage-shelf-rack",
+   "name": "Rack"
+  },
+  {
    "id": "obj-furnishing-textile",
    "name": "Textile"
   },
@@ -2417,6 +2433,18 @@
    "name": "Toaster"
   },
   {
+   "id": "obj-device-appliance-laundry",
+   "name": "Laundry"
+  },
+  {
+   "id": "obj-device-appliance-kitchen",
+   "name": "Kitchen"
+  },
+  {
+   "id": "obj-device-appliance-drink",
+   "name": "Drink"
+  },
+  {
    "id": "obj-device-electronics",
    "name": "Electronics"
   },
@@ -2435,6 +2463,22 @@
   {
    "id": "obj-device-electronics-vending",
    "name": "Vending"
+  },
+  {
+   "id": "obj-device-electronics-register",
+   "name": "Register"
+  },
+  {
+   "id": "obj-device-electronics-computer",
+   "name": "Computer"
+  },
+  {
+   "id": "obj-device-electronics-audio",
+   "name": "Audio"
+  },
+  {
+   "id": "obj-device-electronics-camera",
+   "name": "Camera"
   },
   {
    "id": "obj-device-science",
@@ -2479,6 +2523,10 @@
   {
    "id": "obj-leisure-game-symbol",
    "name": "Symbol"
+  },
+  {
+   "id": "obj-leisure-game-gym",
+   "name": "Gym"
   },
   {
    "id": "str",
@@ -2745,6 +2793,18 @@
    "name": "Sign"
   },
   {
+   "id": "str-fixture-marker-sign-signpost",
+   "name": "Signpost"
+  },
+  {
+   "id": "str-fixture-marker-sign-lettering",
+   "name": "Lettering"
+  },
+  {
+   "id": "str-fixture-marker-sign-road",
+   "name": "Road"
+  },
+  {
    "id": "str-fixture-marker-flag",
    "name": "Flag"
   },
@@ -2755,6 +2815,10 @@
   {
    "id": "str-fixture-marker-banner",
    "name": "Banner"
+  },
+  {
+   "id": "str-fixture-marker-mailbox",
+   "name": "Mailbox"
   },
   {
    "id": "str-fixture-utility",
@@ -2793,6 +2857,14 @@
    "name": "Hopper"
   },
   {
+   "id": "str-fixture-utility-hydrant",
+   "name": "Hydrant"
+  },
+  {
+   "id": "str-fixture-utility-turbine",
+   "name": "Turbine"
+  },
+  {
    "id": "str-fixture-leisure",
    "name": "Leisure"
   },
@@ -2811,6 +2883,10 @@
   {
    "id": "str-fixture-light-street",
    "name": "Street"
+  },
+  {
+   "id": "str-fixture-light-traffic",
+   "name": "Traffic"
   },
   {
    "id": "env",
@@ -14326,6 +14402,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Peg_Rack",
+   "kind": "obj-furnishing-furniture-storage-shelf-rack",
    "wdh": [
     0.8,
     0.2,
@@ -19192,6 +19269,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Hilly_Prop_Camp_Lean_To",
+   "kind": "str-building-residential-house",
    "wdh": [
     0.7,
     0.7,
@@ -33240,7 +33318,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "appliance_microwave",
-   "kind": "obj-device-appliance",
+   "kind": "obj-device-appliance-kitchen",
    "wdh": [
     0.4,
     0.3,
@@ -40680,7 +40758,7 @@
   {
    "kit": "Post_Apocolypse_Pack",
    "name": "Traffic Light-lg9AKWejnF",
-   "kind": "str-barrier-traffic",
+   "kind": "str-fixture-light-traffic",
    "wdh": [
     2.7,
     2.3,
@@ -40697,7 +40775,7 @@
   {
    "kit": "Post_Apocolypse_Pack",
    "name": "Traffic Light",
-   "kind": "str-barrier-traffic",
+   "kind": "str-fixture-light-traffic",
    "wdh": [
     0.8,
     2.3,
@@ -48277,6 +48355,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Shaker Salt",
+   "kind": "obj-kitchenware-tableware-condiment",
    "wdh": [
     0.1,
     0.1,
@@ -50486,7 +50565,7 @@
   {
    "kit": "kenney_furniture-kit",
    "name": "computerMouse",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-computer",
    "wdh": [
     0.1,
     0.1,

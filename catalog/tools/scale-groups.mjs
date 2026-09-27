@@ -73,7 +73,7 @@ export const byLongest = (kind) => ownLongest(kind) && !TOP_VIEW.has(kind);
 const SHORT_RULER = new Set(['env-terrain-rock-pebble', 'env-remains-deadwood-branch',
   'env-flora-plant-flower', 'env-flora-plant-grass', 'env-fungi', 'obj-container-bottle',
   'obj-container-chest', 'obj-container-bucket', 'obj-food',
-  'obj-resource', 'obj-leisure-game', 'obj-equipment-weapon-melee-dagger', 'obj-equipment-weapon-ranged-arrow']);
+  'obj-resource', 'obj-equipment-weapon-melee-dagger', 'obj-equipment-weapon-ranged-arrow']);
 
 const SHORT_RULER_BRANCHES = ['obj-equipment-pocketitem', 'obj-kitchenware'];
 

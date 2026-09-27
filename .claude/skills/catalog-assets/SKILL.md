@@ -79,7 +79,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 - `str` sets `mat.metal-iron: metal-iron-cast`, so iron on any structure is
   cast and slate, never steel; lamp posts and lanterns fixed in
   place (`str-fixture-light`) take `metal-iron-wrought`, modern street lights
-  (`str-fixture-light-street`) `metal-iron-steel`. `obj-container-*` sets `mat.metal: metal-iron`,
+  and traffic lights (`str-fixture-light-street`, `-traffic`) `metal-iron-steel`. `obj-container-*` sets `mat.metal: metal-iron`,
   so hoops and bands on a barrel, bucket or crate take an iron subtype rather
   than bare `metal`.
 - `foliage` is moss or hunter; `emissive` is amber.
