@@ -55,10 +55,11 @@ function pakBronUit(bronkit) {
   if (zips.length === 0) throw new Error(`${bronkit.map}: no .zip in kits/sources`);
 
   const stempel = join(doel, '.klaar');
-  if (!existsSync(stempel) || readFileSync(stempel, 'utf8') !== zips.join('\n') + '\n') {
+  const inhoud = zips.map((zip) => `${zip} ${statSync(join(map, zip)).size} ${statSync(join(map, zip)).mtimeMs}`).join('\n') + '\n';
+  if (!existsSync(stempel) || readFileSync(stempel, 'utf8') !== inhoud) {
     rmSync(doel, { recursive: true, force: true });
     for (const zip of zips) pakUit(join(map, zip), doel);
-    writeFileSync(stempel, zips.join('\n') + '\n');
+    writeFileSync(stempel, inhoud);
   }
   return doel;
 }
