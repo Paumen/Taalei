@@ -1,4 +1,4 @@
-import { writeFileSync, readdirSync, statSync, existsSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, rmSync } from 'node:fs';
 import { join, dirname, resolve, relative, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leesFbx } from './fbx.mjs';
@@ -55,7 +55,7 @@ function pakBronUit(bronkit) {
   if (zips.length === 0) throw new Error(`${bronkit.map}: no .zip in kits/sources`);
 
   const stempel = join(doel, '.klaar');
-  if (!existsSync(stempel)) {
+  if (!existsSync(stempel) || readFileSync(stempel, 'utf8') !== zips.join('\n') + '\n') {
     rmSync(doel, { recursive: true, force: true });
     for (const zip of zips) pakUit(join(map, zip), doel);
     writeFileSync(stempel, zips.join('\n') + '\n');
