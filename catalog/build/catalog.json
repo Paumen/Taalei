@@ -14508,7 +14508,7 @@
    "id": "wood",
    "name": "Wood",
    "type": "material",
-   "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log or bark fits.",
+   "description": "Worked wood with no band named: use it only where none of planks, worked, beam, log, bark or cardboard fits.",
    "count": 0
   },
   {
@@ -14516,7 +14516,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 397,
+   "count": 396,
    "parent": "wood"
   },
   {
@@ -14524,7 +14524,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 765,
+   "count": 764,
    "parent": "wood"
   },
   {
@@ -14549,6 +14549,14 @@
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
    "count": 279,
+   "parent": "wood"
+  },
+  {
+   "id": "wood-cardboard",
+   "name": "Cardboard",
+   "type": "material",
+   "description": "Corrugated board: shipping boxes, parcels, cartons folded from brown board. Printed paper labels and tape on it are paper.",
+   "count": 20,
    "parent": "wood"
   },
   {
@@ -14587,7 +14595,7 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 199
+   "count": 187
   },
   {
    "id": "textile",
@@ -14622,7 +14630,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 570
+   "count": 571
   },
   {
    "id": "bone",
@@ -29614,13 +29622,13 @@
    "vpt": 1.55,
    "grad": 0,
    "spread": {
-    "1,1": [
+    "5,2": [
      0.492,
      0.492
     ]
    },
    "colors": [
-    "#23562c"
+    "#d8d1bd"
    ],
    "tags": [
     "plastic"
@@ -40798,7 +40806,7 @@
    "vpt": 0.66,
    "grad": 0.08,
    "spread": {
-    "1,1": [
+    "3,1": [
      0.484,
      0.531
     ],
@@ -40808,11 +40816,10 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#68872d",
     "#d8d1bd"
    ],
    "tags": [
-    "paper",
     "plastic"
    ],
    "variant": "v1045"
@@ -57763,7 +57770,7 @@
     "isa",
     "paper",
     "rope",
-    "wood-planks"
+    "wood-cardboard"
    ],
    "lint": [
     {
@@ -57921,13 +57928,6 @@
     "isa",
     "plastic",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has camel ivory"
-    }
    ]
   },
   {
@@ -74387,7 +74387,8 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ],
    "variant": "v953",
    "lint": [
@@ -74433,7 +74434,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ],
    "variant": "v953",
    "lint": [
@@ -111268,7 +111269,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory tan, has amber sienna"
+     "text": "paper wants ivory, has amber sienna"
     }
    ]
   },
@@ -111321,7 +111322,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory tan, has amber sienna"
+     "text": "paper wants ivory, has amber sienna"
     }
    ]
   },
@@ -117379,7 +117380,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ]
   },
   {
@@ -117417,7 +117418,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ]
   },
   {
@@ -117906,6 +117907,7 @@
     "kay",
     "paper",
     "plastic",
+    "wood-cardboard",
     "wood-planks"
    ]
   },
@@ -118016,6 +118018,7 @@
     "metal",
     "paper",
     "plastic",
+    "wood-cardboard",
     "wood-worked"
    ]
   },
@@ -126399,11 +126402,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.39 off the size curve (kay-space, 6 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel slate ivory"
     }
    ]
   },
@@ -135690,7 +135688,7 @@
    "vpt": 1.19,
    "grad": 0.57,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.742
     ],
@@ -135700,12 +135698,13 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142288,7 +142287,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142332,7 +142332,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142375,7 +142376,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142418,7 +142420,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -148655,13 +148658,6 @@
     "food",
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has chestnut ivory tan"
-    }
    ]
   },
   {
@@ -151464,7 +151460,7 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "plastic"
    ]
   },
   {
@@ -153458,26 +153454,19 @@
    "vpt": 1.33,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "wood-cardboard"
    ],
-   "variant": "v827",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory tan, has camel"
-    }
-   ]
+   "variant": "v827"
   },
   {
    "kit": "ken-furniture",
@@ -153504,26 +153493,19 @@
    "vpt": 1.2,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "wood-cardboard"
    ],
-   "variant": "v827",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory tan, has camel"
-    }
-   ]
+   "variant": "v827"
   },
   {
    "kit": "ken-furniture",
@@ -155101,14 +155083,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v805",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has camel ivory chestnut nickel"
-    }
-   ]
+   "variant": "v805"
   },
   {
    "kit": "ken-furniture",
@@ -155153,14 +155128,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "variant": "v805",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel"
-    }
-   ]
+   "variant": "v805"
   },
   {
    "kit": "ken-furniture",
@@ -178144,13 +178112,6 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate ivory"
-    }
    ]
   },
   {
@@ -183127,11 +183088,6 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.6 over max 2 (str-part-pillar · 2.549 at kit ×1.02)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
     }
    ]
   },
@@ -184827,14 +184783,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1105",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate ivory nickel"
-    }
-   ]
+   "variant": "v1105"
   },
   {
    "kit": "ken-space",
@@ -186425,13 +186374,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory slate nickel"
-    }
    ]
   },
   {
@@ -186627,14 +186569,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1116",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
-    }
-   ]
+   "variant": "v1116"
   },
   {
    "kit": "ken-space",
@@ -186969,14 +186904,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1118",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel ivory slate"
-    }
-   ]
+   "variant": "v1118"
   },
   {
    "kit": "ken-space",
@@ -187087,13 +187015,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
-    }
    ]
   },
   {
@@ -187152,11 +187073,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.49 at kit ×1.02)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate nickel ivory"
     }
    ]
   },
@@ -187210,14 +187126,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1119",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel slate ivory"
-    }
-   ]
+   "variant": "v1119"
   },
   {
    "kit": "ken-space",
@@ -192488,7 +192397,7 @@
    "vpt": 1.28,
    "grad": 0.84,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.102,
      0.961
     ],
@@ -192498,13 +192407,13 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "ken",
     "paper",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v274"
   },
@@ -240466,7 +240375,7 @@
    "vpt": 1.11,
    "grad": 0.17,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240477,12 +240386,12 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240511,7 +240420,7 @@
    "vpt": 1.11,
    "grad": 0.17,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240522,12 +240431,12 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240556,7 +240465,7 @@
    "vpt": 1.11,
    "grad": 0.19,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240567,13 +240476,13 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "plural",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240602,7 +240511,7 @@
    "vpt": 1.11,
    "grad": 0.19,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240613,13 +240522,13 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "plural",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -244260,8 +244169,8 @@
     "#f2a93c"
    ],
    "tags": [
-    "paper",
     "qua",
+    "wood-cardboard",
     "wood-planks"
    ]
   },
@@ -263611,13 +263520,6 @@
    "tags": [
     "paper",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory chestnut"
-    }
    ]
   },
   {
