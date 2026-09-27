@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=61776dd6a0';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=61776dd6a0';
-import { renderCommentBox } from './comments.js?v=61776dd6a0';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=61776dd6a0';
-import './bouwstempel.js?v=61776dd6a0';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=fb5fd047ca';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=fb5fd047ca';
+import { renderCommentBox } from './comments.js?v=fb5fd047ca';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=fb5fd047ca';
+import './bouwstempel.js?v=fb5fd047ca';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -473,7 +473,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=61776dd6a0'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=fb5fd047ca'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
@@ -805,11 +805,10 @@ function exportCsv() {
 }
 
 function markNav() {
-  if (!SOURCE.key) return;
+  if (SOURCE.key !== 'lint') return;
   const nav = document.querySelector('.paginabalk[aria-label="Pages"]');
-  if (!nav) return;
-  const current = nav.querySelector('[aria-current="page"]');
-  const target = nav.querySelector(`a[href*="source=${SOURCE.key}"]`);
+  const current = nav?.querySelector('[aria-current="page"]');
+  const target = nav?.querySelector('a[href="scale-obj-gen.html"]');
   if (!current || !target) return;
   const link = document.createElement('a');
   link.href = 'swipe.html';
@@ -819,6 +818,7 @@ function markNav() {
   here.textContent = target.textContent;
   current.replaceWith(link);
   target.replaceWith(here);
+  document.querySelector('#lint-bar').hidden = false;
 }
 
 async function start() {
