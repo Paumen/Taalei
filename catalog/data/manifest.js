@@ -3113,8 +3113,8 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "slug": "asia-rg",
-  "name": "asia-rg",
+  "slug": "rgp-asia",
+  "name": "rgp-asia",
   "url": null,
   "models": [
    "bamboo",
