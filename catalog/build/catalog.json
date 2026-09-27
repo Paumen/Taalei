@@ -2839,15 +2839,14 @@
     "Weapons Assets Pack": 14
    },
    "scales": {
-    "0.005": 14
+    "0.007": 14
    },
    "smooth": {
     "none": 14
    },
    "kitCheck": {
-    "factor": 0.65,
-    "kinds": 5,
-    "level": "error"
+    "factor": 0.92,
+    "kinds": 5
    }
   },
   {
@@ -17379,14 +17378,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2366
+   "count": 2365
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2075
+   "count": 2076
   },
   {
    "id": "l",
@@ -268558,20 +268557,20 @@
    "size": "s",
    "wdh": [
     0.02,
-    0.08,
-    0.3
+    0.1,
+    0.4
    ],
    "tris": 12304,
    "tpu": 35872,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 834308,
+   "bytes": 834352,
    "vtx": 23718,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
+   "minTube": 0.0171,
    "avgTri": 0,
    "anglePct": 44,
    "vpt": 1.93,
@@ -268605,11 +268604,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 35872 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268619,22 +268613,22 @@
    "kind": "obj-equipment-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
-    0.15,
+    0.2,
     0.02,
-    0.3
+    0.4
    ],
    "tris": 13604,
    "tpu": 39662,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 912088,
+   "bytes": 912132,
    "vtx": 25906,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
-   "avgTri": 0,
+   "minTube": 0.0171,
+   "avgTri": 0.00001,
    "anglePct": 52,
    "vpt": 1.9,
    "grad": 0,
@@ -268667,11 +268661,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 39662 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268681,22 +268670,22 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.04,
-    0.02,
-    0.2
+    0.06,
+    0.03,
+    0.25
    ],
    "tris": 5387,
    "tpu": 15706,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 352448,
+   "bytes": 352492,
    "vtx": 9959,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0132,
-   "avgTri": 0,
+   "minTube": 0.0186,
+   "avgTri": 0.00001,
    "anglePct": 41,
    "vpt": 1.85,
    "grad": 0,
@@ -268724,11 +268713,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 15706 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268738,21 +268722,21 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
+    0.03,
     0.02,
-    0.01,
-    0.15
+    0.25
    ],
    "tris": 5028,
    "tpu": 14659,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 333248,
+   "bytes": 333292,
    "vtx": 9426,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0129,
+   "minTube": 0.0181,
    "avgTri": 0,
    "anglePct": 58,
    "vpt": 1.87,
@@ -268781,11 +268765,6 @@
      "level": "error",
      "check": "size",
      "text": "tpu 14659 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268793,24 +268772,24 @@
    "kit": "styloo-weapons",
    "name": "katana",
    "kind": "obj-equipment-weapon-melee-sword",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.08,
-    0.03,
-    0.45
+    0.1,
+    0.04,
+    0.6
    ],
    "tris": 412,
    "tpu": 1201,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26672,
+   "bytes": 26720,
    "vtx": 712,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.021,
-   "avgTri": 0.00007,
+   "minTube": 0.0295,
+   "avgTri": 0.00014,
    "anglePct": 16,
    "vpt": 1.73,
    "grad": 0,
@@ -268838,13 +268817,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -268853,16 +268825,16 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.03,
+    0.04,
     0.01,
-    0.15
+    0.2
    ],
    "tris": 3452,
    "tpu": 10064,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 239748,
+   "bytes": 239792,
    "vtx": 6800,
    "grounded": true,
    "centered": true,
@@ -268901,11 +268873,6 @@
      "level": "warning",
      "check": "size",
      "text": "tpu 10064 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -268915,22 +268882,22 @@
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.2,
-    0.03,
-    0.55
+    0.25,
+    0.04,
+    0.75
    ],
    "tris": 804,
-   "tpu": 2344,
+   "tpu": 2179,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 57140,
+   "bytes": 57184,
    "vtx": 1590,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0296,
-   "avgTri": 0.00008,
+   "minTube": 0.0415,
+   "avgTri": 0.00015,
    "anglePct": 26,
    "vpt": 1.98,
    "grad": 0,
@@ -268967,12 +268934,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.55 over max 0.8 (obj-equipment-weapon-melee-sword · 0.846 at kit ×0.65)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
+     "text": "longest 0.75 over max 0.8 (obj-equipment-weapon-melee-sword · 0.815 at kit ×0.92)"
     }
    ]
   },
@@ -268982,22 +268944,22 @@
    "kind": "obj-tool-twohand-pickaxe",
    "size": "s",
    "wdh": [
-    0.2,
-    0.02,
-    0.25
+    0.3,
+    0.03,
+    0.35
    ],
    "tris": 2780,
    "tpu": 8105,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 190936,
+   "bytes": 190980,
    "vtx": 5400,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0265,
-   "avgTri": 0.00001,
+   "minTube": 0.0371,
+   "avgTri": 0.00002,
    "anglePct": 27,
    "vpt": 1.94,
    "grad": 0,
@@ -269018,13 +268980,6 @@
    "tags": [
     "metal-iron-steel",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -269033,16 +268988,16 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.08,
+    0.1,
     0.01,
-    0.08
+    0.1
    ],
    "tris": 2384,
    "tpu": 6950,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 80764,
+   "bytes": 80808,
    "vtx": 2032,
    "grounded": true,
    "centered": true,
@@ -269070,14 +269025,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v886",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
-   ]
+   "variant": "v886"
   },
   {
    "kit": "styloo-weapons",
@@ -269085,21 +269033,21 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.08,
+    0.1,
     0.01,
-    0.07
+    0.1
    ],
    "tris": 1928,
    "tpu": 5621,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 123088,
+   "bytes": 123132,
    "vtx": 3440,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0,
+   "avgTri": 0.00001,
    "anglePct": 73,
    "vpt": 1.78,
    "grad": 0,
@@ -269122,14 +269070,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v886",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
-   ]
+   "variant": "v886"
   },
   {
    "kit": "styloo-weapons",
@@ -269137,16 +269078,16 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.1,
+    0.15,
     0.01,
-    0.09
+    0.15
    ],
    "tris": 3992,
    "tpu": 11638,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 252852,
+   "bytes": 252896,
    "vtx": 7108,
    "grounded": true,
    "centered": true,
@@ -269180,11 +269121,6 @@
      "level": "warning",
      "check": "size",
      "text": "tpu 11638 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
     }
    ]
   },
@@ -269194,16 +269130,16 @@
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
    "wdh": [
-    0.07,
+    0.1,
     0.01,
-    0.08
+    0.1
    ],
    "tris": 1164,
    "tpu": 3394,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 67428,
+   "bytes": 67472,
    "vtx": 1844,
    "grounded": true,
    "centered": true,
@@ -269231,14 +269167,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v886",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
-   ]
+   "variant": "v886"
   },
   {
    "kit": "styloo-weapons",
@@ -269246,21 +269175,21 @@
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
-    0.04,
-    0.02,
-    0.3
+    0.06,
+    0.03,
+    0.45
    ],
    "tris": 262,
    "tpu": 764,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19188,
+   "bytes": 19232,
    "vtx": 506,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00008,
+   "avgTri": 0.00015,
    "anglePct": 53,
    "vpt": 1.93,
    "grad": 0,
@@ -269287,13 +269216,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
@@ -269302,22 +269224,22 @@
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.08,
-    0.02,
-    0.5
+    0.1,
+    0.03,
+    0.7
    ],
    "tris": 588,
-   "tpu": 1714,
+   "tpu": 1683,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 39028,
+   "bytes": 39072,
    "vtx": 1064,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0169,
-   "avgTri": 0.00006,
+   "minEdge": 0.002,
+   "minTube": 0.0237,
+   "avgTri": 0.00012,
    "anglePct": 43,
    "vpt": 1.81,
    "grad": 0,
@@ -269344,13 +269266,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×0.65 off the size curve (styloo-weapons, 5 kinds)"
-    }
    ]
   },
   {
