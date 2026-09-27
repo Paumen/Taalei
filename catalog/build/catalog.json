@@ -14595,7 +14595,7 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 187
+   "count": 189
   },
   {
    "id": "textile",
@@ -14630,7 +14630,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic or rubber: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 571
+   "count": 570
   },
   {
    "id": "bone",
@@ -29622,13 +29622,13 @@
    "vpt": 1.55,
    "grad": 0,
    "spread": {
-    "5,2": [
+    "1,1": [
      0.492,
      0.492
     ]
    },
    "colors": [
-    "#d8d1bd"
+    "#23562c"
    ],
    "tags": [
     "plastic"
@@ -40806,7 +40806,7 @@
    "vpt": 0.66,
    "grad": 0.08,
    "spread": {
-    "3,1": [
+    "1,1": [
      0.484,
      0.531
     ],
@@ -40816,10 +40816,11 @@
     ]
    },
    "colors": [
-    "#68872d",
+    "#23562c",
     "#d8d1bd"
    ],
    "tags": [
+    "paper",
     "plastic"
    ],
    "variant": "v1045"
@@ -57928,6 +57929,13 @@
     "isa",
     "plastic",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has camel ivory"
+    }
    ]
   },
   {
@@ -126402,6 +126410,11 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.39 off the size curve (kay-space, 6 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel slate ivory"
     }
    ]
   },
@@ -148658,6 +148671,13 @@
     "food",
     "ken",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has chestnut ivory tan"
+    }
    ]
   },
   {
@@ -151460,7 +151480,7 @@
    ],
    "tags": [
     "ken",
-    "plastic"
+    "paper"
    ]
   },
   {
@@ -155083,7 +155103,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v805"
+   "variant": "v805",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has camel ivory chestnut nickel"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -155128,7 +155155,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "variant": "v805"
+   "variant": "v805",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -178112,6 +178146,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate ivory"
+    }
    ]
   },
   {
@@ -183088,6 +183129,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.6 over max 2 (str-part-pillar · 2.549 at kit ×1.02)"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
     }
    ]
   },
@@ -184783,7 +184829,14 @@
     "plastic",
     "space"
    ],
-   "variant": "v1105"
+   "variant": "v1105",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate ivory nickel"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -186374,6 +186427,13 @@
     "metal",
     "plastic",
     "space"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory slate nickel"
+    }
    ]
   },
   {
@@ -186569,7 +186629,14 @@
     "plastic",
     "space"
    ],
-   "variant": "v1116"
+   "variant": "v1116",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -186904,7 +186971,14 @@
     "plastic",
     "space"
    ],
-   "variant": "v1118"
+   "variant": "v1118",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel ivory slate"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -187015,6 +187089,13 @@
     "metal",
     "plastic",
     "space"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory nickel slate"
+    }
    ]
   },
   {
@@ -187073,6 +187154,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.49 at kit ×1.02)"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has slate nickel ivory"
     }
    ]
   },
@@ -187126,7 +187212,14 @@
     "plastic",
     "space"
    ],
-   "variant": "v1119"
+   "variant": "v1119",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has nickel slate ivory"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -263520,6 +263613,13 @@
    "tags": [
     "paper",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter azure basalt, has ivory chestnut"
+    }
    ]
   },
   {
