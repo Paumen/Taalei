@@ -14516,7 +14516,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 397,
+   "count": 396,
    "parent": "wood"
   },
   {
@@ -14524,7 +14524,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 765,
+   "count": 764,
    "parent": "wood"
   },
   {
@@ -14549,6 +14549,14 @@
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, rough trunks. A cut trunk carries wood-log too.",
    "count": 279,
+   "parent": "wood"
+  },
+  {
+   "id": "wood-cardboard",
+   "name": "Cardboard",
+   "type": "material",
+   "description": "Corrugated board: shipping boxes, parcels, cartons folded from brown board. Printed paper labels and tape on it are paper.",
+   "count": 20,
    "parent": "wood"
   },
   {
@@ -14587,7 +14595,7 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 197
+   "count": 187
   },
   {
    "id": "textile",
@@ -57762,7 +57770,7 @@
     "isa",
     "paper",
     "rope",
-    "wood-planks"
+    "wood-cardboard"
    ],
    "lint": [
     {
@@ -74379,7 +74387,8 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ],
    "variant": "v953",
    "lint": [
@@ -74425,7 +74434,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ],
    "variant": "v953",
    "lint": [
@@ -111260,7 +111269,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory tan, has amber sienna"
+     "text": "paper wants ivory, has amber sienna"
     }
    ]
   },
@@ -111313,7 +111322,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "paper wants ivory tan, has amber sienna"
+     "text": "paper wants ivory, has amber sienna"
     }
    ]
   },
@@ -117371,7 +117380,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ]
   },
   {
@@ -117409,7 +117418,7 @@
    ],
    "tags": [
     "kay",
-    "paper"
+    "wood-cardboard"
    ]
   },
   {
@@ -117898,6 +117907,7 @@
     "kay",
     "paper",
     "plastic",
+    "wood-cardboard",
     "wood-planks"
    ]
   },
@@ -118008,6 +118018,7 @@
     "metal",
     "paper",
     "plastic",
+    "wood-cardboard",
     "wood-worked"
    ]
   },
@@ -135677,7 +135688,7 @@
    "vpt": 1.19,
    "grad": 0.57,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.742
     ],
@@ -135687,12 +135698,13 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142275,7 +142287,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142319,7 +142332,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142362,7 +142376,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -142405,7 +142420,8 @@
    ],
    "tags": [
     "ken",
-    "paper"
+    "paper",
+    "wood-cardboard"
    ]
   },
   {
@@ -153438,26 +153454,19 @@
    "vpt": 1.33,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "wood-cardboard"
    ],
-   "variant": "v827",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory tan, has camel"
-    }
-   ]
+   "variant": "v827"
   },
   {
    "kit": "ken-furniture",
@@ -153484,26 +153493,19 @@
    "vpt": 1.2,
    "grad": 0.6,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "ken",
-    "paper"
+    "wood-cardboard"
    ],
-   "variant": "v827",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper wants ivory tan, has camel"
-    }
-   ]
+   "variant": "v827"
   },
   {
    "kit": "ken-furniture",
@@ -192395,7 +192397,7 @@
    "vpt": 1.28,
    "grad": 0.84,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.102,
      0.961
     ],
@@ -192405,13 +192407,13 @@
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "ken",
     "paper",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v274"
   },
@@ -240373,7 +240375,7 @@
    "vpt": 1.11,
    "grad": 0.17,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240384,12 +240386,12 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240418,7 +240420,7 @@
    "vpt": 1.11,
    "grad": 0.17,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240429,12 +240431,12 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240463,7 +240465,7 @@
    "vpt": 1.11,
    "grad": 0.19,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240474,13 +240476,13 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "plural",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -240509,7 +240511,7 @@
    "vpt": 1.11,
    "grad": 0.19,
    "spread": {
-    "5,2": [
+    "0,0": [
      0.781,
      0.961
     ],
@@ -240520,13 +240522,13 @@
    },
    "colors": [
     "#8b7561",
-    "#d8d1bd"
+    "#dbae80"
    ],
    "tags": [
-    "paper",
     "plural",
     "qua",
-    "textile"
+    "textile",
+    "wood-cardboard"
    ],
    "variant": "v450"
   },
@@ -244167,8 +244169,8 @@
     "#f2a93c"
    ],
    "tags": [
-    "paper",
     "qua",
+    "wood-cardboard",
     "wood-planks"
    ]
   },
