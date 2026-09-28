@@ -5,17 +5,19 @@ import { readGlb, writeGlb, readAccessor, worldMatrices, measureTubes } from '..
 import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 import { MeshoptSimplifier } from './vendor/meshoptimizer/meshopt_simplifier.js';
 
-const HELP = `simplify.mjs [--error <fraction>] [--list] <workfile.glb> [...]
+const HELP = `simplify.mjs [--error <fraction>] [--ratio <fraction>] [--list] <workfile.glb> [...]
 
 Removes triangles while no surface moves more than --error (0.01 by default) of
-the model's longest extent. Open edges, colour-band seams and normals are kept.
+the model's longest extent. --ratio stops each primitive at that fraction of its
+triangles instead of removing all it can; a smaller cut is refused less often, so
+running it again goes further. Open edges, colour-band seams and normals are kept.
 A result is refused where it opens a hole, makes an edge carry more than two
 faces, flips a face against its normals, leaves a face more than 78° off one
 of its vertex normals, or pushes a face through another of the same surface; the vertices under such a
 spot are locked and the pass runs again, up to 12 times, after which the model is
 left as it was. A catalogue model is also left as it was when the result would
-fail G27 where the original did not. Models with a skin, an animation or morph
-targets are left alone. --list prints the counts
+fail G27 where the original did not. Models with a skin or morph targets, or an
+animation that does more than move, turn or scale nodes, are left alone. --list prints the counts
 and changes nothing.`;
 
 const PASSES = 12;
@@ -32,14 +34,17 @@ const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(args.length ? 0 : 1); }
 let error = 0.01;
+let ratio = 0;
 let list = false;
 const files = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--error') error = Number(args[++i]);
+  else if (args[i] === '--ratio') ratio = Number(args[++i]);
   else if (args[i] === '--list') list = true;
   else files.push(args[i]);
 }
 if (!(error > 0 && error < 1)) throw new Error('--error needs a fraction between 0 and 1');
+if (!(ratio >= 0 && ratio < 1)) throw new Error('--ratio needs a fraction between 0 and 1');
 
 await MeshoptSimplifier.ready;
 
@@ -254,10 +259,11 @@ function simplifyPrimitive(glb, prim, absError) {
   for (let t = 0; t < idx.length; t += 3) faces.add(face(idx, t));
   const lock = new Uint8Array(n);
   const flags = ['LockBorder', 'ErrorAbsolute'];
+  const target = Math.floor((idx.length / 3) * ratio) * 3;
   for (let pass = 0, rings = 1; pass < PASSES; pass++, rings++) {
     const [out] = stride
-      ? MeshoptSimplifier.simplifyWithAttributes(idx, pos, 3, attributes, stride, weights, lock, 0, absError, flags)
-      : MeshoptSimplifier.simplify(idx, pos, 3, 0, absError, flags);
+      ? MeshoptSimplifier.simplifyWithAttributes(idx, pos, 3, attributes, stride, weights, lock, target, absError, flags)
+      : MeshoptSimplifier.simplify(idx, pos, 3, target, absError, flags);
     const got = inspect(out, pos, nrm, id);
     const edges = [...got.open].filter((k) => !base.open.has(k)).concat([...got.crowded].filter((k) => !base.crowded.has(k)));
     const flips = got.flip.filter((t) => !known.has(face(out, t)));
@@ -352,8 +358,9 @@ for (const file of files) {
   const glb = readGlb(file);
   const { json } = glb;
   const prims = (json.meshes ?? []).flatMap((m) => m.primitives ?? []);
-  if (json.skins?.length || json.animations?.length || prims.some((p) => p.targets?.length)) {
-    console.log(`${file}: skinned, animated or morphing, left alone`);
+  const channels = (json.animations ?? []).flatMap((a) => a.channels ?? []);
+  if (json.skins?.length || prims.some((p) => p.targets?.length) || channels.some((c) => !['translation', 'rotation', 'scale'].includes(c.target?.path))) {
+    console.log(`${file}: skinned, morphing or animated beyond node transforms, left alone`);
     continue;
   }
 
