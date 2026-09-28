@@ -710,8 +710,8 @@
     "none": 120
    },
    "kitCheck": {
-    "factor": 0.88,
-    "kinds": 33
+    "factor": 0.89,
+    "kinds": 32
    }
   },
   {
@@ -904,8 +904,8 @@
     "none": 45
    },
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 12
+    "factor": 1.05,
+    "kinds": 11
    }
   },
   {
@@ -2506,8 +2506,8 @@
     "none": 36
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 20
+    "factor": 1.09,
+    "kinds": 19
    }
   },
   {
@@ -15411,7 +15411,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2945,
+   "count": 2950,
    "color": "#c07c8a"
   },
   {
@@ -17216,7 +17216,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1742,
+   "count": 1737,
    "color": "#877a63"
   },
   {
@@ -17224,7 +17224,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 325
+   "count": 320
   },
   {
    "id": "str-access",
@@ -17494,7 +17494,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 129,
+   "count": 124,
    "color": "#ffb349"
   },
   {
@@ -17516,7 +17516,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 53
+   "count": 48
   },
   {
    "id": "str-fixture-marker-sign-road",
@@ -18882,6 +18882,12 @@
    "longest.min": 0.05,
    "longest.max": 0.4,
    "tpu.max": 5000
+  },
+  "obj": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
   },
   "obj-container": {
    "high.max": 8,
@@ -50918,7 +50924,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "pricing-card",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj",
    "size": "s",
    "wdh": [
     0.08,
@@ -50957,13 +50963,6 @@
     "isa",
     "paper",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.09 under min 0.2 (str-fixture-marker-sign · 0.081 at kit ×1.11)"
-    }
    ]
   },
   {
@@ -87474,7 +87473,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-furnishing-furniture-seating-chair · 0.284 at kit ×0.88)"
+     "text": "longest 0.25 under min 0.3 (obj-furnishing-furniture-seating-chair · 0.281 at kit ×0.89)"
     }
    ]
   },
@@ -87520,7 +87519,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-furnishing-furniture-seating-chair · 0.284 at kit ×0.88)"
+     "text": "longest 0.25 under min 0.3 (obj-furnishing-furniture-seating-chair · 0.281 at kit ×0.89)"
     }
    ]
   },
@@ -89321,7 +89320,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.35 (obj-food-vegetable-leafy · 0.398 at kit ×0.88)"
+     "text": "longest 0.35 over max 0.35 (obj-food-vegetable-leafy · 0.393 at kit ×0.89)"
     }
    ]
   },
@@ -90457,7 +90456,7 @@
   {
    "kit": "kay-food",
    "name": "menu",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj",
    "size": "s",
    "wdh": [
     0.1,
@@ -90496,13 +90495,6 @@
     "kay",
     "metal-iron-cast",
     "paper"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.15 under min 0.2 (str-fixture-marker-sign · 0.17 at kit ×0.88)"
-    }
    ]
   },
   {
@@ -91463,7 +91455,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.17 at kit ×0.88)"
+     "text": "longest 0.15 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.169 at kit ×0.89)"
     }
    ]
   },
@@ -111594,7 +111586,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.577 at kit ×1.04)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.571 at kit ×1.05)"
     }
    ]
   },
@@ -111650,7 +111642,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.577 at kit ×1.04)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.571 at kit ×1.05)"
     }
    ]
   },
@@ -112690,7 +112682,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (str-part-pillar · 0.288 at kit ×1.04)"
+     "text": "longest 0.3 under min 0.5 (str-part-pillar · 0.286 at kit ×1.05)"
     }
    ]
   },
@@ -112820,7 +112812,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.4 over max 2 (str-part-pillar · 2.308 at kit ×1.04)"
+     "text": "longest 2.4 over max 2 (str-part-pillar · 2.286 at kit ×1.05)"
     }
    ]
   },
@@ -112946,7 +112938,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.4 over max 2 (str-part-pillar · 2.308 at kit ×1.04)"
+     "text": "longest 2.4 over max 2 (str-part-pillar · 2.286 at kit ×1.05)"
     }
    ]
   },
@@ -113371,7 +113363,7 @@
   {
    "kit": "kay-platformer",
    "name": "sign-caution",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj",
    "size": "s",
    "wdh": [
     0.25,
@@ -235110,7 +235102,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 over max 0.7 (obj-container-barrel · 0.841 at kit ×1.07)"
+     "text": "longest 0.9 over max 0.7 (obj-container-barrel · 0.826 at kit ×1.09)"
     }
    ]
   },
@@ -235771,7 +235763,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.75 over max 0.6 (obj-container-crate-cube · 0.701 at kit ×1.07)"
+     "text": "longest 0.75 over max 0.6 (obj-container-crate-cube · 0.688 at kit ×1.09)"
     }
    ]
   },
@@ -235912,7 +235904,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.321 at kit ×1.09)"
     }
    ]
   },
@@ -236004,7 +235996,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.321 at kit ×1.09)"
     }
    ]
   },
@@ -236429,7 +236421,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 over max 0.45 (obj-equipment-weapon-melee-dagger · 0.467 at kit ×1.07)"
+     "text": "longest 0.5 over max 0.45 (obj-equipment-weapon-melee-dagger · 0.459 at kit ×1.09)"
     }
    ]
   },
@@ -237112,7 +237104,7 @@
   {
    "kit": "quat-shoot",
    "name": "sign-floor",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj",
    "size": "s",
    "wdh": [
     0.2,
@@ -275911,7 +275903,7 @@
    "kit": "sq-lab",
    "collection": "sq-props",
    "name": "hazard-sign",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj",
    "size": "s",
    "wdh": [
     0.2,
