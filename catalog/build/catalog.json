@@ -1616,8 +1616,9 @@
     "none": 16
    },
    "kitCheck": {
-    "factor": 1.19,
-    "kinds": 62
+    "factor": 1.36,
+    "kinds": 62,
+    "level": "warning"
    }
   },
   {
@@ -18646,14 +18647,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2513
+   "count": 2510
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2269
+   "count": 2272
   },
   {
    "id": "l",
@@ -142054,7 +142055,7 @@
    "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
-    0.05,
+    0.06,
     0.1,
     0.1
    ],
@@ -142063,12 +142064,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6372,
+   "bytes": 6364,
    "vtx": 127,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00016,
+   "avgTri": 0.00022,
    "anglePct": 40,
    "vpt": 0.96,
    "grad": 0.48,
@@ -142096,7 +142097,14 @@
     "ken",
     "piece"
    ],
-   "variant": "v658"
+   "variant": "v658",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142113,12 +142121,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 5064,
+   "bytes": 5068,
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00023,
+   "minEdge": 0.006,
+   "avgTri": 0.00031,
    "anglePct": 12,
    "vpt": 0.63,
    "grad": 0.56,
@@ -142147,7 +142155,14 @@
     "ken",
     "vegetation"
    ],
-   "variant": "v658"
+   "variant": "v658",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142155,8 +142170,8 @@
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
-    0.35,
-    0.25,
+    0.4,
+    0.3,
     0.1
    ],
    "tris": 114,
@@ -142164,12 +142179,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5936,
+   "bytes": 5940,
    "vtx": 117,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.00155,
+   "minEdge": 0.02,
+   "avgTri": 0.00214,
    "anglePct": 15,
    "vpt": 1.03,
    "grad": 0.6,
@@ -142186,7 +142201,14 @@
     "ken",
     "textile"
    ],
-   "variant": "v665"
+   "variant": "v665",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142194,21 +142216,21 @@
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
-    0.1,
-    0.2,
-    0.3
+    0.15,
+    0.25,
+    0.35
    ],
    "tris": 46,
    "tpu": 134,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3588,
+   "bytes": 3592,
    "vtx": 57,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00448,
+   "minEdge": 0.028,
+   "avgTri": 0.00619,
    "anglePct": 13,
    "vpt": 1.24,
    "grad": 0.59,
@@ -142225,7 +142247,14 @@
     "ken",
     "textile"
    ],
-   "variant": "v665"
+   "variant": "v665",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142233,7 +142262,7 @@
    "kind": "obj-food-baked-bread-baguette",
    "size": "s",
    "wdh": [
-    0.4,
+    0.5,
     0.15,
     0.15
    ],
@@ -142242,12 +142271,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5304,
+   "bytes": 5308,
    "vtx": 97,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00171,
+   "minEdge": 0.011,
+   "avgTri": 0.00236,
    "anglePct": 61,
    "vpt": 0.8,
    "grad": 0.44,
@@ -142273,7 +142302,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.35 (obj-food-baked-bread-baguette · 0.336 at kit ×1.19)"
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
     }
    ]
   },
@@ -142283,8 +142312,8 @@
    "kind": "obj-food-fruit-banana",
    "size": "s",
    "wdh": [
-    0.3,
-    0.07,
+    0.4,
+    0.08,
     0.1
    ],
    "tris": 104,
@@ -142292,12 +142321,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4664,
+   "bytes": 4668,
    "vtx": 78,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00049,
+   "minEdge": 0.011,
+   "avgTri": 0.00068,
    "anglePct": 19,
    "vpt": 0.75,
    "grad": 0.54,
@@ -142319,6 +142348,13 @@
     "food",
     "ken",
     "vegetation"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142327,9 +142363,9 @@
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
+    0.45,
     0.4,
-    0.35,
-    0.35
+    0.4
    ],
    "tris": 308,
    "tpu": 898,
@@ -142341,7 +142377,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00213,
+   "avgTri": 0.00295,
    "anglePct": 99,
    "vpt": 1.19,
    "grad": 0.6,
@@ -142363,6 +142399,13 @@
     "ken",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142403,7 +142446,14 @@
     "ken",
     "plastic"
    ],
-   "variant": "v855"
+   "variant": "v855",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142443,7 +142493,14 @@
     "ken",
     "plastic"
    ],
-   "variant": "v855"
+   "variant": "v855",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142451,21 +142508,21 @@
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.25,
     0.3,
-    0.1
+    0.35,
+    0.15
    ],
    "tris": 180,
    "tpu": 525,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 8224,
+   "bytes": 8228,
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00103,
+   "minEdge": 0.012,
+   "avgTri": 0.00143,
    "anglePct": 55,
    "vpt": 0.98,
    "grad": 0.39,
@@ -142498,6 +142555,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142515,12 +142579,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6292,
+   "bytes": 6296,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00069,
+   "minEdge": 0.012,
+   "avgTri": 0.00096,
    "anglePct": 90,
    "vpt": 1.1,
    "grad": 0.6,
@@ -142542,6 +142606,13 @@
     "food",
     "ken",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142550,21 +142621,21 @@
    "kind": "obj-food-vegetable-broccoli",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.25,
+    0.25,
+    0.25
    ],
    "tris": 260,
    "tpu": 758,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9792,
+   "bytes": 9796,
    "vtx": 210,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00052,
+   "minEdge": 0.005,
+   "avgTri": 0.00072,
    "anglePct": 9,
    "vpt": 0.81,
    "grad": 0.57,
@@ -142586,6 +142657,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142635,7 +142713,14 @@
     "food",
     "ken"
    ],
-   "variant": "v854"
+   "variant": "v854",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142696,7 +142781,14 @@
     "food",
     "ken"
    ],
-   "variant": "v854"
+   "variant": "v854",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142704,21 +142796,21 @@
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.15
+    0.25,
+    0.25,
+    0.2
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6976,
+   "bytes": 6980,
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.00187,
+   "minEdge": 0.033,
+   "avgTri": 0.00258,
    "anglePct": 22,
    "vpt": 1,
    "grad": 0.44,
@@ -142740,6 +142832,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142748,8 +142847,8 @@
    "kind": "obj-food-baked-pie",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
+    0.4,
+    0.4,
     0.2
    ],
    "tris": 1332,
@@ -142757,12 +142856,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 52784,
+   "bytes": 52788,
    "vtx": 1352,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00042,
+   "minEdge": 0.002,
+   "avgTri": 0.00058,
    "anglePct": 78,
    "vpt": 1.02,
    "grad": 0.49,
@@ -142788,6 +142887,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142796,7 +142902,7 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.35,
+    0.45,
     0.1,
     0.04
    ],
@@ -142809,8 +142915,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00094,
+   "minEdge": 0.009,
+   "avgTri": 0.0013,
    "anglePct": 85,
    "vpt": 1.33,
    "grad": 0.6,
@@ -142832,6 +142938,13 @@
     "ken",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142881,6 +142994,13 @@
     "food",
     "ken",
     "metal"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -142925,7 +143045,14 @@
     "ken",
     "metal"
    ],
-   "variant": "v853"
+   "variant": "v853",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142969,7 +143096,14 @@
     "ken",
     "metal"
    ],
-   "variant": "v853"
+   "variant": "v853",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -142977,8 +143111,8 @@
    "kind": "obj-food-vegetable-pepper",
    "size": "s",
    "wdh": [
-    0.09,
-    0.09,
+    0.1,
+    0.1,
     0.1
    ],
    "tris": 132,
@@ -142986,12 +143120,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5884,
+   "bytes": 5888,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00022,
+   "minEdge": 0.009,
+   "avgTri": 0.0003,
    "anglePct": 18,
    "vpt": 0.85,
    "grad": 0.5,
@@ -143013,6 +143147,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143023,19 +143164,19 @@
    "wdh": [
     0.2,
     0.2,
-    0.35
+    0.45
    ],
    "tris": 148,
    "tpu": 431,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6616,
+   "bytes": 6620,
    "vtx": 132,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0005,
+   "minEdge": 0.012,
+   "avgTri": 0.00069,
    "anglePct": 20,
    "vpt": 0.89,
    "grad": 0.57,
@@ -143057,6 +143198,18 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.45 over max 0.3 (obj-food-vegetable-root-carrot · 0.331 at kit ×1.36)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143065,21 +143218,21 @@
    "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.2
+    0.15,
+    0.15,
+    0.25
    ],
    "tris": 74,
    "tpu": 216,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5276,
+   "bytes": 5280,
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00139,
+   "minEdge": 0.012,
+   "avgTri": 0.00192,
    "anglePct": 69,
    "vpt": 1.38,
    "grad": 0.41,
@@ -143101,7 +143254,14 @@
     "ken",
     "paper"
    ],
-   "variant": "v666"
+   "variant": "v666",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -143109,21 +143269,21 @@
    "kind": "obj-container-carton",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.3
+    0.15,
+    0.15,
+    0.35
    ],
    "tris": 94,
    "tpu": 274,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6244,
+   "bytes": 6248,
    "vtx": 129,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0016,
+   "minEdge": 0.012,
+   "avgTri": 0.00222,
    "anglePct": 79,
    "vpt": 1.37,
    "grad": 0.45,
@@ -143145,7 +143305,14 @@
     "ken",
     "paper"
    ],
-   "variant": "v666"
+   "variant": "v666",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -143153,21 +143320,21 @@
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.15
+    0.25,
+    0.25,
+    0.2
    ],
    "tris": 156,
    "tpu": 455,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7444,
+   "bytes": 7448,
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00174,
+   "minEdge": 0.028,
+   "avgTri": 0.00241,
    "anglePct": 21,
    "vpt": 1,
    "grad": 0.43,
@@ -143189,6 +143356,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143197,7 +143371,7 @@
    "kind": "obj-food-dairy-cheese",
    "size": "s",
    "wdh": [
-    0.2,
+    0.25,
     0.15,
     0.01
    ],
@@ -143206,12 +143380,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8108,
+   "bytes": 8112,
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00034,
+   "minEdge": 0.01,
+   "avgTri": 0.00047,
    "anglePct": 100,
    "vpt": 1.1,
    "grad": 0.23,
@@ -143233,6 +143407,13 @@
     "food",
     "ken",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143241,7 +143422,7 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.3,
+    0.35,
     0.1,
     0.02
    ],
@@ -143250,12 +143431,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3576,
+   "bytes": 3580,
    "vtx": 56,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00065,
+   "minEdge": 0.009,
+   "avgTri": 0.0009,
    "anglePct": 84,
    "vpt": 1.27,
    "grad": 0.6,
@@ -143271,6 +143452,13 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143280,20 +143468,20 @@
    "size": "s",
    "wdh": [
     0.05,
-    0.08,
-    0.09
+    0.1,
+    0.1
    ],
    "tris": 134,
    "tpu": 391,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6184,
+   "bytes": 6188,
    "vtx": 121,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.0001,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
    "anglePct": 24,
    "vpt": 0.9,
    "grad": 0.49,
@@ -143321,6 +143509,13 @@
     "food",
     "ken",
     "vegetation"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143329,9 +143524,9 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.15,
+    0.2,
     0.1,
-    0.03
+    0.04
    ],
    "tris": 120,
    "tpu": 350,
@@ -143342,8 +143537,8 @@
    "vtx": 142,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00032,
+   "minEdge": 0.004,
+   "avgTri": 0.00044,
    "anglePct": 78,
    "vpt": 1.18,
    "grad": 0.6,
@@ -143371,7 +143566,14 @@
     "ken",
     "paper"
    ],
-   "variant": "v672"
+   "variant": "v672",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -143379,8 +143581,8 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.15,
-    0.08,
+    0.2,
+    0.09,
     0.02
    ],
    "tris": 140,
@@ -143388,12 +143590,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5584,
+   "bytes": 5588,
    "vtx": 101,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00022,
+   "minEdge": 0.008,
+   "avgTri": 0.0003,
    "anglePct": 77,
    "vpt": 0.72,
    "grad": 0.6,
@@ -143410,7 +143612,14 @@
     "food",
     "ken"
    ],
-   "variant": "v672"
+   "variant": "v672",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -143427,12 +143636,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 2756,
+   "bytes": 2760,
    "vtx": 32,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.0002,
+   "minEdge": 0.006,
+   "avgTri": 0.00028,
    "anglePct": 100,
    "vpt": 0.89,
    "grad": 0.49,
@@ -143453,6 +143662,13 @@
    "tags": [
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143463,7 +143679,7 @@
    "wdh": [
     0.15,
     0.15,
-    0.06
+    0.08
    ],
    "tris": 98,
    "tpu": 286,
@@ -143474,8 +143690,8 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00053,
+   "minEdge": 0.009,
+   "avgTri": 0.00074,
    "anglePct": 39,
    "vpt": 0.73,
    "grad": 0.58,
@@ -143498,6 +143714,13 @@
     "food",
     "ken",
     "piece"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143506,21 +143729,21 @@
    "kind": "obj-food-baked-pastry-cookie",
    "size": "s",
    "wdh": [
-    0.06,
     0.07,
-    0.03
+    0.08,
+    0.04
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6072,
+   "bytes": 6076,
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00014,
+   "minEdge": 0.006,
+   "avgTri": 0.0002,
    "anglePct": 100,
    "vpt": 1.03,
    "grad": 0.54,
@@ -143541,6 +143764,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143549,9 +143779,9 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
+    0.2,
     0.15,
-    0.15,
-    0.02
+    0.03
    ],
    "tris": 136,
    "tpu": 397,
@@ -143562,8 +143792,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00022,
+   "minEdge": 0.009,
+   "avgTri": 0.00031,
    "anglePct": 57,
    "vpt": 1,
    "grad": 0.6,
@@ -143579,6 +143809,13 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143587,8 +143824,8 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.35,
-    0.04,
+    0.4,
+    0.05,
     0.04
    ],
    "tris": 36,
@@ -143596,12 +143833,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3392,
+   "bytes": 3396,
    "vtx": 52,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00054,
+   "minEdge": 0.009,
+   "avgTri": 0.00074,
    "anglePct": 68,
    "vpt": 1.44,
    "grad": 0.6,
@@ -143623,6 +143860,13 @@
     "ken",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143668,6 +143912,13 @@
     "food",
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143677,20 +143928,20 @@
    "size": "s",
    "wdh": [
     0.2,
-    0.15,
-    0.15
+    0.2,
+    0.2
    ],
    "tris": 128,
    "tpu": 373,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5952,
+   "bytes": 5924,
    "vtx": 114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00057,
+   "minEdge": 0.013,
+   "avgTri": 0.00079,
    "anglePct": 9,
    "vpt": 0.89,
    "grad": 0.53,
@@ -143712,6 +143963,18 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.2 under min 0.15 (obj-food-vegetable-corn · 0.147 at kit ×1.36)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143720,7 +143983,7 @@
    "kind": "obj-food-baked-pastry-croissant",
    "size": "s",
    "wdh": [
-    0.25,
+    0.3,
     0.2,
     0.1
    ],
@@ -143733,8 +143996,8 @@
    "vtx": 208,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00064,
+   "minEdge": 0.007,
+   "avgTri": 0.00089,
    "anglePct": 62,
    "vpt": 1.28,
    "grad": 0.59,
@@ -143750,6 +144013,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143758,7 +144028,7 @@
    "kind": "obj-kitchenware-tableware-drinkware-cup",
    "size": "s",
    "wdh": [
-    0.1,
+    0.15,
     0.1,
     0.1
    ],
@@ -143767,12 +144037,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 5440,
+   "bytes": 5396,
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00047,
+   "minEdge": 0.008,
+   "avgTri": 0.00065,
    "anglePct": 39,
    "vpt": 0.93,
    "grad": 0.43,
@@ -143806,7 +144076,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.084 at kit ×1.19)"
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
     }
    ]
   },
@@ -143816,21 +144086,21 @@
    "kind": "obj-kitchenware-tableware-drinkware-cup",
    "size": "s",
    "wdh": [
+    0.2,
     0.15,
-    0.1,
-    0.07
+    0.09
    ],
    "tris": 136,
    "tpu": 397,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6428,
+   "bytes": 6404,
    "vtx": 126,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00036,
+   "minEdge": 0.004,
+   "avgTri": 0.0005,
    "anglePct": 36,
    "vpt": 0.93,
    "grad": 0.57,
@@ -143853,7 +144123,14 @@
     "ken",
     "liquid"
    ],
-   "variant": "v669"
+   "variant": "v669",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -143862,7 +144139,7 @@
    "size": "s",
    "wdh": [
     0.1,
-    0.1,
+    0.15,
     0.1
    ],
    "tris": 80,
@@ -143870,12 +144147,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4396,
+   "bytes": 4364,
    "vtx": 74,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00082,
+   "minEdge": 0.012,
+   "avgTri": 0.00114,
    "anglePct": 55,
    "vpt": 0.93,
    "grad": 0.55,
@@ -143896,7 +144173,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-kitchenware-tableware-drinkware · 0.084 at kit ×1.19)"
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
     }
    ]
   },
@@ -143907,8 +144184,8 @@
    "size": "s",
    "wdh": [
     0.2,
-    0.15,
-    0.2
+    0.2,
+    0.25
    ],
    "tris": 204,
    "tpu": 595,
@@ -143920,7 +144197,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00065,
+   "avgTri": 0.0009,
    "anglePct": 26,
    "vpt": 0.78,
    "grad": 0.52,
@@ -143946,6 +144223,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -143954,8 +144238,8 @@
    "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
-    0.4,
-    0.3,
+    0.5,
+    0.35,
     0.02
    ],
    "tris": 120,
@@ -143963,12 +144247,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6484,
+   "bytes": 6488,
    "vtx": 131,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00228,
+   "minEdge": 0.014,
+   "avgTri": 0.00316,
    "anglePct": 99,
    "vpt": 1.09,
    "grad": 0.6,
@@ -143984,6 +144268,13 @@
    "tags": [
     "ken",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144001,12 +144292,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4736,
+   "bytes": 4740,
    "vtx": 78,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00035,
+   "minEdge": 0.013,
+   "avgTri": 0.00048,
    "anglePct": 49,
    "vpt": 0.65,
    "grad": 0.4,
@@ -144028,7 +144319,14 @@
     "food",
     "ken"
    ],
-   "variant": "v667"
+   "variant": "v667",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -144038,19 +144336,19 @@
    "wdh": [
     0.15,
     0.15,
-    0.05
+    0.06
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10712,
+   "bytes": 10716,
    "vtx": 242,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00018,
+   "minEdge": 0.004,
+   "avgTri": 0.00024,
    "anglePct": 48,
    "vpt": 1.01,
    "grad": 0.32,
@@ -144077,7 +144375,14 @@
     "food",
     "ken"
    ],
-   "variant": "v667"
+   "variant": "v667",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -144085,9 +144390,9 @@
    "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
-    0.06,
     0.07,
-    0.08
+    0.08,
+    0.1
    ],
    "tris": 44,
    "tpu": 128,
@@ -144098,8 +144403,8 @@
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.00042,
+   "minEdge": 0.02,
+   "avgTri": 0.00058,
    "anglePct": 53,
    "vpt": 0.55,
    "grad": 0.52,
@@ -144115,6 +144420,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144124,8 +144436,8 @@
    "size": "s",
    "wdh": [
     0.1,
-    0.1,
-    0.2
+    0.15,
+    0.25
    ],
    "tris": 124,
    "tpu": 362,
@@ -144136,9 +144448,9 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0629,
-   "avgTri": 0.00041,
+   "minEdge": 0.009,
+   "minTube": 0.0741,
+   "avgTri": 0.00057,
    "anglePct": 0,
    "vpt": 0.65,
    "grad": 0.37,
@@ -144160,6 +144472,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144168,8 +144487,8 @@
    "kind": "env-remains-bones-fishbone",
    "size": "s",
    "wdh": [
-    0.15,
-    0.3,
+    0.2,
+    0.4,
     0.04
    ],
    "tris": 384,
@@ -144177,12 +144496,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20716,
+   "bytes": 20720,
    "vtx": 528,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00017,
+   "avgTri": 0.00023,
    "anglePct": 17,
    "vpt": 1.38,
    "grad": 0.6,
@@ -144198,6 +144517,13 @@
    "tags": [
     "bone",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144207,20 +144533,20 @@
    "size": "s",
    "wdh": [
     0.1,
-    0.3,
-    0.15
+    0.35,
+    0.2
    ],
    "tris": 233,
    "tpu": 679,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10868,
+   "bytes": 10872,
    "vtx": 249,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00036,
+   "avgTri": 0.0005,
    "anglePct": 5,
    "vpt": 1.07,
    "grad": 0.59,
@@ -144241,6 +144567,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144249,8 +144582,8 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.25,
-    0.04,
+    0.3,
+    0.05,
     0.01
    ],
    "tris": 44,
@@ -144262,8 +144595,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00029,
+   "minEdge": 0.006,
+   "avgTri": 0.0004,
    "anglePct": 43,
    "vpt": 1.09,
    "grad": 0.6,
@@ -144279,6 +144612,13 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144328,6 +144668,13 @@
     "food",
     "glass",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144336,7 +144683,7 @@
    "kind": "obj-food-baked-pastry-cookie",
    "size": "s",
    "wdh": [
-    0.1,
+    0.15,
     0.15,
     0.02
    ],
@@ -144345,12 +144692,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4384,
+   "bytes": 4388,
    "vtx": 73,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0003,
+   "minEdge": 0.012,
+   "avgTri": 0.00041,
    "anglePct": 64,
    "vpt": 0.91,
    "grad": 0.54,
@@ -144371,6 +144718,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144379,22 +144733,22 @@
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
+    0.15,
     0.1,
-    0.1,
-    0.25
+    0.3
    ],
    "tris": 232,
    "tpu": 676,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7516,
+   "bytes": 7520,
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.0949,
-   "avgTri": 0.00071,
+   "minEdge": 0.007,
+   "minTube": 0.1116,
+   "avgTri": 0.00099,
    "anglePct": 44,
    "vpt": 0.62,
    "grad": 0.6,
@@ -144410,6 +144764,13 @@
    "tags": [
     "glass",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144419,20 +144780,20 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.1,
-    0.2
+    0.15,
+    0.25
    ],
    "tris": 668,
    "tpu": 1948,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 20396,
+   "bytes": 20400,
    "vtx": 465,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00012,
+   "avgTri": 0.00017,
    "anglePct": 17,
    "vpt": 0.7,
    "grad": 0.57,
@@ -144460,6 +144821,13 @@
     "food",
     "ken",
     "vegetation"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144468,21 +144836,21 @@
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.2,
-    0.35,
-    0.2
+    0.25,
+    0.4,
+    0.25
    ],
    "tris": 128,
    "tpu": 373,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6104,
+   "bytes": 6108,
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00135,
+   "minEdge": 0.013,
+   "avgTri": 0.00186,
    "anglePct": 20,
    "vpt": 0.94,
    "grad": 0.59,
@@ -144504,6 +144872,13 @@
     "bone",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144512,21 +144887,21 @@
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.15
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 140,
    "tpu": 408,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6124,
+   "bytes": 6128,
    "vtx": 118,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00072,
+   "minEdge": 0.011,
+   "avgTri": 0.00099,
    "anglePct": 21,
    "vpt": 0.84,
    "grad": 0.37,
@@ -144553,6 +144928,13 @@
     "ceramic",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144561,22 +144943,22 @@
    "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
-    0.3,
+    0.35,
     0.1,
-    0.08
+    0.09
    ],
    "tris": 272,
    "tpu": 793,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11524,
+   "bytes": 11528,
    "vtx": 262,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0347,
-   "avgTri": 0.00046,
+   "minEdge": 0.004,
+   "minTube": 0.0408,
+   "avgTri": 0.00064,
    "anglePct": 71,
    "vpt": 0.96,
    "grad": 0.44,
@@ -144602,6 +144984,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144610,9 +144999,9 @@
    "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
-    0.1,
     0.15,
-    0.25
+    0.15,
+    0.3
    ],
    "tris": 84,
    "tpu": 245,
@@ -144623,8 +145012,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00088,
+   "minEdge": 0.006,
+   "avgTri": 0.00122,
    "anglePct": 19,
    "vpt": 0.57,
    "grad": 0.44,
@@ -144645,6 +145034,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144653,21 +145049,21 @@
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.35,
-    0.1,
-    0.35
+    0.4,
+    0.15,
+    0.4
    ],
    "tris": 148,
    "tpu": 431,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8980,
+   "bytes": 8972,
    "vtx": 205,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00174,
+   "minEdge": 0.006,
+   "avgTri": 0.00241,
    "anglePct": 74,
    "vpt": 1.39,
    "grad": 0.43,
@@ -144697,7 +145093,7 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.3,
+    0.35,
     0.1,
     0.01
    ],
@@ -144710,8 +145106,8 @@
    "vtx": 66,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00072,
+   "minEdge": 0.003,
+   "avgTri": 0.00099,
    "anglePct": 94,
    "vpt": 1.03,
    "grad": 0.6,
@@ -144734,7 +145130,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v671"
+   "variant": "v671",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -144742,8 +145145,8 @@
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
-    0.35,
-    0.07,
+    0.45,
+    0.08,
     0.01
    ],
    "tris": 36,
@@ -144751,12 +145154,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3140,
+   "bytes": 3144,
    "vtx": 44,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00087,
+   "minEdge": 0.006,
+   "avgTri": 0.00121,
    "anglePct": 91,
    "vpt": 1.22,
    "grad": 0.6,
@@ -144779,7 +145182,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v671"
+   "variant": "v671",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -144787,8 +145197,8 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.3,
-    0.04,
+    0.35,
+    0.05,
     0.01
    ],
    "tris": 18,
@@ -144796,12 +145206,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2308,
+   "bytes": 2312,
    "vtx": 22,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00076,
+   "minEdge": 0.007,
+   "avgTri": 0.00105,
    "anglePct": 46,
    "vpt": 1.22,
    "grad": 0.6,
@@ -144817,17 +145227,24 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
    "kit": "ken-food",
    "name": "leek",
    "kind": "obj-food-vegetable",
-   "size": "s",
+   "size": "m",
    "wdh": [
     0.15,
     0.15,
-    0.45
+    0.5
    ],
    "tris": 172,
    "tpu": 501,
@@ -144838,8 +145255,8 @@
    "vtx": 184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.0005,
+   "minEdge": 0.007,
+   "avgTri": 0.00069,
    "anglePct": 17,
    "vpt": 1.07,
    "grad": 0.43,
@@ -144866,6 +145283,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -144874,21 +145298,21 @@
    "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
-    0.09,
     0.1,
-    0.06
+    0.1,
+    0.07
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5376,
+   "bytes": 5380,
    "vtx": 99,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00019,
+   "avgTri": 0.00026,
    "anglePct": 34,
    "vpt": 0.85,
    "grad": 0.59,
@@ -144911,7 +145335,14 @@
     "ken",
     "piece"
    ],
-   "variant": "v660"
+   "variant": "v660",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -144919,21 +145350,21 @@
    "kind": "obj-food-fruit-lemon",
    "size": "s",
    "wdh": [
-    0.09,
     0.1,
-    0.1
+    0.1,
+    0.15
    ],
    "tris": 104,
    "tpu": 303,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4228,
+   "bytes": 4232,
    "vtx": 66,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00028,
+   "minEdge": 0.012,
+   "avgTri": 0.00039,
    "anglePct": 4,
    "vpt": 0.63,
    "grad": 0.56,
@@ -144956,7 +145387,14 @@
     "ken",
     "vegetation"
    ],
-   "variant": "v660"
+   "variant": "v660",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -144964,21 +145402,21 @@
    "kind": "obj-food-baked-bread",
    "size": "s",
    "wdh": [
-    0.4,
-    0.25,
-    0.15
+    0.45,
+    0.3,
+    0.2
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5468,
+   "bytes": 5472,
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00212,
+   "minEdge": 0.018,
+   "avgTri": 0.00294,
    "anglePct": 30,
    "vpt": 0.88,
    "grad": 0.47,
@@ -144999,6 +145437,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145007,7 +145452,7 @@
    "kind": "obj-food-baked-bread",
    "size": "s",
    "wdh": [
-    0.3,
+    0.35,
     0.2,
     0.25
    ],
@@ -145016,12 +145461,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6224,
+   "bytes": 6228,
    "vtx": 126,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00238,
+   "minEdge": 0.012,
+   "avgTri": 0.00329,
    "anglePct": 57,
    "vpt": 1.09,
    "grad": 0.47,
@@ -145042,6 +145487,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145052,7 +145504,7 @@
    "wdh": [
     0.1,
     0.02,
-    0.2
+    0.25
    ],
    "tris": 108,
    "tpu": 315,
@@ -145063,8 +145515,8 @@
    "vtx": 114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00019,
+   "minEdge": 0.01,
+   "avgTri": 0.00026,
    "anglePct": 100,
    "vpt": 1.06,
    "grad": 0.37,
@@ -145091,6 +145543,13 @@
     "food",
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145099,21 +145558,21 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.25,
     0.3,
-    0.03
+    0.35,
+    0.04
    ],
    "tris": 110,
    "tpu": 321,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5624,
+   "bytes": 5628,
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00121,
+   "minEdge": 0.008,
+   "avgTri": 0.00167,
    "anglePct": 93,
    "vpt": 0.98,
    "grad": 0.52,
@@ -145134,6 +145593,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145144,19 +145610,19 @@
    "wdh": [
     0.3,
     0.15,
-    0.06
+    0.07
    ],
    "tris": 322,
    "tpu": 939,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14364,
+   "bytes": 14352,
    "vtx": 340,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00022,
+   "minEdge": 0.008,
+   "avgTri": 0.0003,
    "anglePct": 81,
    "vpt": 1.06,
    "grad": 0.6,
@@ -145177,6 +145643,13 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145185,7 +145658,7 @@
    "kind": "obj-food-baked-pastry-cupcake",
    "size": "s",
    "wdh": [
-    0.15,
+    0.2,
     0.15,
     0.15
    ],
@@ -145194,12 +145667,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3600,
+   "bytes": 3604,
    "vtx": 50,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00074,
+   "minEdge": 0.015,
+   "avgTri": 0.00103,
    "anglePct": 16,
    "vpt": 0.6,
    "grad": 0.44,
@@ -145220,6 +145693,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145237,12 +145717,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11972,
+   "bytes": 11940,
    "vtx": 282,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00055,
+   "avgTri": 0.00077,
    "anglePct": 100,
    "vpt": 1.22,
    "grad": 0.41,
@@ -145264,6 +145744,13 @@
     "ken",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145272,21 +145759,21 @@
    "kind": "env-fungi",
    "size": "s",
    "wdh": [
-    0.03,
-    0.07,
-    0.07
+    0.04,
+    0.09,
+    0.08
    ],
    "tris": 68,
    "tpu": 198,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4232,
+   "bytes": 4220,
    "vtx": 72,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00015,
+   "avgTri": 0.0002,
    "anglePct": 43,
    "vpt": 1.06,
    "grad": 0.5,
@@ -145310,7 +145797,14 @@
     "piece",
     "vegetation"
    ],
-   "variant": "v662"
+   "variant": "v662",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145318,21 +145812,21 @@
    "kind": "env-fungi",
    "size": "s",
    "wdh": [
-    0.06,
-    0.07,
-    0.07
+    0.08,
+    0.09,
+    0.08
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3712,
+   "bytes": 3716,
    "vtx": 54,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00018,
+   "minEdge": 0.008,
+   "avgTri": 0.00025,
    "anglePct": 23,
    "vpt": 0.68,
    "grad": 0.49,
@@ -145355,7 +145849,14 @@
     "ken",
     "vegetation"
    ],
-   "variant": "v662"
+   "variant": "v662",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145363,7 +145864,7 @@
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.05,
+    0.06,
     0.15,
     0.15
    ],
@@ -145372,12 +145873,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5372,
+   "bytes": 5360,
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00028,
+   "minEdge": 0.008,
+   "avgTri": 0.00039,
    "anglePct": 40,
    "vpt": 0.93,
    "grad": 0.35,
@@ -145400,7 +145901,14 @@
     "ken",
     "piece"
    ],
-   "variant": "v661"
+   "variant": "v661",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145408,7 +145916,7 @@
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.1,
+    0.15,
     0.15,
     0.15
    ],
@@ -145421,8 +145929,8 @@
    "vtx": 36,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00058,
+   "minEdge": 0.009,
+   "avgTri": 0.00081,
    "anglePct": 8,
    "vpt": 0.53,
    "grad": 0.52,
@@ -145439,7 +145947,14 @@
     "food",
     "ken"
    ],
-   "variant": "v661"
+   "variant": "v661",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145447,21 +145962,21 @@
    "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
-    0.09,
-    0.09,
-    0.08
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5140,
+   "bytes": 5144,
    "vtx": 92,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00019,
+   "minEdge": 0.004,
+   "avgTri": 0.00026,
    "anglePct": 15,
    "vpt": 0.79,
    "grad": 0.47,
@@ -145483,6 +145998,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145491,21 +146013,21 @@
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "m",
    "wdh": [
-    0.5,
-    0.35,
-    0.06
+    0.6,
+    0.4,
+    0.07
    ],
    "tris": 200,
    "tpu": 583,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7764,
+   "bytes": 7760,
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00114,
+   "minEdge": 0.01,
+   "avgTri": 0.00158,
    "anglePct": 57,
    "vpt": 0.78,
    "grad": 0.59,
@@ -145527,6 +146049,13 @@
     "ken",
     "metal-iron-cast",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145535,21 +146064,21 @@
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.35,
     0.4,
-    0.09
+    0.45,
+    0.1
    ],
    "tris": 412,
    "tpu": 1201,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 15928,
+   "bytes": 15916,
    "vtx": 372,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00075,
+   "avgTri": 0.00104,
    "anglePct": 47,
    "vpt": 0.9,
    "grad": 0.45,
@@ -145583,7 +146112,14 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "variant": "v670"
+   "variant": "v670",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145591,21 +146127,21 @@
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.35,
     0.4,
-    0.09
+    0.45,
+    0.1
    ],
    "tris": 252,
    "tpu": 735,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10408,
+   "bytes": 10396,
    "vtx": 230,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00101,
+   "avgTri": 0.0014,
    "anglePct": 36,
    "vpt": 0.91,
    "grad": 0.59,
@@ -145627,7 +146163,14 @@
     "ken",
     "metal-iron-cast"
    ],
-   "variant": "v670"
+   "variant": "v670",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145635,21 +146178,21 @@
    "kind": "obj-food-baked-pastry",
    "size": "s",
    "wdh": [
-    0.2,
     0.25,
-    0.06
+    0.3,
+    0.07
    ],
    "tris": 506,
    "tpu": 1475,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17496,
+   "bytes": 17444,
    "vtx": 402,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00035,
+   "minEdge": 0.001,
+   "avgTri": 0.00049,
    "anglePct": 82,
    "vpt": 0.79,
    "grad": 0.59,
@@ -145676,6 +146219,13 @@
     "food",
     "ken",
     "plural"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145684,9 +146234,9 @@
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.15
+    0.15,
+    0.15,
+    0.2
    ],
    "tris": 172,
    "tpu": 501,
@@ -145697,8 +146247,8 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00045,
+   "minEdge": 0.008,
+   "avgTri": 0.00062,
    "anglePct": 23,
    "vpt": 0.74,
    "grad": 0.46,
@@ -145725,6 +146275,13 @@
     "food",
     "ken",
     "paper"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145733,7 +146290,7 @@
    "kind": "obj-food-fruit-pear",
    "size": "s",
    "wdh": [
-    0.05,
+    0.06,
     0.1,
     0.15
    ],
@@ -145742,12 +146299,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6316,
+   "bytes": 6304,
    "vtx": 125,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00018,
+   "avgTri": 0.00025,
    "anglePct": 38,
    "vpt": 0.93,
    "grad": 0.48,
@@ -145775,7 +146332,14 @@
     "ken",
     "piece"
    ],
-   "variant": "v659"
+   "variant": "v659",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145792,12 +146356,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5060,
+   "bytes": 5064,
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00024,
+   "minEdge": 0.006,
+   "avgTri": 0.00033,
    "anglePct": 6,
    "vpt": 0.63,
    "grad": 0.56,
@@ -145820,7 +146384,14 @@
     "ken",
     "vegetation"
    ],
-   "variant": "v659"
+   "variant": "v659",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -145860,6 +146431,13 @@
     "ken",
     "scale-big",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145868,21 +146446,21 @@
    "kind": "obj-food-vegetable-pepper",
    "size": "s",
    "wdh": [
-    0.05,
-    0.15,
-    0.04
+    0.06,
+    0.2,
+    0.05
    ],
    "tris": 100,
    "tpu": 292,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4400,
+   "bytes": 4404,
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00015,
+   "minEdge": 0.006,
+   "avgTri": 0.0002,
    "anglePct": 12,
    "vpt": 0.72,
    "grad": 0.53,
@@ -145904,30 +146482,36 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
    "kit": "ken-food",
    "name": "pie",
    "kind": "obj-food-baked-pie",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.08
+    0.55,
+    0.55,
+    0.09
    ],
    "tris": 292,
    "tpu": 851,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 11728,
+   "bytes": 11732,
    "vtx": 265,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.00143,
+   "minEdge": 0.019,
+   "avgTri": 0.00198,
    "anglePct": 63,
    "vpt": 0.91,
    "grad": 0.25,
@@ -145959,6 +146543,13 @@
     "food",
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -145967,21 +146558,21 @@
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.1,
     0.15,
-    0.25
+    0.15,
+    0.3
    ],
    "tris": 196,
    "tpu": 571,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7936,
+   "bytes": 7940,
    "vtx": 164,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00043,
+   "avgTri": 0.0006,
    "anglePct": 16,
    "vpt": 0.84,
    "grad": 0.59,
@@ -146003,6 +146594,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146011,7 +146609,7 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.25,
+    0.3,
     0.15,
     0.03
    ],
@@ -146020,12 +146618,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5616,
+   "bytes": 5620,
    "vtx": 110,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.0004,
+   "minEdge": 0.005,
+   "avgTri": 0.00055,
    "anglePct": 70,
    "vpt": 1.15,
    "grad": 0.6,
@@ -146047,6 +146645,13 @@
     "ken",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146055,21 +146660,21 @@
    "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
-    0.09,
+    0.1,
     0.03,
-    0.25
+    0.3
    ],
    "tris": 340,
    "tpu": 991,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15056,
+   "bytes": 15060,
    "vtx": 357,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "minEdge": 0.003,
+   "avgTri": 0.00019,
    "anglePct": 89,
    "vpt": 1.05,
    "grad": 0.3,
@@ -146097,7 +146702,14 @@
     "ken",
     "wood-worked"
    ],
-   "variant": "v668"
+   "variant": "v668",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -146105,21 +146717,21 @@
    "kind": "obj-food-sweet-icecream",
    "size": "s",
    "wdh": [
-    0.09,
+    0.1,
     0.03,
-    0.25
+    0.3
    ],
    "tris": 212,
    "tpu": 618,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9904,
+   "bytes": 9908,
    "vtx": 221,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00022,
+   "minEdge": 0.003,
+   "avgTri": 0.0003,
    "anglePct": 89,
    "vpt": 1.04,
    "grad": 0.52,
@@ -146142,7 +146754,14 @@
     "ken",
     "wood-worked"
    ],
-   "variant": "v668"
+   "variant": "v668",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -146150,8 +146769,8 @@
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.35,
     0.4,
+    0.5,
     0.2
    ],
    "tris": 448,
@@ -146159,12 +146778,12 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 15944,
+   "bytes": 15948,
    "vtx": 367,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00089,
+   "avgTri": 0.00123,
    "anglePct": 49,
    "vpt": 0.82,
    "grad": 0.41,
@@ -146197,6 +146816,13 @@
     "ken",
     "metal-iron-cast",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146205,9 +146831,9 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
+    0.25,
     0.2,
-    0.2,
-    0.15
+    0.2
    ],
    "tris": 80,
    "tpu": 233,
@@ -146218,8 +146844,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00134,
+   "minEdge": 0.012,
+   "avgTri": 0.00185,
    "anglePct": 49,
    "vpt": 0.6,
    "grad": 0.45,
@@ -146242,7 +146868,14 @@
     "food",
     "ken"
    ],
-   "variant": "v664"
+   "variant": "v664",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -146250,9 +146883,9 @@
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.1
+    0.25,
+    0.25,
+    0.15
    ],
    "tris": 188,
    "tpu": 548,
@@ -146261,10 +146894,11 @@
    "calls": 1,
    "bytes": 5928,
    "vtx": 103,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00067,
+   "minEdge": 0.008,
+   "avgTri": 0.00092,
    "anglePct": 35,
    "vpt": 0.55,
    "grad": 0.54,
@@ -146287,7 +146921,14 @@
     "food",
     "ken"
    ],
-   "variant": "v664"
+   "variant": "v664",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -146297,19 +146938,19 @@
    "wdh": [
     0.2,
     0.2,
-    0.3
+    0.35
    ],
    "tris": 166,
    "tpu": 484,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7236,
+   "bytes": 7240,
    "vtx": 148,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00035,
+   "minEdge": 0.008,
+   "avgTri": 0.00048,
    "anglePct": 25,
    "vpt": 0.89,
    "grad": 0.49,
@@ -146336,6 +146977,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146345,20 +146993,20 @@
    "size": "s",
    "wdh": [
     0.04,
-    0.06,
-    0.06
+    0.07,
+    0.08
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7980,
+   "bytes": 7984,
    "vtx": 172,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00008,
+   "avgTri": 0.00012,
    "anglePct": 59,
    "vpt": 1.08,
    "grad": 0.58,
@@ -146379,6 +147027,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146387,22 +147042,22 @@
    "kind": "obj-kitchenware-cookware-utensil-rollingpin",
    "size": "s",
    "wdh": [
-    0.4,
-    0.08,
-    0.07
+    0.5,
+    0.1,
+    0.08
    ],
    "tris": 140,
    "tpu": 408,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5852,
+   "bytes": 5840,
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minTube": 0.04,
-   "avgTri": 0.00059,
+   "minEdge": 0.012,
+   "minTube": 0.0471,
+   "avgTri": 0.00082,
    "anglePct": 81,
    "vpt": 0.77,
    "grad": 0.56,
@@ -146418,6 +147073,13 @@
    "tags": [
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146426,21 +147088,22 @@
    "kind": "obj-food-baked-bread-sandwich",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.08
+    0.25,
+    0.25,
+    0.1
    ],
    "tris": 171,
    "tpu": 499,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 8848,
+   "bytes": 8820,
    "vtx": 196,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00098,
+   "minEdge": 0.005,
+   "avgTri": 0.00136,
    "anglePct": 98,
    "vpt": 1.15,
    "grad": 0.56,
@@ -146472,6 +147135,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146480,21 +147150,21 @@
    "kind": "obj-food-meat",
    "size": "s",
    "wdh": [
-    0.3,
-    0.06,
-    0.06
+    0.35,
+    0.07,
+    0.07
    ],
    "tris": 156,
    "tpu": 455,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 6824,
+   "bytes": 6828,
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00031,
+   "minEdge": 0.007,
+   "avgTri": 0.00044,
    "anglePct": 57,
    "vpt": 0.87,
    "grad": 0.57,
@@ -146527,6 +147197,13 @@
     "food",
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146572,7 +147249,14 @@
     "ken",
     "metal"
    ],
-   "variant": "v852"
+   "variant": "v852",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -146616,7 +147300,14 @@
     "ken",
     "metal"
    ],
-   "variant": "v852"
+   "variant": "v852",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -146660,6 +147351,13 @@
     "ken",
     "paper",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146668,7 +147366,7 @@
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.1,
     0.04
    ],
@@ -146681,8 +147379,8 @@
    "vtx": 78,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00042,
+   "minEdge": 0.009,
+   "avgTri": 0.00058,
    "anglePct": 43,
    "vpt": 1.08,
    "grad": 0.6,
@@ -146704,6 +147402,13 @@
     "ken",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146712,21 +147417,21 @@
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
-    0.35,
-    0.09,
-    0.01
+    0.4,
+    0.1,
+    0.02
    ],
    "tris": 56,
    "tpu": 163,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3776,
+   "bytes": 3780,
    "vtx": 60,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00055,
+   "minEdge": 0.004,
+   "avgTri": 0.00076,
    "anglePct": 61,
    "vpt": 1.07,
    "grad": 0.6,
@@ -146742,6 +147447,13 @@
    "tags": [
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146750,21 +147462,21 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.25,
-    0.06,
-    0.01
+    0.3,
+    0.07,
+    0.02
    ],
    "tris": 46,
    "tpu": 134,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2992,
+   "bytes": 2996,
    "vtx": 38,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00032,
+   "minEdge": 0.01,
+   "avgTri": 0.00045,
    "anglePct": 14,
    "vpt": 0.83,
    "grad": 0.6,
@@ -146780,6 +147492,13 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146788,21 +147507,21 @@
    "kind": "obj-kitchenware-cookware",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.3
+    0.4,
+    0.4,
+    0.35
    ],
    "tris": 486,
    "tpu": 1417,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 21096,
+   "bytes": 21100,
    "vtx": 521,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.0021,
+   "minEdge": 0.006,
+   "avgTri": 0.00291,
    "anglePct": 47,
    "vpt": 1.07,
    "grad": 0.51,
@@ -146829,6 +147548,13 @@
     "foliage",
     "ken",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146838,20 +147564,20 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.35,
-    0.1
+    0.4,
+    0.15
    ],
    "tris": 880,
    "tpu": 2566,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 30328,
+   "bytes": 30332,
    "vtx": 736,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00071,
+   "minEdge": 0.004,
+   "avgTri": 0.00099,
    "anglePct": 71,
    "vpt": 0.84,
    "grad": 0.59,
@@ -146883,6 +147609,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -146943,7 +147676,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.3 (obj-food-sweet-icecream · 0.336 at kit ×1.19)"
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
     }
    ]
   },
@@ -146953,8 +147686,8 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.09,
-    0.06,
+    0.1,
+    0.07,
     0.04
    ],
    "tris": 264,
@@ -146962,12 +147695,12 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12620,
+   "bytes": 12624,
    "vtx": 296,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00011,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
    "anglePct": 92,
    "vpt": 1.12,
    "grad": 0.6,
@@ -146993,6 +147726,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -147002,7 +147742,7 @@
    "size": "s",
    "wdh": [
     0.1,
-    0.06,
+    0.07,
     0.05
    ],
    "tris": 256,
@@ -147010,12 +147750,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12516,
+   "bytes": 12520,
    "vtx": 294,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00011,
+   "minEdge": 0.003,
+   "avgTri": 0.00015,
    "anglePct": 83,
    "vpt": 1.15,
    "grad": 0.6,
@@ -147036,6 +147776,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -147095,6 +147842,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -147138,7 +147892,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.75 over max 0.3 (obj-container-carton · 0.63 at kit ×1.19)"
+     "text": "longest 0.75 over max 0.3 (obj-container-carton · 0.551 at kit ×1.36)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
     }
    ]
   },
@@ -147148,8 +147907,8 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.09,
-    0.09,
+    0.1,
+    0.1,
     0.02
    ],
    "tris": 140,
@@ -147157,12 +147916,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7100,
+   "bytes": 7104,
    "vtx": 148,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00013,
+   "avgTri": 0.00018,
    "anglePct": 67,
    "vpt": 1.06,
    "grad": 0.6,
@@ -147180,7 +147939,14 @@
     "ken",
     "piece"
    ],
-   "variant": "v663"
+   "variant": "v663",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -147188,21 +147954,21 @@
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.09,
-    0.09,
-    0.07
+    0.1,
+    0.1,
+    0.08
    ],
    "tris": 124,
    "tpu": 362,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4932,
+   "bytes": 4936,
    "vtx": 84,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00016,
+   "avgTri": 0.00023,
    "anglePct": 16,
    "vpt": 0.68,
    "grad": 0.59,
@@ -147225,29 +147991,36 @@
     "food",
     "ken"
    ],
-   "variant": "v663"
+   "variant": "v663",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-food",
    "name": "turkey",
    "kind": "obj-food-meat",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.5,
-    0.35,
-    0.2
+    0.55,
+    0.4,
+    0.25
    ],
    "tris": 368,
    "tpu": 1073,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15004,
+   "bytes": 14972,
    "vtx": 351,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00134,
+   "avgTri": 0.00185,
    "anglePct": 38,
    "vpt": 0.95,
    "grad": 0.59,
@@ -147268,6 +148041,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -147276,8 +148056,8 @@
    "kind": "obj-food-baked-pastry-waffle",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
+    0.2,
+    0.2,
     0.02
    ],
    "tris": 588,
@@ -147285,12 +148065,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 18348,
+   "bytes": 18352,
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00013,
+   "minEdge": 0.004,
+   "avgTri": 0.00018,
    "anglePct": 78,
    "vpt": 0.71,
    "grad": 0.6,
@@ -147306,6 +148086,13 @@
    "tags": [
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -147316,20 +148103,19 @@
    "wdh": [
     0.25,
     0.25,
-    0.25
+    0.3
    ],
    "tris": 1376,
    "tpu": 4012,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 64164,
+   "bytes": 64144,
    "vtx": 1698,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00038,
+   "avgTri": 0.00053,
    "anglePct": 69,
    "vpt": 1.23,
    "grad": 0.35,
@@ -147361,6 +148147,13 @@
     "foliage",
     "food",
     "ken"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
@@ -147369,22 +148162,22 @@
    "kind": "obj-kitchenware-cookware-utensil-whisk",
    "size": "s",
    "wdh": [
-    0.35,
-    0.08,
-    0.08
+    0.45,
+    0.1,
+    0.1
    ],
    "tris": 150,
    "tpu": 437,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8028,
+   "bytes": 8032,
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0803,
-   "avgTri": 0.00036,
+   "minEdge": 0.009,
+   "minTube": 0.0945,
+   "avgTri": 0.0005,
    "anglePct": 99,
    "vpt": 1.17,
    "grad": 0.6,
@@ -147405,6 +148198,13 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.36 off the size curve (ken-food, 62 kinds)"
+    }
    ]
   },
   {
