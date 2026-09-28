@@ -1,5 +1,8 @@
-import { writeFileSync } from 'node:fs';
-import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { basename, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readGlb, writeGlb, readAccessor, worldMatrices, measureTubes } from '../../catalog/tools/glb.mjs';
+import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 import { MeshoptSimplifier } from './vendor/meshoptimizer/meshopt_simplifier.js';
 
 const HELP = `simplify.mjs [--error <fraction>] [--list] <workfile.glb> [...]
@@ -8,9 +11,11 @@ Removes triangles while no surface moves more than --error (0.01 by default) of
 the model's longest extent. Open edges, colour-band seams and normals are kept.
 A result is refused where it opens a hole, makes an edge carry more than two
 faces, flips a face against its normals, leaves a face more than 78° off one
-of its vertex normals, or pushes a face through another of the same surface; the vertices under such a spot are locked and the pass
-runs again, up to 12 times, after which the model is left as it was. Models with
-a skin, an animation or morph targets are left alone. --list prints the counts
+of its vertex normals, or pushes a face through another of the same surface; the vertices under such a
+spot are locked and the pass runs again, up to 12 times, after which the model is
+left as it was. A catalogue model is also left as it was when the result would
+fail G27 where the original did not. Models with a skin, an animation or morph
+targets are left alone. --list prints the counts
 and changes nothing.`;
 
 const PASSES = 12;
@@ -37,6 +42,20 @@ for (let i = 0; i < args.length; i++) {
 if (!(error > 0 && error < 1)) throw new Error('--error needs a fraction between 0 and 1');
 
 await MeshoptSimplifier.ready;
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
+let models = null;
+let kindFields = null;
+function needOf(file) {
+  if (!models) {
+    models = new Map(readJson('catalog/build/catalog.json').models.map((m) => [`${m.kit}/${m.name}`, m]));
+    kindFields = buildKindFields(readJson('lint/kinds.json'));
+  }
+  const model = models.get(`${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`);
+  return model ? tubeNeed(withKindFields(model, kindFields)) : null;
+}
+const thinnest = (glb) => Math.min(...measureTubes(glb).map((t) => t.diameter));
 
 function rawRows(glb, index) {
   const accessor = glb.json.accessors[index];
@@ -374,12 +393,21 @@ for (const file of files) {
       const out = scale && !shared ? simplifyPrimitive(glb, prim, (error * longest) / scale) : null;
       if (!out) { after += count; kept++; continue; }
       after += out.length / 3;
-      if (!list) compact(glb, prim, out, replaced);
+      compact(glb, prim, out, replaced);
     }
   });
 
-  console.log(`${file}: ${before} -> ${after} triangles${kept ? `, ${kept} primitive(s) left as they were` : ''}`);
-  if (list || after === before) continue;
+  if (after === before) {
+    console.log(`${file}: ${before} triangles, left as it was`);
+    continue;
+  }
+  const original = thinnest(readGlb(file));
   repack(glb, replaced);
-  writeGlb(file, json, glb.bin, writeFileSync);
+  const need = needOf(file);
+  if (need !== null && thinnest(glb) < need && !(original < need)) {
+    console.log(`${file}: ${before} -> ${after} triangles would fail G27, left as it was`);
+    continue;
+  }
+  console.log(`${file}: ${before} -> ${after} triangles${kept ? `, ${kept} primitive(s) left as they were` : ''}`);
+  if (!list) writeGlb(file, json, glb.bin, writeFileSync);
 }

@@ -18,8 +18,8 @@ its geometry or scale is replaced or dropped. A wrong band is moved in place
 with `tools/import/recolour.mjs`, for the whole band or for named parts. A tube
 thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
 A model with more triangles than its shape needs is thinned in place with
-`tools/import/simplify.mjs`; render it after, and run `thicken.mjs` where `G27`
-then fails.
+`tools/import/simplify.mjs`; render every model it changed, before and after,
+and put back any that look wrong.
 
 ## 1. Is the source pack already in the repo?
 
