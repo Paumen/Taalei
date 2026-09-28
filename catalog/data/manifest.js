@@ -5939,6 +5939,14 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "collection": "ken-village",
+  "name": "ken-village",
+  "kits": [
+   "ken-town",
+   "ken-grave"
+  ]
+ },
+ {
   "collection": "isa-tt",
   "name": "isa-tt",
   "kits": [
