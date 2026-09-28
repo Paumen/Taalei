@@ -2255,15 +2255,14 @@
     "Animated Fish Bundle": 27
    },
    "scales": {
-    "0.8": 27
+    "0.08": 27
    },
    "smooth": {
     "none": 27
    },
    "kitCheck": {
-    "factor": 8.09,
-    "kinds": 5,
-    "level": "error"
+    "factor": 0.81,
+    "kinds": 5
    }
   },
   {
@@ -18354,21 +18353,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2492
+   "count": 2506
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2266
+   "count": 2269
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 967
+   "count": 950
   },
   {
    "id": "ken",
@@ -215428,23 +215427,23 @@
    "kit": "quat-fishing",
    "name": "anglerfish",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    3.05,
-    4.4,
-    2.7
+    0.3,
+    0.45,
+    0.25
    ],
    "tris": 1870,
-   "tpu": 52,
+   "tpu": 5452,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 94764,
+   "bytes": 94768,
    "vtx": 2566,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.01257,
+   "avgTri": 0.00013,
    "anglePct": 5,
    "vpt": 1.37,
    "grad": 0,
@@ -215484,12 +215483,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 4.4 over max 0.4 (env-fauna-fish · 0.544 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.556 at kit ×0.81)"
     }
    ]
   },
@@ -215497,23 +215491,23 @@
    "kit": "quat-fishing",
    "name": "betta",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    2.45,
-    4.5,
-    2.7
+    0.25,
+    0.45,
+    0.25
    ],
    "tris": 1456,
-   "tpu": 49,
+   "tpu": 4245,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 79628,
+   "bytes": 79632,
    "vtx": 2171,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.01585,
+   "minEdge": 0.002,
+   "avgTri": 0.00016,
    "anglePct": 26,
    "vpt": 1.49,
    "grad": 0,
@@ -215543,12 +215537,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 4.5 over max 0.4 (env-fauna-fish · 0.556 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.556 at kit ×0.81)"
     }
    ]
   },
@@ -215556,23 +215545,23 @@
    "kit": "quat-fishing",
    "name": "clownfish-basalt",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    3.45,
-    4.2,
-    2.4
+    0.35,
+    0.4,
+    0.25
    ],
    "tris": 1530,
-   "tpu": 44,
+   "tpu": 4461,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 84988,
+   "bytes": 84992,
    "vtx": 2324,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.01452,
+   "minEdge": 0.002,
+   "avgTri": 0.00015,
    "anglePct": 15,
    "vpt": 1.52,
    "grad": 0,
@@ -215596,14 +215585,9 @@
    "variant": "v870",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 4.2 over max 0.4 (env-fauna-fish · 0.519 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
     }
    ]
   },
@@ -215611,23 +215595,23 @@
    "kit": "quat-fishing",
    "name": "clownfish",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    3.55,
-    4.2,
-    2.45
+    0.35,
+    0.4,
+    0.25
    ],
    "tris": 1530,
-   "tpu": 42,
+   "tpu": 4461,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 85140,
+   "bytes": 85144,
    "vtx": 2329,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.01452,
+   "minEdge": 0.002,
+   "avgTri": 0.00015,
    "anglePct": 15,
    "vpt": 1.52,
    "grad": 0,
@@ -215656,14 +215640,9 @@
    "variant": "v870",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 4.2 over max 0.4 (env-fauna-fish · 0.519 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
     }
    ]
   },
@@ -215673,22 +215652,23 @@
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
-    7.35,
-    17.35,
-    4.55
+    0.75,
+    1.75,
+    0.45
    ],
    "tris": 1484,
-   "tpu": 3,
+   "tpu": 1658,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 102760,
+   "bytes": 102764,
    "vtx": 2888,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.073,
-   "minTube": 0.7176,
-   "avgTri": 0.24817,
+   "minEdge": 0.007,
+   "minTube": 0.0717,
+   "avgTri": 0.00248,
    "anglePct": 55,
    "vpt": 1.95,
    "grad": 0,
@@ -215712,14 +215692,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v866",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v866"
   },
   {
    "kit": "quat-fishing",
@@ -215727,22 +215700,23 @@
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
-    7.35,
-    17.35,
-    6.25
+    0.75,
+    1.75,
+    0.6
    ],
    "tris": 1688,
-   "tpu": 2,
+   "tpu": 1886,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 123500,
+   "bytes": 123504,
    "vtx": 3500,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.073,
-   "minTube": 0.728,
-   "avgTri": 0.23734,
+   "minEdge": 0.007,
+   "minTube": 0.0728,
+   "avgTri": 0.00237,
    "anglePct": 53,
    "vpt": 2.07,
    "grad": 0.11,
@@ -215772,37 +215746,30 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v866",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v866"
   },
   {
    "kit": "quat-fishing",
    "name": "dock-stairs",
    "kind": "str-access-stairs",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    6.95,
-    7.6,
-    6.1
+    0.7,
+    0.75,
+    0.6
    ],
    "tris": 628,
-   "tpu": 2,
+   "tpu": 1701,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 44236,
+   "bytes": 44240,
    "vtx": 1220,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.073,
-   "minTube": 0.7176,
-   "avgTri": 0.28582,
+   "minEdge": 0.007,
+   "minTube": 0.0717,
+   "avgTri": 0.00286,
    "anglePct": 49,
    "vpt": 1.94,
    "grad": 0,
@@ -215825,13 +215792,6 @@
     "sailing",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
    ]
   },
   {
@@ -215840,22 +215800,22 @@
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
-    11.7,
-    17.35,
-    6.15
+    1.15,
+    1.75,
+    0.6
    ],
    "tris": 1688,
-   "tpu": 1,
+   "tpu": 1188,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 123500,
+   "bytes": 123504,
    "vtx": 3500,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.073,
-   "minTube": 0.1512,
-   "avgTri": 0.33821,
+   "minEdge": 0.007,
+   "minTube": 0.0408,
+   "avgTri": 0.00345,
    "anglePct": 57,
    "vpt": 2.07,
    "grad": 0.11,
@@ -215885,36 +215845,29 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v866",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v866"
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-a",
    "kind": "obj-equipment-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.15,
-    0.45,
-    5.05
+    0.02,
+    0.05,
+    0.5
    ],
    "tris": 308,
-   "tpu": 125,
+   "tpu": 898,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22864,
+   "bytes": 22868,
    "vtx": 612,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00544,
+   "minEdge": 0.002,
+   "avgTri": 0.00005,
    "anglePct": 54,
    "vpt": 1.99,
    "grad": 0,
@@ -215931,38 +215884,30 @@
     "qua",
     "wood-beam"
    ],
-   "variant": "v865",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v865"
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-b",
    "kind": "obj-equipment-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.35,
-    5.25
+    0.03,
+    0.03,
+    0.55
    ],
    "tris": 910,
-   "tpu": 352,
+   "tpu": 2653,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 63868,
+   "bytes": 63872,
    "vtx": 1780,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0307,
-   "avgTri": 0.00154,
-   "anglePct": 85,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
+   "anglePct": 84,
    "vpt": 1.96,
    "grad": 0,
    "spread": {
@@ -215978,38 +215923,31 @@
     "plastic",
     "qua"
    ],
-   "variant": "v864",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v864"
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-c",
    "kind": "obj-equipment-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.55,
-    0.4,
-    6.2
+    0.06,
+    0.04,
+    0.6
    ],
    "tris": 1174,
-   "tpu": 385,
+   "tpu": 3423,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 81644,
+   "bytes": 81648,
    "vtx": 2286,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0444,
-   "avgTri": 0.00173,
-   "anglePct": 73,
+   "minEdge": 0.001,
+   "minTube": 0.0063,
+   "avgTri": 0.00002,
+   "anglePct": 72,
    "vpt": 1.95,
    "grad": 0,
    "spread": {
@@ -216030,38 +215968,31 @@
     "plastic",
     "qua"
    ],
-   "variant": "v864",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v864"
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-d",
    "kind": "obj-equipment-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.55,
-    0.4,
-    5.9
+    0.06,
+    0.04,
+    0.6
    ],
    "tris": 898,
-   "tpu": 311,
+   "tpu": 2618,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 62388,
+   "bytes": 62392,
    "vtx": 1736,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0421,
-   "avgTri": 0.00196,
-   "anglePct": 75,
+   "minEdge": 0.001,
+   "minTube": 0.0061,
+   "avgTri": 0.00002,
+   "anglePct": 73,
    "vpt": 1.93,
    "grad": 0,
    "spread": {
@@ -216083,38 +216014,30 @@
     "qua",
     "wood-beam"
    ],
-   "variant": "v864",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v864"
   },
   {
    "kit": "quat-fishing",
    "name": "fishing-rod-e",
    "kind": "obj-equipment-tool-twohand-rod",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    5.05
+    0.04,
+    0.04,
+    0.5
    ],
    "tris": 522,
-   "tpu": 210,
+   "tpu": 1522,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 36192,
+   "bytes": 36196,
    "vtx": 988,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.0401,
-   "avgTri": 0.00429,
-   "anglePct": 63,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "anglePct": 62,
    "vpt": 1.89,
    "grad": 0,
    "spread": {
@@ -216136,36 +216059,29 @@
     "qua",
     "wood-beam"
    ],
-   "variant": "v865",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v865"
   },
   {
    "kit": "quat-fishing",
    "name": "flatfish",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    1.65,
-    3.8,
-    3.25
+    0.15,
+    0.4,
+    0.3
    ],
    "tris": 1638,
-   "tpu": 80,
+   "tpu": 4776,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 80376,
+   "bytes": 80380,
    "vtx": 2160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.01296,
+   "minEdge": 0.002,
+   "avgTri": 0.00013,
    "anglePct": 14,
    "vpt": 1.32,
    "grad": 0,
@@ -216200,12 +216116,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.8 over max 0.4 (env-fauna-fish · 0.47 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
     }
    ]
   },
@@ -216213,23 +216124,23 @@
    "kit": "quat-fishing",
    "name": "lionfish-basalt",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    3.05,
-    5.5,
-    4.85
+    0.3,
+    0.55,
+    0.5
    ],
    "tris": 1974,
-   "tpu": 24,
+   "tpu": 5755,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 117864,
+   "bytes": 117868,
    "vtx": 3268,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.01561,
+   "minEdge": 0.001,
+   "avgTri": 0.00016,
    "anglePct": 14,
    "vpt": 1.66,
    "grad": 0,
@@ -216255,12 +216166,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 5.5 over max 0.4 (env-fauna-fish · 0.68 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.55 over max 0.4 (env-fauna-fish · 0.679 at kit ×0.81)"
     }
    ]
   },
@@ -216268,23 +216174,23 @@
    "kit": "quat-fishing",
    "name": "lionfish",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    3.05,
-    5.1,
-    4.15
+    0.3,
+    0.5,
+    0.4
    ],
    "tris": 1938,
-   "tpu": 30,
+   "tpu": 5650,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 113440,
+   "bytes": 113444,
    "vtx": 3137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.01567,
+   "minEdge": 0.001,
+   "avgTri": 0.00016,
    "anglePct": 15,
    "vpt": 1.62,
    "grad": 0,
@@ -216320,12 +216226,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 5.1 over max 0.4 (env-fauna-fish · 0.63 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.5 over max 0.4 (env-fauna-fish · 0.617 at kit ×0.81)"
     }
    ]
   },
@@ -216333,24 +216234,23 @@
    "kit": "quat-fishing",
    "name": "lure-a",
    "kind": "obj-equipment-tool-supplies",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    1.5,
-    0.5
+    0.05,
+    0.15,
+    0.05
    ],
    "tris": 878,
-   "tpu": 1704,
+   "tpu": 2560,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 63636,
+   "bytes": 63640,
    "vtx": 1778,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00174,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 10,
    "vpt": 2.03,
    "grad": 0,
@@ -216378,37 +216278,29 @@
     "plastic",
     "qua"
    ],
-   "variant": "v863",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v863"
   },
   {
    "kit": "quat-fishing",
    "name": "lure-b",
    "kind": "obj-equipment-tool-supplies",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    1.5,
-    0.5
+    0.05,
+    0.15,
+    0.05
    ],
    "tris": 878,
-   "tpu": 1704,
+   "tpu": 2560,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 63648,
+   "bytes": 63652,
    "vtx": 1778,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00174,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 10,
    "vpt": 2.03,
    "grad": 0,
@@ -216436,37 +216328,29 @@
     "plastic",
     "qua"
    ],
-   "variant": "v863",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v863"
   },
   {
    "kit": "quat-fishing",
    "name": "lure-c",
    "kind": "obj-equipment-tool-supplies",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    1.5,
-    0.5
+    0.05,
+    0.15,
+    0.05
    ],
    "tris": 872,
-   "tpu": 1692,
+   "tpu": 2542,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 62460,
+   "bytes": 62464,
    "vtx": 1742,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00175,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -216489,37 +216373,29 @@
     "plastic",
     "qua"
    ],
-   "variant": "v863",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v863"
   },
   {
    "kit": "quat-fishing",
    "name": "lure-d",
    "kind": "obj-equipment-tool-supplies",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    1.5,
-    0.5
+    0.05,
+    0.15,
+    0.05
    ],
    "tris": 872,
-   "tpu": 1692,
+   "tpu": 2542,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 62460,
+   "bytes": 62464,
    "vtx": 1742,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00175,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -216552,37 +216428,29 @@
     "plastic",
     "qua"
    ],
-   "variant": "v863",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v863"
   },
   {
    "kit": "quat-fishing",
    "name": "lure-e",
    "kind": "obj-equipment-tool-supplies",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    1.5,
-    0.5
+    0.05,
+    0.15,
+    0.05
    ],
    "tris": 872,
-   "tpu": 1692,
+   "tpu": 2542,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 62460,
+   "bytes": 62464,
    "vtx": 1742,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00175,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -216615,37 +216483,29 @@
     "plastic",
     "qua"
    ],
-   "variant": "v863",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v863"
   },
   {
    "kit": "quat-fishing",
    "name": "lure-f",
    "kind": "obj-equipment-tool-supplies",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    1.5,
-    0.5
+    0.05,
+    0.15,
+    0.05
    ],
    "tris": 872,
-   "tpu": 1692,
+   "tpu": 2542,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 62460,
+   "bytes": 62464,
    "vtx": 1742,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00175,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 10,
    "vpt": 2,
    "grad": 0,
@@ -216668,36 +216528,29 @@
     "plastic",
     "qua"
    ],
-   "variant": "v863",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
-   ]
+   "variant": "v863"
   },
   {
    "kit": "quat-fishing",
    "name": "mandarinfish",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    2.1,
-    3.55,
-    1.55
+    0.2,
+    0.35,
+    0.15
    ],
    "tris": 1378,
-   "tpu": 118,
+   "tpu": 4017,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 94888,
+   "bytes": 94892,
    "vtx": 2662,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00964,
+   "minEdge": 0.001,
+   "avgTri": 0.0001,
    "anglePct": 16,
    "vpt": 1.93,
    "grad": 0,
@@ -216727,12 +216580,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.55 over max 0.4 (env-fauna-fish · 0.439 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.35 over max 0.4 (env-fauna-fish · 0.432 at kit ×0.81)"
     }
    ]
   },
@@ -216740,24 +216588,24 @@
    "kit": "quat-fishing",
    "name": "puffer",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    2.75,
-    3.2,
-    2.1
+    0.3,
+    0.3,
+    0.2
    ],
    "tris": 2142,
-   "tpu": 114,
+   "tpu": 6245,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 132548,
+   "bytes": 132552,
    "vtx": 3696,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "minTube": 0.1104,
-   "avgTri": 0.01257,
+   "minEdge": 0.002,
+   "minTube": 0.011,
+   "avgTri": 0.00013,
    "anglePct": 4,
    "vpt": 1.73,
    "grad": 0,
@@ -216782,36 +216630,29 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
-    }
    ]
   },
   {
    "kit": "quat-fishing",
    "name": "rowboat",
    "kind": "obj-transport-watercraft-boat",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    3.75,
-    7.2,
-    1.6
+    0.35,
+    0.7,
+    0.15
    ],
    "tris": 224,
-   "tpu": 5,
+   "tpu": 653,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15616,
+   "bytes": 15620,
    "vtx": 402,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.093,
-   "avgTri": 0.313,
+   "minEdge": 0.009,
+   "avgTri": 0.00313,
    "anglePct": 35,
    "vpt": 1.79,
    "grad": 0,
@@ -216839,12 +216680,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 7.2 under min 0.9 (obj-transport-watercraft-boat · 0.89 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.7 under min 0.9 (obj-transport-watercraft-boat · 0.864 at kit ×0.81)"
     }
    ]
   },
@@ -216852,23 +216688,23 @@
    "kit": "quat-fishing",
    "name": "snapper",
    "kind": "env-fauna-fish",
-   "size": "l",
+   "size": "s",
    "wdh": [
-    2.55,
-    4.25,
-    2.15
+    0.25,
+    0.4,
+    0.2
    ],
    "tris": 1416,
-   "tpu": 61,
+   "tpu": 4128,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 77540,
+   "bytes": 77544,
    "vtx": 2113,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.01517,
+   "minEdge": 0.002,
+   "avgTri": 0.00015,
    "anglePct": 13,
    "vpt": 1.49,
    "grad": 0,
@@ -216901,14 +216737,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 4.25 over max 0.4 (env-fauna-fish · 0.525 at kit ×8.09)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
     }
    ]
   },
@@ -216918,21 +216749,21 @@
    "kind": "env-fauna",
    "size": "s",
    "wdh": [
-    0.4,
-    0.35,
-    0.4
+    0.04,
+    0.04,
+    0.04
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19368,
+   "bytes": 19372,
    "vtx": 516,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "avgTri": 0.00144,
+   "minEdge": 0.002,
+   "avgTri": 0.00001,
    "anglePct": 5,
    "vpt": 2.15,
    "grad": 0,
@@ -216955,9 +216786,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×8.09 off the size curve (quat-fishing, 5 kinds)"
+     "text": "longest 0.04 under min 0.05 (defaults)"
     }
    ]
   },
