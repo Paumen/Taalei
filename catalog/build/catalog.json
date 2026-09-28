@@ -1692,27 +1692,72 @@
    }
   },
   {
-   "slug": "ken-grave",
-   "name": "ken-grave",
-   "url": "https://kenney.nl/assets/graveyard-kit",
+   "slug": "ken-village",
+   "name": "ken-village",
    "artist": "Kenney",
    "licenseLabel": "CC0",
-   "count": 64,
+   "count": 146,
    "packs": [
-    "Kenney Graveyard Kit"
+    "Kenney Graveyard Kit",
+    "Kenney Fantasy Town Kit"
    ],
    "origins": {
-    "Kenney Graveyard Kit": 64
+    "Kenney Graveyard Kit": 64,
+    "none": 67,
+    "Kenney Fantasy Town Kit": 15
    },
    "scales": {
-    "0.9": 64
+    "0.9": 146
    },
    "smooth": {
-    "none": 64
+    "none": 146
    },
+   "members": [
+    {
+     "slug": "ken-grave",
+     "name": "ken-grave",
+     "url": "https://kenney.nl/assets/graveyard-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 64,
+     "packs": [
+      "Kenney Graveyard Kit"
+     ],
+     "origins": {
+      "Kenney Graveyard Kit": 64
+     },
+     "scales": {
+      "0.9": 64
+     },
+     "smooth": {
+      "none": 64
+     }
+    },
+    {
+     "slug": "ken-town",
+     "name": "ken-town",
+     "url": "https://kenney.nl/assets/fantasy-town-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 82,
+     "packs": [
+      "Kenney Fantasy Town Kit"
+     ],
+     "origins": {
+      "none": 67,
+      "Kenney Fantasy Town Kit": 15
+     },
+     "scales": {
+      "0.9": 82
+     },
+     "smooth": {
+      "none": 82
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 1.2,
-    "kinds": 14
+    "factor": 1.04,
+    "kinds": 31
    }
   },
   {
@@ -1907,31 +1952,6 @@
    "kitCheck": {
     "factor": 0.97,
     "kinds": 27
-   }
-  },
-  {
-   "slug": "ken-town",
-   "name": "ken-town",
-   "url": "https://kenney.nl/assets/fantasy-town-kit",
-   "artist": "Kenney",
-   "licenseLabel": "CC0",
-   "count": 82,
-   "packs": [
-    "Kenney Fantasy Town Kit"
-   ],
-   "origins": {
-    "none": 67,
-    "Kenney Fantasy Town Kit": 15
-   },
-   "scales": {
-    "0.9": 82
-   },
-   "smooth": {
-    "none": 82
-   },
-   "kitCheck": {
-    "factor": 0.96,
-    "kinds": 19
    }
   },
   {
@@ -154516,6 +154536,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "altar-stone",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -154557,6 +154578,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "altar-wood",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -154605,6 +154627,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "bench-damaged",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
@@ -154653,6 +154676,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "bench",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
@@ -154701,6 +154725,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "candle-multiple",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -154747,6 +154772,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "candle",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -154793,6 +154819,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "coffin-old",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -154836,6 +154863,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "coffin",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -154879,6 +154907,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "column-large",
    "kind": "str-part-pillar",
    "size": "m",
@@ -154925,6 +154954,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "cross-column",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -154967,10 +154997,18 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v227"
+   "variant": "v227",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.3 over max 1.2 (str-fixture-marker-grave · 1.25 at kit ×1.04)"
+    }
+   ]
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "cross-wood",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155023,6 +155061,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "cross",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155069,6 +155108,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-a",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -155110,6 +155150,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-b",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -155156,6 +155197,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-large-roof",
    "kind": "str-building-religious-crypt",
    "size": "l",
@@ -155197,6 +155239,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-large",
    "kind": "str-building-religious-crypt",
    "size": "l",
@@ -155245,6 +155288,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-small-roof",
    "kind": "str-building-religious-crypt",
    "size": "m",
@@ -155291,6 +155335,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-small-roofed",
    "kind": "str-building-religious-crypt",
    "size": "l",
@@ -155338,6 +155383,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-small",
    "kind": "str-building-religious-crypt",
    "size": "m",
@@ -155386,6 +155432,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -155432,6 +155479,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "debris-wood",
    "kind": "obj-resource-wood-plank",
    "size": "s",
@@ -155472,6 +155520,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "debris",
    "kind": "env-terrain-rock",
    "size": "s",
@@ -155514,6 +155563,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "detail-bowl",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
@@ -155554,6 +155604,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "detail-chalice",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
@@ -155593,6 +155644,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "detail-plate",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -155632,6 +155684,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "fence-damaged",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -155678,6 +155731,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "fence-gate",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -155722,6 +155776,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -155767,6 +155822,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "grave-border",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155808,6 +155864,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "grave",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155854,6 +155911,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-bevel",
    "kind": "str-fixture-marker-grave",
    "size": "s",
@@ -155900,6 +155958,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-broken",
    "kind": "str-fixture-marker-grave",
    "size": "s",
@@ -155941,6 +156000,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-cross-large",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155982,6 +156042,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-cross",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156028,6 +156089,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-debris",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156077,6 +156139,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-decorative",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156118,6 +156181,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-roof",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156165,6 +156229,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-round",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156206,6 +156271,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-wide",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156253,6 +156319,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border-column",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156303,6 +156370,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border-curve",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156351,6 +156419,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border-gate",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156400,6 +156469,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156450,6 +156520,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-curve",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156492,6 +156563,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-damaged",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156537,6 +156609,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156581,6 +156654,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lantern-candle",
    "kind": "obj-furnishing-light-lantern",
    "size": "s",
@@ -156635,6 +156709,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lantern-glass",
    "kind": "obj-furnishing-light-lantern",
    "size": "s",
@@ -156688,6 +156763,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lightpost-double",
    "kind": "str-fixture-light-post",
    "size": "m",
@@ -156741,6 +156817,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lightpost-single",
    "kind": "str-fixture-light-post",
    "size": "m",
@@ -156796,6 +156873,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pillar-obelisk",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156836,6 +156914,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pillar-small",
    "kind": "str-part-pillar",
    "size": "m",
@@ -156876,6 +156955,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pillar-square",
    "kind": "str-part-pillar",
    "size": "m",
@@ -156921,6 +157001,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin-carved",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -156973,6 +157054,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin-tall-carved",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -157025,6 +157107,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin-tall",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -157071,6 +157154,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -157117,6 +157201,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "shovel",
    "kind": "obj-equipment-tool-twohand-shovel",
    "size": "m",
@@ -157164,6 +157249,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall-column",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157212,6 +157298,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall-curve",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157258,6 +157345,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall-damaged",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157307,6 +157395,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157355,6 +157444,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "urn-round",
    "kind": "obj-container-pot-urn",
    "size": "s",
@@ -157402,6 +157492,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "urn-square",
    "kind": "obj-container-pot-urn",
    "size": "s",
@@ -190773,6 +190864,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "balcony-wall-fence",
    "kind": "str-part-frame",
    "size": "m",
@@ -190819,6 +190911,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "balcony-wall",
    "kind": "str-part-frame",
    "size": "m",
@@ -190860,6 +190953,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "banner-green",
    "kind": "str-fixture-marker-banner",
    "size": "m",
@@ -190907,6 +191001,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "banner-red",
    "kind": "str-fixture-marker-banner",
    "size": "m",
@@ -190954,6 +191049,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "blade",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -191000,6 +191096,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "cart-high",
    "kind": "obj-transport-land-cart",
    "size": "m",
@@ -191055,6 +191152,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "cart",
    "kind": "obj-transport-land-cart",
    "size": "m",
@@ -191108,6 +191206,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney-base",
    "kind": "str-part-roof",
    "size": "m",
@@ -191153,6 +191252,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney-top-anim",
    "kind": "str-part-roof",
    "size": "m",
@@ -191206,6 +191306,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney-top",
    "kind": "str-part-roof",
    "size": "m",
@@ -191252,6 +191353,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney",
    "kind": "str-part-roof",
    "size": "m",
@@ -191295,6 +191397,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence-broken",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191341,6 +191444,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence-curved",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191383,10 +191487,18 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v299"
+   "variant": "v299",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.337 at kit ×1.04)"
+    }
+   ]
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence-gate",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191433,12 +191545,20 @@
     "tba",
     "wood-beam"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.337 at kit ×1.04)"
+    }
+   ],
    "mark": [
     "centered"
    ]
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191479,12 +191599,20 @@
     "wood-beam",
     "wood-planks"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.337 at kit ×1.04)"
+    }
+   ],
    "mark": [
     "centered"
    ]
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-round-detail",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191537,6 +191665,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-round",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191584,6 +191713,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-square-detail",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191629,6 +191759,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-square",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191676,6 +191807,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "overhang",
    "kind": "str-part-roof",
    "size": "m",
@@ -191723,6 +191855,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "pillar-wood",
    "kind": "str-part-pillar",
    "size": "m",
@@ -191768,6 +191901,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "planks-half",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -191809,6 +191943,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "planks-opening",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -191848,6 +191983,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "planks",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -191887,6 +192023,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "rock-large",
    "kind": "env-terrain-rock-boulder",
    "size": "l",
@@ -191925,6 +192062,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "rock-small",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -191964,6 +192102,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "rock-wide",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -192003,6 +192142,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-corner-inner",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192047,6 +192187,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-corner-round",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192093,6 +192234,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-corner",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192139,6 +192281,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-flat",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192178,6 +192321,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-gable-detail",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192230,6 +192374,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-gable-end",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192281,6 +192426,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-gable-top",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192331,6 +192477,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-high-window",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192380,6 +192527,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-left",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192432,6 +192580,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-point",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192471,6 +192620,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-right",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192523,6 +192673,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-window",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192574,6 +192725,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-stone-corner",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192618,6 +192770,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-stone-round",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192659,6 +192812,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wide-wood-handrail",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192704,6 +192858,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wide-wood",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192749,6 +192904,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wood-handrail",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192795,6 +192951,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wood",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192841,6 +192998,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall-bench",
    "kind": "obj-furnishing-furniture-seating-bench-nobackrest",
    "size": "m",
@@ -192879,6 +193037,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall-red",
    "kind": "str-canopy-stall",
    "size": "m",
@@ -192924,6 +193083,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall-stool",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
@@ -192963,6 +193123,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -193002,6 +193163,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-crooked",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193047,6 +193209,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-high-crooked",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193092,6 +193255,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-high-round",
    "kind": "env-flora-tree",
    "size": "l",
@@ -193136,6 +193300,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-high",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193181,6 +193346,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193226,6 +193392,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-arch-top",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193278,6 +193445,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-arch",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193330,6 +193498,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-block-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193375,6 +193544,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-block",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193419,6 +193589,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-broken",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193466,6 +193637,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner-diagonal-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193512,6 +193684,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner-diagonal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193556,6 +193729,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner-edge",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193600,6 +193774,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193644,6 +193819,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-curved",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193689,6 +193865,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-detail-cross",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193735,6 +193912,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-detail-diagonal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193782,6 +193960,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-detail-horizontal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193828,6 +194007,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-diagonal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193872,6 +194052,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-door",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -193919,6 +194100,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-doorway-base",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -193964,6 +194146,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-doorway-square-wide-curved",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -194017,6 +194200,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-doorway-square",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -194063,6 +194247,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -194110,6 +194295,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-side",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -194156,6 +194342,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-window-glass",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -194203,6 +194390,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-window-round",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -194249,6 +194437,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-window-shutters",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -194295,6 +194484,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -194341,6 +194531,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "watermill-wide",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -194400,6 +194591,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "watermill",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -194459,6 +194651,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wheel",
    "kind": "obj-transport-part-wheel",
    "size": "s",
@@ -194510,6 +194703,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "windmill",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
