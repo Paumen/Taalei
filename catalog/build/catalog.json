@@ -18421,7 +18421,7 @@
    "name": "Hero",
    "type": "tag",
    "description": "A larger set piece built to stand out: houses, ships, the balloon, the lighthouse, the well, the waterwheel, the compass.",
-   "count": 224,
+   "count": 249,
    "po": true
   },
   {
@@ -19123,7 +19123,7 @@
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.4,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "env-remains-deadwood": {
    "high.max": 8,
@@ -19364,115 +19364,115 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-drink": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-extractor": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.7,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-fridge": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 0.9,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-kitchen": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 1,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-laundry": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-oven": {
    "high.max": 8,
    "longest.min": 0.35,
    "longest.max": 0.8,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-stove": {
    "high.max": 8,
    "longest.min": 0.25,
    "longest.max": 0.7,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-appliance-toaster": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-arcade": {
    "high.max": 8,
    "longest.min": 0.45,
    "longest.max": 0.95,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-audio": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-camera": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-computer": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-radio": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.45,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-register": {
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 1,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-screen": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 1.3,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-electronics-vending": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 1.1,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-device-science": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
+   "tpu.max": 10000
   },
   "obj-equipment-apparel": {
    "high.max": 8,
@@ -22315,6 +22315,7 @@
     "aq",
     "grave",
     "halloween",
+    "hero",
     "textile"
    ],
    "variant": "v697",
@@ -22369,6 +22370,7 @@
     "aq",
     "grave",
     "halloween",
+    "hero",
     "textile"
    ],
    "variant": "v697",
@@ -28727,13 +28729,6 @@
     "metal-iron-cast",
     "metal-iron-steel",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 6500 over max 5000 (obj-device)"
-    }
    ]
   },
   {
@@ -29117,7 +29112,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "tpu 20356 over max 5000 (obj-device)"
+     "text": "tpu 20356 over max 10000 (obj)"
     }
    ]
   },
@@ -67134,6 +67129,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -67589,6 +67585,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -67792,6 +67789,7 @@
     "animation",
     "animation",
     "halloween",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -68158,6 +68156,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -68366,6 +68365,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -68572,6 +68572,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -118093,6 +118094,7 @@
     "animation",
     "bone",
     "halloween",
+    "hero",
     "kay",
     "leather",
     "textile"
@@ -118292,6 +118294,7 @@
     "animation",
     "bone",
     "halloween",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -118486,6 +118489,7 @@
     "animation",
     "bone",
     "halloween",
+    "hero",
     "kay",
     "metal-iron-steel",
     "textile"
@@ -118684,6 +118688,7 @@
     "animation",
     "bone",
     "halloween",
+    "hero",
     "kay",
     "leather",
     "metal-iron-steel",
@@ -119702,14 +119707,7 @@
     "halloween",
     "kay"
    ],
-   "variant": "v175",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5918 over max 5000 (env)"
-    }
-   ]
+   "variant": "v175"
   },
   {
    "kit": "kay-skeleton-1",
@@ -119748,13 +119746,6 @@
     "bone",
     "halloween",
     "kay"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5534 over max 5000 (env)"
-    }
    ],
    "mark": [
     "grounded"
@@ -119799,14 +119790,7 @@
     "halloween",
     "kay"
    ],
-   "variant": "v175",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5988 over max 5000 (env)"
-    }
-   ]
+   "variant": "v175"
   },
   {
    "kit": "kay-skeleton-1",
@@ -123596,6 +123580,7 @@
    ],
    "tags": [
     "halloween",
+    "hero",
     "kay",
     "leather",
     "textile",
@@ -211389,6 +211374,7 @@
     "#dbae80"
    ],
    "tags": [
+    "hero",
     "leather",
     "metal-iron-steel",
     "qua",
@@ -211463,6 +211449,7 @@
     "#dbae80"
    ],
    "tags": [
+    "hero",
     "leather",
     "metal-iron-steel",
     "qua",
@@ -211538,6 +211525,7 @@
     "#b58158"
    ],
    "tags": [
+    "hero",
     "leather",
     "metal-iron-steel",
     "qua",
@@ -211613,6 +211601,7 @@
     "#dbae80"
    ],
    "tags": [
+    "hero",
     "leather",
     "metal-iron-steel",
     "qua",
@@ -212108,6 +212097,7 @@
    ],
    "tags": [
     "broken",
+    "hero",
     "leather",
     "qua",
     "skin",
@@ -226483,6 +226473,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "leather",
     "metal-iron-steel",
     "pirate",
@@ -226508,11 +226499,6 @@
     "Yes"
    ],
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 36058 over max 30000 (char)"
-    },
     {
      "level": "error",
      "check": "bands",
@@ -226590,6 +226576,7 @@
     "animation",
     "animation",
     "halloween",
+    "hero",
     "metal-gold",
     "pirate",
     "qua",
@@ -226612,13 +226599,6 @@
     "Walk",
     "Wave",
     "Yes"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 30834 over max 30000 (char)"
-    }
    ],
    "mark": [
     "centered"
@@ -226684,6 +226664,7 @@
    "tags": [
     "animation",
     "animation",
+    "hero",
     "leather",
     "metal-iron-steel",
     "pirate",
@@ -226707,13 +226688,6 @@
     "Walk",
     "Wave",
     "Yes"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 32251 over max 30000 (char)"
-    }
    ],
    "mark": [
     "centered"
@@ -227457,6 +227431,7 @@
     "animation",
     "bone",
     "halloween",
+    "hero",
     "leather",
     "metal-iron-steel",
     "pirate",
@@ -227480,13 +227455,6 @@
     "Yes"
    ],
    "variant": "v135",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 34017 over max 30000 (char)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -227544,6 +227512,7 @@
     "animation",
     "bone",
     "halloween",
+    "hero",
     "leather",
     "metal-iron-steel",
     "pirate",
@@ -227567,13 +227536,6 @@
     "Yes"
    ],
    "variant": "v135",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 41574 over max 30000 (char)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -227617,13 +227579,6 @@
     "halloween",
     "pirate",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5114 over max 5000 (env)"
-    }
    ]
   },
   {
@@ -241720,6 +241675,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "hero",
     "qua",
     "skin",
     "textile"
@@ -241864,6 +241820,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "hero",
     "qua",
     "skin",
     "textile"
@@ -267331,13 +267288,6 @@
     "metal-iron-cast",
     "plastic",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 8035 over max 5000 (obj-device)"
-    }
    ]
   },
   {
@@ -269965,13 +269915,6 @@
     "metal-iron-cast",
     "plastic",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5691 over max 5000 (obj-device)"
-    }
    ]
   },
   {
@@ -273123,13 +273066,6 @@
     "metal-iron-steel",
     "plastic",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 6892 over max 5000 (obj-device)"
-    }
    ]
   },
   {
@@ -273449,13 +273385,6 @@
     "metal-iron-wrought",
     "plastic",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5146 over max 5000 (obj-device)"
-    }
    ]
   },
   {
@@ -273518,13 +273447,6 @@
     "metal-iron-wrought",
     "plastic",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5592 over max 5000 (obj-device)"
-    }
    ]
   },
   {
@@ -276760,13 +276682,6 @@
     "metal-gold",
     "sidequest",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 13528 over max 10000 (obj-device)"
-    }
    ]
   },
   {
@@ -276899,9 +276814,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "tpu 20624 over max 10000 (obj-device)"
+     "text": "tpu 20624 over max 20000 (obj)"
     }
    ]
   },
@@ -276967,13 +276882,6 @@
     "metal-iron-wrought",
     "sidequest",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 15590 over max 10000 (obj-device)"
-    }
    ]
   },
   {
