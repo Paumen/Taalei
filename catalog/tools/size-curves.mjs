@@ -269,6 +269,7 @@ const DROPPED_KINDS = [
   'env-terrain-rock-formation',
   'env-terrain-ground',
   'env-terrain-mountain',
+  'obj-leisure-art-instrument',
   'obj-leisure-art-sculpture',
   'obj-equipment-apparel-jewellery-ring',
   'obj-equipment-pocketitem',
