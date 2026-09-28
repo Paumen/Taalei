@@ -1774,13 +1774,14 @@
     "Kenney Holiday Kit": 45
    },
    "scales": {
-    "0.5": 45
+    "0.5": 26,
+    "0.9": 19
    },
    "smooth": {
     "none": 45
    },
    "kitCheck": {
-    "factor": 0.87,
+    "factor": 0.94,
     "kinds": 14
    }
   },
@@ -18602,7 +18603,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 141,
+   "count": 138,
    "kinds": [
     "obj-container-chest",
     "obj-container-pot",
@@ -18669,14 +18670,14 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2247
+   "count": 2246
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 947
+   "count": 948
   },
   {
    "id": "ken",
@@ -157636,12 +157637,12 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.5,
-    0.2,
-    0.5
+    0.9,
+    0.35,
+    0.9
    ],
    "tris": 252,
-   "tpu": 735,
+   "tpu": 571,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -157649,8 +157650,8 @@
    "vtx": 354,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "avgTri": 0.00602,
+   "minEdge": 0.032,
+   "avgTri": 0.0195,
    "anglePct": 83,
    "vpt": 1.4,
    "grad": 0.79,
@@ -157679,14 +157680,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v574",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v574"
   },
   {
    "kit": "ken-holiday",
@@ -157694,12 +157688,12 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.5,
-    0.2,
-    0.5
+    0.9,
+    0.35,
+    0.9
    ],
    "tris": 200,
-   "tpu": 583,
+   "tpu": 454,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -157707,8 +157701,8 @@
    "vtx": 276,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "avgTri": 0.00599,
+   "minEdge": 0.064,
+   "avgTri": 0.0194,
    "anglePct": 79,
    "vpt": 1.38,
    "grad": 0.79,
@@ -157731,14 +157725,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v574",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v574"
   },
   {
    "kit": "ken-holiday",
@@ -157746,9 +157733,9 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.55,
-    0.1,
-    0.2
+    1,
+    0.2,
+    0.35
    ],
    "tris": 60,
    "tpu": 175,
@@ -157759,8 +157746,8 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "avgTri": 0.00505,
+   "minEdge": 0.032,
+   "avgTri": 0.01636,
    "anglePct": 100,
    "vpt": 1.6,
    "grad": 0.79,
@@ -157785,12 +157772,12 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
+    0.9,
     0.5,
-    0.25,
-    0.5
+    0.9
    ],
    "tris": 272,
-   "tpu": 793,
+   "tpu": 617,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -157798,9 +157785,9 @@
    "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "minTube": 0.1118,
-   "avgTri": 0.00613,
+   "minEdge": 0.032,
+   "minTube": 0.2012,
+   "avgTri": 0.01985,
    "anglePct": 76,
    "vpt": 1.41,
    "grad": 0.79,
@@ -157829,14 +157816,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v574",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v574"
   },
   {
    "kit": "ken-holiday",
@@ -157844,12 +157824,12 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
+    0.9,
     0.5,
-    0.25,
-    0.5
+    0.9
    ],
    "tris": 220,
-   "tpu": 641,
+   "tpu": 499,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -157857,9 +157837,9 @@
    "vtx": 304,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "minTube": 0.1118,
-   "avgTri": 0.00612,
+   "minEdge": 0.064,
+   "minTube": 0.2012,
+   "avgTri": 0.01984,
    "anglePct": 71,
    "vpt": 1.38,
    "grad": 0.79,
@@ -157888,36 +157868,29 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v574",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v574"
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-roof-chimney-anim",
    "kind": "str-part-roof-unit",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.65,
-    0.7,
-    1.1
+    1.15,
+    1.25,
+    2
    ],
    "tris": 1616,
-   "tpu": 2979,
+   "tpu": 557,
    "mat": 2,
    "bands": 3,
    "calls": 2,
-   "bytes": 366416,
+   "bytes": 366440,
    "vtx": 4638,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00153,
+   "minEdge": 0.008,
+   "avgTri": 0.00496,
    "anglePct": 56,
    "vpt": 2.87,
    "grad": 0.79,
@@ -157956,9 +157929,9 @@
    "variant": "v899",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.1 over max 1.2 (str-part-roof-unit · 1.264 at kit ×0.87)"
+     "text": "longest 2 over max 1.2 (str-part-roof-unit · 2.128 at kit ×0.94)"
     }
    ]
   },
@@ -157968,12 +157941,12 @@
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.65,
-    0.7,
-    0.7
+    1.15,
+    1.25,
+    1.3
    ],
    "tris": 116,
-   "tpu": 332,
+   "tpu": 62,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -157981,8 +157954,8 @@
    "vtx": 138,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.01821,
+   "minEdge": 0.05,
+   "avgTri": 0.05902,
    "anglePct": 65,
    "vpt": 1.19,
    "grad": 0.79,
@@ -158011,7 +157984,14 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "variant": "v899"
+   "variant": "v899",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.3 over max 1.2 (str-part-roof-unit · 1.383 at kit ×0.94)"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -158019,12 +157999,12 @@
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.8
+    1.2,
+    1.2,
+    1.45
    ],
    "tris": 113,
-   "tpu": 284,
+   "tpu": 56,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -158032,9 +158012,9 @@
    "vtx": 157,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "minTube": 0.1457,
-   "avgTri": 0.01358,
+   "minEdge": 0.064,
+   "minTube": 0.2623,
+   "avgTri": 0.04401,
    "anglePct": 75,
    "vpt": 1.39,
    "grad": 0.79,
@@ -158061,6 +158041,13 @@
     "ceramic",
     "ken",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.45 over max 1.2 (str-part-roof-unit · 1.543 at kit ×0.94)"
+    }
    ]
   },
   {
@@ -158069,12 +158056,12 @@
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.65,
-    0.55,
-    0.6
+    1.15,
+    1,
+    1.1
    ],
    "tris": 127,
-   "tpu": 370,
+   "tpu": 102,
    "mat": 2,
    "bands": 4,
    "calls": 2,
@@ -158082,8 +158069,8 @@
    "vtx": 310,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.01778,
+   "minEdge": 0.045,
+   "avgTri": 0.05762,
    "anglePct": 99,
    "vpt": 2.44,
    "grad": 0.79,
@@ -158120,7 +158107,14 @@
     "wood-worked"
    ],
    "alpha": true,
-   "variant": "v588"
+   "variant": "v588",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.15 over max 1.2 (str-part-roof-unit · 1.223 at kit ×0.94)"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -158128,12 +158122,12 @@
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.7,
-    0.7
+    1.35,
+    1.25,
+    1.3
    ],
    "tris": 64,
-   "tpu": 173,
+   "tpu": 30,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -158141,8 +158135,8 @@
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.056,
-   "avgTri": 0.03869,
+   "minEdge": 0.101,
+   "avgTri": 0.12537,
    "anglePct": 15,
    "vpt": 1.34,
    "grad": 0.79,
@@ -158164,6 +158158,13 @@
     "ceramic",
     "ken",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.35 over max 1.2 (str-part-roof-unit · 1.436 at kit ×0.94)"
+    }
    ]
   },
   {
@@ -158172,12 +158173,12 @@
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.55,
-    0.65
+    1.2,
+    1,
+    1.2
    ],
    "tris": 165,
-   "tpu": 481,
+   "tpu": 116,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -158185,8 +158186,8 @@
    "vtx": 183,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.0175,
+   "minEdge": 0.045,
+   "avgTri": 0.05671,
    "anglePct": 99,
    "vpt": 1.11,
    "grad": 0.79,
@@ -158220,7 +158221,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v588"
+   "variant": "v588",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.2 over max 1.2 (str-part-roof-unit · 1.277 at kit ×0.94)"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -158228,12 +158236,12 @@
    "kind": "str-part-roof-unit",
    "size": "m",
    "wdh": [
-    0.65,
-    0.7,
-    0.7
+    1.15,
+    1.25,
+    1.3
    ],
    "tris": 44,
-   "tpu": 126,
+   "tpu": 24,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -158241,8 +158249,8 @@
    "vtx": 62,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "avgTri": 0.03688,
+   "minEdge": 0.09,
+   "avgTri": 0.11948,
    "anglePct": 66,
    "vpt": 1.41,
    "grad": 0.79,
@@ -158264,6 +158272,13 @@
     "ceramic",
     "ken",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.3 over max 1.2 (str-part-roof-unit · 1.383 at kit ×0.94)"
+    }
    ]
   },
   {
@@ -158272,12 +158287,12 @@
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.9,
     0.5,
-    0.25,
-    0.5
+    0.9
    ],
    "tris": 248,
-   "tpu": 723,
+   "tpu": 562,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -158285,8 +158300,8 @@
    "vtx": 336,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00552,
+   "minEdge": 0.045,
+   "avgTri": 0.01787,
    "anglePct": 66,
    "vpt": 1.35,
    "grad": 0.79,
@@ -158309,14 +158324,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v519",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v519"
   },
   {
    "kit": "ken-holiday",
@@ -158324,12 +158332,12 @@
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.9,
     0.5,
-    0.25,
-    0.5
+    0.9
    ],
    "tris": 220,
-   "tpu": 641,
+   "tpu": 499,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -158337,8 +158345,8 @@
    "vtx": 296,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00614,
+   "minEdge": 0.045,
+   "avgTri": 0.01991,
    "anglePct": 66,
    "vpt": 1.35,
    "grad": 0.79,
@@ -158361,14 +158369,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v519",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v519"
   },
   {
    "kit": "ken-holiday",
@@ -158376,12 +158377,12 @@
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
+    0.9,
     0.5,
-    0.25,
-    0.5
+    0.9
    ],
    "tris": 300,
-   "tpu": 875,
+   "tpu": 680,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -158389,8 +158390,8 @@
    "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00487,
+   "minEdge": 0.045,
+   "avgTri": 0.01577,
    "anglePct": 68,
    "vpt": 1.28,
    "grad": 0.79,
@@ -158419,14 +158420,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v519",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.575 at kit ×0.87)"
-    }
-   ]
+   "variant": "v519"
   },
   {
    "kit": "ken-holiday",
@@ -158434,12 +158428,12 @@
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.35,
-    0.5
+    0.9,
+    0.65,
+    0.9
    ],
    "tris": 194,
-   "tpu": 566,
+   "tpu": 380,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -158447,8 +158441,8 @@
    "vtx": 280,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00701,
+   "minEdge": 0.045,
+   "avgTri": 0.02272,
    "anglePct": 44,
    "vpt": 1.44,
    "grad": 0.72,
@@ -158481,13 +158475,6 @@
     "ken",
     "wood-planks",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.575 at kit ×0.87)"
-    }
    ]
   },
   {
@@ -158539,22 +158526,21 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.04
+    0.9,
+    0.9,
+    0.07
    ],
    "tris": 48,
-   "tpu": 140,
+   "tpu": 85,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 2944,
    "vtx": 41,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "avgTri": 0.01152,
+   "minEdge": 0.064,
+   "avgTri": 0.03733,
    "anglePct": 91,
    "vpt": 0.85,
    "grad": 0.79,
@@ -158569,7 +158555,6 @@
    ],
    "tags": [
     "ken",
-    "scale-small",
     "stone-masonry"
    ]
   },
@@ -158579,22 +158564,21 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.04
+    0.9,
+    0.9,
+    0.07
    ],
    "tris": 56,
-   "tpu": 163,
+   "tpu": 99,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 4508,
    "vtx": 88,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.01016,
+   "minEdge": 0.045,
+   "avgTri": 0.03292,
    "anglePct": 76,
    "vpt": 1.57,
    "grad": 0.6,
@@ -158615,7 +158599,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "scale-small",
     "wood-planks"
    ],
    "variant": "v581"
@@ -158626,22 +158609,21 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.04
+    0.9,
+    0.9,
+    0.07
    ],
    "tris": 56,
-   "tpu": 163,
+   "tpu": 99,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 4496,
    "vtx": 88,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.01016,
+   "minEdge": 0.045,
+   "avgTri": 0.03292,
    "anglePct": 76,
    "vpt": 1.57,
    "grad": 0.79,
@@ -158656,7 +158638,6 @@
    ],
    "tags": [
     "ken",
-    "scale-small",
     "wood-planks"
    ],
    "variant": "v581"
@@ -159732,6 +159713,13 @@
     "foliage",
     "ken",
     "wood-bark"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.95 under min 1.05 (env-flora-tree-conifer · 1.011 at kit ×0.94)"
+    }
    ]
   },
   {
