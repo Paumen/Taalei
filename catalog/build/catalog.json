@@ -1115,7 +1115,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.23,
+    "factor": 1.19,
     "kinds": 7
    }
   },
@@ -1860,7 +1860,7 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.07,
+    "factor": 1.03,
     "kinds": 17
    }
   },
@@ -18306,12 +18306,13 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 34,
+   "count": 36,
    "kinds": [
     "obj-container-crate-cube",
     "obj-food-fish",
     "obj-furnishing-light-candle",
     "str-part-floor-unit",
+    "str-part-roof-unit",
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-banner",
@@ -20894,6 +20895,12 @@
    "high.max": 8,
    "longest.min": 1.4,
    "longest.max": 2.5,
+   "tpu.max": 5000
+  },
+  "str-part-roof-unit scale-big": {
+   "high.max": 8,
+   "longest.min": 0.8,
+   "longest.max": 2.4,
    "tpu.max": 5000
   },
   "str-part-wall-unit scale-small": {
@@ -121574,13 +121581,6 @@
     "kay",
     "metal",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.1 under min 0.9 (str-fixture-light-street · 0.894 at kit ×1.23)"
-    }
    ]
   },
   {
@@ -121715,14 +121715,8 @@
    "tags": [
     "kay",
     "metal",
+    "scale-big",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.55 over max 1.2 (str-part-roof-unit · 1.26 at kit ×1.23)"
-    }
    ]
   },
   {
@@ -122084,7 +122078,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.15 under min 1.05 (obj-transport-land-road · 0.935 at kit ×1.23)"
+     "text": "longest 1.15 under min 1.05 (obj-transport-land-road · 0.966 at kit ×1.19)"
     }
    ]
   },
@@ -122147,7 +122141,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.1 under min 1.05 (obj-transport-land-road · 0.894 at kit ×1.23)"
+     "text": "longest 1.1 under min 1.05 (obj-transport-land-road · 0.924 at kit ×1.19)"
     }
    ]
   },
@@ -122216,7 +122210,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 under min 1.05 (obj-transport-land-road · 0.813 at kit ×1.23)"
+     "text": "longest 1 under min 1.05 (obj-transport-land-road · 0.84 at kit ×1.19)"
     }
    ]
   },
@@ -178402,9 +178396,9 @@
    "variant": "v1087",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 2.6 over max 2 (str-part-pillar · 2.43 at kit ×1.07)"
+     "text": "longest 2.6 over max 2 (str-part-pillar · 2.524 at kit ×1.03)"
     }
    ]
   },
@@ -178455,9 +178449,9 @@
    "variant": "v1087",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 2.6 over max 2 (str-part-pillar · 2.43 at kit ×1.07)"
+     "text": "longest 2.6 over max 2 (str-part-pillar · 2.524 at kit ×1.03)"
     }
    ]
   },
@@ -178864,14 +178858,8 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.3 over max 1.2 (str-part-roof-unit · 1.215 at kit ×1.07)"
-    }
    ]
   },
   {
@@ -179788,7 +179776,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.187 at kit ×1.07)"
+     "text": "longest 0.2 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.194 at kit ×1.03)"
     }
    ]
   },
@@ -180605,14 +180593,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1098",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.85 under min 0.8 (str-fixture-utility-tank · 0.794 at kit ×1.07)"
-    }
-   ]
+   "variant": "v1098"
   },
   {
    "kit": "ken-space",
@@ -180952,13 +180933,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.85 under min 0.8 (obj-transport-land-rail · 0.794 at kit ×1.07)"
-    }
    ]
   },
   {
@@ -181069,7 +181043,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.35 under min 0.8 (obj-transport-land-rail · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.8 (obj-transport-land-rail · 0.34 at kit ×1.03)"
     }
    ]
   },
@@ -181378,7 +181352,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.34 at kit ×1.03)"
     }
    ]
   },
@@ -181431,7 +181405,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.34 at kit ×1.03)"
     }
    ]
   },
@@ -182121,7 +182095,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.5 under min 1.05 (obj-transport-land-road · 0.467 at kit ×1.07)"
+     "text": "longest 0.5 under min 1.05 (obj-transport-land-road · 0.485 at kit ×1.03)"
     }
    ]
   },
@@ -182403,7 +182377,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.467 at kit ×1.07)"
+     "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.485 at kit ×1.03)"
     }
    ]
   },
@@ -182929,7 +182903,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.437 at kit ×1.03)"
     }
    ]
   },
