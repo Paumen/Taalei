@@ -15428,7 +15428,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 326,
+   "count": 329,
    "parent": "metal-iron"
   },
   {
@@ -15436,7 +15436,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 458,
+   "count": 455,
    "parent": "metal-iron"
   },
   {
@@ -15467,7 +15467,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 454,
+   "count": 446,
    "parent": "wood"
   },
   {
@@ -15483,7 +15483,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1098,
+   "count": 1096,
    "parent": "wood"
   },
   {
@@ -15522,7 +15522,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 771,
+   "count": 769,
    "parent": "stone"
   },
   {
@@ -54022,7 +54022,7 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "wood-planks"
    ],
    "lint": [
@@ -54030,11 +54030,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×0.69 off the size curve (isa-homely, 7 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-steel wants nickel, has tan basalt"
     }
    ]
   },
@@ -55505,15 +55500,7 @@
    ],
    "tags": [
     "isa",
-    "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-beam wants chestnut, has ivory camel"
-    }
    ]
   },
   {
@@ -55988,15 +55975,8 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-cast",
+    "metal-iron-steel",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-cast wants slate, has nickel basalt"
-    }
    ]
   },
   {
@@ -66943,17 +66923,9 @@
     "kay",
     "metal-iron-steel",
     "robin-hood",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
-   "variant": "v150",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has azure nickel chestnut"
-    }
-   ]
+   "variant": "v150"
   },
   {
    "kit": "kay-adventurers",
@@ -67068,17 +67040,9 @@
     "kay",
     "metal-iron-steel",
     "robin-hood",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
-   "variant": "v150",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has hunter nickel chestnut"
-    }
-   ]
+   "variant": "v150"
   },
   {
    "kit": "kay-adventurers",
@@ -154010,17 +153974,10 @@
     "grave",
     "halloween",
     "ken",
-    "stone-masonry",
+    "metal-iron-wrought",
     "wood-planks"
    ],
-   "variant": "v414",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-masonry wants taupe slate nickel, has tan basalt"
-    }
-   ]
+   "variant": "v414"
   },
   {
    "kit": "ken-grave",
@@ -154065,17 +154022,10 @@
     "grave",
     "halloween",
     "ken",
-    "stone-masonry",
+    "metal-iron-wrought",
     "wood-planks"
    ],
-   "variant": "v414",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-masonry wants taupe slate nickel, has tan basalt"
-    }
-   ]
+   "variant": "v414"
   },
   {
    "kit": "ken-grave",
@@ -157766,7 +157716,6 @@
    "tags": [
     "ceramic",
     "ken",
-    "wood-beam",
     "wood-planks",
     "wood-worked"
    ],
@@ -157775,11 +157724,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.575 at kit ×0.87)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-beam wants chestnut, has camel ivory tan sienna"
     }
    ]
   },
@@ -283140,20 +283084,12 @@
     "stone-masonry",
     "storeys-1",
     "styloo",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
    "anim": [
     "spin"
    ],
-   "variant": "v532",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has chestnut taupe slate ivory"
-    }
-   ]
+   "variant": "v532"
   },
   {
    "kit": "styloo-farm",
@@ -283210,31 +283146,17 @@
     "animation",
     "ceramic",
     "glass",
-    "metal-iron-cast",
     "stone-masonry",
     "storeys-3",
     "styloo",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
    "anim": [
     "spin"
    ],
    "alpha": true,
    "pbr": true,
-   "variant": "v532",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-cast wants slate, has chestnut taupe sienna ivory"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has chestnut taupe sienna ivory"
-    }
-   ]
+   "variant": "v532"
   },
   {
    "kit": "styloo-farm",
@@ -283289,29 +283211,15 @@
    "tags": [
     "ceramic",
     "glass",
-    "metal-iron-cast",
     "stone-masonry",
     "storeys-3",
     "styloo",
     "tba",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
    "alpha": true,
    "pbr": true,
-   "variant": "v532",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-cast wants slate, has chestnut ivory taupe sienna"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has chestnut ivory taupe sienna"
-    }
-   ]
+   "variant": "v532"
   },
   {
    "kit": "styloo-farm",
@@ -283363,20 +283271,12 @@
     "stone-masonry",
     "storeys-1-5",
     "styloo",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
    "anim": [
     "spin"
    ],
-   "variant": "v532",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has chestnut taupe ivory"
-    }
-   ]
+   "variant": "v532"
   },
   {
    "kit": "styloo-farm",
@@ -283427,17 +283327,9 @@
     "storeys-1-5",
     "styloo",
     "tba",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
-   "variant": "v532",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has chestnut ivory taupe"
-    }
-   ]
+   "variant": "v532"
   },
   {
    "kit": "styloo-farm",
@@ -283494,17 +283386,9 @@
     "storeys-1",
     "styloo",
     "tba",
-    "wood-beam",
-    "wood-planks"
+    "wood-beam"
    ],
-   "variant": "v532",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-planks wants tan, has chestnut ivory taupe slate"
-    }
-   ]
+   "variant": "v532"
   },
   {
    "kit": "styloo-farm",
