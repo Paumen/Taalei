@@ -5914,7 +5914,8 @@ window.KENNEY_KITS = [
    "ken-mini-dun",
    "ken-chars",
    "ken-skate",
-   "ken-arena"
+   "ken-arena",
+   "ken-platformer"
   ]
  },
  {

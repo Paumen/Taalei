@@ -1121,7 +1121,7 @@
    "slug": "ken-mini",
    "name": "ken-mini",
    "artist": "Kenney",
-   "count": 92,
+   "count": 131,
    "packs": [
     "Kenney Mini Arcade",
     "Kenney Mini Arena",
@@ -1129,24 +1129,26 @@
     "Kenney Mini Forest",
     "Kenney Mini Market",
     "Kenney Mini Dungeon",
+    "Kenney Platformer Kit",
     "Kenney Mini Skate"
    ],
    "origins": {
     "Kenney Mini Arcade": 17,
     "Kenney Mini Arena": 18,
     "Kenney Mini Characters": 8,
-    "none": 9,
+    "none": 30,
     "Kenney Mini Forest": 5,
     "Kenney Mini Market": 15,
     "Kenney Mini Dungeon": 13,
+    "Kenney Platformer Kit": 18,
     "Kenney Mini Skate": 7
    },
    "scales": {
-    "0.95": 92
+    "0.95": 131
    },
    "smooth": {
     "60": 32,
-    "none": 60
+    "none": 99
    },
    "members": [
     {
@@ -1271,6 +1273,27 @@
      }
     },
     {
+     "slug": "ken-platformer",
+     "name": "ken-platformer",
+     "url": "https://kenney.nl/assets/platformer-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 39,
+     "packs": [
+      "Kenney Platformer Kit"
+     ],
+     "origins": {
+      "Kenney Platformer Kit": 18,
+      "none": 21
+     },
+     "scales": {
+      "0.95": 39
+     },
+     "smooth": {
+      "none": 39
+     }
+    },
+    {
      "slug": "ken-skate",
      "name": "ken-skate",
      "url": "https://kenney.nl/assets/mini-skate",
@@ -1292,8 +1315,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1,
-    "kinds": 31
+    "factor": 1.01,
+    "kinds": 37
    }
   },
   {
@@ -1763,31 +1786,6 @@
    "kitCheck": {
     "factor": 1.06,
     "kinds": 18
-   }
-  },
-  {
-   "slug": "ken-platformer",
-   "name": "ken-platformer",
-   "url": "https://kenney.nl/assets/platformer-kit",
-   "artist": "Kenney",
-   "licenseLabel": "CC0",
-   "count": 39,
-   "packs": [
-    "Kenney Platformer Kit"
-   ],
-   "origins": {
-    "Kenney Platformer Kit": 18,
-    "none": 21
-   },
-   "scales": {
-    "0.88": 39
-   },
-   "smooth": {
-    "none": 39
-   },
-   "kitCheck": {
-    "factor": 0.96,
-    "kinds": 14
    }
   },
   {
@@ -148372,7 +148370,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.25 over max 1.2 (str-part-roof-unit)"
+     "text": "longest 1.25 over max 1.2 (str-part-roof-unit · 1.238 at kit ×1.01)"
     }
    ]
   },
@@ -162182,7 +162180,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge)"
+     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge · 0.941 at kit ×1.01)"
     }
    ]
   },
@@ -170841,11 +170839,12 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "arrow",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
-    0.4,
+    0.45,
     0.15,
     0.55
    ],
@@ -170858,8 +170857,8 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.0056,
+   "minEdge": 0.029,
+   "avgTri": 0.00653,
    "anglePct": 72,
    "vpt": 1.5,
    "grad": 0.79,
@@ -170885,16 +170884,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "arrows",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.15,
-    0.8
+    0.85
    ],
    "tris": 88,
-   "tpu": 227,
+   "tpu": 210,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -170902,8 +170902,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.00712,
+   "minEdge": 0.029,
+   "avgTri": 0.00829,
    "anglePct": 63,
    "vpt": 1.55,
    "grad": 0.79,
@@ -170929,13 +170929,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "barrel",
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
-    0.45,
-    0.45,
-    0.4
+    0.5,
+    0.5,
+    0.45
    ],
    "tris": 148,
    "tpu": 431,
@@ -170944,10 +170945,11 @@
    "calls": 1,
    "bytes": 7964,
    "vtx": 176,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.057,
-   "avgTri": 0.01002,
+   "minEdge": 0.062,
+   "avgTri": 0.01168,
    "anglePct": 50,
    "vpt": 1.19,
    "grad": 0.61,
@@ -170973,13 +170975,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "chest",
    "kind": "obj-container-chest",
    "size": "s",
    "wdh": [
-    0.45,
-    0.45,
-    0.4
+    0.5,
+    0.5,
+    0.45
    ],
    "tris": 232,
    "tpu": 676,
@@ -170990,8 +170993,8 @@
    "vtx": 328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.044,
-   "avgTri": 0.00608,
+   "minEdge": 0.047,
+   "avgTri": 0.00708,
    "anglePct": 85,
    "vpt": 1.41,
    "grad": 0.63,
@@ -171017,13 +171020,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "coin-gold",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.15,
-    0.35
+    0.4
    ],
    "tris": 124,
    "tpu": 362,
@@ -171034,8 +171038,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "avgTri": 0.00323,
+   "minEdge": 0.045,
+   "avgTri": 0.00376,
    "anglePct": 41,
    "vpt": 1.42,
    "grad": 0.82,
@@ -171056,13 +171060,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
-    0.45,
-    0.45,
-    0.45
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 156,
    "tpu": 455,
@@ -171073,8 +171078,8 @@
    "vtx": 252,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "avgTri": 0.01254,
+   "minEdge": 0.033,
+   "avgTri": 0.01461,
    "anglePct": 100,
    "vpt": 1.62,
    "grad": 0.79,
@@ -171100,16 +171105,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "door-large",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.9,
-    0.25,
-    0.9
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 380,
-   "tpu": 881,
+   "tpu": 816,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -171117,8 +171123,8 @@
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00852,
+   "minEdge": 0.024,
+   "avgTri": 0.00993,
    "anglePct": 75,
    "vpt": 1.09,
    "grad": 0.51,
@@ -171150,16 +171156,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "door",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.55,
     0.2,
-    0.9
+    0.95
    ],
    "tris": 401,
-   "tpu": 930,
+   "tpu": 861,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -171167,9 +171174,9 @@
    "vtx": 447,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "minTube": 0.1958,
-   "avgTri": 0.00961,
+   "minEdge": 0.024,
+   "minTube": 0.2114,
+   "avgTri": 0.0112,
    "anglePct": 89,
    "vpt": 1.11,
    "grad": 0.54,
@@ -171201,13 +171208,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-broken",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.1,
-    0.35
+    0.95,
+    0.15,
+    0.4
    ],
    "tris": 216,
    "tpu": 630,
@@ -171217,8 +171225,8 @@
    "bytes": 15252,
    "vtx": 384,
    "grounded": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00447,
+   "minEdge": 0.034,
+   "avgTri": 0.00521,
    "anglePct": 75,
    "vpt": 1.78,
    "grad": 0.45,
@@ -171249,16 +171257,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-corner-curved",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.35
+    0.95,
+    0.95,
+    0.4
    ],
    "tris": 160,
-   "tpu": 302,
+   "tpu": 259,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171266,9 +171275,9 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "minTube": 0.1577,
-   "avgTri": 0.00593,
+   "minEdge": 0.038,
+   "minTube": 0.1702,
+   "avgTri": 0.00691,
    "anglePct": 63,
    "vpt": 1.65,
    "grad": 0.47,
@@ -171295,16 +171304,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.35
+    0.95,
+    0.95,
+    0.4
    ],
    "tris": 92,
-   "tpu": 174,
+   "tpu": 149,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171312,8 +171322,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.01375,
+   "minEdge": 0.029,
+   "avgTri": 0.01603,
    "anglePct": 99,
    "vpt": 1.83,
    "grad": 0.57,
@@ -171340,13 +171350,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-broken",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
+    0.95,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 100,
    "tpu": 292,
@@ -171356,8 +171367,8 @@
    "bytes": 5692,
    "vtx": 112,
    "grounded": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00695,
+   "minEdge": 0.034,
+   "avgTri": 0.0081,
    "anglePct": 33,
    "vpt": 1.12,
    "grad": 0.65,
@@ -171389,16 +171400,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-corner-curved",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.25
+    0.95,
+    0.95,
+    0.3
    ],
    "tris": 216,
-   "tpu": 399,
+   "tpu": 343,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171406,9 +171418,9 @@
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "minTube": 0.1808,
-   "avgTri": 0.00427,
+   "minEdge": 0.034,
+   "minTube": 0.1952,
+   "avgTri": 0.00498,
    "anglePct": 42,
    "vpt": 0.7,
    "grad": 0.71,
@@ -171436,16 +171448,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.25
+    0.95,
+    0.95,
+    0.3
    ],
    "tris": 116,
-   "tpu": 214,
+   "tpu": 184,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171453,9 +171466,9 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "minTube": 0.1609,
-   "avgTri": 0.01066,
+   "minEdge": 0.034,
+   "minTube": 0.1737,
+   "avgTri": 0.01242,
    "anglePct": 66,
    "vpt": 1.1,
    "grad": 0.64,
@@ -171483,13 +171496,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-straight",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
+    0.95,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 72,
    "tpu": 210,
@@ -171499,9 +171513,9 @@
    "bytes": 4500,
    "vtx": 80,
    "grounded": true,
-   "minEdge": 0.031,
-   "minTube": 0.1609,
-   "avgTri": 0.00988,
+   "minEdge": 0.034,
+   "minTube": 0.1737,
+   "avgTri": 0.01151,
    "anglePct": 60,
    "vpt": 1.11,
    "grad": 0.63,
@@ -171532,13 +171546,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-rope",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.85,
+    0.9,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 180,
    "tpu": 525,
@@ -171549,8 +171564,8 @@
    "vtx": 468,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "avgTri": 0.00335,
+   "minEdge": 0.054,
+   "avgTri": 0.00391,
    "anglePct": 20,
    "vpt": 2.6,
    "grad": 0.39,
@@ -171583,13 +171598,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-straight",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.1,
-    0.35
+    0.95,
+    0.15,
+    0.4
    ],
    "tris": 48,
    "tpu": 140,
@@ -171599,8 +171615,8 @@
    "bytes": 4880,
    "vtx": 96,
    "grounded": true,
-   "minEdge": 0.035,
-   "avgTri": 0.01507,
+   "minEdge": 0.038,
+   "avgTri": 0.01757,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.6,
@@ -171630,16 +171646,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "flag",
    "kind": "str-fixture-marker-flag",
    "size": "m",
    "wdh": [
-    0.35,
+    0.4,
     0.1,
-    0.8
+    0.85
    ],
    "tris": 110,
-   "tpu": 283,
+   "tpu": 263,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171647,8 +171664,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00312,
+   "minEdge": 0.027,
+   "avgTri": 0.00364,
    "anglePct": 78,
    "vpt": 1.24,
    "grad": 0.79,
@@ -171674,11 +171691,12 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "heart",
    "kind": "obj-symbol",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.1,
     0.35
    ],
@@ -171691,8 +171709,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.059,
-   "avgTri": 0.00516,
+   "minEdge": 0.063,
+   "avgTri": 0.00601,
    "anglePct": 41,
    "vpt": 1.82,
    "grad": 0.8,
@@ -171713,16 +171731,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "hedge-corner",
    "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.35
+    0.95,
+    0.95,
+    0.4
    ],
    "tris": 104,
-   "tpu": 192,
+   "tpu": 165,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171730,9 +171749,9 @@
    "vtx": 82,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.062,
-   "minTube": 0.1878,
-   "avgTri": 0.02478,
+   "minEdge": 0.067,
+   "minTube": 0.2027,
+   "avgTri": 0.02887,
    "anglePct": 99,
    "vpt": 0.79,
    "grad": 0.13,
@@ -171758,13 +171777,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "hedge",
    "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
-    0.9,
-    0.25,
-    0.35
+    0.95,
+    0.3,
+    0.4
    ],
    "tris": 72,
    "tpu": 210,
@@ -171775,9 +171795,9 @@
    "vtx": 56,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.062,
-   "minTube": 0.2782,
-   "avgTri": 0.02176,
+   "minEdge": 0.067,
+   "minTube": 0.3004,
+   "avgTri": 0.02536,
    "anglePct": 99,
    "vpt": 0.78,
    "grad": 0.12,
@@ -171803,16 +171823,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "ladder-broken",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.9
+    0.5,
+    0.1,
+    0.95
    ],
    "tris": 92,
-   "tpu": 214,
+   "tpu": 198,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171820,8 +171841,8 @@
    "vtx": 184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.0092,
+   "minEdge": 0.047,
+   "avgTri": 0.01073,
    "anglePct": 92,
    "vpt": 2,
    "grad": 0.5,
@@ -171849,16 +171870,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "ladder-long",
    "kind": "str-access-ladder",
    "size": "l",
    "wdh": [
-    0.45,
-    0.09,
-    1.75
+    0.5,
+    0.1,
+    1.9
    ],
    "tris": 88,
-   "tpu": 102,
+   "tpu": 95,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171866,8 +171888,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.01929,
+   "minEdge": 0.047,
+   "avgTri": 0.02248,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.51,
@@ -171894,22 +171916,23 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.75 over max 1.6 (str-access-ladder scale-big · 1.823 at kit ×0.96)"
+     "text": "longest 1.9 over max 1.6 (str-access-ladder scale-big · 1.881 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "ladder",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.9
+    0.5,
+    0.1,
+    0.95
    ],
    "tris": 56,
-   "tpu": 130,
+   "tpu": 120,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171917,8 +171940,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.01543,
+   "minEdge": 0.047,
+   "avgTri": 0.01798,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.57,
@@ -171945,13 +171968,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "lever",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
    "wdh": [
     0.55,
-    0.4,
-    0.55
+    0.45,
+    0.6
    ],
    "tris": 134,
    "tpu": 391,
@@ -171962,8 +171986,8 @@
    "vtx": 230,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00842,
+   "minEdge": 0.034,
+   "avgTri": 0.00981,
    "anglePct": 82,
    "vpt": 1.72,
    "grad": 0.76,
@@ -172002,13 +172026,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "lock",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
    "wdh": [
-    0.3,
-    0.15,
-    0.35
+    0.35,
+    0.2,
+    0.4
    ],
    "tris": 100,
    "tpu": 292,
@@ -172019,8 +172044,8 @@
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.00369,
+   "minEdge": 0.023,
+   "avgTri": 0.0043,
    "anglePct": 90,
    "vpt": 1.52,
    "grad": 0.8,
@@ -172052,16 +172077,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform-fortified",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    0.95,
+    0.95,
     0.2
    ],
    "tris": 108,
-   "tpu": 200,
+   "tpu": 171,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172069,8 +172095,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.02741,
+   "minEdge": 0.014,
+   "avgTri": 0.03195,
    "anglePct": 73,
    "vpt": 2,
    "grad": 0.49,
@@ -172097,12 +172123,13 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform-overhang",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.4,
+    0.95,
+    0.45,
     0.4
    ],
    "tris": 68,
@@ -172113,8 +172140,8 @@
    "bytes": 6216,
    "vtx": 136,
    "grounded": true,
-   "minEdge": 0.033,
-   "avgTri": 0.02075,
+   "minEdge": 0.036,
+   "avgTri": 0.02418,
    "anglePct": 78,
    "vpt": 2,
    "grad": 0.66,
@@ -172144,16 +172171,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform-ramp",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.5
+    0.95,
+    0.95,
+    0.55
    ],
    "tris": 84,
-   "tpu": 151,
+   "tpu": 130,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172161,8 +172189,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.033,
-   "avgTri": 0.031,
+   "minEdge": 0.036,
+   "avgTri": 0.03613,
    "anglePct": 19,
    "vpt": 2,
    "grad": 0.51,
@@ -172188,16 +172216,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.15
+    0.95,
+    0.95,
+    0.2
    ],
    "tris": 84,
-   "tpu": 155,
+   "tpu": 133,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172205,8 +172234,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.033,
-   "avgTri": 0.02964,
+   "minEdge": 0.036,
+   "avgTri": 0.03455,
    "anglePct": 76,
    "vpt": 2,
    "grad": 0.51,
@@ -172233,13 +172262,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "rocks",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.55,
     0.6,
-    0.35
+    0.65,
+    0.4
    ],
    "tris": 100,
    "tpu": 292,
@@ -172251,7 +172281,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.0089,
+   "avgTri": 0.01037,
    "anglePct": 44,
    "vpt": 3,
    "grad": 0.8,
@@ -172271,12 +172301,13 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "sign",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
     0.45,
-    0.1,
+    0.15,
     0.55
    ],
    "tris": 76,
@@ -172288,8 +172319,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00651,
+   "minEdge": 0.034,
+   "avgTri": 0.00759,
    "anglePct": 83,
    "vpt": 1.89,
    "grad": 0.6,
@@ -172315,16 +172346,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "spring-anim",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.4
+    0.7,
+    0.7,
+    0.45
    ],
    "tris": 356,
-   "tpu": 1038,
+   "tpu": 1003,
    "mat": 1,
    "bands": 2,
    "calls": 3,
@@ -172332,8 +172364,8 @@
    "vtx": 680,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00556,
+   "minEdge": 0.027,
+   "avgTri": 0.00648,
    "anglePct": 56,
    "vpt": 1.91,
    "grad": 0.8,
@@ -172366,16 +172398,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "spring",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.4
+    0.7,
+    0.7,
+    0.45
    ],
    "tris": 356,
-   "tpu": 1038,
+   "tpu": 1003,
    "mat": 1,
    "bands": 2,
    "calls": 3,
@@ -172383,8 +172416,8 @@
    "vtx": 680,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00556,
+   "minEdge": 0.027,
+   "avgTri": 0.00648,
    "anglePct": 56,
    "vpt": 1.91,
    "grad": 0.8,
@@ -172412,13 +172445,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "star",
    "kind": "obj-symbol",
    "size": "s",
    "wdh": [
-    0.3,
-    0.2,
-    0.3
+    0.35,
+    0.25,
+    0.35
    ],
    "tris": 30,
    "tpu": 87,
@@ -172429,8 +172463,8 @@
    "vtx": 90,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.00541,
+   "minEdge": 0.029,
+   "avgTri": 0.0063,
    "anglePct": 18,
    "vpt": 3,
    "grad": 0.8,
@@ -172451,16 +172485,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "stones",
    "kind": "env-terrain-rock-pebble",
    "size": "m",
    "wdh": [
-    0.6,
-    0.7,
-    0.04
+    0.65,
+    0.75,
+    0.05
    ],
    "tris": 120,
-   "tpu": 350,
+   "tpu": 340,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172468,8 +172503,8 @@
    "vtx": 240,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00347,
+   "minEdge": 0.027,
+   "avgTri": 0.00404,
    "anglePct": 60,
    "vpt": 2,
    "grad": 0.59,
@@ -172490,16 +172525,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "tree-pine-small",
    "kind": "env-flora-tree-conifer",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    1.25
+    0.65,
+    0.65,
+    1.35
    ],
    "tris": 204,
-   "tpu": 339,
+   "tpu": 314,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172507,8 +172543,8 @@
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.00926,
+   "minEdge": 0.046,
+   "avgTri": 0.01079,
    "anglePct": 21,
    "vpt": 0.79,
    "grad": 0.79,
@@ -172534,16 +172570,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "tree-pine",
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    0.85,
-    0.85,
-    1.75
+    0.9,
+    0.9,
+    1.9
    ],
    "tris": 204,
-   "tpu": 167,
+   "tpu": 133,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172551,8 +172588,8 @@
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.061,
-   "avgTri": 0.01889,
+   "minEdge": 0.066,
+   "avgTri": 0.02202,
    "anglePct": 21,
    "vpt": 0.79,
    "grad": 0.79,
@@ -172578,16 +172615,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "tree",
    "kind": "env-flora-tree",
    "size": "l",
    "wdh": [
-    0.95,
-    1,
-    1.7
+    1.05,
+    1.05,
+    1.85
    ],
    "tris": 408,
-   "tpu": 258,
+   "tpu": 205,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172595,8 +172633,8 @@
    "vtx": 464,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.049,
-   "avgTri": 0.01303,
+   "minEdge": 0.053,
+   "avgTri": 0.01519,
    "anglePct": 13,
    "vpt": 1.14,
    "grad": 0.81,
