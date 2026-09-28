@@ -15688,7 +15688,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2949,
+   "count": 2948,
    "color": "#c07c8a"
   },
   {
@@ -16245,7 +16245,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 411,
+   "count": 410,
    "color": "#c07c8a"
   },
   {
@@ -16253,7 +16253,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 291
+   "count": 290
   },
   {
    "id": "obj-furnishing-furniture-counter",
@@ -16393,7 +16393,7 @@
    "name": "Table",
    "type": "kind",
    "description": "table, desk, workbench",
-   "count": 67
+   "count": 66
   },
   {
    "id": "obj-furnishing-furniture-table-square",
@@ -17907,7 +17907,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 157,
+   "count": 158,
    "color": "#b5651d"
   },
   {
@@ -18421,7 +18421,7 @@
    "name": "Hero",
    "type": "tag",
    "description": "A larger set piece built to stand out: houses, ships, the balloon, the lighthouse, the well, the waterwheel, the compass.",
-   "count": 249,
+   "count": 251,
    "po": true
   },
   {
@@ -269273,17 +269273,11 @@
     "#dbae80"
    ],
    "tags": [
+    "hero",
     "metal-iron-cast",
     "rubber",
     "sidequest",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 8414 over max 5000 (str)"
-    }
    ]
   },
   {
@@ -276688,7 +276682,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "chart-desk",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "set",
    "size": "m",
    "wdh": [
     0.65,
@@ -276735,18 +276729,6 @@
     "paper",
     "sidequest",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.6 over max 0.6 (obj-furnishing-furniture-table · 0.619 at kit ×0.97)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 13872 over max 10000 (obj-furnishing)"
-    }
    ]
   },
   {
@@ -278510,17 +278492,11 @@
     "#f2a93c"
    ],
    "tags": [
+    "hero",
     "metal-iron-wrought",
     "plastic",
     "sidequest",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 8245 over max 5000 (obj-leisure-art-instrument)"
-    }
    ]
   },
   {
