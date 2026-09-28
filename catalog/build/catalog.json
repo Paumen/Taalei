@@ -2189,15 +2189,14 @@
     "Updated Modular Dungeon": 18
    },
    "scales": {
-    "0.5": 18
+    "0.42": 18
    },
    "smooth": {
     "60": 18
    },
    "kitCheck": {
-    "factor": 1.47,
-    "kinds": 9,
-    "level": "error"
+    "factor": 1.24,
+    "kinds": 9
    }
   },
   {
@@ -2304,16 +2303,16 @@
     "Ultimate Guns Pack": 10
    },
    "scales": {
-    "0.15": 10
+    "0.123": 10
    },
    "smooth": {
     "60": 7,
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.56,
+    "factor": 1.28,
     "kinds": 4,
-    "level": "error"
+    "level": "warning"
    }
   },
   {
@@ -3314,16 +3313,26 @@
    "slug": "taalei-kit",
    "name": "taalei-kit",
    "licenseLabel": "CC0",
-   "count": 4,
-   "packs": [],
+   "count": 11,
+   "packs": [
+    "Taalei"
+   ],
    "origins": {
-    "procedureel": 4
+    "procedureel": 4,
+    "Taalei": 7
    },
    "scales": {
-    "none": 4
+    "none": 4,
+    "0.55": 1,
+    "0.6": 1,
+    "0.458": 1,
+    "0.495": 1,
+    "0.429": 1,
+    "0.439": 1,
+    "0.512": 1
    },
    "smooth": {
-    "none": 4
+    "none": 11
    }
   },
   {
@@ -15052,6 +15061,18 @@
     "sq-rink/skates-pair-a",
     "sq-rink/skates-pair-b"
    ]
+  },
+  {
+   "id": "v1189",
+   "type": "detail-variant",
+   "main": "taalei-kit/tipi-a",
+   "members": [
+    "taalei-kit/tipi-a",
+    "taalei-kit/tipi-b",
+    "taalei-kit/tipi-c",
+    "taalei-kit/tipi-d",
+    "taalei-kit/tipi-e"
+   ]
   }
  ],
  "bands": [
@@ -15141,7 +15162,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 678,
+   "count": 679,
    "parent": "metal-iron"
   },
   {
@@ -15149,7 +15170,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 325,
+   "count": 326,
    "parent": "metal-iron"
   },
   {
@@ -15212,7 +15233,7 @@
    "name": "Log",
    "type": "material",
    "description": "Round uncut trunk sections and things built from them: logs, firewood, campfires, log pilings, round-post fences.",
-   "count": 75,
+   "count": 81,
    "parent": "wood"
   },
   {
@@ -15274,7 +15295,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 588
+   "count": 594
   },
   {
    "id": "leather",
@@ -15302,7 +15323,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 621
+   "count": 622
   },
   {
    "id": "rubber",
@@ -15365,7 +15386,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 144
+   "count": 146
   },
   {
    "id": "cork",
@@ -15408,7 +15429,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2947,
+   "count": 2949,
    "color": "#c07c8a"
   },
   {
@@ -16636,7 +16657,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 249,
+   "count": 251,
    "color": "#5a7a9c"
   },
   {
@@ -16679,14 +16700,14 @@
    "name": "Watercraft",
    "type": "kind",
    "description": "Watercraft with no leaf that fits.",
-   "count": 65
+   "count": 66
   },
   {
    "id": "obj-transport-part",
    "name": "Vehicle part",
    "type": "kind",
    "description": "Loose vehicle part: wheel, tire, anchor, mast, sail, rudder, paddle, car debris.",
-   "count": 33
+   "count": 34
   },
   {
    "id": "obj-transport-part-paddle",
@@ -16700,7 +16721,7 @@
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 44
+   "count": 45
   },
   {
    "id": "obj-transport-land-cart",
@@ -17213,7 +17234,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1733,
+   "count": 1738,
    "color": "#877a63"
   },
   {
@@ -17591,7 +17612,7 @@
    "name": "Canopy",
    "type": "kind",
    "description": "Sheltered pitch under cloth or board: stall, market stand, awning, tent.",
-   "count": 57,
+   "count": 62,
    "color": "#d8a05a"
   },
   {
@@ -17599,7 +17620,7 @@
    "name": "Tent",
    "type": "kind",
    "description": "Tent: a closed shelter of cloth on poles.",
-   "count": 12
+   "count": 17
   },
   {
    "id": "str-canopy-tent-camping",
@@ -18205,7 +18226,7 @@
    "name": "Sailing",
    "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
-   "count": 133
+   "count": 135
   },
   {
    "id": "space",
@@ -18358,21 +18379,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2502
+   "count": 2506
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2268
+   "count": 2267
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 950
+   "count": 954
   },
   {
    "id": "ken",
@@ -213252,24 +213273,24 @@
    "kit": "quat-dun-2",
    "name": "arch-door-bottompivot",
    "kind": "str-part-gate-single",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    1.2,
+    1,
     0.15,
-    1.6
+    1.35
    ],
    "tris": 1220,
-   "tpu": 1561,
+   "tpu": 1858,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 54260,
+   "bytes": 54220,
    "vtx": 1419,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0302,
-   "avgTri": 0.01012,
+   "minEdge": 0.006,
+   "minTube": 0.0265,
+   "avgTri": 0.00715,
    "anglePct": 89,
    "vpt": 1.16,
    "grad": 0.38,
@@ -213293,37 +213314,30 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v407",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v407"
   },
   {
    "kit": "quat-dun-2",
    "name": "arch-door",
    "kind": "str-part-gate-single",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    1.2,
+    1,
     0.15,
-    1.6
+    1.35
    ],
    "tris": 1220,
-   "tpu": 1561,
+   "tpu": 1858,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 53756,
+   "bytes": 53720,
    "vtx": 1404,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0302,
-   "avgTri": 0.01012,
+   "minEdge": 0.006,
+   "minTube": 0.0265,
+   "avgTri": 0.00715,
    "anglePct": 89,
    "vpt": 1.15,
    "grad": 0.37,
@@ -213347,14 +213361,7 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v407",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v407"
   },
   {
    "kit": "quat-dun-2",
@@ -213363,20 +213370,20 @@
    "size": "s",
    "wdh": [
     0.2,
-    0.1,
-    0.06
+    0.09,
+    0.05
    ],
    "tris": 976,
    "tpu": 2845,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34888,
+   "bytes": 34848,
    "vtx": 860,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00004,
+   "avgTri": 0.00003,
    "anglePct": 13,
    "vpt": 0.88,
    "grad": 0.18,
@@ -213399,14 +213406,7 @@
     "qua",
     "textile"
    ],
-   "variant": "v614",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v614"
   },
   {
    "kit": "quat-dun-2",
@@ -213414,21 +213414,21 @@
    "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.15
+    0.09,
+    0.09,
+    0.1
    ],
    "tris": 456,
    "tpu": 1329,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19740,
+   "bytes": 19700,
    "vtx": 486,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00009,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
    "anglePct": 3,
    "vpt": 1.07,
    "grad": 0.21,
@@ -213454,9 +213454,9 @@
    "variant": "v613",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
+     "text": "longest 0.1 under min 0.1 (obj-container-bag-pouch · 0.081 at kit ×1.24)"
     }
    ]
   },
@@ -213466,22 +213466,21 @@
    "kind": "obj-container-barrel",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.65
+    0.45,
+    0.45,
+    0.55
    ],
    "tris": 1088,
    "tpu": 3172,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 49540,
+   "bytes": 49504,
    "vtx": 1297,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00158,
+   "minEdge": 0.004,
+   "avgTri": 0.00112,
    "anglePct": 23,
    "vpt": 1.19,
    "grad": 0.18,
@@ -213497,13 +213496,6 @@
    "tags": [
     "qua",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
    ]
   },
   {
@@ -213512,21 +213504,21 @@
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.25
+    0.15,
+    0.15,
+    0.2
    ],
    "tris": 360,
    "tpu": 1050,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16968,
+   "bytes": 16932,
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00054,
+   "minEdge": 0.002,
+   "avgTri": 0.00038,
    "anglePct": 10,
    "vpt": 1.16,
    "grad": 0.19,
@@ -213553,12 +213545,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.17 at kit ×1.47)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
+     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.161 at kit ×1.24)"
     }
    ]
   },
@@ -213568,21 +213555,21 @@
    "kind": "set",
    "size": "m",
    "wdh": [
+    0.5,
     0.6,
-    0.75,
-    0.45
+    0.4
    ],
    "tris": 7150,
    "tpu": 20845,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 323940,
+   "bytes": 323904,
    "vtx": 8735,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.0005,
+   "minEdge": 0.004,
+   "avgTri": 0.00035,
    "anglePct": 31,
    "vpt": 1.22,
    "grad": 0.18,
@@ -213617,23 +213604,23 @@
    "kit": "quat-dun-2",
    "name": "chest",
    "kind": "obj-container-chest",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.6,
-    0.4,
-    0.45
+    0.5,
+    0.35,
+    0.4
    ],
    "tris": 1676,
    "tpu": 4886,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 73544,
+   "bytes": 73508,
    "vtx": 1937,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00178,
+   "minEdge": 0.002,
+   "avgTri": 0.00126,
    "anglePct": 32,
    "vpt": 1.16,
    "grad": 0.18,
@@ -213656,13 +213643,6 @@
     "metal-iron-wrought",
     "qua",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
    ]
   },
   {
@@ -213671,21 +213651,21 @@
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
-    0.07,
-    0.07,
-    0.05
+    0.06,
+    0.06,
+    0.04
    ],
    "tris": 1188,
    "tpu": 3464,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 51156,
+   "bytes": 51116,
    "vtx": 1328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00004,
+   "minEdge": 0.003,
+   "avgTri": 0.00003,
    "anglePct": 70,
    "vpt": 1.12,
    "grad": 0.18,
@@ -213702,13 +213682,6 @@
     "metal-gold",
     "plural",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
    ]
   },
   {
@@ -213717,22 +213690,22 @@
    "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
-    0.7,
-    0.65,
-    0.65
+    0.6,
+    0.55,
+    0.55
    ],
    "tris": 2502,
    "tpu": 7294,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 102916,
+   "bytes": 102876,
    "vtx": 2700,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0888,
-   "avgTri": 0.00183,
+   "minTube": 0.0746,
+   "avgTri": 0.00129,
    "anglePct": 94,
    "vpt": 1.08,
    "grad": 0.18,
@@ -213749,14 +213722,7 @@
     "qua",
     "wood-worked"
    ],
-   "variant": "v619",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v619"
   },
   {
    "kit": "quat-dun-2",
@@ -213764,21 +213730,22 @@
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    1.15
+    0.75,
+    0.75,
+    0.95
    ],
    "tris": 1182,
-   "tpu": 1344,
+   "tpu": 2269,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 52344,
+   "bytes": 52304,
    "vtx": 1367,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00771,
+   "minEdge": 0.004,
+   "avgTri": 0.00544,
    "anglePct": 87,
    "vpt": 1.16,
    "grad": 0.7,
@@ -213796,14 +213763,7 @@
     "qua",
     "stone-masonry"
    ],
-   "variant": "v605",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v605"
   },
   {
    "kit": "quat-dun-2",
@@ -213811,22 +213771,22 @@
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
    "wdh": [
-    0.95,
-    1,
-    1.1
+    0.8,
+    0.8,
+    0.9
    ],
    "tris": 1844,
-   "tpu": 1763,
+   "tpu": 2974,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 85756,
+   "bytes": 85720,
    "vtx": 2287,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.2354,
-   "avgTri": 0.00463,
+   "minEdge": 0.003,
+   "minTube": 0.1977,
+   "avgTri": 0.00326,
    "anglePct": 93,
    "vpt": 1.24,
    "grad": 0.7,
@@ -213844,14 +213804,7 @@
     "qua",
     "stone-masonry"
    ],
-   "variant": "v605",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v605"
   },
   {
    "kit": "quat-dun-2",
@@ -213860,20 +213813,20 @@
    "size": "s",
    "wdh": [
     0.2,
-    0.3,
-    0.25
+    0.25,
+    0.2
    ],
    "tris": 1392,
    "tpu": 4058,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 41800,
+   "bytes": 41764,
    "vtx": 996,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00016,
+   "minEdge": 0.003,
+   "avgTri": 0.00011,
    "anglePct": 2,
    "vpt": 0.72,
    "grad": 0.18,
@@ -213892,14 +213845,7 @@
     "halloween",
     "qua"
    ],
-   "variant": "v622",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
-   ]
+   "variant": "v622"
   },
   {
    "kit": "quat-dun-2",
@@ -213907,21 +213853,21 @@
    "kind": "obj-leisure-art-sculpture",
    "size": "l",
    "wdh": [
-    0.85,
-    1.7,
-    2.95
+    0.75,
+    1.4,
+    2.45
    ],
    "tris": 1850,
-   "tpu": 429,
+   "tpu": 724,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 82760,
+   "bytes": 82720,
    "vtx": 2192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00667,
+   "minEdge": 0.004,
+   "avgTri": 0.00471,
    "anglePct": 65,
    "vpt": 1.18,
    "grad": 0.48,
@@ -213943,36 +213889,29 @@
     "halloween",
     "qua",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
    ]
   },
   {
    "kit": "quat-dun-2",
    "name": "sword-wall-mount",
    "kind": "set",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.1,
-    0.4
+    0.45,
+    0.09,
+    0.35
    ],
    "tris": 2382,
    "tpu": 6945,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 106220,
+   "bytes": 106180,
    "vtx": 2825,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00012,
+   "avgTri": 0.00009,
    "anglePct": 80,
    "vpt": 1.19,
    "grad": 0.58,
@@ -214003,21 +213942,21 @@
    "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
-    0.85,
-    1.35,
-    0.1
+    0.75,
+    1.1,
+    0.09
    ],
    "tris": 564,
-   "tpu": 694,
+   "tpu": 985,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30460,
+   "bytes": 30424,
    "vtx": 799,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00317,
+   "minEdge": 0.007,
+   "avgTri": 0.00224,
    "anglePct": 63,
    "vpt": 1.42,
    "grad": 0.54,
@@ -214045,12 +213984,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 0.918 at kit ×1.47)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
+     "text": "longest 1.1 over max 0.75 (str-part-door-trapdoor · 0.887 at kit ×1.24)"
     }
    ]
   },
@@ -214060,21 +213994,21 @@
    "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.1
+    0.75,
+    0.7,
+    0.09
    ],
    "tris": 504,
-   "tpu": 973,
+   "tpu": 1379,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27628,
+   "bytes": 27592,
    "vtx": 722,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00261,
+   "minEdge": 0.007,
+   "avgTri": 0.00184,
    "anglePct": 55,
    "vpt": 1.43,
    "grad": 0.5,
@@ -214097,13 +214031,6 @@
     "metal-iron-cast",
     "qua",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
-    }
    ]
   },
   {
@@ -214114,19 +214041,19 @@
    "wdh": [
     0.15,
     0.15,
-    0.2
+    0.15
    ],
    "tris": 220,
    "tpu": 641,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6904,
+   "bytes": 6868,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00066,
+   "minEdge": 0.008,
+   "avgTri": 0.00046,
    "anglePct": 2,
    "vpt": 0.58,
    "grad": 0.31,
@@ -214148,12 +214075,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.15 (obj-container-pot-vase · 0.136 at kit ×1.47)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.47 off the size curve (quat-dun-2, 9 kinds)"
+     "text": "longest 0.15 under min 0.15 (obj-container-pot-vase · 0.121 at kit ×1.24)"
     }
    ]
   },
@@ -219900,22 +219822,22 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.2,
+    0.15,
     0.02,
-    0.04
+    0.03
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17744,
+   "bytes": 17788,
    "vtx": 465,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0227,
-   "avgTri": 0.00004,
+   "minTube": 0.0186,
+   "avgTri": 0.00003,
    "anglePct": 7,
    "vpt": 1.94,
    "grad": 0.34,
@@ -219942,12 +219864,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.128 at kit ×1.56)"
+     "text": "longest 0.15 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.117 at kit ×1.28)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -219957,8 +219879,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.25,
-    0.05,
+    0.2,
+    0.04,
     0.15
    ],
    "tris": 1040,
@@ -219966,12 +219888,12 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 71668,
+   "bytes": 71716,
    "vtx": 2000,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00012,
+   "avgTri": 0.00008,
    "anglePct": 62,
    "vpt": 1.92,
    "grad": 0.4,
@@ -219996,9 +219918,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220008,22 +219930,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.3,
+    0.25,
     0.04,
-    0.15
+    0.1
    ],
    "tris": 1434,
    "tpu": 4181,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 58640,
+   "bytes": 58644,
    "vtx": 1516,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0173,
-   "avgTri": 0.00007,
+   "minTube": 0.0142,
+   "avgTri": 0.00005,
    "anglePct": 72,
    "vpt": 1.06,
    "grad": 0.18,
@@ -220049,9 +219971,9 @@
    "variant": "v454",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220061,9 +219983,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.3,
+    0.25,
     0.04,
-    0.15
+    0.1
    ],
    "tris": 1334,
    "tpu": 3889,
@@ -220075,8 +219997,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0131,
-   "avgTri": 0.00006,
+   "minTube": 0.0122,
+   "avgTri": 0.00004,
    "anglePct": 68,
    "vpt": 0.97,
    "grad": 0.18,
@@ -220096,9 +220018,9 @@
    "variant": "v454",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220108,9 +220030,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.3,
+    0.25,
     0.04,
-    0.15
+    0.1
    ],
    "tris": 1046,
    "tpu": 3050,
@@ -220122,8 +220044,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0185,
-   "avgTri": 0.00009,
+   "minTube": 0.0151,
+   "avgTri": 0.00006,
    "anglePct": 75,
    "vpt": 1,
    "grad": 0.18,
@@ -220149,9 +220071,9 @@
    "variant": "v454",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220161,9 +220083,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.65,
-    0.04,
-    0.15
+    0.55,
+    0.03,
+    0.1
    ],
    "tris": 1612,
    "tpu": 4700,
@@ -220175,8 +220097,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0237,
-   "avgTri": 0.0001,
+   "minTube": 0.0195,
+   "avgTri": 0.00007,
    "anglePct": 51,
    "vpt": 0.94,
    "grad": 0.18,
@@ -220201,9 +220123,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220213,9 +220135,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.85,
-    0.04,
-    0.15
+    0.7,
+    0.03,
+    0.1
    ],
    "tris": 978,
    "tpu": 2851,
@@ -220227,8 +220149,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0235,
-   "avgTri": 0.00019,
+   "minTube": 0.0193,
+   "avgTri": 0.00013,
    "anglePct": 55,
    "vpt": 1.01,
    "grad": 0.18,
@@ -220254,9 +220176,9 @@
    "variant": "v455",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220264,10 +220186,10 @@
    "kit": "quat-guns",
    "name": "shotgun-sawed-off",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.06,
+    0.45,
+    0.05,
     0.15
    ],
    "tris": 956,
@@ -220280,8 +220202,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0261,
-   "avgTri": 0.00018,
+   "minTube": 0.0214,
+   "avgTri": 0.00012,
    "anglePct": 40,
    "vpt": 0.94,
    "grad": 0.18,
@@ -220312,9 +220234,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220324,9 +220246,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.85,
-    0.04,
-    0.15
+    0.7,
+    0.03,
+    0.1
    ],
    "tris": 746,
    "tpu": 2175,
@@ -220338,8 +220260,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0235,
-   "avgTri": 0.00027,
+   "minTube": 0.0193,
+   "avgTri": 0.00018,
    "anglePct": 60,
    "vpt": 1.11,
    "grad": 0.18,
@@ -220371,9 +220293,9 @@
    "variant": "v455",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -220383,22 +220305,22 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "m",
    "wdh": [
-    0.95,
-    0.07,
-    0.2
+    0.8,
+    0.06,
+    0.15
    ],
    "tris": 1344,
    "tpu": 3918,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 90460,
+   "bytes": 90508,
    "vtx": 2530,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0198,
-   "avgTri": 0.00015,
+   "minTube": 0.0162,
+   "avgTri": 0.0001,
    "anglePct": 38,
    "vpt": 1.88,
    "grad": 0.68,
@@ -220417,9 +220339,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.56 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
     }
    ]
   },
@@ -290089,6 +290011,61 @@
   },
   {
    "kit": "taalei-kit",
+   "name": "lifebuoy",
+   "kind": "obj-transport-part",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.1
+   ],
+   "tris": 1872,
+   "tpu": 5458,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 182588,
+   "vtx": 5312,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00021,
+   "anglePct": 25,
+   "vpt": 2.84,
+   "grad": 0.05,
+   "spread": {
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ],
+    "14,2": [
+     0.039,
+     0.102
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#82868e",
+    "#907a66",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "plastic",
+    "rope",
+    "sailing"
+   ]
+  },
+  {
+   "kit": "taalei-kit",
    "name": "lighthouse",
    "kind": "str-building-tower",
    "size": "l",
@@ -290149,6 +290126,339 @@
     "storeys-4",
     "wood-beam"
    ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "raft",
+   "kind": "obj-transport-watercraft-boat",
+   "size": "l",
+   "wdh": [
+    1.45,
+    1.8,
+    2.1
+   ],
+   "tris": 2516,
+   "tpu": 462,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 246128,
+   "vtx": 7178,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0586,
+   "avgTri": 0.00485,
+   "anglePct": 27,
+   "vpt": 2.85,
+   "grad": 0.47,
+   "spread": {
+    "2,0": [
+     0.266,
+     0.977
+    ],
+    "1,0": [
+     0.016,
+     0.969
+    ],
+    "13,3": [
+     0.484,
+     0.523
+    ],
+    "5,2": [
+     0.414,
+     0.563
+    ],
+    "14,2": [
+     0.031,
+     0.453
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#8b5936",
+    "#907a66",
+    "#b58158",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "rope",
+    "sailing",
+    "textile",
+    "wood-log"
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "tipi-a",
+   "kind": "str-canopy-tent",
+   "size": "l",
+   "wdh": [
+    1.55,
+    1.5,
+    1.8
+   ],
+   "tris": 612,
+   "tpu": 146,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 56232,
+   "vtx": 1598,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.0311,
+   "avgTri": 0.01401,
+   "anglePct": 2,
+   "vpt": 2.61,
+   "grad": 0.74,
+   "spread": {
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.391,
+     0.977
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#8b5936",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "textile",
+    "wood-log"
+   ],
+   "variant": "v1189"
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "tipi-b",
+   "kind": "str-canopy-tent",
+   "size": "l",
+   "wdh": [
+    1.3,
+    1.35,
+    1.6
+   ],
+   "tris": 608,
+   "tpu": 220,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 55760,
+   "vtx": 1584,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "minTube": 0.0297,
+   "avgTri": 0.01084,
+   "anglePct": 4,
+   "vpt": 2.61,
+   "grad": 0.69,
+   "spread": {
+    "4,2": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.352,
+     0.977
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#8b5936",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "textile",
+    "wood-log"
+   ],
+   "variant": "v1189"
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "tipi-c",
+   "kind": "str-canopy-tent",
+   "size": "l",
+   "wdh": [
+    1.6,
+    1.5,
+    2.1
+   ],
+   "tris": 822,
+   "tpu": 160,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 76500,
+   "vtx": 2192,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.0326,
+   "avgTri": 0.01243,
+   "anglePct": 4,
+   "vpt": 2.67,
+   "grad": 0.54,
+   "spread": {
+    "3,0": [
+     0.492,
+     0.492
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#8b5936",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "textile",
+    "wood-log"
+   ],
+   "variant": "v1189"
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "tipi-d",
+   "kind": "str-canopy-tent",
+   "size": "l",
+   "wdh": [
+    1.3,
+    1.25,
+    1.9
+   ],
+   "tris": 747,
+   "tpu": 246,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 70192,
+   "vtx": 2009,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.028,
+   "avgTri": 0.01004,
+   "anglePct": 2,
+   "vpt": 2.69,
+   "grad": 0.66,
+   "spread": {
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.367,
+     0.977
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#8b5936",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "textile",
+    "wood-log"
+   ],
+   "variant": "v1189"
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "tipi-e",
+   "kind": "str-canopy-tent",
+   "size": "l",
+   "wdh": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "tris": 549,
+   "tpu": 163,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 50768,
+   "vtx": 1439,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "minTube": 0.0307,
+   "avgTri": 0.01314,
+   "anglePct": 6,
+   "vpt": 2.62,
+   "grad": 0.68,
+   "spread": {
+    "3,0": [
+     0.492,
+     0.492
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ],
+    "0,0": [
+     0.016,
+     0.656
+    ],
+    "2,0": [
+     0.016,
+     0.977
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#8b5936",
+    "#d8d1bd",
+    "#dbae80"
+   ],
+   "tags": [
+    "textile",
+    "wood-log"
+   ],
+   "variant": "v1189"
   },
   {
    "kit": "tropical-island",
