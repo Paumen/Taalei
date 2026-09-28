@@ -171,6 +171,7 @@ const SIZES = {
   'obj-furnishing-light-campfire': 1,
   'obj-furnishing-light-candle': 0.2,
   'obj-furnishing-light-lantern': 0.3,
+  'str-fixture-chimney': 3,
   'str-fixture-light-post': 2.5,
   'str-fixture-light-street': 4.5,
   'str-fixture-light-traffic': 3.5,
@@ -251,10 +252,12 @@ const HIGH = new Set([
   'obj-furnishing-furniture-table',
   'obj-furnishing-furniture-table-square',
   'str-barrier-fence-mid',
+  'str-fixture-chimney',
   'str-fixture-light-traffic',
   'str-fixture-marker-mailbox',
   'str-fixture-marker-sign-signpost',
   'str-fixture-utility-hydrant',
+  'str-part-gate-gateway',
   'str-part-wall-rampart',
 ]);
 
@@ -267,6 +270,7 @@ const DROPPED_KINDS = [
   'env-terrain-rock-formation',
   'env-terrain-ground',
   'env-terrain-mountain',
+  'obj-leisure-art-instrument',
   'obj-leisure-art-sculpture',
   'obj-equipment-apparel-jewellery-ring',
   'obj-equipment-pocketitem',
@@ -290,10 +294,14 @@ const DROPPED_KINDS = [
 
 const SCALE_SIZES = {
   'env-flora-plant-cactus': { small: 0.3, big: 1.5 },
+  'env-flora-plant-leafy': { small: 0.3, big: 1.2 },
+  'obj-container-pot': { small: 0.2, big: 0.8 },
+  'obj-transport-watercraft-ship': { big: 45 },
   'str-access-ladder': { small: 2, big: 4 },
   'str-barrier-fence-mid': { small: 0.6, big: 2 },
   'str-fixture-marker-flag': { small: 0.75 },
   'str-part-floor-unit': { small: 1.5, big: 6 },
+  'str-part-pillar': { small: 1.5, big: 6 },
 };
 
 const DROPPED_TAGS = VARS.exemptTags;
@@ -306,6 +314,7 @@ const STOREYS = {
   'storeys-3': 3,
   'storeys-4': 4,
   'storeys-5': 5,
+  'storeys-6': 6,
 };
 const STOREY_M = 3;
 const ROOF_M = 1.5;

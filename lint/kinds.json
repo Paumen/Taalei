@@ -224,7 +224,11 @@
           "urn"
          ]
         }
-       ]
+       ],
+       "scale": {
+        "small": 0.5,
+        "big": 2
+       }
       },
       {
        "id": "obj-container-can",
@@ -1729,7 +1733,10 @@
           "galleon",
           "longship",
           "hull (ship)"
-         ]
+         ],
+         "scale": {
+          "big": 3
+         }
         },
         {
          "id": "obj-transport-watercraft-boat",
@@ -2739,9 +2746,12 @@
         "pillar",
         "column",
         "beam",
-        "support",
-        "smokestack"
-       ]
+        "support"
+       ],
+       "scale": {
+        "small": 0.5,
+        "big": 2
+       }
       },
       {
        "id": "str-part-frame",
@@ -3283,6 +3293,15 @@
        ]
       },
       {
+       "id": "str-fixture-chimney",
+       "high.min": 1.2,
+       "high.max": 4.5,
+       "nouns": [
+        "smokestack",
+        "chimney stack"
+       ]
+      },
+      {
        "id": "str-fixture-utility",
        "nouns": [
         "utility pole",
@@ -3766,7 +3785,11 @@
           "yucca",
           "sansevieria",
           "pothos"
-         ]
+         ],
+         "scale": {
+          "small": 0.5,
+          "big": 2
+         }
         },
         {
          "id": "env-flora-plant-cactus",

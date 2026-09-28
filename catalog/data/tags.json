@@ -11010,7 +11010,13 @@
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
    "color": "#c07c8a",
-   "models": []
+   "models": [
+    "isa-bakery/pricing-card",
+    "kay-food/menu",
+    "kay-platformer/sign-caution",
+    "quat-shoot/sign-floor",
+    "sq-lab/hazard-sign"
+   ]
   },
   {
    "id": "obj-device",
@@ -16263,8 +16269,6 @@
     "kay-forest/rock-2-f",
     "kay-forest/rock-2-g",
     "kay-forest/rock-2-h",
-    "kay-forest/rock-3-c",
-    "kay-forest/rock-3-d",
     "kay-forest/rock-3-g",
     "kay-forest/rock-3-h",
     "kay-forest/rock-3-i",
@@ -16321,16 +16325,12 @@
     "quat-town/rock-c",
     "rgp-asia/rock-small",
     "rgp-asia/stepping-stone-f",
-    "rgp-medieval/rock-1",
-    "rgp-medieval/rock-2",
-    "rgp-medieval/rock-3",
     "rgp-medieval/rock-4",
     "rgp-medieval/rock-barrier-1",
     "rgp-medieval/rock-barrier-2",
     "rgp-medieval/rock-barrier-3",
     "rgp-medieval/rock-barrier-4",
     "rgp-medieval/stone-1",
-    "rgp-medieval/stone-2",
     "rocks/rock-natural-c",
     "rocks/rock-natural-d",
     "rocks/rock-natural-e",
@@ -16437,7 +16437,10 @@
     "wizp-asia/rock-block-c",
     "wizp-asia/rock-small-b",
     "wizp-asia/rock-small-c",
-    "wizp-asia/rock-small-d"
+    "wizp-asia/rock-small-d",
+    "kay-forest/rock-3-c",
+    "kay-forest/rock-3-d",
+    "rgp-medieval/stone-2"
    ]
   },
   {
@@ -16475,7 +16478,10 @@
     "rocks/rockform-corner-soft",
     "rocks/rockform-wall-long",
     "rocks/rockform-wall-short-a",
-    "rocks/rockform-wall-short-b"
+    "rocks/rockform-wall-short-b",
+    "rgp-medieval/rock-1",
+    "rgp-medieval/rock-2",
+    "rgp-medieval/rock-3"
    ]
   },
   {
@@ -17446,10 +17452,6 @@
     "ken-nature/statue-column",
     "ken-nature/statue-column-damaged",
     "ken-arcade/column",
-    "ken-industrial/smokestack-basic",
-    "ken-industrial/smokestack-small",
-    "ken-industrial/smokestack-medium",
-    "ken-industrial/smokestack-large",
     "ken-roads/bridge-pillar-wide",
     "ken-roads/bridge-pillar",
     "ken-arena/column",
@@ -17461,8 +17463,6 @@
     "kay-platformer/pillar-2x2x2",
     "kay-platformer/pillar-2x2x4",
     "kay-platformer/pillar-2x2x8",
-    "ken-space/chimney",
-    "ken-space/chimney-detailed",
     "ken-station/wall-detail",
     "rgp-vintage/beam",
     "rgp-medieval/post-a",
@@ -17813,7 +17813,6 @@
     "fs-town/sign-a",
     "isa-bakery/wall-sign-large",
     "isa-bakery/wall-sign-small",
-    "kay-platformer/sign-caution",
     "ken-racing/billboard-double-exclusive",
     "ken-racing/billboard-low",
     "ken-racing/billboard-lower",
@@ -17824,12 +17823,8 @@
     "sq-bowling/arrow-sign",
     "sq-bowling/pennant-board",
     "sq-cards/shop-sign",
-    "sq-lab/hazard-sign",
-    "kay-food/menu",
     "sq-fastfood/menu-board",
-    "isa-bakery/pricing-card",
-    "sq-carwash/price-totem",
-    "quat-shoot/sign-floor"
+    "sq-carwash/price-totem"
    ]
   },
   {
@@ -18782,6 +18777,20 @@
    "models": [
     "food-pack-2/pizza",
     "food-pack-2/pizza-b"
+   ]
+  },
+  {
+   "id": "str-fixture-chimney",
+   "name": "Chimney",
+   "type": "kind",
+   "description": "Free-standing chimney or smokestack.",
+   "models": [
+    "ken-space/chimney",
+    "ken-space/chimney-detailed",
+    "ken-industrial/smokestack-large",
+    "ken-industrial/smokestack-medium",
+    "ken-industrial/smokestack-basic",
+    "ken-industrial/smokestack-small"
    ]
   },
   {
@@ -20738,7 +20747,23 @@
     "fs-town/stone-curb-d",
     "fs-terrain/beach-prop-docks-corner",
     "fs-terrain/beach-prop-docks-corner-supports",
-    "kay-platformer/sign-arrow-wall"
+    "kay-platformer/sign-arrow-wall",
+    "rgp-medieval/annex-1",
+    "rgp-medieval/annex-3-a",
+    "rgp-medieval/annex-3-b",
+    "rgp-medieval/annex-4-a",
+    "rgp-medieval/annex-4-b",
+    "rgp-medieval/annex-8",
+    "ken-pirate/tower-base-door",
+    "fs-town/waterwheel-flume-pillar",
+    "rgp-medieval/waterwheel",
+    "ken-factory/cog-a",
+    "ken-factory/cog-b",
+    "ken-factory/cog-c",
+    "ken-factory/cog-d",
+    "ken-factory/cog-e",
+    "ken-station/wall-detail",
+    "fs-terrain/beach-prop-docks-straight-supports"
    ]
   },
   {
@@ -21001,7 +21026,13 @@
     "sq-rink/skates-pair-a",
     "sq-rink/skates-pair-b",
     "sq-rink/stripe-panels",
-    "sq-studio/studio-monitors"
+    "sq-studio/studio-monitors",
+    "kay-resources/copper-nuggets",
+    "kay-resources/gold-nuggets",
+    "kay-resources/iron-nuggets",
+    "kay-resources/parts-pile-small",
+    "kay-resources/parts-pile-medium",
+    "kay-resources/parts-pile-large"
    ]
   },
   {
@@ -22239,7 +22270,15 @@
     "ken-racing/pits-office-corner",
     "ken-modular/house-a",
     "rgp-medieval/house-5",
-    "rgp-medieval/stable"
+    "rgp-medieval/stable",
+    "ken-space/hangar-large-a",
+    "ken-space/hangar-large-b",
+    "ken-space/hangar-round-a",
+    "ken-space/hangar-round-b",
+    "ken-space/hangar-round-glass",
+    "ken-space/hangar-small-a",
+    "ken-space/hangar-small-b",
+    "rgp-medieval/shelter"
    ]
   },
   {
@@ -22380,7 +22419,8 @@
     "ken-modular/tower-b",
     "rgp-medieval/house-10",
     "rgp-medieval/house-11-a",
-    "rgp-medieval/house-11-b"
+    "rgp-medieval/house-11-b",
+    "rgp-medieval/windmill"
    ]
   },
   {
@@ -22502,8 +22542,6 @@
     "kay-hexagon/castle",
     "quat-medieval/bell-tower",
     "ken-commercial/building-l",
-    "ken-commercial/building-m",
-    "ken-commercial/building-n",
     "ken-commercial/skyscraper-a",
     "ken-commercial/skyscraper-b",
     "ken-commercial/skyscraper-c",
@@ -22515,6 +22553,16 @@
     "ken-industrial/factory-f",
     "ken-industrial/wind-turbine",
     "ken-modular/tower-d"
+   ]
+  },
+  {
+   "id": "storeys-6",
+   "name": "6 storeys",
+   "type": "attribute",
+   "description": "Six storeys read from the model.",
+   "models": [
+    "ken-commercial/building-m",
+    "ken-commercial/building-n"
    ]
   },
   {
@@ -22622,7 +22670,20 @@
     "ken-racing/flag-checkers-small",
     "fs-town/stone-floor-b",
     "fs-town/stone-floor-a",
-    "kay-space/windturbine-low"
+    "kay-space/windturbine-low",
+    "kay-platformer/pillar-1x1x1",
+    "kay-platformer/pillar-1x1x2",
+    "kay-platformer/pillar-2x2x2",
+    "kay-dun-2/column",
+    "styloo-furniture/utensil-holder",
+    "isa-plants/pot-a-small",
+    "isa-plants/sansevieria-plant-small",
+    "isa-plants/pothos-plant-small",
+    "isa-plants/zzplant-plant-small",
+    "isa-plants/sansevieria-potted-small",
+    "isa-plants/pothos-potted-small",
+    "kay-minigame/plant-a",
+    "kay-minigame/plant-b"
    ]
   },
   {
@@ -22652,7 +22713,6 @@
     "quat-nature/cactus-2",
     "quat-nature/cactus-3",
     "quat-nature/cactus-4",
-    "quat-nature/cactus-5",
     "quat-nature/cactus-flower-2",
     "quat-nature/cactus-flower-3",
     "quat-nature/cactus-flower-4",
@@ -22666,7 +22726,28 @@
     "wizp-tree/cactus-tall",
     "rgp-medieval/ladder-long",
     "kay-space/roofmodule-base",
-    "ken-space/corridor-roof"
+    "ken-space/corridor-roof",
+    "kay-platformer/pillar-1x1x8",
+    "kay-platformer/pillar-2x2x8",
+    "rgp-asia/rampart-post",
+    "quat-dun-1/column",
+    "wizp-asia/pot-large",
+    "wizp-village/pot-stone-a",
+    "quat-ships/cruise-ship",
+    "ken-water/ship-ocean-liner",
+    "ken-water/ship-ocean-liner-anim",
+    "ken-water/ship-ocean-liner-small",
+    "ken-water/ship-ocean-liner-small-anim",
+    "isa-plants/monstera-plant-large",
+    "isa-plants/sansevieria-plant-large",
+    "isa-plants/pothos-plant-large",
+    "isa-plants/zzplant-plant-large",
+    "isa-plants/yucca-plant-large",
+    "isa-plants/monstera-potted-large",
+    "isa-plants/sansevieria-potted-large",
+    "isa-plants/zzplant-potted-large",
+    "isa-plants/yucca-potted-large",
+    "isa-plants/pothos-potted-large"
    ]
   },
   {
