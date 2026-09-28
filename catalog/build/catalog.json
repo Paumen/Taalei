@@ -15420,7 +15420,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 683,
+   "count": 681,
    "parent": "metal-iron"
   },
   {
@@ -15428,7 +15428,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 326,
+   "count": 328,
    "parent": "metal-iron"
   },
   {
@@ -99773,7 +99773,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12112,
+   "bytes": 12116,
    "vtx": 306,
    "grounded": true,
    "centered": true,
@@ -99788,20 +99788,20 @@
      0.305,
      0.75
     ],
-    "6,1": [
+    "13,3": [
      0.18,
      0.727
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#b58158"
    ],
    "tags": [
     "grave",
     "halloween",
     "kay",
-    "metal-iron-cast",
+    "metal-iron-wrought",
     "wood-worked"
    ],
    "variant": "v353",
@@ -99815,6 +99815,11 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
+    },
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
     }
    ]
   },
@@ -107998,7 +108003,7 @@
    "vpt": 0.95,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "6,0": [
      0.148,
      0.805
     ],
@@ -108009,14 +108014,21 @@
    },
    "colors": [
     "#7f3927",
-    "#d8d1bd"
+    "#f2a93c"
    ],
    "tags": [
     "kay",
     "paper",
     "textile"
    ],
-   "variant": "v870"
+   "variant": "v870",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper wants ivory, has amber sienna"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
@@ -108044,7 +108056,7 @@
    "vpt": 0.95,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "6,0": [
      0.148,
      0.805
     ],
@@ -108055,14 +108067,21 @@
    },
    "colors": [
     "#7f3927",
-    "#d8d1bd"
+    "#f2a93c"
    ],
    "tags": [
     "kay",
     "paper",
     "textile"
    ],
-   "variant": "v870"
+   "variant": "v870",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper wants ivory, has amber sienna"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
@@ -235723,7 +235742,7 @@
      0.492
     ],
     "15,3": [
-     0.492,
+     0.5,
      0.5
     ],
     "5,2": [
@@ -235738,11 +235757,16 @@
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron-steel",
+    "metal-iron-cast",
     "qua"
    ],
    "variant": "v766",
    "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-weapon)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -235830,7 +235854,7 @@
      0.5,
      0.5
     ],
-    "15,3": [
+    "13,3": [
      0.492,
      0.492
     ],
@@ -235841,15 +235865,20 @@
    },
    "colors": [
     "#23562c",
-    "#82868e",
+    "#5b5550",
     "#d8d1bd"
    ],
    "tags": [
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "qua"
    ],
    "variant": "v766",
    "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-equipment-weapon)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -284713,7 +284742,7 @@
    "vpt": 1.27,
    "grad": 0.34,
    "spread": {
-    "1,1": [
+    "6,1": [
      0.445,
      0.445
     ],
@@ -284727,7 +284756,7 @@
     ]
    },
    "colors": [
-    "#23562c",
+    "#343745",
     "#7f3927",
     "#d8d1bd"
    ],
@@ -284741,6 +284770,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.05 under min 0.05 (obj-food-fish-sushi · 0.042 at kit ×1.18)"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "foliage wants moss hunter, has slate sienna ivory"
     }
    ]
   },
