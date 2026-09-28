@@ -249,8 +249,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 38
+    "factor": 1.02,
+    "kinds": 37
    }
   },
   {
@@ -686,7 +686,7 @@
     "none": 143
    },
    "kitCheck": {
-    "factor": 1.21,
+    "factor": 1.2,
     "kinds": 21
    }
   },
@@ -856,7 +856,7 @@
     "none": 13
    },
    "kitCheck": {
-    "factor": 0.86,
+    "factor": 0.89,
     "kinds": 12
    }
   },
@@ -1407,7 +1407,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.92,
+    "factor": 0.91,
     "kinds": 7
    }
   },
@@ -1884,8 +1884,8 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 13
+    "factor": 1.09,
+    "kinds": 12
    }
   },
   {
@@ -2172,9 +2172,9 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.42,
+    "factor": 1.27,
     "kinds": 13,
-    "level": "error"
+    "level": "warning"
    }
   },
   {
@@ -2675,8 +2675,8 @@
     "none": 180
    },
    "kitCheck": {
-    "factor": 1.14,
-    "kinds": 55
+    "factor": 1.13,
+    "kinds": 56
    }
   },
   {
@@ -17166,21 +17166,21 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 109
+   "count": 103
   },
   {
    "id": "env-terrain-rock-cobble",
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose)",
-   "count": 83
+   "count": 86
   },
   {
    "id": "env-terrain-rock-formation",
    "name": "Formation",
    "type": "kind",
    "description": "arch (rock), monolith, spire, cliff, outcrop",
-   "count": 30
+   "count": 33
   },
   {
    "id": "env-terrain-rock-pebble",
@@ -18145,14 +18145,14 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 205
+   "count": 212
   },
   {
    "id": "plural",
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 255
+   "count": 261
   },
   {
    "id": "pickup",
@@ -18282,7 +18282,17 @@
    "name": "5 storeys",
    "type": "attribute",
    "description": "Five storeys read from the model.",
-   "count": 16,
+   "count": 14,
+   "kinds": [
+    "str-building"
+   ]
+  },
+  {
+   "id": "storeys-6",
+   "name": "6 storeys",
+   "type": "attribute",
+   "description": "Six storeys read from the model.",
+   "count": 2,
    "kinds": [
     "str-building"
    ]
@@ -18292,9 +18302,10 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 103,
+   "count": 113,
    "kinds": [
     "obj-container-chest",
+    "obj-container-pot",
     "obj-food-baked-bread",
     "obj-equipment-tool-hand",
     "obj-equipment-tool-stationery",
@@ -18306,6 +18317,7 @@
     "str-access-ladder",
     "str-fixture-marker-flag",
     "str-fixture-utility-turbine",
+    "env-flora-plant-leafy",
     "env-flora-plant-cactus"
    ]
   },
@@ -18314,10 +18326,12 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 38,
+   "count": 56,
    "kinds": [
     "obj-container-crate-cube",
+    "obj-container-pot",
     "obj-food-fish",
+    "obj-transport-watercraft-ship",
     "obj-furnishing-light-candle",
     "str-part-floor-unit",
     "str-part-roof-unit",
@@ -18325,6 +18339,7 @@
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-banner",
+    "env-flora-plant-leafy",
     "env-flora-plant-cactus"
    ]
   },
@@ -20834,6 +20849,54 @@
    "longest.max": 1.2,
    "tpu.max": 10000
   },
+  "obj-container-pot scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-container-pot scale-big": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-vase scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.225,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-vase scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.9,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-jar scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.15,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-jar scale-big": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.6,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-urn scale-small": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.275,
+   "tpu.max": 10000
+  },
+  "obj-container-pot-urn scale-big": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1.1,
+   "tpu.max": 10000
+  },
   "obj-food-fish scale-big": {
    "high.max": 8,
    "longest.min": 0.2,
@@ -20892,6 +20955,12 @@
    "high.max": 8,
    "longest.min": 0.04,
    "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-transport-watercraft-ship scale-big": {
+   "high.max": 30,
+   "longest.min": 7.35,
+   "longest.max": 69,
    "tpu.max": 10000
   },
   "obj-furnishing-light-candle scale-big": {
@@ -20987,6 +21056,18 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "env-flora-plant-leafy scale-small": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.35,
+   "tpu.max": 10000
+  },
+  "env-flora-plant-leafy scale-big": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1.4,
+   "tpu.max": 10000
   },
   "env-flora-plant-cactus scale-small": {
    "high.max": 8,
@@ -38709,6 +38790,7 @@
     "#dbae80"
    ],
    "tags": [
+    "comp",
     "fs",
     "wood-bark",
     "wood-log"
@@ -38765,7 +38847,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.644 at kit ×1.01)"
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.637 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -39568,7 +39650,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.347 at kit ×1.01)"
+     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.343 at kit ×1.02)"
     }
    ]
   },
@@ -39622,7 +39704,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (env-flora-waterplant-cattail · 0.495 at kit ×1.01)"
+     "text": "longest 0.5 under min 0.5 (env-flora-waterplant-cattail · 0.49 at kit ×1.02)"
     }
    ]
   },
@@ -42014,7 +42096,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.01)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.245 at kit ×1.02)"
     }
    ]
   },
@@ -42068,7 +42150,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.01)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.245 at kit ×1.02)"
     }
    ]
   },
@@ -42122,7 +42204,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.297 at kit ×1.01)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.294 at kit ×1.02)"
     }
    ]
   },
@@ -42405,7 +42487,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.4 (obj-equipment-tool-twohand-broom · 0.396 at kit ×1.01)"
+     "text": "longest 0.4 under min 0.4 (obj-equipment-tool-twohand-broom · 0.392 at kit ×1.02)"
     }
    ]
   },
@@ -42935,7 +43017,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.683 at kit ×1.01)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.667 at kit ×1.02)"
     }
    ]
   },
@@ -42983,7 +43065,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.683 at kit ×1.01)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.667 at kit ×1.02)"
     }
    ]
   },
@@ -43643,7 +43725,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 1.931 at kit ×1.01)"
+     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 1.912 at kit ×1.02)"
     }
    ]
   },
@@ -43711,7 +43793,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.65 (str-fixture-light-post · 0.644 at kit ×1.01)"
+     "text": "longest 0.65 under min 0.65 (str-fixture-light-post · 0.637 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -45859,7 +45941,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -45908,7 +45990,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -45957,7 +46039,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -46006,7 +46088,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -46055,7 +46137,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -46993,7 +47075,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -47102,7 +47184,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -47211,7 +47293,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -47320,7 +47402,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.495 at kit ×1.01)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -48067,7 +48149,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.337 at kit ×1.01)"
+     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.324 at kit ×1.02)"
     }
    ]
   },
@@ -48127,7 +48209,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.584 at kit ×1.01)"
+     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.569 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -48480,7 +48562,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.297 at kit ×1.01)"
+     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.294 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -48668,7 +48750,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.495 at kit ×1.01)"
+     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.49 at kit ×1.02)"
     }
    ],
    "mark": [
@@ -60381,7 +60463,8 @@
    "tags": [
     "foliage",
     "isa",
-    "plural"
+    "plural",
+    "scale-big"
    ]
   },
   {
@@ -60513,16 +60596,10 @@
     "ceramic",
     "foliage",
     "isa",
+    "scale-big",
     "stone-soil"
    ],
-   "variant": "v776",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.2 over max 0.7 (env-flora-plant-leafy · 1.081 at kit ×1.11)"
-    }
-   ]
+   "variant": "v776"
   },
   {
    "kit": "isa-plants",
@@ -60764,6 +60841,7 @@
    "tags": [
     "ceramic",
     "isa",
+    "scale-small",
     "stone-soil"
    ],
    "variant": "v273"
@@ -60805,7 +60883,8 @@
    "tags": [
     "foliage",
     "isa",
-    "plural"
+    "plural",
+    "scale-big"
    ],
    "variant": "v284"
   },
@@ -60886,7 +60965,8 @@
    ],
    "tags": [
     "foliage",
-    "isa"
+    "isa",
+    "scale-small"
    ],
    "variant": "v284",
    "mark": [
@@ -60942,16 +61022,10 @@
     "ceramic",
     "foliage",
     "isa",
+    "scale-big",
     "stone-soil"
    ],
-   "variant": "v781",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.8 over max 0.7 (env-flora-plant-leafy · 0.721 at kit ×1.11)"
-    }
-   ]
+   "variant": "v781"
   },
   {
    "kit": "isa-plants",
@@ -61055,6 +61129,7 @@
     "ceramic",
     "foliage",
     "isa",
+    "scale-small",
     "stone-soil"
    ],
    "variant": "v781"
@@ -61136,16 +61211,10 @@
    ],
    "tags": [
     "foliage",
-    "isa"
+    "isa",
+    "scale-big"
    ],
-   "variant": "v286",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.85 over max 0.7 (env-flora-plant-leafy · 0.766 at kit ×1.11)"
-    }
-   ]
+   "variant": "v286"
   },
   {
    "kit": "isa-plants",
@@ -61224,16 +61293,10 @@
    ],
    "tags": [
     "foliage",
-    "isa"
+    "isa",
+    "scale-small"
    ],
-   "variant": "v286",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.25 under min 0.25 (env-flora-plant-leafy · 0.225 at kit ×1.11)"
-    }
-   ]
+   "variant": "v286"
   },
   {
    "kit": "isa-plants",
@@ -61278,16 +61341,10 @@
    "tags": [
     "ceramic",
     "foliage",
-    "isa"
+    "isa",
+    "scale-big"
    ],
-   "variant": "v777",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.991 at kit ×1.11)"
-    }
-   ]
+   "variant": "v777"
   },
   {
    "kit": "isa-plants",
@@ -61378,7 +61435,8 @@
    "tags": [
     "ceramic",
     "foliage",
-    "isa"
+    "isa",
+    "scale-small"
    ],
    "variant": "v777"
   },
@@ -62102,6 +62160,7 @@
     "foliage",
     "isa",
     "plural",
+    "scale-big",
     "wood-bark"
    ],
    "variant": "v287"
@@ -62250,16 +62309,10 @@
     "ceramic",
     "foliage",
     "isa",
+    "scale-big",
     "wood-bark"
    ],
-   "variant": "v780",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.95 over max 0.7 (env-flora-plant-leafy · 0.856 at kit ×1.11)"
-    }
-   ]
+   "variant": "v780"
   },
   {
    "kit": "isa-plants",
@@ -62406,7 +62459,8 @@
    "tags": [
     "foliage",
     "isa",
-    "plural"
+    "plural",
+    "scale-big"
    ],
    "variant": "v288"
   },
@@ -62489,7 +62543,8 @@
    ],
    "tags": [
     "foliage",
-    "isa"
+    "isa",
+    "scale-small"
    ],
    "variant": "v288"
   },
@@ -62542,16 +62597,10 @@
     "ceramic",
     "foliage",
     "isa",
+    "scale-big",
     "stone-soil"
    ],
-   "variant": "v779",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.1 over max 0.7 (env-flora-plant-leafy · 0.991 at kit ×1.11)"
-    }
-   ]
+   "variant": "v779"
   },
   {
    "kit": "isa-plants",
@@ -80661,7 +80710,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.248 at kit ×1.21)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.25 at kit ×1.2)"
     }
    ]
   },
@@ -81692,7 +81741,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.3 (obj-furnishing-furniture-seating-chair · 0.289 at kit ×1.21)"
+     "text": "longest 0.35 under min 0.3 (obj-furnishing-furniture-seating-chair · 0.292 at kit ×1.2)"
     }
    ]
   },
@@ -82003,14 +82052,8 @@
     "grave",
     "halloween",
     "kay",
+    "scale-small",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.4 under min 0.5 (str-part-pillar · 0.331 at kit ×1.21)"
-    }
    ]
   },
   {
@@ -83341,7 +83384,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.496 at kit ×1.21)"
+     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.5 at kit ×1.2)"
     }
    ]
   },
@@ -83387,7 +83430,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.496 at kit ×1.21)"
+     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.5 at kit ×1.2)"
     }
    ]
   },
@@ -83825,7 +83868,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-plate · 0.124 at kit ×1.21)"
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-plate · 0.125 at kit ×1.2)"
     }
    ]
   },
@@ -84038,7 +84081,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-furnishing-furniture-storage-shelf · 0.248 at kit ×1.21)"
+     "text": "longest 0.3 under min 0.3 (obj-furnishing-furniture-storage-shelf · 0.25 at kit ×1.2)"
     }
    ]
   },
@@ -84127,7 +84170,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.4 over max 1.3 (str-access-stairs · 1.983 at kit ×1.21)"
+     "text": "longest 2.4 over max 1.3 (str-access-stairs · 2 at kit ×1.2)"
     }
    ],
    "mark": [
@@ -84368,7 +84411,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.1 over max 1.3 (str-access-stairs · 1.736 at kit ×1.21)"
+     "text": "longest 2.1 over max 1.3 (str-access-stairs · 1.75 at kit ×1.2)"
     }
    ],
    "mark": [
@@ -84476,7 +84519,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.8 over max 1.3 (str-access-stairs · 1.488 at kit ×1.21)"
+     "text": "longest 1.8 over max 1.3 (str-access-stairs · 1.5 at kit ×1.2)"
     }
    ],
    "mark": [
@@ -85482,14 +85525,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v236",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 under min 0.25 (obj-furnishing-light-torch · 0.248 at kit ×1.21)"
-    }
-   ]
+   "variant": "v236"
   },
   {
    "kit": "kay-dun-2",
@@ -85536,14 +85572,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "variant": "v32",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 under min 0.25 (obj-furnishing-light-torch · 0.248 at kit ×1.21)"
-    }
-   ]
+   "variant": "v32"
   },
   {
    "kit": "kay-dun-2",
@@ -85637,7 +85666,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.165 at kit ×1.21)"
+     "text": "high 0.2 under min 0.2 (obj-container-chest · 0.167 at kit ×1.2)"
     }
    ]
   },
@@ -94570,7 +94599,7 @@
   {
    "kit": "kay-forest",
    "name": "rock-3-c",
-   "kind": "env-terrain-rock-boulder",
+   "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
     0.25,
@@ -94605,19 +94634,12 @@
     "kay",
     "stone-rock"
    ],
-   "variant": "v01",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 under min 0.35 (env-terrain-rock-boulder · 0.283 at kit ×1.06)"
-    }
-   ]
+   "variant": "v01"
   },
   {
    "kit": "kay-forest",
    "name": "rock-3-d",
-   "kind": "env-terrain-rock-boulder",
+   "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
     0.3,
@@ -94651,14 +94673,7 @@
     "kay",
     "stone-rock"
    ],
-   "variant": "v01",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 under min 0.35 (env-terrain-rock-boulder · 0.283 at kit ×1.06)"
-    }
-   ]
+   "variant": "v01"
   },
   {
    "kit": "kay-forest",
@@ -108737,7 +108752,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.698 at kit ×0.86)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.674 at kit ×0.89)"
     },
     {
      "level": "error",
@@ -108890,7 +108905,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.4 over max 0.35 (obj-equipment-weapon-siege-ammunition-cannonball · 0.465 at kit ×0.86)"
+     "text": "longest 0.4 over max 0.35 (obj-equipment-weapon-siege-ammunition-cannonball · 0.449 at kit ×0.89)"
     }
    ]
   },
@@ -108942,7 +108957,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.4 over max 0.35 (obj-equipment-weapon-siege-ammunition-cannonball · 0.465 at kit ×0.86)"
+     "text": "longest 0.4 over max 0.35 (obj-equipment-weapon-siege-ammunition-cannonball · 0.449 at kit ×0.89)"
     }
    ]
   },
@@ -109268,7 +109283,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.6 under min 0.7 (str-part-gate-gateway · 0.698 at kit ×0.86)"
+     "text": "high 0.6 under min 0.7 (str-part-gate-gateway · 0.674 at kit ×0.89)"
     }
    ]
   },
@@ -109403,7 +109418,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.9 under min 1.05 (env-flora-tree-conifer · 1.047 at kit ×0.86)"
+     "text": "longest 0.9 under min 1.05 (env-flora-tree-conifer · 1.011 at kit ×0.89)"
     }
    ]
   },
@@ -109442,16 +109457,10 @@
    ],
    "tags": [
     "foliage",
-    "kay"
+    "kay",
+    "scale-small"
    ],
-   "variant": "v490",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.2 under min 0.25 (env-flora-plant-leafy · 0.233 at kit ×0.86)"
-    }
-   ]
+   "variant": "v490"
   },
   {
    "kit": "kay-minigame",
@@ -109488,16 +109497,10 @@
    ],
    "tags": [
     "foliage",
-    "kay"
+    "kay",
+    "scale-small"
    ],
-   "variant": "v490",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.15 under min 0.25 (env-flora-plant-leafy · 0.174 at kit ×0.86)"
-    }
-   ]
+   "variant": "v490"
   },
   {
    "kit": "kay-minigame",
@@ -115035,7 +115038,8 @@
    ],
    "tags": [
     "kay",
-    "metal-copper"
+    "metal-copper",
+    "plural"
    ],
    "variant": "v17"
   },
@@ -115790,7 +115794,8 @@
    ],
    "tags": [
     "kay",
-    "metal-gold"
+    "metal-gold",
+    "plural"
    ],
    "variant": "v17"
   },
@@ -116160,7 +116165,8 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "plural"
    ],
    "variant": "v17"
   },
@@ -116326,16 +116332,10 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "plural"
    ],
-   "variant": "v255",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "tpu 7977 over max 5000 (obj-resource)"
-    }
-   ]
+   "variant": "v255"
   },
   {
    "kit": "kay-resources",
@@ -116385,6 +116385,7 @@
    "tags": [
     "kay",
     "metal-iron-wrought",
+    "plural",
     "wood-beam",
     "wood-planks"
    ],
@@ -116427,7 +116428,8 @@
    ],
    "tags": [
     "kay",
-    "metal-iron-wrought"
+    "metal-iron-wrought",
+    "plural"
    ]
   },
   {
@@ -131506,7 +131508,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.8 over max 1.7 (obj-transport-land-road · 1.957 at kit ×0.92)"
+     "text": "longest 1.8 over max 1.7 (obj-transport-land-road · 1.978 at kit ×0.91)"
     }
    ]
   },
@@ -132069,7 +132071,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.8 over max 1.7 (obj-transport-land-road · 1.957 at kit ×0.92)"
+     "text": "longest 1.8 over max 1.7 (obj-transport-land-road · 1.978 at kit ×0.91)"
     }
    ]
   },
@@ -132143,7 +132145,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.8 over max 1.7 (obj-transport-land-road · 1.957 at kit ×0.92)"
+     "text": "longest 1.8 over max 1.7 (obj-transport-land-road · 1.978 at kit ×0.91)"
     }
    ]
   },
@@ -132216,7 +132218,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.85 over max 1.7 (obj-transport-land-road · 2.011 at kit ×0.92)"
+     "text": "longest 1.85 over max 1.7 (obj-transport-land-road · 2.033 at kit ×0.91)"
     }
    ]
   },
@@ -132289,7 +132291,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.9 over max 1.7 (obj-transport-land-road · 2.065 at kit ×0.92)"
+     "text": "longest 1.9 over max 1.7 (obj-transport-land-road · 2.088 at kit ×0.91)"
     }
    ]
   },
@@ -132357,6 +132359,13 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.55 over max 1.7 (obj-transport-land-road · 1.703 at kit ×0.91)"
+    }
    ]
   },
   {
@@ -132428,7 +132437,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.7 over max 1.7 (obj-transport-land-road · 1.848 at kit ×0.92)"
+     "text": "longest 1.7 over max 1.7 (obj-transport-land-road · 1.868 at kit ×0.91)"
     }
    ]
   },
@@ -132738,7 +132747,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v957"
+   "variant": "v957",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.55 over max 1.7 (obj-transport-land-road · 1.703 at kit ×0.91)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
@@ -133283,7 +133299,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.6 over max 1.7 (obj-transport-land-road · 1.739 at kit ×0.92)"
+     "text": "longest 1.6 over max 1.7 (obj-transport-land-road · 1.758 at kit ×0.91)"
     }
    ]
   },
@@ -136625,7 +136641,7 @@
     "ken",
     "metal",
     "stone-masonry",
-    "storeys-5"
+    "storeys-6"
    ]
   },
   {
@@ -136688,7 +136704,7 @@
     "ken",
     "metal",
     "stone-masonry",
-    "storeys-5"
+    "storeys-6"
    ]
   },
   {
@@ -138490,6 +138506,7 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "ken",
     "metal"
    ]
@@ -138529,6 +138546,7 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "ken",
     "metal"
    ]
@@ -138568,6 +138586,7 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "ken",
     "metal"
    ]
@@ -138607,6 +138626,7 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "ken",
     "metal"
    ]
@@ -138646,6 +138666,7 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "ken",
     "metal"
    ]
@@ -182908,14 +182929,7 @@
     "space",
     "textile"
    ],
-   "variant": "v1151",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.1 over max 1.05 (obj-furnishing-furniture-bed · 1.068 at kit ×1.03)"
-    }
-   ]
+   "variant": "v1151"
   },
   {
    "kit": "ken-station",
@@ -183767,7 +183781,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.1 over max 1 (obj-container-crate · 1.068 at kit ×1.03)"
+     "text": "longest 1.1 over max 1 (obj-container-crate · 1.009 at kit ×1.09)"
     }
    ]
   },
@@ -184085,7 +184099,14 @@
     "plastic",
     "space"
    ],
-   "variant": "v1121"
+   "variant": "v1121",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.7 under min 0.65 (str-part-door · 0.642 at kit ×1.09)"
+    }
+   ]
   },
   {
    "kit": "ken-station",
@@ -184136,7 +184157,14 @@
     "plastic",
     "space"
    ],
-   "variant": "v1121"
+   "variant": "v1121",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.7 under min 0.65 (str-part-door · 0.642 at kit ×1.09)"
+    }
+   ]
   },
   {
    "kit": "ken-station",
@@ -184181,7 +184209,14 @@
     "metal",
     "space"
    ],
-   "variant": "v1121"
+   "variant": "v1121",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.7 under min 0.65 (str-part-door · 0.642 at kit ×1.09)"
+    }
+   ]
   },
   {
    "kit": "ken-station",
@@ -185091,6 +185126,7 @@
     "#f2a93c"
    ],
    "tags": [
+    "comp",
     "ken",
     "metal",
     "plastic",
@@ -193971,7 +194007,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.7 under min 0.8 (obj-transport-land-rail · 0.761 at kit ×0.92)"
+     "text": "high 0.7 under min 0.8 (obj-transport-land-rail · 0.769 at kit ×0.91)"
     }
    ]
   },
@@ -194263,7 +194299,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.65 under min 0.8 (obj-transport-land-rail · 0.707 at kit ×0.92)"
+     "text": "high 0.65 under min 0.8 (obj-transport-land-rail · 0.714 at kit ×0.91)"
     }
    ]
   },
@@ -194315,7 +194351,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.65 under min 0.8 (obj-transport-land-rail · 0.707 at kit ×0.92)"
+     "text": "high 0.65 under min 0.8 (obj-transport-land-rail · 0.714 at kit ×0.91)"
     }
    ]
   },
@@ -194378,7 +194414,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.65 under min 0.8 (obj-transport-land-rail · 0.707 at kit ×0.92)"
+     "text": "high 0.65 under min 0.8 (obj-transport-land-rail · 0.714 at kit ×0.91)"
     }
    ]
   },
@@ -195039,7 +195075,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.2 over max 1.3 (obj-transport-land-rail · 1.304 at kit ×0.92)"
+     "text": "high 1.2 over max 1.3 (obj-transport-land-rail · 1.319 at kit ×0.91)"
     }
    ]
   },
@@ -195171,7 +195207,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.3 over max 1.3 (obj-transport-land-rail · 1.413 at kit ×0.92)"
+     "text": "high 1.3 over max 1.3 (obj-transport-land-rail · 1.429 at kit ×0.91)"
     }
    ]
   },
@@ -195297,7 +195333,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.4 over max 1.3 (obj-transport-land-rail · 1.522 at kit ×0.92)"
+     "text": "high 1.4 over max 1.3 (obj-transport-land-rail · 1.538 at kit ×0.91)"
     }
    ]
   },
@@ -195360,7 +195396,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.25 over max 1.3 (obj-transport-land-rail · 1.359 at kit ×0.92)"
+     "text": "high 1.25 over max 1.3 (obj-transport-land-rail · 1.374 at kit ×0.91)"
     }
    ]
   },
@@ -195423,7 +195459,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.35 over max 1.3 (obj-transport-land-rail · 1.467 at kit ×0.92)"
+     "text": "high 1.35 over max 1.3 (obj-transport-land-rail · 1.484 at kit ×0.91)"
     }
    ]
   },
@@ -195809,7 +195845,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.05 over max 2.95 (obj-transport-watercraft-boat · 3.315 at kit ×0.92)"
+     "text": "longest 3.05 over max 2.95 (obj-transport-watercraft-boat · 3.352 at kit ×0.91)"
     }
    ]
   },
@@ -195888,7 +195924,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.85 over max 2.95 (obj-transport-watercraft-boat · 3.098 at kit ×0.92)"
+     "text": "longest 2.85 over max 2.95 (obj-transport-watercraft-boat · 3.132 at kit ×0.91)"
     }
    ]
   },
@@ -196720,7 +196756,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.4 over max 2.95 (obj-transport-watercraft-boat · 3.696 at kit ×0.92)"
+     "text": "longest 3.4 over max 2.95 (obj-transport-watercraft-boat · 3.736 at kit ×0.91)"
     }
    ],
    "mark": [
@@ -196792,7 +196828,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.35 over max 2.95 (obj-transport-watercraft-boat · 3.641 at kit ×0.92)"
+     "text": "longest 3.35 over max 2.95 (obj-transport-watercraft-boat · 3.681 at kit ×0.91)"
     }
    ]
   },
@@ -196867,7 +196903,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.35 over max 2.95 (obj-transport-watercraft-boat · 3.641 at kit ×0.92)"
+     "text": "longest 3.35 over max 2.95 (obj-transport-watercraft-boat · 3.681 at kit ×0.91)"
     }
    ]
   },
@@ -196936,7 +196972,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 3.35 over max 2.95 (obj-transport-watercraft-boat · 3.641 at kit ×0.92)"
+     "text": "longest 3.35 over max 2.95 (obj-transport-watercraft-boat · 3.681 at kit ×0.91)"
     }
    ]
   },
@@ -197907,6 +197943,7 @@
     "ken",
     "metal",
     "sailing",
+    "scale-big",
     "wood-worked"
    ],
    "anim": [
@@ -197980,6 +198017,7 @@
     "ken",
     "metal",
     "sailing",
+    "scale-big",
     "wood-worked"
    ],
    "anim": [
@@ -198050,6 +198088,7 @@
     "ken",
     "metal",
     "sailing",
+    "scale-big",
     "wood-worked"
    ],
    "alpha": true,
@@ -198117,6 +198156,7 @@
     "ken",
     "metal",
     "sailing",
+    "scale-big",
     "wood-worked"
    ],
    "alpha": true,
@@ -212311,9 +212351,9 @@
    "variant": "v149",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212365,9 +212405,9 @@
    "variant": "v149",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212414,12 +212454,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 2 over max 1.3 (str-part-gate-single · 1.408 at kit ×1.42)"
+     "text": "high 2 over max 1.3 (str-part-gate-single · 1.575 at kit ×1.27)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212469,9 +212509,9 @@
    "variant": "v614",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212521,9 +212561,9 @@
    "variant": "v613",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212573,9 +212613,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212625,14 +212665,14 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.176 at kit ×1.42)"
+     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.197 at kit ×1.27)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212745,9 +212785,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212792,9 +212832,9 @@
    "variant": "v136",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212839,9 +212879,9 @@
    "variant": "v136",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212882,13 +212922,14 @@
    "tags": [
     "halloween",
     "qua",
+    "scale-big",
     "stone-masonry"
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212938,9 +212979,9 @@
    "variant": "v619",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -212984,9 +213025,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213031,9 +213072,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213078,9 +213119,9 @@
    "variant": "v605",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213126,9 +213167,9 @@
    "variant": "v605",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213174,9 +213215,9 @@
    "variant": "v622",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213221,9 +213262,9 @@
    "variant": "v638",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213268,9 +213309,9 @@
    "variant": "v638",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213315,9 +213356,9 @@
    "variant": "v638",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213366,9 +213407,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213472,12 +213513,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 0.951 at kit ×1.42)"
+     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 1.063 at kit ×1.27)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213534,9 +213575,9 @@
    "variant": "v406",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213582,12 +213623,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.15 (obj-container-pot-vase · 0.141 at kit ×1.42)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -213631,9 +213667,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.42 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
     }
    ]
   },
@@ -223067,17 +223103,9 @@
    ],
    "tags": [
     "foliage",
-    "qua",
-    "scale-big"
+    "qua"
    ],
-   "variant": "v107",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.35 under min 0.4 (env-flora-plant-cactus scale-big · 0.365 at kit ×0.96)"
-    }
-   ]
+   "variant": "v107"
   },
   {
    "kit": "quat-nature",
@@ -234869,7 +234897,8 @@
    ],
    "tags": [
     "metal-iron-wrought",
-    "qua"
+    "qua",
+    "scale-big"
    ],
    "lint": [
     {
@@ -251085,14 +251114,10 @@
     "asia",
     "metal-iron-cast",
     "rgp",
+    "scale-big",
     "wood-beam"
    ],
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.9 over max 2 (str-part-pillar · 2.214 at kit ×1.31)"
-    },
     {
      "level": "warning",
      "check": "size",
@@ -253736,7 +253761,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.05 under min 0.05 (obj-food-fruit-apple · 0.044 at kit ×1.14)"
+     "text": "longest 0.05 under min 0.05 (obj-food-fruit-apple · 0.044 at kit ×1.13)"
     }
    ]
   },
@@ -253857,7 +253882,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.35 (obj-equipment-target-bullseye · 0.307 at kit ×1.14)"
+     "text": "longest 0.35 under min 0.35 (obj-equipment-target-bullseye · 0.31 at kit ×1.13)"
     }
    ]
   },
@@ -254352,7 +254377,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.1 (obj-food-baked-bread · 0.088 at kit ×1.14)"
+     "text": "longest 0.1 under min 0.1 (obj-food-baked-bread · 0.088 at kit ×1.13)"
     }
    ]
   },
@@ -254448,7 +254473,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 6.65 over max 4.25 (str-access-bridge-long · 5.833 at kit ×1.14)"
+     "text": "longest 6.65 over max 4.25 (str-access-bridge-long · 5.885 at kit ×1.13)"
     }
    ]
   },
@@ -254550,7 +254575,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.175 at kit ×1.14)"
+     "text": "longest 0.2 under min 0.25 (obj-container-bucket · 0.177 at kit ×1.13)"
     }
    ]
   },
@@ -254608,7 +254633,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.75 (obj-furnishing-light-campfire · 0.833 at kit ×1.14)"
+     "text": "longest 0.95 over max 0.75 (obj-furnishing-light-campfire · 0.841 at kit ×1.13)"
     }
    ]
   },
@@ -254928,7 +254953,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (obj-container-crate-cube · 0.219 at kit ×1.14)"
+     "text": "longest 0.25 under min 0.25 (obj-container-crate-cube · 0.221 at kit ×1.13)"
     }
    ]
   },
@@ -255132,6 +255157,13 @@
     "rgp",
     "wood-beam",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.25 over max 1.1 (str-part-door-single · 1.106 at kit ×1.13)"
+    }
    ]
   },
   {
@@ -255238,7 +255270,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.1 over max 1.2 (str-part-roof-unit · 1.842 at kit ×1.14)"
+     "text": "longest 2.1 over max 1.2 (str-part-roof-unit · 1.858 at kit ×1.13)"
     }
    ]
   },
@@ -255337,7 +255369,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.75 (str-part-frame · 0.702 at kit ×1.14)"
+     "text": "longest 0.8 under min 0.75 (str-part-frame · 0.708 at kit ×1.13)"
     }
    ]
   },
@@ -255656,7 +255688,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.9 over max 0.55 (obj-food-fish · 0.789 at kit ×1.14)"
+     "text": "longest 0.9 over max 0.55 (obj-food-fish · 0.796 at kit ×1.13)"
     }
    ]
   },
@@ -255905,7 +255937,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.55 over max 0.45 (env-flora-plant-grass · 0.482 at kit ×1.14)"
+     "text": "longest 0.55 over max 0.45 (env-flora-plant-grass · 0.487 at kit ×1.13)"
     }
    ]
   },
@@ -255962,7 +255994,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.85 over max 1.15 (obj-transport-land-cart · 1.623 at kit ×1.14)"
+     "text": "longest 1.85 over max 1.15 (obj-transport-land-cart · 1.637 at kit ×1.13)"
     }
    ]
   },
@@ -256969,7 +257001,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.85 over max 1.6 (str-access-ladder scale-big · 3.377 at kit ×1.14)"
+     "text": "longest 3.85 over max 1.6 (str-access-ladder scale-big · 3.407 at kit ×1.13)"
     }
    ]
   },
@@ -257668,7 +257700,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.45 over max 0.85 (str-barrier-fence · 1.272 at kit ×1.14)"
+     "text": "high 1.45 over max 0.85 (str-barrier-fence · 1.283 at kit ×1.13)"
     }
    ]
   },
@@ -257733,7 +257765,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.45 over max 0.85 (str-barrier-fence · 1.272 at kit ×1.14)"
+     "text": "high 1.45 over max 0.85 (str-barrier-fence · 1.283 at kit ×1.13)"
     }
    ]
   },
@@ -257901,7 +257933,14 @@
     "rgp",
     "wood-planks"
    ],
-   "variant": "v1163"
+   "variant": "v1163",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.25 over max 1.1 (obj-resource-wood-plank · 1.106 at kit ×1.13)"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -257984,7 +258023,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.35 over max 1.1 (obj-resource-wood-plank · 1.184 at kit ×1.14)"
+     "text": "longest 1.35 over max 1.1 (obj-resource-wood-plank · 1.195 at kit ×1.13)"
     }
    ]
   },
@@ -258031,7 +258070,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.35 over max 1.1 (obj-resource-wood-plank · 1.184 at kit ×1.14)"
+     "text": "longest 1.35 over max 1.1 (obj-resource-wood-plank · 1.195 at kit ×1.13)"
     }
    ]
   },
@@ -258077,7 +258116,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-resource-wood-plank · 1.14 at kit ×1.14)"
+     "text": "longest 1.3 over max 1.1 (obj-resource-wood-plank · 1.15 at kit ×1.13)"
     }
    ]
   },
@@ -258118,7 +258157,14 @@
     "rgp",
     "wood-planks"
    ],
-   "variant": "v1163"
+   "variant": "v1163",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.25 over max 1.1 (obj-resource-wood-plank · 1.106 at kit ×1.13)"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -258757,7 +258803,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 3.75 over max 2 (str-part-wall-rampart · 3.289 at kit ×1.14)"
+     "text": "high 3.75 over max 2 (str-part-wall-rampart · 3.319 at kit ×1.13)"
     }
    ]
   },
@@ -258832,7 +258878,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 3.75 over max 2.15 (str-part-gate-gateway · 3.289 at kit ×1.14)"
+     "text": "high 3.75 over max 2.15 (str-part-gate-gateway · 3.319 at kit ×1.13)"
     }
    ]
   },
@@ -258890,7 +258936,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 2.6 over max 2 (str-part-wall-rampart · 2.281 at kit ×1.14)"
+     "text": "high 2.6 over max 2 (str-part-wall-rampart · 2.301 at kit ×1.13)"
     }
    ]
   },
@@ -258947,7 +258993,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 3.75 over max 2 (str-part-wall-rampart · 3.289 at kit ×1.14)"
+     "text": "high 3.75 over max 2 (str-part-wall-rampart · 3.319 at kit ×1.13)"
     }
    ]
   },
@@ -259004,7 +259050,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 3.4 over max 2 (str-part-wall-rampart · 2.982 at kit ×1.14)"
+     "text": "high 3.4 over max 2 (str-part-wall-rampart · 3.009 at kit ×1.13)"
     }
    ]
   },
@@ -259066,7 +259112,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 3.4 over max 2 (str-part-wall-rampart · 2.982 at kit ×1.14)"
+     "text": "high 3.4 over max 2 (str-part-wall-rampart · 3.009 at kit ×1.13)"
     }
    ]
   },
@@ -259124,7 +259170,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 3.75 over max 2 (str-part-wall-rampart · 3.289 at kit ×1.14)"
+     "text": "high 3.75 over max 2 (str-part-wall-rampart · 3.319 at kit ×1.13)"
     }
    ]
   },
@@ -259176,7 +259222,7 @@
   {
    "kit": "rgp-medieval",
    "name": "rock-1",
-   "kind": "env-terrain-rock-boulder",
+   "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
     2.1,
@@ -259209,19 +259255,12 @@
    "tags": [
     "rgp",
     "stone-rock"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 4.5 over max 2.5 (env-terrain-rock-boulder · 3.947 at kit ×1.14)"
-    }
    ]
   },
   {
    "kit": "rgp-medieval",
    "name": "rock-2",
-   "kind": "env-terrain-rock-boulder",
+   "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
     2.2,
@@ -259254,19 +259293,12 @@
    "tags": [
     "rgp",
     "stone-rock"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 3.3 over max 2.5 (env-terrain-rock-boulder · 2.895 at kit ×1.14)"
-    }
    ]
   },
   {
    "kit": "rgp-medieval",
    "name": "rock-3",
-   "kind": "env-terrain-rock-boulder",
+   "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
     1.75,
@@ -259299,13 +259331,6 @@
    "tags": [
     "rgp",
     "stone-rock"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.95 over max 2.5 (env-terrain-rock-boulder · 2.588 at kit ×1.14)"
-    }
    ]
   },
   {
@@ -260717,7 +260742,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.8 over max 1.3 (str-access-stairs · 1.579 at kit ×1.14)"
+     "text": "longest 1.8 over max 1.3 (str-access-stairs · 1.593 at kit ×1.13)"
     }
    ]
   },
@@ -260780,7 +260805,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.75 over max 1.3 (str-access-stairs · 2.412 at kit ×1.14)"
+     "text": "longest 2.75 over max 1.3 (str-access-stairs · 2.434 at kit ×1.13)"
     }
    ]
   },
@@ -260927,7 +260952,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.3 over max 1.2 (str-canopy-stall · 2.018 at kit ×1.14)"
+     "text": "longest 2.3 over max 1.2 (str-canopy-stall · 2.035 at kit ×1.13)"
     }
    ]
   },
@@ -260989,9 +261014,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.7 over max 1.2 (str-canopy-stall · 1.491 at kit ×1.14)"
+     "text": "longest 1.7 over max 1.2 (str-canopy-stall · 1.504 at kit ×1.13)"
     }
    ]
   },
@@ -261055,7 +261080,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.75 over max 1.1 (str-fixture-marker-banner · 1.535 at kit ×1.14)"
+     "text": "longest 1.75 over max 1.1 (str-fixture-marker-banner · 1.549 at kit ×1.13)"
     }
    ]
   },
@@ -261100,7 +261125,7 @@
   {
    "kit": "rgp-medieval",
    "name": "stone-2",
-   "kind": "env-terrain-rock-boulder",
+   "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
     0.4,
@@ -261615,7 +261640,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.491 at kit ×1.14)"
+     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.504 at kit ×1.13)"
     }
    ]
   },
@@ -261866,7 +261891,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.3 over max 0.9 (obj-transport-land-cart-small · 1.14 at kit ×1.14)"
+     "text": "longest 1.3 over max 0.9 (obj-transport-land-cart-small · 1.15 at kit ×1.13)"
     }
    ]
   },
@@ -287108,6 +287133,7 @@
     "#b58158"
    ],
    "tags": [
+    "scale-small",
     "styloo",
     "wood-worked"
    ]
@@ -294925,6 +294951,7 @@
    "tags": [
     "asia",
     "ceramic",
+    "scale-big",
     "wizp"
    ],
    "lint": [
@@ -303066,6 +303093,7 @@
     "#8b7561"
    ],
    "tags": [
+    "scale-big",
     "stone-masonry",
     "wizp"
    ],
