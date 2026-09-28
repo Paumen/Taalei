@@ -11233,8 +11233,6 @@
    "models": [
     "isa-bakery/cash-register-anim",
     "isa-bakery/cash-register",
-    "ken-arcade/cash-register",
-    "ken-market/cash-register",
     "sq-cinema/concession-register",
     "sq-cards/register-pos"
    ]
@@ -11757,7 +11755,10 @@
     "aq-hallow/coffin-a",
     "aq-hallow/coffin-b",
     "kay-spook/coffin-a-closed",
-    "kay-spook/coffin-b-closed"
+    "kay-spook/coffin-b-closed",
+    "ken-grave/crypt",
+    "ken-grave/crypt-a",
+    "ken-grave/crypt-b"
    ]
   },
   {
@@ -11999,7 +12000,6 @@
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, glasses, umbrella, hand fan.",
    "models": [
     "kay-skeleton-1/mage-cloak",
-    "kay-skeleton-1/mage-cowl",
     "isa-homely/boots",
     "kay-mixed/rollerskate-a",
     "kay-mixed/rollerskate-b",
@@ -12176,8 +12176,7 @@
     "food-pack-2/toast",
     "food-pack-2/toast-sliced",
     "food-pack-2/toast-slice",
-    "rgp-medieval/bread-loaf",
-    "rgp-medieval/bread-round"
+    "rgp-medieval/bread-loaf"
    ]
   },
   {
@@ -12193,7 +12192,8 @@
     "kay-food/food-ingredient-bun-bottom",
     "kay-food/food-ingredient-bun-top",
     "isa-food/bread-roll",
-    "food-pack-2/bun-half"
+    "food-pack-2/bun-half",
+    "rgp-medieval/bread-round"
    ]
   },
   {
@@ -12697,7 +12697,9 @@
     "quat-sushi/counter-door",
     "quat-sushi/counter-sink",
     "kay-food/counter-outer-corner",
-    "kay-food/counter-b"
+    "kay-food/counter-b",
+    "ken-market/cash-register",
+    "ken-arcade/cash-register"
    ]
   },
   {
@@ -12993,13 +12995,10 @@
     "kay-dun-1/bookcase-wide",
     "ken-furniture/bookcase-closed",
     "ken-furniture/bookcase-open",
-    "ken-furniture/bookcase-open-low",
     "rgp-medieval/shelf-a",
     "rgp-medieval/shelf-b",
     "sq-lab/shelf-unit",
     "sq-bank/vault-shelving",
-    "quat-sushi/cabinet-shelves",
-    "quat-sushi/cabinet-shelves-plain",
     "sq-bowling/cubby-wall",
     "kay-dun-1/bookcase-wide-broken",
     "ken-furniture/bookcase-closed-doors",
@@ -13062,7 +13061,10 @@
     "kay-furniture/shelf-a-small",
     "kay-furniture/shelf-b-large",
     "kay-furniture/shelf-b-small",
-    "styloo-furniture/shelf"
+    "styloo-furniture/shelf",
+    "quat-sushi/cabinet-shelves",
+    "quat-sushi/cabinet-shelves-plain",
+    "ken-furniture/bookcase-open-low"
    ]
   },
   {
@@ -13623,7 +13625,9 @@
     "styloo-food/plate",
     "jb-kitchen/plate",
     "food-pack-2/plate",
-    "rgp-medieval/plate"
+    "rgp-medieval/plate",
+    "cooking-assets/plate-oval-small",
+    "cooking-assets/plate-rectangle"
    ]
   },
   {
@@ -13635,8 +13639,6 @@
     "isa-bakery/pastry-stand-tiered",
     "isa-bakery/pastry-stand",
     "isa-bakery/pastry-stand-covered",
-    "cooking-assets/plate-rectangle",
-    "cooking-assets/plate-oval-small",
     "cooking-assets/cloche",
     "isa-bakery/serving-tray",
     "isa-picnic/tray-round",
@@ -14242,8 +14244,7 @@
     "kay-hexagon/timber",
     "fs-terrain/hilly-prop-camp-sitting-log",
     "quat-survival/wood-log",
-    "rgp-medieval/firewood",
-    "rgp-medieval/log-sawhorse"
+    "rgp-medieval/firewood"
    ]
   },
   {
@@ -14320,8 +14321,7 @@
     "kay-resources/pallet-wood",
     "ken-skate/pallet",
     "kay-proto/pallet-large",
-    "kay-proto/pallet-small",
-    "sq-bank/brick-pallet"
+    "kay-proto/pallet-small"
    ]
   },
   {
@@ -16358,7 +16358,7 @@
    "id": "env-terrain-rock-cobble",
    "name": "Cobble",
    "type": "kind",
-   "description": "cobble, rock (small), stone (loose)",
+   "description": "cobble, rock (small), stone (loose), stepping stone",
    "models": [
     "aq-pond/rock-a",
     "aq-pond/rock-b",
@@ -16440,7 +16440,19 @@
     "wizp-asia/rock-small-d",
     "kay-forest/rock-3-c",
     "kay-forest/rock-3-d",
-    "rgp-medieval/stone-2"
+    "rgp-medieval/stone-2",
+    "natuur/stepping-stone-1",
+    "natuur/stepping-stone-2",
+    "natuur/stepping-stone-3",
+    "natuur/stepping-stone-4",
+    "fs-terrain/hilly-prop-stepping-stones-a",
+    "fs-terrain/hilly-prop-stepping-stones-b",
+    "fs-terrain/hilly-prop-stepping-stones-c",
+    "fs-terrain/hilly-prop-stepping-stones-d",
+    "fs-terrain/hilly-prop-stepping-stones-e",
+    "fs-terrain/hilly-prop-stepping-stones-f",
+    "fs-terrain/hilly-prop-stepping-stones-g",
+    "fs-terrain/hilly-prop-stepping-stones-h"
    ]
   },
   {
@@ -16494,14 +16506,6 @@
     "aq-pond/pebble-b",
     "aq-pond/pebble-c",
     "aq-pond/pebble-d",
-    "fs-terrain/hilly-prop-stepping-stones-a",
-    "fs-terrain/hilly-prop-stepping-stones-b",
-    "fs-terrain/hilly-prop-stepping-stones-c",
-    "fs-terrain/hilly-prop-stepping-stones-d",
-    "fs-terrain/hilly-prop-stepping-stones-e",
-    "fs-terrain/hilly-prop-stepping-stones-f",
-    "fs-terrain/hilly-prop-stepping-stones-g",
-    "fs-terrain/hilly-prop-stepping-stones-h",
     "isa-pond/rock-a-2",
     "isa-pond/rock-a-3",
     "isa-pond/rock-a",
@@ -16514,10 +16518,6 @@
     "nature-assets/pebble-a",
     "nature-assets/pebble-b",
     "nature-assets/pebble-c",
-    "natuur/stepping-stone-1",
-    "natuur/stepping-stone-2",
-    "natuur/stepping-stone-3",
-    "natuur/stepping-stone-4",
     "rocks/pebbles-dirt-a",
     "rocks/pebbles-dirt-b",
     "rocks/pebbles-dirt-c",
@@ -16977,9 +16977,6 @@
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
    "models": [
-    "kay-dun-2/wall-doorway-sides",
-    "kay-dun-2/wall-doorway-tsplit",
-    "quat-town/wall-towers-1",
     "ken-proto/door-sliding-double-wide",
     "ken-proto/door-sliding-double",
     "ken-station/door-double-closed",
@@ -17035,7 +17032,9 @@
     "rgp-medieval/door-porch",
     "rgp-medieval/door-arch",
     "ken-town/wall-wood-doorway-square-wide-curved",
-    "quat-dun-1/arch"
+    "quat-dun-1/arch",
+    "kay-dun-2/wall-doorway-sides",
+    "kay-dun-2/wall-doorway-tsplit"
    ]
   },
   {
@@ -17554,7 +17553,6 @@
     "fs-town/stone-arch",
     "fs-town/stucco-arch-half",
     "fs-town/stucco-arch-half-outer",
-    "fs-town/stucco-block",
     "medieval-forge/wall-1",
     "medieval-forge/wall-2",
     "quat-sushi/arch",
@@ -17644,7 +17642,8 @@
     "ken-proto/wall-doorway-sliding",
     "ken-proto/wall-doorway-wide",
     "ken-proto/wall-doorway-wide-sliding",
-    "rgp-vintage/wall-panelled"
+    "rgp-vintage/wall-panelled",
+    "fs-town/stucco-block"
    ]
   },
   {
@@ -17672,7 +17671,8 @@
     "rgp-medieval/rampart-stairs-a",
     "rgp-medieval/rampart-low",
     "rgp-medieval/rampart-stairs-long",
-    "rgp-medieval/rampart-stairs-b"
+    "rgp-medieval/rampart-stairs-b",
+    "quat-town/wall-towers-1"
    ]
   },
   {
@@ -17681,10 +17681,6 @@
    "type": "kind",
    "description": "window, shutter",
    "models": [
-    "fs-town/stucco-window-double-narrow",
-    "fs-town/stucco-window-double-narrow-tall",
-    "fs-town/stucco-window-double-wide",
-    "fs-town/stucco-window-double-wide-tall",
     "isa-kitchen/window-small",
     "isa-kitchen/window-large",
     "isa-bakery/window-small",
@@ -17750,7 +17746,11 @@
     "ken-holiday/cabin-window-a",
     "ken-holiday/cabin-window-b",
     "ken-holiday/cabin-window-c",
-    "ken-holiday/cabin-window-large"
+    "ken-holiday/cabin-window-large",
+    "fs-town/stucco-window-double-narrow",
+    "fs-town/stucco-window-double-narrow-tall",
+    "fs-town/stucco-window-double-wide",
+    "fs-town/stucco-window-double-wide-tall"
    ]
   },
   {
@@ -17940,9 +17940,6 @@
    "description": "Grave built as a house: a crypt or mausoleum you could enter.",
    "models": [
     "ken-grave/crypt-large",
-    "ken-grave/crypt",
-    "ken-grave/crypt-a",
-    "ken-grave/crypt-b",
     "kay-hallow/crypt",
     "ken-grave/crypt-small-roof",
     "ken-grave/crypt-small",
@@ -18282,7 +18279,9 @@
     "rgp-medieval/hide-rack",
     "sq-arcade/token-gear",
     "sq-bank/pulled-box",
-    "sq-pool/bench-hooks"
+    "sq-pool/bench-hooks",
+    "rgp-medieval/log-sawhorse",
+    "sq-bank/brick-pallet"
    ]
   },
   {
@@ -19447,7 +19446,8 @@
     "kay-skeleton-1/hood",
     "kay-skeleton-1/hood-masked",
     "quat-rpg/crown",
-    "quat-rpg/crown-2"
+    "quat-rpg/crown-2",
+    "kay-skeleton-1/mage-cowl"
    ]
   },
   {
@@ -21291,7 +21291,10 @@
     "food-pack-2/edam-slice",
     "food-pack-2/parmesan-slice",
     "food-pack-2/cheese-block-slice",
-    "rgp-medieval/cheese-wedge"
+    "rgp-medieval/cheese-wedge",
+    "food-pack-2/salmon",
+    "quat-food/tentacle",
+    "quat-food/mushroom-sliced"
    ]
   },
   {
@@ -22207,9 +22210,6 @@
    "description": "Half a storey read from the model: one low space under the roof, no full-height floor.",
    "models": [
     "quat-farms/chicken-coop",
-    "ken-grave/crypt",
-    "ken-grave/crypt-a",
-    "ken-grave/crypt-b",
     "kay-spook/shrine",
     "kay-hallow/crypt",
     "ken-grave/crypt-small",
@@ -22683,7 +22683,34 @@
     "isa-plants/sansevieria-potted-small",
     "isa-plants/pothos-potted-small",
     "kay-minigame/plant-a",
-    "kay-minigame/plant-b"
+    "kay-minigame/plant-b",
+    "isa-kitchen/wall-cabinet-left",
+    "isa-kitchen/wall-cabinet-right",
+    "ken-furniture/kitchen-cabinet-upper",
+    "ken-furniture/kitchen-cabinet-upper-double",
+    "ken-furniture/kitchen-cabinet-upper-low",
+    "ken-furniture/kitchen-cabinet-upper-corner",
+    "ken-furniture/bathroom-cabinet",
+    "kay-furniture/cabinet-small",
+    "isa-picnic/picnic-blanket-hunter-folded",
+    "isa-picnic/picnic-blanket-sienna-folded",
+    "isa-picnic/picnic-blanket-taupe-folded",
+    "kay-resources/copper-nugget-small",
+    "kay-resources/copper-nugget-medium",
+    "kay-resources/copper-nugget-large",
+    "kay-resources/gold-nugget-small",
+    "kay-resources/gold-nugget-medium",
+    "kay-resources/gold-nugget-large",
+    "kay-resources/iron-nugget-small",
+    "kay-resources/iron-nugget-medium",
+    "kay-resources/iron-nugget-large",
+    "ken-blaster/target-large",
+    "ken-blaster/target-detail",
+    "ken-proto/target-a-round",
+    "ken-proto/target-b-round",
+    "kay-proto/target",
+    "kay-proto/target-small",
+    "kay-minigame/target"
    ]
   },
   {
@@ -22748,7 +22775,18 @@
     "isa-plants/zzplant-potted-large",
     "isa-plants/yucca-potted-large",
     "isa-plants/pothos-potted-large",
-    "kay-hallow/arch-gate-right"
+    "kay-hallow/arch-gate-right",
+    "ken-food/pepper-mill",
+    "cooking-assets/pepper-grinder",
+    "kay-hexagon/catapult-ball",
+    "kay-platformer/bomb",
+    "kay-platformer/bomb-striped",
+    "kay-minigame/bomb",
+    "kay-minigame/bomb-red",
+    "quat-pirate/bomb",
+    "ken-survival/tree-log",
+    "ken-survival/tree-log-small",
+    "natuur/log-5"
    ]
   },
   {
