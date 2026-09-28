@@ -257,8 +257,13 @@ const HIGH = new Set([
   'str-fixture-marker-mailbox',
   'str-fixture-marker-sign-signpost',
   'str-fixture-utility-hydrant',
+  'str-part-door',
+  'str-part-door-doorway',
+  'str-part-door-single',
   'str-part-gate-gateway',
   'str-part-wall-rampart',
+  'str-part-wall-unit',
+  'str-part-window-unit',
 ]);
 
 const DROPPED_KINDS = [
@@ -296,6 +301,13 @@ const SCALE_SIZES = {
   'env-flora-plant-cactus': { small: 0.3, big: 1.5 },
   'env-flora-plant-leafy': { small: 0.3, big: 1.2 },
   'obj-container-pot': { small: 0.2, big: 0.8 },
+  'obj-equipment-target-bullseye': { small: 0.5 },
+  'obj-equipment-weapon-siege-ammunition-cannonball': { big: 0.3 },
+  'obj-furnishing-furniture-storage-cabinet': { small: 0.7 },
+  'obj-furnishing-textile-rug': { small: 0.5 },
+  'obj-kitchenware-tableware-condiment': { big: 0.25 },
+  'obj-resource-metal': { small: 0.06 },
+  'obj-resource-wood-log': { big: 2 },
   'obj-transport-watercraft-ship': { big: 45 },
   'str-access-ladder': { small: 2, big: 4 },
   'str-barrier-fence-mid': { small: 0.6, big: 2 },
