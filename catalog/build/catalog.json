@@ -661,7 +661,7 @@
     "none": 142
    },
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 1.01,
     "kinds": 35
    }
   },
@@ -1292,7 +1292,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.01,
+    "factor": 1,
     "kinds": 31
    }
   },
@@ -1430,7 +1430,7 @@
     "none": 30
    },
    "kitCheck": {
-    "factor": 1.02,
+    "factor": 1.01,
     "kinds": 10
    }
   },
@@ -1808,8 +1808,9 @@
     "none": 25
    },
    "kitCheck": {
-    "factor": 0.82,
-    "kinds": 10
+    "factor": 0.79,
+    "kinds": 10,
+    "level": "warning"
    }
   },
   {
@@ -1832,7 +1833,7 @@
     "60": 47
    },
    "kitCheck": {
-    "factor": 0.96,
+    "factor": 0.92,
     "kinds": 11
    }
   },
@@ -1857,7 +1858,7 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 1.02,
     "kinds": 17
    }
   },
@@ -1882,7 +1883,7 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 1.09,
+    "factor": 1.04,
     "kinds": 12
    }
   },
@@ -1932,7 +1933,7 @@
     "none": 82
    },
    "kitCheck": {
-    "factor": 0.99,
+    "factor": 0.96,
     "kinds": 19
    }
   },
@@ -2170,7 +2171,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.34,
+    "factor": 1.27,
     "kinds": 14,
     "level": "warning"
    }
@@ -2259,7 +2260,7 @@
     "none": 27
    },
    "kitCheck": {
-    "factor": 0.81,
+    "factor": 0.8,
     "kinds": 5
    }
   },
@@ -3488,7 +3489,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.38,
+    "factor": 1.37,
     "kinds": 22,
     "level": "warning"
    }
@@ -19072,7 +19073,7 @@
   },
   "env-flora-waterplant-cattail": {
    "high.max": 8,
-   "longest.min": 0.5,
+   "longest.min": 0.3,
    "longest.max": 1,
    "tpu.max": 5000
   },
@@ -19404,7 +19405,7 @@
   "obj-device-appliance-stove": {
    "high.max": 8,
    "longest.min": 0.25,
-   "longest.max": 0.55,
+   "longest.max": 0.7,
    "tpu.max": 5000
   },
   "obj-device-appliance-toaster": {
@@ -20560,7 +20561,7 @@
   "obj-transport-land-cart": {
    "high.max": 30,
    "longest.min": 0.55,
-   "longest.max": 1.15,
+   "longest.max": 1.75,
    "tpu.max": 10000
   },
   "obj-transport-land-cart-small": {
@@ -20674,7 +20675,7 @@
   "str-access-stairs": {
    "high.max": 8,
    "longest.min": 0.5,
-   "longest.max": 1.3,
+   "longest.max": 1.8,
    "tpu.max": 5000
   },
   "str-barrier": {
@@ -39814,14 +39815,7 @@
     "fs",
     "vegetation"
    ],
-   "variant": "v71",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.357 at kit ×0.98)"
-    }
-   ]
+   "variant": "v71"
   },
   {
    "kit": "fs-terrain",
@@ -43160,14 +43154,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v411",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.735 at kit ×0.98)"
-    }
-   ]
+   "variant": "v411"
   },
   {
    "kit": "fs-town",
@@ -43208,14 +43195,7 @@
     "fs",
     "wood-worked"
    ],
-   "variant": "v411",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.735 at kit ×0.98)"
-    }
-   ]
+   "variant": "v411"
   },
   {
    "kit": "fs-town",
@@ -56512,13 +56492,6 @@
     "isa",
     "metal-iron-steel",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.65 over max 0.55 (obj-device-appliance-stove · 0.575 at kit ×1.13)"
-    }
    ]
   },
   {
@@ -73896,7 +73869,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (obj-equipment-weapon-ranged-arrow · 0.243 at kit ×1.03)"
+     "text": "longest 0.25 under min 0.25 (obj-equipment-weapon-ranged-arrow · 0.248 at kit ×1.01)"
     }
    ]
   },
@@ -73948,7 +73921,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.3 (obj-kitchenware-tableware-drinkware-goblet · 0.34 at kit ×1.03)"
+     "text": "longest 0.35 over max 0.3 (obj-kitchenware-tableware-drinkware-goblet · 0.347 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -74051,7 +74024,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.35 (obj-equipment-weapon-melee-axe-double · 0.34 at kit ×1.03)"
+     "text": "longest 0.35 under min 0.35 (obj-equipment-weapon-melee-axe-double · 0.347 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -75553,7 +75526,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.6 over max 0.5 (obj-container-chest · 0.583 at kit ×1.03)"
+     "text": "high 0.6 over max 0.5 (obj-container-chest · 0.594 at kit ×1.01)"
     },
     {
      "level": "error",
@@ -75825,7 +75798,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.55 over max 0.5 (obj-container-chest · 0.534 at kit ×1.03)"
+     "text": "high 0.55 over max 0.5 (obj-container-chest · 0.545 at kit ×1.01)"
     }
    ]
   },
@@ -76591,7 +76564,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.7 over max 0.625 (str-part-floor-unit scale-small · 0.68 at kit ×1.03)"
+     "text": "longest 0.7 over max 0.625 (str-part-floor-unit scale-small · 0.693 at kit ×1.01)"
     }
    ]
   },
@@ -77514,7 +77487,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.446 at kit ×1.01)"
     }
    ]
   },
@@ -77571,7 +77544,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.446 at kit ×1.01)"
     }
    ]
   },
@@ -77630,7 +77603,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.446 at kit ×1.01)"
     }
    ]
   },
@@ -77689,7 +77662,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 over max 0.3 (obj-container-bottle-vial · 0.446 at kit ×1.01)"
     }
    ]
   },
@@ -77748,7 +77721,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.34 at kit ×1.03)"
+     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.347 at kit ×1.01)"
     }
    ]
   },
@@ -77807,7 +77780,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.34 at kit ×1.03)"
+     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.347 at kit ×1.01)"
     }
    ]
   },
@@ -77897,7 +77870,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.25 (obj-equipment-apparel-quiver · 0.194 at kit ×1.03)"
+     "text": "longest 0.2 under min 0.25 (obj-equipment-apparel-quiver · 0.198 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -79005,7 +78978,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.777 at kit ×1.03)"
+     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.792 at kit ×1.01)"
     }
    ]
   },
@@ -79058,7 +79031,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.777 at kit ×1.03)"
+     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.792 at kit ×1.01)"
     }
    ]
   },
@@ -79196,7 +79169,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.777 at kit ×1.03)"
+     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.792 at kit ×1.01)"
     }
    ]
   },
@@ -79248,7 +79221,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.777 at kit ×1.03)"
+     "text": "longest 0.8 under min 0.85 (str-part-frame-scaffold · 0.792 at kit ×1.01)"
     }
    ]
   },
@@ -79527,7 +79500,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.85 under min 0.85 (str-part-frame-scaffold · 0.825 at kit ×1.03)"
+     "text": "longest 0.85 under min 0.85 (str-part-frame-scaffold · 0.842 at kit ×1.01)"
     }
    ]
   },
@@ -79871,7 +79844,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 under min 0.45 (obj-equipment-weapon-magic-staff · 0.34 at kit ×1.03)"
+     "text": "longest 0.35 under min 0.45 (obj-equipment-weapon-magic-staff · 0.347 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -79929,7 +79902,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-equipment-weapon-magic-staff · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 under min 0.45 (obj-equipment-weapon-magic-staff · 0.446 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -79983,7 +79956,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-equipment-weapon-magic-staff · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 under min 0.45 (obj-equipment-weapon-magic-staff · 0.446 at kit ×1.01)"
     }
    ],
    "mark": [
@@ -84224,9 +84197,9 @@
    "variant": "v297",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 2.4 over max 1.3 (str-access-stairs · 2.017 at kit ×1.19)"
+     "text": "longest 2.4 over max 1.8 (str-access-stairs · 2.017 at kit ×1.19)"
     }
    ],
    "mark": [
@@ -84276,13 +84249,6 @@
     "stone-masonry"
    ],
    "variant": "v297",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.303 at kit ×1.19)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -84330,13 +84296,6 @@
     "stone-masonry"
    ],
    "variant": "v31",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.303 at kit ×1.19)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -84384,13 +84343,6 @@
     "stone-masonry"
    ],
    "variant": "v31",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.303 at kit ×1.19)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -84484,13 +84436,6 @@
     "stone-masonry"
    ],
    "variant": "v297",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.1 over max 1.3 (str-access-stairs · 1.765 at kit ×1.19)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -84592,13 +84537,6 @@
     "wood-beam",
     "wood-worked"
    ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.8 over max 1.3 (str-access-stairs · 1.513 at kit ×1.19)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -84646,13 +84584,6 @@
     "stone-masonry"
    ],
    "variant": "v297",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.303 at kit ×1.19)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -102357,14 +102288,7 @@
     "kay",
     "vegetation"
    ],
-   "variant": "v511",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.45 under min 0.5 (env-flora-waterplant-cattail · 0.417 at kit ×1.08)"
-    }
-   ]
+   "variant": "v511"
   },
   {
    "kit": "kay-hexagon",
@@ -111526,13 +111450,6 @@
     "metal-iron-cast",
     "metal-iron-wrought",
     "tba"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.8 over max 0.55 (obj-device-appliance-stove · 0.69 at kit ×1.16)"
-    }
    ]
   },
   {
@@ -134019,7 +133936,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.6 under min 0.6 (str-part-door-single · 0.588 at kit ×1.02)"
+     "text": "high 0.6 under min 0.6 (str-part-door-single · 0.594 at kit ×1.01)"
     }
    ]
   },
@@ -134908,7 +134825,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.15 over max 1.2 (str-part-roof-unit · 2.108 at kit ×1.02)"
+     "text": "longest 2.15 over max 1.2 (str-part-roof-unit · 2.129 at kit ×1.01)"
     }
    ]
   },
@@ -147625,7 +147542,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.25 over max 1.2 (str-part-roof-unit · 1.238 at kit ×1.01)"
+     "text": "longest 1.25 over max 1.2 (str-part-roof-unit)"
     }
    ]
   },
@@ -152557,13 +152474,6 @@
     "ken",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.5 over max 1.3 (str-access-stairs · 1.648 at kit ×0.91)"
-    }
    ]
   },
   {
@@ -152609,14 +152519,7 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "variant": "v810",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.703 at kit ×0.91)"
-    }
-   ]
+   "variant": "v810"
   },
   {
    "kit": "ken-furniture",
@@ -152667,14 +152570,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v810",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.703 at kit ×0.91)"
-    }
-   ]
+   "variant": "v810"
   },
   {
    "kit": "ken-furniture",
@@ -152718,13 +152614,6 @@
     "ken",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.55 over max 1.3 (str-access-stairs · 1.703 at kit ×0.91)"
-    }
    ]
   },
   {
@@ -161466,7 +161355,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge · 0.941 at kit ×1.01)"
+     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge)"
     }
    ]
   },
@@ -171962,6 +171851,13 @@
     "ken",
     "metal-gold",
     "pickup"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172012,6 +171908,13 @@
     "metal-gold",
     "metal-iron-steel",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172050,6 +171953,13 @@
    "tags": [
     "ken",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172089,7 +171999,14 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858"
+   "variant": "v858",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172128,7 +172045,14 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858"
+   "variant": "v858",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172167,7 +172091,14 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858"
+   "variant": "v858",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172211,6 +172142,13 @@
     "ken",
     "metal-iron-cast",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172255,6 +172193,13 @@
     "ken",
     "textile",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172294,6 +172239,13 @@
     "comp",
     "ken",
     "metal-iron-cast"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172334,6 +172286,13 @@
     "ken",
     "metal-iron-cast",
     "scale-small"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172373,6 +172332,13 @@
    "tags": [
     "ken",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172423,7 +172389,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.427 at kit ×0.82)"
+     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.443 at kit ×0.79)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
     }
    ]
   },
@@ -172475,7 +172446,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.427 at kit ×0.82)"
+     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.443 at kit ×0.79)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
     }
    ]
   },
@@ -172533,7 +172509,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v860"
+   "variant": "v860",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172589,7 +172572,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v860"
+   "variant": "v860",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172632,6 +172622,13 @@
    "tags": [
     "ken",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172675,6 +172672,13 @@
    "tags": [
     "ken",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172718,6 +172722,13 @@
    "tags": [
     "ken",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -172762,7 +172773,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517"
+   "variant": "v517",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172801,7 +172819,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517"
+   "variant": "v517",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172840,7 +172865,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859"
+   "variant": "v859",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172879,7 +172911,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859"
+   "variant": "v859",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172918,7 +172957,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859"
+   "variant": "v859",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -172957,7 +173003,14 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517"
+   "variant": "v517",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -173017,6 +173070,13 @@
     "metal-iron-steel",
     "plastic",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+    }
    ]
   },
   {
@@ -173448,9 +173508,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 1 over max 0.85 (str-barrier-fence · 1.042 at kit ×0.96)"
+     "text": "high 1 over max 0.85 (str-barrier-fence · 1.087 at kit ×0.92)"
     }
    ]
   },
@@ -173563,6 +173623,11 @@
    "variant": "v1072",
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.5 over max 1.6 (str-fixture-marker-flag · 1.63 at kit ×0.92)"
+    },
+    {
      "level": "error",
      "check": "mat",
      "text": "— needs wood, has metal textile (str-fixture-marker-flag)"
@@ -173619,6 +173684,11 @@
    ],
    "variant": "v1072",
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.5 over max 1.6 (str-fixture-marker-flag · 1.63 at kit ×0.92)"
+    },
     {
      "level": "error",
      "check": "mat",
@@ -174780,7 +174850,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v1081"
+   "variant": "v1081",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.6 over max 1.7 (obj-transport-land-road · 1.739 at kit ×0.92)"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -174836,7 +174913,14 @@
     "metal",
     "plastic"
    ],
-   "variant": "v1081"
+   "variant": "v1081",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.6 over max 1.7 (obj-transport-land-road · 1.739 at kit ×0.92)"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -179464,7 +179548,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.194 at kit ×1.03)"
+     "text": "longest 0.2 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.196 at kit ×1.02)"
     }
    ]
   },
@@ -180738,7 +180822,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.35 under min 0.8 (obj-transport-land-rail · 0.34 at kit ×1.03)"
+     "text": "high 0.35 under min 0.8 (obj-transport-land-rail · 0.343 at kit ×1.02)"
     }
    ]
   },
@@ -181047,7 +181131,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.34 at kit ×1.03)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.343 at kit ×1.02)"
     }
    ]
   },
@@ -181100,7 +181184,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.34 at kit ×1.03)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.343 at kit ×1.02)"
     }
    ]
   },
@@ -181792,7 +181876,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.5 under min 1.05 (obj-transport-land-road · 0.485 at kit ×1.03)"
+     "text": "longest 0.5 under min 1.05 (obj-transport-land-road · 0.49 at kit ×1.02)"
     }
    ]
   },
@@ -182074,7 +182158,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.485 at kit ×1.03)"
+     "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.49 at kit ×1.02)"
     }
    ]
   },
@@ -182600,7 +182684,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.437 at kit ×1.03)"
+     "text": "longest 0.45 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.441 at kit ×1.02)"
     }
    ]
   },
@@ -182862,7 +182946,14 @@
     "space",
     "textile"
    ],
-   "variant": "v1191"
+   "variant": "v1191",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.1 over max 1.05 (obj-furnishing-furniture-bed · 1.058 at kit ×1.04)"
+    }
+   ]
   },
   {
    "kit": "ken-station",
@@ -183714,7 +183805,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.1 over max 1 (obj-container-crate · 1.009 at kit ×1.09)"
+     "text": "longest 1.1 over max 1 (obj-container-crate · 1.058 at kit ×1.04)"
     }
    ]
   },
@@ -184032,14 +184123,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1114",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.7 under min 0.65 (str-part-door · 0.642 at kit ×1.09)"
-    }
-   ]
+   "variant": "v1114"
   },
   {
    "kit": "ken-station",
@@ -184090,14 +184174,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1114",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.7 under min 0.65 (str-part-door · 0.642 at kit ×1.09)"
-    }
-   ]
+   "variant": "v1114"
   },
   {
    "kit": "ken-station",
@@ -184142,14 +184219,7 @@
     "metal",
     "space"
    ],
-   "variant": "v1114",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.7 under min 0.65 (str-part-door · 0.642 at kit ×1.09)"
-    }
-   ]
+   "variant": "v1114"
   },
   {
    "kit": "ken-station",
@@ -190285,13 +190355,6 @@
     "metal-iron-wrought",
     "tba",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.25 over max 1.15 (obj-transport-land-cart · 1.263 at kit ×0.99)"
-    }
    ]
   },
   {
@@ -190342,13 +190405,6 @@
     "tba",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.2 over max 1.15 (obj-transport-land-cart · 1.212 at kit ×0.99)"
-    }
    ],
    "mark": [
     "centered"
@@ -191948,14 +192004,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v124",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.3 over max 1.3 (str-access-stairs · 1.313 at kit ×0.99)"
-    }
-   ]
+   "variant": "v124"
   },
   {
    "kit": "ken-town",
@@ -192046,14 +192095,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v125",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.3 over max 1.3 (str-access-stairs · 1.313 at kit ×0.99)"
-    }
-   ]
+   "variant": "v125"
   },
   {
    "kit": "ken-town",
@@ -201245,7 +201287,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3 over max 1.3 (str-access-stairs · 2.5 at kit ×1.2)"
+     "text": "longest 3 over max 1.8 (str-access-stairs · 2.5 at kit ×1.2)"
     }
    ],
    "mark": [
@@ -204030,11 +204072,6 @@
    "variant": "v76",
    "lint": [
     {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.25 under min 0.5 (env-flora-waterplant-cattail · 0.316 at kit ×0.79)"
-    },
-    {
      "level": "warning",
      "check": "size",
      "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
@@ -204080,11 +204117,6 @@
    ],
    "variant": "v76",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.38 at kit ×0.79)"
-    },
     {
      "level": "warning",
      "check": "size",
@@ -204135,11 +204167,6 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.38 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
      "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
     }
    ]
@@ -204186,11 +204213,6 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.5 (env-flora-waterplant-cattail · 0.38 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
      "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
     }
    ]
@@ -204234,11 +204256,6 @@
    ],
    "variant": "v76",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.35 under min 0.5 (env-flora-waterplant-cattail · 0.443 at kit ×0.79)"
-    },
     {
      "level": "warning",
      "check": "size",
@@ -212198,7 +212215,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212252,7 +212269,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212297,14 +212314,14 @@
    "variant": "v149",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 2 over max 1.25 (str-part-door-doorway · 1.493 at kit ×1.34)"
+     "text": "high 2 over max 1.25 (str-part-door-doorway · 1.575 at kit ×1.27)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212356,7 +212373,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212408,7 +212425,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212460,7 +212477,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212510,14 +212527,14 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.187 at kit ×1.34)"
+     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.197 at kit ×1.27)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212632,7 +212649,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212679,7 +212696,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212726,7 +212743,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212774,7 +212791,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212826,7 +212843,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212872,7 +212889,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212919,7 +212936,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212966,7 +212983,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213014,7 +213031,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213062,7 +213079,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213109,7 +213126,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213156,7 +213173,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213203,7 +213220,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213254,7 +213271,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213358,12 +213375,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 1.007 at kit ×1.34)"
+     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 1.063 at kit ×1.27)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213422,7 +213439,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213468,12 +213485,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.15 (obj-container-pot-vase · 0.149 at kit ×1.34)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213519,7 +213531,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
+     "text": "kit ×1.27 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -215390,7 +215402,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.556 at kit ×0.81)"
+     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.563 at kit ×0.8)"
     }
    ]
   },
@@ -215444,7 +215456,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.556 at kit ×0.81)"
+     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.563 at kit ×0.8)"
     }
    ]
   },
@@ -215494,7 +215506,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
     }
    ]
   },
@@ -215549,7 +215561,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
     }
    ]
   },
@@ -216023,7 +216035,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
     }
    ]
   },
@@ -216073,7 +216085,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.55 over max 0.4 (env-fauna-fish · 0.679 at kit ×0.81)"
+     "text": "longest 0.55 over max 0.4 (env-fauna-fish · 0.688 at kit ×0.8)"
     }
    ]
   },
@@ -216133,7 +216145,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.5 over max 0.4 (env-fauna-fish · 0.617 at kit ×0.81)"
+     "text": "longest 0.5 over max 0.4 (env-fauna-fish · 0.625 at kit ×0.8)"
     }
    ]
   },
@@ -216487,7 +216499,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.4 (env-fauna-fish · 0.432 at kit ×0.81)"
+     "text": "longest 0.35 over max 0.4 (env-fauna-fish · 0.437 at kit ×0.8)"
     }
    ]
   },
@@ -216587,7 +216599,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.7 under min 0.9 (obj-transport-watercraft-boat · 0.864 at kit ×0.81)"
+     "text": "longest 0.7 under min 0.9 (obj-transport-watercraft-boat · 0.875 at kit ×0.8)"
     }
    ]
   },
@@ -216646,7 +216658,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.494 at kit ×0.81)"
+     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
     }
    ]
   },
@@ -221120,13 +221132,6 @@
     "sailing",
     "textile",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.15 (obj-transport-land-cart · 1.25 at kit ×0.8)"
-    }
    ],
    "mark": [
     "centered"
@@ -248998,11 +249003,6 @@
    ],
    "lint": [
     {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.05 over max 1.15 (obj-transport-land-cart · 1.565 at kit ×1.31)"
-    },
-    {
      "level": "warning",
      "check": "size",
      "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
@@ -255564,13 +255564,6 @@
     "rgp",
     "rope",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.85 over max 1.15 (obj-transport-land-cart · 1.652 at kit ×1.12)"
-    }
    ]
   },
   {
@@ -260312,13 +260305,6 @@
    "tags": [
     "rgp",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.8 over max 1.3 (str-access-stairs · 1.607 at kit ×1.12)"
-    }
    ]
   },
   {
@@ -260380,7 +260366,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.75 over max 1.3 (str-access-stairs · 2.455 at kit ×1.12)"
+     "text": "longest 2.75 over max 1.8 (str-access-stairs · 2.455 at kit ×1.12)"
     }
    ]
   },
@@ -261212,13 +261198,6 @@
     "metal-iron-cast",
     "rgp",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.7 over max 1.15 (obj-transport-land-cart · 1.518 at kit ×1.12)"
-    }
    ]
   },
   {
@@ -262109,13 +262088,6 @@
     "metal-iron-wrought",
     "rgp",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.95 over max 1.15 (obj-transport-land-cart · 1.711 at kit ×1.14)"
-    }
    ],
    "mark": [
     "centered"
@@ -273218,13 +273190,6 @@
     "metal-iron-steel",
     "plastic",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.6 over max 0.55 (obj-device-appliance-stove · 0.619 at kit ×0.97)"
-    }
    ]
   },
   {
@@ -290925,7 +290890,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -290994,7 +290959,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291043,7 +291008,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291098,7 +291063,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291153,7 +291118,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291209,7 +291174,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291268,7 +291233,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291327,7 +291292,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291374,7 +291339,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291434,7 +291399,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291487,7 +291452,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291534,12 +291499,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.65 over max 1.8 (str-access-bridge-section · 1.92 at kit ×1.38)"
+     "text": "longest 2.65 over max 1.8 (str-access-bridge-section · 1.934 at kit ×1.37)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291586,7 +291551,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291640,7 +291605,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291688,7 +291653,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291737,7 +291702,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291786,7 +291751,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291851,7 +291816,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291916,7 +291881,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291963,7 +291928,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292012,7 +291977,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292061,7 +292026,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292109,7 +292074,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292169,7 +292134,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292223,7 +292188,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292277,7 +292242,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292338,7 +292303,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292392,7 +292357,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292446,7 +292411,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292493,7 +292458,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292559,7 +292524,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292619,7 +292584,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292667,7 +292632,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292715,7 +292680,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292763,7 +292728,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292811,7 +292776,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292860,7 +292825,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292909,7 +292874,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292958,7 +292923,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293007,7 +292972,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293056,7 +293021,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293103,7 +293068,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293176,7 +293141,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293249,7 +293214,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293322,7 +293287,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293395,7 +293360,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293458,7 +293423,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293505,7 +293470,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293559,7 +293524,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293607,7 +293572,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293655,7 +293620,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293710,7 +293675,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293765,7 +293730,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293820,7 +293785,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293875,7 +293840,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293923,7 +293888,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293971,7 +293936,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294024,7 +293989,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294072,7 +294037,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294120,7 +294085,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294168,7 +294133,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294216,7 +294181,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294263,12 +294228,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.7 (env-flora-plant-leafy · 0.725 at kit ×1.38)"
+     "text": "longest 1 over max 0.7 (env-flora-plant-leafy · 0.73 at kit ×1.37)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294322,7 +294287,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294370,7 +294335,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294418,7 +294383,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294513,7 +294478,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294567,7 +294532,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294615,7 +294580,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294662,7 +294627,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294710,7 +294675,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294758,7 +294723,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294806,7 +294771,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294854,7 +294819,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294902,7 +294867,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294950,7 +294915,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294998,7 +294963,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295046,7 +295011,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295094,7 +295059,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295142,7 +295107,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295190,7 +295155,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295238,7 +295203,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295286,7 +295251,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295333,7 +295298,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295381,7 +295346,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295436,7 +295401,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295503,7 +295468,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295576,7 +295541,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295623,7 +295588,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295670,7 +295635,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295718,7 +295683,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295772,7 +295737,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295826,7 +295791,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295893,7 +295858,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295947,7 +295912,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296001,7 +295966,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296048,7 +296013,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296095,7 +296060,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296143,7 +296108,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296191,7 +296156,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296239,7 +296204,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296287,7 +296252,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296348,7 +296313,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296405,7 +296370,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296459,7 +296424,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302130,7 +302095,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302185,7 +302150,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302258,7 +302223,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302332,7 +302297,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302406,7 +302371,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302480,7 +302445,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302527,7 +302492,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302574,7 +302539,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302622,7 +302587,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302669,7 +302634,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302763,7 +302728,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302810,7 +302775,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302877,7 +302842,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302944,7 +302909,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -303010,7 +302975,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -303056,7 +303021,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.37 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   }
