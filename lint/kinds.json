@@ -318,6 +318,7 @@
        "children": [
         {
          "id": "obj-kitchenware-tableware-cutlery",
+         "tube.min": 0.006,
          "longest.min": 0.15,
          "longest.max": 0.35,
          "nouns": [
@@ -2679,7 +2680,10 @@
         {
          "id": "str-part-roof-unit",
          "longest.min": 0.4,
-         "longest.max": 1.2
+         "longest.max": 1.2,
+         "scale": {
+          "big": 2
+         }
         }
        ]
       },
@@ -3374,7 +3378,10 @@
          "id": "str-fixture-utility-turbine",
          "nouns": [
           "wind turbine"
-         ]
+         ],
+         "scale": {
+          "small": 0.5
+         }
         }
        ]
       },
@@ -3477,6 +3484,7 @@
     },
     {
      "id": "env-fauna",
+     "tube.min": 0.006,
      "tpu.max": 10000,
      "nouns": [
       "starfish",
@@ -3619,6 +3627,7 @@
       },
       {
        "id": "env-remains-shell",
+       "tube.min": 0.006,
        "longest.min": 0.03,
        "longest.max": 0.3,
        "nouns": [
