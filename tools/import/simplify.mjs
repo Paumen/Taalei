@@ -5,17 +5,21 @@ import { readGlb, writeGlb, readAccessor, worldMatrices, measureTubes } from '..
 import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 import { MeshoptSimplifier } from './vendor/meshoptimizer/meshopt_simplifier.js';
 
-const HELP = `simplify.mjs [--error <fraction>] [--list] <workfile.glb> [...]
+const HELP = `simplify.mjs [--error <fraction>] [--ratio <fraction>] [--hard <degrees>] [--list] <workfile.glb> [...]
 
 Removes triangles while no surface moves more than --error (0.01 by default) of
-the model's longest extent. Open edges, colour-band seams and normals are kept.
+the model's longest extent. --ratio stops each primitive at that fraction of its
+triangles instead of removing all it can; a smaller cut is refused less often, so
+running it again goes further. --hard ignores normal splits while simplifying and
+then sets every normal again: faces meeting at more than that angle keep a hard
+edge, the rest are smoothed. Open edges, colour-band seams and normals are kept.
 A result is refused where it opens a hole, makes an edge carry more than two
 faces, flips a face against its normals, leaves a face more than 78° off one
 of its vertex normals, or pushes a face through another of the same surface; the vertices under such a
 spot are locked and the pass runs again, up to 12 times, after which the model is
 left as it was. A catalogue model is also left as it was when the result would
-fail G27 where the original did not. Models with a skin, an animation or morph
-targets are left alone. --list prints the counts
+fail G27 where the original did not. Models with a skin or morph targets, or an
+animation that does more than move, turn or scale nodes, are left alone. --list prints the counts
 and changes nothing.`;
 
 const PASSES = 12;
@@ -32,14 +36,20 @@ const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(args.length ? 0 : 1); }
 let error = 0.01;
+let ratio = 0;
+let hard = null;
 let list = false;
 const files = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--error') error = Number(args[++i]);
+  else if (args[i] === '--ratio') ratio = Number(args[++i]);
+  else if (args[i] === '--hard') hard = Number(args[++i]);
   else if (args[i] === '--list') list = true;
   else files.push(args[i]);
 }
 if (!(error > 0 && error < 1)) throw new Error('--error needs a fraction between 0 and 1');
+if (!(ratio >= 0 && ratio < 1)) throw new Error('--ratio needs a fraction between 0 and 1');
+if (hard !== null && !(hard > 0 && hard < 180)) throw new Error('--hard needs an angle between 0 and 180');
 
 await MeshoptSimplifier.ready;
 
@@ -68,7 +78,7 @@ function rawRows(glb, index) {
 }
 
 function weldMap(glb, prim, count) {
-  const rows = Object.values(prim.attributes).map((a) => rawRows(glb, a));
+  const rows = Object.entries(prim.attributes).filter(([k]) => hard === null || k !== 'NORMAL').map(([, a]) => rawRows(glb, a));
   const seen = new Map();
   const map = new Uint32Array(count);
   for (let i = 0; i < count; i++) {
@@ -208,6 +218,53 @@ function crossings(out, pos, id, part, fresh) {
   return [...bad];
 }
 
+function cornerNormals(out, pos, id) {
+  const faces = [];
+  const around = new Map();
+  for (let t = 0; t < out.length; t += 3) {
+    const a = out[t], b = out[t + 1], c = out[t + 2];
+    const u = [0, 1, 2].map((k) => pos[b * 3 + k] - pos[a * 3 + k]);
+    const v = [0, 1, 2].map((k) => pos[c * 3 + k] - pos[a * 3 + k]);
+    const n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+    const area = Math.hypot(...n);
+    faces.push({ n: area ? n.map((x) => x / area) : [0, 1, 0], area });
+    for (let k = 0; k < 3; k++) {
+      const p = id[out[t + k]];
+      if (!around.has(p)) around.set(p, []);
+      around.get(p).push(t / 3);
+    }
+  }
+  const limit = Math.cos((hard * Math.PI) / 180);
+  const normals = [];
+  for (let t = 0; t < out.length; t += 3) {
+    const own = faces[t / 3].n;
+    for (let k = 0; k < 3; k++) {
+      const sum = [0, 0, 0];
+      for (const f of around.get(id[out[t + k]])) {
+        const { n, area } = faces[f];
+        if (n[0] * own[0] + n[1] * own[1] + n[2] * own[2] < limit) continue;
+        for (let j = 0; j < 3; j++) sum[j] += n[j] * area;
+      }
+      const l = Math.hypot(...sum);
+      normals.push(l ? sum.map((x) => x / l) : own);
+    }
+  }
+  return normals;
+}
+
+function facingCheck(source, pos, id, members) {
+  return (out) => {
+    const flip = [];
+    for (let t = 0; t < out.length; t += 3) {
+      const f = faceNormal(pos, out[t], out[t + 1], out[t + 2]);
+      if (!f) continue;
+      const away = [0, 1, 2].some((k) => members.get(id[out[t + k]]).every((v) => f[0] * source[v * 3] + f[1] * source[v * 3 + 1] + f[2] * source[v * 3 + 2] < 0));
+      if (away) flip.push(t);
+    }
+    return flip;
+  };
+}
+
 function simplifyPrimitive(glb, prim, absError) {
   const indexData = readAccessor(glb, prim.indices).data;
   const position = readAccessor(glb, prim.attributes.POSITION);
@@ -215,7 +272,7 @@ function simplifyPrimitive(glb, prim, absError) {
   const weld = weldMap(glb, prim, n);
   const idx = Uint32Array.from(indexData, (v) => weld[v]);
   const pos = Float32Array.from(position.data);
-  const nrm = prim.attributes.NORMAL !== undefined ? Float32Array.from(readAccessor(glb, prim.attributes.NORMAL).data) : null;
+  const nrm = prim.attributes.NORMAL !== undefined && hard === null ? Float32Array.from(readAccessor(glb, prim.attributes.NORMAL).data) : null;
   const uv = prim.attributes.TEXCOORD_0 !== undefined ? readAccessor(glb, prim.attributes.TEXCOORD_0).data : null;
 
   const weights = [...(nrm ? [WEIGHT_NORMAL, WEIGHT_NORMAL, WEIGHT_NORMAL] : []), ...(uv ? [WEIGHT_UV, WEIGHT_UV] : [])];
@@ -241,9 +298,10 @@ function simplifyPrimitive(glb, prim, absError) {
     }
   }
 
+  const facing = hard !== null && prim.attributes.NORMAL !== undefined ? facingCheck(readAccessor(glb, prim.attributes.NORMAL).data, pos, id, members) : null;
   const base = inspect(idx, pos, nrm, id);
   const face = (list, t) => [list[t], list[t + 1], list[t + 2]].map((v) => id[v]).sort((a, b) => a - b).join(',');
-  const known = new Set([...base.flip, ...base.streak].map((t) => face(idx, t)));
+  const known = new Set([...base.flip, ...base.streak, ...(facing ? facing(idx) : [])].map((t) => face(idx, t)));
   const part = new Map();
   const root = (a) => { while (part.get(a) !== a) { part.set(a, part.get(part.get(a))); a = part.get(a); } return a; };
   for (const a of neighbours.keys()) part.set(a, a);
@@ -254,16 +312,20 @@ function simplifyPrimitive(glb, prim, absError) {
   for (let t = 0; t < idx.length; t += 3) faces.add(face(idx, t));
   const lock = new Uint8Array(n);
   const flags = ['LockBorder', 'ErrorAbsolute'];
+  const target = Math.floor((idx.length / 3) * ratio) * 3;
   for (let pass = 0, rings = 1; pass < PASSES; pass++, rings++) {
     const [out] = stride
-      ? MeshoptSimplifier.simplifyWithAttributes(idx, pos, 3, attributes, stride, weights, lock, 0, absError, flags)
-      : MeshoptSimplifier.simplify(idx, pos, 3, 0, absError, flags);
+      ? MeshoptSimplifier.simplifyWithAttributes(idx, pos, 3, attributes, stride, weights, lock, target, absError, flags)
+      : MeshoptSimplifier.simplify(idx, pos, 3, target, absError, flags);
     const got = inspect(out, pos, nrm, id);
     const edges = [...got.open].filter((k) => !base.open.has(k)).concat([...got.crowded].filter((k) => !base.crowded.has(k)));
-    const flips = got.flip.filter((t) => !known.has(face(out, t)));
+    const flips = (facing ? facing(out) : got.flip).filter((t) => !known.has(face(out, t)));
     const streaks = got.streak.filter((t) => !known.has(face(out, t)));
     const crossed = edges.length || flips.length || streaks.length ? [] : crossings(out, pos, id, partOf, (t) => !faces.has(face(out, t)));
-    if (!edges.length && !flips.length && !streaks.length && !crossed.length) return out.length < idx.length ? out : null;
+    if (!edges.length && !flips.length && !streaks.length && !crossed.length) {
+      if (out.length >= idx.length) return null;
+      return facing ? { out, normals: cornerNormals(out, pos, id) } : { out };
+    }
 
     const before = lock.reduce((s, v) => s + v, 0);
     const bad = flips.concat(streaks, crossed);
@@ -321,15 +383,24 @@ function repack(glb, replaced) {
   glb.bin = Buffer.concat(chunks, length);
 }
 
-function compact(glb, prim, out, replaced) {
+function compact(glb, prim, { out, normals }, replaced) {
   const { json } = glb;
   const order = [];
   const remap = new Map();
-  for (const v of out) if (!remap.has(v)) { remap.set(v, order.length); order.push(v); }
-  for (const index of Object.values(prim.attributes)) {
+  const corner = [];
+  out.forEach((v, k) => {
+    const key = normals ? `${v}|${normals[k].map((c) => c.toFixed(4)).join(',')}` : v;
+    if (!remap.has(key)) { remap.set(key, order.length); order.push({ v, n: normals?.[k] }); }
+    corner.push(remap.get(key));
+  });
+  for (const [name, index] of Object.entries(prim.attributes)) {
     const { size, row } = rawRows(glb, index);
     const bytes = Buffer.alloc(size * order.length);
-    order.forEach((v, i) => row(v).copy(bytes, i * size));
+    if (normals && name === 'NORMAL') {
+      const values = new Float32Array(order.length * 3);
+      order.forEach(({ n }, i) => values.set(n, i * 3));
+      Buffer.from(values.buffer).copy(bytes);
+    } else order.forEach(({ v }, i) => row(v).copy(bytes, i * size));
     replaced.set(index, bytes);
     json.accessors[index].count = order.length;
   }
@@ -339,7 +410,7 @@ function compact(glb, prim, out, replaced) {
   position.max = [0, 1, 2].map((k) => Math.max(...order.map((_, i) => data[i * 3 + k])));
 
   const Type = order.length < 65536 ? Uint16Array : Uint32Array;
-  const indices = Type.from(out, (v) => remap.get(v));
+  const indices = Type.from(corner);
   const accessor = json.accessors[prim.indices];
   accessor.componentType = Type === Uint16Array ? 5123 : 5125;
   accessor.count = indices.length;
@@ -352,8 +423,9 @@ for (const file of files) {
   const glb = readGlb(file);
   const { json } = glb;
   const prims = (json.meshes ?? []).flatMap((m) => m.primitives ?? []);
-  if (json.skins?.length || json.animations?.length || prims.some((p) => p.targets?.length)) {
-    console.log(`${file}: skinned, animated or morphing, left alone`);
+  const channels = (json.animations ?? []).flatMap((a) => a.channels ?? []);
+  if (json.skins?.length || prims.some((p) => p.targets?.length) || channels.some((c) => !['translation', 'rotation', 'scale'].includes(c.target?.path))) {
+    console.log(`${file}: skinned, morphing or animated beyond node transforms, left alone`);
     continue;
   }
 
@@ -390,10 +462,10 @@ for (const file of files) {
       const count = json.accessors[prim.indices].count / 3;
       before += count;
       const shared = [prim.indices, ...Object.values(prim.attributes)].some((a) => uses.get(a) > 1);
-      const out = scale && !shared ? simplifyPrimitive(glb, prim, (error * longest) / scale) : null;
-      if (!out) { after += count; kept++; continue; }
-      after += out.length / 3;
-      compact(glb, prim, out, replaced);
+      const result = scale && !shared ? simplifyPrimitive(glb, prim, (error * longest) / scale) : null;
+      if (!result) { after += count; kept++; continue; }
+      after += result.out.length / 3;
+      compact(glb, prim, result, replaced);
     }
   });
 
