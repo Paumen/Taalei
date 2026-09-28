@@ -132,7 +132,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `G04` (tri budget per kind) lives in `lint/kinds.json` as `tpu.max` (§2.3); `G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
 
-`node tools/import/simplify.mjs` removes triangles while no surface moves more than `--error` (0.01 by default) of the model's longest extent, keeping open edges, band seams and normals. It refuses any result that opens a hole, flips a face, streaks the shading, pushes a face through its own surface, or newly fails `G27`, and leaves skinned, animated and morphing models alone; `--list` prints the counts. A part it reshapes can still expose a face of another part behind it, so render what it changed before keeping it. It uses meshoptimizer's simplifier from `tools/import/vendor/meshoptimizer` (MIT).
+`node tools/import/simplify.mjs` removes triangles while no surface moves more than `--error` (0.01 by default) of the model's longest extent, keeping open edges, band seams and normals. `--ratio` stops each primitive at that fraction of its triangles; a smaller cut is refused less often, so repeating it goes further. It refuses any result that opens a hole, flips a face, streaks the shading, pushes a face through its own surface, or newly fails `G27`, and leaves skinned and morphing models alone, and animated ones whose animation does more than move, turn or scale nodes; `--list` prints the counts. A part it reshapes can still expose a face of another part behind it, so render what it changed before keeping it. It uses meshoptimizer's simplifier from `tools/import/vendor/meshoptimizer` (MIT).
 
 ### 2.2 Measures — in `lint/measures.json`
 
