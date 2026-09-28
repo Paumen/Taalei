@@ -6,11 +6,10 @@
 * never record historical notes and comments on which changes were made or why, not in code not in docs, information just represents latest state and ways.
 * Keep docs tersely, and in plain English..
 * import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport
-* If you make copies of glbs and want to render them, make sure you add the shared color map such they can find it.
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
-* tools/renders/render.mjs can be used to render glbs in various ways.
+* tools/renders/render.mjs can be used to render glbs in various ways. If you make copies of glbs and want to render them, make sure you add the shared color map such they can find it. Most render modes will show backfaces in mangenta, if those are pre-existing and irrelevant for the task at hand, ignore them.
 * A workfile in kits/workfiles is the asset itself.
 * catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/data/rejects.json), a swipe/review functionality, a model scale comparison page, a kit size curves page (catalog/app/size-curves.html, built by catalog/tools/size-curves.mjs), and an overview page (catalog/app/overview.html) with a kits table and the kinds tree, read from catalog/build/catalog.json, packs.json, size-curves.json and lint/*.json.
 * kits/sources contains original cc0 files in zip, kits/workfiles contains selected, normalize and modified glb for catalog.
