@@ -171,6 +171,7 @@ const SIZES = {
   'obj-furnishing-light-campfire': 1,
   'obj-furnishing-light-candle': 0.2,
   'obj-furnishing-light-lantern': 0.3,
+  'str-fixture-chimney': 3,
   'str-fixture-light-post': 2.5,
   'str-fixture-light-street': 4.5,
   'str-fixture-light-traffic': 3.5,
@@ -251,6 +252,7 @@ const HIGH = new Set([
   'obj-furnishing-furniture-table',
   'obj-furnishing-furniture-table-square',
   'str-barrier-fence-mid',
+  'str-fixture-chimney',
   'str-fixture-light-traffic',
   'str-fixture-marker-mailbox',
   'str-fixture-marker-sign-signpost',
@@ -294,6 +296,7 @@ const SCALE_SIZES = {
   'str-barrier-fence-mid': { small: 0.6, big: 2 },
   'str-fixture-marker-flag': { small: 0.75 },
   'str-part-floor-unit': { small: 1.5, big: 6 },
+  'str-part-pillar': { small: 1.5, big: 6 },
 };
 
 const DROPPED_TAGS = VARS.exemptTags;

@@ -904,7 +904,7 @@
     "none": 45
    },
    "kitCheck": {
-    "factor": 1.05,
+    "factor": 1.09,
     "kinds": 11
    }
   },
@@ -1567,8 +1567,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.15,
-    "kinds": 9
+    "factor": 1.06,
+    "kinds": 10
    }
   },
   {
@@ -17224,7 +17224,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 320
+   "count": 326
   },
   {
    "id": "str-access",
@@ -17346,7 +17346,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 630,
+   "count": 624,
    "color": "#a8762a"
   },
   {
@@ -17438,7 +17438,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support",
-   "count": 55
+   "count": 49
   },
   {
    "id": "str-part-roof",
@@ -17765,6 +17765,13 @@
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
    "count": 144
+  },
+  {
+   "id": "str-fixture-chimney",
+   "name": "Chimney",
+   "type": "kind",
+   "description": "Free-standing chimney or smokestack.",
+   "count": 6
   },
   {
    "id": "str-fixture-utility",
@@ -18285,7 +18292,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 100,
+   "count": 103,
    "kinds": [
     "obj-container-chest",
     "obj-food-baked-bread",
@@ -18294,6 +18301,7 @@
     "obj-furnishing-furniture-storage-cabinet",
     "str-part-floor-unit",
     "str-part-wall-unit",
+    "str-part-pillar",
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-flag",
@@ -18306,13 +18314,14 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 36,
+   "count": 38,
    "kinds": [
     "obj-container-crate-cube",
     "obj-food-fish",
     "obj-furnishing-light-candle",
     "str-part-floor-unit",
     "str-part-roof-unit",
+    "str-part-pillar",
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-banner",
@@ -20526,6 +20535,13 @@
    "longest.max": 1.25,
    "tpu.max": 5000
   },
+  "str-fixture-chimney": {
+   "high.min": 1.2,
+   "high.max": 4.5,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-fixture-leisure": {
    "high.max": 8,
    "longest.min": 0.8,
@@ -20914,6 +20930,18 @@
    "high.max": 0.6,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-pillar scale-small": {
+   "high.max": 8,
+   "longest.min": 0.25,
+   "longest.max": 1,
+   "tpu.max": 5000
+  },
+  "str-part-pillar scale-big": {
+   "high.max": 8,
+   "longest.min": 1,
+   "longest.max": 4,
    "tpu.max": 5000
   },
   "str-barrier-fence-mid scale-small": {
@@ -111584,9 +111612,9 @@
    "variant": "v1041",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.571 at kit ×1.05)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.55 at kit ×1.09)"
     }
    ]
   },
@@ -111640,9 +111668,9 @@
    "variant": "v1041",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.571 at kit ×1.05)"
+     "text": "longest 0.6 over max 0.45 (obj-leisure-game-ball · 0.55 at kit ×1.09)"
     }
    ]
   },
@@ -112675,16 +112703,10 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "stone-masonry"
    ],
-   "variant": "v1050",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.3 under min 0.5 (str-part-pillar · 0.286 at kit ×1.05)"
-    }
-   ]
+   "variant": "v1050"
   },
   {
    "kit": "kay-platformer",
@@ -112723,6 +112745,7 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1050"
@@ -112805,16 +112828,10 @@
    ],
    "tags": [
     "kay",
+    "scale-big",
     "stone-masonry"
    ],
-   "variant": "v1050",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.4 over max 2 (str-part-pillar · 2.286 at kit ×1.05)"
-    }
-   ]
+   "variant": "v1050"
   },
   {
    "kit": "kay-platformer",
@@ -112851,6 +112868,7 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1050"
@@ -112931,16 +112949,10 @@
    ],
    "tags": [
     "kay",
+    "scale-big",
     "stone-masonry"
    ],
-   "variant": "v1050",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.4 over max 2 (str-part-pillar · 2.286 at kit ×1.05)"
-    }
-   ]
+   "variant": "v1050"
   },
   {
    "kit": "kay-platformer",
@@ -160345,7 +160357,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-basic",
-   "kind": "str-part-pillar",
+   "kind": "str-fixture-chimney",
    "size": "l",
    "wdh": [
     0.4,
@@ -160397,7 +160409,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-large",
-   "kind": "str-part-pillar",
+   "kind": "str-fixture-chimney",
    "size": "l",
    "wdh": [
     2.15,
@@ -160436,20 +160448,13 @@
     "ken",
     "metal",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 3.4 over max 2 (str-part-pillar · 2.957 at kit ×1.15)"
-    }
    ]
   },
   {
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-medium",
-   "kind": "str-part-pillar",
+   "kind": "str-fixture-chimney",
    "size": "l",
    "wdh": [
     0.9,
@@ -160500,20 +160505,13 @@
     "metal",
     "stone-masonry"
    ],
-   "variant": "v930",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 3.85 over max 2 (str-part-pillar · 3.348 at kit ×1.15)"
-    }
-   ]
+   "variant": "v930"
   },
   {
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-small",
-   "kind": "str-part-pillar",
+   "kind": "str-fixture-chimney",
    "size": "l",
    "wdh": [
     0.6,
@@ -160883,6 +160881,13 @@
    "tags": [
     "ken",
     "metal"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 3.3 over max 3.1 (str-fixture-utility-tank · 3.113 at kit ×1.06)"
+    }
    ]
   },
   {
@@ -160985,9 +160990,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4.3 over max 3.1 (str-fixture-utility-tank · 3.739 at kit ×1.15)"
+     "text": "longest 4.3 over max 3.1 (str-fixture-utility-tank · 4.057 at kit ×1.06)"
     }
    ]
   },
@@ -176498,9 +176503,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4 over max 3 (str-access-road · 3.478 at kit ×1.15)"
+     "text": "longest 4 over max 3 (str-access-road · 3.774 at kit ×1.06)"
     },
     {
      "level": "error",
@@ -176560,9 +176565,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4 over max 3 (str-access-road · 3.478 at kit ×1.15)"
+     "text": "longest 4 over max 3 (str-access-road · 3.774 at kit ×1.06)"
     },
     {
      "level": "error",
@@ -176797,7 +176802,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 6 over max 3 (str-access-road · 5.217 at kit ×1.15)"
+     "text": "longest 6 over max 3 (str-access-road · 5.66 at kit ×1.06)"
     },
     {
      "level": "error",
@@ -177231,9 +177236,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 4 over max 3 (str-access-road · 3.478 at kit ×1.15)"
+     "text": "longest 4 over max 3 (str-access-road · 3.774 at kit ×1.06)"
     }
    ]
   },
@@ -178089,7 +178094,7 @@
   {
    "kit": "ken-space",
    "name": "chimney-detailed",
-   "kind": "str-part-pillar",
+   "kind": "str-fixture-chimney",
    "size": "l",
    "wdh": [
     0.5,
@@ -178136,19 +178141,12 @@
     "metal",
     "space"
    ],
-   "variant": "v1087",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.6 over max 2 (str-part-pillar · 2.524 at kit ×1.03)"
-    }
-   ]
+   "variant": "v1087"
   },
   {
    "kit": "ken-space",
    "name": "chimney",
-   "kind": "str-part-pillar",
+   "kind": "str-fixture-chimney",
    "size": "l",
    "wdh": [
     0.5,
@@ -178189,14 +178187,7 @@
     "metal",
     "space"
    ],
-   "variant": "v1087",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.6 over max 2 (str-part-pillar · 2.524 at kit ×1.03)"
-    }
-   ]
+   "variant": "v1087"
   },
   {
    "kit": "ken-space",
@@ -185439,7 +185430,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.8 under min 0.9 (str-access-road · 0.696 at kit ×1.15)"
+     "text": "longest 0.8 under min 0.9 (str-access-road · 0.755 at kit ×1.06)"
     }
    ]
   },
@@ -185491,7 +185482,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 under min 0.9 (str-access-road · 0.609 at kit ×1.15)"
+     "text": "longest 0.7 under min 0.9 (str-access-road · 0.66 at kit ×1.06)"
     }
    ]
   },
