@@ -58,7 +58,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 §4 and §5.3 rows carry their exclusions as `!` terms in `when`, repeated per branch, and have no `except` column.
 
-**[F09] `special` in the counts.** `nmat` counts materials without `special`; `bands` counts bands without the `special` one.
+**[F09] `special` in the counts.** `nmat` counts materials without `special`; `bands` counts bands without the `special` one. The band a `special` reason names (`col,row`) passes every material palette (§5.1) of that model.
 
 **[F10] Rules that live in the JSON.** Five checks read their rows from `lint/*.json` rather than from a table here: measures (§2.2) from `lint/measures.json`, and four tree checks from `lint/kinds.json` and `lint/materials.json`: size (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). A measures row carries its own `when` and `except` terms. The tree checks read the same way:
 

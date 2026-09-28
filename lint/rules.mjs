@@ -256,10 +256,11 @@ export function paletteOf(material, size, palettes) {
 export function paletteFindingsFor(model, palettes, materialIds, vars) {
   const out = [];
   const used = Object.keys(model.spread ?? {});
+  const special = model.specialBand && used.includes(model.specialBand);
   for (const material of materialsOf(model, materialIds, vars)) {
     const palette = paletteOf(material, model.size, palettes);
     if (!palette) continue;
-    if (palette.lanes.some((lane) => lane === null || used.includes(lane))) continue;
+    if (special || palette.lanes.some((lane) => lane === null || used.includes(lane))) continue;
     out.push({
       material,
       wants: palette.bands.join(' '),
