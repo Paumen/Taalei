@@ -477,11 +477,13 @@ export function findingsFor(model, kindLimits, vars, scales, kitScale) {
   const factor = kitScale?.factor ?? 1;
   const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
   const tags = model.tags ?? [];
-  for (const [field, { value: limit, from }] of Object.entries(limits ?? {})) {
+  for (const [field, { value: kindLimit, from }] of Object.entries(limits ?? {})) {
     const [measure, bound] = field.split('.');
     const value = measures[measure];
     if (value === null || value === undefined) continue;
     if (tags.some((t) => (vars[measure]?.exemptTags ?? vars.exemptTags).includes(t))) continue;
+    const raise = bound === 'max' ? tags.reduce((p, t) => p * (vars[measure]?.tagFactors?.[t] ?? 1), 1) : 1;
+    const limit = kindLimit * raise;
     const byKit = factor !== 1 && measure !== 'tpu' && from !== 'defaults';
     const compared = byKit ? Math.round((value / factor) * 1000) / 1000 : value;
     const deviation = bound === 'min' ? (limit - compared) / limit : (compared - limit) / limit;

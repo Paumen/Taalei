@@ -1797,6 +1797,9 @@
        "id": "obj-transport-pallet",
        "longest.min": 0.3,
        "longest.max": 0.8,
+       "scale": {
+        "big": 2
+       },
        "nouns": [
         "pallet"
        ]
@@ -1818,7 +1821,7 @@
         {
          "id": "obj-transport-land-cart",
          "longest.min": 0.55,
-         "longest.max": 1.15,
+         "longest.max": 1.75,
          "nouns": [
           "cart",
           "wagon",
@@ -2267,7 +2270,6 @@
     },
     {
      "id": "obj-device",
-     "tpu.max": 5000,
      "nouns": [],
      "children": [
       {
@@ -2314,7 +2316,7 @@
         {
          "id": "obj-device-appliance-stove",
          "longest.min": 0.25,
-         "longest.max": 0.55,
+         "longest.max": 0.7,
          "nouns": [
           "stove",
           "range",
@@ -3110,7 +3112,7 @@
       {
        "id": "str-access-stairs",
        "longest.min": 0.5,
-       "longest.max": 1.3,
+       "longest.max": 1.8,
        "nouns": [
         "stairs",
         "steps",
@@ -3605,6 +3607,7 @@
          "id": "env-remains-bones-skull",
          "longest.min": 0.1,
          "longest.max": 0.4,
+         "tpu.max": 10000,
          "nouns": [
           "skull"
          ]
@@ -3918,7 +3921,7 @@
        "children": [
         {
          "id": "env-flora-waterplant-cattail",
-         "longest.min": 0.5,
+         "longest.min": 0.3,
          "longest.max": 1,
          "nouns": [
           "cattail",
