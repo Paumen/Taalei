@@ -7,8 +7,8 @@ const HELP = `simplify.mjs [--error <fraction>] [--list] <workfile.glb> [...]
 Removes triangles while no surface moves more than --error (0.01 by default) of
 the model's longest extent. Open edges, colour-band seams and normals are kept.
 A result is refused where it opens a hole, makes an edge carry more than two
-faces, flips a face against its normals, or leaves a face more than 78° off one
-of its vertex normals; the vertices under such a spot are locked and the pass
+faces, flips a face against its normals, leaves a face more than 78° off one
+of its vertex normals, or pushes a face through another of the same surface; the vertices under such a spot are locked and the pass
 runs again, up to 12 times, after which the model is left as it was. Models with
 a skin, an animation or morph targets are left alone. --list prints the counts
 and changes nothing.`;
@@ -136,6 +136,59 @@ function lockUnder(lock, idx, pos, tris, tolerance) {
   }
 }
 
+function segmentHits(pos, p, q, a, b, c) {
+  const e1 = [0, 1, 2].map((k) => pos[b * 3 + k] - pos[a * 3 + k]);
+  const e2 = [0, 1, 2].map((k) => pos[c * 3 + k] - pos[a * 3 + k]);
+  const d = [0, 1, 2].map((k) => pos[q * 3 + k] - pos[p * 3 + k]);
+  const h = [d[1] * e2[2] - d[2] * e2[1], d[2] * e2[0] - d[0] * e2[2], d[0] * e2[1] - d[1] * e2[0]];
+  const det = e1[0] * h[0] + e1[1] * h[1] + e1[2] * h[2];
+  if (Math.abs(det) < 1e-14) return false;
+  const s = [0, 1, 2].map((k) => pos[p * 3 + k] - pos[a * 3 + k]);
+  const u = (s[0] * h[0] + s[1] * h[1] + s[2] * h[2]) / det;
+  if (u <= 1e-4 || u >= 1 - 1e-4) return false;
+  const r = [s[1] * e1[2] - s[2] * e1[1], s[2] * e1[0] - s[0] * e1[2], s[0] * e1[1] - s[1] * e1[0]];
+  const v = (d[0] * r[0] + d[1] * r[1] + d[2] * r[2]) / det;
+  if (v <= 1e-4 || u + v >= 1 - 1e-4) return false;
+  const t = (e2[0] * r[0] + e2[1] * r[1] + e2[2] * r[2]) / det;
+  return t > 1e-4 && t < 1 - 1e-4;
+}
+
+function crossings(out, pos, id, part, fresh) {
+  const tris = [];
+  for (let t = 0; t < out.length; t += 3) tris.push(t);
+  let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+  for (const v of out) for (let k = 0; k < 3; k++) { lo[k] = Math.min(lo[k], pos[v * 3 + k]); hi[k] = Math.max(hi[k], pos[v * 3 + k]); }
+  const cell = Math.max(...hi.map((h, k) => h - lo[k])) / 48 || 1;
+  const grid = new Map();
+  const cellsOf = (t) => {
+    const a = [0, 1, 2].map((k) => Math.floor((Math.min(pos[out[t] * 3 + k], pos[out[t + 1] * 3 + k], pos[out[t + 2] * 3 + k]) - lo[k]) / cell));
+    const b = [0, 1, 2].map((k) => Math.floor((Math.max(pos[out[t] * 3 + k], pos[out[t + 1] * 3 + k], pos[out[t + 2] * 3 + k]) - lo[k]) / cell));
+    const keys = [];
+    for (let x = a[0]; x <= b[0]; x++) for (let y = a[1]; y <= b[1]; y++) for (let z = a[2]; z <= b[2]; z++) keys.push(`${x},${y},${z}`);
+    return keys;
+  };
+  for (const t of tris) for (const k of cellsOf(t)) { if (!grid.has(k)) grid.set(k, []); grid.get(k).push(t); }
+  const bad = new Set();
+  for (const t of tris) {
+    if (!fresh(t)) continue;
+    const ta = [out[t], out[t + 1], out[t + 2]];
+    const own = part[id[ta[0]]];
+    const near = new Set();
+    for (const k of cellsOf(t)) for (const o of grid.get(k)) near.add(o);
+    for (const o of near) {
+      if (o === t || part[id[out[o]]] !== own) continue;
+      const tb = [out[o], out[o + 1], out[o + 2]];
+      if (ta.some((x) => tb.some((y) => id[x] === id[y]))) continue;
+      let hit = false;
+      for (let e = 0; e < 3 && !hit; e++) {
+        hit = segmentHits(pos, ta[e], ta[(e + 1) % 3], tb[0], tb[1], tb[2]) || segmentHits(pos, tb[e], tb[(e + 1) % 3], ta[0], ta[1], ta[2]);
+      }
+      if (hit) { bad.add(t); bad.add(o); }
+    }
+  }
+  return [...bad];
+}
+
 function simplifyPrimitive(glb, prim, absError) {
   const indexData = readAccessor(glb, prim.indices).data;
   const position = readAccessor(glb, prim.attributes.POSITION);
@@ -170,6 +223,16 @@ function simplifyPrimitive(glb, prim, absError) {
   }
 
   const base = inspect(idx, pos, nrm, id);
+  const face = (list, t) => [list[t], list[t + 1], list[t + 2]].map((v) => id[v]).sort((a, b) => a - b).join(',');
+  const known = new Set([...base.flip, ...base.streak].map((t) => face(idx, t)));
+  const part = new Map();
+  const root = (a) => { while (part.get(a) !== a) { part.set(a, part.get(part.get(a))); a = part.get(a); } return a; };
+  for (const a of neighbours.keys()) part.set(a, a);
+  for (const [a, set] of neighbours) for (const b of set) { const ra = root(a), rb = root(b); if (ra !== rb) part.set(ra, rb); }
+  const partOf = [];
+  for (const a of neighbours.keys()) partOf[a] = root(a);
+  const faces = new Set();
+  for (let t = 0; t < idx.length; t += 3) faces.add(face(idx, t));
   const lock = new Uint8Array(n);
   const flags = ['LockBorder', 'ErrorAbsolute'];
   for (let pass = 0, rings = 1; pass < PASSES; pass++, rings++) {
@@ -178,12 +241,13 @@ function simplifyPrimitive(glb, prim, absError) {
       : MeshoptSimplifier.simplify(idx, pos, 3, 0, absError, flags);
     const got = inspect(out, pos, nrm, id);
     const edges = [...got.open].filter((k) => !base.open.has(k)).concat([...got.crowded].filter((k) => !base.crowded.has(k)));
-    const flips = got.flip.length > base.flip.length ? got.flip : [];
-    const streaks = got.streak.length > base.streak.length ? got.streak : [];
-    if (!edges.length && !flips.length && !streaks.length) return out.length < idx.length ? out : null;
+    const flips = got.flip.filter((t) => !known.has(face(out, t)));
+    const streaks = got.streak.filter((t) => !known.has(face(out, t)));
+    const crossed = edges.length || flips.length || streaks.length ? [] : crossings(out, pos, id, partOf, (t) => !faces.has(face(out, t)));
+    if (!edges.length && !flips.length && !streaks.length && !crossed.length) return out.length < idx.length ? out : null;
 
     const before = lock.reduce((s, v) => s + v, 0);
-    const bad = flips.concat(streaks);
+    const bad = flips.concat(streaks, crossed);
     lockUnder(lock, out, pos, bad, absError * 4);
     let front = new Set();
     for (const t of bad) for (let k = 0; k < 3; k++) front.add(id[out[t + k]]);
