@@ -1121,7 +1121,7 @@
    "slug": "ken-mini",
    "name": "ken-mini",
    "artist": "Kenney",
-   "count": 131,
+   "count": 156,
    "packs": [
     "Kenney Mini Arcade",
     "Kenney Mini Arena",
@@ -1130,6 +1130,7 @@
     "Kenney Mini Market",
     "Kenney Mini Dungeon",
     "Kenney Platformer Kit",
+    "Kenney Prototype Kit",
     "Kenney Mini Skate"
    ],
    "origins": {
@@ -1141,14 +1142,15 @@
     "Kenney Mini Market": 15,
     "Kenney Mini Dungeon": 13,
     "Kenney Platformer Kit": 18,
+    "Kenney Prototype Kit": 25,
     "Kenney Mini Skate": 7
    },
    "scales": {
-    "0.95": 131
+    "0.95": 156
    },
    "smooth": {
     "60": 32,
-    "none": 99
+    "none": 124
    },
    "members": [
     {
@@ -1294,6 +1296,26 @@
      }
     },
     {
+     "slug": "ken-proto",
+     "name": "ken-proto",
+     "url": "https://kenney.nl/assets/prototype-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 25,
+     "packs": [
+      "Kenney Prototype Kit"
+     ],
+     "origins": {
+      "Kenney Prototype Kit": 25
+     },
+     "scales": {
+      "0.95": 25
+     },
+     "smooth": {
+      "none": 25
+     }
+    },
+    {
      "slug": "ken-skate",
      "name": "ken-skate",
      "url": "https://kenney.nl/assets/mini-skate",
@@ -1316,7 +1338,7 @@
    ],
    "kitCheck": {
     "factor": 1.01,
-    "kinds": 37
+    "kinds": 39
    }
   },
   {
@@ -1786,31 +1808,6 @@
    "kitCheck": {
     "factor": 1.06,
     "kinds": 18
-   }
-  },
-  {
-   "slug": "ken-proto",
-   "name": "ken-proto",
-   "url": "https://kenney.nl/assets/prototype-kit",
-   "artist": "Kenney",
-   "licenseLabel": "CC0",
-   "count": 25,
-   "packs": [
-    "Kenney Prototype Kit"
-   ],
-   "origins": {
-    "Kenney Prototype Kit": 25
-   },
-   "scales": {
-    "0.75": 25
-   },
-   "smooth": {
-    "none": 25
-   },
-   "kitCheck": {
-    "factor": 0.79,
-    "kinds": 10,
-    "level": "warning"
    }
   },
   {
@@ -172660,25 +172657,26 @@
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "coin",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
-    0.2,
-    0.08,
-    0.2
+    0.25,
+    0.1,
+    0.25
    ],
    "tris": 252,
    "tpu": 735,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11448,
+   "bytes": 11444,
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.00076,
+   "minEdge": 0.026,
+   "avgTri": 0.00121,
    "anglePct": 64,
    "vpt": 1.05,
    "grad": 0.59,
@@ -172695,24 +172693,18 @@
     "ken",
     "metal-gold",
     "pickup"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 204,
    "tpu": 595,
@@ -172723,8 +172715,8 @@
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.037,
-   "avgTri": 0.00642,
+   "minEdge": 0.047,
+   "avgTri": 0.01031,
    "anglePct": 100,
    "vpt": 1.41,
    "grad": 0.81,
@@ -172752,27 +172744,21 @@
     "metal-gold",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-garage",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.85,
-    0.25,
-    0.6
+    1.05,
+    0.35,
+    0.75
    ],
    "tris": 88,
-   "tpu": 257,
+   "tpu": 236,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172780,8 +172766,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01576,
+   "minEdge": 0.038,
+   "avgTri": 0.02529,
    "anglePct": 99,
    "vpt": 1.27,
    "grad": 0.88,
@@ -172797,27 +172783,21 @@
    "tags": [
     "ken",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-sliding-double-wide",
    "kind": "str-part-door",
    "size": "m",
    "wdh": [
-    1.05,
-    0.25,
-    0.6
+    1.35,
+    0.35,
+    0.75
    ],
    "tris": 176,
-   "tpu": 513,
+   "tpu": 473,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172825,8 +172805,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01116,
+   "minEdge": 0.038,
+   "avgTri": 0.0179,
    "anglePct": 99,
    "vpt": 1.23,
    "grad": 0.88,
@@ -172843,27 +172823,21 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v858"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-sliding-double",
    "kind": "str-part-door",
    "size": "m",
    "wdh": [
-    0.7,
-    0.25,
-    0.6
+    0.85,
+    0.35,
+    0.75
    ],
    "tris": 176,
-   "tpu": 513,
+   "tpu": 473,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172871,8 +172845,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.00828,
+   "minEdge": 0.038,
+   "avgTri": 0.01329,
    "anglePct": 99,
    "vpt": 1.23,
    "grad": 0.88,
@@ -172889,27 +172863,21 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v858"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-sliding",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.55,
-    0.25,
-    0.6
+    0.65,
+    0.35,
+    0.75
    ],
    "tris": 88,
-   "tpu": 257,
+   "tpu": 236,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172917,8 +172885,8 @@
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01116,
+   "minEdge": 0.038,
+   "avgTri": 0.0179,
    "anglePct": 99,
    "vpt": 1.23,
    "grad": 0.88,
@@ -172935,36 +172903,30 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v858"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.25,
-    0.45,
-    0.6
+    0.3,
+    0.55,
+    0.75
    ],
    "tris": 68,
-   "tpu": 198,
+   "tpu": 183,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4996,
+   "bytes": 4992,
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01196,
+   "minEdge": 0.038,
+   "avgTri": 0.01918,
    "anglePct": 99,
    "vpt": 1.47,
    "grad": 0.79,
@@ -172986,27 +172948,21 @@
     "ken",
     "metal-iron-cast",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "flag",
    "kind": "str-fixture-marker-flag",
    "size": "m",
    "wdh": [
-    0.08,
-    0.4,
-    0.7
+    0.1,
+    0.5,
+    0.9
    ],
    "tris": 100,
-   "tpu": 287,
+   "tpu": 226,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173014,8 +172970,8 @@
    "vtx": 124,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.026,
-   "avgTri": 0.00359,
+   "minEdge": 0.033,
+   "avgTri": 0.00576,
    "anglePct": 65,
    "vpt": 1.24,
    "grad": 0.53,
@@ -173037,24 +172993,18 @@
     "ken",
     "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "ladder-top",
    "kind": "str-access-ladder",
    "size": "s",
    "wdh": [
-    0.3,
     0.4,
-    0.25
+    0.5,
+    0.3
    ],
    "tris": 256,
    "tpu": 746,
@@ -173065,8 +173015,8 @@
    "vtx": 150,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.001,
+   "minEdge": 0.034,
+   "avgTri": 0.0016,
    "anglePct": 67,
    "vpt": 0.59,
    "grad": 0.95,
@@ -173083,27 +173033,21 @@
     "comp",
     "ken",
     "metal-iron-cast"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "ladder",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.1,
-    0.4,
-    0.75
+    0.15,
+    0.5,
+    0.95
    ],
    "tris": 224,
-   "tpu": 610,
+   "tpu": 481,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173111,9 +173055,9 @@
    "vtx": 256,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "minTube": 0.0838,
-   "avgTri": 0.00373,
+   "minEdge": 0.034,
+   "minTube": 0.1062,
+   "avgTri": 0.00598,
    "anglePct": 100,
    "vpt": 1.14,
    "grad": 0.79,
@@ -173130,37 +173074,30 @@
     "ken",
     "metal-iron-cast",
     "scale-small"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "stairs-diagonal",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.75,
-    0.75,
-    0.75
+    0.95,
+    0.95,
+    0.95
    ],
    "tris": 40,
-   "tpu": 95,
+   "tpu": 47,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 3676,
    "vtx": 66,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.188,
-   "avgTri": 0.05974,
+   "minEdge": 0.237,
+   "avgTri": 0.09585,
    "anglePct": 100,
    "vpt": 1.65,
    "grad": 0.79,
@@ -173176,24 +173113,18 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "target-a-round",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
-    0.35,
-    0.09,
-    0.35
+    0.45,
+    0.1,
+    0.45
    ],
    "tris": 76,
    "tpu": 222,
@@ -173204,8 +173135,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.036,
-   "avgTri": 0.00397,
+   "minEdge": 0.046,
+   "avgTri": 0.00637,
    "anglePct": 65,
    "vpt": 1.05,
    "grad": 0.8,
@@ -173233,24 +173164,20 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.443 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+     "text": "longest 0.45 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.446 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "target-b-round",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
-    0.35,
-    0.09,
-    0.35
+    0.45,
+    0.1,
+    0.45
    ],
    "tris": 92,
    "tpu": 268,
@@ -173261,8 +173188,8 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.036,
-   "avgTri": 0.00328,
+   "minEdge": 0.045,
+   "avgTri": 0.00526,
    "anglePct": 65,
    "vpt": 1.04,
    "grad": 0.8,
@@ -173290,27 +173217,23 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.443 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+     "text": "longest 0.45 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.446 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "vehicle-convertible",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.7,
-    1.05,
-    0.5
+    0.85,
+    1.35,
+    0.65
    ],
    "tris": 846,
-   "tpu": 1663,
+   "tpu": 1037,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -173319,7 +173242,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00529,
+   "avgTri": 0.00848,
    "anglePct": 68,
    "vpt": 1.29,
    "grad": 0.69,
@@ -173353,27 +173276,21 @@
     "metal",
     "plastic"
    ],
-   "variant": "v860",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v860"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "vehicle",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.75,
-    1.05,
-    0.6
+    0.95,
+    1.35,
+    0.75
    ],
    "tris": 860,
-   "tpu": 1552,
+   "tpu": 918,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -173382,7 +173299,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00531,
+   "avgTri": 0.00852,
    "anglePct": 71,
    "vpt": 1.29,
    "grad": 0.73,
@@ -173416,27 +173333,21 @@
     "metal",
     "plastic"
    ],
-   "variant": "v860",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v860"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway-sliding",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1.15,
-    0.25,
-    0.75
+    1.45,
+    0.3,
+    0.95
    ],
    "tris": 152,
-   "tpu": 414,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173444,8 +173355,8 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.02749,
+   "minEdge": 0.048,
+   "avgTri": 0.0441,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.77,
@@ -173466,27 +173377,21 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway-wide-sliding",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
-    2.25,
-    0.25,
-    0.75
+    2.85,
+    0.3,
+    0.95
    ],
    "tris": 152,
-   "tpu": 400,
+   "tpu": 197,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173494,8 +173399,8 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.04687,
+   "minEdge": 0.048,
+   "avgTri": 0.07521,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.77,
@@ -173516,27 +173421,21 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway-wide",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1.15,
-    0.25,
-    0.75
+    1.45,
+    0.3,
+    0.95
    ],
    "tris": 152,
-   "tpu": 414,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173544,8 +173443,8 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.02541,
+   "minEdge": 0.048,
+   "avgTri": 0.04077,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.77,
@@ -173566,27 +173465,21 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 76,
-   "tpu": 207,
+   "tpu": 163,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173594,8 +173487,8 @@
    "vtx": 104,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01964,
+   "minEdge": 0.048,
+   "avgTri": 0.03152,
    "anglePct": 100,
    "vpt": 1.37,
    "grad": 0.75,
@@ -173617,27 +173510,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v517"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-cutout-large",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.15,
-    0.75
+    0.95,
+    0.2,
+    0.95
    ],
    "tris": 32,
-   "tpu": 87,
+   "tpu": 69,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173645,8 +173532,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.15,
-   "avgTri": 0.045,
+   "minEdge": 0.19,
+   "avgTri": 0.0722,
    "anglePct": 100,
    "vpt": 1.5,
    "grad": 0.79,
@@ -173663,27 +173550,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v517"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-large",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 96,
-   "tpu": 261,
+   "tpu": 206,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173691,8 +173572,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01821,
+   "minEdge": 0.048,
+   "avgTri": 0.02922,
    "anglePct": 100,
    "vpt": 1.17,
    "grad": 0.47,
@@ -173709,27 +173590,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v859"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-medium",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 96,
-   "tpu": 261,
+   "tpu": 206,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173737,8 +173612,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01868,
+   "minEdge": 0.048,
+   "avgTri": 0.02997,
    "anglePct": 100,
    "vpt": 1.17,
    "grad": 0.47,
@@ -173755,27 +173630,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v859"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-small",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 96,
-   "tpu": 261,
+   "tpu": 206,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173783,8 +173652,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01868,
+   "minEdge": 0.048,
+   "avgTri": 0.02997,
    "anglePct": 100,
    "vpt": 1.17,
    "grad": 0.48,
@@ -173801,27 +173670,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v859"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.15,
-    0.75
+    0.95,
+    0.2,
+    0.95
    ],
    "tris": 12,
-   "tpu": 33,
+   "tpu": 26,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173829,8 +173692,8 @@
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.15,
-   "avgTri": 0.13125,
+   "minEdge": 0.19,
+   "avgTri": 0.21058,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.79,
@@ -173847,24 +173710,18 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v517"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wheelchair",
    "kind": "obj-transport",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.4
+    0.45,
+    0.45,
+    0.5
    ],
    "tris": 296,
    "tpu": 863,
@@ -173875,8 +173732,8 @@
    "vtx": 374,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00247,
+   "minEdge": 0.031,
+   "avgTri": 0.00397,
    "anglePct": 85,
    "vpt": 1.26,
    "grad": 0.75,
@@ -173914,13 +173771,6 @@
     "metal-iron-steel",
     "plastic",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
