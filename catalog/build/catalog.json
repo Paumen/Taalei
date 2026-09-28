@@ -2171,8 +2171,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.27,
-    "kinds": 13,
+    "factor": 1.34,
+    "kinds": 14,
     "level": "warning"
    }
   },
@@ -3480,9 +3480,9 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.41,
+    "factor": 1.38,
     "kinds": 22,
-    "level": "error"
+    "level": "warning"
    }
   },
   {
@@ -17164,14 +17164,14 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 103
+   "count": 108
   },
   {
    "id": "env-terrain-rock-cobble",
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose)",
-   "count": 86
+   "count": 81
   },
   {
    "id": "env-terrain-rock-formation",
@@ -17293,7 +17293,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 212,
+   "count": 213,
    "color": "#b08968"
   },
   {
@@ -17315,7 +17315,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 148
+   "count": 149
   },
   {
    "id": "str-barrier-post",
@@ -17344,7 +17344,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 624,
+   "count": 623,
    "color": "#a8762a"
   },
   {
@@ -17380,7 +17380,7 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 40
+   "count": 39
   },
   {
    "id": "str-part-gate-gateway",
@@ -17394,7 +17394,7 @@
    "name": "Single",
    "type": "kind",
    "description": "The gate leaf on its own, without the opening it hangs in.",
-   "count": 9
+   "count": 8
   },
   {
    "id": "str-part-floor",
@@ -17869,7 +17869,7 @@
    "name": "Mid",
    "type": "kind",
    "description": "Fence between knee and chest height, and the gates in such a run.",
-   "count": 126
+   "count": 127
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -18324,7 +18324,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 56,
+   "count": 57,
    "kinds": [
     "obj-container-crate-cube",
     "obj-container-pot",
@@ -98024,7 +98024,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate-right",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
     0.55,
@@ -98058,7 +98058,8 @@
     "grave",
     "halloween",
     "kay",
-    "metal-iron-cast"
+    "metal-iron-cast",
+    "scale-big"
    ],
    "variant": "v209",
    "lint": [
@@ -212197,7 +212198,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212251,14 +212252,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
   {
    "kit": "quat-dun-1",
    "name": "arch",
-   "kind": "str-part-gate-single",
+   "kind": "str-part-door-doorway",
    "size": "l",
    "wdh": [
     2.05,
@@ -212298,12 +212299,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 2 over max 1.3 (str-part-gate-single · 1.575 at kit ×1.27)"
+     "text": "high 2 over max 1.25 (str-part-door-doorway · 1.493 at kit ×1.34)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212355,7 +212356,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212407,7 +212408,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212459,7 +212460,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212509,14 +212510,14 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.197 at kit ×1.27)"
+     "text": "longest 0.25 under min 0.25 (obj-container-bucket · 0.187 at kit ×1.34)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212631,7 +212632,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212678,7 +212679,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212725,7 +212726,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212773,7 +212774,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212825,7 +212826,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212871,7 +212872,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212918,7 +212919,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -212965,7 +212966,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213013,7 +213014,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213061,7 +213062,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213108,7 +213109,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213155,7 +213156,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213202,7 +213203,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213253,7 +213254,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213357,12 +213358,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 1.063 at kit ×1.27)"
+     "text": "longest 1.35 over max 0.75 (str-part-door-trapdoor · 1.007 at kit ×1.34)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213421,7 +213422,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213467,7 +213468,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "longest 0.2 under min 0.15 (obj-container-pot-vase · 0.149 at kit ×1.34)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -213513,7 +213519,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.27 off the size curve (quat-dun-1, 13 kinds)"
+     "text": "kit ×1.34 off the size curve (quat-dun-1, 14 kinds)"
     }
    ]
   },
@@ -290943,9 +290949,9 @@
    "variant": "v382",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291012,9 +291018,9 @@
    "variant": "v382",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291061,9 +291067,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291116,9 +291122,9 @@
    "variant": "v345",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291171,9 +291177,9 @@
    "variant": "v345",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291227,9 +291233,9 @@
    "variant": "v345",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291286,9 +291292,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291345,9 +291351,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291392,9 +291398,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291452,9 +291458,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291505,9 +291511,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291554,12 +291560,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.65 over max 1.8 (str-access-bridge-section · 1.879 at kit ×1.41)"
+     "text": "longest 2.65 over max 1.8 (str-access-bridge-section · 1.92 at kit ×1.38)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291604,9 +291610,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291658,9 +291664,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291706,9 +291712,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291755,9 +291761,9 @@
    "variant": "v574",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291804,9 +291810,9 @@
    "variant": "v574",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291869,9 +291875,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291934,9 +291940,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -291981,9 +291987,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292030,9 +292036,9 @@
    "variant": "v563",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292079,9 +292085,9 @@
    "variant": "v563",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292127,9 +292133,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292187,9 +292193,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     },
     {
      "level": "error",
@@ -292246,9 +292252,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292300,9 +292306,9 @@
    "variant": "v358",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292361,9 +292367,9 @@
    "variant": "v358",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292415,9 +292421,9 @@
    "variant": "v358",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292469,9 +292475,9 @@
    "variant": "v358",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292516,9 +292522,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292582,9 +292588,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292642,9 +292648,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292690,9 +292696,9 @@
    "variant": "v350",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292738,9 +292744,9 @@
    "variant": "v350",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292786,9 +292792,9 @@
    "variant": "v351",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292834,9 +292840,9 @@
    "variant": "v351",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292883,9 +292889,9 @@
    "variant": "v626",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292932,9 +292938,9 @@
    "variant": "v626",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -292981,9 +292987,9 @@
    "variant": "v626",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293030,9 +293036,9 @@
    "variant": "v352",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293079,9 +293085,9 @@
    "variant": "v352",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293126,9 +293132,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293199,9 +293205,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293272,9 +293278,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293345,9 +293351,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293418,9 +293424,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293481,9 +293487,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293528,9 +293534,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293582,9 +293588,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293630,9 +293636,9 @@
    "variant": "v397",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293678,9 +293684,9 @@
    "variant": "v397",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293733,9 +293739,9 @@
    "variant": "v377",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293788,9 +293794,9 @@
    "variant": "v377",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293843,9 +293849,9 @@
    "variant": "v378",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293898,9 +293904,9 @@
    "variant": "v378",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293946,9 +293952,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -293994,9 +294000,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294047,9 +294053,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294095,9 +294101,9 @@
    "variant": "v608",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294143,9 +294149,9 @@
    "variant": "v608",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294191,9 +294197,9 @@
    "variant": "v608",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294239,9 +294245,9 @@
    "variant": "v608",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294288,12 +294294,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 0.7 (env-flora-plant-leafy · 0.709 at kit ×1.41)"
+     "text": "longest 1 over max 0.7 (env-flora-plant-leafy · 0.725 at kit ×1.38)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294345,9 +294351,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294393,9 +294399,9 @@
    "variant": "v629",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294441,9 +294447,9 @@
    "variant": "v629",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294536,9 +294542,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294590,9 +294596,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294638,9 +294644,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294685,9 +294691,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294695,7 +294701,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "rock-block-a",
-   "kind": "env-terrain-rock-cobble",
+   "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
     0.55,
@@ -294733,9 +294739,9 @@
    "variant": "v340",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294743,7 +294749,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "rock-block-b",
-   "kind": "env-terrain-rock-cobble",
+   "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
     0.55,
@@ -294781,9 +294787,9 @@
    "variant": "v340",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294791,7 +294797,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "rock-block-c",
-   "kind": "env-terrain-rock-cobble",
+   "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
     0.55,
@@ -294829,9 +294835,9 @@
    "variant": "v340",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294877,9 +294883,9 @@
    "variant": "v341",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294925,9 +294931,9 @@
    "variant": "v341",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -294973,9 +294979,9 @@
    "variant": "v341",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295021,9 +295027,9 @@
    "variant": "v342",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295069,9 +295075,9 @@
    "variant": "v342",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295117,9 +295123,9 @@
    "variant": "v342",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295165,9 +295171,9 @@
    "variant": "v342",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295213,9 +295219,9 @@
    "variant": "v343",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295223,7 +295229,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "rock-small-b",
-   "kind": "env-terrain-rock-cobble",
+   "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
     0.5,
@@ -295261,9 +295267,9 @@
    "variant": "v343",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295271,7 +295277,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "rock-small-c",
-   "kind": "env-terrain-rock-cobble",
+   "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
     0.7,
@@ -295309,9 +295315,9 @@
    "variant": "v343",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295356,9 +295362,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295404,9 +295410,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295459,9 +295465,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295526,9 +295532,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295599,9 +295605,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295646,9 +295652,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295693,9 +295699,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295741,9 +295747,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295795,9 +295801,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295849,9 +295855,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295916,9 +295922,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -295970,9 +295976,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296024,9 +296030,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296071,9 +296077,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296118,9 +296124,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296165,9 +296171,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296212,9 +296218,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296259,9 +296265,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296306,9 +296312,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296367,9 +296373,9 @@
    "variant": "v921",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296424,9 +296430,9 @@
    "variant": "v921",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -296478,9 +296484,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302149,9 +302155,9 @@
    "variant": "v436",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302204,9 +302210,9 @@
    "variant": "v436",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302277,9 +302283,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302351,9 +302357,9 @@
    "variant": "v437",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302425,9 +302431,9 @@
    "variant": "v437",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302499,9 +302505,9 @@
    "variant": "v437",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302546,9 +302552,9 @@
    "variant": "v735",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302593,9 +302599,9 @@
    "variant": "v735",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302641,9 +302647,9 @@
    "variant": "v735",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302688,9 +302694,9 @@
    "variant": "v735",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302782,9 +302788,9 @@
    "variant": "v736",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302829,9 +302835,9 @@
    "variant": "v736",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302896,9 +302902,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -302963,9 +302969,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -303029,9 +303035,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   },
@@ -303075,9 +303081,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "kit ×1.41 off the size curve (wizp-eastern, 22 kinds)"
+     "text": "kit ×1.38 off the size curve (wizp-eastern, 22 kinds)"
     }
    ]
   }
