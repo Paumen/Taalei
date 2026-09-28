@@ -637,9 +637,8 @@
     "60": 39
    },
    "kitCheck": {
-    "factor": 1.36,
-    "kinds": 7,
-    "level": "warning"
+    "factor": 1.19,
+    "kinds": 8
    }
   },
   {
@@ -1115,9 +1114,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.49,
-    "kinds": 7,
-    "level": "error"
+    "factor": 1.19,
+    "kinds": 7
    }
   },
   {
@@ -1836,8 +1834,8 @@
     "60": 47
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 12
+    "factor": 0.96,
+    "kinds": 11
    }
   },
   {
@@ -1861,7 +1859,7 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.07,
+    "factor": 1.03,
     "kinds": 17
    }
   },
@@ -15413,7 +15411,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2943,
+   "count": 2945,
    "color": "#c07c8a"
   },
   {
@@ -15695,7 +15693,7 @@
    "name": "Cube",
    "type": "kind",
    "description": "cube crate, cube box",
-   "count": 28
+   "count": 35
   },
   {
    "id": "obj-container-pot",
@@ -16649,7 +16647,7 @@
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
-   "count": 13
+   "count": 15
   },
   {
    "id": "obj-transport-land",
@@ -17218,7 +17216,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1744,
+   "count": 1742,
    "color": "#877a63"
   },
   {
@@ -17226,7 +17224,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 327
+   "count": 325
   },
   {
    "id": "str-access",
@@ -17433,7 +17431,7 @@
    "name": "Scaffold",
    "type": "kind",
    "description": "Scaffolding: a temporary frame of poles and planks against a build.",
-   "count": 38
+   "count": 40
   },
   {
    "id": "str-part-pillar",
@@ -17496,7 +17494,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 131,
+   "count": 129,
    "color": "#ffb349"
   },
   {
@@ -17518,7 +17516,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 55
+   "count": 53
   },
   {
    "id": "str-fixture-marker-sign-road",
@@ -17560,7 +17558,7 @@
    "name": "Banner",
    "type": "kind",
    "description": "Cloth hung from a crossbar or a wall, read from one side.",
-   "count": 10
+   "count": 9
   },
   {
    "id": "str-access-platform",
@@ -18140,7 +18138,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 195
+   "count": 196
   },
   {
    "id": "plural",
@@ -18287,7 +18285,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 99,
+   "count": 100,
    "kinds": [
     "obj-container-chest",
     "obj-food-baked-bread",
@@ -18299,6 +18297,7 @@
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-flag",
+    "str-fixture-utility-turbine",
     "env-flora-plant-cactus"
    ]
   },
@@ -18307,12 +18306,13 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 34,
+   "count": 36,
    "kinds": [
     "obj-container-crate-cube",
     "obj-food-fish",
     "obj-furnishing-light-candle",
     "str-part-floor-unit",
+    "str-part-roof-unit",
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-banner",
@@ -20897,6 +20897,12 @@
    "longest.max": 2.5,
    "tpu.max": 5000
   },
+  "str-part-roof-unit scale-big": {
+   "high.max": 8,
+   "longest.min": 0.8,
+   "longest.max": 2.4,
+   "tpu.max": 5000
+  },
   "str-part-wall-unit scale-small": {
    "high.min": 0.325,
    "high.max": 0.6,
@@ -20940,6 +20946,12 @@
    "high.max": 8,
    "longest.min": 1,
    "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-utility-turbine scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "env-flora-plant-cactus scale-small": {
@@ -26745,13 +26757,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8224,
+   "bytes": 8220,
    "vtx": 138,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00003,
-   "anglePct": 80,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
+   "anglePct": 60,
    "vpt": 0.7,
    "grad": 0,
    "spread": {
@@ -28167,7 +28179,7 @@
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00007,
-   "anglePct": 83,
+   "anglePct": 78,
    "vpt": 0.98,
    "grad": 0,
    "spread": {
@@ -28340,9 +28352,9 @@
    "vtx": 406,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "avgTri": 0.00005,
-   "anglePct": 73,
+   "anglePct": 61,
    "vpt": 1.05,
    "grad": 0,
    "spread": {
@@ -28762,9 +28774,9 @@
    "vtx": 434,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "avgTri": 0.00005,
-   "anglePct": 82,
+   "anglePct": 77,
    "vpt": 0.97,
    "grad": 0,
    "spread": {
@@ -29192,7 +29204,7 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.04,
+    0.05,
     0.03,
     0.2
    ],
@@ -29201,13 +29213,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12720,
+   "bytes": 12740,
    "vtx": 232,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00003,
-   "anglePct": 10,
+   "avgTri": 0.00004,
+   "anglePct": 6,
    "vpt": 0.72,
    "grad": 0,
    "spread": {
@@ -29899,8 +29911,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0168,
-   "avgTri": 0.00001,
-   "anglePct": 5,
+   "avgTri": 0.00002,
+   "anglePct": 3,
    "vpt": 0.55,
    "grad": 0,
    "spread": {
@@ -30002,7 +30014,7 @@
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
-    0.04,
+    0.05,
     0.25,
     0.02
    ],
@@ -30011,14 +30023,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4896,
+   "bytes": 4912,
    "vtx": 80,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0075,
-   "avgTri": 0.00007,
-   "anglePct": 12,
+   "minTube": 0.0087,
+   "avgTri": 0.00008,
+   "anglePct": 9,
    "vpt": 0.53,
    "grad": 0,
    "spread": {
@@ -34859,9 +34871,9 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00005,
-   "anglePct": 0,
+   "minEdge": 0.004,
+   "avgTri": 0.00006,
+   "anglePct": 1,
    "vpt": 0.51,
    "grad": 0.22,
    "spread": {
@@ -39890,7 +39902,7 @@
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.0002,
-   "anglePct": 5,
+   "anglePct": 4,
    "vpt": 2.41,
    "grad": 0.7,
    "spread": {
@@ -39988,8 +40000,8 @@
    "vtx": 698,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00035,
+   "minEdge": 0.001,
+   "avgTri": 0.00036,
    "anglePct": 2,
    "vpt": 2.42,
    "grad": 0.64,
@@ -66234,9 +66246,9 @@
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
-    0.07,
+    0.08,
     0.1,
-    0.15
+    0.2
    ],
    "tris": 528,
    "tpu": 1539,
@@ -66249,7 +66261,7 @@
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00004,
-   "anglePct": 1,
+   "anglePct": 0,
    "vpt": 0.65,
    "grad": 0.6,
    "spread": {
@@ -66401,7 +66413,7 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.1,
+    0.15,
     0.03,
     0.02
    ],
@@ -66410,13 +66422,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8480,
+   "bytes": 8472,
    "vtx": 172,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00002,
-   "anglePct": 40,
+   "minTube": 0.012,
+   "avgTri": 0.00003,
+   "anglePct": 8,
    "vpt": 0.74,
    "grad": 0.59,
    "spread": {
@@ -66433,9 +66446,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.094 at kit ×1.06)"
+     "text": "longest 0.15 under min 0.15 (obj-kitchenware-tableware-cutlery · 0.142 at kit ×1.06)"
     }
    ]
   },
@@ -71343,24 +71356,12 @@
     "kay",
     "stone-masonry",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.2 under min 0.15 (obj-furnishing-furniture-seating-bench-nobackrest · 0.147 at kit ×1.36)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-city",
    "name": "box-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.4,
@@ -71400,14 +71401,7 @@
     "paper",
     "wood-cardboard"
    ],
-   "variant": "v943",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v943"
   },
   {
    "kit": "kay-city",
@@ -71446,14 +71440,7 @@
     "kay",
     "wood-cardboard"
    ],
-   "variant": "v943",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v943"
   },
   {
    "kit": "kay-city",
@@ -71521,14 +71508,7 @@
     "storeys-2",
     "textile"
    ],
-   "variant": "v934",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v934"
   },
   {
    "kit": "kay-city",
@@ -71597,14 +71577,7 @@
     "storeys-2",
     "textile"
    ],
-   "variant": "v934",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v934"
   },
   {
    "kit": "kay-city",
@@ -71671,14 +71644,7 @@
     "storeys-2",
     "textile"
    ],
-   "variant": "v935",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v935"
   },
   {
    "kit": "kay-city",
@@ -71747,14 +71713,7 @@
     "storeys-2",
     "textile"
    ],
-   "variant": "v935",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v935"
   },
   {
    "kit": "kay-city",
@@ -71821,14 +71780,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v936",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v936"
   },
   {
    "kit": "kay-city",
@@ -71897,14 +71849,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v936",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v936"
   },
   {
    "kit": "kay-city",
@@ -71971,14 +71916,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v937",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v937"
   },
   {
    "kit": "kay-city",
@@ -72046,14 +71984,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v937",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v937"
   },
   {
    "kit": "kay-city",
@@ -72120,14 +72051,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v938",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v938"
   },
   {
    "kit": "kay-city",
@@ -72195,14 +72119,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v938",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v938"
   },
   {
    "kit": "kay-city",
@@ -72269,14 +72186,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v939",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v939"
   },
   {
    "kit": "kay-city",
@@ -72345,14 +72255,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v939",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v939"
   },
   {
    "kit": "kay-city",
@@ -72420,14 +72323,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v940",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v940"
   },
   {
    "kit": "kay-city",
@@ -72496,14 +72392,7 @@
     "storeys-3",
     "textile"
    ],
-   "variant": "v940",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v940"
   },
   {
    "kit": "kay-city",
@@ -72570,14 +72459,7 @@
     "storeys-4",
     "textile"
    ],
-   "variant": "v941",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v941"
   },
   {
    "kit": "kay-city",
@@ -72646,14 +72528,7 @@
     "storeys-4",
     "textile"
    ],
-   "variant": "v941",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v941"
   },
   {
    "kit": "kay-city",
@@ -72702,13 +72577,6 @@
     "ceramic",
     "foliage",
     "kay"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -72770,13 +72638,6 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -72844,14 +72705,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v942",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v942"
   },
   {
    "kit": "kay-city",
@@ -72918,14 +72772,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v942",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v942"
   },
   {
    "kit": "kay-city",
@@ -72991,13 +72838,6 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73065,14 +72905,7 @@
     "metal",
     "plastic"
    ],
-   "variant": "v942",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
-   ]
+   "variant": "v942"
   },
   {
    "kit": "kay-city",
@@ -73121,13 +72954,6 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73166,13 +72992,6 @@
    "tags": [
     "kay",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73222,7 +73041,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73284,7 +73103,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73346,7 +73165,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73408,7 +73227,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73470,7 +73289,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73532,7 +73351,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73594,7 +73413,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
+     "text": "longest 4 over max 3 (str-access-road · 3.361 at kit ×1.19)"
     }
    ]
   },
@@ -73640,13 +73459,6 @@
     "emissive",
     "kay",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73708,13 +73520,6 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73776,13 +73581,6 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73849,13 +73647,6 @@
     "kay",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -73911,13 +73702,6 @@
     "kay",
     "metal",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.36 off the size curve (kay-city, 7 kinds)"
-    }
    ]
   },
   {
@@ -113379,6 +113163,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "comp",
     "kay",
     "plastic"
    ]
@@ -120401,14 +120186,7 @@
     "space",
     "storeys-1"
    ],
-   "variant": "v1057",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1057"
   },
   {
    "kit": "kay-space",
@@ -120465,14 +120243,7 @@
     "space",
     "storeys-1"
    ],
-   "variant": "v1057",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1057"
   },
   {
    "kit": "kay-space",
@@ -120529,14 +120300,7 @@
     "space",
     "storeys-1"
    ],
-   "variant": "v1057",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1057"
   },
   {
    "kit": "kay-space",
@@ -120593,14 +120357,7 @@
     "space",
     "storeys-1"
    ],
-   "variant": "v1057",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1057"
   },
   {
    "kit": "kay-space",
@@ -120656,13 +120413,6 @@
     "metal",
     "space",
     "storeys-1-5"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -120719,19 +120469,12 @@
     "metal",
     "space",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
    "kit": "kay-space",
    "name": "cargo-a-packed",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.55,
@@ -120782,14 +120525,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1058",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1058"
   },
   {
    "kit": "kay-space",
@@ -120846,19 +120582,12 @@
     "plural",
     "space"
    ],
-   "variant": "v1059",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1059"
   },
   {
    "kit": "kay-space",
    "name": "cargo-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.55,
@@ -120909,19 +120638,12 @@
     "plastic",
     "space"
    ],
-   "variant": "v1058",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1058"
   },
   {
    "kit": "kay-space",
    "name": "cargo-b-packed",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.55,
@@ -120972,14 +120694,7 @@
     "space",
     "textile"
    ],
-   "variant": "v1058",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1058"
   },
   {
    "kit": "kay-space",
@@ -121036,19 +120751,12 @@
     "space",
     "textile"
    ],
-   "variant": "v1059",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1059"
   },
   {
    "kit": "kay-space",
    "name": "cargo-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.55,
@@ -121088,14 +120796,7 @@
     "metal-iron-steel",
     "space"
    ],
-   "variant": "v1058",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1058"
   },
   {
    "kit": "kay-space",
@@ -121320,13 +121021,6 @@
     "metal-iron-steel",
     "plural",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -121378,13 +121072,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -121451,14 +121138,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1060",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1060"
   },
   {
    "kit": "kay-space",
@@ -121525,14 +121205,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1060",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1060"
   },
   {
    "kit": "kay-space",
@@ -121583,13 +121256,6 @@
     "metal",
     "rubber",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -121693,18 +121359,6 @@
     "kay",
     "metal",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.1 under min 0.9 (str-fixture-light-street · 0.738 at kit ×1.49)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -121748,11 +121402,6 @@
    ],
    "variant": "v1061",
    "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    },
     {
      "level": "error",
      "check": "palette",
@@ -121803,11 +121452,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    },
-    {
-     "level": "error",
      "check": "palette",
      "text": "stone-rock wants nickel taupe, has terracotta"
     }
@@ -121849,14 +121493,8 @@
    "tags": [
     "kay",
     "metal",
+    "scale-big",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -122104,13 +121742,6 @@
     "kay",
     "metal",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -122157,13 +121788,6 @@
     "kay",
     "metal",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -122230,14 +121854,9 @@
    "variant": "v1062",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1.15 under min 1.05 (obj-transport-land-road · 0.772 at kit ×1.49)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
+     "text": "longest 1.15 under min 1.05 (obj-transport-land-road · 0.966 at kit ×1.19)"
     }
    ]
   },
@@ -122298,14 +121917,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1.1 under min 1.05 (obj-transport-land-road · 0.738 at kit ×1.49)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
+     "text": "longest 1.1 under min 1.05 (obj-transport-land-road · 0.924 at kit ×1.19)"
     }
    ]
   },
@@ -122372,21 +121986,16 @@
    "variant": "v1062",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1 under min 1.05 (obj-transport-land-road · 0.671 at kit ×1.49)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
+     "text": "longest 1 under min 1.05 (obj-transport-land-road · 0.84 at kit ×1.19)"
     }
    ]
   },
   {
    "kit": "kay-space",
    "name": "structure-low",
-   "kind": "str-part-frame",
+   "kind": "str-part-frame-scaffold",
    "size": "l",
    "wdh": [
     1.95,
@@ -122433,19 +122042,12 @@
     "plastic",
     "space"
    ],
-   "variant": "v1063",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1063"
   },
   {
    "kit": "kay-space",
    "name": "structure-tall",
-   "kind": "str-part-frame",
+   "kind": "str-part-frame-scaffold",
    "size": "l",
    "wdh": [
     1.95,
@@ -122492,14 +122094,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1063",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1063"
   },
   {
    "kit": "kay-space",
@@ -122540,11 +122135,6 @@
     "stone-soil"
    ],
    "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    },
     {
      "level": "error",
      "check": "palette",
@@ -122608,14 +122198,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1064",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1064"
   },
   {
    "kit": "kay-space",
@@ -122668,14 +122251,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1064",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
-   ]
+   "variant": "v1064"
   },
   {
    "kit": "kay-space",
@@ -122725,13 +122301,6 @@
     "kay",
     "metal",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -122787,13 +122356,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -122854,14 +122416,8 @@
     "kay",
     "metal",
     "plastic",
+    "scale-small",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -122918,13 +122474,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.49 off the size curve (kay-space, 7 kinds)"
-    }
    ]
   },
   {
@@ -131960,7 +131509,7 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "box",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.4,
@@ -138290,7 +137839,7 @@
   {
    "kit": "ken-factory",
    "name": "arrow-basic-rounded",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj-symbol",
    "size": "s",
    "wdh": [
     0.25,
@@ -138329,7 +137878,7 @@
   {
    "kit": "ken-factory",
    "name": "arrow-rounded",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj-symbol",
    "size": "s",
    "wdh": [
     0.4,
@@ -138457,7 +138006,7 @@
   {
    "kit": "ken-factory",
    "name": "box-small",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
     0.3,
@@ -173522,7 +173071,7 @@
   {
    "kit": "ken-racing",
    "name": "banner-tower-red",
-   "kind": "str-fixture-marker-banner",
+   "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
     0.45,
@@ -173561,13 +173110,6 @@
     "ken",
     "metal",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.5 over max 1.1 (str-fixture-marker-banner · 1.485 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -173606,13 +173148,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.149 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -173657,13 +173192,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.149 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -173971,7 +173499,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1 over max 0.85 (str-barrier-fence · 0.99 at kit ×1.01)"
+     "text": "high 1 over max 0.85 (str-barrier-fence · 1.042 at kit ×0.96)"
     }
    ]
   },
@@ -175245,13 +174773,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic-cone · 0.149 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -178626,9 +178147,9 @@
    "variant": "v1087",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 2.6 over max 2 (str-part-pillar · 2.43 at kit ×1.07)"
+     "text": "longest 2.6 over max 2 (str-part-pillar · 2.524 at kit ×1.03)"
     }
    ]
   },
@@ -178679,9 +178200,9 @@
    "variant": "v1087",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 2.6 over max 2 (str-part-pillar · 2.43 at kit ×1.07)"
+     "text": "longest 2.6 over max 2 (str-part-pillar · 2.524 at kit ×1.03)"
     }
    ]
   },
@@ -179088,14 +178609,8 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.3 over max 1.2 (str-part-roof-unit · 1.215 at kit ×1.07)"
-    }
    ]
   },
   {
@@ -180012,7 +179527,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.2 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.187 at kit ×1.07)"
+     "text": "longest 0.2 under min 0.2 (obj-furnishing-furniture-seating-stool · 0.194 at kit ×1.03)"
     }
    ]
   },
@@ -180829,14 +180344,7 @@
     "plastic",
     "space"
    ],
-   "variant": "v1098",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.85 under min 0.8 (str-fixture-utility-tank · 0.794 at kit ×1.07)"
-    }
-   ]
+   "variant": "v1098"
   },
   {
    "kit": "ken-space",
@@ -181176,13 +180684,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.85 under min 0.8 (obj-transport-land-rail · 0.794 at kit ×1.07)"
-    }
    ]
   },
   {
@@ -181293,7 +180794,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.35 under min 0.8 (obj-transport-land-rail · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.8 (obj-transport-land-rail · 0.34 at kit ×1.03)"
     }
    ]
   },
@@ -181602,7 +181103,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.34 at kit ×1.03)"
     }
    ]
   },
@@ -181655,7 +181156,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.327 at kit ×1.07)"
+     "text": "high 0.35 under min 0.35 (str-barrier-fence · 0.34 at kit ×1.03)"
     }
    ]
   },
@@ -182345,7 +181846,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.5 under min 1.05 (obj-transport-land-road · 0.467 at kit ×1.07)"
+     "text": "longest 0.5 under min 1.05 (obj-transport-land-road · 0.485 at kit ×1.03)"
     }
    ]
   },
@@ -182627,7 +182128,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.467 at kit ×1.07)"
+     "text": "longest 0.5 under min 0.5 (str-access-stairs · 0.485 at kit ×1.03)"
     }
    ]
   },
@@ -183153,7 +182654,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.421 at kit ×1.07)"
+     "text": "longest 0.45 over max 0.4 (obj-equipment-weapon-ranged-firearm-hand · 0.437 at kit ×1.03)"
     }
    ]
   },
@@ -207043,13 +206544,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5036,
+   "bytes": 5108,
    "vtx": 97,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00006,
-   "anglePct": 5,
+   "anglePct": 0,
    "vpt": 1.35,
    "grad": 0.25,
    "spread": {
@@ -207199,13 +206700,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5560,
+   "bytes": 5632,
    "vtx": 107,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00005,
-   "anglePct": 15,
+   "anglePct": 17,
    "vpt": 1.07,
    "grad": 0.19,
    "spread": {
@@ -213277,8 +212778,8 @@
    "vtx": 1504,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00009,
+   "minEdge": 0.003,
+   "avgTri": 0.00014,
    "anglePct": 2,
    "vpt": 1.73,
    "grad": 0.62,
@@ -213324,8 +212825,8 @@
    "vtx": 1901,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00005,
+   "minEdge": 0.003,
+   "avgTri": 0.00011,
    "anglePct": 3,
    "vpt": 1.72,
    "grad": 0.62,
@@ -217408,11 +216909,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.82 off the size curve (quat-fishing, 5 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0248 wants min 0.026"
     }
    ]
   },
@@ -225335,7 +224831,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9532,
+   "bytes": 9552,
    "vtx": 232,
    "grounded": true,
    "centered": true,
@@ -230458,13 +229954,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5044,
+   "bytes": 5064,
    "vtx": 97,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "avgTri": 0.00014,
-   "anglePct": 66,
+   "avgTri": 0.00015,
+   "anglePct": 42,
    "vpt": 1.8,
    "grad": 0.71,
    "spread": {
@@ -285708,7 +285204,7 @@
    "wdh": [
     0.2,
     0.15,
-    0.02
+    0.03
    ],
    "tris": 196,
    "tpu": 571,
@@ -285719,9 +285215,9 @@
    "vtx": 199,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00027,
-   "anglePct": 1,
+   "minEdge": 0.003,
+   "avgTri": 0.00028,
+   "anglePct": 0,
    "vpt": 1.02,
    "grad": 0.59,
    "spread": {
@@ -288430,7 +287926,7 @@
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.01,
+    0.02,
     0.01,
     0.1
    ],
@@ -288444,9 +287940,9 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.00001,
-   "anglePct": 13,
+   "minEdge": 0.002,
+   "avgTri": 0.00002,
+   "anglePct": 35,
    "vpt": 0.59,
    "grad": 0.17,
    "spread": {
@@ -290905,7 +290401,7 @@
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00001,
-   "anglePct": 7,
+   "anglePct": 28,
    "vpt": 0.98,
    "grad": 0,
    "spread": {
