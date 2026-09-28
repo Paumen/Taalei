@@ -927,7 +927,7 @@
     "60": 23
    },
    "kitCheck": {
-    "factor": 1.02,
+    "factor": 1.03,
     "kinds": 9
    }
   },
@@ -18586,7 +18586,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 140,
+   "count": 141,
    "kinds": [
     "obj-container-chest",
     "obj-container-pot",
@@ -18613,7 +18613,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 68,
+   "count": 70,
    "kinds": [
     "obj-container-crate-cube",
     "obj-container-pot",
@@ -18621,6 +18621,7 @@
     "obj-food-fish",
     "obj-equipment-weapon-siege-ammunition-cannonball",
     "obj-transport-watercraft-ship",
+    "obj-transport-pallet",
     "obj-resource-wood-log",
     "obj-furnishing-light-candle",
     "str-part-floor-unit",
@@ -21275,6 +21276,12 @@
    "high.max": 30,
    "longest.min": 7.35,
    "longest.max": 69,
+   "tpu.max": 10000
+  },
+  "obj-transport-pallet scale-big": {
+   "high.max": 30,
+   "longest.min": 0.6,
+   "longest.max": 1.6,
    "tpu.max": 10000
   },
   "obj-resource-metal scale-small": {
@@ -83380,16 +83387,10 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "wood-worked"
    ],
-   "variant": "v582",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.504 at kit ×1.19)"
-    }
-   ]
+   "variant": "v582"
   },
   {
    "kit": "kay-dun-2",
@@ -83426,16 +83427,10 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "wood-worked"
    ],
-   "variant": "v582",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.6 under min 0.7 (str-part-floor-unit · 0.504 at kit ×1.19)"
-    }
-   ]
+   "variant": "v582"
   },
   {
    "kit": "kay-dun-2",
@@ -113562,7 +113557,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.294 at kit ×1.02)"
+     "text": "longest 0.3 under min 0.3 (obj-container-barrel · 0.291 at kit ×1.03)"
     }
    ]
   },
@@ -113607,7 +113602,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.15 under min 0.25 (obj-container-crate-cube · 0.147 at kit ×1.02)"
+     "text": "longest 0.15 under min 0.25 (obj-container-crate-cube · 0.146 at kit ×1.03)"
     }
    ]
   },
@@ -114063,16 +114058,10 @@
    ],
    "tags": [
     "kay",
+    "scale-big",
     "wood-planks"
    ],
-   "variant": "v1052",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.2 over max 0.8 (obj-transport-pallet · 1.176 at kit ×1.02)"
-    }
-   ]
+   "variant": "v1052"
   },
   {
    "kit": "kay-proto",
@@ -134801,15 +134790,9 @@
    "tags": [
     "ceramic",
     "ken",
+    "scale-big",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.15 over max 1.2 (str-part-roof-unit · 2.129 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -150013,15 +149996,7 @@
    ],
    "tags": [
     "ken",
-    "scale-small",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.85 over max 0.625 (str-part-floor-unit scale-small · 0.934 at kit ×0.91)"
-    }
    ]
   },
   {
