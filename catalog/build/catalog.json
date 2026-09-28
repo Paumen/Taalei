@@ -1121,7 +1121,7 @@
    "slug": "ken-mini",
    "name": "ken-mini",
    "artist": "Kenney",
-   "count": 92,
+   "count": 156,
    "packs": [
     "Kenney Mini Arcade",
     "Kenney Mini Arena",
@@ -1129,24 +1129,28 @@
     "Kenney Mini Forest",
     "Kenney Mini Market",
     "Kenney Mini Dungeon",
+    "Kenney Platformer Kit",
+    "Kenney Prototype Kit",
     "Kenney Mini Skate"
    ],
    "origins": {
     "Kenney Mini Arcade": 17,
     "Kenney Mini Arena": 18,
     "Kenney Mini Characters": 8,
-    "none": 9,
+    "none": 30,
     "Kenney Mini Forest": 5,
     "Kenney Mini Market": 15,
     "Kenney Mini Dungeon": 13,
+    "Kenney Platformer Kit": 18,
+    "Kenney Prototype Kit": 25,
     "Kenney Mini Skate": 7
    },
    "scales": {
-    "0.95": 92
+    "0.95": 156
    },
    "smooth": {
     "60": 32,
-    "none": 60
+    "none": 124
    },
    "members": [
     {
@@ -1271,6 +1275,47 @@
      }
     },
     {
+     "slug": "ken-platformer",
+     "name": "ken-platformer",
+     "url": "https://kenney.nl/assets/platformer-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 39,
+     "packs": [
+      "Kenney Platformer Kit"
+     ],
+     "origins": {
+      "Kenney Platformer Kit": 18,
+      "none": 21
+     },
+     "scales": {
+      "0.95": 39
+     },
+     "smooth": {
+      "none": 39
+     }
+    },
+    {
+     "slug": "ken-proto",
+     "name": "ken-proto",
+     "url": "https://kenney.nl/assets/prototype-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 25,
+     "packs": [
+      "Kenney Prototype Kit"
+     ],
+     "origins": {
+      "Kenney Prototype Kit": 25
+     },
+     "scales": {
+      "0.95": 25
+     },
+     "smooth": {
+      "none": 25
+     }
+    },
+    {
      "slug": "ken-skate",
      "name": "ken-skate",
      "url": "https://kenney.nl/assets/mini-skate",
@@ -1292,8 +1337,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1,
-    "kinds": 31
+    "factor": 1.01,
+    "kinds": 39
    }
   },
   {
@@ -1647,27 +1692,72 @@
    }
   },
   {
-   "slug": "ken-grave",
-   "name": "ken-grave",
-   "url": "https://kenney.nl/assets/graveyard-kit",
+   "slug": "ken-village",
+   "name": "ken-village",
    "artist": "Kenney",
    "licenseLabel": "CC0",
-   "count": 64,
+   "count": 146,
    "packs": [
-    "Kenney Graveyard Kit"
+    "Kenney Graveyard Kit",
+    "Kenney Fantasy Town Kit"
    ],
    "origins": {
-    "Kenney Graveyard Kit": 64
+    "Kenney Graveyard Kit": 64,
+    "none": 67,
+    "Kenney Fantasy Town Kit": 15
    },
    "scales": {
-    "0.9": 64
+    "0.9": 146
    },
    "smooth": {
-    "none": 64
+    "none": 146
    },
+   "members": [
+    {
+     "slug": "ken-grave",
+     "name": "ken-grave",
+     "url": "https://kenney.nl/assets/graveyard-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 64,
+     "packs": [
+      "Kenney Graveyard Kit"
+     ],
+     "origins": {
+      "Kenney Graveyard Kit": 64
+     },
+     "scales": {
+      "0.9": 64
+     },
+     "smooth": {
+      "none": 64
+     }
+    },
+    {
+     "slug": "ken-town",
+     "name": "ken-town",
+     "url": "https://kenney.nl/assets/fantasy-town-kit",
+     "artist": "Kenney",
+     "licenseLabel": "CC0",
+     "count": 82,
+     "packs": [
+      "Kenney Fantasy Town Kit"
+     ],
+     "origins": {
+      "none": 67,
+      "Kenney Fantasy Town Kit": 15
+     },
+     "scales": {
+      "0.9": 82
+     },
+     "smooth": {
+      "none": 82
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 1.2,
-    "kinds": 14
+    "factor": 1.04,
+    "kinds": 31
    }
   },
   {
@@ -1754,7 +1844,8 @@
     "none": 42
    },
    "scales": {
-    "0.3": 57
+    "0.3": 47,
+    "0.55": 10
    },
    "smooth": {
     "none": 57
@@ -1762,56 +1853,6 @@
    "kitCheck": {
     "factor": 1.06,
     "kinds": 18
-   }
-  },
-  {
-   "slug": "ken-platformer",
-   "name": "ken-platformer",
-   "url": "https://kenney.nl/assets/platformer-kit",
-   "artist": "Kenney",
-   "licenseLabel": "CC0",
-   "count": 39,
-   "packs": [
-    "Kenney Platformer Kit"
-   ],
-   "origins": {
-    "Kenney Platformer Kit": 18,
-    "none": 21
-   },
-   "scales": {
-    "0.88": 39
-   },
-   "smooth": {
-    "none": 39
-   },
-   "kitCheck": {
-    "factor": 0.96,
-    "kinds": 14
-   }
-  },
-  {
-   "slug": "ken-proto",
-   "name": "ken-proto",
-   "url": "https://kenney.nl/assets/prototype-kit",
-   "artist": "Kenney",
-   "licenseLabel": "CC0",
-   "count": 25,
-   "packs": [
-    "Kenney Prototype Kit"
-   ],
-   "origins": {
-    "Kenney Prototype Kit": 25
-   },
-   "scales": {
-    "0.75": 25
-   },
-   "smooth": {
-    "none": 25
-   },
-   "kitCheck": {
-    "factor": 0.79,
-    "kinds": 10,
-    "level": "warning"
    }
   },
   {
@@ -1911,31 +1952,6 @@
    "kitCheck": {
     "factor": 0.97,
     "kinds": 27
-   }
-  },
-  {
-   "slug": "ken-town",
-   "name": "ken-town",
-   "url": "https://kenney.nl/assets/fantasy-town-kit",
-   "artist": "Kenney",
-   "licenseLabel": "CC0",
-   "count": 82,
-   "packs": [
-    "Kenney Fantasy Town Kit"
-   ],
-   "origins": {
-    "none": 67,
-    "Kenney Fantasy Town Kit": 15
-   },
-   "scales": {
-    "0.9": 82
-   },
-   "smooth": {
-    "none": 82
-   },
-   "kitCheck": {
-    "factor": 0.96,
-    "kinds": 19
    }
   },
   {
@@ -18653,14 +18669,14 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2249
+   "count": 2247
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 945
+   "count": 947
   },
   {
    "id": "ken",
@@ -148371,7 +148387,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.25 over max 1.2 (str-part-roof-unit)"
+     "text": "longest 1.25 over max 1.2 (str-part-roof-unit · 1.238 at kit ×1.01)"
     }
    ]
   },
@@ -154520,6 +154536,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "altar-stone",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -154561,6 +154578,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "altar-wood",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -154609,6 +154627,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "bench-damaged",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
@@ -154657,6 +154676,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "bench",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
@@ -154705,6 +154725,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "candle-multiple",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -154751,6 +154772,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "candle",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -154797,6 +154819,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "coffin-old",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -154840,6 +154863,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "coffin",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -154883,6 +154907,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "column-large",
    "kind": "str-part-pillar",
    "size": "m",
@@ -154929,6 +154954,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "cross-column",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -154971,10 +154997,18 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v227"
+   "variant": "v227",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.3 over max 1.2 (str-fixture-marker-grave · 1.25 at kit ×1.04)"
+    }
+   ]
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "cross-wood",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155027,6 +155061,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "cross",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155073,6 +155108,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-a",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -155114,6 +155150,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-b",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -155160,6 +155197,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-large-roof",
    "kind": "str-building-religious-crypt",
    "size": "l",
@@ -155201,6 +155239,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-large",
    "kind": "str-building-religious-crypt",
    "size": "l",
@@ -155249,6 +155288,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-small-roof",
    "kind": "str-building-religious-crypt",
    "size": "m",
@@ -155295,6 +155335,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-small-roofed",
    "kind": "str-building-religious-crypt",
    "size": "l",
@@ -155342,6 +155383,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt-small",
    "kind": "str-building-religious-crypt",
    "size": "m",
@@ -155390,6 +155432,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "crypt",
    "kind": "obj-container-coffin",
    "size": "m",
@@ -155436,6 +155479,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "debris-wood",
    "kind": "obj-resource-wood-plank",
    "size": "s",
@@ -155476,6 +155520,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "debris",
    "kind": "env-terrain-rock",
    "size": "s",
@@ -155518,6 +155563,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "detail-bowl",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
@@ -155558,6 +155604,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "detail-chalice",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
@@ -155597,6 +155644,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "detail-plate",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -155636,6 +155684,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "fence-damaged",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -155682,6 +155731,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "fence-gate",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -155726,6 +155776,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -155771,6 +155822,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "grave-border",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155812,6 +155864,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "grave",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155858,6 +155911,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-bevel",
    "kind": "str-fixture-marker-grave",
    "size": "s",
@@ -155904,6 +155958,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-broken",
    "kind": "str-fixture-marker-grave",
    "size": "s",
@@ -155945,6 +156000,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-cross-large",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -155986,6 +156042,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-cross",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156032,6 +156089,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-debris",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156081,6 +156139,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-decorative",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156122,6 +156181,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-roof",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156169,6 +156229,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-round",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156210,6 +156271,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "gravestone-wide",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156257,6 +156319,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border-column",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156307,6 +156370,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border-curve",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156355,6 +156419,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border-gate",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156404,6 +156469,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-border",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156454,6 +156520,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-curve",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156496,6 +156563,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence-damaged",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156541,6 +156609,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "iron-fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -156585,6 +156654,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lantern-candle",
    "kind": "obj-furnishing-light-lantern",
    "size": "s",
@@ -156639,6 +156709,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lantern-glass",
    "kind": "obj-furnishing-light-lantern",
    "size": "s",
@@ -156692,6 +156763,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lightpost-double",
    "kind": "str-fixture-light-post",
    "size": "m",
@@ -156745,6 +156817,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "lightpost-single",
    "kind": "str-fixture-light-post",
    "size": "m",
@@ -156800,6 +156873,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pillar-obelisk",
    "kind": "str-fixture-marker-grave",
    "size": "m",
@@ -156840,6 +156914,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pillar-small",
    "kind": "str-part-pillar",
    "size": "m",
@@ -156880,6 +156955,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pillar-square",
    "kind": "str-part-pillar",
    "size": "m",
@@ -156925,6 +157001,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin-carved",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -156977,6 +157054,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin-tall-carved",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -157029,6 +157107,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin-tall",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -157075,6 +157154,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "pumpkin",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
@@ -157121,6 +157201,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "shovel",
    "kind": "obj-equipment-tool-twohand-shovel",
    "size": "m",
@@ -157168,6 +157249,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall-column",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157216,6 +157298,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall-curve",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157262,6 +157345,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall-damaged",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157311,6 +157395,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "stone-wall",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -157359,6 +157444,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "urn-round",
    "kind": "obj-container-pot-urn",
    "size": "s",
@@ -157406,6 +157492,7 @@
   },
   {
    "kit": "ken-grave",
+   "collection": "ken-village",
    "name": "urn-square",
    "kind": "obj-container-pot-urn",
    "size": "s",
@@ -162181,7 +162268,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge)"
+     "text": "longest 0.95 over max 0.9 (obj-device-appliance-fridge · 0.941 at kit ×1.01)"
     }
    ]
   },
@@ -168159,23 +168246,23 @@
    "kit": "ken-pirate",
    "name": "boat-row-large",
    "kind": "obj-transport-watercraft-boat",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.85,
-    0.85,
-    0.25
+    1.5,
+    1.55,
+    0.45
    ],
    "tris": 174,
-   "tpu": 352,
+   "tpu": 105,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 11552,
+   "bytes": 11556,
    "vtx": 258,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00796,
+   "minEdge": 0.034,
+   "avgTri": 0.02675,
    "anglePct": 79,
    "vpt": 1.48,
    "grad": 0.87,
@@ -168200,36 +168287,29 @@
     "tba",
     "wood-beam"
    ],
-   "variant": "v1189",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.85 under min 0.9 (obj-transport-watercraft-boat · 0.802 at kit ×1.06)"
-    }
-   ]
+   "variant": "v1189"
   },
   {
    "kit": "ken-pirate",
    "name": "boat-row-small",
    "kind": "obj-transport-watercraft-boat",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.85,
-    0.7,
-    0.25
+    1.5,
+    1.3,
+    0.45
    ],
    "tris": 168,
-   "tpu": 409,
+   "tpu": 122,
    "mat": 1,
    "bands": 1,
    "calls": 2,
-   "bytes": 12612,
+   "bytes": 12616,
    "vtx": 292,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00679,
+   "minEdge": 0.034,
+   "avgTri": 0.02281,
    "anglePct": 78,
    "vpt": 1.74,
    "grad": 0.9,
@@ -168249,14 +168329,7 @@
     "tba",
     "wood-beam"
    ],
-   "variant": "v1189",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.85 under min 0.9 (obj-transport-watercraft-boat · 0.802 at kit ×1.06)"
-    }
-   ]
+   "variant": "v1189"
   },
   {
    "kit": "ken-pirate",
@@ -169770,22 +169843,22 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
-    3.2,
-    3
+    2.65,
+    5.85,
+    5.5
    ],
    "tris": 1656,
-   "tpu": 121,
+   "tpu": 20,
    "mat": 1,
    "bands": 1,
    "calls": 6,
-   "bytes": 105504,
+   "bytes": 105508,
    "vtx": 2787,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.1166,
-   "avgTri": 0.01872,
+   "minEdge": 0.013,
+   "minTube": 0.2138,
+   "avgTri": 0.06292,
    "anglePct": 61,
    "vpt": 1.68,
    "grad": 0.8,
@@ -169813,22 +169886,22 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
-    3.95,
-    3
+    2.65,
+    7.2,
+    5.5
    ],
    "tris": 1812,
-   "tpu": 107,
+   "tpu": 17,
    "mat": 2,
    "bands": 3,
    "calls": 7,
-   "bytes": 106228,
+   "bytes": 106232,
    "vtx": 2810,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.1166,
-   "avgTri": 0.02077,
+   "minEdge": 0.027,
+   "minTube": 0.2138,
+   "avgTri": 0.0698,
    "anglePct": 62,
    "vpt": 1.55,
    "grad": 0.61,
@@ -169872,22 +169945,22 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
-    3.2,
-    3
+    2.65,
+    5.85,
+    5.5
    ],
    "tris": 1686,
-   "tpu": 123,
+   "tpu": 20,
    "mat": 2,
    "bands": 3,
    "calls": 7,
-   "bytes": 98744,
+   "bytes": 98748,
    "vtx": 2600,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.1166,
-   "avgTri": 0.01863,
+   "minEdge": 0.027,
+   "minTube": 0.2138,
+   "avgTri": 0.0626,
    "anglePct": 59,
    "vpt": 1.54,
    "grad": 0.59,
@@ -169930,22 +170003,22 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
-    3.95,
-    3
+    2.65,
+    7.2,
+    5.5
    ],
    "tris": 1901,
-   "tpu": 112,
+   "tpu": 18,
    "mat": 2,
    "bands": 4,
    "calls": 7,
-   "bytes": 121028,
+   "bytes": 121032,
    "vtx": 3221,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.1166,
-   "avgTri": 0.0198,
+   "minEdge": 0.027,
+   "minTube": 0.2138,
+   "avgTri": 0.06654,
    "anglePct": 63,
    "vpt": 1.69,
    "grad": 0.64,
@@ -169994,22 +170067,22 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
-    3.2,
-    3
+    2.65,
+    5.85,
+    5.5
    ],
    "tris": 1775,
-   "tpu": 130,
+   "tpu": 21,
    "mat": 2,
    "bands": 4,
    "calls": 7,
-   "bytes": 113556,
+   "bytes": 113560,
    "vtx": 3011,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.1166,
-   "avgTri": 0.01769,
+   "minEdge": 0.027,
+   "minTube": 0.2138,
+   "avgTri": 0.05947,
    "anglePct": 61,
    "vpt": 1.7,
    "grad": 0.62,
@@ -170057,21 +170130,21 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
     2.65,
-    3
+    4.85,
+    5.5
    ],
    "tris": 1456,
-   "tpu": 128,
+   "tpu": 21,
    "mat": 2,
    "bands": 4,
    "calls": 5,
-   "bytes": 91592,
+   "bytes": 91596,
    "vtx": 2440,
    "grounded": true,
-   "minEdge": 0.015,
-   "minTube": 0.1166,
-   "avgTri": 0.01649,
+   "minEdge": 0.027,
+   "minTube": 0.2138,
+   "avgTri": 0.05543,
    "anglePct": 61,
    "vpt": 1.68,
    "grad": 0.62,
@@ -170123,21 +170196,21 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
     2.65,
-    3
+    4.85,
+    5.5
    ],
    "tris": 1365,
-   "tpu": 120,
+   "tpu": 19,
    "mat": 2,
    "bands": 3,
    "calls": 5,
-   "bytes": 81228,
+   "bytes": 81232,
    "vtx": 2151,
    "grounded": true,
-   "minEdge": 0.015,
-   "minTube": 0.1166,
-   "avgTri": 0.01748,
+   "minEdge": 0.027,
+   "minTube": 0.2138,
+   "avgTri": 0.05877,
    "anglePct": 61,
    "vpt": 1.58,
    "grad": 0.59,
@@ -170184,22 +170257,22 @@
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    1.45,
-    3.2,
-    3
+    2.65,
+    5.85,
+    5.5
    ],
    "tris": 2173,
-   "tpu": 159,
+   "tpu": 26,
    "mat": 2,
    "bands": 4,
    "calls": 16,
-   "bytes": 147436,
+   "bytes": 147440,
    "vtx": 3763,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0878,
-   "avgTri": 0.01123,
+   "minEdge": 0.007,
+   "minTube": 0.1611,
+   "avgTri": 0.03774,
    "anglePct": 69,
    "vpt": 1.73,
    "grad": 0.7,
@@ -170854,11 +170927,12 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "arrow",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
-    0.4,
+    0.45,
     0.15,
     0.55
    ],
@@ -170871,8 +170945,8 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.0056,
+   "minEdge": 0.029,
+   "avgTri": 0.00653,
    "anglePct": 72,
    "vpt": 1.5,
    "grad": 0.79,
@@ -170898,16 +170972,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "arrows",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
-    0.45,
+    0.5,
     0.15,
-    0.8
+    0.85
    ],
    "tris": 88,
-   "tpu": 227,
+   "tpu": 210,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -170915,8 +170990,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.00712,
+   "minEdge": 0.029,
+   "avgTri": 0.00829,
    "anglePct": 63,
    "vpt": 1.55,
    "grad": 0.79,
@@ -170942,13 +171017,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "barrel",
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
-    0.45,
-    0.45,
-    0.4
+    0.5,
+    0.5,
+    0.45
    ],
    "tris": 148,
    "tpu": 431,
@@ -170957,10 +171033,11 @@
    "calls": 1,
    "bytes": 7964,
    "vtx": 176,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.057,
-   "avgTri": 0.01002,
+   "minEdge": 0.062,
+   "avgTri": 0.01168,
    "anglePct": 50,
    "vpt": 1.19,
    "grad": 0.61,
@@ -170986,13 +171063,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "chest",
    "kind": "obj-container-chest",
    "size": "s",
    "wdh": [
-    0.45,
-    0.45,
-    0.4
+    0.5,
+    0.5,
+    0.45
    ],
    "tris": 232,
    "tpu": 676,
@@ -171003,8 +171081,8 @@
    "vtx": 328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.044,
-   "avgTri": 0.00608,
+   "minEdge": 0.047,
+   "avgTri": 0.00708,
    "anglePct": 85,
    "vpt": 1.41,
    "grad": 0.63,
@@ -171030,13 +171108,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "coin-gold",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.15,
-    0.35
+    0.4
    ],
    "tris": 124,
    "tpu": 362,
@@ -171047,8 +171126,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "avgTri": 0.00323,
+   "minEdge": 0.045,
+   "avgTri": 0.00376,
    "anglePct": 41,
    "vpt": 1.42,
    "grad": 0.82,
@@ -171069,13 +171148,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
-    0.45,
-    0.45,
-    0.45
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 156,
    "tpu": 455,
@@ -171086,8 +171166,8 @@
    "vtx": 252,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "avgTri": 0.01254,
+   "minEdge": 0.033,
+   "avgTri": 0.01461,
    "anglePct": 100,
    "vpt": 1.62,
    "grad": 0.79,
@@ -171113,16 +171193,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "door-large",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.9,
-    0.25,
-    0.9
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 380,
-   "tpu": 881,
+   "tpu": 816,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -171130,8 +171211,8 @@
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00852,
+   "minEdge": 0.024,
+   "avgTri": 0.00993,
    "anglePct": 75,
    "vpt": 1.09,
    "grad": 0.51,
@@ -171163,16 +171244,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "door",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.55,
     0.2,
-    0.9
+    0.95
    ],
    "tris": 401,
-   "tpu": 930,
+   "tpu": 861,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -171180,9 +171262,9 @@
    "vtx": 447,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "minTube": 0.1958,
-   "avgTri": 0.00961,
+   "minEdge": 0.024,
+   "minTube": 0.2114,
+   "avgTri": 0.0112,
    "anglePct": 89,
    "vpt": 1.11,
    "grad": 0.54,
@@ -171214,13 +171296,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-broken",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.1,
-    0.35
+    0.95,
+    0.15,
+    0.4
    ],
    "tris": 216,
    "tpu": 630,
@@ -171230,8 +171313,8 @@
    "bytes": 15252,
    "vtx": 384,
    "grounded": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00447,
+   "minEdge": 0.034,
+   "avgTri": 0.00521,
    "anglePct": 75,
    "vpt": 1.78,
    "grad": 0.45,
@@ -171262,16 +171345,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-corner-curved",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.35
+    0.95,
+    0.95,
+    0.4
    ],
    "tris": 160,
-   "tpu": 302,
+   "tpu": 259,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171279,9 +171363,9 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.035,
-   "minTube": 0.1577,
-   "avgTri": 0.00593,
+   "minEdge": 0.038,
+   "minTube": 0.1702,
+   "avgTri": 0.00691,
    "anglePct": 63,
    "vpt": 1.65,
    "grad": 0.47,
@@ -171308,16 +171392,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.85,
-    0.85,
-    0.35
+    0.95,
+    0.95,
+    0.4
    ],
    "tris": 92,
-   "tpu": 174,
+   "tpu": 149,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171325,8 +171410,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.01375,
+   "minEdge": 0.029,
+   "avgTri": 0.01603,
    "anglePct": 99,
    "vpt": 1.83,
    "grad": 0.57,
@@ -171353,13 +171438,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-broken",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
+    0.95,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 100,
    "tpu": 292,
@@ -171369,8 +171455,8 @@
    "bytes": 5692,
    "vtx": 112,
    "grounded": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00695,
+   "minEdge": 0.034,
+   "avgTri": 0.0081,
    "anglePct": 33,
    "vpt": 1.12,
    "grad": 0.65,
@@ -171402,16 +171488,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-corner-curved",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.25
+    0.95,
+    0.95,
+    0.3
    ],
    "tris": 216,
-   "tpu": 399,
+   "tpu": 343,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171419,9 +171506,9 @@
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "minTube": 0.1808,
-   "avgTri": 0.00427,
+   "minEdge": 0.034,
+   "minTube": 0.1952,
+   "avgTri": 0.00498,
    "anglePct": 42,
    "vpt": 0.7,
    "grad": 0.71,
@@ -171449,16 +171536,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.25
+    0.95,
+    0.95,
+    0.3
    ],
    "tris": 116,
-   "tpu": 214,
+   "tpu": 184,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171466,9 +171554,9 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "minTube": 0.1609,
-   "avgTri": 0.01066,
+   "minEdge": 0.034,
+   "minTube": 0.1737,
+   "avgTri": 0.01242,
    "anglePct": 66,
    "vpt": 1.1,
    "grad": 0.64,
@@ -171496,13 +171584,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-low-straight",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
+    0.95,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 72,
    "tpu": 210,
@@ -171512,9 +171601,9 @@
    "bytes": 4500,
    "vtx": 80,
    "grounded": true,
-   "minEdge": 0.031,
-   "minTube": 0.1609,
-   "avgTri": 0.00988,
+   "minEdge": 0.034,
+   "minTube": 0.1737,
+   "avgTri": 0.01151,
    "anglePct": 60,
    "vpt": 1.11,
    "grad": 0.63,
@@ -171545,13 +171634,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-rope",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.85,
+    0.9,
     0.2,
-    0.25
+    0.3
    ],
    "tris": 180,
    "tpu": 525,
@@ -171562,8 +171652,8 @@
    "vtx": 468,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "avgTri": 0.00335,
+   "minEdge": 0.054,
+   "avgTri": 0.00391,
    "anglePct": 20,
    "vpt": 2.6,
    "grad": 0.39,
@@ -171596,13 +171686,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "fence-straight",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.9,
-    0.1,
-    0.35
+    0.95,
+    0.15,
+    0.4
    ],
    "tris": 48,
    "tpu": 140,
@@ -171612,8 +171703,8 @@
    "bytes": 4880,
    "vtx": 96,
    "grounded": true,
-   "minEdge": 0.035,
-   "avgTri": 0.01507,
+   "minEdge": 0.038,
+   "avgTri": 0.01757,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.6,
@@ -171643,16 +171734,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "flag",
    "kind": "str-fixture-marker-flag",
    "size": "m",
    "wdh": [
-    0.35,
+    0.4,
     0.1,
-    0.8
+    0.85
    ],
    "tris": 110,
-   "tpu": 283,
+   "tpu": 263,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171660,8 +171752,8 @@
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00312,
+   "minEdge": 0.027,
+   "avgTri": 0.00364,
    "anglePct": 78,
    "vpt": 1.24,
    "grad": 0.79,
@@ -171687,11 +171779,12 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "heart",
    "kind": "obj-symbol",
    "size": "s",
    "wdh": [
-    0.35,
+    0.4,
     0.1,
     0.35
    ],
@@ -171704,8 +171797,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.059,
-   "avgTri": 0.00516,
+   "minEdge": 0.063,
+   "avgTri": 0.00601,
    "anglePct": 41,
    "vpt": 1.82,
    "grad": 0.8,
@@ -171726,16 +171819,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "hedge-corner",
    "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.35
+    0.95,
+    0.95,
+    0.4
    ],
    "tris": 104,
-   "tpu": 192,
+   "tpu": 165,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171743,9 +171837,9 @@
    "vtx": 82,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.062,
-   "minTube": 0.1878,
-   "avgTri": 0.02478,
+   "minEdge": 0.067,
+   "minTube": 0.2027,
+   "avgTri": 0.02887,
    "anglePct": 99,
    "vpt": 0.79,
    "grad": 0.13,
@@ -171771,13 +171865,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "hedge",
    "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
-    0.9,
-    0.25,
-    0.35
+    0.95,
+    0.3,
+    0.4
    ],
    "tris": 72,
    "tpu": 210,
@@ -171788,9 +171883,9 @@
    "vtx": 56,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.062,
-   "minTube": 0.2782,
-   "avgTri": 0.02176,
+   "minEdge": 0.067,
+   "minTube": 0.3004,
+   "avgTri": 0.02536,
    "anglePct": 99,
    "vpt": 0.78,
    "grad": 0.12,
@@ -171816,16 +171911,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "ladder-broken",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.9
+    0.5,
+    0.1,
+    0.95
    ],
    "tris": 92,
-   "tpu": 214,
+   "tpu": 198,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171833,8 +171929,8 @@
    "vtx": 184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.0092,
+   "minEdge": 0.047,
+   "avgTri": 0.01073,
    "anglePct": 92,
    "vpt": 2,
    "grad": 0.5,
@@ -171862,16 +171958,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "ladder-long",
    "kind": "str-access-ladder",
    "size": "l",
    "wdh": [
-    0.45,
-    0.09,
-    1.75
+    0.5,
+    0.1,
+    1.9
    ],
    "tris": 88,
-   "tpu": 102,
+   "tpu": 95,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171879,8 +171976,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.01929,
+   "minEdge": 0.047,
+   "avgTri": 0.02248,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.51,
@@ -171907,22 +172004,23 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.75 over max 1.6 (str-access-ladder scale-big · 1.823 at kit ×0.96)"
+     "text": "longest 1.9 over max 1.6 (str-access-ladder scale-big · 1.881 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "ladder",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.45,
-    0.09,
-    0.9
+    0.5,
+    0.1,
+    0.95
    ],
    "tris": 56,
-   "tpu": 130,
+   "tpu": 120,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -171930,8 +172028,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.01543,
+   "minEdge": 0.047,
+   "avgTri": 0.01798,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.57,
@@ -171958,13 +172056,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "lever",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
    "wdh": [
     0.55,
-    0.4,
-    0.55
+    0.45,
+    0.6
    ],
    "tris": 134,
    "tpu": 391,
@@ -171975,8 +172074,8 @@
    "vtx": 230,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00842,
+   "minEdge": 0.034,
+   "avgTri": 0.00981,
    "anglePct": 82,
    "vpt": 1.72,
    "grad": 0.76,
@@ -172015,13 +172114,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "lock",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
    "wdh": [
-    0.3,
-    0.15,
-    0.35
+    0.35,
+    0.2,
+    0.4
    ],
    "tris": 100,
    "tpu": 292,
@@ -172032,8 +172132,8 @@
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.00369,
+   "minEdge": 0.023,
+   "avgTri": 0.0043,
    "anglePct": 90,
    "vpt": 1.52,
    "grad": 0.8,
@@ -172065,16 +172165,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform-fortified",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
+    0.95,
+    0.95,
     0.2
    ],
    "tris": 108,
-   "tpu": 200,
+   "tpu": 171,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172082,8 +172183,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.02741,
+   "minEdge": 0.014,
+   "avgTri": 0.03195,
    "anglePct": 73,
    "vpt": 2,
    "grad": 0.49,
@@ -172110,12 +172211,13 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform-overhang",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.4,
+    0.95,
+    0.45,
     0.4
    ],
    "tris": 68,
@@ -172126,8 +172228,8 @@
    "bytes": 6216,
    "vtx": 136,
    "grounded": true,
-   "minEdge": 0.033,
-   "avgTri": 0.02075,
+   "minEdge": 0.036,
+   "avgTri": 0.02418,
    "anglePct": 78,
    "vpt": 2,
    "grad": 0.66,
@@ -172157,16 +172259,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform-ramp",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.5
+    0.95,
+    0.95,
+    0.55
    ],
    "tris": 84,
-   "tpu": 151,
+   "tpu": 130,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172174,8 +172277,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.033,
-   "avgTri": 0.031,
+   "minEdge": 0.036,
+   "avgTri": 0.03613,
    "anglePct": 19,
    "vpt": 2,
    "grad": 0.51,
@@ -172201,16 +172304,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "platform",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
-    0.9,
-    0.9,
-    0.15
+    0.95,
+    0.95,
+    0.2
    ],
    "tris": 84,
-   "tpu": 155,
+   "tpu": 133,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172218,8 +172322,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.033,
-   "avgTri": 0.02964,
+   "minEdge": 0.036,
+   "avgTri": 0.03455,
    "anglePct": 76,
    "vpt": 2,
    "grad": 0.51,
@@ -172246,13 +172350,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "rocks",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.55,
     0.6,
-    0.35
+    0.65,
+    0.4
    ],
    "tris": 100,
    "tpu": 292,
@@ -172264,7 +172369,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.0089,
+   "avgTri": 0.01037,
    "anglePct": 44,
    "vpt": 3,
    "grad": 0.8,
@@ -172284,12 +172389,13 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "sign",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
     0.45,
-    0.1,
+    0.15,
     0.55
    ],
    "tris": 76,
@@ -172301,8 +172407,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "avgTri": 0.00651,
+   "minEdge": 0.034,
+   "avgTri": 0.00759,
    "anglePct": 83,
    "vpt": 1.89,
    "grad": 0.6,
@@ -172328,16 +172434,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "spring-anim",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.4
+    0.7,
+    0.7,
+    0.45
    ],
    "tris": 356,
-   "tpu": 1038,
+   "tpu": 1003,
    "mat": 1,
    "bands": 2,
    "calls": 3,
@@ -172345,8 +172452,8 @@
    "vtx": 680,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00556,
+   "minEdge": 0.027,
+   "avgTri": 0.00648,
    "anglePct": 56,
    "vpt": 1.91,
    "grad": 0.8,
@@ -172379,16 +172486,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "spring",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
    "wdh": [
-    0.65,
-    0.65,
-    0.4
+    0.7,
+    0.7,
+    0.45
    ],
    "tris": 356,
-   "tpu": 1038,
+   "tpu": 1003,
    "mat": 1,
    "bands": 2,
    "calls": 3,
@@ -172396,8 +172504,8 @@
    "vtx": 680,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00556,
+   "minEdge": 0.027,
+   "avgTri": 0.00648,
    "anglePct": 56,
    "vpt": 1.91,
    "grad": 0.8,
@@ -172425,13 +172533,14 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "star",
    "kind": "obj-symbol",
    "size": "s",
    "wdh": [
-    0.3,
-    0.2,
-    0.3
+    0.35,
+    0.25,
+    0.35
    ],
    "tris": 30,
    "tpu": 87,
@@ -172442,8 +172551,8 @@
    "vtx": 90,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.00541,
+   "minEdge": 0.029,
+   "avgTri": 0.0063,
    "anglePct": 18,
    "vpt": 3,
    "grad": 0.8,
@@ -172464,16 +172573,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "stones",
    "kind": "env-terrain-rock-pebble",
    "size": "m",
    "wdh": [
-    0.6,
-    0.7,
-    0.04
+    0.65,
+    0.75,
+    0.05
    ],
    "tris": 120,
-   "tpu": 350,
+   "tpu": 340,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172481,8 +172591,8 @@
    "vtx": 240,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.00347,
+   "minEdge": 0.027,
+   "avgTri": 0.00404,
    "anglePct": 60,
    "vpt": 2,
    "grad": 0.59,
@@ -172503,16 +172613,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "tree-pine-small",
    "kind": "env-flora-tree-conifer",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    1.25
+    0.65,
+    0.65,
+    1.35
    ],
    "tris": 204,
-   "tpu": 339,
+   "tpu": 314,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172520,8 +172631,8 @@
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "avgTri": 0.00926,
+   "minEdge": 0.046,
+   "avgTri": 0.01079,
    "anglePct": 21,
    "vpt": 0.79,
    "grad": 0.79,
@@ -172547,16 +172658,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "tree-pine",
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    0.85,
-    0.85,
-    1.75
+    0.9,
+    0.9,
+    1.9
    ],
    "tris": 204,
-   "tpu": 167,
+   "tpu": 133,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172564,8 +172676,8 @@
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.061,
-   "avgTri": 0.01889,
+   "minEdge": 0.066,
+   "avgTri": 0.02202,
    "anglePct": 21,
    "vpt": 0.79,
    "grad": 0.79,
@@ -172591,16 +172703,17 @@
   },
   {
    "kit": "ken-platformer",
+   "collection": "ken-mini",
    "name": "tree",
    "kind": "env-flora-tree",
    "size": "l",
    "wdh": [
-    0.95,
-    1,
-    1.7
+    1.05,
+    1.05,
+    1.85
    ],
    "tris": 408,
-   "tpu": 258,
+   "tpu": 205,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172608,8 +172721,8 @@
    "vtx": 464,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.049,
-   "avgTri": 0.01303,
+   "minEdge": 0.053,
+   "avgTri": 0.01519,
    "anglePct": 13,
    "vpt": 1.14,
    "grad": 0.81,
@@ -172635,25 +172748,26 @@
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "coin",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
-    0.2,
-    0.08,
-    0.2
+    0.25,
+    0.1,
+    0.25
    ],
    "tris": 252,
    "tpu": 735,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11448,
+   "bytes": 11444,
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.00076,
+   "minEdge": 0.026,
+   "avgTri": 0.00121,
    "anglePct": 64,
    "vpt": 1.05,
    "grad": 0.59,
@@ -172670,24 +172784,18 @@
     "ken",
     "metal-gold",
     "pickup"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.5,
+    0.5,
+    0.5
    ],
    "tris": 204,
    "tpu": 595,
@@ -172698,8 +172806,8 @@
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.037,
-   "avgTri": 0.00642,
+   "minEdge": 0.047,
+   "avgTri": 0.01031,
    "anglePct": 100,
    "vpt": 1.41,
    "grad": 0.81,
@@ -172727,27 +172835,21 @@
     "metal-gold",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-garage",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.85,
-    0.25,
-    0.6
+    1.05,
+    0.35,
+    0.75
    ],
    "tris": 88,
-   "tpu": 257,
+   "tpu": 236,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172755,8 +172857,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01576,
+   "minEdge": 0.038,
+   "avgTri": 0.02529,
    "anglePct": 99,
    "vpt": 1.27,
    "grad": 0.88,
@@ -172772,27 +172874,21 @@
    "tags": [
     "ken",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-sliding-double-wide",
    "kind": "str-part-door",
    "size": "m",
    "wdh": [
-    1.05,
-    0.25,
-    0.6
+    1.35,
+    0.35,
+    0.75
    ],
    "tris": 176,
-   "tpu": 513,
+   "tpu": 473,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172800,8 +172896,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01116,
+   "minEdge": 0.038,
+   "avgTri": 0.0179,
    "anglePct": 99,
    "vpt": 1.23,
    "grad": 0.88,
@@ -172818,27 +172914,21 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v858"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-sliding-double",
    "kind": "str-part-door",
    "size": "m",
    "wdh": [
-    0.7,
-    0.25,
-    0.6
+    0.85,
+    0.35,
+    0.75
    ],
    "tris": 176,
-   "tpu": 513,
+   "tpu": 473,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172846,8 +172936,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.00828,
+   "minEdge": 0.038,
+   "avgTri": 0.01329,
    "anglePct": 99,
    "vpt": 1.23,
    "grad": 0.88,
@@ -172864,27 +172954,21 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v858"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door-sliding",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.55,
-    0.25,
-    0.6
+    0.65,
+    0.35,
+    0.75
    ],
    "tris": 88,
-   "tpu": 257,
+   "tpu": 236,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -172892,8 +172976,8 @@
    "vtx": 108,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01116,
+   "minEdge": 0.038,
+   "avgTri": 0.0179,
    "anglePct": 99,
    "vpt": 1.23,
    "grad": 0.88,
@@ -172910,36 +172994,30 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v858",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v858"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "door",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.25,
-    0.45,
-    0.6
+    0.3,
+    0.55,
+    0.75
    ],
    "tris": 68,
-   "tpu": 198,
+   "tpu": 183,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4996,
+   "bytes": 4992,
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
-   "avgTri": 0.01196,
+   "minEdge": 0.038,
+   "avgTri": 0.01918,
    "anglePct": 99,
    "vpt": 1.47,
    "grad": 0.79,
@@ -172961,27 +173039,21 @@
     "ken",
     "metal-iron-cast",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "flag",
    "kind": "str-fixture-marker-flag",
    "size": "m",
    "wdh": [
-    0.08,
-    0.4,
-    0.7
+    0.1,
+    0.5,
+    0.9
    ],
    "tris": 100,
-   "tpu": 287,
+   "tpu": 226,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -172989,8 +173061,8 @@
    "vtx": 124,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.026,
-   "avgTri": 0.00359,
+   "minEdge": 0.033,
+   "avgTri": 0.00576,
    "anglePct": 65,
    "vpt": 1.24,
    "grad": 0.53,
@@ -173012,24 +173084,18 @@
     "ken",
     "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "ladder-top",
    "kind": "str-access-ladder",
    "size": "s",
    "wdh": [
-    0.3,
     0.4,
-    0.25
+    0.5,
+    0.3
    ],
    "tris": 256,
    "tpu": 746,
@@ -173040,8 +173106,8 @@
    "vtx": 150,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.001,
+   "minEdge": 0.034,
+   "avgTri": 0.0016,
    "anglePct": 67,
    "vpt": 0.59,
    "grad": 0.95,
@@ -173058,27 +173124,21 @@
     "comp",
     "ken",
     "metal-iron-cast"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "ladder",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.1,
-    0.4,
-    0.75
+    0.15,
+    0.5,
+    0.95
    ],
    "tris": 224,
-   "tpu": 610,
+   "tpu": 481,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173086,9 +173146,9 @@
    "vtx": 256,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "minTube": 0.0838,
-   "avgTri": 0.00373,
+   "minEdge": 0.034,
+   "minTube": 0.1062,
+   "avgTri": 0.00598,
    "anglePct": 100,
    "vpt": 1.14,
    "grad": 0.79,
@@ -173105,37 +173165,30 @@
     "ken",
     "metal-iron-cast",
     "scale-small"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "stairs-diagonal",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.75,
-    0.75,
-    0.75
+    0.95,
+    0.95,
+    0.95
    ],
    "tris": 40,
-   "tpu": 95,
+   "tpu": 47,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 3676,
    "vtx": 66,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.188,
-   "avgTri": 0.05974,
+   "minEdge": 0.237,
+   "avgTri": 0.09585,
    "anglePct": 100,
    "vpt": 1.65,
    "grad": 0.79,
@@ -173151,24 +173204,18 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "target-a-round",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
-    0.35,
-    0.09,
-    0.35
+    0.45,
+    0.1,
+    0.45
    ],
    "tris": 76,
    "tpu": 222,
@@ -173179,8 +173226,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.036,
-   "avgTri": 0.00397,
+   "minEdge": 0.046,
+   "avgTri": 0.00637,
    "anglePct": 65,
    "vpt": 1.05,
    "grad": 0.8,
@@ -173208,24 +173255,20 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.443 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+     "text": "longest 0.45 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.446 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "target-b-round",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
-    0.35,
-    0.09,
-    0.35
+    0.45,
+    0.1,
+    0.45
    ],
    "tris": 92,
    "tpu": 268,
@@ -173236,8 +173279,8 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.036,
-   "avgTri": 0.00328,
+   "minEdge": 0.045,
+   "avgTri": 0.00526,
    "anglePct": 65,
    "vpt": 1.04,
    "grad": 0.8,
@@ -173265,27 +173308,23 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.443 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
+     "text": "longest 0.45 over max 0.425 (obj-equipment-target-bullseye scale-small · 0.446 at kit ×1.01)"
     }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "vehicle-convertible",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.7,
-    1.05,
-    0.5
+    0.85,
+    1.35,
+    0.65
    ],
    "tris": 846,
-   "tpu": 1663,
+   "tpu": 1037,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -173294,7 +173333,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00529,
+   "avgTri": 0.00848,
    "anglePct": 68,
    "vpt": 1.29,
    "grad": 0.69,
@@ -173328,27 +173367,21 @@
     "metal",
     "plastic"
    ],
-   "variant": "v860",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v860"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "vehicle",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.75,
-    1.05,
-    0.6
+    0.95,
+    1.35,
+    0.75
    ],
    "tris": 860,
-   "tpu": 1552,
+   "tpu": 918,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -173357,7 +173390,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00531,
+   "avgTri": 0.00852,
    "anglePct": 71,
    "vpt": 1.29,
    "grad": 0.73,
@@ -173391,27 +173424,21 @@
     "metal",
     "plastic"
    ],
-   "variant": "v860",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v860"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway-sliding",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1.15,
-    0.25,
-    0.75
+    1.45,
+    0.3,
+    0.95
    ],
    "tris": 152,
-   "tpu": 414,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173419,8 +173446,8 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.02749,
+   "minEdge": 0.048,
+   "avgTri": 0.0441,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.77,
@@ -173441,27 +173468,21 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway-wide-sliding",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
-    2.25,
-    0.25,
-    0.75
+    2.85,
+    0.3,
+    0.95
    ],
    "tris": 152,
-   "tpu": 400,
+   "tpu": 197,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173469,8 +173490,8 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.04687,
+   "minEdge": 0.048,
+   "avgTri": 0.07521,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.77,
@@ -173491,27 +173512,21 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway-wide",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1.15,
-    0.25,
-    0.75
+    1.45,
+    0.3,
+    0.95
    ],
    "tris": 152,
-   "tpu": 414,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173519,8 +173534,8 @@
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.02541,
+   "minEdge": 0.048,
+   "avgTri": 0.04077,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.77,
@@ -173541,27 +173556,21 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-doorway",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 76,
-   "tpu": 207,
+   "tpu": 163,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -173569,8 +173578,8 @@
    "vtx": 104,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01964,
+   "minEdge": 0.048,
+   "avgTri": 0.03152,
    "anglePct": 100,
    "vpt": 1.37,
    "grad": 0.75,
@@ -173592,27 +173601,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v517"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-cutout-large",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.15,
-    0.75
+    0.95,
+    0.2,
+    0.95
    ],
    "tris": 32,
-   "tpu": 87,
+   "tpu": 69,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173620,8 +173623,8 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.15,
-   "avgTri": 0.045,
+   "minEdge": 0.19,
+   "avgTri": 0.0722,
    "anglePct": 100,
    "vpt": 1.5,
    "grad": 0.79,
@@ -173638,27 +173641,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v517"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-large",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 96,
-   "tpu": 261,
+   "tpu": 206,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173666,8 +173663,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01821,
+   "minEdge": 0.048,
+   "avgTri": 0.02922,
    "anglePct": 100,
    "vpt": 1.17,
    "grad": 0.47,
@@ -173684,27 +173681,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v859"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-medium",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 96,
-   "tpu": 261,
+   "tpu": 206,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173712,8 +173703,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01868,
+   "minEdge": 0.048,
+   "avgTri": 0.02997,
    "anglePct": 100,
    "vpt": 1.17,
    "grad": 0.47,
@@ -173730,27 +173721,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v859"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall-window-small",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.25,
-    0.75
+    0.95,
+    0.3,
+    0.95
    ],
    "tris": 96,
-   "tpu": 261,
+   "tpu": 206,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173758,8 +173743,8 @@
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.038,
-   "avgTri": 0.01868,
+   "minEdge": 0.048,
+   "avgTri": 0.02997,
    "anglePct": 100,
    "vpt": 1.17,
    "grad": 0.48,
@@ -173776,27 +173761,21 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v859",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v859"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wall",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.75,
-    0.15,
-    0.75
+    0.95,
+    0.2,
+    0.95
    ],
    "tris": 12,
-   "tpu": 33,
+   "tpu": 26,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -173804,8 +173783,8 @@
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.15,
-   "avgTri": 0.13125,
+   "minEdge": 0.19,
+   "avgTri": 0.21058,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.79,
@@ -173822,24 +173801,18 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v517",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
-   ]
+   "variant": "v517"
   },
   {
    "kit": "ken-proto",
+   "collection": "ken-mini",
    "name": "wheelchair",
    "kind": "obj-transport",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.4
+    0.45,
+    0.45,
+    0.5
    ],
    "tris": 296,
    "tpu": 863,
@@ -173850,8 +173823,8 @@
    "vtx": 374,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.024,
-   "avgTri": 0.00247,
+   "minEdge": 0.031,
+   "avgTri": 0.00397,
    "anglePct": 85,
    "vpt": 1.26,
    "grad": 0.75,
@@ -173889,13 +173862,6 @@
     "metal-iron-steel",
     "plastic",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (ken-proto, 10 kinds)"
-    }
    ]
   },
   {
@@ -190898,6 +190864,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "balcony-wall-fence",
    "kind": "str-part-frame",
    "size": "m",
@@ -190944,6 +190911,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "balcony-wall",
    "kind": "str-part-frame",
    "size": "m",
@@ -190985,6 +190953,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "banner-green",
    "kind": "str-fixture-marker-banner",
    "size": "m",
@@ -191032,6 +191001,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "banner-red",
    "kind": "str-fixture-marker-banner",
    "size": "m",
@@ -191079,6 +191049,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "blade",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -191125,6 +191096,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "cart-high",
    "kind": "obj-transport-land-cart",
    "size": "m",
@@ -191180,6 +191152,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "cart",
    "kind": "obj-transport-land-cart",
    "size": "m",
@@ -191233,6 +191206,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney-base",
    "kind": "str-part-roof",
    "size": "m",
@@ -191278,6 +191252,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney-top-anim",
    "kind": "str-part-roof",
    "size": "m",
@@ -191331,6 +191306,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney-top",
    "kind": "str-part-roof",
    "size": "m",
@@ -191377,6 +191353,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "chimney",
    "kind": "str-part-roof",
    "size": "m",
@@ -191420,6 +191397,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence-broken",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191466,6 +191444,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence-curved",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191508,10 +191487,18 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v299"
+   "variant": "v299",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.337 at kit ×1.04)"
+    }
+   ]
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence-gate",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191558,12 +191545,20 @@
     "tba",
     "wood-beam"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.337 at kit ×1.04)"
+    }
+   ],
    "mark": [
     "centered"
    ]
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fence",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -191604,12 +191599,20 @@
     "wood-beam",
     "wood-planks"
    ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.35 under min 0.35 (str-barrier-fence-mid · 0.337 at kit ×1.04)"
+    }
+   ],
    "mark": [
     "centered"
    ]
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-round-detail",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191662,6 +191665,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-round",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191709,6 +191713,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-square-detail",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191754,6 +191759,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "fountain-square",
    "kind": "str-fixture-utility-fountain",
    "size": "l",
@@ -191801,6 +191807,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "overhang",
    "kind": "str-part-roof",
    "size": "m",
@@ -191848,6 +191855,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "pillar-wood",
    "kind": "str-part-pillar",
    "size": "m",
@@ -191893,6 +191901,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "planks-half",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -191934,6 +191943,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "planks-opening",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -191973,6 +191983,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "planks",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -192012,6 +192023,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "rock-large",
    "kind": "env-terrain-rock-boulder",
    "size": "l",
@@ -192050,6 +192062,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "rock-small",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -192089,6 +192102,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "rock-wide",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -192128,6 +192142,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-corner-inner",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192172,6 +192187,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-corner-round",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192218,6 +192234,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-corner",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192264,6 +192281,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-flat",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192303,6 +192321,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-gable-detail",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192355,6 +192374,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-gable-end",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192406,6 +192426,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-gable-top",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192456,6 +192477,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-high-window",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192505,6 +192527,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-left",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192557,6 +192580,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-point",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192596,6 +192620,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-right",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192648,6 +192673,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "roof-window",
    "kind": "str-part-roof-unit",
    "size": "m",
@@ -192699,6 +192725,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-stone-corner",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192743,6 +192770,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-stone-round",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192784,6 +192812,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wide-wood-handrail",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192829,6 +192858,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wide-wood",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192874,6 +192904,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wood-handrail",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192920,6 +192951,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stairs-wood",
    "kind": "str-access-stairs",
    "size": "m",
@@ -192966,6 +192998,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall-bench",
    "kind": "obj-furnishing-furniture-seating-bench-nobackrest",
    "size": "m",
@@ -193004,6 +193037,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall-red",
    "kind": "str-canopy-stall",
    "size": "m",
@@ -193049,6 +193083,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall-stool",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
@@ -193088,6 +193123,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "stall",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -193127,6 +193163,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-crooked",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193172,6 +193209,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-high-crooked",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193217,6 +193255,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-high-round",
    "kind": "env-flora-tree",
    "size": "l",
@@ -193261,6 +193300,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree-high",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193306,6 +193346,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "tree",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -193351,6 +193392,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-arch-top",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193403,6 +193445,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-arch",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193455,6 +193498,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-block-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193500,6 +193544,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-block",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193544,6 +193589,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-broken",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193591,6 +193637,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner-diagonal-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193637,6 +193684,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner-diagonal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193681,6 +193729,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner-edge",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193725,6 +193774,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-corner",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193769,6 +193819,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-curved",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193814,6 +193865,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-detail-cross",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193860,6 +193912,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-detail-diagonal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193907,6 +193960,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-detail-horizontal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193953,6 +194007,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-diagonal",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -193997,6 +194052,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-door",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -194044,6 +194100,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-doorway-base",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -194089,6 +194146,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-doorway-square-wide-curved",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -194142,6 +194200,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-doorway-square",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -194188,6 +194247,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -194235,6 +194295,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-side",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -194281,6 +194342,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-window-glass",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -194328,6 +194390,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-window-round",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -194374,6 +194437,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood-window-shutters",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -194420,6 +194484,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wall-wood",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -194466,6 +194531,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "watermill-wide",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -194525,6 +194591,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "watermill",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -194584,6 +194651,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "wheel",
    "kind": "obj-transport-part-wheel",
    "size": "s",
@@ -194635,6 +194703,7 @@
   },
   {
    "kit": "ken-town",
+   "collection": "ken-village",
    "name": "windmill",
    "kind": "str-building-work-industrial-mill",
    "size": "l",

@@ -5914,7 +5914,9 @@ window.KENNEY_KITS = [
    "ken-mini-dun",
    "ken-chars",
    "ken-skate",
-   "ken-arena"
+   "ken-arena",
+   "ken-platformer",
+   "ken-proto"
   ]
  },
  {
@@ -5934,6 +5936,14 @@ window.KENNEY_KITS = [
    "ken-industrial",
    "ken-suburban",
    "ken-roads"
+  ]
+ },
+ {
+  "collection": "ken-village",
+  "name": "ken-village",
+  "kits": [
+   "ken-town",
+   "ken-grave"
   ]
  },
  {
