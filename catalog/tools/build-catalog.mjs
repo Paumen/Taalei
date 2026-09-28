@@ -512,12 +512,15 @@ for (const model of models) {
 const tags = readTags(new Set(models.map((m) => m.id)));
 
 const typeOf = new Map(tags.tags.map((t) => [t.id, t.type ?? 'tag']));
+const specialReasons = tags.tags.find((t) => t.id === 'special')?.reasons ?? {};
 for (const model of models) {
   const own = tags.perModel.get(model.id) ?? [];
   model.kind = own.find((id) => typeOf.get(id) === 'kind') ?? null;
   model.size = sizeOf(model.wdh);
   const rest = own.filter((id) => !['kind', 'size'].includes(typeOf.get(id)));
   model.tags = rest;
+  const specialBand = own.includes('special') && specialReasons[model.id]?.match(/\b\d+,\d+\b/)?.[0];
+  if (specialBand) model.specialBand = specialBand;
 }
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);
@@ -675,6 +678,7 @@ const rows = models.map((m) => {
     spread: m.laneSpread ?? undefined,
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
+    specialBand: m.specialBand,
     anim: m.animations,
     alpha: m.alpha || undefined,
     pbr: m.pbr || undefined,
