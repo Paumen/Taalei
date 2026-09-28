@@ -830,8 +830,8 @@
     "none": 48
    },
    "kitCheck": {
-    "factor": 1.08,
-    "kinds": 11
+    "factor": 1.09,
+    "kinds": 10
    }
   },
   {
@@ -2623,8 +2623,8 @@
     "none": 66
    },
    "kitCheck": {
-    "factor": 1.31,
-    "kinds": 24,
+    "factor": 1.27,
+    "kinds": 23,
     "level": "warning"
    }
   },
@@ -15703,7 +15703,7 @@
    "name": "Leisure",
    "type": "kind",
    "description": "Thing for play, games, sport or art.",
-   "count": 119
+   "count": 120
   },
   {
    "id": "obj-device-appliance",
@@ -15836,7 +15836,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 439,
+   "count": 440,
    "color": "#dd9f79"
   },
   {
@@ -15984,7 +15984,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot, planter, amphora, jug, pitcher, ewer",
-   "count": 54
+   "count": 55
   },
   {
    "id": "obj-container-pot-jar",
@@ -16019,7 +16019,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 597,
+   "count": 596,
    "color": "#6b5b95"
   },
   {
@@ -16407,7 +16407,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 302,
+   "count": 301,
    "color": "#9c3f2e"
   },
   {
@@ -16548,7 +16548,7 @@
    "name": "Tableware",
    "type": "kind",
    "description": "and any tableware with no leaf that fits",
-   "count": 162
+   "count": 161
   },
   {
    "id": "obj-kitchenware-tableware-condiment",
@@ -16576,7 +16576,7 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, saucer",
-   "count": 40
+   "count": 39
   },
   {
    "id": "obj-kitchenware-tableware-serving",
@@ -17022,14 +17022,14 @@
    "name": "Siege",
    "type": "kind",
    "description": "Siege weapon with no leaf that fits.",
-   "count": 29
+   "count": 28
   },
   {
    "id": "obj-equipment-weapon-siege-cannon",
    "name": "Cannon",
    "type": "kind",
    "description": "Cannon. Cast iron.",
-   "count": 6
+   "count": 5
   },
   {
    "id": "obj-equipment-weapon-siege-ammunition",
@@ -17050,7 +17050,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 264,
+   "count": 263,
    "color": "#4c5468"
   },
   {
@@ -17450,14 +17450,14 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 108
+   "count": 109
   },
   {
    "id": "env-terrain-rock-cobble",
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose), stepping stone",
-   "count": 93
+   "count": 92
   },
   {
    "id": "env-terrain-rock-formation",
@@ -17544,7 +17544,7 @@
    "name": "Bridge",
    "type": "kind",
    "description": "bridge, plank (crossing), rope bridge",
-   "count": 35
+   "count": 36
   },
   {
    "id": "str-access-bridge-section",
@@ -17558,7 +17558,7 @@
    "name": "Long",
    "type": "kind",
    "description": "Whole crossing in one model, bank to bank.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "str-access-ladder",
@@ -17849,7 +17849,7 @@
    "name": "Platform",
    "type": "kind",
    "description": "Platform with no leaf that fits.",
-   "count": 32,
+   "count": 31,
    "color": "#877a63"
   },
   {
@@ -17857,7 +17857,7 @@
    "name": "Catwalk",
    "type": "kind",
    "description": "Raised walkway section with rails: straight, corner, junction and cross pieces.",
-   "count": 5
+   "count": 4
   },
   {
    "id": "str-access-platform-deck",
@@ -17950,7 +17950,7 @@
    "name": "Toy",
    "type": "kind",
    "description": "Thing made to play with: frisbee, plushie, puzzle cube.",
-   "count": 12
+   "count": 13
   },
   {
    "id": "str-fixture-utility-fountain",
@@ -61475,7 +61475,7 @@
    "kit": "isa-plants",
    "collection": "isa-tt",
    "name": "saucer-a-large",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
     0.5,
@@ -61509,14 +61509,7 @@
     "ceramic",
     "isa"
    ],
-   "variant": "v242",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.5 over max 0.35 (obj-kitchenware-tableware-plate · 0.442 at kit ×1.13)"
-    }
-   ]
+   "variant": "v242"
   },
   {
    "kit": "isa-plants",
@@ -106784,7 +106777,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-leisure-game-ball · 0.139 at kit ×1.08)"
+     "text": "longest 0.15 under min 0.15 (obj-leisure-game-ball · 0.138 at kit ×1.09)"
     }
    ]
   },
@@ -107994,7 +107987,7 @@
   {
    "kit": "kay-holiday",
    "name": "snowball-cannon",
-   "kind": "obj-equipment-weapon-siege-cannon",
+   "kind": "obj-leisure-toy",
    "size": "s",
    "wdh": [
     0.2,
@@ -108038,8 +108031,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "longest 0.3 under min 0.45 (obj-equipment-weapon-siege-cannon · 0.278 at kit ×1.08)"
+     "check": "measures",
+     "text": "G27 minTube 0.0122 wants min 0.026"
     }
    ]
   },
@@ -165830,7 +165823,7 @@
   {
    "kit": "ken-nature",
    "name": "stone-small-g",
-   "kind": "env-terrain-rock-cobble",
+   "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
     0.7,
@@ -165864,14 +165857,7 @@
     "ken",
     "stone-rock"
    ],
-   "variant": "v1210",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.8 over max 0.5 (env-terrain-rock-cobble · 0.748 at kit ×1.07)"
-    }
-   ]
+   "variant": "v1210"
   },
   {
    "kit": "ken-nature",
@@ -248749,7 +248735,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -248802,7 +248788,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -248849,7 +248835,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -248895,7 +248881,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -248948,7 +248934,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -248994,7 +248980,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "longest 0.7 over max 0.55 (obj-kitchenware-cookware-cookpot-cauldron · 0.551 at kit ×1.27)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249048,7 +249039,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249095,7 +249086,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249161,7 +249152,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249218,7 +249209,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249265,12 +249256,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.35 (str-barrier-fence-mid · 0.344 at kit ×1.31)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249317,12 +249303,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.35 (str-barrier-fence-mid · 0.344 at kit ×1.31)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249376,12 +249357,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.45 under min 0.35 (str-barrier-fence-mid · 0.344 at kit ×1.31)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249435,7 +249411,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249508,7 +249484,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "high 2.75 over max 2.15 (str-part-gate-gateway · 2.165 at kit ×1.27)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249581,7 +249562,12 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "high 2.75 over max 2.15 (str-part-gate-gateway · 2.165 at kit ×1.27)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249634,7 +249620,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249694,7 +249680,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249742,7 +249728,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249796,7 +249782,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249855,7 +249841,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249902,7 +249888,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -249972,7 +249958,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ],
    "mark": [
@@ -250033,7 +250019,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250081,12 +250067,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.9 over max 1.6 (str-access-ladder scale-big · 2.214 at kit ×1.31)"
+     "text": "longest 2.9 over max 1.6 (str-access-ladder scale-big · 2.283 at kit ×1.27)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250139,7 +250125,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250191,7 +250177,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250237,7 +250223,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250296,7 +250282,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250349,7 +250335,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250402,7 +250388,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250589,7 +250575,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250643,7 +250629,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250697,7 +250683,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250750,12 +250736,12 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 15.2 over max 4.25 (str-access-bridge-long · 11.603 at kit ×1.31)"
+     "text": "longest 15.2 over max 4.25 (str-access-bridge-long · 11.969 at kit ×1.27)"
     },
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250801,7 +250787,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250847,7 +250833,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250893,7 +250879,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250940,7 +250926,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -250987,7 +250973,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251034,7 +251020,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251086,7 +251072,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251134,7 +251120,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     },
     {
      "level": "error",
@@ -251187,7 +251173,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     },
     {
      "level": "error",
@@ -251264,7 +251250,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251316,7 +251302,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251368,7 +251354,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251415,7 +251401,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251462,7 +251448,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251509,7 +251495,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251556,7 +251542,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251603,7 +251589,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251649,7 +251635,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251695,7 +251681,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251743,7 +251729,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251790,7 +251776,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251837,7 +251823,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251883,7 +251869,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251936,7 +251922,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -251982,7 +251968,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -252035,7 +252021,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -252088,7 +252074,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -252141,7 +252127,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
@@ -252187,14 +252173,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
   {
    "kit": "rgp-asia",
    "name": "walkway",
-   "kind": "str-access-platform-catwalk",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     4.95,
@@ -252237,14 +252223,9 @@
    ],
    "lint": [
     {
-     "level": "error",
-     "check": "size",
-     "text": "longest 4.95 over max 1.2 (str-access-platform-catwalk · 3.779 at kit ×1.31)"
-    },
-    {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.31 off the size curve (rgp-asia, 24 kinds)"
+     "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
    ]
   },
