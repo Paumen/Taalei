@@ -17,6 +17,9 @@ A workfile in `kits/workfiles` is the asset itself. A model that is wrong in
 its geometry or scale is replaced or dropped. A wrong band is moved in place
 with `tools/import/recolour.mjs`, for the whole band or for named parts. A tube
 thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
+A model with more triangles than its shape needs is thinned in place with
+`tools/import/simplify.mjs`; render it after, and run `thicken.mjs` where `G27`
+then fails.
 
 ## 1. Is the source pack already in the repo?
 
