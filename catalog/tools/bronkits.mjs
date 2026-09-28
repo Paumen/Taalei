@@ -173,4 +173,6 @@ export const BRONKITS = [
   { map: 'Heavy_Cycle_Laundromat', naam: 'Heavy Cycle: Laundromat Props', kit: 'sq-laundry', source: 'sidequest', formaat: 'glb', splitsPerMesh: true },
   { map: 'House_Edge_Casino_Floor', naam: 'House Edge: Casino Floor Props', kit: 'sq-casino', source: 'sidequest', formaat: 'glb', splitsPerMesh: true },
   { map: 'Hard_Cash_Bank_Vault', naam: 'Hard Cash: Bank & Vault Props', kit: 'sq-bank', source: 'sidequest', formaat: 'glb', splitsPerMesh: true },
+
+  { map: 'Taalei', naam: 'Taalei', kit: 'taalei-kit', formaat: 'glb' },
 ];

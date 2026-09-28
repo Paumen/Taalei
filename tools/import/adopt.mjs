@@ -13,10 +13,10 @@ const HELP = `adopt.mjs <plan.json>
 
 Writes a workfile in kits/workfiles/<kit> for every entry of the plan, from the
 model the entry names in a source pack. Geometry, normals and triangles are the
-source's, except that of two coincident triangles facing opposite ways the one
+source's (a source without normals gets flat face normals), except that of two coincident triangles facing opposite ways the one
 facing into the model moves along its normal by 0.2% of the longest extent, so
-the two no longer fight; the pack's own colours are replaced by the bands of
-kits/colormap.png.
+the two no longer fight; the pack's own colours (texture, else vertex colour
+times material colour) are replaced by the bands of kits/colormap.png.
 
 A plan is a list of entries:
 
@@ -45,8 +45,10 @@ const atlas = readPng(join(ROOT, 'kits', 'colormap.png'));
 const CELL_WIDTH = atlas.width / 16;
 const CELL_HEIGHT = atlas.height / 4;
 
+const linear = (v) => (v / 255 <= 0.04045 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
+const srgb = (v) => Math.round(Math.min(Math.max(v <= 0.0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - 0.055, 0), 1) * 255);
+
 const lightness = ([r, g, b]) => {
-  const linear = (v) => (v / 255 <= 0.04045 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
   const y = 0.2126 * linear(r) + 0.7152 * linear(g) + 0.0722 * linear(b);
   return y > 0.008856 ? 116 * y ** (1 / 3) - 16 : 903.3 * y;
 };
@@ -150,7 +152,10 @@ function sourceColors(primitive, images, rule) {
     return out;
   }
   const flat = material.kleur ?? [255, 255, 255];
-  for (let i = 0; i < count; i++) out[i] = flat;
+  const vertex = primitive.hoekkleuren;
+  for (let i = 0; i < count; i++) {
+    out[i] = vertex ? flat.map((v, k) => srgb(linear(v) * vertex[i * 3 + k])) : flat;
+  }
   return out;
 }
 
@@ -167,7 +172,7 @@ function clusters(model, images, threshold, rule) {
       else counted.set(key, { color, n: 1 });
     }
     const colors = [...counted.values()].sort((a, b) => b.n - a.n);
-    if (!mapped(primitive, rule).textuur) {
+    if (!mapped(primitive, rule).textuur && !primitive.hoekkleuren) {
       for (const one of colors) groups.push({ colors: [one], flat: true });
       continue;
     }
@@ -325,11 +330,19 @@ function adopt(entry) {
 
   for (const primitive of model.primitieven) {
     const colors = sourceColors(primitive, images, rule);
-    const vertex = (index, band) => {
+    const faceNormal = (indices) => {
+      const p = indices.map((index) => [0, 1, 2].map((k) => primitive.posities[index * 3 + k]));
+      const a = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
+      const b = [0, 1, 2].map((k) => p[2][k] - p[0][k]);
+      const n = [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+      const length = Math.hypot(...n) || 1;
+      return n.map((v) => v / length);
+    };
+    const vertex = (index, band, flat) => {
       const position = [0, 1, 2].map((k) => Math.fround(primitive.posities[index * 3 + k] - middle[k]));
       const normal = primitive.normalen
         ? [0, 1, 2].map((k) => Math.fround(primitive.normalen[index * 3 + k]))
-        : [0, 1, 0];
+        : flat.map((v) => Math.fround(v));
       const uv = bandUv(band, lane(band).middle + (lightness(colors[index]) - middleOf(band)));
       const key = [...position, ...normal, ...uv].join(',');
       let at = known.get(key);
@@ -347,7 +360,8 @@ function adopt(entry) {
       const indices = [0, 1, 2].map((k) => primitive.indices[t + k]);
       const cornerBands = indices.map((index) => bandPerColor.get(colors[index].join(',')));
       const band = cornerBands.find((one, k) => cornerBands.indexOf(one) !== k) ?? cornerBands[0];
-      const corner = indices.map((index) => vertex(index, band));
+      const flat = primitive.normalen ? null : faceNormal(indices);
+      const corner = indices.map((index) => vertex(index, band, flat));
       const point = corner.map((i) => positions.slice(i * 3, i * 3 + 3));
       const edge1 = [0, 1, 2].map((k) => point[1][k] - point[0][k]);
       const edge2 = [0, 1, 2].map((k) => point[2][k] - point[0][k]);
