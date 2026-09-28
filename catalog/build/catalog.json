@@ -1592,8 +1592,8 @@
     "none": 93
    },
    "kitCheck": {
-    "factor": 0.83,
-    "kinds": 13
+    "factor": 0.9,
+    "kinds": 12
    }
   },
   {
@@ -1835,8 +1835,8 @@
     "60": 47
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 12
+    "factor": 0.96,
+    "kinds": 11
    }
   },
   {
@@ -15412,7 +15412,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2943,
+   "count": 2945,
    "color": "#c07c8a"
   },
   {
@@ -16648,7 +16648,7 @@
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
-   "count": 13
+   "count": 15
   },
   {
    "id": "obj-transport-land",
@@ -17217,7 +17217,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 1744,
+   "count": 1742,
    "color": "#877a63"
   },
   {
@@ -17225,7 +17225,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 327
+   "count": 325
   },
   {
    "id": "str-access",
@@ -17495,7 +17495,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 131,
+   "count": 129,
    "color": "#ffb349"
   },
   {
@@ -17517,7 +17517,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 55
+   "count": 53
   },
   {
    "id": "str-fixture-marker-sign-road",
@@ -17559,7 +17559,7 @@
    "name": "Banner",
    "type": "kind",
    "description": "Cloth hung from a crossbar or a wall, read from one side.",
-   "count": 10
+   "count": 9
   },
   {
    "id": "str-access-platform",
@@ -18139,7 +18139,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 195
+   "count": 196
   },
   {
    "id": "plural",
@@ -18286,7 +18286,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 99,
+   "count": 100,
    "kinds": [
     "obj-container-chest",
     "obj-food-baked-bread",
@@ -18298,6 +18298,7 @@
     "str-barrier-fence-mid",
     "str-access-ladder",
     "str-fixture-marker-flag",
+    "str-fixture-utility-turbine",
     "env-flora-plant-cactus"
    ]
   },
@@ -20946,6 +20947,12 @@
    "high.max": 8,
    "longest.min": 1,
    "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-utility-turbine scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "env-flora-plant-cactus scale-small": {
@@ -113386,6 +113393,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "comp",
     "kay",
     "plastic"
    ]
@@ -122638,6 +122646,7 @@
     "kay",
     "metal",
     "plastic",
+    "scale-small",
     "space"
    ]
   },
@@ -138060,7 +138069,7 @@
   {
    "kit": "ken-factory",
    "name": "arrow-basic-rounded",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj-symbol",
    "size": "s",
    "wdh": [
     0.25,
@@ -138099,7 +138108,7 @@
   {
    "kit": "ken-factory",
    "name": "arrow-rounded",
-   "kind": "str-fixture-marker-sign",
+   "kind": "obj-symbol",
    "size": "s",
    "wdh": [
     0.4,
@@ -139486,13 +139495,6 @@
     "ken",
     "metal",
     "rubber"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-conveyor · 1.205 at kit ×0.83)"
-    }
    ]
   },
   {
@@ -139636,13 +139638,6 @@
     "ken",
     "metal",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.85 over max 2.2 (str-fixture-utility-machine · 2.229 at kit ×0.83)"
-    }
    ]
   },
   {
@@ -140437,14 +140432,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1133",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-pipe · 1.205 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1133"
   },
   {
    "kit": "ken-factory",
@@ -140534,14 +140522,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1135",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.05 over max 1.2 (str-fixture-utility-pipe · 1.265 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1135"
   },
   {
    "kit": "ken-factory",
@@ -140587,14 +140568,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1136",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-pipe · 1.205 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1136"
   },
   {
    "kit": "ken-factory",
@@ -140640,14 +140614,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1137",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-pipe · 1.205 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1137"
   },
   {
    "kit": "ken-factory",
@@ -140865,14 +140832,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1133",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-pipe · 1.205 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1133"
   },
   {
    "kit": "ken-factory",
@@ -140950,14 +140910,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1135",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.05 over max 1.2 (str-fixture-utility-pipe · 1.265 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1135"
   },
   {
    "kit": "ken-factory",
@@ -140997,14 +140950,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1136",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-pipe · 1.205 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1136"
   },
   {
    "kit": "ken-factory",
@@ -141044,14 +140990,7 @@
     "ken",
     "metal"
    ],
-   "variant": "v1137",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1 over max 1.2 (str-fixture-utility-pipe · 1.205 at kit ×0.83)"
-    }
-   ]
+   "variant": "v1137"
   },
   {
    "kit": "ken-factory",
@@ -173292,7 +173231,7 @@
   {
    "kit": "ken-racing",
    "name": "banner-tower-red",
-   "kind": "str-fixture-marker-banner",
+   "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
     0.45,
@@ -173331,13 +173270,6 @@
     "ken",
     "metal",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.5 over max 1.1 (str-fixture-marker-banner · 1.485 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -173376,13 +173308,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.149 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -173427,13 +173352,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic · 0.149 at kit ×1.01)"
-    }
    ]
   },
   {
@@ -173741,7 +173659,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1 over max 0.85 (str-barrier-fence · 0.99 at kit ×1.01)"
+     "text": "high 1 over max 0.85 (str-barrier-fence · 1.042 at kit ×0.96)"
     }
    ]
   },
@@ -175015,13 +174933,6 @@
    "tags": [
     "ken",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.15 under min 0.15 (str-barrier-traffic-cone · 0.149 at kit ×1.01)"
-    }
    ]
   },
   {
