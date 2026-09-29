@@ -10,6 +10,7 @@
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
+* lint/glb-lint.mjs checks glb files for glTF validity, geometry, placement, shading and house rules: `node lint/glb-lint.mjs kits/workfiles [--only-problems] [--json out.json]`. Needs `npm install` first (gltf-validator, pinned in package.json).
 * tools/renders/render.mjs can be used to render glbs in various ways. If you make copies of glbs and want to render them, make sure you add the shared color map such they can find it. Most render modes will show backfaces in mangenta, if those are pre-existing and irrelevant for the task at hand, ignore them.
 * A workfile in kits/workfiles is the asset itself.
 * catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/data/rejects.json), a swipe/review functionality, a model scale comparison page, a kit size curves page (catalog/app/size-curves.html, built by catalog/tools/size-curves.mjs), and an overview page (catalog/app/overview.html) with a kits table and the kinds tree, read from catalog/build/catalog.json, packs.json, size-curves.json and lint/*.json.
