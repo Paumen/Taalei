@@ -52,7 +52,7 @@ const SIZES = {
   'obj-container-dumpster': 1.8,
   'obj-container-crate-cube': 0.6,
   'obj-container-pot': 0.4,
-  'obj-container-pot-jar': 0.17,
+  'obj-container-pot-jar': 0.15,
   'obj-container-pot-vase': 0.5,
   'obj-equipment-apparel': 0.7,
   'obj-equipment-apparel-headgear': 0.3,

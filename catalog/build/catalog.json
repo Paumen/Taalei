@@ -2591,7 +2591,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 26
+    "kinds": 27
    }
   },
   {
@@ -15704,7 +15704,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2948,
+   "count": 2947,
    "color": "#c07c8a"
   },
   {
@@ -16071,7 +16071,7 @@
    "name": "Food",
    "type": "kind",
    "description": "honey",
-   "count": 529,
+   "count": 528,
    "color": "#c25b4e"
   },
   {
@@ -16197,8 +16197,8 @@
    "id": "obj-food-fish",
    "name": "Fish",
    "type": "kind",
-   "description": "fish (as food), tentacle",
-   "count": 48
+   "description": "fish (as food)",
+   "count": 41
   },
   {
    "id": "obj-food-fish-sushi",
@@ -16206,6 +16206,13 @@
    "type": "kind",
    "description": "sushi, sashimi",
    "count": 22
+  },
+  {
+   "id": "obj-food-seafood",
+   "name": "Seafood",
+   "type": "kind",
+   "description": "squid, octopus (as food), tentacle, sea urchin, shellfish",
+   "count": 6
   },
   {
    "id": "obj-food-fruit",
@@ -17923,7 +17930,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 158,
+   "count": 159,
    "color": "#b5651d"
   },
   {
@@ -18892,6 +18899,7 @@
   "obj-food-meat-ham",
   "obj-food-meat-sausage",
   "obj-food-meat-steak",
+  "obj-food-seafood",
   "obj-food-sweet-icecream",
   "obj-food-sweet-lollipop",
   "obj-food-vegetable-broccoli",
@@ -20040,6 +20048,12 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "obj-food-seafood": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.55,
    "tpu.max": 5000
   },
   "obj-food-sweet": {
@@ -220828,7 +220842,7 @@
   {
    "kit": "quat-food",
    "name": "tentacle",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -242377,7 +242391,7 @@
   {
    "kit": "quat-sushi",
    "name": "octopus",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.2,
@@ -243054,7 +243068,7 @@
   {
    "kit": "quat-sushi",
    "name": "sea-urchin-open",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -243098,7 +243112,7 @@
   {
    "kit": "quat-sushi",
    "name": "sea-urchin",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -243408,7 +243422,7 @@
   {
    "kit": "quat-sushi",
    "name": "squid",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.2,
@@ -243694,7 +243708,7 @@
   {
    "kit": "quat-sushi",
    "name": "tentacle",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -256184,7 +256198,7 @@
   {
    "kit": "rgp-medieval",
    "name": "fish-hanging",
-   "kind": "obj-food-fish",
+   "kind": "set",
    "size": "m",
    "wdh": [
     0.07,
@@ -256234,14 +256248,7 @@
     "rgp",
     "rope"
    ],
-   "variant": "v1151",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.8 over max 0.55 (obj-food-fish · 0.784 at kit ×1.02)"
-    }
-   ]
+   "variant": "v1151"
   },
   {
    "kit": "rgp-medieval",
