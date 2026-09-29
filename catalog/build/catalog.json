@@ -248,8 +248,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 36
+    "factor": 0.96,
+    "kinds": 37
    }
   },
   {
@@ -2091,9 +2091,8 @@
     "none": 87
    },
    "kitCheck": {
-    "factor": 0.79,
-    "kinds": 16,
-    "level": "warning"
+    "factor": 0.8,
+    "kinds": 17
    }
   },
   {
@@ -2407,9 +2406,9 @@
     "none": 11
    },
    "kitCheck": {
-    "factor": 1.39,
-    "kinds": 3,
-    "level": "warning"
+    "factor": 1.44,
+    "kinds": 4,
+    "level": "error"
    }
   },
   {
@@ -17274,7 +17273,7 @@
    "id": "env-fauna",
    "name": "Fauna",
    "type": "kind",
-   "description": "starfish, octopus, crab, lobster, frog, snail, worm",
+   "description": "octopus, crab, lobster, frog, snail, worm",
    "count": 52,
    "color": "#3e8fd0"
   },
@@ -17298,6 +17297,13 @@
    "type": "kind",
    "description": "shark, hammerhead",
    "count": 4
+  },
+  {
+   "id": "env-fauna-starfish",
+   "name": "Starfish",
+   "type": "kind",
+   "description": "starfish, sea star",
+   "count": 5
   },
   {
    "id": "env-fauna-bird",
@@ -18796,6 +18802,7 @@
   "env-fauna-fish",
   "env-fauna-fish-shark",
   "env-fauna-insect",
+  "env-fauna-starfish",
   "env-flora-plant-bamboo",
   "env-flora-plant-bush",
   "env-flora-plant-cactus",
@@ -19055,6 +19062,12 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-fauna-starfish": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.3,
    "tpu.max": 10000
   },
   "env-flora-plant": {
@@ -39101,7 +39114,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.663 at kit ×0.98)"
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.677 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -39204,7 +39217,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-starfish-a",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.09,
@@ -39243,7 +39256,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-starfish-b",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.1,
@@ -42336,7 +42349,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.255 at kit ×0.98)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.26 at kit ×0.96)"
     }
    ]
   },
@@ -42390,7 +42403,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.255 at kit ×0.98)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.26 at kit ×0.96)"
     }
    ]
   },
@@ -43238,7 +43251,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v411"
+   "variant": "v411",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.7 over max 1.75 (obj-transport-land-cart · 1.771 at kit ×0.96)"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -43279,7 +43299,14 @@
     "fs",
     "wood-worked"
    ],
-   "variant": "v411"
+   "variant": "v411",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.7 over max 1.75 (obj-transport-land-cart · 1.771 at kit ×0.96)"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -43935,9 +43962,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 1.99 at kit ×0.98)"
+     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 2.031 at kit ×0.96)"
     }
    ]
   },
@@ -46146,7 +46173,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46195,7 +46222,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46244,7 +46271,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46293,7 +46320,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46342,7 +46369,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46491,7 +46518,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     },
     {
      "level": "error",
@@ -47081,7 +47108,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47190,7 +47217,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47299,7 +47326,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47408,7 +47435,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47517,7 +47544,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47626,7 +47653,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -48373,7 +48400,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.378 at kit ×0.98)"
+     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.406 at kit ×0.96)"
     }
    ]
   },
@@ -48433,7 +48460,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.633 at kit ×0.98)"
+     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.667 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -48786,7 +48813,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.306 at kit ×0.98)"
+     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.313 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -48974,7 +49001,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.51 at kit ×0.98)"
+     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -204727,14 +204754,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v104",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v104"
   },
   {
    "kit": "natuur",
@@ -204778,12 +204798,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 1.1 (env-remains-deadwood-branch · 1.266 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 1 over max 1.1 (env-remains-deadwood-branch · 1.25 at kit ×0.8)"
     }
    ]
   },
@@ -204829,12 +204844,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 1.1 (env-remains-deadwood-branch · 1.203 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.95 over max 1.1 (env-remains-deadwood-branch · 1.187 at kit ×0.8)"
     }
    ]
   },
@@ -204873,13 +204883,6 @@
    ],
    "tags": [
     "foliage"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -204930,12 +204933,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 over max 0.75 (obj-furnishing-light-campfire · 0.823 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.65 over max 0.75 (obj-furnishing-light-campfire · 0.813 at kit ×0.8)"
     }
    ]
   },
@@ -204981,13 +204979,6 @@
     "robin-hood",
     "wood-bark",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -205032,14 +205023,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205078,14 +205062,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205125,14 +205102,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205171,14 +205141,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205217,14 +205180,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205266,12 +205222,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-coconut · 0.127 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-coconut · 0.125 at kit ×0.8)"
     }
    ]
   },
@@ -205322,14 +205273,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v77"
   },
   {
    "kit": "natuur",
@@ -205378,14 +205322,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v77"
   },
   {
    "kit": "natuur",
@@ -205434,14 +205371,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v77"
   },
   {
    "kit": "natuur",
@@ -205490,14 +205420,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v78"
   },
   {
    "kit": "natuur",
@@ -205546,14 +205469,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v78"
   },
   {
    "kit": "natuur",
@@ -205602,14 +205518,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v78"
   },
   {
    "kit": "natuur",
@@ -205658,14 +205567,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v79"
   },
   {
    "kit": "natuur",
@@ -205714,14 +205616,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v79"
   },
   {
    "kit": "natuur",
@@ -205770,14 +205665,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v79"
   },
   {
    "kit": "natuur",
@@ -205826,14 +205714,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v80"
   },
   {
    "kit": "natuur",
@@ -205882,14 +205763,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v80"
   },
   {
    "kit": "natuur",
@@ -205938,14 +205812,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v80"
   },
   {
    "kit": "natuur",
@@ -205994,14 +205861,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v81"
   },
   {
    "kit": "natuur",
@@ -206050,14 +205910,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v81"
   },
   {
    "kit": "natuur",
@@ -206106,14 +205959,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v81"
   },
   {
    "kit": "natuur",
@@ -206151,14 +205997,7 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v632",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v632"
   },
   {
    "kit": "natuur",
@@ -206196,14 +206035,7 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v632",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v632"
   },
   {
    "kit": "natuur",
@@ -206241,14 +206073,7 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v632",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v632"
   },
   {
    "kit": "natuur",
@@ -206293,14 +206118,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206345,14 +206163,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206397,14 +206208,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206449,14 +206253,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206502,14 +206299,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206552,13 +206342,6 @@
    "tags": [
     "food",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206608,13 +206391,6 @@
     "food",
     "robin-hood",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206659,13 +206435,6 @@
     "food",
     "robin-hood",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206710,13 +206479,6 @@
     "food",
     "robin-hood",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206756,14 +206518,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206801,14 +206556,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206846,14 +206594,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206891,14 +206632,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206936,14 +206670,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206981,14 +206708,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207026,14 +206746,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207071,14 +206784,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207116,14 +206822,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207162,14 +206861,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207208,14 +206900,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207254,14 +206939,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207300,14 +206978,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207346,14 +207017,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207392,14 +207056,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207441,11 +207098,6 @@
    ],
    "variant": "v128",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -207494,11 +207146,6 @@
    "variant": "v128",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    },
-    {
      "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
@@ -207546,11 +207193,6 @@
    "variant": "v128",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    },
-    {
      "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
@@ -207560,7 +207202,7 @@
   {
    "kit": "natuur",
    "name": "starfish-bleached",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.08,
@@ -207590,19 +207232,12 @@
    "colors": [
     "#8b7561"
    ],
-   "variant": "v127",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v127"
   },
   {
    "kit": "natuur",
    "name": "starfish-salmon",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.15,
@@ -207632,14 +207267,7 @@
    "colors": [
     "#d07b56"
    ],
-   "variant": "v127",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v127"
   },
   {
    "kit": "natuur",
@@ -207677,14 +207305,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207722,14 +207343,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207768,14 +207382,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207813,14 +207420,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207867,14 +207467,9 @@
    "variant": "v103",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.15 under min 0.25 (env-remains-deadwood-stump · 0.19 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.15 under min 0.25 (env-remains-deadwood-stump · 0.187 at kit ×0.8)"
     }
    ]
   },
@@ -207920,14 +207515,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v103",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v103"
   },
   {
    "kit": "natuur",
@@ -207975,12 +207563,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 over max 0.65 (env-remains-deadwood-stump · 0.886 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.7 over max 0.65 (env-remains-deadwood-stump · 0.875 at kit ×0.8)"
     }
    ]
   },
@@ -208026,14 +207609,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208077,14 +207653,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208128,14 +207697,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208179,14 +207741,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208232,14 +207787,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v87",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v87"
   },
   {
    "kit": "natuur",
@@ -208285,14 +207833,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v87",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v87"
   },
   {
    "kit": "natuur",
@@ -208337,13 +207878,6 @@
     "robin-hood",
     "wood-bark",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -208382,14 +207916,7 @@
    "tags": [
     "wood-bark"
    ],
-   "variant": "v105",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v105"
   },
   {
    "kit": "natuur",
@@ -208432,12 +207959,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.2 over max 2.3 (env-remains-deadwood-tree · 2.785 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 2.2 over max 2.3 (env-remains-deadwood-tree · 2.75 at kit ×0.8)"
     }
    ]
   },
@@ -208482,12 +208004,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.05 over max 2.3 (env-remains-deadwood-tree · 2.595 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 2.05 over max 2.3 (env-remains-deadwood-tree · 2.562 at kit ×0.8)"
     }
    ]
   },
@@ -208532,12 +208049,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.95 over max 2.3 (env-remains-deadwood-tree · 2.468 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 1.95 over max 2.3 (env-remains-deadwood-tree · 2.438 at kit ×0.8)"
     }
    ]
   },
@@ -208582,12 +208094,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.35 over max 2.3 (env-remains-deadwood-tree · 2.975 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 2.35 over max 2.3 (env-remains-deadwood-tree · 2.938 at kit ×0.8)"
     }
    ]
   },
@@ -208632,12 +208139,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3 over max 2.3 (env-remains-deadwood-tree · 3.797 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 3 over max 2.3 (env-remains-deadwood-tree · 3.75 at kit ×0.8)"
     }
    ]
   },
@@ -208689,14 +208191,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208746,14 +208241,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208802,14 +208290,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208858,14 +208339,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208914,14 +208388,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208971,14 +208438,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -209023,14 +208483,7 @@
     "foliage",
     "wood-bark"
    ],
-   "variant": "v89",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v89"
   },
   {
    "kit": "natuur",
@@ -209075,19 +208528,7 @@
     "foliage",
     "wood-bark"
    ],
-   "variant": "v89",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.7 over max 3.4 (env-flora-tree-conifer · 3.418 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v89"
   },
   {
    "kit": "props",
@@ -225261,9 +224702,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
@@ -225315,9 +224756,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
@@ -225369,9 +224810,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
@@ -225418,9 +224859,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
@@ -225467,14 +224908,14 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.05 under min 1 (env-fauna-fish-shark · 0.755 at kit ×1.39)"
+     "text": "longest 1.05 under min 1 (env-fauna-fish-shark · 0.729 at kit ×1.44)"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
@@ -225516,9 +224957,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     },
     {
      "level": "error",
@@ -225565,9 +225006,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     },
     {
      "level": "error",
@@ -225614,9 +225055,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     },
     {
      "level": "error",
@@ -225663,9 +225104,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     },
     {
      "level": "error",
@@ -225677,7 +225118,7 @@
   {
    "kit": "quat-ocean",
    "name": "starfish",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.2,
@@ -225717,9 +225158,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
@@ -225761,9 +225202,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
     }
    ]
   },
