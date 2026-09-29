@@ -15,7 +15,7 @@ where more than a fifth of the corners keep their own is left as it is.
 
 Where the colormap V inside a cell follows normal Y, V is set again from the new
 normal with the same fit, so the baked light keeps matching the shading; corners
-that do not follow it keep their V, and taaleiland.schaduw is removed. --dry
+that do not follow it keep their V. --dry
 reports without writing.`;
 
 const ROWS = 4;
@@ -357,7 +357,6 @@ function restore(file) {
   json.accessors = accessors;
   json.bufferViews = bufferViews;
   json.buffers = [{ byteLength: length }];
-  delete origin.schaduw;
   return { json, bin: Buffer.concat(chunks), stats, fit, score: lined.score };
 }
 

@@ -15,7 +15,6 @@ const CFG = {
   openEdgeWarn: 0.05,
   nonManifoldWarn: 0.02,
   ruleAgreeMin: 0.9,         // below this: "no single soft/sharp rule"
-  metaFitMin: 0.85,          // share of edges that must follow the cut-off stated in metadata
   densityLow: 150,           // triangles per m² of surface
   densityHigh: 20000,
   rawExtentFar: 50,          // raw shape bigger than this (before node scale) = odd units
@@ -211,11 +210,6 @@ async function lint(file) {
     shade = rule.allSharp ? 'all sharp' : rule.allSoft ? 'all soft' : rule.agree >= CFG.ruleAgreeMin ? `rule ~${rule.cut}° (${pct(rule.agree)} fit)` : `no single rule (best ~${rule.cut}°, ${pct(rule.agree)} fit)`;
     if (!rule.allSharp && !rule.allSoft && rule.agree < CFG.ruleAgreeMin) add('info', 'shading', `soft/sharp set per part, not by one angle (best fit ~${rule.cut}° explains ${pct(rule.agree)})`);
     if (rule.allSoft && rule.softMax >= 80) add('info', 'shading', `everything soft, even ${rule.softMax.toFixed(0)}° corners (may look blobby)`);
-    const stated = meta?.schaduw?.drempel;
-    if (stated !== undefined) {
-      const fit = folds.filter(([a, s]) => (a > stated) === s).length / folds.length;
-      if (fit < CFG.metaFitMin) add('warn', 'shading', `metadata says ${stated}° cut-off, but only ${pct(fit)} of edges follow it (file behaves like ${shade})`);
-    }
   }
   const density = T.nt / T.surf;
   if (density < CFG.densityLow) add('info', 'detail', `${density.toFixed(0)} triangles/m²: coarse (fine for boxy shapes, curves look polygonal)`);

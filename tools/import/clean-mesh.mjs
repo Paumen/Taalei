@@ -1,5 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
+import { COMPONENT, repack, faceNormal, fixBounds } from './mesh-edit.mjs';
 
 const HELP = `clean-mesh.mjs [--dry] <workfile.glb> [...]
 
@@ -11,75 +12,9 @@ is scaled to unit length. Stored min and max are set to the data. A primitive
 that shares an accessor with another keeps its triangles. --dry reports without
 writing.`;
 
-const COMPONENT = {
-  5120: Int8Array, 5121: Uint8Array, 5122: Int16Array,
-  5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array,
-};
-const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
 const WELD = 1e-5;
 const SAME_COLOUR = 0.02;
 const UNIT = 1e-4;
-
-function rawRows(glb, index) {
-  const accessor = glb.json.accessors[index];
-  const Type = COMPONENT[accessor.componentType];
-  const size = PARTS[accessor.type] * Type.BYTES_PER_ELEMENT;
-  const view = glb.json.bufferViews[accessor.bufferView];
-  const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
-  const step = view.byteStride ?? size;
-  return { size, row: (i) => glb.bin.subarray(start + i * step, start + i * step + size) };
-}
-
-function repack(glb, replaced) {
-  const { json } = glb;
-  const chunks = [];
-  let length = 0;
-  const views = [];
-  const push = (bytes, from) => {
-    const pad = (4 - (length % 4)) % 4;
-    if (pad) { chunks.push(Buffer.alloc(pad)); length += pad; }
-    const view = { buffer: 0, byteOffset: length, byteLength: bytes.length };
-    if (from?.target !== undefined) view.target = from.target;
-    chunks.push(bytes);
-    length += bytes.length;
-    views.push(view);
-    return views.length - 1;
-  };
-  const whole = (index) => {
-    const view = json.bufferViews[index];
-    return push(Buffer.from(glb.bin.subarray(view.byteOffset ?? 0, (view.byteOffset ?? 0) + view.byteLength)), view);
-  };
-  for (const image of json.images ?? []) {
-    if (image.bufferView !== undefined) image.bufferView = whole(image.bufferView);
-  }
-  json.accessors.forEach((accessor, index) => {
-    if (accessor.sparse && accessor.bufferView !== undefined) throw new Error('sparse accessor on a bufferView is not supported');
-    if (accessor.sparse) {
-      accessor.sparse.indices.bufferView = whole(accessor.sparse.indices.bufferView);
-      accessor.sparse.values.bufferView = whole(accessor.sparse.values.bufferView);
-      return;
-    }
-    if (accessor.bufferView === undefined) return;
-    const from = json.bufferViews[accessor.bufferView];
-    let bytes = replaced.get(index);
-    if (!bytes) {
-      const { size, row } = rawRows(glb, index);
-      bytes = Buffer.alloc(size * accessor.count);
-      for (let i = 0; i < accessor.count; i++) row(i).copy(bytes, i * size);
-    }
-    accessor.bufferView = push(bytes, from);
-    delete accessor.byteOffset;
-  });
-  json.bufferViews = views;
-  json.buffers = [{ byteLength: length }];
-  glb.bin = Buffer.concat(chunks, length);
-}
-
-const faceNormal = (p, a, b, c) => {
-  const u = [0, 1, 2].map((k) => p[b * 3 + k] - p[a * 3 + k]);
-  const v = [0, 1, 2].map((k) => p[c * 3 + k] - p[a * 3 + k]);
-  return [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
-};
 
 function keptTriangles(glb, prim) {
   const pos = readAccessor(glb, prim.attributes.POSITION).data;
@@ -161,26 +96,6 @@ function fixNormals(glb, prims, keptOf) {
       fixed++;
     }
   }
-  return fixed;
-}
-
-function fixBounds(glb) {
-  let fixed = 0;
-  glb.json.accessors.forEach((accessor, index) => {
-    if (accessor.bufferView === undefined || (!accessor.min && !accessor.max)) return;
-    const { data, width, count } = readAccessor(glb, index);
-    const min = new Array(width).fill(Infinity);
-    const max = new Array(width).fill(-Infinity);
-    for (let i = 0; i < count; i++) for (let k = 0; k < width; k++) {
-      min[k] = Math.min(min[k], data[i * width + k]);
-      max[k] = Math.max(max[k], data[i * width + k]);
-    }
-    const same = (a, b) => a && a.length === b.length && a.every((v, k) => v === b[k]);
-    if (same(accessor.min, min) && same(accessor.max, max)) return;
-    if (accessor.min) accessor.min = min;
-    if (accessor.max) accessor.max = max;
-    fixed++;
-  });
   return fixed;
 }
 

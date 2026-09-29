@@ -235,7 +235,6 @@ function bouwGlb(naam, bron, banden, schaal, drempel, bronkitNaam, bronbestand) 
           palet: 1,
           bron: bronkitNaam,
           bronmodel: bronbestand,
-          schaduw: { modus: 'glad', drempel },
         },
       },
     },
