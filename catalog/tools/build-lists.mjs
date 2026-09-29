@@ -38,7 +38,7 @@ function kitGegevens(slug, bron) {
     const gemeten = measureScene(glb);
     modellen.push({
       naam: basename(bestand, '.glb'),
-      bronmodel: extras.bronmodel ?? null,
+      bronmodellen: [extras.bronmodel ?? []].flat(),
       driehoeken: gemeten.triangles,
       wdh: gemeten.wdh,
       schaal: extras.schaal ?? null,
@@ -486,14 +486,15 @@ for (const bronkit of BRONKITS) {
 
   const opBron = new Map();
   for (const model of kit.modellen) {
-    if (!model.bronmodel) continue;
-    const namen = opBron.get(model.bronmodel);
-    if (namen) namen.push(model.naam);
-    else opBron.set(model.bronmodel, [model.naam]);
+    for (const bronmodel of model.bronmodellen) {
+      const namen = opBron.get(bronmodel);
+      if (namen) namen.push(model.naam);
+      else opBron.set(bronmodel, [model.naam]);
+    }
   }
   const opNaamKit = new Map(kit.modellen.map((m) => [
     m.naam,
-    m.bronmodel ? basename(m.bronmodel, extname(m.bronmodel)) : null,
+    m.bronmodellen.map((b) => basename(b, extname(b))),
   ]));
 
   const geraakt = new Set();
@@ -503,7 +504,7 @@ for (const bronkit of BRONKITS) {
     let namen = opBron.get(model.naam) ?? opBron.get(model.bestand) ?? null;
     if (namen === null && opNaamKit.has(kebab(model.naam))) {
       const gedraaid = opNaamKit.get(kebab(model.naam));
-      if (gedraaid && gedraaid !== model.naam) botsingen.push([model.naam, kebab(model.naam), gedraaid]);
+      if (gedraaid.length && !gedraaid.includes(model.naam)) botsingen.push([model.naam, kebab(model.naam), gedraaid.join(', ')]);
       else namen = [kebab(model.naam)];
     }
     if (namen !== null) for (const naam of namen) geraakt.add(naam);

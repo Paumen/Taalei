@@ -20,7 +20,7 @@ let skipped = 0;
 for (const m of models) {
   if (!m.kind || isExempt(m, VARS)) { skipped++; continue; }
   checked++;
-  for (const f of findingsFor(m, LIMITS.get(m.kind), VARS, SCALES, KITS.get(m.collection ?? m.kit))) {
+  for (const f of findingsFor(m, LIMITS.get(m.kind), VARS, SCALES)) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }
@@ -33,7 +33,7 @@ const w = { id: width('id'), kind: width('kind'), measure: width('measure') };
 for (const f of findings) {
   console.log(
     `${f.level.padEnd(7)}  ${f.id.padEnd(w.id)}  ${f.kind.padEnd(w.kind)}  ` +
-    `${f.measure.padEnd(w.measure)}  ${String(f.value).padStart(5)}  ${f.bound} ${String(f.limit).padStart(5)}  (${f.from})`,
+    `${f.measure.padEnd(w.measure)}  ${String(f.value).padStart(6)}  ${f.bound} ${String(f.limit).padStart(5)}  (${f.from})`,
   );
 }
 

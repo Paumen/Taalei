@@ -22,7 +22,6 @@ const MODEL_PATH = 'kits/workfiles';
 const COLUMNS = 16;
 const ROWS = 4;
 
-const round1 = (v) => (v < 0.1 ? Math.max(Math.round(v * 100) / 100, 0.01) : Math.round(v * 20) / 20);
 
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
 const LINT_MATERIALS = JSON.parse(readFileSync(join(ROOT, LINT_VARS.materials), 'utf8'));
@@ -658,7 +657,7 @@ const rows = models.map((m) => {
     name: m.name,
     kind: m.kind,
     size: m.size,
-    wdh: m.wdh.map(round1),
+    wdh: m.wdh,
     tris: m.triangles,
     tpu: m.trianglesPerUnit,
     mat: m.materials,
@@ -686,7 +685,7 @@ const rows = models.map((m) => {
   };
   return row;
 });
-LINT_CHECKS.kitScales = buildKitScales(rows.map((row, i) => ({ ...row, wdh: models[i].wdh })), LINT_CHECKS);
+LINT_CHECKS.kitScales = buildKitScales(rows, LINT_CHECKS);
 const kitCheckOf = (slug) => {
   const k = LINT_CHECKS.kitScales.get(slug);
   return k && { factor: k.factor, kinds: k.kinds, level: k.level };
