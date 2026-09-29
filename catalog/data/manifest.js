@@ -584,14 +584,27 @@ window.KENNEY_KITS = [
    "balloon",
    "balloon-basket-round",
    "balloon-basket-square",
+   "barbecue",
+   "birdhouse",
+   "dice",
+   "graduation-cap",
+   "hook",
+   "hourglass",
+   "jet",
+   "kettlebell",
    "lifebuoy",
    "lighthouse",
+   "magnet",
+   "plunger",
+   "punching-bag",
    "raft",
    "tipi-a",
    "tipi-b",
    "tipi-c",
    "tipi-d",
-   "tipi-e"
+   "tipi-e",
+   "trophy",
+   "ufo"
   ]
  },
  {
