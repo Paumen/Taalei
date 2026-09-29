@@ -10,6 +10,7 @@ const VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8
 const SIZES = {
   'char': 1.7,
 
+  'env-fauna-fish': 0.3,
   'env-flora-plant-bamboo': 4,
   'env-flora-plant-bush': 1.2,
   'env-flora-plant-flower': 0.3,
@@ -267,7 +268,6 @@ const HIGH = new Set([
 ]);
 
 const DROPPED_KINDS = [
-  'env-fauna-fish',
   'env-flora-plant',
   'env-flora-waterplant',
   'env-remains-bones',
