@@ -115,6 +115,9 @@
         "package",
         "present"
        ],
+       "scale": {
+        "big": 2
+       },
        "children": [
         {
          "id": "obj-container-crate-cube",
@@ -773,8 +776,8 @@
        "longest.min": 0.1,
        "longest.max": 0.55,
        "nouns": [
-        "fish (as food)",
-        "tentacle"
+        "fish fillet",
+        "cured fish"
        ],
        "scale": {
         "big": 2
@@ -789,6 +792,18 @@
           "sashimi"
          ]
         }
+       ]
+      },
+      {
+       "id": "obj-food-seafood",
+       "longest.min": 0.1,
+       "longest.max": 0.55,
+       "nouns": [
+        "squid",
+        "octopus (as food)",
+        "tentacle",
+        "sea urchin",
+        "shellfish"
        ]
       },
       {
@@ -3239,6 +3254,9 @@
           "menu board",
           "price card"
          ],
+         "scale": {
+          "big": 2
+         },
          "children": [
           {
            "id": "str-fixture-marker-sign-signpost",
@@ -3286,7 +3304,8 @@
           "pennant"
          ],
          "scale": {
-          "small": 0.5
+          "small": 0.5,
+          "big": 2
          }
         },
         {
@@ -3540,7 +3559,6 @@
      "tube.min": 0.006,
      "tpu.max": 10000,
      "nouns": [
-      "starfish",
       "octopus",
       "crab",
       "lobster",
@@ -3552,9 +3570,42 @@
       {
        "id": "env-fauna-fish",
        "longest.min": 0.1,
-       "longest.max": 0.4,
+       "longest.max": 0.55,
        "nouns": [
         "fish"
+       ],
+       "scale": {
+        "big": 2
+       },
+       "children": [
+        {
+         "id": "env-fauna-fish-shark",
+         "longest.min": 1,
+         "longest.max": 2.2,
+         "nouns": [
+          "shark",
+          "hammerhead"
+         ]
+        },
+        {
+         "id": "env-fauna-fish-ray",
+         "longest.min": 0.15,
+         "longest.max": 1.5,
+         "nouns": [
+          "ray",
+          "stingray",
+          "manta ray"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "env-fauna-starfish",
+       "longest.min": 0.05,
+       "longest.max": 0.3,
+       "nouns": [
+        "starfish",
+        "sea star"
        ]
       },
       {

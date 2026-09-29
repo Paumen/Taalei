@@ -248,8 +248,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 36
+    "factor": 0.96,
+    "kinds": 37
    }
   },
   {
@@ -2091,9 +2091,8 @@
     "none": 87
    },
    "kitCheck": {
-    "factor": 0.79,
-    "kinds": 16,
-    "level": "warning"
+    "factor": 0.8,
+    "kinds": 17
    }
   },
   {
@@ -2251,10 +2250,20 @@
     "Pirate Kit": 7
    },
    "scales": {
-    "0.1": 7
+    "0.105449": 1,
+    "0.055623": 1,
+    "0.026878": 1,
+    "0.01864": 1,
+    "0.124653": 1,
+    "0.089594": 1,
+    "0.26452": 1
    },
    "smooth": {
     "none": 7
+   },
+   "kitCheck": {
+    "factor": 1.14,
+    "kinds": 3
    }
   },
   {
@@ -2271,7 +2280,15 @@
     "Animated Fish Bundle": 27
    },
    "scales": {
-    "0.08": 27
+    "0.064711": 1,
+    "0.020048": 1,
+    "0.027896": 2,
+    "0.08": 18,
+    "0.063734": 1,
+    "0.042806": 1,
+    "0.047087": 1,
+    "0.025776": 1,
+    "0.071589": 1
    },
    "smooth": {
     "none": 27
@@ -2328,8 +2345,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.28,
-    "kinds": 4,
+    "factor": 1.37,
+    "kinds": 3,
     "level": "warning"
    }
   },
@@ -2400,6 +2417,10 @@
    },
    "smooth": {
     "none": 11
+   },
+   "kitCheck": {
+    "factor": 1.19,
+    "kinds": 5
    }
   },
   {
@@ -2424,8 +2445,8 @@
     "none": 9
    },
    "kitCheck": {
-    "factor": 0.91,
-    "kinds": 23
+    "factor": 0.94,
+    "kinds": 24
    }
   },
   {
@@ -2591,7 +2612,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 26
+    "kinds": 27
    }
   },
   {
@@ -3198,8 +3219,8 @@
     "none": 96
    },
    "kitCheck": {
-    "factor": 1.08,
-    "kinds": 38
+    "factor": 1.07,
+    "kinds": 39
    }
   },
   {
@@ -15704,7 +15725,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2948,
+   "count": 2930,
    "color": "#c07c8a"
   },
   {
@@ -16071,7 +16092,7 @@
    "name": "Food",
    "type": "kind",
    "description": "honey",
-   "count": 529,
+   "count": 511,
    "color": "#c25b4e"
   },
   {
@@ -16195,10 +16216,10 @@
   },
   {
    "id": "obj-food-fish",
-   "name": "Fish",
+   "name": "Prepared fish",
    "type": "kind",
-   "description": "fish (as food), tentacle",
-   "count": 48
+   "description": "fish fillet, cured fish",
+   "count": 24
   },
   {
    "id": "obj-food-fish-sushi",
@@ -16206,6 +16227,13 @@
    "type": "kind",
    "description": "sushi, sashimi",
    "count": 22
+  },
+  {
+   "id": "obj-food-seafood",
+   "name": "Seafood",
+   "type": "kind",
+   "description": "squid, octopus (as food), tentacle, sea urchin, shellfish",
+   "count": 6
   },
   {
    "id": "obj-food-fruit",
@@ -17250,15 +17278,15 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 858,
+   "count": 875,
    "color": "#6cb588"
   },
   {
    "id": "env-fauna",
    "name": "Fauna",
    "type": "kind",
-   "description": "starfish, octopus, crab, lobster, frog, snail, worm",
-   "count": 52,
+   "description": "octopus, crab, lobster, frog, snail, worm",
+   "count": 69,
    "color": "#3e8fd0"
   },
   {
@@ -17273,7 +17301,28 @@
    "name": "Fish",
    "type": "kind",
    "description": "fish",
-   "count": 16
+   "count": 39
+  },
+  {
+   "id": "env-fauna-fish-shark",
+   "name": "Shark",
+   "type": "kind",
+   "description": "shark, hammerhead",
+   "count": 4
+  },
+  {
+   "id": "env-fauna-fish-ray",
+   "name": "Ray",
+   "type": "kind",
+   "description": "ray, stingray, manta ray",
+   "count": 2
+  },
+  {
+   "id": "env-fauna-starfish",
+   "name": "Starfish",
+   "type": "kind",
+   "description": "starfish, sea star",
+   "count": 5
   },
   {
    "id": "env-fauna-bird",
@@ -17923,7 +17972,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 158,
+   "count": 159,
    "color": "#b5651d"
   },
   {
@@ -18445,7 +18494,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 212
+   "count": 213
   },
   {
    "id": "plural",
@@ -18629,8 +18678,9 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 70,
+   "count": 80,
    "kinds": [
+    "obj-container-crate",
     "obj-container-crate-cube",
     "obj-container-pot",
     "obj-kitchenware-tableware-condiment",
@@ -18645,7 +18695,10 @@
     "str-part-pillar",
     "str-barrier-fence-mid",
     "str-access-ladder",
+    "str-fixture-marker-sign",
+    "str-fixture-marker-flag",
     "str-fixture-marker-banner",
+    "env-fauna-fish",
     "env-flora-plant-leafy",
     "env-flora-plant-cactus"
    ]
@@ -18662,14 +18715,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2533
+   "count": 2538
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2247
+   "count": 2242
   },
   {
    "id": "l",
@@ -18767,7 +18820,10 @@
   "char",
   "env-fauna-bird",
   "env-fauna-fish",
+  "env-fauna-fish-ray",
+  "env-fauna-fish-shark",
   "env-fauna-insect",
+  "env-fauna-starfish",
   "env-flora-plant-bamboo",
   "env-flora-plant-bush",
   "env-flora-plant-cactus",
@@ -18889,6 +18945,7 @@
   "obj-food-meat-ham",
   "obj-food-meat-sausage",
   "obj-food-meat-steak",
+  "obj-food-seafood",
   "obj-food-sweet-icecream",
   "obj-food-sweet-lollipop",
   "obj-food-vegetable-broccoli",
@@ -19007,7 +19064,19 @@
   "env-fauna-fish": {
    "high.max": 8,
    "longest.min": 0.1,
-   "longest.max": 0.4,
+   "longest.max": 0.55,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-ray": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.5,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-shark": {
+   "high.max": 8,
+   "longest.min": 1,
+   "longest.max": 2.2,
    "tpu.max": 10000
   },
   "env-fauna-insect": {
@@ -19020,6 +19089,12 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "env-fauna-starfish": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.3,
    "tpu.max": 10000
   },
   "env-flora-plant": {
@@ -20037,6 +20112,12 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "obj-food-seafood": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.55,
    "tpu.max": 5000
   },
   "obj-food-sweet": {
@@ -21156,6 +21237,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-container-crate scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 2,
+   "tpu.max": 10000
+  },
   "obj-container-crate-cube scale-big": {
    "high.max": 8,
    "longest.min": 0.5,
@@ -21394,10 +21481,40 @@
    "longest.max": 1.6,
    "tpu.max": 5000
   },
+  "str-fixture-marker-sign scale-big": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 3.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-marker-sign-signpost scale-big": {
+   "high.max": 8,
+   "longest.min": 0.8,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "str-fixture-marker-sign-lettering scale-big": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 3.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-marker-sign-road scale-big": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 6,
+   "tpu.max": 5000
+  },
   "str-fixture-marker-flag scale-small": {
    "high.max": 8,
    "longest.min": 0.325,
    "longest.max": 0.8,
+   "tpu.max": 5000
+  },
+  "str-fixture-marker-flag scale-big": {
+   "high.max": 8,
+   "longest.min": 1.3,
+   "longest.max": 3.2,
    "tpu.max": 5000
   },
   "str-fixture-marker-banner scale-big": {
@@ -21411,6 +21528,24 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "env-fauna-fish scale-big": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.1,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-shark scale-big": {
+   "high.max": 8,
+   "longest.min": 2,
+   "longest.max": 4.4,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-ray scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 3,
+   "tpu.max": 10000
   },
   "env-flora-plant-leafy scale-small": {
    "high.max": 8,
@@ -39024,7 +39159,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.663 at kit ×0.98)"
+     "text": "longest 0.65 under min 0.7 (str-part-floor-unit · 0.677 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -39127,7 +39262,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-starfish-a",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.09,
@@ -39166,7 +39301,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-starfish-b",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.1,
@@ -42259,7 +42394,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.255 at kit ×0.98)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.26 at kit ×0.96)"
     }
    ]
   },
@@ -42313,7 +42448,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.255 at kit ×0.98)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.26 at kit ×0.96)"
     }
    ]
   },
@@ -43161,7 +43296,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v411"
+   "variant": "v411",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.7 over max 1.75 (obj-transport-land-cart · 1.771 at kit ×0.96)"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -43202,7 +43344,14 @@
     "fs",
     "wood-worked"
    ],
-   "variant": "v411"
+   "variant": "v411",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.7 over max 1.75 (obj-transport-land-cart · 1.771 at kit ×0.96)"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -43858,9 +44007,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 1.99 at kit ×0.98)"
+     "text": "longest 1.95 over max 1.6 (str-access-ladder scale-big · 2.031 at kit ×0.96)"
     }
    ]
   },
@@ -46069,7 +46218,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46118,7 +46267,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46167,7 +46316,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46216,7 +46365,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46265,7 +46414,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -46414,7 +46563,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit · 0.521 at kit ×0.96)"
     },
     {
      "level": "error",
@@ -47004,7 +47153,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47113,7 +47262,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47222,7 +47371,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47331,7 +47480,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47440,7 +47589,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -47549,7 +47698,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.51 at kit ×0.98)"
+     "text": "high 0.5 under min 0.75 (str-part-window-unit · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -48296,7 +48445,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.378 at kit ×0.98)"
+     "text": "high 1.35 over max 1.25 (str-part-window-unit · 1.406 at kit ×0.96)"
     }
    ]
   },
@@ -48356,7 +48505,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.633 at kit ×0.98)"
+     "text": "high 1.6 over max 1.2 (str-part-wall-unit · 1.667 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -48709,7 +48858,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.306 at kit ×0.98)"
+     "text": "high 0.3 under min 0.35 (str-barrier-post · 0.313 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -48897,7 +49046,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.51 at kit ×0.98)"
+     "text": "high 0.5 over max 0.425 (str-barrier-fence-mid scale-small · 0.521 at kit ×0.96)"
     }
    ],
    "mark": [
@@ -144614,7 +144763,7 @@
   {
    "kit": "ken-food",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.1,
@@ -174041,6 +174190,7 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "wood-planks"
    ],
    "variant": "v1071"
@@ -174096,6 +174246,7 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "wood-planks"
    ],
    "variant": "v1071"
@@ -174206,6 +174357,7 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "wood-planks"
    ],
    "variant": "v1071"
@@ -174403,15 +174555,11 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "textile"
    ],
    "variant": "v1072",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.5 over max 1.6 (str-fixture-marker-flag · 1.63 at kit ×0.92)"
-    },
     {
      "level": "error",
      "check": "mat",
@@ -174465,15 +174613,11 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "textile"
    ],
    "variant": "v1072",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.5 over max 1.6 (str-fixture-marker-flag · 1.63 at kit ×0.92)"
-    },
     {
      "level": "error",
      "check": "mat",
@@ -184534,6 +184678,7 @@
     "ken",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
    "variant": "v1112"
@@ -184585,16 +184730,10 @@
     "ken",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
-   "variant": "v1112",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.1 over max 1 (obj-container-crate · 1.058 at kit ×1.04)"
-    }
-   ]
+   "variant": "v1112"
   },
   {
    "kit": "ken-station",
@@ -184643,6 +184782,7 @@
     "ken",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
    "variant": "v1111"
@@ -184694,6 +184834,7 @@
     "ken",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
    "variant": "v1111"
@@ -184745,6 +184886,7 @@
     "ken",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
    "variant": "v1111"
@@ -188580,7 +188722,7 @@
   {
    "kit": "ken-survival",
    "name": "fish-large",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -188629,7 +188771,7 @@
   {
    "kit": "ken-survival",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -204657,14 +204799,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v104",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v104"
   },
   {
    "kit": "natuur",
@@ -204708,12 +204843,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1 over max 1.1 (env-remains-deadwood-branch · 1.266 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 1 over max 1.1 (env-remains-deadwood-branch · 1.25 at kit ×0.8)"
     }
    ]
   },
@@ -204759,12 +204889,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.95 over max 1.1 (env-remains-deadwood-branch · 1.203 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.95 over max 1.1 (env-remains-deadwood-branch · 1.187 at kit ×0.8)"
     }
    ]
   },
@@ -204803,13 +204928,6 @@
    ],
    "tags": [
     "foliage"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -204860,12 +204978,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.65 over max 0.75 (obj-furnishing-light-campfire · 0.823 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.65 over max 0.75 (obj-furnishing-light-campfire · 0.813 at kit ×0.8)"
     }
    ]
   },
@@ -204911,13 +205024,6 @@
     "robin-hood",
     "wood-bark",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -204962,14 +205068,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205008,14 +205107,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205055,14 +205147,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205101,14 +205186,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205147,14 +205225,7 @@
    "tags": [
     "vegetation"
    ],
-   "variant": "v76",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v76"
   },
   {
    "kit": "natuur",
@@ -205196,12 +205267,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.1 under min 0.15 (obj-food-fruit-coconut · 0.127 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.1 under min 0.15 (obj-food-fruit-coconut · 0.125 at kit ×0.8)"
     }
    ]
   },
@@ -205252,14 +205318,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v77"
   },
   {
    "kit": "natuur",
@@ -205308,14 +205367,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v77"
   },
   {
    "kit": "natuur",
@@ -205364,14 +205416,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v77"
   },
   {
    "kit": "natuur",
@@ -205420,14 +205465,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v78"
   },
   {
    "kit": "natuur",
@@ -205476,14 +205514,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v78"
   },
   {
    "kit": "natuur",
@@ -205532,14 +205563,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v78"
   },
   {
    "kit": "natuur",
@@ -205588,14 +205612,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v79"
   },
   {
    "kit": "natuur",
@@ -205644,14 +205661,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v79"
   },
   {
    "kit": "natuur",
@@ -205700,14 +205710,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v79"
   },
   {
    "kit": "natuur",
@@ -205756,14 +205759,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v80"
   },
   {
    "kit": "natuur",
@@ -205812,14 +205808,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v80"
   },
   {
    "kit": "natuur",
@@ -205868,14 +205857,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v80"
   },
   {
    "kit": "natuur",
@@ -205924,14 +205906,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v81"
   },
   {
    "kit": "natuur",
@@ -205980,14 +205955,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v81"
   },
   {
    "kit": "natuur",
@@ -206036,14 +206004,7 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v81"
   },
   {
    "kit": "natuur",
@@ -206081,14 +206042,7 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v632",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v632"
   },
   {
    "kit": "natuur",
@@ -206126,14 +206080,7 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v632",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v632"
   },
   {
    "kit": "natuur",
@@ -206171,14 +206118,7 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v632",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v632"
   },
   {
    "kit": "natuur",
@@ -206223,14 +206163,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206275,14 +206208,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206327,14 +206253,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206379,14 +206298,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206432,14 +206344,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v82",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v82"
   },
   {
    "kit": "natuur",
@@ -206482,13 +206387,6 @@
    "tags": [
     "food",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206538,13 +206436,6 @@
     "food",
     "robin-hood",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206589,13 +206480,6 @@
     "food",
     "robin-hood",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206640,13 +206524,6 @@
     "food",
     "robin-hood",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -206686,14 +206563,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206731,14 +206601,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206776,14 +206639,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206821,14 +206677,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206866,14 +206715,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206911,14 +206753,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -206956,14 +206791,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207001,14 +206829,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207046,14 +206867,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v83",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v83"
   },
   {
    "kit": "natuur",
@@ -207092,14 +206906,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207138,14 +206945,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207184,14 +206984,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207230,14 +207023,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207276,14 +207062,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207322,14 +207101,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v84",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v84"
   },
   {
    "kit": "natuur",
@@ -207371,11 +207143,6 @@
    ],
    "variant": "v128",
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -207424,11 +207191,6 @@
    "variant": "v128",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    },
-    {
      "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
@@ -207476,11 +207238,6 @@
    "variant": "v128",
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    },
-    {
      "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
@@ -207490,7 +207247,7 @@
   {
    "kit": "natuur",
    "name": "starfish-bleached",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.08,
@@ -207520,19 +207277,12 @@
    "colors": [
     "#8b7561"
    ],
-   "variant": "v127",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v127"
   },
   {
    "kit": "natuur",
    "name": "starfish-salmon",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.15,
@@ -207562,14 +207312,7 @@
    "colors": [
     "#d07b56"
    ],
-   "variant": "v127",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v127"
   },
   {
    "kit": "natuur",
@@ -207607,14 +207350,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207652,14 +207388,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207698,14 +207427,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207743,14 +207465,7 @@
    "tags": [
     "stone-rock"
    ],
-   "variant": "v85",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v85"
   },
   {
    "kit": "natuur",
@@ -207797,14 +207512,9 @@
    "variant": "v103",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "longest 0.15 under min 0.25 (env-remains-deadwood-stump · 0.19 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.15 under min 0.25 (env-remains-deadwood-stump · 0.187 at kit ×0.8)"
     }
    ]
   },
@@ -207850,14 +207560,7 @@
     "robin-hood",
     "wood-bark"
    ],
-   "variant": "v103",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v103"
   },
   {
    "kit": "natuur",
@@ -207905,12 +207608,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.7 over max 0.65 (env-remains-deadwood-stump · 0.886 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 0.7 over max 0.65 (env-remains-deadwood-stump · 0.875 at kit ×0.8)"
     }
    ]
   },
@@ -207956,14 +207654,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208007,14 +207698,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208058,14 +207742,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208109,14 +207786,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v86",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v86"
   },
   {
    "kit": "natuur",
@@ -208162,14 +207832,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v87",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v87"
   },
   {
    "kit": "natuur",
@@ -208215,14 +207878,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "variant": "v87",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v87"
   },
   {
    "kit": "natuur",
@@ -208267,13 +207923,6 @@
     "robin-hood",
     "wood-bark",
     "wood-log"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
    ]
   },
   {
@@ -208312,14 +207961,7 @@
    "tags": [
     "wood-bark"
    ],
-   "variant": "v105",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v105"
   },
   {
    "kit": "natuur",
@@ -208362,12 +208004,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.2 over max 2.3 (env-remains-deadwood-tree · 2.785 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 2.2 over max 2.3 (env-remains-deadwood-tree · 2.75 at kit ×0.8)"
     }
    ]
   },
@@ -208412,12 +208049,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.05 over max 2.3 (env-remains-deadwood-tree · 2.595 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 2.05 over max 2.3 (env-remains-deadwood-tree · 2.562 at kit ×0.8)"
     }
    ]
   },
@@ -208462,12 +208094,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.95 over max 2.3 (env-remains-deadwood-tree · 2.468 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 1.95 over max 2.3 (env-remains-deadwood-tree · 2.438 at kit ×0.8)"
     }
    ]
   },
@@ -208512,12 +208139,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 2.35 over max 2.3 (env-remains-deadwood-tree · 2.975 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 2.35 over max 2.3 (env-remains-deadwood-tree · 2.938 at kit ×0.8)"
     }
    ]
   },
@@ -208562,12 +208184,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3 over max 2.3 (env-remains-deadwood-tree · 3.797 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
+     "text": "longest 3 over max 2.3 (env-remains-deadwood-tree · 3.75 at kit ×0.8)"
     }
    ]
   },
@@ -208619,14 +208236,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208676,14 +208286,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208732,14 +208335,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208788,14 +208384,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208844,14 +208433,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208901,14 +208483,7 @@
     "foliage",
     "wood-planks"
    ],
-   "variant": "v88",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v88"
   },
   {
    "kit": "natuur",
@@ -208953,14 +208528,7 @@
     "foliage",
     "wood-bark"
    ],
-   "variant": "v89",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v89"
   },
   {
    "kit": "natuur",
@@ -209005,19 +208573,7 @@
     "foliage",
     "wood-bark"
    ],
-   "variant": "v89",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.7 over max 3.4 (env-flora-tree-conifer · 3.418 at kit ×0.79)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×0.79 off the size curve (natuur, 16 kinds)"
-    }
-   ]
+   "variant": "v89"
   },
   {
    "kit": "props",
@@ -215875,8 +215431,8 @@
    "kind": "env-fauna-mammal",
    "size": "m",
    "wdh": [
-    0.3,
-    0.9,
+    0.35,
+    0.95,
     0.3
    ],
    "tris": 440,
@@ -215884,11 +215440,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 2,
-   "bytes": 139648,
+   "bytes": 139668,
    "vtx": 1320,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.0009,
+   "avgTri": 0.001,
    "anglePct": 3,
    "vpt": 3,
    "grad": 0.31,
@@ -215916,22 +215472,22 @@
   {
    "kit": "quat-fish",
    "name": "fish-1",
-   "kind": "obj-food-fish",
-   "size": "m",
+   "kind": "env-fauna-fish",
+   "size": "s",
    "wdh": [
-    0.8,
-    0.1,
-    0.25
+    0.45,
+    0.06,
+    0.15
    ],
    "tris": 544,
    "tpu": 1586,
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 105984,
+   "bytes": 106004,
    "vtx": 1632,
    "minEdge": 0.001,
-   "avgTri": 0.00053,
+   "avgTri": 0.00016,
    "anglePct": 9,
    "vpt": 3,
    "grad": 0.65,
@@ -215963,13 +215519,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.8 over max 0.55 (obj-food-fish)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -215979,21 +215528,21 @@
    "kit": "quat-fish",
    "name": "fish-2",
    "kind": "env-fauna-fish",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    1,
-    0.2,
-    0.6
+    0.25,
+    0.05,
+    0.15
    ],
    "tris": 502,
    "tpu": 1464,
    "mat": 1,
    "bands": 2,
    "calls": 3,
-   "bytes": 98720,
+   "bytes": 98740,
    "vtx": 1506,
-   "minEdge": 0.001,
-   "avgTri": 0.00194,
+   "minEdge": 0,
+   "avgTri": 0.00014,
    "anglePct": 1,
    "vpt": 3,
    "grad": 0.6,
@@ -216019,13 +215568,6 @@
    "anim": [
     "Armature|Swim.001"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1 over max 0.4 (env-fauna-fish)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -216035,22 +215577,22 @@
    "kit": "quat-fish",
    "name": "fish-3",
    "kind": "env-fauna-fish",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.75,
     0.15,
-    0.4
+    0.03,
+    0.08
    ],
    "tris": 686,
    "tpu": 2000,
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 128628,
+   "bytes": 128644,
    "vtx": 2058,
-   "minEdge": 0.004,
+   "minEdge": 0.001,
    "minTube": 0.1846,
-   "avgTri": 0.00064,
+   "avgTri": 0.00002,
    "anglePct": 2,
    "vpt": 3,
    "grad": 0.51,
@@ -216081,13 +215623,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.75 over max 0.4 (env-fauna-fish)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -216096,22 +215631,22 @@
   {
    "kit": "quat-fish",
    "name": "manta-ray",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-ray",
    "size": "m",
    "wdh": [
-    0.75,
-    1.15,
-    0.2
+    0.9,
+    1.45,
+    0.25
    ],
    "tris": 696,
-   "tpu": 1157,
+   "tpu": 744,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 148496,
+   "bytes": 148516,
    "vtx": 2088,
-   "minEdge": 0.004,
-   "avgTri": 0.00077,
+   "minEdge": 0.005,
+   "avgTri": 0.0012,
    "anglePct": 2,
    "vpt": 3,
    "grad": 0.63,
@@ -216145,23 +215680,23 @@
   {
    "kit": "quat-fish",
    "name": "shark",
-   "kind": "env-fauna",
-   "size": "l",
+   "kind": "env-fauna-fish-shark",
+   "size": "m",
    "wdh": [
-    0.6,
-    1.6,
-    0.5
+    0.55,
+    1.4,
+    0.45
    ],
    "tris": 644,
-   "tpu": 992,
+   "tpu": 1235,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 124316,
+   "bytes": 124336,
    "vtx": 1932,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00179,
+   "avgTri": 0.00144,
    "anglePct": 5,
    "vpt": 3,
    "grad": 0.65,
@@ -216195,22 +215730,22 @@
    "kit": "quat-fish",
    "name": "whale",
    "kind": "env-fauna-mammal",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.4,
-    1,
-    0.35
+    1.05,
+    2.65,
+    0.9
    ],
    "tris": 447,
-   "tpu": 1303,
+   "tpu": 185,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 98124,
+   "bytes": 98140,
    "vtx": 1341,
-   "minEdge": 0.004,
+   "minEdge": 0.011,
    "minTube": 1.346,
-   "avgTri": 0.00121,
+   "avgTri": 0.00849,
    "anglePct": 0,
    "vpt": 3,
    "grad": 0.65,
@@ -216247,21 +215782,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.3,
-    0.45,
-    0.25
+    0.25,
+    0.35,
+    0.2
    ],
    "tris": 1870,
    "tpu": 5452,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 94768,
+   "bytes": 94784,
    "vtx": 2566,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00013,
+   "avgTri": 0.00008,
    "anglePct": 5,
    "vpt": 1.37,
    "grad": 0,
@@ -216297,13 +215832,6 @@
    "tags": [
     "hero",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.563 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -216312,21 +215840,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.25,
-    0.45,
-    0.25
+    0.06,
+    0.1,
+    0.07
    ],
    "tris": 1456,
    "tpu": 4245,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 79632,
+   "bytes": 79648,
    "vtx": 2171,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00016,
+   "minEdge": 0,
+   "avgTri": 0.00001,
    "anglePct": 26,
    "vpt": 1.49,
    "grad": 0,
@@ -216351,13 +215879,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.563 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -216366,21 +215887,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.35,
-    0.4,
-    0.25
+    0.1,
+    0.15,
+    0.08
    ],
    "tris": 1530,
    "tpu": 4461,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 84992,
+   "bytes": 85008,
    "vtx": 2324,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00015,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 15,
    "vpt": 1.52,
    "grad": 0,
@@ -216401,14 +215922,7 @@
    "tags": [
     "qua"
    ],
-   "variant": "v868",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
-   ]
+   "variant": "v868"
   },
   {
    "kit": "quat-fishing",
@@ -216416,21 +215930,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.35,
-    0.4,
-    0.25
+    0.1,
+    0.15,
+    0.09
    ],
    "tris": 1530,
    "tpu": 4461,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 85144,
+   "bytes": 85160,
    "vtx": 2329,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00015,
+   "minEdge": 0.001,
+   "avgTri": 0.00002,
    "anglePct": 15,
    "vpt": 1.52,
    "grad": 0,
@@ -216456,14 +215970,7 @@
    "tags": [
     "qua"
    ],
-   "variant": "v868",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
-   ]
+   "variant": "v868"
   },
   {
    "kit": "quat-fishing",
@@ -216887,20 +216394,20 @@
    "size": "s",
    "wdh": [
     0.15,
-    0.4,
-    0.3
+    0.3,
+    0.25
    ],
    "tris": 1638,
    "tpu": 4776,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 80380,
+   "bytes": 80396,
    "vtx": 2160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00013,
+   "minEdge": 0.001,
+   "avgTri": 0.00008,
    "anglePct": 14,
    "vpt": 1.32,
    "grad": 0,
@@ -216930,36 +216437,29 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
    ]
   },
   {
    "kit": "quat-fishing",
    "name": "lionfish-basalt",
    "kind": "env-fauna-fish",
-   "size": "m",
+   "size": "s",
    "wdh": [
+    0.15,
     0.3,
-    0.55,
-    0.5
+    0.25
    ],
    "tris": 1974,
    "tpu": 5755,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 117868,
+   "bytes": 117884,
    "vtx": 3268,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00016,
+   "avgTri": 0.00004,
    "anglePct": 14,
    "vpt": 1.66,
    "grad": 0,
@@ -216981,36 +216481,29 @@
     "hero",
     "qua"
    ],
-   "variant": "v867",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.55 over max 0.4 (env-fauna-fish · 0.688 at kit ×0.8)"
-    }
-   ]
+   "variant": "v867"
   },
   {
    "kit": "quat-fishing",
    "name": "lionfish",
    "kind": "env-fauna-fish",
-   "size": "m",
+   "size": "s",
    "wdh": [
+    0.2,
     0.3,
-    0.5,
-    0.4
+    0.25
    ],
    "tris": 1938,
    "tpu": 5650,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 113444,
+   "bytes": 113460,
    "vtx": 3137,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00016,
+   "avgTri": 0.00005,
    "anglePct": 15,
    "vpt": 1.62,
    "grad": 0,
@@ -217042,14 +216535,7 @@
     "hero",
     "qua"
    ],
-   "variant": "v867",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.5 over max 0.4 (env-fauna-fish · 0.625 at kit ×0.8)"
-    }
-   ]
+   "variant": "v867"
   },
   {
    "kit": "quat-fishing",
@@ -217357,21 +216843,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.2,
-    0.35,
-    0.15
+    0.07,
+    0.1,
+    0.05
    ],
    "tris": 1378,
    "tpu": 4017,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 94892,
+   "bytes": 94908,
    "vtx": 2662,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "avgTri": 0.0001,
+   "minEdge": 0,
+   "avgTri": 0.00001,
    "anglePct": 16,
    "vpt": 1.93,
    "grad": 0,
@@ -217396,13 +216882,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.35 over max 0.4 (env-fauna-fish · 0.437 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -217411,7 +216890,7 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.3,
+    0.25,
     0.3,
     0.2
    ],
@@ -217420,13 +216899,13 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 132552,
+   "bytes": 132568,
    "vtx": 3696,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.011,
-   "avgTri": 0.00013,
+   "minTube": 0.0098,
+   "avgTri": 0.0001,
    "anglePct": 4,
    "vpt": 1.73,
    "grad": 0,
@@ -217556,13 +217035,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -219216,7 +218688,7 @@
   {
    "kit": "quat-food",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.55,
@@ -220796,7 +220268,7 @@
   {
    "kit": "quat-food",
    "name": "tentacle",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -221027,6 +220499,7 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "metal-iron-steel",
     "qua",
     "rubber"
@@ -221035,12 +220508,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (obj-equipment-weapon-melee-dagger · 0.117 at kit ×1.28)"
-    },
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221091,7 +220559,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221144,7 +220612,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221191,7 +220659,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221244,7 +220712,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221296,7 +220764,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221349,7 +220817,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221407,7 +220875,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221466,7 +220934,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -221512,7 +220980,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "kit ×1.28 off the size curve (quat-guns, 4 kinds)"
+     "text": "kit ×1.37 off the size curve (quat-guns, 3 kinds)"
     }
    ]
   },
@@ -225300,7 +224768,7 @@
   {
    "kit": "quat-ocean",
    "name": "shark-hammerhead",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "m",
    "wdh": [
     0.45,
@@ -225337,6 +224805,13 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.05 under min 1 (env-fauna-fish-shark · 0.882 at kit ×1.19)"
+    }
    ]
   },
   {
@@ -225518,7 +224993,7 @@
   {
    "kit": "quat-ocean",
    "name": "starfish",
-   "kind": "env-fauna",
+   "kind": "env-fauna-starfish",
    "size": "s",
    "wdh": [
     0.2,
@@ -225560,7 +225035,7 @@
   {
    "kit": "quat-ocean",
    "name": "stingray",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-ray",
    "size": "s",
    "wdh": [
     0.15,
@@ -225839,7 +225314,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.275 at kit ×0.91)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.266 at kit ×0.94)"
     }
    ]
   },
@@ -225985,9 +225460,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.385 at kit ×0.91)"
+     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.372 at kit ×0.94)"
     }
    ]
   },
@@ -226704,7 +226179,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 over max 0.45 (obj-equipment-weapon-melee-dagger · 0.549 at kit ×0.91)"
+     "text": "longest 0.5 over max 0.45 (obj-equipment-weapon-melee-dagger · 0.532 at kit ×0.94)"
     }
    ]
   },
@@ -226759,7 +226234,7 @@
   {
    "kit": "quat-pirate",
    "name": "fish-mackerel",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.6,
@@ -226806,14 +226281,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.55 (obj-food-fish · 0.659 at kit ×0.91)"
+     "text": "longest 0.6 over max 0.55 (env-fauna-fish · 0.638 at kit ×0.94)"
     }
    ]
   },
   {
    "kit": "quat-pirate",
    "name": "fish-tuna",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.8,
@@ -228038,7 +227513,7 @@
   {
    "kit": "quat-pirate",
    "name": "shark",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "l",
    "wdh": [
     0.85,
@@ -228096,6 +227571,11 @@
     "Swim_Fast"
    ],
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.15 over max 2.2 (env-fauna-fish-shark · 2.287 at kit ×0.94)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -241686,7 +241166,7 @@
   {
    "kit": "quat-sushi",
    "name": "eel",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.5,
@@ -241734,7 +241214,7 @@
   {
    "kit": "quat-sushi",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.15,
@@ -241922,7 +241402,7 @@
   {
    "kit": "quat-sushi",
    "name": "flounder",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -241965,13 +241445,6 @@
    "tags": [
     "food",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5469 over max 5000 (obj-food)"
-    }
    ]
   },
   {
@@ -242160,7 +241633,7 @@
   {
    "kit": "quat-sushi",
    "name": "mackerel",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.2,
@@ -242349,7 +241822,7 @@
   {
    "kit": "quat-sushi",
    "name": "octopus",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.2,
@@ -242978,7 +242451,7 @@
   {
    "kit": "quat-sushi",
    "name": "salmon-whole",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.15,
@@ -243026,7 +242499,7 @@
   {
    "kit": "quat-sushi",
    "name": "sea-urchin-open",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -243070,7 +242543,7 @@
   {
    "kit": "quat-sushi",
    "name": "sea-urchin",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -243380,7 +242853,7 @@
   {
    "kit": "quat-sushi",
    "name": "squid",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.2,
@@ -243666,7 +243139,7 @@
   {
    "kit": "quat-sushi",
    "name": "tentacle",
-   "kind": "obj-food-fish",
+   "kind": "obj-food-seafood",
    "size": "s",
    "wdh": [
     0.15,
@@ -243749,7 +243222,7 @@
   {
    "kit": "quat-sushi",
    "name": "tuna",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -256156,7 +255629,7 @@
   {
    "kit": "rgp-medieval",
    "name": "fish-hanging",
-   "kind": "obj-food-fish",
+   "kind": "set",
    "size": "m",
    "wdh": [
     0.07,
@@ -256206,14 +255679,7 @@
     "rgp",
     "rope"
    ],
-   "variant": "v1151",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.8 over max 0.55 (obj-food-fish · 0.784 at kit ×1.02)"
-    }
-   ]
+   "variant": "v1151"
   },
   {
    "kit": "rgp-medieval",
@@ -256279,7 +255745,7 @@
   {
    "kit": "rgp-medieval",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.35,
@@ -281258,7 +280724,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281311,7 +280777,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281364,7 +280830,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281417,14 +280883,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
   {
    "kit": "styloo-farm",
    "name": "fish-tan",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -281468,7 +280934,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish-umber",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -281513,7 +280979,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -281608,7 +281074,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.204 at kit ×1.08)"
+     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.215 at kit ×1.07)"
     }
    ]
   },
@@ -281666,7 +281132,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.204 at kit ×1.08)"
+     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.215 at kit ×1.07)"
     }
    ]
   },
@@ -281848,7 +281314,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.37 at kit ×1.08)"
+     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.374 at kit ×1.07)"
     }
    ]
   },
@@ -281971,7 +281437,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -282018,7 +281484,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.324 at kit ×1.08)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
     },
     {
      "level": "error",
@@ -282108,7 +281574,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.324 at kit ×1.08)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
     }
    ]
   },
@@ -282778,7 +282244,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (env-terrain-rock-cobble · 0.139 at kit ×1.08)"
+     "text": "longest 0.15 under min 0.15 (env-terrain-rock-cobble · 0.14 at kit ×1.07)"
     }
    ]
   },
@@ -282947,7 +282413,7 @@
   {
    "kit": "styloo-farm",
    "name": "shark",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "m",
    "wdh": [
     1.4,
