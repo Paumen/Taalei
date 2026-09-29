@@ -2281,12 +2281,18 @@
    },
    "scales": {
     "0.064711": 1,
-    "0.08": 25,
+    "0.05": 1,
     "0.027896": 2,
+    "0.056": 1,
+    "0.08": 19,
     "0.063734": 1,
     "0.042806": 1,
     "0.047087": 1,
-    "0.071589": 1
+    "0.046": 1,
+    "0.055": 1,
+    "0.051": 1,
+    "0.071589": 1,
+    "0.124": 1
    },
    "smooth": {
     "none": 32
@@ -18676,7 +18682,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 80,
+   "count": 81,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -18713,14 +18719,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2543
+   "count": 2542
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2242
+   "count": 2243
   },
   {
    "id": "l",
@@ -215838,9 +215844,9 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
+    0.15,
     0.25,
-    0.4,
-    0.25
+    0.15
    ],
    "tris": 1342,
    "tpu": 3913,
@@ -215852,7 +215858,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00015,
+   "avgTri": 0.00006,
    "anglePct": 8,
    "vpt": 1.48,
    "grad": 0.32,
@@ -215976,21 +215982,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.25,
-    0.4,
-    0.2
+    0.2,
+    0.3,
+    0.15
    ],
    "tris": 1588,
    "tpu": 4630,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 89432,
+   "bytes": 89436,
    "vtx": 2452,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00013,
+   "avgTri": 0.00006,
    "anglePct": 13,
    "vpt": 1.54,
    "grad": 0,
@@ -216888,21 +216894,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.25,
-    0.35,
-    0.25
+    0.15,
+    0.2,
+    0.15
    ],
    "tris": 1428,
    "tpu": 4163,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 78104,
+   "bytes": 78108,
    "vtx": 2128,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00015,
+   "avgTri": 0.00005,
    "anglePct": 6,
    "vpt": 1.49,
    "grad": 0.37,
@@ -216930,21 +216936,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
+    0.2,
     0.3,
-    0.45,
-    0.25
+    0.15
    ],
    "tris": 1352,
    "tpu": 3942,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 73036,
+   "bytes": 73040,
    "vtx": 1984,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00016,
+   "avgTri": 0.00008,
    "anglePct": 15,
    "vpt": 1.47,
    "grad": 0,
@@ -216979,13 +216985,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.45 over max 0.55 (env-fauna-fish · 0.563 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -216994,21 +216993,21 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
+    0.15,
     0.25,
-    0.4,
-    0.2
+    0.1
    ],
    "tris": 1676,
    "tpu": 4886,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 89760,
+   "bytes": 89764,
    "vtx": 2446,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00012,
+   "avgTri": 0.00005,
    "anglePct": 4,
    "vpt": 1.46,
    "grad": 0,
@@ -217202,23 +217201,23 @@
    "kit": "quat-fishing",
    "name": "tuna",
    "kind": "env-fauna-fish",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.45,
-    0.3
+    0.5,
+    0.7,
+    0.45
    ],
    "tris": 1446,
    "tpu": 4216,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 100596,
+   "bytes": 100600,
    "vtx": 2828,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00016,
+   "minEdge": 0.003,
+   "avgTri": 0.00037,
    "anglePct": 13,
    "vpt": 1.96,
    "grad": 0.63,
@@ -217247,14 +217246,8 @@
     "#f2a93c"
    ],
    "tags": [
-    "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.45 over max 0.55 (env-fauna-fish · 0.563 at kit ×0.8)"
-    }
+    "qua",
+    "scale-big"
    ]
   },
   {
