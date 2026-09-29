@@ -1468,7 +1468,6 @@ window.KENNEY_KITS = [
   "name": "ken-proto",
   "url": "https://kenney.nl/assets/prototype-kit",
   "models": [
-   "button-floor-round-small",
    "coin",
    "crate",
    "door",
@@ -1479,8 +1478,6 @@ window.KENNEY_KITS = [
    "flag",
    "ladder",
    "ladder-top",
-   "lever-double",
-   "lever-single",
    "stairs-diagonal",
    "target-a-round",
    "target-b-round",
