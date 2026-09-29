@@ -23,14 +23,14 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
-          repository: paumen/taalei-sources
-          path: taalei-sources
+          repository: Paumen/lp-sources
+          path: lp-sources
           sparse-checkout: kits/reject
       - name: Place rejected models
         run: |
           rm kits/sources kits/reject
-          mv taalei-sources/kits/reject kits/reject
-          rm -rf taalei-sources
+          mv lp-sources/kits/reject kits/reject
+          rm -rf lp-sources
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

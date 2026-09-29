@@ -25,9 +25,9 @@ and put back any that look wrong.
 
 `catalog/tools/bronkits.mjs` (`BRONKITS`) lists every pack; the zips sit in
 `kits/sources/<pack>/`. `kits/sources` and `kits/reject` are symlinks into
-paumen/taalei-sources; clone it first:
+Paumen/lp-sources; clone it first:
 
-    git clone --depth 1 https://github.com/paumen/taalei-sources ../taalei-sources
+    git clone --depth 1 https://github.com/Paumen/lp-sources ../lp-sources
 
 Zips and rejected models are committed and pushed in that repo; the lists and
 thumbs under `catalog/build` in this one.
