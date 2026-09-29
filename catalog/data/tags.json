@@ -12414,36 +12414,12 @@
   },
   {
    "id": "obj-food-fish",
-   "name": "Fish",
+   "name": "Prepared fish",
    "type": "kind",
-   "description": "fish (as food), tentacle",
+   "description": "fish fillet, cured fish",
    "models": [
-    "quat-food/fish",
-    "quat-food/tentacle",
-    "ken-food/fish",
-    "styloo-farm/fish",
-    "styloo-farm/fish-tan",
-    "styloo-farm/fish-umber",
-    "ken-survival/fish",
-    "ken-survival/fish-large",
-    "quat-fish/fish-1",
-    "quat-pirate/fish-mackerel",
-    "quat-pirate/fish-tuna",
-    "quat-sushi/eel",
-    "quat-sushi/fish",
-    "quat-sushi/flounder",
-    "quat-sushi/mackerel",
-    "quat-sushi/octopus",
-    "quat-sushi/salmon-whole",
-    "quat-sushi/tuna",
-    "quat-sushi/sea-urchin-open",
-    "quat-sushi/sea-urchin",
     "quat-sushi/shimesaba",
-    "quat-sushi/tentacle",
-    "food-pack-2/salmon",
-    "rgp-medieval/fish-hanging",
-    "rgp-medieval/fish",
-    "quat-sushi/squid"
+    "food-pack-2/salmon"
    ]
   },
   {
@@ -12474,6 +12450,20 @@
     "styloo-food/nigiri-salmon",
     "styloo-food/sashimi-salmon",
     "quat-sushi/onigiri"
+   ]
+  },
+  {
+   "id": "obj-food-seafood",
+   "name": "Seafood",
+   "type": "kind",
+   "description": "squid, octopus (as food), tentacle, sea urchin, shellfish",
+   "models": [
+    "quat-sushi/squid",
+    "quat-sushi/octopus",
+    "quat-sushi/sea-urchin",
+    "quat-sushi/sea-urchin-open",
+    "quat-sushi/tentacle",
+    "quat-food/tentacle"
    ]
   },
   {
@@ -15468,21 +15458,10 @@
    "id": "env-fauna",
    "name": "Fauna",
    "type": "kind",
-   "description": "starfish, octopus, crab, lobster, frog, snail, worm",
+   "description": "octopus, crab, lobster, frog, snail, worm",
    "color": "#3e8fd0",
    "models": [
-    "quat-fish/manta-ray",
-    "quat-fish/shark",
-    "fs-terrain/beach-prop-starfish-a",
-    "fs-terrain/beach-prop-starfish-b",
-    "natuur/starfish-bleached",
-    "natuur/starfish-salmon",
-    "quat-pirate/shark",
     "quat-pirate/tentacle",
-    "styloo-farm/shark",
-    "quat-ocean/shark-hammerhead",
-    "quat-ocean/stingray",
-    "quat-ocean/starfish",
     "aq-pond/frog-a",
     "aq-pond/frog-b",
     "aq-pond/frog-c",
@@ -15527,7 +15506,59 @@
     "quat-ocean/fish-brown",
     "quat-ocean/fish-clown",
     "quat-ocean/fish-dory",
-    "quat-ocean/fish-tuna"
+    "quat-ocean/fish-tuna",
+    "ken-food/fish",
+    "ken-survival/fish-large",
+    "ken-survival/fish",
+    "quat-fish/fish-1",
+    "quat-food/fish",
+    "quat-pirate/fish-mackerel",
+    "quat-pirate/fish-tuna",
+    "quat-sushi/eel",
+    "quat-sushi/fish",
+    "quat-sushi/flounder",
+    "quat-sushi/mackerel",
+    "quat-sushi/salmon-whole",
+    "quat-sushi/tuna",
+    "rgp-medieval/fish",
+    "styloo-farm/fish",
+    "styloo-farm/fish-tan",
+    "styloo-farm/fish-umber"
+   ]
+  },
+  {
+   "id": "env-fauna-fish-shark",
+   "name": "Shark",
+   "type": "kind",
+   "description": "shark, hammerhead",
+   "models": [
+    "quat-pirate/shark",
+    "quat-fish/shark",
+    "quat-ocean/shark-hammerhead",
+    "styloo-farm/shark"
+   ]
+  },
+  {
+   "id": "env-fauna-fish-ray",
+   "name": "Ray",
+   "type": "kind",
+   "description": "ray, stingray, manta ray",
+   "models": [
+    "quat-fish/manta-ray",
+    "quat-ocean/stingray"
+   ]
+  },
+  {
+   "id": "env-fauna-starfish",
+   "name": "Starfish",
+   "type": "kind",
+   "description": "starfish, sea star",
+   "models": [
+    "natuur/starfish-bleached",
+    "natuur/starfish-salmon",
+    "quat-ocean/starfish",
+    "fs-terrain/beach-prop-starfish-a",
+    "fs-terrain/beach-prop-starfish-b"
    ]
   },
   {
@@ -18278,7 +18309,8 @@
     "sq-pool/bench-hooks",
     "rgp-medieval/log-sawhorse",
     "sq-bank/brick-pallet",
-    "sq-observatory/chart-desk"
+    "sq-observatory/chart-desk",
+    "rgp-medieval/fish-hanging"
    ]
   },
   {
@@ -20937,7 +20969,8 @@
     "ken-factory/cog-d",
     "ken-factory/cog-e",
     "ken-station/wall-detail",
-    "fs-terrain/beach-prop-docks-straight-supports"
+    "fs-terrain/beach-prop-docks-straight-supports",
+    "quat-guns/bayonet"
    ]
   },
   {
@@ -22965,7 +22998,17 @@
     "ken-survival/tree-log-small",
     "natuur/log-5",
     "kay-proto/pallet-large",
-    "ken-castle/tower-slant-roof"
+    "ken-castle/tower-slant-roof",
+    "ken-racing/flag-checkers",
+    "ken-racing/flag-red",
+    "ken-racing/billboard",
+    "ken-racing/billboard-low",
+    "ken-racing/billboard-double-exclusive",
+    "ken-station/container",
+    "ken-station/container-flat",
+    "ken-station/container-flat-open",
+    "ken-station/container-tall",
+    "ken-station/container-wide"
    ]
   },
   {
