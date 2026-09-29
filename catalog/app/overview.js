@@ -42,8 +42,6 @@ function kitRows() {
     const smoothTotal = Object.values(kit.smooth ?? {}).reduce((s, n) => s + n, 0);
     const flat = kit.smooth?.none ?? 0;
     const smoothed = smoothTotal - flat;
-    const angles = Object.fromEntries(Object.entries(kit.smooth ?? {}).filter(([k]) => k !== 'none'));
-    const angle = majority(angles);
     const fit = slope.get(kit.slug);
 
     return {
@@ -62,9 +60,6 @@ function kitRows() {
       smooth: smoothTotal ? (smoothed >= flat ? 'Yes' : 'No') : null,
       smoothRest: Math.min(smoothed, flat),
       smoothTitle: `${smoothed} smoothed · ${flat} not`,
-      angle: angle.key === null ? null : Number(angle.key),
-      angleRest: angle.rest,
-      angleTitle: breakdown(angles, (k) => `${k}°`),
       slope: fit?.slope ?? null,
       scatter: fit?.scatter ?? null,
       kitSize: kit.kitCheck?.factor ?? null,
@@ -79,7 +74,6 @@ const KIT_COLUMNS = [
   { key: 'scale', label: 'Scale', num: true, cell: (r) => (r.scale === null ? DASH : r.scale + extra(r.scaleRest, r.scaleTitle)) },
   { key: 'count', label: 'Cat/src', num: true, cell: (r) => `<span title="in catalog / in source">${r.count ?? '—'}/${r.inSource ?? '—'}</span>` },
   { key: 'smooth', label: 'Smooth', cell: (r) => (r.smooth === null ? DASH : r.smooth + extra(r.smoothRest, r.smoothTitle)) },
-  { key: 'angle', label: 'Angle °', num: true, cell: (r) => (r.angle === null ? DASH : r.angle + extra(r.angleRest, r.angleTitle)) },
   { key: 'slope', label: 'Slope', num: true, cell: (r) => (r.slope === null ? DASH : r.slope.toFixed(2)) },
   { key: 'scatter', label: 'Scatter', num: true, cell: (r) => (r.scatter === null ? DASH : r.scatter.toFixed(2)) },
   { key: 'kitSize', label: 'Kit size', num: true, cell: (r) => (r.kitSize === null ? DASH
