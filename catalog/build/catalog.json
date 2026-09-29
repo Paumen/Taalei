@@ -2255,6 +2255,11 @@
    },
    "smooth": {
     "none": 7
+   },
+   "kitCheck": {
+    "factor": 3.42,
+    "kinds": 3,
+    "level": "error"
    }
   },
   {
@@ -2400,6 +2405,11 @@
    },
    "smooth": {
     "none": 11
+   },
+   "kitCheck": {
+    "factor": 1.39,
+    "kinds": 3,
+    "level": "warning"
    }
   },
   {
@@ -2424,8 +2434,8 @@
     "none": 9
    },
    "kitCheck": {
-    "factor": 0.91,
-    "kinds": 23
+    "factor": 0.94,
+    "kinds": 24
    }
   },
   {
@@ -3198,8 +3208,8 @@
     "none": 96
    },
    "kitCheck": {
-    "factor": 1.08,
-    "kinds": 38
+    "factor": 1.07,
+    "kinds": 39
    }
   },
   {
@@ -17280,7 +17290,14 @@
    "name": "Fish",
    "type": "kind",
    "description": "fish",
-   "count": 16
+   "count": 20
+  },
+  {
+   "id": "env-fauna-fish-shark",
+   "name": "Shark",
+   "type": "kind",
+   "description": "shark, hammerhead",
+   "count": 4
   },
   {
    "id": "env-fauna-bird",
@@ -18777,6 +18794,7 @@
   "char",
   "env-fauna-bird",
   "env-fauna-fish",
+  "env-fauna-fish-shark",
   "env-fauna-insect",
   "env-flora-plant-bamboo",
   "env-flora-plant-bush",
@@ -19019,6 +19037,12 @@
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.4,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-shark": {
+   "high.max": 8,
+   "longest.min": 1,
+   "longest.max": 2.2,
    "tpu.max": 10000
   },
   "env-fauna-insect": {
@@ -215955,6 +215979,13 @@
    "anim": [
     "Armature|Swim"
    ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
+    }
+   ],
    "mark": [
     "grounded"
    ]
@@ -216013,7 +216044,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.8 over max 0.55 (obj-food-fish)"
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
     }
    ],
    "mark": [
@@ -216069,7 +216100,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 1 over max 0.4 (env-fauna-fish)"
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
     }
    ],
    "mark": [
@@ -216131,7 +216162,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.75 over max 0.4 (env-fauna-fish)"
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
     }
    ],
    "mark": [
@@ -216183,6 +216214,13 @@
    "anim": [
     "Armature|Swim"
    ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -216191,7 +216229,7 @@
   {
    "kit": "quat-fish",
    "name": "shark",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "l",
    "wdh": [
     0.6,
@@ -216232,6 +216270,18 @@
    ],
    "anim": [
     "Armature|Swim"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.6 under min 1 (env-fauna-fish-shark · 0.468 at kit ×3.42)"
+    },
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
+    }
    ],
    "mark": [
     "grounded"
@@ -216281,6 +216331,13 @@
    ],
    "anim": [
     "Armature|Swim"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
+    }
    ],
    "mark": [
     "grounded",
@@ -225201,6 +225258,13 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
@@ -225248,6 +225312,13 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
@@ -225295,6 +225366,13 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
@@ -225337,12 +225415,19 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
    "kit": "quat-ocean",
    "name": "shark-hammerhead",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "m",
    "wdh": [
     0.45,
@@ -225379,6 +225464,18 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.05 under min 1 (env-fauna-fish-shark · 0.755 at kit ×1.39)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
@@ -225418,6 +225515,11 @@
     "qua"
    ],
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -225463,6 +225565,11 @@
    ],
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
@@ -225507,6 +225614,11 @@
    ],
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
@@ -225550,6 +225662,11 @@
     "qua"
    ],
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -225597,6 +225714,13 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
@@ -225634,6 +225758,13 @@
    ],
    "tags": [
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.39 off the size curve (quat-ocean, 3 kinds)"
+    }
    ]
   },
   {
@@ -225881,7 +226012,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.275 at kit ×0.91)"
+     "text": "longest 0.25 under min 0.3 (obj-container-barrel · 0.266 at kit ×0.94)"
     }
    ]
   },
@@ -226027,9 +226158,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.385 at kit ×0.91)"
+     "text": "longest 0.35 over max 0.3 (obj-container-bottle-vial · 0.372 at kit ×0.94)"
     }
    ]
   },
@@ -226746,7 +226877,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.5 over max 0.45 (obj-equipment-weapon-melee-dagger · 0.549 at kit ×0.91)"
+     "text": "longest 0.5 over max 0.45 (obj-equipment-weapon-melee-dagger · 0.532 at kit ×0.94)"
     }
    ]
   },
@@ -226848,7 +226979,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.55 (obj-food-fish · 0.659 at kit ×0.91)"
+     "text": "longest 0.6 over max 0.55 (obj-food-fish · 0.638 at kit ×0.94)"
     }
    ]
   },
@@ -228080,7 +228211,7 @@
   {
    "kit": "quat-pirate",
    "name": "shark",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "l",
    "wdh": [
     0.85,
@@ -228138,6 +228269,11 @@
     "Swim_Fast"
    ],
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.15 over max 2.2 (env-fauna-fish-shark · 2.287 at kit ×0.94)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -281293,7 +281429,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281346,7 +281482,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281399,7 +281535,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281452,7 +281588,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 over max 0.4 (env-remains-bones-fishbone · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -281643,7 +281779,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.204 at kit ×1.08)"
+     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.215 at kit ×1.07)"
     }
    ]
   },
@@ -281701,7 +281837,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.204 at kit ×1.08)"
+     "text": "longest 1.3 over max 1.1 (obj-equipment-tool-twohand-rod · 1.215 at kit ×1.07)"
     }
    ]
   },
@@ -281883,7 +282019,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.37 at kit ×1.08)"
+     "text": "longest 0.4 under min 0.45 (obj-resource-haystack · 0.374 at kit ×1.07)"
     }
    ]
   },
@@ -282006,7 +282142,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.417 at kit ×1.08)"
+     "text": "longest 0.45 under min 0.45 (obj-resource-haystack · 0.421 at kit ×1.07)"
     }
    ]
   },
@@ -282053,7 +282189,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.324 at kit ×1.08)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
     },
     {
      "level": "error",
@@ -282143,7 +282279,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.324 at kit ×1.08)"
+     "text": "high 0.35 under min 0.35 (str-barrier-hedge · 0.327 at kit ×1.07)"
     }
    ]
   },
@@ -282813,7 +282949,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.15 under min 0.15 (env-terrain-rock-cobble · 0.139 at kit ×1.08)"
+     "text": "longest 0.15 under min 0.15 (env-terrain-rock-cobble · 0.14 at kit ×1.07)"
     }
    ]
   },
@@ -282982,7 +283118,7 @@
   {
    "kit": "styloo-farm",
    "name": "shark",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-shark",
    "size": "m",
    "wdh": [
     1.4,
