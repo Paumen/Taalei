@@ -18602,7 +18602,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 142,
+   "count": 141,
    "kinds": [
     "obj-container-chest",
     "obj-container-pot",
@@ -66301,10 +66301,16 @@
    ],
    "tags": [
     "ceramic",
-    "scale-small",
     "wood-beam"
    ],
-   "variant": "v994"
+   "variant": "v994",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.1 under min 0.1 (obj-container-pot-jar · 0.094 at kit ×1.06)"
+    }
+   ]
   },
   {
    "kit": "jb-kitchen",
