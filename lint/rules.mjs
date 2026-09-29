@@ -405,6 +405,7 @@ const CHECK_TEXT = {
     : f.measure === 'scale'
     ? `${f.value} not on ${f.limit} (${f.from})`
     : `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`),
+  tpu: (f) => `tpu ${f.value} over max ${f.limit} (${f.from})`,
   mat: (f) => `${f.family} needs ${f.required}, has ${f.present} (${f.from})`,
   palette: (f) => `${f.material} wants ${f.wants}, has ${f.has}`,
   bands: (f) => `${f.material} wants ${f.wants}, has ${f.has} (${f.from})`,
@@ -446,7 +447,8 @@ export function checkModel(model, checks) {
     if (!isExempt(model, vars)) {
       const slug = model.collection ?? model.kit;
       const kit = checks.kitScales?.get(slug);
-      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales, kit));
+      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales));
+      push('tpu', null, tpuFindingsFor(model, checks.limits.get(model.kind), vars));
       if (kit?.level) push('size', kit.level, [{ measure: 'kit', value: `×${kit.factor}`, from: `${slug}, ${kit.kinds} kinds` }]);
     }
     if (!exempt('mat')) {
@@ -470,28 +472,29 @@ export function checkModel(model, checks) {
   return { lint: found.length ? found : undefined, mark: mark.length ? mark : undefined };
 }
 
-export function findingsFor(model, kindLimits, vars, scales, kitScale) {
+function limitFindings(limits, measures, tags, vars) {
   const out = [];
-  const { limits, refused, why } = limitsForModel(model, kindLimits, scales);
-  if (refused) return [{ level: 'error', measure: 'scale', value: refused, bound: 'not on', limit: model.kind, from: why }];
-  const factor = kitScale?.factor ?? 1;
-  const measures = { high: model.wdh[2], longest: Math.max(...model.wdh), tpu: model.tpu };
-  const tags = model.tags ?? [];
   for (const [field, { value: kindLimit, from }] of Object.entries(limits ?? {})) {
     const [measure, bound] = field.split('.');
+    if (!(measure in measures)) continue;
     const value = measures[measure];
     if (value === null || value === undefined) continue;
     if (tags.some((t) => (vars[measure]?.exemptTags ?? vars.exemptTags).includes(t))) continue;
     const raise = bound === 'max' ? tags.reduce((p, t) => p * (vars[measure]?.tagFactors?.[t] ?? 1), 1) : 1;
     const limit = kindLimit * raise;
-    const byKit = factor !== 1 && measure !== 'tpu' && from !== 'defaults';
-    const compared = byKit ? Math.round((value / factor) * 1000) / 1000 : value;
-    const deviation = bound === 'min' ? (limit - compared) / limit : (compared - limit) / limit;
+    const deviation = bound === 'min' ? (limit - value) / limit : (value - limit) / limit;
     if (deviation <= EPSILON) continue;
-    out.push({
-      level: deviation <= vars.warnBand + EPSILON ? 'warning' : 'error',
-      measure, value, bound, limit, from: byKit ? `${from} · ${compared} at kit ×${factor}` : from,
-    });
+    out.push({ level: deviation <= vars.warnBand + EPSILON ? 'warning' : 'error', measure, value, bound, limit, from });
   }
   return out;
+}
+
+export function findingsFor(model, kindLimits, vars, scales) {
+  const { limits, refused, why } = limitsForModel(model, kindLimits, scales);
+  if (refused) return [{ level: 'error', measure: 'scale', value: refused, bound: 'not on', limit: model.kind, from: why }];
+  return limitFindings(limits, { high: model.wdh[2], longest: Math.max(...model.wdh) }, model.tags ?? [], vars);
+}
+
+export function tpuFindingsFor(model, kindLimits, vars) {
+  return limitFindings(kindLimits, { tpu: model.tpu }, model.tags ?? [], vars);
 }

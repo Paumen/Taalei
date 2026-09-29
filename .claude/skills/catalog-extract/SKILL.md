@@ -132,7 +132,7 @@ it clears before proposing it, and say so.
     node catalog/tools/build-catalog.mjs
     node catalog/tools/build-lists.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
-    node lint/size.mjs && node lint/measures.mjs && node lint/mat.mjs
+    node lint/size.mjs && node lint/tpu.mjs && node lint/measures.mjs && node lint/mat.mjs
     node lint/palette.mjs && node lint/bands.mjs
 
 Compare every count against the branch point, not against zero — the

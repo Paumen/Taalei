@@ -60,13 +60,13 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 **[F09] `special` in the counts.** `nmat` counts materials without `special`; `bands` counts bands without the `special` one. The band a `special` reason names (`col,row`) passes every material palette (§5.1) of that model.
 
-**[F10] Rules that live in the JSON.** Five checks read their rows from `lint/*.json` rather than from a table here: measures (§2.2) from `lint/measures.json`, and four tree checks from `lint/kinds.json` and `lint/materials.json`: size (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). A measures row carries its own `when` and `except` terms. The tree checks read the same way:
+**[F10] Rules that live in the JSON.** Six checks read their rows from `lint/*.json` rather than from a table here: measures (§2.2) from `lint/measures.json`, and five tree checks from `lint/kinds.json` and `lint/materials.json`: size and tri budget (§2.3), kind → materials (§4.1), material palettes (§5.1) and kind bands (§5.2). A measures row carries its own `when` and `except` terms. The tree checks read the same way:
 
 - **Inheritance.** A field set on a kind or a material holds for everything under it. Where a chain sets the same field more than once, only the deepest is read (`F08` rule 3) — this is how a palm takes `moss` where the trees above it take `hunter`. Fields naming different materials all apply at once. `has` is one exception: every `has` entry down the chain holds. Size limits are the other: a kind takes limits of one measure only (§2.3).
 - **Coverage.** Bands are recorded per model, not per material, so a band row passes when the model shows at least one band from the list. A list admitting `transparent` holds no band and is not checked.
 - **Exemptions** live in `lint/variables.json`, per check.
 - **Each check reads only its own rows**, so §5.1 and §5.2 never widen or fault each other.
-- **In the catalogue.** All five run in the catalogue build as well as from the command line. A finding shows as the ⚠ glyph on the card, as a row under Lint in the model panel, under the Lint and Check filters, and in the lint swipe. A kit size (§2.3) past `kit.warn` shows as a size finding on each model of the kit, and in the overview's Kit size column. The measures rows named under `mark` in `lint/variables.json` show instead as their own value, bold and red, in the model panel.
+- **In the catalogue.** All six run in the catalogue build as well as from the command line. A finding shows as the ⚠ glyph on the card, as a row under Lint in the model panel, under the Lint and Check filters, and in the lint swipe. A kit size (§2.3) past `kit.warn` shows as a size finding on each model of the kit, and in the overview's Kit size column. The measures rows named under `mark` in `lint/variables.json` show instead as their own value, bold and red, in the model panel.
 
 **Definitions**
 
@@ -156,13 +156,13 @@ Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
 Limits per kind live in `lint/kinds.json` as `high.min`, `high.max`, `longest.min`, `longest.max` and `tpu.max` (`D02`), inherited per `F10`, falling back to the `defaults` block, which sets `longest` and an 8 `high.max` for everything; `env-terrain-mountain` lifts that ceiling. A kind can also set `defaults` of its own, which replace the global ones for everything under it: `obj-transport` raises `high.max` to 30. The budget is set on 16 kinds and nowhere else, so a kind with no limit above it is unchecked. A kind is held to one measure, `high` or `longest`: the nearest kind in its chain that sets either decides which. Limits of that measure inherit per `F10`; limits of the other come only from `defaults`.
 
-A kit with models in at least `kit.minKinds` kinds that have their own min and max gets a kit size: the median, over those kinds (small and big versions counted apart), of how far its models sit from the middle of their range. Past `kit.warn` either way is a warning, past `kit.error` an error, both in `lint/variables.json`. Each model is then held to its kind's own limits after dividing by its kit size; `defaults` apply to its size as it is. A kit at the wrong scale shows as one kit line on each of its models instead of a size finding against every range, and a size finding names both the model's size and the size it reads at its kit size. A collection gets one kit size over all its kits.
+A kit with models in at least `kit.minKinds` kinds that have their own min and max gets a kit size: the median, over those kinds (small and big versions counted apart), of how far its models sit from the middle of their range. Past `kit.warn` either way is a warning, past `kit.error` an error, both in `lint/variables.json`. The kit size is reported only: each model is held to its kind's limits at its own measured size, to the millimetre. A collection gets one kit size over all its kits.
 
 A `scale-small` or `scale-big` model is held to its kind's `scale` in `lint/kinds.json`: a number multiplies the kind's own `high` and `longest` limits, not `tpu.max` or the `defaults`; an object gives the limits for that value. A kind refuses a value its `scale` does not set, and both values when it has no `scale`. `attributeKinds` in `lint/variables.json` names the kinds each other attribute is offered on: `storeys` on `str-building`.
 
 Past a limit by no more than `warnBand` is a warning; further is an error.
 
-Run `node lint/size.mjs`.
+Run `node lint/size.mjs` for extents and kit sizes, `node lint/tpu.mjs` for the tri budget.
 
 ### 2.4 Boxes and part counts
 
