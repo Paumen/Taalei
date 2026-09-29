@@ -1121,7 +1121,7 @@
    "slug": "ken-mini",
    "name": "ken-mini",
    "artist": "Kenney",
-   "count": 159,
+   "count": 156,
    "packs": [
     "Kenney Mini Arcade",
     "Kenney Mini Arena",
@@ -1142,15 +1142,15 @@
     "Kenney Mini Market": 15,
     "Kenney Mini Dungeon": 13,
     "Kenney Platformer Kit": 18,
-    "Kenney Prototype Kit": 28,
+    "Kenney Prototype Kit": 25,
     "Kenney Mini Skate": 7
    },
    "scales": {
-    "0.95": 159
+    "0.95": 156
    },
    "smooth": {
     "60": 32,
-    "none": 127
+    "none": 124
    },
    "members": [
     {
@@ -1301,18 +1301,18 @@
      "url": "https://kenney.nl/assets/prototype-kit",
      "artist": "Kenney",
      "licenseLabel": "CC0",
-     "count": 28,
+     "count": 25,
      "packs": [
       "Kenney Prototype Kit"
      ],
      "origins": {
-      "Kenney Prototype Kit": 28
+      "Kenney Prototype Kit": 25
      },
      "scales": {
-      "0.95": 28
+      "0.95": 25
      },
      "smooth": {
-      "none": 28
+      "none": 25
      }
     },
     {
@@ -15488,7 +15488,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 685,
+   "count": 682,
    "parent": "metal-iron"
   },
   {
@@ -15649,7 +15649,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 628
+   "count": 625
   },
   {
    "id": "rubber",
@@ -15755,7 +15755,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2941,
+   "count": 2938,
    "color": "#c07c8a"
   },
   {
@@ -16086,7 +16086,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 599,
+   "count": 596,
    "color": "#6b5b95"
   },
   {
@@ -16912,7 +16912,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 141,
+   "count": 138,
    "color": "#6d738a"
   },
   {
@@ -16927,7 +16927,7 @@
    "name": "Mechanism",
    "type": "kind",
    "description": "Mechanism worked by hand or foot: lever, spring, gear, pulley, floor button, bear trap.",
-   "count": 19
+   "count": 16
   },
   {
    "id": "obj-equipment-tool-stationery",
@@ -18681,7 +18681,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 141,
+   "count": 143,
    "kinds": [
     "obj-container-chest",
     "obj-container-pot",
@@ -18745,7 +18745,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2547
+   "count": 2544
   },
   {
    "id": "m",
@@ -18766,7 +18766,7 @@
    "name": "Kenney",
    "type": "artist",
    "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1443
+   "count": 1440
   },
   {
    "id": "kay",
@@ -87603,9 +87603,17 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "wood-worked"
    ],
-   "variant": "v843"
+   "variant": "v843",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.4 over max 0.425 (obj-furnishing-furniture-storage-cabinet scale-small · 0.449 at kit ×0.89)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
@@ -87691,9 +87699,17 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "wood-worked"
    ],
-   "variant": "v843"
+   "variant": "v843",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.4 over max 0.425 (obj-furnishing-furniture-storage-cabinet scale-small · 0.449 at kit ×0.89)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
@@ -173071,51 +173087,6 @@
   {
    "kit": "ken-proto",
    "collection": "ken-mini",
-   "name": "button-floor-round-small",
-   "kind": "obj-equipment-tool-mechanism",
-   "size": "s",
-   "wdh": [
-    0.3,
-    0.3,
-    0.1
-   ],
-   "tris": 92,
-   "tpu": 268,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 5076,
-   "vtx": 96,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.048,
-   "avgTri": 0.00269,
-   "anglePct": 78,
-   "vpt": 1.04,
-   "grad": 0.82,
-   "spread": {
-    "15,3": [
-     0.016,
-     0.914
-    ],
-    "5,0": [
-     0.5,
-     0.5
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#d07b56"
-   ],
-   "tags": [
-    "ken",
-    "metal-iron-steel",
-    "plastic"
-   ]
-  },
-  {
-   "kit": "ken-proto",
-   "collection": "ken-mini",
    "name": "coin",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -173532,97 +173503,6 @@
     "ken",
     "metal-iron-cast",
     "scale-small"
-   ]
-  },
-  {
-   "kit": "ken-proto",
-   "collection": "ken-mini",
-   "name": "lever-double",
-   "kind": "obj-equipment-tool-mechanism",
-   "size": "s",
-   "wdh": [
-    0.5,
-    0.5,
-    0.35
-   ],
-   "tris": 98,
-   "tpu": 286,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 5916,
-   "vtx": 124,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.034,
-   "avgTri": 0.00948,
-   "anglePct": 100,
-   "vpt": 1.27,
-   "grad": 0.77,
-   "spread": {
-    "15,3": [
-     0.102,
-     0.977
-    ],
-    "5,0": [
-     0.266,
-     0.734
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#d07b56"
-   ],
-   "tags": [
-    "ken",
-    "metal-iron-steel",
-    "plastic"
-   ]
-  },
-  {
-   "kit": "ken-proto",
-   "collection": "ken-mini",
-   "name": "lever-single",
-   "kind": "obj-equipment-tool-mechanism",
-   "size": "s",
-   "wdh": [
-    0.5,
-    0.3,
-    0.45
-   ],
-   "tris": 80,
-   "tpu": 233,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 5084,
-   "vtx": 100,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.1062,
-   "avgTri": 0.00687,
-   "anglePct": 95,
-   "vpt": 1.25,
-   "grad": 0.68,
-   "spread": {
-    "15,3": [
-     0.016,
-     0.977
-    ],
-    "5,0": [
-     0.398,
-     0.586
-    ]
-   },
-   "colors": [
-    "#82868e",
-    "#d07b56"
-   ],
-   "tags": [
-    "ken",
-    "metal-iron-steel",
-    "plastic"
    ]
   },
   {
