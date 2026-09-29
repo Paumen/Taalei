@@ -15515,7 +15515,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 687,
+   "count": 686,
    "parent": "metal-iron"
   },
   {
@@ -15523,7 +15523,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 329,
+   "count": 330,
    "parent": "metal-iron"
   },
   {
@@ -142584,7 +142584,7 @@
    "vpt": 1.09,
    "grad": 0.6,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.313,
      0.977
     ],
@@ -142603,21 +142603,14 @@
    },
    "colors": [
     "#23562c",
+    "#5b5550",
     "#7f3927",
-    "#82868e",
     "#f2a93c"
    ],
    "tags": [
     "ken",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-wrought, has metal-iron-steel (str-fixture-light)"
-    }
    ]
   },
   {
