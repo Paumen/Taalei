@@ -87197,6 +87197,61 @@
   ]
  },
  {
+  "slug": "env-fauna-fish-scale-big",
+  "name": "Environment › Fauna › Fish · scale-big",
+  "category": "env-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.1,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "quat-fishing",
+    "model": "tuna",
+    "wdh": [
+     0.5,
+     0.7,
+     0.45
+    ],
+    "tags": [
+     "qua",
+     "scale-big"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#82868e",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "fish-tuna",
+    "wdh": [
+     0.8,
+     0.09,
+     0.4
+    ],
+    "tags": [
+     "food",
+     "liquid",
+     "metal-gold",
+     "metal-iron-steel",
+     "qua",
+     "scale-big"
+    ],
+    "colors": [
+     "#1367a6",
+     "#82868e",
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "env",
   "name": "Environment",
   "category": "env-gen",
@@ -90076,586 +90131,6 @@
   ]
  },
  {
-  "slug": "env-fauna-fish",
-  "name": "Environment › Fauna › Fish",
-  "category": "env-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.55,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "ken-food",
-    "model": "fish",
-    "wdh": [
-     0.1,
-     0.35,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "fish-large",
-    "wdh": [
-     0.45,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#7f3927",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "fish",
-    "wdh": [
-     0.3,
-     0.09,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#7f3927",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-fish",
-    "model": "fish-1",
-    "wdh": [
-     0.45,
-     0.06,
-     0.15
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-fish",
-    "model": "fish-2",
-    "wdh": [
-     0.25,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-fish",
-    "model": "fish-3",
-    "wdh": [
-     0.15,
-     0.03,
-     0.08
-    ],
-    "tags": [
-     "animation",
-     "animation",
-     "qua"
-    ],
-    "colors": [
-     "#343745",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "anglerfish",
-    "wdh": [
-     0.25,
-     0.35,
-     0.2
-    ],
-    "tags": [
-     "hero",
-     "qua"
-    ],
-    "colors": [
-     "#563b2b",
-     "#5b5550",
-     "#8b7561",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "betta",
-    "wdh": [
-     0.06,
-     0.1,
-     0.07
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "clownfish-basalt",
-    "wdh": [
-     0.1,
-     0.15,
-     0.08
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "clownfish",
-    "wdh": [
-     0.1,
-     0.15,
-     0.09
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "flatfish",
-    "wdh": [
-     0.15,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#563b2b",
-     "#5b5550",
-     "#7f3927",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "lionfish-basalt",
-    "wdh": [
-     0.15,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "hero",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "lionfish",
-    "wdh": [
-     0.2,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "hero",
-     "qua"
-    ],
-    "colors": [
-     "#563b2b",
-     "#5b5550",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "mandarinfish",
-    "wdh": [
-     0.07,
-     0.1,
-     0.05
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "puffer",
-    "wdh": [
-     0.25,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "hero",
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "model": "snapper",
-    "wdh": [
-     0.25,
-     0.4,
-     0.2
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-food",
-    "model": "fish",
-    "wdh": [
-     0.55,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-ocean",
-    "model": "fish-brown",
-    "wdh": [
-     0.05,
-     0.25,
-     0.1
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "quat-ocean",
-    "model": "fish-clown",
-    "wdh": [
-     0.04,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-ocean",
-    "model": "fish-dory",
-    "wdh": [
-     0.06,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-ocean",
-    "model": "fish-tuna",
-    "wdh": [
-     0.08,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "qua"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-pirate",
-    "model": "fish-mackerel",
-    "wdh": [
-     0.6,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "food",
-     "liquid",
-     "metal-iron-steel",
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "eel",
-    "wdh": [
-     0.5,
-     0.04,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "fish",
-    "wdh": [
-     0.15,
-     0.02,
-     0.07
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "flounder",
-    "wdh": [
-     0.3,
-     0.03,
-     0.2
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "mackerel",
-    "wdh": [
-     0.2,
-     0.04,
-     0.1
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "salmon-whole",
-    "wdh": [
-     0.15,
-     0.04,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "tuna",
-    "wdh": [
-     0.3,
-     0.04,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "model": "fish",
-    "wdh": [
-     0.35,
-     0.1,
-     0.04
-    ],
-    "tags": [
-     "food",
-     "rgp"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "fish-tan",
-    "wdh": [
-     0.45,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "skin",
-     "styloo"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "fish-umber",
-    "wdh": [
-     0.45,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "skin",
-     "styloo"
-    ],
-    "colors": [
-     "#563b2b",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "fish",
-    "wdh": [
-     0.45,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "skin",
-     "styloo"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
   "slug": "env-terrain-ground",
   "name": "Environment › Terrain › Ground",
   "category": "env-gen",
@@ -91763,6 +91238,657 @@
     ],
     "colors": [
      "#82868e"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "env-fauna-fish",
+  "name": "Environment › Fauna › Fish",
+  "category": "env-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.55,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "ken-food",
+    "model": "fish",
+    "wdh": [
+     0.1,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "fish-large",
+    "wdh": [
+     0.45,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#7f3927",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "fish",
+    "wdh": [
+     0.3,
+     0.09,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "ken"
+    ],
+    "colors": [
+     "#7f3927",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-fish",
+    "model": "fish-1",
+    "wdh": [
+     0.45,
+     0.06,
+     0.15
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-fish",
+    "model": "fish-2",
+    "wdh": [
+     0.25,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-fish",
+    "model": "fish-3",
+    "wdh": [
+     0.15,
+     0.03,
+     0.08
+    ],
+    "tags": [
+     "animation",
+     "animation",
+     "qua"
+    ],
+    "colors": [
+     "#343745",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "anglerfish",
+    "wdh": [
+     0.25,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "hero",
+     "qua"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550",
+     "#8b7561",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "blue-tang",
+    "wdh": [
+     0.15,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "clownfish-basalt",
+    "wdh": [
+     0.1,
+     0.15,
+     0.08
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "clownfish",
+    "wdh": [
+     0.1,
+     0.15,
+     0.09
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "coral-grouper",
+    "wdh": [
+     0.2,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "flatfish",
+    "wdh": [
+     0.15,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550",
+     "#7f3927",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "lionfish-basalt",
+    "wdh": [
+     0.15,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "hero",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "lionfish",
+    "wdh": [
+     0.2,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "hero",
+     "qua"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "moorish-idol",
+    "wdh": [
+     0.15,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "parrotfish",
+    "wdh": [
+     0.2,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#23562c",
+     "#5b5550",
+     "#7f3927",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "piranha",
+    "wdh": [
+     0.15,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#7f3927",
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "puffer",
+    "wdh": [
+     0.25,
+     0.3,
+     0.2
+    ],
+    "tags": [
+     "hero",
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "snapper",
+    "wdh": [
+     0.25,
+     0.4,
+     0.2
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "model": "turbot",
+    "wdh": [
+     0.15,
+     0.35,
+     0.3
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-food",
+    "model": "fish",
+    "wdh": [
+     0.55,
+     0.2,
+     0.05
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-ocean",
+    "model": "fish-brown",
+    "wdh": [
+     0.05,
+     0.25,
+     0.1
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "quat-ocean",
+    "model": "fish-clown",
+    "wdh": [
+     0.04,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-ocean",
+    "model": "fish-dory",
+    "wdh": [
+     0.06,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-ocean",
+    "model": "fish-tuna",
+    "wdh": [
+     0.08,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "qua"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-pirate",
+    "model": "fish-mackerel",
+    "wdh": [
+     0.6,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "food",
+     "liquid",
+     "metal-iron-steel",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "eel",
+    "wdh": [
+     0.5,
+     0.04,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "fish",
+    "wdh": [
+     0.15,
+     0.02,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "flounder",
+    "wdh": [
+     0.3,
+     0.03,
+     0.2
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "mackerel",
+    "wdh": [
+     0.2,
+     0.04,
+     0.1
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "salmon-whole",
+    "wdh": [
+     0.15,
+     0.04,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "tuna",
+    "wdh": [
+     0.3,
+     0.04,
+     0.15
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "model": "fish",
+    "wdh": [
+     0.35,
+     0.1,
+     0.04
+    ],
+    "tags": [
+     "food",
+     "rgp"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "fish-tan",
+    "wdh": [
+     0.45,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "skin",
+     "styloo"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "fish-umber",
+    "wdh": [
+     0.45,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "skin",
+     "styloo"
+    ],
+    "colors": [
+     "#563b2b",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "fish",
+    "wdh": [
+     0.45,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "skin",
+     "styloo"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
     ]
    }
   ]

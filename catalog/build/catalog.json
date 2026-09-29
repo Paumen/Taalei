@@ -2272,26 +2272,30 @@
    "note": "Quaternius; source zip carries no licence file.",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 27,
+   "count": 32,
    "packs": [
     "Animated Fish Bundle"
    ],
    "origins": {
-    "Animated Fish Bundle": 27
+    "Animated Fish Bundle": 32
    },
    "scales": {
     "0.064711": 1,
-    "0.020048": 1,
+    "0.05": 1,
     "0.027896": 2,
-    "0.08": 18,
+    "0.056": 1,
+    "0.08": 19,
     "0.063734": 1,
     "0.042806": 1,
     "0.047087": 1,
-    "0.025776": 1,
-    "0.071589": 1
+    "0.046": 1,
+    "0.055": 1,
+    "0.051": 1,
+    "0.071589": 1,
+    "0.124": 1
    },
    "smooth": {
-    "none": 27
+    "none": 32
    },
    "kitCheck": {
     "factor": 0.8,
@@ -17278,7 +17282,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 875,
+   "count": 880,
    "color": "#6cb588"
   },
   {
@@ -17286,7 +17290,7 @@
    "name": "Fauna",
    "type": "kind",
    "description": "octopus, crab, lobster, frog, snail, worm",
-   "count": 69,
+   "count": 74,
    "color": "#3e8fd0"
   },
   {
@@ -17301,7 +17305,7 @@
    "name": "Fish",
    "type": "kind",
    "description": "fish",
-   "count": 39
+   "count": 44
   },
   {
    "id": "env-fauna-fish-shark",
@@ -18678,7 +18682,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 80,
+   "count": 81,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -18715,14 +18719,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2538
+   "count": 2542
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2242
+   "count": 2243
   },
   {
    "id": "l",
@@ -18750,7 +18754,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 753
+   "count": 758
   },
   {
    "id": "isa",
@@ -215836,38 +215840,38 @@
   },
   {
    "kit": "quat-fishing",
-   "name": "betta",
+   "name": "blue-tang",
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.06,
-    0.1,
-    0.07
+    0.15,
+    0.25,
+    0.15
    ],
-   "tris": 1456,
-   "tpu": 4245,
+   "tris": 1342,
+   "tpu": 3913,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 79648,
-   "vtx": 2171,
+   "bytes": 73004,
+   "vtx": 1985,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00001,
-   "anglePct": 26,
-   "vpt": 1.49,
-   "grad": 0,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "anglePct": 8,
+   "vpt": 1.48,
+   "grad": 0.32,
    "spread": {
-    "4,2": [
-     0.5,
-     0.5
-    ],
-    "8,0": [
-     0.5,
-     0.5
-    ],
     "13,3": [
+     0.383,
+     0.93
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ],
+    "4,2": [
      0.5,
      0.5
     ]
@@ -215875,7 +215879,7 @@
    "colors": [
     "#1367a6",
     "#5b5550",
-    "#7f3927"
+    "#f2a93c"
    ],
    "tags": [
     "qua"
@@ -215900,9 +215904,9 @@
    "vtx": 2324,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "avgTri": 0.00002,
-   "anglePct": 15,
+   "anglePct": 16,
    "vpt": 1.52,
    "grad": 0,
    "spread": {
@@ -215943,9 +215947,9 @@
    "vtx": 2329,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "avgTri": 0.00002,
-   "anglePct": 15,
+   "anglePct": 16,
    "vpt": 1.52,
    "grad": 0,
    "spread": {
@@ -215971,6 +215975,53 @@
     "qua"
    ],
    "variant": "v868"
+  },
+  {
+   "kit": "quat-fishing",
+   "name": "coral-grouper",
+   "kind": "env-fauna-fish",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.3,
+    0.15
+   ],
+   "tris": 1588,
+   "tpu": 4630,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 89436,
+   "vtx": 2452,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00006,
+   "anglePct": 13,
+   "vpt": 1.54,
+   "grad": 0,
+   "spread": {
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#7f3927",
+    "#d07b56"
+   ],
+   "tags": [
+    "qua"
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -216408,7 +216459,7 @@
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00008,
-   "anglePct": 14,
+   "anglePct": 15,
    "vpt": 1.32,
    "grad": 0,
    "spread": {
@@ -216458,7 +216509,7 @@
    "vtx": 3268,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "avgTri": 0.00004,
    "anglePct": 14,
    "vpt": 1.66,
@@ -216839,34 +216890,84 @@
   },
   {
    "kit": "quat-fishing",
-   "name": "mandarinfish",
+   "name": "moorish-idol",
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.07,
-    0.1,
-    0.05
+    0.15,
+    0.2,
+    0.15
    ],
-   "tris": 1378,
-   "tpu": 4017,
+   "tris": 1428,
+   "tpu": 4163,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 94908,
-   "vtx": 2662,
+   "bytes": 78108,
+   "vtx": 2128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "avgTri": 0.00001,
-   "anglePct": 16,
-   "vpt": 1.93,
-   "grad": 0,
+   "minEdge": 0.001,
+   "avgTri": 0.00005,
+   "anglePct": 6,
+   "vpt": 1.49,
+   "grad": 0.37,
    "spread": {
-    "5,0": [
+    "6,0": [
      0.5,
      0.5
     ],
+    "13,3": [
+     0.359,
+     0.977
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-fishing",
+   "name": "parrotfish",
+   "kind": "env-fauna-fish",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.3,
+    0.15
+   ],
+   "tris": 1352,
+   "tpu": 3942,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 73040,
+   "vtx": 1984,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00008,
+   "anglePct": 15,
+   "vpt": 1.47,
+   "grad": 0,
+   "spread": {
     "4,2": [
+     0.5,
+     0.5
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "15,3": [
      0.5,
      0.5
     ],
@@ -216877,8 +216978,67 @@
    },
    "colors": [
     "#1367a6",
+    "#23562c",
     "#5b5550",
-    "#d07b56"
+    "#7f3927",
+    "#82868e"
+   ],
+   "tags": [
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-fishing",
+   "name": "piranha",
+   "kind": "env-fauna-fish",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.25,
+    0.1
+   ],
+   "tris": 1676,
+   "tpu": 4886,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 89764,
+   "vtx": 2446,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "avgTri": 0.00005,
+   "anglePct": 4,
+   "vpt": 1.46,
+   "grad": 0,
+   "spread": {
+    "6,1": [
+     0.492,
+     0.492
+    ],
+    "8,0": [
+     0.5,
+     0.5
+    ],
+    "5,2": [
+     0.492,
+     0.492
+    ],
+    "13,3": [
+     0.5,
+     0.5
+    ],
+    "14,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#7f3927",
+    "#8b7561",
+    "#d8d1bd"
    ],
    "tags": [
     "qua"
@@ -217032,6 +217192,106 @@
     "#7f3927",
     "#d07b56",
     "#d8d1bd"
+   ],
+   "tags": [
+    "qua"
+   ]
+  },
+  {
+   "kit": "quat-fishing",
+   "name": "tuna",
+   "kind": "env-fauna-fish",
+   "size": "m",
+   "wdh": [
+    0.5,
+    0.7,
+    0.45
+   ],
+   "tris": 1446,
+   "tpu": 4216,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 100600,
+   "vtx": 2828,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "avgTri": 0.00037,
+   "anglePct": 13,
+   "vpt": 1.96,
+   "grad": 0.63,
+   "spread": {
+    "13,3": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.5,
+     0.5
+    ],
+    "4,2": [
+     0.5,
+     0.5
+    ],
+    "6,0": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#82868e",
+    "#f2a93c"
+   ],
+   "tags": [
+    "qua",
+    "scale-big"
+   ]
+  },
+  {
+   "kit": "quat-fishing",
+   "name": "turbot",
+   "kind": "env-fauna-fish",
+   "size": "s",
+   "wdh": [
+    0.15,
+    0.35,
+    0.3
+   ],
+   "tris": 1626,
+   "tpu": 4741,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 79472,
+   "vtx": 2134,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00012,
+   "anglePct": 15,
+   "vpt": 1.31,
+   "grad": 0.1,
+   "spread": {
+    "14,3": [
+     0.375,
+     0.602
+    ],
+    "3,0": [
+     0.492,
+     0.492
+    ],
+    "13,3": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#5b5550",
+    "#8b7561"
    ],
    "tags": [
     "qua"
