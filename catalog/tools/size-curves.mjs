@@ -406,6 +406,7 @@ const gather = () => {
       kind: assumed.group ?? model.kind,
       shape: [...model.wdh.slice(0, 2).sort((a, b) => a - b), model.wdh[2]].join(','),
       u, real: assumed.real, high: assumed.high,
+      at: assumed.high && !isBuilding(model.kind) ? assumed.real * Math.max(...model.wdh) / model.wdh[2] : assumed.real,
     });
   }
   return picked;
@@ -421,7 +422,7 @@ const pointsOf = (models) => {
   const pts = [];
   for (const [kind, members] of groups) {
     const ratios = members.map((m) => Math.log2(m.u / m.real)).sort((a, b) => a - b);
-    const reals = members.map((m) => m.real).sort((a, b) => a - b);
+    const reals = members.map((m) => m.at).sort((a, b) => a - b);
     const mid = (arr) => (arr.length % 2 ? arr[(arr.length - 1) / 2] : (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2);
     pts.push({
       kind, n: members.length, d: new Set(members.map((m) => m.shape)).size,
@@ -447,7 +448,7 @@ const build = (models, weighted) => {
     const range = loo.length ? [round3(Math.min(...loo)), round3(Math.max(...loo))] : null;
     const scored = members.map((m) => ({
       name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit,
-      res: round3(Math.log2(m.u / m.real) - (icpt + slope * Math.log2(m.real))),
+      res: round3(Math.log2(m.u / m.real) - (icpt + slope * Math.log2(m.at))),
     })).sort((a, b) => b.res - a.res);
     const up = scored[0];
     const down = scored.at(-1);
@@ -646,7 +647,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
     </div>
     <div class="rule">
       <h3>Measured by height, not longest side</h3>
-      <p>Every building, plus:</p>
+      <p>Every building, plus the kinds below. Buildings sit on the size axis at their height; the others at their real longest side, the assumed height times the model's own length-to-height ratio, since a table 0.75&nbsp;m high is a 1.5&ndash;2&nbsp;m object.</p>
       <ul id="hi"></ul>
     </div>
   </div>
