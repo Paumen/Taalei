@@ -165,6 +165,7 @@ untouched so the diff stays additive.
 
     node catalog/tools/build-catalog.mjs
     node lint/size.mjs
+    node lint/tpu.mjs
     node lint/measures.mjs
     node catalog/tools/build-lists.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
@@ -184,9 +185,9 @@ Reading the catalogue back: in `catalog/build/catalog.json` a model's `bands` an
 `mat` are counts, not lists — the bands themselves are the keys of `spread`,
 as `"column,row"` — and `wdh` is width, depth, height with height last.
 
-Before committing, run every lint (`size`, `measures`, `mat`, `palette`,
+Before committing, run every lint (`size`, `tpu`, `measures`, `mat`, `palette`,
 `bands`) and report what does not fit rather than bending it silently. Take the
-error counts of all five before the work as well, so "no new errors" is a
+error counts of all six before the work as well, so "no new errors" is a
 comparison rather than a claim.
 
 `build-lists.mjs` regenerates `kits/tbd/` and the catalogue pages get a fresh
