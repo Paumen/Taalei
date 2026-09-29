@@ -192,7 +192,7 @@ const SIZES = {
   'obj-transport-land-cart': 2.5,
   'obj-transport-pallet': 1.2,
   'obj-transport-watercraft-boat': 4,
-  'obj-transport-watercraft-ship': 15,
+  'obj-transport-watercraft-ship': 30,
 
   'str-access-bridge-long': 12,
   'str-access-bridge-section': 4,
@@ -300,7 +300,9 @@ const DROPPED_KINDS = [
 const SCALE_SIZES = {
   'env-flora-plant-cactus': { small: 0.3, big: 1.5 },
   'env-flora-plant-leafy': { small: 0.3, big: 1.2 },
+  'obj-container-crate': { big: 1.2 },
   'obj-container-pot': { small: 0.2, big: 0.8 },
+  'obj-container-pot-jar': { small: 0.15 },
   'obj-equipment-target-bullseye': { small: 0.5 },
   'obj-equipment-weapon-siege-ammunition-cannonball': { big: 0.3 },
   'obj-furnishing-furniture-storage-cabinet': { small: 0.7 },
@@ -308,10 +310,11 @@ const SCALE_SIZES = {
   'obj-kitchenware-tableware-condiment': { big: 0.25 },
   'obj-resource-metal': { small: 0.06 },
   'obj-resource-wood-log': { big: 2 },
-  'obj-transport-watercraft-ship': { big: 45 },
+  'obj-transport-watercraft-ship': { big: 250 },
   'str-access-ladder': { small: 2, big: 4 },
   'str-barrier-fence-mid': { small: 0.6, big: 2 },
-  'str-fixture-marker-flag': { small: 0.75 },
+  'str-fixture-marker-flag': { small: 0.75, big: 4 },
+  'str-fixture-marker-sign': { big: 4 },
   'str-part-floor-unit': { small: 1.5, big: 6 },
   'str-part-pillar': { small: 1.5, big: 6 },
 };
@@ -330,6 +333,7 @@ const STOREYS = {
 };
 const STOREY_M = 3;
 const ROOF_M = 1.5;
+const SHAKY = 0.3;
 
 const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
@@ -345,6 +349,12 @@ const wmedian = (items) => {
     if (acc > total / 2) return sorted[i][0];
   }
   return sorted.at(-1)[0];
+};
+
+const fittable = (pts) => {
+  if (pts.length < 3) return false;
+  const xs = pts.map((p) => p.x);
+  return Math.max(...xs) - Math.min(...xs) >= 1;
 };
 
 const fit = (pts, weighted) => {
@@ -431,10 +441,10 @@ const build = (models, weighted) => {
   const all = [];
   for (const [kit, members] of byKit) {
     const pts = pointsOf(members);
-    if (pts.length < 3) continue;
-    const xs = pts.map((p) => p.x);
-    if (Math.max(...xs) - Math.min(...xs) < 1) continue;
+    if (!fittable(pts)) continue;
     const { slope, icpt, mad } = fit(pts, weighted);
+    const loo = pts.map((_, i) => pts.filter((__, j) => j !== i)).filter(fittable).map((rest) => fit(rest, weighted).slope);
+    const range = loo.length ? [round3(Math.min(...loo)), round3(Math.max(...loo))] : null;
     const scored = members.map((m) => ({
       name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit,
       res: round3(Math.log2(m.u / m.real) - (icpt + slope * Math.log2(m.real))),
@@ -444,6 +454,7 @@ const build = (models, weighted) => {
     const strip = ({ kit: _kit, ...rest }) => rest;
     kits.push({
       kit, n: pts.length, slope: round3(slope), icpt: round3(icpt), mad: round3(mad),
+      range, shaky: !range || range[1] - range[0] > SHAKY,
       pts: pts.map((p) => ({
         kind: p.kind, n: p.n, d: p.d, x: p.x, y: p.y,
         res: round3(p.y - (icpt + slope * p.x)),
@@ -477,7 +488,7 @@ const curveKinds = [...readKindTree().keys()].sort().map((kind) => {
   return { ...row, curve: true };
 });
 writeFileSync(join(ROOT, 'catalog', 'build', 'size-curves.json'), JSON.stringify({
-  kits: payload.weighted.kits.map(({ kit, n, slope, mad }) => ({ kit, n, slope, scatter: mad })),
+  kits: payload.weighted.kits.map(({ kit, n, slope, mad, range, shaky }) => ({ kit, n, slope, scatter: mad, range, shaky })),
   droppedTags: DROPPED_TAGS,
   storeyM: STOREY_M,
   roofM: ROOF_M,
@@ -515,6 +526,7 @@ svg{display:block;width:100%;height:auto}
 .kitline{fill:none;stroke-width:1.4;opacity:.5;cursor:pointer}
 .kitline.dim{opacity:.08}
 .kitline.sel{opacity:1;stroke-width:3;stroke:var(--sel)}
+.kitline.shaky{stroke-dasharray:1 5;stroke-linecap:round;stroke-width:2.4}
 .pt{opacity:0;cursor:pointer}
 .pt.sel{opacity:1}
 .lbl{font-size:19px;fill:var(--inkt);pointer-events:none;paint-order:stroke;stroke:var(--papier-diep);stroke-width:5px;stroke-linejoin:round}
@@ -537,6 +549,7 @@ tr.row:focus-visible{outline:2px solid var(--lin);outline-offset:-2px}
 .wrap{overflow-x:auto}
 .muted{color:var(--inkt-zacht)}
 .res{font-weight:600}
+.shk{color:var(--toy);font-weight:600}
 .nm{display:inline-block;max-width:96px;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}
 
 .sizes{columns:190px;column-gap:16px;margin-top:6px;font-variant-numeric:tabular-nums;font-size:12px}
@@ -585,13 +598,14 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
     <span><b>Each line is one kit</b>, fitted through its own kinds against a real-world size table.</span>
     <span>Flat = keeps real proportions.</span>
     <span>Falling = small things enlarged (toy).</span>
+    <span>Dotted = unstable: leaving out one kind moves the slope more than ${SHAKY}, or too few kinds to try.</span>
     <span>Click a line or a row; click again to release.</span>
     <span class="seg">Each kind counts<button id="m-weighted" aria-pressed="true">by measurements</button><button id="m-plain" aria-pressed="false">equally</button></span>
   </div>
   <div class="chart"><svg id="c" viewBox="0 0 900 520" role="img" aria-label="Kit size curves"></svg></div>
   <div class="info" id="info"></div>
   <div class="wrap"><table id="t"><thead><tr>
-    <th data-k="kit">kit</th><th class="n" data-k="n">k</th><th class="n" data-k="slope">slope</th><th data-k="slope"></th>
+    <th data-k="kit">kit</th><th class="n" data-k="n">k</th><th class="n" data-k="slope">slope</th><th data-k="slope"></th><th class="n" data-k="spread">range</th>
     <th class="n" data-k="icpt">u/m</th><th class="n" data-k="mad">scat</th>
     <th data-k="up">+ outlier</th><th data-k="down">&minus; outlier</th>
   </tr></thead><tbody></tbody></table></div>
@@ -610,6 +624,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
     <div class="rule">
       <h3>How a curve is fitted</h3>
       <p>Per kit and kind, the median model size divided by the kind's assumed real size. A Theil&ndash;Sen line through those points, in log2 on both axes, <span id="wtext"></span>. Scatter is the median absolute residual, under the same weighting. A kit needs 3 kinds spanning at least a factor 2 in real size, or it is dropped.</p>
+      <p>Range is the lowest and highest slope when the line is refitted with each kind left out in turn. A kit is unstable, and drawn dotted, when that range is wider than ${SHAKY}, or when no kind can be left out without the kit falling below the minimum.</p>
     </div>
     <div class="rule">
       <h3>Buildings</h3>
@@ -650,12 +665,13 @@ const HIGH_ROWS = ${JSON.stringify([...HIGH].filter((k) => !DROPPED_KINDS.includ
 const svg = document.getElementById('c'), NS = 'http://www.w3.org/2000/svg';
 let mode = 'weighted', DATA = PAYLOAD[mode].kits, TOP = PAYLOAD[mode].top;
 const W = 900, H = 520, L = 68, R = 16, T = 16, B = 62;
-const X0 = Math.log2(0.055), X1 = Math.log2(24), Y0 = Math.log2(0.055), Y1 = Math.log2(5.6);
+const XS = Object.values(PAYLOAD).flatMap(m => m.kits.flatMap(k => k.pts.map(p => p.x)));
+const X0 = Math.min(Math.log2(0.055), Math.min(...XS) - 0.3), X1 = Math.max(Math.log2(24), Math.max(...XS) + 0.3), Y0 = Math.log2(0.055), Y1 = Math.log2(5.6);
 const sx = v => L + (v - X0) / (X1 - X0) * (W - L - R);
 const sy = v => T + (Y1 - v) / (Y1 - Y0) * (H - T - B);
 const el = (n, a, p = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
 
-for (const m of [0.1, 0.3, 1, 3, 10, 20]) {
+for (const m of [0.1, 0.3, 1, 3, 10, 30, 100, 300].filter(m => Math.log2(m) >= X0 && Math.log2(m) <= X1 - 0.25)) {
   const x = sx(Math.log2(m));
   el('line', { x1: x, y1: T, x2: x, y2: H - B, class: 'gridl' });
   const t = el('text', { x, y: H - B + 28, class: 'axis', 'text-anchor': 'middle' }); t.textContent = m + ' m';
@@ -675,14 +691,15 @@ const mix = s => { const t = Math.max(-0.15, Math.min(1.1, -s)); return \`color-
 const nice = k => k.replace(/^(obj|env|str)-/, '');
 const sign = r => (r > 0 ? '+' : '') + r.toFixed(2);
 
-const lines = new Map(), dots = new Map(), rows = new Map();
+const lines = new Map(), dots = new Map(), rows = new Map(), shaky = new Set();
+const spanText = d => d.range ? d.range[0].toFixed(2) + ' to ' + d.range[1].toFixed(2) : '—';
 let sel = null;
 const info = document.getElementById('info');
 let REST = '';
 
 function show(k) {
   sel = k;
-  for (const [id, l] of lines) l.setAttribute('class', 'kitline' + (k ? (id === k ? ' sel' : ' dim') : ''));
+  for (const [id, l] of lines) l.setAttribute('class', 'kitline' + (shaky.has(id) ? ' shaky' : '') + (k ? (id === k ? ' sel' : ' dim') : ''));
   for (const [id, g] of dots) g.setAttribute('class', 'pt' + (id === k ? ' sel' : ''));
   for (const [id, r] of rows) r.classList.toggle('sel', id === k);
   if (!k) { info.textContent = REST; return; }
@@ -690,18 +707,21 @@ function show(k) {
   const xs = d.pts.map(p => p.x), lo = 2 ** Math.min(...xs), hi = 2 ** Math.max(...xs);
   const fmt = v => v < 1 ? v.toFixed(2) : v.toFixed(0);
   const line = (o, dir) => o ? \`<br>\${dir}: <b>\${o.name}</b> — \${nice(o.kind)}, \${o.u} u \${o.high ? 'high' : 'long'} against \${o.real} m\${o.high ? ' high' : ''}, <span class="res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</span>\` : '';
+  const stab = d.range ? \`one kind left out: \${spanText(d)}\` : 'too few kinds to leave one out';
   info.innerHTML = \`<b>\${k}</b> · slope \${d.slope.toFixed(2)} · \${(2 ** d.icpt).toFixed(2)} units per m at 1 m · \${d.n} kinds · scatter \${d.mad.toFixed(2)} · covers \${fmt(lo)} – \${fmt(hi)} m\`
+    + \` · <span class="\${d.shaky ? 'shk' : ''}">\${stab}\${d.shaky ? ', unstable' : ''}</span>\`
     + line(d.up, 'too large') + line(d.down, 'too small');
 }
 function drawFit() {
   gFit.replaceChildren();
-  lines.clear(); dots.clear();
+  lines.clear(); dots.clear(); shaky.clear();
   ref = PAYLOAD[mode].ref;
   el('line', { x1: sx(X0), y1: sy(ref.icpt + ref.slope * X0), x2: sx(X1), y2: sy(ref.icpt + ref.slope * X1), class: 'ref' }, gFit);
   REST = \`Dashed line: the whole catalogue's own curve — slope \${ref.slope.toFixed(2)}. Colour: red toward toy, blue toward linear.\`;
   for (const d of DATA) {
     const xs = d.pts.map(p => p.x), lo = Math.min(...xs), hi = Math.max(...xs);
-    const l = el('line', { x1: sx(lo), y1: sy(d.icpt + d.slope * lo), x2: sx(hi), y2: sy(d.icpt + d.slope * hi), class: 'kitline', stroke: mix(d.slope) }, gFit);
+    if (d.shaky) shaky.add(d.kit);
+    const l = el('line', { x1: sx(lo), y1: sy(d.icpt + d.slope * lo), x2: sx(hi), y2: sy(d.icpt + d.slope * hi), class: 'kitline' + (d.shaky ? ' shaky' : ''), stroke: mix(d.slope) }, gFit);
     l.addEventListener('click', () => show(sel === d.kit ? null : d.kit));
     lines.set(d.kit, l);
   }
@@ -722,7 +742,7 @@ function drawFit() {
 
 const tb = document.querySelector('#t tbody');
 let sortKey = 'slope', asc = true;
-const keyOf = (d, k) => k === 'lo' ? Math.min(...d.pts.map(p => p.x)) : k === 'up' ? -(d.up ? d.up.res : 0) : k === 'down' ? (d.down ? d.down.res : 0) : d[k];
+const keyOf = (d, k) => k === 'spread' ? (d.range ? d.range[1] - d.range[0] : Infinity) : k === 'lo' ? Math.min(...d.pts.map(p => p.x)) : k === 'up' ? -(d.up ? d.up.res : 0) : k === 'down' ? (d.down ? d.down.res : 0) : d[k];
 function render() {
   const rowsData = [...DATA].sort((a, b) => { const va = keyOf(a, sortKey), vb = keyOf(b, sortKey); return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * (asc ? 1 : -1); });
   tb.replaceChildren(); rows.clear();
@@ -732,6 +752,7 @@ function render() {
     const cell = (o) => o ? \`<span class="nm" title="\${o.name} — \${nice(o.kind)}">\${o.name}</span> <span class="res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</span>\` : '<span class="muted">—</span>';
     tr.innerHTML = \`<td>\${d.kit}</td><td class="n">\${d.n}</td><td class="n">\${d.slope.toFixed(2)}</td>\`
       + \`<td><span class="bar" style="width:\${w}px;background:\${mix(d.slope)}"></span></td>\`
+      + \`<td class="n\${d.shaky ? ' shk' : ''}">\${spanText(d)}</td>\`
       + \`<td class="n">\${(2 ** d.icpt).toFixed(2)}</td><td class="n">\${d.mad.toFixed(2)}</td>\`
       + \`<td>\${cell(d.up)}</td><td>\${cell(d.down)}</td>\`;
     tr.addEventListener('click', () => show(sel === d.kit ? null : d.kit));
