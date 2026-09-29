@@ -776,7 +776,8 @@
        "longest.min": 0.1,
        "longest.max": 0.55,
        "nouns": [
-        "fish (as food)"
+        "fish fillet",
+        "cured fish"
        ],
        "scale": {
         "big": 2
@@ -3569,10 +3570,13 @@
       {
        "id": "env-fauna-fish",
        "longest.min": 0.1,
-       "longest.max": 0.4,
+       "longest.max": 0.55,
        "nouns": [
         "fish"
        ],
+       "scale": {
+        "big": 2
+       },
        "children": [
         {
          "id": "env-fauna-fish-shark",
@@ -3581,6 +3585,16 @@
          "nouns": [
           "shark",
           "hammerhead"
+         ]
+        },
+        {
+         "id": "env-fauna-fish-ray",
+         "longest.min": 0.15,
+         "longest.max": 1.5,
+         "nouns": [
+          "ray",
+          "stingray",
+          "manta ray"
          ]
         }
        ]

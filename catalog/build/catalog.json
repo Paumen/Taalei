@@ -2250,15 +2250,20 @@
     "Pirate Kit": 7
    },
    "scales": {
-    "0.1": 7
+    "0.105449": 1,
+    "0.055623": 1,
+    "0.026878": 1,
+    "0.01864": 1,
+    "0.124653": 1,
+    "0.089594": 1,
+    "0.26452": 1
    },
    "smooth": {
     "none": 7
    },
    "kitCheck": {
-    "factor": 3.42,
-    "kinds": 3,
-    "level": "error"
+    "factor": 1.14,
+    "kinds": 3
    }
   },
   {
@@ -2406,9 +2411,8 @@
     "none": 11
    },
    "kitCheck": {
-    "factor": 1.44,
-    "kinds": 4,
-    "level": "error"
+    "factor": 1.19,
+    "kinds": 5
    }
   },
   {
@@ -15713,7 +15717,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2947,
+   "count": 2930,
    "color": "#c07c8a"
   },
   {
@@ -16080,7 +16084,7 @@
    "name": "Food",
    "type": "kind",
    "description": "honey",
-   "count": 528,
+   "count": 511,
    "color": "#c25b4e"
   },
   {
@@ -16204,10 +16208,10 @@
   },
   {
    "id": "obj-food-fish",
-   "name": "Fish",
+   "name": "Prepared fish",
    "type": "kind",
-   "description": "fish (as food)",
-   "count": 41
+   "description": "fish fillet, cured fish",
+   "count": 24
   },
   {
    "id": "obj-food-fish-sushi",
@@ -17266,7 +17270,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 858,
+   "count": 875,
    "color": "#6cb588"
   },
   {
@@ -17274,7 +17278,7 @@
    "name": "Fauna",
    "type": "kind",
    "description": "octopus, crab, lobster, frog, snail, worm",
-   "count": 52,
+   "count": 69,
    "color": "#3e8fd0"
   },
   {
@@ -17289,7 +17293,7 @@
    "name": "Fish",
    "type": "kind",
    "description": "fish",
-   "count": 20
+   "count": 39
   },
   {
    "id": "env-fauna-fish-shark",
@@ -17297,6 +17301,13 @@
    "type": "kind",
    "description": "shark, hammerhead",
    "count": 4
+  },
+  {
+   "id": "env-fauna-fish-ray",
+   "name": "Ray",
+   "type": "kind",
+   "description": "ray, stingray, manta ray",
+   "count": 2
   },
   {
    "id": "env-fauna-starfish",
@@ -18679,6 +18690,7 @@
     "str-fixture-marker-sign",
     "str-fixture-marker-flag",
     "str-fixture-marker-banner",
+    "env-fauna-fish",
     "env-flora-plant-leafy",
     "env-flora-plant-cactus"
    ]
@@ -18695,14 +18707,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2533
+   "count": 2536
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2247
+   "count": 2244
   },
   {
    "id": "l",
@@ -18800,6 +18812,7 @@
   "char",
   "env-fauna-bird",
   "env-fauna-fish",
+  "env-fauna-fish-ray",
   "env-fauna-fish-shark",
   "env-fauna-insect",
   "env-fauna-starfish",
@@ -19043,7 +19056,13 @@
   "env-fauna-fish": {
    "high.max": 8,
    "longest.min": 0.1,
-   "longest.max": 0.4,
+   "longest.max": 0.55,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-ray": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.5,
    "tpu.max": 10000
   },
   "env-fauna-fish-shark": {
@@ -21501,6 +21520,24 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "env-fauna-fish scale-big": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.1,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-shark scale-big": {
+   "high.max": 8,
+   "longest.min": 2,
+   "longest.max": 4.4,
+   "tpu.max": 10000
+  },
+  "env-fauna-fish-ray scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 3,
+   "tpu.max": 10000
   },
   "env-flora-plant-leafy scale-small": {
    "high.max": 8,
@@ -144718,7 +144755,7 @@
   {
    "kit": "ken-food",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.1,
@@ -188677,7 +188714,7 @@
   {
    "kit": "ken-survival",
    "name": "fish-large",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -188726,7 +188763,7 @@
   {
    "kit": "ken-survival",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -215386,8 +215423,8 @@
    "kind": "env-fauna-mammal",
    "size": "m",
    "wdh": [
-    0.3,
-    0.9,
+    0.35,
+    0.95,
     0.3
    ],
    "tris": 440,
@@ -215395,11 +215432,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 2,
-   "bytes": 139648,
+   "bytes": 139668,
    "vtx": 1320,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.0009,
+   "avgTri": 0.001,
    "anglePct": 3,
    "vpt": 3,
    "grad": 0.31,
@@ -215420,13 +215457,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
-   ],
    "mark": [
     "grounded"
    ]
@@ -215434,22 +215464,22 @@
   {
    "kit": "quat-fish",
    "name": "fish-1",
-   "kind": "obj-food-fish",
-   "size": "m",
+   "kind": "env-fauna-fish",
+   "size": "s",
    "wdh": [
-    0.8,
-    0.1,
-    0.25
+    0.45,
+    0.06,
+    0.15
    ],
    "tris": 544,
    "tpu": 1586,
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 105984,
+   "bytes": 106004,
    "vtx": 1632,
    "minEdge": 0.001,
-   "avgTri": 0.00053,
+   "avgTri": 0.00016,
    "anglePct": 9,
    "vpt": 3,
    "grad": 0.65,
@@ -215481,13 +215511,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -215497,21 +215520,21 @@
    "kit": "quat-fish",
    "name": "fish-2",
    "kind": "env-fauna-fish",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    1,
-    0.2,
-    0.6
+    0.25,
+    0.05,
+    0.15
    ],
    "tris": 502,
    "tpu": 1464,
    "mat": 1,
    "bands": 2,
    "calls": 3,
-   "bytes": 98720,
+   "bytes": 98740,
    "vtx": 1506,
-   "minEdge": 0.001,
-   "avgTri": 0.00194,
+   "minEdge": 0,
+   "avgTri": 0.00014,
    "anglePct": 1,
    "vpt": 3,
    "grad": 0.6,
@@ -215537,13 +215560,6 @@
    "anim": [
     "Armature|Swim.001"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -215553,22 +215569,22 @@
    "kit": "quat-fish",
    "name": "fish-3",
    "kind": "env-fauna-fish",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.75,
     0.15,
-    0.4
+    0.03,
+    0.08
    ],
    "tris": 686,
    "tpu": 2000,
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 128628,
+   "bytes": 128644,
    "vtx": 2058,
-   "minEdge": 0.004,
+   "minEdge": 0.001,
    "minTube": 0.1846,
-   "avgTri": 0.00064,
+   "avgTri": 0.00002,
    "anglePct": 2,
    "vpt": 3,
    "grad": 0.51,
@@ -215599,13 +215615,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -215614,22 +215623,22 @@
   {
    "kit": "quat-fish",
    "name": "manta-ray",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-ray",
    "size": "m",
    "wdh": [
-    0.75,
-    1.15,
-    0.2
+    0.9,
+    1.45,
+    0.25
    ],
    "tris": 696,
-   "tpu": 1157,
+   "tpu": 744,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 148496,
+   "bytes": 148516,
    "vtx": 2088,
-   "minEdge": 0.004,
-   "avgTri": 0.00077,
+   "minEdge": 0.005,
+   "avgTri": 0.0012,
    "anglePct": 2,
    "vpt": 3,
    "grad": 0.63,
@@ -215655,13 +215664,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -215671,22 +215673,22 @@
    "kit": "quat-fish",
    "name": "shark",
    "kind": "env-fauna-fish-shark",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.6,
-    1.6,
-    0.5
+    0.55,
+    1.4,
+    0.45
    ],
    "tris": 644,
-   "tpu": 992,
+   "tpu": 1235,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 124316,
+   "bytes": 124336,
    "vtx": 1932,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00179,
+   "avgTri": 0.00144,
    "anglePct": 5,
    "vpt": 3,
    "grad": 0.65,
@@ -215712,18 +215714,6 @@
    "anim": [
     "Armature|Swim"
    ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.6 under min 1 (env-fauna-fish-shark · 0.468 at kit ×3.42)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
-   ],
    "mark": [
     "grounded"
    ]
@@ -215732,22 +215722,22 @@
    "kit": "quat-fish",
    "name": "whale",
    "kind": "env-fauna-mammal",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.4,
-    1,
-    0.35
+    1.05,
+    2.65,
+    0.9
    ],
    "tris": 447,
-   "tpu": 1303,
+   "tpu": 185,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 98124,
+   "bytes": 98140,
    "vtx": 1341,
-   "minEdge": 0.004,
+   "minEdge": 0.011,
    "minTube": 1.346,
-   "avgTri": 0.00121,
+   "avgTri": 0.00849,
    "anglePct": 0,
    "vpt": 3,
    "grad": 0.65,
@@ -215772,13 +215762,6 @@
    ],
    "anim": [
     "Armature|Swim"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×3.42 off the size curve (quat-fish, 3 kinds)"
-    }
    ],
    "mark": [
     "grounded",
@@ -215844,9 +215827,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.563 at kit ×0.8)"
+     "text": "longest 0.45 over max 0.55 (env-fauna-fish · 0.563 at kit ×0.8)"
     }
    ]
   },
@@ -215898,9 +215881,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.45 over max 0.4 (env-fauna-fish · 0.563 at kit ×0.8)"
+     "text": "longest 0.45 over max 0.55 (env-fauna-fish · 0.563 at kit ×0.8)"
     }
    ]
   },
@@ -215945,14 +215928,7 @@
    "tags": [
     "qua"
    ],
-   "variant": "v868",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
-   ]
+   "variant": "v868"
   },
   {
    "kit": "quat-fishing",
@@ -216000,14 +215976,7 @@
    "tags": [
     "qua"
    ],
-   "variant": "v868",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
-   ]
+   "variant": "v868"
   },
   {
    "kit": "quat-fishing",
@@ -216474,13 +216443,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -216530,7 +216492,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.55 over max 0.4 (env-fauna-fish · 0.688 at kit ×0.8)"
+     "text": "longest 0.55 over max 0.55 (env-fauna-fish · 0.688 at kit ×0.8)"
     }
    ]
   },
@@ -216589,9 +216551,9 @@
    "variant": "v867",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.5 over max 0.4 (env-fauna-fish · 0.625 at kit ×0.8)"
+     "text": "longest 0.5 over max 0.55 (env-fauna-fish · 0.625 at kit ×0.8)"
     }
    ]
   },
@@ -216940,13 +216902,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.35 over max 0.4 (env-fauna-fish · 0.437 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -217100,13 +217055,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.4 over max 0.4 (env-fauna-fish · 0.5 at kit ×0.8)"
-    }
    ]
   },
   {
@@ -218760,7 +218708,7 @@
   {
    "kit": "quat-food",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.55,
@@ -224699,13 +224647,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    }
    ]
   },
   {
@@ -224753,13 +224694,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    }
    ]
   },
   {
@@ -224807,13 +224741,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    }
    ]
   },
   {
@@ -224856,13 +224783,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    }
    ]
   },
   {
@@ -224908,14 +224828,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1.05 under min 1 (env-fauna-fish-shark · 0.729 at kit ×1.44)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
+     "text": "longest 1.05 under min 1 (env-fauna-fish-shark · 0.882 at kit ×1.19)"
     }
    ]
   },
@@ -224956,11 +224871,6 @@
     "qua"
    ],
    "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -225007,11 +224917,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    },
-    {
-     "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
     }
@@ -225056,11 +224961,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    },
-    {
-     "level": "error",
      "check": "measures",
      "text": "G09 nmat 0 wants min 1"
     }
@@ -225103,11 +225003,6 @@
     "qua"
    ],
    "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -225155,19 +225050,12 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    }
    ]
   },
   {
    "kit": "quat-ocean",
    "name": "stingray",
-   "kind": "env-fauna",
+   "kind": "env-fauna-fish-ray",
    "size": "s",
    "wdh": [
     0.15,
@@ -225199,13 +225087,6 @@
    ],
    "tags": [
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "kit ×1.44 off the size curve (quat-ocean, 4 kinds)"
-    }
    ]
   },
   {
@@ -226373,7 +226254,7 @@
   {
    "kit": "quat-pirate",
    "name": "fish-mackerel",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.6,
@@ -226420,14 +226301,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.6 over max 0.55 (obj-food-fish · 0.638 at kit ×0.94)"
+     "text": "longest 0.6 over max 0.55 (env-fauna-fish · 0.638 at kit ×0.94)"
     }
    ]
   },
   {
    "kit": "quat-pirate",
    "name": "fish-tuna",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.8,
@@ -241305,7 +241186,7 @@
   {
    "kit": "quat-sushi",
    "name": "eel",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.5,
@@ -241353,7 +241234,7 @@
   {
    "kit": "quat-sushi",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.15,
@@ -241541,7 +241422,7 @@
   {
    "kit": "quat-sushi",
    "name": "flounder",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -241584,13 +241465,6 @@
    "tags": [
     "food",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "tpu 5469 over max 5000 (obj-food)"
-    }
    ]
   },
   {
@@ -241779,7 +241653,7 @@
   {
    "kit": "quat-sushi",
    "name": "mackerel",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.2,
@@ -242597,7 +242471,7 @@
   {
    "kit": "quat-sushi",
    "name": "salmon-whole",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.15,
@@ -243368,7 +243242,7 @@
   {
    "kit": "quat-sushi",
    "name": "tuna",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.3,
@@ -255891,7 +255765,7 @@
   {
    "kit": "rgp-medieval",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.35,
@@ -281036,7 +280910,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish-tan",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -281080,7 +280954,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish-umber",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
@@ -281125,7 +280999,7 @@
   {
    "kit": "styloo-farm",
    "name": "fish",
-   "kind": "obj-food-fish",
+   "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
     0.45,
