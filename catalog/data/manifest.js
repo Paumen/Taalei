@@ -5280,9 +5280,10 @@ window.KENNEY_KITS = [
   "note": "Quaternius; source zip carries no licence file.",
   "models": [
    "anglerfish",
-   "betta",
+   "blue-tang",
    "clownfish",
    "clownfish-basalt",
+   "coral-grouper",
    "dock-long",
    "dock-long-bare",
    "dock-stairs",
@@ -5301,10 +5302,14 @@ window.KENNEY_KITS = [
    "lure-d",
    "lure-e",
    "lure-f",
-   "mandarinfish",
+   "moorish-idol",
+   "parrotfish",
+   "piranha",
    "puffer",
    "rowboat",
    "snapper",
+   "tuna",
+   "turbot",
    "worm"
   ]
  },
