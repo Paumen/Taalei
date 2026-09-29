@@ -18,7 +18,7 @@ const AFGEWEZEN_PAD = 'kits/reject';
 const BRON_DIR = join(ROOT, 'kits', 'sources');
 const CACHE_FILE = join(ROOT, 'kits', '.cache', 'build-lists.json');
 
-if (!existsSync(BRON_DIR)) throw new Error('kits/sources not found: clone paumen/taalei-sources next to this repo');
+if (!existsSync(BRON_DIR)) throw new Error('kits/sources not found: clone Paumen/lp-sources next to this repo');
 
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
