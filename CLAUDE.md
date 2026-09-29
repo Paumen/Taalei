@@ -13,6 +13,7 @@
 * A workfile in kits/workfiles is the asset itself.
 * catalog/ contains pages that show current catalog glb models as thumbs and 3d, a TBD overview of glbs outside the catalog, a Reject overview of models turned down for style or as a duplicate (list with a reason per model in catalog/data/rejects.json), a swipe/review functionality, a model scale comparison page, a kit size curves page (catalog/app/size-curves.html, built by catalog/tools/size-curves.mjs), and an overview page (catalog/app/overview.html) with a kits table and the kinds tree, read from catalog/build/catalog.json, packs.json, size-curves.json and lint/*.json.
 * kits/sources contains original cc0 files in zip, kits/workfiles contains selected, normalize and modified glb for catalog.
+* kits/sources and kits/reject are symlinks into the public repo paumen/taalei-sources, cloned next to this repo (../taalei-sources). Clone it only when a task needs source zips or rejected models (build-lists.mjs, import tools, adding a pack); commit changes there in that repo.
 
 ## what's akready installed at setup
 installed:
