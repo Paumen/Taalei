@@ -376,6 +376,39 @@ export function measureScene(glb) {
   };
 }
 
+const SMOOTH_COS = Math.cos((2 * Math.PI) / 180);
+
+// Share of the surface, by area, on triangles with a vertex normal more than 2° off the face.
+export function smoothShare(glb) {
+  let area = 0;
+  let smooth = 0;
+  for (const mesh of glb.json.meshes ?? []) {
+    for (const prim of mesh.primitives ?? []) {
+      if ((prim.mode ?? 4) !== 4 || prim.attributes.POSITION === undefined) continue;
+      const pos = readAccessor(glb, prim.attributes.POSITION).data;
+      const nrm = prim.attributes.NORMAL !== undefined ? readAccessor(glb, prim.attributes.NORMAL).data : null;
+      const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : null;
+      const count = idx ? idx.length : pos.length / 3;
+      for (let t = 0; t + 2 < count; t += 3) {
+        const c = [0, 1, 2].map((k) => (idx ? idx[t + k] : t + k));
+        const u = [0, 1, 2].map((k) => pos[c[1] * 3 + k] - pos[c[0] * 3 + k]);
+        const v = [0, 1, 2].map((k) => pos[c[2] * 3 + k] - pos[c[0] * 3 + k]);
+        const n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+        const len = Math.hypot(...n);
+        if (!len) continue;
+        area += len / 2;
+        if (!nrm) continue;
+        const bent = c.some((i) => {
+          const m = [nrm[i * 3], nrm[i * 3 + 1], nrm[i * 3 + 2]];
+          return Math.abs(m[0] * n[0] + m[1] * n[1] + m[2] * n[2]) / (len * (Math.hypot(...m) || 1)) < SMOOTH_COS;
+        });
+        if (bent) smooth += len / 2;
+      }
+    }
+  }
+  return area ? smooth / area : 0;
+}
+
 export function trianglesPerUnit(triangles, wdh) {
   if (wdh.some((size) => size === 0)) return null;
   const cells = Math.max(0.49, wdh[0] * wdh[1]) * Math.max(0.7, wdh[2]);

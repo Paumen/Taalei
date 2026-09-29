@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, measureTubes, trianglesPerUnit } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, measureTubes, trianglesPerUnit, smoothShare } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
@@ -21,6 +21,7 @@ const MODEL_PATH = 'kits/workfiles';
 
 const COLUMNS = 16;
 const ROWS = 4;
+const SMOOTH_SHARE = 0.01;
 
 
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
@@ -299,7 +300,7 @@ for (const slug of kitSlugs) {
     const tubes = measureTubes(glb);
     const origin = gltf.asset?.extras?.taaleiland ?? {};
     tally(scales, origin.schaal ?? 'none');
-    tally(smooth, origin.schaduw?.modus === 'glad' ? origin.schaduw.drempel : 'none');
+    tally(smooth, smoothShare(glb) >= SMOOTH_SHARE ? 'smooth' : 'none');
     tally(origins, origin.bron ?? 'none');
     const read = readColors(glb, dir);
     if (read.lanes.size === 0 && read.materials.size === 0) noColor.push(`${slug}/${name}`);

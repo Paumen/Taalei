@@ -134,8 +134,6 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 `G04` (tri budget per kind) lives in `lint/kinds.json` as `tpu.max` (§2.3); a `tag:hero` model gets twice its kind's budget, set by `tpu.tagFactors` in `lint/variables.json`; `G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
 
-`node tools/import/simplify.mjs` removes triangles while no surface moves more than `--error` (0.01 by default) of the model's longest extent, keeping open edges, band seams and normals. `--ratio` stops each primitive at that fraction of its triangles; a smaller cut is refused less often, so repeating it goes further. `--hard <degrees>` ignores normal splits while simplifying and then sets every normal again, keeping a hard edge where faces meet at more than that angle; use it where hard-edge splits block the cut, and compare the shading after. It refuses any result that opens a hole, flips a face, streaks the shading, pushes a face through its own surface, or newly fails `G27`, and leaves skinned and morphing models alone, and animated ones whose animation does more than move, turn or scale nodes; `--list` prints the counts. A part it reshapes can still expose a face of another part behind it, so render what it changed before keeping it. It uses meshoptimizer's simplifier from `tools/import/vendor/meshoptimizer` (MIT).
-
 ### 2.2 Measures — in `lint/measures.json`
 
 Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
@@ -144,7 +142,7 @@ Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (
 
 `minTube` is the diameter of the model's thinnest tube, in catalogue units; a model with no tube records none and `G27` passes it. A tube is a part (shells welded on shared positions) whose every slice across its main axis is a ring of at least five directions around the slice's own centre, no rim vertex more than 2.5 times as far out as another, and at least 2.5 diameters long; a curved stalk counts. Its diameter is twice the median slice radius, measured after the node transform.
 
-`G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, table cutlery, spatulas, fauna, shells, bags, pocket items and stationery. Food, books, weapons and vials set 0.012. `node tools/import/thicken.mjs` widens a model's thin tubes to what `G27` asks of it, around their centre line, keeping their length; `--min` sets the diameter instead, `--max` narrows tubes thicker than it down to it, `--list` prints the tubes. `node tools/import/thicken-walls.mjs` does the same for flat and thin walls (blades, leaves, shells, strands): it pushes every wall thinner than `--min` out on both sides along its normal, and without `--min` takes what `G27` asks.
+`G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, table cutlery, spatulas, fauna, shells, bags, pocket items and stationery. Food, books, weapons and vials set 0.012.
 
 `G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself.
 
@@ -179,7 +177,7 @@ Run `node lint/size.mjs` for extents and kit sizes, `node lint/tpu.mjs` for the 
 | `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
 | `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
 
-A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units. `node tools/import/twine.mjs` moves round taupe rope strands onto `twine` and unwraps them so the stripes wind round the strand; `--parts` does the same for any taupe part (wraps, coils, knots, ties) by the numbers `--list` prints, and `--list` prints what it would move.
+A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units.
 
 ---
 
