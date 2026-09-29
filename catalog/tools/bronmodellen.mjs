@@ -49,6 +49,7 @@ function gemeenschappelijkeMap(mappen) {
 export const bronId = (bronkit) => (bronkit.submap ? `${bronkit.map}/${bronkit.submap}` : bronkit.map);
 
 function pakBronUit(bronkit) {
+  if (!existsSync(BRON_DIR)) throw new Error('kits/sources not found: clone paumen/taalei-sources next to this repo');
   const doel = join(UITPAK_DIR, bronkit.map);
   const map = join(BRON_DIR, bronkit.map);
   const zips = readdirSync(map).filter((n) => n.toLowerCase().endsWith('.zip')).sort();

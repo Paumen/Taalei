@@ -24,7 +24,13 @@ and put back any that look wrong.
 ## 1. Is the source pack already in the repo?
 
 `catalog/tools/bronkits.mjs` (`BRONKITS`) lists every pack; the zips sit in
-`kits/sources/<pack>/`.
+`kits/sources/<pack>/`. `kits/sources` and `kits/reject` are symlinks into
+paumen/taalei-sources; clone it first:
+
+    git clone --depth 1 https://github.com/paumen/taalei-sources ../taalei-sources
+
+Zips and rejected models are committed and pushed in that repo; the lists and
+thumbs under `catalog/build` in this one.
 
 ## 2. Add a source pack
 
