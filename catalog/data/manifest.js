@@ -1468,6 +1468,7 @@ window.KENNEY_KITS = [
   "name": "ken-proto",
   "url": "https://kenney.nl/assets/prototype-kit",
   "models": [
+   "button-floor-round-small",
    "coin",
    "crate",
    "door",
@@ -1478,6 +1479,8 @@ window.KENNEY_KITS = [
    "flag",
    "ladder",
    "ladder-top",
+   "lever-double",
+   "lever-single",
    "stairs-diagonal",
    "target-a-round",
    "target-b-round",
@@ -1628,6 +1631,8 @@ window.KENNEY_KITS = [
    "bowl-small",
    "cabinet",
    "cabinet-corner",
+   "cabinet-corner-half",
+   "cabinet-half",
    "chair-a",
    "chair-b",
    "counter-a",
@@ -5760,10 +5765,14 @@ window.KENNEY_KITS = [
    "diesel-a",
    "diesel-b",
    "diesel-box",
+   "diesel-box-b",
+   "diesel-box-c",
    "diesel-c",
    "locomotive-a",
    "locomotive-b",
    "locomotive-c",
+   "locomotive-passenger-a",
+   "locomotive-passenger-b",
    "train-bullet",
    "train-city",
    "train-double",
@@ -6219,7 +6228,9 @@ window.KENNEY_KITS = [
    "pits-office-roof",
    "pylon",
    "race-car-green",
+   "race-car-orange",
    "race-car-red",
+   "race-car-white",
    "radar-equipment",
    "rail",
    "rail-double",
@@ -6486,7 +6497,8 @@ window.KENNEY_KITS = [
    "structure-yellow-medium",
    "structure-yellow-short",
    "structure-yellow-tall",
-   "warning-orange"
+   "warning-orange",
+   "warning-traffic"
   ]
  },
  {
@@ -7029,6 +7041,7 @@ window.KENNEY_KITS = [
   "models": [
    "bench-hooks",
    "changing-stall",
+   "diving-board",
    "float-stack",
    "lane-ropes",
    "lifeguard-chair",
