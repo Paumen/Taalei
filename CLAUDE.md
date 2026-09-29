@@ -6,6 +6,7 @@
 * never record historical notes and comments on which changes were made or why, not in code not in docs, information just represents latest state and ways.
 * Keep docs tersely, and in plain English..
 * import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport
+* After any catalogue change, always rebuild: every step in .claude/skills/catalog-assets/SKILL.md §6 except build-lists. Run build-lists only when source zips, rejects or TBD models change.
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.

@@ -300,7 +300,7 @@ const DROPPED_KINDS = [
 const SCALE_SIZES = {
   'env-flora-plant-cactus': { small: 0.3, big: 1.5 },
   'env-flora-plant-leafy': { small: 0.3, big: 1.2 },
-  'obj-container-crate': { big: 1.2 },
+  'obj-container-crate': { small: 0.3, big: 1.2 },
   'obj-container-pot': { small: 0.2, big: 0.8 },
   'obj-equipment-target-bullseye': { small: 0.5 },
   'obj-equipment-weapon-siege-ammunition-cannonball': { big: 0.3 },

@@ -879,8 +879,9 @@
     "none": 33
    },
    "kitCheck": {
-    "factor": 1.16,
-    "kinds": 8
+    "factor": 1.32,
+    "kinds": 8,
+    "level": "warning"
    }
   },
   {
@@ -1113,7 +1114,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.19,
+    "factor": 1.11,
     "kinds": 7
    }
   },
@@ -15514,7 +15515,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 687,
+   "count": 686,
    "parent": "metal-iron"
   },
   {
@@ -15522,7 +15523,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 329,
+   "count": 330,
    "parent": "metal-iron"
   },
   {
@@ -16078,7 +16079,7 @@
    "name": "Cube",
    "type": "kind",
    "description": "cube crate, cube box",
-   "count": 34
+   "count": 30
   },
   {
    "id": "obj-container-pot",
@@ -16783,7 +16784,7 @@
    "name": "Lamp post",
    "type": "kind",
    "description": "lamp post, street lamp, lantern post",
-   "count": 12
+   "count": 13
   },
   {
    "id": "str-fixture-light-street",
@@ -17659,7 +17660,7 @@
    "name": "Traffic light",
    "type": "kind",
    "description": "Traffic light or race start light.",
-   "count": 12
+   "count": 11
   },
   {
    "id": "str-access-road",
@@ -18715,9 +18716,10 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 142,
+   "count": 145,
    "kinds": [
     "obj-container-chest",
+    "obj-container-crate",
     "obj-container-pot",
     "obj-food-baked-bread",
     "obj-equipment-target-bullseye",
@@ -18742,7 +18744,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 81,
+   "count": 85,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -21299,6 +21301,12 @@
    "high.max": 0.25,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-container-crate scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.5,
    "tpu.max": 10000
   },
   "obj-container-crate scale-big": {
@@ -110126,6 +110134,13 @@
    "tags": [
     "kay",
     "metal-iron-wrought"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -110166,7 +110181,14 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v422"
+   "variant": "v422",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110206,7 +110228,14 @@
     "kay",
     "metal-iron-wrought"
    ],
-   "variant": "v422"
+   "variant": "v422",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110245,6 +110274,13 @@
    "tags": [
     "kay",
     "metal-iron-wrought"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -110285,6 +110321,13 @@
     "kay",
     "metal-iron-wrought",
     "plural"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -110346,6 +110389,13 @@
     "textile",
     "wood-beam",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -110401,7 +110451,14 @@
     "paper",
     "textile"
    ],
-   "variant": "v418"
+   "variant": "v418",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110446,7 +110503,14 @@
     "paper",
     "textile"
    ],
-   "variant": "v418"
+   "variant": "v418",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110502,6 +110566,13 @@
     "paper",
     "plural",
     "textile"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -110544,10 +110615,18 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v423"
+   "variant": "v423",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110605,10 +110684,18 @@
    "tags": [
     "kay",
     "paper",
+    "scale-small",
     "textile",
     "wood-worked"
    ],
-   "variant": "v423"
+   "variant": "v423",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110645,9 +110732,17 @@
    ],
    "tags": [
     "kay",
+    "scale-small",
     "wood-worked"
    ],
-   "variant": "v423"
+   "variant": "v423",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110692,6 +110787,13 @@
     "hero",
     "kay",
     "metal-iron-cast"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -110743,7 +110845,14 @@
     "kay",
     "vegetation"
    ],
-   "variant": "v419"
+   "variant": "v419",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110794,7 +110903,14 @@
     "kay",
     "vegetation"
    ],
-   "variant": "v419"
+   "variant": "v419",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110856,7 +110972,14 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v723"
+   "variant": "v723",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110917,7 +111040,14 @@
     "metal-iron-wrought",
     "plastic"
    ],
-   "variant": "v723"
+   "variant": "v723",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -110960,6 +111090,13 @@
    "tags": [
     "kay",
     "paper"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -111015,6 +111152,13 @@
     "kay",
     "leather",
     "metal-iron-steel"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -111065,7 +111209,14 @@
     "metal-iron-wrought",
     "textile"
    ],
-   "variant": "v420"
+   "variant": "v420",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111120,7 +111271,14 @@
     "metal-iron-wrought",
     "textile"
    ],
-   "variant": "v420"
+   "variant": "v420",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111192,6 +111350,11 @@
    ],
    "variant": "v724",
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -111270,6 +111433,11 @@
    "variant": "v724",
    "lint": [
     {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G12 bands 7 wants max 3"
@@ -111324,7 +111492,14 @@
     "leather",
     "plastic"
    ],
-   "variant": "v725"
+   "variant": "v725",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111374,7 +111549,14 @@
     "leather",
     "plastic"
    ],
-   "variant": "v725"
+   "variant": "v725",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111425,7 +111607,14 @@
     "plastic",
     "plural"
    ],
-   "variant": "v725"
+   "variant": "v725",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111464,6 +111653,13 @@
    "tags": [
     "kay",
     "metal-iron-wrought"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -111523,6 +111719,13 @@
     "food",
     "kay",
     "vegetation"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
    ]
   },
   {
@@ -111574,7 +111777,14 @@
     "textile",
     "wood-worked"
    ],
-   "variant": "v417"
+   "variant": "v417",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111625,7 +111835,14 @@
     "textile",
     "wood-worked"
    ],
-   "variant": "v417"
+   "variant": "v417",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111665,7 +111882,14 @@
     "ceramic",
     "kay"
    ],
-   "variant": "v421"
+   "variant": "v421",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111705,7 +111929,14 @@
     "ceramic",
     "kay"
    ],
-   "variant": "v421"
+   "variant": "v421",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -111758,6 +111989,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.78 over max 0.7 (obj-device-appliance-stove)"
+    },
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "kit ×1.32 off the size curve (kay-mixed, 8 kinds)"
     }
    ]
   },
@@ -120793,7 +121029,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-a-packed",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     0.573,
@@ -120842,6 +121078,7 @@
     "kay",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
    "variant": "v1056"
@@ -120906,7 +121143,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-a",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     0.55,
@@ -120955,6 +121192,7 @@
     "kay",
     "metal-iron-steel",
     "plastic",
+    "scale-big",
     "space"
    ],
    "variant": "v1056"
@@ -120962,7 +121200,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-b-packed",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     0.573,
@@ -121010,6 +121248,7 @@
    "tags": [
     "kay",
     "metal-iron-steel",
+    "scale-big",
     "space",
     "textile"
    ],
@@ -121075,7 +121314,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-b",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     0.55,
@@ -121113,6 +121352,7 @@
    "tags": [
     "kay",
     "metal-iron-steel",
+    "scale-big",
     "space"
    ],
    "variant": "v1056"
@@ -142321,7 +142561,7 @@
   {
    "kit": "ken-factory",
    "name": "warning-traffic",
-   "kind": "str-fixture-light-traffic",
+   "kind": "str-fixture-light-post",
    "size": "m",
    "wdh": [
     0.2,
@@ -142344,7 +142584,7 @@
    "vpt": 1.09,
    "grad": 0.6,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.313,
      0.977
     ],
@@ -142363,13 +142603,13 @@
    },
    "colors": [
     "#23562c",
+    "#5b5550",
     "#7f3927",
-    "#82868e",
     "#f2a93c"
    ],
    "tags": [
     "ken",
-    "metal-iron-steel",
+    "metal-iron-wrought",
     "plastic"
    ]
   },
