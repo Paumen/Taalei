@@ -15481,7 +15481,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 581
+   "count": 583
   },
   {
    "id": "metal-iron",
@@ -15614,15 +15614,15 @@
    "name": "Soil",
    "type": "material",
    "description": "Loose ground and loose dirt: dirt patches, dirt floors and tiles, farm fields, the soil filling a plant pot. Sand is stone-sand; laid paving is stone-masonry.",
-   "count": 56,
+   "count": 52,
    "parent": "stone"
   },
   {
    "id": "stone-sand",
    "name": "Sand",
    "type": "material",
-   "description": "Loose sand: sand patches, sandboxes, sandcastles, the sand in a bucket. Other loose ground is stone-soil.",
-   "count": 11,
+   "description": "Loose sand: sand patches and sandy ground, sandboxes, sandcastles, the sand in a bucket. Other loose ground is stone-soil.",
+   "count": 12,
    "parent": "stone"
   },
   {
@@ -15665,7 +15665,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 625
+   "count": 626
   },
   {
    "id": "rubber",
@@ -15707,7 +15707,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 519
+   "count": 521
   },
   {
    "id": "liquid",
@@ -15771,7 +15771,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2938,
+   "count": 2940,
    "color": "#c07c8a"
   },
   {
@@ -17013,7 +17013,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 257,
+   "count": 259,
    "color": "#5a7a9c"
   },
   {
@@ -17028,14 +17028,14 @@
    "name": "Land vehicle",
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
-   "count": 95
+   "count": 97
   },
   {
    "id": "obj-transport-land-rail",
    "name": "Rail vehicle",
    "type": "kind",
    "description": "Vehicle running on rails: train, locomotive, tram, railway carriage.",
-   "count": 37
+   "count": 39
   },
   {
    "id": "obj-transport-air",
@@ -18610,7 +18610,7 @@
    "name": "Space",
    "type": "theme",
    "description": "Space and sci-fi theme set: spacecraft, space base modules, station interiors, corridors and landers.",
-   "count": 181
+   "count": 183
   },
   {
    "id": "storeys-0-5",
@@ -69728,7 +69728,6 @@
     "ceramic",
     "kay",
     "stone-masonry",
-    "stone-soil",
     "storeys-2",
     "textile",
     "wood-beam"
@@ -69738,11 +69737,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.69 off the size curve (kay-builder, 5 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-soil wants loam, has sienna nickel ivory chestnut taupe slate"
     }
    ]
   },
@@ -70494,7 +70488,6 @@
     "hero",
     "kay",
     "stone-masonry",
-    "stone-soil",
     "storeys-4",
     "textile",
     "wood-beam",
@@ -70509,11 +70502,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.69 off the size curve (kay-builder, 5 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-soil wants loam, has camel sienna taupe chestnut ivory nickel"
     }
    ]
   },
@@ -70580,7 +70568,6 @@
     "hero",
     "kay",
     "stone-masonry",
-    "stone-soil",
     "storeys-4",
     "tba",
     "textile",
@@ -70593,11 +70580,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×1.69 off the size curve (kay-builder, 5 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-soil wants loam, has sienna ivory chestnut camel taupe nickel"
     }
    ]
   },
@@ -181972,6 +181954,7 @@
   {
    "kit": "ken-space",
    "name": "monorail-train-commuter",
+   "kind": "obj-transport-land-rail",
    "size": "l",
    "wdh": [
     0.8,
@@ -182017,19 +182000,10 @@
     "#f2a93c"
    ],
    "tags": [
-    "ken"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 4 wants max 1"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
+    "glass",
+    "ken",
+    "metal",
+    "space"
    ]
   },
   {
@@ -182147,6 +182121,7 @@
   {
    "kit": "ken-space",
    "name": "monorail-train-freight",
+   "kind": "obj-transport-land-rail",
    "size": "l",
    "wdh": [
     0.8,
@@ -182197,19 +182172,11 @@
     "#f2a93c"
    ],
    "tags": [
-    "ken"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 4 wants max 1"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
+    "glass",
+    "ken",
+    "metal",
+    "plastic",
+    "space"
    ]
   },
   {
@@ -239124,7 +239091,7 @@
      0.961,
      0.961
     ],
-    "4,0": [
+    "7,0": [
      0.219,
      0.219
     ],
@@ -239139,7 +239106,7 @@
    },
    "colors": [
     "#68872d",
-    "#6f5f51",
+    "#bca989",
     "#d07b56",
     "#dbae80",
     "#f2a93c"
@@ -239148,7 +239115,7 @@
     "bone",
     "foliage",
     "qua",
-    "stone-soil",
+    "stone-sand",
     "vegetation"
    ]
   },
