@@ -36,8 +36,8 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WORK_DIR = join(ROOT, 'kits', 'workfiles');
 
 const BANDS = {
-  tan: [0, 0], camel: [1, 0], chestnut: [2, 0], umber: [3, 0], terracotta: [5, 0],
-  amber: [6, 0], sienna: [8, 0], hunter: [1, 1], moss: [3, 1], slate: [6, 1],
+  tan: [0, 0], camel: [1, 0], chestnut: [2, 0], umber: [3, 0], loam: [4, 0], terracotta: [5, 0],
+  amber: [6, 0], dune: [7, 0], sienna: [8, 0], hunter: [1, 1], moss: [3, 1], slate: [6, 1],
   azure: [4, 2], ivory: [5, 2], basalt: [13, 3], taupe: [14, 3], nickel: [15, 3],
 };
 
