@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=262f0435ea';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=262f0435ea';
-import { colorSwatches, setBands } from './color-edits.js?v=262f0435ea';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=262f0435ea';
-import { mountExtractBar, setPageParts } from './extract.js?v=262f0435ea';
-import './bouwstempel.js?v=262f0435ea';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=b47c38b764';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=b47c38b764';
+import { colorSwatches, setBands } from './color-edits.js?v=b47c38b764';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=b47c38b764';
+import { mountExtractBar, setPageParts } from './extract.js?v=b47c38b764';
+import './bouwstempel.js?v=b47c38b764';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -230,7 +230,8 @@ const LINT_LEVELS = [
 ];
 
 const LINT_CHECKS = [
-  { id: 'size', title: 'Size', hint: 'Extents and triangle budget, per kind' },
+  { id: 'size', title: 'Size', hint: 'Extents, per kind' },
+  { id: 'tpu', title: 'Triangles', hint: 'Triangle budget, per kind' },
   { id: 'mat', title: 'Materials', hint: 'The materials a kind is asked to carry' },
   { id: 'palette', title: 'Palette', hint: 'The bands a material may draw from' },
   { id: 'bands', title: 'Bands', hint: 'The bands a kind may draw from' },
