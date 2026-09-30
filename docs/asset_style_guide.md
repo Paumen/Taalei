@@ -99,6 +99,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `azure` | 4,2 |
 | `ivory` | 5,2 |
 | `twine` | 14,2 |
+| `taupe-dark` | 12,3 |
 | `basalt` | 13,3 |
 | `taupe` | 14,3 |
 | `nickel` | 15,3 |
