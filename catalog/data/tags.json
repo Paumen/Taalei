@@ -1275,7 +1275,11 @@
     "kay-resources/parts-pile-large",
     "kay-resources/parts-pile-small",
     "jb-kitchen/ladle",
-    "quat-apocalypse/pipes"
+    "quat-apocalypse/pipes",
+    "kay-minigame/barrier-ladder",
+    "ken-proto/ladder",
+    "ken-proto/ladder-top",
+    "sq-pool/pool-ladder"
    ],
    "parent": "metal-iron"
   },
@@ -1808,14 +1812,12 @@
     "kay-hexagon/fence-wood-gate",
     "kay-hexagon/catapult-ball",
     "kay-hexagon/wheelbarrow",
-    "ken-proto/ladder",
     "ken-proto/door",
     "ken-castle/door",
     "ken-holiday/bench",
     "kay-food/wall-doorway",
     "kay-food/wall-window",
     "kay-food/door-a",
-    "kay-minigame/barrier-ladder",
     "kay-minigame/barrier-large",
     "kay-minigame/barrier-medium",
     "kay-minigame/barrier-small",
@@ -1891,7 +1893,6 @@
     "kay-food/wall-order-window",
     "kay-food/wall-window-closed",
     "kay-holiday/snowball-cannon",
-    "ken-proto/ladder-top",
     "quat-shoot/fence-metal",
     "quat-shoot/barricade-junk",
     "styloo-kitchen/saucepan",
@@ -2085,7 +2086,6 @@
     "sq-pool/lane-ropes",
     "sq-pool/lifeguard-chair",
     "sq-pool/pace-clock",
-    "sq-pool/pool-ladder",
     "sq-pool/starting-block",
     "sq-rink/disco-ball",
     "sq-rink/dj-booth",
@@ -3581,7 +3581,8 @@
     "taalei-kit/hourglass",
     "taalei-kit/birdhouse",
     "taalei-kit/barbecue",
-    "styloo-food/ramen-spoon"
+    "styloo-food/ramen-spoon",
+    "sq-laundry/laundry-basket"
    ],
    "parent": "wood"
   },
@@ -6501,10 +6502,8 @@
     "sq-bank/rate-board",
     "sq-bank/wait-sign",
     "sq-cards/booster-display",
-    "sq-cards/deck-box",
     "sq-cards/display-tower",
     "sq-cards/glass-counter",
-    "sq-cards/graded-slab",
     "sq-cards/playmat",
     "sq-cards/shop-sign",
     "sq-cards/slat-wall",
@@ -8743,11 +8742,9 @@
     "sq-bowling/score-console",
     "sq-bowling/trophy-case",
     "sq-cards/booster-display",
-    "sq-cards/deck-box",
     "sq-cards/display-tower",
     "sq-cards/gacha-machine",
     "sq-cards/glass-counter",
-    "sq-cards/graded-slab",
     "sq-cards/play-stool",
     "sq-cards/playmat",
     "sq-cards/register-pos",
@@ -8814,7 +8811,6 @@
     "sq-laundry/coin-changer",
     "sq-laundry/dryer-stack",
     "sq-laundry/jug-brand-a",
-    "sq-laundry/laundry-basket",
     "sq-laundry/plastic-chair",
     "sq-laundry/pod-tub",
     "sq-laundry/soap-vendor",
@@ -11038,7 +11034,9 @@
    "name": "Leisure",
    "type": "kind",
    "description": "Thing for play, games, sport or art.",
-   "models": []
+   "models": [
+    "sq-cinema/ticket-booth"
+   ]
   },
   {
    "id": "obj-device-appliance",
@@ -11127,7 +11125,6 @@
    "type": "kind",
    "description": "Game or sport gear: trading cards, card binders and slabs, bowling pins, air hockey gear, pool floats.",
    "models": [
-    "sq-cards/graded-slab",
     "sq-arcade/air-hockey-gear",
     "sq-bowling/bowling-pin",
     "sq-bowling/pin-formation",
@@ -11167,7 +11164,6 @@
     "sq-casino/chip-stack-black",
     "sq-casino/chip-tray",
     "sq-casino/craps-table",
-    "sq-cards/deck-box",
     "sq-casino/dice-pair",
     "ken-arcade/prize-wheel",
     "sq-casino/poker-table",
@@ -11269,11 +11265,11 @@
     "ken-arcade/vending-machine",
     "ken-market/bottle-return-machine",
     "sq-arcade/token-changer",
-    "sq-cards/gacha-machine",
     "sq-carwash/pay-kiosk",
     "sq-casino/atm",
     "sq-laundry/coin-changer",
-    "sq-laundry/soap-vendor"
+    "sq-laundry/soap-vendor",
+    "sq-arcade/ticket-eater"
    ]
   },
   {
@@ -11329,8 +11325,8 @@
     "sq-arcade/driving-cab",
     "sq-arcade/pinball",
     "sq-arcade/skee-ball",
-    "sq-arcade/ticket-eater",
-    "sq-casino/slot-cabinet"
+    "sq-casino/slot-cabinet",
+    "sq-cards/gacha-machine"
    ]
   },
   {
@@ -12728,7 +12724,11 @@
     "kay-food/counter-outer-corner",
     "kay-food/counter-b",
     "ken-market/cash-register",
-    "ken-arcade/cash-register"
+    "ken-arcade/cash-register",
+    "kay-food/table-sink",
+    "kay-food/table-sink-large",
+    "sq-bowling/shoe-counter",
+    "sq-cinema/concession-counter"
    ]
   },
   {
@@ -12874,9 +12874,7 @@
    "name": "Bench",
    "type": "kind",
    "description": "bench, pew",
-   "models": [
-    "ken-holiday/bench-short"
-   ]
+   "models": []
   },
   {
    "id": "obj-furnishing-furniture-seating-bench-nobackrest",
@@ -12917,7 +12915,8 @@
     "rgp-medieval/bench-backrest",
     "sq-bowling/lane-bench-row",
     "sq-cinema/seat-row",
-    "sq-laundry/waiting-bench"
+    "sq-laundry/waiting-bench",
+    "ken-holiday/bench-short"
    ]
   },
   {
@@ -13043,11 +13042,11 @@
     "rgp-medieval/shelf-a",
     "rgp-medieval/shelf-b",
     "sq-lab/shelf-unit",
-    "sq-bank/vault-shelving",
-    "sq-bowling/cubby-wall",
     "kay-dun-1/bookcase-wide-broken",
     "ken-furniture/bookcase-closed-doors",
-    "ken-furniture/bookcase-closed-wide"
+    "ken-furniture/bookcase-closed-wide",
+    "ken-furniture/bookcase-open-low",
+    "sq-bowling/trophy-case"
    ]
   },
   {
@@ -13078,8 +13077,6 @@
     "ken-furniture/kitchen-cabinet-upper",
     "quat-sushi/cabinet-doors",
     "sq-bank/deposit-box-wall",
-    "sq-bowling/trophy-case",
-    "sq-cards/display-tower",
     "sq-cards/glass-counter",
     "sq-lab/storage-cabinet",
     "sq-rink/locker-bank",
@@ -13108,10 +13105,7 @@
     "kay-furniture/shelf-a-small",
     "kay-furniture/shelf-b-large",
     "kay-furniture/shelf-b-small",
-    "styloo-furniture/shelf",
-    "quat-sushi/cabinet-shelves",
-    "quat-sushi/cabinet-shelves-plain",
-    "ken-furniture/bookcase-open-low"
+    "styloo-furniture/shelf"
    ]
   },
   {
@@ -13126,7 +13120,12 @@
     "sq-cards/spinner-rack",
     "sq-cards/slat-wall",
     "sq-arcade/prize-wall",
-    "sq-fastfood/pass-shelf"
+    "sq-fastfood/pass-shelf",
+    "quat-sushi/cabinet-shelves",
+    "quat-sushi/cabinet-shelves-plain",
+    "sq-bank/vault-shelving",
+    "sq-bowling/cubby-wall",
+    "sq-cards/display-tower"
    ]
   },
   {
@@ -13155,8 +13154,6 @@
     "kay-food/table-round-a-small",
     "kay-food/table-round-a",
     "kay-food/table-round-b",
-    "kay-food/table-sink-large",
-    "kay-food/table-sink",
     "kay-furniture/table-low",
     "kay-furniture/table-medium-long",
     "kay-proto/table-medium-long",
@@ -13186,8 +13183,6 @@
     "rgp-medieval/table",
     "rgp-vintage/console-table",
     "sq-bank/managers-desk",
-    "sq-bowling/shoe-counter",
-    "sq-cinema/concession-counter",
     "sq-lab/lab-bench",
     "sq-laundry/folding-table"
    ]
@@ -13383,7 +13378,8 @@
     "cooking-assets/cleaver",
     "cooking-assets/bread-knife",
     "ken-food/knife-cooking",
-    "jb-kitchen/kitchen-knife"
+    "jb-kitchen/kitchen-knife",
+    "ken-food/knife-chopping"
    ]
   },
   {
@@ -13601,7 +13597,6 @@
     "isa-picnic/fork",
     "isa-picnic/knife",
     "isa-picnic/spoon",
-    "ken-food/knife-chopping",
     "ken-food/fork",
     "ken-food/knife",
     "ken-food/spoon",
@@ -13827,11 +13822,9 @@
    "description": "chandelier, match, string lights",
    "color": "#f2cb45",
    "models": [
-    "ken-holiday/lights-colored",
     "quat-survival/match-burnt",
     "quat-survival/match",
-    "ken-furniture/ceiling-fan",
-    "ken-furniture/ceiling-fan-anim"
+    "ken-furniture/ceiling-fan"
    ]
   },
   {
@@ -13919,7 +13912,9 @@
     "sq-rink/disco-ball",
     "sq-rink/floor-spot",
     "sq-rink/light-bar",
-    "styloo-furniture/lamp"
+    "styloo-furniture/lamp",
+    "ken-furniture/ceiling-fan-anim",
+    "ken-holiday/lights-colored"
    ]
   },
   {
@@ -13936,11 +13931,9 @@
     "kay-holiday/lantern-decorated",
     "kay-holiday/street-lantern",
     "kay-spook/lamp-post",
-    "ken-factory/warning-orange",
     "ken-grave/lightpost-double",
     "ken-grave/lightpost-single",
-    "ken-holiday/lantern",
-    "ken-factory/warning-traffic"
+    "ken-holiday/lantern"
    ]
   },
   {
@@ -13991,10 +13984,7 @@
    "color": "#f1976c",
    "models": [
     "rgp-asia/token",
-    "rgp-asia/token-hanging",
-    "quat-survival/compass",
-    "quat-survival/compass-anim",
-    "taalei-kit/hourglass"
+    "rgp-asia/token-hanging"
    ]
   },
   {
@@ -14446,7 +14436,10 @@
     "kay-tools/pencil-b-short",
     "kay-tools/scissors",
     "rpg-mini/inkbottle",
-    "sq-cards/display-easel"
+    "sq-cards/display-easel",
+    "quat-survival/compass",
+    "quat-survival/compass-anim",
+    "taalei-kit/hourglass"
    ]
   },
   {
@@ -16737,7 +16730,10 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "models": []
+   "models": [
+    "ken-factory/warning-orange",
+    "ken-factory/warning-traffic"
+   ]
   },
   {
    "id": "str-access",
@@ -16947,8 +16943,7 @@
     "rgp-medieval/stairs-stone",
     "rgp-medieval/stairs-wood",
     "ken-space/platform-high",
-    "ken-space/platform-low",
-    "ken-skate/structure-platform"
+    "ken-space/platform-low"
    ]
   },
   {
@@ -17043,7 +17038,8 @@
     "sq-rink/rink-barrier-straight",
     "styloo-farm/fence-rail-clean",
     "styloo-farm/fence-rail-mirror",
-    "styloo-farm/fence-rail"
+    "styloo-farm/fence-rail",
+    "kay-hexagon/fence-stone-gate"
    ]
   },
   {
@@ -18094,7 +18090,9 @@
    "type": "kind",
    "description": "Platform with no leaf that fits.",
    "color": "#877a63",
-   "models": []
+   "models": [
+    "ken-skate/structure-platform"
+   ]
   },
   {
    "id": "str-access-platform-catwalk",
@@ -18240,8 +18238,7 @@
     "ken-commercial/awning",
     "ken-commercial/awning-wide",
     "rgp-medieval/stall",
-    "rgp-medieval/stall-cloth",
-    "sq-cinema/ticket-booth"
+    "rgp-medieval/stall-cloth"
    ]
   },
   {
@@ -19341,7 +19338,6 @@
     "ken-nature/fence-simple-diagonal-center",
     "ken-nature/fence-simple-high",
     "kay-hexagon/fence-stone",
-    "kay-hexagon/fence-stone-gate",
     "quat-shoot/fence",
     "quat-shoot/fence-long",
     "aq-hallow/fence-a",
