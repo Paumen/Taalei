@@ -1828,6 +1828,19 @@
         "airliner",
         "balloon",
         "hot-air balloon"
+       ],
+       "children": [
+        {
+         "id": "obj-transport-air-space",
+         "nouns": [
+          "rocket",
+          "spacecraft",
+          "spaceship",
+          "lander",
+          "ufo",
+          "rover"
+         ]
+        }
        ]
       },
       {
@@ -1897,13 +1910,21 @@
         "ingot",
         "bar",
         "nugget",
-        "ore lump",
-        "cog",
-        "spare part"
+        "ore lump"
        ],
        "scale": {
         "small": 0.5
-       }
+       },
+       "children": [
+        {
+         "id": "obj-resource-metal-parts",
+         "nouns": [
+          "cog",
+          "spare part",
+          "pipe (stock)"
+         ]
+        }
+       ]
       },
       {
        "id": "obj-resource-wood",
@@ -2482,17 +2503,25 @@
       },
       {
        "nouns": [
-        "telescope",
-        "orrery",
-        "armillary sphere",
-        "globe",
         "centrifuge",
         "autoclave",
         "bunsen burner",
         "microscope",
         "defibrillator"
        ],
-       "id": "obj-device-science"
+       "id": "obj-device-science",
+       "children": [
+        {
+         "id": "obj-device-science-astro",
+         "nouns": [
+          "telescope",
+          "orrery",
+          "armillary sphere",
+          "globe",
+          "star projector"
+         ]
+        }
+       ]
       }
      ]
     },
