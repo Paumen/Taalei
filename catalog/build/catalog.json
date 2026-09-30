@@ -755,8 +755,8 @@
     "smooth": 50
    },
    "kitCheck": {
-    "factor": 0.87,
-    "kinds": 14
+    "factor": 0.88,
+    "kinds": 15
    }
   },
   {
@@ -1698,7 +1698,7 @@
    },
    "kitCheck": {
     "factor": 0.91,
-    "kinds": 31
+    "kinds": 33
    }
   },
   {
@@ -2775,7 +2775,7 @@
    },
    "kitCheck": {
     "factor": 1.07,
-    "kinds": 7
+    "kinds": 8
    }
   },
   {
@@ -3208,8 +3208,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.97,
-    "kinds": 37
+    "factor": 0.96,
+    "kinds": 38
    }
   },
   {
@@ -15578,7 +15578,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 440,
+   "count": 438,
    "parent": "wood"
   },
   {
@@ -15586,7 +15586,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 794,
+   "count": 792,
    "parent": "wood"
   },
   {
@@ -15618,7 +15618,7 @@
    "name": "Cardboard",
    "type": "material",
    "description": "Corrugated board: shipping boxes, parcels, cartons folded from brown board. Printed paper labels and tape on it are paper.",
-   "count": 20,
+   "count": 22,
    "parent": "wood"
   },
   {
@@ -16025,7 +16025,7 @@
    "name": "Bag",
    "type": "kind",
    "description": "bag, backpack, satchel",
-   "count": 40
+   "count": 41
   },
   {
    "id": "obj-container-bag-pouch",
@@ -16033,6 +16033,13 @@
    "type": "kind",
    "description": "pouch, purse, coin bag",
    "count": 11
+  },
+  {
+   "id": "obj-container-bag-kit",
+   "name": "Kit",
+   "type": "kind",
+   "description": "first-aid kit, health kit, med kit",
+   "count": 4
   },
   {
    "id": "obj-container-bag-sack",
@@ -16095,7 +16102,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 91
+   "count": 90
   },
   {
    "id": "obj-container-crate-cube",
@@ -16103,6 +16110,13 @@
    "type": "kind",
    "description": "cube crate, cube box",
    "count": 30
+  },
+  {
+   "id": "obj-container-crate-cardboard",
+   "name": "Cardboard box",
+   "type": "kind",
+   "description": "cardboard box, package, present",
+   "count": 25
   },
   {
    "id": "obj-container-pot",
@@ -16475,8 +16489,22 @@
    "id": "obj-furnishing-furniture-seating-chair",
    "name": "Chair",
    "type": "kind",
-   "description": "chair, armchair, throne",
+   "description": "chair, throne",
    "count": 42
+  },
+  {
+   "id": "obj-furnishing-furniture-seating-chair-desk",
+   "name": "Desk chair",
+   "type": "kind",
+   "description": "desk chair, office chair",
+   "count": 10
+  },
+  {
+   "id": "obj-furnishing-furniture-seating-chair-lounge",
+   "name": "Lounge chair",
+   "type": "kind",
+   "description": "armchair, lounge chair",
+   "count": 7
   },
   {
    "id": "obj-furnishing-furniture-seating-stool",
@@ -19410,6 +19438,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-container-bag-kit": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-container-bag-pouch": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -19502,6 +19536,12 @@
    "tpu.max": 10000
   },
   "obj-container-crate": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-cardboard": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 1,
@@ -20359,6 +20399,18 @@
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-seating-chair": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-seating-chair-desk": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-seating-chair-lounge": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.8,
@@ -21374,6 +21426,18 @@
    "high.max": 8,
    "longest.min": 0.5,
    "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-cardboard scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-cardboard scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 2,
    "tpu.max": 10000
   },
   "obj-container-pot scale-small": {
@@ -55412,7 +55476,7 @@
   {
    "kit": "isa-homely",
    "name": "package",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.32,
@@ -61388,8 +61452,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 55572,
+   "bytes": 55564,
    "vtx": 1434,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.017,
@@ -61411,10 +61476,7 @@
     "isa",
     "scale-small"
    ],
-   "variant": "v284",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v284"
   },
   {
    "kit": "isa-plants",
@@ -71850,7 +71912,7 @@
   {
    "kit": "kay-city",
    "name": "box-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.304,
@@ -74467,9 +74529,10 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 29028,
+   "bytes": 29012,
    "vtx": 732,
    "gridMod": true,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00051,
@@ -74502,9 +74565,6 @@
      "check": "size",
      "text": "longest 0.345 over max 0.3 (obj-kitchenware-tableware-drinkware-goblet)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -74522,8 +74582,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8180,
+   "bytes": 8168,
    "vtx": 168,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0383,
@@ -74550,10 +74611,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v260",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v260"
   },
   {
    "kit": "kay-dun-1",
@@ -74570,8 +74628,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9248,
+   "bytes": 9240,
    "vtx": 194,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0383,
@@ -74598,10 +74657,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v259",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v259"
   },
   {
    "kit": "kay-dun-1",
@@ -74618,8 +74674,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 32040,
+   "bytes": 32028,
    "vtx": 819,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0344,
@@ -74652,10 +74709,7 @@
     "metal-gold",
     "metal-iron-steel"
    ],
-   "variant": "v259",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v259"
   },
   {
    "kit": "kay-dun-1",
@@ -74672,8 +74726,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13284,
+   "bytes": 13272,
    "vtx": 304,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0387,
@@ -74700,10 +74755,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v259",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v259"
   },
   {
    "kit": "kay-dun-1",
@@ -74720,8 +74772,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28616,
+   "bytes": 28604,
    "vtx": 728,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0354,
@@ -74754,10 +74807,7 @@
     "metal-gold",
     "metal-iron-steel"
    ],
-   "variant": "v260",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v260"
   },
   {
    "kit": "kay-dun-1",
@@ -74774,8 +74824,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10744,
+   "bytes": 10732,
    "vtx": 237,
+   "grounded": true,
    "minEdge": 0.006,
    "minTube": 0.0387,
    "avgTri": 0.00036,
@@ -74803,7 +74854,6 @@
    ],
    "variant": "v260",
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -74822,8 +74872,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 37380,
+   "bytes": 37364,
    "vtx": 980,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00153,
@@ -74855,9 +74906,6 @@
     "metal-iron-wrought",
     "sailing",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -74875,8 +74923,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 37360,
+   "bytes": 37348,
    "vtx": 980,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00153,
@@ -74907,9 +74956,6 @@
     "kay",
     "metal-iron-wrought",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -75007,8 +75053,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12772,
+   "bytes": 12760,
    "vtx": 302,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00041,
@@ -75039,10 +75086,7 @@
     "metal-iron-wrought",
     "paper"
    ],
-   "variant": "v243",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v243"
   },
   {
    "kit": "kay-dun-1",
@@ -75059,8 +75103,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12772,
+   "bytes": 12760,
    "vtx": 302,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00041,
@@ -75092,10 +75137,7 @@
     "metal-iron-wrought",
     "paper"
    ],
-   "variant": "v243",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v243"
   },
   {
    "kit": "kay-dun-1",
@@ -75112,8 +75154,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5536,
+   "bytes": 5528,
    "vtx": 108,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "avgTri": 0.00104,
@@ -75138,10 +75181,7 @@
     "kay",
     "paper"
    ],
-   "variant": "v233",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v233"
   },
   {
    "kit": "kay-dun-1",
@@ -75158,8 +75198,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5536,
+   "bytes": 5528,
    "vtx": 108,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "avgTri": 0.00104,
@@ -75184,10 +75225,7 @@
     "kay",
     "paper"
    ],
-   "variant": "v233",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v233"
   },
   {
    "kit": "kay-dun-1",
@@ -75204,8 +75242,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5536,
+   "bytes": 5528,
    "vtx": 108,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "avgTri": 0.00104,
@@ -75230,10 +75269,7 @@
     "kay",
     "paper"
    ],
-   "variant": "v233",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v233"
   },
   {
    "kit": "kay-dun-1",
@@ -75250,8 +75286,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5536,
+   "bytes": 5528,
    "vtx": 108,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "avgTri": 0.00104,
@@ -75277,10 +75314,7 @@
     "leather",
     "paper"
    ],
-   "variant": "v233",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v233"
   },
   {
    "kit": "kay-dun-1",
@@ -75819,8 +75853,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37596,
+   "bytes": 37584,
    "vtx": 981,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "avgTri": 0.00113,
@@ -75845,9 +75880,6 @@
     "kay",
     "metal-iron-wrought",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -76174,8 +76206,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17964,
+   "bytes": 17952,
    "vtx": 448,
+   "grounded": true,
    "minEdge": 0.02,
    "avgTri": 0.00417,
    "anglePct": 20,
@@ -76202,7 +76235,6 @@
     "wood-worked"
    ],
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -76221,8 +76253,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27620,
+   "bytes": 27608,
    "vtx": 720,
+   "grounded": true,
    "minEdge": 0.02,
    "avgTri": 0.00355,
    "anglePct": 23,
@@ -76256,7 +76289,6 @@
     }
    ],
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -76275,9 +76307,10 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25176,
+   "bytes": 25164,
    "vtx": 652,
    "gridMod": true,
+   "grounded": true,
    "minEdge": 0.02,
    "avgTri": 0.0037,
    "anglePct": 23,
@@ -76305,7 +76338,6 @@
    ],
    "variant": "v220",
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -76446,8 +76478,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22348,
+   "bytes": 22336,
    "vtx": 524,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00058,
@@ -76467,9 +76500,6 @@
     "kay",
     "metal-gold",
     "pickup"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -76607,8 +76637,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46028,
+   "bytes": 46016,
    "vtx": 1194,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "avgTri": 0.00101,
@@ -76633,9 +76664,6 @@
     "kay",
     "metal-iron-wrought",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -76832,8 +76860,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 18012,
+   "bytes": 18000,
    "vtx": 456,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0377,
@@ -76873,9 +76902,6 @@
      "check": "size",
      "text": "longest 0.461 over max 0.45 (obj-equipment-weapon-melee-dagger)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -76893,8 +76919,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12680,
+   "bytes": 12668,
    "vtx": 304,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0377,
@@ -76921,10 +76948,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v261",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v261"
   },
   {
    "kit": "kay-dun-1",
@@ -77279,8 +77303,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9216,
+   "bytes": 9204,
    "vtx": 180,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0383,
@@ -77307,10 +77332,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v262",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v262"
   },
   {
    "kit": "kay-dun-1",
@@ -77327,8 +77349,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 54528,
+   "bytes": 54520,
    "vtx": 1471,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0276,
@@ -77361,10 +77384,7 @@
     "metal-gold",
     "metal-iron-steel"
    ],
-   "variant": "v262",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v262"
   },
   {
    "kit": "kay-dun-1",
@@ -77381,8 +77401,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16440,
+   "bytes": 16428,
    "vtx": 408,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0387,
@@ -77409,10 +77430,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v262",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v262"
   },
   {
    "kit": "kay-dun-1",
@@ -77519,8 +77537,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 41340,
+   "bytes": 41328,
    "vtx": 1084,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.0002,
@@ -77545,9 +77564,6 @@
     "kay",
     "metal-iron-steel",
     "wood-beam"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -78403,8 +78419,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7728,
+   "bytes": 7720,
    "vtx": 160,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00046,
@@ -78437,9 +78454,6 @@
      "check": "size",
      "text": "longest 0.219 under min 0.25 (obj-equipment-apparel-quiver)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -78457,8 +78471,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17884,
+   "bytes": 17872,
    "vtx": 444,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00033,
@@ -78490,10 +78505,7 @@
     "metal-iron-steel",
     "textile"
    ],
-   "variant": "v198",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v198"
   },
   {
    "kit": "kay-dun-1",
@@ -78510,8 +78522,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11036,
+   "bytes": 11024,
    "vtx": 252,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.0004,
@@ -78543,10 +78556,7 @@
     "metal-iron-steel",
     "textile"
    ],
-   "variant": "v198",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v198"
   },
   {
    "kit": "kay-dun-1",
@@ -80128,8 +80138,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19192,
+   "bytes": 19180,
    "vtx": 471,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.0004,
@@ -80159,9 +80170,6 @@
     "kay",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80179,8 +80187,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11524,
+   "bytes": 11512,
    "vtx": 276,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.018,
    "avgTri": 0.00115,
@@ -80211,9 +80220,6 @@
     "kay",
     "metal-gold",
     "metal-iron-steel"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80231,8 +80237,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21288,
+   "bytes": 21280,
    "vtx": 548,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "avgTri": 0.0005,
@@ -80257,9 +80264,6 @@
     "kay",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80320,8 +80324,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 23464,
+   "bytes": 23452,
    "vtx": 602,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00045,
@@ -80358,9 +80363,6 @@
     "metal-iron-wrought",
     "paper",
     "textile"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80378,8 +80380,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11632,
+   "bytes": 11620,
    "vtx": 276,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "avgTri": 0.00033,
@@ -80411,9 +80414,6 @@
      "check": "size",
      "text": "longest 0.359 under min 0.45 (obj-equipment-weapon-magic-staff)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80431,8 +80431,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26124,
+   "bytes": 26112,
    "vtx": 674,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00018,
@@ -80462,9 +80463,6 @@
     "gemstone",
     "kay",
     "metal-gold"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80482,8 +80480,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12976,
+   "bytes": 12968,
    "vtx": 311,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "minTube": 0.0468,
@@ -80516,9 +80515,6 @@
      "check": "size",
      "text": "longest 0.449 under min 0.45 (obj-equipment-weapon-magic-staff)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -80575,8 +80571,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8064,
+   "bytes": 8056,
    "vtx": 170,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.009,
    "minTube": 0.044,
@@ -80597,10 +80594,7 @@
     "kay",
     "metal-iron-steel"
    ],
-   "variant": "v264",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v264"
   },
   {
    "kit": "kay-dun-1",
@@ -80617,8 +80611,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22776,
+   "bytes": 22764,
    "vtx": 571,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0436,
@@ -80651,10 +80646,7 @@
     "metal-gold",
     "metal-iron-steel"
    ],
-   "variant": "v264",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v264"
   },
   {
    "kit": "kay-dun-1",
@@ -80671,8 +80663,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10924,
+   "bytes": 10912,
    "vtx": 244,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.0516,
@@ -80699,10 +80692,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "variant": "v264",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v264"
   },
   {
    "kit": "kay-dun-1",
@@ -80914,8 +80904,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22112,
+   "bytes": 22100,
    "vtx": 544,
+   "grounded": true,
    "minEdge": 0.005,
    "minTube": 0.0581,
    "avgTri": 0.00097,
@@ -80950,7 +80941,6 @@
    ],
    "variant": "v236",
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -80969,9 +80959,10 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17348,
+   "bytes": 17340,
    "vtx": 420,
    "gridMod": true,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.009,
    "avgTri": 0.00071,
@@ -80997,9 +80988,6 @@
     "kay",
     "metal-iron-wrought",
     "wood-beam"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -96400,7 +96388,7 @@
   {
    "kit": "kay-furniture",
    "name": "armchair-pillows",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.54,
@@ -96444,7 +96432,7 @@
   {
    "kit": "kay-furniture",
    "name": "armchair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.54,
@@ -99287,8 +99275,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16344,
+   "bytes": 16332,
    "vtx": 416,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.013,
    "minTube": 0.1529,
@@ -99325,9 +99314,6 @@
      "check": "size",
      "text": "kit ×1.28 off the size curve (kay-hallow, 16 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -100911,8 +100897,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 21028,
+   "bytes": 21020,
    "vtx": 520,
+   "grounded": true,
    "minEdge": 0.008,
    "avgTri": 0.00059,
    "anglePct": 19,
@@ -100958,7 +100945,6 @@
     }
    ],
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -101039,8 +101025,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25292,
+   "bytes": 25284,
    "vtx": 614,
+   "grounded": true,
    "minEdge": 0.008,
    "avgTri": 0.00047,
    "anglePct": 4,
@@ -101080,7 +101067,6 @@
     }
    ],
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -107070,7 +107056,7 @@
   {
    "kit": "kay-holiday",
    "name": "armchair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.549,
@@ -108548,7 +108534,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.169,
@@ -108593,7 +108579,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.156,
@@ -108638,7 +108624,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-c",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.229,
@@ -108683,7 +108669,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-d",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.289,
@@ -108728,7 +108714,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-e",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.409,
@@ -108774,7 +108760,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-f",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.649,
@@ -108819,7 +108805,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-sphere-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.167,
@@ -108871,7 +108857,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-sphere-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.238,
@@ -114795,7 +114781,7 @@
   {
    "kit": "kay-proto",
    "name": "box-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.122,
@@ -114834,7 +114820,7 @@
   {
    "kit": "kay-proto",
    "name": "box-c",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.182,
@@ -118588,8 +118574,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 5072,
+   "bytes": 5060,
    "vtx": 97,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "avgTri": 0.00014,
@@ -118623,10 +118610,7 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v150",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v150"
   },
   {
    "kit": "kay-skeleton",
@@ -118692,8 +118676,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 4160,
+   "bytes": 4148,
    "vtx": 73,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "avgTri": 0.00019,
@@ -118733,9 +118718,6 @@
      "check": "size",
      "text": "longest 0.225 under min 0.25 (obj-equipment-weapon-ranged-arrow)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -118805,8 +118787,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22244,
+   "bytes": 22232,
    "vtx": 560,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0294,
@@ -118839,9 +118822,6 @@
     "leather",
     "metal-iron-steel",
     "wood-beam"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -118962,8 +118942,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 20400,
+   "bytes": 20388,
    "vtx": 526,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00025,
@@ -119001,10 +118982,7 @@
     "robin-hood",
     "wood-beam"
    ],
-   "variant": "v153",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v153"
   },
   {
    "kit": "kay-skeleton",
@@ -119063,8 +119041,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 35860,
+   "bytes": 35848,
    "vtx": 951,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0425,
@@ -119098,10 +119077,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v171",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v171"
   },
   {
    "kit": "kay-skeleton",
@@ -119119,8 +119095,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22064,
+   "bytes": 22052,
    "vtx": 577,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.012,
    "minTube": 0.0425,
@@ -119148,10 +119125,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v171",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v171"
   },
   {
    "kit": "kay-skeleton",
@@ -119169,8 +119143,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23492,
+   "bytes": 23484,
    "vtx": 592,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00026,
@@ -119196,9 +119171,6 @@
     "kay",
     "metal-iron-steel",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -119217,8 +119189,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 31088,
+   "bytes": 31076,
    "vtx": 808,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "avgTri": 0.00025,
@@ -119257,9 +119230,6 @@
     "textile",
     "wood-beam",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -120149,8 +120119,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 72328,
+   "bytes": 72324,
    "vtx": 1921,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0218,
@@ -120189,9 +120160,6 @@
     "leather",
     "textile",
     "wood-beam"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -120253,8 +120221,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8256,
+   "bytes": 8244,
    "vtx": 168,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0392,
@@ -120276,9 +120245,6 @@
     "grave",
     "halloween",
     "kay"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -120297,8 +120263,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 44840,
+   "bytes": 44828,
    "vtx": 1196,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0069,
@@ -120339,10 +120306,7 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v985",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v985"
   },
   {
    "kit": "kay-skeleton-1",
@@ -120360,8 +120324,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 30172,
+   "bytes": 30160,
    "vtx": 764,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0295,
@@ -120396,10 +120361,7 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v985",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v985"
   },
   {
    "kit": "kay-skeleton-1",
@@ -120417,8 +120379,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 33460,
+   "bytes": 33448,
    "vtx": 821,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00094,
@@ -120451,10 +120414,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v235",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v235"
   },
   {
    "kit": "kay-skeleton-1",
@@ -120472,8 +120432,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 25684,
+   "bytes": 25672,
    "vtx": 629,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00074,
@@ -120506,10 +120467,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "variant": "v235",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v235"
   },
   {
    "kit": "kay-skeleton-1",
@@ -120695,8 +120653,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9988,
+   "bytes": 9976,
    "vtx": 229,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "avgTri": 0.00037,
@@ -120729,9 +120688,6 @@
      "check": "size",
      "text": "longest 0.213 under min 0.25 (obj-equipment-apparel-quiver)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -120750,8 +120706,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 63896,
+   "bytes": 63888,
    "vtx": 1642,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0287,
@@ -120774,9 +120731,6 @@
     "grave",
     "halloween",
     "kay"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -120795,8 +120749,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 31016,
+   "bytes": 31008,
    "vtx": 808,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "avgTri": 0.00026,
@@ -120836,10 +120791,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v328",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v328"
   },
   {
    "kit": "kay-skeleton-1",
@@ -120857,8 +120809,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22692,
+   "bytes": 22684,
    "vtx": 568,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "avgTri": 0.00023,
@@ -120885,10 +120838,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v328",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v328"
   },
   {
    "kit": "kay-skeleton-1",
@@ -120948,8 +120898,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 59136,
+   "bytes": 59128,
    "vtx": 1444,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00008,
@@ -120969,9 +120920,6 @@
     "bone",
     "halloween",
     "kay"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -121125,8 +121073,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 43184,
+   "bytes": 43172,
    "vtx": 1141,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0348,
@@ -121162,10 +121111,7 @@
     "kay",
     "textile"
    ],
-   "variant": "v257",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v257"
   },
   {
    "kit": "kay-skeleton-1",
@@ -121183,8 +121129,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 100824,
+   "bytes": 100816,
    "vtx": 2587,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0348,
@@ -121224,10 +121171,7 @@
     "kay",
     "textile"
    ],
-   "variant": "v257",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v257"
   },
   {
    "kit": "kay-skeleton-1",
@@ -125764,6 +125708,7 @@
    "calls": 4,
    "bytes": 163556,
    "vtx": 3448,
+   "grounded": true,
    "minEdge": 0.002,
    "minTube": 0.0061,
    "avgTri": 0.00004,
@@ -125795,7 +125740,6 @@
     "walk"
    ],
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -125984,8 +125928,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 94548,
+   "bytes": 94552,
    "vtx": 2720,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0265,
@@ -126028,9 +125973,6 @@
    ],
    "anim": [
     "spin"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -126366,7 +126308,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 49628,
+   "bytes": 49596,
    "vtx": 1416,
    "grounded": true,
    "centered": true,
@@ -139292,7 +139234,7 @@
   {
    "kit": "ken-factory",
    "name": "box-large",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.55,
@@ -139337,7 +139279,7 @@
   {
    "kit": "ken-factory",
    "name": "box-long",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.55,
@@ -139428,7 +139370,7 @@
   {
    "kit": "ken-factory",
    "name": "box-wide",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.298,
@@ -141083,7 +141025,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5752,
+   "bytes": 5720,
    "vtx": 116,
    "grounded": true,
    "centered": true,
@@ -151399,7 +151341,7 @@
   {
    "kit": "ken-furniture",
    "name": "cardboard-box-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.317,
@@ -151592,7 +151534,7 @@
   {
    "kit": "ken-furniture",
    "name": "chair-desk",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.285,
@@ -153635,7 +153577,7 @@
   {
    "kit": "ken-furniture",
    "name": "lounge-chair-relax",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.416,
@@ -153686,7 +153628,7 @@
   {
    "kit": "ken-furniture",
    "name": "lounge-chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "s",
    "wdh": [
     0.416,
@@ -153731,7 +153673,7 @@
   {
    "kit": "ken-furniture",
    "name": "lounge-design-chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.62,
@@ -160464,7 +160406,7 @@
   {
    "kit": "ken-holiday",
    "name": "present-cube",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.225,
@@ -160509,7 +160451,7 @@
   {
    "kit": "ken-holiday",
    "name": "present-rectangle",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.325,
@@ -160554,7 +160496,7 @@
   {
    "kit": "ken-holiday",
    "name": "present-round",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.274,
@@ -182172,7 +182114,7 @@
   {
    "kit": "ken-space",
    "name": "desk-chair-arms",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "s",
    "wdh": [
     0.325,
@@ -182268,7 +182210,7 @@
   {
    "kit": "ken-space",
    "name": "desk-chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "s",
    "wdh": [
     0.195,
@@ -185980,7 +185922,7 @@
   {
    "kit": "ken-station",
    "name": "chair-armrest-headrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.5,
@@ -186031,7 +185973,7 @@
   {
    "kit": "ken-station",
    "name": "chair-armrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.5,
@@ -186082,7 +186024,7 @@
   {
    "kit": "ken-station",
    "name": "chair-cushion-headrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -186133,7 +186075,7 @@
   {
    "kit": "ken-station",
    "name": "chair-cushion",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -186184,7 +186126,7 @@
   {
    "kit": "ken-station",
    "name": "chair-headrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -186235,7 +186177,7 @@
   {
    "kit": "ken-station",
    "name": "chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -190456,7 +190398,7 @@
   {
    "kit": "ken-survival",
    "name": "box-large-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.35,
@@ -190501,7 +190443,7 @@
   {
    "kit": "ken-survival",
    "name": "box-large",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.35,
@@ -190538,15 +190480,14 @@
    ],
    "tags": [
     "ken",
-    "wood-planks",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v271"
   },
   {
    "kit": "ken-survival",
    "name": "box-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.35,
@@ -190583,8 +190524,7 @@
    ],
    "tags": [
     "ken",
-    "wood-planks",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v270"
   },
@@ -203894,8 +203834,9 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11588,
+   "bytes": 11584,
    "vtx": 266,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00336,
@@ -203913,9 +203854,6 @@
    ],
    "tags": [
     "metal-iron-steel"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -203933,8 +203871,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 38836,
+   "bytes": 38824,
    "vtx": 1043,
+   "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00149,
@@ -203958,9 +203897,6 @@
    "tags": [
     "metal-iron-steel",
     "wood-beam"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -204021,8 +203957,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34968,
+   "bytes": 34956,
    "vtx": 916,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.009,
    "avgTri": 0.0012,
@@ -204046,9 +203983,6 @@
    "tags": [
     "metal-iron-wrought",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -204066,8 +204000,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27004,
+   "bytes": 26992,
    "vtx": 723,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00145,
@@ -204091,9 +204026,6 @@
    "tags": [
     "wood-planks",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -204111,8 +204043,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 87112,
+   "bytes": 87104,
    "vtx": 2432,
+   "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00155,
@@ -204142,9 +204075,6 @@
     "metal-iron-wrought",
     "wood-planks",
     "wood-worked"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -204434,8 +204364,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 2,
-   "bytes": 79488,
+   "bytes": 79476,
    "vtx": 1888,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0347,
@@ -204478,10 +204409,7 @@
    "anim": [
     "spin"
    ],
-   "variant": "v922",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v922"
   },
   {
    "kit": "medieval-forge",
@@ -204498,8 +204426,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 42532,
+   "bytes": 42520,
    "vtx": 1037,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0361,
@@ -204538,10 +204467,7 @@
     "tba",
     "wood-beam"
    ],
-   "variant": "v922",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v922"
   },
   {
    "kit": "medieval-forge",
@@ -204558,8 +204484,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18876,
+   "bytes": 18864,
    "vtx": 431,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00029,
@@ -204584,10 +204511,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "variant": "v327",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v327"
   },
   {
    "kit": "medieval-forge",
@@ -211424,9 +211348,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20668,
+   "bytes": 20660,
    "vtx": 536,
    "gridMod": true,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.01432,
@@ -211457,9 +211382,6 @@
      "check": "size",
      "text": "kit ×1.4 off the size curve (props, 19 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -211729,8 +211651,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8284,
+   "bytes": 8280,
    "vtx": 194,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.038,
@@ -211761,9 +211684,6 @@
      "check": "size",
      "text": "kit ×1.4 off the size curve (props, 19 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -212764,8 +212684,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 36688,
+   "bytes": 36680,
    "vtx": 970,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0317,
@@ -212809,9 +212730,6 @@
      "check": "size",
      "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -212879,8 +212797,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 95124,
+   "bytes": 95112,
    "vtx": 2574,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0411,
@@ -212913,9 +212832,6 @@
      "check": "size",
      "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -214104,8 +214020,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 125908,
+   "bytes": 125896,
    "vtx": 3406,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0267,
@@ -214150,9 +214067,6 @@
      "check": "size",
      "text": "kit ×1.29 off the size curve (quat-apocalypse, 16 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -238267,7 +238181,7 @@
   {
    "kit": "quat-shoot",
    "name": "cardboard-box-flat",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.341,
@@ -238357,7 +238271,7 @@
   {
    "kit": "quat-shoot",
    "name": "cardboard-boxes-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.495,
@@ -238403,7 +238317,7 @@
   {
    "kit": "quat-shoot",
    "name": "cardboard-boxes-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.439,
@@ -239001,7 +238915,7 @@
   {
    "kit": "quat-shoot",
    "name": "health-kit",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.3,
@@ -241651,7 +241565,7 @@
   {
    "kit": "quat-survival",
    "name": "first-aid-bag",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.234,
@@ -241694,7 +241608,7 @@
   {
    "kit": "quat-survival",
    "name": "first-aid-kit",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.283,
@@ -253141,8 +253055,9 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 13184,
+   "bytes": 13176,
    "vtx": 298,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0135,
@@ -253194,9 +253109,6 @@
      "check": "size",
      "text": "kit ×1.27 off the size curve (rgp-asia, 23 kinds)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -265458,8 +265370,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 73284,
+   "bytes": 73272,
    "vtx": 2036,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00021,
@@ -265503,9 +265416,6 @@
      "check": "size",
      "text": "longest 1.393 over max 1.1 (obj-equipment-tool-twohand-rod)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -265523,8 +265433,9 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 72132,
+   "bytes": 72120,
    "vtx": 2000,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "avgTri": 0.00021,
@@ -265563,9 +265474,6 @@
      "check": "size",
      "text": "longest 1.393 over max 1.1 (obj-equipment-tool-twohand-rod)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -265583,8 +265491,9 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 71840,
+   "bytes": 71828,
    "vtx": 1989,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0404,
@@ -265630,9 +265539,6 @@
      "check": "size",
      "text": "longest 1.393 over max 1.1 (obj-equipment-tool-twohand-rod)"
     }
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -266361,7 +266267,7 @@
   {
    "kit": "rgp-vintage",
    "name": "armchair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.509,
@@ -272246,7 +272152,7 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "lane-single-seat",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "s",
    "wdh": [
     0.24,
@@ -278086,7 +277992,7 @@
    "kit": "sq-lab",
    "collection": "sq-props",
    "name": "first-aid-kit",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.17,

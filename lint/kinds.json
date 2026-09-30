@@ -111,9 +111,7 @@
        "nouns": [
         "crate",
         "box",
-        "case",
-        "package",
-        "present"
+        "case"
        ],
        "scale": {
         "small": 0.5,
@@ -131,6 +129,14 @@
          "scale": {
           "big": 2
          }
+        },
+        {
+         "id": "obj-container-crate-cardboard",
+         "nouns": [
+          "cardboard box",
+          "package",
+          "present"
+         ]
         }
        ]
       },
@@ -188,6 +194,14 @@
           "pouch",
           "purse",
           "coin bag"
+         ]
+        },
+        {
+         "id": "obj-container-bag-kit",
+         "nouns": [
+          "first-aid kit",
+          "health kit",
+          "med kit"
          ]
         }
        ]
@@ -2131,8 +2145,23 @@
            "longest.max": 0.8,
            "nouns": [
             "chair",
-            "armchair",
             "throne"
+           ],
+           "children": [
+            {
+             "id": "obj-furnishing-furniture-seating-chair-desk",
+             "nouns": [
+              "desk chair",
+              "office chair"
+             ]
+            },
+            {
+             "id": "obj-furnishing-furniture-seating-chair-lounge",
+             "nouns": [
+              "armchair",
+              "lounge chair"
+             ]
+            }
            ]
           },
           {

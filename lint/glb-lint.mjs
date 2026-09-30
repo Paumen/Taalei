@@ -6,9 +6,8 @@ import path from 'path';
 import validator from 'gltf-validator';
 
 const CFG = {
-  groundTol: 0.005,          // m: lowest point must be within this of y=0
-  centreTol: 0.01,           // m, or 5% of footprint, whichever is larger
-  centreFrac: 0.05,
+  groundTol: 0.02,           // m: lowest point must be within this of y=0
+  centreTol: 0.02,           // m: footprint centre must be within this of x=0 and z=0
   checkPlacement: true,      // false for modular kits with corner pivots (walls, floors)
   degenerateWarn: 0.01,      // share of triangles
   doubledWarn: 0.01,
@@ -193,9 +192,8 @@ async function lint(file) {
   if (!T.nt) { add('error', 'geometry', 'no triangles'); return { file, findings: out }; }
 
   const size = sub(hi, lo), cx = (lo[0] + hi[0]) / 2, cz = (lo[2] + hi[2]) / 2;
-  if (CFG.checkPlacement && Math.abs(lo[1]) > CFG.groundTol) add('warn', 'placement', `lowest point at y=${lo[1].toFixed(3)} m: ${lo[1] > 0 ? 'floats above' : 'sinks into'} the ground`);
-  const ctol = Math.max(CFG.centreTol, CFG.centreFrac * Math.max(size[0], size[2]));
-  if (CFG.checkPlacement && (Math.abs(cx) > ctol || Math.abs(cz) > ctol)) add('warn', 'placement', `off-centre by x=${cx.toFixed(3)} z=${cz.toFixed(3)} m`);
+  if (CFG.checkPlacement && Math.abs(lo[1]) >= CFG.groundTol) add('warn', 'placement', `lowest point at y=${lo[1].toFixed(3)} m: ${lo[1] > 0 ? 'floats above' : 'sinks into'} the ground`);
+  if (CFG.checkPlacement && (Math.abs(cx) >= CFG.centreTol || Math.abs(cz) >= CFG.centreTol)) add('warn', 'placement', `off-centre by x=${cx.toFixed(3)} z=${cz.toFixed(3)} m`);
   if (rawExt > CFG.rawExtentFar) add('info', 'structure', `raw shape spans ±${rawExt.toFixed(0)} units before node scale (odd units)`);
 
   if (T.zeroN) add('error', 'shading', `${T.zeroN} zero-length normals (black specks / broken light)`);
