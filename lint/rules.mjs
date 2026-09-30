@@ -400,9 +400,7 @@ export function measureFindingsFor(subject, rows, materialIds, vars, kindFields)
 export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
 const CHECK_TEXT = {
-  size: (f) => (f.measure === 'kit'
-    ? `kit ${f.value} off the size curve (${f.from})`
-    : f.measure === 'scale'
+  size: (f) => (f.measure === 'scale'
     ? `${f.value} not on ${f.limit} (${f.from})`
     : `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`),
   tpu: (f) => `tpu ${f.value} over max ${f.limit} (${f.from})`,
@@ -445,11 +443,8 @@ export function checkModel(model, checks) {
 
   if (model.kind) {
     if (!isExempt(model, vars)) {
-      const slug = model.collection ?? model.kit;
-      const kit = checks.kitScales?.get(slug);
       push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales));
       push('tpu', null, tpuFindingsFor(model, checks.limits.get(model.kind), vars));
-      if (kit?.level) push('size', kit.level, [{ measure: 'kit', value: `×${kit.factor}`, from: `${slug}, ${kit.kinds} kinds` }]);
     }
     if (!exempt('mat')) {
       push('mat', 'error', materialFindingsFor(model, checks.mat.get(model.kind), materialIds, vars));
