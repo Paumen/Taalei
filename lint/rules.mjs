@@ -220,8 +220,9 @@ export function materialFindingsFor(model, rules, materialIds, vars) {
   }
   for (const [family, { required, from }] of rules?.subtype ?? []) {
     const present = mats.filter((m) => idUnder(m, family));
-    if (!present.length || present.some((m) => idUnder(m, required))) continue;
-    out.push({ family, required, from, present: present.join(' ') });
+    const allowed = [required].flat();
+    if (!present.length || present.some((m) => allowed.some((id) => idUnder(m, id)))) continue;
+    out.push({ family, required: allowed.join(' or '), from, present: present.join(' ') });
   }
   for (const { any, from } of rules?.has ?? []) {
     if (mats.some((m) => any.some((id) => idUnder(m, id)))) continue;

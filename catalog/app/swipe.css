@@ -3,10 +3,14 @@
   --rechts: #3f7f5c;
   --omhoog: #4a6ea8;
   --omlaag: #8a6b3f;
+  --linksboven: #7a5a9a;
+  --rechtsboven: #2f8a8a;
   --raak: 44px;
 }
 
 [hidden] { display: none !important; }
+
+body:not([data-zes]) .zes-alleen { display: none !important; }
 
 .swipe-body {
   display: flex;
@@ -239,6 +243,10 @@
 
 .opzet-labels .veld-kort input[type="text"] { min-height: 34px; margin-top: 3px; font-size: 14px; }
 
+.opzet-zes { margin-top: 10px; white-space: normal; }
+
+.opzet-rij-strook .staal { margin: 0 3px 3px 0; }
+
 .swipe-opmerking {
   width: 100%;
   margin-top: 8px;
@@ -299,10 +307,15 @@
 }
 
 .dek-rand-links,
-.dek-rand-rechts { width: 30px; }
+.dek-rand-rechts { width: 22px; }
 
 .dek-rand-omhoog,
-.dek-rand-omlaag { min-height: 30px; }
+.dek-rand-omlaag { min-height: 22px; }
+
+.dek-boven { display: flex; gap: 5px; }
+.dek-boven .dek-rand-omhoog { flex: 1; }
+.dek-rand-linksboven,
+.dek-rand-rechtsboven { flex: 0 0 30%; min-height: 22px; }
 
 .dek-rand-links span,
 .dek-rand-rechts span {
@@ -326,6 +339,8 @@
 .dek-rand-rechts { --richting-kleur: var(--rechts); }
 .dek-rand-omhoog { --richting-kleur: var(--omhoog); }
 .dek-rand-omlaag { --richting-kleur: var(--omlaag); }
+.dek-rand-linksboven { --richting-kleur: var(--linksboven); }
+.dek-rand-rechtsboven { --richting-kleur: var(--rechtsboven); }
 
 .stapel {
   position: relative;
@@ -361,8 +376,8 @@
 }
 
 .swipe-viewer {
-  flex: 1;
-  min-height: 0;
+  position: relative;
+  flex: 0 0 clamp(140px, 30dvh, 380px);
   background: var(--papier-diep);
 }
 
@@ -374,23 +389,45 @@
 
 .swipe-tekst {
   display: flex;
+  flex: 1 1 auto;
   flex-wrap: wrap;
-  padding: 8px 12px 10px;
+  align-content: flex-start;
+  min-height: 0;
+  padding: 6px 12px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  overflow-anchor: none;
   gap: 1px 10px;
   align-items: baseline;
   border-top: 1px solid var(--lijn);
+  touch-action: pan-y;
 }
+
+.swipe-tekst .lintlijst { flex-basis: 100%; margin: 4px 0 0; }
+
+.swipe-schaal { flex-basis: 100%; margin-top: 4px; }
+.swipe-schaal canvas { display: block; width: 100%; height: auto; }
+
+.swipe-stalen { flex-basis: 100%; margin-top: 6px; }
 
 .swipe-tekst h2 {
+  flex-basis: 100%;
   margin: 0;
   font-size: 15px;
+  line-height: 1.2;
 }
 
-.swipe-tekst .herkomst { color: var(--inkt-zacht); font-size: 12px; }
+.swipe-tekst .herkomst {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--inkt-zacht);
+  font-size: 12px;
+  line-height: 1.3;
+}
 
 .swipe-tekst .meta {
   flex-basis: 100%;
-  margin: 2px 0 0;
+  margin: 1px 0 0;
   color: var(--inkt-zacht);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
@@ -415,6 +452,26 @@
 }
 
 .swipe-tags .tagedit-chips { gap: 4px; margin-bottom: 4px; }
+
+.tagedit-compact .tagbalk-knoppen { flex-wrap: wrap; gap: 3px; overflow: visible; }
+.tagedit-compact .tagbak,
+.tagedit-compact .tagbak .tagbak {
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  gap: 3px;
+  min-width: 0;
+  margin: 2px 0 0;
+  padding: 3px 4px;
+  border-radius: 10px;
+}
+.tagedit-compact .tagbak[hidden] { display: none; }
+.tagedit-compact .tagknop-ouder { border-right-color: var(--accent); }
+.tagedit-compact .tagknop { padding: 1px 6px; font-size: 11.5px; line-height: 1.5; }
+.tagedit-compact .tagknop[aria-pressed="true"] { font-weight: inherit; }
+.tagedit-compact .tagknop-aantal:empty { display: none; }
+.swipe-tags .tagedit-compact.tagrij,
+.swipe-tags .tagrij { padding: 2px 4px; }
 
 .swipe-tags .tagedit-toggles { max-height: 148px; }
 
@@ -459,6 +516,8 @@
 .stempel[data-richting="rechts"] { --richting-kleur: var(--rechts); }
 .stempel[data-richting="omhoog"] { --richting-kleur: var(--omhoog); }
 .stempel[data-richting="omlaag"] { --richting-kleur: var(--omlaag); }
+.stempel[data-richting="linksboven"] { --richting-kleur: var(--linksboven); }
+.stempel[data-richting="rechtsboven"] { --richting-kleur: var(--rechtsboven); }
 
 .voortgang {
   display: flex;
@@ -490,28 +549,27 @@
 
 .bediening {
   display: grid;
-  gap: 6px;
-  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  grid-template-columns: repeat(4, 1fr) auto;
 }
 
 .richtingknop,
 #terug {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   align-items: center;
   justify-content: center;
-  min-height: var(--raak);
-  padding: 6px 8px;
-  font-size: 12px;
+  min-width: 0;
+  min-height: 32px;
+  padding: 3px 6px;
+  font-size: 11.5px;
 }
 
 .richtingknop {
-  flex-direction: column;
-  gap: 1px;
   border-color: var(--richting-kleur, var(--lijn));
 }
 
-.richtingknop b { font-size: 15px; line-height: 1; }
+.richtingknop b { font-size: 13px; line-height: 1; }
 
 .richtingknop span {
   max-width: 100%;
@@ -524,8 +582,20 @@
 .richtingknop[data-richting="rechts"] { --richting-kleur: var(--rechts); }
 .richtingknop[data-richting="omhoog"] { --richting-kleur: var(--omhoog); }
 .richtingknop[data-richting="omlaag"] { --richting-kleur: var(--omlaag); }
+.richtingknop[data-richting="linksboven"] { --richting-kleur: var(--linksboven); }
+.richtingknop[data-richting="rechtsboven"] { --richting-kleur: var(--rechtsboven); }
 
-#terug { grid-column: 1 / -1; }
+body[data-zes] .bediening { grid-template-columns: repeat(3, 1fr) auto; }
+body[data-zes] #terug { grid-column: 4; grid-row: 1 / span 2; }
+body[data-zes] .richtingknop[data-richting="linksboven"] { order: 1; }
+body[data-zes] .richtingknop[data-richting="omhoog"] { order: 2; }
+body[data-zes] .richtingknop[data-richting="rechtsboven"] { order: 3; }
+body[data-zes] .richtingknop[data-richting="links"] { order: 4; }
+body[data-zes] .richtingknop[data-richting="omlaag"] { order: 5; }
+body[data-zes] .richtingknop[data-richting="rechts"] { order: 6; }
+body[data-zes] #terug { order: 7; }
+
+#terug { padding: 3px 9px; }
 
 .sneltoetsen { display: none; }
 
@@ -580,6 +650,8 @@ kbd {
 .bak[data-richting="rechts"] { --richting-kleur: var(--rechts); }
 .bak[data-richting="omhoog"] { --richting-kleur: var(--omhoog); }
 .bak[data-richting="omlaag"] { --richting-kleur: var(--omlaag); }
+.bak[data-richting="linksboven"] { --richting-kleur: var(--linksboven); }
+.bak[data-richting="rechtsboven"] { --richting-kleur: var(--rechtsboven); }
 
 .bak-kop {
   display: flex;
@@ -696,24 +768,20 @@ kbd {
   .dek-rand { font-size: 12px; }
 
   .dek-rand-links,
-  .dek-rand-rechts { width: clamp(64px, 12vw, 150px); }
+  .dek-rand-rechts { width: 30px; }
 
   .dek-rand-omhoog,
-  .dek-rand-omlaag { min-height: 42px; }
+  .dek-rand-omlaag,
+  .dek-rand-linksboven,
+  .dek-rand-rechtsboven { min-height: 26px; }
 
-  .dek-rand-links span,
-  .dek-rand-rechts span {
-    padding: 0 6px;
-    overflow-wrap: anywhere;
-    text-align: center;
-    white-space: normal;
-    writing-mode: horizontal-tb;
-    rotate: none;
-  }
+  .dek-boven { gap: 8px; }
+  .dek-rand-linksboven,
+  .dek-rand-rechtsboven { flex-basis: 30%; }
 
   .swipe-tekst {
-    padding: 10px 14px 12px;
-    gap: 2px 14px;
+    padding: 8px 14px 24px;
+    gap: 1px 14px;
   }
 
   .swipe-tekst h2 { font-size: 16px; }
@@ -731,10 +799,11 @@ kbd {
   .richtingknop,
   #terug {
     flex-direction: row;
-    gap: 7px;
+    gap: 6px;
     max-width: 40vw;
-    padding: 7px 13px;
-    font-size: 13px;
+    min-height: 32px;
+    padding: 4px 11px;
+    font-size: 12.5px;
   }
 
   .richtingknop {
@@ -772,4 +841,10 @@ kbd {
 
   .bak { padding: 14px 16px; }
   .bak-acties .knop { flex: 0 0 auto; }
+}
+
+@media (width >= 900px) {
+  .swipe-kaart { flex-direction: row; }
+  .swipe-viewer { flex: 0 0 48%; min-height: 0; }
+  .swipe-tekst { border-top: 0; border-left: 1px solid var(--lijn); }
 }

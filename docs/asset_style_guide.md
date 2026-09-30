@@ -226,7 +226,8 @@ These rows live in `lint/kinds.json`, on the node of the kind they name, and rea
 
 ```
 mat.«material»: «subtype»       «material»   a material id
-                                «subtype»    «material» or one under it
+                                «subtype»    «material» or one under it,
+                                             or a list of them, any one of which
 
 has: [ «material», [«material», …] ]        a plain entry is required outright,
                                             a nested list is any one of them

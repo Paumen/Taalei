@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 37, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 41, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -1827,7 +1827,6 @@
     "kay-builder/lumbermill",
     "kay-builder/mine",
     "ken-nature/fence-gate",
-    "ken-water/buoy",
     "ken-water/buoy-flag",
     "kay-hexagon/fence-wood-gate",
     "kay-hexagon/catapult-ball",
@@ -2502,7 +2501,6 @@
     "mek-tools/brush",
     "mek-tools/hammer-square",
     "mek-tools/saw-coarse",
-    "mek-tools/saw-crosscut",
     "natuur/tree-palm-1",
     "natuur/tree-palm-2",
     "natuur/tree-palm-3",
@@ -4708,7 +4706,8 @@
     "sq-studio/mixing-console",
     "taalei-kit/trophy",
     "taalei-kit/birdhouse",
-    "ken-town/poles-horizontal"
+    "ken-town/poles-horizontal",
+    "mek-tools/saw-crosscut"
    ],
    "parent": "wood"
   },
@@ -9024,7 +9023,7 @@
    "id": "bone",
    "name": "Bone",
    "type": "material",
-   "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat, and seashells.",
+   "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat.",
    "models": [
     "quat-dun-1/skull",
     "kay-dun-1/chest-common-empty",
@@ -9127,16 +9126,24 @@
     "food-pack-2/chicken-leg",
     "sq-casino/dice-pair",
     "taalei-kit/dice",
-    "styloo-food/steak-raw",
-    "fs-terrain/beach-prop-shell-b",
+    "styloo-food/steak-raw"
+   ]
+  },
+  {
+   "id": "shell",
+   "name": "Shell",
+   "type": "material",
+   "description": "Seashell and snail shell.",
+   "models": [
     "fs-terrain/beach-prop-shell-a",
-    "quat-ocean/shell-spiral",
-    "quat-ocean/shell-scallop",
-    "quat-ocean/shell-oyster",
-    "natuur/shell-salmon",
+    "fs-terrain/beach-prop-shell-b",
     "natuur/shell-layered",
+    "natuur/shell-salmon",
     "natuur/shell-slate",
-    "quat-ocean/shell-clam"
+    "quat-ocean/shell-clam",
+    "quat-ocean/shell-oyster",
+    "quat-ocean/shell-scallop",
+    "quat-ocean/shell-spiral"
    ]
   },
   {
@@ -10381,7 +10388,7 @@
    "id": "liquid",
    "name": "Liquid",
    "type": "material",
-   "description": "What a vessel visibly holds: the potion in a flask. Not the vessel itself.",
+   "description": "What a vessel visibly holds, such as the potion in a flask, and snow. Not the vessel itself.",
    "models": [
     "kay-dun-1/potion-large-blue",
     "kay-dun-1/potion-large-green",
@@ -13742,7 +13749,6 @@
     "isa-kitchen/plate",
     "clay-props/plate",
     "clay-props/platter",
-    "cooking-assets/platter-oval",
     "quat-props/table-plate",
     "isa-plants/saucer-a-medium",
     "isa-plants/saucer-a-small",
@@ -13796,7 +13802,8 @@
     "isa-picnic/tray-square-handles",
     "quat-sushi/wooden-board",
     "styloo-food/sushi-board",
-    "sq-fastfood/tray-set"
+    "sq-fastfood/tray-set",
+    "cooking-assets/platter-oval"
    ]
   },
   {
@@ -23233,7 +23240,15 @@
     "kay-space/cargo-a",
     "kay-space/cargo-b",
     "kay-space/cargo-a-packed",
-    "kay-space/cargo-b-packed"
+    "kay-space/cargo-b-packed",
+    "food-pack-2/spring-onion",
+    "ken-food/carrot",
+    "ken-nature/carrot",
+    "ken-nature/turnip",
+    "kay-dun-1/potion-large-green",
+    "kay-dun-1/potion-large-red",
+    "kay-dun-1/potion-medium-green",
+    "kay-dun-1/potion-medium-red"
    ]
   },
   {

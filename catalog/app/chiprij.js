@@ -63,6 +63,18 @@ const SHORT_NAME = {
 
 export const chipName = (tag) => SHORT_NAME[tag.id] ?? tag.name ?? tag.id;
 
+const VOWEL = /[aeiou]/i;
+
+export function shortChipName(tag, max = 7) {
+  const name = chipName(tag);
+  if (name.length <= max) return name;
+  const letters = [...name.split(/[\s-]/)[0]];
+  for (let i = letters.length - 1; letters.length > max && i > 0; i--) {
+    if (VOWEL.test(letters[i]) && !VOWEL.test(letters[i - 1])) letters.splice(i, 1);
+  }
+  return letters.slice(0, max).join('');
+}
+
 const PICKED = new Set(['only', 'open']);
 
 export function showChipState(button, state) {
@@ -80,7 +92,7 @@ const span = (className) => {
 
 export function makeChipStrip({
   label, items, container = null, shareRow = null,
-  byCount = false, hideEmpty = false, stateOf, onPick,
+  byCount = false, hideEmpty = false, stable = false, stateOf, onPick,
 }) {
   const row = shareRow ?? document.createElement('div');
   if (!shareRow) row.className = 'kleurbalk tagrij';
@@ -119,7 +131,7 @@ export function makeChipStrip({
 
     chips.push({
       id: item.id, element: button, countEl, row, strip, tray,
-      parent: item.parent ?? null, ancestors, byCount, hideEmpty,
+      parent: item.parent ?? null, ancestors, byCount, hideEmpty, stable,
       count: item.count ?? 0, order: chips.length,
     });
   }
@@ -132,9 +144,12 @@ export function makeChipStrip({
 export function layoutChips(chips) {
   for (const strip of new Set(chips.map((c) => c.strip))) {
     const all = chips.filter((c) => c.strip === strip);
-    const sorted = (list) => list.sort((a, b) => (a.byCount
-      ? b.count - a.count || a.order - b.order
-      : Number(b.picked) - Number(a.picked) || a.order - b.order));
+    const sorted = (list) => list.sort((a, b) => {
+      if (a.stable) return a.order - b.order;
+      return a.byCount
+        ? b.count - a.count || a.order - b.order
+        : Number(b.picked) - Number(a.picked) || a.order - b.order;
+    });
     const mount = (into, parent) => {
       for (const chip of sorted(all.filter((c) => (c.parent ?? null) === parent))) {
         into.append(chip.element);

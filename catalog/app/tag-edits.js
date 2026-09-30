@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName } from './chiprij.js?v=b2fd398525';
+import { makeChipStrip, layoutChips, syncChips, chipName, shortChipName } from './chiprij.js?v=abdf5194e3';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
@@ -158,9 +158,14 @@ const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) 
 
 const allowedFor = (tag, kind) => !tag.kinds || Boolean(kind && tag.kinds.some((k) => kind === k || kind.startsWith(`${k}-`)));
 
-export function renderTagEditor(container, model, tagsById, { onChange: onEdit } = {}) {
+const SCALE_TAG = /^scale-/;
+
+export function renderTagEditor(container, model, tagsById, options = {}) {
+  const { onChange: onEdit, compact = false, allScale = false } = options;
   container.replaceChildren();
-  const redraw = () => renderTagEditor(container, model, tagsById, { onChange: onEdit });
+  container.classList.toggle('tagedit-compact', compact);
+  const redraw = () => renderTagEditor(container, model, tagsById, options);
+  const nameOf = compact ? shortChipName : chipName;
   const on = new Set(effectiveTags(model));
   const tags = [...tagsById.values()];
 
@@ -169,7 +174,8 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
       pick: (id) => setKind(model, id === effectiveKind(model, tagsById) ? null : id, tagsById) },
     { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null,
       pick: (id) => { expanded.add(id); setMaterial(model, id, tagsById); } },
-    { label: 'Attributes', of: (t) => t.type === 'attribute' && (on.has(t.id) || allowedFor(t, effectiveKind(model, tagsById))),
+    { label: 'Attributes', of: (t) => t.type === 'attribute'
+        && (on.has(t.id) || (allScale && SCALE_TAG.test(t.id)) || allowedFor(t, effectiveKind(model, tagsById))),
       pick: (id) => setAttribute(model, id, tagsById) },
     { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },
     { label: 'Theme', of: (t) => t.type === 'theme' },
@@ -195,12 +201,13 @@ export function renderTagEditor(container, model, tagsById, { onChange: onEdit }
       label: `Set ${label.toLowerCase()}`,
       items: own.map((t) => ({
         id: t.id,
-        name: chipName(t),
+        name: nameOf(t),
         full: t.name ?? t.id,
         hint: t.description,
         parent: parent?.(t) ?? null,
       })),
       container,
+      stable: compact,
       stateOf,
       onPick: (id) => {
         if (pick) pick(id);

@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=b2fd398525';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=b2fd398525';
-import { colorSwatches, setBands } from './color-edits.js?v=b2fd398525';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=b2fd398525';
-import { mountExtractBar, setPageParts } from './extract.js?v=b2fd398525';
-import './bouwstempel.js?v=b2fd398525';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=abdf5194e3';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=abdf5194e3';
+import { colorSwatches, setBands } from './color-edits.js?v=abdf5194e3';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=abdf5194e3';
+import { mountExtractBar, setPageParts } from './extract.js?v=abdf5194e3';
+import './bouwstempel.js?v=abdf5194e3';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -1148,13 +1148,13 @@ function buildTagBar(tags) {
     'sizes',
     { shareRow: shape, extra: true },
   );
-  buildChipRow(
+  const lintRow = buildChipRow(
     container,
     'Lint',
     LINT_LEVELS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
     lintState,
     'lint',
-    { shareRow: shape, extra: true },
+    { extra: true },
   );
   buildChipRow(
     container,
@@ -1162,7 +1162,7 @@ function buildTagBar(tags) {
     LINT_CHECKS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
     checkState,
     'checks',
-    { shareRow: shape, extra: true },
+    { shareRow: lintRow, extra: true },
   );
 
   for (const { type, head, extra = false } of TAG_TYPES) {

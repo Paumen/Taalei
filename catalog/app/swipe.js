@@ -1,14 +1,17 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=b2fd398525';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=b2fd398525';
-import { renderCommentBox } from './comments.js?v=b2fd398525';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=b2fd398525';
-import './bouwstempel.js?v=b2fd398525';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=abdf5194e3';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=abdf5194e3';
+import { colorSwatches, setBands } from './color-edits.js?v=abdf5194e3';
+import { renderCommentBox } from './comments.js?v=abdf5194e3';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=abdf5194e3';
+import './bouwstempel.js?v=abdf5194e3';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
   { id: 'rechts', sign: '→', name: 'Right', default: 'Keep' },
   { id: 'omhoog', sign: '↑', name: 'Up', default: 'Tag' },
   { id: 'omlaag', sign: '↓', name: 'Down', default: 'Later' },
+  { id: 'linksboven', sign: '↖', name: 'Up left', default: 'Up left', six: true },
+  { id: 'rechtsboven', sign: '↗', name: 'Up right', default: 'Up right', six: true },
 ];
 
 const DIRECTION_IDS = DIRECTIONS.map((r) => r.id);
@@ -37,7 +40,11 @@ const SOURCES = {
 };
 
 const PARAMS = new URLSearchParams(location.search);
-const SOURCE = SOURCES[PARAMS.get('source')] ?? SOURCES.catalogus;
+if (!document.body.dataset.source && PARAMS.get('source') === 'lint') {
+  PARAMS.delete('source');
+  location.replace(`lint.html${PARAMS.size ? `?${PARAMS}` : ''}`);
+}
+const SOURCE = SOURCES[document.body.dataset.source ?? PARAMS.get('source')] ?? SOURCES.catalogus;
 const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
 const STORAGE_KEY =
   `taaleiland-swipe-v1${SOURCE.key ? `-${SOURCE.key}` : ''}`
@@ -51,6 +58,37 @@ let longestKinds = new Set();
 let drawAtScale = null;
 
 const lintText = (f) => `${f.check} · ${f.text}`;
+
+const SIZE_CLASSES = [
+  { id: 's', name: 'S', hint: 'small — under half a unit' },
+  { id: 'm', name: 'M', hint: 'medium — up to one and a half units' },
+  { id: 'l', name: 'L', hint: 'large — over one and a half units' },
+];
+
+const LINT_LEVELS = [
+  { id: 'error', name: 'Errors', hint: 'Breaks a rule, or outside a size limit by more than the warning band' },
+  { id: 'warning', name: 'Warnings', hint: 'Outside a size limit but within the warning band' },
+];
+
+const LINT_CHECKS = [
+  { id: 'size', name: 'Size', hint: 'Extents, per kind' },
+  { id: 'tpu', name: 'Triangles', hint: 'Triangle budget, per kind' },
+  { id: 'mat', name: 'Materials', hint: 'The materials a kind is asked to carry' },
+  { id: 'palette', name: 'Palette', hint: 'The bands a material may draw from' },
+  { id: 'bands', name: 'Bands', hint: 'The bands a kind may draw from' },
+  { id: 'measures', name: 'Measures', hint: 'Rows that assert on one recorded field' },
+];
+
+const TAG_TYPES = [
+  { type: 'material', head: 'Material' },
+  { type: 'attribute', head: 'Attribute' },
+  { type: 'tag', head: 'Tag' },
+  { type: 'theme', head: 'Theme' },
+  { type: 'artist', head: 'Artist' },
+];
+
+const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];
+const lintChecks = (m) => [...new Set((m.lint ?? []).map((f) => f.check))];
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -86,7 +124,7 @@ const flatMode = { on: false };
 
 let refreshExtract = () => {};
 
-const register = { models: [], perId: new Map(), kits: new Map(), kinds: new Map(), tags: new Map() };
+const register = { models: [], perId: new Map(), kits: new Map(), kinds: new Map(), tags: new Map(), bands: [] };
 
 const WITHOUT = '_zonder';
 const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
@@ -113,7 +151,9 @@ function tagsOf(model) {
 
 const labelDefault = (direction) => SOURCE.labels?.[direction.id] ?? direction.default;
 
-const FILTER_FIELDS = ['kits', 'kinds', 'tags'];
+const FILTER_FIELDS = ['colors', 'kits', 'kinds', 'sizes', 'lint', 'checks', 'tags'];
+const ANY_FIELDS = new Set(['colors', 'kits', 'sizes', 'lint', 'checks']);
+const emptyFilters = () => ({ search: '', ...Object.fromEntries(FILTER_FIELDS.map((f) => [f, {}])), shuffle: false });
 
 const asState = (value) => {
   if (Array.isArray(value)) return Object.fromEntries(value.map((id) => [id, 'only']));
@@ -126,8 +166,9 @@ const asState = (value) => {
 };
 
 const state = {
-  filters: { search: '', kits: {}, kinds: {}, tags: {}, shuffle: false },
+  filters: emptyFilters(),
   labels: Object.fromEntries(DIRECTIONS.map((r) => [r.id, labelDefault(r)])),
+  six: false,
   order: [],
   choices: [],
   started: false,
@@ -153,6 +194,7 @@ function load() {
   for (const direction of DIRECTION_IDS) {
     if (typeof stored.labels?.[direction] === 'string') state.labels[direction] = stored.labels[direction];
   }
+  state.six = Boolean(stored.six);
   state.order = (stored.order ?? []).filter((id) => register.perId.has(id));
   state.choices = (stored.choices ?? []).filter(
     (k) => register.perId.has(k?.id) && DIRECTION_IDS.includes(k?.direction),
@@ -165,6 +207,12 @@ const labelFor = (direction) =>
 
 const choicePerId = () => new Map(state.choices.map((k) => [k.id, k.direction]));
 
+const activeDirections = () => DIRECTIONS.filter(
+  (r) => !r.six || state.six || state.choices.some((k) => k.direction === r.id),
+);
+
+const showSix = (on) => { document.body.toggleAttribute('data-zes', on); };
+
 function remaining() {
   const decided = choicePerId();
   return state.order.filter((id) => !decided.has(id));
@@ -172,19 +220,28 @@ function remaining() {
 
 const keysWith = (own, value) => Object.keys(own).filter((id) => own[id] === value);
 
-function passes(mine, own) {
+function passes(mine, own, { all = false } = {}) {
   const only = keysWith(own, 'only');
-  if (only.length && !mine.some((id) => only.includes(id))) return false;
+  if (only.length && !(all ? only.every((id) => mine.includes(id)) : mine.some((id) => only.includes(id)))) return false;
   const not = keysWith(own, 'not');
   return !mine.some((id) => not.includes(id));
 }
 
+const valuesOf = {
+  colors: (m) => m.colors ?? [],
+  kits: (m) => [m.group],
+  kinds: (m) => (m.kind ? kindChain(m.kind) : [WITHOUT]),
+  sizes: (m) => (m.size ? [m.size] : []),
+  lint: lintLevels,
+  checks: lintChecks,
+  tags: tagsOf,
+};
+
 function matches(model) {
-  const { search, kits, kinds, tags } = state.filters;
-  if (!passes([model.group], kits)) return false;
-  const chain = model.kind ? kindChain(model.kind) : [WITHOUT];
-  if (!passes(chain, kinds)) return false;
-  if (!passes(tagsOf(model), tags)) return false;
+  const { search } = state.filters;
+  for (const field of FILTER_FIELDS) {
+    if (!passes(valuesOf[field](model), state.filters[field] ?? {}, { all: !ANY_FIELDS.has(field) && field !== 'kinds' })) return false;
+  }
   if (search) {
     const needle = search.toLowerCase();
     if (!`${model.name} ${model.kit} ${model.kind ?? ''}`.toLowerCase().includes(needle)) return false;
@@ -219,14 +276,14 @@ function updateSummary() {
     return;
   }
   const done = state.choices.length;
-  const parts = DIRECTIONS.map((r) => {
+  const parts = activeDirections().map((r) => {
     const count = state.choices.filter((k) => k.direction === r.id).length;
     return `${r.sign} ${labelFor(r.id)} ${count}`;
   });
   summary.textContent = `${number.format(done)} of ${number.format(total)} judged · ${parts.join(' · ')}`;
 }
 
-const draft = { kits: {}, kinds: {}, tags: {} };
+const draft = Object.fromEntries(FILTER_FIELDS.map((f) => [f, {}]));
 const filterChips = [];
 
 const NEXT = { undefined: 'only', only: 'not', not: undefined };
@@ -234,9 +291,7 @@ const NEXT = { undefined: 'only', only: 'not', not: undefined };
 function setupFilters() {
   return {
     search: el('#zoek').value.trim(),
-    kits: { ...draft.kits },
-    kinds: { ...draft.kinds },
-    tags: { ...draft.tags },
+    ...Object.fromEntries(FILTER_FIELDS.map((f) => [f, { ...draft[f] }])),
     shuffle: el('#schud').checked,
   };
 }
@@ -253,7 +308,7 @@ function syncFilterChips() {
   }
 }
 
-function filterRow(container, head, items, field, { byCount = false } = {}) {
+function rowBlock(container, head) {
   const block = document.createElement('div');
   block.className = 'opzet-rij';
 
@@ -277,6 +332,36 @@ function filterRow(container, head, items, field, { byCount = false } = {}) {
 
   block.append(title, strip, more);
   container.append(block);
+  return strip;
+}
+
+function colorRow(container, colors) {
+  const strip = rowBlock(container, 'Colour');
+  for (const color of colors) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'staal';
+    button.style.setProperty('--staal-kleur', color.hex);
+    button.dataset.hex = color.hex;
+    button.title = `${color.name} ${color.hex} — ${color.count} models`;
+    button.setAttribute('aria-label', button.title);
+    showState(button, draft.colors[color.hex]);
+    button.addEventListener('click', () => {
+      const next = NEXT[draft.colors[color.hex]];
+      if (next) draft.colors[color.hex] = next;
+      else delete draft.colors[color.hex];
+      showState(button, next);
+      setupCount();
+    });
+    strip.append(button);
+  }
+  colorButtons.push(...strip.children);
+}
+
+const colorButtons = [];
+
+function filterRow(container, head, items, field, { byCount = false } = {}) {
+  const strip = rowBlock(container, head);
 
   const { chips } = makeChipStrip({
     label: `Filter by ${head.toLowerCase()}`,
@@ -332,17 +417,44 @@ function filterItems() {
     }))
     .filter((t) => t.count > 0);
 
-  return { kits, kinds, tags };
+  const bandNames = new Map(register.bands.map((b) => [b.hex, b.name]));
+  const colorCounts = new Map();
+  for (const m of register.models) for (const hex of m.colors ?? []) colorCounts.set(hex, (colorCounts.get(hex) ?? 0) + 1);
+  const colors = [...colorCounts]
+    .map(([hex, n]) => ({ hex, count: n, name: bandNames.get(hex) ?? 'no band' }))
+    .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
+
+  const fixed = (list, of) => list
+    .map((k) => ({ id: k.id, name: k.name, hint: k.hint, dot: true, count: count((m) => of(m).includes(k.id)) }))
+    .filter((k) => k.count > 0);
+
+  return {
+    colors,
+    kits,
+    kinds,
+    sizes: fixed(SIZE_CLASSES, valuesOf.sizes),
+    lint: fixed(LINT_LEVELS, lintLevels),
+    checks: fixed(LINT_CHECKS, lintChecks),
+    tags,
+  };
 }
 
 function buildFilterRows() {
   const container = el('#opzet-filters');
   container.replaceChildren();
   filterChips.length = 0;
+  colorButtons.length = 0;
   const items = filterItems();
+  if (items.colors.length) colorRow(container, items.colors);
   if (items.kits.length > 1) filterRow(container, 'Kit', items.kits, 'kits', { byCount: true });
   filterRow(container, 'Kind', items.kinds, 'kinds');
-  if (items.tags.length) filterRow(container, 'Tag', items.tags, 'tags', { byCount: true });
+  if (items.sizes.length) filterRow(container, 'Size', items.sizes, 'sizes');
+  if (items.lint.length) filterRow(container, 'Lint', items.lint, 'lint');
+  if (items.checks.length) filterRow(container, 'Check', items.checks, 'checks');
+  for (const { type, head } of TAG_TYPES) {
+    const own = items.tags.filter((t) => (register.tags.get(t.id)?.type ?? 'tag') === type);
+    if (own.length) filterRow(container, head, own, 'tags', { byCount: true });
+  }
 }
 
 function setupCount() {
@@ -358,8 +470,11 @@ function fillSetup() {
   for (const field of FILTER_FIELDS) draft[field] = { ...state.filters[field] };
   if (!filterChips.length) buildFilterRows();
   syncFilterChips();
+  for (const button of colorButtons) showState(button, draft.colors[button.dataset.hex]);
   el('#zoek').value = state.filters.search;
   el('#schud').checked = state.filters.shuffle;
+  el('#zes').checked = state.six;
+  showSix(state.six);
   for (const direction of DIRECTIONS) el(`#label-${direction.id}`).value = state.labels[direction.id];
   setupCount();
 }
@@ -397,7 +512,6 @@ function makeCard(model, depth) {
   viewer.setAttribute('interaction-prompt', 'none');
   viewer.setAttribute('loading', 'eager');
   setLighting(viewer);
-  box.append(viewer);
 
   const text = document.createElement('div');
   text.className = 'swipe-tekst';
@@ -429,11 +543,13 @@ function makeCard(model, depth) {
   const tags = document.createElement('div');
   tags.className = 'swipe-tags';
   renderTagEditor(tags, model, register.tags, {
+    compact: true,
+    allScale: true,
     onChange: () => { origin.textContent = `${kit?.name ?? model.group} · ${kindLabel(effectiveKind(model, register.tags))}`; },
   });
   const schaal = document.createElement('div');
   schaal.className = 'swipe-schaal';
-  if (findings.length) {
+  if (findings.some((f) => f.check === 'size')) {
     const canvas = document.createElement('canvas');
     canvas.width = 900;
     canvas.height = 300;
@@ -444,11 +560,20 @@ function makeCard(model, depth) {
     });
   }
 
+  const colours = model.colors?.length ? colorSwatches(model) : null;
+  if (colours) colours.classList.add('swipe-stalen');
+
   const note = document.createElement('div');
   note.className = 'swipe-opmerking';
   renderCommentBox(note, model);
 
-  text.append(name, origin, meta, path, ...(findings.length ? [lint, schaal] : []), tags, note);
+  text.append(
+    name, origin, meta, path,
+    ...(findings.length ? [lint] : []),
+    ...(schaal.childElementCount ? [schaal] : []),
+    ...(colours ? [colours] : []),
+    tags, note,
+  );
 
   const rotate = document.createElement('button');
   rotate.type = 'button';
@@ -467,13 +592,14 @@ function makeCard(model, depth) {
   const stamp = document.createElement('span');
   stamp.className = 'stempel';
 
-  card.append(box, text, rotate, stamp);
+  box.append(viewer, rotate);
+  card.append(box, text, stamp);
   if (depth === 0) makeDraggable(card);
   return card;
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=b2fd398525'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=abdf5194e3'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
@@ -549,6 +675,14 @@ function markEdge(direction) {
 
 function directionFrom(dx, dy) {
   if (Math.max(Math.abs(dx), Math.abs(dy)) < threshold()) return null;
+  if (state.six && dy < 0) {
+    const angle = (Math.atan2(-dy, dx) * 180) / Math.PI;
+    if (angle < 22.5) return 'rechts';
+    if (angle < 67.5) return 'rechtsboven';
+    if (angle < 112.5) return 'omhoog';
+    if (angle < 157.5) return 'linksboven';
+    return 'links';
+  }
   if (Math.abs(dx) >= Math.abs(dy)) return dx < 0 ? 'links' : 'rechts';
   return dy < 0 ? 'omhoog' : 'omlaag';
 }
@@ -596,7 +730,8 @@ function makeDraggable(card) {
 
   card.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
-    if (e.target.closest('button, input, textarea, .tagedit-toggles')) return;
+    if (e.target.closest('button, input, textarea, select, a, .tagedit-toggles')) return;
+    if (e.pointerType !== 'mouse' && e.target.closest('.swipe-tekst')) return;
     if (card.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
     start = { x: e.clientX, y: e.clientY, id: e.pointerId };
     card.setPointerCapture(e.pointerId);
@@ -611,6 +746,8 @@ const OFFSCREEN = {
   rechts: 'translate(120vw, 0) rotate(18deg)',
   omhoog: 'translate(0, -120vh)',
   omlaag: 'translate(0, 120vh)',
+  linksboven: 'translate(-90vw, -90vh) rotate(-18deg)',
+  rechtsboven: 'translate(90vw, -90vh) rotate(18deg)',
 };
 
 function choose(direction) {
@@ -686,7 +823,7 @@ function drawResults() {
   bins.replaceChildren();
   const all = rows();
 
-  for (const direction of DIRECTIONS) {
+  for (const direction of activeDirections()) {
     const list = all.filter((r) => r.direction === direction.id);
     const bin = document.createElement('section');
     bin.className = 'bak';
@@ -782,7 +919,7 @@ function swipeSection() {
       source: SOURCE.file,
       filters: state.filters,
       directions: Object.fromEntries(
-        DIRECTIONS.map((r) => [
+        activeDirections().map((r) => [
           r.id,
           { label: labelFor(r.id), paths: all.filter((x) => x.direction === r.id).map((x) => x.path) },
         ]),
@@ -804,25 +941,7 @@ function exportCsv() {
   file(`swipe-${timeStamp()}.csv`, rowsOut.map((row) => row.map(cell).join(',')).join('\n') + '\n', 'text/csv');
 }
 
-function markNav() {
-  if (SOURCE.key !== 'lint') return;
-  const nav = document.querySelector('.paginabalk[aria-label="Pages"]');
-  const current = nav?.querySelector('[aria-current="page"]');
-  const target = nav?.querySelector('a[href="scale-obj-gen.html"]');
-  if (!current || !target) return;
-  const link = document.createElement('a');
-  link.href = 'swipe.html';
-  link.textContent = current.textContent;
-  const here = document.createElement('span');
-  here.setAttribute('aria-current', 'page');
-  here.textContent = target.textContent;
-  current.replaceWith(link);
-  target.replaceWith(here);
-  document.querySelector('#lint-bar').hidden = false;
-}
-
 async function start() {
-  markNav();
   const response = await fetch(SOURCE.file);
   if (!response.ok) throw new Error(`${SOURCE.file} not found (${response.status})`);
   const data = await response.json();
@@ -838,6 +957,8 @@ async function start() {
   register.kits = new Map(data.kits.map((k) => [k.slug, k]));
   register.kinds = new Map((data.tags ?? []).filter((t) => t.type === 'kind').map((t) => [t.id, t]));
   register.tags = new Map((data.tags ?? []).map((t) => [t.id, t]));
+  register.bands = data.bands ?? [];
+  setBands(register.bands);
   parentOf.clear();
   for (const tag of data.tags ?? []) {
     if (tag.parent) parentOf.set(tag.id, tag.parent);
@@ -866,6 +987,7 @@ async function start() {
   el('#opzet-formulier').addEventListener('submit', (e) => {
     e.preventDefault();
     state.filters = setupFilters();
+    state.six = el('#zes').checked;
     for (const direction of DIRECTIONS) state.labels[direction.id] = el(`#label-${direction.id}`).value.trim() || labelDefault(direction);
     const selection = register.models.filter(matches).map((m) => m.id);
     state.order = state.filters.shuffle ? shuffle(selection) : selection;
@@ -884,13 +1006,15 @@ async function start() {
   refreshExtract = mountExtractBar();
 
   el('#opzet-formulier').addEventListener('input', setupCount);
+  el('#zes').addEventListener('change', () => showSix(el('#zes').checked));
   el('#opzet-wis').addEventListener('click', () => {
     for (const field of FILTER_FIELDS) draft[field] = {};
     el('#zoek').value = '';
+    for (const button of colorButtons) showState(button, undefined);
     syncFilterChips();
     setupCount();
   });
-  el('#opzet-annuleer').addEventListener('click', () => show('dek'));
+  el('#opzet-annuleer').addEventListener('click', () => { showSix(state.six); show('dek'); });
   el('#instellingen').addEventListener('click', () => { show('opzet'); fillSetup(); });
   el('#naar-uitslag').addEventListener('click', () => show('uitslag'));
   el('#verder').addEventListener('click', () => show('dek'));
@@ -924,6 +1048,7 @@ async function start() {
         ArrowRight: 'rechts',
         ArrowUp: 'omhoog',
         ArrowDown: 'omlaag',
+        ...(state.six ? { q: 'linksboven', Q: 'linksboven', e: 'rechtsboven', E: 'rechtsboven' } : {}),
       };
       if (perKey[e.key]) {
         e.preventDefault();
@@ -938,6 +1063,7 @@ async function start() {
     }
   });
 
+  showSix(state.six);
   if (!state.started) {
     state.order = register.models.filter((m) => !kit || m.group === kit).map((m) => m.id);
     state.started = true;

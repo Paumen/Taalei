@@ -243,7 +243,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.91,
+    "factor": 0.95,
     "kinds": 37
    }
   },
@@ -631,7 +631,7 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.19,
+    "factor": 1.21,
     "kinds": 8
    }
   },
@@ -657,7 +657,7 @@
     "none": 38
    },
    "kitCheck": {
-    "factor": 1.01,
+    "factor": 1.02,
     "kinds": 35
    }
   },
@@ -731,7 +731,7 @@
     "smooth": 72
    },
    "kitCheck": {
-    "factor": 1.06,
+    "factor": 1.14,
     "kinds": 7
    }
   },
@@ -1345,7 +1345,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1,
+    "factor": 1.01,
     "kinds": 39
    }
   },
@@ -1769,7 +1769,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.02,
+    "factor": 1.06,
     "kinds": 32
    }
   },
@@ -1866,7 +1866,7 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.06,
+    "factor": 1.01,
     "kinds": 18
    }
   },
@@ -1942,7 +1942,7 @@
     "none": 5
    },
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 1.09,
     "kinds": 12
    }
   },
@@ -15576,7 +15576,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 452,
+   "count": 451,
    "parent": "metal-iron"
   },
   {
@@ -15607,7 +15607,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 438,
+   "count": 437,
    "parent": "wood"
   },
   {
@@ -15623,7 +15623,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1097,
+   "count": 1098,
    "parent": "wood"
   },
   {
@@ -15750,8 +15750,15 @@
    "id": "bone",
    "name": "Bone",
    "type": "material",
-   "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat, and seashells.",
-   "count": 111
+   "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat.",
+   "count": 102
+  },
+  {
+   "id": "shell",
+   "name": "Shell",
+   "type": "material",
+   "description": "Seashell and snail shell.",
+   "count": 9
   },
   {
    "id": "food",
@@ -15785,7 +15792,7 @@
    "id": "liquid",
    "name": "Liquid",
    "type": "material",
-   "description": "What a vessel visibly holds: the potion in a flask. Not the vessel itself.",
+   "description": "What a vessel visibly holds, such as the potion in a flask, and snow. Not the vessel itself.",
    "count": 65
   },
   {
@@ -16773,14 +16780,14 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, saucer",
-   "count": 39
+   "count": 38
   },
   {
    "id": "obj-kitchenware-tableware-serving",
    "name": "Serving",
    "type": "kind",
    "description": "Plate or stand that carries food to the table rather than holding one portion.",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-kitchenware-tableware-bowl",
@@ -18846,12 +18853,14 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 85,
+   "count": 93,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
+    "obj-container-bottle-vial",
     "obj-container-pot",
     "obj-kitchenware-tableware-condiment",
+    "obj-food-vegetable",
     "obj-food-fish",
     "obj-equipment-weapon-siege-ammunition-cannonball",
     "obj-transport-watercraft-ship",
@@ -19202,7 +19211,8 @@
   "str-part-frame",
   "str-part-frame-scaffold",
   "str-part-pillar",
-  "str-part-roof-unit"
+  "str-part-roof-unit",
+  "str-part-window-unit"
  ],
  "limits": {
   "char": {
@@ -19279,7 +19289,7 @@
   },
   "env-flora-plant-bush": {
    "high.max": 8,
-   "longest.min": 0.35,
+   "longest.min": 0.2,
    "longest.max": 0.9,
    "tpu.max": 10000
   },
@@ -19561,7 +19571,7 @@
   },
   "obj-container-chest": {
    "high.min": 0.2,
-   "high.max": 0.5,
+   "high.max": 0.6,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
@@ -20561,7 +20571,7 @@
   "obj-furnishing-textile-rug": {
    "high.max": 8,
    "longest.min": 0.5,
-   "longest.max": 1.5,
+   "longest.max": 2,
    "tpu.max": 5000
   },
   "obj-kitchenware": {
@@ -20718,7 +20728,7 @@
   "obj-kitchenware-tableware-serving": {
    "high.max": 8,
    "longest.min": 0.15,
-   "longest.max": 0.45,
+   "longest.max": 0.5,
    "tpu.max": 5000
   },
   "obj-leisure": {
@@ -20766,7 +20776,7 @@
   "obj-leisure-game-ball": {
    "high.max": 8,
    "longest.min": 0.15,
-   "longest.max": 0.5,
+   "longest.max": 0.6,
    "tpu.max": 10000
   },
   "obj-leisure-game-gamble": {
@@ -21314,7 +21324,7 @@
   "str-fixture-utility-tank": {
    "high.max": 8,
    "longest.min": 0.8,
-   "longest.max": 3.1,
+   "longest.max": 4.5,
    "tpu.max": 5000
   },
   "str-fixture-utility-turbine": {
@@ -21445,15 +21455,14 @@
    "tpu.max": 5000
   },
   "str-part-window-unit": {
-   "high.min": 0.75,
-   "high.max": 1.25,
-   "longest.min": 0.05,
-   "longest.max": 30,
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1.4,
    "tpu.max": 5000
   },
   "obj-container-chest scale-small": {
    "high.min": 0.1,
-   "high.max": 0.25,
+   "high.max": 0.3,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
@@ -21486,6 +21495,12 @@
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 2,
+   "tpu.max": 10000
+  },
+  "obj-container-bottle-vial scale-big": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.525,
    "tpu.max": 10000
   },
   "obj-container-pot scale-small": {
@@ -21540,6 +21555,72 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable scale-big": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-pumpkin scale-big": {
+   "high.max": 8,
+   "longest.min": 0.375,
+   "longest.max": 1,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-tomato scale-big": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.625,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-eggplant scale-big": {
+   "high.max": 8,
+   "longest.min": 0.375,
+   "longest.max": 0.875,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-leafy scale-big": {
+   "high.max": 8,
+   "longest.min": 0.375,
+   "longest.max": 0.875,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-onion scale-big": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.625,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-pepper scale-big": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.625,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-broccoli scale-big": {
+   "high.max": 8,
+   "longest.min": 0.25,
+   "longest.max": 0.75,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-corn scale-big": {
+   "high.max": 8,
+   "longest.min": 0.375,
+   "longest.max": 0.875,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-root scale-big": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 1,
+   "tpu.max": 5000
+  },
+  "obj-food-vegetable-root-carrot scale-big": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.75,
    "tpu.max": 5000
   },
   "obj-food-fish scale-big": {
@@ -21660,7 +21741,7 @@
   "obj-furnishing-textile-rug scale-small": {
    "high.max": 8,
    "longest.min": 0.25,
-   "longest.max": 0.75,
+   "longest.max": 1,
    "tpu.max": 5000
   },
   "str-part-floor-unit scale-small": {
@@ -25629,14 +25710,7 @@
     "aq",
     "vegetation"
    ],
-   "variant": "v689",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "v689"
   },
   {
    "kit": "aq-pond",
@@ -25685,14 +25759,7 @@
     "aq",
     "vegetation"
    ],
-   "variant": "v689",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "v689"
   },
   {
    "kit": "aq-pond",
@@ -29367,7 +29434,7 @@
   {
    "kit": "cooking-assets",
    "name": "platter-oval",
-   "kind": "obj-kitchenware-tableware-plate",
+   "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
    "wdh": [
     0.473,
@@ -29399,13 +29466,6 @@
    ],
    "tags": [
     "ceramic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.473 over max 0.35 (obj-kitchenware-tableware-plate)"
-    }
    ]
   },
   {
@@ -38524,14 +38584,8 @@
     "#8b7561"
    ],
    "tags": [
-    "food"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.32 over max 0.25 (obj-food-vegetable-onion)"
-    }
+    "food",
+    "scale-big"
    ]
   },
   {
@@ -39425,8 +39479,8 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone",
-    "fs"
+    "fs",
+    "shell"
    ],
    "variant": "v36"
   },
@@ -39465,17 +39519,10 @@
     "#d07b56"
    ],
    "tags": [
-    "bone",
-    "fs"
+    "fs",
+    "shell"
    ],
-   "variant": "v36",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "bone wants ivory, has terracotta"
-    }
-   ]
+   "variant": "v36"
   },
   {
    "kit": "fs-terrain",
@@ -47353,13 +47400,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v599",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -47462,13 +47502,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v599",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -47571,13 +47604,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v600",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -47680,13 +47706,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v600",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -47789,13 +47808,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v601",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -47898,13 +47910,6 @@
    "alpha": true,
    "pbr": true,
    "variant": "v601",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -48644,14 +48649,7 @@
     "wood-beam"
    ],
    "alpha": true,
-   "pbr": true,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.35 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "pbr": true
   },
   {
    "kit": "fs-town",
@@ -52210,14 +52208,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v525",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v525"
   },
   {
    "kit": "isa-bakery",
@@ -52271,14 +52262,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v525",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v525"
   },
   {
    "kit": "isa-bakery",
@@ -53763,13 +53747,6 @@
     "foliage",
     "food",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
    ]
   },
   {
@@ -53875,14 +53852,7 @@
     "food",
     "isa"
    ],
-   "variant": "v251",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 5 wants max 3"
-    }
-   ]
+   "variant": "v251"
   },
   {
    "kit": "isa-food",
@@ -54926,14 +54896,7 @@
     "foliage",
     "isa"
    ],
-   "variant": "v708",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.225 under min 0.35 (env-flora-plant-bush)"
-    }
-   ]
+   "variant": "v708"
   },
   {
    "kit": "isa-homely",
@@ -57285,14 +57248,7 @@
     "glass",
     "isa"
    ],
-   "variant": "v839",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v839"
   },
   {
    "kit": "isa-kitchen",
@@ -57334,14 +57290,7 @@
     "glass",
     "isa"
    ],
-   "variant": "v839",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v839"
   },
   {
    "kit": "isa-kitchen",
@@ -57647,14 +57596,7 @@
     "isa",
     "stone-masonry"
    ],
-   "variant": "v602",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v602"
   },
   {
    "kit": "isa-kitchen",
@@ -57760,14 +57702,7 @@
     "stone-masonry",
     "wood-worked"
    ],
-   "variant": "v602",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v602"
   },
   {
    "kit": "isa-kitchen",
@@ -57821,14 +57756,7 @@
     "stone-masonry",
     "wood-worked"
    ],
-   "variant": "v602",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v602"
   },
   {
    "kit": "isa-kitchen",
@@ -58009,13 +57937,6 @@
    "tags": [
     "foliage",
     "isa"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.32 under min 0.35 (env-flora-plant-bush)"
-    }
    ]
   },
   {
@@ -59605,14 +59526,7 @@
     "isa",
     "textile"
    ],
-   "variant": "v457",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.6 over max 1.5 (obj-furnishing-textile-rug)"
-    }
-   ]
+   "variant": "v457"
   },
   {
    "kit": "isa-picnic",
@@ -59693,14 +59607,7 @@
     "isa",
     "textile"
    ],
-   "variant": "v457",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.92 over max 1.5 (obj-furnishing-textile-rug)"
-    }
-   ]
+   "variant": "v457"
   },
   {
    "kit": "isa-picnic",
@@ -75584,18 +75491,6 @@
     "kay",
     "metal-gold",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.6 over max 0.5 (obj-container-chest)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-iron, has metal-gold (obj-container-chest)"
-    }
    ]
   },
   {
@@ -75641,13 +75536,6 @@
     "kay",
     "metal-gold",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-iron, has metal-gold (obj-container-chest)"
-    }
    ]
   },
   {
@@ -75739,13 +75627,6 @@
     "kay",
     "metal-gold",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-iron, has metal-gold (obj-container-chest)"
-    }
    ],
    "mark": [
     "centered"
@@ -75856,14 +75737,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "variant": "v220",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.533 over max 0.5 (obj-container-chest)"
-    }
-   ]
+   "variant": "v220"
   },
   {
    "kit": "kay-dun-1",
@@ -77532,18 +77406,12 @@
     "glass",
     "halloween",
     "kay",
-    "liquid"
+    "liquid",
+    "scale-big"
    ],
    "alpha": true,
    "pbr": true,
-   "variant": "v192",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.473 over max 0.35 (obj-container-bottle-vial)"
-    }
-   ]
+   "variant": "v192"
   },
   {
    "kit": "kay-dun-1",
@@ -77589,18 +77457,12 @@
     "glass",
     "halloween",
     "kay",
-    "liquid"
+    "liquid",
+    "scale-big"
    ],
    "alpha": true,
    "pbr": true,
-   "variant": "v192",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.473 over max 0.35 (obj-container-bottle-vial)"
-    }
-   ]
+   "variant": "v192"
   },
   {
    "kit": "kay-dun-1",
@@ -77650,16 +77512,10 @@
     "cork",
     "halloween",
     "kay",
-    "liquid"
+    "liquid",
+    "scale-big"
    ],
-   "variant": "v194",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.43 over max 0.35 (obj-container-bottle-vial)"
-    }
-   ]
+   "variant": "v194"
   },
   {
    "kit": "kay-dun-1",
@@ -77709,16 +77565,10 @@
     "cork",
     "halloween",
     "kay",
-    "liquid"
+    "liquid",
+    "scale-big"
    ],
-   "variant": "v194",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.43 over max 0.35 (obj-container-bottle-vial)"
-    }
-   ]
+   "variant": "v194"
   },
   {
    "kit": "kay-dun-1",
@@ -89687,24 +89537,17 @@
    "vpt": 0.9,
    "grad": 0.88,
    "spread": {
-    "2,0": [
+    "8,0": [
      0.094,
      0.977
     ]
    },
    "colors": [
-    "#8b5936"
+    "#7f3927"
    ],
    "tags": [
     "food",
     "kay"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "— wants sienna, has chestnut (obj-food-meat)"
-    }
    ]
   },
   {
@@ -99623,14 +99466,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "variant": "v353",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
-    }
-   ]
+   "variant": "v353"
   },
   {
    "kit": "kay-hallow",
@@ -108029,14 +107865,7 @@
     "liquid",
     "plural"
    ],
-   "variant": "v851",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "liquid wants sienna hunter azure, has ivory"
-    }
-   ]
+   "variant": "v851"
   },
   {
    "kit": "kay-holiday",
@@ -108075,14 +107904,7 @@
     "kay",
     "liquid"
    ],
-   "variant": "v851",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "liquid wants sienna hunter azure, has ivory"
-    }
-   ]
+   "variant": "v851"
   },
   {
    "kit": "kay-holiday",
@@ -108462,13 +108284,6 @@
     "kay",
     "metal-iron-steel",
     "scale-small"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
-    }
    ]
   },
   {
@@ -108685,18 +108500,6 @@
    "tags": [
     "kay",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.6 over max 0.5 (obj-leisure-game-ball)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 4 wants max 3"
-    }
    ]
   },
   {
@@ -110834,14 +110637,7 @@
     "kay",
     "plastic"
    ],
-   "variant": "v724",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 7 wants max 3"
-    }
-   ]
+   "variant": "v724"
   },
   {
    "kit": "kay-mixed",
@@ -110911,14 +110707,7 @@
     "kay",
     "plastic"
    ],
-   "variant": "v724",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 7 wants max 3"
-    }
-   ]
+   "variant": "v724"
   },
   {
    "kit": "kay-mixed",
@@ -111547,14 +111336,7 @@
     "kay",
     "plastic"
    ],
-   "variant": "v1039",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.6 over max 0.5 (obj-leisure-game-ball)"
-    }
-   ]
+   "variant": "v1039"
   },
   {
    "kit": "kay-platformer",
@@ -111603,14 +111385,7 @@
     "kay",
     "plastic"
    ],
-   "variant": "v1039",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.6 over max 0.5 (obj-leisure-game-ball)"
-    }
-   ]
+   "variant": "v1039"
   },
   {
    "kit": "kay-platformer",
@@ -143184,14 +142959,8 @@
    "tags": [
     "foliage",
     "food",
-    "ken"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.43 over max 0.3 (obj-food-vegetable-root-carrot)"
-    }
+    "ken",
+    "scale-big"
    ]
   },
   {
@@ -157647,14 +157416,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v519",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v519"
   },
   {
    "kit": "ken-holiday",
@@ -157699,14 +157461,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v519",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v519"
   },
   {
    "kit": "ken-holiday",
@@ -157757,14 +157512,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v519",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
-   ]
+   "variant": "v519"
   },
   {
    "kit": "ken-holiday",
@@ -157819,13 +157567,6 @@
     "ken",
     "wood-planks",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-window-unit)"
-    }
    ]
   },
   {
@@ -161193,13 +160934,6 @@
    "tags": [
     "ken",
     "metal"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 3.297 over max 3.1 (str-fixture-utility-tank)"
-    }
    ]
   },
   {
@@ -161299,13 +161033,6 @@
     "ken",
     "metal-iron-cast",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 4.283 over max 3.1 (str-fixture-utility-tank)"
-    }
    ]
   },
   {
@@ -164194,14 +163921,8 @@
    "tags": [
     "foliage",
     "food",
-    "ken"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.744 over max 0.3 (obj-food-vegetable-root-carrot)"
-    }
+    "ken",
+    "scale-big"
    ]
   },
   {
@@ -167566,14 +167287,8 @@
    "tags": [
     "foliage",
     "food",
-    "ken"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.793 over max 0.4 (obj-food-vegetable-root)"
-    }
+    "ken",
+    "scale-big"
    ]
   },
   {
@@ -172482,13 +172197,6 @@
     "comp",
     "ken",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
-    }
    ]
   },
   {
@@ -172530,13 +172238,6 @@
     "ken",
     "metal-iron-steel",
     "scale-small"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
-    }
    ]
   },
   {
@@ -198424,17 +198125,9 @@
    "tags": [
     "comp",
     "ken",
-    "metal-iron-cast",
     "metal-iron-steel",
     "sailing",
     "tba"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-cast wants slate, has nickel sienna"
-    }
    ]
   },
   {
@@ -202898,7 +202591,7 @@
    "vpt": 1.11,
    "grad": 0,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.945,
      0.945
     ],
@@ -202909,18 +202602,11 @@
    },
    "colors": [
     "#82868e",
-    "#dbae80"
+    "#8b5936"
    ],
    "tags": [
     "metal-iron-steel",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-beam, has wood-planks (obj-equipment-tool-twohand)"
-    }
+    "wood-beam"
    ]
   },
   {
@@ -206913,7 +206599,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone"
+    "shell"
    ],
    "variant": "v128"
   },
@@ -206956,7 +206642,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone"
+    "shell"
    ],
    "variant": "v128"
   },
@@ -206999,7 +206685,7 @@
     "#d8d1bd"
    ],
    "tags": [
-    "bone"
+    "shell"
    ],
    "variant": "v128"
   },
@@ -217640,14 +217326,7 @@
     "food",
     "qua"
    ],
-   "variant": "v384",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 5 wants max 3"
-    }
-   ]
+   "variant": "v384"
   },
   {
    "kit": "quat-food",
@@ -223790,14 +223469,14 @@
     "#82868e"
    ],
    "tags": [
-    "bone",
-    "qua"
+    "qua",
+    "shell"
    ],
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "bone wants ivory, has nickel"
+     "text": "shell wants terracotta ivory, has nickel"
     }
    ]
   },
@@ -223835,14 +223514,14 @@
     "#8b7561"
    ],
    "tags": [
-    "bone",
-    "qua"
+    "qua",
+    "shell"
    ],
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "bone wants ivory, has taupe"
+     "text": "shell wants terracotta ivory, has taupe"
     }
    ]
   },
@@ -223880,14 +223559,14 @@
     "#68872d"
    ],
    "tags": [
-    "bone",
-    "qua"
+    "qua",
+    "shell"
    ],
    "lint": [
     {
      "level": "error",
      "check": "palette",
-     "text": "bone wants ivory, has moss"
+     "text": "shell wants terracotta ivory, has moss"
     }
    ]
   },
@@ -223925,15 +223604,8 @@
     "#d07b56"
    ],
    "tags": [
-    "bone",
-    "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "bone wants ivory, has terracotta"
-    }
+    "qua",
+    "shell"
    ]
   },
   {
@@ -274895,13 +274567,6 @@
    "tags": [
     "metal-iron-steel",
     "sidequest"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
-    }
    ]
   },
   {
@@ -283013,13 +282678,6 @@
    "tags": [
     "styloo",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.453 over max 0.45 (obj-kitchenware-tableware-serving)"
-    }
    ]
   },
   {
