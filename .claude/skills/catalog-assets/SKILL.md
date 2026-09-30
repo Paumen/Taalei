@@ -205,4 +205,6 @@ nothing outside the set you meant to touch was written.
 
 It rebuilds only the packs whose source zips, workfiles, preview colours,
 rejects or tooling changed; the rest come from `kits/.cache`. `--force`
-rebuilds every pack.
+rebuilds every pack. `build-catalog.mjs` likewise re-measures only the
+workfiles whose file, colormap or tooling changed; delete
+`kits/.cache/build-catalog.json` to measure all of them.
