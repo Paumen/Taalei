@@ -15645,11 +15645,19 @@
    "parent": "stone"
   },
   {
+   "id": "stone-asphalt",
+   "name": "Asphalt",
+   "type": "material",
+   "description": "Asphalt road surface: the carriageway of roads, crossings and car parks. Kerbs and pavement stay stone-masonry.",
+   "count": 18,
+   "parent": "stone"
+  },
+  {
    "id": "stone-soil",
    "name": "Soil",
    "type": "material",
    "description": "Loose ground and loose dirt: dirt patches, dirt floors and tiles, farm fields, the soil filling a plant pot. Sand is stone-sand; laid paving is stone-masonry.",
-   "count": 62,
+   "count": 66,
    "parent": "stone"
   },
   {
@@ -15686,7 +15694,7 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 435
+   "count": 463
   },
   {
    "id": "ceramic",
@@ -15713,8 +15721,8 @@
    "id": "bone",
    "name": "Bone",
    "type": "material",
-   "description": "Bone as bone: loose bones, ribcages, skulls, and the bone in a joint of meat.",
-   "count": 102
+   "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat, and seashells.",
+   "count": 111
   },
   {
    "id": "food",
@@ -39388,16 +39396,10 @@
     "#d8d1bd"
    ],
    "tags": [
+    "bone",
     "fs"
    ],
-   "variant": "v36",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
-   ]
+   "variant": "v36"
   },
   {
    "kit": "fs-terrain",
@@ -39434,14 +39436,15 @@
     "#d07b56"
    ],
    "tags": [
+    "bone",
     "fs"
    ],
    "variant": "v36",
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
+     "check": "palette",
+     "text": "bone wants ivory, has terracotta"
     }
    ]
   },
@@ -55272,11 +55275,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×0.69 off the size curve (isa-homely, 7 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -55358,11 +55356,6 @@
      "level": "error",
      "check": "size",
      "text": "kit ×0.69 off the size curve (isa-homely, 7 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72036,11 +72029,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72122,11 +72110,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72206,11 +72189,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72292,11 +72270,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72376,11 +72349,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72471,7 +72439,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -72551,11 +72519,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72645,7 +72608,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -72802,7 +72765,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -72882,11 +72845,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -72956,25 +72914,14 @@
     "#f2a93c"
    ],
    "tags": [
+    "foliage",
     "glass",
     "kay",
     "stone-masonry",
     "storeys-3",
     "textile"
    ],
-   "variant": "v937",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v937"
   },
   {
    "kit": "kay-city",
@@ -73053,11 +73000,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -73148,7 +73090,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -73228,11 +73170,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -73314,11 +73251,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -73910,6 +73842,7 @@
    "tags": [
     "kay",
     "plastic",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -73965,6 +73898,7 @@
    "tags": [
     "kay",
     "plastic",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -74020,6 +73954,7 @@
    "tags": [
     "kay",
     "plastic",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -74075,6 +74010,7 @@
    "tags": [
     "kay",
     "plastic",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -74130,6 +74066,7 @@
    "tags": [
     "kay",
     "plastic",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -74185,6 +74122,7 @@
    "tags": [
     "kay",
     "plastic",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -102038,7 +101976,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -102115,13 +102053,6 @@
     "storeys-2",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -102255,14 +102186,7 @@
     "SmokeLoop"
    ],
    "alpha": true,
-   "variant": "v896",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v896"
   },
   {
    "kit": "kay-hexagon",
@@ -102338,14 +102262,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v896",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v896"
   },
   {
    "kit": "kay-hexagon",
@@ -104417,14 +104334,7 @@
     "idle",
     "crane_cycle"
    ],
-   "variant": "v963",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v963"
   },
   {
    "kit": "kay-hexagon",
@@ -104502,14 +104412,7 @@
     "wood-log",
     "wood-worked"
    ],
-   "variant": "v963",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v963"
   },
   {
    "kit": "kay-hexagon",
@@ -104669,7 +104572,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -105442,13 +105345,6 @@
     "textile",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -105611,14 +105507,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v503",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v503"
   },
   {
    "kit": "kay-hexagon",
@@ -105691,14 +105580,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v503",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v503"
   },
   {
    "kit": "kay-hexagon",
@@ -105834,13 +105716,6 @@
     "textile",
     "wood-beam",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -106971,7 +106846,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -107060,7 +106935,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -113285,11 +113160,6 @@
      "level": "error",
      "check": "mat",
      "text": "— needs textile, has metal-iron-cast plastic (str-fixture-marker-flag)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal-iron-cast plastic (str-fixture-marker-flag)"
     }
    ]
   },
@@ -113342,11 +113212,6 @@
      "level": "error",
      "check": "mat",
      "text": "— needs textile, has metal-iron-cast plastic (str-fixture-marker-flag)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal-iron-cast plastic (str-fixture-marker-flag)"
     }
    ]
   },
@@ -113399,11 +113264,6 @@
      "level": "error",
      "check": "mat",
      "text": "— needs textile, has metal-iron-cast plastic (str-fixture-marker-flag)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal-iron-cast plastic (str-fixture-marker-flag)"
     }
    ]
   },
@@ -137116,23 +136976,13 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
+    "stone-soil",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -137205,22 +137055,19 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
+    "stone-soil",
     "storeys-3"
    ],
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 8 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -137361,22 +137208,19 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
+    "stone-soil",
     "storeys-4"
    ],
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 8 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -137526,11 +137370,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -137667,23 +137506,13 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
+    "stone-soil",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -137763,11 +137592,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -138289,11 +138113,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -138374,11 +138193,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -161332,11 +161146,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -161417,11 +161226,6 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
     }
    ]
   },
@@ -161816,23 +161620,12 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -161906,6 +161699,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
@@ -161916,12 +161710,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 8 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 8 wants max 6"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -162326,23 +162115,12 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -162610,23 +162388,12 @@
     "#d8d1bd"
    ],
    "tags": [
+    "foliage",
     "glass",
     "ken",
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -175879,11 +175646,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×0.79 off the size curve (ken-racing, 11 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal textile (str-fixture-marker-flag)"
     }
    ]
   },
@@ -175942,11 +175704,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×0.79 off the size curve (ken-racing, 11 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal textile (str-fixture-marker-flag)"
     }
    ]
   },
@@ -176005,11 +175762,6 @@
      "level": "warning",
      "check": "size",
      "text": "kit ×0.79 off the size curve (ken-racing, 11 kinds)"
-    },
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "— needs wood, has metal textile (str-fixture-marker-flag)"
     }
    ]
   },
@@ -179021,14 +178773,8 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -179083,14 +178829,8 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    }
    ]
   },
   {
@@ -179140,16 +178880,10 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
    ],
-   "variant": "v989",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "v989"
   },
   {
    "kit": "ken-roads",
@@ -179198,14 +178932,8 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -179260,14 +178988,8 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    }
    ]
   },
   {
@@ -179317,14 +179039,8 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -179374,14 +179090,8 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -179431,16 +179141,10 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
    ],
-   "variant": "v990",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "v990"
   },
   {
    "kit": "ken-roads",
@@ -179489,16 +179193,10 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
    ],
-   "variant": "v990",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "v990"
   },
   {
    "kit": "ken-roads",
@@ -179547,6 +179245,7 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
    ],
    "lint": [
@@ -179554,11 +179253,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 6.001 over max 5 (str-access-road)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
     }
    ]
   },
@@ -179983,6 +179677,7 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
    ]
   },
@@ -180033,16 +179728,10 @@
    ],
    "tags": [
     "ken",
+    "stone-asphalt",
     "stone-masonry"
    ],
-   "variant": "v989",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "v989"
   },
   {
    "kit": "ken-roads",
@@ -188388,22 +188077,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-1-5"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -188473,22 +188151,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -188557,22 +188224,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -188641,22 +188297,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -188726,22 +188371,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -188810,22 +188444,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -188894,22 +188517,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189045,22 +188657,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189197,22 +188798,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189282,22 +188872,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189366,22 +188945,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-1"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189451,22 +189019,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189535,22 +189092,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189620,22 +189166,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189705,22 +189240,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189789,22 +189313,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189873,22 +189386,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -189958,22 +189460,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -190042,22 +189533,11 @@
    ],
    "tags": [
     "ceramic",
+    "foliage",
     "glass",
     "ken",
     "stone-masonry",
     "storeys-2"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -209471,14 +208951,10 @@
     "#8b7561",
     "#d8d1bd"
    ],
-   "variant": "v128",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
-   ]
+   "tags": [
+    "bone"
+   ],
+   "variant": "v128"
   },
   {
    "kit": "natuur",
@@ -209518,14 +208994,10 @@
     "#d07b56",
     "#d8d1bd"
    ],
-   "variant": "v128",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
-   ]
+   "tags": [
+    "bone"
+   ],
+   "variant": "v128"
   },
   {
    "kit": "natuur",
@@ -209565,14 +209037,10 @@
     "#82868e",
     "#d8d1bd"
    ],
-   "variant": "v128",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
-   ]
+   "tags": [
+    "bone"
+   ],
+   "variant": "v128"
   },
   {
    "kit": "natuur",
@@ -227565,13 +227033,14 @@
     "#82868e"
    ],
    "tags": [
+    "bone",
     "qua"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
+     "check": "palette",
+     "text": "bone wants ivory, has nickel"
     }
    ]
   },
@@ -227609,13 +227078,14 @@
     "#8b7561"
    ],
    "tags": [
+    "bone",
     "qua"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
+     "check": "palette",
+     "text": "bone wants ivory, has taupe"
     }
    ]
   },
@@ -227653,13 +227123,14 @@
     "#68872d"
    ],
    "tags": [
+    "bone",
     "qua"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
+     "check": "palette",
+     "text": "bone wants ivory, has moss"
     }
    ]
   },
@@ -227697,13 +227168,14 @@
     "#d07b56"
    ],
    "tags": [
+    "bone",
     "qua"
    ],
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
+     "check": "palette",
+     "text": "bone wants ivory, has terracotta"
     }
    ]
   },
@@ -304122,13 +303594,6 @@
     "wizp",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
    ]
   },
   {

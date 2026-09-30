@@ -84,7 +84,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 
 - Most materials force the band: `wood-planks` is tan, `wood-beam` chestnut,
   `metal-iron-steel` nickel, `metal-iron-cast` slate, `metal-gold` amber,
-  `stone-masonry` and `stone-rock` taupe or taupe-dark. Pick
+  `stone-masonry` and `stone-rock` taupe or taupe-dark, `stone-asphalt` basalt. Pick
   the material by the band you want, not the other way round.
 - `azure` is admitted only by `liquid`, `gemstone` and bare `metal`. A blue
   cloth or a blue roof has no legal home.
@@ -105,7 +105,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 
 `lint/measures.json` caps bands at `nmat × 2` (G11; `nmat × 3` for food, fauna
 and plastic, G12), at the kind's `bands.max` (5 unless the kind in
-`lint/kinds.json` raises it) for most models and 6 for `size:l` (G13, G15), and size is measured on the longest extent against
+`lint/kinds.json` raises it) for most models, 6 for `size:l` (G13, G15) and 7 for `size:l` buildings (G17), and size is measured on the longest extent against
 `lint/variables.json` (`s` ≤ 0.5, `m` ≤ 1.5, `l` above). `tag:plural` and
 `kind:set` are exempt. A model over its budget is a model to drop, not to
 bend the lint around.
