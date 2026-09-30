@@ -304,6 +304,9 @@
        "id": "obj-container-cargo",
        "longest.min": 1.35,
        "longest.max": 2,
+       "scale": {
+        "small": 0.5
+       },
        "nouns": [
         "shipping container",
         "cargo container"
@@ -846,7 +849,7 @@
         },
         {
          "id": "obj-food-fruit-coconut",
-         "longest.min": 0.15,
+         "longest.min": 0.135,
          "longest.max": 0.35,
          "nouns": [
           "coconut"
@@ -1688,7 +1691,7 @@
            "id": "obj-equipment-tool-twohand-rod",
            "tube.min": 0.006,
            "longest.min": 0.6,
-           "longest.max": 1.1,
+           "longest.max": 1.12,
            "nouns": [
             "fishing rod"
            ]
@@ -1741,6 +1744,10 @@
          "tube.min": 0.006,
          "longest.min": 0.08,
          "longest.max": 0.5,
+         "mat.metal": [
+          "metal-iron",
+          "metal-gold"
+         ],
          "nouns": [
           "pencil",
           "pen",
@@ -1884,7 +1891,7 @@
           {
            "id": "obj-transport-land-cart-small",
            "longest.min": 0.4,
-           "longest.max": 0.9,
+           "longest.max": 0.95,
            "nouns": [
             "wheelbarrow",
             "sled",
@@ -1898,6 +1905,7 @@
          "id": "obj-transport-land-road",
          "longest.min": 1.05,
          "longest.max": 1.7,
+         "bands.max": 6,
          "nouns": [
           "car",
           "truck",
@@ -2462,7 +2470,7 @@
         {
          "id": "obj-device-electronics-arcade",
          "longest.min": 0.45,
-         "longest.max": 0.95,
+         "longest.max": 1.05,
          "nouns": [
           "arcade machine",
           "pinball",
@@ -2727,6 +2735,9 @@
          "id": "str-part-door-trapdoor",
          "longest.min": 0.35,
          "longest.max": 0.75,
+         "scale": {
+          "big": 2
+         },
          "nouns": [
           "trapdoor",
           "hatch"
@@ -2762,7 +2773,7 @@
         {
          "id": "str-part-gate-gateway",
          "high.min": 0.7,
-         "high.max": 2.15,
+         "high.max": 2.2,
          "nouns": [
           "gateway",
           "torii"
@@ -3236,6 +3247,9 @@
          "id": "str-access-bridge-section",
          "longest.min": 0.75,
          "longest.max": 1.8,
+         "scale": {
+          "big": 1.5
+         },
          "nouns": [
           "bridge section"
          ]
@@ -4092,6 +4106,7 @@
    "band.textile": [
     "ivory",
     "hunter",
+    "taupe",
     "sienna"
    ],
    "nouns": [
