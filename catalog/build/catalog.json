@@ -15545,7 +15545,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 585
+   "count": 602
   },
   {
    "id": "metal-iron",
@@ -15709,7 +15709,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 598
+   "count": 600
   },
   {
    "id": "leather",
@@ -15744,7 +15744,7 @@
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 62
+   "count": 63
   },
   {
    "id": "bone",
@@ -15829,7 +15829,7 @@
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 194
+   "count": 195
   },
   {
    "id": "skin",
@@ -46725,13 +46725,6 @@
     "special"
    ],
    "variant": "v309",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
-   ],
    "mark": [
     "grounded"
    ]
@@ -46780,11 +46773,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
     }
    ]
   },
@@ -49658,7 +49646,7 @@
    "tris": 2238,
    "tpu": 6525,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 4,
    "bytes": 112872,
    "vtx": 2592,
@@ -49669,19 +49657,15 @@
    "avgTri": 0.00034,
    "anglePct": 91,
    "vpt": 1.16,
-   "grad": 0.62,
+   "grad": 0.72,
    "spread": {
     "15,3": [
      0.016,
-     0.773
+     0.914
     ],
     "13,3": [
      0.461,
      0.547
-    ],
-    "6,1": [
-     0.914,
-     0.914
     ],
     "6,0": [
      0.313,
@@ -49693,7 +49677,6 @@
     ]
    },
    "colors": [
-    "#343745",
     "#5b5550",
     "#68872d",
     "#82868e",
@@ -49713,14 +49696,7 @@
     "crank_turn",
     "ka_ching"
    ],
-   "variant": "v966",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "variant": "v966"
   },
   {
    "kit": "isa-bakery",
@@ -63351,14 +63327,8 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
+    "metal-iron-steel",
+    "rubber"
    ]
   },
   {
@@ -72048,18 +72018,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-2",
     "textile"
    ],
-   "variant": "v932",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v932"
   },
   {
    "kit": "kay-city",
@@ -72129,6 +72093,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -72200,18 +72165,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-2",
     "textile"
    ],
-   "variant": "v933",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v933"
   },
   {
    "kit": "kay-city",
@@ -72281,6 +72240,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -72352,18 +72312,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-3",
     "textile"
    ],
-   "variant": "v934",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v934"
   },
   {
    "kit": "kay-city",
@@ -72438,6 +72392,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -72509,18 +72464,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-3",
     "textile"
    ],
-   "variant": "v935",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v935"
   },
   {
    "kit": "kay-city",
@@ -72594,6 +72543,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -72738,6 +72688,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -72809,18 +72760,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-3",
     "textile"
    ],
-   "variant": "v937",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v937"
   },
   {
    "kit": "kay-city",
@@ -72963,18 +72908,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-3",
     "textile"
    ],
-   "variant": "v938",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v938"
   },
   {
    "kit": "kay-city",
@@ -73049,6 +72988,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -73120,18 +73060,12 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "storeys-4",
     "textile"
    ],
-   "variant": "v939",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "variant": "v939"
   },
   {
    "kit": "kay-city",
@@ -73201,6 +73135,7 @@
    "tags": [
     "glass",
     "kay",
+    "metal",
     "stone-masonry",
     "textile"
    ],
@@ -108765,7 +108700,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0122,
    "avgTri": 0.00019,
    "anglePct": 21,
    "vpt": 0.97,
@@ -108788,13 +108722,6 @@
     "kay",
     "metal-iron-cast",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
-    }
    ]
   },
   {
@@ -129877,14 +129804,8 @@
    "tags": [
     "glass",
     "ken",
+    "metal",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
    ]
   },
   {
@@ -129944,14 +129865,8 @@
    "tags": [
     "glass",
     "ken",
+    "metal",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
    ]
   },
   {
@@ -137258,7 +137173,7 @@
    "tris": 1502,
    "tpu": 163,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 67924,
    "vtx": 1794,
@@ -137288,10 +137203,6 @@
      0.445,
      0.445
     ],
-    "13,3": [
-     0.148,
-     0.148
-    ],
     "4,2": [
      0.445,
      0.445
@@ -137305,7 +137216,6 @@
     "#1367a6",
     "#343745",
     "#42362c",
-    "#5b5550",
     "#7f3927",
     "#82868e",
     "#d8d1bd"
@@ -137316,13 +137226,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -137481,7 +137384,7 @@
    "tris": 2897,
    "tpu": 126,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 129664,
    "vtx": 3461,
@@ -137501,10 +137404,6 @@
     "6,1": [
      0.148,
      0.75
-    ],
-    "13,3": [
-     0.148,
-     0.148
     ],
     "12,3": [
      0.148,
@@ -137527,7 +137426,6 @@
     "#1367a6",
     "#343745",
     "#42362c",
-    "#5b5550",
     "#82868e",
     "#d8d1bd",
     "#f2a93c"
@@ -137538,13 +137436,6 @@
     "metal",
     "stone-masonry",
     "storeys-3"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -138002,7 +137893,7 @@
    "tris": 1689,
    "tpu": 29,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 84088,
    "vtx": 2263,
@@ -138038,15 +137929,10 @@
     "6,0": [
      0.172,
      0.727
-    ],
-    "1,1": [
-     0.156,
-     0.734
     ]
    },
    "colors": [
     "#1367a6",
-    "#23562c",
     "#343745",
     "#42362c",
     "#82868e",
@@ -138059,13 +137945,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -138082,7 +137961,7 @@
    "tris": 1880,
    "tpu": 24,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 95312,
    "vtx": 2578,
@@ -138118,15 +137997,10 @@
     "6,0": [
      0.148,
      0.75
-    ],
-    "1,1": [
-     0.156,
-     0.734
     ]
    },
    "colors": [
     "#1367a6",
-    "#23562c",
     "#343745",
     "#42362c",
     "#82868e",
@@ -138139,13 +138013,6 @@
     "metal",
     "stone-masonry",
     "storeys-5"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -160462,14 +160329,8 @@
    "tags": [
     "hero",
     "ken",
+    "textile",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    }
    ]
   },
   {
@@ -161208,7 +161069,7 @@
    "tris": 1933,
    "tpu": 49,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 83828,
    "vtx": 2209,
@@ -161219,7 +161080,7 @@
    "avgTri": 0.03301,
    "anglePct": 78,
    "vpt": 1.14,
-   "grad": 0.57,
+   "grad": 0.58,
    "spread": {
     "5,2": [
      0.148,
@@ -161235,10 +161096,6 @@
     ],
     "6,1": [
      0.148,
-     0.656
-    ],
-    "13,3": [
-     0.75,
      0.75
     ],
     "8,0": [
@@ -161254,7 +161111,6 @@
     "#1367a6",
     "#343745",
     "#42362c",
-    "#5b5550",
     "#7f3927",
     "#82868e",
     "#d8d1bd"
@@ -161265,13 +161121,6 @@
     "metal",
     "stone-masonry",
     "storeys-4"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
    ]
   },
   {
@@ -164076,14 +163925,8 @@
    "tags": [
     "glass",
     "ken",
+    "metal",
     "stone-masonry"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
    ]
   },
   {
@@ -226005,14 +225848,8 @@
    ],
    "tags": [
     "qua",
+    "vegetation",
     "wood-bark"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -237466,7 +237303,7 @@
    "tris": 853,
    "tpu": 1,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 51240,
    "vtx": 1398,
@@ -237482,10 +237319,6 @@
      0.492,
      0.492
     ],
-    "8,0": [
-     0.5,
-     0.5
-    ],
     "13,3": [
      0.5,
      0.5
@@ -237493,20 +237326,12 @@
    },
    "colors": [
     "#5b5550",
-    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
     "metal-iron-wrought",
     "qua",
     "scale-big"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
@@ -255392,7 +255217,7 @@
    "size": "s",
    "wdh": [
     0.46,
-    0.211,
+    0.212,
     0.192
    ],
    "tris": 972,
@@ -255400,14 +255225,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 31804,
+   "bytes": 31824,
    "vtx": 767,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0238,
-   "avgTri": 0.0009,
-   "anglePct": 84,
+   "minTube": 0.0265,
+   "avgTri": 0.00092,
+   "anglePct": 83,
    "vpt": 0.79,
    "grad": 0.96,
    "spread": {
@@ -255422,13 +255247,6 @@
    "tags": [
     "rgp",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0238 wants min 0.026"
-    }
    ]
   },
   {
@@ -255629,7 +255447,7 @@
    "size": "s",
    "wdh": [
     0.09,
-    0.052,
+    0.053,
     0.086
    ],
    "tris": 608,
@@ -255642,9 +255460,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0111,
+   "minTube": 0.0122,
    "avgTri": 0.00003,
-   "anglePct": 57,
+   "anglePct": 56,
    "vpt": 0.85,
    "grad": 0.96,
    "spread": {
@@ -255659,13 +255477,6 @@
    "tags": [
     "plastic",
     "rgp"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0111 wants min 0.012"
-    }
    ]
   },
   {
@@ -255688,7 +255499,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0111,
+   "minTube": 0.0122,
    "avgTri": 0.00005,
    "anglePct": 10,
    "vpt": 1.22,
@@ -255717,14 +255528,7 @@
     "rgp",
     "rope"
    ],
-   "variant": "v1144",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0111 wants min 0.012"
-    }
-   ]
+   "variant": "v1144"
   },
   {
    "kit": "rgp-explosives",
@@ -257183,9 +256987,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0241,
-   "avgTri": 0.00034,
-   "anglePct": 1,
+   "minTube": 0.0265,
+   "avgTri": 0.00036,
+   "anglePct": 2,
    "vpt": 0.88,
    "grad": 0.74,
    "spread": {
@@ -257212,13 +257016,6 @@
     "rope",
     "vegetation",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -257291,9 +257088,9 @@
    "vtx": 783,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.0241,
-   "avgTri": 0.00147,
+   "minEdge": 0.013,
+   "minTube": 0.0265,
+   "avgTri": 0.0015,
    "anglePct": 9,
    "vpt": 1,
    "grad": 0.86,
@@ -257327,11 +257124,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.849 over max 0.75 (obj-furnishing-light-campfire)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
     }
    ]
   },
@@ -257723,7 +257515,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0241,
+   "minTube": 0.0265,
    "avgTri": 0.00684,
    "anglePct": 100,
    "vpt": 1.16,
@@ -257752,13 +257544,6 @@
     "rgp",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -257832,7 +257617,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0249,
+   "minTube": 0.0264,
    "avgTri": 0.00681,
    "anglePct": 68,
    "vpt": 1.29,
@@ -257867,11 +257652,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 1.114 over max 1.1 (str-part-door-single)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0249 wants min 0.026"
     }
    ]
   },
@@ -258056,8 +257836,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0241,
-   "avgTri": 0.00054,
+   "minTube": 0.0265,
+   "avgTri": 0.00055,
    "anglePct": 31,
    "vpt": 2.15,
    "grad": 0.3,
@@ -258086,11 +257866,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.739 under min 0.75 (str-part-frame)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
     }
    ]
   },
@@ -258109,12 +257884,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14996,
+   "bytes": 14992,
    "vtx": 359,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0241,
+   "minTube": 0.0265,
    "avgTri": 0.00866,
    "anglePct": 0,
    "vpt": 1.04,
@@ -258132,13 +257907,6 @@
     "broken",
     "rgp",
     "wood-bark"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -258817,8 +258585,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0241,
-   "avgTri": 0.00067,
+   "minTube": 0.0265,
+   "avgTri": 0.00068,
    "anglePct": 28,
    "vpt": 1.11,
    "grad": 0.42,
@@ -258846,13 +258614,6 @@
     "rgp",
     "rope",
     "wood-bark"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -259501,7 +259262,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0241,
+   "minTube": 0.0348,
    "avgTri": 0.04264,
    "anglePct": 62,
    "vpt": 1.18,
@@ -259542,13 +259303,6 @@
     "storeys-1-5",
     "vegetation",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -259571,7 +259325,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0241,
+   "minTube": 0.0265,
    "avgTri": 0.00806,
    "anglePct": 58,
    "vpt": 1.33,
@@ -259613,13 +259367,6 @@
     "vegetation",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -260287,7 +260034,7 @@
    "wdh": [
     0.265,
     0.221,
-    0.167
+    0.168
    ],
    "tris": 366,
    "tpu": 1067,
@@ -260299,8 +260046,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.024,
-   "avgTri": 0.0002,
+   "minTube": 0.0265,
+   "avgTri": 0.00021,
    "anglePct": 8,
    "vpt": 0.63,
    "grad": 0,
@@ -260327,13 +260074,6 @@
     "plural",
     "rgp",
     "vegetation"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.024 wants min 0.026"
-    }
    ]
   },
   {
@@ -260553,7 +260293,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0241,
+   "minTube": 0.0265,
    "avgTri": 0.00581,
    "anglePct": 9,
    "vpt": 0.97,
@@ -260571,13 +260311,6 @@
     "broken",
     "rgp",
     "wood-bark"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -262468,8 +262201,8 @@
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
    "wdh": [
-    0.032,
-    0.033,
+    0.035,
+    0.036,
     0.462
    ],
    "tris": 60,
@@ -262477,14 +262210,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7504,
+   "bytes": 7500,
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0241,
-   "avgTri": 0.00061,
-   "anglePct": 80,
+   "minEdge": 0.009,
+   "minTube": 0.0265,
+   "avgTri": 0.00067,
+   "anglePct": 77,
    "vpt": 3,
    "grad": 0.44,
    "spread": {
@@ -262499,13 +262232,6 @@
    "tags": [
     "rgp",
     "rope"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -262795,8 +262521,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0241,
-   "avgTri": 0.00084,
+   "minTube": 0.0265,
+   "avgTri": 0.00085,
    "anglePct": 12,
    "vpt": 1.11,
    "grad": 0.86,
@@ -262818,13 +262544,6 @@
     "metal-iron-steel",
     "rgp",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -266568,14 +266287,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 43224,
+   "bytes": 43228,
    "vtx": 1034,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0241,
-   "avgTri": 0.00032,
-   "anglePct": 72,
+   "minTube": 0.0265,
+   "avgTri": 0.00033,
+   "anglePct": 71,
    "vpt": 0.71,
    "grad": 0.96,
    "spread": {
@@ -266590,13 +266309,6 @@
    "tags": [
     "rgp",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -266643,8 +266355,8 @@
    "kind": "obj-device-science-astro",
    "size": "s",
    "wdh": [
-    0.237,
-    0.237,
+    0.24,
+    0.24,
     0.296
    ],
    "tris": 3092,
@@ -266658,8 +266370,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.024,
-   "avgTri": 0.00008,
+   "minTube": 0.0265,
+   "avgTri": 0.00009,
    "anglePct": 26,
    "vpt": 0.76,
    "grad": 0.96,
@@ -266688,13 +266400,6 @@
     "paper",
     "rgp",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.024 wants min 0.026"
-    }
    ]
   },
   {
@@ -266827,7 +266532,7 @@
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
    "wdh": [
-    0.046,
+    0.047,
     0.068,
     0.009
    ],
@@ -266836,12 +266541,12 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 41860,
+   "bytes": 41880,
    "vtx": 980,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0055,
+   "minTube": 0.0061,
    "avgTri": 0,
    "anglePct": 0,
    "vpt": 0.65,
@@ -266860,13 +266565,6 @@
     "pickup",
     "plural",
     "rgp"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0055 wants min 0.006"
-    }
    ]
   },
   {
@@ -267017,7 +266715,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0241,
+   "minTube": 0.0265,
    "avgTri": 0.00026,
    "anglePct": 3,
    "vpt": 0.69,
@@ -267040,13 +266738,6 @@
     "rgp",
     "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0241 wants min 0.026"
-    }
    ]
   },
   {
@@ -279039,14 +278730,8 @@
    ],
    "tags": [
     "sidequest",
+    "textile",
     "wood-worked"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
    ]
   },
   {
