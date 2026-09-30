@@ -139,7 +139,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
 
-Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09` and `G11`–`G15` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness).
+Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15` and `G17` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness).
 
 `minTube` is the diameter of the model's thinnest tube, in catalogue units; a model with no tube records none and `G27` passes it. A tube is a part (shells welded on shared positions) whose every slice across its main axis is a ring of at least five directions around the slice's own centre, no rim vertex more than 2.5 times as far out as another, and at least 2.5 diameters long; a curved stalk counts. Its diameter is twice the median slice radius, measured after the node transform.
 
