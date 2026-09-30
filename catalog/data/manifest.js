@@ -6843,13 +6843,10 @@ window.KENNEY_KITS = [
   "url": "https://thesidequestshop.itch.io/",
   "licenseLabel": "CC0 1.0",
   "models": [
-   "binder-closed",
-   "binder-open",
    "booster-display",
    "deck-box",
    "display-easel",
    "display-tower",
-   "elite-box",
    "gacha-machine",
    "glass-counter",
    "graded-slab",
