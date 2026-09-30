@@ -11,7 +11,6 @@ const CFG = {
   checkPlacement: true,      // false for modular kits with corner pivots (walls, floors)
   degenerateWarn: 0.01,      // share of triangles
   doubledWarn: 0.01,
-  openEdgeWarn: 0.05,
   nonManifoldWarn: 0.02,
   ruleAgreeMin: 0.9,         // below this: "no single soft/sharp rule"
   densityLow: 150,           // triangles per m² of surface
@@ -108,9 +107,9 @@ function analysePrim(P, N, I) {
     }
   }
   let doubled = 0; for (const c of triKeys.values()) if (c > 1) doubled += c;
-  let open = 0, nonMan = 0; const folds = [];
+  let nonMan = 0; const folds = [];
   for (const L of edges.values()) {
-    if (L.length === 1) open++; else if (L.length > 2) nonMan++;
+    if (L.length > 2) nonMan++;
     if (L.length !== 2) continue;
     const [e1, e2] = L, fold = deg(dot(fn[e1.f], fn[e2.f]));
     if (fold < 0.5) continue;
@@ -120,7 +119,7 @@ function analysePrim(P, N, I) {
     folds.push([fold, d > 0.02]);
   }
   const used = new Set(); for (let v = 0; v < nv; v++) used.add(find(weld[v]));
-  return { nt, nv, uniq: keys.size, zeroN, degen, flat, surf, doubled, open, nonMan, edges: edges.size, folds, parts: used.size };
+  return { nt, nv, uniq: keys.size, zeroN, degen, flat, surf, doubled, nonMan, edges: edges.size, folds, parts: used.size };
 }
 
 function bestRule(folds) {
@@ -163,7 +162,7 @@ async function lint(file) {
   if ((j.animations || []).length) add('info', 'structure', `${j.animations.length} animation(s): ${j.animations.map(a => a.name).join(', ')}`);
 
   let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity], rawExt = 0;
-  const T = { nt: 0, nv: 0, uniq: 0, zeroN: 0, degen: 0, flat: 0, surf: 0, doubled: 0, open: 0, nonMan: 0, edges: 0, parts: 0 }, folds = [];
+  const T = { nt: 0, nv: 0, uniq: 0, zeroN: 0, degen: 0, flat: 0, surf: 0, doubled: 0, nonMan: 0, edges: 0, parts: 0 }, folds = [];
   for (let ni = 0; ni < nodes.length; ni++) {
     if (!('mesh' in nodes[ni])) continue;
     const W = world(ni), NM = normalMat(W);
@@ -199,7 +198,6 @@ async function lint(file) {
   if (T.zeroN) add('error', 'shading', `${T.zeroN} zero-length normals (black specks / broken light)`);
   if (T.degen / T.nt > CFG.degenerateWarn) add('warn', 'geometry', `${pct(T.degen / T.nt)} triangles with no area`);
   if (T.doubled / T.nt > CFG.doubledWarn) add('warn', 'geometry', `${pct(T.doubled / T.nt)} triangles doubled back-to-back (flicker)`);
-  if (T.open / T.edges > CFG.openEdgeWarn) add('warn', 'geometry', `${pct(T.open / T.edges)} open edges (holes / not closed)`);
   if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('warn', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
   const rule = bestRule(folds);
