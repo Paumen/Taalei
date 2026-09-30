@@ -72,7 +72,7 @@
         {
          "id": "obj-container-barrel-keg",
          "longest.min": 0.2,
-         "longest.max": 0.6,
+         "longest.max": 0.65,
          "nouns": [
           "keg",
           "tapped barrel"
@@ -83,7 +83,7 @@
       {
        "id": "obj-container-bucket",
        "longest.min": 0.25,
-       "longest.max": 0.55,
+       "longest.max": 0.6,
        "mat.metal": "metal-iron",
        "has": [
         [
@@ -101,7 +101,7 @@
       {
        "id": "obj-container-crate",
        "longest.min": 0.15,
-       "longest.max": 1,
+       "longest.max": 1.05,
        "mat.metal": "metal-iron",
        "has": [
         [
@@ -124,7 +124,7 @@
         {
          "id": "obj-container-crate-cube",
          "longest.min": 0.25,
-         "longest.max": 0.6,
+         "longest.max": 0.7,
          "nouns": [
           "cube crate",
           "cube box"
@@ -226,7 +226,7 @@
         {
          "id": "obj-container-pot-vase",
          "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.max": 0.5,
          "nouns": [
           "vase"
          ]
@@ -315,7 +315,7 @@
       {
        "id": "obj-container-basket",
        "longest.min": 0.2,
-       "longest.max": 0.5,
+       "longest.max": 0.55,
        "nouns": [
         "basket"
        ]
@@ -385,6 +385,9 @@
           "ivory",
           "terracotta"
          ],
+         "scale": {
+          "small": 0.5
+         },
          "nouns": [
           "plate",
           "dish",
@@ -451,6 +454,9 @@
            "id": "obj-kitchenware-tableware-drinkware-goblet",
            "longest.min": 0.1,
            "longest.max": 0.3,
+           "scale": {
+            "big": 2
+           },
            "nouns": [
             "goblet",
             "chalice",
@@ -519,6 +525,9 @@
          "id": "obj-kitchenware-cookware-pan",
          "longest.min": 0.2,
          "longest.max": 0.5,
+         "scale": {
+          "big": 2
+         },
          "nouns": [
           "pan"
          ],
@@ -701,7 +710,7 @@
         {
          "id": "obj-food-vegetable-pumpkin",
          "longest.min": 0.15,
-         "longest.max": 0.4,
+         "longest.max": 0.5,
          "nouns": [
           "pumpkin",
           "jackolantern"
@@ -992,6 +1001,9 @@
        "id": "obj-food-egg",
        "longest.min": 0.05,
        "longest.max": 0.25,
+       "scale": {
+        "big": 2
+       },
        "nouns": [
         "egg"
        ]
@@ -1188,7 +1200,7 @@
           {
            "id": "obj-equipment-weapon-melee-dagger",
            "longest.min": 0.15,
-           "longest.max": 0.45,
+           "longest.max": 0.55,
            "nouns": [
             "dagger",
             "knife (combat)"
@@ -1202,7 +1214,7 @@
             {
              "id": "obj-equipment-weapon-melee-axe-single",
              "longest.min": 0.2,
-             "longest.max": 0.6,
+             "longest.max": 0.65,
              "nouns": [
               "axe",
               "hatchet"
@@ -1282,7 +1294,7 @@
           },
           {
            "id": "obj-equipment-weapon-ranged-arrow",
-           "longest.min": 0.25,
+           "longest.min": 0.2,
            "longest.max": 0.55,
            "nouns": [
             "arrow",
@@ -1300,7 +1312,7 @@
             {
              "id": "obj-equipment-weapon-ranged-firearm-hand",
              "longest.min": 0.1,
-             "longest.max": 0.4,
+             "longest.max": 0.5,
              "nouns": [
               "pistol",
               "revolver"
@@ -1460,6 +1472,9 @@
          "id": "obj-equipment-apparel-quiver",
          "longest.min": 0.25,
          "longest.max": 0.65,
+         "scale": {
+          "small": 0.5
+         },
          "nouns": [
           "quiver"
          ]
@@ -1584,7 +1599,7 @@
         {
          "id": "obj-equipment-pocketitem-scroll",
          "longest.min": 0.2,
-         "longest.max": 0.5,
+         "longest.max": 0.6,
          "band.paper": [
           "ivory"
          ],
@@ -1617,7 +1632,7 @@
         {
          "id": "obj-equipment-tool-hand",
          "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.max": 0.5,
          "mat.wood": "wood-planks",
          "nouns": [
           "chisel",
@@ -1799,7 +1814,7 @@
         {
          "id": "obj-transport-watercraft-boat",
          "longest.min": 0.9,
-         "longest.max": 2.95,
+         "longest.max": 3.55,
          "nouns": [
           "boat",
           "rowboat",
@@ -1881,7 +1896,7 @@
         {
          "id": "obj-transport-land-cart",
          "longest.min": 0.55,
-         "longest.max": 1.75,
+         "longest.max": 2.0,
          "nouns": [
           "cart",
           "wagon",
@@ -1903,7 +1918,7 @@
         },
         {
          "id": "obj-transport-land-road",
-         "longest.min": 1.05,
+         "longest.min": 0.95,
          "longest.max": 1.7,
          "bands.max": 6,
          "nouns": [
@@ -1914,8 +1929,8 @@
         },
         {
          "id": "obj-transport-land-rail",
-         "high.min": 0.8,
-         "high.max": 1.3,
+         "high.min": 0.6,
+         "high.max": 1.4,
          "nouns": [
           "train",
           "locomotive",
@@ -1981,8 +1996,8 @@
         },
         {
          "id": "obj-resource-wood-plank",
-         "longest.min": 0.5,
-         "longest.max": 1.1,
+         "longest.min": 0.45,
+         "longest.max": 1.25,
          "nouns": [
           "plank (stock)",
           "board (loose)"
@@ -2052,7 +2067,7 @@
           "standing lantern"
          ],
          "longest.min": 0.15,
-         "longest.max": 0.45
+         "longest.max": 0.5
         },
         {
          "id": "obj-furnishing-light-lamp",
@@ -2092,7 +2107,7 @@
         {
          "id": "obj-furnishing-light-campfire",
          "longest.min": 0.35,
-         "longest.max": 0.75,
+         "longest.max": 0.85,
          "nouns": [
           "campfire",
           "bonfire",
@@ -2224,7 +2239,7 @@
         {
          "id": "obj-furnishing-furniture-bed",
          "longest.min": 0.55,
-         "longest.max": 1.05,
+         "longest.max": 1.1,
          "nouns": [
           "bed",
           "bedroll",
@@ -2247,7 +2262,7 @@
           {
            "id": "obj-furnishing-furniture-storage-cabinet",
            "longest.min": 0.35,
-           "longest.max": 0.85,
+           "longest.max": 0.9,
            "nouns": [
             "cabinet",
             "wardrobe",
@@ -2261,7 +2276,7 @@
           {
            "id": "obj-furnishing-furniture-storage-shelf",
            "longest.min": 0.3,
-           "longest.max": 0.8,
+           "longest.max": 0.95,
            "nouns": [
             "shelf",
             "wall shelf",
@@ -2382,7 +2397,7 @@
         {
          "id": "obj-device-appliance-fridge",
          "longest.min": 0.4,
-         "longest.max": 0.9,
+         "longest.max": 1.0,
          "nouns": [
           "fridge",
           "refrigerator",
@@ -2393,6 +2408,9 @@
          "id": "obj-device-appliance-oven",
          "longest.min": 0.35,
          "longest.max": 0.8,
+         "scale": {
+          "big": 2
+         },
          "nouns": [
           "oven"
          ]
@@ -2401,6 +2419,9 @@
          "id": "obj-device-appliance-stove",
          "longest.min": 0.25,
          "longest.max": 0.7,
+         "scale": {
+          "big": 2
+         },
          "nouns": [
           "stove",
           "range",
@@ -2470,7 +2491,7 @@
         {
          "id": "obj-device-electronics-arcade",
          "longest.min": 0.45,
-         "longest.max": 1.05,
+         "longest.max": 1.35,
          "nouns": [
           "arcade machine",
           "pinball",
@@ -2734,7 +2755,7 @@
         {
          "id": "str-part-door-trapdoor",
          "longest.min": 0.35,
-         "longest.max": 0.75,
+         "longest.max": 0.9,
          "scale": {
           "big": 2
          },
@@ -2768,12 +2789,12 @@
         {
          "id": "str-part-gate-single",
          "high.min": 0.75,
-         "high.max": 1.3
+         "high.max": 1.6
         },
         {
          "id": "str-part-gate-gateway",
          "high.min": 0.7,
-         "high.max": 2.2,
+         "high.max": 2.45,
          "nouns": [
           "gateway",
           "torii"
@@ -2792,9 +2813,12 @@
         {
          "id": "str-part-floor-unit",
          "longest.min": 0.7,
-         "longest.max": 1.25,
+         "longest.max": 1.35,
          "scale": {
-          "small": 0.5,
+          "small": {
+           "longest.min": 0.35,
+           "longest.max": 0.75
+          },
           "big": 2
          }
         }
@@ -2895,7 +2919,7 @@
        "children": [
         {
          "id": "str-part-frame-scaffold",
-         "longest.min": 0.85,
+         "longest.min": 0.8,
          "longest.max": 3.5,
          "nouns": [
           "scaffold",
@@ -3116,7 +3140,10 @@
           "high fence"
          ],
          "scale": {
-          "small": 0.5,
+          "small": {
+           "high.min": 0.175,
+           "high.max": 0.5
+          },
           "big": 2
          }
         }
@@ -3133,6 +3160,9 @@
          "stone"
         ]
        ],
+       "scale": {
+        "small": 0.5
+       },
        "nouns": [
         "post",
         "bollard",
@@ -3257,7 +3287,7 @@
         {
          "id": "str-access-bridge-long",
          "longest.min": 1.55,
-         "longest.max": 6,
+         "longest.max": 7.0,
          "scale": {
           "big": 2.5
          },
@@ -3269,8 +3299,11 @@
       },
       {
        "id": "str-access-road",
-       "longest.min": 0.9,
+       "longest.min": 0.7,
        "longest.max": 5,
+       "scale": {
+        "big": 2
+       },
        "nouns": [
         "road",
         "road tile",
@@ -3291,7 +3324,7 @@
       {
        "id": "str-canopy-stall",
        "longest.min": 0.65,
-       "longest.max": 1.2,
+       "longest.max": 1.35,
        "nouns": [
         "stall",
         "market stand",
@@ -3465,6 +3498,9 @@
          "id": "str-fixture-utility-well",
          "longest.min": 0.5,
          "longest.max": 1.4,
+         "scale": {
+          "big": 2
+         },
          "nouns": [
           "well"
          ]
@@ -3668,7 +3704,7 @@
       {
        "id": "env-fauna-fish",
        "longest.min": 0.1,
-       "longest.max": 0.55,
+       "longest.max": 0.6,
        "nouns": [
         "fish"
        ],
@@ -3755,7 +3791,7 @@
         {
          "id": "env-remains-bones-skull",
          "longest.min": 0.1,
-         "longest.max": 0.4,
+         "longest.max": 0.5,
          "tpu.max": 10000,
          "nouns": [
           "skull"
@@ -3774,7 +3810,7 @@
          "id": "env-remains-bones-fishbone",
          "tube.min": 0.006,
          "longest.min": 0.15,
-         "longest.max": 0.4,
+         "longest.max": 0.5,
          "nouns": [
           "fish bones",
           "fish carcass",
@@ -3802,6 +3838,9 @@
          "id": "env-remains-deadwood-tree",
          "longest.min": 0.9,
          "longest.max": 2.3,
+         "scale": {
+          "small": 0.5
+         },
          "nouns": [
           "dead tree",
           "bare tree"
@@ -3811,6 +3850,9 @@
          "id": "env-remains-deadwood-stump",
          "longest.min": 0.25,
          "longest.max": 0.65,
+         "scale": {
+          "big": 2
+         },
          "nouns": [
           "stump"
          ]
@@ -3881,7 +3923,7 @@
         {
          "id": "env-terrain-rock-cobble",
          "longest.min": 0.15,
-         "longest.max": 0.5,
+         "longest.max": 0.6,
          "nouns": [
           "cobble",
           "rock (small)",
@@ -3962,7 +4004,7 @@
          "id": "env-flora-plant-leafy",
          "tube.min": 0.006,
          "longest.min": 0.25,
-         "longest.max": 0.7,
+         "longest.max": 0.75,
          "nouns": [
           "leafy plant",
           "houseplant",
@@ -4011,7 +4053,7 @@
         {
          "id": "env-flora-plant-grass",
          "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.max": 0.5,
          "band": [
           "moss"
          ],
@@ -4029,6 +4071,9 @@
        "band": [
         "hunter"
        ],
+       "scale": {
+        "small": 0.5
+       },
        "nouns": [
         "tree",
         "oak",
@@ -4039,8 +4084,11 @@
        "children": [
         {
          "id": "env-flora-tree-conifer",
-         "longest.min": 1.05,
+         "longest.min": 0.9,
          "longest.max": 3.4,
+         "scale": {
+          "small": 0.5
+         },
          "nouns": [
           "conifer",
           "pine",
@@ -4055,6 +4103,9 @@
          "band": [
           "moss"
          ],
+         "scale": {
+          "small": 0.5
+         },
          "nouns": [
           "palm"
          ]
@@ -4103,7 +4154,7 @@
   {
    "id": "char",
    "longest.min": 0.45,
-   "longest.max": 0.95,
+   "longest.max": 1.05,
    "tpu.max": 30000,
    "mat.metal-iron": "metal-iron-steel",
    "band.textile": [
