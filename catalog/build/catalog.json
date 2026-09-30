@@ -2132,7 +2132,7 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 1.4,
+    "factor": 1.38,
     "kinds": 19,
     "level": "warning"
    }
@@ -21819,7 +21819,7 @@
   "str-access-ladder scale-big": {
    "high.max": 8,
    "longest.min": 0.9,
-   "longest.max": 1.6,
+   "longest.max": 2.35,
    "tpu.max": 5000
   },
   "str-access-bridge-section scale-big": {
@@ -44291,13 +44291,6 @@
     "fs",
     "scale-big",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.963 over max 1.6 (str-access-ladder scale-big)"
-    }
    ]
   },
   {
@@ -68317,7 +68310,7 @@
    "tris": 8949,
    "tpu": 26090,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 8,
    "bytes": 5206944,
    "vtx": 26765,
@@ -68328,7 +68321,7 @@
    "avgTri": 0.00014,
    "anglePct": 7,
    "vpt": 2.99,
-   "grad": 0.84,
+   "grad": 0.85,
    "spread": {
     "3,0": [
      0.047,
@@ -68354,17 +68347,12 @@
      0.148,
      0.844
     ],
-    "4,2": [
-     0.094,
-     0.344
-    ],
     "2,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#1367a6",
     "#23562c",
     "#343745",
     "#563b2b",
@@ -68523,7 +68511,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G14 bands 8 wants max 6"
+     "text": "G14 bands 7 wants max 6"
     }
    ]
   },
@@ -170958,13 +170946,6 @@
     "ken",
     "scale-big",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.898 over max 1.6 (str-access-ladder scale-big)"
-    }
    ]
   },
   {
@@ -199144,13 +199125,6 @@
     "wood-beam",
     "wood-worked"
    ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.772 over max 1.6 (str-access-ladder scale-big)"
-    }
-   ],
    "mark": [
     "grounded"
    ]
@@ -209433,13 +209407,6 @@
    "tags": [
     "scale-big",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2 over max 1.6 (str-access-ladder scale-big)"
-    }
    ],
    "mark": [
     "centered"
@@ -247603,9 +247570,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 2.9 over max 1.6 (str-access-ladder scale-big)"
+     "text": "longest 2.9 over max 2.35 (str-access-ladder scale-big)"
     }
    ]
   },
@@ -248497,27 +248464,32 @@
     0.212,
     0.195
    ],
-   "tris": 250,
-   "tpu": 729,
+   "tris": 410,
+   "tpu": 1195,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 8464,
-   "vtx": 127,
+   "bytes": 25748,
+   "vtx": 607,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00049,
+   "avgTri": 0.00032,
    "anglePct": 0,
-   "vpt": 0.51,
-   "grad": 0,
+   "vpt": 1.48,
+   "grad": 0.06,
    "spread": {
     "5,2": [
      0.5,
      0.5
+    ],
+    "14,2": [
+     0.031,
+     0.109
     ]
    },
    "colors": [
+    "#907a66",
     "#d8d1bd"
    ],
    "tags": [
@@ -248526,14 +248498,7 @@
     "rope",
     "textile"
    ],
-   "variant": "v337",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants twine, has ivory"
-    }
-   ]
+   "variant": "v337"
   },
   {
    "kit": "rgp-asia",
@@ -248545,27 +248510,32 @@
     0.209,
     0.213
    ],
-   "tris": 250,
-   "tpu": 729,
+   "tris": 410,
+   "tpu": 1195,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 8464,
-   "vtx": 127,
+   "bytes": 25748,
+   "vtx": 607,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00052,
-   "anglePct": 10,
-   "vpt": 0.51,
-   "grad": 0,
+   "avgTri": 0.00034,
+   "anglePct": 9,
+   "vpt": 1.48,
+   "grad": 0.06,
    "spread": {
     "5,2": [
      0.5,
      0.5
+    ],
+    "14,2": [
+     0.031,
+     0.109
     ]
    },
    "colors": [
+    "#907a66",
     "#d8d1bd"
    ],
    "tags": [
@@ -248574,14 +248544,7 @@
     "rope",
     "textile"
    ],
-   "variant": "v337",
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "rope wants twine, has ivory"
-    }
-   ]
+   "variant": "v337"
   },
   {
    "kit": "rgp-asia",
@@ -253756,7 +253719,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 3.483 over max 1.6 (str-access-ladder scale-big)"
+     "text": "longest 3.483 over max 2.35 (str-access-ladder scale-big)"
     }
    ]
   },
