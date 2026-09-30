@@ -53,6 +53,10 @@ first.
   between the two depends on the model and the angle — on a snowman seen from
   above it is nearly a third. Set `--fit` by eye from the first render.
 
+- `swipe` — the directions of a swipe run, each with its label and paths.
+  `choices` carries each model's lint findings at the time. A label such as
+  "Relax rule" is read per §8.
+
 Notes are terse and often typo'd. `iso` is "in plaats van" — *instead of*.
 Map the hexes to band names from the lane table in `lint/materials.json`.
 
@@ -127,7 +131,27 @@ bending the tag.
 Widening a palette in `lint/materials.json` is catalogue-wide. Count what else
 it clears before proposing it, and say so.
 
-## 8. Check before pushing
+## 8. Relaxing a rule
+
+A swipe direction or note that asks to relax a rule asks for the cleanest
+change with the least scope. Before changing anything:
+
+- Say what the rule is for, why this model breaks it, and whether relaxing
+  serves that purpose here or the model or its tags are the real problem.
+- Pick the narrowest place: one kind before its parent, one kind before a
+  material palette, an exception before a new catalogue-wide value. Count what
+  else the change clears or newly allows, and report it.
+- Relax only as far as the finding needs and the rule's purpose allows. An
+  error is not a reason to also clear the warning band: a model just past the
+  new limit should still warn. A limit wide enough to hide every outlier
+  defeats the rule.
+- Sometimes the reasonable relaxation is partial and the model stays an
+  error. When you suspect that, look at the model beside its catalogue peers
+  at locked scale before deciding, and say so.
+- If no small-scope change fits, do not widen anything. Flag it with the
+  options and what each would touch.
+
+## 9. Check before pushing
 
     node catalog/tools/build-catalog.mjs
     node catalog/tools/build-lists.mjs
