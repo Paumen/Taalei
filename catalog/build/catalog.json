@@ -15855,8 +15855,15 @@
    "id": "obj-device-science",
    "name": "Science",
    "type": "kind",
-   "description": "Scientific, lab or medical instrument: telescope, orrery, globe, lab and medical gear.",
+   "description": "Scientific, lab or medical instrument: lab and medical gear.",
    "count": 14
+  },
+  {
+   "id": "obj-device-science-astro",
+   "name": "Astronomy",
+   "type": "kind",
+   "description": "Astronomy instrument: telescope, orrery, armillary sphere, globe, star projector.",
+   "count": 6
   },
   {
    "id": "obj-leisure-game",
@@ -16899,8 +16906,15 @@
    "id": "obj-resource-metal",
    "name": "Metal",
    "type": "kind",
-   "description": "ingot, bar, nugget, ore lump, cog, spare part",
+   "description": "ingot, bar, nugget, ore lump",
    "count": 40
+  },
+  {
+   "id": "obj-resource-metal-parts",
+   "name": "Parts",
+   "type": "kind",
+   "description": "cog, spare part, pipe (stock)",
+   "count": 11
   },
   {
    "id": "obj-resource-stone",
@@ -19648,6 +19662,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-device-science-astro": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-equipment-apparel": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -20690,6 +20710,12 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "obj-resource-metal-parts": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "obj-resource-stone": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -21476,6 +21502,12 @@
    "tpu.max": 10000
   },
   "obj-resource-metal scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-resource-metal-parts scale-small": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -117389,7 +117421,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "parts-cog",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
     0.112,
@@ -117428,7 +117460,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "parts-pile-large",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.522,
@@ -117470,7 +117502,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "parts-pile-medium",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
     0.305,
@@ -117524,7 +117556,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "parts-pile-small",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
     0.347,
@@ -139789,7 +139821,7 @@
   {
    "kit": "ken-factory",
    "name": "cog-a",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.5,
@@ -139830,7 +139862,7 @@
   {
    "kit": "ken-factory",
    "name": "cog-b",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.5,
@@ -139871,7 +139903,7 @@
   {
    "kit": "ken-factory",
    "name": "cog-c",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.5,
@@ -139912,7 +139944,7 @@
   {
    "kit": "ken-factory",
    "name": "cog-d",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.5,
@@ -139953,7 +139985,7 @@
   {
    "kit": "ken-factory",
    "name": "cog-e",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.5,
@@ -213695,7 +213727,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "pipes",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "l",
    "wdh": [
     0.374,
@@ -239238,7 +239270,7 @@
   {
    "kit": "quat-shoot",
    "name": "pipes",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     0.351,
@@ -266686,7 +266718,7 @@
   {
    "kit": "rgp-vintage",
    "name": "globe",
-   "kind": "obj-device-science",
+   "kind": "obj-device-science-astro",
    "size": "s",
    "wdh": [
     0.237,
@@ -267001,7 +267033,7 @@
   {
    "kit": "rgp-vintage",
    "name": "telescope",
-   "kind": "obj-device-science",
+   "kind": "obj-device-science-astro",
    "size": "m",
    "wdh": [
     0.19,
@@ -279659,7 +279691,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "armillary-sphere",
-   "kind": "obj-device-science",
+   "kind": "obj-device-science-astro",
    "size": "s",
    "wdh": [
     0.336,
@@ -279775,7 +279807,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "orrery",
-   "kind": "obj-device-science",
+   "kind": "obj-device-science-astro",
    "size": "s",
    "wdh": [
     0.448,
@@ -279846,7 +279878,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "refractor-telescope",
-   "kind": "obj-device-science",
+   "kind": "obj-device-science-astro",
    "size": "m",
    "wdh": [
     0.51,
@@ -279910,7 +279942,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "star-projector",
-   "kind": "obj-device-science",
+   "kind": "obj-device-science-astro",
    "size": "m",
    "wdh": [
     0.483,

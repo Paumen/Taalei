@@ -11097,22 +11097,30 @@
    "id": "obj-device-science",
    "name": "Science",
    "type": "kind",
-   "description": "Scientific, lab or medical instrument: telescope, orrery, globe, lab and medical gear.",
+   "description": "Scientific, lab or medical instrument: lab and medical gear.",
    "models": [
     "ken-chars/aid-defibrillator-green",
     "ken-chars/aid-defibrillator-red",
-    "rgp-vintage/globe",
-    "rgp-vintage/telescope",
     "sq-lab/analysis-console",
     "sq-lab/balance-scale",
     "sq-lab/centrifuge",
     "sq-lab/funnel-stand",
     "sq-lab/syringe",
+    "sq-lab/petri-stack"
+   ]
+  },
+  {
+   "id": "obj-device-science-astro",
+   "name": "Astronomy",
+   "type": "kind",
+   "description": "Astronomy instrument: telescope, orrery, armillary sphere, globe, star projector.",
+   "models": [
     "sq-observatory/armillary-sphere",
-    "sq-observatory/orrery",
     "sq-observatory/refractor-telescope",
     "sq-observatory/star-projector",
-    "sq-lab/petri-stack"
+    "sq-observatory/orrery",
+    "rgp-vintage/globe",
+    "rgp-vintage/telescope"
    ]
   },
   {
@@ -14137,7 +14145,7 @@
    "id": "obj-resource-metal",
    "name": "Metal",
    "type": "kind",
-   "description": "ingot, bar, nugget, ore lump, cog, spare part",
+   "description": "ingot, bar, nugget, ore lump",
    "models": [
     "kay-resources/copper-bar",
     "kay-resources/copper-bars",
@@ -14166,19 +14174,27 @@
     "kay-resources/iron-nugget-medium",
     "kay-resources/iron-nugget-small",
     "kay-resources/iron-nuggets",
-    "kay-resources/parts-cog",
-    "kay-resources/parts-pile-medium",
-    "kay-resources/parts-pile-small",
     "quat-rpg/gold-ingots",
-    "quat-apocalypse/pipes",
-    "kay-resources/parts-pile-large",
-    "quat-shoot/pipes",
-    "ken-factory/cog-a",
+    "sq-bank/gold-stack"
+   ]
+  },
+  {
+   "id": "obj-resource-metal-parts",
+   "name": "Parts",
+   "type": "kind",
+   "description": "cog, spare part, pipe (stock)",
+   "models": [
+    "ken-factory/cog-e",
     "ken-factory/cog-b",
     "ken-factory/cog-c",
     "ken-factory/cog-d",
-    "ken-factory/cog-e",
-    "sq-bank/gold-stack"
+    "ken-factory/cog-a",
+    "kay-resources/parts-cog",
+    "kay-resources/parts-pile-large",
+    "kay-resources/parts-pile-medium",
+    "kay-resources/parts-pile-small",
+    "quat-apocalypse/pipes",
+    "quat-shoot/pipes"
    ]
   },
   {

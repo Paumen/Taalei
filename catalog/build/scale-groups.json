@@ -1236,6 +1236,70 @@
   ]
  },
  {
+  "slug": "obj-resource-metal",
+  "name": "Object › Resource › Metal",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "copper-bar",
+    "wdh": [
+     0.1,
+     0.25,
+     0.08
+    ],
+    "tags": [
+     "kay",
+     "metal-copper"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "gold-bar",
+    "wdh": [
+     0.1,
+     0.25,
+     0.08
+    ],
+    "tags": [
+     "kay",
+     "metal-gold"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "iron-bar",
+    "wdh": [
+     0.1,
+     0.25,
+     0.08
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-resource-wood-log-scale-big",
   "name": "Object › Resource › Wood › Log · scale-big",
   "category": "obj-gen",
@@ -2296,87 +2360,6 @@
     "colors": [
      "#8b5936",
      "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-resource-metal",
-  "name": "Object › Resource › Metal",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "copper-bar",
-    "wdh": [
-     0.1,
-     0.25,
-     0.08
-    ],
-    "tags": [
-     "kay",
-     "metal-copper"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "gold-bar",
-    "wdh": [
-     0.1,
-     0.25,
-     0.08
-    ],
-    "tags": [
-     "kay",
-     "metal-gold"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "iron-bar",
-    "wdh": [
-     0.1,
-     0.25,
-     0.08
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "parts-cog",
-    "wdh": [
-     0.1,
-     0.05,
-     0.1
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#82868e"
     ]
    }
   ]
@@ -4215,6 +4198,156 @@
   ]
  },
  {
+  "slug": "obj-device-science-astro",
+  "name": "Object › Device › Science › Astro",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "rgp-vintage",
+    "model": "globe",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-steel",
+     "paper",
+     "rgp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#82868e",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "rgp-vintage",
+    "model": "telescope",
+    "wdh": [
+     0.2,
+     0.35,
+     0.55
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-steel",
+     "rgp",
+     "wood-beam"
+    ],
+    "colors": [
+     "#82868e",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "sq-observatory",
+    "collection": "sq-props",
+    "model": "armillary-sphere",
+    "wdh": [
+     0.35,
+     0.3,
+     0.5
+    ],
+    "tags": [
+     "ceramic",
+     "hero",
+     "metal-gold",
+     "sidequest",
+     "wood-beam"
+    ],
+    "colors": [
+     "#1367a6",
+     "#8b5936",
+     "#d07b56",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "sq-observatory",
+    "collection": "sq-props",
+    "model": "orrery",
+    "wdh": [
+     0.45,
+     0.45,
+     0.4
+    ],
+    "tags": [
+     "ceramic",
+     "hero",
+     "metal-gold",
+     "metal-iron-wrought",
+     "sidequest",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "sq-observatory",
+    "collection": "sq-props",
+    "model": "refractor-telescope",
+    "wdh": [
+     0.5,
+     0.35,
+     0.85
+    ],
+    "tags": [
+     "hero",
+     "metal-gold",
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "sidequest",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#8b5936",
+     "#d07b56",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "sq-observatory",
+    "collection": "sq-props",
+    "model": "star-projector",
+    "wdh": [
+     0.5,
+     0.35,
+     0.7
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "sidequest",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#8b5936",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-food-baked-pastry-croissant",
   "name": "Object › Food › Baked › Pastry › Croissant",
   "category": "obj-gen",
@@ -5286,6 +5419,164 @@
      "glass",
      "metal",
      "styloo"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-device-science",
+  "name": "Object › Device › Science",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "ken-chars",
+    "collection": "ken-mini",
+    "model": "aid-defibrillator-green",
+    "wdh": [
+     0.2,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#23562c",
+     "#82868e",
+     "#d07b56",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-chars",
+    "collection": "ken-mini",
+    "model": "aid-defibrillator-red",
+    "wdh": [
+     0.2,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7f3927",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "analysis-console",
+    "wdh": [
+     0.3,
+     0.25,
+     0.95
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-wrought",
+     "plastic",
+     "sidequest"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "balance-scale",
+    "wdh": [
+     0.25,
+     0.08,
+     0.25
+    ],
+    "tags": [
+     "ceramic",
+     "metal-iron-cast",
+     "sidequest"
+    ],
+    "colors": [
+     "#343745",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "centrifuge",
+    "wdh": [
+     0.3,
+     0.35,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "metal-iron-steel",
+     "plastic",
+     "sidequest"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "funnel-stand",
+    "wdh": [
+     0.1,
+     0.09,
+     0.25
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-cast",
+     "sidequest"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "syringe",
+    "wdh": [
+     0.02,
+     0.02,
+     0.1
+    ],
+    "tags": [
+     "glass",
+     "metal-iron-steel",
+     "rubber",
+     "sidequest"
     ],
     "colors": [
      "#5b5550",
@@ -14282,301 +14573,6 @@
      "#5b5550",
      "#7f3927",
      "#82868e"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-device-science",
-  "name": "Object › Device › Science",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "ken-chars",
-    "collection": "ken-mini",
-    "model": "aid-defibrillator-green",
-    "wdh": [
-     0.2,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#23562c",
-     "#82868e",
-     "#d07b56",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-chars",
-    "collection": "ken-mini",
-    "model": "aid-defibrillator-red",
-    "wdh": [
-     0.2,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7f3927",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "rgp-vintage",
-    "model": "globe",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-steel",
-     "paper",
-     "rgp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#82868e",
-     "#8b5936",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "rgp-vintage",
-    "model": "telescope",
-    "wdh": [
-     0.2,
-     0.35,
-     0.55
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-steel",
-     "rgp",
-     "wood-beam"
-    ],
-    "colors": [
-     "#82868e",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "analysis-console",
-    "wdh": [
-     0.3,
-     0.25,
-     0.95
-    ],
-    "tags": [
-     "glass",
-     "metal-iron-wrought",
-     "plastic",
-     "sidequest"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "balance-scale",
-    "wdh": [
-     0.25,
-     0.08,
-     0.25
-    ],
-    "tags": [
-     "ceramic",
-     "metal-iron-cast",
-     "sidequest"
-    ],
-    "colors": [
-     "#343745",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "centrifuge",
-    "wdh": [
-     0.3,
-     0.35,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "metal-iron-steel",
-     "plastic",
-     "sidequest"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "funnel-stand",
-    "wdh": [
-     0.1,
-     0.09,
-     0.25
-    ],
-    "tags": [
-     "glass",
-     "metal-iron-cast",
-     "sidequest"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "syringe",
-    "wdh": [
-     0.02,
-     0.02,
-     0.1
-    ],
-    "tags": [
-     "glass",
-     "metal-iron-steel",
-     "rubber",
-     "sidequest"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-observatory",
-    "collection": "sq-props",
-    "model": "armillary-sphere",
-    "wdh": [
-     0.35,
-     0.3,
-     0.5
-    ],
-    "tags": [
-     "ceramic",
-     "hero",
-     "metal-gold",
-     "sidequest",
-     "wood-beam"
-    ],
-    "colors": [
-     "#1367a6",
-     "#8b5936",
-     "#d07b56",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "sq-observatory",
-    "collection": "sq-props",
-    "model": "orrery",
-    "wdh": [
-     0.45,
-     0.45,
-     0.4
-    ],
-    "tags": [
-     "ceramic",
-     "hero",
-     "metal-gold",
-     "metal-iron-wrought",
-     "sidequest",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "sq-observatory",
-    "collection": "sq-props",
-    "model": "refractor-telescope",
-    "wdh": [
-     0.5,
-     0.35,
-     0.85
-    ],
-    "tags": [
-     "hero",
-     "metal-gold",
-     "metal-iron-steel",
-     "metal-iron-wrought",
-     "sidequest",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#8b5936",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "sq-observatory",
-    "collection": "sq-props",
-    "model": "star-projector",
-    "wdh": [
-     0.5,
-     0.35,
-     0.7
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-steel",
-     "metal-iron-wrought",
-     "sidequest",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#8b5936",
-     "#d8d1bd"
     ]
    }
   ]
