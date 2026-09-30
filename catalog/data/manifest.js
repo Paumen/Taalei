@@ -4403,7 +4403,6 @@ window.KENNEY_KITS = [
    "haystack-thick",
    "haystack-thin",
    "hedge",
-   "hedge-amber",
    "hedge-arch",
    "knife",
    "leaf",
