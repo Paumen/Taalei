@@ -245,11 +245,13 @@ function writeVersion() {
       [/src="scale\.js(?:\?v=[a-f0-9]+)?"/, `src="scale.js?v=${version}"`],
     ]);
   }
-  stamp(join(APP_DIR, 'swipe.html'), [
-    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-    [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
-    [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
-  ]);
+  for (const page of ['swipe.html', 'lint.html']) {
+    stamp(join(APP_DIR, page), [
+      [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
+      [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
+      [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
+    ]);
+  }
   for (const page of ['tbd.html', 'reject.html']) {
     stamp(join(APP_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
@@ -263,7 +265,7 @@ function writeVersion() {
   ]);
   console.log(
     `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/app/${p}`).join(', ')},` +
-      ' catalog/app/swipe.html, catalog/app/tbd.html, catalog/app/reject.html, catalog/app/overview.html',
+      ' catalog/app/swipe.html, catalog/app/lint.html, catalog/app/tbd.html, catalog/app/reject.html, catalog/app/overview.html',
   );
 }
 

@@ -15701,7 +15701,7 @@
    "id": "paper",
    "name": "Paper",
    "type": "material",
-   "description": "Paper and parchment: books, scrolls, maps, open or closed, and wrapping paper.",
+   "description": "Paper and parchment: books, scrolls, maps, open or closed.",
    "count": 212
   },
   {
@@ -107721,7 +107721,14 @@
     "paper",
     "textile"
    ],
-   "variant": "v870"
+   "variant": "v870",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper wants ivory, has amber sienna"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
@@ -107767,7 +107774,14 @@
     "paper",
     "textile"
    ],
-   "variant": "v870"
+   "variant": "v870",
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper wants ivory, has amber sienna"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
