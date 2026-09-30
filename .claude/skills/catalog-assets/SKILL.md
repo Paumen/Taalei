@@ -15,7 +15,9 @@ file — put them here, in the bible, or in the PR.
 
 A workfile in `kits/workfiles` is the asset itself. A model that is wrong in
 its geometry or scale is replaced or dropped. A wrong band is moved in place
-with `tools/import/recolour.mjs`, for the whole band or for named parts. A tube
+with `tools/import/recolour.mjs`, for the whole band or for named parts. A
+triangle spanning two colormap cells, or a flat face whose triangles show
+different colours, is evened in place with `tools/import/face-bands.mjs`. A tube
 thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
 A model with more triangles than its shape needs is thinned in place with
 `tools/import/simplify.mjs`; render every model it changed, before and after,

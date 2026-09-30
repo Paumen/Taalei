@@ -16,7 +16,10 @@ model the entry names in a source pack. Geometry, normals and triangles are the
 source's (a source without normals gets flat face normals), except that of two coincident triangles facing opposite ways the one
 facing into the model moves along its normal by 0.2% of the longest extent, so
 the two no longer fight; the pack's own colours (texture, else vertex colour
-times material colour) are replaced by the bands of kits/colormap.png.
+times material colour) are replaced by the bands of kits/colormap.png. A
+texture is read as the mean over each flat face (triangles sharing edges in one
+plane), and over each triangle elsewhere, with UVs outside 0..1 repeating, so
+every corner of a face takes the same colour.
 
 A plan is a list of entries:
 
@@ -136,25 +139,116 @@ function mapped(primitive, rule) {
   return { textuur: assigned.texture ? basename(assigned.texture) : null, kleur: tint || primitive.materiaal.kleur };
 }
 
+const SAMPLE_STEPS = 6;
+const COPLANAR = 0.9995;
+
+function flatFaces(primitive) {
+  const { posities: p, indices } = primitive;
+  const count = indices.length / 3;
+  let extent = 1e-9;
+  for (const v of p) extent = Math.max(extent, Math.abs(v));
+  const weld = new Map();
+  const at = (i) => {
+    const key = [0, 1, 2].map((k) => Math.round(p[i * 3 + k] / (extent * 1e-5))).join(',');
+    if (!weld.has(key)) weld.set(key, weld.size);
+    return weld.get(key);
+  };
+  const normal = [];
+  const area = [];
+  const edges = new Map();
+  const edgeKey = (a, b) => (a < b ? `${a},${b}` : `${b},${a}`);
+  for (let t = 0; t < count; t++) {
+    const [a, b, c] = [0, 1, 2].map((k) => indices[t * 3 + k]);
+    const u = [0, 1, 2].map((k) => p[b * 3 + k] - p[a * 3 + k]);
+    const v = [0, 1, 2].map((k) => p[c * 3 + k] - p[a * 3 + k]);
+    const n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+    const length = Math.hypot(...n);
+    area.push(length / 2);
+    normal.push(length ? n.map((x) => x / length) : null);
+    const w = [a, b, c].map(at);
+    for (let k = 0; k < 3; k++) {
+      const e = edgeKey(w[k], w[(k + 1) % 3]);
+      if (!edges.has(e)) edges.set(e, []);
+      edges.get(e).push(t);
+    }
+  }
+  const face = new Int32Array(count).fill(-1);
+  const faces = [];
+  for (let s = 0; s < count; s++) {
+    if (face[s] >= 0) continue;
+    const members = [s];
+    face[s] = faces.length;
+    for (let i = 0; i < members.length && normal[s]; i++) {
+      const t = members[i];
+      const w = [0, 1, 2].map((k) => at(indices[t * 3 + k]));
+      for (let k = 0; k < 3; k++) {
+        const sharing = edges.get(edgeKey(w[k], w[(k + 1) % 3]));
+        if (sharing.length !== 2) continue;
+        for (const o of sharing) {
+          if (face[o] >= 0 || !normal[o]) continue;
+          if (normal[t][0] * normal[o][0] + normal[t][1] * normal[o][1] + normal[t][2] * normal[o][2] < COPLANAR) continue;
+          face[o] = faces.length;
+          members.push(o);
+        }
+      }
+    }
+    faces.push(members);
+  }
+  return { faces, area };
+}
+
 function sourceColors(primitive, images, rule) {
-  const count = primitive.posities.length / 3;
-  const out = new Array(count);
+  const corners = primitive.indices.length;
+  const out = new Array(corners);
   const material = mapped(primitive, rule);
   const texture = findTexture(material.textuur, images);
   if (texture && primitive.uvs) {
     const png = readImage(texture);
-    for (let i = 0; i < count; i++) {
-      const x = Math.min(Math.max(Math.floor(primitive.uvs[i * 2] * png.width), 0), png.width - 1);
-      const y = Math.min(Math.max(Math.floor(primitive.uvs[i * 2 + 1] * png.height), 0), png.height - 1);
+    const texel = (u, v) => {
+      const x = Math.floor((u - Math.floor(u)) * png.width) % png.width;
+      const y = Math.floor((v - Math.floor(v)) * png.height) % png.height;
       const at = (y * png.width + x) * 4;
-      out[i] = [png.pixels[at], png.pixels[at + 1], png.pixels[at + 2]];
+      return [png.pixels[at], png.pixels[at + 1], png.pixels[at + 2]];
+    };
+    const meanOver = (t) => {
+      const uv = [0, 1, 2].map((k) => {
+        const i = primitive.indices[t * 3 + k];
+        return [primitive.uvs[i * 2], primitive.uvs[i * 2 + 1]];
+      });
+      const sum = [0, 0, 0];
+      let n = 0;
+      for (let i = 0; i < SAMPLE_STEPS; i++) {
+        for (let j = 0; j < SAMPLE_STEPS - i; j++) {
+          const a = (i + 1 / 3) / SAMPLE_STEPS;
+          const b = (j + 1 / 3) / SAMPLE_STEPS;
+          const c = 1 - a - b;
+          const color = texel(a * uv[0][0] + b * uv[1][0] + c * uv[2][0], a * uv[0][1] + b * uv[1][1] + c * uv[2][1]);
+          for (let k = 0; k < 3; k++) sum[k] += linear(color[k]);
+          n++;
+        }
+      }
+      return sum.map((v) => v / n);
+    };
+    const { faces, area } = flatFaces(primitive);
+    for (const members of faces) {
+      const sum = [0, 0, 0];
+      let weight = 0;
+      for (const t of members) {
+        const mean = meanOver(t);
+        const w = area[t] || 1e-12;
+        for (let k = 0; k < 3; k++) sum[k] += mean[k] * w;
+        weight += w;
+      }
+      const color = sum.map((v) => srgb(v / weight));
+      for (const t of members) for (let k = 0; k < 3; k++) out[t * 3 + k] = color;
     }
     return out;
   }
   const flat = material.kleur ?? [255, 255, 255];
   const vertex = primitive.hoekkleuren;
-  for (let i = 0; i < count; i++) {
-    out[i] = vertex ? flat.map((v, k) => srgb(linear(v) * vertex[i * 3 + k])) : flat;
+  for (let c = 0; c < corners; c++) {
+    const i = primitive.indices[c];
+    out[c] = vertex ? flat.map((v, k) => srgb(linear(v) * vertex[i * 3 + k])) : flat;
   }
   return out;
 }
@@ -338,12 +432,12 @@ function adopt(entry) {
       const length = Math.hypot(...n) || 1;
       return n.map((v) => v / length);
     };
-    const vertex = (index, band, flat) => {
+    const vertex = (index, band, flat, color) => {
       const position = [0, 1, 2].map((k) => Math.fround(primitive.posities[index * 3 + k] - middle[k]));
       const normal = primitive.normalen
         ? [0, 1, 2].map((k) => Math.fround(primitive.normalen[index * 3 + k]))
         : flat.map((v) => Math.fround(v));
-      const uv = bandUv(band, lane(band).middle + (lightness(colors[index]) - middleOf(band)));
+      const uv = bandUv(band, lane(band).middle + (lightness(color) - middleOf(band)));
       const key = [...position, ...normal, ...uv].join(',');
       let at = known.get(key);
       if (at === undefined) {
@@ -358,10 +452,10 @@ function adopt(entry) {
 
     for (let t = 0; t < primitive.indices.length; t += 3) {
       const indices = [0, 1, 2].map((k) => primitive.indices[t + k]);
-      const cornerBands = indices.map((index) => bandPerColor.get(colors[index].join(',')));
+      const cornerBands = indices.map((_, k) => bandPerColor.get(colors[t + k].join(',')));
       const band = cornerBands.find((one, k) => cornerBands.indexOf(one) !== k) ?? cornerBands[0];
       const flat = primitive.normalen ? null : faceNormal(indices);
-      const corner = indices.map((index) => vertex(index, band, flat));
+      const corner = indices.map((index, k) => vertex(index, band, flat, colors[t + k]));
       const point = corner.map((i) => positions.slice(i * 3, i * 3 + 3));
       const edge1 = [0, 1, 2].map((k) => point[1][k] - point[0][k]);
       const edge2 = [0, 1, 2].map((k) => point[2][k] - point[0][k]);
