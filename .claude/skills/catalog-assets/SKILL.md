@@ -81,7 +81,8 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 `palette.mjs` complains:
 
 - Most materials force the band: `wood-planks` is tan, `wood-beam` chestnut,
-  `metal-iron-steel` nickel, `metal-iron-cast` slate, `metal-gold` amber. Pick
+  `metal-iron-steel` nickel, `metal-iron-cast` slate, `metal-gold` amber,
+  `stone-masonry` and `stone-rock` taupe or taupe-dark. Pick
   the material by the band you want, not the other way round.
 - `azure` is admitted only by `liquid`, `gemstone` and bare `metal`. A blue
   cloth or a blue roof has no legal home.
