@@ -6844,12 +6844,10 @@ window.KENNEY_KITS = [
   "licenseLabel": "CC0 1.0",
   "models": [
    "booster-display",
-   "deck-box",
    "display-easel",
    "display-tower",
    "gacha-machine",
    "glass-counter",
-   "graded-slab",
    "play-stool",
    "play-table",
    "playmat",
