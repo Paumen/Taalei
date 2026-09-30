@@ -17094,6 +17094,13 @@
    "count": 49
   },
   {
+   "id": "obj-transport-air-space",
+   "name": "Space",
+   "type": "kind",
+   "description": "Spacecraft: rocket, spaceship, lander, ufo.",
+   "count": 24
+  },
+  {
    "id": "obj-transport-land-road",
    "name": "Road vehicle",
    "type": "kind",
@@ -20759,6 +20766,12 @@
    "tpu.max": 10000
   },
   "obj-transport-air": {
+   "high.max": 30,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-transport-air-space": {
    "high.max": 30,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -122266,7 +122279,7 @@
   {
    "kit": "kay-space",
    "name": "lander-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.509,
@@ -122332,7 +122345,7 @@
   {
    "kit": "kay-space",
    "name": "lander-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.509,
@@ -122399,7 +122412,7 @@
   {
    "kit": "kay-space",
    "name": "lander-base",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     1.478,
@@ -181674,7 +181687,7 @@
   {
    "kit": "ken-space",
    "name": "craft-cargo-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.08,
@@ -181730,7 +181743,7 @@
   {
    "kit": "ken-space",
    "name": "craft-cargo-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.95,
@@ -181786,7 +181799,7 @@
   {
    "kit": "ken-space",
    "name": "craft-miner",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.34,
@@ -181841,7 +181854,7 @@
   {
    "kit": "ken-space",
    "name": "craft-racer",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.56,
@@ -181896,7 +181909,7 @@
   {
    "kit": "ken-space",
    "name": "craft-speeder-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.6,
@@ -181952,7 +181965,7 @@
   {
    "kit": "ken-space",
    "name": "craft-speeder-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.6,
@@ -182008,7 +182021,7 @@
   {
    "kit": "ken-space",
    "name": "craft-speeder-c",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     3.64,
@@ -182064,7 +182077,7 @@
   {
    "kit": "ken-space",
    "name": "craft-speeder-d",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     3.64,
@@ -184001,7 +184014,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.34,
@@ -184063,7 +184076,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.34,
@@ -184120,7 +184133,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-base-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.34,
@@ -184172,7 +184185,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-base-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.34,
@@ -184224,7 +184237,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-fins-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.56,
@@ -184276,7 +184289,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-fins-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.56,
@@ -184328,7 +184341,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-fuel-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     1.3,
@@ -184374,7 +184387,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-fuel-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     1.3,
@@ -184420,7 +184433,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-sides-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     1.3,
@@ -184472,7 +184485,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-sides-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     1.69,
@@ -184524,7 +184537,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-top-a",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     1.3,
@@ -184581,7 +184594,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-top-b",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     1.3,
@@ -294191,7 +294204,7 @@
   {
    "kit": "taalei-kit",
    "name": "ufo",
-   "kind": "obj-transport-air",
+   "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
     2.511,
