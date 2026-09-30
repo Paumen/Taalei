@@ -40,6 +40,7 @@ const SIZES = {
   'obj-container-bag': 0.5,
   'obj-container-bag-pouch': 0.2,
   'obj-container-bag-sack': 0.45,
+  'obj-container-bag-kit': 0.3,
   'obj-container-barrel': 0.9,
   'obj-container-barrel-keg': 0.5,
   'obj-container-bottle': 0.28,

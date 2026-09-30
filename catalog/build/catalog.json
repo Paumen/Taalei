@@ -16025,7 +16025,7 @@
    "name": "Bag",
    "type": "kind",
    "description": "bag, backpack, satchel",
-   "count": 40
+   "count": 41
   },
   {
    "id": "obj-container-bag-pouch",
@@ -16033,6 +16033,13 @@
    "type": "kind",
    "description": "pouch, purse, coin bag",
    "count": 11
+  },
+  {
+   "id": "obj-container-bag-kit",
+   "name": "Kit",
+   "type": "kind",
+   "description": "first-aid kit, health kit, med kit",
+   "count": 4
   },
   {
    "id": "obj-container-bag-sack",
@@ -16095,7 +16102,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 91
+   "count": 90
   },
   {
    "id": "obj-container-crate-cube",
@@ -19419,6 +19426,12 @@
    "tpu.max": 10000
   },
   "obj-container-bag": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-container-bag-kit": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -238879,7 +238892,7 @@
   {
    "kit": "quat-shoot",
    "name": "health-kit",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.3,
@@ -241529,7 +241542,7 @@
   {
    "kit": "quat-survival",
    "name": "first-aid-bag",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.234,
@@ -241572,7 +241585,7 @@
   {
    "kit": "quat-survival",
    "name": "first-aid-kit",
-   "kind": "obj-container-bag",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.283,
@@ -277956,7 +277969,7 @@
    "kit": "sq-lab",
    "collection": "sq-props",
    "name": "first-aid-kit",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
     0.17,
