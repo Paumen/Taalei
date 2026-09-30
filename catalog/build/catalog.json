@@ -1918,7 +1918,7 @@
    },
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 17
+    "kinds": 16
    }
   },
   {
@@ -17077,7 +17077,7 @@
    "name": "Land vehicle",
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
-   "count": 97
+   "count": 96
   },
   {
    "id": "obj-transport-land-rail",
@@ -17091,21 +17091,21 @@
    "name": "Air",
    "type": "kind",
    "description": "Aircraft: airplane, airliner, hot-air balloon.",
-   "count": 49
+   "count": 50
   },
   {
    "id": "obj-transport-air-space",
    "name": "Space",
    "type": "kind",
-   "description": "Spacecraft: rocket, spaceship, lander, ufo.",
-   "count": 24
+   "description": "Spacecraft: rocket, spaceship, lander, ufo, rover.",
+   "count": 25
   },
   {
    "id": "obj-transport-land-road",
    "name": "Road vehicle",
    "type": "kind",
    "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
-   "count": 38
+   "count": 37
   },
   {
    "id": "obj-transport-watercraft",
@@ -184646,7 +184646,7 @@
   {
    "kit": "ken-space",
    "name": "rover",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-air-space",
    "size": "m",
    "wdh": [
     0.39,
@@ -184696,13 +184696,6 @@
     "metal",
     "plastic",
     "space"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.501 under min 1.05 (obj-transport-land-road)"
-    }
    ]
   },
   {
