@@ -138,6 +138,8 @@ const SIZES = {
   'obj-furnishing-furniture-seating-bench-backrest': 0.85,
   'obj-furnishing-furniture-seating-bench-nobackrest': 0.45,
   'obj-furnishing-furniture-seating-chair': 0.9,
+  'obj-furnishing-furniture-seating-chair-desk': 1,
+  'obj-furnishing-furniture-seating-chair-lounge': 0.85,
   'obj-furnishing-furniture-seating-sofa': 0.85,
   'obj-furnishing-furniture-seating-stool': 0.45,
   'obj-furnishing-furniture-storage-cabinet': 1.8,

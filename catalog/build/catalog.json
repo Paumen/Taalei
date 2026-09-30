@@ -755,8 +755,8 @@
     "smooth": 50
    },
    "kitCheck": {
-    "factor": 0.87,
-    "kinds": 14
+    "factor": 0.88,
+    "kinds": 15
    }
   },
   {
@@ -1698,7 +1698,7 @@
    },
    "kitCheck": {
     "factor": 0.91,
-    "kinds": 31
+    "kinds": 33
    }
   },
   {
@@ -2775,7 +2775,7 @@
    },
    "kitCheck": {
     "factor": 1.07,
-    "kinds": 7
+    "kinds": 8
    }
   },
   {
@@ -3208,8 +3208,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.97,
-    "kinds": 37
+    "factor": 0.96,
+    "kinds": 38
    }
   },
   {
@@ -16475,8 +16475,22 @@
    "id": "obj-furnishing-furniture-seating-chair",
    "name": "Chair",
    "type": "kind",
-   "description": "chair, armchair, throne",
+   "description": "chair, throne",
    "count": 42
+  },
+  {
+   "id": "obj-furnishing-furniture-seating-chair-desk",
+   "name": "Desk chair",
+   "type": "kind",
+   "description": "desk chair, office chair",
+   "count": 10
+  },
+  {
+   "id": "obj-furnishing-furniture-seating-chair-lounge",
+   "name": "Lounge chair",
+   "type": "kind",
+   "description": "armchair, lounge chair",
+   "count": 7
   },
   {
    "id": "obj-furnishing-furniture-seating-stool",
@@ -20359,6 +20373,18 @@
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-seating-chair": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-seating-chair-desk": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-seating-chair-lounge": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.8,
@@ -96324,7 +96350,7 @@
   {
    "kit": "kay-furniture",
    "name": "armchair-pillows",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.54,
@@ -96368,7 +96394,7 @@
   {
    "kit": "kay-furniture",
    "name": "armchair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.54,
@@ -106992,7 +107018,7 @@
   {
    "kit": "kay-holiday",
    "name": "armchair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.549,
@@ -151470,7 +151496,7 @@
   {
    "kit": "ken-furniture",
    "name": "chair-desk",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.285,
@@ -153513,7 +153539,7 @@
   {
    "kit": "ken-furniture",
    "name": "lounge-chair-relax",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.416,
@@ -153564,7 +153590,7 @@
   {
    "kit": "ken-furniture",
    "name": "lounge-chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "s",
    "wdh": [
     0.416,
@@ -153609,7 +153635,7 @@
   {
    "kit": "ken-furniture",
    "name": "lounge-design-chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.62,
@@ -182050,7 +182076,7 @@
   {
    "kit": "ken-space",
    "name": "desk-chair-arms",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "s",
    "wdh": [
     0.325,
@@ -182146,7 +182172,7 @@
   {
    "kit": "ken-space",
    "name": "desk-chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "s",
    "wdh": [
     0.195,
@@ -185858,7 +185884,7 @@
   {
    "kit": "ken-station",
    "name": "chair-armrest-headrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.5,
@@ -185909,7 +185935,7 @@
   {
    "kit": "ken-station",
    "name": "chair-armrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.5,
@@ -185960,7 +185986,7 @@
   {
    "kit": "ken-station",
    "name": "chair-cushion-headrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -186011,7 +186037,7 @@
   {
    "kit": "ken-station",
    "name": "chair-cushion",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -186062,7 +186088,7 @@
   {
    "kit": "ken-station",
    "name": "chair-headrest",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -186113,7 +186139,7 @@
   {
    "kit": "ken-station",
    "name": "chair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
     0.3,
@@ -266205,7 +266231,7 @@
   {
    "kit": "rgp-vintage",
    "name": "armchair",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
    "wdh": [
     0.509,
@@ -272090,7 +272116,7 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "lane-single-seat",
-   "kind": "obj-furnishing-furniture-seating-chair",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "s",
    "wdh": [
     0.24,
