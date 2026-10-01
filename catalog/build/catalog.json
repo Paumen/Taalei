@@ -3495,16 +3495,16 @@
    "slug": "taalei-kit",
    "name": "taalei-kit",
    "licenseLabel": "CC0",
-   "count": 28,
+   "count": 32,
    "packs": [
     "Taalei"
    ],
    "origins": {
     "procedureel": 4,
-    "Taalei": 24
+    "Taalei": 28
    },
    "scales": {
-    "1": 1,
+    "1": 5,
     "none": 4,
     "0.9": 1,
     "0.72": 1,
@@ -3530,7 +3530,7 @@
    },
    "smooth": {
     "smooth": 23,
-    "none": 5
+    "none": 9
    },
    "kitCheck": {
     "factor": 0.94,
@@ -15825,6 +15825,16 @@
     "taalei-kit/trident-barbed",
     "taalei-kit/trident-crescent"
    ]
+  },
+  {
+   "id": "v1245",
+   "type": "detail-variant",
+   "main": "taalei-kit/drone",
+   "members": [
+    "taalei-kit/drone",
+    "taalei-kit/drone-canopy",
+    "taalei-kit/drone-gimbal"
+   ]
   }
  ],
  "bands": [
@@ -16103,7 +16113,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 628
+   "count": 632
   },
   {
    "id": "rubber",
@@ -16152,7 +16162,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 530
+   "count": 534
   },
   {
    "id": "liquid",
@@ -16216,7 +16226,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 2977,
+   "count": 2981,
    "color": "#c07c8a"
   },
   {
@@ -17500,7 +17510,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 260,
+   "count": 264,
    "color": "#5a7a9c"
   },
   {
@@ -17529,7 +17539,7 @@
    "name": "Air",
    "type": "kind",
    "description": "Aircraft: airplane, airliner, hot-air balloon.",
-   "count": 50
+   "count": 54
   },
   {
    "id": "obj-transport-air-space",
@@ -19278,7 +19288,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2619
+   "count": 2623
   },
   {
    "id": "m",
@@ -291136,6 +291146,232 @@
      "text": "tpu 12070 over max 10000 (obj)"
     }
    ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "drone-canopy",
+   "kind": "obj-transport-air",
+   "size": "s",
+   "wdh": [
+    0.464,
+    0.487,
+    0.177
+   ],
+   "tris": 2692,
+   "tpu": 7848,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 201824,
+   "vtx": 5757,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0265,
+   "avgTri": 0.00013,
+   "anglePct": 49,
+   "vpt": 2.14,
+   "grad": 0.26,
+   "spread": {
+    "15,3": [
+     0.406,
+     0.664
+    ],
+    "13,3": [
+     0.016,
+     0.828
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#5b5550",
+    "#82868e",
+    "#d07b56"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "variant": "v1245"
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "drone-gimbal",
+   "kind": "obj-transport-air",
+   "size": "s",
+   "wdh": [
+    0.464,
+    0.487,
+    0.193
+   ],
+   "tris": 3080,
+   "tpu": 8980,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 233304,
+   "vtx": 6668,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0265,
+   "avgTri": 0.00012,
+   "anglePct": 53,
+   "vpt": 2.16,
+   "grad": 0.25,
+   "spread": {
+    "15,3": [
+     0.398,
+     0.664
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ],
+    "13,3": [
+     0.016,
+     0.758
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#5b5550",
+    "#82868e",
+    "#d07b56"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "variant": "v1245"
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "drone-unibody",
+   "kind": "obj-transport-air",
+   "size": "s",
+   "wdh": [
+    0.458,
+    0.406,
+    0.087
+   ],
+   "tris": 4352,
+   "tpu": 12688,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 375092,
+   "vtx": 10861,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0265,
+   "avgTri": 0.00008,
+   "anglePct": 35,
+   "vpt": 2.5,
+   "grad": 0.26,
+   "spread": {
+    "15,3": [
+     0.461,
+     0.711
+    ],
+    "13,3": [
+     0.055,
+     0.953
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#5b5550",
+    "#82868e",
+    "#d07b56"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 12688 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "drone",
+   "kind": "obj-transport-air",
+   "size": "s",
+   "wdh": [
+    0.486,
+    0.462,
+    0.171
+   ],
+   "tris": 2524,
+   "tpu": 7359,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 189960,
+   "vtx": 5418,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0265,
+   "avgTri": 0.00012,
+   "anglePct": 53,
+   "vpt": 2.15,
+   "grad": 0.25,
+   "spread": {
+    "15,3": [
+     0.406,
+     0.664
+    ],
+    "13,3": [
+     0.055,
+     0.953
+    ],
+    "5,0": [
+     0.5,
+     0.5
+    ],
+    "1,1": [
+     0.5,
+     0.5
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#5b5550",
+    "#82868e",
+    "#d07b56"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "variant": "v1245"
   },
   {
    "kit": "taalei-kit",
