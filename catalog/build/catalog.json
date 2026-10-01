@@ -19245,7 +19245,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 225
+   "count": 226
   },
   {
    "id": "plural",
@@ -19439,7 +19439,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 108,
+   "count": 109,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -54439,18 +54439,12 @@
     "#82868e"
    ],
    "tags": [
+    "comp",
     "ipoly",
     "metal-iron-steel",
     "rubber"
    ],
-   "variant": "v1236",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.033 under min 0.05 (defaults)"
-    }
-   ]
+   "variant": "v1236"
   },
   {
    "kit": "ipoly-electronics",
@@ -262296,16 +262290,10 @@
    ],
    "tags": [
     "rgp",
+    "scale-big",
     "vegetation",
     "wood-beam",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.925 over max 1.2 (str-part-roof-unit)"
-    }
    ]
   },
   {
@@ -269852,7 +269840,7 @@
    "tris": 1444,
    "tpu": 3271,
    "mat": 1,
-   "bands": 6,
+   "bands": 5,
    "calls": 1,
    "bytes": 125984,
    "vtx": 3616,
@@ -269863,7 +269851,7 @@
    "avgTri": 0.00051,
    "anglePct": 15,
    "vpt": 2.5,
-   "grad": 0.6,
+   "grad": 0.62,
    "spread": {
     "0,0": [
      0.281,
@@ -269877,21 +269865,16 @@
      0.031,
      0.961
     ],
-    "13,3": [
-     0.898,
+    "15,3": [
+     0.406,
      0.961
     ],
     "5,2": [
      0.031,
      0.031
-    ],
-    "15,3": [
-     0.406,
-     0.773
     ]
    },
    "colors": [
-    "#5b5550",
     "#82868e",
     "#8b7561",
     "#907a66",
@@ -269907,14 +269890,7 @@
     "vegetation",
     "wood-log"
    ],
-   "variant": "v176",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "variant": "v176"
   },
   {
    "kit": "rgp-props",
@@ -269929,7 +269905,7 @@
    "tris": 1902,
    "tpu": 4289,
    "mat": 1,
-   "bands": 7,
+   "bands": 5,
    "calls": 1,
    "bytes": 190656,
    "vtx": 5551,
@@ -269940,7 +269916,7 @@
    "avgTri": 0.00042,
    "anglePct": 8,
    "vpt": 2.92,
-   "grad": 0.73,
+   "grad": 0.75,
    "spread": {
     "0,0": [
      0.156,
@@ -269954,27 +269930,17 @@
      0.031,
      0.961
     ],
-    "13,3": [
-     0.898,
+    "15,3": [
+     0.094,
      0.961
     ],
     "5,2": [
-     0.406,
+     0.094,
      0.406
-    ],
-    "14,3": [
-     0.094,
-     0.156
-    ],
-    "15,3": [
-     0.094,
-     0.648
     ]
    },
    "colors": [
-    "#5b5550",
     "#82868e",
-    "#8b7561",
     "#907a66",
     "#b58158",
     "#d8d1bd",
@@ -269989,14 +269955,7 @@
     "vegetation",
     "wood-worked"
    ],
-   "variant": "v176",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 5"
-    }
-   ]
+   "variant": "v176"
   },
   {
    "kit": "rgp-props",
