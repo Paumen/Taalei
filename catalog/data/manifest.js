@@ -2128,6 +2128,7 @@ window.KENNEY_KITS = [
    "axe-small",
    "backpack",
    "bag",
+   "blood-ring",
    "bone",
    "book-1-closed",
    "book-1-open",
@@ -2164,6 +2165,7 @@ window.KENNEY_KITS = [
    "necklace-3",
    "padlock",
    "parchment",
+   "pelvis",
    "potion-1-empty",
    "potion-1-filled",
    "potion-10-empty",
@@ -2187,6 +2189,7 @@ window.KENNEY_KITS = [
    "potion-9-empty",
    "potion-9-filled",
    "pouch",
+   "ribcage",
    "ring-1",
    "ring-2",
    "ring-3",
@@ -2195,8 +2198,10 @@ window.KENNEY_KITS = [
    "ring-6",
    "ring-7",
    "scroll",
+   "skeleton",
    "skull",
    "skull-2",
+   "skull-3",
    "star",
    "sword",
    "sword-big"
@@ -2739,29 +2744,6 @@ window.KENNEY_KITS = [
    "wooden-shield",
    "wooden-shovel",
    "wooden-spear"
-  ]
- },
- {
-  "slug": "isa-pond",
-  "name": "isa-pond",
-  "url": null,
-  "models": [
-   "bird",
-   "branch",
-   "branch-b",
-   "brown-bird",
-   "dragonfly",
-   "green-frog",
-   "red-dragonfly",
-   "rock-a",
-   "rock-a-2",
-   "rock-a-3",
-   "round-bird",
-   "tree-branch",
-   "tree-branch-2",
-   "tree-branch-3",
-   "tree-branch-4",
-   "yellow-frog"
   ]
  },
  {
@@ -3393,25 +3375,6 @@ window.KENNEY_KITS = [
    "wonder-2-c",
    "wonder-walls-1",
    "wonder-walls-2"
-  ]
- },
-{
-  "slug": "quat-blood-ring",
-  "name": "quat-blood-ring",
-  "url": "https://quaternius.com/",
-  "models": [
-   "blood-ring"
-  ]
- },
- {
-  "slug": "quat-skeleton",
-  "name": "quat-skeleton",
-  "url": "https://quaternius.com/",
-  "models": [
-   "pelvis",
-   "ribcage",
-   "skeleton",
-   "skull"
   ]
  },
  {
@@ -4881,20 +4844,27 @@ window.KENNEY_KITS = [
   "name": "aq-pond",
   "url": "https://www.assetquest.dev",
   "licenseLabel": "CC0 1.0",
+  "note": "The Pond_pack zip holds the same kit as glb; its models (bird, branch, dragonfly, frog, rock and tree-branch without a letter suffix) sit beside the fbx ones.",
   "models": [
    "bathtub",
+   "bird",
    "bird-a",
    "bird-b",
    "bird-c",
+   "branch",
    "branch-a",
    "branch-b",
+   "branch-b-2",
    "branch-c",
+   "brown-bird",
+   "dragonfly",
    "dragonfly-a",
    "dragonfly-b",
    "dragonfly-c",
    "frog-a",
    "frog-b",
    "frog-c",
+   "green-frog",
    "lily-blossom-a",
    "lily-blossom-b",
    "lily-blossom-c",
@@ -4905,18 +4875,28 @@ window.KENNEY_KITS = [
    "pebble-c",
    "pebble-d",
    "pot-clay",
+   "red-dragonfly",
    "rock-a",
+   "rock-a-2",
+   "rock-a-3",
+   "rock-a-4",
    "rock-b",
    "rock-c",
    "rock-d",
+   "round-bird",
    "swamp-calla-a",
    "swamp-calla-b",
    "swamp-calla-c",
+   "tree-branch",
+   "tree-branch-2",
+   "tree-branch-3",
+   "tree-branch-4",
    "tub-metal",
    "tub-wood",
    "water-lettuce-a",
    "water-lettuce-b",
-   "water-lettuce-c"
+   "water-lettuce-c",
+   "yellow-frog"
   ]
  },
  {
@@ -5959,7 +5939,8 @@ window.KENNEY_KITS = [
   "name": "wizp-eastern",
   "kits": [
    "wizp-asia",
-   "wizp-village"
+   "wizp-village",
+   "wizp-rock"
   ]
  },
  {
@@ -6034,17 +6015,11 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "collection": "kay-chars",
-  "name": "kay-chars",
-  "kits": [
-   "kay-adventurers",
-   "kay-skeleton"
-  ]
- },
- {
   "collection": "kay-rpg",
   "name": "kay-rpg",
   "kits": [
+   "kay-adventurers",
+   "kay-skeleton",
    "kay-tools",
    "kay-weapons",
    "kay-resources"
@@ -6056,6 +6031,23 @@ window.KENNEY_KITS = [
   "kits": [
    "kay-spook",
    "kay-skeleton-1"
+  ]
+ },
+ {
+  "collection": "kay-interior",
+  "name": "kay-interior",
+  "kits": [
+   "kay-food",
+   "kay-furniture",
+   "kay-dun-2"
+  ]
+ },
+ {
+  "collection": "quat-dun",
+  "name": "quat-dun",
+  "kits": [
+   "quat-dun-1",
+   "quat-dun-2"
   ]
  },
  {

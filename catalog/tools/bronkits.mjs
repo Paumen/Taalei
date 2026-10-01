@@ -42,8 +42,8 @@ export const BRONKITS = [
   { map: 'Modular_Dungeons_Pack_by_Quaternius_OBJ', naam: 'Modular Dungeons Pack', kit: 'quat-dun-1', source: 'qua', formaat: 'obj' },
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'rgp-props', source: 'rgp', formaat: 'fbx' },
 
-  { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-blood-ring', source: 'qua', formaat: 'fbx' },
-  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },
+  { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-rpg', source: 'qua', formaat: 'fbx' },
+  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-rpg', source: 'qua', formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
   { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'lpa-tools', source: 'lpa', formaat: 'fbx' },
 
@@ -54,7 +54,7 @@ export const BRONKITS = [
   { map: 'Ships_Pack_by_Quaternius_OBJ', naam: 'Ships Pack', kit: 'quat-ships', source: 'qua', formaat: 'obj' },
 
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', source: 'isa', formaat: 'glb' },
-  { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', source: 'isa', formaat: 'glb' },
+  { map: 'Pond_pack', naam: 'Pond Pack', kit: 'aq-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'quat-medieval', source: 'qua', formaat: 'glb' },
 
   { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'quat-town', source: 'qua', formaat: 'glb' },
