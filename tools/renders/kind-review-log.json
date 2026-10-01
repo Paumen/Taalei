@@ -152,6 +152,206 @@
   ]
  },
  {
+  "kind": "obj-device-appliance-fridge",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-food/fridge-a",
+     "kay-food/fridge-b"
+    ],
+    "text": "Black side stripes: triangles with corners in hunter and moss run across the empty cell between",
+    "options": [
+     "face-bands.mjs (source colour)",
+     "Split at door seam",
+     "All crossing → moss",
+     "Keep as is"
+    ],
+    "picked": [
+     "face-bands.mjs (source colour)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/fridge"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Only the fridge",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "colour",
+    "models": [
+     "kay-food/fridge-a",
+     "kay-food/fridge-b",
+     "kay-food/fridge-a-decorated"
+    ],
+    "text": "Green fridge looks weird, did you check source? Source is one mint body; import split it into moss and hunter",
+    "options": [
+     "All moss, fade per part",
+     "All hunter, fade per part",
+     "Keep two-tone"
+    ],
+    "picked": [
+     "All moss, fade per part",
+     "Add moss to plastic"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "look",
+    "models": [
+     "styloo-furniture/fridge",
+     "ken-market/freezers-standing",
+     "ken-market/freezer-chest"
+    ],
+    "text": "Grey fridges do not read like steel",
+    "options": [
+     "Lighter, more contrast",
+     "Full band spread",
+     "Enamel body",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lighter, more contrast"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "detail",
+    "models": [
+     "kay-food/fridge-a-decorated"
+    ],
+    "text": "What is decorated about the decorated fridge: food hidden behind closed doors",
+    "options": [
+     "Keep, fix like a/b",
+     "Open the doors",
+     "Reject as duplicate"
+    ],
+    "picked": [
+     "Keep, fix like a/b",
+     "PO: add open animation, new decorated-anim, 2 clips, doors not perfectly synchronous",
+     "PO: drop the chevron detail"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "colour",
+    "models": [
+     "kay-food/fridge-a-decorated"
+    ],
+    "text": "Check the fridge food against the kit foods: cheese, steak and tomato in wrong bands",
+    "options": [
+     "Match standalone ingredients"
+    ],
+    "picked": [
+     "Match standalone ingredients"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "detail",
+    "models": [
+     "quat-sushi/drinks-fridge"
+    ],
+    "text": "Hidden content check: bottles and cans behind an opaque ivory door window",
+    "options": [
+     "Glass window",
+     "Open-door anim",
+     "Both",
+     "Leave it"
+    ],
+    "picked": [
+     "Open-door anim",
+     "PO: also version with partially transparent glass",
+     "New static glass variant"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-appliance-kitchen",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/rice-cooker"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "cooking-assets/rice-cooker"
+    ],
+    "text": "Mostly smooth-shaded where kitchen peers are flat",
+    "options": [
+     "smooth.mjs --angle 30",
+     "facet.mjs all bands",
+     "Keep smooth"
+    ],
+    "picked": [
+     "PO: make others smoother too",
+     "Kitchen kind, smooth.mjs 50°"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "isa-bakery/stand-mixer",
+     "isa-bakery/stand-mixer-anim"
+    ],
+    "text": "Static and animated mixer look identical",
+    "options": [
+     "Keep both",
+     "Reject static",
+     "Reject -anim"
+    ],
+    "picked": [
+     "Keep both"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "isa-bakery/coffee-machine",
+     "ken-furniture/kitchen-coffee-machine"
+    ],
+    "text": "isa coffee machine 0.45 against ken 0.20",
+    "options": [
+     "Leave scale",
+     "Note for pack review"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-equipment-tool-hand-hammer",
   "date": "2026-10-01",
   "suggestions": [
@@ -458,6 +658,92 @@
      "Same ivory surround and azure glass on all"
     ],
     "picked": []
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-light-street",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-racing/light-post-modern"
+    ],
+    "text": "Pole and head in amber, peers keep amber for the lamp only",
+    "options": [
+     "Pole → ivory",
+     "Pole → nickel",
+     "Keep amber"
+    ],
+    "picked": [
+     "PO: think so, check source. Ivory is fine cause it's race."
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-racing/light-post-exclusive",
+     "ken-racing/light-post-large",
+     "ken-racing/light-post-modern"
+    ],
+    "text": "Ivory poles where 10 of 13 street lights are nickel",
+    "options": [
+     "Keep ivory",
+     "Ivory → nickel"
+    ],
+    "picked": [
+     "Keep ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-shoot/street-light"
+    ],
+    "text": "Ivory lens, not emissive, where peers have an amber lamp",
+    "options": [
+     "Lens → amber + emissive",
+     "Keep ivory lens"
+    ],
+    "picked": [
+     "Lens → amber + emissive"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-shoot/street-light",
+     "quat-apocalypse/street-light"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "ken-racing/*",
+     "quat-apocalypse/street-light"
+    ],
+    "text": "Racing posts 0.94–0.96 tall against median 1.2; apocalypse 2.58 over max",
+    "options": [
+     "Leave scale",
+     "Note for pack review"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
    }
   ]
  }
