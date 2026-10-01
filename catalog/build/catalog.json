@@ -668,25 +668,32 @@
    }
   },
   {
-   "slug": "kay-chars",
-   "name": "kay-chars",
+   "slug": "kay-rpg",
+   "name": "kay-rpg",
    "url": "https://www.kaylousberg.com",
    "artist": "KayKit",
    "licenseLabel": "CC0",
-   "count": 53,
+   "count": 189,
    "packs": [
     "KayKit Adventurers",
-    "KayKit Skeletons"
+    "KayKit Resource Bits",
+    "KayKit Skeletons",
+    "KayKit RPG Tools Bits",
+    "KayKit Fantasy Weapons Bits"
    ],
    "origins": {
     "KayKit Adventurers": 32,
-    "KayKit Skeletons": 21
+    "KayKit Resource Bits": 60,
+    "KayKit Skeletons": 21,
+    "KayKit RPG Tools Bits": 45,
+    "KayKit Fantasy Weapons Bits": 31
    },
    "scales": {
-    "0.3": 53
+    "0.3": 189
    },
    "smooth": {
-    "smooth": 53
+    "smooth": 188,
+    "none": 1
    },
    "members": [
     {
@@ -710,6 +717,27 @@
      }
     },
     {
+     "slug": "kay-resources",
+     "name": "kay-resources",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 60,
+     "packs": [
+      "KayKit Resource Bits"
+     ],
+     "origins": {
+      "KayKit Resource Bits": 60
+     },
+     "scales": {
+      "0.3": 60
+     },
+     "smooth": {
+      "smooth": 59,
+      "none": 1
+     }
+    },
+    {
      "slug": "kay-skeleton",
      "name": "kay-skeleton",
      "url": "https://www.kaylousberg.com",
@@ -728,11 +756,51 @@
      "smooth": {
       "smooth": 21
      }
+    },
+    {
+     "slug": "kay-tools",
+     "name": "kay-tools",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 45,
+     "packs": [
+      "KayKit RPG Tools Bits"
+     ],
+     "origins": {
+      "KayKit RPG Tools Bits": 45
+     },
+     "scales": {
+      "0.3": 45
+     },
+     "smooth": {
+      "smooth": 45
+     }
+    },
+    {
+     "slug": "kay-weapons",
+     "name": "kay-weapons",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 31,
+     "packs": [
+      "KayKit Fantasy Weapons Bits"
+     ],
+     "origins": {
+      "KayKit Fantasy Weapons Bits": 31
+     },
+     "scales": {
+      "0.3": 31
+     },
+     "smooth": {
+      "smooth": 31
+     }
     }
    ],
    "kitCheck": {
-    "factor": 0.94,
-    "kinds": 19
+    "factor": 0.99,
+    "kinds": 40
    }
   },
   {
@@ -831,53 +899,96 @@
    }
   },
   {
-   "slug": "kay-dun-2",
-   "name": "kay-dun-2",
+   "slug": "kay-interior",
+   "name": "kay-interior",
    "url": "https://www.kaylousberg.com",
    "artist": "KayKit",
    "licenseLabel": "CC0",
-   "count": 149,
+   "count": 321,
    "packs": [
-    "KayKit Dungeon Asset Pack"
+    "KayKit Dungeon Asset Pack",
+    "KayKit Restaurant Bits",
+    "KayKit Furniture Bits"
    ],
    "origins": {
-    "KayKit Dungeon Asset Pack": 149
+    "KayKit Dungeon Asset Pack": 149,
+    "KayKit Restaurant Bits": 122,
+    "KayKit Furniture Bits": 50
    },
    "scales": {
-    "0.3": 149
+    "0.3": 321
    },
    "smooth": {
-    "smooth": 129,
-    "none": 20
+    "smooth": 295,
+    "none": 26
    },
-   "kitCheck": {
-    "factor": 1.16,
-    "kinds": 21
-   }
-  },
-  {
-   "slug": "kay-food",
-   "name": "kay-food",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 122,
-   "packs": [
-    "KayKit Restaurant Bits"
+   "members": [
+    {
+     "slug": "kay-dun-2",
+     "name": "kay-dun-2",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 149,
+     "packs": [
+      "KayKit Dungeon Asset Pack"
+     ],
+     "origins": {
+      "KayKit Dungeon Asset Pack": 149
+     },
+     "scales": {
+      "0.3": 149
+     },
+     "smooth": {
+      "smooth": 129,
+      "none": 20
+     }
+    },
+    {
+     "slug": "kay-food",
+     "name": "kay-food",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 122,
+     "packs": [
+      "KayKit Restaurant Bits"
+     ],
+     "origins": {
+      "KayKit Restaurant Bits": 122
+     },
+     "scales": {
+      "0.3": 122
+     },
+     "smooth": {
+      "smooth": 116,
+      "none": 6
+     }
+    },
+    {
+     "slug": "kay-furniture",
+     "name": "kay-furniture",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 50,
+     "packs": [
+      "KayKit Furniture Bits"
+     ],
+     "origins": {
+      "KayKit Furniture Bits": 50
+     },
+     "scales": {
+      "0.3": 50
+     },
+     "smooth": {
+      "smooth": 50
+     }
+    }
    ],
-   "origins": {
-    "KayKit Restaurant Bits": 122
-   },
-   "scales": {
-    "0.2": 122
-   },
-   "smooth": {
-    "smooth": 116,
-    "none": 6
-   },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 32
+    "factor": 1.23,
+    "kinds": 51
    }
   },
   {
@@ -902,30 +1013,6 @@
    "kitCheck": {
     "factor": 1.14,
     "kinds": 7
-   }
-  },
-  {
-   "slug": "kay-furniture",
-   "name": "kay-furniture",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 50,
-   "packs": [
-    "KayKit Furniture Bits"
-   ],
-   "origins": {
-    "KayKit Furniture Bits": 50
-   },
-   "scales": {
-    "0.3": 50
-   },
-   "smooth": {
-    "smooth": 50
-   },
-   "kitCheck": {
-    "factor": 0.88,
-    "kinds": 15
    }
   },
   {
@@ -1099,98 +1186,6 @@
    "kitCheck": {
     "factor": 1.09,
     "kinds": 8
-   }
-  },
-  {
-   "slug": "kay-rpg",
-   "name": "kay-rpg",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 136,
-   "packs": [
-    "KayKit Resource Bits",
-    "KayKit RPG Tools Bits",
-    "KayKit Fantasy Weapons Bits"
-   ],
-   "origins": {
-    "KayKit Resource Bits": 60,
-    "KayKit RPG Tools Bits": 45,
-    "KayKit Fantasy Weapons Bits": 31
-   },
-   "scales": {
-    "0.3": 136
-   },
-   "smooth": {
-    "smooth": 135,
-    "none": 1
-   },
-   "members": [
-    {
-     "slug": "kay-resources",
-     "name": "kay-resources",
-     "url": "https://www.kaylousberg.com",
-     "artist": "KayKit",
-     "licenseLabel": "CC0",
-     "count": 60,
-     "packs": [
-      "KayKit Resource Bits"
-     ],
-     "origins": {
-      "KayKit Resource Bits": 60
-     },
-     "scales": {
-      "0.3": 60
-     },
-     "smooth": {
-      "smooth": 59,
-      "none": 1
-     }
-    },
-    {
-     "slug": "kay-tools",
-     "name": "kay-tools",
-     "url": "https://www.kaylousberg.com",
-     "artist": "KayKit",
-     "licenseLabel": "CC0",
-     "count": 45,
-     "packs": [
-      "KayKit RPG Tools Bits"
-     ],
-     "origins": {
-      "KayKit RPG Tools Bits": 45
-     },
-     "scales": {
-      "0.3": 45
-     },
-     "smooth": {
-      "smooth": 45
-     }
-    },
-    {
-     "slug": "kay-weapons",
-     "name": "kay-weapons",
-     "url": "https://www.kaylousberg.com",
-     "artist": "KayKit",
-     "licenseLabel": "CC0",
-     "count": 31,
-     "packs": [
-      "KayKit Fantasy Weapons Bits"
-     ],
-     "origins": {
-      "KayKit Fantasy Weapons Bits": 31
-     },
-     "scales": {
-      "0.3": 31
-     },
-     "smooth": {
-      "smooth": 31
-     }
-    }
-   ],
-   "kitCheck": {
-    "factor": 1.03,
-    "kinds": 31
    }
   },
   {
@@ -19527,14 +19522,14 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2745
+   "count": 2705
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2364
+   "count": 2404
   },
   {
    "id": "l",
@@ -74347,7 +74342,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-bow-bundle",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -74406,7 +74401,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-bow",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -74459,7 +74454,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-crossbow-bundle",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -74518,7 +74513,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-crossbow",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -74571,7 +74566,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "axe-one-handed",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "s",
@@ -74624,7 +74619,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "axe-two-handed",
    "kind": "obj-equipment-weapon-melee-axe-double",
    "size": "m",
@@ -74675,7 +74670,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "barbarian",
    "kind": "char",
    "size": "m",
@@ -74883,7 +74878,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "bow-strung",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "m",
@@ -74938,7 +74933,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "bow",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "m",
@@ -74986,7 +74981,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "crossbow-one-handed",
    "kind": "obj-equipment-weapon-ranged-crossbow",
    "size": "s",
@@ -75039,7 +75034,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "crossbow-two-handed",
    "kind": "obj-equipment-weapon-ranged-crossbow",
    "size": "s",
@@ -75091,7 +75086,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "dagger",
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
@@ -75136,7 +75131,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "knight",
    "kind": "char",
    "size": "m",
@@ -75338,7 +75333,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "mage",
    "kind": "char",
    "size": "m",
@@ -75539,7 +75534,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "mug-empty",
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
@@ -75585,7 +75580,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "mug-full",
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
@@ -75637,7 +75632,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "quiver",
    "kind": "obj-equipment-apparel-quiver",
    "size": "s",
@@ -75691,7 +75686,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "ranger",
    "kind": "char",
    "size": "m",
@@ -75910,7 +75905,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "rogue-hooded",
    "kind": "char",
    "size": "m",
@@ -76112,7 +76107,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "rogue",
    "kind": "char",
    "size": "m",
@@ -76319,7 +76314,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-badge",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -76364,7 +76359,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-round",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -76409,7 +76404,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-spikes",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -76454,7 +76449,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-square",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -76499,7 +76494,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "smokebomb",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -76544,7 +76539,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "spellbook-closed",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
@@ -76602,7 +76597,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "spellbook-open",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
@@ -76660,7 +76655,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "staff",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",
@@ -76711,7 +76706,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "sword-one-handed",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
@@ -76757,7 +76752,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "sword-two-handed-colored",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
@@ -76809,7 +76804,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "sword-two-handed",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
@@ -76855,7 +76850,7 @@
   },
   {
    "kit": "kay-adventurers",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "wand",
    "kind": "obj-equipment-weapon-magic",
    "size": "s",
@@ -87719,6 +87714,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrel-large-decorated",
    "kind": "set",
    "size": "m",
@@ -87780,6 +87776,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrel-large",
    "kind": "obj-container-barrel",
    "size": "m",
@@ -87831,6 +87828,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrel-small-stack",
    "kind": "set",
    "size": "m",
@@ -87880,6 +87878,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrel-small",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -87930,6 +87929,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrier-column-half",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -87970,6 +87970,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrier-column",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -88011,6 +88012,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrier-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -88050,6 +88052,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrier-half",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -88097,6 +88100,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "barrier",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -88145,6 +88149,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bed-decorated",
    "kind": "set",
    "size": "m",
@@ -88211,6 +88216,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bed-floor",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
@@ -88261,6 +88267,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bed-frame",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
@@ -88312,6 +88319,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-a-brown",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88358,6 +88366,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-a-green",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88404,6 +88413,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-a-labeled-brown",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88456,6 +88466,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-a-labeled-green",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88508,6 +88519,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-b-brown",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88553,6 +88565,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-b-green",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88598,6 +88611,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-c-brown",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88643,6 +88657,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "bottle-c-green",
    "kind": "obj-container-bottle",
    "size": "s",
@@ -88688,6 +88703,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "box-small-decorated",
    "kind": "set",
    "size": "s",
@@ -88736,6 +88752,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "box-stacked",
    "kind": "set",
    "size": "m",
@@ -88791,6 +88808,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "candle-lit",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -88844,6 +88862,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "candle-melted",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -88891,6 +88910,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "candle-thin-lit",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -88945,6 +88965,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "candle-thin",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -88993,6 +89014,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "candle-triple",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -89040,6 +89062,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "candle",
    "kind": "obj-furnishing-light-candle",
    "size": "s",
@@ -89087,6 +89110,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "ceiling-tile",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89126,6 +89150,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "chair",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
@@ -89165,6 +89190,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "chest-gold",
    "kind": "obj-container-chest",
    "size": "m",
@@ -89220,6 +89246,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "chest",
    "kind": "obj-container-chest",
    "size": "m",
@@ -89269,6 +89296,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "coin-stack-large",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -89310,6 +89338,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "coin-stack-medium",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -89350,6 +89379,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "coin-stack-small",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -89390,6 +89420,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "coin",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -89429,6 +89460,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "column",
    "kind": "str-part-pillar",
    "size": "s",
@@ -89470,6 +89502,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "crates-stacked",
    "kind": "set",
    "size": "m",
@@ -89525,6 +89558,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-large-rocky",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89565,6 +89599,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-large",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89605,6 +89640,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-small-a",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89646,6 +89682,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-small-b",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89687,6 +89724,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-small-c",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89728,6 +89766,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-small-corner",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89769,6 +89808,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-small-d",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89810,6 +89850,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-dirt-small-weeds",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -89857,6 +89898,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-foundation-allsides",
    "kind": "str-part-floor",
    "size": "m",
@@ -89898,6 +89940,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-foundation-corner",
    "kind": "str-part-floor",
    "size": "m",
@@ -89939,6 +89982,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-foundation-diagonal-corner",
    "kind": "str-part-floor",
    "size": "m",
@@ -89980,6 +90024,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-foundation-front-and-back",
    "kind": "str-part-floor",
    "size": "m",
@@ -90021,6 +90066,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-foundation-front-and-sides",
    "kind": "str-part-floor",
    "size": "m",
@@ -90062,6 +90108,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-foundation-front",
    "kind": "str-part-floor",
    "size": "m",
@@ -90103,6 +90150,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-big-grate-open",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90149,6 +90197,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-big-spikes",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90196,6 +90245,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-extralarge-grates-open",
    "kind": "str-part-floor-unit",
    "size": "l",
@@ -90243,6 +90293,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-grate-open",
    "kind": "str-part-floor",
    "size": "m",
@@ -90289,6 +90340,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-large-rocks",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90329,6 +90381,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-large",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90369,6 +90422,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small-broken-a",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90411,6 +90465,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small-broken-b",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90453,6 +90508,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small-corner",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90494,6 +90550,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small-decorated",
    "kind": "set",
    "size": "m",
@@ -90546,6 +90603,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small-weeds-a",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90592,6 +90650,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small-weeds-b",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90638,6 +90697,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-tile-small",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90679,6 +90739,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-wood-large-dark",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90718,6 +90779,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-wood-large",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90757,6 +90819,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-wood-small-dark",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90797,6 +90860,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "floor-wood-small",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -90837,6 +90901,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "keg-decorated",
    "kind": "set",
    "size": "m",
@@ -90896,6 +90961,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "keg",
    "kind": "obj-container-barrel-keg",
    "size": "m",
@@ -90953,6 +91019,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "key",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
@@ -90993,6 +91060,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "keyring-hanging",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
@@ -91043,6 +91111,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "keyring",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
@@ -91083,6 +91152,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "pillar",
    "kind": "str-part-pillar",
    "size": "m",
@@ -91128,6 +91198,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "plate-food-a",
    "kind": "obj-food-meal",
    "size": "s",
@@ -91179,6 +91250,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "plate-food-b",
    "kind": "obj-food-meal",
    "size": "s",
@@ -91230,6 +91302,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "plate-small",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -91275,6 +91348,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "plate-stack",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -91314,6 +91388,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "plate",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -91352,6 +91427,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "shelf-large",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
@@ -91391,6 +91467,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "shelf-small-candles",
    "kind": "set",
    "size": "s",
@@ -91442,6 +91519,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "shelf-small",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "s",
@@ -91481,6 +91559,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "shelves",
    "kind": "set",
    "size": "m",
@@ -91519,6 +91598,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-long",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91566,6 +91646,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-narrow",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91613,6 +91694,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-wall-left",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91660,6 +91742,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-wall-right",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91707,6 +91790,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-walled",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91753,6 +91837,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-wide",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91800,6 +91885,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-wood-decorated",
    "kind": "set",
    "size": "l",
@@ -91854,6 +91940,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs-wood",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91901,6 +91988,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stairs",
    "kind": "str-access-stairs",
    "size": "l",
@@ -91948,6 +92036,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "stool",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
@@ -91987,6 +92076,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "sword-shield-broken",
    "kind": "set",
    "size": "m",
@@ -92033,6 +92123,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "sword-shield-gold",
    "kind": "set",
    "size": "m",
@@ -92085,6 +92176,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "sword-shield",
    "kind": "set",
    "size": "m",
@@ -92137,6 +92229,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-long-broken",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -92177,6 +92270,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-long-decorated-a",
    "kind": "set",
    "size": "m",
@@ -92242,6 +92336,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-long-decorated-c",
    "kind": "set",
    "size": "m",
@@ -92302,6 +92397,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-long-tablecloth-decorated-a",
    "kind": "set",
    "size": "m",
@@ -92365,6 +92461,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-long-tablecloth",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -92411,6 +92508,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-long",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -92451,6 +92549,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-medium-broken",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -92491,6 +92590,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-medium-decorated-a",
    "kind": "set",
    "size": "m",
@@ -92556,6 +92656,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-medium-tablecloth-decorated-b",
    "kind": "set",
    "size": "m",
@@ -92615,6 +92716,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-medium-tablecloth",
    "kind": "obj-furnishing-furniture-table-square",
    "size": "m",
@@ -92661,6 +92763,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-medium",
    "kind": "obj-furnishing-furniture-table-square",
    "size": "m",
@@ -92701,6 +92804,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-small-decorated-a",
    "kind": "set",
    "size": "s",
@@ -92758,6 +92862,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-small-decorated-b",
    "kind": "set",
    "size": "m",
@@ -92803,6 +92908,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "table-small",
    "kind": "obj-furnishing-furniture-table-square",
    "size": "s",
@@ -92842,6 +92948,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "torch-lit",
    "kind": "obj-furnishing-light-torch",
    "size": "s",
@@ -92896,6 +93003,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "torch-mounted",
    "kind": "obj-furnishing-light-torch",
    "size": "s",
@@ -92948,6 +93056,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "torch",
    "kind": "obj-furnishing-light-torch",
    "size": "s",
@@ -92995,6 +93104,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "trunk-large-c",
    "kind": "obj-container-chest",
    "size": "s",
@@ -93040,6 +93150,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "trunk-medium-c",
    "kind": "obj-container-chest",
    "size": "s",
@@ -93084,6 +93195,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "trunk-small-c",
    "kind": "obj-container-chest",
    "size": "s",
@@ -93130,6 +93242,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-arched",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93175,6 +93288,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-archedwindow-gated-scaffold",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -93233,6 +93347,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-archedwindow-gated",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -93285,6 +93400,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-archedwindow-open",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -93330,6 +93446,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-broken",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -93376,6 +93493,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-corner-gated",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93429,6 +93547,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-corner-scaffold",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93481,6 +93600,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-corner-small",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93526,6 +93646,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-corner",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93572,6 +93693,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-cracked",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93624,6 +93746,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-crossing",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93669,6 +93792,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-doorway-scaffold",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -93732,6 +93856,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-doorway-sides",
    "kind": "str-part-door-doorway",
    "size": "l",
@@ -93776,6 +93901,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-doorway-tsplit",
    "kind": "str-part-door-doorway",
    "size": "l",
@@ -93820,6 +93946,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-doorway",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -93883,6 +94010,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-endcap",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93929,6 +94057,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-gated",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -93981,6 +94110,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-half-endcap-sloped",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94026,6 +94156,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-half-endcap",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94071,6 +94202,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-half",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94116,6 +94248,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-open-scaffold",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94161,6 +94294,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-pillar",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94206,6 +94340,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-scaffold",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94257,6 +94392,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-shelves",
    "kind": "set",
    "size": "m",
@@ -94325,6 +94461,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-sloped",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94371,6 +94508,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-tsplit-sloped",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94416,6 +94554,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-tsplit",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94461,6 +94600,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-window-closed-scaffold",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -94519,6 +94659,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-window-closed",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -94571,6 +94712,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-window-open-scaffold",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -94623,6 +94765,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall-window-open",
    "kind": "str-part-window-unit",
    "size": "m",
@@ -94675,6 +94818,7 @@
   },
   {
    "kit": "kay-dun-2",
+   "collection": "kay-interior",
    "name": "wall",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -94720,13 +94864,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "bowl-dirty",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.06
+    0.285,
+    0.285,
+    0.09
    ],
    "tris": 329,
    "tpu": 959,
@@ -94737,8 +94882,8 @@
    "vtx": 304,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00029,
+   "minEdge": 0.009,
+   "avgTri": 0.00065,
    "anglePct": 18,
    "vpt": 0.92,
    "grad": 0.5,
@@ -94764,13 +94909,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "bowl-small",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.06
+    0.225,
+    0.225,
+    0.09
    ],
    "tris": 256,
    "tpu": 746,
@@ -94781,8 +94927,8 @@
    "vtx": 226,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00025,
+   "minEdge": 0.012,
+   "avgTri": 0.00055,
    "anglePct": 16,
    "vpt": 0.88,
    "grad": 0.47,
@@ -94802,13 +94948,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "bowl",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.06
+    0.285,
+    0.285,
+    0.09
    ],
    "tris": 256,
    "tpu": 746,
@@ -94819,8 +94966,8 @@
    "vtx": 210,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00035,
+   "minEdge": 0.015,
+   "avgTri": 0.00078,
    "anglePct": 18,
    "vpt": 0.82,
    "grad": 0.47,
@@ -94840,13 +94987,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "cabinet-corner-half",
    "kind": "obj-furnishing-furniture-storage-cabinet",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.2
+    0.6,
+    0.6,
+    0.3
    ],
    "tris": 184,
    "tpu": 536,
@@ -94857,8 +95005,8 @@
    "vtx": 246,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.0037,
+   "minEdge": 0.012,
+   "avgTri": 0.00832,
    "anglePct": 99,
    "vpt": 1.34,
    "grad": 0.66,
@@ -94881,17 +95029,25 @@
     "scale-small",
     "wood-worked"
    ],
-   "variant": "v842"
+   "variant": "v842",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.6 over max 0.45 (obj-furnishing-furniture-storage-cabinet scale-small)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "cabinet-corner",
    "kind": "obj-furnishing-furniture-storage-cabinet",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.4
+    0.6,
+    0.6,
+    0.6
    ],
    "tris": 184,
    "tpu": 536,
@@ -94902,8 +95058,8 @@
    "vtx": 242,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00637,
+   "minEdge": 0.012,
+   "avgTri": 0.01434,
    "anglePct": 100,
    "vpt": 1.32,
    "grad": 0.66,
@@ -94929,13 +95085,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "cabinet-half",
    "kind": "obj-furnishing-furniture-storage-cabinet",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.208,
-    0.2
+    0.6,
+    0.313,
+    0.3
    ],
    "tris": 168,
    "tpu": 490,
@@ -94946,8 +95103,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00298,
+   "minEdge": 0.012,
+   "avgTri": 0.00671,
    "anglePct": 99,
    "vpt": 1.29,
    "grad": 0.67,
@@ -94970,17 +95127,25 @@
     "scale-small",
     "wood-worked"
    ],
-   "variant": "v842"
+   "variant": "v842",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.6 over max 0.45 (obj-furnishing-furniture-storage-cabinet scale-small)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "cabinet",
    "kind": "obj-furnishing-furniture-storage-cabinet",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.208,
-    0.4
+    0.6,
+    0.313,
+    0.6
    ],
    "tris": 156,
    "tpu": 455,
@@ -94991,8 +95156,8 @@
    "vtx": 202,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00484,
+   "minEdge": 0.012,
+   "avgTri": 0.01089,
    "anglePct": 99,
    "vpt": 1.29,
    "grad": 0.67,
@@ -95018,13 +95183,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "chair-a",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
-    0.15,
-    0.159,
-    0.242
+    0.225,
+    0.239,
+    0.362
    ],
    "tris": 452,
    "tpu": 1318,
@@ -95035,8 +95201,8 @@
    "vtx": 479,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00037,
+   "minEdge": 0.009,
+   "avgTri": 0.00084,
    "anglePct": 51,
    "vpt": 1.06,
    "grad": 0.5,
@@ -95058,36 +95224,30 @@
     "kay",
     "metal-iron-steel",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.242 under min 0.3 (obj-furnishing-furniture-seating-chair)"
-    }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "chair-b",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
-    0.15,
-    0.159,
-    0.242
+    0.225,
+    0.239,
+    0.362
    ],
    "tris": 452,
    "tpu": 1318,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19312,
+   "bytes": 19308,
    "vtx": 472,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00037,
+   "minEdge": 0.009,
+   "avgTri": 0.00084,
    "anglePct": 51,
    "vpt": 1.04,
    "grad": 0.59,
@@ -95104,24 +95264,18 @@
     "kay",
     "wood-worked"
    ],
-   "variant": "v189",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.242 under min 0.3 (obj-furnishing-furniture-seating-chair)"
-    }
-   ]
+   "variant": "v189"
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-a-decorated",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.401,
-    0.453,
-    0.419
+    0.602,
+    0.679,
+    0.629
    ],
    "tris": 1520,
    "tpu": 4431,
@@ -95132,9 +95286,9 @@
    "vtx": 1760,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0245,
-   "avgTri": 0.00089,
+   "minEdge": 0.008,
+   "minTube": 0.0367,
+   "avgTri": 0.00201,
    "anglePct": 65,
    "vpt": 1.16,
    "grad": 0.95,
@@ -95166,13 +95320,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-a",
    "kind": "obj-furnishing-furniture-counter",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.408,
-    0.24
+    0.6,
+    0.613,
+    0.36
    ],
    "tris": 192,
    "tpu": 560,
@@ -95183,8 +95338,8 @@
    "vtx": 263,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00406,
+   "minEdge": 0.012,
+   "avgTri": 0.00914,
    "anglePct": 99,
    "vpt": 1.37,
    "grad": 0.82,
@@ -95211,13 +95366,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-b",
    "kind": "obj-furnishing-furniture-counter",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.408,
-    0.24
+    0.6,
+    0.613,
+    0.36
    ],
    "tris": 192,
    "tpu": 560,
@@ -95228,8 +95384,8 @@
    "vtx": 252,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00406,
+   "minEdge": 0.012,
+   "avgTri": 0.00913,
    "anglePct": 99,
    "vpt": 1.31,
    "grad": 0.82,
@@ -95256,13 +95412,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-decorated",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.408,
-    0.383
+    0.6,
+    0.613,
+    0.574
    ],
    "tris": 906,
    "tpu": 2641,
@@ -95273,8 +95430,8 @@
    "vtx": 995,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00119,
+   "minEdge": 0.008,
+   "avgTri": 0.00267,
    "anglePct": 87,
    "vpt": 1.1,
    "grad": 0.83,
@@ -95322,13 +95479,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-inner-corner",
    "kind": "obj-furnishing-furniture-counter",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.24
+    0.6,
+    0.6,
+    0.36
    ],
    "tris": 56,
    "tpu": 163,
@@ -95339,8 +95497,8 @@
    "vtx": 95,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.01249,
+   "minEdge": 0.021,
+   "avgTri": 0.02811,
    "anglePct": 100,
    "vpt": 1.7,
    "grad": 0.65,
@@ -95367,13 +95525,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-outer-corner",
    "kind": "obj-furnishing-furniture-counter",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.24
+    0.6,
+    0.6,
+    0.36
    ],
    "tris": 56,
    "tpu": 163,
@@ -95384,8 +95543,8 @@
    "vtx": 95,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.0109,
+   "minEdge": 0.021,
+   "avgTri": 0.02453,
    "anglePct": 100,
    "vpt": 1.7,
    "grad": 0.7,
@@ -95412,13 +95571,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "counter-sink",
    "kind": "obj-furnishing-furniture-counter",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.408,
-    0.36
+    0.6,
+    0.613,
+    0.54
    ],
    "tris": 710,
    "tpu": 2070,
@@ -95429,8 +95589,8 @@
    "vtx": 815,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00128,
+   "minEdge": 0.009,
+   "avgTri": 0.00289,
    "anglePct": 90,
    "vpt": 1.15,
    "grad": 0.65,
@@ -95461,13 +95621,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-buns",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.16
+    0.6,
+    0.6,
+    0.241
    ],
    "tris": 2772,
    "tpu": 8082,
@@ -95478,8 +95639,8 @@
    "vtx": 2684,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00042,
+   "minEdge": 0.007,
+   "avgTri": 0.00095,
    "anglePct": 69,
    "vpt": 0.97,
    "grad": 0.66,
@@ -95511,13 +95672,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-carrots",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.189
+    0.6,
+    0.6,
+    0.283
    ],
    "tris": 1842,
    "tpu": 5370,
@@ -95528,8 +95690,8 @@
    "vtx": 1758,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00062,
+   "minEdge": 0.012,
+   "avgTri": 0.00139,
    "anglePct": 69,
    "vpt": 0.95,
    "grad": 0.72,
@@ -95562,13 +95724,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-cheese",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.189
+    0.6,
+    0.6,
+    0.284
    ],
    "tris": 1164,
    "tpu": 3394,
@@ -95579,8 +95742,8 @@
    "vtx": 1344,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00097,
+   "minEdge": 0.007,
+   "avgTri": 0.00218,
    "anglePct": 75,
    "vpt": 1.15,
    "grad": 0.55,
@@ -95609,13 +95772,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-closed",
    "kind": "obj-container-crate",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.2
+    0.6,
+    0.6,
+    0.3
    ],
    "tris": 296,
    "tpu": 863,
@@ -95626,8 +95790,8 @@
    "vtx": 608,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00402,
+   "minEdge": 0.011,
+   "avgTri": 0.00904,
    "anglePct": 97,
    "vpt": 2.05,
    "grad": 0.55,
@@ -95648,13 +95812,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-ham",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.179
+    0.6,
+    0.6,
+    0.268
    ],
    "tris": 676,
    "tpu": 1971,
@@ -95665,8 +95830,8 @@
    "vtx": 690,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00153,
+   "minEdge": 0.012,
+   "avgTri": 0.00343,
    "anglePct": 77,
    "vpt": 1.02,
    "grad": 0.67,
@@ -95697,13 +95862,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-lettuce",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.2
+    0.6,
+    0.6,
+    0.299
    ],
    "tris": 1980,
    "tpu": 5773,
@@ -95714,8 +95880,8 @@
    "vtx": 1790,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00079,
+   "minEdge": 0.009,
+   "avgTri": 0.00178,
    "anglePct": 50,
    "vpt": 0.9,
    "grad": 0.65,
@@ -95742,13 +95908,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-lid",
    "kind": "obj-container-crate",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.04
+    0.6,
+    0.6,
+    0.06
    ],
    "tris": 164,
    "tpu": 478,
@@ -95759,8 +95926,8 @@
    "vtx": 360,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00234,
+   "minEdge": 0.011,
+   "avgTri": 0.00527,
    "anglePct": 100,
    "vpt": 2.2,
    "grad": 0.4,
@@ -95782,13 +95949,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-onions",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.185
+    0.6,
+    0.6,
+    0.277
    ],
    "tris": 1652,
    "tpu": 4816,
@@ -95799,8 +95967,8 @@
    "vtx": 1578,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00065,
+   "minEdge": 0.005,
+   "avgTri": 0.00145,
    "anglePct": 73,
    "vpt": 0.96,
    "grad": 0.69,
@@ -95827,13 +95995,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-potatoes",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.193
+    0.6,
+    0.6,
+    0.29
    ],
    "tris": 1068,
    "tpu": 3114,
@@ -95844,8 +96013,8 @@
    "vtx": 736,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0011,
+   "minEdge": 0.015,
+   "avgTri": 0.00248,
    "anglePct": 67,
    "vpt": 0.69,
    "grad": 0.71,
@@ -95871,13 +96040,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-steak",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.175
+    0.6,
+    0.6,
+    0.263
    ],
    "tris": 1188,
    "tpu": 3464,
@@ -95888,8 +96058,8 @@
    "vtx": 1310,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00097,
+   "minEdge": 0.01,
+   "avgTri": 0.00219,
    "anglePct": 71,
    "vpt": 1.1,
    "grad": 0.59,
@@ -95920,13 +96090,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate-tomatoes",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.185
+    0.6,
+    0.6,
+    0.277
    ],
    "tris": 2082,
    "tpu": 6070,
@@ -95937,8 +96108,8 @@
    "vtx": 2183,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00055,
+   "minEdge": 0.008,
+   "avgTri": 0.00123,
    "anglePct": 68,
    "vpt": 1.05,
    "grad": 0.64,
@@ -95971,13 +96142,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "crate",
    "kind": "obj-container-crate",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.16
+    0.6,
+    0.6,
+    0.24
    ],
    "tris": 132,
    "tpu": 385,
@@ -95988,8 +96160,8 @@
    "vtx": 248,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.0061,
+   "minEdge": 0.015,
+   "avgTri": 0.01373,
    "anglePct": 96,
    "vpt": 1.88,
    "grad": 0.47,
@@ -96010,13 +96182,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "cutting-board",
    "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
+    0.45,
     0.3,
-    0.2,
-    0.03
+    0.045
    ],
    "tris": 38,
    "tpu": 111,
@@ -96027,8 +96200,8 @@
    "vtx": 62,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00378,
+   "minEdge": 0.021,
+   "avgTri": 0.0085,
    "anglePct": 99,
    "vpt": 1.63,
    "grad": 0.52,
@@ -96048,13 +96221,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "dishrack-plates",
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.24,
-    0.24,
-    0.219
+    0.36,
+    0.36,
+    0.329
    ],
    "tris": 932,
    "tpu": 2717,
@@ -96063,12 +96237,11 @@
    "calls": 1,
    "bytes": 42236,
    "vtx": 1100,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0245,
-   "avgTri": 0.00054,
+   "minEdge": 0.012,
+   "minTube": 0.0367,
+   "avgTri": 0.00121,
    "anglePct": 41,
    "vpt": 1.18,
    "grad": 0.62,
@@ -96094,13 +96267,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "dishrack",
    "kind": "obj-kitchenware",
    "size": "s",
    "wdh": [
-    0.24,
-    0.24,
-    0.12
+    0.36,
+    0.36,
+    0.18
    ],
    "tris": 292,
    "tpu": 851,
@@ -96109,12 +96283,11 @@
    "calls": 1,
    "bytes": 17640,
    "vtx": 452,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0245,
-   "avgTri": 0.00078,
+   "minEdge": 0.012,
+   "minTube": 0.0367,
+   "avgTri": 0.00175,
    "anglePct": 89,
    "vpt": 1.55,
    "grad": 0.82,
@@ -96130,27 +96303,21 @@
    "tags": [
     "kay",
     "metal-iron-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0245 wants min 0.026"
-    }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "door-a",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.32,
-    0.156,
-    0.56
+    0.48,
+    0.234,
+    0.84
    ],
    "tris": 204,
-   "tpu": 595,
+   "tpu": 496,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -96158,9 +96325,9 @@
    "vtx": 364,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minTube": 0.0245,
-   "avgTri": 0.00257,
+   "minEdge": 0.015,
+   "minTube": 0.0367,
+   "avgTri": 0.00578,
    "anglePct": 82,
    "vpt": 1.78,
    "grad": 0.59,
@@ -96189,32 +96356,21 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "variant": "v570",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.56 under min 0.6 (str-part-door-single)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0245 wants min 0.026"
-    }
-   ]
+   "variant": "v570"
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "door-b",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.32,
-    0.156,
-    0.56
+    0.48,
+    0.234,
+    0.84
    ],
    "tris": 204,
-   "tpu": 595,
+   "tpu": 496,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -96222,9 +96378,9 @@
    "vtx": 364,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minTube": 0.0245,
-   "avgTri": 0.00257,
+   "minEdge": 0.015,
+   "minTube": 0.0367,
+   "avgTri": 0.00578,
    "anglePct": 82,
    "vpt": 1.78,
    "grad": 0.63,
@@ -96247,29 +96403,18 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "variant": "v570",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.56 under min 0.6 (str-part-door-single)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0245 wants min 0.026"
-    }
-   ]
+   "variant": "v570"
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "extractor-hood",
    "kind": "obj-device-appliance-extractor",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.322,
-    0.4
+    0.6,
+    0.483,
+    0.6
    ],
    "tris": 216,
    "tpu": 630,
@@ -96280,8 +96425,8 @@
    "vtx": 372,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00302,
+   "minEdge": 0.008,
+   "avgTri": 0.00681,
    "anglePct": 88,
    "vpt": 1.72,
    "grad": 0.75,
@@ -96307,13 +96452,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "floor-kitchen-small",
    "kind": "str-part-floor-unit",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.1
+    0.6,
+    0.6,
+    0.15
    ],
    "tris": 48,
    "tpu": 140,
@@ -96324,8 +96470,8 @@
    "vtx": 92,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00994,
+   "minEdge": 0.008,
+   "avgTri": 0.02236,
    "anglePct": 98,
    "vpt": 1.92,
    "grad": 0.38,
@@ -96353,16 +96499,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "floor-kitchen",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.8,
-    0.8,
-    0.1
+    1.2,
+    1.2,
+    0.15
    ],
    "tris": 48,
-   "tpu": 107,
+   "tpu": 48,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -96370,8 +96517,8 @@
    "vtx": 92,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.03314,
+   "minEdge": 0.011,
+   "avgTri": 0.07456,
    "anglePct": 100,
    "vpt": 1.92,
    "grad": 0.38,
@@ -96398,13 +96545,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-burger",
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.171
+    0.285,
+    0.285,
+    0.257
    ],
    "tris": 1622,
    "tpu": 4729,
@@ -96415,8 +96563,8 @@
    "vtx": 1659,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00021,
+   "minEdge": 0.005,
+   "avgTri": 0.00047,
    "anglePct": 53,
    "vpt": 1.02,
    "grad": 0.84,
@@ -96468,25 +96616,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-dinner",
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.207,
-    0.19,
-    0.182
+    0.311,
+    0.285,
+    0.272
    ],
    "tris": 1196,
    "tpu": 3487,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 46248,
+   "bytes": 46244,
    "vtx": 1174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00018,
+   "minEdge": 0.01,
+   "avgTri": 0.00039,
    "anglePct": 28,
    "vpt": 0.98,
    "grad": 0.82,
@@ -96515,13 +96664,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-bun-bottom",
    "kind": "obj-food-baked-bread-bun",
    "size": "s",
    "wdh": [
-    0.139,
-    0.139,
-    0.04
+    0.208,
+    0.208,
+    0.06
    ],
    "tris": 152,
    "tpu": 443,
@@ -96532,8 +96682,8 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00027,
+   "minEdge": 0.011,
+   "avgTri": 0.00062,
    "anglePct": 46,
    "vpt": 1.11,
    "grad": 0.69,
@@ -96559,13 +96709,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-bun-top",
    "kind": "obj-food-baked-bread-bun",
    "size": "s",
    "wdh": [
-    0.14,
-    0.14,
-    0.061
+    0.21,
+    0.21,
+    0.092
    ],
    "tris": 320,
    "tpu": 933,
@@ -96576,8 +96727,8 @@
    "vtx": 374,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00014,
+   "minEdge": 0.007,
+   "avgTri": 0.00033,
    "anglePct": 29,
    "vpt": 1.17,
    "grad": 0.55,
@@ -96608,13 +96759,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-bun",
    "kind": "obj-food-grain",
    "size": "s",
    "wdh": [
-    0.14,
-    0.14,
-    0.101
+    0.21,
+    0.21,
+    0.152
    ],
    "tris": 440,
    "tpu": 1283,
@@ -96625,8 +96777,8 @@
    "vtx": 406,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00014,
+   "minEdge": 0.007,
+   "avgTri": 0.00031,
    "anglePct": 10,
    "vpt": 0.92,
    "grad": 0.63,
@@ -96651,25 +96803,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-carrot-chopped",
    "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
-    0.266,
-    0.113,
-    0.112
+    0.4,
+    0.17,
+    0.168
    ],
    "tris": 552,
    "tpu": 1609,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21004,
+   "bytes": 20992,
    "vtx": 503,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00018,
+   "minEdge": 0.007,
+   "avgTri": 0.00041,
    "anglePct": 23,
    "vpt": 0.91,
    "grad": 0.63,
@@ -96697,13 +96850,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-carrot-pieces",
    "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
-    0.109,
-    0.144,
-    0.065
+    0.163,
+    0.216,
+    0.097
    ],
    "tris": 576,
    "tpu": 1679,
@@ -96714,8 +96868,8 @@
    "vtx": 584,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00007,
+   "minEdge": 0.011,
+   "avgTri": 0.00015,
    "anglePct": 0,
    "vpt": 1.01,
    "grad": 0.48,
@@ -96736,25 +96890,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-carrot",
    "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
-    0.112,
-    0.111,
-    0.254
+    0.168,
+    0.166,
+    0.381
    ],
    "tris": 342,
    "tpu": 997,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12516,
+   "bytes": 12504,
    "vtx": 278,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00023,
+   "minEdge": 0.014,
+   "avgTri": 0.00053,
    "anglePct": 0,
    "vpt": 0.81,
    "grad": 0.69,
@@ -96777,17 +96932,25 @@
     "food",
     "kay"
    ],
-   "variant": "v252"
+   "variant": "v252",
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.381 over max 0.3 (obj-food-vegetable-root-carrot)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-cheese-chopped",
    "kind": "obj-food-dairy-cheese",
    "size": "s",
    "wdh": [
-    0.204,
-    0.144,
-    0.1
+    0.306,
+    0.217,
+    0.15
    ],
    "tris": 254,
    "tpu": 741,
@@ -96798,8 +96961,8 @@
    "vtx": 262,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00032,
+   "minEdge": 0.008,
+   "avgTri": 0.00073,
    "anglePct": 52,
    "vpt": 1.03,
    "grad": 0.6,
@@ -96820,25 +96983,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-cheese",
    "kind": "obj-food-dairy-cheese",
    "size": "s",
    "wdh": [
-    0.195,
-    0.144,
-    0.1
+    0.293,
+    0.217,
+    0.15
    ],
    "tris": 258,
    "tpu": 752,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11600,
+   "bytes": 11584,
    "vtx": 266,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00033,
+   "minEdge": 0.008,
+   "avgTri": 0.00074,
    "anglePct": 29,
    "vpt": 1.03,
    "grad": 0.48,
@@ -96860,25 +97024,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-ham",
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.278,
-    0.166,
-    0.166
+    0.417,
+    0.249,
+    0.249
    ],
    "tris": 272,
    "tpu": 793,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10252,
+   "bytes": 10232,
    "vtx": 220,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00041,
+   "minEdge": 0.012,
+   "avgTri": 0.00093,
    "anglePct": 3,
    "vpt": 0.81,
    "grad": 0.56,
@@ -96900,17 +97065,25 @@
     "bone",
     "food",
     "kay"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.417 over max 0.4 (obj-food-meat-ham)"
+    }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-lettuce-chopped",
    "kind": "obj-food-vegetable-leafy",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.36,
-    0.242,
-    0.162
+    0.539,
+    0.363,
+    0.243
    ],
    "tris": 462,
    "tpu": 1347,
@@ -96921,8 +97094,8 @@
    "vtx": 409,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00056,
+   "minEdge": 0.012,
+   "avgTri": 0.00126,
    "anglePct": 3,
    "vpt": 0.89,
    "grad": 0.8,
@@ -96943,25 +97116,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-lettuce",
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.221,
-    0.227,
-    0.164
+    0.331,
+    0.34,
+    0.246
    ],
    "tris": 462,
    "tpu": 1347,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16504,
+   "bytes": 16492,
    "vtx": 380,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00071,
+   "minEdge": 0.014,
+   "avgTri": 0.0016,
    "anglePct": 4,
    "vpt": 0.82,
    "grad": 0.61,
@@ -96981,25 +97155,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-onion-chopped",
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.245,
-    0.15,
-    0.15
+    0.368,
+    0.225,
+    0.225
    ],
    "tris": 704,
    "tpu": 2052,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27404,
+   "bytes": 27384,
    "vtx": 674,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00014,
+   "minEdge": 0.007,
+   "avgTri": 0.00032,
    "anglePct": 14,
    "vpt": 0.96,
    "grad": 0.79,
@@ -97026,25 +97201,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-onion-rings",
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.155,
-    0.146,
-    0.021
+    0.233,
+    0.219,
+    0.032
    ],
    "tris": 384,
    "tpu": 1120,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16200,
+   "bytes": 16180,
    "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00006,
+   "minEdge": 0.005,
+   "avgTri": 0.00014,
    "anglePct": 10,
    "vpt": 1,
    "grad": 0.38,
@@ -97067,25 +97243,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-onion",
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.172
+    0.225,
+    0.225,
+    0.259
    ],
    "tris": 304,
    "tpu": 886,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11828,
+   "bytes": 11820,
    "vtx": 266,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00021,
+   "minEdge": 0.006,
+   "avgTri": 0.00047,
    "anglePct": 0,
    "vpt": 0.88,
    "grad": 0.65,
@@ -97101,17 +97278,25 @@
    "tags": [
     "food",
     "kay"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.259 over max 0.25 (obj-food-vegetable-onion)"
+    }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-patty",
    "kind": "obj-food-meat",
    "size": "s",
    "wdh": [
-    0.14,
-    0.14,
-    0.04
+    0.21,
+    0.21,
+    0.06
    ],
    "tris": 208,
    "tpu": 606,
@@ -97122,8 +97307,8 @@
    "vtx": 188,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00021,
+   "minEdge": 0.013,
+   "avgTri": 0.00046,
    "anglePct": 49,
    "vpt": 0.9,
    "grad": 0.88,
@@ -97143,13 +97328,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-potato-chopped",
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.209,
-    0.14,
-    0.12
+    0.314,
+    0.21,
+    0.18
    ],
    "tris": 308,
    "tpu": 898,
@@ -97160,8 +97346,8 @@
    "vtx": 225,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00028,
+   "minEdge": 0.013,
+   "avgTri": 0.00062,
    "anglePct": 4,
    "vpt": 0.73,
    "grad": 0.7,
@@ -97182,13 +97368,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-potato",
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.12,
-    0.136,
-    0.156
+    0.18,
+    0.204,
+    0.234
    ],
    "tris": 156,
    "tpu": 455,
@@ -97199,8 +97386,8 @@
    "vtx": 80,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00043,
+   "minEdge": 0.019,
+   "avgTri": 0.00096,
    "anglePct": 12,
    "vpt": 0.51,
    "grad": 0.62,
@@ -97220,25 +97407,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-steak",
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.21,
-    0.181,
-    0.057
+    0.316,
+    0.271,
+    0.085
    ],
    "tris": 352,
    "tpu": 1026,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15036,
+   "bytes": 15012,
    "vtx": 354,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00023,
+   "minEdge": 0.008,
+   "avgTri": 0.00051,
    "anglePct": 19,
    "vpt": 1.01,
    "grad": 0.53,
@@ -97264,13 +97452,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-tomato-slice",
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.13,
-    0.13,
-    0.02
+    0.195,
+    0.195,
+    0.03
    ],
    "tris": 220,
    "tpu": 641,
@@ -97281,8 +97470,8 @@
    "vtx": 256,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00015,
+   "minEdge": 0.008,
+   "avgTri": 0.00033,
    "anglePct": 71,
    "vpt": 1.16,
    "grad": 0.41,
@@ -97304,25 +97493,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-tomato-slices",
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.152,
-    0.13,
-    0.06
+    0.228,
+    0.195,
+    0.09
    ],
    "tris": 476,
    "tpu": 1388,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22228,
+   "bytes": 22220,
    "vtx": 556,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.0002,
+   "minEdge": 0.008,
+   "avgTri": 0.00046,
    "anglePct": 71,
    "vpt": 1.17,
    "grad": 0.41,
@@ -97345,13 +97535,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-tomato",
    "kind": "obj-food-vegetable-tomato",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.14
+    0.225,
+    0.225,
+    0.21
    ],
    "tris": 390,
    "tpu": 1137,
@@ -97362,8 +97553,8 @@
    "vtx": 347,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00019,
+   "minEdge": 0.009,
+   "avgTri": 0.00043,
    "anglePct": 1,
    "vpt": 0.89,
    "grad": 0.6,
@@ -97389,13 +97580,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-ingredient-veggie-patty",
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.146,
-    0.143,
-    0.043
+    0.218,
+    0.215,
+    0.065
    ],
    "tris": 364,
    "tpu": 1061,
@@ -97406,8 +97598,8 @@
    "vtx": 464,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00014,
+   "minEdge": 0.009,
+   "avgTri": 0.00032,
    "anglePct": 45,
    "vpt": 1.27,
    "grad": 0.88,
@@ -97433,13 +97625,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-stew",
    "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.074
+    0.285,
+    0.285,
+    0.111
    ],
    "tris": 570,
    "tpu": 1662,
@@ -97450,8 +97643,8 @@
    "vtx": 632,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00024,
+   "minEdge": 0.009,
+   "avgTri": 0.00054,
    "anglePct": 27,
    "vpt": 1.11,
    "grad": 0.6,
@@ -97482,13 +97675,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "food-veggie-burger",
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.171
+    0.285,
+    0.285,
+    0.257
    ],
    "tris": 1724,
    "tpu": 5026,
@@ -97499,8 +97693,8 @@
    "vtx": 1941,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00018,
+   "minEdge": 0.005,
+   "avgTri": 0.0004,
    "anglePct": 51,
    "vpt": 1.13,
    "grad": 0.8,
@@ -97563,16 +97757,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "fridge-a-decorated",
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.4,
-    0.448,
-    0.5
+    0.6,
+    0.672,
+    0.75
    ],
    "tris": 2460,
-   "tpu": 7172,
+   "tpu": 6694,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -97580,9 +97775,9 @@
    "vtx": 2329,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0122,
-   "avgTri": 0.00111,
+   "minEdge": 0.008,
+   "minTube": 0.0183,
+   "avgTri": 0.0025,
    "anglePct": 62,
    "vpt": 0.95,
    "grad": 0.89,
@@ -97625,16 +97820,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "fridge-a",
    "kind": "obj-device-appliance-fridge",
    "size": "m",
    "wdh": [
-    0.4,
-    0.448,
-    0.5
+    0.6,
+    0.672,
+    0.75
    ],
    "tris": 656,
-   "tpu": 1913,
+   "tpu": 1785,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -97642,9 +97838,9 @@
    "vtx": 788,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0122,
-   "avgTri": 0.00338,
+   "minEdge": 0.008,
+   "minTube": 0.0183,
+   "avgTri": 0.00761,
    "anglePct": 75,
    "vpt": 1.2,
    "grad": 0.74,
@@ -97677,22 +97873,23 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0183 wants min 0.026"
     }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "fridge-b",
    "kind": "obj-device-appliance-fridge",
    "size": "m",
    "wdh": [
-    0.4,
-    0.448,
-    0.5
+    0.6,
+    0.672,
+    0.75
    ],
    "tris": 456,
-   "tpu": 1329,
+   "tpu": 1241,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -97700,9 +97897,9 @@
    "vtx": 510,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0122,
-   "avgTri": 0.00469,
+   "minEdge": 0.008,
+   "minTube": 0.0183,
+   "avgTri": 0.01054,
    "anglePct": 76,
    "vpt": 1.12,
    "grad": 0.68,
@@ -97735,19 +97932,20 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0183 wants min 0.026"
     }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "jar-c-large",
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.15
+    0.15,
+    0.15,
+    0.225
    ],
    "tris": 168,
    "tpu": 490,
@@ -97758,8 +97956,8 @@
    "vtx": 170,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00035,
+   "minEdge": 0.016,
+   "avgTri": 0.00078,
    "anglePct": 37,
    "vpt": 1.01,
    "grad": 0.59,
@@ -97786,13 +97984,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "jar-c-medium",
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.13
+    0.15,
+    0.15,
+    0.195
    ],
    "tris": 188,
    "tpu": 548,
@@ -97803,8 +98002,8 @@
    "vtx": 190,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00028,
+   "minEdge": 0.016,
+   "avgTri": 0.00062,
    "anglePct": 37,
    "vpt": 1.01,
    "grad": 0.59,
@@ -97831,13 +98030,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "jar-c-small",
    "kind": "obj-container-pot-jar",
    "size": "s",
    "wdh": [
-    0.113,
-    0.113,
-    0.11
+    0.17,
+    0.17,
+    0.165
    ],
    "tris": 192,
    "tpu": 560,
@@ -97848,8 +98048,8 @@
    "vtx": 182,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00025,
+   "minEdge": 0.016,
+   "avgTri": 0.00056,
    "anglePct": 24,
    "vpt": 0.95,
    "grad": 0.54,
@@ -97876,13 +98076,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "ketchup",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.06,
-    0.06,
-    0.156
+    0.09,
+    0.09,
+    0.234
    ],
    "tris": 168,
    "tpu": 490,
@@ -97893,8 +98094,8 @@
    "vtx": 170,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00016,
+   "minEdge": 0.003,
+   "avgTri": 0.00036,
    "anglePct": 30,
    "vpt": 1.01,
    "grad": 0.93,
@@ -97915,25 +98116,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "knife",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.05,
-    0.02,
-    0.23
+    0.075,
+    0.03,
+    0.345
    ],
    "tris": 104,
    "tpu": 303,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6076,
+   "bytes": 6060,
    "vtx": 123,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00019,
+   "minEdge": 0.008,
+   "avgTri": 0.00042,
    "anglePct": 67,
    "vpt": 1.18,
    "grad": 0.59,
@@ -97959,13 +98161,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "lid-a",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.04
+    0.3,
+    0.3,
+    0.06
    ],
    "tris": 206,
    "tpu": 601,
@@ -97976,8 +98179,8 @@
    "vtx": 195,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00038,
+   "minEdge": 0.008,
+   "avgTri": 0.00085,
    "anglePct": 61,
    "vpt": 0.95,
    "grad": 0.37,
@@ -97999,13 +98202,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "lid-b",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
-    0.04
+    0.3,
+    0.3,
+    0.06
    ],
    "tris": 206,
    "tpu": 601,
@@ -98016,8 +98220,8 @@
    "vtx": 195,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00038,
+   "minEdge": 0.008,
+   "avgTri": 0.00085,
    "anglePct": 61,
    "vpt": 0.95,
    "grad": 0.37,
@@ -98039,13 +98243,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "lid-large",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.3,
-    0.24,
-    0.06
+    0.45,
+    0.36,
+    0.09
    ],
    "tris": 206,
    "tpu": 601,
@@ -98056,8 +98261,8 @@
    "vtx": 191,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00067,
+   "minEdge": 0.011,
+   "avgTri": 0.00152,
    "anglePct": 44,
    "vpt": 0.93,
    "grad": 0.27,
@@ -98079,13 +98284,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "menu",
    "kind": "obj",
    "size": "s",
    "wdh": [
-    0.1,
-    0.06,
-    0.16
+    0.15,
+    0.09,
+    0.24
    ],
    "tris": 108,
    "tpu": 315,
@@ -98096,8 +98302,8 @@
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00046,
+   "minEdge": 0.008,
+   "avgTri": 0.00103,
    "anglePct": 95,
    "vpt": 1.5,
    "grad": 0.76,
@@ -98123,13 +98329,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "mustard",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.06,
-    0.06,
-    0.156
+    0.09,
+    0.09,
+    0.234
    ],
    "tris": 168,
    "tpu": 490,
@@ -98140,8 +98347,8 @@
    "vtx": 170,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00016,
+   "minEdge": 0.003,
+   "avgTri": 0.00036,
    "anglePct": 30,
    "vpt": 1.01,
    "grad": 0.64,
@@ -98162,13 +98369,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "oven-door",
    "kind": "obj-device-appliance-oven",
    "size": "s",
    "wdh": [
-    0.26,
-    0.08,
-    0.24
+    0.39,
+    0.12,
+    0.36
    ],
    "tris": 72,
    "tpu": 210,
@@ -98179,9 +98387,9 @@
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0199,
-   "avgTri": 0.00279,
+   "minEdge": 0.013,
+   "minTube": 0.0299,
+   "avgTri": 0.00628,
    "anglePct": 100,
    "vpt": 2.11,
    "grad": 0.55,
@@ -98210,24 +98418,18 @@
     "kay",
     "metal-iron-steel",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0199 wants min 0.026"
-    }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "oven",
    "kind": "obj-device-appliance-oven",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.47,
-    0.404
+    0.6,
+    0.704,
+    0.606
    ],
    "tris": 542,
    "tpu": 1580,
@@ -98238,9 +98440,9 @@
    "vtx": 989,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0059,
-   "avgTri": 0.00383,
+   "minEdge": 0.008,
+   "minTube": 0.0089,
+   "avgTri": 0.00862,
    "anglePct": 97,
    "vpt": 1.82,
    "grad": 0.95,
@@ -98273,31 +98475,32 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0059 wants min 0.026"
+     "text": "G27 minTube 0.0089 wants min 0.026"
     }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pan-006-cast",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.15,
-    0.255,
-    0.07
+    0.225,
+    0.382,
+    0.105
    ],
    "tris": 282,
    "tpu": 822,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12544,
+   "bytes": 12540,
    "vtx": 294,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00033,
+   "minEdge": 0.007,
+   "avgTri": 0.00074,
    "anglePct": 41,
    "vpt": 1.04,
    "grad": 0.38,
@@ -98318,25 +98521,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pan-006",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.15,
-    0.255,
-    0.07
+    0.225,
+    0.382,
+    0.105
    ],
    "tris": 282,
    "tpu": 822,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12544,
+   "bytes": 12540,
    "vtx": 294,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00033,
+   "minEdge": 0.007,
+   "avgTri": 0.00074,
    "anglePct": 41,
    "vpt": 1.04,
    "grad": 0.38,
@@ -98357,13 +98561,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pan-a",
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
+    0.45,
     0.3,
-    0.2,
-    0.05
+    0.075
    ],
    "tris": 314,
    "tpu": 915,
@@ -98374,8 +98579,8 @@
    "vtx": 295,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00035,
+   "minEdge": 0.009,
+   "avgTri": 0.0008,
    "anglePct": 49,
    "vpt": 0.94,
    "grad": 0.38,
@@ -98396,25 +98601,26 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pan-b",
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
-    0.2,
     0.3,
-    0.05
+    0.45,
+    0.075
    ],
    "tris": 314,
    "tpu": 915,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12728,
+   "bytes": 12720,
    "vtx": 295,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00035,
+   "minEdge": 0.009,
+   "avgTri": 0.0008,
    "anglePct": 49,
    "vpt": 0.94,
    "grad": 0.38,
@@ -98435,13 +98641,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "paper-towel",
    "kind": "obj-kitchenware",
    "size": "s",
    "wdh": [
-    0.1,
-    0.1,
-    0.183
+    0.15,
+    0.15,
+    0.274
    ],
    "tris": 228,
    "tpu": 665,
@@ -98452,8 +98659,8 @@
    "vtx": 224,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00024,
+   "minEdge": 0.008,
+   "avgTri": 0.00055,
    "anglePct": 45,
    "vpt": 0.98,
    "grad": 0.74,
@@ -98479,13 +98686,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "plate-dirty",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.02
+    0.285,
+    0.285,
+    0.03
    ],
    "tris": 265,
    "tpu": 773,
@@ -98496,8 +98704,8 @@
    "vtx": 348,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00028,
+   "minEdge": 0.003,
+   "avgTri": 0.00062,
    "anglePct": 78,
    "vpt": 1.31,
    "grad": 0.42,
@@ -98528,13 +98736,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "plate-small",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.02
+    0.225,
+    0.225,
+    0.03
    ],
    "tris": 120,
    "tpu": 350,
@@ -98545,8 +98754,8 @@
    "vtx": 122,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00037,
+   "minEdge": 0.015,
+   "avgTri": 0.00084,
    "anglePct": 81,
    "vpt": 1.02,
    "grad": 0.43,
@@ -98566,13 +98775,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "plate",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.19,
-    0.19,
-    0.02
+    0.285,
+    0.285,
+    0.03
    ],
    "tris": 160,
    "tpu": 466,
@@ -98583,8 +98793,8 @@
    "vtx": 162,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00043,
+   "minEdge": 0.015,
+   "avgTri": 0.00096,
    "anglePct": 83,
    "vpt": 1.01,
    "grad": 0.43,
@@ -98604,13 +98814,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-a-closed",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.28,
-    0.2,
-    0.14
+    0.42,
+    0.3,
+    0.21
    ],
    "tris": 542,
    "tpu": 1580,
@@ -98621,8 +98832,8 @@
    "vtx": 561,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00048,
+   "minEdge": 0.008,
+   "avgTri": 0.00108,
    "anglePct": 51,
    "vpt": 1.04,
    "grad": 0.68,
@@ -98643,13 +98854,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-a-stew",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.28,
-    0.2,
-    0.103
+    0.42,
+    0.3,
+    0.155
    ],
    "tris": 634,
    "tpu": 1848,
@@ -98660,8 +98872,8 @@
    "vtx": 771,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00029,
+   "minEdge": 0.009,
+   "avgTri": 0.00065,
    "anglePct": 50,
    "vpt": 1.22,
    "grad": 0.66,
@@ -98693,13 +98905,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-a",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
-    0.28,
-    0.2,
-    0.1
+    0.42,
+    0.3,
+    0.15
    ],
    "tris": 336,
    "tpu": 980,
@@ -98710,8 +98923,8 @@
    "vtx": 366,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00054,
+   "minEdge": 0.009,
+   "avgTri": 0.00122,
    "anglePct": 47,
    "vpt": 1.09,
    "grad": 0.65,
@@ -98732,13 +98945,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-b-closed",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.28,
-    0.2,
-    0.14
+    0.42,
+    0.3,
+    0.21
    ],
    "tris": 542,
    "tpu": 1580,
@@ -98749,8 +98963,8 @@
    "vtx": 561,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00048,
+   "minEdge": 0.008,
+   "avgTri": 0.00108,
    "anglePct": 51,
    "vpt": 1.04,
    "grad": 0.68,
@@ -98771,13 +98985,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-b-stew",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.28,
-    0.2,
-    0.103
+    0.42,
+    0.3,
+    0.155
    ],
    "tris": 634,
    "tpu": 1848,
@@ -98788,8 +99003,8 @@
    "vtx": 771,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00029,
+   "minEdge": 0.009,
+   "avgTri": 0.00065,
    "anglePct": 50,
    "vpt": 1.22,
    "grad": 0.6,
@@ -98825,13 +99040,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-b",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.28,
-    0.2,
-    0.1
+    0.42,
+    0.3,
+    0.15
    ],
    "tris": 336,
    "tpu": 980,
@@ -98842,8 +99058,8 @@
    "vtx": 366,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00054,
+   "minEdge": 0.009,
+   "avgTri": 0.00122,
    "anglePct": 47,
    "vpt": 1.09,
    "grad": 0.65,
@@ -98864,13 +99080,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-large-closed",
    "kind": "obj-kitchenware-cookware-pan",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.24,
-    0.21
+    0.6,
+    0.36,
+    0.315
    ],
    "tris": 606,
    "tpu": 1767,
@@ -98881,8 +99098,8 @@
    "vtx": 637,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00077,
+   "minEdge": 0.011,
+   "avgTri": 0.00174,
    "anglePct": 35,
    "vpt": 1.05,
    "grad": 0.32,
@@ -98899,17 +99116,25 @@
     "ceramic",
     "kay"
    ],
-   "variant": "v218"
+   "variant": "v218",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.6 over max 0.5 (obj-kitchenware-cookware-pan)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "pot-large",
    "kind": "obj-kitchenware-cookware-pan",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.24,
-    0.15
+    0.6,
+    0.36,
+    0.225
    ],
    "tris": 400,
    "tpu": 1166,
@@ -98920,8 +99145,8 @@
    "vtx": 446,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00082,
+   "minEdge": 0.012,
+   "avgTri": 0.00186,
    "anglePct": 31,
    "vpt": 1.12,
    "grad": 0.34,
@@ -98938,17 +99163,25 @@
     "ceramic",
     "kay"
    ],
-   "variant": "v218"
+   "variant": "v218",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.6 over max 0.5 (obj-kitchenware-cookware-pan)"
+    }
+   ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "shelf-paper-towel-decorated",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.125,
-    0.342
+    0.6,
+    0.188,
+    0.513
    ],
    "tris": 852,
    "tpu": 2484,
@@ -98959,9 +99192,9 @@
    "vtx": 856,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.1012,
-   "avgTri": 0.00056,
+   "minEdge": 0.013,
+   "minTube": 0.1519,
+   "avgTri": 0.00125,
    "anglePct": 64,
    "vpt": 1,
    "grad": 0.81,
@@ -98999,13 +99232,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "shelf-paper-towel",
    "kind": "obj-furnishing-furniture-storage-shelf",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.12,
-    0.212
+    0.6,
+    0.18,
+    0.318
    ],
    "tris": 304,
    "tpu": 886,
@@ -99016,9 +99250,9 @@
    "vtx": 432,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.1012,
-   "avgTri": 0.0011,
+   "minEdge": 0.013,
+   "minTube": 0.1519,
+   "avgTri": 0.00247,
    "anglePct": 77,
    "vpt": 1.42,
    "grad": 0.47,
@@ -99050,13 +99284,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "stool",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
    "wdh": [
-    0.15,
-    0.15,
-    0.1
+    0.225,
+    0.225,
+    0.15
    ],
    "tris": 272,
    "tpu": 793,
@@ -99067,8 +99302,8 @@
    "vtx": 262,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00026,
+   "minEdge": 0.009,
+   "avgTri": 0.00059,
    "anglePct": 70,
    "vpt": 0.96,
    "grad": 0.29,
@@ -99090,24 +99325,18 @@
     "kay",
     "metal-iron-steel",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.15 under min 0.2 (obj-furnishing-furniture-seating-stool)"
-    }
    ]
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "stove-countertop",
    "kind": "obj-device-appliance-stove",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.349,
-    0.349,
-    0.054
+    0.524,
+    0.524,
+    0.081
    ],
    "tris": 746,
    "tpu": 2175,
@@ -99118,8 +99347,8 @@
    "vtx": 1058,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00053,
+   "minEdge": 0.008,
+   "avgTri": 0.00118,
    "anglePct": 89,
    "vpt": 1.42,
    "grad": 0.68,
@@ -99152,13 +99381,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "stove-decorated",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.44,
-    0.458,
-    0.343
+    0.66,
+    0.686,
+    0.515
    ],
    "tris": 2362,
    "tpu": 6886,
@@ -99169,9 +99399,9 @@
    "vtx": 2847,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0817,
-   "avgTri": 0.00066,
+   "minEdge": 0.008,
+   "minTube": 0.1226,
+   "avgTri": 0.00148,
    "anglePct": 78,
    "vpt": 1.21,
    "grad": 0.95,
@@ -99203,13 +99433,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "stove-single-countertop",
    "kind": "obj-device-appliance-stove",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.349,
-    0.349,
-    0.056
+    0.524,
+    0.524,
+    0.083
    ],
    "tris": 320,
    "tpu": 933,
@@ -99220,8 +99451,8 @@
    "vtx": 545,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00118,
+   "minEdge": 0.011,
+   "avgTri": 0.00265,
    "anglePct": 93,
    "vpt": 1.7,
    "grad": 0.78,
@@ -99254,13 +99485,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "stove-single",
    "kind": "obj-device-appliance-stove",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.458,
-    0.242
+    0.6,
+    0.686,
+    0.362
    ],
    "tris": 718,
    "tpu": 2093,
@@ -99271,9 +99503,9 @@
    "vtx": 1077,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0817,
-   "avgTri": 0.00166,
+   "minEdge": 0.008,
+   "minTube": 0.1226,
+   "avgTri": 0.00373,
    "anglePct": 88,
    "vpt": 1.5,
    "grad": 0.9,
@@ -99305,13 +99537,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "stove",
    "kind": "obj-device-appliance-stove",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.458,
-    0.24
+    0.6,
+    0.686,
+    0.36
    ],
    "tris": 1144,
    "tpu": 3335,
@@ -99322,9 +99555,9 @@
    "vtx": 1626,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0817,
-   "avgTri": 0.00106,
+   "minEdge": 0.008,
+   "minTube": 0.1226,
+   "avgTri": 0.00237,
    "anglePct": 86,
    "vpt": 1.42,
    "grad": 0.77,
@@ -99356,16 +99589,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-kitchen-b-large",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
+    0.9,
     0.6,
-    0.4,
-    0.201
+    0.301
    ],
    "tris": 268,
-   "tpu": 781,
+   "tpu": 709,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -99373,9 +99607,9 @@
    "vtx": 369,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.023,
-   "avgTri": 0.00312,
+   "minEdge": 0.013,
+   "minTube": 0.0345,
+   "avgTri": 0.00702,
    "anglePct": 91,
    "vpt": 1.38,
    "grad": 0.58,
@@ -99402,13 +99636,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-kitchen-b",
    "kind": "obj-furnishing-furniture-table",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.201
+    0.6,
+    0.6,
+    0.301
    ],
    "tris": 268,
    "tpu": 781,
@@ -99419,9 +99654,9 @@
    "vtx": 371,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.023,
-   "avgTri": 0.00229,
+   "minEdge": 0.013,
+   "minTube": 0.0345,
+   "avgTri": 0.00514,
    "anglePct": 88,
    "vpt": 1.38,
    "grad": 0.59,
@@ -99448,16 +99683,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-kitchen-large-decorated",
    "kind": "set",
    "size": "m",
    "wdh": [
+    0.9,
     0.6,
-    0.4,
-    0.386
+    0.578
    ],
    "tris": 2046,
-   "tpu": 5965,
+   "tpu": 5413,
    "mat": 1,
    "bands": 8,
    "calls": 1,
@@ -99465,9 +99701,9 @@
    "vtx": 2046,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.023,
-   "avgTri": 0.00063,
+   "minEdge": 0.007,
+   "minTube": 0.0345,
+   "avgTri": 0.00143,
    "anglePct": 72,
    "vpt": 1,
    "grad": 0.88,
@@ -99524,16 +99760,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-kitchen-large",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
+    0.9,
     0.6,
-    0.4,
-    0.201
+    0.301
    ],
    "tris": 268,
-   "tpu": 781,
+   "tpu": 709,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -99541,9 +99778,9 @@
    "vtx": 369,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.023,
-   "avgTri": 0.00312,
+   "minEdge": 0.013,
+   "minTube": 0.0345,
+   "avgTri": 0.00702,
    "anglePct": 91,
    "vpt": 1.38,
    "grad": 0.55,
@@ -99564,13 +99801,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-kitchen",
    "kind": "obj-furnishing-furniture-table",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.201
+    0.6,
+    0.6,
+    0.301
    ],
    "tris": 268,
    "tpu": 781,
@@ -99581,9 +99819,9 @@
    "vtx": 371,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.023,
-   "avgTri": 0.00229,
+   "minEdge": 0.013,
+   "minTube": 0.0345,
+   "avgTri": 0.00514,
    "anglePct": 88,
    "vpt": 1.38,
    "grad": 0.55,
@@ -99604,16 +99842,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-round-a-decorated",
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.371
+    0.9,
+    0.9,
+    0.557
    ],
    "tris": 4425,
-   "tpu": 12901,
+   "tpu": 7804,
    "mat": 1,
    "bands": 10,
    "calls": 1,
@@ -99621,8 +99860,8 @@
    "vtx": 4613,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.0004,
+   "minEdge": 0.003,
+   "avgTri": 0.00089,
    "anglePct": 70,
    "vpt": 1.04,
    "grad": 0.89,
@@ -99689,13 +99928,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-round-a-small-decorated",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.3,
-    0.3,
-    0.36
+    0.45,
+    0.45,
+    0.54
    ],
    "tris": 756,
    "tpu": 2204,
@@ -99706,8 +99946,8 @@
    "vtx": 823,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00046,
+   "minEdge": 0.003,
+   "avgTri": 0.00102,
    "anglePct": 67,
    "vpt": 1.09,
    "grad": 0.52,
@@ -99750,13 +99990,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-round-a-small",
    "kind": "obj-furnishing-furniture-table",
    "size": "s",
    "wdh": [
-    0.3,
-    0.3,
-    0.2
+    0.45,
+    0.45,
+    0.3
    ],
    "tris": 312,
    "tpu": 910,
@@ -99767,8 +100008,8 @@
    "vtx": 319,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00077,
+   "minEdge": 0.013,
+   "avgTri": 0.00174,
    "anglePct": 70,
    "vpt": 1.02,
    "grad": 0.55,
@@ -99795,16 +100036,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-round-a",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.2
+    0.9,
+    0.9,
+    0.3
    ],
    "tris": 312,
-   "tpu": 910,
+   "tpu": 550,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -99812,8 +100054,8 @@
    "vtx": 319,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "avgTri": 0.00268,
+   "minEdge": 0.009,
+   "avgTri": 0.00602,
    "anglePct": 85,
    "vpt": 1.02,
    "grad": 0.55,
@@ -99840,16 +100082,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-round-b",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
-    0.6,
-    0.6,
-    0.2
+    0.9,
+    0.9,
+    0.3
    ],
    "tris": 300,
-   "tpu": 875,
+   "tpu": 529,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -99857,9 +100100,9 @@
    "vtx": 350,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0509,
-   "avgTri": 0.00242,
+   "minEdge": 0.007,
+   "minTube": 0.0764,
+   "avgTri": 0.00544,
    "anglePct": 83,
    "vpt": 1.17,
    "grad": 0.44,
@@ -99879,16 +100122,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-sink-large-decorated",
    "kind": "set",
    "size": "m",
    "wdh": [
+    0.9,
     0.6,
-    0.4,
-    0.389
+    0.584
    ],
    "tris": 2696,
-   "tpu": 7860,
+   "tpu": 7132,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -99896,9 +100140,9 @@
    "vtx": 3182,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.023,
-   "avgTri": 0.00057,
+   "minEdge": 0.003,
+   "minTube": 0.0345,
+   "avgTri": 0.00129,
    "anglePct": 60,
    "vpt": 1.18,
    "grad": 0.78,
@@ -99930,16 +100174,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-sink-large",
    "kind": "obj-furnishing-furniture-counter",
    "size": "m",
    "wdh": [
+    0.9,
     0.6,
-    0.4,
-    0.36
+    0.54
    ],
    "tris": 914,
-   "tpu": 2665,
+   "tpu": 2418,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -99947,9 +100192,9 @@
    "vtx": 1127,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.023,
-   "avgTri": 0.00116,
+   "minEdge": 0.009,
+   "minTube": 0.0345,
+   "avgTri": 0.00262,
    "anglePct": 82,
    "vpt": 1.23,
    "grad": 0.84,
@@ -99970,13 +100215,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "table-sink",
    "kind": "obj-furnishing-furniture-counter",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.361
+    0.6,
+    0.6,
+    0.542
    ],
    "tris": 786,
    "tpu": 2292,
@@ -99987,9 +100233,9 @@
    "vtx": 943,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.023,
-   "avgTri": 0.00095,
+   "minEdge": 0.009,
+   "minTube": 0.0345,
+   "avgTri": 0.00213,
    "anglePct": 78,
    "vpt": 1.2,
    "grad": 0.86,
@@ -100010,13 +100256,14 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "towel-rail",
    "kind": "obj-furnishing-bathroom",
    "size": "s",
    "wdh": [
-    0.32,
-    0.093,
-    0.117
+    0.48,
+    0.139,
+    0.175
    ],
    "tris": 180,
    "tpu": 525,
@@ -100027,8 +100274,8 @@
    "vtx": 218,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00031,
+   "minEdge": 0.011,
+   "avgTri": 0.0007,
    "anglePct": 87,
    "vpt": 1.21,
    "grad": 0.4,
@@ -100054,16 +100301,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall-decorated",
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.801,
-    0.582,
-    0.8
+    1.202,
+    0.873,
+    1.2
    ],
    "tris": 4022,
-   "tpu": 10260,
+   "tpu": 3194,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -100071,9 +100319,9 @@
    "vtx": 4601,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0817,
-   "avgTri": 0.0014,
+   "minEdge": 0.007,
+   "minTube": 0.1226,
+   "avgTri": 0.00315,
    "anglePct": 87,
    "vpt": 1.14,
    "grad": 0.94,
@@ -100111,16 +100359,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall-doorway",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.8,
-    0.1,
-    0.8
+    1.2,
+    0.15,
+    1.2
    ],
    "tris": 162,
-   "tpu": 413,
+   "tpu": 276,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -100128,8 +100377,8 @@
    "vtx": 292,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00874,
+   "minEdge": 0.021,
+   "avgTri": 0.01968,
    "anglePct": 93,
    "vpt": 1.8,
    "grad": 0.41,
@@ -100162,16 +100411,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall-order-window-decorated",
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.8,
-    0.18,
-    0.8
+    1.2,
+    0.27,
+    1.2
    ],
    "tris": 650,
-   "tpu": 1658,
+   "tpu": 1105,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -100179,9 +100429,9 @@
    "vtx": 836,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.1804,
-   "avgTri": 0.00282,
+   "minEdge": 0.003,
+   "minTube": 0.2707,
+   "avgTri": 0.00634,
    "anglePct": 92,
    "vpt": 1.29,
    "grad": 0.78,
@@ -100230,16 +100480,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall-order-window",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.8,
-    0.18,
-    0.8
+    1.2,
+    0.27,
+    1.2
    ],
    "tris": 206,
-   "tpu": 526,
+   "tpu": 350,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -100247,9 +100498,9 @@
    "vtx": 340,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.1804,
-   "avgTri": 0.00839,
+   "minEdge": 0.021,
+   "minTube": 0.2707,
+   "avgTri": 0.01888,
    "anglePct": 94,
    "vpt": 1.65,
    "grad": 0.64,
@@ -100287,16 +100538,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall-window-closed",
    "kind": "str-part-window-unit",
    "size": "m",
    "wdh": [
-    0.8,
-    0.1,
-    0.8
+    1.2,
+    0.15,
+    1.2
    ],
    "tris": 196,
-   "tpu": 500,
+   "tpu": 333,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -100304,8 +100556,8 @@
    "vtx": 328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00919,
+   "minEdge": 0.022,
+   "avgTri": 0.02067,
    "anglePct": 95,
    "vpt": 1.67,
    "grad": 0.64,
@@ -100338,16 +100590,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall-window",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.8,
-    0.1,
-    0.8
+    1.2,
+    0.15,
+    1.2
    ],
    "tris": 192,
-   "tpu": 490,
+   "tpu": 327,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -100355,8 +100608,8 @@
    "vtx": 320,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00831,
+   "minEdge": 0.022,
+   "avgTri": 0.0187,
    "anglePct": 94,
    "vpt": 1.67,
    "grad": 0.41,
@@ -100389,16 +100642,17 @@
   },
   {
    "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "wall",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.8,
-    0.1,
-    0.8
+    1.2,
+    0.15,
+    1.2
    ],
    "tris": 76,
-   "tpu": 194,
+   "tpu": 129,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -100406,8 +100660,8 @@
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.02077,
+   "minEdge": 0.021,
+   "avgTri": 0.04674,
    "anglePct": 94,
    "vpt": 2,
    "grad": 0.41,
@@ -103406,6 +103660,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "armchair-pillows",
    "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
@@ -103450,6 +103705,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "armchair",
    "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
@@ -103489,6 +103745,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "bed-double-a",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
@@ -103540,6 +103797,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "bed-double-b",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
@@ -103591,6 +103849,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "bed-single-a",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
@@ -103642,6 +103901,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "bed-single-b",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
@@ -103693,6 +103953,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "book",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
@@ -103738,6 +103999,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "books",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
@@ -103789,6 +104051,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cabinet-medium-decorated",
    "kind": "set",
    "size": "m",
@@ -103852,6 +104115,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cabinet-medium",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "m",
@@ -103897,6 +104161,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cabinet-small-decorated",
    "kind": "set",
    "size": "s",
@@ -103953,6 +104218,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cabinet-small",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "s",
@@ -103999,6 +104265,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cactus-potted-medium-a",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -104052,6 +104319,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cactus-potted-medium-b",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -104105,6 +104373,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cactus-potted-small-a",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -104157,6 +104426,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "cactus-potted-small-b",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -104209,6 +104479,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-a-wood",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
@@ -104247,6 +104518,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-a",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
@@ -104292,6 +104564,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-b-wood",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
@@ -104331,6 +104604,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-b",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
@@ -104376,6 +104650,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-c",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
@@ -104421,6 +104696,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-stool-wood",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
@@ -104460,6 +104736,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "chair-stool",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
@@ -104505,6 +104782,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "couch-pillows",
    "kind": "obj-furnishing-furniture-seating-sofa",
    "size": "m",
@@ -104550,6 +104828,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "couch",
    "kind": "obj-furnishing-furniture-seating-sofa",
    "size": "m",
@@ -104590,6 +104869,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "lamp-standing",
    "kind": "obj-furnishing-light-lamp",
    "size": "m",
@@ -104634,6 +104914,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "lamp-table",
    "kind": "obj-furnishing-light-lamp",
    "size": "s",
@@ -104678,6 +104959,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-large-a",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -104733,6 +105015,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-large-b",
    "kind": "obj-leisure-art-frame",
    "size": "m",
@@ -104788,6 +105071,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-medium",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -104843,6 +105127,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-small-a",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -104898,6 +105183,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-small-b",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -104953,6 +105239,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-small-c",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -105008,6 +105295,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-standing-a",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -105063,6 +105351,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "picture-frame-standing-b",
    "kind": "obj-leisure-art-frame",
    "size": "s",
@@ -105118,6 +105407,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "pillow-a",
    "kind": "obj-furnishing-textile-pillow",
    "size": "s",
@@ -105163,6 +105453,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "rug-oval-a",
    "kind": "obj-furnishing-textile-rug",
    "size": "m",
@@ -105202,6 +105493,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "rug-rectangle-a",
    "kind": "obj-furnishing-textile-rug",
    "size": "m",
@@ -105241,6 +105533,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "rug-rectangle-b",
    "kind": "obj-furnishing-textile-rug",
    "size": "m",
@@ -105280,6 +105573,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "rug-rectangle-stripes-a",
    "kind": "obj-furnishing-textile-rug",
    "size": "m",
@@ -105319,6 +105613,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "shelf-a-big",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
@@ -105364,6 +105659,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "shelf-a-small",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "s",
@@ -105403,6 +105699,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "shelf-b-large-decorated",
    "kind": "set",
    "size": "m",
@@ -105459,6 +105756,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "shelf-b-large",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
@@ -105498,6 +105796,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "shelf-b-small-decorated",
    "kind": "set",
    "size": "s",
@@ -105554,6 +105853,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "shelf-b-small",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "s",
@@ -105599,6 +105899,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "table-low",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -105644,6 +105945,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "table-medium-long",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -105683,6 +105985,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "table-medium",
    "kind": "obj-furnishing-furniture-table-square",
    "size": "m",
@@ -105722,6 +106025,7 @@
   },
   {
    "kit": "kay-furniture",
+   "collection": "kay-interior",
    "name": "table-small",
    "kind": "obj-furnishing-furniture-table-square",
    "size": "s",
@@ -124673,7 +124977,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-broken-half",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -124721,7 +125025,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-broken",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -124775,7 +125079,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow-half",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -124823,7 +125127,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "arrow",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -124877,7 +125181,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "axe",
    "kind": "obj-equipment-weapon-melee-axe-double",
    "size": "s",
@@ -124928,7 +125232,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "blade",
    "kind": "obj-equipment-weapon-melee-sword-broad",
    "size": "s",
@@ -124981,7 +125285,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "bone",
    "kind": "env-remains-bones-limb",
    "size": "s",
@@ -125030,7 +125334,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "crossbow",
    "kind": "obj-equipment-weapon-ranged-crossbow",
    "size": "s",
@@ -125083,7 +125387,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "quiver",
    "kind": "obj-equipment-apparel-quiver",
    "size": "s",
@@ -125141,7 +125445,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "ribcage",
    "kind": "env-remains-bones-ribcage",
    "size": "s",
@@ -125182,7 +125486,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-large-a",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -125236,7 +125540,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-large-b",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -125284,7 +125588,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-small-a",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -125330,7 +125634,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "shield-small-b",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -125389,7 +125693,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "skeleton-mage",
    "kind": "char",
    "size": "m",
@@ -125584,7 +125888,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "skeleton-minion",
    "kind": "char",
    "size": "m",
@@ -125785,7 +126089,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "skeleton-rogue",
    "kind": "char",
    "size": "m",
@@ -125979,7 +126283,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "skeleton-warrior",
    "kind": "char",
    "size": "m",
@@ -126179,7 +126483,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "skull-horned",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -126220,7 +126524,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -126260,7 +126564,7 @@
   },
   {
    "kit": "kay-skeleton",
-   "collection": "kay-chars",
+   "collection": "kay-rpg",
    "name": "staff",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",

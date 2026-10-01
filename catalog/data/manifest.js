@@ -6034,17 +6034,11 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "collection": "kay-chars",
-  "name": "kay-chars",
-  "kits": [
-   "kay-adventurers",
-   "kay-skeleton"
-  ]
- },
- {
   "collection": "kay-rpg",
   "name": "kay-rpg",
   "kits": [
+   "kay-adventurers",
+   "kay-skeleton",
    "kay-tools",
    "kay-weapons",
    "kay-resources"
@@ -6056,6 +6050,15 @@ window.KENNEY_KITS = [
   "kits": [
    "kay-spook",
    "kay-skeleton-1"
+  ]
+ },
+ {
+  "collection": "kay-interior",
+  "name": "kay-interior",
+  "kits": [
+   "kay-food",
+   "kay-furniture",
+   "kay-dun-2"
   ]
  },
  {
