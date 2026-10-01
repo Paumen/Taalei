@@ -5,14 +5,15 @@ import { readGlb, writeGlb, readAccessor, worldMatrices, measureTubes } from '..
 import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 import { MeshoptSimplifier } from './vendor/meshoptimizer/meshopt_simplifier.js';
 
-const HELP = `simplify.mjs [--error <fraction>] [--ratio <fraction>] [--hard <degrees>] [--list] <workfile.glb> [...]
+const HELP = `simplify.mjs [--error <fraction>] [--ratio <fraction>] [--hard <degrees>] [--mesh <n,n>] [--list] <workfile.glb> [...]
 
 Removes triangles while no surface moves more than --error (0.01 by default) of
 the model's longest extent. --ratio stops each primitive at that fraction of its
 triangles instead of removing all it can; a smaller cut is refused less often, so
 running it again goes further. --hard ignores normal splits while simplifying and
 then sets every normal again: faces meeting at more than that angle keep a hard
-edge, the rest are smoothed. Open edges, colour-band seams and normals are kept.
+edge, the rest are smoothed. --mesh simplifies only the meshes at those positions
+in the file's mesh list, counted from 0. Open edges, colour-band seams and normals are kept.
 A result is refused where it opens a hole, makes an edge carry more than two
 faces, flips a face against its normals, leaves a face more than 78° off one
 of its vertex normals, or pushes a face through another of the same surface; the vertices under such a
@@ -39,11 +40,13 @@ let error = 0.01;
 let ratio = 0;
 let hard = null;
 let list = false;
+let onlyMeshes = null;
 const files = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--error') error = Number(args[++i]);
   else if (args[i] === '--ratio') ratio = Number(args[++i]);
   else if (args[i] === '--hard') hard = Number(args[++i]);
+  else if (args[i] === '--mesh') onlyMeshes = new Set(args[++i].split(',').map(Number));
   else if (args[i] === '--list') list = true;
   else files.push(args[i]);
 }
@@ -313,10 +316,22 @@ function simplifyPrimitive(glb, prim, absError) {
   const lock = new Uint8Array(n);
   const flags = ['LockBorder', 'ErrorAbsolute'];
   const target = Math.floor((idx.length / 3) * ratio) * 3;
+  const used = [...new Set(idx)];
+  const local = new Map(used.map((v, i) => [v, i]));
+  const usedIdx = Uint32Array.from(idx, (v) => local.get(v));
+  const usedPos = new Float32Array(used.length * 3);
+  const width = Math.max(stride, 1);
+  const usedAttributes = new Float32Array(used.length * width);
+  used.forEach((v, i) => {
+    usedPos.set(pos.subarray(v * 3, v * 3 + 3), i * 3);
+    usedAttributes.set(attributes.subarray(v * width, v * width + width), i * width);
+  });
   for (let pass = 0, rings = 1; pass < PASSES; pass++, rings++) {
-    const [out] = stride
-      ? MeshoptSimplifier.simplifyWithAttributes(idx, pos, 3, attributes, stride, weights, lock, target, absError, flags)
-      : MeshoptSimplifier.simplify(idx, pos, 3, target, absError, flags);
+    const usedLock = Uint8Array.from(used, (v) => lock[v]);
+    const [usedOut] = stride
+      ? MeshoptSimplifier.simplifyWithAttributes(usedIdx, usedPos, 3, usedAttributes, stride, weights, usedLock, target, absError, flags)
+      : MeshoptSimplifier.simplify(usedIdx, usedPos, 3, target, absError, flags);
+    const out = Uint32Array.from(usedOut, (v) => used[v]);
     const got = inspect(out, pos, nrm, id);
     const edges = [...got.open].filter((k) => !base.open.has(k)).concat([...got.crowded].filter((k) => !base.crowded.has(k)));
     const flips = (facing ? facing(out) : got.flip).filter((t) => !known.has(face(out, t)));
@@ -462,7 +477,8 @@ for (const file of files) {
       const count = json.accessors[prim.indices].count / 3;
       before += count;
       const shared = [prim.indices, ...Object.values(prim.attributes)].some((a) => uses.get(a) > 1);
-      const result = scale && !shared ? simplifyPrimitive(glb, prim, (error * longest) / scale) : null;
+      const chosen = !onlyMeshes || onlyMeshes.has(meshIndex);
+      const result = chosen && scale && !shared ? simplifyPrimitive(glb, prim, (error * longest) / scale) : null;
       if (!result) { after += count; kept++; continue; }
       after += result.out.length / 3;
       compact(glb, prim, result, replaced);
