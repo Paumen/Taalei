@@ -1070,27 +1070,94 @@
    }
   },
   {
-   "slug": "kay-minigame",
-   "name": "kay-minigame",
-   "url": "https://www.kaylousberg.com",
+   "slug": "kay-play",
+   "name": "kay-play",
    "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 30,
+   "count": 98,
    "packs": [
-    "KayKit Mini-Game Variety Pack"
+    "KayKit Mini-Game Variety Pack",
+    "KayKit Platformer Pack",
+    "KayKit Prototype Bits"
    ],
    "origins": {
-    "KayKit Mini-Game Variety Pack": 30
+    "KayKit Mini-Game Variety Pack": 30,
+    "KayKit Platformer Pack": 45,
+    "KayKit Prototype Bits": 23
    },
    "scales": {
-    "0.3": 30
+    "0.3": 98
    },
    "smooth": {
-    "smooth": 30
+    "smooth": 95,
+    "none": 3
    },
+   "members": [
+    {
+     "slug": "kay-minigame",
+     "name": "kay-minigame",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 30,
+     "packs": [
+      "KayKit Mini-Game Variety Pack"
+     ],
+     "origins": {
+      "KayKit Mini-Game Variety Pack": 30
+     },
+     "scales": {
+      "0.3": 30
+     },
+     "smooth": {
+      "smooth": 30
+     }
+    },
+    {
+     "slug": "kay-platformer",
+     "name": "kay-platformer",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 45,
+     "packs": [
+      "KayKit Platformer Pack"
+     ],
+     "origins": {
+      "KayKit Platformer Pack": 45
+     },
+     "scales": {
+      "0.3": 45
+     },
+     "smooth": {
+      "smooth": 44,
+      "none": 1
+     }
+    },
+    {
+     "slug": "kay-proto",
+     "name": "kay-proto",
+     "url": "https://kaylousberg.itch.io/prototype-bits",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 23,
+     "packs": [
+      "KayKit Prototype Bits"
+     ],
+     "origins": {
+      "KayKit Prototype Bits": 23
+     },
+     "scales": {
+      "0.3": 23
+     },
+     "smooth": {
+      "smooth": 21,
+      "none": 2
+     }
+    }
+   ],
    "kitCheck": {
     "factor": 1.01,
-    "kinds": 12
+    "kinds": 26
    }
   },
   {
@@ -1115,56 +1182,6 @@
    },
    "kitCheck": {
     "factor": 1.16,
-    "kinds": 8
-   }
-  },
-  {
-   "slug": "kay-platformer",
-   "name": "kay-platformer",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0 1.0",
-   "count": 45,
-   "packs": [
-    "KayKit Platformer Pack"
-   ],
-   "origins": {
-    "KayKit Platformer Pack": 45
-   },
-   "scales": {
-    "0.3": 45
-   },
-   "smooth": {
-    "smooth": 44,
-    "none": 1
-   },
-   "kitCheck": {
-    "factor": 1.05,
-    "kinds": 11
-   }
-  },
-  {
-   "slug": "kay-proto",
-   "name": "kay-proto",
-   "url": "https://kaylousberg.itch.io/prototype-bits",
-   "artist": "KayKit",
-   "licenseLabel": "CC0 1.0",
-   "count": 23,
-   "packs": [
-    "KayKit Prototype Bits"
-   ],
-   "origins": {
-    "KayKit Prototype Bits": 23
-   },
-   "scales": {
-    "0.3": 23
-   },
-   "smooth": {
-    "smooth": 21,
-    "none": 2
-   },
-   "kitCheck": {
-    "factor": 1.09,
     "kinds": 8
    }
   },
@@ -116129,6 +116146,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-floor",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -116169,6 +116187,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-ladder",
    "kind": "str-access-ladder",
    "size": "m",
@@ -116209,6 +116228,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-large",
    "kind": "str-barrier-fence-mid",
    "size": "l",
@@ -116250,6 +116270,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-medium",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -116291,6 +116312,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-small",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -116332,6 +116354,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-strut",
    "kind": "str-part-frame",
    "size": "m",
@@ -116372,6 +116395,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "beach-ball",
    "kind": "obj-leisure-game-ball",
    "size": "m",
@@ -116425,6 +116449,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "blaster-amber",
    "kind": "obj-equipment-weapon-ranged-firearm",
    "size": "s",
@@ -116470,6 +116495,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "blaster-azure",
    "kind": "obj-equipment-weapon-ranged-firearm",
    "size": "s",
@@ -116515,6 +116541,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "bomb-red",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -116567,6 +116594,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "bomb",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -116613,6 +116641,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "bow",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "s",
@@ -116666,6 +116695,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "cactus",
    "kind": "env-flora-plant-cactus",
    "size": "m",
@@ -116705,6 +116735,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "flag-red",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -116757,6 +116788,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "flag",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -116809,6 +116841,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "forest-detail",
    "kind": "set",
    "size": "m",
@@ -116855,6 +116888,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "gate-large",
    "kind": "str-part-gate-gateway",
    "size": "m",
@@ -116894,6 +116928,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "gate-small",
    "kind": "str-part-gate-gateway",
    "size": "m",
@@ -116940,6 +116975,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "hoop",
    "kind": "obj-equipment-target",
    "size": "m",
@@ -116985,6 +117021,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "lightning",
    "kind": "obj-symbol",
    "size": "s",
@@ -117024,6 +117061,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "pine",
    "kind": "env-flora-tree-conifer",
    "size": "m",
@@ -117076,6 +117114,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "plant-a",
    "kind": "env-flora-plant-leafy",
    "size": "s",
@@ -117116,6 +117155,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "plant-b",
    "kind": "env-flora-plant-leafy",
    "size": "s",
@@ -117156,6 +117196,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "rocks-a",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
@@ -117196,6 +117237,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "rocks-b",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
@@ -117236,6 +117278,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "slingshot",
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
@@ -117280,6 +117323,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "star",
    "kind": "obj-symbol",
    "size": "s",
@@ -117319,6 +117363,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "sword",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
@@ -117364,6 +117409,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "target-stand",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -117414,6 +117460,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "target",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -119113,6 +119160,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "arch-wide",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -119163,6 +119211,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "arch",
    "kind": "str-part-gate-gateway",
    "size": "m",
@@ -119213,6 +119262,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "ball-azure",
    "kind": "obj-leisure-game-ball",
    "size": "m",
@@ -119257,6 +119307,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "ball",
    "kind": "obj-leisure-game-ball",
    "size": "m",
@@ -119306,6 +119357,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bomb-striped",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -119359,6 +119411,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bomb",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -119406,6 +119459,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bracing-large",
    "kind": "str-part-wall",
    "size": "s",
@@ -119452,6 +119506,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bracing-medium",
    "kind": "str-part-wall",
    "size": "s",
@@ -119498,6 +119553,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "cone",
    "kind": "str-barrier-traffic-cone",
    "size": "s",
@@ -119536,6 +119592,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
@@ -119574,6 +119631,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "diamond",
    "kind": "obj-symbol",
    "size": "s",
@@ -119613,6 +119671,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "finish-line-wide",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -119669,6 +119728,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "finish-line",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -119725,6 +119785,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "flag-a",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -119771,6 +119832,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "flag-b",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -119817,6 +119879,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "flag-c",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -119863,6 +119926,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "frame-b",
    "kind": "str-part-frame",
    "size": "m",
@@ -119903,6 +119967,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "frame-c",
    "kind": "str-part-frame",
    "size": "m",
@@ -119943,6 +120008,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "heart",
    "kind": "obj-symbol",
    "size": "s",
@@ -119982,6 +120048,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "hoop-angled",
    "kind": "obj-equipment-target",
    "size": "m",
@@ -120033,6 +120100,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "hoop",
    "kind": "obj-equipment-target",
    "size": "m",
@@ -120078,6 +120146,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lever-floor",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
@@ -120127,6 +120196,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lever-wall-a",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
@@ -120177,6 +120247,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lever-wall-b",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
@@ -120228,6 +120299,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lightning",
    "kind": "obj-symbol",
    "size": "s",
@@ -120267,6 +120339,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x1",
    "kind": "str-part-pillar",
    "size": "s",
@@ -120313,6 +120386,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x2",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120360,6 +120434,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x4",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120406,6 +120481,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x8",
    "kind": "str-part-pillar",
    "size": "l",
@@ -120453,6 +120529,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-2x2x2",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120498,6 +120575,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-2x2x4",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120543,6 +120621,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-2x2x8",
    "kind": "str-part-pillar",
    "size": "l",
@@ -120589,6 +120668,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pipe-180-a",
    "kind": "str-fixture-utility-pipe",
    "size": "l",
@@ -120629,6 +120709,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pipe-180-b",
    "kind": "str-fixture-utility-pipe",
    "size": "l",
@@ -120669,6 +120750,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pipe-90",
    "kind": "str-fixture-utility-pipe",
    "size": "m",
@@ -120708,6 +120790,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrow-stand",
    "kind": "str-fixture-marker-sign-road",
    "size": "m",
@@ -120763,6 +120846,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrow-wall",
    "kind": "str-fixture-marker-sign-road",
    "size": "s",
@@ -120807,6 +120891,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-left-azure",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120857,6 +120942,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-left",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120907,6 +120993,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-right-azure",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120957,6 +121044,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-right",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -121007,6 +121095,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-caution",
    "kind": "obj",
    "size": "s",
@@ -121055,6 +121144,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "spring-pad",
    "kind": "str-fixture-leisure-playground",
    "size": "s",
@@ -121099,6 +121189,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "spring",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
@@ -121137,6 +121228,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "star",
    "kind": "obj-symbol",
    "size": "s",
@@ -121176,6 +121268,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "barrel-a",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -121214,6 +121307,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "box-a",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -121252,6 +121346,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "box-b",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -121291,6 +121386,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "box-c",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -121330,6 +121426,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "can-a",
    "kind": "obj-container-can",
    "size": "s",
@@ -121380,6 +121477,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "can-b",
    "kind": "obj-container-can",
    "size": "s",
@@ -121430,6 +121528,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "coin-a",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -121469,6 +121568,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "door-a-decorated",
    "kind": "str-part-door-single",
    "size": "m",
@@ -121520,6 +121620,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "door-a",
    "kind": "str-part-door-single",
    "size": "m",
@@ -121565,6 +121666,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "door-b",
    "kind": "str-part-door-single",
    "size": "m",
@@ -121620,6 +121722,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "dummy-base",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
@@ -121669,6 +121772,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-large",
    "kind": "obj-transport-pallet",
    "size": "m",
@@ -121709,6 +121813,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-small-decorated-a",
    "kind": "set",
    "size": "m",
@@ -121754,6 +121859,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-small-decorated-b",
    "kind": "set",
    "size": "m",
@@ -121816,6 +121922,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-small",
    "kind": "obj-transport-pallet",
    "size": "m",
@@ -121856,6 +121963,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "table-medium-decorated",
    "kind": "set",
    "size": "m",
@@ -121928,6 +122036,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "table-medium-long",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -121974,6 +122083,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "table-medium",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -122019,6 +122129,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target-small",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -122077,6 +122188,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target-stand-a-decorated",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -122147,6 +122259,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target-stand-a",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -122204,6 +122317,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -122248,6 +122362,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "wall-decorated",
    "kind": "str-part-wall-unit",
    "size": "m",

@@ -7192,6 +7192,15 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "collection": "kay-play",
+  "name": "kay-play",
+  "kits": [
+   "kay-minigame",
+   "kay-platformer",
+   "kay-proto"
+  ]
+ },
+ {
   "slug": "ipoly-concert",
   "name": "ipoly-concert",
   "url": "https://poly.pizza/u/iPoly3D",
