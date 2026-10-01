@@ -221,7 +221,7 @@ async function lint(file) {
   if (rule) {
     shade = rule.allSharp ? 'all sharp' : rule.allSoft ? 'all soft' : rule.agree >= CFG.ruleAgreeMin ? `rule ~${rule.cut}° (${pct(rule.agree)} fit)` : `no single rule (best ~${rule.cut}°, ${pct(rule.agree)} fit)`;
     if (!rule.allSharp && !rule.allSoft && rule.agree < CFG.ruleAgreeMin) add('info', 'shading', `soft/sharp set per part, not by one angle (best fit ~${rule.cut}° explains ${pct(rule.agree)})`);
-    if (rule.allSoft && rule.softMax >= 80) add('info', 'shading', `everything soft, even ${rule.softMax.toFixed(0)}° corners (may look blobby)`);
+    if (rule.allSoft && rule.softMax >= 80) add('info', 'shading', `everything soft, even ${rule.softMax.toFixed(0)}° corners`);
   }
   const density = T.nt / T.surf;
   if (density < CFG.densityLow) add('info', 'detail', `${density.toFixed(0)} triangles/m²: coarse (fine for boxy shapes, curves look polygonal)`);
