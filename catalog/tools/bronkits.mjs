@@ -43,7 +43,7 @@ export const BRONKITS = [
   { map: 'Small_Props_Pack_1', naam: 'Small Props Pack', kit: 'rgp-props', source: 'rgp', formaat: 'fbx' },
 
   { map: 'Blood_Ring_by_Quaternius', naam: 'Blood Ring', kit: 'quat-rpg', source: 'qua', formaat: 'fbx' },
-  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-skeleton', source: 'qua', formaat: 'fbx' },
+  { map: 'Skeleton_by_Quaternius', naam: 'Skeleton', kit: 'quat-rpg', source: 'qua', formaat: 'fbx' },
   { map: 'tools_mekmeesk', naam: 'Tools (mekmeesk)', kit: 'mek-tools', formaat: 'fbx', splitsPerMesh: true },
   { map: 'Low_Poly_Primitive_Tools', naam: 'Low Poly Primitive Tools', kit: 'lpa-tools', source: 'lpa', formaat: 'fbx' },
 

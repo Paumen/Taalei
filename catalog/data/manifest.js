@@ -2165,6 +2165,7 @@ window.KENNEY_KITS = [
    "necklace-3",
    "padlock",
    "parchment",
+   "pelvis",
    "potion-1-empty",
    "potion-1-filled",
    "potion-10-empty",
@@ -2188,6 +2189,7 @@ window.KENNEY_KITS = [
    "potion-9-empty",
    "potion-9-filled",
    "pouch",
+   "ribcage",
    "ring-1",
    "ring-2",
    "ring-3",
@@ -2196,8 +2198,10 @@ window.KENNEY_KITS = [
    "ring-6",
    "ring-7",
    "scroll",
+   "skeleton",
    "skull",
    "skull-2",
+   "skull-3",
    "star",
    "sword",
    "sword-big"
@@ -3371,17 +3375,6 @@ window.KENNEY_KITS = [
    "wonder-2-c",
    "wonder-walls-1",
    "wonder-walls-2"
-  ]
- },
-{
-  "slug": "quat-skeleton",
-  "name": "quat-skeleton",
-  "url": "https://quaternius.com/",
-  "models": [
-   "pelvis",
-   "ribcage",
-   "skeleton",
-   "skull"
   ]
  },
  {
