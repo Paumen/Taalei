@@ -120,4 +120,12 @@ suggestion gets an answer later; a record replaces that kind's suggestions.
     node tools/renders/kind-sheet.mjs --kind <kind> --out <scratch>/before --modes pbr --ref <commit before the change>
     node tools/renders/kind-sheet.mjs --kind <kind> --out <scratch>/after --modes pbr
 
-Look at both, then send them to the PO with what changed and what was left.
+For the models that changed, render before and after side by side in one
+sheet, each before next to its after, with the source when it was checked:
+
+    git show <commit before the change>:kits/workfiles/<kit>/<name>.glb > <scratch>/cmp/<name>-before.glb
+    cp kits/workfiles/<kit>/<name>.glb <scratch>/cmp/<name>-after.glb
+    node tools/renders/render.mjs [<source file>] <scratch>/cmp/<name>-before.glb <scratch>/cmp/<name>-after.glb [...] --modes pbr --views iso --sheet-only --sheet-cols <2 or 3> --out <scratch>/cmp/out
+
+`<scratch>/cmp` needs `Textures/colormap.png`. Look at all of them, then send
+the side-by-side sheet to the PO with what changed and what was left.

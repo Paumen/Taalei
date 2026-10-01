@@ -974,7 +974,7 @@
    "url": "https://www.kaylousberg.com",
    "artist": "KayKit",
    "licenseLabel": "CC0",
-   "count": 321,
+   "count": 322,
    "packs": [
     "KayKit Dungeon Asset Pack",
     "KayKit Restaurant Bits",
@@ -982,14 +982,14 @@
    ],
    "origins": {
     "KayKit Dungeon Asset Pack": 149,
-    "KayKit Restaurant Bits": 122,
+    "KayKit Restaurant Bits": 123,
     "KayKit Furniture Bits": 50
    },
    "scales": {
-    "0.3": 321
+    "0.3": 322
    },
    "smooth": {
-    "smooth": 295,
+    "smooth": 296,
     "none": 26
    },
    "members": [
@@ -1020,18 +1020,18 @@
      "url": "https://www.kaylousberg.com",
      "artist": "KayKit",
      "licenseLabel": "CC0",
-     "count": 122,
+     "count": 123,
      "packs": [
       "KayKit Restaurant Bits"
      ],
      "origins": {
-      "KayKit Restaurant Bits": 122
+      "KayKit Restaurant Bits": 123
      },
      "scales": {
-      "0.3": 122
+      "0.3": 123
      },
      "smooth": {
-      "smooth": 116,
+      "smooth": 117,
       "none": 6
      }
     },
@@ -16098,6 +16098,15 @@
     "taalei-kit/dice",
     "taalei-kit/dice-pair"
    ]
+  },
+  {
+   "id": "v1260",
+   "type": "detail-variant",
+   "main": "kay-food/fridge-a-decorated-anim",
+   "members": [
+    "kay-food/fridge-a-decorated-anim",
+    "kay-food/fridge-a-decorated"
+   ]
   }
  ],
  "bands": [
@@ -16199,7 +16208,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 764,
+   "count": 765,
    "parent": "metal-iron"
   },
   {
@@ -16341,7 +16350,7 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 224
+   "count": 225
   },
   {
    "id": "textile",
@@ -16376,7 +16385,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 695
+   "count": 696
   },
   {
    "id": "rubber",
@@ -16404,7 +16413,7 @@
    "name": "Food",
    "type": "material",
    "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
-   "count": 635
+   "count": 636
   },
   {
    "id": "wax",
@@ -18848,7 +18857,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 178,
+   "count": 179,
    "color": "#b5651d"
   },
   {
@@ -19433,7 +19442,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries an animation clip. Exempt from I08 and I11, so its moving parts may be transparent and draw separately.",
-   "count": 98
+   "count": 99
   },
   {
    "id": "asia",
@@ -19648,7 +19657,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2402
+   "count": 2403
   },
   {
    "id": "l",
@@ -19669,7 +19678,7 @@
    "name": "KayKit",
    "type": "artist",
    "description": "Kits from Kay Lousberg (kaylousberg.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1232
+   "count": 1233
   },
   {
    "id": "qua",
@@ -19760,7 +19769,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 98
+   "count": 99
   }
  ],
  "byLongest": [
@@ -97705,6 +97714,81 @@
   {
    "kit": "kay-food",
    "collection": "kay-interior",
+   "name": "fridge-a-decorated-anim",
+   "kind": "set",
+   "size": "m",
+   "wdh": [
+    0.6,
+    0.672,
+    0.75
+   ],
+   "tris": 2448,
+   "tpu": 6661,
+   "mat": 1,
+   "bands": 6,
+   "calls": 3,
+   "bytes": 108264,
+   "vtx": 2315,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0183,
+   "avgTri": 0.00251,
+   "anglePct": 62,
+   "vpt": 0.95,
+   "grad": 0.62,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.266,
+     0.844
+    ],
+    "5,2": [
+     0.016,
+     0.977
+    ],
+    "8,0": [
+     0.227,
+     0.977
+    ],
+    "5,0": [
+     0.016,
+     0.859
+    ],
+    "6,0": [
+     0.016,
+     0.188
+    ]
+   },
+   "colors": [
+    "#68872d",
+    "#7f3927",
+    "#82868e",
+    "#d07b56",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "animation",
+    "animation",
+    "food",
+    "kay",
+    "metal-iron-steel",
+    "paper",
+    "plastic"
+   ],
+   "anim": [
+    "door_open",
+    "door_close"
+   ],
+   "variant": "v1260"
+  },
+  {
+   "kit": "kay-food",
+   "collection": "kay-interior",
    "name": "fridge-a-decorated",
    "kind": "set",
    "size": "m",
@@ -97716,46 +97800,51 @@
    "tris": 2460,
    "tpu": 6694,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 90700,
-   "vtx": 2329,
+   "bytes": 91596,
+   "vtx": 2357,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.0183,
    "avgTri": 0.0025,
    "anglePct": 62,
-   "vpt": 0.95,
-   "grad": 0.89,
+   "vpt": 0.96,
+   "grad": 0.62,
    "spread": {
-    "1,1": [
-     0.016,
-     0.977
-    ],
     "3,1": [
-     0.016,
-     0.969
+     0.148,
+     0.75
     ],
     "15,3": [
      0.266,
      0.844
     ],
-    "0,0": [
+    "5,2": [
      0.016,
+     0.977
+    ],
+    "8,0": [
+     0.227,
      0.977
     ],
     "5,0": [
      0.016,
-     0.977
+     0.859
+    ],
+    "6,0": [
+     0.016,
+     0.188
     ]
    },
    "colors": [
-    "#23562c",
     "#68872d",
+    "#7f3927",
     "#82868e",
     "#d07b56",
-    "#dbae80"
+    "#d8d1bd",
+    "#f2a93c"
    ],
    "tags": [
     "food",
@@ -97763,7 +97852,8 @@
     "metal-iron-steel",
     "paper",
     "plastic"
-   ]
+   ],
+   "variant": "v1260"
   },
   {
    "kit": "kay-food",
@@ -97779,7 +97869,7 @@
    "tris": 656,
    "tpu": 1785,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 31432,
    "vtx": 816,
@@ -97790,15 +97880,11 @@
    "avgTri": 0.00761,
    "anglePct": 75,
    "vpt": 1.24,
-   "grad": 0.75,
+   "grad": 0.59,
    "spread": {
-    "1,1": [
-     0.016,
-     0.977
-    ],
     "3,1": [
-     0.016,
-     0.969
+     0.148,
+     0.75
     ],
     "15,3": [
      0.266,
@@ -97806,7 +97892,6 @@
     ]
    },
    "colors": [
-    "#23562c",
     "#68872d",
     "#82868e"
    ],
@@ -97838,7 +97923,7 @@
    "tris": 456,
    "tpu": 1241,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 21580,
    "vtx": 546,
@@ -97849,23 +97934,18 @@
    "avgTri": 0.01054,
    "anglePct": 76,
    "vpt": 1.2,
-   "grad": 0.73,
+   "grad": 0.72,
    "spread": {
     "3,1": [
-     0.016,
-     0.969
+     0.023,
+     0.945
     ],
     "15,3": [
      0.25,
      0.844
-    ],
-    "1,1": [
-     0.016,
-     0.969
     ]
    },
    "colors": [
-    "#23562c",
     "#68872d",
     "#82868e"
    ],
@@ -169731,11 +169811,11 @@
    "avgTri": 0.01314,
    "anglePct": 99,
    "vpt": 1.28,
-   "grad": 0.56,
+   "grad": 0.54,
    "spread": {
     "15,3": [
-     0.148,
-     0.75
+     0.016,
+     0.594
     ],
     "5,2": [
      0.148,
@@ -169776,11 +169856,11 @@
    "avgTri": 0.02925,
    "anglePct": 100,
    "vpt": 1.35,
-   "grad": 0.53,
+   "grad": 0.51,
    "spread": {
     "15,3": [
-     0.148,
-     0.75
+     0.016,
+     0.594
     ],
     "13,3": [
      0.445,
@@ -295515,8 +295595,8 @@
    "grad": 0.59,
    "spread": {
     "15,3": [
-     0.148,
-     0.742
+     0.016,
+     0.594
     ],
     "5,2": [
      0.148,

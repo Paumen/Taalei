@@ -1734,6 +1734,7 @@ window.KENNEY_KITS = [
    "food-veggie-burger",
    "fridge-a",
    "fridge-a-decorated",
+   "fridge-a-decorated-anim",
    "fridge-b",
    "jar-c-large",
    "jar-c-medium",
