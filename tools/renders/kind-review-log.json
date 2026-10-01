@@ -462,6 +462,50 @@
   ]
  },
  {
+  "kind": "obj-food-sweet-lollipop",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "kay-spook/lollipop-a",
+     "kay-spook/lollipop-b"
+    ],
+    "text": "0.455 m, over the kind max 0.3; the others are 0.13-0.21 m",
+    "options": [
+     "Scale to 0.25 m",
+     "Scale to 0.20 m",
+     "Scale to 0.30 m",
+     "Keep as is"
+    ],
+    "picked": [
+     "PO: investigate why they are so long",
+     "PO: give all spooktober candy except bucket and bag a different scale, set the exception in the style guide",
+     "x0.44 (0.154) for candy-a/b and lollipop-a/b"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-spook/lollipop-a",
+     "kay-spook/lollipop-b",
+     "ken-food/lollypop"
+    ],
+    "text": "Stick camel on 3 models, ivory on 6",
+    "options": [
+     "All ivory sticks",
+     "All camel sticks",
+     "Keep as is"
+    ],
+    "picked": [
+     "All ivory sticks"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-food-vegetable-root-carrot",
   "date": "2026-10-01",
   "suggestions": [
@@ -743,6 +787,151 @@
     ],
     "picked": [
      "Leave scale"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-floor",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-dun-2/floor-tile-grate-open"
+    ],
+    "text": "Rim sits 0.30 m up on an inward-facing pit, so the pit's outside shows backfaces",
+    "options": [
+     "Sink rim to y=0",
+     "Add outward pit faces",
+     "Keep as is"
+    ],
+    "picked": [
+     "Sink rim to y=0"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-mediev/rail-curve",
+     "wizp-mediev/rail-long",
+     "wizp-mediev/rail-short",
+     "wizp-mediev/rail-straight"
+    ],
+    "text": "Rail track is not floor; no kind fits",
+    "options": [
+     "New track kind",
+     "Reject them",
+     "Keep in floor"
+    ],
+    "picked": [
+     "New track kind"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-dun-1/floor-bricks-separate"
+    ],
+    "text": "taupe-dark 0.14 reads dark next to the taupe bricks and tiles (0.33-0.34)",
+    "options": [
+     "Taupe at 0.34",
+     "Taupe at 0.14",
+     "Keep as is"
+    ],
+    "picked": [
+     "Taupe at 0.34"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "fs-town/dirt-fading",
+     "fs-town/dirt-fading-gathered",
+     "fs-town/dirt-gathered-corner"
+    ],
+    "text": "Dirt slabs flush with the ground but off-centre in x/z",
+    "options": [
+     "Centre x/z only",
+     "Centre and lift",
+     "Keep as is"
+    ],
+    "picked": [
+     "Centre x/z only"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-gate-single",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-dun-1/arch-door"
+    ],
+    "text": "Import fault: planks and iron straps both taupe, frame chestnut; the source has the same materials as bottompivot",
+    "options": [
+     "Match bottompivot",
+     "Match quat-dun-2",
+     "Keep as is"
+    ],
+    "picked": [
+     "PO: you choose",
+     "Match bottompivot"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-dun-1/door-gate"
+    ],
+    "text": "Lowest point at y=-0.149, sinks into the ground",
+    "options": [
+     "Lift to y=0",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lift to y=0"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-arena/wall-gate"
+    ],
+    "text": "A wall section with arch and gate, not a door leaf",
+    "options": [
+     "To gate-gateway",
+     "Keep as is"
+    ],
+    "picked": [
+     "To gate-gateway"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "wizp-asia/door-left",
+     "wizp-asia/door-right"
+    ],
+    "text": "Whole door one amber band, reads as solid gold beside the wood doors",
+    "options": [
+     "Keep as is",
+     "Whole door sienna",
+     "Body camel, trim amber"
+    ],
+    "picked": [
+     "Keep as is"
     ]
    }
   ]
