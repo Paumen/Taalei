@@ -151,12 +151,12 @@ window.KENNEY_KITS = [
   "outsideCatalog": [
    "corridor", "corridor-corner", "corridor-end", "corridor-intersection", "corridor-junction",
    "corridor-transition", "corridor-wide", "corridor-wide-corner", "corridor-wide-end",
-   "corridor-wide-intersection", "corridor-wide-junction", "gate", "gate-metal-bars",
-   "gate-overhang", "gate-rock", "room-corner", "room-large", "room-large-variation",
-   "room-small", "room-small-variation", "room-wide", "room-wide-variation", "stairs",
-   "stairs-wide", "template-corner", "template-detail", "template-floor", "template-floor-big",
-   "template-floor-detail", "template-floor-detail-a", "template-wall", "template-wall-corner",
-   "template-wall-detail-a", "template-wall-half", "template-wall-stairs", "template-wall-top"
+   "corridor-wide-intersection", "corridor-wide-junction", "gate-overhang", "gate-rock",
+   "room-corner", "room-large", "room-large-variation", "room-small", "room-small-variation",
+   "room-wide", "room-wide-variation", "stairs", "stairs-wide", "template-corner",
+   "template-detail", "template-floor", "template-floor-big", "template-floor-detail",
+   "template-floor-detail-a", "template-wall", "template-wall-corner", "template-wall-detail-a",
+   "template-wall-half", "template-wall-stairs", "template-wall-top"
   ],
   "models": [
    "corridor",
@@ -537,11 +537,10 @@ window.KENNEY_KITS = [
   "name": "quat-ocean",
   "url": "https://quaternius.com/",
   "outsideCatalog": [
-   "coral-a", "coral-b", "coral-c", "coral-d", "coral-e", "coral-f", "coral-g", "crab",
-   "dolphin", "eel", "lobster", "octopus", "orca", "orca-calf", "penguin", "rock-a", "rock-b",
-   "rock-c", "rock-d", "rock-e", "rock-f", "rock-g", "rock-h", "rock-i", "rock-j", "rock-k",
-   "sand-dollar", "seal", "seaweed-a", "seaweed-b", "seaweed-c", "shark", "squid", "turtle",
-   "whale"
+   "coral-a", "coral-b", "coral-c", "coral-d", "coral-e", "coral-f", "coral-g", "dolphin",
+   "orca", "orca-calf", "rock-a", "rock-b", "rock-c", "rock-d", "rock-e", "rock-f", "rock-g",
+   "rock-h", "rock-i", "rock-j", "rock-k", "sand-dollar", "seaweed-a", "seaweed-b", "seaweed-c",
+   "shark"
   ],
   "models": [
    "coral-a",
@@ -603,6 +602,7 @@ window.KENNEY_KITS = [
    "barbecue",
    "birdhouse",
    "dice",
+   "diving-helmet",
    "graduation-cap",
    "hook",
    "hourglass",
@@ -619,6 +619,9 @@ window.KENNEY_KITS = [
    "tipi-c",
    "tipi-d",
    "tipi-e",
+   "trident",
+   "trident-barbed",
+   "trident-crescent",
    "trophy",
    "ufo"
   ]
@@ -1363,12 +1366,11 @@ window.KENNEY_KITS = [
   "name": "fs-terrain",
   "url": null,
   "outsideCatalog": [
-   "cave-prop-entrance", "cave-prop-minecart", "cave-prop-pick-large", "cave-prop-pick-small",
-   "cave-prop-railway-bumpstop", "cave-prop-railway-curve-large",
-   "cave-prop-railway-curve-small", "cave-prop-railway-hill-gentle",
-   "cave-prop-railway-hill-sharp", "cave-prop-railway-intersection",
-   "cave-prop-railway-straight-a", "cave-prop-railway-straight-b",
-   "cave-prop-railway-straight-c", "cave-prop-railway-straight-d", "cave-prop-railway-switch",
+   "cave-prop-railway-curve-large", "cave-prop-railway-curve-small",
+   "cave-prop-railway-hill-gentle", "cave-prop-railway-hill-sharp",
+   "cave-prop-railway-intersection", "cave-prop-railway-straight-a",
+   "cave-prop-railway-straight-b", "cave-prop-railway-straight-c",
+   "cave-prop-railway-straight-d", "cave-prop-railway-switch",
    "cave-prop-stalagmite-connected-base", "cave-prop-stalagmite-connected-mid",
    "cave-prop-stalagmite-connected-top", "cave-prop-stalagmite-normal",
    "cave-prop-stalagmite-tiny", "cave-prop-support-ceiling-beam-a",
@@ -6289,6 +6291,7 @@ window.KENNEY_KITS = [
    "rail",
    "rail-double",
    "ramp",
+   "road-start",
    "tent",
    "tent-closed",
    "tent-closed-long",
@@ -6351,6 +6354,8 @@ window.KENNEY_KITS = [
    "machine-generator-large",
    "machine-wireless",
    "machine-wireless-cable",
+   "monorail-track-support",
+   "monorail-track-support-corner",
    "monorail-train-box",
    "monorail-train-cargo",
    "monorail-train-commuter",
@@ -6429,6 +6434,7 @@ window.KENNEY_KITS = [
    "door-double",
    "door-double-closed",
    "door-double-half",
+   "door-single",
    "door-single-closed",
    "door-single-half",
    "rail",
@@ -6446,9 +6452,13 @@ window.KENNEY_KITS = [
    "table-inset",
    "table-inset-small",
    "table-large",
+   "wall",
+   "wall-banner",
    "wall-detail",
    "wall-door",
    "wall-door-banner",
+   "wall-door-wide",
+   "wall-door-wide-banner",
    "wall-window",
    "wall-window-banner",
    "wall-window-frame",
@@ -6565,14 +6575,26 @@ window.KENNEY_KITS = [
   "url": "https://kenney.nl/assets/modular-buildings",
   "licenseLabel": "CC0 1.0",
   "models": [
+   "door-brown",
+   "door-brown-glass",
    "door-brown-window",
+   "door-white-window",
    "house-a",
    "house-b",
    "house-c",
    "tower-a",
    "tower-b",
    "tower-c",
-   "tower-d"
+   "tower-d",
+   "window-brown",
+   "window-brown-detailed",
+   "window-brown-large",
+   "window-brown-narrow",
+   "window-brown-round-low",
+   "window-brown-round-narrow",
+   "window-brown-round-wide",
+   "window-brown-tall",
+   "window-brown-wide"
   ]
  },
  {
@@ -7162,6 +7184,85 @@ window.KENNEY_KITS = [
    "sq-fastfood",
    "sq-bank",
    "sq-lab"
+  ]
+ },
+ {
+  "slug": "ipoly-concert",
+  "name": "ipoly-concert",
+  "url": "https://poly.pizza/u/iPoly3D",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "barricade",
+   "concert-stage",
+   "led-panel",
+   "mic-stand",
+   "speaker-large",
+   "speaker-small",
+   "spotlight",
+   "spotlight-barndoor",
+   "spotlight-moving",
+   "spotlight-ribbed"
+  ]
+ },
+ {
+  "slug": "ipoly-torture",
+  "name": "ipoly-torture",
+  "url": "https://poly.pizza/u/iPoly3D",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "cage-round",
+   "cage-square",
+   "gallows-platform",
+   "gibbet",
+   "guillotine",
+   "pillory",
+   "pillory-post",
+   "stool"
+  ]
+ },
+ {
+  "slug": "ipoly-signs",
+  "name": "ipoly-signs",
+  "url": "https://poly.pizza/u/iPoly3D",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "grass-rock",
+   "sign-board",
+   "sign-board-planks",
+   "sign-hanging-frame",
+   "sign-hanging-frame-oval",
+   "sign-hanging-framed",
+   "sign-hanging-notched",
+   "sign-hanging-plain",
+   "signpost-arrow-1",
+   "signpost-arrow-2",
+   "signpost-arrow-3",
+   "signpost-arrow-board",
+   "signpost-board",
+   "signpost-planks"
+  ]
+ },
+ {
+  "slug": "ipoly-electronics",
+  "name": "ipoly-electronics",
+  "url": "https://poly.pizza/u/iPoly3D",
+  "licenseLabel": "CC0 1.0",
+  "models": [
+   "circuit-board",
+   "microchip",
+   "microchip-small",
+   "ram",
+   "ssd"
+  ]
+ },
+ {
+  "collection": "ipoly",
+  "name": "ipoly",
+  "kits": [
+   "ipoly-concert",
+   "ipoly-torture",
+   "ipoly-signs",
+   "ipoly-electronics"
   ]
  }
 ]

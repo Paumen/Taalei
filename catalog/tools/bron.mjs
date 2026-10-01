@@ -1,5 +1,6 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { readGlb, readAccessor } from '../../catalog/tools/glb.mjs';
@@ -74,8 +75,16 @@ function tekenTextuurUit(bin, bufferView, json) {
   const bytes = bin.subarray(start, start + view.byteLength);
   const map = join(tmpdir(), 'taalei-texturen');
   mkdirSync(map, { recursive: true });
-  const pad = join(map, `${createHash('sha256').update(bytes).digest('hex').slice(0, 16)}.png`);
-  if (!existsSync(pad)) writeFileSync(pad, bytes);
+  const naam = createHash('sha256').update(bytes).digest('hex').slice(0, 16);
+  const pad = join(map, `${naam}.png`);
+  if (existsSync(pad)) return pad;
+  if (bytes.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) {
+    writeFileSync(pad, bytes);
+  } else {
+    const ruw = join(map, `${naam}.bron`);
+    writeFileSync(ruw, bytes);
+    execFileSync('convert', [ruw, `png:${pad}`]);
+  }
   return pad;
 }
 

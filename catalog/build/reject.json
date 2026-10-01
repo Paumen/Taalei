@@ -474,8 +474,7 @@
   },
   {
    "slug": "Electronics_iPoly3D",
-   "name": "Electronics",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Electronics"
   }
  ],
  "sources": [
@@ -748,7 +747,7 @@
    "kit": "fs-terrain",
    "format": "obj",
    "inSource": 305,
-   "inCatalog": 79,
+   "inCatalog": 84,
    "listed": 188,
    "unmatched": 0,
    "scale": 0.5,
@@ -1647,7 +1646,7 @@
    "kit": "ken-racing",
    "format": "glb",
    "inSource": 112,
-   "inCatalog": 49,
+   "inCatalog": 50,
    "listed": 12,
    "unmatched": 0,
    "scale": 1.2,
@@ -1659,7 +1658,7 @@
    "kit": "ken-space",
    "format": "glb",
    "inSource": 153,
-   "inCatalog": 89,
+   "inCatalog": 91,
    "listed": 29,
    "unmatched": 2,
    "scale": 1.3,
@@ -1671,7 +1670,7 @@
    "kit": "ken-modular",
    "format": "glb",
    "inSource": 108,
-   "inCatalog": 8,
+   "inCatalog": 20,
    "listed": 26,
    "unmatched": 0,
    "scale": 1.3,
@@ -1683,7 +1682,7 @@
    "kit": "ken-station",
    "format": "glb",
    "inSource": 97,
-   "inCatalog": 52,
+   "inCatalog": 57,
    "listed": 2,
    "unmatched": 2,
    "scale": 1,
@@ -1860,11 +1859,13 @@
   {
    "slug": "Electronics_iPoly3D",
    "name": "Electronics",
+   "kit": "ipoly-electronics",
    "format": "glb",
    "inSource": 15,
-   "inCatalog": 0,
-   "listed": 4,
-   "unmatched": 0
+   "inCatalog": 5,
+   "listed": 5,
+   "unmatched": 0,
+   "scale": 0.0337
   }
  ],
  "kinds": [
@@ -69955,14 +69956,15 @@
    "kit": "Electronics_iPoly3D",
    "name": "Electronics Collectable",
    "wdh": [
-    3.9,
-    2.6,
+    0.1,
+    0.1,
     0.1
    ],
    "tris": 916,
-   "tpu": 130,
+   "tpu": 2671,
    "mat": 4,
-   "bytes": 51004,
+   "bytes": 51040,
+   "scaled": true,
    "reason": "dedupe",
    "file": "Electronics Collectable.glb"
   },
@@ -69970,14 +69972,15 @@
    "kit": "Electronics_iPoly3D",
    "name": "PCB",
    "wdh": [
-    3.6,
-    3.8,
+    0.1,
+    0.1,
     0.1
    ],
    "tris": 220,
-   "tpu": 23,
+   "tpu": 641,
    "mat": 2,
-   "bytes": 13188,
+   "bytes": 13224,
+   "scaled": true,
    "reason": "dedupe",
    "file": "PCB.glb"
   },
@@ -69985,29 +69988,48 @@
    "kit": "Electronics_iPoly3D",
    "name": "Pci E Card",
    "wdh": [
-    4,
-    2.4,
-    0.7
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 424,
-   "tpu": 60,
+   "tpu": 1236,
    "mat": 4,
-   "bytes": 19756,
+   "bytes": 19792,
+   "scaled": true,
    "reason": "dedupe",
    "file": "Pci E Card.glb"
   },
   {
    "kit": "Electronics_iPoly3D",
-   "name": "SSD PCB",
+   "name": "RAM-obBMPOGYvy",
    "wdh": [
-    3.1,
-    2.1,
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 1436,
+   "tpu": 4187,
+   "mat": 3,
+   "bytes": 48788,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "RAM-obBMPOGYvy.glb"
+  },
+  {
+   "kit": "Electronics_iPoly3D",
+   "name": "SSD PCB",
+   "kind": "obj-device-electronics",
+   "wdh": [
+    0.1,
+    0.1,
     0.1
    ],
    "tris": 568,
-   "tpu": 127,
+   "tpu": 1656,
    "mat": 3,
-   "bytes": 23576,
+   "bytes": 23612,
+   "scaled": true,
    "reason": "dedupe",
    "file": "SSD PCB.glb"
   }
