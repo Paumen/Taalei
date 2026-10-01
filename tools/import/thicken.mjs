@@ -85,25 +85,74 @@ function widenStick(glb, stick, min) {
   const t0 = Math.min(...local.map((l) => l[0]));
   const span = Math.max(...local.map((l) => l[0])) - t0;
   const binOf = local.map((l) => Math.min(TUBE_SLICES - 1, Math.floor((l[0] - t0) / span * TUBE_SLICES)));
-  const slices = Array.from({ length: TUBE_SLICES }, (_, k) => {
+  const line = [];
+  for (let k = 0; k < TUBE_SLICES; k++) {
     const members = local.filter((_, n) => binOf[n] === k);
-    if (!members.length) return null;
+    if (!members.length) continue;
     const side = (j) => {
       const values = members.map((l) => l[j]);
       const lo = Math.min(...values), hi = Math.max(...values);
-      return { mid: (lo + hi) / 2, grow: Math.max(1, min * MARGIN / Math.max(hi - lo, 1e-6)) };
+      return [(lo + hi) / 2, hi - lo];
     };
-    return { u: side(1), w: side(2) };
-  });
+    const [cu, wu] = side(1), [cw, ww] = side(2);
+    line.push({ t: members.reduce((sum, l) => sum + l[0], 0) / members.length, cu, cw, wu, ww });
+  }
+  const at = (t) => {
+    if (t <= line[0].t) return line[0];
+    const last = line[line.length - 1];
+    if (t >= last.t) return last;
+    const i = line.findIndex((r) => r.t >= t), a = line[i - 1], b = line[i], f = (t - a.t) / (b.t - a.t);
+    const mix = (k) => a[k] + (b[k] - a[k]) * f;
+    return { cu: mix('cu'), cw: mix('cw'), wu: mix('wu'), ww: mix('ww') };
+  };
   vertices.forEach((v, n) => {
     const [t, a, b] = local[n];
-    const slice = slices[binOf[n]];
-    const na = slice.u.mid + (a - slice.u.mid) * slice.u.grow;
-    const nb = slice.w.mid + (b - slice.w.mid) * slice.w.grow;
+    const { cu, cw, wu, ww } = at(t);
+    const na = cu + (a - cu) * Math.max(1, min * MARGIN / Math.max(wu, 1e-9));
+    const nb = cw + (b - cw) * Math.max(1, min * MARGIN / Math.max(ww, 1e-9));
     const moved = times(back, [0, 1, 2].map((k) => center[k] + t * axis[k] + na * u[k] + nb * w[k]));
     const p = position(v);
     for (let k = 0; k < 3; k++) p[k] = moved[k];
   });
+}
+
+function faceDirections(glb, prim, vertices, point) {
+  const count = glb.json.accessors[prim.attributes.POSITION].count;
+  const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, i) => i);
+  const sum = new Map([...vertices].map((v) => [v, [0, 0, 0]]));
+  for (let t = 0; t + 2 < idx.length; t += 3) {
+    const tri = [idx[t], idx[t + 1], idx[t + 2]];
+    if (!tri.some((v) => sum.has(v))) continue;
+    const [p0, p1, p2] = tri.map(point);
+    const e1 = [p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2]];
+    const e2 = [p2[0] - p0[0], p2[1] - p0[1], p2[2] - p0[2]];
+    const n = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    const len = Math.hypot(...n);
+    if (!len) continue;
+    for (const v of tri) if (sum.has(v)) for (let k = 0; k < 3; k++) sum.get(v)[k] += n[k] / len;
+  }
+  return sum;
+}
+
+function turnNormals(glb, prim, vertices, before) {
+  if (prim.attributes.NORMAL === undefined) return;
+  const position = writer(glb, prim.attributes.POSITION);
+  const normal = writer(glb, prim.attributes.NORMAL);
+  const from = faceDirections(glb, prim, vertices, (v) => before.get(v) ?? [...position(v)]);
+  const to = faceDirections(glb, prim, vertices, (v) => [...position(v)]);
+  const unit = (n) => { const len = Math.hypot(...n); return len ? n.map((x) => x / len) : null; };
+  for (const v of vertices) {
+    const a = unit(from.get(v)), b = unit(to.get(v));
+    if (!a || !b) continue;
+    const cross = [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    const sin = Math.hypot(...cross), cos = dot(a, b);
+    if (sin < 1e-9) continue;
+    const k = cross.map((x) => x / sin);
+    const o = normal(v), n = [o[0], o[1], o[2]];
+    const kn = [k[1] * n[2] - k[2] * n[1], k[2] * n[0] - k[0] * n[2], k[0] * n[1] - k[1] * n[0]];
+    const kd = dot(k, n);
+    for (let j = 0; j < 3; j++) o[j] = n[j] * cos + kn[j] * sin + k[j] * kd * (1 - cos);
+  }
 }
 
 function renormal(glb, prim, vertices) {
@@ -194,22 +243,28 @@ for (const file of files) {
     widen(glb, t, (max === null ? min * MARGIN : max) / t.diameter);
     touch(t);
   }
+  for (const [prim, vertices] of touched) renormal(glb, prim, vertices);
   let sticks = 0;
   let left = [];
+  const stickBefore = new Map();
   if (max === null) {
     for (let pass = 0; pass < STICK_PASSES; pass++) {
       left = measureSticks(glb).filter((s) => s.width < min);
       if (!left.length) break;
-      for (const s of left) { widenStick(glb, s, min); touch(s); }
+      for (const s of left) {
+        if (!stickBefore.has(s.prim)) stickBefore.set(s.prim, new Map());
+        const position = writer(glb, s.prim.attributes.POSITION);
+        for (const v of s.vertices) if (!stickBefore.get(s.prim).has(v)) stickBefore.get(s.prim).set(v, [...position(v)]);
+        widenStick(glb, s, min);
+        touch(s);
+      }
       if (pass === 0) sticks = left.length;
     }
     left = measureSticks(glb).filter((s) => s.width < min);
   }
   if (!touched.size) continue;
-  for (const [prim, vertices] of touched) {
-    renormal(glb, prim, vertices);
-    bound(glb, prim.attributes.POSITION);
-  }
+  for (const [prim, before] of stickBefore) turnNormals(glb, prim, new Set(before.keys()), before);
+  for (const prim of touched.keys()) bound(glb, prim.attributes.POSITION);
   writeGlb(file, glb.json, glb.bin, writeFileSync);
   console.log(`${file}: ${max === null ? 'widened' : 'narrowed'} ${thin.length} tube(s)${max === null ? `, ${sticks} stick(s)` : ''}`);
   if (left.length) console.log(`${file}: ${left.length} stick(s) still under ${min} after ${STICK_PASSES} passes`);
