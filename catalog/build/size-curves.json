@@ -1,17 +1,6 @@
 {
  "kits": [
   {
-   "kit": "ken-transport",
-   "n": 7,
-   "slope": -1.012,
-   "scatter": 0.016,
-   "range": [
-    -1.012,
-    -0.502
-   ],
-   "shaky": true
-  },
-  {
    "kit": "ken-station",
    "n": 14,
    "slope": -0.874,
@@ -177,17 +166,6 @@
    "shaky": false
   },
   {
-   "kit": "ken-space",
-   "n": 17,
-   "slope": -0.557,
-   "scatter": 0.253,
-   "range": [
-    -0.63,
-    -0.491
-   ],
-   "shaky": false
-  },
-  {
    "kit": "nature-assets",
    "n": 10,
    "slope": -0.554,
@@ -254,6 +232,17 @@
    "shaky": true
   },
   {
+   "kit": "ken-transport",
+   "n": 6,
+   "slope": -0.502,
+   "scatter": 0.577,
+   "range": [
+    -0.973,
+    -0.291
+   ],
+   "shaky": true
+  },
+  {
    "kit": "quat-pirate",
    "n": 26,
    "slope": -0.5,
@@ -272,6 +261,17 @@
    "range": [
     -0.514,
     -0.48
+   ],
+   "shaky": false
+  },
+  {
+   "kit": "ken-space",
+   "n": 16,
+   "slope": -0.491,
+   "scatter": 0.232,
+   "range": [
+    -0.568,
+    -0.453
    ],
    "shaky": false
   },
@@ -2548,8 +2548,8 @@
   },
   {
    "kind": "obj-transport-land-rail",
-   "real": 20,
-   "curve": true
+   "curve": false,
+   "reason": "dropped"
   },
   {
    "kind": "obj-transport-land-road",
