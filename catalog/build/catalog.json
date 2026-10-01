@@ -425,10 +425,11 @@
    "name": "isa-tt",
    "artist": "Isa",
    "licenseLabel": "CC0",
-   "count": 313,
+   "count": 338,
    "packs": [
     "Tiny Treats Bakery Interior",
     "Tiny Treats Baked Goods",
+    "Homely House Set",
     "Tiny Treats Charming Kitchen",
     "Pretty Park Set",
     "Tiny Treats Pleasant Picnic",
@@ -438,6 +439,7 @@
    "origins": {
     "Tiny Treats Bakery Interior": 71,
     "Tiny Treats Baked Goods": 32,
+    "Homely House Set": 25,
     "Tiny Treats Charming Kitchen": 33,
     "Charming Kitchen Set": 19,
     "Pretty Park Set": 17,
@@ -446,10 +448,10 @@
     "Tiny Treats Fun Playground": 45
    },
    "scales": {
-    "0.32": 313
+    "0.32": 338
    },
    "smooth": {
-    "smooth": 312,
+    "smooth": 337,
     "none": 1
    },
    "members": [
@@ -491,6 +493,26 @@
      },
      "smooth": {
       "smooth": 32
+     }
+    },
+    {
+     "slug": "isa-homely",
+     "name": "isa-homely",
+     "note": "Source zip carries no licence file and names no maker.",
+     "artist": "Isa",
+     "licenseLabel": "CC0",
+     "count": 25,
+     "packs": [
+      "Homely House Set"
+     ],
+     "origins": {
+      "Homely House Set": 25
+     },
+     "scales": {
+      "0.32": 25
+     },
+     "smooth": {
+      "smooth": 25
      }
     },
     {
@@ -595,33 +617,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.06,
-    "kinds": 70
-   }
-  },
-  {
-   "slug": "isa-homely",
-   "name": "isa-homely",
-   "note": "Source zip carries no licence file and names no maker.",
-   "artist": "Isa",
-   "licenseLabel": "CC0",
-   "count": 25,
-   "packs": [
-    "Homely House Set"
-   ],
-   "origins": {
-    "Homely House Set": 25
-   },
-   "scales": {
-    "0.32": 25
-   },
-   "smooth": {
-    "smooth": 25
-   },
-   "kitCheck": {
-    "factor": 0.74,
-    "kinds": 7,
-    "level": "warning"
+    "factor": 1.03,
+    "kinds": 73
    }
   },
   {
@@ -2838,52 +2835,117 @@
    }
   },
   {
-   "slug": "rgp-explosives",
-   "name": "rgp-explosives",
-   "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-explosives/LICENSE.txt.",
+   "slug": "rgp",
+   "name": "rgp",
    "artist": "RGP",
    "licenseLabel": "CC0",
-   "count": 13,
+   "count": 229,
    "packs": [
-    "Stylized Explosives"
+    "Stylized Explosives",
+    "Stylized Medieval Kingdom",
+    "Vintage Room",
+    "Medieval Weapons Small Low Poly Pack"
    ],
    "origins": {
-    "Stylized Explosives": 13
+    "Stylized Explosives": 13,
+    "Stylized Medieval Kingdom": 180,
+    "Vintage Room": 17,
+    "Medieval Weapons Small Low Poly Pack": 19
    },
    "scales": {
-    "0.4": 13
+    "0.4": 229
    },
    "smooth": {
-    "smooth": 13
+    "smooth": 227,
+    "none": 2
    },
-   "kitCheck": {
-    "factor": 1.05,
-    "kinds": 4
-   }
-  },
-  {
-   "slug": "rgp-medieval",
-   "name": "rgp-medieval",
-   "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-medieval/LICENSE.txt.",
-   "artist": "RGP",
-   "licenseLabel": "CC0",
-   "count": 180,
-   "packs": [
-    "Stylized Medieval Kingdom"
+   "members": [
+    {
+     "slug": "rgp-explosives",
+     "name": "rgp-explosives",
+     "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-explosives/LICENSE.txt.",
+     "artist": "RGP",
+     "licenseLabel": "CC0",
+     "count": 13,
+     "packs": [
+      "Stylized Explosives"
+     ],
+     "origins": {
+      "Stylized Explosives": 13
+     },
+     "scales": {
+      "0.4": 13
+     },
+     "smooth": {
+      "smooth": 13
+     }
+    },
+    {
+     "slug": "rgp-medieval",
+     "name": "rgp-medieval",
+     "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-medieval/LICENSE.txt.",
+     "artist": "RGP",
+     "licenseLabel": "CC0",
+     "count": 180,
+     "packs": [
+      "Stylized Medieval Kingdom"
+     ],
+     "origins": {
+      "Stylized Medieval Kingdom": 180
+     },
+     "scales": {
+      "0.4": 180
+     },
+     "smooth": {
+      "smooth": 179,
+      "none": 1
+     }
+    },
+    {
+     "slug": "rgp-vintage",
+     "name": "rgp-vintage",
+     "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-vintage/LICENSE.txt.",
+     "artist": "RGP",
+     "licenseLabel": "CC0",
+     "count": 17,
+     "packs": [
+      "Vintage Room"
+     ],
+     "origins": {
+      "Vintage Room": 17
+     },
+     "scales": {
+      "0.4": 17
+     },
+     "smooth": {
+      "smooth": 16,
+      "none": 1
+     }
+    },
+    {
+     "slug": "rgp-weapons",
+     "name": "rgp-weapons",
+     "note": "By RG Poly: shares its texture atlas with rgp-props (Small Props Pack, licence names RG Poly). Source zip has no licence file; see kits/workfiles/rgp-weapons/LICENSE.txt.",
+     "artist": "RGP",
+     "licenseLabel": "CC0",
+     "count": 19,
+     "packs": [
+      "Medieval Weapons Small Low Poly Pack"
+     ],
+     "origins": {
+      "Medieval Weapons Small Low Poly Pack": 19
+     },
+     "scales": {
+      "0.4": 19
+     },
+     "smooth": {
+      "smooth": 19
+     }
+    }
    ],
-   "origins": {
-    "Stylized Medieval Kingdom": 180
-   },
-   "scales": {
-    "0.4": 180
-   },
-   "smooth": {
-    "smooth": 179,
-    "none": 1
-   },
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 55
+    "kinds": 68
    }
   },
   {
@@ -2907,55 +2969,6 @@
    "kitCheck": {
     "factor": 1.14,
     "kinds": 14
-   }
-  },
-  {
-   "slug": "rgp-vintage",
-   "name": "rgp-vintage",
-   "note": "By RG Poly. Source zip has no licence file; see kits/workfiles/rgp-vintage/LICENSE.txt.",
-   "artist": "RGP",
-   "licenseLabel": "CC0",
-   "count": 17,
-   "packs": [
-    "Vintage Room"
-   ],
-   "origins": {
-    "Vintage Room": 17
-   },
-   "scales": {
-    "0.4": 17
-   },
-   "smooth": {
-    "smooth": 16,
-    "none": 1
-   },
-   "kitCheck": {
-    "factor": 1.07,
-    "kinds": 8
-   }
-  },
-  {
-   "slug": "rgp-weapons",
-   "name": "rgp-weapons",
-   "note": "By RG Poly: shares its texture atlas with rgp-props (Small Props Pack, licence names RG Poly). Source zip has no licence file; see kits/workfiles/rgp-weapons/LICENSE.txt.",
-   "artist": "RGP",
-   "licenseLabel": "CC0",
-   "count": 19,
-   "packs": [
-    "Medieval Weapons Small Low Poly Pack"
-   ],
-   "origins": {
-    "Medieval Weapons Small Low Poly Pack": 19
-   },
-   "scales": {
-    "0.4": 19
-   },
-   "smooth": {
-    "smooth": 19
-   },
-   "kitCheck": {
-    "factor": 1.13,
-    "kinds": 8
    }
   },
   {
@@ -3590,21 +3603,23 @@
    "name": "wizp-grave",
    "artist": "WizP",
    "licenseLabel": "CC0",
-   "count": 40,
+   "count": 66,
    "packs": [
     "Cementery Arena Pack",
-    "Cementery Pack"
+    "Cementery Pack",
+    "Trees Pack"
    ],
    "origins": {
     "Cementery Arena Pack": 2,
-    "Cementery Pack": 38
+    "Cementery Pack": 38,
+    "Trees Pack": 26
    },
    "scales": {
-    "0.2": 40
+    "0.2": 66
    },
    "smooth": {
-    "smooth": 31,
-    "none": 9
+    "smooth": 56,
+    "none": 10
    },
    "members": [
     {
@@ -3647,11 +3662,32 @@
       "smooth": 29,
       "none": 9
      }
+    },
+    {
+     "slug": "wizp-tree",
+     "name": "wizp-tree",
+     "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-tree/LICENSE.txt.",
+     "artist": "WizP",
+     "licenseLabel": "CC0",
+     "count": 26,
+     "packs": [
+      "Trees Pack"
+     ],
+     "origins": {
+      "Trees Pack": 26
+     },
+     "scales": {
+      "0.2": 26
+     },
+     "smooth": {
+      "smooth": 25,
+      "none": 1
+     }
     }
    ],
    "kitCheck": {
-    "factor": 0.96,
-    "kinds": 8
+    "factor": 1.03,
+    "kinds": 16
    }
   },
   {
@@ -3813,31 +3849,6 @@
    "kitCheck": {
     "factor": 1.21,
     "kinds": 12
-   }
-  },
-  {
-   "slug": "wizp-tree",
-   "name": "wizp-tree",
-   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-tree/LICENSE.txt.",
-   "artist": "WizP",
-   "licenseLabel": "CC0",
-   "count": 26,
-   "packs": [
-    "Trees Pack"
-   ],
-   "origins": {
-    "Trees Pack": 26
-   },
-   "scales": {
-    "0.2": 26
-   },
-   "smooth": {
-    "smooth": 25,
-    "none": 1
-   },
-   "kitCheck": {
-    "factor": 1.09,
-    "kinds": 9
    }
   },
   {
@@ -62418,6 +62429,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "bench-a",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
@@ -62463,6 +62475,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "bench-b",
    "kind": "obj-furnishing-furniture-seating-bench-nobackrest",
    "size": "m",
@@ -62507,6 +62520,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "boots",
    "kind": "obj-equipment-apparel",
    "size": "s",
@@ -62546,6 +62560,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "cobblestones",
    "kind": "env-terrain-rock-cobble",
    "size": "m",
@@ -62585,6 +62600,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "doormat",
    "kind": "obj-furnishing-textile-mat",
    "size": "s",
@@ -62628,6 +62644,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-corner",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -62667,6 +62684,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-open-long",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -62707,6 +62725,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-open-wide-long",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -62747,6 +62766,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-open",
    "kind": "str-barrier-fence-mid",
    "size": "s",
@@ -62787,6 +62807,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-straight-long",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -62827,6 +62848,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-straight",
    "kind": "str-barrier-fence-mid",
    "size": "s",
@@ -62867,6 +62889,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "fence-wide-long",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -62907,6 +62930,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "floor-base",
    "kind": "env-terrain-ground",
    "size": "l",
@@ -62945,6 +62969,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "foliage-a",
    "kind": "env-flora-plant-bush",
    "size": "s",
@@ -62985,6 +63010,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "foliage-b",
    "kind": "env-flora-plant-bush",
    "size": "s",
@@ -63024,6 +63050,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "gate-double-left",
    "kind": "str-barrier-fence-mid",
    "size": "s",
@@ -63070,6 +63097,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "gate-double-right",
    "kind": "str-barrier-fence-mid",
    "size": "s",
@@ -63116,6 +63144,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "gate-single",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -63160,6 +63189,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "house-anim",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -63241,6 +63271,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "house",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -63315,6 +63346,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "letter",
    "kind": "obj-equipment-pocketitem-scroll",
    "size": "s",
@@ -63365,6 +63397,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "mailbox",
    "kind": "str-fixture-marker-mailbox",
    "size": "m",
@@ -63421,6 +63454,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "package",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -63476,6 +63510,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "tree-large",
    "kind": "env-flora-tree-conifer",
    "size": "l",
@@ -63521,6 +63556,7 @@
   },
   {
    "kit": "isa-homely",
+   "collection": "isa-tt",
    "name": "tree",
    "kind": "env-flora-tree-conifer",
    "size": "m",
@@ -261529,6 +261565,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "ammo-crate",
    "kind": "obj-container-crate",
    "size": "s",
@@ -261568,6 +261605,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "barrel-tnt",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -261617,6 +261655,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "bomb-a",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -261662,6 +261701,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "bomb-b",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -261707,6 +261747,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "bomb-c",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -261752,6 +261793,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "claymore",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -261791,6 +261833,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "dynamite-a",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -261842,6 +261885,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "dynamite-b",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -261893,6 +261937,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "dynamite-bundle-a",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -261950,6 +261995,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "dynamite-bundle-b",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -262007,6 +262053,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "dynamite-c",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -262058,6 +262105,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "dynamite-d",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -262109,6 +262157,7 @@
   },
   {
    "kit": "rgp-explosives",
+   "collection": "rgp",
    "name": "grenade-stick",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
@@ -262159,6 +262208,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "annex-1",
    "kind": "str-building-residential-house",
    "size": "m",
@@ -262211,6 +262261,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "annex-3-a",
    "kind": "str-building-residential-house",
    "size": "m",
@@ -262264,6 +262315,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "annex-3-b",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -262317,6 +262369,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "annex-4-a",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -262370,6 +262423,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "annex-4-b",
    "kind": "str-building-residential-house",
    "size": "m",
@@ -262423,6 +262477,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "annex-8",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -262480,6 +262535,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "anvil",
    "kind": "obj-equipment-tool-station",
    "size": "s",
@@ -262523,6 +262579,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "apple",
    "kind": "obj-food-fruit-apple",
    "size": "s",
@@ -262573,6 +262630,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "archery-target-high",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -262630,6 +262688,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "archery-target",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -262694,6 +262753,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "arrow",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -262752,6 +262812,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "axe",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "s",
@@ -262803,6 +262864,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "banner",
    "kind": "str-fixture-marker-banner",
    "size": "m",
@@ -262841,6 +262903,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "barrel-open",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -262886,6 +262949,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "barrel",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -262931,6 +262995,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bellows",
    "kind": "obj-equipment-tool-station",
    "size": "s",
@@ -262975,6 +263040,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bench-backrest",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
@@ -263026,6 +263092,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bench",
    "kind": "obj-furnishing-furniture-seating-bench-nobackrest",
    "size": "m",
@@ -263071,6 +263138,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "brazier",
    "kind": "obj-furnishing-light-torch",
    "size": "s",
@@ -263116,6 +263184,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bread-loaf",
    "kind": "obj-food-baked-bread",
    "size": "s",
@@ -263155,6 +263224,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bread-round",
    "kind": "obj-food-baked-bread-bun",
    "size": "s",
@@ -263200,6 +263270,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bridge-planks",
    "kind": "str-access-bridge-long",
    "size": "l",
@@ -263239,6 +263310,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bridge",
    "kind": "str-access-bridge-long",
    "size": "l",
@@ -263290,6 +263362,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "broom",
    "kind": "obj-equipment-tool-twohand-broom",
    "size": "m",
@@ -263341,6 +263414,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "bucket",
    "kind": "obj-container-bucket",
    "size": "s",
@@ -263392,6 +263466,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "campfire",
    "kind": "obj-furnishing-light-campfire",
    "size": "m",
@@ -263443,6 +263518,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "cheese-wedge",
    "kind": "obj-food-dairy-cheese",
    "size": "s",
@@ -263482,6 +263558,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "cheese-wheel-cut",
    "kind": "obj-food-dairy-cheese",
    "size": "s",
@@ -263521,6 +263598,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "cheese-wheel",
    "kind": "obj-food-dairy-cheese",
    "size": "s",
@@ -263560,6 +263638,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "chimney",
    "kind": "str-part-roof",
    "size": "m",
@@ -263598,6 +263677,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "cloth-roll",
    "kind": "obj-resource-textile",
    "size": "s",
@@ -263637,6 +263717,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "clothesline",
    "kind": "set",
    "size": "m",
@@ -263704,6 +263785,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "crate-cube",
    "kind": "obj-container-crate-cube",
    "size": "s",
@@ -263762,6 +263844,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "crate-open",
    "kind": "obj-container-crate",
    "size": "s",
@@ -263812,6 +263895,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "door-a",
    "kind": "str-part-door-single",
    "size": "m",
@@ -263863,6 +263947,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "door-arch",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -263914,6 +263999,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "door-b",
    "kind": "str-part-door-single",
    "size": "m",
@@ -263972,6 +264058,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "door-porch",
    "kind": "str-part-door-doorway",
    "size": "m",
@@ -264030,6 +264117,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "dormer",
    "kind": "str-part-roof-unit",
    "size": "l",
@@ -264082,6 +264170,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "drying-rack-a",
    "kind": "str-part-frame",
    "size": "m",
@@ -264128,6 +264217,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "drying-rack-b",
    "kind": "str-part-frame",
    "size": "m",
@@ -264181,6 +264271,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fallen-tree",
    "kind": "env-remains-deadwood-tree",
    "size": "l",
@@ -264228,6 +264319,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fence-branch-a",
    "kind": "str-barrier-fence",
    "size": "m",
@@ -264268,6 +264360,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fence-branch-b",
    "kind": "str-barrier-fence",
    "size": "m",
@@ -264308,6 +264401,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fence-picket-broken",
    "kind": "str-barrier-fence",
    "size": "m",
@@ -264354,6 +264448,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fence-picket",
    "kind": "str-barrier-fence",
    "size": "m",
@@ -264399,6 +264494,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "firewood",
    "kind": "obj-resource-wood-log",
    "size": "m",
@@ -264446,6 +264542,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fish-hanging",
    "kind": "set",
    "size": "m",
@@ -264501,6 +264598,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fish-rack",
    "kind": "set",
    "size": "m",
@@ -264562,6 +264660,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -264611,6 +264710,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "fishing-rod",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -264662,6 +264762,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "forge-chimney",
    "kind": "str-part-roof",
    "size": "l",
@@ -264701,6 +264802,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "grass",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -264747,6 +264849,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "handcart",
    "kind": "obj-transport-land-cart",
    "size": "l",
@@ -264798,6 +264901,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "hay-bale",
    "kind": "obj-resource-haystack",
    "size": "m",
@@ -264836,6 +264940,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "haystack",
    "kind": "obj-resource-haystack",
    "size": "m",
@@ -264880,6 +264985,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "hide-rack",
    "kind": "set",
    "size": "m",
@@ -264931,6 +265037,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "hide-roll",
    "kind": "obj-resource",
    "size": "s",
@@ -264970,6 +265077,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "hook",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -265008,6 +265116,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "horse",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -265059,6 +265168,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-10",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265116,6 +265226,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-11-a",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265175,6 +265286,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-11-b",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265234,6 +265346,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-3-a",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265292,6 +265405,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-3-b",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265350,6 +265464,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-5",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265402,6 +265517,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-6-a",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265455,6 +265571,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-6-b",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265513,6 +265630,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-8",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265565,6 +265683,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-9",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265635,6 +265754,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "house-long",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265706,6 +265826,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "hut",
    "kind": "str-building-residential-house",
    "size": "l",
@@ -265764,6 +265885,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "ladder-long",
    "kind": "str-access-ladder",
    "size": "l",
@@ -265817,6 +265939,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "log-sawhorse",
    "kind": "set",
    "size": "m",
@@ -265868,6 +265991,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "market-table-1",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -265914,6 +266038,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "market-table-2",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -265960,6 +266085,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "market-table-3",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -266006,6 +266132,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "market-table-4",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -266052,6 +266179,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "meat-hook",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -266104,6 +266232,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushroom-1",
    "kind": "env-fungi",
    "size": "s",
@@ -266147,6 +266276,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushroom-2",
    "kind": "env-fungi",
    "size": "s",
@@ -266191,6 +266321,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushroom-3",
    "kind": "env-fungi",
    "size": "s",
@@ -266235,6 +266366,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushroom-5",
    "kind": "env-fungi",
    "size": "s",
@@ -266280,6 +266412,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushroom-6",
    "kind": "env-fungi",
    "size": "s",
@@ -266325,6 +266458,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushrooms-a",
    "kind": "env-fungi",
    "size": "s",
@@ -266374,6 +266508,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "mushrooms-b",
    "kind": "env-fungi",
    "size": "s",
@@ -266424,6 +266559,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "nail",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -266462,6 +266598,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "palisade-a",
    "kind": "str-part-wall-rampart",
    "size": "m",
@@ -266520,6 +266657,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "palisade-b",
    "kind": "str-part-wall-rampart",
    "size": "m",
@@ -266578,6 +266716,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "pig",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -266621,6 +266760,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "pine-dead",
    "kind": "env-remains-deadwood-tree",
    "size": "l",
@@ -266668,6 +266808,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "pitchfork",
    "kind": "obj-equipment-tool-twohand",
    "size": "m",
@@ -266712,6 +266853,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plank-1",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -266751,6 +266893,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plank-2",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -266790,6 +266933,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plank-3",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -266829,6 +266973,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plank-4",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -266869,6 +267014,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plank-5",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -266908,6 +267054,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plank-6",
    "kind": "obj-resource-wood-plank",
    "size": "m",
@@ -266947,6 +267094,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "plate",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
@@ -266985,6 +267133,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "platform-1",
    "kind": "str-part-frame-scaffold",
    "size": "m",
@@ -267031,6 +267180,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "platform-2",
    "kind": "str-part-frame-scaffold",
    "size": "m",
@@ -267077,6 +267227,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "platform-3",
    "kind": "str-part-frame-scaffold",
    "size": "m",
@@ -267123,6 +267274,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "platform-stairs",
    "kind": "str-part-frame-scaffold",
    "size": "m",
@@ -267168,6 +267320,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "porch-2-a",
    "kind": "str-canopy",
    "size": "l",
@@ -267214,6 +267367,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "porch-2-b",
    "kind": "str-canopy",
    "size": "m",
@@ -267260,6 +267414,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "porch-5-a",
    "kind": "str-canopy",
    "size": "m",
@@ -267306,6 +267461,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "porch-5-b",
    "kind": "str-canopy",
    "size": "m",
@@ -267352,6 +267508,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "porch-6",
    "kind": "str-canopy",
    "size": "l",
@@ -267403,6 +267560,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "post-a",
    "kind": "str-part-pillar",
    "size": "m",
@@ -267449,6 +267607,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "post-b",
    "kind": "str-part-pillar",
    "size": "m",
@@ -267495,6 +267654,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "pouch",
    "kind": "obj-container-bag-pouch",
    "size": "s",
@@ -267539,6 +267699,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart-corner",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267589,6 +267750,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart-gate",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267657,6 +267819,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart-low",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267708,6 +267871,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart-stairs-a",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267758,6 +267922,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart-stairs-b",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267803,6 +267968,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart-stairs-long",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267853,6 +268019,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rampart",
    "kind": "str-part-wall-rampart",
    "size": "l",
@@ -267904,6 +268071,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "reeds",
    "kind": "env-flora-waterplant-cattail",
    "size": "m",
@@ -267949,6 +268117,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-1",
    "kind": "env-terrain-rock-formation",
    "size": "l",
@@ -267987,6 +268156,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-2",
    "kind": "env-terrain-rock-formation",
    "size": "l",
@@ -268025,6 +268195,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-3",
    "kind": "env-terrain-rock-formation",
    "size": "l",
@@ -268063,6 +268234,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-4",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -268101,6 +268273,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-arch",
    "kind": "env-terrain-rock-formation",
    "size": "l",
@@ -268139,6 +268312,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-barrier-1",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -268177,6 +268351,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-barrier-2",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -268215,6 +268390,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-barrier-3",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -268253,6 +268429,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-barrier-4",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -268291,6 +268468,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-fence-a",
    "kind": "str-barrier-fence",
    "size": "l",
@@ -268343,6 +268521,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-fence-b",
    "kind": "str-barrier-fence",
    "size": "m",
@@ -268395,6 +268574,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-fence-c",
    "kind": "str-barrier-fence",
    "size": "l",
@@ -268447,6 +268627,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-formation-a",
    "kind": "env-terrain-rock-formation",
    "size": "l",
@@ -268485,6 +268666,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rock-formation-b",
    "kind": "env-terrain-rock-formation",
    "size": "l",
@@ -268523,6 +268705,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rope",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -268562,6 +268745,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "rowboat",
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
@@ -268613,6 +268797,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "sack-dark",
    "kind": "obj-container-bag-sack",
    "size": "s",
@@ -268659,6 +268844,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "sack-grain",
    "kind": "obj-container-bag-sack",
    "size": "s",
@@ -268704,6 +268890,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "sack",
    "kind": "obj-container-bag-sack",
    "size": "s",
@@ -268744,6 +268931,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "sausage-string",
    "kind": "obj-food-meat-sausage",
    "size": "s",
@@ -268790,6 +268978,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "sausage",
    "kind": "obj-food-meat-sausage",
    "size": "s",
@@ -268829,6 +269018,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "scythe",
    "kind": "obj-equipment-tool-twohand",
    "size": "m",
@@ -268874,6 +269064,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "sheep",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -268919,6 +269110,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "shelf-a",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
@@ -268958,6 +269150,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "shelf-b",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
@@ -268997,6 +269190,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "shelter",
    "kind": "str-building-work-agricultural",
    "size": "l",
@@ -269049,6 +269243,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "shield-round",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -269113,6 +269308,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "shutter",
    "kind": "str-part-window",
    "size": "s",
@@ -269157,6 +269353,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "signpost-1",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
@@ -269215,6 +269412,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "signpost-2",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
@@ -269273,6 +269471,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "signpost-3",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
@@ -269331,6 +269530,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "signpost-4",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
@@ -269389,6 +269589,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stable",
    "kind": "str-building-military-barracks",
    "size": "l",
@@ -269435,6 +269636,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stairs-stone",
    "kind": "str-access-stairs",
    "size": "l",
@@ -269478,6 +269680,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stairs-wood",
    "kind": "str-access-stairs",
    "size": "l",
@@ -269535,6 +269738,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stakes-a",
    "kind": "str-barrier",
    "size": "m",
@@ -269581,6 +269785,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stakes-b",
    "kind": "str-barrier",
    "size": "m",
@@ -269627,6 +269832,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stall-cloth",
    "kind": "str-canopy-stall",
    "size": "l",
@@ -269685,6 +269891,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stall",
    "kind": "str-canopy-stall",
    "size": "l",
@@ -269749,6 +269956,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "standard",
    "kind": "str-fixture-marker-banner",
    "size": "l",
@@ -269807,6 +270015,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stone-1",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
@@ -269846,6 +270055,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stone-2",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
@@ -269885,6 +270095,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stool",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
@@ -269924,6 +270135,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "stump",
    "kind": "env-remains-deadwood-stump",
    "size": "s",
@@ -269968,6 +270180,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "table",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -270019,6 +270232,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "tankard",
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
@@ -270063,6 +270277,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "tent",
    "kind": "str-canopy-tent",
    "size": "l",
@@ -270114,6 +270329,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "training-dummy",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
@@ -270166,6 +270382,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "trough-hay",
    "kind": "obj-container",
    "size": "m",
@@ -270216,6 +270433,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "tub-apples",
    "kind": "obj-container-bucket",
    "size": "s",
@@ -270273,6 +270491,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "tub",
    "kind": "obj-container-bucket",
    "size": "s",
@@ -270324,6 +270543,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "wagon",
    "kind": "obj-transport-land-cart",
    "size": "l",
@@ -270376,6 +270596,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "watchtower-hut",
    "kind": "str-building-tower",
    "size": "l",
@@ -270434,6 +270655,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "watchtower",
    "kind": "str-building-tower",
    "size": "l",
@@ -270486,6 +270708,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "waterwheel",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -270532,6 +270755,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "wheel",
    "kind": "obj-transport-part-wheel",
    "size": "s",
@@ -270584,6 +270808,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "wheelbarrow",
    "kind": "obj-transport-land-cart-small",
    "size": "m",
@@ -270641,6 +270866,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "windmill",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
@@ -270720,6 +270946,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "window-frame",
    "kind": "str-part-window",
    "size": "s",
@@ -270766,6 +270993,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "window-round",
    "kind": "str-part-window",
    "size": "s",
@@ -270810,6 +271038,7 @@
   },
   {
    "kit": "rgp-medieval",
+   "collection": "rgp",
    "name": "window-shutter",
    "kind": "str-part-window",
    "size": "m",
@@ -272333,6 +272562,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "armchair",
    "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "m",
@@ -272377,6 +272607,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "beam",
    "kind": "str-part-pillar",
    "size": "m",
@@ -272416,6 +272647,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "book-open",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
@@ -272467,6 +272699,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "chair",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "m",
@@ -272512,6 +272745,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "clock",
    "kind": "obj-furnishing",
    "size": "s",
@@ -272576,6 +272810,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "coat-rack",
    "kind": "obj-furnishing-furniture-storage",
    "size": "m",
@@ -272614,6 +272849,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "console-table",
    "kind": "obj-furnishing-furniture-table",
    "size": "s",
@@ -272653,6 +272889,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "floor-parquet",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -272691,6 +272928,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "globe",
    "kind": "obj-device-science-astro",
    "size": "s",
@@ -272751,6 +272989,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "gramophone-record",
    "kind": "obj-leisure-art-instrument",
    "size": "s",
@@ -272816,6 +273055,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "gramophone",
    "kind": "obj-leisure-art-instrument",
    "size": "s",
@@ -272875,6 +273115,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "keys",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
@@ -272916,6 +273157,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "record",
    "kind": "obj-device-electronics",
    "size": "s",
@@ -272956,6 +273198,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "sofa",
    "kind": "obj-furnishing-furniture-seating-sofa",
    "size": "m",
@@ -272994,6 +273237,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "telescope",
    "kind": "obj-device-science-astro",
    "size": "m",
@@ -273040,6 +273284,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "umbrella",
    "kind": "obj-equipment-apparel",
    "size": "s",
@@ -273092,6 +273337,7 @@
   },
   {
    "kit": "rgp-vintage",
+   "collection": "rgp",
    "name": "wall-panelled",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -273137,6 +273383,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "arrow-a",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -273189,6 +273436,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "arrow-b",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
@@ -273241,6 +273489,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "axe-a",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "s",
@@ -273291,6 +273540,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "axe-b",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "m",
@@ -273342,6 +273592,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "battleaxe",
    "kind": "obj-equipment-weapon-melee-axe-double",
    "size": "m",
@@ -273393,6 +273644,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "bow",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "m",
@@ -273450,6 +273702,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "club-spiked-a",
    "kind": "obj-equipment-weapon-melee-club",
    "size": "m",
@@ -273496,6 +273749,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "club-spiked-b",
    "kind": "obj-equipment-weapon-melee-club",
    "size": "m",
@@ -273548,6 +273802,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "shield-a-blue",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -273599,6 +273854,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "shield-a-white",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -273650,6 +273906,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "shield-a",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -273695,6 +273952,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "shield-b-red",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -273752,6 +274010,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "shield-b-white",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -273804,6 +274063,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "shield-b",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
@@ -273850,6 +274110,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "staff-druid-a",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",
@@ -273902,6 +274163,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "staff-druid-b",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",
@@ -273958,6 +274220,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "sword-a",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
@@ -274010,6 +274273,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "sword-b",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
@@ -274056,6 +274320,7 @@
   },
   {
    "kit": "rgp-weapons",
+   "collection": "rgp",
    "name": "war-horn",
    "kind": "obj-leisure-art-instrument",
    "size": "s",
@@ -310600,6 +310865,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "banana-tree",
    "kind": "env-flora-tree",
    "size": "m",
@@ -310653,6 +310919,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "cactus-flowering-round",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -310703,6 +310970,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "cactus-flowering-tall",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -310754,6 +311022,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "cactus-round",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -310799,6 +311068,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "cactus-tall",
    "kind": "env-flora-plant-cactus",
    "size": "s",
@@ -310845,6 +311115,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "dead-tree-a",
    "kind": "env-remains-deadwood-tree",
    "size": "l",
@@ -310885,6 +311156,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "dead-tree-b",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -310925,6 +311197,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "dead-tree-c",
    "kind": "env-remains-deadwood-tree",
    "size": "l",
@@ -310965,6 +311238,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "dead-tree-spiked-a",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -311005,6 +311279,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "dead-tree-spiked-b",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
@@ -311058,6 +311333,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "grass-group",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -311098,6 +311374,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "grass",
    "kind": "env-flora-plant-grass",
    "size": "s",
@@ -311144,6 +311421,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "leafy-plant",
    "kind": "env-flora-plant-leafy",
    "size": "m",
@@ -311182,6 +311460,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "lilypad-a",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",
@@ -311220,6 +311499,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "log-cut",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
@@ -311258,6 +311538,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "log-fallen",
    "kind": "env-remains-deadwood-tree",
    "size": "l",
@@ -311296,6 +311577,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "palm-a",
    "kind": "env-flora-tree-palm",
    "size": "m",
@@ -311341,6 +311623,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "palm-b",
    "kind": "env-flora-tree-palm",
    "size": "m",
@@ -311387,6 +311670,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "palm-bent",
    "kind": "env-flora-tree-palm",
    "size": "m",
@@ -311433,6 +311717,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "palm-young",
    "kind": "env-flora-tree-palm",
    "size": "m",
@@ -311485,6 +311770,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "stump-a",
    "kind": "env-remains-deadwood-stump",
    "size": "s",
@@ -311524,6 +311810,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "stump-b",
    "kind": "env-remains-deadwood-stump",
    "size": "s",
@@ -311563,6 +311850,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "waterlilies-white",
    "kind": "env-flora-waterplant-lilypad",
    "size": "m",
@@ -311609,6 +311897,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "waterlilies-yellow",
    "kind": "env-flora-waterplant-lilypad",
    "size": "m",
@@ -311655,6 +311944,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "waterlily-white",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",
@@ -311700,6 +311990,7 @@
   },
   {
    "kit": "wizp-tree",
+   "collection": "wizp-grave",
    "name": "waterlily-yellow",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",

@@ -5937,7 +5937,8 @@ window.KENNEY_KITS = [
   "name": "wizp-grave",
   "kits": [
    "wizp-grave",
-   "wizp-arena"
+   "wizp-arena",
+   "wizp-tree"
   ]
  },
  {
@@ -6000,7 +6001,8 @@ window.KENNEY_KITS = [
    "isa-bakery",
    "isa-picnic",
    "isa-park",
-   "isa-playground"
+   "isa-playground",
+   "isa-homely"
   ]
  },
  {
@@ -6045,6 +6047,16 @@ window.KENNEY_KITS = [
   "kits": [
    "fs-terrain",
    "fs-town"
+  ]
+ },
+ {
+  "collection": "rgp",
+  "name": "rgp",
+  "kits": [
+   "rgp-medieval",
+   "rgp-explosives",
+   "rgp-vintage",
+   "rgp-weapons"
   ]
  },
  {
