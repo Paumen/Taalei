@@ -6049,6 +6049,14 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "collection": "quat-dun",
+  "name": "quat-dun",
+  "kits": [
+   "quat-dun-1",
+   "quat-dun-2"
+  ]
+ },
+ {
   "collection": "fs-modular",
   "name": "fs-modular",
   "kits": [

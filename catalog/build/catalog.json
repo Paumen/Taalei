@@ -2328,51 +2328,71 @@
    }
   },
   {
-   "slug": "quat-dun-1",
-   "name": "quat-dun-1",
+   "slug": "quat-dun",
+   "name": "quat-dun",
    "url": "https://quaternius.com/packs/modulardungeon.html",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 27,
+   "count": 47,
    "packs": [
-    "Modular Dungeons Pack"
-   ],
-   "origins": {
-    "Modular Dungeons Pack": 27
-   },
-   "scales": {
-    "0.5": 27
-   },
-   "smooth": {
-    "smooth": 27
-   },
-   "kitCheck": {
-    "factor": 1.19,
-    "kinds": 14
-   }
-  },
-  {
-   "slug": "quat-dun-2",
-   "name": "quat-dun-2",
-   "url": "https://quaternius.com/packs/modulardungeon.html",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 20,
-   "packs": [
+    "Modular Dungeons Pack",
     "Updated Modular Dungeon"
    ],
    "origins": {
+    "Modular Dungeons Pack": 27,
     "Updated Modular Dungeon": 20
    },
    "scales": {
-    "0.42": 20
+    "0.42": 47
    },
    "smooth": {
-    "smooth": 20
+    "smooth": 47
    },
+   "members": [
+    {
+     "slug": "quat-dun-1",
+     "name": "quat-dun-1",
+     "url": "https://quaternius.com/packs/modulardungeon.html",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 27,
+     "packs": [
+      "Modular Dungeons Pack"
+     ],
+     "origins": {
+      "Modular Dungeons Pack": 27
+     },
+     "scales": {
+      "0.42": 27
+     },
+     "smooth": {
+      "smooth": 27
+     }
+    },
+    {
+     "slug": "quat-dun-2",
+     "name": "quat-dun-2",
+     "url": "https://quaternius.com/packs/modulardungeon.html",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 20,
+     "packs": [
+      "Updated Modular Dungeon"
+     ],
+     "origins": {
+      "Updated Modular Dungeon": 20
+     },
+     "scales": {
+      "0.42": 20
+     },
+     "smooth": {
+      "smooth": 20
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 1.13,
-    "kinds": 10
+    "factor": 1.04,
+    "kinds": 14
    }
   },
   {
@@ -19484,7 +19504,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2703
+   "count": 2705
   },
   {
    "id": "m",
@@ -19498,7 +19518,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 936
+   "count": 934
   },
   {
    "id": "ken",
@@ -222319,26 +222339,27 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "arch-door-bottompivot",
    "kind": "str-part-gate-single",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    1.211,
-    0.165,
-    1.595
+    1.017,
+    0.138,
+    1.34
    ],
    "tris": 1210,
-   "tpu": 1548,
+   "tpu": 1843,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 74060,
+   "bytes": 74052,
    "vtx": 2041,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0302,
-   "avgTri": 0.0102,
+   "minEdge": 0.006,
+   "minTube": 0.0254,
+   "avgTri": 0.0072,
    "anglePct": 89,
    "vpt": 1.69,
    "grad": 0.37,
@@ -222368,30 +222389,38 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v149"
+   "variant": "v149",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0254 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "arch-door",
    "kind": "str-part-gate-single",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    1.211,
-    0.165,
-    1.595
+    1.017,
+    0.138,
+    1.34
    ],
    "tris": 1208,
-   "tpu": 1546,
+   "tpu": 1840,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 73032,
+   "bytes": 73024,
    "vtx": 2010,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0302,
-   "avgTri": 0.01022,
+   "minEdge": 0.006,
+   "minTube": 0.0254,
+   "avgTri": 0.00721,
    "anglePct": 89,
    "vpt": 1.66,
    "grad": 0.18,
@@ -222415,29 +222444,37 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "variant": "v149"
+   "variant": "v149",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0254 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "arch",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
-    2.052,
-    0.496,
-    2.005
+    1.724,
+    0.417,
+    1.684
    ],
    "tris": 4447,
-   "tpu": 2179,
+   "tpu": 3673,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 314644,
+   "bytes": 314632,
    "vtx": 8953,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00431,
+   "minEdge": 0.009,
+   "avgTri": 0.00304,
    "anglePct": 77,
    "vpt": 2.01,
    "grad": 0.77,
@@ -222459,25 +222496,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "bag-coins",
    "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
-    0.221,
-    0.111,
-    0.057
+    0.186,
+    0.093,
+    0.048
    ],
    "tris": 976,
    "tpu": 2845,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 62304,
+   "bytes": 62292,
    "vtx": 1718,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00004,
+   "avgTri": 0.00003,
    "anglePct": 13,
    "vpt": 1.76,
    "grad": 0.18,
@@ -222504,25 +222542,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "bag-standing",
    "kind": "obj-container-bag-pouch",
    "size": "s",
    "wdh": [
-    0.109,
-    0.105,
-    0.126
+    0.091,
+    0.088,
+    0.106
    ],
    "tris": 456,
    "tpu": 1329,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 33392,
+   "bytes": 33380,
    "vtx": 912,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00009,
+   "minEdge": 0.002,
+   "avgTri": 0.00006,
    "anglePct": 3,
    "vpt": 2,
    "grad": 0.19,
@@ -222549,26 +222588,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "barrel-2",
    "kind": "obj-container-barrel",
    "size": "m",
    "wdh": [
-    0.514,
-    0.508,
-    0.673
+    0.432,
+    0.427,
+    0.566
    ],
    "tris": 1088,
    "tpu": 3172,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 83388,
+   "bytes": 83376,
    "vtx": 2356,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00158,
+   "minEdge": 0.004,
+   "avgTri": 0.00112,
    "anglePct": 23,
    "vpt": 2.17,
    "grad": 0.19,
@@ -222594,25 +222633,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "bucket",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
-    0.189,
-    0.202,
-    0.265
+    0.159,
+    0.17,
+    0.222
    ],
    "tris": 360,
    "tpu": 1050,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16928,
+   "bytes": 16916,
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00054,
+   "minEdge": 0.002,
+   "avgTri": 0.00038,
    "anglePct": 10,
    "vpt": 1.16,
    "grad": 0.19,
@@ -222635,29 +222675,37 @@
     "qua",
     "sailing",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.222 under min 0.25 (obj-container-bucket)"
+    }
    ]
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "chest-gold",
    "kind": "set",
    "size": "m",
    "wdh": [
-    0.59,
-    0.741,
-    0.45
+    0.495,
+    0.622,
+    0.378
    ],
    "tris": 7158,
    "tpu": 20869,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 388556,
+   "bytes": 388544,
    "vtx": 10754,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.0005,
+   "minEdge": 0.004,
+   "avgTri": 0.00035,
    "anglePct": 29,
    "vpt": 1.5,
    "grad": 0.18,
@@ -222696,25 +222744,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "chest",
    "kind": "obj-container-chest",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.59,
-    0.412,
-    0.449
+    0.495,
+    0.346,
+    0.377
    ],
    "tris": 1676,
    "tpu": 4886,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 103292,
+   "bytes": 103280,
    "vtx": 2868,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00178,
+   "minEdge": 0.002,
+   "avgTri": 0.00126,
    "anglePct": 32,
    "vpt": 1.71,
    "grad": 0.19,
@@ -222747,25 +222796,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "cobweb-2",
    "kind": "env",
    "size": "m",
    "wdh": [
-    0.67,
-    0.515,
-    0.423
+    0.562,
+    0.433,
+    0.355
    ],
    "tris": 868,
    "tpu": 2531,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 61364,
+   "bytes": 61352,
    "vtx": 1709,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00014,
+   "minEdge": 0.002,
+   "avgTri": 0.0001,
    "anglePct": 2,
    "vpt": 1.97,
    "grad": 0.63,
@@ -222787,25 +222837,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "cobweb",
    "kind": "env",
    "size": "m",
    "wdh": [
-    0.603,
-    0.455,
-    0.377
+    0.506,
+    0.383,
+    0.317
    ],
    "tris": 1108,
    "tpu": 3230,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 79692,
+   "bytes": 79680,
    "vtx": 2237,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00011,
+   "minEdge": 0.002,
+   "avgTri": 0.00008,
    "anglePct": 3,
    "vpt": 2.02,
    "grad": 0.63,
@@ -222827,26 +222878,27 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "column",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
-    0.652,
-    0.652,
-    2.033
+    0.548,
+    0.548,
+    1.707
    ],
    "tris": 440,
-   "tpu": 442,
+   "tpu": 526,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 28860,
+   "bytes": 28848,
    "vtx": 774,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.6216,
-   "avgTri": 0.01264,
+   "minEdge": 0.007,
+   "minTube": 0.5221,
+   "avgTri": 0.00892,
    "anglePct": 86,
    "vpt": 1.76,
    "grad": 0.89,
@@ -222868,25 +222920,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
-    0.69,
-    0.655,
-    0.654
+    0.58,
+    0.551,
+    0.549
    ],
    "tris": 2484,
    "tpu": 7242,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 128172,
+   "bytes": 128160,
    "vtx": 3494,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00184,
+   "avgTri": 0.0013,
    "anglePct": 94,
    "vpt": 1.41,
    "grad": 0.18,
@@ -222913,25 +222966,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "floor-bricks-separate",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.475,
-    0.6,
-    0.128
+    0.399,
+    0.504,
+    0.108
    ],
    "tris": 234,
    "tpu": 682,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16644,
+   "bytes": 16632,
    "vtx": 430,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00236,
+   "minEdge": 0.009,
+   "avgTri": 0.00166,
    "anglePct": 72,
    "vpt": 1.84,
    "grad": 0.21,
@@ -222952,26 +223006,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "floor-modular",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    1.002,
-    1,
-    0.125
+    0.842,
+    0.84,
+    0.105
    ],
    "tris": 1174,
-   "tpu": 1674,
+   "tpu": 2371,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 75912,
+   "bytes": 75900,
    "vtx": 2106,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "avgTri": 0.00288,
+   "minEdge": 0.006,
+   "avgTri": 0.00203,
    "anglePct": 94,
    "vpt": 1.79,
    "grad": 0.21,
@@ -222992,25 +223046,27 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "pedestal-2",
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
    "wdh": [
-    0.872,
-    0.872,
-    1.157
+    0.732,
+    0.732,
+    0.972
    ],
    "tris": 1171,
-   "tpu": 1331,
+   "tpu": 2248,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 52240,
+   "bytes": 52228,
    "vtx": 1367,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00778,
+   "minEdge": 0.004,
+   "avgTri": 0.00549,
    "anglePct": 87,
    "vpt": 1.17,
    "grad": 0.7,
@@ -223032,26 +223088,27 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "pedestal",
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
    "wdh": [
-    0.973,
-    0.98,
-    1.097
+    0.818,
+    0.823,
+    0.921
    ],
    "tris": 1843,
-   "tpu": 1762,
+   "tpu": 2972,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 85708,
+   "bytes": 85696,
    "vtx": 2287,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.2354,
-   "avgTri": 0.00463,
+   "minEdge": 0.003,
+   "minTube": 0.1977,
+   "avgTri": 0.00327,
    "anglePct": 93,
    "vpt": 1.24,
    "grad": 0.7,
@@ -223073,25 +223130,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
-    0.219,
-    0.3,
-    0.231
+    0.184,
+    0.252,
+    0.194
    ],
    "tris": 1392,
    "tpu": 4058,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 103076,
+   "bytes": 103064,
    "vtx": 2912,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00016,
+   "minEdge": 0.003,
+   "avgTri": 0.00011,
    "anglePct": 2,
    "vpt": 2.09,
    "grad": 0.17,
@@ -223114,25 +223172,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "stairs-modular",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1.007,
-    1.026,
-    1.01
+    0.846,
+    0.862,
+    0.848
    ],
    "tris": 1420,
-   "tpu": 1361,
+   "tpu": 2296,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 96840,
+   "bytes": 96832,
    "vtx": 2714,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "avgTri": 0.00389,
+   "minEdge": 0.009,
+   "avgTri": 0.00275,
    "anglePct": 89,
    "vpt": 1.91,
    "grad": 0.21,
@@ -223154,25 +223213,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "stairs-side-cover-wall",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.221,
-    1.014,
-    1.016
+    0.186,
+    0.852,
+    0.854
    ],
    "tris": 1250,
-   "tpu": 2511,
+   "tpu": 2987,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 85280,
+   "bytes": 85268,
    "vtx": 2384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00391,
+   "minEdge": 0.007,
+   "avgTri": 0.00276,
    "anglePct": 86,
    "vpt": 1.91,
    "grad": 0.21,
@@ -223194,25 +223254,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "stairs-side-cover",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.221,
-    1.03,
-    1.015
+    0.186,
+    0.865,
+    0.853
    ],
    "tris": 892,
-   "tpu": 1794,
+   "tpu": 2134,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 60852,
+   "bytes": 60840,
    "vtx": 1688,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "avgTri": 0.00396,
+   "minEdge": 0.007,
+   "avgTri": 0.00279,
    "anglePct": 87,
    "vpt": 1.89,
    "grad": 0.21,
@@ -223234,25 +223295,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "statue-horse",
    "kind": "obj-leisure-art-sculpture",
    "size": "l",
    "wdh": [
-    0.872,
-    1.689,
-    2.927
+    0.732,
+    1.419,
+    2.459
    ],
    "tris": 1838,
-   "tpu": 426,
+   "tpu": 720,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 117812,
+   "bytes": 117816,
    "vtx": 3292,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00671,
+   "minEdge": 0.004,
+   "avgTri": 0.00474,
    "anglePct": 65,
    "vpt": 1.79,
    "grad": 0,
@@ -223273,25 +223335,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "sword-wall-mount",
    "kind": "set",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.533,
-    0.106,
-    0.424
+    0.448,
+    0.089,
+    0.356
    ],
    "tris": 2382,
    "tpu": 6945,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 142656,
+   "bytes": 142644,
    "vtx": 3965,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00012,
+   "avgTri": 0.00009,
    "anglePct": 80,
    "vpt": 1.66,
    "grad": 0.57,
@@ -223318,25 +223381,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "trapdoor-open",
    "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
-    0.871,
-    1.332,
-    0.102
+    0.731,
+    1.119,
+    0.086
    ],
    "tris": 564,
-   "tpu": 694,
+   "tpu": 985,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 39676,
+   "bytes": 39664,
    "vtx": 1088,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00317,
+   "minEdge": 0.007,
+   "avgTri": 0.00224,
    "anglePct": 63,
    "vpt": 1.93,
    "grad": 0.52,
@@ -223371,25 +223435,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "trapdoor",
    "kind": "str-part-door-trapdoor",
    "size": "m",
    "wdh": [
-    0.871,
-    0.85,
-    0.108
+    0.731,
+    0.714,
+    0.09
    ],
    "tris": 529,
-   "tpu": 1021,
+   "tpu": 1448,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 37636,
+   "bytes": 37624,
    "vtx": 1031,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "avgTri": 0.00278,
+   "minEdge": 0.007,
+   "avgTri": 0.00196,
    "anglePct": 59,
    "vpt": 1.95,
    "grad": 0.49,
@@ -223423,25 +223488,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "vase",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.155,
-    0.155,
-    0.181
+    0.131,
+    0.131,
+    0.152
    ],
    "tris": 220,
    "tpu": 641,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6864,
+   "bytes": 6856,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00066,
+   "minEdge": 0.008,
+   "avgTri": 0.00046,
    "anglePct": 2,
    "vpt": 0.58,
    "grad": 0.31,
@@ -223462,25 +223528,26 @@
   },
   {
    "kit": "quat-dun-1",
+   "collection": "quat-dun",
    "name": "wall-modular",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1,
-    0.219,
-    1.003
+    0.84,
+    0.184,
+    0.842
    ],
    "tris": 1654,
-   "tpu": 3365,
+   "tpu": 4009,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 118600,
+   "bytes": 118588,
    "vtx": 3350,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00272,
+   "minEdge": 0.001,
+   "avgTri": 0.00192,
    "anglePct": 92,
    "vpt": 2.03,
    "grad": 0.77,
@@ -223501,6 +223568,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "arch-door-bottompivot",
    "kind": "str-part-gate-single",
    "size": "m",
@@ -223548,6 +223616,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "arch-door",
    "kind": "str-part-gate-single",
    "size": "m",
@@ -223595,6 +223664,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "bag-coins",
    "kind": "obj-container-bag-pouch",
    "size": "s",
@@ -223640,6 +223710,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "bag-standing",
    "kind": "obj-container-bag-pouch",
    "size": "s",
@@ -223685,6 +223756,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "barrel-2",
    "kind": "obj-container-barrel",
    "size": "m",
@@ -223723,6 +223795,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "bucket",
    "kind": "obj-container-bucket",
    "size": "s",
@@ -223774,6 +223847,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "chest-gold",
    "kind": "set",
    "size": "m",
@@ -223825,6 +223899,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "chest",
    "kind": "obj-container-chest",
    "size": "s",
@@ -223870,6 +223945,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "coins",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -223909,6 +223985,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "column-2",
    "kind": "str-part-pillar",
    "size": "l",
@@ -223955,6 +224032,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "column",
    "kind": "str-part-pillar",
    "size": "l",
@@ -224001,6 +224079,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "m",
@@ -224041,6 +224120,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "pedestal-2",
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
@@ -224082,6 +224162,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "pedestal",
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
@@ -224123,6 +224204,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "skull",
    "kind": "env-remains-bones-skull",
    "size": "s",
@@ -224164,6 +224246,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "statue-horse",
    "kind": "obj-leisure-art-sculpture",
    "size": "l",
@@ -224203,6 +224286,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "sword-wall-mount",
    "kind": "set",
    "size": "s",
@@ -224248,6 +224332,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "trapdoor-open",
    "kind": "str-part-door-trapdoor",
    "size": "m",
@@ -224294,6 +224379,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "trapdoor",
    "kind": "str-part-door-trapdoor",
    "size": "m",
@@ -224339,6 +224425,7 @@
   },
   {
    "kit": "quat-dun-2",
+   "collection": "quat-dun",
    "name": "vase",
    "kind": "obj-container-pot-vase",
    "size": "s",
