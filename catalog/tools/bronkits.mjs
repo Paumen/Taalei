@@ -71,7 +71,7 @@ export const BRONKITS = [
   { map: 'Trees_Pack', naam: 'Trees Pack', kit: 'wizp-tree', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
   { map: 'Village_Pack', naam: 'Village Pack', kit: 'wizp-village', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
 
-  { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', formaat: 'obj', alleMappen: true },
+  { map: 'Cooking_Assets', naam: 'Cooking Assets', kit: 'cooking-assets', source: 'milkandbanana', formaat: 'obj', alleMappen: true },
   { map: 'Architecture_Pack_001', naam: 'Architecture Pack 001', kit: 'architecture', formaat: 'fbx', alleMappen: true },
   { map: 'Tiny_Treats_Charming_Kitchen_1.1_FREE', naam: 'Tiny Treats Charming Kitchen', kit: 'isa-kitchen', source: 'isa', formaat: 'gltf' },
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
@@ -179,5 +179,8 @@ export const BRONKITS = [
   { map: 'Electronics_iPoly3D', naam: 'Electronics', kit: 'ipoly-electronics', source: 'ipoly', formaat: 'glb' },
   { map: 'Glasses_Pack_iPoly3D', naam: 'Glasses Pack', kit: null, source: 'ipoly', formaat: 'glb' },
   { map: 'Concert_Pack_iPoly3D', naam: 'Concert Pack', kit: 'ipoly-concert', source: 'ipoly', formaat: 'glb' },
+  { map: 'Household_Props_001', naam: 'Household Props 001', kit: null, source: 'creativetrio', formaat: 'glb' },
+  { map: 'Makeup_Assets', naam: 'Makeup Assets', kit: null, source: 'creativetrio', formaat: 'glb' },
+  { map: 'Weapons_Pack_002_In_Case_of_Zombies', naam: 'Weapons Pack 002: In Case of Zombies', kit: null, source: 'milkandbanana', formaat: 'glb' },
   { map: 'Taalei', naam: 'Taalei', kit: 'taalei-kit', formaat: 'glb' },
 ];

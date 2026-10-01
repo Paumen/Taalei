@@ -430,6 +430,8 @@ const SOURCES = [
   { id: 'sidequest', name: 'The SideQuest Shop', description: 'Kits from The SideQuest Shop (thesidequestshop.itch.io).' },
   { id: 'shmiggy', name: 'OG Shmiggy', description: 'Kits from OG Shmiggy (og-shmiggy.itch.io).' },
   { id: 'ipoly', name: 'iPoly3D', description: 'Kits from iPoly3D (poly.pizza/u/iPoly3D).' },
+  { id: 'milkandbanana', name: 'MilkAndBanana', description: 'Kits from MilkAndBanana.' },
+  { id: 'creativetrio', name: 'Creative Trio', description: 'Kits from Creative Trio.' },
 ];
 
 function readSourcePerKit() {
