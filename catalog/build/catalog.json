@@ -1535,7 +1535,7 @@
    "slug": "ken-transport",
    "name": "ken-transport",
    "artist": "Kenney",
-   "count": 120,
+   "count": 122,
    "packs": [
     "Kenney Car Kit",
     "Kenney Train Kit",
@@ -1543,14 +1543,14 @@
    ],
    "origins": {
     "Kenney Car Kit": 41,
-    "Kenney Train Kit": 35,
+    "Kenney Train Kit": 37,
     "Kenney Watercraft Pack": 44
    },
    "scales": {
-    "0.55": 120
+    "0.55": 122
    },
    "smooth": {
-    "smooth": 118,
+    "smooth": 120,
     "none": 2
    },
    "members": [
@@ -1580,18 +1580,18 @@
      "url": "https://kenney.nl/assets/train-kit",
      "artist": "Kenney",
      "licenseLabel": "CC0 1.0",
-     "count": 35,
+     "count": 37,
      "packs": [
       "Kenney Train Kit"
      ],
      "origins": {
-      "Kenney Train Kit": 35
+      "Kenney Train Kit": 37
      },
      "scales": {
-      "0.55": 35
+      "0.55": 37
      },
      "smooth": {
-      "smooth": 35
+      "smooth": 37
      }
     },
     {
@@ -16184,7 +16184,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 634
+   "count": 636
   },
   {
    "id": "metal-iron",
@@ -16425,7 +16425,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 574
+   "count": 576
   },
   {
    "id": "liquid",
@@ -16489,7 +16489,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 3139,
+   "count": 3141,
    "color": "#c07c8a"
   },
   {
@@ -17829,7 +17829,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 270,
+   "count": 272,
    "color": "#5a7a9c"
   },
   {
@@ -17844,14 +17844,14 @@
    "name": "Land vehicle",
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
-   "count": 103
+   "count": 105
   },
   {
    "id": "obj-transport-land-rail",
    "name": "Rail vehicle",
    "type": "kind",
    "description": "Vehicle running on rails: train, locomotive, tram, railway carriage.",
-   "count": 43
+   "count": 45
   },
   {
    "id": "obj-transport-air",
@@ -19655,14 +19655,14 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 941
+   "count": 943
   },
   {
    "id": "ken",
    "name": "Kenney",
    "type": "artist",
    "description": "Kits from Kenney (kenney.nl). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 1495
+   "count": 1497
   },
   {
    "id": "kay",
@@ -204862,6 +204862,62 @@
   {
    "kit": "ken-train",
    "collection": "ken-transport",
+   "name": "diesel-box-b-passenger-train",
+   "kind": "obj-transport-land-rail",
+   "size": "l",
+   "wdh": [
+    0.715,
+    4.312,
+    0.907
+   ],
+   "tris": 4000,
+   "tpu": 1430,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 211100,
+   "vtx": 5048,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "minTube": 0.0591,
+   "avgTri": 0.00629,
+   "anglePct": 76,
+   "vpt": 1.26,
+   "grad": 0.84,
+   "spread": {
+    "1,1": [
+     0.016,
+     0.977
+    ],
+    "15,3": [
+     0.016,
+     0.867
+    ],
+    "6,1": [
+     0.227,
+     0.703
+    ],
+    "5,0": [
+     0.25,
+     0.938
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#343745",
+    "#82868e",
+    "#d07b56"
+   ],
+   "tags": [
+    "glass",
+    "ken",
+    "metal"
+   ]
+  },
+  {
+   "kit": "ken-train",
+   "collection": "ken-transport",
    "name": "diesel-box-b",
    "kind": "obj-transport-land-rail",
    "size": "m",
@@ -205308,6 +205364,62 @@
     "metal"
    ],
    "variant": "v959"
+  },
+  {
+   "kit": "ken-train",
+   "collection": "ken-transport",
+   "name": "locomotive-b-passenger-train",
+   "kind": "obj-transport-land-rail",
+   "size": "l",
+   "wdh": [
+    0.724,
+    4.312,
+    0.913
+   ],
+   "tris": 4288,
+   "tpu": 1504,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 222024,
+   "vtx": 5279,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "minTube": 0.0591,
+   "avgTri": 0.00612,
+   "anglePct": 79,
+   "vpt": 1.23,
+   "grad": 0.78,
+   "spread": {
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.016,
+     0.828
+    ],
+    "6,1": [
+     0.148,
+     0.734
+    ],
+    "5,0": [
+     0.25,
+     0.938
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#7f3927",
+    "#82868e",
+    "#d07b56"
+   ],
+   "tags": [
+    "glass",
+    "ken",
+    "metal"
+   ]
   },
   {
    "kit": "ken-train",
