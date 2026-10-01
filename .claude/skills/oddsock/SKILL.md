@@ -81,6 +81,13 @@ gives 2–4 options to resolve it. Before giving it, check that each option fits
 (band palettes, band budget), and say when an option would need a tag or
 material change to pass.
 
+Measure what each option acts on before offering it, so the PO can answer
+without asking back. Name the parts it changes, from `recolour.mjs --list` or
+`render.mjs --isolate`. For a colour option, give the band and where each part
+sits in it now and after: 0 is lightest, 1 darkest, and a part's midpoint is
+the mean over its vertices. A palette that loses its only band in a part needs
+a tag change, so check that before offering a recolour.
+
 ## 4. Let the PO choose
 
 Ask with AskUserQuestion: one question per suggestion, its options as answers,
