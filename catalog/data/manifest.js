@@ -7183,6 +7183,15 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "collection": "quat-sea",
+  "name": "quat-sea",
+  "kits": [
+   "quat-fish",
+   "quat-fishing",
+   "quat-ocean"
+  ]
+ },
+ {
   "slug": "ipoly-concert",
   "name": "ipoly-concert",
   "url": "https://poly.pizza/u/iPoly3D",

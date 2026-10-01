@@ -2416,17 +2416,20 @@
    }
   },
   {
-   "slug": "quat-fish",
-   "name": "quat-fish",
-   "url": "https://quaternius.com/packs/animatedfish.html",
+   "slug": "quat-sea",
+   "name": "quat-sea",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 7,
+   "count": 59,
    "packs": [
-    "Animated Fish Pack"
+    "Animated Fish Pack",
+    "Animated Fish Bundle",
+    "Ocean"
    ],
    "origins": {
-    "Pirate Kit": 7
+    "Pirate Kit": 7,
+    "Animated Fish Bundle": 32,
+    "Ocean": 20
    },
    "scales": {
     "0.105449": 1,
@@ -2435,30 +2438,7 @@
     "0.01864": 1,
     "0.124653": 1,
     "0.089594": 1,
-    "0.26452": 1
-   },
-   "smooth": {
-    "smooth": 7
-   },
-   "kitCheck": {
-    "factor": 1.09,
-    "kinds": 3
-   }
-  },
-  {
-   "slug": "quat-fishing",
-   "name": "quat-fishing",
-   "note": "Quaternius; source zip carries no licence file.",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 32,
-   "packs": [
-    "Animated Fish Bundle"
-   ],
-   "origins": {
-    "Animated Fish Bundle": 32
-   },
-   "scales": {
+    "0.26452": 1,
     "0.064711": 1,
     "0.05": 1,
     "0.027896": 2,
@@ -2471,16 +2451,115 @@
     "0.055": 1,
     "0.051": 1,
     "0.071589": 1,
-    "0.124": 1
+    "0.124": 1,
+    "0.000586": 1,
+    "0.00077": 1,
+    "0.0007": 11,
+    "0.000713": 1,
+    "0.00123": 1,
+    "0.000519": 1,
+    "0.000745": 1,
+    "0.0012": 1,
+    "0.00137": 1,
+    "0.00596": 1
    },
    "smooth": {
-    "smooth": 29,
+    "smooth": 56,
     "none": 3
    },
+   "members": [
+    {
+     "slug": "quat-fish",
+     "name": "quat-fish",
+     "url": "https://quaternius.com/packs/animatedfish.html",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 7,
+     "packs": [
+      "Animated Fish Pack"
+     ],
+     "origins": {
+      "Pirate Kit": 7
+     },
+     "scales": {
+      "0.105449": 1,
+      "0.055623": 1,
+      "0.026878": 1,
+      "0.01864": 1,
+      "0.124653": 1,
+      "0.089594": 1,
+      "0.26452": 1
+     },
+     "smooth": {
+      "smooth": 7
+     }
+    },
+    {
+     "slug": "quat-fishing",
+     "name": "quat-fishing",
+     "note": "Quaternius; source zip carries no licence file.",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 32,
+     "packs": [
+      "Animated Fish Bundle"
+     ],
+     "origins": {
+      "Animated Fish Bundle": 32
+     },
+     "scales": {
+      "0.064711": 1,
+      "0.05": 1,
+      "0.027896": 2,
+      "0.056": 1,
+      "0.08": 19,
+      "0.063734": 1,
+      "0.042806": 1,
+      "0.047087": 1,
+      "0.046": 1,
+      "0.055": 1,
+      "0.051": 1,
+      "0.071589": 1,
+      "0.124": 1
+     },
+     "smooth": {
+      "smooth": 29,
+      "none": 3
+     }
+    },
+    {
+     "slug": "quat-ocean",
+     "name": "quat-ocean",
+     "url": "https://quaternius.com/",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 20,
+     "packs": [
+      "Ocean"
+     ],
+     "origins": {
+      "Ocean": 20
+     },
+     "scales": {
+      "0.000586": 1,
+      "0.00077": 1,
+      "0.0007": 11,
+      "0.000713": 1,
+      "0.00123": 1,
+      "0.000519": 1,
+      "0.000745": 1,
+      "0.0012": 1,
+      "0.00137": 1,
+      "0.00596": 1
+     },
+     "smooth": {
+      "smooth": 20
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 0.74,
-    "kinds": 5,
-    "level": "warning"
+    "factor": 0.82,
+    "kinds": 10
    }
   },
   {
@@ -2579,39 +2658,6 @@
    },
    "kitCheck": {
     "factor": 0.96,
-    "kinds": 6
-   }
-  },
-  {
-   "slug": "quat-ocean",
-   "name": "quat-ocean",
-   "url": "https://quaternius.com/",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 20,
-   "packs": [
-    "Ocean"
-   ],
-   "origins": {
-    "Ocean": 20
-   },
-   "scales": {
-    "0.000586": 1,
-    "0.00077": 1,
-    "0.0007": 11,
-    "0.000713": 1,
-    "0.00123": 1,
-    "0.000519": 1,
-    "0.000745": 1,
-    "0.0012": 1,
-    "0.00137": 1,
-    "0.00596": 1
-   },
-   "smooth": {
-    "smooth": 20
-   },
-   "kitCheck": {
-    "factor": 0.95,
     "kinds": 6
    }
   },
@@ -225046,6 +225092,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "dolphin",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -225090,6 +225137,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "fish-1",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225145,6 +225193,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "fish-2",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225194,6 +225243,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "fish-3",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225249,6 +225299,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "manta-ray",
    "kind": "env-fauna-fish-ray",
    "size": "m",
@@ -225298,6 +225349,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "shark",
    "kind": "env-fauna-fish-shark",
    "size": "m",
@@ -225347,6 +225399,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "whale",
    "kind": "env-fauna-mammal",
    "size": "l",
@@ -225397,6 +225450,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "anglerfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225455,6 +225509,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "blue-tang",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225502,6 +225557,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "clownfish-basalt",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225545,6 +225601,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "clownfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225593,6 +225650,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "coral-grouper",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225640,6 +225698,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-long-bare",
    "kind": "str-access-platform-dock",
    "size": "l",
@@ -225688,6 +225747,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-long",
    "kind": "str-access-platform-dock",
    "size": "l",
@@ -225742,6 +225802,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-stairs",
    "kind": "str-access-stairs",
    "size": "m",
@@ -225788,6 +225849,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-wide",
    "kind": "str-access-platform-dock",
    "size": "l",
@@ -225841,6 +225903,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-a",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -225888,6 +225951,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-b",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -225935,6 +225999,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-c",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -225980,6 +226045,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-d",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -226033,6 +226099,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-e",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -226086,6 +226153,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "flatfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226138,6 +226206,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lionfish-basalt",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226183,6 +226252,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lionfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226238,6 +226308,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-a",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226288,6 +226359,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-b",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226338,6 +226410,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-c",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226383,6 +226456,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-d",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226438,6 +226512,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-e",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226493,6 +226568,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-f",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226538,6 +226614,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "moorish-idol",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226580,6 +226657,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "parrotfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226637,6 +226715,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "piranha",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226694,6 +226773,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "puffer",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226743,6 +226823,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "rowboat",
    "kind": "obj-transport-watercraft-boat",
    "size": "m",
@@ -226795,6 +226876,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "snapper",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226847,6 +226929,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "tuna",
    "kind": "env-fauna-fish",
    "size": "m",
@@ -226900,6 +226983,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "turbot",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226947,6 +227031,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "worm",
    "kind": "env-fauna",
    "size": "s",
@@ -234498,6 +234583,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "crab",
    "kind": "env-fauna",
    "size": "s",
@@ -234540,6 +234626,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "eel",
    "kind": "env-fauna-fish",
    "size": "m",
@@ -234578,6 +234665,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-brown",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234620,6 +234708,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-clown",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234667,6 +234756,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-dory",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234714,6 +234804,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-tuna",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234756,6 +234847,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "lobster",
    "kind": "env-fauna",
    "size": "s",
@@ -234793,6 +234885,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "octopus",
    "kind": "env-fauna",
    "size": "m",
@@ -234835,6 +234928,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "penguin",
    "kind": "env-fauna-bird",
    "size": "m",
@@ -234889,6 +234983,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "seal",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -234926,6 +235021,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shark-hammerhead",
    "kind": "env-fauna-fish-shark",
    "size": "m",
@@ -234968,6 +235064,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-clam",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235006,6 +235103,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-oyster",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235044,6 +235142,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-scallop",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235082,6 +235181,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-spiral",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235120,6 +235220,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "squid",
    "kind": "env-fauna",
    "size": "s",
@@ -235157,6 +235258,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "starfish",
    "kind": "env-fauna-starfish",
    "size": "s",
@@ -235200,6 +235302,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "stingray",
    "kind": "env-fauna-fish-ray",
    "size": "s",
@@ -235237,6 +235340,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "turtle",
    "kind": "env-fauna",
    "size": "m",
@@ -235279,6 +235383,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "whale",
    "kind": "env-fauna-mammal",
    "size": "l",
