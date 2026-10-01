@@ -784,23 +784,116 @@
    }
   },
   {
-   "slug": "kay-blocks",
-   "name": "kay-blocks",
-   "url": "https://www.kaylousberg.com",
+   "slug": "kay-play",
+   "name": "kay-play",
    "artist": "KayKit",
-   "licenseLabel": "CC0 1.0",
-   "count": 2,
+   "count": 100,
    "packs": [
-    "KayKit Block Bits"
+    "KayKit Block Bits",
+    "KayKit Mini-Game Variety Pack",
+    "KayKit Platformer Pack",
+    "KayKit Prototype Bits"
    ],
    "origins": {
-    "KayKit Block Bits": 2
+    "KayKit Block Bits": 2,
+    "KayKit Mini-Game Variety Pack": 30,
+    "KayKit Platformer Pack": 45,
+    "KayKit Prototype Bits": 23
    },
    "scales": {
-    "0.3": 2
+    "0.3": 100
    },
    "smooth": {
-    "smooth": 2
+    "smooth": 97,
+    "none": 3
+   },
+   "members": [
+    {
+     "slug": "kay-blocks",
+     "name": "kay-blocks",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 2,
+     "packs": [
+      "KayKit Block Bits"
+     ],
+     "origins": {
+      "KayKit Block Bits": 2
+     },
+     "scales": {
+      "0.3": 2
+     },
+     "smooth": {
+      "smooth": 2
+     }
+    },
+    {
+     "slug": "kay-minigame",
+     "name": "kay-minigame",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 30,
+     "packs": [
+      "KayKit Mini-Game Variety Pack"
+     ],
+     "origins": {
+      "KayKit Mini-Game Variety Pack": 30
+     },
+     "scales": {
+      "0.3": 30
+     },
+     "smooth": {
+      "smooth": 30
+     }
+    },
+    {
+     "slug": "kay-platformer",
+     "name": "kay-platformer",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 45,
+     "packs": [
+      "KayKit Platformer Pack"
+     ],
+     "origins": {
+      "KayKit Platformer Pack": 45
+     },
+     "scales": {
+      "0.3": 45
+     },
+     "smooth": {
+      "smooth": 44,
+      "none": 1
+     }
+    },
+    {
+     "slug": "kay-proto",
+     "name": "kay-proto",
+     "url": "https://kaylousberg.itch.io/prototype-bits",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 23,
+     "packs": [
+      "KayKit Prototype Bits"
+     ],
+     "origins": {
+      "KayKit Prototype Bits": 23
+     },
+     "scales": {
+      "0.3": 23
+     },
+     "smooth": {
+      "smooth": 21,
+      "none": 2
+     }
+    }
+   ],
+   "kitCheck": {
+    "factor": 1.01,
+    "kinds": 26
    }
   },
   {
@@ -1067,97 +1160,6 @@
    "kitCheck": {
     "factor": 1.09,
     "kinds": 10
-   }
-  },
-  {
-   "slug": "kay-play",
-   "name": "kay-play",
-   "artist": "KayKit",
-   "count": 98,
-   "packs": [
-    "KayKit Mini-Game Variety Pack",
-    "KayKit Platformer Pack",
-    "KayKit Prototype Bits"
-   ],
-   "origins": {
-    "KayKit Mini-Game Variety Pack": 30,
-    "KayKit Platformer Pack": 45,
-    "KayKit Prototype Bits": 23
-   },
-   "scales": {
-    "0.3": 98
-   },
-   "smooth": {
-    "smooth": 95,
-    "none": 3
-   },
-   "members": [
-    {
-     "slug": "kay-minigame",
-     "name": "kay-minigame",
-     "url": "https://www.kaylousberg.com",
-     "artist": "KayKit",
-     "licenseLabel": "CC0",
-     "count": 30,
-     "packs": [
-      "KayKit Mini-Game Variety Pack"
-     ],
-     "origins": {
-      "KayKit Mini-Game Variety Pack": 30
-     },
-     "scales": {
-      "0.3": 30
-     },
-     "smooth": {
-      "smooth": 30
-     }
-    },
-    {
-     "slug": "kay-platformer",
-     "name": "kay-platformer",
-     "url": "https://www.kaylousberg.com",
-     "artist": "KayKit",
-     "licenseLabel": "CC0 1.0",
-     "count": 45,
-     "packs": [
-      "KayKit Platformer Pack"
-     ],
-     "origins": {
-      "KayKit Platformer Pack": 45
-     },
-     "scales": {
-      "0.3": 45
-     },
-     "smooth": {
-      "smooth": 44,
-      "none": 1
-     }
-    },
-    {
-     "slug": "kay-proto",
-     "name": "kay-proto",
-     "url": "https://kaylousberg.itch.io/prototype-bits",
-     "artist": "KayKit",
-     "licenseLabel": "CC0 1.0",
-     "count": 23,
-     "packs": [
-      "KayKit Prototype Bits"
-     ],
-     "origins": {
-      "KayKit Prototype Bits": 23
-     },
-     "scales": {
-      "0.3": 23
-     },
-     "smooth": {
-      "smooth": 21,
-      "none": 2
-     }
-    }
-   ],
-   "kitCheck": {
-    "factor": 1.01,
-    "kinds": 26
    }
   },
   {
@@ -76900,6 +76902,7 @@
   },
   {
    "kit": "kay-blocks",
+   "collection": "kay-play",
    "name": "decorative-block-amber",
    "kind": "obj-leisure-toy",
    "size": "m",
@@ -76944,6 +76947,7 @@
   },
   {
    "kit": "kay-blocks",
+   "collection": "kay-play",
    "name": "decorative-block-azure",
    "kind": "obj-leisure-toy",
    "size": "m",

@@ -7197,7 +7197,8 @@ window.KENNEY_KITS = [
   "kits": [
    "kay-minigame",
    "kay-platformer",
-   "kay-proto"
+   "kay-proto",
+   "kay-blocks"
   ]
  },
  {
