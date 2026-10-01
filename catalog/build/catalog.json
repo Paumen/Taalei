@@ -16215,7 +16215,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 474,
+   "count": 475,
    "parent": "metal-iron"
   },
   {
@@ -16254,7 +16254,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 819,
+   "count": 817,
    "parent": "wood"
   },
   {
@@ -16301,7 +16301,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 767,
+   "count": 766,
    "parent": "stone"
   },
   {
@@ -16341,7 +16341,7 @@
    "name": "Paper",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, open or closed.",
-   "count": 224
+   "count": 227
   },
   {
    "id": "textile",
@@ -18456,7 +18456,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 163,
+   "count": 167,
    "color": "#c98a5a"
   },
   {
@@ -18479,6 +18479,13 @@
    "type": "kind",
    "description": "Paved surface for traffic: road tile, driveway, crossing, pavement.",
    "count": 22
+  },
+  {
+   "id": "str-access-track",
+   "name": "Track",
+   "type": "kind",
+   "description": "Rails laid on sleepers for carts and trains: straight, curved and end pieces.",
+   "count": 4
   },
   {
    "id": "str-access-bridge",
@@ -18571,7 +18578,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 652,
+   "count": 648,
    "color": "#a8762a"
   },
   {
@@ -18614,21 +18621,21 @@
    "name": "Gateway",
    "type": "kind",
    "description": "The opening a gate hangs in, with the structure around it.",
-   "count": 35
+   "count": 36
   },
   {
    "id": "str-part-gate-single",
    "name": "Single",
    "type": "kind",
    "description": "The gate leaf on its own, without the opening it hangs in.",
-   "count": 8
+   "count": 7
   },
   {
    "id": "str-part-floor",
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 108
+   "count": 104
   },
   {
    "id": "str-part-floor-unit",
@@ -19967,6 +19974,7 @@
   "str-access-platform-dock",
   "str-access-road",
   "str-access-stairs",
+  "str-access-track",
   "str-canopy-stall",
   "str-canopy-tent-camping",
   "str-fixture-leisure",
@@ -21852,6 +21860,12 @@
    "high.max": 8,
    "longest.min": 0.5,
    "longest.max": 2.5,
+   "tpu.max": 5000
+  },
+  "str-access-track": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 1.7,
    "tpu.max": 5000
   },
   "str-barrier": {
@@ -45999,9 +46013,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2272,
+   "bytes": 2300,
    "vtx": 24,
    "gridMod": true,
+   "centered": true,
    "minEdge": 0.05,
    "avgTri": 0.07819,
    "anglePct": 60,
@@ -46022,8 +46037,7 @@
    ],
    "variant": "v306",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -46042,9 +46056,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2232,
+   "bytes": 2260,
    "vtx": 24,
    "gridMod": true,
+   "centered": true,
    "minEdge": 0.05,
    "avgTri": 0.10214,
    "anglePct": 59,
@@ -46065,8 +46080,7 @@
    ],
    "variant": "v306",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -46085,9 +46099,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3136,
+   "bytes": 3168,
    "vtx": 46,
    "gridMod": true,
+   "centered": true,
    "minEdge": 0.098,
    "avgTri": 0.02818,
    "anglePct": 53,
@@ -46107,8 +46122,7 @@
     "stone-soil"
    ],
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83600,6 +83614,7 @@
    "calls": 1,
    "bytes": 23892,
    "vtx": 618,
+   "grounded": true,
    "minEdge": 0.015,
    "minTube": 0.0437,
    "avgTri": 0.00502,
@@ -83628,7 +83643,6 @@
     "metal-iron-wrought"
    ],
    "mark": [
-    "grounded",
     "centered"
    ]
   },
@@ -90256,7 +90270,6 @@
    "calls": 1,
    "bytes": 15728,
    "vtx": 420,
-   "grounded": true,
    "centered": true,
    "minEdge": 0.035,
    "minTube": 0.061,
@@ -90283,6 +90296,9 @@
     "kay",
     "metal-iron-cast",
     "stone-masonry"
+   ],
+   "mark": [
+    "grounded"
    ]
   },
   {
@@ -130332,22 +130348,22 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.339,
-    0.124,
-    0.124
+    0.149,
+    0.055,
+    0.055
    ],
    "tris": 384,
    "tpu": 1120,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12944,
+   "bytes": 12948,
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.1174,
-   "avgTri": 0.00032,
+   "minEdge": 0.002,
+   "minTube": 0.0516,
+   "avgTri": 0.00006,
    "anglePct": 11,
    "vpt": 0.75,
    "grad": 0.31,
@@ -130379,22 +130395,22 @@
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
-    0.339,
-    0.124,
-    0.124
+    0.149,
+    0.055,
+    0.055
    ],
    "tris": 384,
    "tpu": 1120,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15760,
+   "bytes": 15764,
    "vtx": 376,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.1174,
-   "avgTri": 0.00032,
+   "minEdge": 0.002,
+   "minTube": 0.0516,
+   "avgTri": 0.00006,
    "anglePct": 11,
    "vpt": 0.98,
    "grad": 0.53,
@@ -131420,58 +131436,46 @@
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
-    0.24,
-    0.046,
-    0.455
+    0.106,
+    0.02,
+    0.2
    ],
    "tris": 540,
    "tpu": 1574,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 17932,
    "vtx": 414,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0274,
-   "avgTri": 0.00028,
+   "minEdge": 0.002,
+   "minTube": 0.012,
+   "avgTri": 0.00005,
    "anglePct": 54,
    "vpt": 0.77,
    "grad": 0,
    "spread": {
     "5,2": [
      0.492,
-     0.492
-    ],
-    "4,2": [
-     0.5,
      0.5
     ],
-    "1,0": [
+    "4,2": [
      0.5,
      0.5
     ]
    },
    "colors": [
     "#1367a6",
-    "#b58158",
     "#d8d1bd"
    ],
    "tags": [
     "food",
     "halloween",
     "kay",
-    "wood-worked"
+    "paper"
    ],
-   "variant": "v645",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.455 over max 0.3 (obj-food-sweet-lollipop)"
-    }
-   ]
+   "variant": "v645"
   },
   {
    "kit": "kay-spook",
@@ -131480,9 +131484,9 @@
    "kind": "obj-food-sweet-lollipop",
    "size": "s",
    "wdh": [
-    0.24,
-    0.046,
-    0.455
+    0.106,
+    0.02,
+    0.2
    ],
    "tris": 540,
    "tpu": 1574,
@@ -131493,9 +131497,9 @@
    "vtx": 414,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0274,
-   "avgTri": 0.00028,
+   "minEdge": 0.002,
+   "minTube": 0.012,
+   "avgTri": 0.00005,
    "anglePct": 54,
    "vpt": 0.77,
    "grad": 0,
@@ -131508,30 +131512,23 @@
      0.5,
      0.5
     ],
-    "1,0": [
+    "5,2": [
      0.5,
      0.5
     ]
    },
    "colors": [
     "#5b5550",
-    "#b58158",
-    "#d07b56"
+    "#d07b56",
+    "#d8d1bd"
    ],
    "tags": [
     "food",
     "halloween",
     "kay",
-    "wood-worked"
+    "paper"
    ],
-   "variant": "v645",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.455 over max 0.3 (obj-food-sweet-lollipop)"
-    }
-   ]
+   "variant": "v645"
   },
   {
    "kit": "kay-spook",
@@ -137292,7 +137289,7 @@
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "wall-gate",
-   "kind": "str-part-gate-single",
+   "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
     0.95,
@@ -153294,7 +153291,7 @@
    "tris": 108,
    "tpu": 315,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 5860,
    "vtx": 114,
@@ -153304,30 +153301,25 @@
    "avgTri": 0.00014,
    "anglePct": 100,
    "vpt": 1.06,
-   "grad": 0.36,
+   "grad": 0.46,
    "spread": {
     "8,0": [
      0.188,
      0.75
     ],
-    "1,0": [
+    "5,2": [
      0.438,
      0.75
-    ],
-    "5,2": [
-     0.445,
-     0.445
     ]
    },
    "colors": [
     "#7f3927",
-    "#b58158",
     "#d8d1bd"
    ],
    "tags": [
     "food",
     "ken",
-    "wood-worked"
+    "paper"
    ]
   },
   {
@@ -222829,37 +222821,43 @@
    "tris": 1208,
    "tpu": 1840,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 73024,
-   "vtx": 2010,
+   "bytes": 71808,
+   "vtx": 1972,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0254,
    "avgTri": 0.00721,
    "anglePct": 89,
-   "vpt": 1.66,
-   "grad": 0.18,
+   "vpt": 1.63,
+   "grad": 0.36,
    "spread": {
-    "14,3": [
+    "1,0": [
      0.781,
      0.961
     ],
     "2,0": [
-     0.758,
-     0.945
+     0.75,
+     0.961
+    ],
+    "6,1": [
+     0.031,
+     0.961
     ]
    },
    "colors": [
+    "#343745",
     "#8b5936",
-    "#8b7561"
+    "#b58158"
    ],
    "tags": [
     "halloween",
+    "metal-iron-cast",
     "qua",
-    "stone-masonry",
-    "wood-beam"
+    "wood-beam",
+    "wood-worked"
    ],
    "variant": "v149",
    "lint": [
@@ -223407,13 +223405,13 @@
    "vpt": 1.84,
    "grad": 0.21,
    "spread": {
-    "12,3": [
-     0.031,
-     0.242
+    "14,3": [
+     0.227,
+     0.438
     ]
    },
    "colors": [
-    "#42362c"
+    "#8b7561"
    ],
    "tags": [
     "halloween",
@@ -310012,7 +310010,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "rail-curve",
-   "kind": "str-part-floor",
+   "kind": "str-access-track",
    "size": "m",
    "wdh": [
     1.306,
@@ -310059,7 +310057,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "rail-long",
-   "kind": "str-part-floor",
+   "kind": "str-access-track",
    "size": "l",
    "wdh": [
     1.56,
@@ -310107,7 +310105,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "rail-short",
-   "kind": "str-part-floor",
+   "kind": "str-access-track",
    "size": "m",
    "wdh": [
     0.534,
@@ -310155,7 +310153,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "rail-straight",
-   "kind": "str-part-floor",
+   "kind": "str-access-track",
    "size": "m",
    "wdh": [
     1.047,
