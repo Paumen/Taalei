@@ -87,6 +87,15 @@ the run, builds the swipe artefact for the PO and opens the PR.
   dossier for the PO. `hero` and `mat:special` are the PO's alone (`P01`).
 - Source colours survive (`P11`–`P14`). A fix that drops one is wrong even
   when it looks tidier.
+- A kit's own colour for a part is not a fault because another kit uses a
+  different band for it: slate nori beside basalt nori is variety, not
+  inconsistency. Recolour only where a colour reads wrong on the model itself.
+- A model that breaks a §5.3 colour row but reads right is a question for the
+  PO, action `ask`, naming the row: the answer is often to relax the row, not
+  to recolour the model.
+- Shading is changed only where one surface shows a fault: a crease across a
+  face that should be smooth, a gradient across a corner that should be hard.
+  A whole model shaded softer or harder than its peers is that kit's look.
 - Measurements are hints, read after looking. A model that looks right is
   right whatever its ratio says; one that looks wrong is wrong with every
   number in range.

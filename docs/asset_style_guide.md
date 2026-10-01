@@ -295,7 +295,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure` |
+| `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure`, `amber` |
 | `B33` | `kind:obj-food` cheese | model | is | `amber`, `ivory` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
@@ -308,7 +308,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B46` | `kind:obj-equipment-pocketitem-scroll` | `part:text` | is | `slate` |
 | `B47` | `kind:obj-equipment-pocketitem-scroll` | `part:accent` | is | `sienna`, `hunter`, `azure` |
 | `B51` | `kind:env-flora & !kind:env-flora-tree \| kind:env-flora & kind:env-flora-tree-palm` | `part:stem, leaf` | is | `moss` |
-| `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel`, `ivory` |
+| `B55` | `kind:env-fungi` | `part:cap` | is | `sienna`, `camel`, `ivory`, `taupe` |
 | `B57` | `*` | `part:dried stalk` | is | `taupe` |
 | `B58` | `*` | `part:flame, glow, light` | is | `amber`, with the lane's UV range not 0 |
 | `B59` | `kind:env-flora-tree-conifer & !tag:plural` | `part:foliage` | is | per tier, UV 0.08 of the band at the tier top to 0.85 at its rim; undersides 0.92. A tier is foliage bounded by undersides |
