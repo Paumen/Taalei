@@ -9112,7 +9112,7 @@
     "slug": "quat-survival",
     "model": "phone",
     "wdh": [
-     0.06,
+     0.07,
      0.01,
      0.15
     ],
@@ -12035,7 +12035,7 @@
     "model": "big-six",
     "wdh": [
      0.75,
-     0.08,
+     0.1,
      1
     ],
     "tags": [
@@ -12567,7 +12567,7 @@
     "model": "bench",
     "wdh": [
      0.75,
-     0.25,
+     0.3,
      0.35
     ],
     "tags": [
@@ -17557,7 +17557,7 @@
     "model": "wall-shelf-c",
     "wdh": [
      0.6,
-     0.04,
+     0.06,
      0.3
     ],
     "tags": [
@@ -18953,7 +18953,7 @@
     "collection": "sq-props",
     "model": "storage-cabinet",
     "wdh": [
-     0.4,
+     0.45,
      0.25,
      0.9
     ],
@@ -20903,7 +20903,7 @@
     "collection": "sq-props",
     "model": "mixing-console",
     "wdh": [
-     0.55,
+     0.6,
      0.35,
      0.5
     ],
@@ -23122,7 +23122,7 @@
     "model": "stool",
     "wdh": [
      0.25,
-     0.2,
+     0.25,
      0.25
     ],
     "tags": [
@@ -25368,8 +25368,8 @@
     "model": "chair",
     "wdh": [
      0.3,
-     0.3,
-     0.6
+     0.35,
+     0.65
     ],
     "tags": [
      "rgp",
@@ -30497,7 +30497,7 @@
     "model": "container-hunter",
     "wdh": [
      1,
-     2.2,
+     2.25,
      1
     ],
     "tags": [
@@ -30514,7 +30514,7 @@
     "model": "container-sienna",
     "wdh": [
      1,
-     2.2,
+     2.25,
      1
     ],
     "tags": [
@@ -37960,7 +37960,7 @@
     "model": "wagon",
     "wdh": [
      1.55,
-     0.75,
+     0.8,
      0.6
     ],
     "tags": [
@@ -46320,7 +46320,7 @@
     "slug": "zombie-weapons",
     "model": "shotgun-sawed-off",
     "wdh": [
-     0.07,
+     0.08,
      0.3,
      0.03
     ],
@@ -46612,7 +46612,7 @@
     "slug": "household",
     "model": "rake",
     "wdh": [
-     1,
+     1.05,
      0.2,
      0.05
     ],
@@ -53928,7 +53928,7 @@
     "wdh": [
      0.4,
      0.4,
-     0.04
+     0.05
     ],
     "tags": [
      "leather",
@@ -54100,7 +54100,7 @@
     "wdh": [
      0.3,
      0.3,
-     0.02
+     0.03
     ],
     "tags": [
      "creativetrio",
@@ -54970,6 +54970,60 @@
   ]
  },
  {
+  "slug": "str-fixture-chimney-scale-small",
+  "name": "Structure › Fixture › Chimney · scale-small",
+  "category": "str-gen",
+  "limits": {
+   "high.min": 0.6,
+   "high.max": 2.25,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-industrial",
+    "collection": "ken-city",
+    "model": "smokestack-basic",
+    "wdh": [
+     0.4,
+     0.4,
+     2
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "scale-small",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#42362c",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "ken-industrial",
+    "collection": "ken-city",
+    "model": "smokestack-small",
+    "wdh": [
+     0.6,
+     0.6,
+     1.5
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "scale-small",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#42362c",
+     "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-fixture-light",
   "name": "Structure › Fixture › Light",
   "category": "str-gen",
@@ -55146,7 +55200,7 @@
     "model": "flag-checkers",
     "wdh": [
      0.25,
-     0.04,
+     0.06,
      1.5
     ],
     "tags": [
@@ -55166,7 +55220,7 @@
     "model": "flag-red",
     "wdh": [
      0.25,
-     0.04,
+     0.06,
      1.5
     ],
     "tags": [
@@ -55463,6 +55517,77 @@
     "colors": [
      "#42362c",
      "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-fixture-chimney",
+  "name": "Structure › Fixture › Chimney",
+  "category": "str-gen",
+  "limits": {
+   "high.min": 1.2,
+   "high.max": 4.5,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-industrial",
+    "collection": "ken-city",
+    "model": "smokestack-medium",
+    "wdh": [
+     0.9,
+     0.9,
+     3.85
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#42362c",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "chimney-detailed",
+    "wdh": [
+     0.5,
+     0.5,
+     2.6
+    ],
+    "tags": [
+     "ceramic",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "chimney",
+    "wdh": [
+     0.5,
+     0.5,
+     2.6
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#d8d1bd"
     ]
    }
   ]
@@ -56373,7 +56498,7 @@
     "slug": "lpa-desert",
     "model": "ladder-a",
     "wdh": [
-     0.08,
+     0.09,
      0.3,
      1.75
     ],
@@ -56459,7 +56584,7 @@
     "slug": "kay-minigame",
     "model": "barrier-ladder",
     "wdh": [
-     0.05,
+     0.06,
      0.3,
      0.6
     ],
@@ -56550,7 +56675,7 @@
     "slug": "lpa-desert",
     "model": "ladder-b",
     "wdh": [
-     0.08,
+     0.09,
      0.3,
      0.95
     ],
@@ -56720,134 +56845,6 @@
      "#8b7561",
      "#dbae80",
      "#f2a93c"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-fixture-chimney",
-  "name": "Structure › Fixture › Chimney",
-  "category": "str-gen",
-  "limits": {
-   "high.min": 1.2,
-   "high.max": 4.5,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "ken-industrial",
-    "collection": "ken-city",
-    "model": "smokestack-basic",
-    "wdh": [
-     0.4,
-     0.4,
-     2
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#42362c",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "ken-industrial",
-    "collection": "ken-city",
-    "model": "smokestack-large",
-    "wdh": [
-     2.15,
-     2.15,
-     3.4
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#42362c",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "ken-industrial",
-    "collection": "ken-city",
-    "model": "smokestack-medium",
-    "wdh": [
-     0.9,
-     0.9,
-     3.85
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#42362c",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "ken-industrial",
-    "collection": "ken-city",
-    "model": "smokestack-small",
-    "wdh": [
-     0.6,
-     0.6,
-     1.5
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#42362c",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "chimney-detailed",
-    "wdh": [
-     0.5,
-     0.5,
-     2.6
-    ],
-    "tags": [
-     "ceramic",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "chimney",
-    "wdh": [
-     0.5,
-     0.5,
-     2.6
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#d8d1bd"
     ]
    }
   ]
@@ -57814,7 +57811,7 @@
     "model": "tent",
     "wdh": [
      2.2,
-     1.9,
+     1.95,
      1.55
     ],
     "tags": [
@@ -59702,7 +59699,7 @@
     "model": "arch-gate-right",
     "wdh": [
      0.55,
-     0.06,
+     0.07,
      1
     ],
     "tags": [
@@ -59721,7 +59718,7 @@
     "model": "fence-gate-left",
     "wdh": [
      0.55,
-     0.06,
+     0.07,
      1
     ],
     "tags": [
@@ -59759,7 +59756,7 @@
     "model": "fence-gate-right",
     "wdh": [
      0.55,
-     0.06,
+     0.07,
      1
     ],
     "tags": [
@@ -59778,7 +59775,7 @@
     "model": "fence-fortified",
     "wdh": [
      0.7,
-     0.07,
+     0.08,
      0.7
     ],
     "tags": [
@@ -59831,7 +59828,7 @@
     "model": "fence-metal",
     "wdh": [
      1.25,
-     0.04,
+     0.06,
      1
     ],
     "tags": [
@@ -60366,7 +60363,7 @@
     "wdh": [
      0.5,
      0.9,
-     0.85
+     0.9
     ],
     "tags": [
      "lpa",
@@ -60419,7 +60416,7 @@
     "slug": "quat-medieval",
     "model": "market-stand",
     "wdh": [
-     1.25,
+     1.3,
      0.55,
      1.15
     ],
@@ -60459,7 +60456,7 @@
     "model": "stall",
     "wdh": [
      1.55,
-     1,
+     1.05,
      1.2
     ],
     "tags": [
@@ -63500,8 +63497,8 @@
     "collection": "sq-props",
     "model": "rail-section",
     "wdh": [
-     0.6,
-     0.03,
+     0.65,
+     0.06,
      0.45
     ],
     "tags": [
@@ -66044,8 +66041,8 @@
     "collection": "sq-props",
     "model": "arrow-sign",
     "wdh": [
-     0.3,
-     0.04,
+     0.35,
+     0.06,
      0.75
     ],
     "tags": [
@@ -66132,7 +66129,7 @@
     "model": "menu-board",
     "wdh": [
      1.35,
-     0.05,
+     0.06,
      0.5
     ],
     "tags": [
@@ -70935,7 +70932,7 @@
     "model": "mine",
     "wdh": [
      2.55,
-     2.7,
+     2.75,
      2.35
     ],
     "tags": [
@@ -72404,7 +72401,7 @@
     "model": "fence-seperate",
     "wdh": [
      1.3,
-     0.06,
+     0.07,
      0.65
     ],
     "tags": [
@@ -73113,7 +73110,7 @@
     "model": "fence",
     "wdh": [
      0.85,
-     0.03,
+     0.06,
      0.35
     ],
     "tags": [
@@ -73294,7 +73291,7 @@
     "model": "picket-fence-a",
     "wdh": [
      0.8,
-     0.06,
+     0.07,
      0.45
     ],
     "tags": [
@@ -73313,7 +73310,7 @@
     "model": "picket-fence-b",
     "wdh": [
      0.8,
-     0.06,
+     0.07,
      0.45
     ],
     "tags": [
@@ -73332,7 +73329,7 @@
     "model": "picket-fence-c",
     "wdh": [
      0.8,
-     0.06,
+     0.07,
      0.5
     ],
     "tags": [
@@ -73351,7 +73348,7 @@
     "model": "picket-fence-leaning",
     "wdh": [
      1.3,
-     0.08,
+     0.09,
      0.75
     ],
     "tags": [
@@ -74261,7 +74258,7 @@
     "model": "large-building-a",
     "wdh": [
      2.5,
-     3.65,
+     3.7,
      2.05
     ],
     "tags": [
@@ -74353,7 +74350,7 @@
     "model": "large-building-frame-a",
     "wdh": [
      2.5,
-     3.65,
+     3.7,
      2.05
     ],
     "tags": [
@@ -76170,113 +76167,6 @@
     "colors": [
      "#343745",
      "#82868e"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-part-wall",
-  "name": "Structure › Part › Wall",
-  "category": "str-part",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-town",
-    "collection": "fs-modular",
-    "model": "window-upper-straight",
-    "wdh": [
-     0.6,
-     1.3,
-     1.6
-    ],
-    "tags": [
-     "ceramic",
-     "fs",
-     "glass",
-     "wood-beam"
-    ],
-    "colors": [
-     "#7f3927",
-     "#8b5936",
-     "#d8d1bd",
-     "#ffffff"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "wall-1",
-    "wdh": [
-     2.25,
-     0.2,
-     0.7
-    ],
-    "tags": [
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#42362c",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "wall-2",
-    "wdh": [
-     2.25,
-     0.2,
-     0.7
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "stone-masonry",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#42362c",
-     "#8b5936",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-dun-1",
-    "model": "arch",
-    "wdh": [
-     2.05,
-     0.5,
-     2
-    ],
-    "tags": [
-     "halloween",
-     "qua",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "arch",
-    "wdh": [
-     1.25,
-     0.1,
-     1.5
-    ],
-    "tags": [
-     "asia",
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
     ]
    }
   ]
@@ -79071,7 +78961,7 @@
     "wdh": [
      0.7,
      0.7,
-     0.75
+     0.8
     ],
     "tags": [
      "ken",
@@ -79229,7 +79119,7 @@
     "slug": "rgp-medieval",
     "model": "drying-rack-b",
     "wdh": [
-     0.4,
+     0.45,
      0.75,
      0.65
     ],
@@ -79654,6 +79544,40 @@
      "#343745",
      "#82868e",
      "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-dun-1",
+    "model": "arch",
+    "wdh": [
+     2.05,
+     0.5,
+     2
+    ],
+    "tags": [
+     "halloween",
+     "qua",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "arch",
+    "wdh": [
+     1.25,
+     0.1,
+     1.5
+    ],
+    "tags": [
+     "asia",
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
     ]
    },
    {
@@ -80519,7 +80443,7 @@
     "collection": "sq-props",
     "model": "walkin-door",
     "wdh": [
-     0.5,
+     0.55,
      0.35,
      1.05
     ],
@@ -81859,7 +81783,7 @@
     "wdh": [
      1.3,
      0.7,
-     0.85
+     0.9
     ],
     "tags": [
      "metal-iron-cast",
@@ -81877,7 +81801,7 @@
     "wdh": [
      1.3,
      0.7,
-     0.85
+     0.9
     ],
     "tags": [
      "metal-iron-cast",
@@ -81895,7 +81819,7 @@
     "wdh": [
      1.3,
      0.7,
-     0.85
+     0.9
     ],
     "tags": [
      "metal-iron-cast",
@@ -82327,6 +82251,28 @@
     "colors": [
      "#7f3927",
      "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "collection": "fs-modular",
+    "model": "window-upper-straight",
+    "wdh": [
+     0.6,
+     1.3,
+     1.6
+    ],
+    "tags": [
+     "ceramic",
+     "fs",
+     "glass",
+     "wood-beam"
+    ],
+    "colors": [
+     "#7f3927",
+     "#8b5936",
+     "#d8d1bd",
+     "#ffffff"
     ]
    },
    {
@@ -83392,7 +83338,7 @@
     "wdh": [
      0.7,
      0.07,
-     0.7
+     0.75
     ],
     "tags": [
      "ken",
@@ -83408,7 +83354,7 @@
     "wdh": [
      0.75,
      0.1,
-     0.7
+     0.75
     ],
     "tags": [
      "ken",
@@ -84209,7 +84155,7 @@
     "wdh": [
      0.7,
      0.7,
-     0.07
+     0.08
     ],
     "tags": [
      "ken",
@@ -84225,7 +84171,7 @@
     "wdh": [
      0.7,
      0.7,
-     0.07
+     0.08
     ],
     "tags": [
      "ken",
@@ -84381,7 +84327,7 @@
     "wdh": [
      0.8,
      0.8,
-     0.08
+     0.09
     ],
     "tags": [
      "plastic",
@@ -86496,6 +86442,44 @@
     ]
    },
    {
+    "slug": "medieval-forge",
+    "model": "wall-1",
+    "wdh": [
+     2.25,
+     0.2,
+     0.7
+    ],
+    "tags": [
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#42362c",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "wall-2",
+    "wdh": [
+     2.25,
+     0.2,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "stone-masonry",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#42362c",
+     "#8b5936",
+     "#8b7561"
+    ]
+   },
+   {
     "slug": "quat-dun-1",
     "model": "wall-modular",
     "wdh": [
@@ -87214,7 +87198,7 @@
     "collection": "fs-modular",
     "model": "hilly-prop-cattail-a",
     "wdh": [
-     0.04,
+     0.05,
      0.04,
      0.35
     ],

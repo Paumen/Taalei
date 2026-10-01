@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readGlb, writeGlb, readAccessor, worldMatrices, measureTubes } from '../../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor, worldMatrices, thinnestPart } from '../../catalog/tools/glb.mjs';
 import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 import { MeshoptSimplifier } from './vendor/meshoptimizer/meshopt_simplifier.js';
 
@@ -68,7 +68,7 @@ function needOf(file) {
   const model = models.get(`${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`);
   return model ? tubeNeed(withKindFields(model, kindFields)) : null;
 }
-const thinnest = (glb) => Math.min(...measureTubes(glb).map((t) => t.diameter));
+const thinnest = (glb) => thinnestPart(glb) ?? Infinity;
 
 function rawRows(glb, index) {
   const accessor = glb.json.accessors[index];
