@@ -602,6 +602,7 @@ window.KENNEY_KITS = [
    "barbecue",
    "birdhouse",
    "dice",
+   "diving-helmet",
    "graduation-cap",
    "hook",
    "hourglass",
@@ -618,6 +619,9 @@ window.KENNEY_KITS = [
    "tipi-c",
    "tipi-d",
    "tipi-e",
+   "trident",
+   "trident-barbed",
+   "trident-crescent",
    "trophy",
    "ufo"
   ]
