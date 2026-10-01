@@ -2829,19 +2829,19 @@
    "note": "Quaternius; source zip carries no licence file.",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 77,
+   "count": 79,
    "packs": [
     "Modular Sushi Restaurant Kit"
    ],
    "origins": {
-    "Modular Sushi Restaurant Kit": 77
+    "Modular Sushi Restaurant Kit": 79
    },
    "scales": {
-    "0.2": 66,
+    "0.2": 68,
     "0.15": 11
    },
    "smooth": {
-    "smooth": 72,
+    "smooth": 74,
     "none": 5
    },
    "kitCheck": {
@@ -16107,6 +16107,16 @@
     "kay-food/fridge-a-decorated-anim",
     "kay-food/fridge-a-decorated"
    ]
+  },
+  {
+   "id": "v1261",
+   "type": "detail-variant",
+   "main": "quat-sushi/drinks-fridge",
+   "members": [
+    "quat-sushi/drinks-fridge",
+    "quat-sushi/drinks-fridge-anim",
+    "quat-sushi/drinks-fridge-glass"
+   ]
   }
  ],
  "bands": [
@@ -16385,7 +16395,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 696
+   "count": 698
   },
   {
    "id": "rubber",
@@ -16434,7 +16444,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 575
+   "count": 577
   },
   {
    "id": "liquid",
@@ -16498,7 +16508,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 3141,
+   "count": 3143,
    "color": "#c07c8a"
   },
   {
@@ -16506,7 +16516,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 173
+   "count": 175
   },
   {
    "id": "obj-leisure",
@@ -16520,7 +16530,7 @@
    "name": "Appliance",
    "type": "kind",
    "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
-   "count": 66
+   "count": 68
   },
   {
    "id": "obj-device-appliance-drink",
@@ -17344,7 +17354,7 @@
    "name": "Fridge",
    "type": "kind",
    "description": "Appliance that keeps food or drink cold: fridge, freezer.",
-   "count": 13
+   "count": 15
   },
   {
    "id": "obj-kitchenware-cookware-utensil",
@@ -19442,7 +19452,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries an animation clip. Exempt from I08 and I11, so its moving parts may be transparent and draw separately.",
-   "count": 99
+   "count": 100
   },
   {
    "id": "asia",
@@ -19657,7 +19667,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2403
+   "count": 2405
   },
   {
    "id": "l",
@@ -19685,7 +19695,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 774
+   "count": 776
   },
   {
    "id": "isa",
@@ -19769,7 +19779,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 99
+   "count": 100
   }
  ],
  "byLongest": [
@@ -251095,6 +251105,135 @@
   },
   {
    "kit": "quat-sushi",
+   "name": "drinks-fridge-anim",
+   "kind": "obj-device-appliance-fridge",
+   "size": "m",
+   "wdh": [
+    0.472,
+    0.266,
+    0.877
+   ],
+   "tris": 1894,
+   "tpu": 4407,
+   "mat": 1,
+   "bands": 5,
+   "calls": 2,
+   "bytes": 85992,
+   "vtx": 1874,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "avgTri": 0.00192,
+   "anglePct": 88,
+   "vpt": 0.99,
+   "grad": 0.6,
+   "spread": {
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#7f3927",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "animation",
+    "animation",
+    "glass",
+    "plastic",
+    "qua"
+   ],
+   "anim": [
+    "door_open",
+    "door_close"
+   ],
+   "variant": "v1261"
+  },
+  {
+   "kit": "quat-sushi",
+   "name": "drinks-fridge-glass",
+   "kind": "obj-device-appliance-fridge",
+   "size": "m",
+   "wdh": [
+    0.472,
+    0.266,
+    0.877
+   ],
+   "tris": 1848,
+   "tpu": 4300,
+   "mat": 2,
+   "bands": 5,
+   "calls": 2,
+   "bytes": 82960,
+   "vtx": 1832,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "avgTri": 0.00182,
+   "anglePct": 87,
+   "vpt": 0.99,
+   "grad": 0.6,
+   "spread": {
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#7f3927",
+    "#d8d1bd",
+    "#e7e7e7",
+    "#f2a93c"
+   ],
+   "tags": [
+    "glass",
+    "plastic",
+    "qua"
+   ],
+   "alpha": true,
+   "pbr": true,
+   "variant": "v1261"
+  },
+  {
+   "kit": "quat-sushi",
    "name": "drinks-fridge",
    "kind": "obj-device-appliance-fridge",
    "size": "m",
@@ -251150,7 +251289,8 @@
     "glass",
     "plastic",
     "qua"
-   ]
+   ],
+   "variant": "v1261"
   },
   {
    "kit": "quat-sushi",

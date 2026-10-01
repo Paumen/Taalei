@@ -5215,6 +5215,8 @@ window.KENNEY_KITS = [
    "dango",
    "doorway",
    "drinks-fridge",
+   "drinks-fridge-anim",
+   "drinks-fridge-glass",
    "ebi-nigiri",
    "eel",
    "fish",
