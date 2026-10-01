@@ -544,7 +544,7 @@
    "kit": "ken-town",
    "format": "glb",
    "inSource": 167,
-   "inCatalog": 96,
+   "inCatalog": 97,
    "listed": 72,
    "unmatched": 0,
    "scale": 0.9,
@@ -1501,7 +1501,7 @@
    "kit": "ken-train",
    "format": "glb",
    "inSource": 103,
-   "inCatalog": 31,
+   "inCatalog": 37,
    "listed": 35,
    "unmatched": 0,
    "scale": 0.55,
@@ -1717,7 +1717,7 @@
    "kit": "kay-space",
    "format": "gltf",
    "inSource": 57,
-   "inCatalog": 42,
+   "inCatalog": 43,
    "listed": 11,
    "unmatched": 0,
    "scale": 1.1,
@@ -1873,8 +1873,8 @@
    "kit": "sq-casino",
    "format": "glb",
    "inSource": 23,
-   "inCatalog": 18,
-   "listed": 5,
+   "inCatalog": 15,
+   "listed": 8,
    "unmatched": 0,
    "scale": 0.5,
    "folder": "house_edge"
@@ -1951,7 +1951,7 @@
    "kit": "taalei-kit",
    "format": "glb",
    "inSource": 29,
-   "inCatalog": 32,
+   "inCatalog": 33,
    "listed": 1,
    "unmatched": 4,
    "scale": 1
@@ -2189,6 +2189,14 @@
   {
    "id": "obj-food-meat",
    "name": "Meat"
+  },
+  {
+   "id": "obj-food-meat-patty",
+   "name": "Patty"
+  },
+  {
+   "id": "obj-food-meat-roast",
+   "name": "Roast"
   },
   {
    "id": "obj-food-meat-ham",
@@ -2471,6 +2479,10 @@
    "name": "Handgun"
   },
   {
+   "id": "obj-equipment-weapon-ranged-firearm-smg",
+   "name": "SMG"
+  },
+  {
    "id": "obj-equipment-weapon-ranged-firearm-shotgun",
    "name": "Shotgun"
   },
@@ -2479,12 +2491,24 @@
    "name": "Rifle"
   },
   {
+   "id": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
+   "name": "Sniper rifle"
+  },
+  {
    "id": "obj-equipment-weapon-ranged-firearm-part",
    "name": "Part"
   },
   {
    "id": "obj-equipment-weapon-ranged-grenade",
    "name": "Grenade"
+  },
+  {
+   "id": "obj-equipment-weapon-ranged-launcher",
+   "name": "Launcher"
+  },
+  {
+   "id": "obj-equipment-weapon-explosive",
+   "name": "Explosive"
   },
   {
    "id": "obj-equipment-weapon-magic",
@@ -2525,6 +2549,10 @@
   {
    "id": "obj-equipment-apparel",
    "name": "Apparel"
+  },
+  {
+   "id": "obj-equipment-apparel-umbrella",
+   "name": "Umbrella"
   },
   {
    "id": "obj-equipment-apparel-quiver",
@@ -2591,6 +2619,10 @@
    "name": "Hand"
   },
   {
+   "id": "obj-equipment-tool-hand-brush",
+   "name": "Brush"
+  },
+  {
    "id": "obj-equipment-tool-hand-hammer",
    "name": "Hammer"
   },
@@ -2601,6 +2633,14 @@
   {
    "id": "obj-equipment-tool-twohand",
    "name": "Two-hand"
+  },
+  {
+   "id": "obj-equipment-tool-twohand-pitchfork",
+   "name": "Pitchfork"
+  },
+  {
+   "id": "obj-equipment-tool-twohand-scythe",
+   "name": "Scythe"
   },
   {
    "id": "obj-equipment-tool-twohand-pickaxe",
@@ -2765,6 +2805,10 @@
   {
    "id": "obj-furnishing-bathroom",
    "name": "Bathroom"
+  },
+  {
+   "id": "obj-furnishing-bathroom-bath",
+   "name": "Bath"
   },
   {
    "id": "obj-furnishing-furniture",
@@ -7654,8 +7698,10 @@
   },
   {
    "id": "v470",
-   "main": "House_Edge_Casino_Floor/chip_stack_green",
+   "main": "House_Edge_Casino_Floor/chip_stack_black",
    "members": [
+    "House_Edge_Casino_Floor/chip_stack_black",
+    "House_Edge_Casino_Floor/chip_stack_blue",
     "House_Edge_Casino_Floor/chip_stack_green",
     "House_Edge_Casino_Floor/chip_stack_white"
    ]
@@ -10664,7 +10710,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "bomb",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.5,
     0.5,
@@ -29186,7 +29232,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Pitchfork_B",
-   "kind": "obj-equipment-tool-twohand",
+   "kind": "obj-equipment-tool-twohand-pitchfork",
    "wdh": [
     0.1,
     0.8,
@@ -29204,7 +29250,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Pitchfork_C",
-   "kind": "obj-equipment-tool-twohand",
+   "kind": "obj-equipment-tool-twohand-pitchfork",
    "wdh": [
     0.1,
     0.8,
@@ -30148,6 +30194,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "BurgerPatty_Burned",
+   "kind": "obj-food-meat-patty",
    "wdh": [
     0.2,
     0.1,
@@ -30165,6 +30212,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "BurgerPatty_Cooked",
+   "kind": "obj-food-meat-patty",
    "wdh": [
     0.2,
     0.1,
@@ -30182,6 +30230,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "BurgerPatty_Raw",
+   "kind": "obj-food-meat-patty",
    "wdh": [
     0.2,
     0.1,
@@ -31488,7 +31537,7 @@
   {
    "kit": "Pond_pack",
    "name": "Clawfoot Bathtub",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-bath",
    "wdh": [
     0.1,
     0.1,
@@ -36639,7 +36688,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_brush",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-brush",
    "wdh": [
     0.1,
     0.3,
@@ -38640,7 +38689,7 @@
   {
    "kit": "KayKit_Mixed_Bag_1_FREE",
    "name": "umbrella_blue",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-umbrella",
    "wdh": [
     0.5,
     0.6,
@@ -38658,7 +38707,7 @@
   {
    "kit": "KayKit_Mixed_Bag_1_FREE",
    "name": "umbrella_green",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-umbrella",
    "wdh": [
     0.5,
     0.6,
@@ -42432,7 +42481,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "bomb_teamBlue",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.3,
     0.4,
@@ -42450,7 +42499,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "bomb_teamYellow",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.3,
     0.4,
@@ -44040,7 +44089,7 @@
   {
    "kit": "Ultimate_Guns_Pack",
    "name": "Sniper Rifle-TKaBjAEofL",
-   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
+   "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "wdh": [
     0.9,
     0.1,
@@ -44057,7 +44106,7 @@
   {
    "kit": "Ultimate_Guns_Pack",
    "name": "Sniper Rifle-i65hEldsw6",
-   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
+   "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "wdh": [
     0.8,
     0.2,
@@ -44074,6 +44123,7 @@
   {
    "kit": "Ultimate_Guns_Pack",
    "name": "Submachine Gun-nsP3JukU73",
+   "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "wdh": [
     0.5,
     0.2,
@@ -44090,6 +44140,7 @@
   {
    "kit": "Ultimate_Guns_Pack",
    "name": "Submachine Gun",
+   "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "wdh": [
     0.5,
     0.2,
@@ -44266,6 +44317,7 @@
   {
    "kit": "Toon_Shooter_Game_Kit",
    "name": "Landmine",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.4,
     0.1,
@@ -53151,7 +53203,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Meat Patty",
-   "kind": "obj-food-meat",
+   "kind": "obj-food-meat-patty",
    "wdh": [
     0.1,
     0.1,
@@ -64910,7 +64962,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_A_blue",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -65741,7 +65793,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_A_green",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -65759,7 +65811,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_B_green",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -67295,7 +67347,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_A_red",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -67313,7 +67365,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_B_red",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -68709,7 +68761,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_A_yellow",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -68727,7 +68779,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bomb_B_yellow",
-   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
+   "kind": "obj-equipment-weapon-explosive",
    "wdh": [
     0.2,
     0.3,
@@ -70717,6 +70769,40 @@
   },
   {
    "kit": "House_Edge_Casino_Floor",
+   "name": "chip_stack_black",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bytes": 28792,
+   "scaled": true,
+   "reason": "style",
+   "file": "pack.glb",
+   "variant": "v470"
+  },
+  {
+   "kit": "House_Edge_Casino_Floor",
+   "name": "chip_stack_blue",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bytes": 28788,
+   "scaled": true,
+   "reason": "style",
+   "file": "pack.glb",
+   "variant": "v470"
+  },
+  {
+   "kit": "House_Edge_Casino_Floor",
    "name": "chip_stack_green",
    "wdh": [
     0.1,
@@ -70761,6 +70847,23 @@
    "tpu": 606,
    "mat": 1,
    "bytes": 15984,
+   "scaled": true,
+   "reason": "style",
+   "file": "pack.glb"
+  },
+  {
+   "kit": "House_Edge_Casino_Floor",
+   "name": "dice_pair",
+   "kind": "obj-leisure-game-gamble",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 352,
+   "tpu": 1026,
+   "mat": 1,
+   "bytes": 28008,
    "scaled": true,
    "reason": "style",
    "file": "pack.glb"
@@ -71343,7 +71446,7 @@
   {
    "kit": "Makeup_Assets",
    "name": "Brush Lip Liner",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-brush",
    "wdh": [
     0.1,
     0.2,
@@ -71360,7 +71463,7 @@
   {
    "kit": "Makeup_Assets",
    "name": "Brush Shader",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-brush",
    "wdh": [
     0.1,
     0.2,
@@ -71377,7 +71480,7 @@
   {
    "kit": "Makeup_Assets",
    "name": "Brush Spoole Maskara",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-brush",
    "wdh": [
     0.1,
     0.3,
