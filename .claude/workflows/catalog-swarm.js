@@ -11,7 +11,7 @@ export const meta = {
 
 const SKILL = '.claude/skills/catalog-swarm/SKILL.md'
 
-const ISSUE_TYPES = ['detail', 'colour', 'band-artefact', 'sliver', 'jitter', 'shading', 'thickness', 'scale', 'placement', 'tag', 'variant', 'duplicate', 'other']
+const ISSUE_TYPES = ['detail', 'colour', 'band-artefact', 'sliver', 'jitter', 'shading', 'build', 'thickness', 'scale', 'placement', 'tag', 'variant', 'duplicate', 'other']
 const ACTIONS = ['tool', 'tag', 'variant', 'kind', 'reject', 'ask', 'none']
 
 const LOOK_SCHEMA = {
@@ -106,7 +106,8 @@ Then open every close-up in ${dir}/each with the Read tool, one model at a time:
 - band-artefact: a jagged or sawtooth edge where two colours meet, light and dark triangles alternating on one surface (a pinwheel on a drum head, a checker on a cap), a triangle whose colour does not match the flat face it sits in;
 - sliver: long hairline triangles catching light along a rim or edge;
 - jitter: a surface that should be flat or evenly curved but wobbles, rim vertices out of line;
-- shading: a smooth gradient across a corner that should be hard, a hard crease across a surface that should be smooth, magenta or red backfaces;
+- shading: a few triangles darker or lighter than their neighbours on what should read as one surface (often near tips and rims), a smooth gradient across a corner that should be hard, a hard crease across a surface that should be smooth, magenta or red backfaces;
+- build: a part that reads stuck on or wrongly sized for the thing, such as a topping laid as a flat square that reaches the rim of a round piece, a handle too small for its body;
 - thickness: a part so thin it reads as a line;
 - placement: floating, sunk, leaning, upside down.
 Confirm a suspicion with a closer render of your own into ${dir}/look: --views at the angle that shows it, --modes faceorient for backfaces, --band <col,row> for a colour edge, --isolate for a part. Read every render you make.

@@ -130,7 +130,8 @@ Issue types, each with what it looks like:
 | `band-artefact` | sawtooth along a band boundary, alternating light and dark triangles on one surface, a triangle that spans two cells |
 | `sliver` | long hairline triangles catching light along edges or rims |
 | `jitter` | a surface that should be flat or smooth but wobbles, an uneven rim |
-| `shading` | smooth where peers are faceted or the other way, a shading break inside one surface, inverted faces |
+| `shading` | a few triangles darker or lighter than their neighbours on one surface, a shading break inside one surface, inverted faces |
+| `build` | a part that reads stuck on or wrongly sized: a topping laid as a flat square reaching the rim of a round piece |
 | `thickness` | a stem, stand, handle or rim that reads as a hairline beside its peers |
 | `scale` | clearly larger or smaller than its peers at locked scale, with no `scale-big` or `scale-small` to say so |
 | `placement` | floating, sunk, off-centre, leaning |
