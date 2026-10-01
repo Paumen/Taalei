@@ -1765,7 +1765,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.06,
+    "factor": 1.04,
     "kinds": 32
    }
   },
@@ -18889,7 +18889,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 160,
+   "count": 163,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -18909,6 +18909,7 @@
     "str-part-pillar",
     "str-barrier-fence-mid",
     "str-barrier-post",
+    "str-barrier-hedge",
     "str-access-ladder",
     "str-fixture-marker-flag",
     "str-fixture-utility-turbine",
@@ -18925,7 +18926,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 107,
+   "count": 108,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -21941,6 +21942,13 @@
   "str-barrier-post scale-small": {
    "high.min": 0.175,
    "high.max": 0.45,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-hedge scale-small": {
+   "high.min": 0.175,
+   "high.max": 0.4,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
@@ -191032,16 +191040,10 @@
    "tags": [
     "foliage",
     "ken",
+    "scale-small",
     "stone-masonry"
    ],
-   "variant": "v1216",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.225 under min 0.35 (str-barrier-hedge)"
-    }
-   ]
+   "variant": "v1216"
   },
   {
    "kit": "ken-town",
@@ -191085,16 +191087,10 @@
    "tags": [
     "foliage",
     "ken",
+    "scale-small",
     "stone-masonry"
    ],
-   "variant": "v1216",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.225 under min 0.35 (str-barrier-hedge)"
-    }
-   ]
+   "variant": "v1216"
   },
   {
    "kit": "ken-town",
@@ -191278,16 +191274,10 @@
    "tags": [
     "foliage",
     "ken",
+    "scale-small",
     "stone-masonry"
    ],
-   "variant": "v1216",
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.225 under min 0.35 (str-barrier-hedge)"
-    }
-   ]
+   "variant": "v1216"
   },
   {
    "kit": "ken-town",
@@ -258292,15 +258282,9 @@
     "metal-iron-cast",
     "rgp",
     "rope",
+    "scale-big",
     "textile",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.59 over max 1.1 (str-fixture-marker-banner)"
-    }
    ]
   },
   {
