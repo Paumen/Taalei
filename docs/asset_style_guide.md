@@ -296,7 +296,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | id | when | subject | assert | value |
 |---|---|---|---|---|
 | `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure` |
-| `B33` | `kind:obj-food` cheese | model | is | `amber` |
+| `B33` | `kind:obj-food` cheese | model | is | `amber`, `ivory` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
 | `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-baked` | model | is | `tan`, `camel`, `chestnut` |
