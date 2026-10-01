@@ -19086,7 +19086,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries an animation clip. Exempt from I08 and I11, so its moving parts may be transparent and draw separately.",
-   "count": 94
+   "count": 98
   },
   {
    "id": "asia",
@@ -19400,7 +19400,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries its own animations in the .glb: things that open, flip or turn. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 94
+   "count": 98
   }
  ],
  "byLongest": [
@@ -291161,8 +291161,8 @@
    "tpu": 7848,
    "mat": 1,
    "bands": 4,
-   "calls": 1,
-   "bytes": 201824,
+   "calls": 5,
+   "bytes": 412328,
    "vtx": 5757,
    "grounded": true,
    "centered": true,
@@ -291197,8 +291197,21 @@
     "#d07b56"
    ],
    "tags": [
+    "animation",
+    "animation",
     "glass",
     "plastic"
+   ],
+   "anim": [
+    "Flight",
+    "PropSpin",
+    "Stabilize",
+    "TakeOff",
+    "Landing",
+    "Flip",
+    "BarrelRoll",
+    "Pirouette",
+    "Figure8"
    ],
    "variant": "v1245"
   },
@@ -291208,23 +291221,23 @@
    "kind": "obj-transport-air",
    "size": "s",
    "wdh": [
-    0.464,
-    0.487,
+    0.473,
+    0.484,
     0.193
    ],
    "tris": 3080,
    "tpu": 8980,
    "mat": 1,
    "bands": 4,
-   "calls": 1,
-   "bytes": 233304,
+   "calls": 8,
+   "bytes": 565600,
    "vtx": 6668,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0265,
-   "avgTri": 0.00012,
-   "anglePct": 53,
+   "avgTri": 0.00011,
+   "anglePct": 55,
    "vpt": 2.16,
    "grad": 0.25,
    "spread": {
@@ -291252,8 +291265,22 @@
     "#d07b56"
    ],
    "tags": [
+    "animation",
+    "animation",
     "glass",
     "plastic"
+   ],
+   "anim": [
+    "Flight",
+    "PropSpin",
+    "GimbalScan",
+    "Stabilize",
+    "TakeOff",
+    "Landing",
+    "Flip",
+    "BarrelRoll",
+    "Pirouette",
+    "Figure8"
    ],
    "variant": "v1245"
   },
@@ -291271,8 +291298,8 @@
    "tpu": 12688,
    "mat": 1,
    "bands": 4,
-   "calls": 1,
-   "bytes": 375092,
+   "calls": 5,
+   "bytes": 396216,
    "vtx": 10861,
    "grounded": true,
    "centered": true,
@@ -291307,8 +291334,13 @@
     "#d07b56"
    ],
    "tags": [
+    "animation",
+    "animation",
     "glass",
     "plastic"
+   ],
+   "anim": [
+    "PropSpin"
    ],
    "lint": [
     {
@@ -291332,8 +291364,8 @@
    "tpu": 7359,
    "mat": 1,
    "bands": 4,
-   "calls": 1,
-   "bytes": 189960,
+   "calls": 5,
+   "bytes": 399300,
    "vtx": 5418,
    "grounded": true,
    "centered": true,
@@ -291368,8 +291400,21 @@
     "#d07b56"
    ],
    "tags": [
+    "animation",
+    "animation",
     "glass",
     "plastic"
+   ],
+   "anim": [
+    "Flight",
+    "PropSpin",
+    "Stabilize",
+    "TakeOff",
+    "Landing",
+    "Flip",
+    "BarrelRoll",
+    "Pirouette",
+    "Figure8"
    ],
    "variant": "v1245"
   },
