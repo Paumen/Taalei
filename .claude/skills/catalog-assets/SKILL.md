@@ -222,6 +222,8 @@ at every step that compares models.
    more warnings and errors than it causes on the other side.
 2. **Kit consistency.** Is the kit consistent within itself, or does the
    source already scale some groups differently (as the `P10` exceptions do)?
+   Prove a group by measuring every model in the kit: name which models are
+   on the other scale and which are not. One model alone is not a group.
 3. **Peers.** Do the other models of that kind also warn or error? Render them
    beside the model to check they are real peers.
 4. **Scale tag.** Add `scale-big` or `scale-small` only when it can be shown
@@ -239,5 +241,11 @@ at every step that compares models.
    much detail with one colour fewer in this model? If not, merge it with
    `tools/import/recolour.mjs`.
 3. **Peers.** When every colour is still needed, check the kind's other
-   models. If they share the problem, propose a higher `bands.max` for the
-   kind; do not set it.
+   models. If they share the problem, propose raising the cap that failed:
+   `bands.max` on the kind for G13–G17, the `nmat` factor for G11 or G12. Do
+   not set it.
+
+### Any other lint error
+
+Repair it in place with the tools at the top of this file, and report what
+cannot be repaired without harming the asset.
