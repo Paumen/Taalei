@@ -13,8 +13,8 @@ Two rules from `CLAUDE.md` bind every step: never look at earlier commits or
 PRs, and never leave assumptions, rules or commentary as comments in a code
 file — put them here, in the bible, or in the PR.
 
-A workfile in `kits/workfiles` is the asset itself. A model that is wrong in
-its geometry or scale is replaced or dropped. A wrong band is moved in place
+A workfile in `kits/workfiles` is the asset itself. No model is dropped
+because of a lint error; §7 says how to work one. A wrong band is moved in place
 with `tools/import/recolour.mjs`, for the whole band or for named parts. A
 triangle spanning two colormap cells, or a flat face whose triangles show
 different colours, is evened in place with `tools/import/face-bands.mjs`. A tube
@@ -107,8 +107,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 and plastic, G12), at the kind's `bands.max` (5 unless the kind in
 `lint/kinds.json` raises it) for most models, 6 for `size:l` (G13, G15) and 7 for `size:l` buildings (G17), and size is measured on the longest extent against
 `lint/variables.json` (`s` ≤ 0.5, `m` ≤ 1.5, `l` above). `tag:plural` and
-`kind:set` are exempt. A model over its budget is a model to drop, not to
-bend the lint around.
+`kind:set` are exempt. A model over its budget is worked as §7 says.
 
 ## 4. Tags
 
@@ -208,3 +207,37 @@ rejects or tooling changed; the rest come from `kits/.cache`. `--force`
 rebuilds every pack. `build-catalog.mjs` likewise re-measures only the
 workfiles whose file, colormap or tooling changed; delete
 `kits/.cache/build-catalog.json` to measure all of them.
+
+## 7. Working a lint error
+
+No model is dropped because of a lint error. Work it in this order and render
+at every step that compares models.
+
+### A model off its kind's size range
+
+1. **The kit.** Is the whole kit too large or too small? Check its curve on the
+   curves page (`size-curves.json`) against the average. A curve far off the
+   average hurts many models, not one: plan one scale change for the kit
+   (`P09`). Try the new factor on the whole kit: it is right when it clears
+   more warnings and errors than it causes on the other side.
+2. **Kit consistency.** Is the kit consistent within itself, or does the
+   source already scale some groups differently (as the `P10` exceptions do)?
+3. **Peers.** Do the other models of that kind also warn or error? Render them
+   beside the model to check they are real peers.
+4. **Scale tag.** Add `scale-big` or `scale-small` only when it can be shown
+   the model is an intended larger or smaller version: a small and a large
+   variant in the same kit, a ladder with clearly more or fewer steps than
+   usual, and the like.
+5. **Kind.** Is the model in the right kind? Move it to a better fit. When
+   none fits, propose a new kind if similar models from other kits would join
+   it; otherwise consider the parent kind.
+
+### A model over its band budget
+
+1. **Common sense.** Does the model need these colours to read as what it is?
+2. **Materials.** Which materials take which colours? Would a material lose
+   much detail with one colour fewer in this model? If not, merge it with
+   `tools/import/recolour.mjs`.
+3. **Peers.** When every colour is still needed, check the kind's other
+   models. If they share the problem, propose a higher `bands.max` for the
+   kind; do not set it.
