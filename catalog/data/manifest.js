@@ -5939,7 +5939,8 @@ window.KENNEY_KITS = [
   "name": "wizp-eastern",
   "kits": [
    "wizp-asia",
-   "wizp-village"
+   "wizp-village",
+   "wizp-rock"
   ]
  },
  {

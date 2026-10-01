@@ -3659,20 +3659,22 @@
    "name": "wizp-eastern",
    "artist": "WizP",
    "licenseLabel": "CC0",
-   "count": 123,
+   "count": 128,
    "packs": [
     "Asian Pack",
+    "Rocks Pack",
     "Village Pack"
    ],
    "origins": {
     "Asian Pack": 106,
+    "Rocks Pack": 5,
     "Village Pack": 17
    },
    "scales": {
-    "0.367647": 123
+    "0.367647": 128
    },
    "smooth": {
-    "smooth": 116,
+    "smooth": 121,
     "none": 7
    },
    "members": [
@@ -3698,6 +3700,26 @@
      }
     },
     {
+     "slug": "wizp-rock",
+     "name": "wizp-rock",
+     "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-rock/LICENSE.txt.",
+     "artist": "WizP",
+     "licenseLabel": "CC0",
+     "count": 5,
+     "packs": [
+      "Rocks Pack"
+     ],
+     "origins": {
+      "Rocks Pack": 5
+     },
+     "scales": {
+      "0.367647": 5
+     },
+     "smooth": {
+      "smooth": 5
+     }
+    },
+    {
      "slug": "wizp-village",
      "name": "wizp-village",
      "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-village/LICENSE.txt.",
@@ -3719,7 +3741,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.95,
+    "factor": 0.97,
     "kinds": 22
    }
   },
@@ -3791,26 +3813,6 @@
    "kitCheck": {
     "factor": 1.21,
     "kinds": 12
-   }
-  },
-  {
-   "slug": "wizp-rock",
-   "name": "wizp-rock",
-   "note": "Bronzip zonder licentiebestand en zonder maker; zie kits/workfiles/wizp-rock/LICENSE.txt.",
-   "artist": "WizP",
-   "licenseLabel": "CC0",
-   "count": 5,
-   "packs": [
-    "Rocks Pack"
-   ],
-   "origins": {
-    "Rocks Pack": 5
-   },
-   "scales": {
-    "0.2": 5
-   },
-   "smooth": {
-    "smooth": 5
    }
   },
   {
@@ -19493,14 +19495,14 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2406
+   "count": 2403
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 934
+   "count": 937
   },
   {
    "id": "ken",
@@ -310868,25 +310870,26 @@
   },
   {
    "kit": "wizp-rock",
+   "collection": "wizp-eastern",
    "name": "boulder-a",
    "kind": "env-terrain-rock-boulder",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.891,
-    0.783,
-    1.018
+    1.638,
+    1.439,
+    1.871
    ],
    "tris": 626,
-   "tpu": 881,
+   "tpu": 142,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24488,
+   "bytes": 24508,
    "vtx": 604,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.005,
+   "minEdge": 0.035,
+   "avgTri": 0.0169,
    "anglePct": 20,
    "vpt": 0.96,
    "grad": 0.73,
@@ -310907,25 +310910,26 @@
   },
   {
    "kit": "wizp-rock",
+   "collection": "wizp-eastern",
    "name": "boulder-b",
    "kind": "env-terrain-rock-boulder",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.722,
-    0.682,
-    0.9
+    1.327,
+    1.254,
+    1.654
    ],
    "tris": 516,
-   "tpu": 1164,
+   "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20372,
+   "bytes": 20392,
    "vtx": 496,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.0047,
+   "minEdge": 0.035,
+   "avgTri": 0.01587,
    "anglePct": 17,
    "vpt": 0.96,
    "grad": 0.68,
@@ -310946,25 +310950,26 @@
   },
   {
    "kit": "wizp-rock",
+   "collection": "wizp-eastern",
    "name": "boulder-c",
    "kind": "env-terrain-rock-boulder",
    "size": "l",
    "wdh": [
-    0.861,
-    0.794,
-    1.547
+    1.583,
+    1.459,
+    2.845
    ],
    "tris": 596,
-   "tpu": 564,
+   "tpu": 91,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23348,
+   "bytes": 23368,
    "vtx": 574,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "avgTri": 0.00695,
+   "minEdge": 0.052,
+   "avgTri": 0.02349,
    "anglePct": 15,
    "vpt": 0.96,
    "grad": 0.8,
@@ -310981,29 +310986,37 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v339"
+   "variant": "v339",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.845 over max 2.5 (env-terrain-rock-boulder)"
+    }
+   ]
   },
   {
    "kit": "wizp-rock",
+   "collection": "wizp-eastern",
    "name": "boulder-d",
    "kind": "env-terrain-rock-boulder",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.064,
-    0.93,
-    1.274
+    1.957,
+    1.71,
+    2.342
    ],
    "tris": 444,
-   "tpu": 352,
+   "tpu": 57,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17764,
+   "bytes": 17784,
    "vtx": 428,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.039,
-   "avgTri": 0.01031,
+   "minEdge": 0.072,
+   "avgTri": 0.03484,
    "anglePct": 11,
    "vpt": 0.96,
    "grad": 0.83,
@@ -311024,25 +311037,26 @@
   },
   {
    "kit": "wizp-rock",
+   "collection": "wizp-eastern",
    "name": "boulder-e",
    "kind": "env-terrain-rock-boulder",
    "size": "l",
    "wdh": [
-    1.299,
-    1.093,
-    1.551
+    2.388,
+    2.01,
+    2.852
    ],
    "tris": 504,
-   "tpu": 229,
+   "tpu": 37,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20488,
+   "bytes": 20508,
    "vtx": 502,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.053,
-   "avgTri": 0.01429,
+   "minEdge": 0.098,
+   "avgTri": 0.04829,
    "anglePct": 19,
    "vpt": 1,
    "grad": 0.9,
@@ -311059,7 +311073,14 @@
     "stone-rock",
     "wizp"
    ],
-   "variant": "v339"
+   "variant": "v339",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.852 over max 2.5 (env-terrain-rock-boulder)"
+    }
+   ]
   },
   {
    "kit": "wizp-tree",
