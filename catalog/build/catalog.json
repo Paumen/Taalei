@@ -784,23 +784,116 @@
    }
   },
   {
-   "slug": "kay-blocks",
-   "name": "kay-blocks",
-   "url": "https://www.kaylousberg.com",
+   "slug": "kay-play",
+   "name": "kay-play",
    "artist": "KayKit",
-   "licenseLabel": "CC0 1.0",
-   "count": 2,
+   "count": 100,
    "packs": [
-    "KayKit Block Bits"
+    "KayKit Block Bits",
+    "KayKit Mini-Game Variety Pack",
+    "KayKit Platformer Pack",
+    "KayKit Prototype Bits"
    ],
    "origins": {
-    "KayKit Block Bits": 2
+    "KayKit Block Bits": 2,
+    "KayKit Mini-Game Variety Pack": 30,
+    "KayKit Platformer Pack": 45,
+    "KayKit Prototype Bits": 23
    },
    "scales": {
-    "0.3": 2
+    "0.3": 100
    },
    "smooth": {
-    "smooth": 2
+    "smooth": 97,
+    "none": 3
+   },
+   "members": [
+    {
+     "slug": "kay-blocks",
+     "name": "kay-blocks",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 2,
+     "packs": [
+      "KayKit Block Bits"
+     ],
+     "origins": {
+      "KayKit Block Bits": 2
+     },
+     "scales": {
+      "0.3": 2
+     },
+     "smooth": {
+      "smooth": 2
+     }
+    },
+    {
+     "slug": "kay-minigame",
+     "name": "kay-minigame",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 30,
+     "packs": [
+      "KayKit Mini-Game Variety Pack"
+     ],
+     "origins": {
+      "KayKit Mini-Game Variety Pack": 30
+     },
+     "scales": {
+      "0.3": 30
+     },
+     "smooth": {
+      "smooth": 30
+     }
+    },
+    {
+     "slug": "kay-platformer",
+     "name": "kay-platformer",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 45,
+     "packs": [
+      "KayKit Platformer Pack"
+     ],
+     "origins": {
+      "KayKit Platformer Pack": 45
+     },
+     "scales": {
+      "0.3": 45
+     },
+     "smooth": {
+      "smooth": 44,
+      "none": 1
+     }
+    },
+    {
+     "slug": "kay-proto",
+     "name": "kay-proto",
+     "url": "https://kaylousberg.itch.io/prototype-bits",
+     "artist": "KayKit",
+     "licenseLabel": "CC0 1.0",
+     "count": 23,
+     "packs": [
+      "KayKit Prototype Bits"
+     ],
+     "origins": {
+      "KayKit Prototype Bits": 23
+     },
+     "scales": {
+      "0.3": 23
+     },
+     "smooth": {
+      "smooth": 21,
+      "none": 2
+     }
+    }
+   ],
+   "kitCheck": {
+    "factor": 1.01,
+    "kinds": 26
    }
   },
   {
@@ -1070,30 +1163,6 @@
    }
   },
   {
-   "slug": "kay-minigame",
-   "name": "kay-minigame",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 30,
-   "packs": [
-    "KayKit Mini-Game Variety Pack"
-   ],
-   "origins": {
-    "KayKit Mini-Game Variety Pack": 30
-   },
-   "scales": {
-    "0.3": 30
-   },
-   "smooth": {
-    "smooth": 30
-   },
-   "kitCheck": {
-    "factor": 1.01,
-    "kinds": 12
-   }
-  },
-  {
    "slug": "kay-mixed",
    "name": "kay-mixed",
    "url": "https://www.kaylousberg.com",
@@ -1115,56 +1184,6 @@
    },
    "kitCheck": {
     "factor": 1.16,
-    "kinds": 8
-   }
-  },
-  {
-   "slug": "kay-platformer",
-   "name": "kay-platformer",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0 1.0",
-   "count": 45,
-   "packs": [
-    "KayKit Platformer Pack"
-   ],
-   "origins": {
-    "KayKit Platformer Pack": 45
-   },
-   "scales": {
-    "0.3": 45
-   },
-   "smooth": {
-    "smooth": 44,
-    "none": 1
-   },
-   "kitCheck": {
-    "factor": 1.05,
-    "kinds": 11
-   }
-  },
-  {
-   "slug": "kay-proto",
-   "name": "kay-proto",
-   "url": "https://kaylousberg.itch.io/prototype-bits",
-   "artist": "KayKit",
-   "licenseLabel": "CC0 1.0",
-   "count": 23,
-   "packs": [
-    "KayKit Prototype Bits"
-   ],
-   "origins": {
-    "KayKit Prototype Bits": 23
-   },
-   "scales": {
-    "0.3": 23
-   },
-   "smooth": {
-    "smooth": 21,
-    "none": 2
-   },
-   "kitCheck": {
-    "factor": 1.09,
     "kinds": 8
    }
   },
@@ -2009,8 +2028,8 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1,
-    "kinds": 19
+    "factor": 0.99,
+    "kinds": 18
    }
   },
   {
@@ -2103,14 +2122,14 @@
     "none": 37
    },
    "scales": {
-    "1.4": 71
+    "1.5": 71
    },
    "smooth": {
     "smooth": 53,
     "none": 18
    },
    "kitCheck": {
-    "factor": 0.97,
+    "factor": 1.04,
     "kinds": 27
    }
   },
@@ -2416,17 +2435,20 @@
    }
   },
   {
-   "slug": "quat-fish",
-   "name": "quat-fish",
-   "url": "https://quaternius.com/packs/animatedfish.html",
+   "slug": "quat-sea",
+   "name": "quat-sea",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 7,
+   "count": 59,
    "packs": [
-    "Animated Fish Pack"
+    "Animated Fish Pack",
+    "Animated Fish Bundle",
+    "Ocean"
    ],
    "origins": {
-    "Pirate Kit": 7
+    "Animated Fish Pack": 7,
+    "Animated Fish Bundle": 32,
+    "Ocean": 20
    },
    "scales": {
     "0.105449": 1,
@@ -2435,30 +2457,7 @@
     "0.01864": 1,
     "0.124653": 1,
     "0.089594": 1,
-    "0.26452": 1
-   },
-   "smooth": {
-    "smooth": 7
-   },
-   "kitCheck": {
-    "factor": 1.09,
-    "kinds": 3
-   }
-  },
-  {
-   "slug": "quat-fishing",
-   "name": "quat-fishing",
-   "note": "Quaternius; source zip carries no licence file.",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 32,
-   "packs": [
-    "Animated Fish Bundle"
-   ],
-   "origins": {
-    "Animated Fish Bundle": 32
-   },
-   "scales": {
+    "0.26452": 1,
     "0.064711": 1,
     "0.05": 1,
     "0.027896": 2,
@@ -2471,16 +2470,115 @@
     "0.055": 1,
     "0.051": 1,
     "0.071589": 1,
-    "0.124": 1
+    "0.124": 1,
+    "0.000586": 1,
+    "0.00077": 1,
+    "0.0007": 11,
+    "0.000713": 1,
+    "0.00123": 1,
+    "0.000519": 1,
+    "0.000745": 1,
+    "0.0012": 1,
+    "0.00137": 1,
+    "0.00596": 1
    },
    "smooth": {
-    "smooth": 29,
+    "smooth": 56,
     "none": 3
    },
+   "members": [
+    {
+     "slug": "quat-fish",
+     "name": "quat-fish",
+     "url": "https://quaternius.com/packs/animatedfish.html",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 7,
+     "packs": [
+      "Animated Fish Pack"
+     ],
+     "origins": {
+      "Animated Fish Pack": 7
+     },
+     "scales": {
+      "0.105449": 1,
+      "0.055623": 1,
+      "0.026878": 1,
+      "0.01864": 1,
+      "0.124653": 1,
+      "0.089594": 1,
+      "0.26452": 1
+     },
+     "smooth": {
+      "smooth": 7
+     }
+    },
+    {
+     "slug": "quat-fishing",
+     "name": "quat-fishing",
+     "note": "Quaternius; source zip carries no licence file.",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 32,
+     "packs": [
+      "Animated Fish Bundle"
+     ],
+     "origins": {
+      "Animated Fish Bundle": 32
+     },
+     "scales": {
+      "0.064711": 1,
+      "0.05": 1,
+      "0.027896": 2,
+      "0.056": 1,
+      "0.08": 19,
+      "0.063734": 1,
+      "0.042806": 1,
+      "0.047087": 1,
+      "0.046": 1,
+      "0.055": 1,
+      "0.051": 1,
+      "0.071589": 1,
+      "0.124": 1
+     },
+     "smooth": {
+      "smooth": 29,
+      "none": 3
+     }
+    },
+    {
+     "slug": "quat-ocean",
+     "name": "quat-ocean",
+     "url": "https://quaternius.com/",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 20,
+     "packs": [
+      "Ocean"
+     ],
+     "origins": {
+      "Ocean": 20
+     },
+     "scales": {
+      "0.000586": 1,
+      "0.00077": 1,
+      "0.0007": 11,
+      "0.000713": 1,
+      "0.00123": 1,
+      "0.000519": 1,
+      "0.000745": 1,
+      "0.0012": 1,
+      "0.00137": 1,
+      "0.00596": 1
+     },
+     "smooth": {
+      "smooth": 20
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 0.74,
-    "kinds": 5,
-    "level": "warning"
+    "factor": 0.82,
+    "kinds": 10
    }
   },
   {
@@ -2579,39 +2677,6 @@
    },
    "kitCheck": {
     "factor": 0.96,
-    "kinds": 6
-   }
-  },
-  {
-   "slug": "quat-ocean",
-   "name": "quat-ocean",
-   "url": "https://quaternius.com/",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 20,
-   "packs": [
-    "Ocean"
-   ],
-   "origins": {
-    "Ocean": 20
-   },
-   "scales": {
-    "0.000586": 1,
-    "0.00077": 1,
-    "0.0007": 11,
-    "0.000713": 1,
-    "0.00123": 1,
-    "0.000519": 1,
-    "0.000745": 1,
-    "0.0012": 1,
-    "0.00137": 1,
-    "0.00596": 1
-   },
-   "smooth": {
-    "smooth": 20
-   },
-   "kitCheck": {
-    "factor": 0.95,
     "kinds": 6
    }
   },
@@ -18449,7 +18514,7 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 91
+   "count": 90
   },
   {
    "id": "str-part-door-doorway",
@@ -18463,7 +18528,7 @@
    "name": "Single",
    "type": "kind",
    "description": "The door leaf on its own, without the opening it hangs in.",
-   "count": 35
+   "count": 34
   },
   {
    "id": "str-part-door-trapdoor",
@@ -18477,14 +18542,14 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 42
+   "count": 43
   },
   {
    "id": "str-part-gate-gateway",
    "name": "Gateway",
    "type": "kind",
    "description": "The opening a gate hangs in, with the structure around it.",
-   "count": 34
+   "count": 35
   },
   {
    "id": "str-part-gate-single",
@@ -19488,21 +19553,21 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2706
+   "count": 2703
   },
   {
    "id": "m",
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 2402
+   "count": 2404
   },
   {
    "id": "l",
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 937
+   "count": 938
   },
   {
    "id": "ken",
@@ -76837,6 +76902,7 @@
   },
   {
    "kit": "kay-blocks",
+   "collection": "kay-play",
    "name": "decorative-block-amber",
    "kind": "obj-leisure-toy",
    "size": "m",
@@ -76881,6 +76947,7 @@
   },
   {
    "kit": "kay-blocks",
+   "collection": "kay-play",
    "name": "decorative-block-azure",
    "kind": "obj-leisure-toy",
    "size": "m",
@@ -116083,6 +116150,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-floor",
    "kind": "str-part-floor-unit",
    "size": "m",
@@ -116123,6 +116191,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-ladder",
    "kind": "str-access-ladder",
    "size": "m",
@@ -116163,6 +116232,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-large",
    "kind": "str-barrier-fence-mid",
    "size": "l",
@@ -116204,6 +116274,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-medium",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -116245,6 +116316,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-small",
    "kind": "str-barrier-fence-mid",
    "size": "m",
@@ -116286,6 +116358,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "barrier-strut",
    "kind": "str-part-frame",
    "size": "m",
@@ -116326,6 +116399,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "beach-ball",
    "kind": "obj-leisure-game-ball",
    "size": "m",
@@ -116379,6 +116453,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "blaster-amber",
    "kind": "obj-equipment-weapon-ranged-firearm",
    "size": "s",
@@ -116424,6 +116499,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "blaster-azure",
    "kind": "obj-equipment-weapon-ranged-firearm",
    "size": "s",
@@ -116469,6 +116545,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "bomb-red",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -116521,6 +116598,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "bomb",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -116567,6 +116645,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "bow",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "s",
@@ -116620,6 +116699,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "cactus",
    "kind": "env-flora-plant-cactus",
    "size": "m",
@@ -116659,6 +116739,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "flag-red",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -116711,6 +116792,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "flag",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -116763,6 +116845,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "forest-detail",
    "kind": "set",
    "size": "m",
@@ -116809,6 +116892,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "gate-large",
    "kind": "str-part-gate-gateway",
    "size": "m",
@@ -116848,6 +116932,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "gate-small",
    "kind": "str-part-gate-gateway",
    "size": "m",
@@ -116894,6 +116979,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "hoop",
    "kind": "obj-equipment-target",
    "size": "m",
@@ -116939,6 +117025,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "lightning",
    "kind": "obj-symbol",
    "size": "s",
@@ -116978,6 +117065,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "pine",
    "kind": "env-flora-tree-conifer",
    "size": "m",
@@ -117030,6 +117118,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "plant-a",
    "kind": "env-flora-plant-leafy",
    "size": "s",
@@ -117070,6 +117159,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "plant-b",
    "kind": "env-flora-plant-leafy",
    "size": "s",
@@ -117110,6 +117200,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "rocks-a",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
@@ -117150,6 +117241,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "rocks-b",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
@@ -117190,6 +117282,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "slingshot",
    "kind": "obj-equipment-weapon-ranged",
    "size": "s",
@@ -117234,6 +117327,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "star",
    "kind": "obj-symbol",
    "size": "s",
@@ -117273,6 +117367,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "sword",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
@@ -117318,6 +117413,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "target-stand",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -117368,6 +117464,7 @@
   },
   {
    "kit": "kay-minigame",
+   "collection": "kay-play",
    "name": "target",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -119067,6 +119164,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "arch-wide",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -119117,6 +119215,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "arch",
    "kind": "str-part-gate-gateway",
    "size": "m",
@@ -119167,6 +119266,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "ball-azure",
    "kind": "obj-leisure-game-ball",
    "size": "m",
@@ -119211,6 +119311,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "ball",
    "kind": "obj-leisure-game-ball",
    "size": "m",
@@ -119260,6 +119361,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bomb-striped",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -119313,6 +119415,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bomb",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
    "size": "s",
@@ -119360,6 +119463,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bracing-large",
    "kind": "str-part-wall",
    "size": "s",
@@ -119406,6 +119510,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "bracing-medium",
    "kind": "str-part-wall",
    "size": "s",
@@ -119452,6 +119557,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "cone",
    "kind": "str-barrier-traffic-cone",
    "size": "s",
@@ -119490,6 +119596,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "crate",
    "kind": "obj-container-crate-cube",
    "size": "s",
@@ -119528,6 +119635,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "diamond",
    "kind": "obj-symbol",
    "size": "s",
@@ -119567,6 +119675,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "finish-line-wide",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -119623,6 +119732,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "finish-line",
    "kind": "str-part-gate-gateway",
    "size": "l",
@@ -119679,6 +119789,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "flag-a",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -119725,6 +119836,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "flag-b",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -119771,6 +119883,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "flag-c",
    "kind": "str-fixture-marker-flag",
    "size": "m",
@@ -119817,6 +119930,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "frame-b",
    "kind": "str-part-frame",
    "size": "m",
@@ -119857,6 +119971,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "frame-c",
    "kind": "str-part-frame",
    "size": "m",
@@ -119897,6 +120012,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "heart",
    "kind": "obj-symbol",
    "size": "s",
@@ -119936,6 +120052,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "hoop-angled",
    "kind": "obj-equipment-target",
    "size": "m",
@@ -119987,6 +120104,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "hoop",
    "kind": "obj-equipment-target",
    "size": "m",
@@ -120032,6 +120150,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lever-floor",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
@@ -120081,6 +120200,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lever-wall-a",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
@@ -120131,6 +120251,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lever-wall-b",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
@@ -120182,6 +120303,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "lightning",
    "kind": "obj-symbol",
    "size": "s",
@@ -120221,6 +120343,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x1",
    "kind": "str-part-pillar",
    "size": "s",
@@ -120267,6 +120390,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x2",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120314,6 +120438,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x4",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120360,6 +120485,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-1x1x8",
    "kind": "str-part-pillar",
    "size": "l",
@@ -120407,6 +120533,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-2x2x2",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120452,6 +120579,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-2x2x4",
    "kind": "str-part-pillar",
    "size": "m",
@@ -120497,6 +120625,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pillar-2x2x8",
    "kind": "str-part-pillar",
    "size": "l",
@@ -120543,6 +120672,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pipe-180-a",
    "kind": "str-fixture-utility-pipe",
    "size": "l",
@@ -120583,6 +120713,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pipe-180-b",
    "kind": "str-fixture-utility-pipe",
    "size": "l",
@@ -120623,6 +120754,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "pipe-90",
    "kind": "str-fixture-utility-pipe",
    "size": "m",
@@ -120662,6 +120794,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrow-stand",
    "kind": "str-fixture-marker-sign-road",
    "size": "m",
@@ -120717,6 +120850,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrow-wall",
    "kind": "str-fixture-marker-sign-road",
    "size": "s",
@@ -120761,6 +120895,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-left-azure",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120811,6 +120946,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-left",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120861,6 +120997,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-right-azure",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120911,6 +121048,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-arrows-right",
    "kind": "str-barrier-traffic",
    "size": "l",
@@ -120961,6 +121099,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "sign-caution",
    "kind": "obj",
    "size": "s",
@@ -121009,6 +121148,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "spring-pad",
    "kind": "str-fixture-leisure-playground",
    "size": "s",
@@ -121053,6 +121193,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "spring",
    "kind": "obj-equipment-tool-mechanism",
    "size": "m",
@@ -121091,6 +121232,7 @@
   },
   {
    "kit": "kay-platformer",
+   "collection": "kay-play",
    "name": "star",
    "kind": "obj-symbol",
    "size": "s",
@@ -121130,6 +121272,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "barrel-a",
    "kind": "obj-container-barrel",
    "size": "s",
@@ -121168,6 +121311,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "box-a",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -121206,6 +121350,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "box-b",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -121245,6 +121390,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "box-c",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
@@ -121284,6 +121430,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "can-a",
    "kind": "obj-container-can",
    "size": "s",
@@ -121334,6 +121481,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "can-b",
    "kind": "obj-container-can",
    "size": "s",
@@ -121384,6 +121532,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "coin-a",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
@@ -121423,6 +121572,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "door-a-decorated",
    "kind": "str-part-door-single",
    "size": "m",
@@ -121474,6 +121624,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "door-a",
    "kind": "str-part-door-single",
    "size": "m",
@@ -121519,6 +121670,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "door-b",
    "kind": "str-part-door-single",
    "size": "m",
@@ -121574,6 +121726,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "dummy-base",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
@@ -121623,6 +121776,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-large",
    "kind": "obj-transport-pallet",
    "size": "m",
@@ -121663,6 +121817,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-small-decorated-a",
    "kind": "set",
    "size": "m",
@@ -121708,6 +121863,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-small-decorated-b",
    "kind": "set",
    "size": "m",
@@ -121770,6 +121926,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "pallet-small",
    "kind": "obj-transport-pallet",
    "size": "m",
@@ -121810,6 +121967,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "table-medium-decorated",
    "kind": "set",
    "size": "m",
@@ -121882,6 +122040,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "table-medium-long",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -121928,6 +122087,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "table-medium",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
@@ -121973,6 +122133,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target-small",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -122031,6 +122192,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target-stand-a-decorated",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -122101,6 +122263,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target-stand-a",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
@@ -122158,6 +122321,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "target",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
@@ -122202,6 +122366,7 @@
   },
   {
    "kit": "kay-proto",
+   "collection": "kay-play",
    "name": "wall-decorated",
    "kind": "str-part-wall-unit",
    "size": "m",
@@ -176413,7 +176578,7 @@
   {
    "kit": "ken-pirate",
    "name": "castle-door",
-   "kind": "str-part-door-single",
+   "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
     0.6,
@@ -176452,13 +176617,6 @@
     "ken",
     "stone-masonry",
     "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 1.32 over max 1.1 (str-part-door-single)"
-    }
    ]
   },
   {
@@ -196214,11 +196372,11 @@
    "kit": "ken-survival",
    "name": "barrel-open",
    "kind": "obj-container-barrel",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.331,
-    0.331,
-    0.482
+    0.355,
+    0.355,
+    0.516
    ],
    "tris": 380,
    "tpu": 1108,
@@ -196229,8 +196387,8 @@
    "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00312,
+   "minEdge": 0.016,
+   "avgTri": 0.00358,
    "anglePct": 42,
    "vpt": 1.01,
    "grad": 0.42,
@@ -196258,11 +196416,11 @@
    "kit": "ken-survival",
    "name": "barrel",
    "kind": "obj-container-barrel",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.331,
-    0.331,
-    0.482
+    0.355,
+    0.355,
+    0.516
    ],
    "tris": 412,
    "tpu": 1201,
@@ -196273,8 +196431,8 @@
    "vtx": 416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00193,
+   "minEdge": 0.016,
+   "avgTri": 0.00222,
    "anglePct": 51,
    "vpt": 1.01,
    "grad": 0.44,
@@ -196304,9 +196462,9 @@
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.381,
-    0.851,
-    0.207
+    0.408,
+    0.911,
+    0.222
    ],
    "tris": 100,
    "tpu": 292,
@@ -196317,9 +196475,9 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
-   "minTube": 0.029,
-   "avgTri": 0.0035,
+   "minEdge": 0.031,
+   "minTube": 0.0311,
+   "avgTri": 0.00401,
    "anglePct": 62,
    "vpt": 1.68,
    "grad": 0.79,
@@ -196345,9 +196503,9 @@
    "kind": "obj-furnishing-textile-pillow",
    "size": "s",
    "wdh": [
-    0.365,
-    0.126,
-    0.126
+    0.391,
+    0.135,
+    0.135
    ],
    "tris": 124,
    "tpu": 362,
@@ -196358,9 +196516,9 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.026,
-   "minTube": 0.1174,
-   "avgTri": 0.00125,
+   "minEdge": 0.028,
+   "minTube": 0.1257,
+   "avgTri": 0.00143,
    "anglePct": 14,
    "vpt": 1.03,
    "grad": 0.79,
@@ -196385,9 +196543,9 @@
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.435,
-    0.851,
-    0.175
+    0.466,
+    0.911,
+    0.187
    ],
    "tris": 140,
    "tpu": 408,
@@ -196398,8 +196556,8 @@
    "vtx": 164,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.01083,
+   "minEdge": 0.029,
+   "avgTri": 0.01243,
    "anglePct": 90,
    "vpt": 1.17,
    "grad": 0.64,
@@ -196429,9 +196587,9 @@
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.101,
-    0.117,
-    0.201
+    0.109,
+    0.125,
+    0.216
    ],
    "tris": 98,
    "tpu": 286,
@@ -196442,8 +196600,8 @@
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "avgTri": 0.00069,
+   "minEdge": 0.014,
+   "avgTri": 0.00079,
    "anglePct": 68,
    "vpt": 1.84,
    "grad": 0.47,
@@ -196481,9 +196639,9 @@
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.074,
-    0.085,
-    0.215
+    0.079,
+    0.091,
+    0.231
    ],
    "tris": 98,
    "tpu": 286,
@@ -196494,8 +196652,8 @@
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00053,
+   "minEdge": 0.013,
+   "avgTri": 0.00061,
    "anglePct": 62,
    "vpt": 1.84,
    "grad": 0.8,
@@ -196535,9 +196693,9 @@
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.074,
-    0.085,
-    0.215
+    0.079,
+    0.091,
+    0.231
    ],
    "tris": 98,
    "tpu": 286,
@@ -196548,8 +196706,8 @@
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00053,
+   "minEdge": 0.013,
+   "avgTri": 0.00061,
    "anglePct": 62,
    "vpt": 1.84,
    "grad": 0.7,
@@ -196589,9 +196747,9 @@
    "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
-    0.35,
-    0.7,
-    0.429
+    0.375,
+    0.75,
+    0.46
    ],
    "tris": 168,
    "tpu": 490,
@@ -196603,7 +196761,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.01261,
+   "avgTri": 0.01447,
    "anglePct": 64,
    "vpt": 1.19,
    "grad": 0.84,
@@ -196634,9 +196792,9 @@
    "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
-    0.35,
-    0.7,
-    0.35
+    0.375,
+    0.75,
+    0.375
    ],
    "tris": 116,
    "tpu": 338,
@@ -196647,8 +196805,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.01013,
+   "minEdge": 0.027,
+   "avgTri": 0.01163,
    "anglePct": 67,
    "vpt": 1.24,
    "grad": 0.79,
@@ -196678,9 +196836,9 @@
    "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.429
+    0.375,
+    0.375,
+    0.46
    ],
    "tris": 168,
    "tpu": 490,
@@ -196692,7 +196850,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00729,
+   "avgTri": 0.00837,
    "anglePct": 63,
    "vpt": 1.19,
    "grad": 0.79,
@@ -196722,9 +196880,9 @@
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
-    0.35,
-    0.35,
-    0.35
+    0.375,
+    0.375,
+    0.375
    ],
    "tris": 116,
    "tpu": 338,
@@ -196735,8 +196893,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "avgTri": 0.006,
+   "minEdge": 0.027,
+   "avgTri": 0.00689,
    "anglePct": 60,
    "vpt": 1.24,
    "grad": 0.79,
@@ -196767,9 +196925,9 @@
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.435,
-    0.851,
-    0.312
+    0.466,
+    0.911,
+    0.334
    ],
    "tris": 240,
    "tpu": 700,
@@ -196780,9 +196938,9 @@
    "vtx": 332,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "minTube": 0.029,
-   "avgTri": 0.00777,
+   "minEdge": 0.029,
+   "minTube": 0.0311,
+   "avgTri": 0.00892,
    "anglePct": 85,
    "vpt": 1.38,
    "grad": 0.72,
@@ -196818,9 +196976,9 @@
    "kind": "obj-furnishing-light-campfire",
    "size": "m",
    "wdh": [
-    0.552,
-    0.355,
-    0.386
+    0.592,
+    0.38,
+    0.414
    ],
    "tris": 100,
    "tpu": 292,
@@ -196831,9 +196989,9 @@
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "minTube": 0.0611,
-   "avgTri": 0.00443,
+   "minEdge": 0.045,
+   "minTube": 0.0655,
+   "avgTri": 0.00509,
    "anglePct": 100,
    "vpt": 1.68,
    "grad": 0.9,
@@ -196857,9 +197015,9 @@
    "kind": "obj-furnishing-light-campfire",
    "size": "m",
    "wdh": [
-    0.574,
-    0.174,
-    0.403
+    0.615,
+    0.187,
+    0.432
    ],
    "tris": 76,
    "tpu": 222,
@@ -196870,9 +197028,9 @@
    "vtx": 132,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.036,
-   "minTube": 0.0611,
-   "avgTri": 0.00424,
+   "minEdge": 0.038,
+   "minTube": 0.0655,
+   "avgTri": 0.00487,
    "anglePct": 100,
    "vpt": 1.74,
    "grad": 0.9,
@@ -196896,9 +197054,9 @@
    "kind": "obj-container-chest",
    "size": "s",
    "wdh": [
-    0.364,
-    0.38,
-    0.359
+    0.39,
+    0.407,
+    0.385
    ],
    "tris": 317,
    "tpu": 924,
@@ -196909,8 +197067,8 @@
    "vtx": 432,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "avgTri": 0.00378,
+   "minEdge": 0.016,
+   "avgTri": 0.00433,
    "anglePct": 76,
    "vpt": 1.36,
    "grad": 0.79,
@@ -196940,21 +197098,21 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.7,
-    0.067,
-    0.734
+    0.75,
+    0.072,
+    0.786
    ],
    "tris": 108,
-   "tpu": 300,
+   "tpu": 280,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 9016,
    "vtx": 216,
    "grounded": true,
-   "minEdge": 0.033,
-   "minTube": 0.0598,
-   "avgTri": 0.00746,
+   "minEdge": 0.035,
+   "minTube": 0.0641,
+   "avgTri": 0.00857,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -196971,13 +197129,6 @@
     "ken",
     "wood-worked"
    ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.734 under min 0.75 (str-part-door-doorway)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -196988,21 +197139,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.7,
-    0.075,
-    0.724
+    0.75,
+    0.08,
+    0.776
    ],
    "tris": 120,
-   "tpu": 338,
+   "tpu": 316,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 9664,
    "vtx": 240,
    "grounded": true,
-   "minEdge": 0.028,
-   "minTube": 0.0598,
-   "avgTri": 0.01108,
+   "minEdge": 0.03,
+   "minTube": 0.0641,
+   "avgTri": 0.01272,
    "anglePct": 97,
    "vpt": 2,
    "grad": 0.9,
@@ -197030,21 +197181,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.7,
-    0.061,
-    0.724
+    0.75,
+    0.066,
+    0.776
    ],
    "tris": 48,
-   "tpu": 135,
+   "tpu": 126,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 4804,
    "vtx": 96,
    "grounded": true,
-   "minEdge": 0.045,
-   "minTube": 0.0598,
-   "avgTri": 0.0134,
+   "minEdge": 0.048,
+   "minTube": 0.0641,
+   "avgTri": 0.01539,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -197072,9 +197223,9 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.43,
-    0.138,
-    0.224
+    0.461,
+    0.148,
+    0.24
    ],
    "tris": 257,
    "tpu": 749,
@@ -197086,7 +197237,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.0006,
+   "avgTri": 0.00069,
    "anglePct": 5,
    "vpt": 2.37,
    "grad": 0.62,
@@ -197121,9 +197272,9 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.287,
-    0.092,
-    0.149
+    0.307,
+    0.099,
+    0.16
    ],
    "tris": 257,
    "tpu": 749,
@@ -197135,7 +197286,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00027,
+   "avgTri": 0.00031,
    "anglePct": 5,
    "vpt": 2.37,
    "grad": 0.8,
@@ -197165,21 +197316,22 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
-    0.094
+    0.75,
+    0.75,
+    0.1
    ],
    "tris": 144,
-   "tpu": 420,
+   "tpu": 366,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 11720,
    "vtx": 288,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00884,
+   "minEdge": 0.023,
+   "avgTri": 0.01015,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -197203,22 +197355,23 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
-    0.08
+    0.75,
+    0.75,
+    0.086
    ],
    "tris": 84,
-   "tpu": 245,
+   "tpu": 213,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 7264,
    "vtx": 168,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "minTube": 0.0611,
-   "avgTri": 0.01787,
+   "minEdge": 0.023,
+   "minTube": 0.0655,
+   "avgTri": 0.02052,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -197243,22 +197396,23 @@
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
-    0.08
+    0.75,
+    0.75,
+    0.086
    ],
    "tris": 84,
-   "tpu": 245,
+   "tpu": 213,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 7252,
    "vtx": 168,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "minTube": 0.0611,
-   "avgTri": 0.01831,
+   "minEdge": 0.03,
+   "minTube": 0.0655,
+   "avgTri": 0.02102,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -197283,12 +197437,12 @@
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.35,
-    0.07,
-    0.7
+    0.375,
+    0.075,
+    0.75
    ],
    "tris": 76,
-   "tpu": 222,
+   "tpu": 207,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197296,8 +197450,8 @@
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.00854,
+   "minEdge": 0.022,
+   "avgTri": 0.0098,
    "anglePct": 100,
    "vpt": 2.32,
    "grad": 0.79,
@@ -197322,9 +197476,9 @@
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.088,
-    0.35
+    0.75,
+    0.094,
+    0.375
    ],
    "tris": 180,
    "tpu": 525,
@@ -197335,8 +197489,8 @@
    "vtx": 352,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00369,
+   "minEdge": 0.02,
+   "avgTri": 0.00424,
    "anglePct": 99,
    "vpt": 1.96,
    "grad": 0.21,
@@ -197368,12 +197522,12 @@
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.35,
-    0.088,
-    0.7
+    0.375,
+    0.094,
+    0.75
    ],
    "tris": 116,
-   "tpu": 338,
+   "tpu": 316,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -197381,8 +197535,8 @@
    "vtx": 224,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.00569,
+   "minEdge": 0.02,
+   "avgTri": 0.00653,
    "anglePct": 99,
    "vpt": 1.93,
    "grad": 0.54,
@@ -197413,12 +197567,12 @@
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.088,
-    0.7
+    0.75,
+    0.094,
+    0.75
    ],
    "tris": 180,
-   "tpu": 525,
+   "tpu": 490,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -197426,8 +197580,8 @@
    "vtx": 352,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "avgTri": 0.007,
+   "minEdge": 0.02,
+   "avgTri": 0.00804,
    "anglePct": 99,
    "vpt": 1.96,
    "grad": 0.79,
@@ -197458,12 +197612,12 @@
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.7,
-    0.07,
-    0.7
+    0.75,
+    0.075,
+    0.75
    ],
    "tris": 140,
-   "tpu": 408,
+   "tpu": 381,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197471,8 +197625,8 @@
    "vtx": 304,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "avgTri": 0.00892,
+   "minEdge": 0.022,
+   "avgTri": 0.01024,
    "anglePct": 100,
    "vpt": 2.17,
    "grad": 0.79,
@@ -197497,12 +197651,12 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    0.522,
-    0.876,
-    0.131
+    0.559,
+    0.939,
+    0.14
    ],
    "tris": 72,
-   "tpu": 210,
+   "tpu": 196,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197510,8 +197664,8 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.044,
-   "avgTri": 0.02242,
+   "minEdge": 0.047,
+   "avgTri": 0.02573,
    "anglePct": 82,
    "vpt": 2,
    "grad": 0.9,
@@ -197535,9 +197689,9 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.526,
-    0.472,
-    0.224
+    0.564,
+    0.505,
+    0.24
    ],
    "tris": 132,
    "tpu": 385,
@@ -197548,8 +197702,8 @@
    "vtx": 216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "avgTri": 0.00471,
+   "minEdge": 0.017,
+   "avgTri": 0.00541,
    "anglePct": 41,
    "vpt": 1.64,
    "grad": 0.8,
@@ -197573,9 +197727,9 @@
    "kind": "env-terrain-rock-pebble",
    "size": "s",
    "wdh": [
-    0.231,
-    0.199,
-    0.15
+    0.248,
+    0.213,
+    0.16
    ],
    "tris": 44,
    "tpu": 128,
@@ -197586,8 +197740,8 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "avgTri": 0.00286,
+   "minEdge": 0.015,
+   "avgTri": 0.00329,
    "anglePct": 38,
    "vpt": 1.64,
    "grad": 0.8,
@@ -197611,12 +197765,12 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.777,
-    0.87,
-    0.55
+    0.833,
+    0.932,
+    0.589
    ],
    "tris": 104,
-   "tpu": 220,
+   "tpu": 191,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197624,8 +197778,8 @@
    "vtx": 180,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.01358,
+   "minEdge": 0.029,
+   "avgTri": 0.01559,
    "anglePct": 38,
    "vpt": 1.73,
    "grad": 0.8,
@@ -197650,12 +197804,12 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    1.168,
-    1.015,
-    0.586
+    1.252,
+    1.087,
+    0.628
    ],
    "tris": 156,
-   "tpu": 188,
+   "tpu": 164,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197663,8 +197817,8 @@
    "vtx": 258,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.0166,
+   "minEdge": 0.023,
+   "avgTri": 0.01906,
    "anglePct": 48,
    "vpt": 1.65,
    "grad": 0.8,
@@ -197689,12 +197843,12 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    1.097,
-    0.792,
-    0.714
+    1.176,
+    0.849,
+    0.765
    ],
    "tris": 120,
-   "tpu": 193,
+   "tpu": 157,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197702,8 +197856,8 @@
    "vtx": 360,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "avgTri": 0.01909,
+   "minEdge": 0.045,
+   "avgTri": 0.02191,
    "anglePct": 36,
    "vpt": 3,
    "grad": 0.8,
@@ -197728,20 +197882,20 @@
    "kind": "env-terrain-ground",
    "size": "l",
    "wdh": [
-    2.501,
-    2.027,
-    0.316
+    2.68,
+    2.172,
+    0.339
    ],
    "tris": 506,
-   "tpu": 143,
+   "tpu": 124,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 44052,
    "vtx": 1228,
    "grounded": true,
-   "minEdge": 0.03,
-   "avgTri": 0.02202,
+   "minEdge": 0.032,
+   "avgTri": 0.02528,
    "anglePct": 70,
    "vpt": 2.43,
    "grad": 0.83,
@@ -197775,20 +197929,20 @@
    "kind": "env-terrain-ground",
    "size": "l",
    "wdh": [
-    2.501,
-    2.027,
-    0.273
+    2.68,
+    2.172,
+    0.293
    ],
    "tris": 274,
-   "tpu": 77,
+   "tpu": 67,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 46124,
    "vtx": 822,
    "grounded": true,
-   "minEdge": 0.03,
-   "avgTri": 0.04002,
+   "minEdge": 0.032,
+   "avgTri": 0.04595,
    "anglePct": 72,
    "vpt": 3,
    "grad": 0.8,
@@ -197816,12 +197970,12 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.777,
-    0.678,
-    0.55
+    0.833,
+    0.727,
+    0.589
    ],
    "tris": 92,
-   "tpu": 249,
+   "tpu": 217,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197829,8 +197983,8 @@
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
-   "avgTri": 0.01475,
+   "minEdge": 0.029,
+   "avgTri": 0.01694,
    "anglePct": 37,
    "vpt": 1.7,
    "grad": 0.8,
@@ -197855,12 +198009,12 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    1.119,
-    1.105,
-    0.628
+    1.199,
+    1.184,
+    0.673
    ],
    "tris": 180,
-   "tpu": 208,
+   "tpu": 181,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197868,8 +198022,8 @@
    "vtx": 306,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "avgTri": 0.01437,
+   "minEdge": 0.023,
+   "avgTri": 0.01649,
    "anglePct": 48,
    "vpt": 1.7,
    "grad": 0.8,
@@ -197894,12 +198048,12 @@
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    1.097,
-    0.797,
-    0.714
+    1.176,
+    0.854,
+    0.765
    ],
    "tris": 144,
-   "tpu": 231,
+   "tpu": 187,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -197907,8 +198061,8 @@
    "vtx": 432,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "avgTri": 0.01597,
+   "minEdge": 0.045,
+   "avgTri": 0.01833,
    "anglePct": 36,
    "vpt": 3,
    "grad": 0.8,
@@ -197933,9 +198087,9 @@
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
-    0.292,
-    0.06,
-    0.644
+    0.313,
+    0.064,
+    0.69
    ],
    "tris": 28,
    "tpu": 82,
@@ -197946,9 +198100,9 @@
    "vtx": 54,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.032,
-   "minTube": 0.0504,
-   "avgTri": 0.00718,
+   "minEdge": 0.035,
+   "minTube": 0.054,
+   "avgTri": 0.00824,
    "anglePct": 87,
    "vpt": 1.93,
    "grad": 0.66,
@@ -197978,9 +198132,9 @@
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
-    0.3,
-    0.06,
-    0.644
+    0.321,
+    0.064,
+    0.69
    ],
    "tris": 44,
    "tpu": 128,
@@ -197991,9 +198145,9 @@
    "vtx": 84,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.032,
-   "minTube": 0.0504,
-   "avgTri": 0.00663,
+   "minEdge": 0.035,
+   "minTube": 0.054,
+   "avgTri": 0.00762,
    "anglePct": 82,
    "vpt": 1.91,
    "grad": 0.59,
@@ -198023,22 +198177,23 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.75,
+    0.75,
+    0.75
    ],
    "tris": 116,
-   "tpu": 338,
+   "tpu": 275,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 8104,
    "vtx": 192,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0611,
-   "avgTri": 0.01804,
+   "minTube": 0.0655,
+   "avgTri": 0.02071,
    "anglePct": 76,
    "vpt": 1.66,
    "grad": 0.88,
@@ -198061,14 +198216,7 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v119",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.7 under min 0.75 (str-part-frame)"
-    }
-   ]
+   "variant": "v119"
   },
   {
    "kit": "ken-survival",
@@ -198076,22 +198224,23 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
-    0.777
+    0.75,
+    0.75,
+    0.832
    ],
    "tris": 164,
-   "tpu": 431,
+   "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 12972,
    "vtx": 328,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "minTube": 0.0611,
-   "avgTri": 0.01776,
+   "minEdge": 0.03,
+   "minTube": 0.0655,
+   "avgTri": 0.02039,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -198121,21 +198270,21 @@
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.75,
-    0.124,
-    0.734
+    0.803,
+    0.133,
+    0.787
    ],
    "tris": 160,
-   "tpu": 445,
+   "tpu": 415,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 11196,
    "vtx": 272,
    "grounded": true,
-   "minEdge": 0.022,
-   "minTube": 0.0598,
-   "avgTri": 0.00636,
+   "minEdge": 0.023,
+   "minTube": 0.0641,
+   "avgTri": 0.0073,
    "anglePct": 100,
    "vpt": 1.7,
    "grad": 0.79,
@@ -198158,13 +198307,6 @@
     "metal-iron-cast",
     "metal-iron-wrought"
    ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.734 under min 0.75 (str-part-door-doorway)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -198175,21 +198317,22 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.701,
-    0.701,
-    0.717
+    0.751,
+    0.751,
+    0.769
    ],
    "tris": 360,
-   "tpu": 1022,
+   "tpu": 830,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 18364,
    "vtx": 460,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.01184,
+   "avgTri": 0.01359,
    "anglePct": 95,
    "vpt": 1.28,
    "grad": 0.79,
@@ -198211,13 +198354,6 @@
     "ken",
     "metal-iron-cast",
     "metal-iron-wrought"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.717 under min 0.75 (str-part-frame)"
-    }
    ]
   },
   {
@@ -198226,12 +198362,12 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.762,
-    0.77,
-    0.7
+    0.816,
+    0.825,
+    0.75
    ],
    "tris": 328,
-   "tpu": 799,
+   "tpu": 650,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -198239,9 +198375,9 @@
    "vtx": 584,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "minTube": 0.0612,
-   "avgTri": 0.00882,
+   "minEdge": 0.023,
+   "minTube": 0.0655,
+   "avgTri": 0.01013,
    "anglePct": 42,
    "vpt": 1.78,
    "grad": 0.79,
@@ -198271,21 +198407,21 @@
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
-    0.75,
-    0.124,
-    0.7
+    0.803,
+    0.133,
+    0.75
    ],
    "tris": 100,
-   "tpu": 292,
+   "tpu": 272,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 6984,
    "vtx": 152,
    "grounded": true,
-   "minEdge": 0.022,
-   "minTube": 0.0611,
-   "avgTri": 0.00829,
+   "minEdge": 0.023,
+   "minTube": 0.0655,
+   "avgTri": 0.00952,
    "anglePct": 100,
    "vpt": 1.52,
    "grad": 0.67,
@@ -198319,23 +198455,22 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.75,
-    0.75,
-    0.7
+    0.803,
+    0.803,
+    0.75
    ],
    "tris": 200,
-   "tpu": 508,
+   "tpu": 414,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 12396,
    "vtx": 304,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "minTube": 0.0611,
-   "avgTri": 0.00829,
+   "minEdge": 0.023,
+   "minTube": 0.0655,
+   "avgTri": 0.00952,
    "anglePct": 100,
    "vpt": 1.52,
    "grad": 0.67,
@@ -198365,12 +198500,12 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.754,
-    0.773,
-    0.92
+    0.808,
+    0.828,
+    0.986
    ],
    "tris": 204,
-   "tpu": 380,
+   "tpu": 309,
    "mat": 1,
    "bands": 2,
    "calls": 2,
@@ -198378,9 +198513,9 @@
    "vtx": 408,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "minTube": 0.0611,
-   "avgTri": 0.01772,
+   "minEdge": 0.03,
+   "minTube": 0.0655,
+   "avgTri": 0.02034,
    "anglePct": 53,
    "vpt": 2,
    "grad": 0.9,
@@ -198411,22 +198546,23 @@
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.7,
-    0.7,
-    0.7
+    0.75,
+    0.75,
+    0.75
    ],
    "tris": 80,
-   "tpu": 233,
+   "tpu": 190,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 6984,
    "vtx": 160,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.056,
-   "minTube": 0.0611,
-   "avgTri": 0.0168,
+   "minEdge": 0.06,
+   "minTube": 0.0655,
+   "avgTri": 0.01928,
    "anglePct": 100,
    "vpt": 2,
    "grad": 0.9,
@@ -198443,14 +198579,7 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v119",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.7 under min 0.75 (str-part-frame)"
-    }
-   ]
+   "variant": "v119"
   },
   {
    "kit": "ken-survival",
@@ -198458,12 +198587,12 @@
    "kind": "str-canopy-tent-camping",
    "size": "m",
    "wdh": [
-    0.785,
-    0.785,
-    0.688
+    0.841,
+    0.842,
+    0.737
    ],
    "tris": 152,
-   "tpu": 352,
+   "tpu": 291,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -198472,8 +198601,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0252,
-   "avgTri": 0.01366,
+   "minTube": 0.027,
+   "avgTri": 0.01568,
    "anglePct": 23,
    "vpt": 1.53,
    "grad": 0.79,
@@ -198496,14 +198625,7 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v294",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0252 wants min 0.026"
-    }
-   ]
+   "variant": "v294"
   },
   {
    "kit": "ken-survival",
@@ -198511,12 +198633,12 @@
    "kind": "str-canopy-tent-camping",
    "size": "m",
    "wdh": [
-    0.786,
-    0.785,
-    0.688
+    0.842,
+    0.842,
+    0.737
    ],
    "tris": 180,
-   "tpu": 417,
+   "tpu": 344,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -198525,8 +198647,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0252,
-   "avgTri": 0.01622,
+   "minTube": 0.027,
+   "avgTri": 0.01862,
    "anglePct": 17,
    "vpt": 1.64,
    "grad": 0.88,
@@ -198549,14 +198671,7 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v294",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0252 wants min 0.026"
-    }
-   ]
+   "variant": "v294"
   },
   {
    "kit": "ken-survival",
@@ -198564,12 +198679,12 @@
    "kind": "str-canopy-tent-camping",
    "size": "m",
    "wdh": [
-    0.785,
-    0.785,
-    0.688
+    0.841,
+    0.842,
+    0.737
    ],
    "tris": 124,
-   "tpu": 287,
+   "tpu": 238,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -198577,9 +198692,9 @@
    "vtx": 372,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "minTube": 0.0252,
-   "avgTri": 0.00995,
+   "minEdge": 0.027,
+   "minTube": 0.027,
+   "avgTri": 0.01143,
    "anglePct": 39,
    "vpt": 3,
    "grad": 0.9,
@@ -198597,14 +198712,7 @@
     "ken",
     "wood-beam"
    ],
-   "variant": "v294",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0252 wants min 0.026"
-    }
-   ]
+   "variant": "v294"
   },
   {
    "kit": "ken-survival",
@@ -198612,9 +198720,9 @@
    "kind": "obj-equipment-weapon-melee-axe-double",
    "size": "s",
    "wdh": [
-    0.205,
-    0.056,
-    0.358
+    0.22,
+    0.06,
+    0.384
    ],
    "tris": 140,
    "tpu": 408,
@@ -198625,9 +198733,9 @@
    "vtx": 192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0361,
-   "avgTri": 0.00072,
+   "minEdge": 0.015,
+   "minTube": 0.0387,
+   "avgTri": 0.00083,
    "anglePct": 95,
    "vpt": 1.37,
    "grad": 0.79,
@@ -198658,9 +198766,9 @@
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
-    0.16,
-    0.043,
-    0.358
+    0.172,
+    0.046,
+    0.384
    ],
    "tris": 84,
    "tpu": 245,
@@ -198671,9 +198779,9 @@
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0361,
-   "avgTri": 0.0008,
+   "minEdge": 0.015,
+   "minTube": 0.0387,
+   "avgTri": 0.00092,
    "anglePct": 95,
    "vpt": 1.52,
    "grad": 0.79,
@@ -198704,9 +198812,9 @@
    "kind": "obj-equipment-tool-hand-hammer",
    "size": "s",
    "wdh": [
-    0.163,
-    0.072,
-    0.258
+    0.174,
+    0.077,
+    0.277
    ],
    "tris": 80,
    "tpu": 233,
@@ -198717,9 +198825,9 @@
    "vtx": 104,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "minTube": 0.0376,
-   "avgTri": 0.00152,
+   "minEdge": 0.014,
+   "minTube": 0.0403,
+   "avgTri": 0.00175,
    "anglePct": 96,
    "vpt": 1.3,
    "grad": 0.79,
@@ -198750,9 +198858,9 @@
    "kind": "obj-equipment-tool-hand-hammer",
    "size": "s",
    "wdh": [
-    0.126,
-    0.056,
-    0.215
+    0.135,
+    0.06,
+    0.23
    ],
    "tris": 52,
    "tpu": 152,
@@ -198763,8 +198871,8 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00138,
+   "minEdge": 0.011,
+   "avgTri": 0.00159,
    "anglePct": 77,
    "vpt": 1.38,
    "grad": 0.79,
@@ -198795,9 +198903,9 @@
    "kind": "obj-equipment-tool-hand",
    "size": "s",
    "wdh": [
-    0.125,
-    0.127,
-    0.336
+    0.134,
+    0.136,
+    0.36
    ],
    "tris": 106,
    "tpu": 309,
@@ -198808,9 +198916,9 @@
    "vtx": 154,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minTube": 0.0361,
-   "avgTri": 0.00089,
+   "minEdge": 0.015,
+   "minTube": 0.0387,
+   "avgTri": 0.00102,
    "anglePct": 90,
    "vpt": 1.45,
    "grad": 0.79,
@@ -198841,9 +198949,9 @@
    "kind": "obj-equipment-tool-hand",
    "size": "s",
    "wdh": [
-    0.119,
-    0.099,
-    0.336
+    0.127,
+    0.106,
+    0.36
    ],
    "tris": 58,
    "tpu": 169,
@@ -198854,9 +198962,9 @@
    "vtx": 94,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.0361,
-   "avgTri": 0.00108,
+   "minEdge": 0.016,
+   "minTube": 0.0387,
+   "avgTri": 0.00124,
    "anglePct": 96,
    "vpt": 1.62,
    "grad": 0.79,
@@ -198887,9 +198995,9 @@
    "kind": "obj-equipment-tool-twohand-pickaxe",
    "size": "s",
    "wdh": [
-    0.25,
-    0.056,
-    0.336
+    0.268,
+    0.06,
+    0.36
    ],
    "tris": 110,
    "tpu": 321,
@@ -198900,9 +199008,9 @@
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "minTube": 0.0361,
-   "avgTri": 0.00105,
+   "minEdge": 0.018,
+   "minTube": 0.0387,
+   "avgTri": 0.00121,
    "anglePct": 90,
    "vpt": 1.45,
    "grad": 0.79,
@@ -198933,9 +199041,9 @@
    "kind": "obj-equipment-tool-twohand-pickaxe",
    "size": "s",
    "wdh": [
-    0.25,
-    0.054,
-    0.336
+    0.268,
+    0.058,
+    0.36
    ],
    "tris": 74,
    "tpu": 216,
@@ -198946,9 +199054,9 @@
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.0361,
-   "avgTri": 0.00107,
+   "minEdge": 0.016,
+   "minTube": 0.0387,
+   "avgTri": 0.00122,
    "anglePct": 89,
    "vpt": 1.62,
    "grad": 0.79,
@@ -198979,9 +199087,9 @@
    "kind": "obj-equipment-tool-twohand-shovel",
    "size": "s",
    "wdh": [
-    0.127,
-    0.064,
-    0.406
+    0.136,
+    0.068,
+    0.435
    ],
    "tris": 173,
    "tpu": 504,
@@ -198992,9 +199100,9 @@
    "vtx": 220,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.1049,
-   "avgTri": 0.00061,
+   "minEdge": 0.013,
+   "minTube": 0.1124,
+   "avgTri": 0.00071,
    "anglePct": 91,
    "vpt": 1.27,
    "grad": 0.79,
@@ -199025,9 +199133,9 @@
    "kind": "obj-equipment-tool-twohand-shovel",
    "size": "s",
    "wdh": [
-    0.099,
-    0.043,
-    0.406
+    0.106,
+    0.046,
+    0.435
    ],
    "tris": 122,
    "tpu": 356,
@@ -199038,8 +199146,8 @@
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "avgTri": 0.00068,
+   "minEdge": 0.013,
+   "avgTri": 0.00079,
    "anglePct": 89,
    "vpt": 1.31,
    "grad": 0.79,
@@ -199070,9 +199178,9 @@
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
-    0.349,
-    0.91,
-    0.388
+    0.374,
+    0.975,
+    0.416
    ],
    "tris": 92,
    "tpu": 268,
@@ -199083,9 +199191,9 @@
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.051,
-   "minTube": 0.3415,
-   "avgTri": 0.01184,
+   "minEdge": 0.055,
+   "minTube": 0.3659,
+   "avgTri": 0.01359,
    "anglePct": 43,
    "vpt": 1.7,
    "grad": 0.76,
@@ -199116,14 +199224,14 @@
    "kit": "ken-survival",
    "name": "tree-log",
    "kind": "obj-resource-wood-log",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.349,
-    1.4,
-    0.388
+    0.374,
+    1.5,
+    0.416
    ],
    "tris": 92,
-   "tpu": 268,
+   "tpu": 234,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -199131,9 +199239,9 @@
    "vtx": 156,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.051,
-   "minTube": 0.3415,
-   "avgTri": 0.01631,
+   "minEdge": 0.055,
+   "minTube": 0.3659,
+   "avgTri": 0.01872,
    "anglePct": 59,
    "vpt": 1.7,
    "grad": 0.76,
@@ -199166,12 +199274,12 @@
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    0.775,
-    0.738,
-    2.395
+    0.83,
+    0.79,
+    2.566
    ],
    "tris": 326,
-   "tpu": 238,
+   "tpu": 194,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -199180,8 +199288,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.1956,
-   "avgTri": 0.01291,
+   "minTube": 0.2096,
+   "avgTri": 0.01482,
    "anglePct": 29,
    "vpt": 1.36,
    "grad": 0.8,
@@ -199211,12 +199319,12 @@
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    0.775,
-    0.738,
-    1.975
+    0.83,
+    0.79,
+    2.116
    ],
    "tris": 298,
-   "tpu": 264,
+   "tpu": 215,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -199225,8 +199333,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.1956,
-   "avgTri": 0.01298,
+   "minTube": 0.2096,
+   "avgTri": 0.0149,
    "anglePct": 19,
    "vpt": 1.33,
    "grad": 0.79,
@@ -199255,11 +199363,11 @@
    "kit": "ken-survival",
    "name": "workbench-anvil",
    "kind": "set",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.452,
-    0.414,
-    0.47
+    0.484,
+    0.443,
+    0.504
    ],
    "tris": 298,
    "tpu": 869,
@@ -199269,9 +199377,8 @@
    "bytes": 21228,
    "vtx": 527,
    "grounded": true,
-   "centered": true,
-   "minEdge": 0.01,
-   "avgTri": 0.00337,
+   "minEdge": 0.011,
+   "avgTri": 0.00387,
    "anglePct": 64,
    "vpt": 1.77,
    "grad": 0.86,
@@ -199302,9 +199409,9 @@
    "kind": "obj-equipment-tool-station",
    "size": "s",
    "wdh": [
-    0.365,
-    0.461,
-    0.394
+    0.391,
+    0.494,
+    0.423
    ],
    "tris": 244,
    "tpu": 711,
@@ -199315,9 +199422,9 @@
    "vtx": 348,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "minTube": 0.0488,
-   "avgTri": 0.00408,
+   "minEdge": 0.03,
+   "minTube": 0.0523,
+   "avgTri": 0.00468,
    "anglePct": 39,
    "vpt": 1.43,
    "grad": 0.79,
@@ -199347,9 +199454,9 @@
    "kind": "set",
    "size": "s",
    "wdh": [
-    0.456,
-    0.414,
-    0.401
+    0.488,
+    0.443,
+    0.43
    ],
    "tris": 260,
    "tpu": 758,
@@ -199361,7 +199468,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00504,
+   "avgTri": 0.00578,
    "anglePct": 79,
    "vpt": 1.28,
    "grad": 0.85,
@@ -225104,6 +225211,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "dolphin",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -225117,7 +225225,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 2,
-   "bytes": 140892,
+   "bytes": 140912,
    "vtx": 1344,
    "centered": true,
    "minEdge": 0.005,
@@ -225148,6 +225256,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "fish-1",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225161,7 +225270,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 108628,
+   "bytes": 108656,
    "vtx": 1678,
    "minEdge": 0.001,
    "avgTri": 0.00016,
@@ -225203,6 +225312,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "fish-2",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225216,7 +225326,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 3,
-   "bytes": 99580,
+   "bytes": 99608,
    "vtx": 1522,
    "minEdge": 0,
    "avgTri": 0.00014,
@@ -225252,6 +225362,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "fish-3",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225265,7 +225376,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 128648,
+   "bytes": 128680,
    "vtx": 2058,
    "minEdge": 0.001,
    "minTube": 0.1846,
@@ -225307,6 +225418,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "manta-ray",
    "kind": "env-fauna-fish-ray",
    "size": "m",
@@ -225320,7 +225432,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 148516,
+   "bytes": 148528,
    "vtx": 2088,
    "minEdge": 0.005,
    "avgTri": 0.0012,
@@ -225356,6 +225468,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "shark",
    "kind": "env-fauna-fish-shark",
    "size": "m",
@@ -225369,7 +225482,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 125632,
+   "bytes": 125644,
    "vtx": 1956,
    "centered": true,
    "minEdge": 0.001,
@@ -225405,6 +225518,7 @@
   },
   {
    "kit": "quat-fish",
+   "collection": "quat-sea",
    "name": "whale",
    "kind": "env-fauna-mammal",
    "size": "l",
@@ -225418,7 +225532,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 97960,
+   "bytes": 97976,
    "vtx": 1341,
    "minEdge": 0.011,
    "minTube": 1.346,
@@ -225455,6 +225569,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "anglerfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225513,6 +225628,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "blue-tang",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225560,6 +225676,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "clownfish-basalt",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225603,6 +225720,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "clownfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225651,6 +225769,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "coral-grouper",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -225698,6 +225817,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-long-bare",
    "kind": "str-access-platform-dock",
    "size": "l",
@@ -225746,6 +225866,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-long",
    "kind": "str-access-platform-dock",
    "size": "l",
@@ -225800,6 +225921,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-stairs",
    "kind": "str-access-stairs",
    "size": "m",
@@ -225846,6 +225968,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "dock-wide",
    "kind": "str-access-platform-dock",
    "size": "l",
@@ -225899,6 +226022,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-a",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -225946,6 +226070,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-b",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -225993,6 +226118,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-c",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -226038,6 +226164,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-d",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -226091,6 +226218,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "fishing-rod-e",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
@@ -226144,6 +226272,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "flatfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226196,6 +226325,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lionfish-basalt",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226241,6 +226371,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lionfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226296,6 +226427,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-a",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226346,6 +226478,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-b",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226396,6 +226529,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-c",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226441,6 +226575,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-d",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226496,6 +226631,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-e",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226551,6 +226687,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "lure-f",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
@@ -226596,6 +226733,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "moorish-idol",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226638,6 +226776,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "parrotfish",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226695,6 +226834,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "piranha",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226752,6 +226892,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "puffer",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226801,6 +226942,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "rowboat",
    "kind": "obj-transport-watercraft-boat",
    "size": "m",
@@ -226853,6 +226995,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "snapper",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -226905,6 +227048,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "tuna",
    "kind": "env-fauna-fish",
    "size": "m",
@@ -226958,6 +227102,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "turbot",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -227005,6 +227150,7 @@
   },
   {
    "kit": "quat-fishing",
+   "collection": "quat-sea",
    "name": "worm",
    "kind": "env-fauna",
    "size": "s",
@@ -234556,6 +234702,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "crab",
    "kind": "env-fauna",
    "size": "s",
@@ -234598,6 +234745,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "eel",
    "kind": "env-fauna-fish",
    "size": "m",
@@ -234636,6 +234784,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-brown",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234678,6 +234827,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-clown",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234725,6 +234875,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-dory",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234772,6 +234923,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "fish-tuna",
    "kind": "env-fauna-fish",
    "size": "s",
@@ -234814,6 +234966,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "lobster",
    "kind": "env-fauna",
    "size": "s",
@@ -234851,6 +235004,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "octopus",
    "kind": "env-fauna",
    "size": "m",
@@ -234893,6 +235047,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "penguin",
    "kind": "env-fauna-bird",
    "size": "m",
@@ -234947,6 +235102,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "seal",
    "kind": "env-fauna-mammal",
    "size": "m",
@@ -234984,6 +235140,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shark-hammerhead",
    "kind": "env-fauna-fish-shark",
    "size": "m",
@@ -235026,6 +235183,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-clam",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235064,6 +235222,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-oyster",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235102,6 +235261,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-scallop",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235140,6 +235300,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "shell-spiral",
    "kind": "env-remains-shell",
    "size": "s",
@@ -235178,6 +235339,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "squid",
    "kind": "env-fauna",
    "size": "s",
@@ -235215,6 +235377,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "starfish",
    "kind": "env-fauna-starfish",
    "size": "s",
@@ -235258,6 +235421,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "stingray",
    "kind": "env-fauna-fish-ray",
    "size": "s",
@@ -235295,6 +235459,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "turtle",
    "kind": "env-fauna",
    "size": "m",
@@ -235337,6 +235502,7 @@
   },
   {
    "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "whale",
    "kind": "env-fauna-mammal",
    "size": "l",
