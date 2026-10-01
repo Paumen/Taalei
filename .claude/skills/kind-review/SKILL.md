@@ -54,6 +54,15 @@ from the source's own style.
 
 ## 3. Suggest
 
+First read what the PO tends to pick:
+
+    node tools/renders/kind-pick.mjs --stats
+
+Lead with categories the PO picks often and with the kinds of faults the PO
+raised themselves (`by po`). Keep a category the PO keeps declining to the
+clearest cases, and put options shaped like the ones picked before first.
+Never drop a real fault because its category is picked rarely.
+
 Per kind, 2–5 suggestions, each about making the kind read as one family.
 Look at:
 
@@ -77,6 +86,17 @@ material change to pass.
 Ask with AskUserQuestion: one question per suggestion, its options as answers,
 up to 4 questions per call. A skipped question stays open; ask again or leave
 it, never pick for the PO. Do nothing on a suggestion that was not chosen.
+
+Record every suggestion and the answer in the log, including faults the PO
+raised during the review (`by: "po"`) and their own wording when they answer
+outside the options:
+
+    node tools/renders/kind-pick.mjs --record <scratch>/record.json
+
+The file holds `{ kind, suggestions: [ { by, category, models, text, options,
+picked } ] }` per kind; `--help` lists the categories. `picked` is the chosen
+options, `[]` when declined, `null` while unanswered. Record again when an open
+suggestion gets an answer later; a record replaces that kind's suggestions.
 
 ## 5. Implement
 
