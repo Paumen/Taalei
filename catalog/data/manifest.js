@@ -2128,6 +2128,7 @@ window.KENNEY_KITS = [
    "axe-small",
    "backpack",
    "bag",
+   "blood-ring",
    "bone",
    "book-1-closed",
    "book-1-open",
@@ -3396,14 +3397,6 @@ window.KENNEY_KITS = [
   ]
  },
 {
-  "slug": "quat-blood-ring",
-  "name": "quat-blood-ring",
-  "url": "https://quaternius.com/",
-  "models": [
-   "blood-ring"
-  ]
- },
- {
   "slug": "quat-skeleton",
   "name": "quat-skeleton",
   "url": "https://quaternius.com/",
