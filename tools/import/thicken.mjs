@@ -84,19 +84,22 @@ function widenStick(glb, stick, min) {
   });
   const t0 = Math.min(...local.map((l) => l[0]));
   const span = Math.max(...local.map((l) => l[0])) - t0;
-  const binOf = local.map((l) => Math.min(TUBE_SLICES - 1, Math.floor((l[0] - t0) / span * TUBE_SLICES)));
-  const line = [];
+  const binOf = local.map((l) => Math.min(TUBE_SLICES - 1, Math.floor(Math.round((l[0] - t0) / span * TUBE_SLICES * 1e6) / 1e6)));
+  const slices = [];
   for (let k = 0; k < TUBE_SLICES; k++) {
     const members = local.filter((_, n) => binOf[n] === k);
-    if (!members.length) continue;
+    if (members.length < 3) continue;
     const side = (j) => {
       const values = members.map((l) => l[j]);
       const lo = Math.min(...values), hi = Math.max(...values);
       return [(lo + hi) / 2, hi - lo];
     };
     const [cu, wu] = side(1), [cw, ww] = side(2);
-    line.push({ t: members.reduce((sum, l) => sum + l[0], 0) / members.length, cu, cw, wu, ww });
+    slices.push({ t: members.reduce((sum, l) => sum + l[0], 0) / members.length, cu, cw, wu, ww });
   }
+  const widest = (k) => Math.max(0, ...slices.map((r) => r[k]));
+  const line = slices.filter((r) => r.wu >= 0.25 * widest('wu') && r.ww >= 0.25 * widest('ww')).sort((a, b) => a.t - b.t);
+  if (!line.length) return;
   const at = (t) => {
     if (t <= line[0].t) return line[0];
     const last = line[line.length - 1];
@@ -108,8 +111,12 @@ function widenStick(glb, stick, min) {
   vertices.forEach((v, n) => {
     const [t, a, b] = local[n];
     const { cu, cw, wu, ww } = at(t);
-    const na = cu + (a - cu) * Math.max(1, min * MARGIN / Math.max(wu, 1e-9));
-    const nb = cw + (b - cw) * Math.max(1, min * MARGIN / Math.max(ww, 1e-9));
+    const grow = (x, mid, width) => {
+      const d = x - mid, m = Math.abs(d);
+      return mid + Math.sign(d) * Math.max(m, Math.min(m * min * MARGIN / Math.max(width, 1e-9), min * MARGIN / 2));
+    };
+    const na = grow(a, cu, wu);
+    const nb = grow(b, cw, ww);
     const moved = times(back, [0, 1, 2].map((k) => center[k] + t * axis[k] + na * u[k] + nb * w[k]));
     const p = position(v);
     for (let k = 0; k < 3; k++) p[k] = moved[k];
