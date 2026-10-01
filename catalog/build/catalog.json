@@ -1097,8 +1097,8 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 9
+    "factor": 1.09,
+    "kinds": 8
    }
   },
   {
@@ -2636,9 +2636,8 @@
     "smooth": 20
    },
    "kitCheck": {
-    "factor": 1.34,
-    "kinds": 6,
-    "level": "warning"
+    "factor": 0.95,
+    "kinds": 6
    }
   },
   {
@@ -2817,7 +2816,8 @@
     "Modular Sushi Restaurant Kit": 77
    },
    "scales": {
-    "0.2": 77
+    "0.2": 66,
+    "0.15": 11
    },
    "smooth": {
     "smooth": 72,
@@ -3406,7 +3406,7 @@
    ],
    "kitCheck": {
     "factor": 0.95,
-    "kinds": 37
+    "kinds": 38
    }
   },
   {
@@ -10816,9 +10816,7 @@
    "main": "nature-assets/mushroom-a",
    "members": [
     "nature-assets/mushroom-a",
-    "nature-assets/mushroom-b",
-    "nature-assets/mushroom-c",
-    "nature-assets/mushroom-d"
+    "nature-assets/mushroom-b"
    ]
   },
   {
@@ -16029,6 +16027,42 @@
     "zombie-weapons/ammo-box-pistol",
     "zombie-weapons/ammo-box-shotgun"
    ]
+  },
+  {
+   "id": "v1256",
+   "type": "detail-variant",
+   "main": "nature-assets/mushroom-c",
+   "members": [
+    "nature-assets/mushroom-c",
+    "nature-assets/mushroom-d"
+   ]
+  },
+  {
+   "id": "v1257",
+   "type": "detail-variant",
+   "main": "wizp-asia/drum",
+   "members": [
+    "wizp-asia/drum",
+    "wizp-asia/drum-loose"
+   ]
+  },
+  {
+   "id": "v1258",
+   "type": "maatvariant",
+   "main": "natuur/mushroom-dark-red",
+   "members": [
+    "natuur/mushroom-dark-red",
+    "natuur/mushroom-grey"
+   ]
+  },
+  {
+   "id": "v1259",
+   "type": "color-variant",
+   "main": "rgp-medieval/mushroom-5",
+   "members": [
+    "rgp-medieval/mushroom-5",
+    "rgp-medieval/mushroom-6"
+   ]
   }
  ],
  "bands": [
@@ -16300,7 +16334,7 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 523
+   "count": 521
   },
   {
    "id": "plastic",
@@ -16406,7 +16440,7 @@
    "name": "Vegetation",
    "type": "material",
    "description": "A plant's matter that is neither light-green nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 196
+   "count": 197
   },
   {
    "id": "skin",
@@ -16625,7 +16659,7 @@
    "name": "Carton",
    "type": "kind",
    "description": "carton, milk carton",
-   "count": 11
+   "count": 9
   },
   {
    "id": "obj-container-trashcan",
@@ -16716,7 +16750,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 97
+   "count": 99
   },
   {
    "id": "obj-container-crate-cube",
@@ -16730,7 +16764,7 @@
    "name": "Cardboard box",
    "type": "kind",
    "description": "cardboard box, package, present",
-   "count": 28
+   "count": 30
   },
   {
    "id": "obj-container-pot",
@@ -16949,7 +16983,7 @@
    "name": "Sushi",
    "type": "kind",
    "description": "sushi, sashimi",
-   "count": 22
+   "count": 20
   },
   {
    "id": "obj-food-seafood",
@@ -19402,7 +19436,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 166,
+   "count": 168,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -19417,6 +19451,7 @@
     "obj-resource-metal",
     "obj-furnishing-furniture-storage-cabinet",
     "obj-furnishing-textile-rug",
+    "obj-leisure-art-instrument",
     "str-part-floor-unit",
     "str-part-wall-unit",
     "str-part-pillar",
@@ -19440,7 +19475,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 110,
+   "count": 111,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -19474,6 +19509,7 @@
     "str-fixture-chimney",
     "str-fixture-utility-well",
     "env-fauna-fish",
+    "env-fauna-starfish",
     "env-remains-deadwood-stump",
     "env-flora-plant-leafy",
     "env-flora-plant-cactus"
@@ -19484,7 +19520,7 @@
    "name": "AssetQuest",
    "type": "artist",
    "description": "Kits from Asset Quest (assetquest.dev).",
-   "count": 97
+   "count": 98
   },
   {
    "id": "s",
@@ -22430,6 +22466,18 @@
    "longest.max": 1.4,
    "tpu.max": 10000
   },
+  "obj-leisure-art-instrument scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-leisure-art-instrument-bell scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-part-door-trapdoor scale-big": {
    "high.max": 8,
    "longest.min": 0.7,
@@ -22615,6 +22663,12 @@
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 3,
+   "tpu.max": 10000
+  },
+  "env-fauna-starfish scale-big": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.6,
    "tpu.max": 10000
   },
   "env-remains-deadwood-tree scale-small": {
@@ -25380,18 +25434,18 @@
    "avgTri": 0.0001,
    "anglePct": 6,
    "vpt": 0.83,
-   "grad": 0.43,
+   "grad": 0.4,
    "spread": {
     "1,0": [
      0.148,
      0.75
     ],
-    "0,0": [
-     0.336,
-     0.742
-    ],
     "5,2": [
      0.727,
+     0.742
+    ],
+    "0,0": [
+     0.336,
      0.742
     ]
    },
@@ -25431,18 +25485,18 @@
    "avgTri": 0.00012,
    "anglePct": 5,
    "vpt": 0.87,
-   "grad": 0.44,
+   "grad": 0.4,
    "spread": {
     "1,0": [
      0.148,
      0.75
     ],
-    "0,0": [
-     0.273,
-     0.742
-    ],
     "5,2": [
      0.727,
+     0.742
+    ],
+    "0,0": [
+     0.273,
      0.742
     ]
    },
@@ -25532,18 +25586,18 @@
    "avgTri": 0.00006,
    "anglePct": 7,
    "vpt": 1.1,
-   "grad": 0.45,
+   "grad": 0.39,
    "spread": {
     "1,0": [
      0.148,
      0.75
     ],
-    "0,0": [
-     0.273,
-     0.742
-    ],
     "5,2": [
      0.742,
+     0.742
+    ],
+    "0,0": [
+     0.273,
      0.742
     ]
    },
@@ -25582,18 +25636,18 @@
    "avgTri": 0.00006,
    "anglePct": 6,
    "vpt": 1.02,
-   "grad": 0.41,
+   "grad": 0.36,
    "spread": {
     "1,0": [
      0.148,
      0.75
     ],
-    "0,0": [
-     0.352,
-     0.742
-    ],
     "5,2": [
      0.734,
+     0.742
+    ],
+    "0,0": [
+     0.352,
      0.742
     ]
    },
@@ -25769,7 +25823,7 @@
    "avgTri": 0.00002,
    "anglePct": 1,
    "vpt": 0.84,
-   "grad": 0.46,
+   "grad": 0.44,
    "spread": {
     "5,2": [
      0.242,
@@ -25785,6 +25839,7 @@
     "#d8d1bd"
    ],
    "tags": [
+    "aq",
     "food",
     "vegetation"
    ],
@@ -43967,9 +44022,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0062,
-   "avgTri": 0.00104,
-   "anglePct": 46,
+   "minTube": 0.0122,
+   "avgTri": 0.00106,
+   "anglePct": 47,
    "vpt": 1.36,
    "grad": 0.63,
    "spread": {
@@ -120852,7 +120907,7 @@
   {
    "kit": "kay-proto",
    "name": "box-a",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.137,
@@ -213683,7 +213738,7 @@
     "food",
     "vegetation"
    ],
-   "variant": "v709"
+   "variant": "v1256"
   },
   {
    "kit": "nature-assets",
@@ -213732,7 +213787,7 @@
     "food",
     "vegetation"
    ],
-   "variant": "v709"
+   "variant": "v1256"
   },
   {
    "kit": "nature-assets",
@@ -216150,7 +216205,8 @@
     "food",
     "robin-hood",
     "vegetation"
-   ]
+   ],
+   "variant": "v1258"
   },
   {
    "kit": "natuur",
@@ -216194,7 +216250,8 @@
     "food",
     "robin-hood",
     "vegetation"
-   ]
+   ],
+   "variant": "v1258"
   },
   {
    "kit": "natuur",
@@ -229789,7 +229846,6 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
     "food",
     "qua"
    ],
@@ -229844,9 +229900,9 @@
     "#d8d1bd"
    ],
    "tags": [
-    "ceramic",
     "food",
-    "qua"
+    "qua",
+    "vegetation"
    ],
    "variant": "v335"
   },
@@ -234884,19 +234940,19 @@
     0.173,
     0.014
    ],
-   "tris": 360,
-   "tpu": 1050,
+   "tris": 335,
+   "tpu": 977,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 26616,
-   "vtx": 720,
+   "bytes": 25348,
+   "vtx": 685,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "avgTri": 0.00009,
-   "anglePct": 8,
-   "vpt": 2,
+   "avgTri": 0.0001,
+   "anglePct": 7,
+   "vpt": 2.04,
    "grad": 0,
    "spread": {
     "8,0": [
@@ -234913,7 +234969,8 @@
     "#d07b56"
    ],
    "tags": [
-    "qua"
+    "qua",
+    "scale-big"
    ]
   },
   {
@@ -250325,12 +250382,12 @@
   {
    "kit": "quat-sushi",
    "name": "crabsticks",
-   "kind": "obj-food-fish-sushi",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
-    0.108,
-    0.085,
-    0.049
+    0.081,
+    0.063,
+    0.037
    ],
    "tris": 314,
    "tpu": 915,
@@ -250341,9 +250398,9 @@
    "vtx": 343,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0289,
-   "avgTri": 0.00017,
+   "minEdge": 0.002,
+   "minTube": 0.0217,
+   "avgTri": 0.0001,
    "anglePct": 63,
    "vpt": 1.09,
    "grad": 0.51,
@@ -250613,21 +250670,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.156,
-    0.069,
-    0.061
+    0.117,
+    0.052,
+    0.046
    ],
    "tris": 654,
    "tpu": 1907,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 21780,
+   "bytes": 21784,
    "vtx": 508,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "avgTri": 0.00007,
+   "minEdge": 0.001,
+   "avgTri": 0.00004,
    "anglePct": 5,
    "vpt": 0.78,
    "grad": 0.59,
@@ -251178,21 +251235,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.13,
-    0.075,
-    0.063
+    0.098,
+    0.056,
+    0.048
    ],
    "tris": 250,
    "tpu": 729,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7456,
+   "bytes": 7460,
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00017,
+   "minEdge": 0.004,
+   "avgTri": 0.0001,
    "anglePct": 3,
    "vpt": 0.54,
    "grad": 0.6,
@@ -251222,21 +251279,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.087,
-    0.061,
-    0.087
+    0.065,
+    0.046,
+    0.065
    ],
    "tris": 162,
    "tpu": 472,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 8616,
+   "bytes": 8620,
    "vtx": 191,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.0002,
+   "minEdge": 0.003,
+   "avgTri": 0.00011,
    "anglePct": 61,
    "vpt": 1.18,
    "grad": 0.45,
@@ -251270,21 +251327,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.151,
-    0.085,
-    0.093
+    0.114,
+    0.064,
+    0.069
    ],
    "tris": 996,
    "tpu": 2904,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 32336,
+   "bytes": 32344,
    "vtx": 773,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00007,
+   "avgTri": 0.00004,
    "anglePct": 3,
    "vpt": 0.78,
    "grad": 0.58,
@@ -251367,21 +251424,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.117,
-    0.041,
-    0.095
+    0.088,
+    0.031,
+    0.072
    ],
    "tris": 394,
    "tpu": 1149,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10944,
+   "bytes": 10948,
    "vtx": 220,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00007,
+   "minEdge": 0.002,
+   "avgTri": 0.00004,
    "anglePct": 9,
    "vpt": 0.56,
    "grad": 0.53,
@@ -251795,24 +251852,24 @@
   {
    "kit": "quat-sushi",
    "name": "salmon-fillet",
-   "kind": "obj-food-fish-sushi",
+   "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
-    0.172,
-    0.132,
-    0.056
+    0.129,
+    0.099,
+    0.042
    ],
    "tris": 832,
    "tpu": 2426,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 29936,
+   "bytes": 29940,
    "vtx": 729,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "avgTri": 0.00008,
+   "avgTri": 0.00004,
    "anglePct": 22,
    "vpt": 0.88,
    "grad": 0.6,
@@ -251842,21 +251899,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.13,
-    0.071,
-    0.063
+    0.098,
+    0.053,
+    0.047
    ],
    "tris": 506,
    "tpu": 1475,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17012,
+   "bytes": 17020,
    "vtx": 386,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "avgTri": 0.00009,
+   "minEdge": 0.003,
+   "avgTri": 0.00005,
    "anglePct": 7,
    "vpt": 0.76,
    "grad": 0.59,
@@ -251891,21 +251948,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.093,
-    0.058,
-    0.1
+    0.07,
+    0.043,
+    0.075
    ],
    "tris": 672,
    "tpu": 1959,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 23328,
+   "bytes": 23336,
    "vtx": 554,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "avgTri": 0.00006,
+   "minEdge": 0.002,
+   "avgTri": 0.00003,
    "anglePct": 28,
    "vpt": 0.82,
    "grad": 0.52,
@@ -252217,21 +252274,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.081,
-    0.042,
-    0.023
+    0.061,
+    0.031,
+    0.018
    ],
    "tris": 472,
    "tpu": 1376,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17844,
+   "bytes": 17852,
    "vtx": 419,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00002,
+   "avgTri": 0.00001,
    "anglePct": 3,
    "vpt": 0.89,
    "grad": 0.59,
@@ -252587,21 +252644,21 @@
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
-    0.13,
-    0.071,
-    0.053
+    0.098,
+    0.053,
+    0.04
    ],
    "tris": 344,
    "tpu": 1003,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10152,
+   "bytes": 10156,
    "vtx": 202,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "avgTri": 0.00013,
+   "minEdge": 0.003,
+   "avgTri": 0.00007,
    "anglePct": 5,
    "vpt": 0.59,
    "grad": 0.6,
@@ -258837,16 +258894,16 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 49416,
-   "vtx": 1248,
+   "bytes": 67372,
+   "vtx": 1809,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0122,
    "avgTri": 0.00107,
    "anglePct": 50,
-   "vpt": 0.93,
-   "grad": 0.34,
+   "vpt": 1.35,
+   "grad": 0.31,
    "spread": {
     "1,0": [
      0.258,
@@ -266384,7 +266441,8 @@
    "tags": [
     "rgp",
     "vegetation"
-   ]
+   ],
+   "variant": "v1259"
   },
   {
    "kit": "rgp-medieval",
@@ -266428,7 +266486,8 @@
    "tags": [
     "rgp",
     "vegetation"
-   ]
+   ],
+   "variant": "v1259"
   },
   {
    "kit": "rgp-medieval",
@@ -272871,14 +272930,14 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 112024,
-   "vtx": 2690,
+   "bytes": 157144,
+   "vtx": 4100,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00006,
    "anglePct": 45,
-   "vpt": 0.66,
+   "vpt": 1,
    "grad": 0.77,
    "spread": {
     "15,3": [
@@ -272936,15 +272995,15 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 105888,
-   "vtx": 2549,
+   "bytes": 145092,
+   "vtx": 3774,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00006,
    "anglePct": 42,
-   "vpt": 0.67,
-   "grad": 0.8,
+   "vpt": 0.99,
+   "grad": 0.82,
    "spread": {
     "15,3": [
      0.305,
@@ -274208,7 +274267,8 @@
     "bone",
     "gemstone",
     "metal-iron-steel",
-    "rgp"
+    "rgp",
+    "scale-small"
    ]
   },
   {
@@ -278828,7 +278888,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "booster-display",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.1,
@@ -278876,6 +278936,7 @@
    "tags": [
     "paper",
     "plastic",
+    "scale-small",
     "sidequest"
    ]
   },
@@ -296469,7 +296530,7 @@
    "avgTri": 0.00023,
    "anglePct": 81,
    "vpt": 0.85,
-   "grad": 0.56,
+   "grad": 0.62,
    "spread": {
     "4,2": [
      0.305,
@@ -302062,7 +302123,8 @@
     "metal-iron-wrought",
     "wizp",
     "wood-beam"
-   ]
+   ],
+   "variant": "v1257"
   },
   {
    "kit": "wizp-asia",
@@ -302121,7 +302183,8 @@
     "metal-iron-wrought",
     "wizp",
     "wood-beam"
-   ]
+   ],
+   "variant": "v1257"
   },
   {
    "kit": "wizp-asia",
