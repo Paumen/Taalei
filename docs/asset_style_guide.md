@@ -285,7 +285,7 @@ band.«material»: [ «band», … ]     holds for a model of the kind carrying 
 band: [ «band», … ]                holds for every model of the kind
 ```
 
-`band.«material»` says when the list applies, not which bands belong to that material.
+`band.«material»` says when the list applies, not which bands belong to that material. A list of lists, `[ [ «band», … ], … ]`, holds when every inner list holds.
 
 Run `node lint/bands.mjs`.
 

@@ -303,14 +303,17 @@ export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
   for (const [mat, row] of rules ?? []) {
     const present = mat === null ? [] : mats.filter((m) => idUnder(m, mat));
     if (mat !== null && !present.length) continue;
-    const lanes = row.bands.map((band) => palettes.lanes.get(band));
-    if (lanes.some((lane) => lane === null || used.includes(lane))) continue;
-    out.push({
-      from: row.from,
-      material: present.join(' ') || '—',
-      wants: row.bands.join(' '),
-      has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
-    });
+    const groups = Array.isArray(row.bands[0]) ? row.bands : [row.bands];
+    for (const group of groups) {
+      const lanes = group.map((band) => palettes.lanes.get(band));
+      if (lanes.some((lane) => lane === null || used.includes(lane))) continue;
+      out.push({
+        from: row.from,
+        material: present.join(' ') || '—',
+        wants: group.join(' '),
+        has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
+      });
+    }
   }
   return out;
 }
