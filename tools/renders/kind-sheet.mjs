@@ -183,6 +183,8 @@ if (!has('no-render')) {
     dossier.sheets[mode] = { full: render(src, target, mode), chunks: [] };
     for (const c of chunks) dossier.sheets[mode].chunks.push(render(join(src, c.name), join(target, c.name), mode));
   }
+}
+{
   if (has('each')) {
     const each = join(out, 'each');
     const raw = join(out, 'each-raw');
