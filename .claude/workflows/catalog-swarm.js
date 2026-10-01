@@ -3,7 +3,7 @@ export const meta = {
   description: 'Look at catalogue kinds whole, fix geometry in place, verify each fix independently, collect tag and variant proposals',
   whenToUse: 'Sweeping one or more catalogue kinds for style and artefact inconsistencies that lint does not catch',
   phases: [
-    { title: 'Look', detail: 'one looker per selection: kind sheet, renders, dossier of issues' },
+    { title: 'Look', detail: 'per selection: one style looker on the whole kind, one close-up looker per chunk of models' },
     { title: 'Fix', detail: 'one fixer per selection: tool actions only, before and after renders' },
     { title: 'Verify', detail: 'one verifier per selection: accept or put back each fix' },
   ],
@@ -89,12 +89,29 @@ const VERIFY_SCHEMA = {
   required: ['verdicts'],
 }
 
-const entries = (args && args.entries) || []
+const entries = ((args && args.entries) || []).map((e) => (typeof e === 'string' ? { sel: e, chunks: [] } : { chunks: [], ...e }))
 const out = (args && args.out) || '/tmp/catalog-swarm'
 if (!entries.length) throw new Error('args.entries is empty')
 
-const slug = (s) => s.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').slice(0, 60)
+const slug = (s) => (s.length > 60 ? `${s.replace(/[^a-z0-9]+/gi, '-').slice(0, 40)}-${s.length}-${s.split(',').length}` : s.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, ''))
 const selectFlag = (e) => (e.startsWith('prefix:') ? `--prefix ${e.slice(7)}` : e.includes('/') ? `--models ${e}` : `--kind ${e}`)
+
+const closePrompt = (sel, chunk, dir) => `You are a CLOSE-UP LOOKER for ${chunk.length} models of the Taalei catalogue, part of selection ${sel}. Another agent judges the kind's style as a whole; your job is what only shows close: the faults inside one model.
+Read ${SKILL} sections 3 and 4 first. Your scratch directory is ${dir}; write nothing anywhere else and change no file in the repo.
+
+Start with:
+  node tools/renders/kind-sheet.mjs --models ${chunk.join(',')} --out ${dir} --modes claywire --no-chunks --each
+
+Then open every close-up in ${dir}/each with the Read tool, one model at a time: pbr and claywire from iso, 205/45 and 30/-20. Look hard at each surface, triangle by triangle, for:
+- band-artefact: a jagged or sawtooth edge where two colours meet, light and dark triangles alternating on one surface (a pinwheel on a drum head, a checker on a cap), a triangle whose colour does not match the flat face it sits in;
+- sliver: long hairline triangles catching light along a rim or edge;
+- jitter: a surface that should be flat or evenly curved but wobbles, rim vertices out of line;
+- shading: a smooth gradient across a corner that should be hard, a hard crease across a surface that should be smooth, magenta or red backfaces;
+- thickness: a part so thin it reads as a line;
+- placement: floating, sunk, leaning, upside down.
+Confirm a suspicion with a closer render of your own into ${dir}/look: --views at the angle that shows it, --modes faceorient for backfaces, --band <col,row> for a colour edge, --isolate for a part. Read every render you make.
+
+A model with none of these goes in "fitting". Every other model gets an issue per fault, with evidence and, where a tool under tools/import repairs it (face-bands.mjs for band artefacts, clean-mesh.mjs, separate-twins.mjs, smooth.mjs or facet.mjs for shading, thicken.mjs, simplify.mjs with a small --error for jitter and slivers), the exact command on kits/workfiles/<kit>/<name>.glb after a dry or --list run on your copy in ${dir}/src. Where no tool repairs it, use action ask or none and say what it would take. Set "kindReads" to one sentence on the general build quality of these models. Return the dossier.`
 
 const lookPrompt = (e, dir) => `You are the LOOKER for one selection of the Taalei catalogue: ${e}.
 Read ${SKILL} first, sections 1 to 4, and follow them. Your scratch directory is ${dir}; write nothing anywhere else and change no file in the repo.
@@ -132,31 +149,48 @@ ${JSON.stringify(fix.fixes.filter((f) => f.applied), null, 1)}
 
 For each applied fix render your own before (--ref HEAD) and after sheet with tools/renders/kind-sheet.mjs --models <id>,<two peers you pick yourself> in pbr and claywire, plus the looker's view with render.mjs, and read them all. Run node lint/glb-lint.mjs on the file. Accept only when the issue is gone, nothing else changed to the eye, the source colours and the baked shading are kept and glb-lint shows nothing new. Default to reject when unsure. Return a verdict per applied fix.`
 
+const short = (s) => (s.length > 48 ? `${s.slice(0, 44)}…` : s)
+
 const results = await pipeline(
   entries,
   (e) => {
-    const dir = `${out}/${slug(e)}`
-    return agent(lookPrompt(e, dir), { label: `look:${e}`, phase: 'Look', schema: LOOK_SCHEMA })
+    const dir = `${out}/${slug(e.sel)}`
+    const style = e.artefactOnly ? Promise.resolve(null) : agent(lookPrompt(e.sel, dir), { label: `look:${short(e.sel)}`, phase: 'Look', schema: LOOK_SCHEMA })
+    const close = e.chunks.map((chunk, k) => agent(closePrompt(e.sel, chunk, `${dir}/close-${k + 1}`), { label: `close:${short(e.sel)}#${k + 1}`, phase: 'Look', schema: LOOK_SCHEMA }))
+    return Promise.all([style, ...close]).then(([s, ...c]) => {
+      const parts = [s, ...c].filter(Boolean)
+      if (!parts.length) return null
+      return {
+        selection: e.sel,
+        kindReads: s ? s.kindReads : '',
+        closeReads: c.filter(Boolean).map((x) => x.kindReads),
+        sheets: parts.flatMap((p) => p.sheets),
+        fitting: [...new Set(parts.flatMap((p) => p.fitting))].filter((id) => !parts.some((p) => p.issues.some((i) => i.id === id))),
+        issues: parts.flatMap((p) => p.issues),
+        missing: e.chunks.length - c.filter(Boolean).length,
+      }
+    })
   },
   (look, e) => {
     if (!look) return null
-    const dir = `${out}/${slug(e)}`
+    const dir = `${out}/${slug(e.sel)}`
     const tools = look.issues.filter((i) => i.action === 'tool')
     if (!tools.length) return { look, fix: { fixes: [] } }
-    return agent(fixPrompt(e, dir, look), { label: `fix:${e}`, phase: 'Fix', schema: FIX_SCHEMA }).then((fix) => ({ look, fix: fix || { fixes: [] } }))
+    return agent(fixPrompt(e.sel, dir, look), { label: `fix:${short(e.sel)}`, phase: 'Fix', schema: FIX_SCHEMA }).then((fix) => ({ look, fix: fix || { fixes: [] } }))
   },
   (state, e) => {
     if (!state) return null
-    const dir = `${out}/${slug(e)}`
+    const dir = `${out}/${slug(e.sel)}`
     const applied = state.fix.fixes.filter((f) => f.applied)
-    if (!applied.length) return { entry: e, ...state, verify: { verdicts: [] } }
-    return agent(verifyPrompt(e, dir, state.look, state.fix), { label: `verify:${e}`, phase: 'Verify', schema: VERIFY_SCHEMA }).then((verify) => ({ entry: e, ...state, verify: verify || { verdicts: [] } }))
+    if (!applied.length) return { entry: e.sel, ...state, verify: { verdicts: [] } }
+    return agent(verifyPrompt(e.sel, dir, state.look, state.fix), { label: `verify:${short(e.sel)}`, phase: 'Verify', schema: VERIFY_SCHEMA }).then((verify) => ({ entry: e.sel, ...state, verify: verify || { verdicts: [] } }))
   },
 )
 
 const done = results.filter(Boolean)
-const dropped = entries.filter((e) => !done.some((d) => d.entry === e))
+const dropped = entries.filter((e) => !done.some((d) => d.entry === e.sel)).map((e) => e.sel)
 if (dropped.length) log(`no result for: ${dropped.join(', ')}`)
+for (const d of done) if (d.look.missing) log(`${short(d.entry)}: ${d.look.missing} close-up chunk(s) returned nothing`)
 for (const d of done) {
   const accepted = d.verify.verdicts.filter((v) => v.verdict === 'accept').length
   const rejected = d.verify.verdicts.filter((v) => v.verdict === 'reject').length

@@ -48,14 +48,24 @@ sheet of all of them at locked scale, chunk sheets of sixteen at larger tiles
 when there are more, and writes `dossier.json`: per model what the catalogue
 records, its ratio to the kind median, the glb-lint findings and the tile
 name on the sheets. The second and third are how a fix is shown before and
-after beside its peers. `render.mjs` does the rest — `--views 205/45`,
+after beside its peers. `--each` adds a close-up per model, pbr and claywire
+from three angles, in `<dir>/each`: a kind sheet tile is too small to show a
+jagged band edge, a pinwheel of light and dark triangles, slivers or a
+wobbling surface, and a close-up shows them at once. `render.mjs` does the rest — `--views 205/45`,
 `--band <col,row>`, `--isolate`, `--modes faceorient` — on the copies in
 `<dir>/src`, never on the workfile.
 
-## 2. Three roles, never the same agent
+## 2. Four roles, never the same agent
 
-**Looker.** Looks, decides what is off, writes it down with its evidence and
-the action it would take. Changes nothing.
+**Style looker.** Looks at the selection whole, decides what does not sit with
+its peers, writes it down with its evidence and the action it would take.
+Changes nothing.
+
+**Close-up looker.** One per chunk of about sixteen models. Looks at each
+model alone and close, for the faults inside it: band artefacts, slivers,
+jitter, shading breaks, backfaces, hairlines, a model upside down. Writes them
+down as the style looker does. Changes nothing. Both lookers run at the same
+time on the same selection.
 
 **Fixer.** Applies the looker's tool actions to the workfiles, renders before
 and after, records every command. Decides nothing about what is off.
@@ -176,15 +186,19 @@ Independent of the fixer: fresh renders, own judgement. Per applied fix:
 
 ## 7. Running it
 
-    Workflow catalog-swarm  args: { "entries": ["env-fungi", "prefix:obj-food-fish", "kit/a,kit/b"], "out": "<scratch dir>" }
+    node .claude/skills/catalog-swarm/plan.mjs --out <dir>/plan.json [--done <swept.json>]
+    Workflow catalog-swarm  args: { "entries": <one wave from plan.json>, "out": "<scratch dir>" }
 
-Each entry is one chain: a kind id, `prefix:<id>` for a kind with its
-siblings, or a comma list of model ids. Up to about eight entries per run;
-entries in one run never share a model. The script pipelines look → fix →
-verify per entry and returns every dossier, fix and verdict.
+`plan.mjs` splits the whole catalogue into selections: a kind, sibling kinds
+packed together up to sixty models, or a big kind split by kit. Each
+selection carries its models in chunks for the close-up lookers. Waves hold
+eight selections; one workflow run takes one wave, and no two selections in a
+run share a model. An entry may be a bare string (style looker only), and
+`artefactOnly: true` skips the style looker. The script runs both lookers,
+then fix → verify per selection, and returns every dossier, fix and verdict.
 
 Order of waves: first the kinds whose models the PO has already marked, so the
-procedure is judged on known cases; then kinds grouped under one parent, so
+procedure is judged on known cases; then the plan's waves in order, so
 sibling kinds are seen in neighbouring chains.
 
 Before the first run of a wave, the integrator renders the yardstick once for
