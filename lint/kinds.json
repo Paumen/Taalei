@@ -680,10 +680,31 @@
        ],
        "nouns": [
         "meat",
-        "roast",
         "leg"
        ],
        "children": [
+        {
+         "id": "obj-food-meat-patty",
+         "longest.min": 0.1,
+         "longest.max": 0.25,
+         "nouns": [
+          "patty",
+          "burger patty",
+          "meat patty"
+         ]
+        },
+        {
+         "id": "obj-food-meat-roast",
+         "longest.min": 0.15,
+         "longest.max": 0.45,
+         "nouns": [
+          "roast",
+          "roast chicken",
+          "turkey",
+          "rib roast",
+          "joint"
+         ]
+        },
         {
          "id": "obj-food-meat-ham",
          "longest.min": 0.15,
@@ -1375,6 +1396,16 @@
              ]
             },
             {
+             "id": "obj-equipment-weapon-ranged-firearm-smg",
+             "longest.min": 0.25,
+             "longest.max": 0.55,
+             "nouns": [
+              "smg",
+              "submachine gun",
+              "machine pistol"
+             ]
+            },
+            {
              "id": "obj-equipment-weapon-ranged-firearm-shotgun",
              "longest.min": 0.3,
              "longest.max": 0.7,
@@ -1388,6 +1419,17 @@
              "longest.max": 0.85,
              "nouns": [
               "rifle"
+             ],
+             "children": [
+              {
+               "id": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
+               "longest.min": 0.55,
+               "longest.max": 0.95,
+               "nouns": [
+                "sniper rifle",
+                "sniper"
+               ]
+              }
              ]
             },
             {
@@ -1407,12 +1449,44 @@
            "longest.min": 0.06,
            "longest.max": 0.3,
            "nouns": [
-            "grenade",
-            "dynamite",
-            "claymore"
+            "grenade"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-ranged-launcher",
+           "longest.min": 0.3,
+           "longest.max": 1,
+           "nouns": [
+            "launcher",
+            "grenade launcher",
+            "rocket launcher",
+            "bazooka"
            ]
           }
          ]
+        },
+        {
+         "id": "obj-equipment-weapon-explosive",
+         "mat.metal-iron": [
+          "metal-iron-cast",
+          "metal-iron-steel"
+         ],
+         "longest.min": 0.06,
+         "longest.max": 0.3,
+         "nouns": [
+          "explosive",
+          "dynamite",
+          "bomb",
+          "fuse bomb",
+          "smoke bomb",
+          "time bomb",
+          "claymore",
+          "landmine",
+          "tnt"
+         ],
+         "scale": {
+          "big": 2
+         }
         },
         {
          "id": "obj-equipment-weapon-magic",
@@ -1465,7 +1539,6 @@
              "longest.max": 0.35,
              "nouns": [
               "cannonball",
-              "bomb",
               "catapult ball"
              ],
              "scale": {
@@ -1526,10 +1599,18 @@
         "boots",
         "shoes",
         "belt",
-        "umbrella",
         "hand fan"
        ],
        "children": [
+        {
+         "id": "obj-equipment-apparel-umbrella",
+         "longest.min": 0.3,
+         "longest.max": 0.8,
+         "nouns": [
+          "umbrella",
+          "hand parasol"
+         ]
+        },
         {
          "id": "obj-equipment-apparel-quiver",
          "longest.min": 0.25,
@@ -1716,13 +1797,22 @@
           "chisel",
           "trowel",
           "wrench",
-          "tongs",
-          "brush"
+          "tongs"
          ],
          "scale": {
           "small": 0.5
          },
          "children": [
+          {
+           "id": "obj-equipment-tool-hand-brush",
+           "longest.min": 0.08,
+           "longest.max": 0.35,
+           "nouns": [
+            "brush",
+            "paintbrush",
+            "makeup brush"
+           ]
+          },
           {
            "id": "obj-equipment-tool-hand-hammer",
            "longest.min": 0.15,
@@ -1749,11 +1839,26 @@
          "mat.wood": "wood-beam",
          "nouns": [
           "rake",
-          "hoe",
-          "pitchfork",
-          "scythe (tool)"
+          "hoe"
          ],
          "children": [
+          {
+           "id": "obj-equipment-tool-twohand-pitchfork",
+           "longest.min": 0.5,
+           "longest.max": 1,
+           "nouns": [
+            "pitchfork",
+            "hayfork"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-twohand-scythe",
+           "longest.min": 0.55,
+           "longest.max": 1.1,
+           "nouns": [
+            "scythe (tool)"
+           ]
+          },
           {
            "id": "obj-equipment-tool-twohand-pickaxe",
            "longest.min": 0.25,
@@ -2223,12 +2328,22 @@
        "longest.max": 1.35,
        "nouns": [
         "toilet",
-        "bathtub",
         "shower",
         "bathroom sink",
         "bathroom mirror",
         "towel rail",
         "changing stall"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-bathroom-bath",
+         "longest.min": 0.55,
+         "longest.max": 1.35,
+         "nouns": [
+          "bath",
+          "bathtub"
+         ]
+        }
        ]
       },
       {
@@ -2519,6 +2634,9 @@
          "longest.min": 0.25,
          "longest.max": 0.7,
          "scale": {
+          "small": {
+           "high.max": 0.4
+          },
           "big": 2
          },
          "nouns": [
