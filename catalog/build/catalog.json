@@ -16786,7 +16786,7 @@
    "id": "obj-equipment-apparel",
    "name": "Apparel",
    "type": "kind",
-   "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, glasses, umbrella, hand fan.",
+   "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
    "count": 71
   },
   {
@@ -16795,6 +16795,13 @@
    "type": "kind",
    "description": "Glove or mitt worn on the hand.",
    "count": 3
+  },
+  {
+   "id": "obj-equipment-apparel-glasses",
+   "name": "Glasses",
+   "type": "kind",
+   "description": "Eyewear worn on the face: glasses, sunglasses, goggles.",
+   "count": 25
   },
   {
    "id": "obj-equipment-armor-shield",
@@ -20380,6 +20387,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-apparel": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-apparel-glasses": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -54590,7 +54603,7 @@
   {
    "kit": "ipoly-glasses",
    "name": "glasses-rect-basalt",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.288,
@@ -54607,7 +54620,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00004,
    "anglePct": 8,
    "vpt": 1.07,
@@ -54636,22 +54648,17 @@
      "level": "error",
      "check": "palette",
      "text": "plastic wants sienna terracotta amber hunter azure, has basalt ivory"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ipoly-glasses",
    "name": "glasses-round-azure",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.292,
-    0.227,
+    0.294,
+    0.228,
     0.114
    ],
    "tris": 888,
@@ -54664,7 +54671,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00007,
    "anglePct": 93,
    "vpt": 1.07,
@@ -54687,19 +54693,12 @@
     "glass",
     "ipoly",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
    ]
   },
   {
    "kit": "ipoly-glasses",
    "name": "glasses-round-sienna",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.301,
@@ -54743,11 +54742,11 @@
   {
    "kit": "ipoly-glasses",
    "name": "shutter-shades",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.278,
-    0.227,
+    0.228,
     0.094
    ],
    "tris": 856,
@@ -54755,14 +54754,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 38312,
+   "bytes": 38308,
    "vtx": 992,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00005,
-   "anglePct": 93,
+   "anglePct": 92,
    "vpt": 1.16,
    "grad": 0,
    "spread": {
@@ -54782,19 +54780,12 @@
    "tags": [
     "ipoly",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
    ]
   },
   {
    "kit": "ipoly-glasses",
    "name": "ski-goggles",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.285,
@@ -54838,11 +54829,11 @@
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-aviator-nickel",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.288,
-    0.227,
+    0.29,
+    0.228,
     0.109
    ],
    "tris": 882,
@@ -54850,12 +54841,11 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 37204,
+   "bytes": 37200,
    "vtx": 952,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00007,
    "anglePct": 94,
    "vpt": 1.08,
@@ -54884,23 +54874,16 @@
     "ipoly",
     "metal-iron-steel"
    ],
-   "variant": "v1247",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1247"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-aviator-sienna",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.283,
-    0.206,
+    0.207,
     0.08
    ],
    "tris": 1032,
@@ -54913,7 +54896,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00004,
    "anglePct": 75,
    "vpt": 1.11,
@@ -54937,23 +54919,16 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1247",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1247"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-block-azure",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.301,
-    0.203,
+    0.205,
     0.092
    ],
    "tris": 586,
@@ -54966,7 +54941,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00008,
    "anglePct": 82,
    "vpt": 1.14,
@@ -54994,22 +54968,15 @@
     "glass",
     "ipoly",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
    ]
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-cateye-azure",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.3,
+    0.303,
     0.227,
     0.125
    ],
@@ -55023,7 +54990,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00008,
    "anglePct": 9,
    "vpt": 0.99,
@@ -55042,23 +55008,16 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1248",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1248"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-cateye-sienna",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.34,
-    0.203,
+    0.204,
     0.094
    ],
    "tris": 868,
@@ -55071,9 +55030,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00006,
-   "anglePct": 83,
+   "anglePct": 82,
    "vpt": 1.08,
    "grad": 0.52,
    "spread": {
@@ -55090,19 +55048,12 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1248",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1248"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-halfrim-azure",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.295,
@@ -55146,10 +55097,10 @@
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-oval-amber",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.279,
+    0.281,
     0.259,
     0.078
    ],
@@ -55163,7 +55114,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0029,
    "avgTri": 0.00005,
    "anglePct": 21,
    "vpt": 1.01,
@@ -55187,22 +55137,15 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1250",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0029 wants min 0.026"
-    }
-   ]
+   "variant": "v1250"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-oval-ivory",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.305,
+    0.308,
     0.265,
     0.099
    ],
@@ -55211,12 +55154,11 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 38368,
+   "bytes": 38372,
    "vtx": 980,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0028,
    "avgTri": 0.00007,
    "anglePct": 20,
    "vpt": 1.06,
@@ -55240,22 +55182,15 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1251",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0028 wants min 0.026"
-    }
-   ]
+   "variant": "v1251"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-rect-hunter",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.286,
+    0.29,
     0.238,
     0.077
    ],
@@ -55269,7 +55204,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0016,
    "avgTri": 0.00005,
    "anglePct": 20,
    "vpt": 1.07,
@@ -55293,22 +55227,15 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1250",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0016 wants min 0.026"
-    }
-   ]
+   "variant": "v1250"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-rect-sienna",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.304,
+    0.307,
     0.267,
     0.098
    ],
@@ -55322,7 +55249,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0032,
    "avgTri": 0.00007,
    "anglePct": 21,
    "vpt": 1.02,
@@ -55346,23 +55272,16 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1250",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0032 wants min 0.026"
-    }
-   ]
+   "variant": "v1250"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-round-amber",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.308,
-    0.203,
+    0.204,
     0.086
    ],
    "tris": 1066,
@@ -55375,7 +55294,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0033,
    "avgTri": 0.00004,
    "anglePct": 77,
    "vpt": 1.18,
@@ -55399,23 +55317,16 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1249",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1249"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-round-gold",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.272,
-    0.227,
+    0.228,
     0.099
    ],
    "tris": 992,
@@ -55428,7 +55339,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00005,
    "anglePct": 83,
    "vpt": 1.11,
@@ -55457,22 +55367,15 @@
     "ipoly",
     "metal-gold"
    ],
-   "variant": "v1249",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1249"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-round-terracotta",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.283,
+    0.284,
     0.24,
     0.09
    ],
@@ -55486,7 +55389,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00005,
    "anglePct": 18,
    "vpt": 0.99,
@@ -55510,19 +55412,12 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1249",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1249"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-shield-azure",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.296,
@@ -55539,7 +55434,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0029,
    "avgTri": 0.00006,
    "anglePct": 13,
    "vpt": 1.01,
@@ -55563,22 +55457,15 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1246",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0029 wants min 0.026"
-    }
-   ]
+   "variant": "v1246"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-shield-hunter",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
-    0.293,
+    0.296,
     0.273,
     0.105
    ],
@@ -55592,7 +55479,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00007,
    "anglePct": 21,
    "vpt": 1.08,
@@ -55621,19 +55507,12 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1246",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1246"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-square-ivory",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.319,
@@ -55650,7 +55529,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0037,
    "avgTri": 0.00006,
    "anglePct": 56,
    "vpt": 1.02,
@@ -55674,19 +55552,12 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1251",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0037 wants min 0.026"
-    }
-   ]
+   "variant": "v1251"
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-visor",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.293,
@@ -55731,19 +55602,12 @@
     "glass",
     "ipoly",
     "plastic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0158 wants min 0.026"
-    }
    ]
   },
   {
    "kit": "ipoly-glasses",
    "name": "sunglasses-wide-hunter",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.308,
@@ -55755,12 +55619,11 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 33820,
+   "bytes": 33816,
    "vtx": 858,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0033,
    "avgTri": 0.00006,
    "anglePct": 75,
    "vpt": 1.05,
@@ -55784,14 +55647,7 @@
     "ipoly",
     "plastic"
    ],
-   "variant": "v1250",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "variant": "v1250"
   },
   {
    "kit": "ipoly-signs",
@@ -142518,7 +142374,7 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "aid-glasses",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.314,
@@ -142558,7 +142414,7 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "aid-sunglasses",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.314,
