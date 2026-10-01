@@ -11,6 +11,7 @@ const CFG = {
   checkPlacement: true,      // false for modular kits with corner pivots (walls, floors)
   degenerateWarn: 0.01,      // share of triangles
   doubledWarn: 0.01,
+  atlas: { cols: 16, rows: 4, eps: 1e-3 },
   nonManifoldWarn: 0.02,
   ruleAgreeMin: 0.9,         // below this: "no single soft/sharp rule"
   densityLow: 150,           // triangles per m² of surface
@@ -163,6 +164,7 @@ async function lint(file) {
 
   let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity], rawExt = 0;
   const T = { nt: 0, nv: 0, uniq: 0, zeroN: 0, degen: 0, flat: 0, surf: 0, doubled: 0, nonMan: 0, edges: 0, parts: 0 }, folds = [];
+  let xband = 0;
   for (let ni = 0; ni < nodes.length; ni++) {
     if (!('mesh' in nodes[ni])) continue;
     const W = world(ni), NM = normalMat(W);
@@ -183,6 +185,19 @@ async function lint(file) {
           for (let c = 0; c < 3; c++) N[3 * v + c] = t[c] / l * l0;
         }
       }
+      const mat = (j.materials || [])[pr.material];
+      if (mat?.pbrMetallicRoughness?.baseColorTexture && pr.attributes.TEXCOORD_0 !== undefined) {
+        const Uv = accessor(g, pr.attributes.TEXCOORD_0);
+        for (let t = 0; t + 2 < I.length; t += 3) {
+          const cu = Math.floor((Uv[2 * I[t]] + Uv[2 * I[t + 1]] + Uv[2 * I[t + 2]]) / 3 * CFG.atlas.cols);
+          const cv = Math.floor((Uv[2 * I[t] + 1] + Uv[2 * I[t + 1] + 1] + Uv[2 * I[t + 2] + 1]) / 3 * CFG.atlas.rows);
+          const outside = [I[t], I[t + 1], I[t + 2]].some(v => {
+            const u = Uv[2 * v] * CFG.atlas.cols, w = Uv[2 * v + 1] * CFG.atlas.rows;
+            return u < cu - CFG.atlas.eps || u > cu + 1 + CFG.atlas.eps || w < cv - CFG.atlas.eps || w > cv + 1 + CFG.atlas.eps;
+          });
+          if (outside) xband++;
+        }
+      }
       const r = analysePrim(P, N, I);
       for (const k in T) T[k] += r[k];
       folds.push(...r.folds);
@@ -198,6 +213,7 @@ async function lint(file) {
   if (T.zeroN) add('error', 'shading', `${T.zeroN} zero-length normals (black specks / broken light)`);
   if (T.degen / T.nt > CFG.degenerateWarn) add('warn', 'geometry', `${pct(T.degen / T.nt)} triangles with no area`);
   if (T.doubled / T.nt > CFG.doubledWarn) add('warn', 'geometry', `${pct(T.doubled / T.nt)} triangles doubled back-to-back (flicker)`);
+  if (xband) add('error', 'colour', `${xband} triangles with corners in different colormap cells (smeared band)`);
   if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('warn', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
   const rule = bestRule(folds);
@@ -205,7 +221,7 @@ async function lint(file) {
   if (rule) {
     shade = rule.allSharp ? 'all sharp' : rule.allSoft ? 'all soft' : rule.agree >= CFG.ruleAgreeMin ? `rule ~${rule.cut}° (${pct(rule.agree)} fit)` : `no single rule (best ~${rule.cut}°, ${pct(rule.agree)} fit)`;
     if (!rule.allSharp && !rule.allSoft && rule.agree < CFG.ruleAgreeMin) add('info', 'shading', `soft/sharp set per part, not by one angle (best fit ~${rule.cut}° explains ${pct(rule.agree)})`);
-    if (rule.allSoft && rule.softMax >= 80) add('info', 'shading', `everything soft, even ${rule.softMax.toFixed(0)}° corners (may look blobby)`);
+    if (rule.allSoft && rule.softMax >= 80) add('info', 'shading', `everything soft, even ${rule.softMax.toFixed(0)}° corners`);
   }
   const density = T.nt / T.surf;
   if (density < CFG.densityLow) add('info', 'detail', `${density.toFixed(0)} triangles/m²: coarse (fine for boxy shapes, curves look polygonal)`);
