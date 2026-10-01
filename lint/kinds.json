@@ -178,6 +178,10 @@
       {
        "id": "obj-container-bag",
        "tube.min": 0.006,
+       "band.textile": [
+        "taupe",
+        "ivory"
+       ],
        "nouns": [
         "bag",
         "backpack"
@@ -344,6 +348,10 @@
     {
      "id": "obj-kitchenware",
      "tpu.max": 5000,
+     "band.ceramic": [
+      "ivory",
+      "terracotta"
+     ],
      "children": [
       {
        "id": "obj-kitchenware-tableware",
@@ -514,6 +522,10 @@
       },
       {
        "id": "obj-kitchenware-cookware",
+       "band.ceramic": [
+        "terracotta",
+        "sienna"
+       ],
        "nouns": [
         "grill",
         "spit",
@@ -712,6 +724,9 @@
          "id": "obj-food-vegetable-pumpkin",
          "longest.min": 0.15,
          "longest.max": 0.5,
+         "band": [
+          "terracotta"
+         ],
          "nouns": [
           "pumpkin",
           "jackolantern"
@@ -721,6 +736,9 @@
          "id": "obj-food-vegetable-tomato",
          "longest.min": 0.05,
          "longest.max": 0.25,
+         "band": [
+          "sienna"
+         ],
          "nouns": [
           "tomato"
          ]
@@ -792,6 +810,9 @@
            "id": "obj-food-vegetable-root-carrot",
            "longest.min": 0.05,
            "longest.max": 0.3,
+           "band": [
+            "terracotta"
+           ],
            "nouns": [
             "carrot"
            ]
@@ -885,6 +906,9 @@
          "id": "obj-food-fruit-lemon",
          "longest.min": 0.05,
          "longest.max": 0.15,
+         "band": [
+          "amber"
+         ],
          "nouns": [
           "lemon"
          ]
@@ -963,6 +987,9 @@
          "id": "obj-food-dairy-cheese",
          "high.min": 0.05,
          "high.max": 0.25,
+         "band": [
+          "amber"
+         ],
          "nouns": [
           "cheese",
           "cheese wheel",
@@ -1028,6 +1055,10 @@
          "id": "obj-food-baked-bread",
          "longest.min": 0.1,
          "longest.max": 0.35,
+         "band": [
+          "camel",
+          "chestnut"
+         ],
          "nouns": [
           "bread",
           "loaf"
@@ -1056,6 +1087,10 @@
           },
           {
            "id": "obj-food-baked-bread-bun",
+           "band": [
+            "tan",
+            "camel"
+           ],
            "nouns": [
             "bun",
             "roll",
@@ -1098,6 +1133,10 @@
            "id": "obj-food-baked-pastry-donut",
            "longest.min": 0.05,
            "longest.max": 0.25,
+           "band": [
+            "tan",
+            "camel"
+           ],
            "nouns": [
             "donut"
            ]
@@ -1122,6 +1161,10 @@
            "id": "obj-food-baked-pastry-cupcake",
            "longest.min": 0.05,
            "longest.max": 0.25,
+           "band": [
+            "tan",
+            "camel"
+           ],
            "nouns": [
             "cupcake",
             "muffin"
@@ -1167,6 +1210,9 @@
        "children": [
         {
          "id": "obj-equipment-weapon-melee",
+         "band.textile": [
+          "taupe"
+         ],
          "nouns": [
           "scythe (weapon)",
           "knuckles",
@@ -1280,6 +1326,9 @@
            "tube.min": 0.006,
            "longest.min": 0.4,
            "longest.max": 0.9,
+           "band.textile": [
+            "taupe"
+           ],
            "nouns": [
             "bow",
             "longbow"
@@ -1368,6 +1417,9 @@
           "hunter",
           "slate"
          ],
+         "band.textile": [
+          "taupe"
+         ],
          "nouns": [
           "wand",
           "orb",
@@ -1439,6 +1491,9 @@
          "id": "obj-equipment-target-bullseye",
          "longest.min": 0.35,
          "longest.max": 0.85,
+         "band": [
+          "ivory"
+         ],
          "nouns": [
           "target",
           "archery target"
@@ -1534,6 +1589,9 @@
       {
        "id": "obj-equipment-pocketitem",
        "tube.min": 0.006,
+       "band.textile": [
+        "ivory"
+       ],
        "nouns": [
         "compass",
         "hourglass",
@@ -1935,6 +1993,9 @@
          "id": "obj-transport-land-rail",
          "high.min": 0.6,
          "high.max": 1.4,
+         "band": [
+          "nickel"
+         ],
          "nouns": [
           "train",
           "locomotive",
@@ -1950,6 +2011,9 @@
     {
      "id": "obj-resource",
      "tpu.max": 5000,
+     "band.vegetation": [
+      "tan"
+     ],
      "nouns": [
       "hide",
       "raw stock"
@@ -2037,6 +2101,9 @@
        "id": "obj-resource-haystack",
        "longest.min": 0.45,
        "longest.max": 1.25,
+       "band": [
+        "tan"
+       ],
        "nouns": [
         "haystack",
         "hay",
@@ -2048,6 +2115,9 @@
     {
      "id": "obj-furnishing",
      "tpu.max": 5000,
+     "band.ceramic": [
+      "ivory"
+     ],
      "nouns": [
       "clock"
      ],
@@ -2957,10 +3027,16 @@
     {
      "id": "str-building",
      "tpu.max": 10000,
+     "band.ceramic": [
+      "sienna"
+     ],
      "nouns": [],
      "children": [
       {
        "id": "str-building-residential",
+       "band.foliage": [
+        "moss"
+       ],
        "nouns": [
         "apartment building"
        ],
@@ -3012,6 +3088,14 @@
        "children": [
         {
          "id": "str-building-tower-skyscraper",
+         "band": [
+          [
+           "ivory"
+          ],
+          [
+           "nickel"
+          ]
+         ],
          "nouns": [
           "skyscraper"
          ]
@@ -3197,6 +3281,9 @@
          "id": "str-barrier-traffic-cone",
          "high.min": 0.15,
          "high.max": 0.8,
+         "band": [
+          "terracotta"
+         ],
          "nouns": [
           "traffic cone",
           "pylon"
@@ -3208,6 +3295,9 @@
        "id": "str-barrier-hedge",
        "high.min": 0.35,
        "high.max": 0.8,
+       "band": [
+        "moss"
+       ],
        "scale": {
         "small": 0.5
        },
@@ -3334,6 +3424,9 @@
     },
     {
      "id": "str-canopy",
+     "band.textile": [
+      "ivory"
+     ],
      "nouns": [
       "canopy",
       "parasol"
@@ -3669,6 +3762,18 @@
         {
          "id": "str-fixture-light-traffic",
          "mat.metal-iron": "metal-iron-steel",
+         "band": [
+          [
+           "sienna"
+          ],
+          [
+           "amber"
+          ],
+          [
+           "hunter",
+           "slate"
+          ]
+         ],
          "nouns": [
           "traffic light",
           "traffic signal",
@@ -3998,6 +4103,9 @@
       {
        "id": "env-flora-plant",
        "tpu.max": 10000,
+       "band.foliage": [
+        "moss"
+       ],
        "nouns": [
         "fern",
         "ivy",
@@ -4137,6 +4245,9 @@
       {
        "id": "env-flora-waterplant",
        "tube.min": 0.006,
+       "band.foliage": [
+        "moss"
+       ],
        "nouns": [
         "waterplant"
        ],
