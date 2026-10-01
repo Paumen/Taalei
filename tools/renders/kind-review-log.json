@@ -1,0 +1,297 @@
+[
+ {
+  "kind": "env-remains-bones-ribcage",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-hallow/*",
+     "kay-skeleton/*",
+     "kay-skeleton-1/*",
+     "quat-pirate/*",
+     "quat-rpg/*"
+    ],
+    "text": "kay ribcages are flat-shaded and angular, quat ones smooth and tubular",
+    "options": [
+     "Flatten quat normals",
+     "Reject quat ribcages as off-style"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "quat-rpg/ribcage"
+    ],
+    "text": "Ribs are closed loops with no spine or sternum; reads as a coil",
+    "options": [
+     "Reject as off-style",
+     "Rework: open the ribs, add a spine"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-pirate/ribcage"
+    ],
+    "text": "Narrow, 0.16 m wide against 0.22-0.25 m for the rest",
+    "options": [
+     "Widen to about 0.22 m"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "kay-hallow/ribcage",
+     "kay-skeleton/ribcage"
+    ],
+    "text": "Near-identical models at slightly different sizes",
+    "options": [
+     "Reject one as duplicate",
+     "Tag as variants"
+    ],
+    "picked": null
+   }
+  ]
+ },
+ {
+  "kind": "obj-container-cargo",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-apocalypse/*"
+    ],
+    "text": "About 35% larger than the rest (2.23 m long against 1.5-1.65 m)",
+    "options": [
+     "Shrink to about 1.6 m long"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-apocalypse/*"
+    ],
+    "text": "Frame band differs: dark taupe 13,3 against grey 15,3 on the others",
+    "options": [
+     "Grey 15,3",
+     "Dark taupe 13,3",
+     "Recolour ken frames to the frame band",
+     "Leave ken frames as is"
+    ],
+    "picked": [
+     "Grey 15,3",
+     "Leave ken frames as is",
+     "PO: same midpoint on the band, keep gradient spreads"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "ken-industrial/*",
+     "quat-apocalypse/*",
+     "quat-shoot/*"
+    ],
+    "text": "ken is bevelled and chunky, quat is sharp with an outer frame",
+    "options": [
+     "Pick one edge style",
+     "Keep two variant groups"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-water/cargo-container-b"
+    ],
+    "text": "Low-detail version of ken-industrial: flat roof, lower body",
+    "options": [
+     "Reject as duplicate",
+     "Match height and roof ribs to ken-industrial"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-shoot/container"
+    ],
+    "text": "A cube, reads as a crate or small cargo box",
+    "options": [
+     "Move to another kind"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-industrial/*",
+     "quat-apocalypse/*"
+    ],
+    "text": "Roof ribs run across on some and lengthwise on others",
+    "options": [
+     "One rib direction for all"
+    ],
+    "picked": null
+   }
+  ]
+ },
+ {
+  "kind": "str-building-residential",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "ken-modular/*",
+     "kay-city/*"
+    ],
+    "text": "Storey height differs by about 30% between kits",
+    "options": [
+     "Scale ken to kay storeys",
+     "Scale kay to ken storeys"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-modular/*",
+     "kay-city/*"
+    ],
+    "text": "ken is all cream and dark brown, kay uses saturated facades",
+    "options": [
+     "Vary ken wall colours with kay's",
+     "Use kay's roof colour on ken"
+    ],
+    "picked": [
+     "PO: keep kay colourful for variety, nudge kay toward ken's cleaner style (dark trim, ivory roof)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-modular/*"
+    ],
+    "text": "kay windows have white frames and sills, ken windows plain panes",
+    "options": [
+     "Cream frame band around ken windows"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-city/*",
+     "ken-modular/*"
+    ],
+    "text": "kay has a flat roof slab, ken a sunken parapet",
+    "options": [
+     "One roof style across the kind"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-city/building-b-no-base",
+     "kay-city/building-g-no-base"
+    ],
+    "text": "Small dark marks on plain side walls",
+    "options": [
+     "Check for leftover geometry"
+    ],
+    "picked": null
+   },
+   {
+    "by": "po",
+    "category": "artefact",
+    "models": [
+     "kay-city/*"
+    ],
+    "text": "kay colours smeared across faces at import",
+    "options": [
+     "Remap one band per source texture cell"
+    ],
+    "picked": [
+     "Remap one band per source texture cell"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "artefact",
+    "models": [
+     "kay-city/*"
+    ],
+    "text": "Windows look odd: upper blind pane in a different colour per window",
+    "options": [
+     "One dark glass, no blind",
+     "Grey glass, no blind",
+     "Glass plus one blind colour",
+     "Keep as is"
+    ],
+    "picked": [
+     "Grey glass, no blind"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-modular/*"
+    ],
+    "text": "Roof floor sienna on tower a and b, ivory on c and d",
+    "options": [
+     "Unify roof floor"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-modular/tower-c"
+    ],
+    "text": "tower-c trim bands terracotta, the rest dark taupe",
+    "options": [
+     "Move tower-c trim to dark taupe"
+    ],
+    "picked": [
+     "Move tower-c trim to dark taupe"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-modular/*"
+    ],
+    "text": "Window treatment differs on every tower",
+    "options": [
+     "Same ivory surround and azure glass on all"
+    ],
+    "picked": []
+   }
+  ]
+ }
+]
