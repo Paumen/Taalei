@@ -1,9 +1,9 @@
 ---
-name: kind-review
-description: Review a few random catalogue kinds for style coherence by looking at them — pick 3 kinds, render contact sheets, suggest 2–5 improvements per kind with options, and let the PO choose what gets implemented. Use when asked to review random kinds, suggest style improvements for a kind, or run a kind review.
+name: oddsock
+description: Review a few random catalogue kinds for style coherence by looking at them — pick 3 kinds, render contact sheets, suggest 2–5 improvements per kind with options, and let the PO choose what gets implemented. Use when asked to review random kinds, suggest style improvements for a kind, or run a kind review or oddsock.
 ---
 
-# Kind review
+# Oddsock
 
 Find what makes a kind look like several hands made it, propose fixes, and
 implement only what the PO picks. Suggestions come from looking at renders,
