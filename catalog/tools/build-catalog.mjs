@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, measureTubes, trianglesPerUnit, smoothShare } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, thinnestPart, trianglesPerUnit, smoothShare } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
@@ -290,7 +290,7 @@ function measureFile(dir, file) {
   const glb = readGlb(join(dir, file));
   const gltf = glb.json;
   const scene = measureScene(glb);
-  const tubes = measureTubes(glb);
+  const thinnest = thinnestPart(glb);
   const origin = gltf.asset?.extras?.taaleiland ?? {};
   const read = readColors(glb, dir);
   return {
@@ -317,7 +317,7 @@ function measureFile(dir, file) {
       isGrounded: scene.isGrounded,
       pivotIsCenter: scene.pivotIsCenter,
       minEdgeLength: scene.minEdgeLength,
-      minTube: tubes.length ? Math.min(...tubes.map((t) => t.diameter)) : null,
+      minTube: thinnest,
       averageTriangleArea: scene.averageTriangleArea,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),

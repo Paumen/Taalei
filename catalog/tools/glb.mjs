@@ -474,7 +474,7 @@ function primitiveGroups(glb) {
   return groups;
 }
 
-export function measureTubes(glb) {
+function weldedParts(glb) {
   const { json } = glb;
   const world = worldMatrices(json);
   const linearOf = new Map();
@@ -486,8 +486,7 @@ export function measureTubes(glb) {
   const meshOf = new Map();
   (json.meshes ?? []).forEach((mesh, i) => { for (const prim of mesh.primitives ?? []) meshOf.set(prim, i); });
 
-  const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-  const tubes = [];
+  const out = [];
   let shellBase = 0;
   for (const group of primitiveGroups(glb)) {
     const linear = linearOf.get(meshOf.get(group.prim)) ?? [1, 0, 0, 0, 1, 0, 0, 0, 1];
@@ -522,51 +521,107 @@ export function measureTubes(glb) {
     });
     if (group.numbered) shellBase += group.members.length;
 
-    for (const part of parts.values()) {
-      const points = [...part.points.values()];
-      if (points.length < 10) continue;
-      const center = [0, 1, 2].map((k) => points.reduce((s, p) => s + p[k], 0) / points.length);
-      const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-      for (const p of points) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) cov[i][j] += (p[i] - center[i]) * (p[j] - center[j]);
-      const [{ vector: axis }, { vector: u }, { vector: w }] = symmetricEigen(cov);
-      const local = points.map((p) => {
-        const d = [p[0] - center[0], p[1] - center[1], p[2] - center[2]];
-        return [dot(d, axis), dot(d, u), dot(d, w)];
-      });
-      const tMin = Math.min(...local.map((l) => l[0]));
-      const span = Math.max(...local.map((l) => l[0])) - tMin;
-      if (!(span > 0)) continue;
-      const slices = Array.from({ length: TUBE_SLICES }, () => []);
-      for (const l of local) slices[Math.min(TUBE_SLICES - 1, Math.floor((l[0] - tMin) / span * TUBE_SLICES))].push(l);
-      const rings = [];
-      let round = true;
-      for (const slice of slices) {
-        if (slice.length < 5) continue;
-        const cu = slice.reduce((s, l) => s + l[1], 0) / slice.length;
-        const cw = slice.reduce((s, l) => s + l[2], 0) / slice.length;
-        const reach = slice.map((l) => Math.hypot(l[1] - cu, l[2] - cw));
-        const far = Math.max(...reach);
-        const rim = slice.filter((_, i) => reach[i] > 0.35 * far);
-        const radii = reach.filter((r) => r > 0.35 * far).sort((a, b) => a - b);
-        const directions = new Set(rim.map((l) => Math.round(Math.atan2(l[2] - cw, l[1] - cu) / (Math.PI / 12))));
-        if (directions.size < 5 || radii[radii.length - 1] / radii[0] > 2.5) { round = false; break; }
-        const t = slice.reduce((s, l) => s + l[0], 0) / slice.length;
-        rings.push({ t, cu, cw, radius: radii[Math.floor(radii.length / 2)] });
-      }
-      if (!round || rings.length < 2) continue;
-      const radii = rings.map((r) => r.radius).sort((a, b) => a - b);
-      const radius = radii[Math.floor(radii.length / 2)];
-      if (!(radius > 0) || span < 5 * radius || radii[radii.length - 1] > 2.5 * radii[0]) continue;
-      tubes.push({
-        prim: group.prim,
-        shells: part.shells,
-        vertices: part.vertices,
-        diameter: 2 * radius,
-        length: span,
-        linear,
-        frame: { center, axis, u, w, rings },
-      });
+    for (const part of parts.values()) out.push({ prim: group.prim, linear, shells: part.shells, vertices: part.vertices, points: [...part.points.values()] });
+  }
+  return out;
+}
+
+const dot3 = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+
+export function measureTubes(glb) {
+  const dot = dot3;
+  const tubes = [];
+  for (const part of weldedParts(glb)) {
+    const points = part.points;
+    if (points.length < 10) continue;
+    const center = [0, 1, 2].map((k) => points.reduce((s, p) => s + p[k], 0) / points.length);
+    const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    for (const p of points) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) cov[i][j] += (p[i] - center[i]) * (p[j] - center[j]);
+    const [{ vector: axis }, { vector: u }, { vector: w }] = symmetricEigen(cov);
+    const local = points.map((p) => {
+      const d = [p[0] - center[0], p[1] - center[1], p[2] - center[2]];
+      return [dot(d, axis), dot(d, u), dot(d, w)];
+    });
+    const tMin = Math.min(...local.map((l) => l[0]));
+    const span = Math.max(...local.map((l) => l[0])) - tMin;
+    if (!(span > 0)) continue;
+    const slices = Array.from({ length: TUBE_SLICES }, () => []);
+    for (const l of local) slices[Math.min(TUBE_SLICES - 1, Math.floor((l[0] - tMin) / span * TUBE_SLICES))].push(l);
+    const rings = [];
+    let round = true;
+    for (const slice of slices) {
+      if (slice.length < 5) continue;
+      const cu = slice.reduce((s, l) => s + l[1], 0) / slice.length;
+      const cw = slice.reduce((s, l) => s + l[2], 0) / slice.length;
+      const reach = slice.map((l) => Math.hypot(l[1] - cu, l[2] - cw));
+      const far = Math.max(...reach);
+      const rim = slice.filter((_, i) => reach[i] > 0.35 * far);
+      const radii = reach.filter((r) => r > 0.35 * far).sort((a, b) => a - b);
+      const directions = new Set(rim.map((l) => Math.round(Math.atan2(l[2] - cw, l[1] - cu) / (Math.PI / 12))));
+      if (directions.size < 5 || radii[radii.length - 1] / radii[0] > 2.5) { round = false; break; }
+      const t = slice.reduce((s, l) => s + l[0], 0) / slice.length;
+      rings.push({ t, cu, cw, radius: radii[Math.floor(radii.length / 2)] });
     }
+    if (!round || rings.length < 2) continue;
+    const radii = rings.map((r) => r.radius).sort((a, b) => a - b);
+    const radius = radii[Math.floor(radii.length / 2)];
+    if (!(radius > 0) || span < 5 * radius || radii[radii.length - 1] > 2.5 * radii[0]) continue;
+    tubes.push({
+      prim: part.prim,
+      shells: part.shells,
+      vertices: part.vertices,
+      diameter: 2 * radius,
+      length: span,
+      linear: part.linear,
+      frame: { center, axis, u, w, rings },
+    });
   }
   return tubes;
+}
+
+export const STICK_RATIO = 6;
+export const STICK_SQUARE = 0.4;
+
+function narrowestTurn(points, center, u, w) {
+  const uw = points.map((p) => {
+    const d = [p[0] - center[0], p[1] - center[1], p[2] - center[2]];
+    return [dot3(d, u), dot3(d, w)];
+  });
+  let best = 0;
+  let bestWidth = Infinity;
+  for (let deg = 0; deg < 180; deg++) {
+    const r = deg * Math.PI / 180, cs = Math.cos(r), sn = Math.sin(r);
+    let lo = Infinity, hi = -Infinity;
+    for (const [x, y] of uw) { const t = x * cs + y * sn; if (t < lo) lo = t; if (t > hi) hi = t; }
+    if (hi - lo < bestWidth) { bestWidth = hi - lo; best = r; }
+  }
+  const cs = Math.cos(best), sn = Math.sin(best);
+  return [[0, 1, 2].map((k) => u[k] * cs + w[k] * sn), [0, 1, 2].map((k) => -u[k] * sn + w[k] * cs)];
+}
+
+export function measureSticks(glb) {
+  const sticks = [];
+  for (const part of weldedParts(glb)) {
+    const points = part.points;
+    if (points.length < 6) continue;
+    const center = [0, 1, 2].map((k) => points.reduce((s, p) => s + p[k], 0) / points.length);
+    const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    for (const p of points) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) cov[i][j] += (p[i] - center[i]) * (p[j] - center[j]);
+    const [{ vector: axis }, { vector: u0 }, { vector: w0 }] = symmetricEigen(cov);
+    const [u, w] = narrowestTurn(points, center, u0, w0);
+    const extent = (dir) => {
+      let lo = Infinity, hi = -Infinity;
+      for (const p of points) { const t = dot3([p[0] - center[0], p[1] - center[1], p[2] - center[2]], dir); if (t < lo) lo = t; if (t > hi) hi = t; }
+      return hi - lo;
+    };
+    const length = extent(axis), narrow = extent(u), wide = extent(w);
+    if (!(wide > 0) || length < STICK_RATIO * wide || narrow < STICK_SQUARE * wide) continue;
+    sticks.push({ prim: part.prim, shells: part.shells, vertices: part.vertices, width: narrow, wide, length, linear: part.linear, frame: { center, axis, u, w } });
+  }
+  return sticks;
+}
+
+export function thinnestPart(glb) {
+  const widths = [...measureTubes(glb).map((t) => t.diameter), ...measureSticks(glb).map((s) => s.width)];
+  return widths.length ? Math.min(...widths) : null;
 }

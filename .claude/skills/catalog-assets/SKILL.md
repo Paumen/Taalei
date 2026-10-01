@@ -18,7 +18,7 @@ because of a lint error; §7 says how to work one. A wrong band is moved in plac
 with `tools/import/recolour.mjs`, for the whole band or for named parts. A
 triangle spanning two colormap cells, or a flat face whose triangles show
 different colours, is evened in place with `tools/import/face-bands.mjs`. A tube
-thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
+or stick thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
 A model with more triangles than its shape needs is thinned in place with
 `tools/import/simplify.mjs`; render every model it changed, before and after,
 and put back any that look wrong.

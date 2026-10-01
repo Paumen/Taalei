@@ -1,21 +1,25 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readGlb, writeGlb, readAccessor, measureTubes } from '../../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor, measureTubes, measureSticks, TUBE_SLICES } from '../../catalog/tools/glb.mjs';
 import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 
 const HELP = `thicken.mjs [--min <diameter>] [--max <diameter>] [--list] <workfile.glb> [...]
 
 Widens every tube thinner than --min to just over it, around its own centre line,
-keeping its length. Without --min each model takes the diameter G27 asks of it,
+keeping its length. Then widens every stick (a straight part of any cross-section,
+see measureSticks) whose narrow side is under --min: each slice along it grows on
+each side that is under --min, around the slice's own centre, until a fresh
+measure finds none left. Without --min each model takes the diameter G27 asks of it,
 from its kind in lint/kinds.json and its size in catalog/build/catalog.json. --max narrows
-every tube thicker than it down to it instead, and only that. --list prints the tubes
-and changes nothing.`;
+every tube thicker than it down to it instead, and only that; sticks are left alone.
+--list prints the tubes and sticks and changes nothing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
 
 const MARGIN = 1.02;
+const STICK_PASSES = 6;
 
 function writer(glb, accessorIndex) {
   const accessor = glb.json.accessors[accessorIndex];
@@ -66,6 +70,40 @@ function widen(glb, tube, factor) {
     const moved = times(back, [0, 1, 2].map((k) => center[k] + t * axis[k] + a * u[k] + b * w[k]));
     for (let k = 0; k < 3; k++) p[k] = moved[k];
   }
+}
+
+function widenStick(glb, stick, min) {
+  const { center, axis, u, w } = stick.frame;
+  const back = invert3(stick.linear);
+  const position = writer(glb, stick.prim.attributes.POSITION);
+  const vertices = [...new Set(stick.vertices)];
+  const local = vertices.map((v) => {
+    const q = times(stick.linear, position(v));
+    const d = [q[0] - center[0], q[1] - center[1], q[2] - center[2]];
+    return [dot(d, axis), dot(d, u), dot(d, w)];
+  });
+  const t0 = Math.min(...local.map((l) => l[0]));
+  const span = Math.max(...local.map((l) => l[0])) - t0;
+  const binOf = local.map((l) => Math.min(TUBE_SLICES - 1, Math.floor((l[0] - t0) / span * TUBE_SLICES)));
+  const slices = Array.from({ length: TUBE_SLICES }, (_, k) => {
+    const members = local.filter((_, n) => binOf[n] === k);
+    if (!members.length) return null;
+    const side = (j) => {
+      const values = members.map((l) => l[j]);
+      const lo = Math.min(...values), hi = Math.max(...values);
+      return { mid: (lo + hi) / 2, grow: Math.max(1, min * MARGIN / Math.max(hi - lo, 1e-6)) };
+    };
+    return { u: side(1), w: side(2) };
+  });
+  vertices.forEach((v, n) => {
+    const [t, a, b] = local[n];
+    const slice = slices[binOf[n]];
+    const na = slice.u.mid + (a - slice.u.mid) * slice.u.grow;
+    const nb = slice.w.mid + (b - slice.w.mid) * slice.w.grow;
+    const moved = times(back, [0, 1, 2].map((k) => center[k] + t * axis[k] + na * u[k] + nb * w[k]));
+    const p = position(v);
+    for (let k = 0; k < 3; k++) p[k] = moved[k];
+  });
 }
 
 function renormal(glb, prim, vertices) {
@@ -139,19 +177,40 @@ for (const file of files) {
   const off = (t) => (max === null ? t.diameter < min : t.diameter > max);
   const thin = tubes.filter(off);
   for (const t of tubes) {
-    console.log(`${file}  shells ${t.shells.join(',') || '-'}  diameter ${t.diameter.toFixed(4)}  length ${t.length.toFixed(3)}${off(t) ? (max === null ? '  thin' : '  thick') : ''}`);
+    console.log(`${file}  tube shells ${t.shells.join(',') || '-'}  diameter ${t.diameter.toFixed(4)}  length ${t.length.toFixed(3)}${off(t) ? (max === null ? '  thin' : '  thick') : ''}`);
   }
-  if (list || !thin.length) continue;
+  if (list) {
+    for (const s of measureSticks(glb)) {
+      console.log(`${file}  stick shells ${s.shells.join(',') || '-'}  width ${s.width.toFixed(4)}  length ${s.length.toFixed(3)}${max === null && s.width < min ? '  thin' : ''}`);
+    }
+    continue;
+  }
   const touched = new Map();
+  const touch = (part) => {
+    if (!touched.has(part.prim)) touched.set(part.prim, new Set());
+    for (const v of part.vertices) touched.get(part.prim).add(v);
+  };
   for (const t of thin) {
     widen(glb, t, (max === null ? min * MARGIN : max) / t.diameter);
-    if (!touched.has(t.prim)) touched.set(t.prim, new Set());
-    for (const v of t.vertices) touched.get(t.prim).add(v);
+    touch(t);
   }
+  let sticks = 0;
+  let left = [];
+  if (max === null) {
+    for (let pass = 0; pass < STICK_PASSES; pass++) {
+      left = measureSticks(glb).filter((s) => s.width < min);
+      if (!left.length) break;
+      for (const s of left) { widenStick(glb, s, min); touch(s); }
+      if (pass === 0) sticks = left.length;
+    }
+    left = measureSticks(glb).filter((s) => s.width < min);
+  }
+  if (!touched.size) continue;
   for (const [prim, vertices] of touched) {
     renormal(glb, prim, vertices);
     bound(glb, prim.attributes.POSITION);
   }
   writeGlb(file, glb.json, glb.bin, writeFileSync);
-  console.log(`${file}: ${max === null ? 'widened' : 'narrowed'} ${thin.length} tube(s)`);
+  console.log(`${file}: ${max === null ? 'widened' : 'narrowed'} ${thin.length} tube(s)${max === null ? `, ${sticks} stick(s)` : ''}`);
+  if (left.length) console.log(`${file}: ${left.length} stick(s) still under ${min} after ${STICK_PASSES} passes`);
 }
