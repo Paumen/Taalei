@@ -337,6 +337,7 @@ const STOREYS = {
 const STOREY_M = 3;
 const ROOF_M = 1.5;
 const SHAKY = 0.3;
+const EDGE = 0.002;
 
 const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
@@ -397,9 +398,12 @@ const counted = (model) => {
 
 const gather = () => {
   const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog', 'build', 'catalog.json'), 'utf8'));
+  const bySize = [...catalog.models].sort((a, b) => Math.max(...a.wdh) - Math.max(...b.wdh));
+  const cut = Math.floor(bySize.length * EDGE);
+  const edges = new Set([...bySize.slice(0, cut), ...bySize.slice(bySize.length - cut)]);
   const picked = [];
   for (const model of catalog.models) {
-    if (!counted(model)) continue;
+    if (edges.has(model) || !counted(model)) continue;
     const assumed = realOf(model);
     if (!assumed) continue;
     const u = assumed.high ? model.wdh[2] : Math.max(...model.wdh);
@@ -642,6 +646,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
         <li>all root +1 except <code>env-fungi</code></li>
         ${VARS.exemptKinds.map((k) => `<li><code>kind:${k}</code></li>`).join('\n        ')}
         ${DROPPED_TAGS.map((t) => `<li><code>tag:${t}</code></li>`).join('\n        ')}
+        <li>the smallest and the largest ${EDGE * 100}% of the whole catalogue by longest side</li>
       </ul>
     </div>
     <div class="rule">
