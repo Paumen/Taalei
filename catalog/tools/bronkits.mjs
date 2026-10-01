@@ -54,7 +54,7 @@ export const BRONKITS = [
   { map: 'Ships_Pack_by_Quaternius_OBJ', naam: 'Ships Pack', kit: 'quat-ships', source: 'qua', formaat: 'obj' },
 
   { map: 'Pretty_park_set', naam: 'Pretty Park Set', kit: 'isa-park', source: 'isa', formaat: 'glb' },
-  { map: 'Pond_pack', naam: 'Pond Pack', kit: 'isa-pond', source: 'isa', formaat: 'glb' },
+  { map: 'Pond_pack', naam: 'Pond Pack', kit: 'aq-pond', formaat: 'glb' },
   { map: 'Medieval_Village_Pack', naam: 'Medieval Village Pack', kit: 'quat-medieval', source: 'qua', formaat: 'glb' },
 
   { map: 'Ultimate_Fantasy_RTS', naam: 'Ultimate Fantasy RTS', kit: 'quat-town', source: 'qua', formaat: 'glb' },
