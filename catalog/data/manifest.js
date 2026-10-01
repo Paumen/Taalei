@@ -2077,8 +2077,6 @@ window.KENNEY_KITS = [
    "stairs-modular",
    "stairs-side-cover",
    "stairs-side-cover-wall",
-   "statue-horse",
-   "sword-wall-mount",
    "trapdoor",
    "trapdoor-open",
    "vase",
@@ -2094,10 +2092,6 @@ window.KENNEY_KITS = [
    "arch-door-bottompivot",
    "bag-coins",
    "bag-standing",
-   "barrel-2",
-   "bucket",
-   "chest",
-   "chest-gold",
    "coins",
    "column",
    "column-2",
@@ -2107,8 +2101,6 @@ window.KENNEY_KITS = [
    "skull",
    "statue-horse",
    "sword-wall-mount",
-   "trapdoor",
-   "trapdoor-open",
    "vase"
   ]
 },
@@ -4847,7 +4839,6 @@ window.KENNEY_KITS = [
   "note": "The Pond_pack zip holds the same kit as glb; its models (bird, branch, dragonfly, frog, rock and tree-branch without a letter suffix) sit beside the fbx ones.",
   "models": [
    "bathtub",
-   "bird",
    "bird-a",
    "bird-b",
    "bird-c",
@@ -4856,7 +4847,6 @@ window.KENNEY_KITS = [
    "branch-b",
    "branch-b-2",
    "branch-c",
-   "brown-bird",
    "dragonfly",
    "dragonfly-a",
    "dragonfly-b",
@@ -4883,7 +4873,6 @@ window.KENNEY_KITS = [
    "rock-b",
    "rock-c",
    "rock-d",
-   "round-bird",
    "swamp-calla-a",
    "swamp-calla-b",
    "swamp-calla-c",
@@ -5948,7 +5937,8 @@ window.KENNEY_KITS = [
   "name": "wizp-grave",
   "kits": [
    "wizp-grave",
-   "wizp-arena"
+   "wizp-arena",
+   "wizp-tree"
   ]
  },
  {
@@ -6011,7 +6001,8 @@ window.KENNEY_KITS = [
    "isa-bakery",
    "isa-picnic",
    "isa-park",
-   "isa-playground"
+   "isa-playground",
+   "isa-homely"
   ]
  },
  {
@@ -6056,6 +6047,16 @@ window.KENNEY_KITS = [
   "kits": [
    "fs-terrain",
    "fs-town"
+  ]
+ },
+ {
+  "collection": "rgp",
+  "name": "rgp",
+  "kits": [
+   "rgp-medieval",
+   "rgp-explosives",
+   "rgp-vintage",
+   "rgp-weapons"
   ]
  },
  {
