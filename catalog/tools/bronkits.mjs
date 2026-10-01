@@ -174,10 +174,10 @@ export const BRONKITS = [
   { map: 'House_Edge_Casino_Floor', naam: 'House Edge: Casino Floor Props', kit: 'sq-casino', source: 'sidequest', formaat: 'glb', splitsPerMesh: true },
   { map: 'Hard_Cash_Bank_Vault', naam: 'Hard Cash: Bank & Vault Props', kit: 'sq-bank', source: 'sidequest', formaat: 'glb', splitsPerMesh: true },
 
-  { map: 'Signs_Pack_iPoly3D', naam: 'Signs Pack', kit: null, source: 'ipoly', formaat: 'glb' },
-  { map: 'Medieval_Torture_Devices_iPoly3D', naam: 'Medieval Torture Devices', kit: null, source: 'ipoly', formaat: 'glb' },
-  { map: 'Electronics_iPoly3D', naam: 'Electronics', kit: null, source: 'ipoly', formaat: 'glb' },
+  { map: 'Signs_Pack_iPoly3D', naam: 'Signs Pack', kit: 'ipoly-signs', source: 'ipoly', formaat: 'glb' },
+  { map: 'Medieval_Torture_Devices_iPoly3D', naam: 'Medieval Torture Devices', kit: 'ipoly-torture', source: 'ipoly', formaat: 'glb' },
+  { map: 'Electronics_iPoly3D', naam: 'Electronics', kit: 'ipoly-electronics', source: 'ipoly', formaat: 'glb' },
   { map: 'Glasses_Pack_iPoly3D', naam: 'Glasses Pack', kit: null, source: 'ipoly', formaat: 'glb' },
-  { map: 'Concert_Pack_iPoly3D', naam: 'Concert Pack', kit: null, source: 'ipoly', formaat: 'glb' },
+  { map: 'Concert_Pack_iPoly3D', naam: 'Concert Pack', kit: 'ipoly-concert', source: 'ipoly', formaat: 'glb' },
   { map: 'Taalei', naam: 'Taalei', kit: 'taalei-kit', formaat: 'glb' },
 ];
