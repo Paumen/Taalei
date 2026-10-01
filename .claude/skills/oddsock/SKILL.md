@@ -46,11 +46,13 @@ gathered copies in `<kind>/src` (a copy needs `Textures/colormap.png` beside it)
 | size against peers | `--compare` |
 | every model close | `kind-sheet.mjs --each` |
 
-When a model looks off, render its original beside it. Clone
-`../lp-sources` (see `catalog-assets` §1), find the zip in
+Before suggesting anything for a model, render its original beside it, in
+one sheet. Clone `../lp-sources` (see `catalog-assets` §1), find the zip in
 `catalog/tools/bronkits.mjs` by `kit`, unzip to scratch and render the
-matching file. That tells an import fault (bands smeared, faces recoloured)
-from the source's own style.
+matching file; `asset.extras.taaleiland.bronmodel` in the workfile names it.
+That tells an import fault (bands smeared or split, faces recoloured or
+doubled, glass made opaque, parts merged) from the source's own style, and
+the fault is then the suggestion.
 
 ## 3. Suggest
 
