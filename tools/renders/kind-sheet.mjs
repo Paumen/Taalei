@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const HELP = `kind-sheet.mjs (--kind <id[,id]> | --prefix <id> | --models <kit/name[,kit/name]>) --out <dir>
                [--ref <git rev>] [--views iso] [--modes pbr,claywire] [--ss 1] [--chunk 16]
-               [--no-render] [--no-glb-lint] [--no-chunks]
+               [--no-render] [--no-glb-lint] [--no-chunks] [--each]
 
 Gathers every catalogue model of a kind, of every kind under a prefix, or of a
 list, into <out>/src with the colormap beside them, and renders them on one
@@ -14,6 +14,11 @@ comparable size. More than --chunk models also get sheets of --chunk models
 each, at larger tiles, in <out>/<mode>/c01, c02, …; those are not scale-locked
 across chunks. --ref takes the files from that git revision instead of the
 working tree, so a before sheet is one extra run.
+
+--each also renders every model on its own, close: pbr and claywire, from iso,
+205/45 and a low view at 30/-20, in <out>/each/<tile>.png. These are where
+triangle-level faults show: a jagged band edge, light and dark triangles side
+by side, slivers, a wobbling surface, backfaces.
 
 <out>/dossier.json carries, per model, what catalog/build/catalog.json records
 (size, extents, triangles, bands and their names, colours, tags, variant group,
@@ -177,6 +182,21 @@ if (!has('no-render')) {
     const target = join(out, mode);
     dossier.sheets[mode] = { full: render(src, target, mode), chunks: [] };
     for (const c of chunks) dossier.sheets[mode].chunks.push(render(join(src, c.name), join(target, c.name), mode));
+  }
+  if (has('each')) {
+    const each = join(out, 'each');
+    const raw = join(out, 'each-raw');
+    execFileSync('node', [RENDER, src, '--out', raw, '--modes', 'pbr,claywire', '--views', 'iso,205/45,30/-20', '--sheet-only', '--sheet-each', '--ss', ss], { cwd: ROOT, stdio: 'pipe', maxBuffer: 1 << 26 });
+    mkdirSync(each, { recursive: true });
+    for (const m of dossier.models) {
+      const found = execFileSync('find', [raw, '-name', '*.png', '-path', `*${m.tile}*`], { encoding: 'utf8' }).split('\n').filter(Boolean);
+      const sheet = found.find((p) => /sheet/.test(p)) ?? found[0];
+      if (!sheet) continue;
+      const target = join(each, `${m.tile}.png`);
+      copyFileSync(sheet, target);
+      m.closeUp = target;
+    }
+    rmSync(raw, { recursive: true, force: true });
   }
 }
 
