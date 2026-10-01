@@ -2231,8 +2231,8 @@
     "none": 5
    },
    "kitCheck": {
-    "factor": 1.2,
-    "kinds": 11
+    "factor": 1.04,
+    "kinds": 12
    }
   },
   {
@@ -2392,8 +2392,8 @@
     "smooth": 27
    },
    "kitCheck": {
-    "factor": 1.16,
-    "kinds": 13
+    "factor": 1.19,
+    "kinds": 14
    }
   },
   {
@@ -18482,14 +18482,14 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 40
+   "count": 42
   },
   {
    "id": "str-part-gate-gateway",
    "name": "Gateway",
    "type": "kind",
    "description": "The opening a gate hangs in, with the structure around it.",
-   "count": 32
+   "count": 34
   },
   {
    "id": "str-part-gate-single",
@@ -18545,28 +18545,28 @@
    "name": "Roof",
    "type": "kind",
    "description": "roof, roof tile, chimney, gable",
-   "count": 64
+   "count": 65
   },
   {
    "id": "str-part-roof-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Roof piece covering one full module of the kit grid.",
-   "count": 48
+   "count": 49
   },
   {
    "id": "str-part-wall",
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 115
+   "count": 112
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 77
+   "count": 79
   },
   {
    "id": "str-part-wall-rampart",
@@ -19402,7 +19402,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 164,
+   "count": 166,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -19425,6 +19425,7 @@
     "str-barrier-hedge",
     "str-access-ladder",
     "str-fixture-marker-flag",
+    "str-fixture-chimney",
     "str-fixture-utility-turbine",
     "env-remains-deadwood-tree",
     "env-flora-plant-leafy",
@@ -19439,7 +19440,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 109,
+   "count": 110,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -19470,6 +19471,7 @@
     "str-fixture-marker-sign",
     "str-fixture-marker-flag",
     "str-fixture-marker-banner",
+    "str-fixture-chimney",
     "str-fixture-utility-well",
     "env-fauna-fish",
     "env-remains-deadwood-stump",
@@ -22569,6 +22571,20 @@
    "high.max": 8,
    "longest.min": 1,
    "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-chimney scale-small": {
+   "high.min": 0.6,
+   "high.max": 2.25,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-fixture-chimney scale-big": {
+   "high.min": 2.4,
+   "high.max": 9,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "str-fixture-utility-well scale-big": {
@@ -49848,7 +49864,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "window-upper-straight",
-   "kind": "str-part-wall",
+   "kind": "str-part-roof-unit",
    "size": "l",
    "wdh": [
     0.6,
@@ -49896,6 +49912,13 @@
    ],
    "alpha": true,
    "pbr": true,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.6 over max 1.2 (str-part-roof-unit)"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -168380,6 +168403,7 @@
    "tags": [
     "ken",
     "metal",
+    "scale-small",
     "stone-masonry"
    ],
    "variant": "v927"
@@ -168426,6 +168450,7 @@
    "tags": [
     "ken",
     "metal",
+    "scale-big",
     "stone-masonry"
    ]
   },
@@ -168518,6 +168543,7 @@
    "tags": [
     "ken",
     "metal",
+    "scale-small",
     "stone-masonry"
    ],
    "variant": "v927"
@@ -212320,7 +212346,7 @@
   {
    "kit": "medieval-forge",
    "name": "wall-1",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
     2.233,
@@ -212379,7 +212405,7 @@
   {
    "kit": "medieval-forge",
    "name": "wall-2",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
     2.233,
@@ -222143,7 +222169,7 @@
   {
    "kit": "quat-dun-1",
    "name": "arch",
-   "kind": "str-part-wall",
+   "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
     2.052,
@@ -249386,7 +249412,7 @@
   {
    "kit": "quat-sushi",
    "name": "arch",
-   "kind": "str-part-wall",
+   "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
     1.228,
