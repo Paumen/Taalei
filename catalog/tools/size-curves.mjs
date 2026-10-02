@@ -282,6 +282,7 @@ const SIZES = {
   'str-fixture-utility-hydrant': 0.8,
   'str-fixture-utility-machine': 2,
   'str-fixture-utility-machine-crane': 2,
+  'str-fixture-utility-machine-drivethrough': 3,
   'str-fixture-utility-solar': 1.7,
   'str-fixture-utility-well': 2,
   'str-part-door': 2.1,
