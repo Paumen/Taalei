@@ -609,6 +609,7 @@ window.KENNEY_KITS = [
    "drone-canopy",
    "drone-gimbal",
    "drone-unibody",
+   "fishing-rod",
    "graduation-cap",
    "hook",
    "hourglass",
