@@ -247,7 +247,7 @@
    ],
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 40
+    "kinds": 42
    }
   },
   {
@@ -616,8 +616,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 73
+    "factor": 1.04,
+    "kinds": 74
    }
   },
   {
@@ -1057,7 +1057,7 @@
    ],
    "kitCheck": {
     "factor": 1.23,
-    "kinds": 52
+    "kinds": 54
    }
   },
   {
@@ -1502,8 +1502,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.99,
-    "kinds": 39
+    "factor": 1.01,
+    "kinds": 40
    }
   },
   {
@@ -1857,7 +1857,7 @@
    },
    "kitCheck": {
     "factor": 0.91,
-    "kinds": 33
+    "kinds": 35
    }
   },
   {
@@ -1928,8 +1928,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 32
+    "factor": 1.02,
+    "kinds": 34
    }
   },
   {
@@ -1952,8 +1952,8 @@
     "smooth": 45
    },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 14
+    "factor": 0.84,
+    "kinds": 15
    }
   },
   {
@@ -2101,7 +2101,7 @@
    },
    "kitCheck": {
     "factor": 1.13,
-    "kinds": 13
+    "kinds": 15
    }
   },
   {
@@ -2150,8 +2150,8 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 7
+    "factor": 0.91,
+    "kinds": 8
    }
   },
   {
@@ -3012,7 +3012,7 @@
    ],
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 70
+    "kinds": 69
    }
   },
   {
@@ -18641,21 +18641,21 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 88
+   "count": 69
   },
   {
    "id": "str-part-door-doorway",
    "name": "Doorway",
    "type": "kind",
    "description": "The opening a door hangs in, with the wall piece around it.",
-   "count": 46
+   "count": 18
   },
   {
    "id": "str-part-door-single",
    "name": "Single",
    "type": "kind",
    "description": "The door leaf on its own, without the opening it hangs in.",
-   "count": 34
+   "count": 43
   },
   {
    "id": "str-part-door-trapdoor",
@@ -18746,14 +18746,28 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 112
+   "count": 153
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 79
+   "count": 120
+  },
+  {
+   "id": "str-part-wall-unit-doorway",
+   "name": "Doorway",
+   "type": "kind",
+   "description": "Wall piece covering one full module of the kit grid, with a doorway in it.",
+   "count": 23
+  },
+  {
+   "id": "str-part-wall-unit-window",
+   "name": "Window",
+   "type": "kind",
+   "description": "Wall piece covering one full module of the kit grid, with a window in it.",
+   "count": 22
   },
   {
    "id": "str-part-wall-rampart",
@@ -18767,14 +18781,14 @@
    "name": "Window",
    "type": "kind",
    "description": "window, shutter",
-   "count": 71
+   "count": 49
   },
   {
    "id": "str-part-window-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece with a window, covering one full module of the kit grid.",
-   "count": 49
+   "count": 27
   },
   {
    "id": "str-fixture-marker",
@@ -22376,6 +22390,20 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-part-wall-unit-doorway": {
+   "high.min": 0.65,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-wall-unit-window": {
+   "high.min": 0.65,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-part-window": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -22781,6 +22809,20 @@
    "tpu.max": 5000
   },
   "str-part-wall-unit scale-small": {
+   "high.min": 0.325,
+   "high.max": 0.6,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-wall-unit-doorway scale-small": {
+   "high.min": 0.325,
+   "high.max": 0.6,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-wall-unit-window scale-small": {
    "high.min": 0.325,
    "high.max": 0.6,
    "longest.min": 0.05,
@@ -29525,8 +29567,8 @@
    "size": "s",
    "wdh": [
     0.016,
-    0.007,
-    0.243
+    0.243,
+    0.007
    ],
    "tris": 432,
    "tpu": 1259,
@@ -31292,15 +31334,15 @@
    "size": "s",
    "wdh": [
     0.044,
-    0.044,
-    0.336
+    0.336,
+    0.044
    ],
    "tris": 308,
    "tpu": 898,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10300,
+   "bytes": 10332,
    "vtx": 160,
    "grounded": true,
    "centered": true,
@@ -33137,8 +33179,8 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.162,
     0.226,
+    0.162,
     0.024
    ],
    "tris": 152,
@@ -35712,8 +35754,8 @@
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.094,
     0.224,
+    0.094,
     0.094
    ],
    "tris": 192,
@@ -35755,8 +35797,8 @@
    "kind": "obj-food-meat-roast",
    "size": "s",
    "wdh": [
-    0.308,
     0.374,
+    0.308,
     0.163
    ],
    "tris": 600,
@@ -39792,8 +39834,8 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.117,
     0.257,
+    0.117,
     0.04
    ],
    "tris": 204,
@@ -40126,8 +40168,8 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.147,
     0.298,
+    0.147,
     0.04
    ],
    "tris": 188,
@@ -40300,8 +40342,8 @@
    "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
-    0.058,
     0.26,
+    0.058,
     0.065
    ],
    "tris": 178,
@@ -40309,7 +40351,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5396,
+   "bytes": 5376,
    "vtx": 91,
    "grounded": true,
    "centered": true,
@@ -40465,8 +40507,8 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.228,
     0.26,
+    0.228,
     0.04
    ],
    "tris": 252,
@@ -47997,7 +48039,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-doorway-narrow-tall-a",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.55,
@@ -48093,7 +48135,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-doorway-wide-tall-a",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1.15,
@@ -48835,7 +48877,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-doorway-narrow-tall",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.55,
@@ -48881,7 +48923,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-doorway-wide-tall",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1,
@@ -49368,7 +49410,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-window-double-narrow",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.55,
@@ -49411,6 +49453,13 @@
    "alpha": true,
    "pbr": true,
    "variant": "v597",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -49623,7 +49672,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-window-rounded-wide-tall",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1,
@@ -49827,7 +49876,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-window-single-wide-tall",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1,
@@ -50647,7 +50696,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "window-upper-convex",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.309,
@@ -50695,7 +50744,14 @@
     "wood-beam"
    ],
    "alpha": true,
-   "pbr": true
+   "pbr": true,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.35 over max 1.2 (str-part-wall-unit)"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -53029,8 +53085,8 @@
    "kind": "obj-device-science-astro",
    "size": "s",
    "wdh": [
-    0.143,
     0.123,
+    0.143,
     0.205
    ],
    "tris": 478,
@@ -59994,8 +60050,8 @@
    "kind": "obj-kitchenware-cookware-utensil-rollingpin",
    "size": "s",
    "wdh": [
-    0.32,
     0.083,
+    0.32,
     0.083
    ],
    "tris": 336,
@@ -60461,7 +60517,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-panelled-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.64,
@@ -60514,7 +60570,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-door-doorway)"
+     "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
     }
    ]
   },
@@ -60629,7 +60685,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-panelled-window-small",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.64,
@@ -60677,7 +60733,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v524"
+   "variant": "v524",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -65653,7 +65716,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-plain-window-large",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.64,
@@ -65689,7 +65752,14 @@
     "glass",
     "isa"
    ],
-   "variant": "v837"
+   "variant": "v837",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
+    }
+   ]
   },
   {
    "kit": "isa-kitchen",
@@ -65942,7 +66012,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.64,
@@ -65989,7 +66059,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.28 over max 1.25 (str-part-door-doorway)"
+     "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
     }
    ]
   },
@@ -66149,7 +66219,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-window-small",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.64,
@@ -66197,7 +66267,14 @@
     "stone-masonry",
     "wood-worked"
    ],
-   "variant": "v600"
+   "variant": "v600",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
+    }
+   ]
   },
   {
    "kit": "isa-kitchen",
@@ -86969,8 +87046,8 @@
    "kind": "env-remains-bones-skull",
    "size": "s",
    "wdh": [
-    0.27,
     0.231,
+    0.27,
     0.23
    ],
    "tris": 1468,
@@ -93414,7 +93491,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "wall-archedwindow-gated",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.2,
@@ -93923,7 +94000,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "wall-doorway-sides",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
     1.5,
@@ -93968,7 +94045,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "wall-doorway-tsplit",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
     2.4,
@@ -94013,7 +94090,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "wall-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1.2,
@@ -94315,7 +94392,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "wall-open-scaffold",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1.2,
@@ -94726,7 +94803,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "wall-window-closed",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.2,
@@ -100615,7 +100692,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "wall-order-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.2,
@@ -100673,7 +100750,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "wall-window-closed",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.2,
@@ -136723,7 +136800,7 @@
    "kit": "ken-arcade",
    "collection": "ken-mini",
    "name": "wall-door",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.95,
@@ -136784,7 +136861,7 @@
    "kit": "ken-arcade",
    "collection": "ken-mini",
    "name": "wall-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.95,
@@ -146800,17 +146877,16 @@
    "size": "m",
    "wdh": [
     0.5,
-    0.5,
-    0.112
+    0.112,
+    0.5
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8452,
+   "bytes": 8468,
    "vtx": 192,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
@@ -146841,17 +146917,16 @@
    "size": "m",
    "wdh": [
     0.5,
-    0.5,
-    0.112
+    0.112,
+    0.5
    ],
    "tris": 192,
    "tpu": 560,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9672,
+   "bytes": 9684,
    "vtx": 224,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
@@ -146882,17 +146957,16 @@
    "size": "m",
    "wdh": [
     0.5,
-    0.5,
-    0.112
+    0.112,
+    0.5
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8452,
+   "bytes": 8468,
    "vtx": 192,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.042,
@@ -146923,17 +146997,16 @@
    "size": "m",
    "wdh": [
     0.5,
-    0.5,
-    0.112
+    0.112,
+    0.5
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8452,
+   "bytes": 8468,
    "vtx": 192,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.045,
@@ -146964,17 +147037,16 @@
    "size": "m",
    "wdh": [
     0.5,
-    0.5,
-    0.112
+    0.112,
+    0.5
    ],
    "tris": 224,
    "tpu": 653,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10888,
+   "bytes": 10900,
    "vtx": 256,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
@@ -150674,8 +150746,8 @@
    "kind": "obj-food-baked-bread-baguette",
    "size": "s",
    "wdh": [
-    0.369,
     0.111,
+    0.369,
     0.111
    ],
    "tris": 122,
@@ -150761,16 +150833,16 @@
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
-    0.338,
     0.302,
-    0.302
+    0.302,
+    0.338
    ],
    "tris": 306,
    "tpu": 892,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17428,
+   "bytes": 17448,
    "vtx": 440,
    "grounded": true,
    "centered": true,
@@ -152299,8 +152371,8 @@
    "kind": "obj-kitchenware-tableware-drinkware-cup",
    "size": "s",
    "wdh": [
-    0.089,
     0.103,
+    0.089,
     0.089
    ],
    "tris": 80,
@@ -152308,7 +152380,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4836,
+   "bytes": 4816,
    "vtx": 88,
    "grounded": true,
    "centered": true,
@@ -152899,8 +152971,8 @@
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.169,
     0.284,
+    0.169,
     0.196
    ],
    "tris": 128,
@@ -153439,8 +153511,8 @@
    "kind": "obj-food-baked-bread",
    "size": "s",
    "wdh": [
-    0.258,
     0.163,
+    0.258,
     0.197
    ],
    "tris": 114,
@@ -153526,8 +153598,8 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.213,
     0.256,
+    0.213,
     0.029
    ],
    "tris": 110,
@@ -154813,8 +154885,8 @@
    "kind": "obj-kitchenware-cookware-utensil-rollingpin",
    "size": "s",
    "wdh": [
-    0.362,
     0.072,
+    0.362,
     0.062
    ],
    "tris": 140,
@@ -161848,7 +161920,7 @@
   {
    "kit": "ken-furniture",
    "name": "wall-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.85,
@@ -161940,7 +162012,7 @@
   {
    "kit": "ken-furniture",
    "name": "wall-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.85,
@@ -165334,7 +165406,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-door",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -165383,16 +165455,16 @@
    "variant": "v572",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway)"
+     "text": "high 0.5 under min 0.6 (str-part-door-single)"
     }
    ]
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -165435,9 +165507,9 @@
    "variant": "v572",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway)"
+     "text": "high 0.5 under min 0.6 (str-part-door-single)"
     }
    ]
   },
@@ -165491,7 +165563,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-door",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -165541,16 +165613,16 @@
    "variant": "v572",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway)"
+     "text": "high 0.5 under min 0.6 (str-part-door-single)"
     }
    ]
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.5,
@@ -165600,9 +165672,9 @@
    "variant": "v572",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.75 (str-part-door-doorway)"
+     "text": "high 0.5 under min 0.6 (str-part-door-single)"
     }
    ]
   },
@@ -165971,7 +166043,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-a",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.5,
@@ -166011,7 +166083,14 @@
     "wood-planks",
     "wood-worked"
    ],
-   "variant": "v518"
+   "variant": "v518",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -166128,7 +166207,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-large",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.5,
@@ -166178,6 +166257,13 @@
     "ken",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
+    }
    ]
   },
   {
@@ -170373,7 +170459,7 @@
    "kit": "ken-market",
    "collection": "ken-mini",
    "name": "wall-door",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.95,
@@ -170429,7 +170515,7 @@
    "kit": "ken-market",
    "collection": "ken-mini",
    "name": "wall-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.95,
@@ -179386,7 +179472,7 @@
    "kit": "ken-platformer",
    "collection": "ken-mini",
    "name": "door-large",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.95,
@@ -181618,7 +181704,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "wall-doorway-sliding",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1.425,
@@ -181662,7 +181748,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "wall-doorway-wide-sliding",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
     2.85,
@@ -181706,7 +181792,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "wall-doorway-wide",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1.425,
@@ -181835,7 +181921,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "wall-window-large",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.95,
@@ -194446,7 +194532,7 @@
   {
    "kit": "ken-station",
    "name": "wall-door-banner",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1,
@@ -194553,7 +194639,7 @@
   {
    "kit": "ken-station",
    "name": "wall-door-wide",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1,
@@ -194604,7 +194690,7 @@
   {
    "kit": "ken-station",
    "name": "wall-door",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1,
@@ -194797,7 +194883,7 @@
   {
    "kit": "ken-station",
    "name": "wall-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1,
@@ -199895,7 +199981,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 54920,
+   "bytes": 54988,
    "vtx": 1301,
    "grounded": true,
    "centered": true,
@@ -199947,7 +200033,7 @@
    "mat": 1,
    "bands": 4,
    "calls": 3,
-   "bytes": 62304,
+   "bytes": 62372,
    "vtx": 1644,
    "grounded": true,
    "centered": true,
@@ -202587,8 +202673,8 @@
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
-    0.585,
     0.9,
+    0.585,
     0.329
    ],
    "tris": 104,
@@ -203524,7 +203610,7 @@
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "wall-wood-door",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.9,
@@ -203573,7 +203659,7 @@
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "wall-wood-doorway-base",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.9,
@@ -203620,7 +203706,7 @@
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "wall-wood-doorway-square-wide-curved",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.09,
@@ -203818,7 +203904,7 @@
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "wall-wood-window-glass",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.9,
@@ -209110,7 +209196,7 @@
   {
    "kit": "lpa-desert",
    "name": "door-frame-a",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.363,
@@ -210905,7 +210991,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11024,
+   "bytes": 11020,
    "vtx": 265,
    "grounded": true,
    "centered": true,
@@ -220768,7 +220854,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 38344,
+   "bytes": 38340,
    "vtx": 1083,
    "grounded": true,
    "centered": true,
@@ -221811,8 +221897,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.055,
     0.378,
+    0.055,
     0.132
    ],
    "tris": 726,
@@ -222806,9 +222892,9 @@
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
+    0.079,
     0.222,
-    0.222,
-    0.079
+    0.222
    ],
    "tris": 608,
    "tpu": 1773,
@@ -222857,9 +222943,9 @@
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
+    0.237,
     0.255,
-    0.222,
-    0.237
+    0.222
    ],
    "tris": 1824,
    "tpu": 5318,
@@ -222868,6 +222954,7 @@
    "calls": 1,
    "bytes": 61580,
    "vtx": 1536,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -228158,15 +228245,15 @@
    "size": "s",
    "wdh": [
     0.009,
-    0.021,
-    0.277
+    0.277,
+    0.021
    ],
    "tris": 440,
    "tpu": 1283,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21200,
+   "bytes": 21216,
    "vtx": 532,
    "grounded": true,
    "centered": true,
@@ -228533,9 +228620,9 @@
    "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
+    0.23,
     0.044,
-    0.044,
-    0.23
+    0.044
    ],
    "tris": 284,
    "tpu": 828,
@@ -229212,8 +229299,8 @@
    "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
-    0.133,
     0.283,
+    0.133,
     0.07
    ],
    "tris": 1078,
@@ -230285,8 +230372,8 @@
    "kind": "obj-food-meat-steak",
    "size": "s",
    "wdh": [
-    0.224,
     0.325,
+    0.224,
     0.058
    ],
    "tris": 412,
@@ -231827,7 +231914,7 @@
   {
    "kit": "quat-medieval",
    "name": "door-round",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.552,
@@ -231891,7 +231978,7 @@
   {
    "kit": "quat-medieval",
    "name": "door-straight",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.552,
@@ -237221,8 +237308,8 @@
    "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
-    0.204,
     0.141,
+    0.204,
     0.18
    ],
    "tris": 420,
@@ -237230,7 +237317,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16684,
+   "bytes": 16688,
    "vtx": 396,
    "grounded": true,
    "centered": true,
@@ -244795,7 +244882,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24092,
+   "bytes": 24072,
    "vtx": 539,
    "grounded": true,
    "centered": true,
@@ -251064,9 +251151,9 @@
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.201,
+    0.024,
     0.08,
-    0.024
+    0.201
    ],
    "tris": 84,
    "tpu": 245,
@@ -251105,9 +251192,9 @@
    "kind": "obj-food-vegetable",
    "size": "s",
    "wdh": [
-    0.329,
+    0.065,
     0.063,
-    0.065
+    0.329
    ],
    "tris": 256,
    "tpu": 746,
@@ -263357,8 +263444,8 @@
    "kind": "obj-equipment-tool-station",
    "size": "s",
    "wdh": [
-    0.399,
     0.22,
+    0.399,
     0.208
    ],
    "tris": 266,
@@ -264766,7 +264853,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "door-arch",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.75,
@@ -264812,6 +264899,13 @@
     "rgp",
     "stone-masonry",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.157 over max 1.1 (str-part-door-single)"
+    }
    ]
   },
   {
@@ -264877,7 +264971,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "door-porch",
-   "kind": "str-part-door-doorway",
+   "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.986,
@@ -264928,7 +265022,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.283 over max 1.25 (str-part-door-doorway)"
+     "text": "high 1.283 over max 1.1 (str-part-door-single)"
     }
    ]
   },
@@ -265947,8 +266041,8 @@
    "kind": "env-fauna-mammal",
    "size": "m",
    "wdh": [
-    1.031,
     0.246,
+    1.031,
     0.812
    ],
    "tris": 3575,
@@ -267677,8 +267771,8 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    1.126,
     0.15,
+    1.126,
     0.055
    ],
    "tris": 12,
@@ -267717,8 +267811,8 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    1.091,
     0.145,
+    1.091,
     0.054
    ],
    "tris": 48,
@@ -267757,8 +267851,8 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    1.224,
     0.159,
+    1.224,
     0.055
    ],
    "tris": 28,
@@ -267797,8 +267891,8 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    1.21,
     0.121,
+    1.21,
     0.054
    ],
    "tris": 40,
@@ -267838,8 +267932,8 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    1.201,
     0.174,
+    1.201,
     0.054
    ],
    "tris": 28,
@@ -267878,8 +267972,8 @@
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
-    1.141,
     0.202,
+    1.141,
     0.054
    ],
    "tris": 28,
@@ -269569,8 +269663,8 @@
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
-    1.661,
     0.746,
+    1.661,
     0.408
    ],
    "tris": 706,
@@ -269802,8 +269896,8 @@
    "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
-    0.03,
     0.156,
+    0.03,
     0.024
    ],
    "tris": 66,
@@ -270068,8 +270162,8 @@
    "size": "s",
    "wdh": [
     0.381,
-    0.381,
-    0.046
+    0.046,
+    0.381
    ],
    "tris": 864,
    "tpu": 2519,
@@ -271056,8 +271150,8 @@
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
    "wdh": [
-    0.093,
     0.123,
+    0.093,
     0.097
    ],
    "tris": 336,
@@ -271065,7 +271159,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16172,
+   "bytes": 16176,
    "vtx": 398,
    "grounded": true,
    "centered": true,
@@ -271360,8 +271454,8 @@
    "kind": "obj-transport-land-cart",
    "size": "l",
    "wdh": [
-    1.525,
     0.797,
+    1.525,
     0.586
    ],
    "tris": 2429,
@@ -272948,8 +273042,8 @@
    "kind": "obj-equipment-tool-twohand-pitchfork",
    "size": "m",
    "wdh": [
-    0.034,
     0.155,
+    0.034,
     0.821
    ],
    "tris": 176,
@@ -272957,7 +273051,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15800,
+   "bytes": 15796,
    "vtx": 412,
    "grounded": true,
    "centered": true,
@@ -274060,7 +274154,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 55136,
+   "bytes": 55140,
    "vtx": 1353,
    "grounded": true,
    "centered": true,
@@ -278447,7 +278541,7 @@
    "kit": "sq-bank",
    "collection": "sq-props",
    "name": "teller-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.72,
@@ -282881,7 +282975,7 @@
    "kit": "sq-fastfood",
    "collection": "sq-props",
    "name": "drive-thru",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.8,
@@ -286792,8 +286886,8 @@
    "kind": "obj-device-science-astro",
    "size": "m",
    "wdh": [
-    0.518,
     0.349,
+    0.518,
     0.859
    ],
    "tris": 4891,
@@ -286801,7 +286895,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 353684,
+   "bytes": 353680,
    "vtx": 10086,
    "grounded": true,
    "centered": true,
@@ -287763,7 +287857,7 @@
    "kit": "sq-rink",
    "collection": "sq-props",
    "name": "exchange-window",
-   "kind": "str-part-window-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.8,
@@ -291911,8 +292005,8 @@
    "kind": "env-fauna-fish-shark",
    "size": "m",
    "wdh": [
-    1.382,
     0.572,
+    1.382,
     0.618
    ],
    "tris": 1464,
@@ -291920,7 +292014,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 39100,
+   "bytes": 39076,
    "vtx": 903,
    "grounded": true,
    "centered": true,
@@ -295948,8 +296042,8 @@
    "kind": "obj-device-appliance-fridge",
    "size": "m",
    "wdh": [
-    0.261,
     0.336,
+    0.261,
     0.691
    ],
    "tris": 694,
@@ -295957,7 +296051,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27116,
+   "bytes": 27112,
    "vtx": 669,
    "grounded": true,
    "centered": true,
@@ -296173,8 +296267,8 @@
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
-    0.144,
     0.775,
+    0.144,
     0.283
    ],
    "tris": 132,
@@ -296182,7 +296276,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6928,
+   "bytes": 6924,
    "vtx": 144,
    "grounded": true,
    "centered": true,
@@ -314976,8 +315070,8 @@
    "kind": "obj-equipment-weapon-ranged-crossbow",
    "size": "m",
    "wdh": [
-    0.301,
     0.525,
+    0.301,
     0.125
    ],
    "tris": 1617,
@@ -315815,16 +315909,16 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.081,
     0.12,
-    0.013
+    0.013,
+    0.081
    ],
    "tris": 926,
    "tpu": 2700,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 74940,
+   "bytes": 74944,
    "vtx": 2123,
    "grounded": true,
    "centered": true,
@@ -316007,16 +316101,16 @@
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
-    0.082,
     0.178,
-    0.023
+    0.023,
+    0.082
    ],
    "tris": 794,
    "tpu": 2315,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 64040,
+   "bytes": 64060,
    "vtx": 1807,
    "grounded": true,
    "centered": true,
@@ -316053,15 +316147,15 @@
    "size": "m",
    "wdh": [
     0.327,
-    0.697,
-    0.051
+    0.051,
+    0.697
    ],
    "tris": 583,
    "tpu": 1700,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 49956,
+   "bytes": 49980,
    "vtx": 1297,
    "grounded": true,
    "centered": true,
@@ -316095,12 +316189,12 @@
    "kind": "obj-equipment-tool-twohand-scythe",
    "size": "m",
    "wdh": [
-    1.03,
     0.567,
-    0.099
+    0.099,
+    1.03
    ],
    "tris": 248,
-   "tpu": 607,
+   "tpu": 491,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -316141,15 +316235,15 @@
    "size": "s",
    "wdh": [
     0.307,
-    0.307,
-    0.049
+    0.049,
+    0.307
    ],
    "tris": 500,
    "tpu": 1458,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 36976,
+   "bytes": 37000,
    "vtx": 1016,
    "grounded": true,
    "centered": true,
@@ -316179,16 +316273,16 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.119,
     0.58,
-    0.026
+    0.026,
+    0.119
    ],
    "tris": 636,
    "tpu": 1854,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 47100,
+   "bytes": 47080,
    "vtx": 1306,
    "grounded": true,
    "centered": true,
@@ -316224,9 +316318,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
-    0.114,
     0.599,
-    0.024
+    0.024,
+    0.114
    ],
    "tris": 1601,
    "tpu": 4668,
@@ -316276,16 +316370,16 @@
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "s",
    "wdh": [
-    0.075,
     0.311,
-    0.027
+    0.027,
+    0.075
    ],
    "tris": 1230,
    "tpu": 3586,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 76324,
+   "bytes": 76304,
    "vtx": 2108,
    "grounded": true,
    "centered": true,
@@ -316384,16 +316478,16 @@
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "size": "s",
    "wdh": [
-    0.149,
     0.393,
-    0.029
+    0.029,
+    0.149
    ],
    "tris": 1868,
    "tpu": 5446,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 143476,
+   "bytes": 143480,
    "vtx": 4088,
    "grounded": true,
    "centered": true,
@@ -316526,15 +316620,15 @@
    "size": "s",
    "wdh": [
     0.286,
-    0.286,
-    0.027
+    0.027,
+    0.286
    ],
    "tris": 276,
    "tpu": 805,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22076,
+   "bytes": 22056,
    "vtx": 592,
    "grounded": true,
    "centered": true,
@@ -316574,9 +316668,9 @@
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
-    0.109,
+    0.044,
     0.051,
-    0.044
+    0.109
    ],
    "tris": 962,
    "tpu": 2805,
