@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const MODEL_DIR = join(ROOT, 'kits', 'workfiles');
 const OUT = join(ROOT, 'catalog', 'build', 'backfaces.json');
-const SIZE = 160;
+const SIZE = 320;
 const SAMPLE = 400;
 const AZIMUTHS = [0, 45, 90, 135, 180, 225, 270, 315];
 const ELEVATIONS = [20, 50];
