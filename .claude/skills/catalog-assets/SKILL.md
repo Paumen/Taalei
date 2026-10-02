@@ -171,6 +171,7 @@ untouched so the diff stays additive.
 
 ## 6. Rebuild, look, check
 
+    node catalog/tools/backfaces.mjs
     node catalog/tools/build-catalog.mjs
     node lint/size.mjs
     node lint/tpu.mjs
@@ -194,8 +195,8 @@ Reading the catalogue back: in `catalog/build/catalog.json` a model's `bands` an
 as `"column,row"` — and `wdh` is width, depth, height with height last.
 
 Before committing, run every lint (`size`, `tpu`, `measures`, `mat`, `palette`,
-`bands`) and report what does not fit rather than bending it silently. Take the
-error counts of all six before the work as well, so "no new errors" is a
+`bands`, `backface`) and report what does not fit rather than bending it silently. Take the
+error counts of all seven before the work as well, so "no new errors" is a
 comparison rather than a claim.
 
 `build-lists.mjs` regenerates `kits/tbd/` and the catalogue pages get a fresh
@@ -206,7 +207,8 @@ It rebuilds only the packs whose source zips, workfiles, preview colours,
 rejects or tooling changed; the rest come from `kits/.cache`. `--force`
 rebuilds every pack. `build-catalog.mjs` likewise re-measures only the
 workfiles whose file, colormap or tooling changed; delete
-`kits/.cache/build-catalog.json` to measure all of them.
+`kits/.cache/build-catalog.json` to measure all of them. `backfaces.mjs`
+re-measures only changed workfiles; `--force` measures all of them.
 
 ## 7. Working a lint error
 

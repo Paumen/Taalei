@@ -403,6 +403,15 @@ export function measureFindingsFor(subject, rows, materialIds, vars, kindFields)
 
 export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
+export function backfaceFindingsFor(model, vars) {
+  const share = model.backface?.share ?? 0;
+  const { warn, error } = vars.backface;
+  if (share < warn) return [];
+  return [{ level: share >= error ? 'error' : 'warning', ...model.backface, limit: share >= error ? error : warn }];
+}
+
+const percent = (v) => `${Math.round(v * 100)}%`;
+
 const CHECK_TEXT = {
   size: (f) => (f.measure === 'scale'
     ? `${f.value} not on ${f.limit} (${f.from})`
@@ -412,7 +421,12 @@ const CHECK_TEXT = {
   palette: (f) => `${f.material} wants ${f.wants}, has ${f.has}`,
   bands: (f) => `${f.material} wants ${f.wants}, has ${f.has} (${f.from})`,
   measures: (f) => `${f.rule} ${f.field} ${f.actual} wants ${f.wants}`,
+  backface: (f) => `${percent(f.share)} of view ${f.view} over ${percent(f.limit)}: `
+    + Object.entries(f.causes).sort((a, b) => b[1] - a[1]).filter(([, v]) => v > 0)
+      .map(([cause, v]) => `${cause} ${percent(v)}`).join(', '),
 };
+
+export const findingText = (check, row) => CHECK_TEXT[check](row);
 
 export function buildChecks({ vars, kinds, materials, measures }) {
   const materialIds = new Set();
@@ -461,6 +475,8 @@ export function checkModel(model, checks) {
         kindBandFindingsFor(model, checks.bands.get(model.kind), checks.palettes, materialIds, vars));
     }
   }
+
+  push('backface', null, backfaceFindingsFor(model, vars));
 
   const mark = [];
   for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields)) {

@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=5c84476ae8';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5c84476ae8';
-import { colorSwatches, setBands } from './color-edits.js?v=5c84476ae8';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=5c84476ae8';
-import { mountExtractBar, setPageParts } from './extract.js?v=5c84476ae8';
-import './bouwstempel.js?v=5c84476ae8';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=63a99c793d';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=63a99c793d';
+import { colorSwatches, setBands } from './color-edits.js?v=63a99c793d';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=63a99c793d';
+import { mountExtractBar, setPageParts } from './extract.js?v=63a99c793d';
+import './bouwstempel.js?v=63a99c793d';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -236,6 +236,7 @@ const LINT_CHECKS = [
   { id: 'palette', title: 'Palette', hint: 'The bands a material may draw from' },
   { id: 'bands', title: 'Bands', hint: 'The bands a kind may draw from' },
   { id: 'measures', title: 'Measures', hint: 'Rows that assert on one recorded field' },
+  { id: 'backface', title: 'Backfaces', hint: 'Share of a view that shows back faces' },
 ];
 
 const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];

@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=5c84476ae8';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=5c84476ae8';
-import { colorSwatches, setBands } from './color-edits.js?v=5c84476ae8';
-import { renderCommentBox } from './comments.js?v=5c84476ae8';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=5c84476ae8';
-import './bouwstempel.js?v=5c84476ae8';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=63a99c793d';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=63a99c793d';
+import { colorSwatches, setBands } from './color-edits.js?v=63a99c793d';
+import { renderCommentBox } from './comments.js?v=63a99c793d';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=63a99c793d';
+import './bouwstempel.js?v=63a99c793d';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -77,6 +77,7 @@ const LINT_CHECKS = [
   { id: 'palette', name: 'Palette', hint: 'The bands a material may draw from' },
   { id: 'bands', name: 'Bands', hint: 'The bands a kind may draw from' },
   { id: 'measures', name: 'Measures', hint: 'Rows that assert on one recorded field' },
+  { id: 'backface', name: 'Backfaces', hint: 'Share of a view that shows back faces' },
 ];
 
 const TAG_TYPES = [
@@ -599,7 +600,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=5c84476ae8'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=63a99c793d'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
