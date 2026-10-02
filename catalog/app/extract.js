@@ -1,6 +1,6 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=72fce1731e';
-import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=72fce1731e';
-import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=72fce1731e';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=6b021ad55f';
+import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=6b021ad55f';
+import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=6b021ad55f';
 
 const meta = (name) => document.querySelector(`meta[name="${name}"]`)?.content ?? '';
 
