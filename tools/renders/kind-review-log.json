@@ -937,6 +937,133 @@
   ]
  },
  {
+  "kind": "env-flora-plant-bush",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/bush"
+    ],
+    "text": "Ring of single-sided leaf cards shows back faces from above (source style)",
+    "options": [
+     "Double-side leaves",
+     "Remove the cards",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side leaves"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "fs-terrain/hilly-prop-bush-a",
+     "fs-terrain/hilly-prop-bush-b",
+     "fs-terrain/hilly-prop-bush-c",
+     "fs-terrain/hilly-prop-bush-d"
+    ],
+    "text": "Smooth blobs with hard seams from the source's smoothing groups",
+    "options": [
+     "Smooth fully",
+     "Flat-shade all",
+     "Keep as is"
+    ],
+    "picked": [
+     "Smooth fully"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "isa-homely/foliage-a",
+     "isa-homely/foliage-b"
+    ],
+    "text": "Loose leaf sprigs rather than bushes; foliage-a under the 0.2 minimum",
+    "options": [
+     "To env-flora-plant",
+     "Keep in bush"
+    ],
+    "picked": [
+     "Keep in bush"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-city/bush-potted"
+    ],
+    "text": "Topiary in a terracotta pot, could be a houseplant",
+    "options": [
+     "Keep in bush",
+     "To plant-leafy, shrink",
+     "To plant-leafy, scale-big"
+    ],
+    "picked": [
+     "Keep in bush"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-flora-tree-palm",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "wizp-tree/*"
+    ],
+    "text": "Camel trunks while the other 16 palms have tan trunks",
+    "options": [
+     "Camel → tan",
+     "Keep camel"
+    ],
+    "picked": [
+     "Camel → tan"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-pirate/tree-palm-1",
+     "quat-pirate/tree-palm-2",
+     "quat-pirate/tree-palm-3"
+    ],
+    "text": "No gradient: trunk at dark end of tan, leaves at light end of moss, fronds read pale",
+    "options": [
+     "Spread by height, keep mid",
+     "Leaves to mid only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-tree/palm-young"
+    ],
+    "text": "Squat bulb with fan fronds reads as a young plant more than a palm tree",
+    "options": [
+     "Keep in palm",
+     "To plant-leafy"
+    ],
+    "picked": [
+     "Keep in palm"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "env-flora-waterplant-lilypad",
   "date": "2026-10-02",
   "suggestions": [
@@ -1236,6 +1363,44 @@
     ],
     "picked": [
      "Swap the bands"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-holiday/wreath",
+     "sq-cinema/usher-stand"
+    ],
+    "text": "Kind noun is only clock; wreath and usher stand are not clocks",
+    "options": [
+     "New decor kind + counter",
+     "Add nouns only",
+     "Keep as is"
+    ],
+    "picked": [
+     "New decor kind + counter"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-pool/pace-clock"
+    ],
+    "text": "Thick red sienna hands while the other clocks have basalt hands",
+    "options": [
+     "Hands → basalt",
+     "Keep red"
+    ],
+    "picked": [
+     "Hands → basalt"
     ]
    }
   ]

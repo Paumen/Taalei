@@ -17130,14 +17130,21 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 306
+   "count": 307
   },
   {
    "id": "obj-furnishing-furniture-counter",
    "name": "Counter",
    "type": "kind",
-   "description": "Kitchen or shop counter with worktop, including counter sinks and kitchen bars.",
-   "count": 34
+   "description": "Kitchen or shop counter with worktop, including counter sinks, kitchen bars and host stands.",
+   "count": 35
+  },
+  {
+   "id": "obj-furnishing-decor",
+   "name": "Decor",
+   "type": "kind",
+   "description": "Hung or laid decoration: wreath, garland.",
+   "count": 1
   },
   {
    "id": "obj-furnishing-textile",
@@ -21291,6 +21298,12 @@
    "high.max": 8,
    "longest.min": 0.55,
    "longest.max": 1.35,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-decor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-bed": {
@@ -41848,14 +41861,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5432,
-   "vtx": 113,
+   "bytes": 4212,
+   "vtx": 75,
    "grounded": true,
    "centered": true,
    "minEdge": 0.1,
    "avgTri": 0.00966,
    "anglePct": 39,
-   "vpt": 1.61,
+   "vpt": 1.07,
    "grad": 0.17,
    "spread": {
     "3,1": [
@@ -41888,14 +41901,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10352,
-   "vtx": 232,
+   "bytes": 8048,
+   "vtx": 160,
    "grounded": true,
    "centered": true,
    "minEdge": 0.043,
    "avgTri": 0.00282,
    "anglePct": 9,
-   "vpt": 0.92,
+   "vpt": 0.63,
    "grad": 0.18,
    "spread": {
     "3,1": [
@@ -41928,14 +41941,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6664,
-   "vtx": 145,
+   "bytes": 5316,
+   "vtx": 103,
    "grounded": true,
    "centered": true,
    "minEdge": 0.039,
    "avgTri": 0.00725,
    "anglePct": 40,
-   "vpt": 1.39,
+   "vpt": 0.99,
    "grad": 0.17,
    "spread": {
     "3,1": [
@@ -41968,14 +41981,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6672,
-   "vtx": 143,
+   "bytes": 5356,
+   "vtx": 102,
    "grounded": true,
    "centered": true,
    "minEdge": 0.034,
    "avgTri": 0.0065,
    "anglePct": 39,
-   "vpt": 1.23,
+   "vpt": 0.88,
    "grad": 0.17,
    "spread": {
     "3,1": [
@@ -167350,7 +167363,7 @@
   {
    "kit": "ken-holiday",
    "name": "wreath",
-   "kind": "obj-furnishing",
+   "kind": "obj-furnishing-decor",
    "size": "s",
    "wdh": [
     0.336,
@@ -238650,15 +238663,15 @@
    "avgTri": 0.00106,
    "anglePct": 4,
    "vpt": 1.23,
-   "grad": 0.17,
+   "grad": 0.7,
    "spread": {
     "0,0": [
-     0.773,
-     0.953
+     0.148,
+     0.844
     ],
     "3,1": [
-     0.039,
-     0.203
+     0.148,
+     0.844
     ]
    },
    "colors": [
@@ -238698,15 +238711,15 @@
    "avgTri": 0.00102,
    "anglePct": 4,
    "vpt": 1.27,
-   "grad": 0.17,
+   "grad": 0.7,
    "spread": {
     "0,0": [
-     0.773,
-     0.961
+     0.148,
+     0.844
     ],
     "3,1": [
-     0.031,
-     0.203
+     0.148,
+     0.844
     ]
    },
    "colors": [
@@ -238751,15 +238764,15 @@
    "avgTri": 0.00112,
    "anglePct": 4,
    "vpt": 1.2,
-   "grad": 0.17,
+   "grad": 0.7,
    "spread": {
     "0,0": [
-     0.773,
-     0.953
+     0.148,
+     0.844
     ],
     "3,1": [
-     0.031,
-     0.203
+     0.148,
+     0.844
     ]
    },
    "colors": [
@@ -282617,7 +282630,7 @@
    "kit": "sq-cinema",
    "collection": "sq-props",
    "name": "usher-stand",
-   "kind": "obj-furnishing",
+   "kind": "obj-furnishing-furniture-counter",
    "size": "m",
    "wdh": [
     0.375,
@@ -287080,8 +287093,8 @@
      0.742
     ],
     "8,0": [
-     0.156,
-     0.734
+     0.164,
+     0.727
     ],
     "5,2": [
      0.148,
@@ -289154,19 +289167,19 @@
     0.386,
     0.368
    ],
-   "tris": 644,
-   "tpu": 1878,
+   "tris": 3028,
+   "tpu": 8828,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 34896,
-   "vtx": 926,
+   "bytes": 192248,
+   "vtx": 5396,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00117,
+   "minEdge": 0.001,
+   "avgTri": 0.00039,
    "anglePct": 2,
-   "vpt": 1.44,
+   "vpt": 1.78,
    "grad": 0.36,
    "spread": {
     "3,1": [
@@ -312007,7 +312020,7 @@
    "vpt": 1.36,
    "grad": 0.88,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.094,
      0.945
     ],
@@ -312018,7 +312031,7 @@
    },
    "colors": [
     "#68872d",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "foliage",
@@ -312054,7 +312067,7 @@
    "vpt": 1.36,
    "grad": 0.88,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.094,
      0.945
     ],
@@ -312065,7 +312078,7 @@
    },
    "colors": [
     "#68872d",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "foliage",
@@ -312100,7 +312113,7 @@
    "vpt": 1.33,
    "grad": 0.85,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.109,
      0.891
     ],
@@ -312111,7 +312124,7 @@
    },
    "colors": [
     "#68872d",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "foliage",
@@ -312151,14 +312164,14 @@
      0.047,
      0.938
     ],
-    "1,0": [
+    "0,0": [
      0.047,
      0.945
     ]
    },
    "colors": [
     "#68872d",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "foliage",
