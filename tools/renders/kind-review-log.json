@@ -937,6 +937,77 @@
   ]
  },
  {
+  "kind": "env-flora-waterplant-lilypad",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "aq-pond/*"
+    ],
+    "text": "single-sided zero-thickness pads and blossoms (source style), back faces show",
+    "options": [
+     "Double-side all 5",
+     "Thicken pads, double blossoms",
+     "Leave"
+    ],
+    "picked": [
+     "Thicken pads, double blossoms"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "aq-pond/*",
+     "quat-nature/lilypad"
+    ],
+    "text": "aq-pond 0.08-0.10 m vs median 0.195, quat 0.48",
+    "options": [
+     "Leave scale",
+     "aq-pond x2",
+     "aq-pond x2 + quat x0.6"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-nature/lilypad"
+    ],
+    "text": "flower sienna (source pink); peers ivory or amber",
+    "options": [
+     "Sienna -> ivory",
+     "Sienna -> amber",
+     "Leave"
+    ],
+    "picked": [
+     "Sienna -> amber"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-hexagon/waterlily-a",
+     "kay-hexagon/waterlily-b"
+    ],
+    "text": "29 mm flat slabs, read as stepping stones",
+    "options": [
+     "Leave",
+     "Thin kay to ~12 mm"
+    ],
+    "picked": [
+     "Thin kay to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-device-science-astro",
   "date": "2026-10-02",
   "suggestions": [
@@ -1226,6 +1297,77 @@
   ]
  },
  {
+  "kind": "obj-furnishing-textile-rug",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "isa-picnic/*",
+     "kay-furniture/rug-rectangle-b"
+    ],
+    "text": "blankets named hunter/taupe are sienna; folded three identical",
+    "options": [
+     "Per name",
+     "Per name + kay rect-b",
+     "Leave"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "props/carpet-a",
+     "isa-picnic/*"
+    ],
+    "text": "top shade spread: picnic 0.04, props 0.80, others 0.23-0.43",
+    "options": [
+     "Even both ends",
+     "Only props/carpet-a",
+     "Leave"
+    ],
+    "picked": [
+     "Even both ends"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "kay-furniture/rug-rectangle-stripes-a"
+    ],
+    "text": "source nested stripes barely show (0.48 vs 0.32 sienna)",
+    "options": [
+     "Stripes -> ivory",
+     "Stripes darker sienna",
+     "Leave"
+    ],
+    "picked": [
+     "Stripes darker sienna"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-furniture/*",
+     "isa-bakery/rug",
+     "isa-picnic/*"
+    ],
+    "text": "thickness 8-47 mm; thick ones read as mattresses",
+    "options": [
+     "Leave",
+     "Thin to ~15 mm"
+    ],
+    "picked": [
+     "Thin to ~15 mm"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-kitchenware-cookware-board",
   "date": "2026-10-02",
   "suggestions": [
@@ -1293,6 +1435,80 @@
     ],
     "picked": [
      "Thicken to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-work-agricultural-silo",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "wizp-village/granary-large"
+    ],
+    "text": "3 back roof ribs face inward (import fault; source correct)",
+    "options": [
+     "Flip the 3 ribs",
+     "Leave"
+    ],
+    "picked": [
+     "Flip the 3 ribs"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-farms/silo",
+     "quat-farms/silo-house",
+     "wizp-asia/granary",
+     "wizp-asia/tower"
+    ],
+    "text": "quat silos 3.17 m tall vs wizp-asia 1.48-1.60 m",
+    "options": [
+     "Leave scale",
+     "Quat silos x0.75",
+     "Wizp-asia x1.3"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-farms/silo",
+     "quat-farms/silo-house"
+    ],
+    "text": "downpipe slate on silo, basalt on silo-house",
+    "options": [
+     "Both slate",
+     "Both basalt",
+     "Leave"
+    ],
+    "picked": [
+     "Both basalt",
+     "PO: keep basalt, drop metal tag (str kinds require metal-iron-cast)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-asia/tower"
+    ],
+    "text": "square post-and-panel box with plaque, reads as shrine/lantern tower",
+    "options": [
+     "To religious-shrine",
+     "To building-tower",
+     "Keep in silo"
+    ],
+    "picked": [
+     "Keep in silo"
     ]
    }
   ]
