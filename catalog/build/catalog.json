@@ -16509,7 +16509,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 3144,
+   "count": 3146,
    "color": "#c07c8a"
   },
   {
@@ -17122,7 +17122,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 440,
+   "count": 442,
    "color": "#c07c8a"
   },
   {
@@ -17130,14 +17130,21 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 306
+   "count": 307
   },
   {
    "id": "obj-furnishing-furniture-counter",
    "name": "Counter",
    "type": "kind",
-   "description": "Kitchen or shop counter with worktop, including counter sinks and kitchen bars.",
-   "count": 34
+   "description": "Kitchen or shop counter with worktop, including counter sinks, kitchen bars and host stands.",
+   "count": 35
+  },
+  {
+   "id": "obj-furnishing-decor",
+   "name": "Decor",
+   "type": "kind",
+   "description": "Hung or laid decoration: wreath, garland.",
+   "count": 3
   },
   {
    "id": "obj-furnishing-textile",
@@ -18875,7 +18882,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 179,
+   "count": 177,
    "color": "#b5651d"
   },
   {
@@ -21292,6 +21299,12 @@
    "longest.min": 0.55,
    "longest.max": 1.35,
    "tpu.max": 5000
+  },
+  "obj-furnishing-decor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 7000
   },
   "obj-furnishing-furniture-bed": {
    "high.max": 8,
@@ -41848,14 +41861,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5432,
-   "vtx": 113,
+   "bytes": 4212,
+   "vtx": 75,
    "grounded": true,
    "centered": true,
    "minEdge": 0.1,
    "avgTri": 0.00966,
    "anglePct": 39,
-   "vpt": 1.61,
+   "vpt": 1.07,
    "grad": 0.17,
    "spread": {
     "3,1": [
@@ -41888,14 +41901,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10352,
-   "vtx": 232,
+   "bytes": 8048,
+   "vtx": 160,
    "grounded": true,
    "centered": true,
    "minEdge": 0.043,
    "avgTri": 0.00282,
    "anglePct": 9,
-   "vpt": 0.92,
+   "vpt": 0.63,
    "grad": 0.18,
    "spread": {
     "3,1": [
@@ -41928,14 +41941,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6664,
-   "vtx": 145,
+   "bytes": 5316,
+   "vtx": 103,
    "grounded": true,
    "centered": true,
    "minEdge": 0.039,
    "avgTri": 0.00725,
    "anglePct": 40,
-   "vpt": 1.39,
+   "vpt": 0.99,
    "grad": 0.17,
    "spread": {
     "3,1": [
@@ -41968,14 +41981,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6672,
-   "vtx": 143,
+   "bytes": 5356,
+   "vtx": 102,
    "grounded": true,
    "centered": true,
    "minEdge": 0.034,
    "avgTri": 0.0065,
    "anglePct": 39,
-   "vpt": 1.23,
+   "vpt": 0.88,
    "grad": 0.17,
    "spread": {
     "3,1": [
@@ -116084,7 +116097,7 @@
   {
    "kit": "kay-holiday",
    "name": "wreath",
-   "kind": "set",
+   "kind": "obj-furnishing-decor",
    "size": "s",
    "wdh": [
     0.394,
@@ -167299,7 +167312,7 @@
   {
    "kit": "ken-holiday",
    "name": "wreath-decorated",
-   "kind": "set",
+   "kind": "obj-furnishing-decor",
    "size": "s",
    "wdh": [
     0.336,
@@ -167350,7 +167363,7 @@
   {
    "kit": "ken-holiday",
    "name": "wreath",
-   "kind": "obj-furnishing",
+   "kind": "obj-furnishing-decor",
    "size": "s",
    "wdh": [
     0.336,
@@ -282617,7 +282630,7 @@
    "kit": "sq-cinema",
    "collection": "sq-props",
    "name": "usher-stand",
-   "kind": "obj-furnishing",
+   "kind": "obj-furnishing-furniture-counter",
    "size": "m",
    "wdh": [
     0.375,
@@ -287080,8 +287093,8 @@
      0.742
     ],
     "8,0": [
-     0.156,
-     0.734
+     0.164,
+     0.727
     ],
     "5,2": [
      0.148,
@@ -289154,19 +289167,19 @@
     0.386,
     0.368
    ],
-   "tris": 644,
-   "tpu": 1878,
+   "tris": 3028,
+   "tpu": 8828,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 34896,
-   "vtx": 926,
+   "bytes": 192248,
+   "vtx": 5396,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "avgTri": 0.00117,
+   "minEdge": 0.001,
+   "avgTri": 0.00039,
    "anglePct": 2,
-   "vpt": 1.44,
+   "vpt": 1.78,
    "grad": 0.36,
    "spread": {
     "3,1": [
