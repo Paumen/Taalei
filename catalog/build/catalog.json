@@ -3444,8 +3444,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.95,
-    "kinds": 38
+    "factor": 0.94,
+    "kinds": 39
    }
   },
   {
@@ -19118,6 +19118,13 @@
    "count": 5
   },
   {
+   "id": "str-fixture-utility-machine-drivethrough",
+   "name": "Drive-through machine",
+   "type": "kind",
+   "description": "Machine a vehicle drives through or parks beside: car wash arches, brushes, curtains and vacuum stations.",
+   "count": 6
+  },
+  {
    "id": "str-fixture-utility-pipe",
    "name": "Pipe",
    "type": "kind",
@@ -22275,6 +22282,12 @@
    "tpu.max": 5000
   },
   "str-fixture-utility-machine-crane": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-utility-machine-drivethrough": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 2.2,
@@ -280631,7 +280644,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "blower-arch",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-drivethrough",
    "size": "l",
    "wdh": [
     1.55,
@@ -280682,7 +280695,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "brush-arch",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-drivethrough",
    "size": "l",
    "wdh": [
     1.55,
@@ -280862,7 +280875,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "mitter-curtain",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-drivethrough",
    "size": "l",
    "wdh": [
     1.54,
@@ -281040,7 +281053,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "rinse-arch",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-drivethrough",
    "size": "m",
    "wdh": [
     1.46,
@@ -281103,7 +281116,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "side-brushes",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-drivethrough",
    "size": "l",
    "wdh": [
     1.54,
@@ -281171,7 +281184,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "vacuum-station",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-drivethrough",
    "size": "m",
    "wdh": [
     0.237,
