@@ -16294,7 +16294,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 461,
+   "count": 459,
    "parent": "wood"
   },
   {
@@ -16302,7 +16302,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 822,
+   "count": 827,
    "parent": "wood"
   },
   {
@@ -16310,7 +16310,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1150,
+   "count": 1147,
    "parent": "wood"
   },
   {
@@ -16552,7 +16552,7 @@
    "name": "Leisure",
    "type": "kind",
    "description": "Thing for play, games, sport or art.",
-   "count": 124
+   "count": 126
   },
   {
    "id": "obj-device-appliance",
@@ -16601,7 +16601,7 @@
    "name": "Game",
    "type": "kind",
    "description": "Game or sport gear: trading cards, card binders and slabs, bowling pins, air hockey gear, pool floats.",
-   "count": 37
+   "count": 39
   },
   {
    "id": "obj-leisure-game-gym",
@@ -16889,7 +16889,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 706,
+   "count": 704,
    "color": "#6b5b95"
   },
   {
@@ -17778,7 +17778,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 171,
+   "count": 172,
    "color": "#6d738a"
   },
   {
@@ -17807,7 +17807,7 @@
    "name": "Hand",
    "type": "kind",
    "description": "chisel, trowel, wrench, tongs, brush",
-   "count": 56
+   "count": 57
   },
   {
    "id": "obj-equipment-tool-hand-brush",
@@ -18018,7 +18018,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 299,
+   "count": 296,
    "color": "#4c5468"
   },
   {
@@ -18040,7 +18040,7 @@
    "name": "Melee",
    "type": "kind",
    "description": "scythe (weapon), knuckles, claws, gauntlet blade",
-   "count": 124
+   "count": 121
   },
   {
    "id": "obj-equipment-weapon-melee-axe",
@@ -18082,7 +18082,7 @@
    "name": "Club",
    "type": "kind",
    "description": "club, bat",
-   "count": 16
+   "count": 13
   },
   {
    "id": "obj-equipment-weapon-melee-sword",
@@ -51650,16 +51650,16 @@
    "kind": "obj-equipment-weapon-melee-club",
    "size": "m",
    "wdh": [
-    0.631,
+    0.049,
     0.047,
-    0.049
+    0.631
    ],
    "tris": 320,
    "tpu": 933,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23836,
+   "bytes": 23876,
    "vtx": 640,
    "grounded": true,
    "centered": true,
@@ -129500,7 +129500,7 @@
    "tris": 284,
    "tpu": 172,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 15048,
    "vtx": 368,
@@ -129510,18 +129510,23 @@
    "avgTri": 0.02943,
    "anglePct": 94,
    "vpt": 1.3,
-   "grad": 0.59,
+   "grad": 0.53,
    "spread": {
     "15,3": [
      0.148,
      0.75
     ],
     "6,1": [
-     0.234,
+     0.75,
      0.75
+    ],
+    "4,2": [
+     0.234,
+     0.234
     ]
    },
    "colors": [
+    "#1367a6",
     "#343745",
     "#82868e"
    ],
@@ -129545,7 +129550,7 @@
    "tris": 118,
    "tpu": 344,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 7216,
    "vtx": 155,
@@ -129556,18 +129561,23 @@
    "avgTri": 0.01484,
    "anglePct": 93,
    "vpt": 1.31,
-   "grad": 0.59,
+   "grad": 0.51,
    "spread": {
     "15,3": [
      0.148,
      0.75
     ],
     "6,1": [
-     0.234,
+     0.75,
      0.75
+    ],
+    "4,2": [
+     0.234,
+     0.234
     ]
    },
    "colors": [
+    "#1367a6",
     "#343745",
     "#82868e"
    ],
@@ -135288,7 +135298,7 @@
      0.336,
      0.813
     ],
-    "2,0": [
+    "1,0": [
      0.156,
      0.828
     ],
@@ -135299,14 +135309,14 @@
    },
    "colors": [
     "#82868e",
-    "#8b5936",
-    "#8b7561"
+    "#8b7561",
+    "#b58158"
    ],
    "tags": [
     "kay",
     "metal-iron-steel",
     "textile",
-    "wood-beam"
+    "wood-worked"
    ]
   },
   {
@@ -169185,7 +169195,7 @@
    "tris": 152,
    "tpu": 182,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 8552,
    "vtx": 192,
@@ -169195,7 +169205,7 @@
    "avgTri": 0.02318,
    "anglePct": 94,
    "vpt": 1.26,
-   "grad": 0.11,
+   "grad": 0.13,
    "spread": {
     "15,3": [
      0.148,
@@ -169208,17 +169218,12 @@
     "4,2": [
      0.148,
      0.148
-    ],
-    "5,2": [
-     0.148,
-     0.148
     ]
    },
    "colors": [
     "#1367a6",
     "#343745",
-    "#82868e",
-    "#d8d1bd"
+    "#82868e"
    ],
    "tags": [
     "glass",
@@ -221014,15 +221019,15 @@
    "size": "m",
    "wdh": [
     0.146,
-    0.532,
-    0.08
+    0.08,
+    0.532
    ],
    "tris": 2056,
    "tpu": 5994,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 92036,
+   "bytes": 92080,
    "vtx": 2446,
    "grounded": true,
    "centered": true,
@@ -274511,7 +274516,7 @@
    "vpt": 1.39,
    "grad": 0.96,
    "spread": {
-    "2,0": [
+    "1,0": [
      0.016,
      0.977
     ],
@@ -274522,12 +274527,12 @@
    },
    "colors": [
     "#82868e",
-    "#8b5936"
+    "#b58158"
    ],
    "tags": [
     "metal-iron-steel",
     "rgp",
-    "wood-beam"
+    "wood-worked"
    ],
    "variant": "v998"
   },
@@ -274562,7 +274567,7 @@
      0.016,
      0.953
     ],
-    "2,0": [
+    "1,0": [
      0.016,
      0.977
     ],
@@ -274573,14 +274578,14 @@
    },
    "colors": [
     "#82868e",
-    "#8b5936",
-    "#8b7561"
+    "#8b7561",
+    "#b58158"
    ],
    "tags": [
     "metal-iron-steel",
     "rgp",
     "textile",
-    "wood-beam"
+    "wood-worked"
    ],
    "variant": "v998"
   },
@@ -302639,8 +302644,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0172,
-   "avgTri": 0.00023,
-   "anglePct": 74,
+   "avgTri": 0.00024,
+   "anglePct": 70,
    "vpt": 1.45,
    "grad": 0.57,
    "spread": {
@@ -314690,15 +314695,15 @@
    "size": "m",
    "wdh": [
     0.113,
-    0.51,
-    0.113
+    0.113,
+    0.51
    ],
    "tris": 1076,
    "tpu": 3137,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 79472,
+   "bytes": 79516,
    "vtx": 2236,
    "grounded": true,
    "centered": true,
@@ -314709,7 +314714,7 @@
    "vpt": 2.08,
    "grad": 0.05,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.273,
      0.594
     ],
@@ -314725,13 +314730,13 @@
    "colors": [
     "#82868e",
     "#8b7561",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "creativetrio",
     "metal-iron-steel",
     "textile",
-    "wood-planks"
+    "wood-worked"
    ],
    "lint": [
     {
@@ -315004,19 +315009,19 @@
   {
    "kit": "zombie-weapons",
    "name": "crowbar",
-   "kind": "obj-equipment-weapon-melee-club",
+   "kind": "obj-equipment-tool-hand",
    "size": "s",
    "wdh": [
     0.079,
-    0.394,
-    0.024
+    0.024,
+    0.394
    ],
    "tris": 94,
    "tpu": 274,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8848,
+   "bytes": 8892,
    "vtx": 214,
    "grounded": true,
    "centered": true,
@@ -315037,20 +315042,6 @@
    "tags": [
     "creativetrio",
     "metal-iron-steel"
-   ],
-   "backface": {
-    "share": 0.0509,
-    "view": "90/50",
-    "causes": {
-     "other": 1
-    }
-   },
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "5% of view 90/50 over 5%: other 100%"
-    }
    ]
   },
   {
@@ -315111,15 +315102,15 @@
    "size": "m",
    "wdh": [
     0.056,
-    0.529,
-    0.024
+    0.024,
+    0.529
    ],
    "tris": 166,
    "tpu": 484,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13380,
+   "bytes": 13424,
    "vtx": 342,
    "grounded": true,
    "centered": true,
@@ -315195,19 +315186,19 @@
   {
    "kit": "zombie-weapons",
    "name": "golf-club",
-   "kind": "obj-equipment-weapon-melee-club",
+   "kind": "obj-leisure-game",
    "size": "m",
    "wdh": [
     0.092,
-    0.654,
-    0.063
+    0.063,
+    0.654
    ],
    "tris": 198,
    "tpu": 577,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 16520,
+   "bytes": 16564,
    "vtx": 434,
    "grounded": true,
    "centered": true,
@@ -315241,13 +315232,6 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "textile"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.654 over max 0.65 (obj-equipment-weapon-melee-club)"
-    }
    ]
   },
   {
@@ -315349,19 +315333,19 @@
   {
    "kit": "zombie-weapons",
    "name": "hockey-stick",
-   "kind": "obj-equipment-weapon-melee-club",
+   "kind": "obj-leisure-game",
    "size": "m",
    "wdh": [
     0.13,
-    0.729,
-    0.009
+    0.009,
+    0.729
    ],
    "tris": 100,
-   "tpu": 292,
+   "tpu": 280,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8896,
+   "bytes": 8940,
    "vtx": 214,
    "grounded": true,
    "centered": true,
@@ -315372,7 +315356,7 @@
    "vpt": 2.14,
    "grad": 0.28,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.32,
      0.625
     ],
@@ -315383,19 +315367,12 @@
    },
    "colors": [
     "#8b7561",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "creativetrio",
     "textile",
-    "wood-planks"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.729 over max 0.65 (obj-equipment-weapon-melee-club)"
-    }
+    "wood-worked"
    ]
   },
   {
@@ -315513,15 +315490,15 @@
    "size": "m",
    "wdh": [
     0.05,
-    0.519,
-    0.029
+    0.029,
+    0.519
    ],
    "tris": 846,
    "tpu": 2466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 59000,
+   "bytes": 59044,
    "vtx": 1640,
    "grounded": true,
    "centered": true,
@@ -315603,20 +315580,20 @@
    "size": "s",
    "wdh": [
     0.047,
-    0.391,
-    0.015
+    0.015,
+    0.391
    ],
    "tris": 198,
    "tpu": 577,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16324,
+   "bytes": 16368,
    "vtx": 428,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "avgTri": 0.00016,
+   "avgTri": 0.00017,
    "anglePct": 25,
    "vpt": 2.16,
    "grad": 0.09,
@@ -315915,15 +315892,15 @@
    "size": "s",
    "wdh": [
     0.06,
-    0.206,
-    0.012
+    0.012,
+    0.206
    ],
    "tris": 252,
    "tpu": 735,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19988,
+   "bytes": 20032,
    "vtx": 532,
    "grounded": true,
    "centered": true,
