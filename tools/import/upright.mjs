@@ -2,11 +2,12 @@ import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
 import { rawRows, repack, fixBounds } from './mesh-edit.mjs';
 
-const HELP = `upright.mjs [--up <±x|±y|±z>] [--front <±x|±y|±z>] [--dry] <workfile.glb> [...]
+const HELP = `upright.mjs [--up <±x|±y|±z|x,y,z>] [--front <±x|±y|±z|x,y,z>] [--dry] <workfile.glb> [...]
 
 Turns a model so the axis named by --up points up and the one named by --front
 points to the front (+z), then sets it on the ground (lowest point at y 0) and
-centres it in x and z. Axes are the model's current world axes. --up defaults to
+centres it in x and z. Axes are the model's current world axes, or any
+direction given as x,y,z; --front is made square to --up. --up defaults to
 the longest axis, --front to the shortest of the other two, both positive. The
 turn is baked into positions, normals and tangents; node transforms are kept.
 --dry prints the turn and the new size without writing.`;
@@ -15,8 +16,10 @@ const AXES = { x: [1, 0, 0], y: [0, 1, 0], z: [0, 0, 1] };
 
 function axis(text) {
   const m = /^([+-]?)([xyz])$/.exec(text ?? '');
-  if (!m) throw new Error(`not an axis: ${text}`);
-  return AXES[m[2]].map((v) => (m[1] === '-' ? -v : v));
+  if (m) return AXES[m[2]].map((v) => (m[1] === '-' ? -v : v));
+  const v = (text ?? '').split(',').map(Number);
+  if (v.length !== 3 || v.some((x) => !Number.isFinite(x)) || !Math.hypot(...v)) throw new Error(`not an axis: ${text}`);
+  return v.map((x) => x / Math.hypot(...v));
 }
 
 const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
@@ -99,8 +102,10 @@ function upright(file, upArg, frontArg, dry) {
   const order = [0, 1, 2].sort((a, b) => size[b] - size[a]);
   const up = upArg ? axis(upArg) : AXES['xyz'[order[0]]];
   const rest = order.filter((k) => Math.abs(up[k]) < 0.5);
-  const front = frontArg ? axis(frontArg) : AXES['xyz'[rest.sort((a, b) => size[a] - size[b])[0]]];
-  if (Math.abs(dot(up, front)) > 0.5) throw new Error('--up and --front must be different axes');
+  const given = frontArg ? axis(frontArg) : AXES['xyz'[rest.sort((a, b) => size[a] - size[b])[0]]];
+  if (Math.abs(dot(up, given)) > 0.95) throw new Error('--up and --front must be different axes');
+  const square = given.map((v, k) => v - dot(up, given) * up[k]);
+  const front = square.map((v) => v / Math.hypot(...square));
   const right = cross(up, front);
   const turn = [right[0], up[0], front[0], 0, right[1], up[1], front[1], 0, right[2], up[2], front[2], 0, 0, 0, 0, 1];
 
@@ -108,7 +113,9 @@ function upright(file, upArg, frontArg, dry) {
   const shift = [-(turned.min[0] + turned.max[0]) / 2, -turned.min[1], -(turned.min[2] + turned.max[2]) / 2];
   const placed = multiply([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ...shift, 1], turn);
   const wdh = [turned.max[0] - turned.min[0], turned.max[2] - turned.min[2], turned.max[1] - turned.min[1]].map((v) => +v.toFixed(3));
-  const name = (v) => `${v.find((x) => x) < 0 ? '-' : '+'}${'xyz'[v.findIndex((x) => x)]}`;
+  const name = (v) => (v.filter((x) => Math.abs(x) > 1e-9).length === 1
+    ? `${v.find((x) => Math.abs(x) > 1e-9) < 0 ? '-' : '+'}${'xyz'[v.findIndex((x) => Math.abs(x) > 1e-9)]}`
+    : v.map((x) => +x.toFixed(3)).join(','));
   if (dry) return { up: name(up), front: name(front), wdh };
 
   const replaced = new Map();

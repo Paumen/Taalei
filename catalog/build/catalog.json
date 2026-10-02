@@ -247,7 +247,7 @@
    ],
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 42
+    "kinds": 43
    }
   },
   {
@@ -616,8 +616,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 74
+    "factor": 1.03,
+    "kinds": 75
    }
   },
   {
@@ -1502,8 +1502,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 40
+    "factor": 1.02,
+    "kinds": 41
    }
   },
   {
@@ -1929,7 +1929,7 @@
    ],
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 34
+    "kinds": 35
    }
   },
   {
@@ -1998,8 +1998,8 @@
     "none": 22
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 14
+    "factor": 1.01,
+    "kinds": 15
    }
   },
   {
@@ -2126,8 +2126,8 @@
     "none": 18
    },
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 27
+    "factor": 1.07,
+    "kinds": 28
    }
   },
   {
@@ -2700,7 +2700,7 @@
     "smooth": 64
    },
    "kitCheck": {
-    "factor": 0.94,
+    "factor": 0.98,
     "kinds": 25
    }
   },
@@ -18582,7 +18582,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 223,
+   "count": 230,
    "color": "#b08968"
   },
   {
@@ -18604,7 +18604,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 153
+   "count": 160
   },
   {
    "id": "str-barrier-post",
@@ -18633,7 +18633,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 648,
+   "count": 641,
    "color": "#a8762a"
   },
   {
@@ -18641,14 +18641,14 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 69
+   "count": 62
   },
   {
    "id": "str-part-door-doorway",
    "name": "Doorway",
    "type": "kind",
    "description": "The opening a door hangs in, with the wall piece around it.",
-   "count": 18
+   "count": 11
   },
   {
    "id": "str-part-door-single",
@@ -19172,7 +19172,14 @@
    "name": "Mid",
    "type": "kind",
    "description": "Fence between knee and chest height, and the gates in such a run.",
-   "count": 132
+   "count": 124
+  },
+  {
+   "id": "str-barrier-fence-gate",
+   "name": "Gate",
+   "type": "kind",
+   "description": "Gate, turnstile or arch set in a fence or hedge run.",
+   "count": 15
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -19645,6 +19652,7 @@
     "str-part-wall-unit",
     "str-part-pillar",
     "str-barrier-fence-mid",
+    "str-barrier-fence-gate",
     "str-barrier-post",
     "str-barrier-hedge",
     "str-access-ladder",
@@ -19689,6 +19697,7 @@
     "str-part-roof-unit",
     "str-part-pillar",
     "str-barrier-fence-mid",
+    "str-barrier-fence-gate",
     "str-access-ladder",
     "str-access-bridge-section",
     "str-access-bridge-long",
@@ -21956,6 +21965,13 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-barrier-fence-gate": {
+   "high.min": 0.35,
+   "high.max": 0.85,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "str-barrier-fence-mid": {
    "high.min": 0.35,
    "high.max": 0.85,
@@ -22849,6 +22865,20 @@
    "tpu.max": 10000
   },
   "str-barrier-fence-mid scale-big": {
+   "high.min": 0.7,
+   "high.max": 1.7,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-barrier-fence-gate scale-small": {
+   "high.min": 0.175,
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-barrier-fence-gate scale-big": {
    "high.min": 0.7,
    "high.max": 1.7,
    "longest.min": 0.05,
@@ -28312,7 +28342,7 @@
   {
    "kit": "architecture",
    "name": "arch",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.534,
@@ -42457,7 +42487,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "hilly-prop-fence-gate-a",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.563,
@@ -42506,7 +42536,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "hilly-prop-fence-gate-b",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.563,
@@ -52854,8 +52884,8 @@
    "kind": "obj-furnishing-furniture-table",
    "size": "s",
    "wdh": [
-    0.227,
     0.384,
+    0.227,
     0.341
    ],
    "tris": 162,
@@ -63396,7 +63426,7 @@
    "kit": "isa-homely",
    "collection": "isa-tt",
    "name": "gate-double-left",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "s",
    "wdh": [
     0.32,
@@ -63443,7 +63473,7 @@
    "kit": "isa-homely",
    "collection": "isa-tt",
    "name": "gate-double-right",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "s",
    "wdh": [
     0.32,
@@ -63490,7 +63520,7 @@
    "kit": "isa-homely",
    "collection": "isa-tt",
    "name": "gate-single",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.64,
@@ -106227,7 +106257,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate-arch",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     1.266,
@@ -106267,9 +106297,9 @@
    "variant": "v209",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 1.324 over max 1.25 (str-part-door-doorway)"
+     "text": "high 1.324 over max 0.85 (str-barrier-fence)"
     }
    ]
   },
@@ -106321,7 +106351,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     1.266,
@@ -106369,16 +106399,16 @@
    "variant": "v209",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 1.324 over max 1.25 (str-part-door-doorway)"
+     "text": "high 1.324 over max 0.85 (str-barrier-fence)"
     }
    ]
   },
   {
    "kit": "kay-hallow",
    "name": "arch",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     1.266,
@@ -106417,9 +106447,9 @@
    ],
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 1.324 over max 1.25 (str-part-door-doorway)"
+     "text": "high 1.324 over max 0.85 (str-barrier-fence)"
     }
    ]
   },
@@ -107040,7 +107070,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     1.2,
@@ -107084,7 +107114,14 @@
     "stone-masonry",
     "tba"
    ],
-   "variant": "v208"
+   "variant": "v208",
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.9 over max 0.85 (str-barrier-fence)"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -170413,7 +170450,7 @@
    "kit": "ken-market",
    "collection": "ken-mini",
    "name": "turnstile",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.95,
@@ -173377,7 +173414,7 @@
   {
    "kit": "ken-nature",
    "name": "fence-gate",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     1.2,
@@ -197325,7 +197362,7 @@
   {
    "kit": "ken-survival",
    "name": "fence-doorway",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.75,
@@ -200405,7 +200442,7 @@
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "fence-gate",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.9,
@@ -200454,7 +200491,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.342 under min 0.35 (str-barrier-fence-mid)"
+     "text": "high 0.342 under min 0.35 (str-barrier-fence)"
     }
    ],
    "mark": [
@@ -236503,20 +236540,22 @@
    "kind": "obj-food-meat-ham",
    "size": "s",
    "wdh": [
-    0.207,
-    0.192,
-    0.194
+    0.241,
+    0.127,
+    0.112
    ],
    "tris": 583,
    "tpu": 1700,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17720,
+   "bytes": 17740,
    "vtx": 396,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.003,
    "avgTri": 0.00013,
-   "anglePct": 4,
+   "anglePct": 0,
    "vpt": 0.68,
    "grad": 0.49,
    "spread": {
@@ -236538,10 +236577,6 @@
     "food",
     "pirate",
     "qua"
-   ],
-   "mark": [
-    "grounded",
-    "centered"
    ]
   },
   {
@@ -263904,8 +263939,8 @@
    "kind": "obj-equipment-tool-station",
    "size": "s",
    "wdh": [
-    0.16,
     0.31,
+    0.16,
     0.141
    ],
    "tris": 238,
@@ -291088,7 +291123,7 @@
   {
    "kit": "styloo-farm",
    "name": "hedge-arch",
-   "kind": "str-part-door-doorway",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.899,
@@ -291121,6 +291156,13 @@
    "tags": [
     "foliage",
     "styloo"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 1.151 over max 0.85 (str-barrier-fence)"
+    }
    ]
   },
   {
