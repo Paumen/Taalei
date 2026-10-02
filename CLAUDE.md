@@ -7,6 +7,7 @@
 * Keep docs tersely, and in plain English..
 * import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport
 * After any catalogue change, always rebuild: every step in .claude/skills/catalog-assets/SKILL.md §6 except build-lists. Run build-lists only when source zips, rejects or TBD models change.
+* `merge`, `Merge`, `erge`, `.erge`, `merg`, and similar all mean: merge the PR(s).
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
