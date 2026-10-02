@@ -195,3 +195,86 @@ export function vertexAdder(glb, prim) {
     },
   };
 }
+
+const sub3 = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+const dot3 = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const cross3 = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+
+export function buildTree(tris) {
+  const box = (i) => {
+    const b = [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
+    for (const p of tris[i]) for (let k = 0; k < 3; k++) { b[k] = Math.min(b[k], p[k]); b[3 + k] = Math.max(b[3 + k], p[k]); }
+    return b;
+  };
+  const boxes = tris.map((_, i) => box(i));
+  const order = tris.map((_, i) => i);
+  const build = (start, end) => {
+    const b = [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
+    for (let i = start; i < end; i++) for (let k = 0; k < 3; k++) {
+      b[k] = Math.min(b[k], boxes[order[i]][k]);
+      b[3 + k] = Math.max(b[3 + k], boxes[order[i]][3 + k]);
+    }
+    const node = { b, start, end };
+    if (end - start <= 6) return node;
+    const extent = [0, 1, 2].map((k) => b[3 + k] - b[k]);
+    const axis = extent.indexOf(Math.max(...extent));
+    const mid = (i) => boxes[i][axis] + boxes[i][3 + axis];
+    const part = order.slice(start, end).sort((p, q) => mid(p) - mid(q));
+    order.splice(start, end - start, ...part);
+    const half = (start + end) >> 1;
+    node.left = build(start, half);
+    node.right = build(half, end);
+    return node;
+  };
+  return { root: build(0, tris.length), order };
+}
+
+export function hitBox(b, o, inv, far) {
+  let near = 0;
+  for (let k = 0; k < 3; k++) {
+    let t0 = (b[k] - o[k]) * inv[k], t1 = (b[3 + k] - o[k]) * inv[k];
+    if (t0 > t1) [t0, t1] = [t1, t0];
+    near = Math.max(near, t0);
+    far = Math.min(far, t1);
+    if (near > far) return false;
+  }
+  return true;
+}
+
+export function hitTriangle(o, d, [a, b, c]) {
+  const e1 = sub3(b, a), e2 = sub3(c, a);
+  const p = cross3(d, e2);
+  const det = dot3(e1, p);
+  if (Math.abs(det) < 1e-18) return -1;
+  const s = sub3(o, a);
+  const u = dot3(s, p) / det;
+  if (u < 0 || u > 1) return -1;
+  const q = cross3(s, e1);
+  const v = dot3(d, q) / det;
+  if (v < 0 || u + v > 1) return -1;
+  return dot3(e2, q) / det;
+}
+
+export function throughDepth(tree, tris, normals, o, d, far, near) {
+  const inv = d.map((x) => 1 / x);
+  const hits = [];
+  const stack = [tree.root];
+  while (stack.length) {
+    const node = stack.pop();
+    if (!hitBox(node.b, o, inv, far)) continue;
+    if (node.left) { stack.push(node.left, node.right); continue; }
+    for (let i = node.start; i < node.end; i++) {
+      const t = tree.order[i];
+      const at = hitTriangle(o, d, tris[t]);
+      const facing = dot3(normals[t], d);
+      if (at > near && Math.abs(facing) > 1e-9) hits.push([at, facing]);
+    }
+  }
+  hits.sort((a, b) => a[0] - b[0]);
+  let depth = 1;
+  for (const [at, facing] of hits) {
+    depth += facing > 0 ? -1 : 1;
+    if (depth === 0) return at;
+  }
+  return null;
+}

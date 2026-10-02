@@ -171,6 +171,7 @@ Which tool for which issue, from their own help texts:
 | z-fighting twins | `separate-twins.mjs` |
 | hidden triangles | `cull-hidden.mjs` |
 | open rim | `cap-holes.mjs` |
+| back faces: inverted, inside-out or single-sided | `solidify.mjs [--thick t]` |
 | hairline tube or stick | `thicken.mjs [--min d]`; blades, leaves, shells `thicken-walls.mjs` |
 | too much detail for its peers | `simplify.mjs [--error f \| --ratio f] [--hard deg]`, rendered before and after |
 | shading off | `smooth.mjs --angle`, `facet.mjs --bands`, `restore-normals.mjs` |
