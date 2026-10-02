@@ -182,5 +182,5 @@ export const BRONKITS = [
   { map: 'Household_Props_001', naam: 'Household Props 001', kit: 'household', source: 'creativetrio', formaat: 'glb' },
   { map: 'Makeup_Assets', naam: 'Makeup Assets', kit: 'makeup', source: 'milkandbanana', formaat: 'glb' },
   { map: 'Weapons_Pack_002_In_Case_of_Zombies', naam: 'Weapons Pack 002: In Case of Zombies', kit: 'zombie-weapons', source: 'creativetrio', formaat: 'glb' },
-  { map: 'Taalei', naam: 'Taalei', kit: 'taalei-kit', formaat: 'glb' },
+  { map: 'Taalei', naam: 'Taalei', kit: 'taalei-kit', formaat: 'glb', extraFormaten: ['fbx'] },
 ];

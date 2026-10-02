@@ -974,6 +974,258 @@
   ]
  },
  {
+  "kind": "obj-equipment-tool-twohand-rod",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-fishing/fishing-rod-*",
+     "rgp-props/fishing-rod-*",
+     "styloo-farm/fishing-rod*",
+     "rgp-medieval/fishing-rod"
+    ],
+    "text": "quat rods 0.50-0.62 m, rgp-props 1.39 m, styloo 1.29 m against kind 0.6-1.12; 8 of 11 warn",
+    "options": [
+     "All to ~1.0 m",
+     "quat up, max to 1.4",
+     "Widen kind only",
+     "Leave scale"
+    ],
+    "picked": [
+     "PO: you can only change kit wide scales"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-fishing/*"
+    ],
+    "text": "kit-wide: quat-fishing non-fish factor 0.08 -> 0.10 brings rods to 0.63-0.78 m, rowboat and worm into range",
+    "options": [
+     "x1.25 non-fish",
+     "Leave quat-fishing"
+    ],
+    "picked": [
+     "x1.25 non-fish"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "rgp-props/*"
+    ],
+    "text": "kit-wide: rgp-props x0.8 brings rods to 1.11 m but drops bucket, stool, bag-2 further under min",
+    "options": [
+     "Raise kind max to 1.4",
+     "Kit x0.8",
+     "Leave"
+    ],
+    "picked": [
+     "Leave"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "styloo-farm/fishing-rod",
+     "styloo-farm/fishing-rod-hunter"
+    ],
+    "text": "styloo rods in 0.44 group at 1.29 m; move to 0.32 group or shrink group",
+    "options": [
+     "Rods to 0.32 group",
+     "Covered by max 1.4",
+     "Leave"
+    ],
+    "picked": [
+     "Leave"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-fishing/fishing-rod-b"
+    ],
+    "text": "source black grip and reel collapsed into hunter at import",
+    "options": [
+     "Grip+reel -> basalt",
+     "Grip only -> basalt",
+     "Leave as is"
+    ],
+    "picked": [
+     "Grip+reel -> basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-fishing/fishing-rod-b",
+     "quat-fishing/fishing-rod-c",
+     "quat-fishing/fishing-rod-d"
+    ],
+    "text": "reel, crank and guides in the rod band; quat-e, rgp and styloo use nickel",
+    "options": [
+     "Reel+crank+guides -> nickel",
+     "Reel+crank only -> nickel",
+     "Leave as is"
+    ],
+    "picked": [
+     "Reel+crank+guides -> nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-fishing/fishing-rod-b"
+    ],
+    "text": "grip+reel basalt and reel+crank+guides nickel overlap on the reel",
+    "options": [
+     "Basalt",
+     "Nickel"
+    ],
+    "picked": [
+     "Nickel"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "detail",
+    "models": [
+     "taalei-kit/fishing-rod"
+    ],
+    "text": "add Tripo fishing rod to the Taalei kit",
+    "options": [
+     "Rod family look",
+     "Fewer bands",
+     "Keep one band for now"
+    ],
+    "picked": [
+     "Rod family look",
+     "PO: remove box"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "taalei-kit/fishing-rod"
+    ],
+    "text": "Tripo rod kind after removing the box",
+    "options": [
+     "Rod kind",
+     "Leave untagged"
+    ],
+    "picked": [
+     "Rod kind"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-baked-pastry-cupcake",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack-2/*",
+     "isa-food/*",
+     "ken-food/*",
+     "quat-food/cupcake"
+    ],
+    "text": "food-pack-2 muffins smooth-shaded, isa, ken and quat flat-faceted",
+    "options": [
+     "Flat-shade food-pack-2",
+     "Smooth the others",
+     "Leave as is"
+    ],
+    "picked": [
+     "Smooth the others"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/muffin"
+    ],
+    "text": "dark chestnut wrapper under light camel top, inverse of every other muffin",
+    "options": [
+     "Swap the bands",
+     "Wrapper -> tan only",
+     "Leave as source"
+    ],
+    "picked": [
+     "Swap the bands"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-light-campfire",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-survival/campfire-stand",
+     "ken-survival/campfire-fishing-stand"
+    ],
+    "text": "bare wooden frames without logs or fire",
+    "options": [
+     "Keep in campfire",
+     "New stand kind",
+     "Reject both"
+    ],
+    "picked": [
+     "Keep in campfire"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "natuur/campfire-star",
+     "natuur/campfire-teepee"
+    ],
+    "text": "smooth round 16-sided logs against flat hex logs of fs, quat and rgp",
+    "options": [
+     "Flat-shade natuur",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "natuur/campfire-star",
+     "fs-terrain/hilly-prop-camp-campfire"
+    ],
+    "text": "same radial star layout at the same size",
+    "options": [
+     "Keep both",
+     "Reject natuur star",
+     "Reject fs-terrain"
+    ],
+    "picked": [
+     "Keep both"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-kitchenware-cookware-board",
   "date": "2026-10-02",
   "suggestions": [
