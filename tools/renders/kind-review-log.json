@@ -1314,6 +1314,61 @@
   ]
  },
  {
+  "kind": "obj-equipment-pocketitem-book-closed",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-mixed/comic-book-blank"
+    ],
+    "text": "Front cover split diagonally into 6 sienna and 6 taupe triangles, an import of the source's placeholder picture.",
+    "options": [
+     "Taupe → sienna",
+     "Cover → hunter",
+     "Leave"
+    ],
+    "picked": [
+     "Taupe → sienna"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/*",
+     "household/books"
+    ],
+    "text": "Flat colour: kay-dun-1 book-a…f covers at 0.90 of their band, pages at 0.16; household/books everything at 0.50. The other books have a gradient.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread, mid to 0.5",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-rpg/book-3-closed"
+    ],
+    "text": "A strip of inward-facing faces on top of the page block shows magenta.",
+    "options": [
+     "Flip them",
+     "Remove them",
+     "Leave"
+    ],
+    "picked": [
+     "Flip them"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-equipment-tool-hand-saw",
   "date": "2026-10-02",
   "suggestions": [
@@ -1619,6 +1674,67 @@
     "options": [],
     "picked": [
      "PO: make thinnest blades thicker, and thickest thinner; mind how it looks vs poles and straps; adjust poles if needed"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-baked-pastry-cookie",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "isa-bakery/cookie"
+    ],
+    "text": "The jam dome is orange in the source but chestnut (mid 0.43) in the workfile, so it reads as dough.",
+    "options": [
+     "Jam → terracotta",
+     "Jam → amber",
+     "Jam → sienna",
+     "Leave"
+    ],
+    "picked": [
+     "Jam → terracotta"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-holiday/gingerbread-man",
+     "ken-food/gingerbread-man",
+     "ken-holiday/gingerbread-man",
+     "ken-holiday/gingerbread-woman"
+    ],
+    "text": "Two gingerbread figures lie flat, face up; the two ken-holiday figures stand upright.",
+    "options": [
+     "Lay ken-holiday flat",
+     "Stand others up",
+     "Leave"
+    ],
+    "picked": [
+     "Stand others up"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "ken-food/gingerbread-man",
+     "ken-holiday/gingerbread-man",
+     "ken-holiday/gingerbread-woman",
+     "ken-food/cookie-chocolate"
+    ],
+    "text": "Ken cookies are flat-shaded hard blocks (64–100% sharp edges); the others are smooth and rounded.",
+    "options": [
+     "Leave",
+     "Smooth ken figures",
+     "Smooth all ken"
+    ],
+    "picked": [
+     "Smooth ken figures"
     ]
    }
   ]
@@ -1930,6 +2046,48 @@
     ],
     "picked": [
      "Thicken to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-tableware-condiment",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/shaker",
+     "cooking-assets/pepper-grinder",
+     "ken-food/pepper-mill"
+    ],
+    "text": "Every part sits at exactly 0.50 of its band, with no gradient; jb-kitchen and styloo have one.",
+    "options": [
+     "Spread by height, keep mid",
+     "Bodies only",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/pepper-mill"
+    ],
+    "text": "Light camel wood next to chestnut wood mills. Chestnut needs material wood-beam; wood-worked allows camel only.",
+    "options": [
+     "Leave",
+     "Camel → chestnut",
+     "Tag → wood-beam",
+     "Revert to camel"
+    ],
+    "picked": [
+     "Camel → chestnut",
+     "Tag → wood-beam"
     ]
    }
   ]
