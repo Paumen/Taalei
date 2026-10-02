@@ -2820,8 +2820,8 @@
     "smooth": 34
    },
    "kitCheck": {
-    "factor": 1.23,
-    "kinds": 18
+    "factor": 1.24,
+    "kinds": 17
    }
   },
   {
@@ -3641,8 +3641,8 @@
     "none": 9
    },
    "kitCheck": {
-    "factor": 1.13,
-    "kinds": 7
+    "factor": 1.16,
+    "kinds": 6
    }
   },
   {
@@ -16466,7 +16466,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 150
+   "count": 153
   },
   {
    "id": "cork",
@@ -17601,7 +17601,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, mirror (hand)",
-   "count": 89,
+   "count": 93,
    "color": "#f1976c"
   },
   {
@@ -17750,7 +17750,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 174,
+   "count": 170,
    "color": "#6d738a"
   },
   {
@@ -17772,7 +17772,7 @@
    "name": "Stationery",
    "type": "kind",
    "description": "Writing and drawing tool: pencil, pen, scissors, drafting compass, ruler.",
-   "count": 14
+   "count": 10
   },
   {
    "id": "obj-equipment-tool-hand",
@@ -132253,7 +132253,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "compass-base",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
     0.172,
@@ -211123,7 +211123,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 42072,
+   "bytes": 42076,
    "vtx": 1154,
    "grounded": true,
    "centered": true,
@@ -248752,7 +248752,7 @@
   {
    "kit": "quat-survival",
    "name": "compass-anim",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
     0.136,
@@ -248818,7 +248818,7 @@
   {
    "kit": "quat-survival",
    "name": "compass",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
     0.136,
@@ -269474,11 +269474,11 @@
    "avgTri": 0.00076,
    "anglePct": 10,
    "vpt": 0.65,
-   "grad": 0.95,
+   "grad": 0.6,
    "spread": {
     "14,3": [
-     0.016,
-     0.977
+     0.25,
+     0.797
     ],
     "0,0": [
      0.07,
@@ -269521,11 +269521,11 @@
    "avgTri": 0.00067,
    "anglePct": 8,
    "vpt": 0.67,
-   "grad": 0.96,
+   "grad": 0.55,
    "spread": {
     "14,3": [
-     0.016,
-     0.977
+     0.297,
+     0.844
     ]
    },
    "colors": [
@@ -271743,31 +271743,32 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15488,
-   "vtx": 398,
+   "bytes": 16452,
+   "vtx": 430,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.0023,
    "anglePct": 11,
-   "vpt": 2.03,
-   "grad": 0.85,
+   "vpt": 2.19,
+   "grad": 0.73,
    "spread": {
-    "1,0": [
+    "14,3": [
      0.031,
      0.961
     ],
-    "14,3": [
+    "14,2": [
      0.031,
-     0.031
+     0.164
     ]
    },
    "colors": [
     "#8b7561",
-    "#b58158"
+    "#907a66"
    ],
    "tags": [
     "rgp",
+    "rope",
     "textile"
    ],
    "variant": "v190"
@@ -271787,31 +271788,32 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14560,
-   "vtx": 371,
+   "bytes": 15588,
+   "vtx": 405,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00031,
    "anglePct": 8,
-   "vpt": 1.97,
-   "grad": 0.84,
+   "vpt": 2.15,
+   "grad": 0.7,
    "spread": {
-    "1,0": [
+    "14,3": [
      0.031,
      0.961
     ],
-    "14,3": [
-     0.031,
-     0.031
+    "14,2": [
+     0.047,
+     0.109
     ]
    },
    "colors": [
     "#8b7561",
-    "#b58158"
+    "#907a66"
    ],
    "tags": [
     "rgp",
+    "rope",
     "textile"
    ],
    "variant": "v190",
@@ -271838,31 +271840,32 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12656,
-   "vtx": 317,
+   "bytes": 13236,
+   "vtx": 337,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "avgTri": 0.00221,
    "anglePct": 8,
-   "vpt": 2.01,
-   "grad": 0.82,
+   "vpt": 2.13,
+   "grad": 0.67,
    "spread": {
-    "1,0": [
+    "14,3": [
      0.031,
      0.961
     ],
-    "14,3": [
+    "14,2": [
      0.031,
-     0.031
+     0.164
     ]
    },
    "colors": [
     "#8b7561",
-    "#b58158"
+    "#907a66"
    ],
    "tags": [
     "rgp",
+    "rope",
     "textile"
    ],
    "variant": "v190"
@@ -300473,7 +300476,7 @@
   {
    "kit": "taalei-kit",
    "name": "hourglass",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
     0.071,
@@ -315475,11 +315478,11 @@
    "size": "m",
    "wdh": [
     0.184,
-    0.791,
-    0.039
+    0.039,
+    0.791
    ],
    "tris": 122,
-   "tpu": 356,
+   "tpu": 315,
    "mat": 1,
    "bands": 2,
    "calls": 1,

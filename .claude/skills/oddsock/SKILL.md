@@ -6,7 +6,9 @@ description: Review a few random catalogue kinds for style coherence by looking 
 # Oddsock
 
 Find what makes a kind look like several hands made it, propose fixes, and
-implement only what the PO picks. Suggestions come from looking at renders,
+implement only what the PO picks. Size is out of scope: never suggest a scale
+change. Shape stays in: thickness of parts, bevels, facets, proportions within
+a model. Suggestions come from looking at renders,
 not from lint findings; lint is worked in another flow. Read the rules only to
 check a suggestion is allowed.
 
@@ -16,7 +18,8 @@ check a suggestion is allowed.
 
 - Picks 3 random kinds with 4–24 models from at least 2 kits, skipping every
   kind in `tools/renders/kind-review-log.json`, and adds the picks to that log.
-- Renders each kind with `kind-sheet.mjs`, pbr from iso at locked scale:
+- Renders each kind with `kind-sheet.mjs --free-scale`, pbr from iso, each
+  tile fitted to its own model:
   `<kind>/pbr/sheet.png`, plus `c01` and `c02` halves of at most 12 models when
   the kind has more than 12.
 - `--kind <id,…>` reviews named kinds instead; `--dry` picks without logging.
@@ -43,7 +46,6 @@ gathered copies in `<kind>/src` (a copy needs `Textures/colormap.png` beside it)
 | one band only | `--band col,row` |
 | other angles | `--views front,top,iso-back,205/30,30/-20` |
 | close detail | `--views 20/10 --fit 0.45` |
-| size against peers | `--compare` |
 | every model close | `kind-sheet.mjs --each` |
 
 Before suggesting anything for a model, render its original beside it, in
@@ -73,7 +75,7 @@ Look at:
   side, jagged band edges, a part in the wrong band;
 - shape style: thickness of parts and sub-parts, bevels, facet count, smooth
   vs flat, level of detail;
-- proportions and scale against peers;
+- proportions within a model;
 - placement: grounded, centred, facing;
 - overall look and feel: which kit's style the kind should lean to.
 
@@ -119,8 +121,8 @@ suggestion gets an answer later; a record replaces that kind's suggestions.
 
 ## 6. Show before and after
 
-    node tools/renders/kind-sheet.mjs --kind <kind> --out <scratch>/before --modes pbr --ref <commit before the change>
-    node tools/renders/kind-sheet.mjs --kind <kind> --out <scratch>/after --modes pbr
+    node tools/renders/kind-sheet.mjs --kind <kind> --out <scratch>/before --modes pbr --free-scale --ref <commit before the change>
+    node tools/renders/kind-sheet.mjs --kind <kind> --out <scratch>/after --modes pbr --free-scale
 
 For the models that changed, render before and after side by side in one
 sheet, each before next to its after, with the source when it was checked:

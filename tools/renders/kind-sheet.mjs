@@ -5,14 +5,15 @@ import { fileURLToPath } from 'node:url';
 
 const HELP = `kind-sheet.mjs (--kind <id[,id]> | --prefix <id> | --models <kit/name[,kit/name]>) --out <dir>
                [--ref <git rev>] [--views iso] [--modes pbr,claywire] [--ss 1] [--chunk 16]
-               [--no-render] [--no-glb-lint] [--no-chunks] [--each]
+               [--no-render] [--no-glb-lint] [--no-chunks] [--each] [--free-scale]
 
 Gathers every catalogue model of a kind, of every kind under a prefix, or of a
 list, into <out>/src with the colormap beside them, and renders them on one
 sheet per mode at locked scale, so each model is seen beside its peers at a
 comparable size. More than --chunk models also get sheets of --chunk models
 each, at larger tiles, in <out>/<mode>/c01, c02, …; those are not scale-locked
-across chunks. --ref takes the files from that git revision instead of the
+across chunks. --free-scale fits each tile to its own model instead of locking
+the scale. --ref takes the files from that git revision instead of the
 working tree, so a before sheet is one extra run.
 
 --each also renders every model on its own, close: pbr and claywire, from iso,
@@ -172,7 +173,7 @@ const dossier = {
 };
 
 function render(dir, target, mode) {
-  const argv = [RENDER, dir, '--out', target, '--modes', mode, '--views', views, '--sheet', '--sheet-only', '--lock-scale', '--ss', ss];
+  const argv = [RENDER, dir, '--out', target, '--modes', mode, '--views', views, '--sheet', '--sheet-only', ...(has('free-scale') ? [] : ['--lock-scale']), '--ss', ss];
   execFileSync('node', argv, { cwd: ROOT, stdio: 'pipe', maxBuffer: 1 << 26 });
   return join(target, 'sheet.png');
 }
