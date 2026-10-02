@@ -937,6 +937,79 @@
   ]
  },
  {
+  "kind": "env-flora-plant-bush",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/bush"
+    ],
+    "text": "Ring of single-sided leaf cards shows back faces from above (source style)",
+    "options": [
+     "Double-side leaves",
+     "Remove the cards",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side leaves"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "fs-terrain/hilly-prop-bush-a",
+     "fs-terrain/hilly-prop-bush-b",
+     "fs-terrain/hilly-prop-bush-c",
+     "fs-terrain/hilly-prop-bush-d"
+    ],
+    "text": "Smooth blobs with hard seams from the source's smoothing groups",
+    "options": [
+     "Smooth fully",
+     "Flat-shade all",
+     "Keep as is"
+    ],
+    "picked": [
+     "Smooth fully"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "isa-homely/foliage-a",
+     "isa-homely/foliage-b"
+    ],
+    "text": "Loose leaf sprigs rather than bushes; foliage-a under the 0.2 minimum",
+    "options": [
+     "To env-flora-plant",
+     "Keep in bush"
+    ],
+    "picked": [
+     "Keep in bush"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-city/bush-potted"
+    ],
+    "text": "Topiary in a terracotta pot, could be a houseplant",
+    "options": [
+     "Keep in bush",
+     "To plant-leafy, shrink",
+     "To plant-leafy, scale-big"
+    ],
+    "picked": [
+     "Keep in bush"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "env-flora-tree-palm",
   "date": "2026-10-02",
   "suggestions": [
@@ -1181,6 +1254,58 @@
   ]
  },
  {
+  "kind": "obj-equipment-tool-hand-saw",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "household/hand-saw"
+    ],
+    "text": "Lies flat (0.016 m high) while the other three stand on edge, teeth down, blade along z.",
+    "options": [
+     "Stand on edge",
+     "Leave flat"
+    ],
+    "picked": [
+     "Stand on edge"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "styloo-farm/saw"
+    ],
+    "text": "Blade 31 mm thick, as thick as its handle (household 1 mm, mek 3 mm, kay 18 mm).",
+    "options": [
+     "Thin styloo to ~18 mm",
+     "Thin styloo to ~8 mm",
+     "Leave"
+    ],
+    "picked": [
+     "Thin styloo to ~18 mm"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/hand-saw"
+    ],
+    "text": "Azure plastic handle; the three others have tan wood handles.",
+    "options": [
+     "Keep azure",
+     "Handle to tan"
+    ],
+    "picked": [
+     "Handle to tan"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-equipment-tool-twohand-rod",
   "date": "2026-10-02",
   "suggestions": [
@@ -1372,6 +1497,77 @@
     ],
     "picked": [
      "Swap the bands"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-holiday/wreath",
+     "sq-cinema/usher-stand"
+    ],
+    "text": "Kind noun is only clock; wreath and usher stand are not clocks",
+    "options": [
+     "New decor kind + counter",
+     "Add nouns only",
+     "Keep as is"
+    ],
+    "picked": [
+     "New decor kind + counter"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-pool/pace-clock"
+    ],
+    "text": "Thick red sienna hands while the other clocks have basalt hands",
+    "options": [
+     "Hands → basalt",
+     "Keep red"
+    ],
+    "picked": [
+     "Hands → basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-holiday/wreath",
+     "ken-holiday/wreath-decorated"
+    ],
+    "text": "Two more wreaths tagged as set",
+    "options": [
+     "Move both to decor",
+     "Keep as set",
+     "Look first"
+    ],
+    "picked": [
+     "Move both to decor"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-holiday/wreath"
+    ],
+    "text": "tpu 6391 over the 5000 max decor inherits from obj-furnishing",
+    "options": [
+     "Simplify the wreath",
+     "Raise decor tpu.max",
+     "Keep kay wreath as set"
+    ],
+    "picked": [
+     "Raise decor tpu.max"
     ]
    }
   ]
@@ -1631,6 +1827,129 @@
   ]
  },
  {
+  "kind": "str-building-military-castle",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "architecture/castle"
+    ],
+    "text": "Almost all taupe-dark (mean 0.12), near-black beside peers; source is light beige stone.",
+    "options": [
+     "Taupe, keep 0.12",
+     "Taupe, spread by height",
+     "Ivory, keep 0.12",
+     "Leave"
+    ],
+    "picked": [
+     "Taupe, spread by height"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "architecture/fortress"
+    ],
+    "text": "One flat taupe band (mean 0.35, p5-p95 0.07-0.42); towers, walls and floors merge.",
+    "options": [
+     "Spread by height, keep mid",
+     "Darker tops",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-town/wonder-walls-1",
+     "quat-town/wonder-walls-2"
+    ],
+    "text": "Only a ring of walls and corner towers, no keep; str-part-wall-rampart lists perimeter wall and palisade.",
+    "options": [
+     "Move to rampart",
+     "Keep in castle"
+    ],
+    "picked": [
+     "Keep in castle"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-work-agricultural",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "architecture/barn"
+    ],
+    "text": "Taupe walls and basalt frames read as a grey stone townhouse beside the timber barns.",
+    "options": [
+     "Timber like quat",
+     "Frames to camel",
+     "Leave"
+    ],
+    "picked": [
+     "Timber like quat"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "architecture/barn"
+    ],
+    "text": "1.33 m high (storeys-3) against 2.0-2.8 m for quat-farms and styloo barns.",
+    "options": [
+     "Scale x1.6",
+     "Scale x1.4",
+     "Leave scale"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/barn-small"
+    ],
+    "text": "Magenta roof teeth: the -z tooth faces of an open roof sheet, seen from behind at a grazing angle (first read as flipped faces; flipping moved the magenta to iso-back).",
+    "options": [
+     "Double-side the teeth",
+     "Leave"
+    ],
+    "picked": [
+     "Double-side the teeth"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-farm/barn-small"
+    ],
+    "text": "Slate roof over sienna walls; styloo siblings have sienna roofs over chestnut walls.",
+    "options": [
+     "Match styloo siblings",
+     "Leave"
+    ],
+    "picked": [
+     "Match styloo siblings"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "str-building-work-agricultural-silo",
   "date": "2026-10-02",
   "suggestions": [
@@ -1759,150 +2078,6 @@
     ],
     "picked": [
      "Roofs ivory"
-    ]
-   }
-  ]
- },
- {
-  "kind": "env-flora-plant-bush",
-  "date": "2026-10-02",
-  "suggestions": [
-   {
-    "by": "claude",
-    "category": "artefact",
-    "models": [
-     "styloo-farm/bush"
-    ],
-    "text": "Ring of single-sided leaf cards shows back faces from above (source style)",
-    "options": [
-     "Double-side leaves",
-     "Remove the cards",
-     "Keep as is"
-    ],
-    "picked": [
-     "Double-side leaves"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "look",
-    "models": [
-     "fs-terrain/hilly-prop-bush-a",
-     "fs-terrain/hilly-prop-bush-b",
-     "fs-terrain/hilly-prop-bush-c",
-     "fs-terrain/hilly-prop-bush-d"
-    ],
-    "text": "Smooth blobs with hard seams from the source's smoothing groups",
-    "options": [
-     "Smooth fully",
-     "Flat-shade all",
-     "Keep as is"
-    ],
-    "picked": [
-     "Smooth fully"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "isa-homely/foliage-a",
-     "isa-homely/foliage-b"
-    ],
-    "text": "Loose leaf sprigs rather than bushes; foliage-a under the 0.2 minimum",
-    "options": [
-     "To env-flora-plant",
-     "Keep in bush"
-    ],
-    "picked": [
-     "Keep in bush"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "kay-city/bush-potted"
-    ],
-    "text": "Topiary in a terracotta pot, could be a houseplant",
-    "options": [
-     "Keep in bush",
-     "To plant-leafy, shrink",
-     "To plant-leafy, scale-big"
-    ],
-    "picked": [
-     "Keep in bush"
-    ]
-   }
-  ]
- },
- {
-  "kind": "obj-furnishing",
-  "date": "2026-10-02",
-  "suggestions": [
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "ken-holiday/wreath",
-     "sq-cinema/usher-stand"
-    ],
-    "text": "Kind noun is only clock; wreath and usher stand are not clocks",
-    "options": [
-     "New decor kind + counter",
-     "Add nouns only",
-     "Keep as is"
-    ],
-    "picked": [
-     "New decor kind + counter"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "sq-pool/pace-clock"
-    ],
-    "text": "Thick red sienna hands while the other clocks have basalt hands",
-    "options": [
-     "Hands → basalt",
-     "Keep red"
-    ],
-    "picked": [
-     "Hands → basalt"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "kay-holiday/wreath",
-     "ken-holiday/wreath-decorated"
-    ],
-    "text": "Two more wreaths tagged as set",
-    "options": [
-     "Move both to decor",
-     "Keep as set",
-     "Look first"
-    ],
-    "picked": [
-     "Move both to decor"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "kay-holiday/wreath"
-    ],
-    "text": "tpu 6391 over the 5000 max decor inherits from obj-furnishing",
-    "options": [
-     "Simplify the wreath",
-     "Raise decor tpu.max",
-     "Keep kay wreath as set"
-    ],
-    "picked": [
-     "Raise decor tpu.max"
     ]
    }
   ]
