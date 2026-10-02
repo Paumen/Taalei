@@ -18641,7 +18641,7 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 62
+   "count": 58
   },
   {
    "id": "str-part-door-doorway",
@@ -18655,7 +18655,7 @@
    "name": "Single",
    "type": "kind",
    "description": "The door leaf on its own, without the opening it hangs in.",
-   "count": 43
+   "count": 39
   },
   {
    "id": "str-part-door-trapdoor",
@@ -18746,21 +18746,21 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 153
+   "count": 157
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 120
+   "count": 124
   },
   {
    "id": "str-part-wall-unit-doorway",
    "name": "Doorway",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid, with a doorway in it.",
-   "count": 23
+   "count": 27
   },
   {
    "id": "str-part-wall-unit-window",
@@ -41187,8 +41187,9 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8420,
+   "bytes": 8400,
    "vtx": 200,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.025,
    "minTube": 0.0747,
@@ -41214,9 +41215,6 @@
     "fs",
     "wood-beam",
     "wood-planks"
-   ],
-   "mark": [
-    "grounded"
    ]
   },
   {
@@ -41719,23 +41717,23 @@
    "kind": "obj-equipment-tool-twohand-pickaxe",
    "size": "s",
    "wdh": [
-    0.226,
-    0.28,
-    0.365
+    0.288,
+    0.027,
+    0.418
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8440,
+   "bytes": 8420,
    "vtx": 196,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0219,
    "avgTri": 0.00042,
-   "anglePct": 2,
+   "anglePct": 44,
    "vpt": 1.69,
    "grad": 0,
    "spread": {
@@ -47883,8 +47881,8 @@
    "kind": "str-part-wall",
    "size": "m",
    "wdh": [
-    0.5,
     1,
+    0.5,
     0.707
    ],
    "tris": 44,
@@ -47892,9 +47890,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3960,
+   "bytes": 3956,
    "vtx": 72,
    "gridMod": true,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.037,
    "avgTri": 0.06354,
    "anglePct": 80,
@@ -47913,10 +47913,6 @@
     "comp",
     "fs",
     "stone-masonry"
-   ],
-   "mark": [
-    "grounded",
-    "centered"
    ]
   },
   {
@@ -47926,8 +47922,8 @@
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
-    0.1,
     0.35,
+    0.1,
     0.15
    ],
    "tris": 284,
@@ -47935,9 +47931,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22888,
+   "bytes": 22892,
    "vtx": 616,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00072,
    "anglePct": 98,
@@ -47957,10 +47954,7 @@
     "fs",
     "stone-masonry"
    ],
-   "variant": "v19",
-   "mark": [
-    "centered"
-   ]
+   "variant": "v19"
   },
   {
    "kit": "fs-town",
@@ -47969,8 +47963,8 @@
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
-    0.1,
     0.35,
+    0.1,
     0.15
    ],
    "tris": 244,
@@ -47978,9 +47972,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19832,
+   "bytes": 19836,
    "vtx": 528,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.012,
    "avgTri": 0.00083,
    "anglePct": 98,
@@ -48000,10 +47995,7 @@
     "fs",
     "stone-masonry"
    ],
-   "variant": "v19",
-   "mark": [
-    "centered"
-   ]
+   "variant": "v19"
   },
   {
    "kit": "fs-town",
@@ -48012,8 +48004,8 @@
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
-    0.1,
     0.35,
+    0.1,
     0.15
    ],
    "tris": 284,
@@ -48021,9 +48013,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22888,
+   "bytes": 22892,
    "vtx": 616,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.012,
    "avgTri": 0.00072,
    "anglePct": 98,
@@ -48043,10 +48036,7 @@
     "fs",
     "stone-masonry"
    ],
-   "variant": "v19",
-   "mark": [
-    "centered"
-   ]
+   "variant": "v19"
   },
   {
    "kit": "fs-town",
@@ -48055,8 +48045,8 @@
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
-    0.1,
     0.35,
+    0.1,
     0.15
    ],
    "tris": 284,
@@ -48064,9 +48054,10 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22824,
+   "bytes": 22828,
    "vtx": 614,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.007,
    "avgTri": 0.00072,
    "anglePct": 98,
@@ -48086,10 +48077,7 @@
     "fs",
     "stone-masonry"
    ],
-   "variant": "v19",
-   "mark": [
-    "centered"
-   ]
+   "variant": "v19"
   },
   {
    "kit": "fs-town",
@@ -48372,8 +48360,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1,
     0.506,
+    1,
     0.55
    ],
    "tris": 346,
@@ -48412,8 +48400,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1,
     0.506,
+    1,
     0.55
    ],
    "tris": 376,
@@ -48452,8 +48440,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1,
     0.5,
+    1,
     0.55
    ],
    "tris": 64,
@@ -48812,8 +48800,10 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4896,
+   "bytes": 4908,
    "vtx": 96,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.052,
    "avgTri": 0.01819,
    "anglePct": 79,
@@ -48838,11 +48828,7 @@
     "fs",
     "wood-beam"
    ],
-   "variant": "v308",
-   "mark": [
-    "grounded",
-    "centered"
-   ]
+   "variant": "v308"
   },
   {
    "kit": "fs-town",
@@ -48863,6 +48849,7 @@
    "bytes": 2468,
    "vtx": 30,
    "gridMod": true,
+   "grounded": true,
    "centered": true,
    "minEdge": 0.164,
    "avgTri": 0.04661,
@@ -48883,10 +48870,7 @@
     "fs",
     "special"
    ],
-   "variant": "v308",
-   "mark": [
-    "grounded"
-   ]
+   "variant": "v308"
   },
   {
    "kit": "fs-town",
@@ -51528,8 +51512,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1,
     0.5,
+    1,
     0.5
    ],
    "tris": 144,
@@ -51537,9 +51521,11 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9416,
+   "bytes": 9376,
    "vtx": 222,
    "gridMod": true,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.012,
    "avgTri": 0.01545,
    "anglePct": 86,
@@ -51563,11 +51549,7 @@
     "fs",
     "wood-planks"
    ],
-   "variant": "v116",
-   "mark": [
-    "grounded",
-    "centered"
-   ]
+   "variant": "v116"
   },
   {
    "kit": "fs-town",
@@ -51576,8 +51558,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1,
     0.5,
+    1,
     0.572
    ],
    "tris": 148,
@@ -51585,9 +51567,11 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9540,
+   "bytes": 9516,
    "vtx": 226,
    "gridMod": true,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.012,
    "avgTri": 0.01183,
    "anglePct": 50,
@@ -51606,11 +51590,7 @@
     "fs",
     "wood-planks"
    ],
-   "variant": "v116",
-   "mark": [
-    "grounded",
-    "centered"
-   ]
+   "variant": "v116"
   },
   {
    "kit": "household",
@@ -52767,8 +52747,8 @@
    "size": "s",
    "wdh": [
     0.085,
-    0.162,
-    0.043
+    0.043,
+    0.162
    ],
    "tris": 1234,
    "tpu": 3598,
@@ -91897,8 +91877,8 @@
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
-    1.2,
     1.5,
+    1.2,
     1.53
    ],
    "tris": 580,
@@ -91906,9 +91886,10 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 60260,
+   "bytes": 60296,
    "vtx": 1730,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.009,
    "avgTri": 0.01576,
    "anglePct": 96,
@@ -91933,10 +91914,7 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v31",
-   "mark": [
-    "centered"
-   ]
+   "variant": "v31"
   },
   {
    "kit": "kay-dun-2",
@@ -91945,8 +91923,8 @@
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
-    1.2,
     1.5,
+    1.2,
     1.53
    ],
    "tris": 580,
@@ -91954,9 +91932,10 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 60264,
+   "bytes": 60300,
    "vtx": 1730,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.009,
    "avgTri": 0.01576,
    "anglePct": 96,
@@ -91981,10 +91960,7 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v31",
-   "mark": [
-    "centered"
-   ]
+   "variant": "v31"
   },
   {
    "kit": "kay-dun-2",
@@ -137953,8 +137929,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
-    0.454,
     0.082,
+    0.454,
     0.186
    ],
    "tris": 488,
@@ -138009,8 +137985,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "m",
    "wdh": [
-    0.695,
     0.083,
+    0.695,
     0.203
    ],
    "tris": 766,
@@ -138018,7 +137994,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 36944,
+   "bytes": 36960,
    "vtx": 962,
    "grounded": true,
    "centered": true,
@@ -138614,8 +138590,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
-    0.431,
     0.08,
+    0.431,
     0.185
    ],
    "tris": 880,
@@ -146776,8 +146752,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.51,
     0.628,
+    0.51,
     0.46
    ],
    "tris": 340,
@@ -146821,8 +146797,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    1,
     0.628,
+    1,
     0.7
    ],
    "tris": 692,
@@ -151336,16 +151312,16 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.322,
     0.084,
-    0.031
+    0.031,
+    0.322
    ],
    "tris": 60,
    "tpu": 175,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3820,
+   "bytes": 3796,
    "vtx": 60,
    "grounded": true,
    "centered": true,
@@ -151784,16 +151760,16 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.275,
     0.085,
-    0.013
+    0.013,
+    0.275
    ],
    "tris": 72,
    "tpu": 210,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4028,
+   "bytes": 4008,
    "vtx": 64,
    "grounded": true,
    "centered": true,
@@ -152093,16 +152069,16 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.13,
     0.12,
-    0.019
+    0.019,
+    0.13
    ],
    "tris": 204,
    "tpu": 595,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9156,
+   "bytes": 9160,
    "vtx": 200,
    "grounded": true,
    "centered": true,
@@ -152131,9 +152107,9 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.304,
     0.033,
-    0.032
+    0.032,
+    0.304
    ],
    "tris": 60,
    "tpu": 175,
@@ -154544,16 +154520,16 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.238,
     0.113,
-    0.025
+    0.025,
+    0.238
    ],
    "tris": 102,
    "tpu": 297,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6300,
+   "bytes": 6304,
    "vtx": 130,
    "grounded": true,
    "centered": true,
@@ -160987,8 +160963,8 @@
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
-    1.55,
     0.671,
+    1.55,
     1.139
    ],
    "tris": 230,
@@ -160996,7 +160972,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20780,
+   "bytes": 20812,
    "vtx": 558,
    "grounded": true,
    "centered": true,
@@ -161033,8 +161009,8 @@
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
-    1.55,
     0.671,
+    1.55,
     1.139
    ],
    "tris": 348,
@@ -161042,7 +161018,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 33248,
+   "bytes": 33284,
    "vtx": 926,
    "grounded": true,
    "centered": true,
@@ -161084,8 +161060,8 @@
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
-    1.55,
     0.671,
+    1.55,
     1.139
    ],
    "tris": 288,
@@ -161093,7 +161069,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20200,
+   "bytes": 20232,
    "vtx": 530,
    "grounded": true,
    "centered": true,
@@ -165441,7 +165417,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-door",
-   "kind": "str-part-door-single",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.5,
@@ -165492,14 +165468,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.6 (str-part-door-single)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ]
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-doorway",
-   "kind": "str-part-door-single",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.5,
@@ -165544,7 +165520,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.6 (str-part-door-single)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ]
   },
@@ -165598,7 +165574,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-door",
-   "kind": "str-part-door-single",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.5,
@@ -165650,14 +165626,14 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.6 (str-part-door-single)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ]
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-doorway",
-   "kind": "str-part-door-single",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.5,
@@ -165709,7 +165685,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.5 under min 0.6 (str-part-door-single)"
+     "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
    ]
   },
@@ -197488,8 +197464,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.461,
     0.148,
+    0.461,
     0.24
    ],
    "tris": 257,
@@ -197497,7 +197473,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22540,
+   "bytes": 22516,
    "vtx": 609,
    "grounded": true,
    "centered": true,
@@ -197537,8 +197513,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.307,
     0.099,
+    0.307,
     0.16
    ],
    "tris": 257,
@@ -197546,7 +197522,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22524,
+   "bytes": 22500,
    "vtx": 609,
    "grounded": true,
    "centered": true,
@@ -199861,8 +199837,8 @@
    "kind": "str-fixture-marker-banner",
    "size": "m",
    "wdh": [
-    0.045,
     0.45,
+    0.045,
     0.755
    ],
    "tris": 128,
@@ -199872,6 +199848,8 @@
    "calls": 1,
    "bytes": 7408,
    "vtx": 170,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.001,
    "minTube": 0.04,
    "avgTri": 0.00427,
@@ -199897,11 +199875,7 @@
     "textile",
     "wood-worked"
    ],
-   "variant": "v132",
-   "mark": [
-    "grounded",
-    "centered"
-   ]
+   "variant": "v132"
   },
   {
    "kit": "ken-town",
@@ -199910,8 +199884,8 @@
    "kind": "str-fixture-marker-banner",
    "size": "m",
    "wdh": [
-    0.045,
     0.45,
+    0.045,
     0.755
    ],
    "tris": 124,
@@ -199921,6 +199895,8 @@
    "calls": 1,
    "bytes": 7260,
    "vtx": 166,
+   "grounded": true,
+   "centered": true,
    "minEdge": 0.001,
    "minTube": 0.04,
    "avgTri": 0.00431,
@@ -199946,11 +199922,7 @@
     "textile",
     "wood-planks"
    ],
-   "variant": "v132",
-   "mark": [
-    "grounded",
-    "centered"
-   ]
+   "variant": "v132"
   },
   {
    "kit": "ken-town",
@@ -200170,8 +200142,8 @@
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.309,
     0.468,
+    0.309,
     0.9
    ],
    "tris": 78,
@@ -200182,6 +200154,7 @@
    "bytes": 6024,
    "vtx": 126,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.036,
    "avgTri": 0.01819,
    "anglePct": 93,
@@ -200199,9 +200172,6 @@
    "tags": [
     "ken",
     "stone-masonry"
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -200302,8 +200272,8 @@
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.191,
     0.306,
+    0.191,
     0.9
    ],
    "tris": 32,
@@ -202268,8 +202238,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.918,
     0.9,
+    0.918,
     0.45
    ],
    "tris": 68,
@@ -202389,8 +202359,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.918,
     0.9,
+    0.918,
     1.301
    ],
    "tris": 560,
@@ -202398,7 +202368,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30888,
+   "bytes": 30884,
    "vtx": 812,
    "grounded": true,
    "centered": true,
@@ -202435,8 +202405,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.918,
     0.9,
+    0.918,
     0.9
    ],
    "tris": 424,
@@ -202444,7 +202414,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23372,
+   "bytes": 23368,
    "vtx": 604,
    "grounded": true,
    "centered": true,
@@ -202481,8 +202451,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.918,
     0.45,
+    0.918,
     1.301
    ],
    "tris": 566,
@@ -202490,7 +202460,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 31168,
+   "bytes": 31160,
    "vtx": 820,
    "grounded": true,
    "centered": true,
@@ -202528,8 +202498,8 @@
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.918,
     0.45,
+    0.918,
     0.9
    ],
    "tris": 430,
@@ -202537,7 +202507,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23652,
+   "bytes": 23644,
    "vtx": 612,
    "grounded": true,
    "centered": true,
@@ -203744,8 +203714,8 @@
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
-    0.09,
     0.9,
+    0.09,
     0.9
    ],
    "tris": 164,
@@ -203753,9 +203723,10 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10172,
+   "bytes": 10192,
    "vtx": 252,
    "grounded": true,
+   "centered": true,
    "minEdge": 0.012,
    "minTube": 0.09,
    "avgTri": 0.00765,
@@ -203786,9 +203757,6 @@
     "ken",
     "metal-iron-cast",
     "wood-beam"
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -212310,7 +212278,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 44212,
+   "bytes": 44192,
    "vtx": 1126,
    "grounded": true,
    "centered": true,
@@ -221689,8 +221657,8 @@
    "size": "m",
    "wdh": [
     0.279,
-    0.697,
-    0.05
+    0.05,
+    0.697
    ],
    "tris": 1707,
    "tpu": 4977,
@@ -225532,8 +225500,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.446,
     0.064,
+    0.446,
     0.147
    ],
    "tris": 568,
@@ -225541,7 +225509,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 108656,
+   "bytes": 108620,
    "vtx": 1678,
    "minEdge": 0.001,
    "avgTri": 0.00016,
@@ -225588,8 +225556,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.268,
     0.052,
+    0.268,
     0.164
    ],
    "tris": 510,
@@ -225597,7 +225565,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 3,
-   "bytes": 99608,
+   "bytes": 99572,
    "vtx": 1522,
    "minEdge": 0,
    "avgTri": 0.00014,
@@ -225638,8 +225606,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.142,
     0.033,
+    0.142,
     0.076
    ],
    "tris": 686,
@@ -225647,7 +225615,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 128680,
+   "bytes": 128640,
    "vtx": 2058,
    "minEdge": 0.001,
    "minTube": 0.1846,
@@ -229154,9 +229122,9 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
+    0.052,
     0.544,
-    0.18,
-    0.052
+    0.18
    ],
    "tris": 438,
    "tpu": 1277,
@@ -231196,8 +231164,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
-    0.779,
     0.056,
+    0.779,
     0.166
    ],
    "tris": 1370,
@@ -235297,15 +235265,15 @@
    "size": "m",
    "wdh": [
     0.307,
-    0.505,
-    0.166
+    0.166,
+    0.505
    ],
    "tris": 548,
    "tpu": 1598,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 38472,
+   "bytes": 38492,
    "vtx": 1055,
    "grounded": true,
    "centered": true,
@@ -235883,8 +235851,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
-    0.445,
     0.054,
+    0.445,
     0.122
    ],
    "tris": 584,
@@ -236926,8 +236894,8 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.6,
     0.096,
+    0.6,
     0.241
    ],
    "tris": 588,
@@ -236935,7 +236903,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18296,
+   "bytes": 18272,
    "vtx": 415,
    "grounded": true,
    "centered": true,
@@ -236972,8 +236940,8 @@
    "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
-    0.817,
     0.091,
+    0.817,
     0.375
    ],
    "tris": 583,
@@ -237878,8 +237846,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "m",
    "wdh": [
-    0.554,
     0.055,
+    0.554,
     0.132
    ],
    "tris": 777,
@@ -247164,8 +247132,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
-    0.498,
     0.054,
+    0.498,
     0.256
    ],
    "tris": 980,
@@ -247618,8 +247586,8 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
-    0.607,
     0.068,
+    0.607,
     0.275
    ],
    "tris": 702,
@@ -251603,8 +251571,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.482,
     0.038,
+    0.482,
     0.152
    ],
    "tris": 554,
@@ -251651,8 +251619,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.134,
     0.024,
+    0.134,
     0.071
    ],
    "tris": 460,
@@ -251660,7 +251628,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15000,
+   "bytes": 15004,
    "vtx": 334,
    "grounded": true,
    "centered": true,
@@ -251839,8 +251807,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.278,
     0.033,
+    0.278,
     0.21
    ],
    "tris": 1896,
@@ -252071,8 +252039,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.222,
     0.039,
+    0.222,
     0.098
    ],
    "tris": 624,
@@ -252880,8 +252848,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.169,
     0.039,
+    0.169,
     0.142
    ],
    "tris": 534,
@@ -252889,7 +252857,7 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17060,
+   "bytes": 17064,
    "vtx": 384,
    "grounded": true,
    "centered": true,
@@ -253661,8 +253629,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.313,
     0.039,
+    0.313,
     0.15
    ],
    "tris": 796,
@@ -264580,8 +264548,8 @@
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
-    0.358,
     0.488,
+    0.358,
     0.954
    ],
    "tris": 76,
@@ -265609,9 +265577,9 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
+    0.042,
     0.334,
-    0.106,
-    0.042
+    0.106
    ],
    "tris": 270,
    "tpu": 787,
@@ -265711,8 +265679,8 @@
    "kind": "str-part-roof",
    "size": "l",
    "wdh": [
-    0.828,
     0.66,
+    0.828,
     1.919
    ],
    "tris": 200,
@@ -283759,8 +283727,8 @@
    "kind": "obj-leisure-game-gym",
    "size": "s",
    "wdh": [
-    0.155,
     0.211,
+    0.155,
     0.055
    ],
    "tris": 1024,
@@ -284322,8 +284290,8 @@
    "kind": "obj-leisure-game-gym",
    "size": "m",
    "wdh": [
-    0.595,
     0.34,
+    0.595,
     0.587
    ],
    "tris": 1110,
@@ -284379,8 +284347,8 @@
    "kind": "obj-leisure-game-gym",
    "size": "m",
    "wdh": [
-    0.925,
     0.43,
+    0.925,
     0.685
    ],
    "tris": 418,
@@ -290513,8 +290481,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.46,
     0.162,
+    0.46,
     0.197
    ],
    "tris": 918,
@@ -290557,8 +290525,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.462,
     0.162,
+    0.462,
     0.197
    ],
    "tris": 2288,
@@ -290609,8 +290577,8 @@
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.46,
     0.162,
+    0.46,
     0.197
    ],
    "tris": 934,
@@ -314752,16 +314720,16 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "m",
    "wdh": [
-    0.175,
+    0.041,
     0.546,
-    0.041
+    0.175
    ],
    "tris": 1144,
    "tpu": 3335,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 88228,
+   "bytes": 88232,
    "vtx": 2497,
    "grounded": true,
    "centered": true,
@@ -315103,8 +315071,8 @@
    "kind": "obj-equipment-weapon-ranged-crossbow",
    "size": "m",
    "wdh": [
-    0.525,
     0.301,
+    0.525,
     0.125
    ],
    "tris": 1617,
@@ -315669,9 +315637,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "m",
    "wdh": [
-    0.119,
+    0.016,
     0.613,
-    0.016
+    0.119
    ],
    "tris": 700,
    "tpu": 2041,
@@ -315860,15 +315828,15 @@
    "size": "m",
    "wdh": [
     0.354,
-    0.545,
-    0.059
+    0.059,
+    0.545
    ],
    "tris": 176,
    "tpu": 513,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13980,
+   "bytes": 13984,
    "vtx": 359,
    "grounded": true,
    "centered": true,
@@ -316550,9 +316518,9 @@
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
-    0.136,
+    0.037,
     0.619,
-    0.037
+    0.136
    ],
    "tris": 1254,
    "tpu": 3656,
