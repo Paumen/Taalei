@@ -3116,7 +3116,23 @@
          "high.max": 1.2,
          "scale": {
           "small": 0.5
-         }
+         },
+         "children": [
+          {
+           "id": "str-part-wall-unit-doorway",
+           "nouns": [
+            "wall with doorway",
+            "door wall"
+           ]
+          },
+          {
+           "id": "str-part-wall-unit-window",
+           "nouns": [
+            "wall with window",
+            "window wall"
+           ]
+          }
+         ]
         },
         {
          "id": "str-part-wall-rampart",
@@ -3384,8 +3400,7 @@
        "nouns": [
         "fence",
         "fence segment",
-        "railing",
-        "gate (fence)"
+        "railing"
        ],
        "children": [
         {
@@ -3396,6 +3411,22 @@
           "mid fence",
           "low fence",
           "high fence"
+         ],
+         "scale": {
+          "small": {
+           "high.min": 0.175,
+           "high.max": 0.5
+          },
+          "big": 2
+         }
+        },
+        {
+         "id": "str-barrier-fence-gate",
+         "high.max": 1.4,
+         "nouns": [
+          "gate (fence)",
+          "turnstile",
+          "garden arch"
          ],
          "scale": {
           "small": {
@@ -3844,9 +3875,16 @@
           "industrial machine",
           "press",
           "piston",
-          "scanner (industrial)",
-          "robot arm",
-          "industrial crane"
+          "scanner (industrial)"
+         ],
+         "children": [
+          {
+           "id": "str-fixture-utility-machine-crane",
+           "nouns": [
+            "robot arm",
+            "industrial crane"
+           ]
+          }
          ]
         },
         {
