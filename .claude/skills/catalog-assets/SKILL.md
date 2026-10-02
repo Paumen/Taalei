@@ -19,6 +19,8 @@ with `tools/import/recolour.mjs`, for the whole band or for named parts. A
 triangle spanning two colormap cells, or a flat face whose triangles show
 different colours, is evened in place with `tools/import/face-bands.mjs`. A tube
 or stick thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
+A model lying in its source pose where its kind stands upright is turned in
+place with `tools/import/upright.mjs`, which also grounds and centres it.
 A model with more triangles than its shape needs is thinned in place with
 `tools/import/simplify.mjs`; render every model it changed, before and after,
 and put back any that look wrong.
