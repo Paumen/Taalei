@@ -1806,7 +1806,7 @@
    },
    "kitCheck": {
     "factor": 0.82,
-    "kinds": 12
+    "kinds": 13
    }
   },
   {
@@ -19107,8 +19107,15 @@
    "id": "str-fixture-utility-machine",
    "name": "Machine",
    "type": "kind",
-   "description": "Standing industrial machinery: presses, pistons, scanners, robot arms and gantry cranes.",
+   "description": "Standing industrial machinery: presses, pistons and scanners.",
    "count": 32
+  },
+  {
+   "id": "str-fixture-utility-machine-crane",
+   "name": "Crane",
+   "type": "kind",
+   "description": "Industrial crane or robot arm that lifts and moves loads.",
+   "count": 5
   },
   {
    "id": "str-fixture-utility-pipe",
@@ -22262,6 +22269,12 @@
    "tpu.max": 5000
   },
   "str-fixture-utility-machine": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-utility-machine-crane": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 2.2,
@@ -147797,7 +147810,7 @@
   {
    "kit": "ken-factory",
    "name": "crane-lift",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-crane",
    "size": "m",
    "wdh": [
     0.358,
@@ -147847,7 +147860,7 @@
   {
    "kit": "ken-factory",
    "name": "crane-magnet",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-crane",
    "size": "s",
    "wdh": [
     0.358,
@@ -147891,7 +147904,7 @@
   {
    "kit": "ken-factory",
    "name": "crane",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-crane",
    "size": "l",
    "wdh": [
     0.963,
@@ -149556,7 +149569,7 @@
   {
    "kit": "ken-factory",
    "name": "robot-arm-a",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-crane",
    "size": "l",
    "wdh": [
     0.5,
@@ -149595,7 +149608,7 @@
   {
    "kit": "ken-factory",
    "name": "robot-arm-b",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-utility-machine-crane",
    "size": "l",
    "wdh": [
     0.5,
