@@ -1298,6 +1298,84 @@
   ]
  },
  {
+  "kind": "obj-device-electronics-arcade",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-arcade/*",
+     "sq-arcade/*",
+     "sq-cards/gacha-machine",
+     "sq-casino/slot-cabinet"
+    ],
+    "text": "Ken screens flat ivory (off), sq screens azure spread (lit).",
+    "options": [
+     "Ken screens to azure",
+     "Sq screens to ivory",
+     "Leave"
+    ],
+    "picked": [
+     "Sq screens to ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "ken-arcade/*",
+     "sq-arcade/*",
+     "sq-cards/gacha-machine",
+     "sq-casino/slot-cabinet"
+    ],
+    "text": "Ken bodies cool grey nickel and bevelled, sq bodies warm dark basalt and boxy.",
+    "options": [
+     "Leave two styles",
+     "Ken bodies to basalt",
+     "Sq bodies to nickel"
+    ],
+    "picked": [
+     "Sq bodies to nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-arcade/arcade-upright-gamma"
+    ],
+    "text": "Ivory screen makes gamma 6 bands, over the max of 5.",
+    "options": [
+     "Marquee to sienna",
+     "Keep screen azure",
+     "Accept the error"
+    ],
+    "picked": [
+     "Accept the error"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-arcade/arcade-upright-alpha",
+     "sq-arcade/arcade-upright-beta",
+     "sq-arcade/dance-stage"
+    ],
+    "text": "Ivory screens on ivory bodies almost vanish.",
+    "options": [
+     "Screens to 0.70",
+     "Those 3 back to azure",
+     "Leave"
+    ],
+    "picked": [
+     "Screens to 0.70"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-device-science",
   "date": "2026-10-02",
   "suggestions": [
@@ -2210,6 +2288,92 @@
   ]
  },
  {
+  "kind": "obj-food-meat-ham",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "props/chicken-leg-a"
+    ],
+    "text": "Bone shaft in sienna (meat), only the knob is bone; others have an ivory shaft. Source colouring.",
+    "options": [
+     "Shaft to ivory",
+     "Leave"
+    ],
+    "picked": [
+     "Shaft to ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "props/chicken-leg-a"
+    ],
+    "text": "Both bands flat at 0.50, no gradient.",
+    "options": [
+     "Spread by height, keep mid",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-pirate/chicken-leg"
+    ],
+    "text": "Bone at dark end of ivory (mid 0.88), reads grey next to others (0.41-0.50).",
+    "options": [
+     "Spread by height, keep 0.45",
+     "Shift to 0.45",
+     "Leave"
+    ],
+    "picked": [
+     "Shift to 0.45"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack/ham",
+     "ken-food/ham"
+    ],
+    "text": "Coarse flat-faceted meat next to soft-shaded rest of the kind.",
+    "options": [
+     "Smooth both",
+     "Smooth meat only",
+     "Leave faceted"
+    ],
+    "picked": [
+     "Smooth both"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack/ham",
+     "ken-food/ham"
+    ],
+    "text": "Smoothing at 50° barely shows on these coarse meshes; 90° softens inner faces, outline stays polygonal.",
+    "options": [
+     "Smooth at 90°",
+     "Keep 50°",
+     "Revert"
+    ],
+    "picked": [
+     "Smooth at 90°"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-food-vegetable-eggplant",
   "date": "2026-10-02",
   "suggestions": [
@@ -3012,6 +3176,57 @@
     ],
     "picked": [
      "Keep in solar"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-door-doorway",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "lpa-desert/door-frame-b"
+    ],
+    "text": "Magenta strip beside the arch jambs (in the source too). Cause found: the plank panel's concave outline beside each jamb was fan-triangulated, so sliver triangles span the opening on both faces.",
+    "options": [
+     "Flip them",
+     "Leave"
+    ],
+    "picked": [
+     "Flip them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-dun-2/wall-doorway-scaffold"
+    ],
+    "text": "A closed plank door fills the opening; the rest are open passages.",
+    "options": [
+     "Move to door-single",
+     "Keep in doorway"
+    ],
+    "picked": [
+     "Move to door-single"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "lpa-desert/door-frame-b"
+    ],
+    "text": "Follow-up after the flip did not help: opening read as missing jamb faces.",
+    "options": [
+     "Add jamb faces",
+     "Leave"
+    ],
+    "picked": [
+     "Add jamb faces"
     ]
    }
   ]
