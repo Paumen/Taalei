@@ -1832,6 +1832,123 @@
   ]
  },
  {
+  "kind": "obj-equipment-weapon-melee-club",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "household/baseball-bat",
+     "quat-apocalypse/bat-saw",
+     "zombie-weapons/*"
+    ],
+    "text": "10 of 16 clubs lie flat (source pose); 102 of 124 melee weapons stand upright",
+    "options": [
+     "Stand all 10 upright",
+     "Only the 2 non-zombie",
+     "Leave"
+    ],
+    "picked": [
+     "Stand all 10 upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/baseball-bat-nails",
+     "zombie-weapons/hockey-stick",
+     "kay-weapons/hammer-c",
+     "rgp-weapons/club-spiked-a",
+     "rgp-weapons/club-spiked-b",
+     "lpa-tools/wooden-club"
+    ],
+    "text": "Club wood spread over camel, tan, chestnut and umber through wood tags",
+    "options": [
+     "Tan + chestnut → camel",
+     "All → camel",
+     "Only zombie tan → camel",
+     "Leave"
+    ],
+    "picked": [
+     "Tan + chestnut → camel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "zombie-weapons/crowbar",
+     "zombie-weapons/golf-club",
+     "zombie-weapons/hockey-stick"
+    ],
+    "text": "Crowbar is a hand tool, golf club and hockey stick are sports gear",
+    "options": [
+     "Move all 3",
+     "Crowbar only",
+     "Leave"
+    ],
+    "picked": [
+     "Move all 3"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-melee-sword-broad",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "zombie-weapons/machete"
+    ],
+    "text": "Machete lies flat (source pose); the other 5 stand hilt down",
+    "options": [
+     "Stand upright",
+     "Leave"
+    ],
+    "picked": [
+     "Stand upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "tropical-island/sword-pirate",
+     "zombie-weapons/machete"
+    ],
+    "text": "Blades 5 and 6 mm thick against 12–16 mm on the others",
+    "options": [
+     "Thicken to ~12 mm",
+     "Thicken to ~9 mm",
+     "Leave"
+    ],
+    "picked": [
+     "Thicken to ~12 mm"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-pirate/swords"
+    ],
+    "text": "Two crossed cutlasses as an emblem; combos like sword-shield are set",
+    "options": [
+     "Move to set",
+     "Keep in broad"
+    ],
+    "picked": [
+     "Keep in broad"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-equipment-weapon-melee-warhammer",
   "date": "2026-10-02",
   "suggestions": [
@@ -2667,6 +2784,59 @@
     ],
     "picked": [
      "Roofs ivory"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility-solar",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-space/solarpanel",
+     "kay-space/roofmodule-solarpanels"
+    ],
+    "text": "Source blue cells imported as flat slate; ken panels use azure cells",
+    "options": [
+     "Slate → azure",
+     "Leave"
+    ],
+    "picked": [
+     "Slate → azure"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-industrial/solar-panel-flat"
+    ],
+    "text": "Cell backing ivory where ken siblings use nickel/slate; source pale blue",
+    "options": [
+     "Ivory → nickel",
+     "Ivory → slate",
+     "Leave"
+    ],
+    "picked": [
+     "Ivory → nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-space/roofmodule-solarpanels"
+    ],
+    "text": "Roof module with panels; sibling roofmodule-base is str-part-roof-unit",
+    "options": [
+     "Move to roof-unit",
+     "Keep in solar"
+    ],
+    "picked": [
+     "Keep in solar"
     ]
    }
   ]
