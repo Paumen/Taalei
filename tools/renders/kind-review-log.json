@@ -937,6 +937,64 @@
   ]
  },
  {
+  "kind": "env-flora-plant",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-nature/corn"
+    ],
+    "text": "corn hunter packed at the light end 0.03-0.21, no height gradient; kind foliage band is moss",
+    "options": [
+     "Moss, spread by height",
+     "Hunter, spread by height",
+     "Leave as is"
+    ],
+    "picked": [
+     "Moss, spread by height"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-holiday/mistletoe-a"
+    ],
+    "text": "upright sprig with leaves dark at top, light at bottom",
+    "options": [
+     "Flip to light top",
+     "Leave as is"
+    ],
+    "picked": [
+     "Flip to light top"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-holiday/mistletoe-a",
+     "kay-holiday/mistletoe-b",
+     "ken-nature/corn",
+     "wizp-asia/clover"
+    ],
+    "text": "holly sprigs, a corn stalk and a clover patch do not read as one family",
+    "options": [
+     "Mistletoe → decor",
+     "Corn → new crop kind",
+     "Clover → grass",
+     "Leave all as is"
+    ],
+    "picked": [
+     "Mistletoe → decor",
+     "Clover → grass"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "env-flora-plant-bush",
   "date": "2026-10-02",
   "suggestions": [
@@ -1309,6 +1367,79 @@
     ],
     "picked": [
      "Flip them"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-apparel-quiver",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/*",
+     "kay-skeleton-1/quiver-b",
+     "zombie-weapons/quiver"
+    ],
+    "text": "5 of 7 quivers are one flat shade per band (kay-dun-1 at 0.05, quiver-b and zombie at 0.50) while adventurers and skeleton spread umber 0.19-0.90 light top",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread like adventurers",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread like adventurers"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-dun-1/quiver-full",
+     "kay-dun-1/quiver-half-full"
+    ],
+    "text": "4 fletching triangles face inward (also in source)",
+    "options": [
+     "Flip them",
+     "Remove them",
+     "Leave as is"
+    ],
+    "picked": [
+     "Remove them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-skeleton/quiver",
+     "zombie-weapons/quiver"
+    ],
+    "text": "fletchings sienna here, hunter on the other 4 Kay quivers",
+    "options": [
+     "Leave as is",
+     "All hunter",
+     "All sienna"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "zombie-weapons/quiver"
+    ],
+    "text": "lies on its side while the other 6 stand upright",
+    "options": [
+     "Stand it upright",
+     "Leave lying"
+    ],
+    "picked": [
+     "Stand it upright"
     ]
    }
   ]
@@ -2280,6 +2411,61 @@
     ],
     "picked": [
      "Keep in castle"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-religious-shrine",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "kay-spook/shrine"
+    ],
+    "text": "plain one-band stone grave lantern among timber Asian pavilions",
+    "options": [
+     "Move to grave marker",
+     "Move to pillar",
+     "Leave as is"
+    ],
+    "picked": [
+     "Move to grave marker"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "wizp-asia/shrine-small",
+     "wizp-village/shrine"
+    ],
+    "text": "same geometry, village adds paper panels and amber railing",
+    "options": [
+     "Variant group",
+     "Reject village one",
+     "Keep both"
+    ],
+    "picked": [
+     "PO: keep village, reject asia shrine-small"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "rgp-asia/gazebo",
+     "rgp-asia/shrine"
+    ],
+    "text": "smooth sheet roofs on thin posts vs wizp faceted tile roofs on chunky beams",
+    "options": [
+     "Leave as is",
+     "Flat-shade rgp roofs"
+    ],
+    "picked": [
+     "PO: make rgp move more towards wizp: roof gradient like wizp, timber gradient like wizp, thicker posts"
     ]
    }
   ]

@@ -3497,7 +3497,6 @@ window.KENNEY_KITS = [
    "rock-small-e",
    "roof-pagoda",
    "shrine-large",
-   "shrine-small",
    "statue-frog",
    "statue-monk",
    "steps-stone",
