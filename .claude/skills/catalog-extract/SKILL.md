@@ -153,11 +153,12 @@ change with the least scope. Before changing anything:
 
 ## 9. Check before pushing
 
+    node catalog/tools/backfaces.mjs
     node catalog/tools/build-catalog.mjs
     node catalog/tools/build-lists.mjs
     node catalog/tools/build-thumbs.mjs --jobs 3
     node lint/size.mjs && node lint/tpu.mjs && node lint/measures.mjs && node lint/mat.mjs
-    node lint/palette.mjs && node lint/bands.mjs
+    node lint/palette.mjs && node lint/bands.mjs && node lint/backface.mjs
 
 Compare every count against the branch point, not against zero — the
 catalogue carries findings that are not yours. Then render the changed models

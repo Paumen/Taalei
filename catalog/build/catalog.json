@@ -26392,7 +26392,22 @@
     "aq",
     "wood-bark"
    ],
-   "variant": "v680"
+   "variant": "v680",
+   "backface": {
+    "share": 0.0363,
+    "view": "45/20",
+    "causes": {
+     "open": 0.98,
+     "other": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 45/20 over 3%: open 98%, other 2%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -26558,6 +26573,21 @@
    ],
    "tags": [
     "wood-bark"
+   ],
+   "backface": {
+    "share": 0.0565,
+    "view": "45/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 45/20 over 3%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -27711,7 +27741,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v685"
+   "variant": "v685",
+   "backface": {
+    "share": 0.1779,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "18% of view 225/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -27762,7 +27806,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v685"
+   "variant": "v685",
+   "backface": {
+    "share": 0.1591,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "16% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -27802,7 +27861,21 @@
     "aq",
     "foliage"
    ],
-   "variant": "v685"
+   "variant": "v685",
+   "backface": {
+    "share": 0.162,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "16% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -27890,7 +27963,22 @@
    "tags": [
     "wood-bark"
    ],
-   "variant": "v282"
+   "variant": "v282",
+   "backface": {
+    "share": 0.0565,
+    "view": "45/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 45/20 over 3%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -28111,7 +28199,21 @@
     "aq",
     "foliage"
    ],
-   "variant": "v686"
+   "variant": "v686",
+   "backface": {
+    "share": 0.2993,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "30% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -28150,7 +28252,21 @@
     "aq",
     "foliage"
    ],
-   "variant": "v686"
+   "variant": "v686",
+   "backface": {
+    "share": 0.2346,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -28189,7 +28305,21 @@
     "aq",
     "foliage"
    ],
-   "variant": "v686"
+   "variant": "v686",
+   "backface": {
+    "share": 0.2732,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "27% of view 225/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -28389,7 +28519,20 @@
     "storeys-1-5",
     "wood-beam"
    ],
+   "backface": {
+    "share": 0.0402,
+    "view": "270/20",
+    "causes": {
+     "open": 0.84,
+     "other": 0.16
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 270/20 over 3%: open 84%, other 16%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -29406,6 +29549,22 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.3551,
+    "view": "0/50",
+    "causes": {
+     "open": 0.43,
+     "inside-out": 0.56,
+     "inverted": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "36% of view 0/50 over 10%: inside-out 56%, open 43%, inverted 1%"
+    }
    ]
   },
   {
@@ -29580,6 +29739,21 @@
     "metal-iron-steel",
     "milkandbanana",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.033,
+    "view": "270/20",
+    "causes": {
+     "inverted": 0.84,
+     "other": 0.16
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 270/20 over 3%: inverted 84%, other 16%"
+    }
    ]
   },
   {
@@ -29656,6 +29830,21 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.7372,
+    "view": "0/20",
+    "causes": {
+     "open": 0.61,
+     "inside-out": 0.39
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74% of view 0/20 over 10%: open 61%, inside-out 39%"
+    }
    ]
   },
   {
@@ -29694,6 +29883,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.2151,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "22% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -29739,6 +29942,22 @@
     "metal-iron-steel",
     "milkandbanana",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.904,
+    "view": "180/50",
+    "causes": {
+     "inside-out": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "90% of view 180/50 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -30183,6 +30402,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.4849,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "48% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -30221,6 +30454,21 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.5631,
+    "view": "180/50",
+    "causes": {
+     "inside-out": 0.58,
+     "open": 0.42
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "56% of view 180/50 over 10%: inside-out 58%, open 42%"
+    }
    ]
   },
   {
@@ -30259,6 +30507,21 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.2714,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "27% of view 90/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -30393,6 +30656,21 @@
     "metal-iron-steel",
     "milkandbanana",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.1534,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "15% of view 90/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -30469,6 +30747,20 @@
    "tags": [
     "metal-iron-steel",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.7583,
+    "view": "45/50",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "76% of view 45/50 over 10%: other 100%"
+    }
    ]
   },
   {
@@ -30507,6 +30799,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.7387,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -31054,6 +31360,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.4764,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "48% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -31577,6 +31897,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.6242,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "62% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -32094,6 +32428,21 @@
    "tags": [
     "ceramic",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.0951,
+    "view": "270/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "10% of view 270/50 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -32151,7 +32500,21 @@
     "milkandbanana",
     "plastic"
    ],
+   "backface": {
+    "share": 0.4383,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "44% of view 0/20 over 10%: open 100%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -32208,7 +32571,20 @@
     "milkandbanana",
     "plastic"
    ],
+   "backface": {
+    "share": 0.1544,
+    "view": "180/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "15% of view 180/50 over 10%: open 100%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -32429,6 +32805,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.5295,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "53% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -32468,6 +32858,20 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.3249,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "32% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -32551,6 +32955,22 @@
    "tags": [
     "glass",
     "milkandbanana"
+   ],
+   "backface": {
+    "share": 0.5954,
+    "view": "135/50",
+    "causes": {
+     "inside-out": 0.66,
+     "open": 0.34,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "60% of view 135/50 over 10%: inside-out 66%, open 34%"
+    }
    ]
   },
   {
@@ -32730,7 +33150,23 @@
     "foliage",
     "food"
    ],
-   "variant": "v720"
+   "variant": "v720",
+   "backface": {
+    "share": 0.2742,
+    "view": "225/20",
+    "causes": {
+     "inside-out": 1,
+     "other": 0,
+     "open": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "27% of view 225/20 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32865,7 +33301,22 @@
    "tags": [
     "food"
    ],
-   "variant": "v672"
+   "variant": "v672",
+   "backface": {
+    "share": 0.0727,
+    "view": "90/20",
+    "causes": {
+     "other": 0.57,
+     "inverted": 0.43
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 90/20 over 3%: other 57%, inverted 43%"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -32941,7 +33392,21 @@
    "tags": [
     "food"
    ],
-   "variant": "v671"
+   "variant": "v671",
+   "backface": {
+    "share": 0.0738,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 315/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -33653,7 +34118,22 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v999"
+   "variant": "v999",
+   "backface": {
+    "share": 0.1738,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -33703,7 +34183,22 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v999"
+   "variant": "v999",
+   "backface": {
+    "share": 0.1738,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -33753,7 +34248,22 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v999"
+   "variant": "v999",
+   "backface": {
+    "share": 0.1843,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "18% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -33901,7 +34411,23 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1004"
+   "variant": "v1004",
+   "backface": {
+    "share": 0.0867,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 0/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -33951,7 +34477,22 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1004"
+   "variant": "v1004",
+   "backface": {
+    "share": 0.1094,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "11% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -34291,7 +34832,23 @@
    "tags": [
     "food"
    ],
-   "variant": "v1006"
+   "variant": "v1006",
+   "backface": {
+    "share": 0.2086,
+    "view": "225/20",
+    "causes": {
+     "other": 0.99,
+     "inverted": 0.01,
+     "open": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "21% of view 225/20 over 10%: other 99%, inverted 1%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -34335,7 +34892,22 @@
     "broken",
     "food"
    ],
-   "variant": "v1006"
+   "variant": "v1006",
+   "backface": {
+    "share": 0.1961,
+    "view": "225/50",
+    "causes": {
+     "other": 0.98,
+     "open": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 225/50 over 10%: other 98%, open 2%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -34422,7 +34994,23 @@
     "food",
     "plural"
    ],
-   "variant": "v1006"
+   "variant": "v1006",
+   "backface": {
+    "share": 0.4945,
+    "view": "225/20",
+    "causes": {
+     "inside-out": 0.75,
+     "other": 0.24,
+     "inverted": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "49% of view 225/20 over 10%: inside-out 75%, other 24%, inverted 1%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -34464,6 +35052,20 @@
    ],
    "tags": [
     "food"
+   ],
+   "backface": {
+    "share": 0.3349,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "33% of view 180/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -35762,6 +36364,22 @@
    ],
    "tags": [
     "food"
+   ],
+   "backface": {
+    "share": 0.1451,
+    "view": "225/20",
+    "causes": {
+     "inside-out": 0.92,
+     "inverted": 0.07,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "15% of view 225/20 over 10%: inside-out 92%, inverted 7%"
+    }
    ]
   },
   {
@@ -36462,6 +37080,20 @@
    ],
    "tags": [
     "food"
+   ],
+   "backface": {
+    "share": 0.2186,
+    "view": "225/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "22% of view 225/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -37755,7 +38387,22 @@
     "foliage",
     "food"
    ],
-   "variant": "v1002"
+   "variant": "v1002",
+   "backface": {
+    "share": 0.1003,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "10% of view 90/50 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -37799,7 +38446,21 @@
     "foliage",
     "food"
    ],
-   "variant": "v1002"
+   "variant": "v1002",
+   "backface": {
+    "share": 0.1686,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 135/50 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -37892,7 +38553,21 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1005"
+   "variant": "v1005",
+   "backface": {
+    "share": 0.0947,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 135/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -37942,7 +38617,21 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1005"
+   "variant": "v1005",
+   "backface": {
+    "share": 0.196,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 270/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -38667,7 +39356,21 @@
     "foliage",
     "food"
    ],
-   "variant": "v1000"
+   "variant": "v1000",
+   "backface": {
+    "share": 0.1805,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "18% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -38712,11 +39415,24 @@
     "food"
    ],
    "variant": "v1000",
+   "backface": {
+    "share": 0.2004,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.203 over max 0.2 (obj-food-fruit-orange)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 135/20 over 10%: open 100%"
     }
    ]
   },
@@ -38761,7 +39477,21 @@
    "tags": [
     "food"
    ],
-   "variant": "v1000"
+   "variant": "v1000",
+   "backface": {
+    "share": 0.1805,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "18% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -39111,7 +39841,21 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1003"
+   "variant": "v1003",
+   "backface": {
+    "share": 0.1339,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 225/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -39161,7 +39905,23 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1003"
+   "variant": "v1003",
+   "backface": {
+    "share": 0.1689,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -39255,7 +40015,22 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1001"
+   "variant": "v1001",
+   "backface": {
+    "share": 0.1308,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -39305,7 +40080,22 @@
     "food",
     "wood-bark"
    ],
-   "variant": "v1001"
+   "variant": "v1001",
+   "backface": {
+    "share": 0.207,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "21% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -39622,6 +40412,21 @@
    "tags": [
     "foliage",
     "food"
+   ],
+   "backface": {
+    "share": 0.2335,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 90/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -39962,6 +40767,20 @@
    ],
    "tags": [
     "food"
+   ],
+   "backface": {
+    "share": 0.2004,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 270/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -40004,6 +40823,21 @@
    ],
    "tags": [
     "food"
+   ],
+   "backface": {
+    "share": 0.2371,
+    "view": "270/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "24% of view 270/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -40994,6 +41828,20 @@
     "fs",
     "wood-log"
    ],
+   "backface": {
+    "share": 0.2004,
+    "view": "45/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 45/50 over 10%: open 100%"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -41089,6 +41937,21 @@
     "fs",
     "wood-beam",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.1138,
+    "view": "0/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "11% of view 0/50 over 10%: open 100%"
+    }
    ],
    "mark": [
     "grounded"
@@ -41724,6 +42587,21 @@
     "fs",
     "metal-iron-cast",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.0351,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 180/20 over 3%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -42242,7 +43120,21 @@
     "fs",
     "vegetation"
    ],
-   "variant": "v71"
+   "variant": "v71",
+   "backface": {
+    "share": 0.0301,
+    "view": "225/50",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 225/50 over 3%: other 100%"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
@@ -51603,6 +52495,20 @@
     "creativetrio",
     "metal-iron-steel",
     "metal-iron-wrought"
+   ],
+   "backface": {
+    "share": 0.071,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 180/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -52196,6 +53102,20 @@
    "tags": [
     "creativetrio",
     "metal-iron-wrought"
+   ],
+   "backface": {
+    "share": 0.1673,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 270/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -52274,6 +53194,20 @@
    "tags": [
     "creativetrio",
     "metal-iron-wrought"
+   ],
+   "backface": {
+    "share": 0.5352,
+    "view": "225/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "54% of view 225/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -52416,6 +53350,20 @@
     "paper",
     "plastic",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 1,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -52839,6 +53787,20 @@
     "creativetrio",
     "foliage",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.5219,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "52% of view 270/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -53087,6 +54049,20 @@
     "metal-iron-wrought",
     "paper",
     "wood-worked"
+   ],
+   "backface": {
+    "share": 0.9152,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "92% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -53131,6 +54107,20 @@
    "tags": [
     "creativetrio",
     "metal"
+   ],
+   "backface": {
+    "share": 0.0509,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 0/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -53426,6 +54416,20 @@
     "foliage",
     "food",
     "halloween"
+   ],
+   "backface": {
+    "share": 0.1338,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 0/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -53731,6 +54735,20 @@
    "tags": [
     "ceramic",
     "creativetrio"
+   ],
+   "backface": {
+    "share": 0.0842,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "8% of view 0/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -53828,11 +54846,24 @@
     "paper",
     "textile"
    ],
+   "backface": {
+    "share": 0.0566,
+    "view": "180/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.122 under min 0.15 (obj-container-crate)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 180/50 over 3%: open 100%"
     }
    ]
   },
@@ -53878,6 +54909,21 @@
     "creativetrio",
     "metal",
     "paper"
+   ],
+   "backface": {
+    "share": 0.2074,
+    "view": "180/20",
+    "causes": {
+     "open": 0.97,
+     "other": 0.03
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "21% of view 180/20 over 10%: open 97%, other 3%"
+    }
    ]
   },
   {
@@ -54765,6 +55811,22 @@
     "creativetrio",
     "metal-iron-steel",
     "textile"
+   ],
+   "backface": {
+    "share": 0.5228,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "inverted": 0,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "52% of view 90/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -54803,6 +55865,20 @@
    "tags": [
     "creativetrio",
     "metal-iron-wrought"
+   ],
+   "backface": {
+    "share": 0.1739,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 180/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -54919,6 +55995,21 @@
    "tags": [
     "ipoly",
     "metal-iron-cast"
+   ],
+   "backface": {
+    "share": 0.0506,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 180/20 over 3%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -55566,6 +56657,21 @@
     "metal-gold",
     "plastic",
     "rubber"
+   ],
+   "backface": {
+    "share": 0.0556,
+    "view": "90/50",
+    "causes": {
+     "other": 0.94,
+     "inverted": 0.06
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 90/50 over 3%: other 94%, inverted 6%"
+    }
    ]
   },
   {
@@ -55886,7 +56992,22 @@
     "ipoly",
     "metal-iron-steel"
    ],
-   "variant": "v1245"
+   "variant": "v1245",
+   "backface": {
+    "share": 0.7453,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "75% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ipoly-glasses",
@@ -60496,11 +61617,23 @@
     "wood-beam"
    ],
    "variant": "v525",
+   "backface": {
+    "share": 0.9914,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "99% of view 180/20 over 10%: open 100%"
     }
    ]
   },
@@ -61023,7 +62156,22 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v523"
+   "variant": "v523",
+   "backface": {
+    "share": 0.3475,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "35% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -61071,7 +62219,22 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v523"
+   "variant": "v523",
+   "backface": {
+    "share": 0.2495,
+    "view": "90/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "25% of view 90/20 over 10%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "isa-food",
@@ -62935,7 +64098,22 @@
     "isa",
     "wood-planks"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "backface": {
+    "share": 0.2146,
+    "view": "270/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "21% of view 270/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "isa-homely",
@@ -62976,7 +64154,21 @@
     "isa",
     "wood-planks"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "backface": {
+    "share": 0.2561,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 270/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "isa-homely",
@@ -63017,7 +64209,22 @@
     "isa",
     "wood-planks"
    ],
-   "variant": "v704"
+   "variant": "v704",
+   "backface": {
+    "share": 0.2495,
+    "view": "270/20",
+    "causes": {
+     "open": 0.98,
+     "other": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "25% of view 270/20 over 10%: open 98%, other 2%"
+    }
+   ]
   },
   {
    "kit": "isa-homely",
@@ -65970,7 +67177,21 @@
     "isa",
     "stone-masonry"
    ],
-   "variant": "v600"
+   "variant": "v600",
+   "backface": {
+    "share": 0.9,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "90% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "isa-kitchen",
@@ -66016,11 +67237,23 @@
     "isa",
     "stone-masonry"
    ],
+   "backface": {
+    "share": 0.9913,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.28 over max 1.2 (str-part-wall-unit)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "99% of view 180/20 over 10%: open 100%"
     }
    ]
   },
@@ -66178,7 +67411,21 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v521"
+   "variant": "v521",
+   "backface": {
+    "share": 0.7147,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "isa-kitchen",
@@ -66226,7 +67473,22 @@
     "isa",
     "wood-worked"
    ],
-   "variant": "v521"
+   "variant": "v521",
+   "backface": {
+    "share": 0.6355,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "64% of view 90/50 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "isa-park",
@@ -75376,6 +76638,21 @@
     "Working_B",
     "Working_C"
    ],
+   "backface": {
+    "share": 0.0517,
+    "view": "315/20",
+    "causes": {
+     "open": 0.98,
+     "other": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 315/20 over 3%: open 98%, other 2%"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -75579,6 +76856,22 @@
     "Working_A",
     "Working_B",
     "Working_C"
+   ],
+   "backface": {
+    "share": 0.0432,
+    "view": "45/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 45/20 over 3%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -75944,7 +77237,21 @@
     "Working_B",
     "Working_C"
    ],
+   "backface": {
+    "share": 0.0493,
+    "view": "315/20",
+    "causes": {
+     "open": 0.98,
+     "other": 0.02,
+     "inverted": 0
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 315/20 over 3%: open 98%, other 2%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -76152,7 +77459,22 @@
     "Working_B",
     "Working_C"
    ],
-   "variant": "v174"
+   "variant": "v174",
+   "backface": {
+    "share": 0.0628,
+    "view": "315/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 315/20 over 3%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "kay-adventurers",
@@ -76359,7 +77681,22 @@
     "Working_B",
     "Working_C"
    ],
-   "variant": "v174"
+   "variant": "v174",
+   "backface": {
+    "share": 0.0628,
+    "view": "315/20",
+    "causes": {
+     "open": 0.98,
+     "other": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 315/20 over 3%: open 98%, other 2%"
+    }
+   ]
   },
   {
    "kit": "kay-adventurers",
@@ -78721,7 +80058,20 @@
     "spin"
    ],
    "variant": "v922",
+   "backface": {
+    "share": 0.0502,
+    "view": "90/50",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 90/50 over 3%: open 99%, other 1%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -78796,7 +80146,20 @@
     "wood-beam"
    ],
    "variant": "v922",
+   "backface": {
+    "share": 0.0502,
+    "view": "90/50",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 90/50 over 3%: open 99%, other 1%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -78939,7 +80302,22 @@
     "kay",
     "wood-cardboard"
    ],
-   "variant": "v939"
+   "variant": "v939",
+   "backface": {
+    "share": 0.0908,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 90/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -85979,7 +87357,21 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v564"
+   "variant": "v564",
+   "backface": {
+    "share": 1,
+    "view": "45/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 45/20 over 10%: inverted 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-1",
@@ -86938,6 +88330,21 @@
    "tags": [
     "bone",
     "kay"
+   ],
+   "backface": {
+    "share": 0.1286,
+    "view": "315/20",
+    "causes": {
+     "inside-out": 0.96,
+     "open": 0.04
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 315/20 over 10%: inside-out 96%, open 4%"
+    }
    ]
   },
   {
@@ -87571,6 +88978,21 @@
     "wood-worked"
    ],
    "variant": "v236",
+   "backface": {
+    "share": 0.713,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 180/20 over 10%: open 100%"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -87962,7 +89384,21 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v1218"
+   "variant": "v1218",
+   "backface": {
+    "share": 0.1541,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "15% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -88004,7 +89440,21 @@
     "kay",
     "stone-masonry"
    ],
-   "variant": "v1218"
+   "variant": "v1218",
+   "backface": {
+    "share": 0.1292,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -88044,6 +89494,20 @@
     "halloween",
     "kay",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.0649,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 0/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -88086,11 +89550,23 @@
     "stone-masonry"
    ],
    "variant": "v1217",
+   "backface": {
+    "share": 0.2263,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.33 under min 0.35 (str-barrier-fence-mid)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 90/20 over 10%: open 100%"
     }
    ]
   },
@@ -88135,11 +89611,23 @@
     "stone-masonry"
    ],
    "variant": "v1217",
+   "backface": {
+    "share": 0.1408,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.33 under min 0.35 (str-barrier-fence-mid)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 90/20 over 10%: open 100%"
     }
    ]
   },
@@ -88854,7 +90342,22 @@
     "wax",
     "wick"
    ],
-   "variant": "v237"
+   "variant": "v237",
+   "backface": {
+    "share": 0.1253,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -88957,7 +90460,21 @@
     "wax",
     "wick"
    ],
-   "variant": "v30"
+   "variant": "v30",
+   "backface": {
+    "share": 0.22,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "22% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -90189,6 +91706,20 @@
     "kay",
     "metal-iron-cast",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.2631,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 0/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -90285,6 +91816,20 @@
     "metal-iron-cast",
     "scale-big",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.1265,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 45/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -90331,6 +91876,20 @@
     "kay",
     "metal-iron-cast",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.4629,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "46% of view 0/20 over 10%: open 100%"
+    }
    ],
    "mark": [
     "grounded"
@@ -92543,7 +94102,23 @@
     "kay",
     "wood-worked"
    ],
-   "variant": "v729"
+   "variant": "v729",
+   "backface": {
+    "share": 0.031,
+    "view": "270/20",
+    "causes": {
+     "other": 0.85,
+     "inverted": 0.07,
+     "open": 0.07
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 270/20 over 3%: other 85%, inverted 7%, open 7%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -92997,7 +94572,21 @@
     "tba",
     "wood-planks"
    ],
-   "variant": "v32"
+   "variant": "v32",
+   "backface": {
+    "share": 0.2036,
+    "view": "135/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 135/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -93050,7 +94639,22 @@
     "wood-beam",
     "wood-worked"
    ],
-   "variant": "v236"
+   "variant": "v236",
+   "backface": {
+    "share": 0.0689,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 180/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -100363,6 +101967,20 @@
     "kay",
     "metal-iron-steel",
     "textile"
+   ],
+   "backface": {
+    "share": 0.0498,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 180/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -100912,7 +102530,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v290"
+   "variant": "v290",
+   "backface": {
+    "share": 1,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -100990,7 +102622,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v628"
+   "variant": "v628",
+   "backface": {
+    "share": 0.7397,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -101068,7 +102714,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v629"
+   "variant": "v629",
+   "backface": {
+    "share": 0.879,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "88% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -101146,7 +102806,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v394"
+   "variant": "v394",
+   "backface": {
+    "share": 0.7281,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "73% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -101225,7 +102899,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v291"
+   "variant": "v291",
+   "backface": {
+    "share": 1,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -101305,7 +102993,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v626"
+   "variant": "v626",
+   "backface": {
+    "share": 0.8406,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "84% of view 270/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -101385,7 +103087,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v627"
+   "variant": "v627",
+   "backface": {
+    "share": 0.7979,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "80% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -101465,7 +103181,21 @@
     "foliage",
     "kay"
    ],
-   "variant": "v395"
+   "variant": "v395",
+   "backface": {
+    "share": 0.6634,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "66% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-forest",
@@ -107196,6 +108926,20 @@
     "kay",
     "stone-soil"
    ],
+   "backface": {
+    "share": 0.1692,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 90/20 over 10%: open 100%"
+    }
+   ],
    "mark": [
     "grounded"
    ]
@@ -108056,7 +109800,22 @@
     "wood-beam"
    ],
    "alpha": true,
-   "pbr": true
+   "pbr": true,
+   "backface": {
+    "share": 0.0948,
+    "view": "0/20",
+    "causes": {
+     "inverted": 0.97,
+     "other": 0.03
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 0/20 over 3%: inverted 97%, other 3%"
+    }
+   ]
   },
   {
    "kit": "kay-hallow",
@@ -116357,7 +118116,21 @@
     "metal-iron-cast",
     "scale-small"
    ],
-   "variant": "v651"
+   "variant": "v651",
+   "backface": {
+    "share": 0.0595,
+    "view": "0/50",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 0/50 over 3%: other 100%"
+    }
+   ]
   },
   {
    "kit": "kay-minigame",
@@ -121344,6 +123117,21 @@
    "tags": [
     "kay",
     "paper"
+   ],
+   "backface": {
+    "share": 0.0947,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 90/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -126400,6 +128188,22 @@
     "Working_A",
     "Working_B",
     "Working_C"
+   ],
+   "backface": {
+    "share": 0.0711,
+    "view": "315/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 315/20 over 3%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -131440,7 +133244,21 @@
     "kay",
     "vegetation"
    ],
-   "variant": "v484"
+   "variant": "v484",
+   "backface": {
+    "share": 0.0493,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 180/50 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "kay-spook",
@@ -136009,6 +137827,21 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.0334,
+    "view": "180/50",
+    "causes": {
+     "open": 0.97,
+     "other": 0.03
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 180/50 over 3%: open 97%, other 3%"
+    }
    ]
   },
   {
@@ -142575,7 +144408,24 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v781"
+   "variant": "v781",
+   "backface": {
+    "share": 0.0498,
+    "view": "315/50",
+    "causes": {
+     "inside-out": 0.36,
+     "other": 0.26,
+     "inverted": 0.3,
+     "open": 0.07
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 315/50 over 3%: inside-out 36%, inverted 30%, other 26%, open 7%"
+    }
+   ]
   },
   {
    "kit": "ken-castle",
@@ -143606,7 +145456,22 @@
     "ken",
     "metal-iron-steel"
    ],
-   "variant": "v975"
+   "variant": "v975",
+   "backface": {
+    "share": 0.6697,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "67% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-chars",
@@ -143879,7 +145744,21 @@
     "metal",
     "textile"
    ],
-   "variant": "v940"
+   "variant": "v940",
+   "backface": {
+    "share": 0.0437,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 0/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-commercial",
@@ -147758,6 +149637,22 @@
     "ken",
     "metal",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.0332,
+    "view": "90/50",
+    "causes": {
+     "other": 0.86,
+     "open": 0.12,
+     "inverted": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 90/50 over 3%: other 86%, open 12%, inverted 2%"
+    }
    ]
   },
   {
@@ -152794,6 +154689,20 @@
     "food",
     "ken",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.0437,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 180/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -155727,6 +157636,21 @@
    "tags": [
     "ken",
     "metal-iron-steel"
+   ],
+   "backface": {
+    "share": 0.0463,
+    "view": "180/50",
+    "causes": {
+     "inverted": 0.78,
+     "other": 0.22
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 180/50 over 3%: inverted 78%, other 22%"
+    }
    ]
   },
   {
@@ -160542,7 +162466,23 @@
     "ken",
     "metal-iron-steel"
    ],
-   "variant": "v803"
+   "variant": "v803",
+   "backface": {
+    "share": 0.2554,
+    "view": "180/50",
+    "causes": {
+     "inverted": 0.51,
+     "other": 0.49,
+     "open": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 180/50 over 10%: inverted 51%, other 49%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -165427,11 +167367,25 @@
     "wood-worked"
    ],
    "variant": "v572",
+   "backface": {
+    "share": 0.0562,
+    "view": "45/20",
+    "causes": {
+     "inverted": 0.5,
+     "other": 0.49,
+     "open": 0.01
+    }
+   },
    "lint": [
     {
      "level": "error",
      "check": "size",
      "text": "high 0.5 under min 0.75 (str-part-door-doorway)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 45/20 over 3%: inverted 50%, other 49%, open 1%"
     }
    ]
   },
@@ -166196,7 +168150,22 @@
     "scale-small",
     "wood-planks"
    ],
-   "variant": "v579"
+   "variant": "v579",
+   "backface": {
+    "share": 0.2467,
+    "view": "90/50",
+    "causes": {
+     "inverted": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "25% of view 90/50 over 10%: inverted 100%"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -166237,7 +168206,22 @@
     "scale-small",
     "wood-planks"
    ],
-   "variant": "v579"
+   "variant": "v579",
+   "backface": {
+    "share": 0.2467,
+    "view": "90/50",
+    "causes": {
+     "inverted": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "25% of view 90/50 over 10%: inverted 100%"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -166727,7 +168711,21 @@
     "paper",
     "textile"
    ],
-   "variant": "v869"
+   "variant": "v869",
+   "backface": {
+    "share": 0.0327,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 180/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -169992,6 +171990,21 @@
     "metal-iron-steel",
     "paper",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.5299,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "53% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -170048,6 +172061,22 @@
     "ken",
     "metal-iron-steel",
     "paper"
+   ],
+   "backface": {
+    "share": 0.1965,
+    "view": "180/20",
+    "causes": {
+     "inside-out": 1,
+     "other": 0,
+     "open": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 180/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -171572,7 +173601,22 @@
     "ken",
     "wood-worked"
    ],
-   "variant": "v1240"
+   "variant": "v1240",
+   "backface": {
+    "share": 0.1332,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-modular",
@@ -173307,7 +175351,21 @@
     "ken",
     "wood-planks"
    ],
-   "variant": "v560"
+   "variant": "v560",
+   "backface": {
+    "share": 0.0401,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 180/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -175460,7 +177518,22 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v495"
+   "variant": "v495",
+   "backface": {
+    "share": 0.4376,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "44% of view 90/50 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -175506,7 +177579,22 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v495"
+   "variant": "v495",
+   "backface": {
+    "share": 0.4213,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "42% of view 90/50 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -179860,6 +181948,22 @@
     "ken",
     "textile",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.5663,
+    "view": "180/50",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "57% of view 180/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -181681,7 +183785,22 @@
     "ken",
     "stone-masonry"
    ],
-   "variant": "v516"
+   "variant": "v516",
+   "backface": {
+    "share": 0.1853,
+    "view": "45/20",
+    "causes": {
+     "inverted": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "19% of view 45/20 over 10%: inverted 100%"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -181987,6 +184106,20 @@
     "ken",
     "metal",
     "textile"
+   ],
+   "backface": {
+    "share": 0.2769,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "28% of view 90/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -183064,7 +185197,22 @@
     "ken",
     "metal"
    ],
-   "variant": "v1073"
+   "variant": "v1073",
+   "backface": {
+    "share": 0.0504,
+    "view": "315/50",
+    "causes": {
+     "open": 0.93,
+     "inverted": 0.07
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 315/50 over 3%: open 93%, inverted 7%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -183510,6 +185658,21 @@
     "ken",
     "metal",
     "storeys-1"
+   ],
+   "backface": {
+    "share": 0.0526,
+    "view": "45/50",
+    "causes": {
+     "inverted": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 45/50 over 3%: inverted 100%"
+    }
    ]
   },
   {
@@ -183561,7 +185724,22 @@
     "metal",
     "storeys-1-5"
    ],
-   "variant": "v1078"
+   "variant": "v1078",
+   "backface": {
+    "share": 0.0315,
+    "view": "0/20",
+    "causes": {
+     "inverted": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 0/20 over 3%: inverted 100%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -183911,6 +186089,22 @@
    "tags": [
     "ken",
     "metal"
+   ],
+   "backface": {
+    "share": 0.0449,
+    "view": "270/20",
+    "causes": {
+     "open": 0.8,
+     "inverted": 0.2,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 270/20 over 3%: open 80%, inverted 20%"
+    }
    ]
   },
   {
@@ -183990,7 +186184,21 @@
     "ken",
     "metal"
    ],
-   "variant": "v1080"
+   "variant": "v1080",
+   "backface": {
+    "share": 0.0782,
+    "view": "0/50",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "8% of view 0/50 over 3%: other 100%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -187775,7 +189983,22 @@
     "metal",
     "space"
    ],
-   "variant": "v1084"
+   "variant": "v1084",
+   "backface": {
+    "share": 0.0543,
+    "view": "45/20",
+    "causes": {
+     "inverted": 1,
+     "open": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 45/20 over 3%: inverted 100%"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -190244,11 +192467,23 @@
     "space"
    ],
    "variant": "v1098",
+   "backface": {
+    "share": 0.0417,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.325 under min 0.35 (str-barrier-fence)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 90/50 over 3%: open 100%"
     }
    ]
   },
@@ -191368,7 +193603,21 @@
     "metal",
     "space"
    ],
-   "variant": "v1101"
+   "variant": "v1101",
+   "backface": {
+    "share": 0.2842,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "28% of view 90/50 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -194669,7 +196918,23 @@
     "metal",
     "space"
    ],
-   "variant": "v1120"
+   "variant": "v1120",
+   "backface": {
+    "share": 0.1473,
+    "view": "0/20",
+    "causes": {
+     "open": 0.85,
+     "inverted": 0.15,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "15% of view 0/20 over 10%: open 85%, inverted 15%"
+    }
+   ]
   },
   {
    "kit": "ken-station",
@@ -197981,6 +200246,21 @@
     "stone-rock"
    ],
    "variant": "v154",
+   "backface": {
+    "share": 0.0407,
+    "view": "90/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 90/20 over 3%: open 99%, other 1%"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -199008,7 +201288,22 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "variant": "v309"
+   "variant": "v309",
+   "backface": {
+    "share": 0.0346,
+    "view": "135/20",
+    "causes": {
+     "open": 0.91,
+     "inverted": 0.09
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 135/20 over 3%: open 91%, inverted 9%"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -202228,7 +204523,21 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v124"
+   "variant": "v124",
+   "backface": {
+    "share": 0.04,
+    "view": "90/50",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 90/50 over 3%: other 100%"
+    }
+   ]
   },
   {
    "kit": "ken-town",
@@ -205022,6 +207331,22 @@
     "glass",
     "ken",
     "metal"
+   ],
+   "backface": {
+    "share": 0.0341,
+    "view": "270/50",
+    "causes": {
+     "inverted": 0.34,
+     "other": 0.61,
+     "open": 0.05
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 270/50 over 3%: other 61%, inverted 34%, open 5%"
+    }
    ]
   },
   {
@@ -211812,7 +214137,21 @@
     "milkandbanana",
     "plastic"
    ],
-   "variant": "v1252"
+   "variant": "v1252",
+   "backface": {
+    "share": 0.3958,
+    "view": "90/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "40% of view 90/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "makeup",
@@ -211862,6 +214201,20 @@
     "metal-iron-steel",
     "milkandbanana",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.9921,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "99% of view 0/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -212049,6 +214402,21 @@
     "glass",
     "milkandbanana",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.9707,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "97% of view 0/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -212109,6 +214477,21 @@
     "glass",
     "milkandbanana",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.9424,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "94% of view 0/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -212164,6 +214547,20 @@
     "glass",
     "milkandbanana",
     "plastic"
+   ],
+   "backface": {
+    "share": 0.9992,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 0/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -212383,6 +214780,20 @@
    "tags": [
     "metal-iron-steel",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.0442,
+    "view": "135/20",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 135/20 over 3%: other 100%"
+    }
    ]
   },
   {
@@ -213517,6 +215928,20 @@
    "tags": [
     "metal-iron-steel",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.0419,
+    "view": "270/20",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 270/20 over 3%: other 100%"
+    }
    ]
   },
   {
@@ -215824,7 +218249,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77"
+   "variant": "v77",
+   "backface": {
+    "share": 0.7765,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "78% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -215874,7 +218313,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77"
+   "variant": "v77",
+   "backface": {
+    "share": 0.5605,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "56% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -215923,7 +218377,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v77"
+   "variant": "v77",
+   "backface": {
+    "share": 0.7078,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -215972,7 +218441,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78"
+   "variant": "v78",
+   "backface": {
+    "share": 0.6915,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "69% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216022,7 +218505,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78"
+   "variant": "v78",
+   "backface": {
+    "share": 0.6572,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "66% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216071,7 +218568,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v78"
+   "variant": "v78",
+   "backface": {
+    "share": 0.5906,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "59% of view 45/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216121,7 +218632,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79"
+   "variant": "v79",
+   "backface": {
+    "share": 0.4911,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "49% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216170,7 +218696,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79"
+   "variant": "v79",
+   "backface": {
+    "share": 0.6359,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "64% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216220,7 +218761,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v79"
+   "variant": "v79",
+   "backface": {
+    "share": 0.6742,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "67% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216269,7 +218825,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80"
+   "variant": "v80",
+   "backface": {
+    "share": 0.6333,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "63% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216319,7 +218890,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80"
+   "variant": "v80",
+   "backface": {
+    "share": 0.5034,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "50% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216368,7 +218953,23 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v80"
+   "variant": "v80",
+   "backface": {
+    "share": 0.5788,
+    "view": "45/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "58% of view 45/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216417,7 +219018,21 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81"
+   "variant": "v81",
+   "backface": {
+    "share": 0.6343,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "63% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216467,7 +219082,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81"
+   "variant": "v81",
+   "backface": {
+    "share": 0.6105,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "61% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216516,7 +219146,22 @@
     "foliage",
     "vegetation"
    ],
-   "variant": "v81"
+   "variant": "v81",
+   "backface": {
+    "share": 0.6915,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "69% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216555,7 +219200,21 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v630"
+   "variant": "v630",
+   "backface": {
+    "share": 0.5404,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "54% of view 45/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216594,7 +219253,21 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v630"
+   "variant": "v630",
+   "backface": {
+    "share": 0.4468,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "45% of view 225/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -216633,7 +219306,21 @@
    "tags": [
     "foliage"
    ],
-   "variant": "v630"
+   "variant": "v630",
+   "backface": {
+    "share": 0.5327,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "53% of view 315/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -218506,7 +221193,22 @@
    "tags": [
     "wood-bark"
    ],
-   "variant": "v105"
+   "variant": "v105",
+   "backface": {
+    "share": 0.1338,
+    "view": "180/20",
+    "causes": {
+     "inverted": 0.6,
+     "other": 0.4
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 180/20 over 10%: inverted 60%, other 40%"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -220706,7 +223408,19 @@
     "scale-big",
     "wood-beam"
    ],
+   "backface": {
+    "share": 0.0313,
+    "view": "180/50",
+    "causes": {
+     "other": 1
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 180/50 over 3%: other 100%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -221885,6 +224599,22 @@
     "textile",
     "wood-beam",
     "wood-worked"
+   ],
+   "backface": {
+    "share": 0.0509,
+    "view": "270/20",
+    "causes": {
+     "open": 0.89,
+     "other": 0.1,
+     "inverted": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 270/20 over 3%: open 89%, other 10%, inverted 1%"
+    }
    ]
   },
   {
@@ -222376,6 +225106,20 @@
     "metal",
     "plastic",
     "qua"
+   ],
+   "backface": {
+    "share": 0.0539,
+    "view": "90/20",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 90/20 over 3%: other 100%"
+    }
    ]
   },
   {
@@ -225631,6 +228375,21 @@
    "tags": [
     "hero",
     "qua"
+   ],
+   "backface": {
+    "share": 0.1577,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "16% of view 225/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -225679,6 +228438,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.1821,
+    "view": "270/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "18% of view 270/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -225723,7 +228497,23 @@
    "tags": [
     "qua"
    ],
-   "variant": "v866"
+   "variant": "v866",
+   "backface": {
+    "share": 0.4332,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "43% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -225772,7 +228562,21 @@
    "tags": [
     "qua"
    ],
-   "variant": "v866"
+   "variant": "v866",
+   "backface": {
+    "share": 0.4387,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "44% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -225820,6 +228624,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.2593,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 225/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -226321,6 +229140,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.2255,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 225/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -226367,7 +229201,22 @@
     "hero",
     "qua"
    ],
-   "variant": "v865"
+   "variant": "v865",
+   "backface": {
+    "share": 0.3281,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "33% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -226423,7 +229272,22 @@
     "hero",
     "qua"
    ],
-   "variant": "v865"
+   "variant": "v865",
+   "backface": {
+    "share": 0.3732,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "37% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -226772,6 +229636,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.1944,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "19% of view 0/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -226830,6 +229709,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.3623,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "36% of view 135/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -226888,6 +229782,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.1858,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "19% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -226938,6 +229847,21 @@
    "tags": [
     "hero",
     "qua"
+   ],
+   "backface": {
+    "share": 0.0757,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "8% of view 225/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -227037,6 +229961,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.2587,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 225/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -227091,6 +230030,21 @@
    "tags": [
     "qua",
     "scale-big"
+   ],
+   "backface": {
+    "share": 0.2296,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 135/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -227139,6 +230093,21 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.2351,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "24% of view 225/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -229467,6 +232436,20 @@
    "tags": [
     "metal-iron-steel",
     "qua"
+   ],
+   "backface": {
+    "share": 0.0615,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 270/50 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -232276,6 +235259,22 @@
    ],
    "alpha": true,
    "pbr": true,
+   "backface": {
+    "share": 0.1181,
+    "view": "315/50",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "12% of view 315/50 over 10%: open 100%"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -232580,7 +235579,21 @@
    ],
    "alpha": true,
    "pbr": true,
+   "backface": {
+    "share": 0.0583,
+    "view": "180/20",
+    "causes": {
+     "open": 0.9,
+     "other": 0.07,
+     "inverted": 0.03
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 180/20 over 3%: open 90%, other 7%, inverted 3%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -232992,7 +236005,19 @@
     "wood-beam",
     "wood-worked"
    ],
+   "backface": {
+    "share": 0.7844,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "78% of view 180/20 over 10%: open 100%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -234941,6 +237966,22 @@
    ],
    "tags": [
     "qua"
+   ],
+   "backface": {
+    "share": 0.0555,
+    "view": "225/20",
+    "causes": {
+     "inside-out": 0.43,
+     "inverted": 0.48,
+     "other": 0.09
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 225/20 over 3%: inverted 48%, inside-out 43%, other 9%"
+    }
    ]
   },
   {
@@ -238048,6 +241089,22 @@
     "textile",
     "wood-beam",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.3702,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "37% of view 180/20 over 10%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -239087,7 +242144,21 @@
     "qua",
     "textile"
    ],
-   "variant": "v61"
+   "variant": "v61",
+   "backface": {
+    "share": 0.7097,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -239144,7 +242215,21 @@
     "qua",
     "textile"
    ],
-   "variant": "v61"
+   "variant": "v61",
+   "backface": {
+    "share": 0.6717,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "67% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -239196,7 +242281,21 @@
     "qua",
     "textile"
    ],
-   "variant": "v61"
+   "variant": "v61",
+   "backface": {
+    "share": 0.5833,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "58% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -239253,7 +242352,21 @@
     "qua",
     "textile"
    ],
-   "variant": "v62"
+   "variant": "v62",
+   "backface": {
+    "share": 0.7836,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "78% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -239304,7 +242417,21 @@
     "plural",
     "qua"
    ],
-   "variant": "v62"
+   "variant": "v62",
+   "backface": {
+    "share": 0.8188,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "82% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -239356,7 +242483,21 @@
     "qua",
     "textile"
    ],
-   "variant": "v62"
+   "variant": "v62",
+   "backface": {
+    "share": 0.6871,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "69% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -240098,6 +243239,22 @@
     "leather",
     "metal-iron-wrought",
     "qua"
+   ],
+   "backface": {
+    "share": 0.0367,
+    "view": "90/20",
+    "causes": {
+     "open": 0.91,
+     "inverted": 0.09,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 90/20 over 3%: open 91%, inverted 9%, other 1%"
+    }
    ]
   },
   {
@@ -241283,6 +244440,21 @@
     "metal-gold",
     "pickup",
     "qua"
+   ],
+   "backface": {
+    "share": 0.0563,
+    "view": "45/20",
+    "causes": {
+     "open": 0.94,
+     "other": 0.06
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 45/20 over 3%: open 94%, other 6%"
+    }
    ]
   },
   {
@@ -241370,7 +244542,22 @@
     "qua",
     "robin-hood"
    ],
-   "variant": "v144"
+   "variant": "v144",
+   "backface": {
+    "share": 0.283,
+    "view": "180/50",
+    "causes": {
+     "inverted": 0.9,
+     "other": 0.1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "28% of view 180/50 over 10%: inverted 90%, other 10%"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -241462,7 +244649,22 @@
     "qua",
     "robin-hood"
    ],
-   "variant": "v145"
+   "variant": "v145",
+   "backface": {
+    "share": 0.2914,
+    "view": "0/50",
+    "causes": {
+     "inverted": 0.89,
+     "other": 0.11
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "29% of view 0/50 over 10%: inverted 89%, other 11%"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -245323,11 +248525,24 @@
     "textile",
     "wood-worked"
    ],
+   "backface": {
+    "share": 0.7034,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5346 over max 5000 (str)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "70% of view 180/20 over 10%: open 100%"
     }
    ]
   },
@@ -245384,6 +248599,22 @@
     "plastic",
     "qua",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.6158,
+    "view": "180/20",
+    "causes": {
+     "open": 0.97,
+     "inverted": 0,
+     "other": 0.02
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "62% of view 180/20 over 10%: open 97%, other 2%"
+    }
    ]
   },
   {
@@ -245499,6 +248730,21 @@
     "qua",
     "textile",
     "wood-worked"
+   ],
+   "backface": {
+    "share": 0.5368,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "54% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -246016,7 +249262,20 @@
     "qua"
    ],
    "variant": "v529",
+   "backface": {
+    "share": 0.0619,
+    "view": "270/20",
+    "causes": {
+     "other": 0.99,
+     "open": 0.01
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 270/20 over 3%: other 99%, open 1%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -246068,7 +249327,20 @@
     "qua",
     "scale-big"
    ],
+   "backface": {
+    "share": 0.6945,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "69% of view 180/20 over 10%: open 99%, other 1%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -251719,6 +254991,22 @@
     "paper",
     "qua",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.6174,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "62% of view 180/20 over 10%: open 99%, other 1%"
+    }
    ]
   },
   {
@@ -255701,7 +258989,20 @@
     "wood-planks"
    ],
    "variant": "v366",
+   "backface": {
+    "share": 0.0331,
+    "view": "315/20",
+    "causes": {
+     "open": 0.98,
+     "other": 0.02
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 315/20 over 3%: open 98%, other 2%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -257207,7 +260508,21 @@
     "wood-beam"
    ],
    "variant": "v370",
+   "backface": {
+    "share": 0.033,
+    "view": "225/20",
+    "causes": {
+     "open": 0.89,
+     "other": 0.11,
+     "inverted": 0
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 225/20 over 3%: open 89%, other 11%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -260104,6 +263419,21 @@
     "foliage",
     "plural",
     "rgp"
+   ],
+   "backface": {
+    "share": 0.6929,
+    "view": "225/50",
+    "causes": {
+     "open": 0.75,
+     "inverted": 0.25
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "69% of view 225/50 over 10%: open 75%, inverted 25%"
+    }
    ]
   },
   {
@@ -260168,6 +263498,21 @@
     "rgp",
     "textile",
     "wood-worked"
+   ],
+   "backface": {
+    "share": 0.1385,
+    "view": "90/20",
+    "causes": {
+     "other": 0.97,
+     "open": 0.03
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 90/20 over 10%: other 97%, open 3%"
+    }
    ]
   },
   {
@@ -260391,6 +263736,20 @@
     "asia",
     "foliage",
     "rgp"
+   ],
+   "backface": {
+    "share": 0.8948,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "89% of view 270/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -260443,6 +263802,20 @@
     "metal-iron-wrought",
     "rgp",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.0566,
+    "view": "270/20",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 270/20 over 3%: other 100%"
+    }
    ]
   },
   {
@@ -260765,6 +264138,20 @@
     "rgp",
     "scale-big",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.2338,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 0/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -260812,6 +264199,22 @@
     "plural",
     "rgp",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.3308,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "33% of view 135/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -261141,6 +264544,21 @@
     "metal-gold",
     "rgp",
     "rope"
+   ],
+   "backface": {
+    "share": 0.0415,
+    "view": "90/20",
+    "causes": {
+     "open": 0.84,
+     "other": 0.16
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 90/20 over 3%: open 84%, other 16%"
+    }
    ]
   },
   {
@@ -262172,7 +265590,20 @@
     "wood-beam",
     "wood-planks"
    ],
+   "backface": {
+    "share": 0.0698,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 180/20 over 3%: open 99%, other 1%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -262874,6 +266305,21 @@
     "vegetation",
     "wood-beam",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.5963,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "60% of view 90/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -262928,7 +266374,22 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v1159"
+   "variant": "v1159",
+   "backface": {
+    "share": 0.7433,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -262982,7 +266443,22 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v1159"
+   "variant": "v1159",
+   "backface": {
+    "share": 0.7577,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "76% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -263036,7 +266512,22 @@
     "vegetation",
     "wood-beam"
    ],
-   "variant": "v1160"
+   "variant": "v1160",
+   "backface": {
+    "share": 0.7542,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "75% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -263090,7 +266581,22 @@
     "vegetation",
     "wood-beam"
    ],
-   "variant": "v1160"
+   "variant": "v1160",
+   "backface": {
+    "share": 0.7433,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -264560,6 +268066,20 @@
     "rgp",
     "wood-beam",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.9049,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "90% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -264612,6 +268132,20 @@
     "rgp",
     "stone-masonry",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.9419,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "94% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -264665,11 +268199,23 @@
     "wood-beam",
     "wood-planks"
    ],
+   "backface": {
+    "share": 0.9252,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.114 over max 1.1 (str-part-door-single)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "93% of view 180/20 over 10%: open 100%"
     }
    ]
   },
@@ -264724,11 +268270,24 @@
     "wood-beam",
     "wood-planks"
    ],
+   "backface": {
+    "share": 0.7112,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.283 over max 1.25 (str-part-door-doorway)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 180/20 over 10%: open 100%"
     }
    ]
   },
@@ -265415,6 +268974,20 @@
    "tags": [
     "rgp",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.7747,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "77% of view 90/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -265455,6 +269028,21 @@
    "tags": [
     "rgp",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.7077,
+    "view": "135/20",
+    "causes": {
+     "open": 0.99,
+     "inverted": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 135/20 over 10%: open 99%, inverted 1%"
+    }
    ]
   },
   {
@@ -265722,6 +269310,21 @@
    "tags": [
     "metal-iron-wrought",
     "rgp"
+   ],
+   "backface": {
+    "share": 0.7441,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74% of view 90/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -266920,6 +270523,20 @@
     "plural",
     "rgp",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.032,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 90/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -266965,6 +270582,20 @@
    "tags": [
     "rgp",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.0315,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 90/20 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -267966,7 +271597,22 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v1161"
+   "variant": "v1161",
+   "backface": {
+    "share": 0.0314,
+    "view": "180/20",
+    "causes": {
+     "open": 0.81,
+     "other": 0.19
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 180/20 over 3%: open 81%, other 19%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -268013,7 +271659,23 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v1161"
+   "variant": "v1161",
+   "backface": {
+    "share": 0.0656,
+    "view": "180/20",
+    "causes": {
+     "open": 0.97,
+     "inverted": 0.02,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "7% of view 180/20 over 3%: open 97%, inverted 2%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -268060,7 +271722,22 @@
     "vegetation",
     "wood-beam"
    ],
-   "variant": "v1162"
+   "variant": "v1162",
+   "backface": {
+    "share": 0.26,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 180/20 over 10%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -268107,7 +271784,22 @@
     "vegetation",
     "wood-beam"
    ],
-   "variant": "v1162"
+   "variant": "v1162",
+   "backface": {
+    "share": 0.255,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "26% of view 180/20 over 10%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -268159,6 +271851,20 @@
     "rgp",
     "wood-beam",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.4499,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "45% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -269952,6 +273658,21 @@
     "metal-iron-cast",
     "rgp",
     "wood-planks"
+   ],
+   "backface": {
+    "share": 0.8146,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "81% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -270279,6 +274000,21 @@
    "tags": [
     "rgp",
     "stone-masonry"
+   ],
+   "backface": {
+    "share": 0.3671,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "37% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -271585,7 +275321,21 @@
     "rgp",
     "wood-beam"
    ],
-   "variant": "v1163"
+   "variant": "v1163",
+   "backface": {
+    "share": 0.8803,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "88% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -271630,6 +275380,20 @@
     "glass",
     "rgp",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 1,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -271683,7 +275447,23 @@
     "rgp",
     "wood-beam"
    ],
-   "variant": "v1163"
+   "variant": "v1163",
+   "backface": {
+    "share": 0.6699,
+    "view": "90/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "67% of view 90/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-props",
@@ -273965,6 +277745,20 @@
     "rgp",
     "textile",
     "wood-beam"
+   ],
+   "backface": {
+    "share": 0.9904,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "99% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -274018,7 +277812,21 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v997"
+   "variant": "v997",
+   "backface": {
+    "share": 0.1609,
+    "view": "90/20",
+    "causes": {
+     "other": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "16% of view 90/20 over 10%: other 100%"
+    }
+   ]
   },
   {
    "kit": "rgp-weapons",
@@ -276148,7 +279956,21 @@
    "tags": [
     "bone"
    ],
-   "variant": "v677"
+   "variant": "v677",
+   "backface": {
+    "share": 0.9423,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "94% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -276191,7 +280013,21 @@
    "tags": [
     "bone"
    ],
-   "variant": "v677"
+   "variant": "v677",
+   "backface": {
+    "share": 0.9423,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "94% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -276234,7 +280070,21 @@
    "tags": [
     "bone"
    ],
-   "variant": "v677"
+   "variant": "v677",
+   "backface": {
+    "share": 0.9423,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "94% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -276519,7 +280369,21 @@
     "bone",
     "ceramic"
    ],
-   "variant": "v678"
+   "variant": "v678",
+   "backface": {
+    "share": 0.6395,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "64% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -276568,7 +280432,21 @@
     "bone",
     "ceramic"
    ],
-   "variant": "v678"
+   "variant": "v678",
+   "backface": {
+    "share": 0.6395,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "64% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -276612,7 +280490,21 @@
     "bone",
     "ceramic"
    ],
-   "variant": "v678"
+   "variant": "v678",
+   "backface": {
+    "share": 0.6395,
+    "view": "0/50",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "64% of view 0/50 over 10%: inside-out 100%"
+    }
+   ]
   },
   {
    "kit": "scythian",
@@ -278521,6 +282413,20 @@
     "plastic",
     "rubber",
     "sidequest"
+   ],
+   "backface": {
+    "share": 0.0457,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 90/50 over 3%: open 100%"
+    }
    ]
   },
   {
@@ -280828,7 +284734,20 @@
     "plastic",
     "sidequest"
    ],
+   "backface": {
+    "share": 0.0365,
+    "view": "180/20",
+    "causes": {
+     "other": 0.96,
+     "open": 0.04
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 180/20 over 3%: other 96%, open 4%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -289210,6 +293129,21 @@
     "foliage",
     "food",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.2323,
+    "view": "225/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23% of view 225/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -289350,6 +293284,21 @@
     "food",
     "styloo",
     "wood-bark"
+   ],
+   "backface": {
+    "share": 0.1227,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "12% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -289394,6 +293343,22 @@
     "foliage",
     "food",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.0825,
+    "view": "180/50",
+    "causes": {
+     "open": 0.98,
+     "inverted": 0.02,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "8% of view 180/50 over 3%: open 98%, inverted 2%"
+    }
    ]
   },
   {
@@ -289588,7 +293553,23 @@
     "styloo",
     "vegetation"
    ],
-   "variant": "v546"
+   "variant": "v546",
+   "backface": {
+    "share": 0.5826,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "58% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -289633,7 +293614,21 @@
     "styloo",
     "vegetation"
    ],
-   "variant": "v546"
+   "variant": "v546",
+   "backface": {
+    "share": 1,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 135/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -289684,7 +293679,21 @@
     "styloo",
     "vegetation"
    ],
-   "variant": "v546"
+   "variant": "v546",
+   "backface": {
+    "share": 0.4732,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "47% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290008,6 +294017,22 @@
    "tags": [
     "bone",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.0546,
+    "view": "225/20",
+    "causes": {
+     "inverted": 0.96,
+     "open": 0.03,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 225/20 over 3%: inverted 96%, open 3%, other 1%"
+    }
    ]
   },
   {
@@ -290054,7 +294079,23 @@
     "skin",
     "styloo"
    ],
-   "variant": "v535"
+   "variant": "v535",
+   "backface": {
+    "share": 0.0472,
+    "view": "270/20",
+    "causes": {
+     "inverted": 0.79,
+     "open": 0.2,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 270/20 over 3%: inverted 79%, open 20%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290100,7 +294141,23 @@
     "skin",
     "styloo"
    ],
-   "variant": "v535"
+   "variant": "v535",
+   "backface": {
+    "share": 0.0472,
+    "view": "270/20",
+    "causes": {
+     "inverted": 0.79,
+     "open": 0.2,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 270/20 over 3%: inverted 79%, open 20%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290146,7 +294203,23 @@
     "skin",
     "styloo"
    ],
-   "variant": "v535"
+   "variant": "v535",
+   "backface": {
+    "share": 0.0472,
+    "view": "270/20",
+    "causes": {
+     "inverted": 0.79,
+     "open": 0.2,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 270/20 over 3%: inverted 79%, open 20%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290235,7 +294308,22 @@
     "skin",
     "styloo"
    ],
-   "variant": "v534"
+   "variant": "v534",
+   "backface": {
+    "share": 0.0514,
+    "view": "270/20",
+    "causes": {
+     "open": 0.54,
+     "inverted": 0.46
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 270/20 over 3%: open 54%, inverted 46%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290487,7 +294575,23 @@
     "food",
     "styloo"
    ],
-   "variant": "v542"
+   "variant": "v542",
+   "backface": {
+    "share": 0.1691,
+    "view": "135/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01,
+     "inside-out": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 135/20 over 10%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290533,7 +294637,23 @@
     "food",
     "styloo"
    ],
-   "variant": "v542"
+   "variant": "v542",
+   "backface": {
+    "share": 0.1691,
+    "view": "135/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01,
+     "inside-out": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 135/20 over 10%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290573,11 +294693,25 @@
     "vegetation"
    ],
    "variant": "v533",
+   "backface": {
+    "share": 0.085,
+    "view": "270/20",
+    "causes": {
+     "open": 1,
+     "other": 0,
+     "inverted": 0
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.394 under min 0.45 (obj-resource-haystack)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 270/20 over 3%: open 100%"
     }
    ]
   },
@@ -290617,6 +294751,20 @@
    "tags": [
     "styloo",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.1455,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "15% of view 90/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -290656,7 +294804,22 @@
     "styloo",
     "vegetation"
    ],
-   "variant": "v533"
+   "variant": "v533",
+   "backface": {
+    "share": 0.0498,
+    "view": "180/20",
+    "causes": {
+     "open": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 180/20 over 3%: open 99%, other 1%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -290696,11 +294859,23 @@
     "vegetation"
    ],
    "variant": "v533",
+   "backface": {
+    "share": 0.0557,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.437 under min 0.45 (obj-resource-haystack)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "6% of view 180/20 over 3%: open 100%"
     }
    ]
   },
@@ -290740,6 +294915,20 @@
    "tags": [
     "foliage",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.2039,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20% of view 180/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -290779,6 +294968,21 @@
    "tags": [
     "foliage",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.243,
+    "view": "90/50",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "24% of view 90/50 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -291652,6 +295856,21 @@
    "tags": [
     "skin",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.0337,
+    "view": "0/20",
+    "causes": {
+     "inverted": 0.99,
+     "other": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "3% of view 0/20 over 3%: inverted 99%, other 1%"
+    }
    ]
   },
   {
@@ -291886,7 +296105,22 @@
     "storeys-1",
     "styloo"
    ],
-   "variant": "v532"
+   "variant": "v532",
+   "backface": {
+    "share": 0.0367,
+    "view": "225/20",
+    "causes": {
+     "open": 0.97,
+     "other": 0.03
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 225/20 over 3%: open 97%, other 3%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -291938,7 +296172,22 @@
     "storeys-1",
     "styloo"
    ],
-   "variant": "v532"
+   "variant": "v532",
+   "backface": {
+    "share": 0.0362,
+    "view": "270/20",
+    "causes": {
+     "open": 0.97,
+     "other": 0.03
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "4% of view 270/20 over 3%: open 97%, other 3%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -295208,6 +299457,20 @@
     "foliage",
     "styloo",
     "vegetation"
+   ],
+   "backface": {
+    "share": 0.7105,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "71% of view 135/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -295601,6 +299864,20 @@
     "metal-iron-steel",
     "metal-iron-wrought",
     "styloo"
+   ],
+   "backface": {
+    "share": 0.1326,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13% of view 0/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -296208,7 +300485,21 @@
     "styloo",
     "wood-worked"
    ],
-   "variant": "v989"
+   "variant": "v989",
+   "backface": {
+    "share": 0.0469,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 135/20 over 3%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-furniture",
@@ -298586,7 +302877,24 @@
    "anim": [
     "spin"
    ],
-   "variant": "v876"
+   "variant": "v876",
+   "backface": {
+    "share": 0.1423,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 0.99,
+     "open": 0,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 0/20 over 10%: inside-out 99%"
+    }
+   ]
   },
   {
    "kit": "styloo-planes",
@@ -298649,7 +302957,22 @@
     "styloo",
     "tba"
    ],
-   "variant": "v876"
+   "variant": "v876",
+   "backface": {
+    "share": 0.1367,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-planes",
@@ -298716,7 +303039,24 @@
    "anim": [
     "spin"
    ],
-   "variant": "v876"
+   "variant": "v876",
+   "backface": {
+    "share": 0.1391,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 0.99,
+     "open": 0,
+     "other": 0,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 0/20 over 10%: inside-out 99%"
+    }
+   ]
   },
   {
    "kit": "styloo-planes",
@@ -298778,7 +303118,24 @@
    "anim": [
     "spin"
    ],
-   "variant": "v876"
+   "variant": "v876",
+   "backface": {
+    "share": 0.1365,
+    "view": "0/20",
+    "causes": {
+     "inside-out": 0.99,
+     "other": 0,
+     "inverted": 0,
+     "open": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 0/20 over 10%: inside-out 99%"
+    }
+   ]
   },
   {
    "kit": "styloo-planes",
@@ -298836,7 +303193,22 @@
     "styloo",
     "tba"
    ],
-   "variant": "v876"
+   "variant": "v876",
+   "backface": {
+    "share": 0.141,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-planes",
@@ -298899,7 +303271,23 @@
     "styloo",
     "tba"
    ],
-   "variant": "v876"
+   "variant": "v876",
+   "backface": {
+    "share": 0.1368,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "inverted": 0,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "14% of view 0/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "styloo-weapons",
@@ -299047,7 +303435,22 @@
     "metal-iron-wrought",
     "styloo"
    ],
-   "variant": "v875"
+   "variant": "v875",
+   "backface": {
+    "share": 0.0857,
+    "view": "270/50",
+    "causes": {
+     "inverted": 0.28,
+     "open": 0.72
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "9% of view 270/50 over 3%: open 72%, inverted 28%"
+    }
+   ]
   },
   {
    "kit": "styloo-weapons",
@@ -299253,6 +303656,22 @@
     "metal-iron-steel",
     "styloo",
     "textile"
+   ],
+   "backface": {
+    "share": 0.7658,
+    "view": "45/20",
+    "causes": {
+     "inside-out": 1,
+     "inverted": 0,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "77% of view 45/20 over 10%: inside-out 100%"
+    }
    ]
   },
   {
@@ -299345,7 +303764,23 @@
     "metal-iron-wrought",
     "styloo"
    ],
-   "variant": "v874"
+   "variant": "v874",
+   "backface": {
+    "share": 0.0476,
+    "view": "225/50",
+    "causes": {
+     "other": 0.1,
+     "inside-out": 0.82,
+     "inverted": 0.08
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "5% of view 225/50 over 3%: inside-out 82%, other 10%, inverted 8%"
+    }
+   ]
   },
   {
    "kit": "styloo-weapons",
@@ -299392,7 +303827,23 @@
     "metal-iron-wrought",
     "styloo"
    ],
-   "variant": "v874"
+   "variant": "v874",
+   "backface": {
+    "share": 1,
+    "view": "90/20",
+    "causes": {
+     "open": 0.52,
+     "inside-out": 0.44,
+     "inverted": 0.04
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 90/20 over 10%: open 52%, inside-out 44%, inverted 4%"
+    }
+   ]
   },
   {
    "kit": "styloo-weapons",
@@ -300926,6 +305377,21 @@
     "sailing",
     "textile",
     "wood-log"
+   ],
+   "backface": {
+    "share": 0.4565,
+    "view": "180/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "46% of view 180/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -306503,7 +310969,21 @@
     "stone-masonry",
     "wizp"
    ],
-   "variant": "v1179"
+   "variant": "v1179",
+   "backface": {
+    "share": 0.7195,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "72% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -306544,7 +311024,21 @@
     "metal-gold",
     "wizp"
    ],
-   "variant": "v1179"
+   "variant": "v1179",
+   "backface": {
+    "share": 0.7195,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "72% of view 180/20 over 10%: open 100%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -308147,7 +312641,20 @@
     "stone-masonry",
     "wizp"
    ],
+   "backface": {
+    "share": 0.3037,
+    "view": "270/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "30% of view 270/20 over 10%: open 100%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -314124,6 +318631,21 @@
    "tags": [
     "creativetrio",
     "metal"
+   ],
+   "backface": {
+    "share": 0.1741,
+    "view": "90/20",
+    "causes": {
+     "other": 0.21,
+     "open": 0.79
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "17% of view 90/20 over 10%: open 79%, other 21%"
+    }
    ]
   },
   {
@@ -314271,7 +318793,21 @@
     "creativetrio",
     "metal"
    ],
+   "backface": {
+    "share": 0.4121,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "inverted": 0,
+     "other": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "41% of view 0/20 over 10%: open 100%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -314671,6 +319207,21 @@
     "glass",
     "paper",
     "textile"
+   ],
+   "backface": {
+    "share": 0.103,
+    "view": "315/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "10% of view 315/20 over 10%: open 100%"
+    }
    ]
   },
   {
@@ -315317,6 +319868,21 @@
     "metal-iron-wrought",
     "textile",
     "wood-worked"
+   ],
+   "backface": {
+    "share": 0.2765,
+    "view": "0/20",
+    "causes": {
+     "open": 1,
+     "other": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "28% of view 0/20 over 10%: open 100%"
+    }
    ]
   },
   {

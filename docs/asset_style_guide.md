@@ -122,7 +122,7 @@ The measured global rows, `I08`, `I09`, `I11`, live in `lint/measures.json` (§2
 
 Everything measured off the mesh: extents, counts, pivots, band counts.
 
-`tag:plural` and `kind:set` are exempt, except from `G27`.
+`tag:plural` and `kind:set` are exempt, except from `G27` and `G28`.
 
 ### 2.1 Construction & placement
 
@@ -132,6 +132,9 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 |
 | `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
+| `G28` | `*` | — | `backface` | max | 3% warning, 10% error |
+
+`G28` is the largest share of a model's silhouette that shows back faces, over 16 views above the horizon. Single-sided surfaces count: the catalogue shows them as holes from behind. `node catalog/tools/backfaces.mjs` measures it into `catalog/build/backfaces.json`, with the cause of the faces seen: `inverted` (wound against its normals, its neighbours, or facing into solid material), `inside-out` (a closed shell wound inward), `open` (a single-sided surface) or `other` (a face turned towards a gap or another part). Limits are `backface` in `lint/variables.json`. Run `node lint/backface.mjs`; look with `render.mjs --modes faceorient --views <az/el>`.
 
 `G04` (tri budget per kind) lives in `lint/kinds.json` as `tpu.max` (§2.3); a `tag:hero` model gets twice its kind's budget, set by `tpu.tagFactors` in `lint/variables.json`; `G05` and `G06` (grounded, centred) live in `lint/measures.json` (§2.2).
 

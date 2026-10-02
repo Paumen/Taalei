@@ -33,6 +33,15 @@ const LINT_CHECKS = buildChecks({
   measures: JSON.parse(readFileSync(join(ROOT, LINT_VARS.measures), 'utf8')),
 });
 const MATERIAL_TREE = LINT_CHECKS.materialIds;
+const BACKFACES = existsSync(join(ROOT, LINT_VARS.backface.file))
+  ? JSON.parse(readFileSync(join(ROOT, LINT_VARS.backface.file), 'utf8')).models
+  : {};
+const noBackface = [];
+function backfaceOf(id, hash) {
+  const m = BACKFACES[id];
+  if (m?.hash !== hash) { noBackface.push(id); return {}; }
+  return m.share >= LINT_VARS.backface.warn ? { backface: { share: m.share, view: m.view, causes: m.causes } } : {};
+}
 const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
@@ -389,6 +398,7 @@ for (const slug of kitSlugs) {
       path,
       bytes: entry.bytes,
       ...JSON.parse(JSON.stringify(entry.fields)),
+      ...backfaceOf(`${slug}/${name}`, entry.hash),
     });
   }
 
@@ -413,6 +423,9 @@ for (const slug of kitSlugs) {
 mkdirSync(dirname(CACHE_FILE), { recursive: true });
 writeFileSync(CACHE_FILE, JSON.stringify({ tooling: TOOLING, models: newCache }));
 console.log(`${fromCache} of ${Object.keys(newCache).length} workfiles came from the cache in kits/.cache`);
+if (noBackface.length) {
+  console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
+}
 
 const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'artist', 'tag'];
 const KIND_TREE = readKindTree();
@@ -741,6 +754,7 @@ const rows = models.map((m) => {
     alpha: m.alpha || undefined,
     pbr: m.pbr || undefined,
     variant: m.variant,
+    backface: m.backface,
   };
   return row;
 });
