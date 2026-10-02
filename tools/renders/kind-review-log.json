@@ -1832,6 +1832,87 @@
   ]
  },
  {
+  "kind": "obj-equipment-weapon-melee-axe-single",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "mek-tools/axe",
+     "props/axe-a",
+     "styloo-weapons/axe"
+    ],
+    "text": "Turned 90°: blade along z, edge-on from the front; other 16 face the blade to the front (8 to -x, 6 to +x)",
+    "options": [
+     "Turn the 3, blade to -x",
+     "Turn 3 + all blades to -x",
+     "Leave"
+    ],
+    "picked": [
+     "Turn the 3, blade to -x"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/axe-common",
+     "kay-dun-1/axe-uncommon",
+     "kay-dun-1/axe-rare",
+     "lpa-tools/stone-axe",
+     "lpa-tools/wooden-axe",
+     "mek-tools/axe",
+     "styloo-weapons/axe",
+     "quat-pirate/axe",
+     "quat-rpg/axe-small",
+     "quat-apocalypse/axe",
+     "props/axe-a"
+    ],
+    "text": "7 axes one flat shade per band (kay-dun-1 nickel 0.03-0.34, mek nickel 0.05/chestnut 0.95, styloo 0.50); 4 packed dark 0.8-0.9; rest spread light top around 0.5",
+    "options": [
+     "Spread all 11 around 0.5",
+     "Spread flat 7, keep mid",
+     "Leave"
+    ],
+    "picked": [
+     "Spread flat 7, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/axe"
+    ],
+    "text": "Only tan handle (pale, 0.51); 9 chestnut, 6 camel",
+    "options": [
+     "Zombie tan → chestnut",
+     "Zombie tan → camel",
+     "Leave"
+    ],
+    "picked": [
+     "Zombie tan → chestnut"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "styloo-weapons/axe"
+    ],
+    "text": "3379 tris, 7x kind median 488, mostly ringed grip wrap and spike",
+    "options": [
+     "Simplify to ~800 tris",
+     "Leave"
+    ],
+    "picked": [
+     "Simplify to ~800 tris"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-equipment-weapon-melee-club",
   "date": "2026-10-02",
   "suggestions": [
@@ -1966,6 +2047,62 @@
     ],
     "picked": [
      "Lighten in sienna"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-ranged-launcher",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "zombie-weapons/bazooka",
+     "zombie-weapons/grenade-launcher"
+    ],
+    "text": "Zombie launchers lie flat along z; quat-shoot pair and rifles/shotguns stand on grip, muzzle -x",
+    "options": [
+     "Stand zombie 2 upright",
+     "Lay quat 2 flat",
+     "Leave"
+    ],
+    "picked": [
+     "Stand zombie 2 upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/grenade-launcher"
+    ],
+    "text": "All basalt flat 0.50 (mono black in source); peers use 3-4 bands",
+    "options": [
+     "Drum + caps → nickel",
+     "Stock + grips → chestnut",
+     "Both",
+     "Leave"
+    ],
+    "picked": [
+     "Drum + caps → nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kit/*"
+    ],
+    "text": "All four flat at 0.50 per band; bazooka chestnut grips 0.41 vs 0.78",
+    "options": [
+     "Spread by height, keep mid",
+     "Even bazooka grips only",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
     ]
    }
   ]
@@ -2177,6 +2314,44 @@
     ],
     "picked": [
      "Raise decor tpu.max"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-light",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-survival/match",
+     "quat-survival/match-burnt"
+    ],
+    "text": "Matches sit with chandelier and fans; matchbox is in obj-equipment-tool-supplies (tube 0.006), which also clears both G27 errors",
+    "options": [
+     "Move both to tool-supplies",
+     "Keep in light"
+    ],
+    "picked": [
+     "Move both to tool-supplies"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/ceiling-fan",
+     "household/chandelier"
+    ],
+    "text": "One band basalt flat 0.50 (mono in source); ken fan spreads 0.15-0.75 light top",
+    "options": [
+     "Spread by height, keep mid",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
     ]
    }
   ]
