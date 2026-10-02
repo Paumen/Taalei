@@ -1180,6 +1180,66 @@
   ]
  },
  {
+  "kind": "obj-container-bag-sack",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-medieval/sack",
+     "rgp-medieval/sack-grain"
+    ],
+    "text": "Taupe body scattered per vertex over the whole band (0.02–0.98), blotchy wrinkles; source is flat burlap",
+    "options": [
+     "Spread by height, keep mid",
+     "Flatten to 0.5",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-props/bag-1-c",
+     "rgp-props/bag-2-c",
+     "rgp-props/bag-3-c"
+    ],
+    "text": "Body in camel (orange wood band), outside the textile palette; tie taupe at 0.03",
+    "options": [
+     "Body camel → taupe, tie → twine",
+     "Body camel → taupe only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Body camel → taupe, tie → twine"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "rgp-props/bag-2-c",
+     "rgp-asia/*",
+     "quat-props/bag",
+     "props/bag-a"
+    ],
+    "text": "Longest 0.147–0.559; bag-2-c under kind min 0.15",
+    "options": [
+     "Leave scale",
+     "Leave, accept bag-2-c under min",
+     "PO: look per model"
+    ],
+    "picked": [
+     "Leave, accept bag-2-c under min"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-device-science",
   "date": "2026-10-02",
   "suggestions": [
@@ -1301,6 +1361,48 @@
     ],
     "picked": [
      "Handle to tan"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-stationery",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-survival/compass",
+     "quat-survival/compass-anim",
+     "kay-tools/compass-base",
+     "taalei-kit/hourglass"
+    ],
+    "text": "Compass and hourglass are nouns of obj-equipment-pocketitem",
+    "options": [
+     "Move all 4 to pocketitem",
+     "Move compasses only",
+     "Keep in stationery"
+    ],
+    "picked": [
+     "Move all 4 to pocketitem"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "kay-tools/scissors",
+     "household/stapler"
+    ],
+    "text": "Scissors 0.361 oversized, stapler 0.082 undersized; fixing needs P10 exception",
+    "options": [
+     "Leave scale",
+     "Scissors ×0.6 (P10 exception)",
+     "Scissors ×0.6 + stapler ×2"
+    ],
+    "picked": [
+     "Leave scale"
     ]
    }
   ]
@@ -1456,6 +1558,67 @@
     ],
     "picked": [
      "Rod kind"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-twohand-shovel",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-survival/tool-shovel",
+     "ken-survival/tool-shovel-upgraded",
+     "lpa-tools/stone-shovel",
+     "lpa-tools/wooden-shovel",
+     "quat-shoot/shovel",
+     "zombie-weapons/spade"
+    ],
+    "text": "4 stand blade-down, 5 blade-up (source pose), zombie spade lies flat",
+    "options": [
+     "All blade-down, upright",
+     "Blade-down, leave zombie lying",
+     "Keep as is"
+    ],
+    "picked": [
+     "All blade-down, upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "ken-pirate/tool-shovel",
+     "zombie-weapons/spade",
+     "quat-shoot/shovel"
+    ],
+    "text": "Longest 0.39–0.79, ken-pirate ~1.8× quat-shoot; all within kind range",
+    "options": [
+     "Leave scale",
+     "PO: look at --compare first"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "shape",
+    "models": [
+     "quat-survival/shovel",
+     "quat-shoot/shovel",
+     "zombie-weapons/spade",
+     "ken-survival/tool-shovel",
+     "ken-survival/tool-shovel-upgraded",
+     "ken-pirate/tool-shovel"
+    ],
+    "text": "Blade thickness 0–62 mm (0–35% of blade width)",
+    "options": [],
+    "picked": [
+     "PO: make thinnest blades thicker, and thickest thinner; mind how it looks vs poles and straps; adjust poles if needed"
     ]
    }
   ]

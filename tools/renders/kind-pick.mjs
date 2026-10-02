@@ -14,7 +14,7 @@ the log (tools/renders/kind-review-log.json). --kind picks those kinds instead
 and logs them too. --dry prints the picks without logging them.
 
 --render <dir> renders each pick with kind-sheet.mjs into <dir>/<kind>, pbr
-from iso at locked scale. A kind of more than 12 models also gets two halves
+from iso, each tile fitted to its own model. A kind of more than 12 models also gets two halves
 of at most 12, in <dir>/<kind>/pbr/c01 and c02.
 
 --record <file.json> sets the suggestions of logged kinds from a file holding
@@ -151,7 +151,7 @@ if (!has('dry')) {
 if (out) {
   for (const kind of picks) {
     const n = byKind.get(kind).length;
-    const sheetArgs = [join(ROOT, 'tools', 'renders', 'kind-sheet.mjs'), '--kind', kind, '--out', join(out, kind), '--modes', 'pbr'];
+    const sheetArgs = [join(ROOT, 'tools', 'renders', 'kind-sheet.mjs'), '--kind', kind, '--out', join(out, kind), '--modes', 'pbr', '--free-scale'];
     sheetArgs.push(...(n > 12 ? ['--chunk', String(Math.ceil(n / 2))] : ['--no-chunks']));
     execFileSync(process.execPath, sheetArgs, { stdio: 'inherit' });
   }
