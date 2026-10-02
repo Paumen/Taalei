@@ -937,6 +937,90 @@
   ]
  },
  {
+  "kind": "env-flora-tree-palm",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-pirate/tree-palm-1",
+     "quat-pirate/tree-palm-2",
+     "quat-pirate/tree-palm-3"
+    ],
+    "text": "Trunk tan at 0.77-0.96 (dark end), leaves moss at 0.03-0.21 (light end), no height gradient; other kits lighter to the top.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread by height, keep mids",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-terrain/beach-prop-tree-palm-a",
+     "fs-terrain/beach-prop-tree-palm-b",
+     "fs-terrain/beach-prop-tree-palm-c",
+     "natuur/tree-palm-1",
+     "natuur/tree-palm-2",
+     "natuur/tree-palm-3",
+     "natuur/tree-palm-4",
+     "natuur/tree-palm-5",
+     "natuur/tree-palm-6"
+    ],
+    "text": "Tan trunks mid 0.37-0.39 with no height gradient while ken and wizp trunks are darker at the base; natuur leaves moss mid 0.72.",
+    "options": [
+     "Spread trunks by height, keep mid",
+     "Trunks + natuur leaves to mid 0.5",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread trunks by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "wizp-tree/*"
+    ],
+    "text": "wizp trunks camel while the other 16 palms use tan.",
+    "options": [
+     "wizp camel → tan",
+     "camel → tan + retag wood-log",
+     "Leave as is"
+    ],
+    "picked": [
+     "wizp camel → tan"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "fs-terrain/beach-prop-tree-palm-a",
+     "fs-terrain/beach-prop-tree-palm-b",
+     "fs-terrain/beach-prop-tree-palm-c",
+     "quat-pirate/tree-palm-2"
+    ],
+    "text": "fs palms 1.63-2.06 m, 1.34-1.69x the kind median; quat palm-2 1.031 m under min 1.05.",
+    "options": [
+     "Leave scale",
+     "fs down to ~1.45 m",
+     "quat palm-2 up to 1.06 m",
+     "Both"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "env-flora-waterplant-lilypad",
   "date": "2026-10-02",
   "suggestions": [
@@ -1003,6 +1087,43 @@
     ],
     "picked": [
      "Thin kay to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-science",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-chars/aid-defibrillator-green"
+    ],
+    "text": "Hunter body narrowed to 0.40-0.58 and flat; red sibling and source run light top to dark bottom.",
+    "options": [
+     "Spread like red",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread like red"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "sq-lab/analysis-console"
+    ],
+    "text": "0.95 m floor cabinet with screen, 3.6x the kind median; others are bench-top.",
+    "options": [
+     "Keep in obj-device-science",
+     "Move to electronics-computer",
+     "Scale down to bench size"
+    ],
+    "picked": [
+     "Move to electronics-computer"
     ]
    }
   ]
@@ -1435,6 +1556,61 @@
     ],
     "picked": [
      "Thicken to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-barrier-post",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-pirate/dock-pole",
+     "kay-hallow/post"
+    ],
+    "text": "Heights 1.157 m and 0.99 m over the kind's 0.9 m high.max; median about 0.48 m.",
+    "options": [
+     "Leave",
+     "Scale both to 0.9 m",
+     "Dock-pole only to 0.9 m"
+    ],
+    "picked": [
+     "Leave"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-casino/stanchion",
+     "kay-spook/fence-post"
+    ],
+    "text": "Flat by height (r -0.05 and -0.20) while the other posts are darker at the base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread, kay-spook to mid 0.56",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-hallow/post"
+    ],
+    "text": "Upright with arm and brace, unlike the plain posts, pillars and bollards.",
+    "options": [
+     "Keep in str-barrier-post",
+     "Move to signpost kind"
+    ],
+    "picked": [
+     "Keep in str-barrier-post"
     ]
    }
   ]
