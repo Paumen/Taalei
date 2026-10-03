@@ -1,0 +1,986 @@
+{
+ "kit": "fs-house",
+ "map": "modular_house_collection",
+ "bron": "Modular House Collection",
+ "url": null,
+ "licenseLabel": "CC0 1.0",
+ "note": "Source zip without a licence file or maker; see kits/workfiles/fs-house/LICENSE.txt.",
+ "varianten": [
+  {
+   "leden": [
+    "bed-single",
+    "bed-double"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "dresser",
+    "dresser-wide",
+    "dresser-tall"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "curtains",
+    "curtains-wide"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "towel-rail",
+    "towel-rail-towel"
+   ]
+  },
+  {
+   "leden": [
+    "picture-square-large",
+    "picture-square-small",
+    "picture-landscape",
+    "picture-portrait"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "rug-rectangle",
+    "rug-square"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "rug-oval",
+    "rug-round"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "ceiling-fan-a",
+    "ceiling-fan-b"
+   ]
+  },
+  {
+   "leden": [
+    "wall-cabinet",
+    "wall-cabinet-narrow",
+    "wall-cabinet-short"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "counter",
+    "counter-sink"
+   ]
+  },
+  {
+   "leden": [
+    "door",
+    "door-exterior"
+   ]
+  },
+  {
+   "leden": [
+    "doorway",
+    "doorway-exterior"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "window-single",
+    "window-double"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "wall-curved-small",
+    "wall-curved-large"
+   ],
+   "type": "maatvariant"
+  },
+  {
+   "leden": [
+    "railing-stairs-curved-outer",
+    "railing-stairs-curved-inner"
+   ],
+   "type": "maatvariant"
+  }
+ ],
+ "modellen": [
+  {
+   "bron": "Prop_Bathroom_Shower",
+   "naam": "bathtub-shower",
+   "kind": "obj-furnishing-bathroom-bath",
+   "materialen": [
+    "ceramic",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Prop_Bathroom_Shower_Curtain",
+   "naam": "shower-curtain",
+   "kind": "obj-furnishing-textile",
+   "materialen": [
+    "textile",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Bathroom_Toilet",
+   "naam": "toilet",
+   "kind": "obj-furnishing-bathroom",
+   "materialen": [
+    "ceramic"
+   ]
+  },
+  {
+   "bron": "Prop_Bathroom_Toilet_Paper_Dispenser",
+   "naam": "toilet-paper-holder",
+   "kind": "obj-furnishing",
+   "materialen": [
+    "metal-iron-steel",
+    "paper"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Bathroom_Towel_Rack",
+   "naam": "towel-rail",
+   "kind": "obj-furnishing-bathroom",
+   "materialen": [
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Bathroom_Towel_Rack_Stocked",
+   "naam": "towel-rail-towel",
+   "kind": "obj-furnishing-bathroom",
+   "materialen": [
+    "metal-iron-steel",
+    "textile"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Bed_Bunk",
+   "naam": "bed-bunk",
+   "kind": "obj-furnishing-furniture-bed",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Bed_Queen",
+   "naam": "bed-double",
+   "kind": "obj-furnishing-furniture-bed",
+   "materialen": [
+    "wood-worked",
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Bed_Single",
+   "naam": "bed-single",
+   "kind": "obj-furnishing-furniture-bed",
+   "materialen": [
+    "wood-worked",
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Dresser_Double",
+   "naam": "dresser-wide",
+   "kind": "obj-furnishing-furniture-storage",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Dresser_Mirror",
+   "naam": "mirror",
+   "kind": "obj-furnishing-bathroom",
+   "materialen": [
+    "wood-worked",
+    "glass"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Dresser_Single",
+   "naam": "dresser",
+   "kind": "obj-furnishing-furniture-storage",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ]
+  },
+  {
+   "bron": "Prop_Bedroom_Dresser_Single_Tall",
+   "naam": "dresser-tall",
+   "kind": "obj-furnishing-furniture-storage",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ]
+  },
+  {
+   "bron": "Prop_Curtains_Double",
+   "naam": "curtains-wide",
+   "kind": "obj-furnishing-textile",
+   "materialen": [
+    "textile",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Curtains_Single",
+   "naam": "curtains",
+   "kind": "obj-furnishing-textile",
+   "materialen": [
+    "textile",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Dining_Room_Table_Rectangle",
+   "naam": "table-dining",
+   "kind": "obj-furnishing-furniture-table",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ]
+  },
+  {
+   "bron": "Prop_Dining_Room_Table_Square",
+   "naam": "table-square",
+   "kind": "obj-furnishing-furniture-table-square",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ]
+  },
+  {
+   "bron": "Prop_Exterior_Chimney",
+   "naam": "chimney",
+   "kind": "str-part-roof",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Exterior_Shutter_Raised_Panel",
+   "naam": "shutter",
+   "kind": "str-part-window",
+   "materialen": [
+    "wood-worked"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Fireplace",
+   "naam": "fireplace",
+   "kind": "str",
+   "materialen": [
+    "stone-masonry",
+    "metal-iron-cast",
+    "wood-log"
+   ]
+  },
+  {
+   "bron": "Prop_Fireplace_Mid",
+   "naam": "fireplace-chimney",
+   "kind": "str",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Prop_Kitchen_Microwave",
+   "naam": "microwave",
+   "kind": "obj-device-appliance-kitchen",
+   "materialen": [
+    "metal-iron-steel",
+    "metal-iron-wrought"
+   ]
+  },
+  {
+   "bron": "Prop_Kitchen_Oven",
+   "naam": "stove-hood",
+   "kind": "set",
+   "materialen": [
+    "metal-iron-steel",
+    "metal-iron-wrought"
+   ]
+  },
+  {
+   "bron": "Prop_Kitchen_Refrigerator",
+   "naam": "fridge",
+   "kind": "obj-device-appliance-fridge",
+   "materialen": [
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Prop_Kitchen_Trashcan",
+   "naam": "trashcan-kitchen",
+   "kind": "obj-container-trashcan",
+   "materialen": [
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_Coffee_Table",
+   "naam": "table-coffee",
+   "kind": "obj-furnishing-furniture-table",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_Modular_Couch_Center",
+   "naam": "sofa-center",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "materialen": [
+    "textile"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_Modular_Couch_Corner",
+   "naam": "sofa-corner",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "materialen": [
+    "textile"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_Modular_Couch_End",
+   "naam": "sofa-end",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "materialen": [
+    "textile"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_Modular_Couch_Leg_Rest",
+   "naam": "sofa-footrest",
+   "kind": "obj-furnishing-furniture-seating-stool",
+   "materialen": [
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_Side_Table",
+   "naam": "table-side",
+   "kind": "obj-furnishing-furniture-table",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_TV",
+   "naam": "tv",
+   "kind": "obj-device-electronics-screen",
+   "materialen": [
+    "plastic",
+    "glass"
+   ]
+  },
+  {
+   "bron": "Prop_Living_Room_TV_Stand",
+   "naam": "tv-stand",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "plastic"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Ceiling_Fan_5",
+   "naam": "ceiling-fan-a",
+   "kind": "obj-furnishing-light",
+   "materialen": [
+    "metal-iron-steel",
+    "glass",
+    "emissive"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Ceiling_Fan_6",
+   "naam": "ceiling-fan-b",
+   "kind": "obj-furnishing-light",
+   "materialen": [
+    "wood-worked",
+    "metal-iron-steel",
+    "glass",
+    "emissive"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Ceiling_Light_3",
+   "naam": "ceiling-light-triple",
+   "kind": "obj-furnishing-light-lamp",
+   "materialen": [
+    "glass",
+    "emissive"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Ceiling_Light_Large",
+   "naam": "ceiling-light",
+   "kind": "obj-furnishing-light-lamp",
+   "materialen": [
+    "glass"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Lamp",
+   "naam": "lamp-table",
+   "kind": "obj-furnishing-light-lamp",
+   "materialen": [
+    "wood-worked",
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Picture_Landscape",
+   "naam": "picture-landscape",
+   "kind": "obj-leisure-art-frame",
+   "materialen": [
+    "wood-worked",
+    "paper"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Picture_Portrait",
+   "naam": "picture-portrait",
+   "kind": "obj-leisure-art-frame",
+   "materialen": [
+    "wood-worked",
+    "paper"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Picture_Square_Large",
+   "naam": "picture-square-large",
+   "kind": "obj-leisure-art-frame",
+   "materialen": [
+    "wood-worked",
+    "paper"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Picture_Square_Small",
+   "naam": "picture-square-small",
+   "kind": "obj-leisure-art-frame",
+   "materialen": [
+    "wood-worked",
+    "paper"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Rug_Circle",
+   "naam": "rug-round",
+   "kind": "obj-furnishing-textile-rug",
+   "materialen": [
+    "textile"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Rug_Rectangle",
+   "naam": "rug-rectangle",
+   "kind": "obj-furnishing-textile-rug",
+   "materialen": [
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Rug_Rounded_Ends",
+   "naam": "rug-oval",
+   "kind": "obj-furnishing-textile-rug",
+   "materialen": [
+    "textile"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Rug_Square",
+   "naam": "rug-square",
+   "kind": "obj-furnishing-textile-rug",
+   "materialen": [
+    "textile"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Prop_Misc_Trashcan",
+   "naam": "trashcan",
+   "kind": "obj-container-trashcan",
+   "materialen": [
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Bathroom_Cabinet_Full",
+   "naam": "bathroom-cabinet",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Bathroom_Cabinet_Sink",
+   "naam": "bathroom-cabinet-sink",
+   "kind": "obj-furnishing-bathroom",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel",
+    "ceramic"
+   ]
+  },
+  {
+   "bron": "Structure_Exterior_Door",
+   "naam": "door-exterior",
+   "kind": "str-part-door-single",
+   "materialen": [
+    "wood-worked",
+    "wood-beam"
+   ]
+  },
+  {
+   "bron": "Structure_Exterior_Doorway",
+   "naam": "doorway-exterior",
+   "kind": "str-part-door-doorway",
+   "materialen": [
+    "stone-masonry"
+   ]
+  },
+  {
+   "bron": "Structure_Exterior_Wall_Straight",
+   "naam": "wall-exterior",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "stone-masonry",
+    "wood-worked"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Structure_Exterior_Window_Double",
+   "naam": "window-double",
+   "kind": "str-part-wall-unit-window",
+   "materialen": [
+    "stone-masonry"
+   ]
+  },
+  {
+   "bron": "Structure_Exterior_Window_Single",
+   "naam": "window-single",
+   "kind": "str-part-wall-unit-window",
+   "materialen": [
+    "stone-masonry"
+   ]
+  },
+  {
+   "bron": "Structure_Floor",
+   "naam": "floor",
+   "kind": "str-part-floor-unit",
+   "materialen": [
+    "wood-planks",
+    "stone-masonry"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Bar_Corner_Inner",
+   "naam": "bar-corner-inner",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "stone-masonry",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Bar_Corner_Outer",
+   "naam": "bar-corner-outer",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "stone-masonry",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Bar_Edge",
+   "naam": "bar-end",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "stone-masonry",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Bar_Half",
+   "naam": "bar-half",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "stone-masonry",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Base_Corner",
+   "naam": "counter-corner",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Base_Full",
+   "naam": "counter",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Base_Sink",
+   "naam": "counter-sink",
+   "kind": "obj-furnishing-furniture-counter",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Side_Shelves",
+   "naam": "shelves-corner",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "materialen": [
+    "wood-planks"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Wall_Corner",
+   "naam": "wall-cabinet-corner",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Wall_Full",
+   "naam": "wall-cabinet",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Wall_Half",
+   "naam": "wall-cabinet-narrow",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Wall_Open",
+   "naam": "wall-cabinet-open",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Structure_Kitchen_Cabinet_Wall_Short",
+   "naam": "wall-cabinet-short",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "materialen": [
+    "wood-worked",
+    "wood-planks",
+    "metal-iron-steel"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Curved",
+   "naam": "stairs-curved",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "wood-worked",
+    "stone-masonry"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Landing_Corner",
+   "naam": "railing-corner",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Landing_Side",
+   "naam": "railing",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Peg",
+   "naam": "railing-baluster",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-planks"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Post",
+   "naam": "railing-post",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Rising_Curved_Inner",
+   "naam": "railing-stairs-curved-inner",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Rising_Curved_Outer",
+   "naam": "railing-stairs-curved-outer",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Railing_Rising_Straight",
+   "naam": "railing-stairs",
+   "kind": "str-barrier-fence-mid",
+   "materialen": [
+    "wood-worked",
+    "wood-planks"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Stairs_Straight",
+   "naam": "stairs",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "wood-worked",
+    "stone-masonry"
+   ]
+  },
+  {
+   "bron": "Structure_Wall_Curved_Large_Main",
+   "naam": "wall-curved-large",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "stone-masonry",
+    "wood-worked"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Structure_Wall_Curved_Small_Main",
+   "naam": "wall-curved-small",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "stone-masonry",
+    "wood-worked"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  },
+  {
+   "bron": "Structure_Wall_Door",
+   "naam": "door",
+   "kind": "str-part-door-single",
+   "materialen": [
+    "wood-worked",
+    "wood-beam"
+   ]
+  },
+  {
+   "bron": "Structure_Wall_Doorway",
+   "naam": "doorway",
+   "kind": "str-part-door-doorway",
+   "materialen": [
+    "stone-masonry"
+   ]
+  },
+  {
+   "bron": "Structure_Wall_Inner_Joint_Top",
+   "naam": "wall-joint-top",
+   "kind": "str-part-wall",
+   "materialen": [
+    "stone-masonry"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Structure_Wall_Straight_Main",
+   "naam": "wall",
+   "kind": "str-part-wall-unit",
+   "materialen": [
+    "stone-masonry",
+    "wood-worked"
+   ],
+   "attributen": [
+    "scale-small"
+   ]
+  }
+ ]
+}
