@@ -3651,7 +3651,6 @@ window.KENNEY_KITS = [
    "blacksmith",
    "blacksmith-anim",
    "bridge-a",
-   "bridge-b",
    "bucket",
    "bucket-arrows",
    "bucket-water",
