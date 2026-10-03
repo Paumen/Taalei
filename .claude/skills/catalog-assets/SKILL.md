@@ -137,7 +137,10 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   `comp` (a part meant to be built into something larger, so the size rows do
   not apply), `broken` (a cracked, shattered or partial version of a thing, and
   the debris left of one), `piece` (a cut or portion of a whole thing: a slice,
-  a chopped heap, a single bloom off the plant), `tba` (needs an animation made
+  a chopped heap, a single bloom off the plant), `mounted` (not meant to stand
+  on the ground in a scene: hung from a ceiling, beam or post, fixed to a wall,
+  or set high on a building — a lantern, sign, wall shelf, window, canopy,
+  waterwheel), `tba` (needs an animation made
   for it and keeps the moving parts as separate draw calls, so it is exempt
   from `I11`; the model carries none yet), `animation` (the model carries an
   animation clip, so it is exempt from `I08` and `I11`; every model with a clip

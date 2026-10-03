@@ -13,7 +13,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F01` | `material` | what it is **made of** | closed, parented |
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
-| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `piece`, etc.) | open |
+| `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `piece`, `mounted`, etc.) | open |
 | `F11` | `attribute` | a property read off the model in steps (`storeys`, `scale`) | closed, **at most one per attribute** |
 
 **[F05] Term.** A term is one of:
