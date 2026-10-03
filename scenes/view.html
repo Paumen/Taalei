@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleiland — scene</title>
+<meta name="description" content="A scene composed of Taaleiland catalogue models, to orbit in 3D.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #f2f2f0; }
+  canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+  #status { position: fixed; left: 8px; bottom: 6px; font: 12px/1.3 system-ui, sans-serif; color: #6b6660; }
+</style>
+<script type="importmap">{"imports": {"three": "../catalog/app/vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<div id="status">Loading…</div>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from '../catalog/app/vendor/three-addons/GLTFLoader.js';
+import { OrbitControls } from '../catalog/app/vendor/three-addons/OrbitControls.js';
+
+const params = new URLSearchParams(location.search);
+const name = /^[a-z0-9-]+$/.test(params.get('s') ?? '') ? params.get('s') : 'game-hall';
+const status = document.getElementById('status');
+document.title = `Taaleiland — ${name.replace(/-/g, ' ')}`;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.toneMappingExposure = 1.25;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFShadowMap;
+document.body.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#f2f2f0');
+scene.environmentIntensity = 0.7;
+
+const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 200);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.maxPolarAngle = THREE.MathUtils.degToRad(84);
+controls.screenSpacePanning = false;
+
+const sun = new THREE.DirectionalLight('#fff6e8', 2);
+sun.castShadow = true;
+sun.shadow.mapSize.set(4096, 4096);
+sun.shadow.bias = -0.0004;
+sun.shadow.normalBias = 0.015;
+sun.shadow.radius = 3;
+scene.add(sun, sun.target);
+
+const pmrem = new THREE.PMREMGenerator(renderer);
+new THREE.TextureLoader().load('../catalog/app/zachte-omgeving.png', (texture) => {
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  texture.colorSpace = THREE.SRGBColorSpace;
+  scene.environment = pmrem.fromEquirectangular(texture).texture;
+  texture.dispose();
+});
+
+const walls = [];
+const corners = [];
+let radius = 10;
+
+new GLTFLoader().load(`${name}/${name}.glb`, (gltf) => {
+  const root = gltf.scene;
+  root.traverse((object) => {
+    if (object.isMesh) {
+      object.castShadow = true;
+      object.receiveShadow = true;
+    }
+    if (object.name.startsWith('wall-') && object.userData.normal) walls.push(object);
+    if (object.name.startsWith('corner-') && object.userData.walls) corners.push(object);
+  });
+  scene.add(root);
+
+  const box = new THREE.Box3().setFromObject(root);
+  const center = box.getCenter(new THREE.Vector3());
+  const size = box.getSize(new THREE.Vector3());
+  radius = Math.hypot(size.x, size.z) / 2;
+
+  const s = sun.shadow.camera;
+  s.left = s.bottom = -radius;
+  s.right = s.top = radius;
+  s.near = 0.5;
+  s.far = radius * 4;
+  s.updateProjectionMatrix();
+  sun.target.position.copy(center);
+
+  controls.target.set(center.x, size.y * 0.15, center.z);
+  controls.minDistance = radius * 0.25;
+  controls.maxDistance = radius * 5;
+  const [azimuth, polar, zoom] = (params.get('v') ?? '35,52').split(',').map(Number);
+  frame(THREE.MathUtils.degToRad(azimuth || 0), THREE.MathUtils.degToRad(polar || 52), zoom || 1);
+  status.textContent = '';
+}, undefined, () => {
+  status.textContent = `No scene named “${name}”.`;
+});
+
+function frame(azimuth, polar, zoom) {
+  const halfFov = THREE.MathUtils.degToRad(camera.fov / 2);
+  const halfWidth = Math.atan(Math.tan(halfFov) * camera.aspect);
+  const distance = Math.max((radius * 0.75) / Math.sin(halfFov), radius / Math.sin(halfWidth)) / zoom;
+  camera.position.copy(controls.target).add(new THREE.Vector3().setFromSphericalCoords(distance, polar, azimuth));
+  controls.update();
+}
+
+function cutAway() {
+  const hidden = new Set();
+  for (const wall of walls) {
+    const [nx, , nz] = wall.userData.normal;
+    const beyond = camera.position.x * nx + camera.position.z * nz > wall.userData.distance;
+    wall.visible = !beyond;
+    if (beyond) hidden.add(wall.name.slice(5));
+  }
+  for (const corner of corners) corner.visible = !corner.userData.walls.every((side) => hidden.has(side));
+}
+
+function resize() {
+  const { clientWidth: w, clientHeight: h } = document.documentElement;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize);
+resize();
+
+const view = new THREE.Spherical();
+function followSun() {
+  view.setFromVector3(camera.position.clone().sub(controls.target));
+  sun.position.setFromSphericalCoords(radius * 2, THREE.MathUtils.degToRad(38), view.theta + THREE.MathUtils.degToRad(65)).add(sun.target.position);
+}
+
+renderer.setAnimationLoop(() => {
+  controls.update();
+  cutAway();
+  followSun();
+  renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>
