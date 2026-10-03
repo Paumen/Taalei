@@ -502,18 +502,15 @@
   },
   {
    "slug": "Low_Poly_Medieval_Weapons",
-   "name": "Low Poly Medieval Weapons",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Low Poly Medieval Weapons"
   },
   {
    "slug": "Low_Poly_Household_Items",
-   "name": "Low Poly Household Items",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Low Poly Household Items"
   },
   {
    "slug": "Low_Poly_Western_Objects",
-   "name": "Low Poly Western Objects",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Low Poly Western Objects"
   }
  ],
  "sources": [
@@ -1974,31 +1971,37 @@
   {
    "slug": "Low_Poly_Medieval_Weapons",
    "name": "Low Poly Medieval Weapons",
+   "kit": "lpa-weapons",
    "format": "fbx",
    "inSource": 62,
-   "inCatalog": 0,
-   "listed": 13,
+   "inCatalog": 47,
+   "listed": 2,
    "unmatched": 0,
+   "scale": 0.00354,
    "folder": "Low Poly Medieval Weapons"
   },
   {
    "slug": "Low_Poly_Household_Items",
    "name": "Low Poly Household Items",
+   "kit": "lpa-home",
    "format": "fbx",
    "inSource": 112,
-   "inCatalog": 0,
+   "inCatalog": 89,
    "listed": 23,
    "unmatched": 0,
+   "scale": 0.0009,
    "folder": "Low Poly Furniture"
   },
   {
    "slug": "Low_Poly_Western_Objects",
    "name": "Low Poly Western Objects",
+   "kit": "western",
    "format": "fbx",
    "inSource": 48,
-   "inCatalog": 0,
+   "inCatalog": 18,
    "listed": 30,
-   "unmatched": 0
+   "unmatched": 0,
+   "scale": 0.002
   }
  ],
  "kinds": [
@@ -72433,223 +72436,52 @@
   },
   {
    "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Bolt",
+   "name": "Seige Tower",
+   "kind": "str-building-tower",
    "wdh": [
-    4.7,
-    51.6,
-    5.2
+    1.9,
+    5.8,
+    3.7
    ],
-   "tris": 120,
-   "tpu": 0,
-   "mat": 2,
-   "bytes": 8800,
-   "reason": "style",
-   "file": "Bows/Bolt.fbx"
+   "tris": 5272,
+   "tpu": 128,
+   "mat": 4,
+   "bytes": 288372,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Siege Engines/Seige Tower.fbx"
   },
   {
    "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Crossbow",
-   "kind": "obj-equipment-weapon-ranged-crossbow",
-   "wdh": [
-    15.3,
-    123.7,
-    105.3
-   ],
-   "tris": 830,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 47584,
-   "reason": "style",
-   "file": "Bows/Crossbow.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Two-Handed Hammer",
-   "kind": "obj-equipment-tool-hand-hammer",
-   "wdh": [
-    38.7,
-    172.6,
-    61.4
-   ],
-   "tris": 252,
-   "tpu": 0,
-   "mat": 2,
-   "bytes": 15516,
-   "reason": "style",
-   "file": "Hammers/Two-Handed Hammer.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Warhammer",
-   "kind": "obj-equipment-weapon-melee-warhammer",
-   "wdh": [
-    13.6,
-    216.7,
-    55.4
-   ],
-   "tris": 304,
-   "tpu": 0,
-   "mat": 2,
-   "bytes": 17916,
-   "reason": "style",
-   "file": "Hammers/Warhammer.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Potion B",
-   "kind": "obj-container-bottle-vial",
-   "wdh": [
-    17.8,
-    31.7,
-    17.8
-   ],
-   "tris": 148,
-   "tpu": 0,
-   "mat": 2,
-   "bytes": 9476,
-   "reason": "style",
-   "file": "Magic/Potion B.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Potion C",
-   "kind": "obj-container-bottle-vial",
-   "wdh": [
-    20.2,
-    44.1,
-    20.2
-   ],
-   "tris": 224,
-   "tpu": 0,
-   "mat": 2,
-   "bytes": 13824,
-   "reason": "style",
-   "file": "Magic/Potion C.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Potion D",
-   "kind": "obj-container-bottle-vial",
-   "wdh": [
-    22.2,
-    32.8,
-    22.2
-   ],
-   "tris": 256,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 16316,
-   "reason": "style",
-   "file": "Magic/Potion D.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Potion E",
-   "kind": "obj-container-bottle-vial",
-   "wdh": [
-    17.8,
-    31.7,
-    17.8
-   ],
-   "tris": 212,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 13712,
-   "reason": "style",
-   "file": "Magic/Potion E.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Potion F",
-   "kind": "obj-container-bottle-vial",
-   "wdh": [
-    21.5,
-    44.1,
-    21.5
-   ],
-   "tris": 256,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 16336,
-   "reason": "style",
-   "file": "Magic/Potion F.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Shield C",
-   "kind": "obj-equipment-armor-shield",
-   "wdh": [
-    19,
-    117,
-    83.1
-   ],
-   "tris": 976,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 58128,
-   "reason": "style",
-   "file": "Shields/Shield C.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Shield E",
-   "kind": "obj-equipment-armor-shield",
-   "wdh": [
-    19,
-    171.7,
-    83.1
-   ],
-   "tris": 1288,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 74248,
-   "reason": "style",
-   "file": "Shields/Shield E.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "Messer",
-   "wdh": [
-    4.6,
-    141,
-    41.5
-   ],
-   "tris": 320,
-   "tpu": 0,
-   "mat": 3,
-   "bytes": 19872,
-   "reason": "style",
-   "file": "Swords/Messer.fbx"
-  },
-  {
-   "kit": "Low_Poly_Medieval_Weapons",
-   "name": "War Cleaver",
+   "name": "Falchion Cleaver",
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "wdh": [
-    5.3,
-    140.6,
-    25.1
+    0.1,
+    0.6,
+    0.1
    ],
-   "tris": 340,
-   "tpu": 0,
+   "tris": 424,
+   "tpu": 1236,
    "mat": 3,
-   "bytes": 21068,
-   "reason": "style",
-   "file": "Swords/War Cleaver.fbx"
+   "bytes": 25972,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Swords/Falchion Cleaver.fbx"
   },
   {
    "kit": "Low_Poly_Household_Items",
    "name": "Chair B",
    "kind": "obj-furnishing-furniture-seating-chair",
    "wdh": [
-    206.1,
-    529.4,
-    216.9
+    0.2,
+    0.5,
+    0.2
    ],
    "tris": 516,
-   "tpu": 0,
+   "tpu": 1504,
    "mat": 2,
-   "bytes": 31668,
+   "bytes": 31704,
+   "scaled": true,
    "reason": "style",
    "file": "Chairs/Chair B.fbx"
   },
@@ -72658,14 +72490,15 @@
    "name": "Door A",
    "kind": "str-part-door",
    "wdh": [
-    462,
-    1025.9,
-    153.4
+    0.4,
+    0.9,
+    0.1
    ],
    "tris": 364,
-   "tpu": 0,
+   "tpu": 1061,
    "mat": 3,
-   "bytes": 26536,
+   "bytes": 26572,
+   "scaled": true,
    "reason": "style",
    "file": "Doors/Door A.fbx"
   },
@@ -72674,14 +72507,15 @@
    "name": "Door B",
    "kind": "str-part-door",
    "wdh": [
-    447.9,
-    1022.2,
-    143.7
+    0.4,
+    0.9,
+    0.1
    ],
    "tris": 1008,
-   "tpu": 0,
+   "tpu": 2939,
    "mat": 2,
-   "bytes": 57424,
+   "bytes": 57460,
+   "scaled": true,
    "reason": "style",
    "file": "Doors/Door B.fbx"
   },
@@ -72690,14 +72524,15 @@
    "name": "Door C",
    "kind": "str-part-door",
    "wdh": [
-    457.2,
-    1047.4,
-    145.1
+    0.4,
+    0.9,
+    0.1
    ],
    "tris": 1024,
-   "tpu": 0,
+   "tpu": 2985,
    "mat": 3,
-   "bytes": 57232,
+   "bytes": 57268,
+   "scaled": true,
    "reason": "style",
    "file": "Doors/Door C.fbx"
   },
@@ -72706,14 +72541,15 @@
    "name": "Console A",
    "kind": "obj-device-electronics-computer",
    "wdh": [
-    146.9,
-    308,
-    146.9
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 68,
-   "tpu": 0,
+   "tpu": 198,
    "mat": 1,
-   "bytes": 4960,
+   "bytes": 4996,
+   "scaled": true,
    "reason": "style",
    "file": "Electronics/Console A.fbx"
   },
@@ -72722,14 +72558,15 @@
    "name": "Console B",
    "kind": "obj-device-electronics-computer",
    "wdh": [
-    270.9,
-    93.3,
-    221.9
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 68,
-   "tpu": 0,
+   "tpu": 198,
    "mat": 1,
-   "bytes": 4864,
+   "bytes": 4900,
+   "scaled": true,
    "reason": "style",
    "file": "Electronics/Console B.fbx"
   },
@@ -72738,14 +72575,15 @@
    "name": "Cupboard A",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "wdh": [
-    251.9,
-    437.3,
-    325.3
+    0.2,
+    0.4,
+    0.3
    ],
    "tris": 368,
-   "tpu": 0,
+   "tpu": 1073,
    "mat": 3,
-   "bytes": 22020,
+   "bytes": 22056,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard A.fbx"
   },
@@ -72754,14 +72592,15 @@
    "name": "Cupboard B",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "wdh": [
-    469.1,
-    437.3,
-    325.3
+    0.4,
+    0.4,
+    0.3
    ],
    "tris": 584,
-   "tpu": 0,
+   "tpu": 1703,
    "mat": 5,
-   "bytes": 34180,
+   "bytes": 34216,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard B.fbx"
   },
@@ -72770,14 +72609,15 @@
    "name": "Cupboard C",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "wdh": [
-    474.3,
-    451.4,
-    325.8
+    0.4,
+    0.4,
+    0.3
    ],
    "tris": 628,
-   "tpu": 0,
+   "tpu": 1831,
    "mat": 6,
-   "bytes": 37912,
+   "bytes": 37948,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard C.fbx"
   },
@@ -72786,14 +72626,15 @@
    "name": "Cupboard D",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "wdh": [
-    254.2,
-    451.4,
-    325.8
+    0.2,
+    0.4,
+    0.3
    ],
    "tris": 420,
-   "tpu": 0,
+   "tpu": 1224,
    "mat": 4,
-   "bytes": 25472,
+   "bytes": 25508,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard D.fbx"
   },
@@ -72802,14 +72643,15 @@
    "name": "Cupboard E",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "wdh": [
-    474.3,
-    451.4,
-    325.8
+    0.4,
+    0.4,
+    0.3
    ],
    "tris": 860,
-   "tpu": 0,
+   "tpu": 2507,
    "mat": 8,
-   "bytes": 51232,
+   "bytes": 51268,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard E.fbx"
   },
@@ -72818,14 +72660,15 @@
    "name": "Cupboard F",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "wdh": [
-    881.7,
-    451.4,
-    325.8
+    0.8,
+    0.4,
+    0.3
    ],
    "tris": 716,
-   "tpu": 0,
+   "tpu": 2087,
    "mat": 6,
-   "bytes": 42952,
+   "bytes": 42988,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard F.fbx"
   },
@@ -72833,14 +72676,15 @@
    "kit": "Low_Poly_Household_Items",
    "name": "Cupboard Sink",
    "wdh": [
-    474.3,
-    506.5,
-    325.8
+    0.4,
+    0.5,
+    0.3
    ],
    "tris": 1856,
-   "tpu": 0,
+   "tpu": 5411,
    "mat": 7,
-   "bytes": 101884,
+   "bytes": 101920,
+   "scaled": true,
    "reason": "style",
    "file": "Kitchen/Cupboard Sink.fbx"
   },
@@ -72848,14 +72692,15 @@
    "kit": "Low_Poly_Household_Items",
    "name": "Hoover",
    "wdh": [
-    128.7,
-    42.7,
-    128.7
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 236,
-   "tpu": 0,
+   "tpu": 688,
    "mat": 2,
-   "bytes": 13988,
+   "bytes": 14024,
+   "scaled": true,
    "reason": "style",
    "file": "Miscellaneous/Hoover.fbx"
   },
@@ -72863,14 +72708,15 @@
    "kit": "Low_Poly_Household_Items",
    "name": "Light Switch",
    "wdh": [
-    40,
-    40,
-    11.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 108,
-   "tpu": 0,
+   "tpu": 315,
    "mat": 2,
-   "bytes": 7136,
+   "bytes": 7172,
+   "scaled": true,
    "reason": "style",
    "file": "Miscellaneous/Light Switch.fbx"
   },
@@ -72879,14 +72725,15 @@
    "name": "Plant B",
    "kind": "str-building-work-industrial",
    "wdh": [
-    91.2,
-    121.2,
-    91.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 416,
-   "tpu": 0,
+   "tpu": 1213,
    "mat": 3,
-   "bytes": 23628,
+   "bytes": 23664,
+   "scaled": true,
    "reason": "style",
    "file": "Miscellaneous/Plant B.fbx"
   },
@@ -72894,14 +72741,15 @@
    "kit": "Low_Poly_Household_Items",
    "name": "Socket",
    "wdh": [
-    74.8,
-    38.3,
-    9.6
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 194,
-   "tpu": 0,
+   "tpu": 566,
    "mat": 2,
-   "bytes": 10940,
+   "bytes": 10976,
+   "scaled": true,
    "reason": "style",
    "file": "Miscellaneous/Socket.fbx"
   },
@@ -72909,14 +72757,15 @@
    "kit": "Low_Poly_Household_Items",
    "name": "Vent",
    "wdh": [
-    132.7,
-    61.9,
-    12.8
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 244,
-   "tpu": 0,
+   "tpu": 711,
    "mat": 1,
-   "bytes": 11380,
+   "bytes": 11416,
+   "scaled": true,
    "reason": "style",
    "file": "Miscellaneous/Vent.fbx"
   },
@@ -72925,14 +72774,15 @@
    "name": "Shelf A",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "wdh": [
-    326.4,
-    1075.7,
-    237
+    0.3,
+    1,
+    0.2
    ],
    "tris": 376,
-   "tpu": 0,
+   "tpu": 1096,
    "mat": 3,
-   "bytes": 25476,
+   "bytes": 25512,
+   "scaled": true,
    "reason": "style",
    "file": "Shelves/Shelf A.fbx"
   },
@@ -72941,14 +72791,15 @@
    "name": "Shelf B",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "wdh": [
-    614.5,
-    1075.7,
-    246.5
+    0.6,
+    1,
+    0.2
    ],
    "tris": 512,
-   "tpu": 0,
+   "tpu": 1366,
    "mat": 5,
-   "bytes": 36616,
+   "bytes": 36652,
+   "scaled": true,
    "reason": "style",
    "file": "Shelves/Shelf B.fbx"
   },
@@ -72957,14 +72808,15 @@
    "name": "Window A",
    "kind": "str-part-window",
    "wdh": [
-    332.5,
-    677.3,
-    46.9
+    0.3,
+    0.6,
+    0.1
    ],
    "tris": 156,
-   "tpu": 0,
+   "tpu": 455,
    "mat": 2,
-   "bytes": 10480,
+   "bytes": 10516,
+   "scaled": true,
    "reason": "style",
    "file": "Windows/Window A.fbx"
   },
@@ -72973,14 +72825,15 @@
    "name": "Window B",
    "kind": "str-part-window",
    "wdh": [
-    563.6,
-    736.3,
-    43.5
+    0.5,
+    0.7,
+    0.1
    ],
    "tris": 244,
-   "tpu": 0,
+   "tpu": 711,
    "mat": 2,
-   "bytes": 15812,
+   "bytes": 15848,
+   "scaled": true,
    "reason": "style",
    "file": "Windows/Window B.fbx"
   },
@@ -72989,14 +72842,15 @@
    "name": "Window C",
    "kind": "str-part-window",
    "wdh": [
-    445.7,
-    445.7,
-    32.6
+    0.4,
+    0.4,
+    0.1
    ],
    "tris": 156,
-   "tpu": 0,
+   "tpu": 455,
    "mat": 2,
-   "bytes": 10484,
+   "bytes": 10520,
+   "scaled": true,
    "reason": "style",
    "file": "Windows/Window C.fbx"
   },
@@ -73005,14 +72859,15 @@
    "name": "WoodBarrelTopDestroyed",
    "kind": "obj-container-barrel",
    "wdh": [
-    98.6,
-    4.7,
-    96.2
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 24,
-   "tpu": 0,
+   "tpu": 70,
    "mat": 1,
-   "bytes": 2848,
+   "bytes": 2880,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73021,14 +72876,15 @@
    "name": "WoodBarrelDestroyed",
    "kind": "obj-container-barrel",
    "wdh": [
-    14.8,
-    141.9,
-    56.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 76,
-   "tpu": 0,
+   "tpu": 222,
    "mat": 2,
-   "bytes": 7480,
+   "bytes": 7512,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73036,14 +72892,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "DestroyedCrate6",
    "wdh": [
-    5.8,
-    100,
-    89
+    0.1,
+    0.2,
+    0.2
    ],
    "tris": 16,
-   "tpu": 0,
+   "tpu": 47,
    "mat": 1,
-   "bytes": 2460,
+   "bytes": 2492,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73051,14 +72908,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "DestroyedCrate5",
    "wdh": [
-    100,
-    100,
-    6.3
+    0.2,
+    0.2,
+    0.1
    ],
    "tris": 16,
-   "tpu": 0,
+   "tpu": 47,
    "mat": 1,
-   "bytes": 2420,
+   "bytes": 2452,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73066,14 +72924,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "DestroyedCrate4",
    "wdh": [
-    100,
-    83.5,
-    5.9
+    0.2,
+    0.2,
+    0.1
    ],
    "tris": 16,
-   "tpu": 0,
+   "tpu": 47,
    "mat": 1,
-   "bytes": 2432,
+   "bytes": 2464,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73081,14 +72940,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "DestroyedCrate3",
    "wdh": [
-    108.9,
-    13.4,
-    108.9
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 36,
-   "tpu": 0,
+   "tpu": 105,
    "mat": 1,
-   "bytes": 3868,
+   "bytes": 3900,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73096,14 +72956,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "DestroyedCrate2",
    "wdh": [
-    108.9,
-    14.5,
-    108.9
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 36,
-   "tpu": 0,
+   "tpu": 105,
    "mat": 1,
-   "bytes": 3868,
+   "bytes": 3900,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73111,14 +72972,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "DestroyedCrate1",
    "wdh": [
-    6.9,
-    100,
-    88.5
+    0.1,
+    0.2,
+    0.2
    ],
    "tris": 16,
-   "tpu": 0,
+   "tpu": 47,
    "mat": 1,
-   "bytes": 2460,
+   "bytes": 2492,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73126,14 +72988,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Bushes",
    "wdh": [
-    54.9,
-    49.6,
-    46.6
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 70,
-   "tpu": 0,
+   "tpu": 204,
    "mat": 1,
-   "bytes": 7136,
+   "bytes": 7168,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73142,14 +73005,15 @@
    "name": "WesternCart.001",
    "kind": "obj-transport-land-cart",
    "wdh": [
-    609.1,
-    334.5,
-    248.8
+    1.2,
+    0.7,
+    0.5
    ],
    "tris": 744,
-   "tpu": 0,
+   "tpu": 1304,
    "mat": 3,
-   "bytes": 49052,
+   "bytes": 49084,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73157,14 +73021,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Rail",
    "wdh": [
-    85.2,
-    6.6,
-    86.7
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 32,
-   "tpu": 0,
+   "tpu": 93,
    "mat": 2,
-   "bytes": 4472,
+   "bytes": 4504,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73173,14 +73038,15 @@
    "name": "Chest_Top",
    "kind": "obj-container-chest",
    "wdh": [
-    114.8,
-    63.8,
-    156.4
+    0.2,
+    0.1,
+    0.3
    ],
    "tris": 210,
-   "tpu": 0,
+   "tpu": 612,
    "mat": 2,
-   "bytes": 15652,
+   "bytes": 15684,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73189,14 +73055,15 @@
    "name": "Chest_Base",
    "kind": "obj-container-chest",
    "wdh": [
-    115.2,
-    73.1,
-    156.2
+    0.2,
+    0.1,
+    0.3
    ],
    "tris": 128,
-   "tpu": 0,
+   "tpu": 373,
    "mat": 2,
-   "bytes": 10900,
+   "bytes": 10932,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73204,14 +73071,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "WantedPoster",
    "wdh": [
-    68.8,
     0.1,
-    94.2
+    0.1,
+    0.2
    ],
    "tris": 42,
-   "tpu": 1,
+   "tpu": 122,
    "mat": 1,
-   "bytes": 2772,
+   "bytes": 2804,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73219,14 +73087,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "WesternBarrel_hay",
    "wdh": [
-    126.3,
-    141.9,
-    123.2
+    0.3,
+    0.3,
+    0.2
    ],
    "tris": 166,
-   "tpu": 0,
+   "tpu": 484,
    "mat": 3,
-   "bytes": 14256,
+   "bytes": 14288,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73235,14 +73104,15 @@
    "name": "WesternBarrel_water",
    "kind": "obj-container-barrel",
    "wdh": [
-    126.3,
-    141.9,
-    123.2
+    0.3,
+    0.3,
+    0.2
    ],
    "tris": 178,
-   "tpu": 0,
+   "tpu": 519,
    "mat": 3,
-   "bytes": 15140,
+   "bytes": 15172,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73250,14 +73120,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Paper3",
    "wdh": [
-    93.6,
-    10.4,
-    99.1
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 14,
-   "tpu": 0,
+   "tpu": 41,
    "mat": 1,
-   "bytes": 1884,
+   "bytes": 1916,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73265,14 +73136,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Paper2",
    "wdh": [
-    94.9,
-    8.1,
-    97.2
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 19,
-   "tpu": 0,
+   "tpu": 55,
    "mat": 1,
-   "bytes": 2012,
+   "bytes": 2044,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73281,14 +73153,15 @@
    "name": "WesternPlayTable",
    "kind": "obj-furnishing-furniture-table",
    "wdh": [
-    274.2,
-    139.4,
-    288.3
+    0.5,
+    0.3,
+    0.6
    ],
    "tris": 211,
-   "tpu": 0,
+   "tpu": 615,
    "mat": 2,
-   "bytes": 16016,
+   "bytes": 16048,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73297,14 +73170,15 @@
    "name": "OldBench",
    "kind": "obj-furnishing-furniture-seating-bench",
    "wdh": [
-    438.1,
-    82.3,
-    94.8
+    0.9,
+    0.2,
+    0.2
    ],
    "tris": 76,
-   "tpu": 0,
+   "tpu": 222,
    "mat": 1,
-   "bytes": 6660,
+   "bytes": 6692,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73312,14 +73186,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Paper1",
    "wdh": [
-    94.9,
-    6.9,
-    97.2
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 29,
-   "tpu": 0,
+   "tpu": 85,
    "mat": 1,
-   "bytes": 2424,
+   "bytes": 2456,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73327,14 +73202,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Log",
    "wdh": [
-    179,
-    42,
-    46.7
+    0.4,
+    0.1,
+    0.1
    ],
    "tris": 108,
-   "tpu": 0,
+   "tpu": 315,
    "mat": 1,
-   "bytes": 8632,
+   "bytes": 8664,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73343,14 +73219,15 @@
    "name": "Stump",
    "kind": "env-remains-deadwood-stump",
    "wdh": [
-    95.6,
-    67.6,
-    102.6
+    0.2,
+    0.1,
+    0.2
    ],
    "tris": 82,
-   "tpu": 0,
+   "tpu": 239,
    "mat": 1,
-   "bytes": 6560,
+   "bytes": 6592,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73359,14 +73236,15 @@
    "name": "WesternTable",
    "kind": "obj-furnishing-furniture-table",
    "wdh": [
-    269.5,
-    124,
-    283.3
+    0.5,
+    0.2,
+    0.6
    ],
    "tris": 96,
-   "tpu": 0,
+   "tpu": 280,
    "mat": 1,
-   "bytes": 7684,
+   "bytes": 7716,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73375,14 +73253,15 @@
    "name": "WesternChair",
    "kind": "obj-furnishing-furniture-seating-chair",
    "wdh": [
-    96.6,
-    184.9,
-    83.3
+    0.2,
+    0.4,
+    0.2
    ],
    "tris": 244,
-   "tpu": 0,
+   "tpu": 711,
    "mat": 2,
-   "bytes": 18852,
+   "bytes": 18884,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73390,14 +73269,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "Beer",
    "wdh": [
-    19,
-    67.5,
-    20
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 136,
-   "tpu": 0,
+   "tpu": 397,
    "mat": 2,
-   "bytes": 8012,
+   "bytes": 8044,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73406,14 +73286,15 @@
    "name": "WoodWheel",
    "kind": "obj-transport-part-wheel",
    "wdh": [
-    154.9,
-    154.9,
-    11.6
+    0.3,
+    0.3,
+    0.1
    ],
    "tris": 208,
-   "tpu": 0,
+   "tpu": 606,
    "mat": 2,
-   "bytes": 16064,
+   "bytes": 16096,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73421,14 +73302,15 @@
    "kit": "Low_Poly_Western_Objects",
    "name": "WesternLocker",
    "wdh": [
-    66.9,
-    318.2,
-    170.9
+    0.1,
+    0.6,
+    0.3
    ],
    "tris": 220,
-   "tpu": 0,
+   "tpu": 641,
    "mat": 1,
-   "bytes": 15404,
+   "bytes": 15436,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73437,14 +73319,15 @@
    "name": "WesternBarrel",
    "kind": "obj-container-barrel",
    "wdh": [
-    126.3,
-    141.9,
-    123.2
+    0.3,
+    0.3,
+    0.2
    ],
    "tris": 164,
-   "tpu": 0,
+   "tpu": 478,
    "mat": 2,
-   "bytes": 13384,
+   "bytes": 13416,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   },
@@ -73453,14 +73336,15 @@
    "name": "Crate",
    "kind": "obj-container-crate",
    "wdh": [
-    108.9,
-    111.3,
-    108.9
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 96,
-   "tpu": 0,
+   "tpu": 280,
    "mat": 1,
-   "bytes": 8056,
+   "bytes": 8088,
+   "scaled": true,
    "reason": "style",
    "file": "Low poly Western objects.fbx"
   }
