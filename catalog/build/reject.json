@@ -499,6 +499,21 @@
   {
    "slug": "Taalei",
    "name": "Taalei"
+  },
+  {
+   "slug": "Low_Poly_Medieval_Weapons",
+   "name": "Low Poly Medieval Weapons",
+   "note": "This pack was never imported — nothing from it is in the catalog."
+  },
+  {
+   "slug": "Low_Poly_Household_Items",
+   "name": "Low Poly Household Items",
+   "note": "This pack was never imported — nothing from it is in the catalog."
+  },
+  {
+   "slug": "Low_Poly_Western_Objects",
+   "name": "Low Poly Western Objects",
+   "note": "This pack was never imported — nothing from it is in the catalog."
   }
  ],
  "sources": [
@@ -569,7 +584,7 @@
    "format": "glb",
    "inSource": 145,
    "inCatalog": 33,
-   "listed": 89,
+   "listed": 94,
    "unmatched": 0,
    "scale": 0.95,
    "folder": "Models/GLB format"
@@ -748,7 +763,7 @@
    "format": "obj",
    "inSource": 115,
    "inCatalog": 87,
-   "listed": 15,
+   "listed": 16,
    "unmatched": 0,
    "scale": 0.4,
    "folder": "Nature Kit/models"
@@ -760,7 +775,7 @@
    "format": "obj",
    "inSource": 155,
    "inCatalog": 147,
-   "listed": 7,
+   "listed": 10,
    "unmatched": 1,
    "scale": 0.5,
    "folder": "Modular Village"
@@ -1096,7 +1111,7 @@
    "format": "fbx",
    "inSource": 43,
    "inCatalog": 23,
-   "listed": 15,
+   "listed": 21,
    "unmatched": 0,
    "scale": 0.007,
    "folder": "AssetPack/FBX"
@@ -1431,7 +1446,7 @@
    "format": "glb",
    "inSource": 52,
    "inCatalog": 32,
-   "listed": 5,
+   "listed": 7,
    "unmatched": 0,
    "scale": 0.1
   },
@@ -1502,7 +1517,7 @@
    "format": "glb",
    "inSource": 103,
    "inCatalog": 51,
-   "listed": 35,
+   "listed": 40,
    "unmatched": 0,
    "scale": 0.55,
    "folder": "Models/GLB format"
@@ -1598,7 +1613,7 @@
    "format": "glb",
    "inSource": 95,
    "inCatalog": 46,
-   "listed": 28,
+   "listed": 30,
    "unmatched": 0,
    "scale": 2,
    "folder": "Models/GLB format"
@@ -1658,7 +1673,7 @@
    "format": "glb",
    "inSource": 143,
    "inCatalog": 109,
-   "listed": 19,
+   "listed": 22,
    "unmatched": 0,
    "scale": 0.5,
    "folder": "Models/GLB format"
@@ -1682,7 +1697,7 @@
    "format": "glb",
    "inSource": 153,
    "inCatalog": 91,
-   "listed": 29,
+   "listed": 30,
    "unmatched": 2,
    "scale": 1.3,
    "folder": "Models/GLTF format"
@@ -1706,7 +1721,7 @@
    "format": "glb",
    "inSource": 97,
    "inCatalog": 78,
-   "listed": 2,
+   "listed": 3,
    "unmatched": 2,
    "scale": 1,
    "folder": "Models/GLB format"
@@ -1730,7 +1745,7 @@
    "format": "gltf",
    "inSource": 72,
    "inCatalog": 29,
-   "listed": 10,
+   "listed": 13,
    "unmatched": 0,
    "scale": 0.3,
    "folder": "KayKit_Prototype_Bits_1.1_FREE/Assets/gltf"
@@ -1955,6 +1970,35 @@
    "listed": 1,
    "unmatched": 4,
    "scale": 1
+  },
+  {
+   "slug": "Low_Poly_Medieval_Weapons",
+   "name": "Low Poly Medieval Weapons",
+   "format": "fbx",
+   "inSource": 62,
+   "inCatalog": 0,
+   "listed": 13,
+   "unmatched": 0,
+   "folder": "Low Poly Medieval Weapons"
+  },
+  {
+   "slug": "Low_Poly_Household_Items",
+   "name": "Low Poly Household Items",
+   "format": "fbx",
+   "inSource": 112,
+   "inCatalog": 0,
+   "listed": 23,
+   "unmatched": 0,
+   "folder": "Low Poly Furniture"
+  },
+  {
+   "slug": "Low_Poly_Western_Objects",
+   "name": "Low Poly Western Objects",
+   "format": "fbx",
+   "inSource": 48,
+   "inCatalog": 0,
+   "listed": 30,
+   "unmatched": 0
   }
  ],
  "kinds": [
@@ -11347,6 +11391,40 @@
   },
   {
    "kit": "kenney_prototypekit",
+   "name": "column-rounded",
+   "kind": "str-part-pillar",
+   "wdh": [
+    0.2,
+    1,
+    0.2
+   ],
+   "tris": 12,
+   "tpu": 35,
+   "mat": 1,
+   "bytes": 2128,
+   "scaled": true,
+   "reason": "style",
+   "file": "column-rounded.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
+   "name": "column-triangle",
+   "kind": "str-part-pillar",
+   "wdh": [
+    0.2,
+    1,
+    0.2
+   ],
+   "tris": 8,
+   "tpu": 23,
+   "mat": 1,
+   "bytes": 1980,
+   "scaled": true,
+   "reason": "style",
+   "file": "column-triangle.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
    "name": "crate-color",
    "kind": "obj-container-crate",
    "wdh": [
@@ -12402,6 +12480,57 @@
    "scaled": true,
    "reason": "style",
    "file": "shape-triangular-prism.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
+   "name": "stairs-diagonal-narrow",
+   "kind": "str-access-stairs",
+   "wdh": [
+    1,
+    1,
+    0.5
+   ],
+   "tris": 40,
+   "tpu": 63,
+   "mat": 1,
+   "bytes": 3664,
+   "scaled": true,
+   "reason": "style",
+   "file": "stairs-diagonal-narrow.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
+   "name": "stairs-diagonal-small-narrow",
+   "kind": "str-access-stairs",
+   "wdh": [
+    1,
+    1,
+    0.5
+   ],
+   "tris": 72,
+   "tpu": 114,
+   "mat": 1,
+   "bytes": 5408,
+   "scaled": true,
+   "reason": "style",
+   "file": "stairs-diagonal-small-narrow.glb"
+  },
+  {
+   "kit": "kenney_prototypekit",
+   "name": "stairs-narrow",
+   "kind": "str-access-stairs",
+   "wdh": [
+    1,
+    1,
+    0.5
+   ],
+   "tris": 36,
+   "tpu": 57,
+   "mat": 1,
+   "bytes": 3428,
+   "scaled": true,
+   "reason": "style",
+   "file": "stairs-narrow.glb"
   },
   {
    "kit": "kenney_prototypekit",
@@ -19712,6 +19841,23 @@
   },
   {
    "kit": "nature_kit",
+   "name": "Tree_Oak_8",
+   "kind": "env-flora-tree",
+   "wdh": [
+    1.5,
+    3.7,
+    1.6
+   ],
+   "tris": 1092,
+   "tpu": 119,
+   "mat": 2,
+   "bytes": 33020,
+   "scaled": true,
+   "reason": "style",
+   "file": "Tree_Oak_8.obj"
+  },
+  {
+   "kit": "nature_kit",
    "name": "Tree_Pine_4",
    "kind": "env-flora-tree-conifer",
    "wdh": [
@@ -19813,6 +19959,38 @@
   },
   {
    "kit": "Modular Village",
+   "name": "Stone_Arch_Outer",
+   "wdh": [
+    0.6,
+    1.5,
+    1.2
+   ],
+   "tris": 1228,
+   "tpu": 1218,
+   "mat": 3,
+   "bytes": 65656,
+   "scaled": true,
+   "reason": "style",
+   "file": "Stone_Arch_Outer.obj"
+  },
+  {
+   "kit": "Modular Village",
+   "name": "Stone_Pillar",
+   "wdh": [
+    0.1,
+    0.3,
+    0.1
+   ],
+   "tris": 84,
+   "tpu": 245,
+   "mat": 1,
+   "bytes": 6000,
+   "scaled": true,
+   "reason": "style",
+   "file": "Stone_Pillar.obj"
+  },
+  {
+   "kit": "Modular Village",
    "name": "Stone_Pillar_Base",
    "wdh": [
     0.2,
@@ -19858,6 +20036,22 @@
    "scaled": true,
    "reason": "style",
    "file": "Stone_Sewer_Grate_2.obj"
+  },
+  {
+   "kit": "Modular Village",
+   "name": "Stone_Stairs_Railing",
+   "wdh": [
+    1.1,
+    0.5,
+    0.1
+   ],
+   "tris": 220,
+   "tpu": 585,
+   "mat": 1,
+   "bytes": 13972,
+   "scaled": true,
+   "reason": "style",
+   "file": "Stone_Stairs_Railing.obj"
   },
   {
    "kit": "Modular Village",
@@ -38445,6 +38639,56 @@
   },
   {
    "kit": "AssetPack",
+   "name": "BridgeMSide",
+   "kind": "str-access-bridge",
+   "wdh": [
+    0.5,
+    0.3,
+    0.7
+   ],
+   "tris": 246,
+   "tpu": 693,
+   "mat": 1,
+   "bytes": 15708,
+   "scaled": true,
+   "reason": "style",
+   "file": "BridgeMSide.fbx"
+  },
+  {
+   "kit": "AssetPack",
+   "name": "BridgeMiddle",
+   "kind": "str-access-bridge",
+   "wdh": [
+    0.4,
+    0.1,
+    0.7
+   ],
+   "tris": 140,
+   "tpu": 395,
+   "mat": 1,
+   "bytes": 10144,
+   "scaled": true,
+   "reason": "style",
+   "file": "BridgeMiddle.fbx"
+  },
+  {
+   "kit": "AssetPack",
+   "name": "Door2",
+   "wdh": [
+    0.8,
+    1,
+    0.1
+   ],
+   "tris": 720,
+   "tpu": 1371,
+   "mat": 1,
+   "bytes": 39708,
+   "scaled": true,
+   "reason": "style",
+   "file": "Door2.fbx"
+  },
+  {
+   "kit": "AssetPack",
    "name": "DoorWall",
    "kind": "str-part-wall-unit-doorway",
    "wdh": [
@@ -38593,6 +38837,38 @@
   },
   {
    "kit": "AssetPack",
+   "name": "WallStonePillar",
+   "wdh": [
+    0.3,
+    1.6,
+    0.3
+   ],
+   "tris": 204,
+   "tpu": 532,
+   "mat": 1,
+   "bytes": 10912,
+   "scaled": true,
+   "reason": "style",
+   "file": "WallStonePillar.fbx"
+  },
+  {
+   "kit": "AssetPack",
+   "name": "WallStonePillar2",
+   "wdh": [
+    0.4,
+    1.9,
+    0.4
+   ],
+   "tris": 956,
+   "tpu": 1779,
+   "mat": 1,
+   "bytes": 37840,
+   "scaled": true,
+   "reason": "style",
+   "file": "WallStonePillar2.fbx"
+  },
+  {
+   "kit": "AssetPack",
    "name": "WodenPillar(Lamp)",
    "wdh": [
     0.5,
@@ -38655,6 +38931,23 @@
    "scaled": true,
    "reason": "style",
    "file": "toolholder2.fbx"
+  },
+  {
+   "kit": "AssetPack",
+   "name": "woodenplatformLegs",
+   "kind": "obj-food-meat",
+   "wdh": [
+    3.1,
+    0.6,
+    0.2
+   ],
+   "tris": 196,
+   "tpu": 148,
+   "mat": 1,
+   "bytes": 12604,
+   "scaled": true,
+   "reason": "style",
+   "file": "woodenplatformLegs.fbx"
   },
   {
    "kit": "KayKit_Mixed_Bag_1_FREE",
@@ -57480,6 +57773,23 @@
   },
   {
    "kit": "Animated_Fish_Bundle",
+   "name": "Butterfly Fish",
+   "kind": "env-fauna-fish",
+   "wdh": [
+    0.3,
+    0.3,
+    0.5
+   ],
+   "tris": 1374,
+   "tpu": 4006,
+   "mat": 4,
+   "bytes": 60976,
+   "scaled": true,
+   "reason": "style",
+   "file": "Butterfly Fish.glb"
+  },
+  {
+   "kit": "Animated_Fish_Bundle",
    "name": "Cowfish",
    "wdh": [
     0.3,
@@ -57543,6 +57853,22 @@
    "scaled": true,
    "reason": "style",
    "file": "Humphead.glb"
+  },
+  {
+   "kit": "Animated_Fish_Bundle",
+   "name": "Swordfish",
+   "wdh": [
+    0.4,
+    0.4,
+    0.6
+   ],
+   "tris": 1384,
+   "tpu": 4035,
+   "mat": 4,
+   "bytes": 60432,
+   "scaled": true,
+   "reason": "style",
+   "file": "Swordfish.glb"
   },
   {
    "kit": "Kitchen_Styloo",
@@ -59566,6 +59892,38 @@
   },
   {
    "kit": "kenney_train-kit",
+   "name": "railroad-damaged-straight-skew-left-side",
+   "wdh": [
+    0.6,
+    0.5,
+    2.2
+   ],
+   "tris": 376,
+   "tpu": 349,
+   "mat": 1,
+   "bytes": 20460,
+   "scaled": true,
+   "reason": "style",
+   "file": "railroad-damaged-straight-skew-left-side.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "railroad-damaged-straight-skew-right-side",
+   "wdh": [
+    0.6,
+    0.6,
+    2.2
+   ],
+   "tris": 376,
+   "tpu": 349,
+   "mat": 1,
+   "bytes": 20460,
+   "scaled": true,
+   "reason": "style",
+   "file": "railroad-damaged-straight-skew-right-side.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
    "name": "railroad-rail-corner-large-ramp",
    "wdh": [
     2.4,
@@ -59889,6 +60247,54 @@
    "scaled": true,
    "reason": "style",
    "file": "railroad-straight-bend.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "railroad-straight-skew-left-side",
+   "wdh": [
+    0.5,
+    0.5,
+    2.2
+   ],
+   "tris": 376,
+   "tpu": 349,
+   "mat": 1,
+   "bytes": 19548,
+   "scaled": true,
+   "reason": "style",
+   "file": "railroad-straight-skew-left-side.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "railroad-straight-skew-right-side",
+   "wdh": [
+    0.5,
+    0.5,
+    2.2
+   ],
+   "tris": 376,
+   "tpu": 349,
+   "mat": 1,
+   "bytes": 19548,
+   "scaled": true,
+   "reason": "style",
+   "file": "railroad-straight-skew-right-side.glb"
+  },
+  {
+   "kit": "kenney_train-kit",
+   "name": "spline-segment",
+   "wdh": [
+    0.6,
+    0.1,
+    0.1
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bytes": 3260,
+   "scaled": true,
+   "reason": "style",
+   "file": "spline-segment.glb"
   },
   {
    "kit": "kenney_train-kit",
@@ -61201,6 +61607,23 @@
   },
   {
    "kit": "kenney_city-kit-roads",
+   "name": "road-slant-flat-high",
+   "kind": "str-access-road",
+   "wdh": [
+    2,
+    1,
+    2
+   ],
+   "tris": 44,
+   "tpu": 11,
+   "mat": 1,
+   "bytes": 3880,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-slant-flat-high.glb"
+  },
+  {
+   "kit": "kenney_city-kit-roads",
    "name": "road-slant-high-barrier",
    "kind": "str-access-road",
    "wdh": [
@@ -61249,6 +61672,23 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "road-square-barrier.glb"
+  },
+  {
+   "kit": "kenney_city-kit-roads",
+   "name": "road-square",
+   "kind": "str-access-road",
+   "wdh": [
+    2,
+    0.1,
+    2
+   ],
+   "tris": 36,
+   "tpu": 37,
+   "mat": 1,
+   "bytes": 3304,
+   "scaled": true,
+   "reason": "style",
+   "file": "road-square.glb"
   },
   {
    "kit": "kenney_city-kit-roads",
@@ -62533,6 +62973,56 @@
   },
   {
    "kit": "kenney_factory-kit_3.0",
+   "name": "door-wide-closed",
+   "kind": "str-part-door",
+   "wdh": [
+    0.9,
+    0.8,
+    0.1
+   ],
+   "tris": 22,
+   "mat": 1,
+   "bytes": 2616,
+   "scaled": true,
+   "reason": "style",
+   "file": "door-wide-closed.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
+   "name": "door-wide-half",
+   "kind": "str-part-door",
+   "wdh": [
+    0.9,
+    0.6,
+    0.2
+   ],
+   "tris": 20,
+   "tpu": 51,
+   "mat": 1,
+   "bytes": 2512,
+   "scaled": true,
+   "reason": "style",
+   "file": "door-wide-half.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
+   "name": "door-wide-open",
+   "kind": "str-part-door",
+   "wdh": [
+    0.9,
+    0.4,
+    0.2
+   ],
+   "tris": 16,
+   "tpu": 47,
+   "mat": 1,
+   "bytes": 2228,
+   "scaled": true,
+   "reason": "style",
+   "file": "door-wide-open.glb"
+  },
+  {
+   "kit": "kenney_factory-kit_3.0",
    "name": "floor-large",
    "kind": "str-part-floor",
    "wdh": [
@@ -63076,6 +63566,21 @@
    "scaled": true,
    "reason": "style",
    "file": "meteor_half.glb"
+  },
+  {
+   "kit": "kenney_space-kit",
+   "name": "platform_center",
+   "wdh": [
+    1.3,
+    0.1,
+    1.3
+   ],
+   "tris": 4,
+   "mat": 1,
+   "bytes": 1256,
+   "scaled": true,
+   "reason": "style",
+   "file": "platform_center.glb"
   },
   {
    "kit": "kenney_space-kit",
@@ -63906,6 +64411,22 @@
    "file": "pipe-ring-colored.glb"
   },
   {
+   "kit": "kenney_space-station-kit",
+   "name": "wall-switch",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 18,
+   "tpu": 52,
+   "mat": 1,
+   "bytes": 2216,
+   "scaled": true,
+   "reason": "style",
+   "file": "wall-switch.glb"
+  },
+  {
    "kit": "KayKit_Space_Base_Bits_1.0_FREE",
    "name": "containers_C",
    "wdh": [
@@ -64186,6 +64707,55 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "Cube_Prototype_Small.gltf"
+  },
+  {
+   "kit": "KayKit_Prototype_Bits_1.1_FREE",
+   "name": "Primitive_Beam",
+   "kind": "str-part-pillar",
+   "wdh": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "tris": 12,
+   "tpu": 35,
+   "mat": 1,
+   "bytes": 2180,
+   "scaled": true,
+   "reason": "style",
+   "file": "Primitive_Beam.gltf"
+  },
+  {
+   "kit": "KayKit_Prototype_Bits_1.1_FREE",
+   "name": "Primitive_Cube",
+   "wdh": [
+    1.2,
+    1.2,
+    1.2
+   ],
+   "tris": 12,
+   "tpu": 7,
+   "mat": 1,
+   "bytes": 2144,
+   "scaled": true,
+   "reason": "style",
+   "file": "Primitive_Cube.gltf"
+  },
+  {
+   "kit": "KayKit_Prototype_Bits_1.1_FREE",
+   "name": "Primitive_Cube_Small",
+   "wdh": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "tris": 12,
+   "tpu": 35,
+   "mat": 1,
+   "bytes": 2156,
+   "scaled": true,
+   "reason": "style",
+   "file": "Primitive_Cube_Small.gltf"
   },
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
@@ -71860,6 +72430,1039 @@
    "scaled": true,
    "reason": "dedupe",
    "file": "drone_gimbal3axis.glb"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Bolt",
+   "wdh": [
+    4.7,
+    51.6,
+    5.2
+   ],
+   "tris": 120,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 8800,
+   "reason": "style",
+   "file": "Bows/Bolt.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Crossbow",
+   "kind": "obj-equipment-weapon-ranged-crossbow",
+   "wdh": [
+    15.3,
+    123.7,
+    105.3
+   ],
+   "tris": 830,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 47584,
+   "reason": "style",
+   "file": "Bows/Crossbow.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Two-Handed Hammer",
+   "kind": "obj-equipment-tool-hand-hammer",
+   "wdh": [
+    38.7,
+    172.6,
+    61.4
+   ],
+   "tris": 252,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 15516,
+   "reason": "style",
+   "file": "Hammers/Two-Handed Hammer.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Warhammer",
+   "kind": "obj-equipment-weapon-melee-warhammer",
+   "wdh": [
+    13.6,
+    216.7,
+    55.4
+   ],
+   "tris": 304,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 17916,
+   "reason": "style",
+   "file": "Hammers/Warhammer.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Potion B",
+   "kind": "obj-container-bottle-vial",
+   "wdh": [
+    17.8,
+    31.7,
+    17.8
+   ],
+   "tris": 148,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 9476,
+   "reason": "style",
+   "file": "Magic/Potion B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Potion C",
+   "kind": "obj-container-bottle-vial",
+   "wdh": [
+    20.2,
+    44.1,
+    20.2
+   ],
+   "tris": 224,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 13824,
+   "reason": "style",
+   "file": "Magic/Potion C.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Potion D",
+   "kind": "obj-container-bottle-vial",
+   "wdh": [
+    22.2,
+    32.8,
+    22.2
+   ],
+   "tris": 256,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 16316,
+   "reason": "style",
+   "file": "Magic/Potion D.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Potion E",
+   "kind": "obj-container-bottle-vial",
+   "wdh": [
+    17.8,
+    31.7,
+    17.8
+   ],
+   "tris": 212,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 13712,
+   "reason": "style",
+   "file": "Magic/Potion E.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Potion F",
+   "kind": "obj-container-bottle-vial",
+   "wdh": [
+    21.5,
+    44.1,
+    21.5
+   ],
+   "tris": 256,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 16336,
+   "reason": "style",
+   "file": "Magic/Potion F.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Shield C",
+   "kind": "obj-equipment-armor-shield",
+   "wdh": [
+    19,
+    117,
+    83.1
+   ],
+   "tris": 976,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 58128,
+   "reason": "style",
+   "file": "Shields/Shield C.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Shield E",
+   "kind": "obj-equipment-armor-shield",
+   "wdh": [
+    19,
+    171.7,
+    83.1
+   ],
+   "tris": 1288,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 74248,
+   "reason": "style",
+   "file": "Shields/Shield E.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "Messer",
+   "wdh": [
+    4.6,
+    141,
+    41.5
+   ],
+   "tris": 320,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 19872,
+   "reason": "style",
+   "file": "Swords/Messer.fbx"
+  },
+  {
+   "kit": "Low_Poly_Medieval_Weapons",
+   "name": "War Cleaver",
+   "kind": "obj-kitchenware-cookware-utensil-knife",
+   "wdh": [
+    5.3,
+    140.6,
+    25.1
+   ],
+   "tris": 340,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 21068,
+   "reason": "style",
+   "file": "Swords/War Cleaver.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Chair B",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "wdh": [
+    206.1,
+    529.4,
+    216.9
+   ],
+   "tris": 516,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 31668,
+   "reason": "style",
+   "file": "Chairs/Chair B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Door A",
+   "kind": "str-part-door",
+   "wdh": [
+    462,
+    1025.9,
+    153.4
+   ],
+   "tris": 364,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 26536,
+   "reason": "style",
+   "file": "Doors/Door A.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Door B",
+   "kind": "str-part-door",
+   "wdh": [
+    447.9,
+    1022.2,
+    143.7
+   ],
+   "tris": 1008,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 57424,
+   "reason": "style",
+   "file": "Doors/Door B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Door C",
+   "kind": "str-part-door",
+   "wdh": [
+    457.2,
+    1047.4,
+    145.1
+   ],
+   "tris": 1024,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 57232,
+   "reason": "style",
+   "file": "Doors/Door C.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Console A",
+   "kind": "obj-device-electronics-computer",
+   "wdh": [
+    146.9,
+    308,
+    146.9
+   ],
+   "tris": 68,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 4960,
+   "reason": "style",
+   "file": "Electronics/Console A.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Console B",
+   "kind": "obj-device-electronics-computer",
+   "wdh": [
+    270.9,
+    93.3,
+    221.9
+   ],
+   "tris": 68,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 4864,
+   "reason": "style",
+   "file": "Electronics/Console B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard A",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "wdh": [
+    251.9,
+    437.3,
+    325.3
+   ],
+   "tris": 368,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 22020,
+   "reason": "style",
+   "file": "Kitchen/Cupboard A.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard B",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "wdh": [
+    469.1,
+    437.3,
+    325.3
+   ],
+   "tris": 584,
+   "tpu": 0,
+   "mat": 5,
+   "bytes": 34180,
+   "reason": "style",
+   "file": "Kitchen/Cupboard B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard C",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "wdh": [
+    474.3,
+    451.4,
+    325.8
+   ],
+   "tris": 628,
+   "tpu": 0,
+   "mat": 6,
+   "bytes": 37912,
+   "reason": "style",
+   "file": "Kitchen/Cupboard C.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard D",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "wdh": [
+    254.2,
+    451.4,
+    325.8
+   ],
+   "tris": 420,
+   "tpu": 0,
+   "mat": 4,
+   "bytes": 25472,
+   "reason": "style",
+   "file": "Kitchen/Cupboard D.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard E",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "wdh": [
+    474.3,
+    451.4,
+    325.8
+   ],
+   "tris": 860,
+   "tpu": 0,
+   "mat": 8,
+   "bytes": 51232,
+   "reason": "style",
+   "file": "Kitchen/Cupboard E.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard F",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "wdh": [
+    881.7,
+    451.4,
+    325.8
+   ],
+   "tris": 716,
+   "tpu": 0,
+   "mat": 6,
+   "bytes": 42952,
+   "reason": "style",
+   "file": "Kitchen/Cupboard F.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Cupboard Sink",
+   "wdh": [
+    474.3,
+    506.5,
+    325.8
+   ],
+   "tris": 1856,
+   "tpu": 0,
+   "mat": 7,
+   "bytes": 101884,
+   "reason": "style",
+   "file": "Kitchen/Cupboard Sink.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Hoover",
+   "wdh": [
+    128.7,
+    42.7,
+    128.7
+   ],
+   "tris": 236,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 13988,
+   "reason": "style",
+   "file": "Miscellaneous/Hoover.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Light Switch",
+   "wdh": [
+    40,
+    40,
+    11.2
+   ],
+   "tris": 108,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 7136,
+   "reason": "style",
+   "file": "Miscellaneous/Light Switch.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Plant B",
+   "kind": "str-building-work-industrial",
+   "wdh": [
+    91.2,
+    121.2,
+    91.2
+   ],
+   "tris": 416,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 23628,
+   "reason": "style",
+   "file": "Miscellaneous/Plant B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Socket",
+   "wdh": [
+    74.8,
+    38.3,
+    9.6
+   ],
+   "tris": 194,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 10940,
+   "reason": "style",
+   "file": "Miscellaneous/Socket.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Vent",
+   "wdh": [
+    132.7,
+    61.9,
+    12.8
+   ],
+   "tris": 244,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 11380,
+   "reason": "style",
+   "file": "Miscellaneous/Vent.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Shelf A",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "wdh": [
+    326.4,
+    1075.7,
+    237
+   ],
+   "tris": 376,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 25476,
+   "reason": "style",
+   "file": "Shelves/Shelf A.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Shelf B",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "wdh": [
+    614.5,
+    1075.7,
+    246.5
+   ],
+   "tris": 512,
+   "tpu": 0,
+   "mat": 5,
+   "bytes": 36616,
+   "reason": "style",
+   "file": "Shelves/Shelf B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Window A",
+   "kind": "str-part-window",
+   "wdh": [
+    332.5,
+    677.3,
+    46.9
+   ],
+   "tris": 156,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 10480,
+   "reason": "style",
+   "file": "Windows/Window A.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Window B",
+   "kind": "str-part-window",
+   "wdh": [
+    563.6,
+    736.3,
+    43.5
+   ],
+   "tris": 244,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 15812,
+   "reason": "style",
+   "file": "Windows/Window B.fbx"
+  },
+  {
+   "kit": "Low_Poly_Household_Items",
+   "name": "Window C",
+   "kind": "str-part-window",
+   "wdh": [
+    445.7,
+    445.7,
+    32.6
+   ],
+   "tris": 156,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 10484,
+   "reason": "style",
+   "file": "Windows/Window C.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WoodBarrelTopDestroyed",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    98.6,
+    4.7,
+    96.2
+   ],
+   "tris": 24,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2848,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WoodBarrelDestroyed",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    14.8,
+    141.9,
+    56.2
+   ],
+   "tris": 76,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 7480,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "DestroyedCrate6",
+   "wdh": [
+    5.8,
+    100,
+    89
+   ],
+   "tris": 16,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2460,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "DestroyedCrate5",
+   "wdh": [
+    100,
+    100,
+    6.3
+   ],
+   "tris": 16,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2420,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "DestroyedCrate4",
+   "wdh": [
+    100,
+    83.5,
+    5.9
+   ],
+   "tris": 16,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2432,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "DestroyedCrate3",
+   "wdh": [
+    108.9,
+    13.4,
+    108.9
+   ],
+   "tris": 36,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3868,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "DestroyedCrate2",
+   "wdh": [
+    108.9,
+    14.5,
+    108.9
+   ],
+   "tris": 36,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 3868,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "DestroyedCrate1",
+   "wdh": [
+    6.9,
+    100,
+    88.5
+   ],
+   "tris": 16,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2460,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Bushes",
+   "wdh": [
+    54.9,
+    49.6,
+    46.6
+   ],
+   "tris": 70,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 7136,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternCart.001",
+   "kind": "obj-transport-land-cart",
+   "wdh": [
+    609.1,
+    334.5,
+    248.8
+   ],
+   "tris": 744,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 49052,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Rail",
+   "wdh": [
+    85.2,
+    6.6,
+    86.7
+   ],
+   "tris": 32,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 4472,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Chest_Top",
+   "kind": "obj-container-chest",
+   "wdh": [
+    114.8,
+    63.8,
+    156.4
+   ],
+   "tris": 210,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 15652,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Chest_Base",
+   "kind": "obj-container-chest",
+   "wdh": [
+    115.2,
+    73.1,
+    156.2
+   ],
+   "tris": 128,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 10900,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WantedPoster",
+   "wdh": [
+    68.8,
+    0.1,
+    94.2
+   ],
+   "tris": 42,
+   "tpu": 1,
+   "mat": 1,
+   "bytes": 2772,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternBarrel_hay",
+   "wdh": [
+    126.3,
+    141.9,
+    123.2
+   ],
+   "tris": 166,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 14256,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternBarrel_water",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    126.3,
+    141.9,
+    123.2
+   ],
+   "tris": 178,
+   "tpu": 0,
+   "mat": 3,
+   "bytes": 15140,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Paper3",
+   "wdh": [
+    93.6,
+    10.4,
+    99.1
+   ],
+   "tris": 14,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 1884,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Paper2",
+   "wdh": [
+    94.9,
+    8.1,
+    97.2
+   ],
+   "tris": 19,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2012,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternPlayTable",
+   "kind": "obj-furnishing-furniture-table",
+   "wdh": [
+    274.2,
+    139.4,
+    288.3
+   ],
+   "tris": 211,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 16016,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "OldBench",
+   "kind": "obj-furnishing-furniture-seating-bench",
+   "wdh": [
+    438.1,
+    82.3,
+    94.8
+   ],
+   "tris": 76,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 6660,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Paper1",
+   "wdh": [
+    94.9,
+    6.9,
+    97.2
+   ],
+   "tris": 29,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 2424,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Log",
+   "wdh": [
+    179,
+    42,
+    46.7
+   ],
+   "tris": 108,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 8632,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Stump",
+   "kind": "env-remains-deadwood-stump",
+   "wdh": [
+    95.6,
+    67.6,
+    102.6
+   ],
+   "tris": 82,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 6560,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternTable",
+   "kind": "obj-furnishing-furniture-table",
+   "wdh": [
+    269.5,
+    124,
+    283.3
+   ],
+   "tris": 96,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 7684,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternChair",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "wdh": [
+    96.6,
+    184.9,
+    83.3
+   ],
+   "tris": 244,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 18852,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Beer",
+   "wdh": [
+    19,
+    67.5,
+    20
+   ],
+   "tris": 136,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 8012,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WoodWheel",
+   "kind": "obj-transport-part-wheel",
+   "wdh": [
+    154.9,
+    154.9,
+    11.6
+   ],
+   "tris": 208,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 16064,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternLocker",
+   "wdh": [
+    66.9,
+    318.2,
+    170.9
+   ],
+   "tris": 220,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 15404,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "WesternBarrel",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    126.3,
+    141.9,
+    123.2
+   ],
+   "tris": 164,
+   "tpu": 0,
+   "mat": 2,
+   "bytes": 13384,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
+  },
+  {
+   "kit": "Low_Poly_Western_Objects",
+   "name": "Crate",
+   "kind": "obj-container-crate",
+   "wdh": [
+    108.9,
+    111.3,
+    108.9
+   ],
+   "tris": 96,
+   "tpu": 0,
+   "mat": 1,
+   "bytes": 8056,
+   "reason": "style",
+   "file": "Low poly Western objects.fbx"
   }
  ]
 }
