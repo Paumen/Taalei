@@ -445,6 +445,7 @@ const SOURCES = [
   { id: 'ipoly', name: 'iPoly3D', description: 'Kits from iPoly3D (poly.pizza/u/iPoly3D).' },
   { id: 'milkandbanana', name: 'MilkAndBanana', description: 'Kits from MilkAndBanana.' },
   { id: 'creativetrio', name: 'Creative Trio', description: 'Kits from Creative Trio.' },
+  { id: 'rey', name: 'reyshapes', description: 'Kits from reyshapes (poly.pizza/u/reyshapes).' },
 ];
 
 function readSourcePerKit() {
