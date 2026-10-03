@@ -185,4 +185,10 @@ export const BRONKITS = [
   { map: 'Sci-Fi_Modular_Gun_Pack', naam: 'Sci-Fi Modular Gun Pack', kit: 'quat-scifi', source: 'qua', formaat: 'glb' },
   { map: 'Art_Studio', naam: 'Art Studio', kit: 'rey-studio', source: 'rey', formaat: 'glb' },
   { map: 'Taalei', naam: 'Taalei', kit: 'taalei-kit', formaat: 'glb', extraFormaten: ['fbx'] },
+
+  { map: 'Low_Poly_Medieval_Weapons', naam: 'Low Poly Medieval Weapons', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Low_Poly_Household_Items', naam: 'Low Poly Household Items', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Low_Poly_Western_Objects', naam: 'Low Poly Western Objects', kit: null, formaat: 'fbx', splitsPerMesh: true },
+  { map: 'Low_Poly_Horror_Room_Assets', naam: 'Low Poly 3D Horror Pack Room Assets', kit: null, formaat: 'glb', alleMappen: true },
+  { map: 'Dungeon_Asset_Pack', naam: 'Dungeon Asset Pack', kit: null, formaat: 'fbx' },
 ];
