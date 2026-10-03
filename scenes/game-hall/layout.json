@@ -1,0 +1,229 @@
+{
+  "room": {
+    "floor": {
+      "parts": { ".": "ken-market/floor-tiles", "#": "ken-arcade/floor" },
+      "rows": [
+        ".....##.....",
+        ".....##.....",
+        ".....##.....",
+        ".....##.....",
+        ".....##.....",
+        ".....##.....",
+        "....####....",
+        "....####....",
+        ".....##.....",
+        ".....##.....",
+        ".....##.....",
+        ".....##....."
+      ]
+    },
+    "walls": {
+      "scale": 1.5,
+      "parts": { "w": "ken-arcade/wall", "d": "ken-arcade/wall-door", "n": "ken-arcade/wall-window" },
+      "corner": "ken-arcade/column",
+      "north": "wwwwwwww",
+      "east": "wwwwwwww",
+      "south": "wnwddwnw",
+      "west": "wwwwwwww"
+    }
+  },
+  "zones": {
+    "prize-counter": [
+      { "m": "sq-bowling/trophy-case", "at": [-2.05, -5.6] },
+      { "m": "kay-mixed/instant-camera-a", "at": [-2.05, -5.55], "y": 0.9, "rot": 15 },
+      { "m": "sq-cards/display-tower", "at": [-1.45, -5.57] },
+      { "m": "sq-arcade/prize-wall", "at": [-0.85, -5.59] },
+      { "m": "ken-arcade/prize-shelf", "at": [0, -5.51] },
+      { "m": "sq-arcade/prize-wall", "at": [0.85, -5.59] },
+      { "m": "sq-cards/display-tower", "at": [1.45, -5.57] },
+      { "m": "sq-bowling/trophy-case", "at": [2.05, -5.6] },
+      { "m": "kay-mixed/instant-camera-green", "at": [2.05, -5.55], "y": 0.9, "rot": -15 },
+      { "m": "sq-arcade/play-sign", "at": [0, -5.68], "y": 0.95, "wall": "north" },
+      { "m": "ken-arcade/cash-register", "at": [0, -4.5] },
+      { "m": "sq-cards/glass-counter", "at": [-0.81, -4.41] },
+      { "m": "sq-cards/glass-counter", "at": [0.81, -4.41] },
+      { "m": "kay-mixed/plushie-chicken-a", "at": [-1.0, -4.41], "y": 0.5, "rot": 20 },
+      { "m": "kay-mixed/puzzle-cube-center", "at": [-0.62, -4.41], "y": 0.5, "rot": 15 },
+      { "m": "sq-cards/trophy", "at": [0.62, -4.41], "y": 0.5 },
+      { "m": "kay-mixed/plushie-chicken-b", "at": [1.0, -4.41], "y": 0.5, "rot": -20 },
+      { "m": "sq-arcade/ticket-eater", "at": [-1.5, -4.4] },
+      { "m": "sq-arcade/ticket-eater", "at": [1.5, -4.4] },
+      { "m": "ken-arcade/prize-wheel", "at": [-2.15, -4.3] },
+      { "m": "ken-arcade/ticket-machine", "at": [2.1, -4.35] },
+      { "m": "sq-rink/stripe-panels", "at": [-1.2, -5.69], "y": 0.95, "wall": "north" },
+      { "m": "sq-rink/stripe-panels", "at": [1.2, -5.69], "y": 0.95, "wall": "north" }
+    ],
+    "north-row": [
+      { "m": "sq-arcade/arcade-upright-gamma", "at": [-4.3, -5.46] },
+      { "m": "sq-arcade/arcade-upright-alpha", "at": [-3.8, -5.46] },
+      { "m": "sq-arcade/arcade-upright-beta", "at": [-3.3, -5.46] },
+      { "m": "ken-arcade/arcade-machine", "at": [-2.8, -5.44] }
+    ],
+    "claw-row": [
+      { "m": "ken-arcade/basketball-game", "at": [-5.22, -5.35], "rot": 90 },
+      { "m": "ken-arcade/basketball-game", "at": [-5.22, -4.7], "rot": 90 },
+      { "m": "kay-holiday/basketball", "at": [-4.5, -4.25] },
+      { "m": "sq-arcade/claw-machine", "at": [-5.49, -4.1], "rot": 90 },
+      { "m": "sq-arcade/claw-machine", "at": [-5.49, -3.7], "rot": 90 },
+      { "m": "sq-cards/gacha-machine", "at": [-5.585, -3.3], "rot": 90 },
+      { "m": "sq-cards/gacha-machine", "at": [-5.585, -3.0], "rot": 90 },
+      { "m": "sq-cards/gacha-machine", "at": [-5.585, -2.7], "rot": 90 },
+      { "m": "sq-bowling/arrow-sign", "at": [-5.66, -3.0], "y": 0.62, "rot": 90, "wall": "west" }
+    ],
+    "cocktails": [
+      { "m": "sq-arcade/arcade-cocktail", "at": [-4.85, -2.0] },
+      { "m": "sq-arcade/arcade-cocktail", "at": [-4.85, -1.0] },
+      { "m": "sq-arcade/arcade-cocktail", "at": [-4.85, 0.0] },
+      { "m": "sq-cards/play-stool", "at": [-4.85, -2.33] },
+      { "m": "sq-cards/play-stool", "at": [-4.85, -1.67], "rot": 180 },
+      { "m": "sq-cards/play-stool", "at": [-4.85, -1.33] },
+      { "m": "sq-cards/play-stool", "at": [-4.85, -0.67], "rot": 180 },
+      { "m": "sq-cards/play-stool", "at": [-4.85, -0.33] },
+      { "m": "sq-cards/play-stool", "at": [-4.85, 0.33], "rot": 180 },
+      { "m": "isa-plants/monstera-potted-large", "at": [-5.25, 0.9] },
+      { "m": "sq-arcade/arcade-bin", "at": [-5.55, 1.65], "rot": 90 },
+      { "m": "isa-plants/yucca-potted-large", "at": [-5.35, 2.4] },
+      { "m": "sq-cinema/poster-lightboxes", "at": [-5.675, -1.45], "y": 0.55, "rot": 90, "wall": "west" },
+      { "m": "sq-cinema/poster-lightboxes", "at": [-5.675, -0.55], "y": 0.55, "rot": 90, "wall": "west" }
+    ],
+    "cabinets": [
+      { "m": "sq-arcade/arcade-upright-alpha", "at": [-3.8, -1.76] },
+      { "m": "sq-arcade/arcade-upright-beta", "at": [-3.3, -1.76] },
+      { "m": "sq-arcade/arcade-upright-gamma", "at": [-2.8, -1.76] },
+      { "m": "ken-arcade/arcade-machine", "at": [-2.3, -1.74] },
+      { "m": "sq-arcade/arcade-upright-beta", "at": [-1.8, -1.76] },
+      { "m": "sq-arcade/arcade-upright-gamma", "at": [-3.8, -2.24], "rot": 180 },
+      { "m": "ken-arcade/arcade-machine", "at": [-3.3, -2.26], "rot": 180 },
+      { "m": "sq-arcade/arcade-upright-alpha", "at": [-2.8, -2.24], "rot": 180 },
+      { "m": "sq-arcade/arcade-upright-beta", "at": [-2.3, -2.24], "rot": 180 },
+      { "m": "sq-arcade/arcade-upright-alpha", "at": [-1.8, -2.24], "rot": 180 }
+    ],
+    "pinball": [
+      { "m": "ken-arcade/pinball", "at": [-3.6, 0.3] },
+      { "m": "sq-arcade/pinball", "at": [-3.1, 0.3] },
+      { "m": "ken-arcade/pinball", "at": [-2.6, 0.3] },
+      { "m": "sq-arcade/pinball", "at": [-2.1, 0.3] }
+    ],
+    "air-hockey": [
+      { "m": "sq-arcade/air-hockey-table", "at": [-3.2, 1.8] },
+      { "m": "sq-arcade/air-hockey-gear", "at": [-3.2, 1.8], "y": 0.4 },
+      { "m": "ken-arcade/air-hockey", "at": [2.4, 1.0] }
+    ],
+    "snack-bar": [
+      { "m": "ken-arcade/vending-machine", "at": [-2.25, 5.47], "rot": 180 },
+      { "m": "sq-cinema/popcorn-machine", "at": [-2.8, 5.55], "rot": 180 },
+      { "m": "ken-market/freezer-chest", "at": [-3.5, 5.41], "rot": 180 },
+      { "m": "isa-picnic/radio", "at": [-3.5, 5.4], "y": 0.33, "rot": 160 },
+      { "m": "sq-cinema/concession-counter", "at": [-4.55, 5.515], "rot": 180 },
+      { "m": "sq-cinema/soda-tower", "at": [-4.8, 5.52], "y": 0.46, "rot": 180 },
+      { "m": "isa-bakery/cash-register", "at": [-4.3, 5.52], "y": 0.46, "rot": 180 },
+      { "m": "isa-park/trashcan", "at": [-5.4, 5.4] },
+      { "m": "ken-station/table", "at": [-4.1, 3.7] },
+      { "m": "ken-station/table", "at": [-2.5, 3.7] },
+      { "m": "sq-cards/play-stool", "at": [-4.4, 3.18] },
+      { "m": "sq-cards/play-stool", "at": [-3.8, 3.18] },
+      { "m": "sq-cards/play-stool", "at": [-4.4, 4.22], "rot": 180 },
+      { "m": "sq-cards/play-stool", "at": [-3.8, 4.22], "rot": 180 },
+      { "m": "sq-cards/play-stool", "at": [-2.8, 3.18] },
+      { "m": "sq-cards/play-stool", "at": [-2.2, 3.18] },
+      { "m": "sq-cards/play-stool", "at": [-2.8, 4.22], "rot": 180 },
+      { "m": "sq-cards/play-stool", "at": [-2.2, 4.22], "rot": 180 },
+      { "m": "ken-food/burger-cheese", "at": [-4.4, 3.55], "y": 0.4 },
+      { "m": "ken-food/soda", "at": [-4.15, 3.5], "y": 0.4 },
+      { "m": "ken-food/hot-dog", "at": [-3.8, 3.88], "y": 0.4, "rot": 160 },
+      { "m": "isa-bakery/cup-takeaway", "at": [-4.05, 3.9], "y": 0.4 },
+      { "m": "ken-food/sundae", "at": [-2.8, 3.55], "y": 0.4 },
+      { "m": "ken-food/ice-cream", "at": [-2.6, 3.5], "y": 0.4 },
+      { "m": "ken-food/soda-can", "at": [-2.2, 3.85], "y": 0.4 },
+      { "m": "ken-food/chocolate", "at": [-2.1, 3.55], "y": 0.4, "rot": 30 },
+      { "m": "ken-food/popsicle", "at": [-2.4, 3.9], "y": 0.4 },
+      { "m": "sq-cinema/poster-lightboxes", "at": [-2.25, 5.675], "y": 0.8, "rot": 180, "wall": "south" }
+    ],
+    "entrance": [
+      { "m": "isa-plants/sansevieria-potted-large", "at": [-1.75, 5.35] },
+      { "m": "isa-plants/sansevieria-potted-large", "at": [1.75, 5.35] },
+      { "m": "sq-cinema/ticket-booth", "at": [2.45, 5.36], "rot": 180 },
+      { "m": "sq-arcade/token-changer", "at": [3.0, 5.6], "rot": 180 },
+      { "m": "sq-arcade/token-changer", "at": [3.35, 5.6], "rot": 180 },
+      { "m": "sq-cinema/exit-sign", "at": [0, 5.655], "y": 1.2, "rot": 180, "wall": "south" },
+      { "m": "sq-arcade/arcade-bin", "at": [-1.75, 4.75], "rot": 90 },
+      { "m": "kay-platformer/sign-caution", "at": [-1.25, 2.6], "rot": 30 },
+      { "m": "rgp-asia/fence-rope-a", "at": [2.05, 4.55], "rot": 90 },
+      { "m": "rgp-asia/fence-rope-b", "at": [2.85, 4.55], "rot": 90 }
+    ],
+    "claw-island": [
+      { "m": "ken-arcade/claw-machine", "at": [-0.32, 0.93] },
+      { "m": "ken-arcade/claw-machine", "at": [0.32, 0.93] },
+      { "m": "ken-arcade/claw-machine", "at": [-0.32, 0.27], "rot": 180 },
+      { "m": "ken-arcade/claw-machine", "at": [0.32, 0.27], "rot": 180 },
+      { "m": "sq-arcade/claw-machine", "at": [0.85, 0.6], "rot": 90 },
+      { "m": "sq-arcade/claw-machine", "at": [-0.85, 0.6], "rot": -90 }
+    ],
+    "racing": [
+      { "m": "sq-arcade/driving-cab", "at": [1.8, -0.96] },
+      { "m": "sq-arcade/driving-cab", "at": [2.3, -0.96] },
+      { "m": "sq-arcade/driving-cab", "at": [2.8, -0.96] },
+      { "m": "sq-arcade/driving-cab", "at": [1.8, -1.64], "rot": 180 },
+      { "m": "sq-arcade/driving-cab", "at": [2.3, -1.64], "rot": 180 },
+      { "m": "sq-arcade/driving-cab", "at": [2.8, -1.64], "rot": 180 }
+    ],
+    "touch-table": [
+      { "m": "ken-station/table-display", "at": [2.6, 2.9] }
+    ],
+    "dj-stage": [
+      { "m": "quat-sushi/floor-checker", "at": [2.9, -5.3] },
+      { "m": "quat-sushi/floor-checker", "at": [3.7, -5.3] },
+      { "m": "quat-sushi/floor-checker", "at": [4.5, -5.3] },
+      { "m": "quat-sushi/floor-checker", "at": [5.3, -5.3] },
+      { "m": "quat-sushi/floor-checker", "at": [2.9, -4.5] },
+      { "m": "quat-sushi/floor-checker", "at": [3.7, -4.5] },
+      { "m": "quat-sushi/floor-checker", "at": [4.5, -4.5] },
+      { "m": "quat-sushi/floor-checker", "at": [5.3, -4.5] },
+      { "m": "quat-sushi/floor-checker", "at": [2.9, -3.7] },
+      { "m": "quat-sushi/floor-checker", "at": [3.7, -3.7] },
+      { "m": "quat-sushi/floor-checker", "at": [4.5, -3.7] },
+      { "m": "quat-sushi/floor-checker", "at": [5.3, -3.7] },
+      { "m": "quat-sushi/floor-checker", "at": [2.9, -2.9] },
+      { "m": "quat-sushi/floor-checker", "at": [3.7, -2.9] },
+      { "m": "quat-sushi/floor-checker", "at": [4.5, -2.9] },
+      { "m": "quat-sushi/floor-checker", "at": [5.3, -2.9] },
+      { "m": "sq-rink/dj-booth", "at": [4.1, -4.9], "y": 0.1 },
+      { "m": "ipoly-concert/speaker-large", "at": [3.1, -5.3], "y": 0.1, "rot": 10 },
+      { "m": "ipoly-concert/speaker-small", "at": [3.1, -5.3], "y": 0.94, "rot": 10 },
+      { "m": "ipoly-concert/speaker-large", "at": [5.1, -5.3], "y": 0.1, "rot": -10 },
+      { "m": "ipoly-concert/speaker-small", "at": [5.1, -5.3], "y": 0.94, "rot": -10 },
+      { "m": "ipoly-concert/spotlight-moving", "at": [3.2, -4.3], "y": 0.1, "rot": 30 },
+      { "m": "ipoly-concert/spotlight-moving", "at": [5.0, -4.3], "y": 0.1, "rot": -30 },
+      { "m": "ipoly-concert/led-panel", "at": [3.66, -5.51], "y": 0.72, "wall": "north" },
+      { "m": "ipoly-concert/led-panel", "at": [4.54, -5.51], "y": 0.72, "wall": "north" },
+      { "m": "sq-rink/disco-ball", "at": [4.1, -3.7], "y": 0.9 },
+      { "m": "sq-studio/amp-stack", "at": [2.75, -4.5], "y": 0.1, "rot": 60 }
+    ],
+    "dance": [
+      { "m": "ken-arcade/dance-machine", "at": [5.24, -1.9], "rot": -90 },
+      { "m": "sq-arcade/dance-stage", "at": [5.38, -1.2], "rot": -90 },
+      { "m": "sq-arcade/dance-stage", "at": [5.38, -0.55], "rot": -90 }
+    ],
+    "skee-ball": [
+      { "m": "sq-arcade/skee-ball", "at": [5.05, 0.2], "rot": -90 },
+      { "m": "sq-arcade/skee-ball", "at": [5.05, 0.58], "rot": -90 },
+      { "m": "sq-arcade/skee-ball", "at": [5.05, 0.96], "rot": -90 },
+      { "m": "sq-arcade/skee-ball", "at": [5.05, 1.34], "rot": -90 },
+      { "m": "sq-arcade/skee-ball", "at": [5.05, 1.72], "rot": -90 },
+      { "m": "sq-arcade/skee-ball", "at": [5.05, 2.1], "rot": -90 },
+      { "m": "ken-arcade/ticket-machine", "at": [5.54, 2.65], "rot": -90 },
+      { "m": "isa-plants/yucca-potted-large", "at": [5.35, 3.45] },
+      { "m": "sq-arcade/arcade-bin", "at": [5.55, 4.2], "rot": -90 }
+    ],
+    "slots": [
+      { "m": "ken-arcade/slot-machine", "at": [5.35, 5.47], "rot": 180 },
+      { "m": "ken-arcade/slot-machine", "at": [4.8, 5.47], "rot": 180 },
+      { "m": "sq-casino/slot-cabinet", "at": [4.25, 5.51], "rot": 180 },
+      { "m": "sq-casino/slot-cabinet", "at": [3.8, 5.51], "rot": 180 },
+      { "m": "sq-casino/roller-stool", "at": [5.35, 4.95] },
+      { "m": "sq-casino/roller-stool", "at": [4.8, 4.95] },
+      { "m": "sq-casino/roller-stool", "at": [4.25, 4.95] },
+      { "m": "sq-casino/roller-stool", "at": [3.8, 4.95] }
+    ]
+  }
+}

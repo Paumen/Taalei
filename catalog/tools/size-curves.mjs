@@ -653,6 +653,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
     <a href="swipe.html">Swipe</a>
     <a href="lint.html">Lint</a>
     <a href="tbd.html">TBD</a>
+    <a href="../../scenes/view.html">Scenes</a>
   </nav>
 
   <nav class="paginabalk sub-bar" aria-label="Overview pages">
