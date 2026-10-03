@@ -193,7 +193,7 @@ export const BRONKITS = [
   { map: 'Dungeon_Asset_Pack', naam: 'Dungeon Asset Pack', kit: null, formaat: 'fbx' },
 
   { map: 'modular_temple_collection', naam: 'Modular Temple Collection', kit: null, source: 'fs', formaat: 'obj' },
-  { map: 'modular_house_collection', naam: 'Modular House Collection', kit: null, source: 'fs', formaat: 'obj' },
+  { map: 'modular_house_collection', naam: 'Modular House Collection', kit: 'fs-house', source: 'fs', formaat: 'obj' },
   { map: 'Low_Poly_Construction', naam: 'Low Poly Construction', kit: 'lpa-construction', source: 'lpa', formaat: 'fbx' },
   { map: 'Bubbly_Bathroom_Set', naam: 'Bubbly Bathroom Set', kit: 'isa-bathroom', source: 'isa', formaat: 'glb' },
   { map: 'Low_Poly_Weapons_Blendswap', naam: 'Low-Poly Weapons (Blend Swap)', kit: null, formaat: 'glb' },

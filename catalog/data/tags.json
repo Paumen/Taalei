@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 41, parented \u2014 a model carries the subtype it is, never the parent on top), kind (what it is \u2014 the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 41, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -1679,7 +1679,36 @@
     "styloo-guns/rocket-launcher",
     "styloo-guns/rocket-launcher-eyes",
     "styloo-guns/shotgun",
-    "styloo-guns/ammo-box"
+    "styloo-guns/ammo-box",
+    "fs-house/bathtub-shower",
+    "fs-house/shower-curtain",
+    "fs-house/toilet-paper-holder",
+    "fs-house/towel-rail",
+    "fs-house/towel-rail-towel",
+    "fs-house/curtains-wide",
+    "fs-house/curtains",
+    "fs-house/microwave",
+    "fs-house/stove-hood",
+    "fs-house/fridge",
+    "fs-house/trashcan-kitchen",
+    "fs-house/table-side",
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b",
+    "fs-house/trashcan",
+    "fs-house/bathroom-cabinet",
+    "fs-house/bathroom-cabinet-sink",
+    "fs-house/bar-corner-inner",
+    "fs-house/bar-corner-outer",
+    "fs-house/bar-end",
+    "fs-house/bar-half",
+    "fs-house/counter-corner",
+    "fs-house/counter",
+    "fs-house/counter-sink",
+    "fs-house/wall-cabinet-corner",
+    "fs-house/wall-cabinet",
+    "fs-house/wall-cabinet-narrow",
+    "fs-house/wall-cabinet-open",
+    "fs-house/wall-cabinet-short"
    ],
    "parent": "metal-iron"
   },
@@ -1687,7 +1716,7 @@
    "id": "metal-iron-wrought",
    "name": "Wrought iron",
    "type": "material",
-   "description": "Wrought iron: forge work \u2014 hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
+   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
    "models": [
     "rgp-asia/cart",
     "rgp-asia/katana",
@@ -2075,7 +2104,9 @@
     "styloo-guns/pistol",
     "styloo-guns/rocket-launcher-quad",
     "styloo-guns/rocket-launcher",
-    "styloo-guns/rocket-launcher-eyes"
+    "styloo-guns/rocket-launcher-eyes",
+    "fs-house/microwave",
+    "fs-house/stove-hood"
    ],
    "parent": "metal-iron"
   },
@@ -2083,7 +2114,7 @@
    "id": "metal-iron-cast",
    "name": "Cast iron",
    "type": "material",
-   "description": "Cast iron: poured, heavy and brittle \u2014 cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
+   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
    "models": [
     "rgp-asia/cauldron",
     "rgp-asia/rampart-post",
@@ -2597,7 +2628,8 @@
     "lpa-weapons/siege-tower",
     "lpa-weapons/trebuchet",
     "western/water-tower",
-    "western/signpost"
+    "western/signpost",
+    "fs-house/fireplace"
    ],
    "parent": "metal-iron"
   },
@@ -3350,7 +3382,34 @@
     "styloo-school/pencil-pink",
     "styloo-school/pencil-natural",
     "styloo-school/pencil-white",
-    "styloo-school/floor-wood"
+    "styloo-school/floor-wood",
+    "fs-house/bed-bunk",
+    "fs-house/dresser-wide",
+    "fs-house/dresser",
+    "fs-house/dresser-tall",
+    "fs-house/table-dining",
+    "fs-house/table-square",
+    "fs-house/table-coffee",
+    "fs-house/table-side",
+    "fs-house/tv-stand",
+    "fs-house/bathroom-cabinet",
+    "fs-house/bathroom-cabinet-sink",
+    "fs-house/floor",
+    "fs-house/counter-corner",
+    "fs-house/counter",
+    "fs-house/counter-sink",
+    "fs-house/shelves-corner",
+    "fs-house/wall-cabinet-corner",
+    "fs-house/wall-cabinet",
+    "fs-house/wall-cabinet-narrow",
+    "fs-house/wall-cabinet-open",
+    "fs-house/wall-cabinet-short",
+    "fs-house/railing-corner",
+    "fs-house/railing",
+    "fs-house/railing-baluster",
+    "fs-house/railing-stairs-curved-inner",
+    "fs-house/railing-stairs-curved-outer",
+    "fs-house/railing-stairs"
    ],
    "parent": "wood"
   },
@@ -4268,7 +4327,50 @@
     "styloo-guns/assault-rifle",
     "styloo-guns/assault-rifle-short",
     "styloo-guns/rocket-launcher",
-    "styloo-guns/rocket-launcher-eyes"
+    "styloo-guns/rocket-launcher-eyes",
+    "fs-house/bed-bunk",
+    "fs-house/bed-double",
+    "fs-house/bed-single",
+    "fs-house/dresser-wide",
+    "fs-house/mirror",
+    "fs-house/dresser",
+    "fs-house/dresser-tall",
+    "fs-house/table-dining",
+    "fs-house/table-square",
+    "fs-house/shutter",
+    "fs-house/table-coffee",
+    "fs-house/table-side",
+    "fs-house/tv-stand",
+    "fs-house/ceiling-fan-b",
+    "fs-house/lamp-table",
+    "fs-house/picture-landscape",
+    "fs-house/picture-portrait",
+    "fs-house/picture-square-large",
+    "fs-house/picture-square-small",
+    "fs-house/bathroom-cabinet",
+    "fs-house/bathroom-cabinet-sink",
+    "fs-house/door-exterior",
+    "fs-house/wall-exterior",
+    "fs-house/counter-corner",
+    "fs-house/counter",
+    "fs-house/counter-sink",
+    "fs-house/wall-cabinet-corner",
+    "fs-house/wall-cabinet",
+    "fs-house/wall-cabinet-narrow",
+    "fs-house/wall-cabinet-open",
+    "fs-house/wall-cabinet-short",
+    "fs-house/stairs-curved",
+    "fs-house/railing-corner",
+    "fs-house/railing",
+    "fs-house/railing-post",
+    "fs-house/railing-stairs-curved-inner",
+    "fs-house/railing-stairs-curved-outer",
+    "fs-house/railing-stairs",
+    "fs-house/stairs",
+    "fs-house/wall-curved-large",
+    "fs-house/wall-curved-small",
+    "fs-house/door",
+    "fs-house/wall"
    ],
    "parent": "wood"
   },
@@ -5508,7 +5610,9 @@
     "lpa-construction/spool-a",
     "lpa-construction/spool-b",
     "lpa-construction/steel-holder",
-    "styloo-guns/shotgun"
+    "styloo-guns/shotgun",
+    "fs-house/door-exterior",
+    "fs-house/door"
    ],
    "parent": "wood"
   },
@@ -5599,7 +5703,8 @@
     "taalei-kit/tipi-d",
     "taalei-kit/tipi-e",
     "taalei-kit/raft",
-    "fs-terrain/cave-prop-entrance"
+    "fs-terrain/cave-prop-entrance",
+    "fs-house/fireplace"
    ],
    "parent": "wood"
   },
@@ -6745,7 +6850,26 @@
     "styloo-school/wall-doorway-wainscot",
     "styloo-school/wall-doorway",
     "styloo-school/wall-window-wainscot",
-    "styloo-school/wall-window"
+    "styloo-school/wall-window",
+    "fs-house/chimney",
+    "fs-house/fireplace",
+    "fs-house/fireplace-chimney",
+    "fs-house/doorway-exterior",
+    "fs-house/wall-exterior",
+    "fs-house/window-double",
+    "fs-house/window-single",
+    "fs-house/floor",
+    "fs-house/bar-corner-inner",
+    "fs-house/bar-corner-outer",
+    "fs-house/bar-end",
+    "fs-house/bar-half",
+    "fs-house/stairs-curved",
+    "fs-house/stairs",
+    "fs-house/wall-curved-large",
+    "fs-house/wall-curved-small",
+    "fs-house/doorway",
+    "fs-house/wall-joint-top",
+    "fs-house/wall"
    ],
    "parent": "stone"
   },
@@ -7478,7 +7602,12 @@
     "styloo-school/picture-frame",
     "styloo-school/notebook-red",
     "styloo-school/notebook-green",
-    "styloo-school/toilet-roll"
+    "styloo-school/toilet-roll",
+    "fs-house/toilet-paper-holder",
+    "fs-house/picture-landscape",
+    "fs-house/picture-portrait",
+    "fs-house/picture-square-large",
+    "fs-house/picture-square-small"
    ]
   },
   {
@@ -8161,7 +8290,23 @@
     "styloo-school/curtain",
     "styloo-school/desk-chair",
     "styloo-school/visitor-chair",
-    "styloo-school/executive-chair"
+    "styloo-school/executive-chair",
+    "fs-house/shower-curtain",
+    "fs-house/towel-rail-towel",
+    "fs-house/bed-bunk",
+    "fs-house/bed-double",
+    "fs-house/bed-single",
+    "fs-house/curtains-wide",
+    "fs-house/curtains",
+    "fs-house/sofa-center",
+    "fs-house/sofa-corner",
+    "fs-house/sofa-end",
+    "fs-house/sofa-footrest",
+    "fs-house/lamp-table",
+    "fs-house/rug-round",
+    "fs-house/rug-rectangle",
+    "fs-house/rug-oval",
+    "fs-house/rug-square"
    ]
   },
   {
@@ -9383,7 +9528,10 @@
     "styloo-school/brush-pot",
     "styloo-school/cactus-pot",
     "styloo-school/toilet",
-    "styloo-school/urinal"
+    "styloo-school/urinal",
+    "fs-house/bathtub-shower",
+    "fs-house/toilet",
+    "fs-house/bathroom-cabinet-sink"
    ]
   },
   {
@@ -10266,7 +10414,9 @@
     "styloo-guns/pistol",
     "styloo-guns/rocket-launcher-quad",
     "styloo-guns/rocket-launcher",
-    "styloo-guns/rocket-launcher-eyes"
+    "styloo-guns/rocket-launcher-eyes",
+    "fs-house/tv",
+    "fs-house/tv-stand"
    ]
   },
   {
@@ -11858,7 +12008,13 @@
     "styloo-school/wall-clock",
     "styloo-school/projector",
     "styloo-school/monitor",
-    "styloo-school/monitor-crt"
+    "styloo-school/monitor-crt",
+    "fs-house/mirror",
+    "fs-house/tv",
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b",
+    "fs-house/ceiling-light-triple",
+    "fs-house/ceiling-light"
    ]
   },
   {
@@ -12049,7 +12205,10 @@
     "western/lamp-hanging",
     "western/lantern",
     "isa-bathroom/candle",
-    "lpa-construction/barrier-c"
+    "lpa-construction/barrier-c",
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b",
+    "fs-house/ceiling-light-triple"
    ]
   },
   {
@@ -12375,32 +12534,32 @@
     "taalei-kit/totem-thunderbird"
    ],
    "reasons": {
-    "ken-town/fountain-round": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
-    "ken-town/fountain-round-detail": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
-    "quat-pirate/house-3": "clear glass \u2014 N4: five bands and the clear glass of its windows; the PO kept all six.",
+    "ken-town/fountain-round": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
+    "ken-town/fountain-round-detail": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
+    "quat-pirate/house-3": "clear glass — N4: five bands and the clear glass of its windows; the PO kept all six.",
     "quat-pirate/pirate-captain": "M20: its boot is leather and the model takes no bark band; N4 leaves no room for a seventh and the joker is spent on M20.",
-    "quat-pirate/tentacle": "terracotta 5,0 \u2014 N1: fauna made of nothing appendix A names; the tag is its only material.",
-    "quat-nature/log-moss": "dark green 1,1 \u2014 M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
-    "kay-food/crate-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-food/food-ingredient-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-tools/compass-base": "clear glass \u2014 N4: five bands and the clear glass of its lid; the PO kept all six.",
-    "kay-tools/pencil-a-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-a-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/torch-burnt": "blue-grey 6,1 \u2014 C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
-    "fs-town/stucco-arch-half": "render \u2014 appendix A gives stucco no material and no band.",
-    "fs-town/stucco-block": "render \u2014 appendix A gives stucco no material and no band.",
-    "ken-town/fountain-square": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
-    "taalei-kit/graduation-cap": "basalt 13,3 \u2014 5.1: the black mortarboard; textile has no black, and a cap in another colour no longer reads as a graduation cap. The PO kept it.",
-    "ken-pirate/mast": "slate 6,1 \u2014 5.1: the furled sail on the mast top; textile has no slate, and B42 gives a ship its slate cloth. The PO kept it.",
-    "quat-sushi/panda": "basalt 13,3 \u2014 5.1: the black fur of a panda; skin has no black, and a panda without it no longer reads as one. The PO kept it.",
-    "quat-sushi/rabbit": "ivory 5,2 \u2014 5.1: the white fur of a rabbit; skin has no white. The PO kept it.",
-    "rgp-vintage/record": "basalt 13,3 \u2014 5.1: the black vinyl of a record; plastic has no black, and a record in another colour no longer reads as one. The PO kept it.",
-    "sq-pool/diving-board": "ivory 5,2 \u2014 5.1: the white board of a diving board; plastic has no white. The PO kept it.",
-    "taalei-kit/totem-raven": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "taalei-kit/totem-owl": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "taalei-kit/totem-thunderbird": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own."
+    "quat-pirate/tentacle": "terracotta 5,0 — N1: fauna made of nothing appendix A names; the tag is its only material.",
+    "quat-nature/log-moss": "dark green 1,1 — M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
+    "kay-food/crate-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-food/food-ingredient-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-tools/compass-base": "clear glass — N4: five bands and the clear glass of its lid; the PO kept all six.",
+    "kay-tools/pencil-a-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-a-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/torch-burnt": "blue-grey 6,1 — C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
+    "fs-town/stucco-arch-half": "render — appendix A gives stucco no material and no band.",
+    "fs-town/stucco-block": "render — appendix A gives stucco no material and no band.",
+    "ken-town/fountain-square": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
+    "taalei-kit/graduation-cap": "basalt 13,3 — 5.1: the black mortarboard; textile has no black, and a cap in another colour no longer reads as a graduation cap. The PO kept it.",
+    "ken-pirate/mast": "slate 6,1 — 5.1: the furled sail on the mast top; textile has no slate, and B42 gives a ship its slate cloth. The PO kept it.",
+    "quat-sushi/panda": "basalt 13,3 — 5.1: the black fur of a panda; skin has no black, and a panda without it no longer reads as one. The PO kept it.",
+    "quat-sushi/rabbit": "ivory 5,2 — 5.1: the white fur of a rabbit; skin has no white. The PO kept it.",
+    "rgp-vintage/record": "basalt 13,3 — 5.1: the black vinyl of a record; plastic has no black, and a record in another colour no longer reads as one. The PO kept it.",
+    "sq-pool/diving-board": "ivory 5,2 — 5.1: the white board of a diving board; plastic has no white. The PO kept it.",
+    "taalei-kit/totem-raven": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "taalei-kit/totem-owl": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "taalei-kit/totem-thunderbird": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own."
    },
    "po": true
   },
@@ -12724,7 +12883,8 @@
     "sq-fastfood/fryer-bank",
     "sq-cinema/popcorn-machine",
     "lpa-home/microwave",
-    "styloo-school/coffee-maker"
+    "styloo-school/coffee-maker",
+    "fs-house/microwave"
    ]
   },
   {
@@ -13003,7 +13163,8 @@
     "styloo-school/tv-crt",
     "styloo-school/tv-flat",
     "styloo-school/monitor",
-    "styloo-school/monitor-crt"
+    "styloo-school/monitor-crt",
+    "fs-house/tv"
    ]
   },
   {
@@ -13196,7 +13357,9 @@
     "sq-lab/biohazard-bin",
     "household/pedal-bin",
     "lpa-home/bin",
-    "lpa-construction/bin"
+    "lpa-construction/bin",
+    "fs-house/trashcan-kitchen",
+    "fs-house/trashcan"
    ]
   },
   {
@@ -14532,7 +14695,8 @@
     "styloo-school/toilet-roll-holder",
     "styloo-school/soap-bar-red",
     "styloo-school/soap-bar-pink",
-    "styloo-school/soap-dish"
+    "styloo-school/soap-dish",
+    "fs-house/toilet-paper-holder"
    ]
   },
   {
@@ -14586,7 +14750,15 @@
     "sq-cinema/concession-counter",
     "sq-cinema/usher-stand",
     "styloo-school/display-counter",
-    "styloo-school/lab-bench"
+    "styloo-school/lab-bench",
+    "fs-house/bathroom-cabinet",
+    "fs-house/bar-corner-inner",
+    "fs-house/bar-corner-outer",
+    "fs-house/bar-end",
+    "fs-house/bar-half",
+    "fs-house/counter-corner",
+    "fs-house/counter",
+    "fs-house/counter-sink"
    ]
   },
   {
@@ -14616,7 +14788,10 @@
     "isa-bathroom/towel-pink",
     "isa-bathroom/towel-yellow",
     "isa-bathroom/towel-stack",
-    "styloo-school/curtain"
+    "styloo-school/curtain",
+    "fs-house/shower-curtain",
+    "fs-house/curtains-wide",
+    "fs-house/curtains"
    ]
   },
   {
@@ -14658,7 +14833,11 @@
     "props/carpet-a",
     "lpa-home/rug-a",
     "lpa-home/rug-b",
-    "western/rug"
+    "western/rug",
+    "fs-house/rug-round",
+    "fs-house/rug-rectangle",
+    "fs-house/rug-oval",
+    "fs-house/rug-square"
    ]
   },
   {
@@ -14691,7 +14870,12 @@
     "lpa-construction/portable-toilet-a",
     "lpa-construction/portable-toilet-b",
     "styloo-school/toilet",
-    "styloo-school/urinal"
+    "styloo-school/urinal",
+    "fs-house/toilet",
+    "fs-house/towel-rail",
+    "fs-house/towel-rail-towel",
+    "fs-house/mirror",
+    "fs-house/bathroom-cabinet-sink"
    ]
   },
   {
@@ -14704,7 +14888,8 @@
     "household/bathtub",
     "ken-furniture/bathtub",
     "lpa-home/bath",
-    "isa-bathroom/bath"
+    "isa-bathroom/bath",
+    "fs-house/bathtub-shower"
    ]
   },
   {
@@ -14754,7 +14939,10 @@
     "lpa-home/bed-single",
     "lpa-home/bunk-bed",
     "lpa-home/bunk-bed-triple",
-    "western/bed"
+    "western/bed",
+    "fs-house/bed-bunk",
+    "fs-house/bed-double",
+    "fs-house/bed-single"
    ]
   },
   {
@@ -14784,7 +14972,10 @@
     "rgp-vintage/sofa",
     "household/couch",
     "lpa-home/sofa-a",
-    "lpa-home/sofa-b"
+    "lpa-home/sofa-b",
+    "fs-house/sofa-center",
+    "fs-house/sofa-corner",
+    "fs-house/sofa-end"
    ]
   },
   {
@@ -14945,7 +15136,8 @@
     "lpa-home/bar-stool",
     "lpa-home/stool",
     "lpa-construction/ladder-b",
-    "styloo-school/lab-stool"
+    "styloo-school/lab-stool",
+    "fs-house/sofa-footrest"
    ]
   },
   {
@@ -14964,7 +15156,10 @@
     "household/dresser",
     "lpa-home/dresser",
     "lpa-home/nightstand",
-    "lpa-home/tv-stand"
+    "lpa-home/tv-stand",
+    "fs-house/dresser-wide",
+    "fs-house/dresser",
+    "fs-house/dresser-tall"
    ]
   },
   {
@@ -15030,7 +15225,13 @@
     "kay-food/cabinet-half",
     "kay-food/cabinet-corner-half",
     "household/cabinet",
-    "styloo-school/locker"
+    "styloo-school/locker",
+    "fs-house/tv-stand",
+    "fs-house/wall-cabinet-corner",
+    "fs-house/wall-cabinet",
+    "fs-house/wall-cabinet-narrow",
+    "fs-house/wall-cabinet-open",
+    "fs-house/wall-cabinet-short"
    ]
   },
   {
@@ -15058,7 +15259,8 @@
     "lpa-home/wall-shelf-a",
     "lpa-home/wall-shelf-b",
     "isa-bathroom/wall-shelf",
-    "styloo-school/shelf-cart"
+    "styloo-school/shelf-cart",
+    "fs-house/shelves-corner"
    ]
   },
   {
@@ -15154,7 +15356,10 @@
     "styloo-school/school-desk",
     "styloo-school/school-table",
     "styloo-school/principal-desk",
-    "styloo-school/side-table"
+    "styloo-school/side-table",
+    "fs-house/table-dining",
+    "fs-house/table-coffee",
+    "fs-house/table-side"
    ]
   },
   {
@@ -15174,7 +15379,8 @@
     "kay-furniture/table-small",
     "ken-furniture/table-coffee-glass-square",
     "ken-furniture/table-coffee-square",
-    "lpa-home/table-b"
+    "lpa-home/table-b",
+    "fs-house/table-square"
    ]
   },
   {
@@ -15305,7 +15511,8 @@
     "quat-sushi/drinks-fridge-anim",
     "quat-sushi/drinks-fridge-glass",
     "lpa-home/fridge-a",
-    "lpa-home/fridge-b"
+    "lpa-home/fridge-b",
+    "fs-house/fridge"
    ]
   },
   {
@@ -15826,7 +16033,9 @@
     "ken-furniture/ceiling-fan",
     "household/ceiling-fan",
     "household/chandelier",
-    "lpa-home/ceiling-fan"
+    "lpa-home/ceiling-fan",
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b"
    ]
   },
   {
@@ -15934,7 +16143,10 @@
     "lpa-home/wall-light",
     "western/lamp-hanging",
     "lpa-construction/work-light-b",
-    "lpa-construction/work-light-a"
+    "lpa-construction/work-light-a",
+    "fs-house/ceiling-light-triple",
+    "fs-house/ceiling-light",
+    "fs-house/lamp-table"
    ]
   },
   {
@@ -18991,7 +19203,9 @@
     "ipoly-torture/pillory",
     "ipoly-torture/gallows-platform",
     "ipoly-torture/guillotine",
-    "ipoly-torture/gibbet"
+    "ipoly-torture/gibbet",
+    "fs-house/fireplace",
+    "fs-house/fireplace-chimney"
    ]
   },
   {
@@ -19255,7 +19469,9 @@
     "ken-station/stairs-ramp",
     "ken-station/stairs-small-edge-handrail",
     "ken-station/stairs-small-corner-inner",
-    "ken-station/stairs-small-corner"
+    "ken-station/stairs-small-corner",
+    "fs-house/stairs-curved",
+    "fs-house/stairs"
    ]
   },
   {
@@ -19453,7 +19669,9 @@
     "lpa-desert/door-frame-b",
     "ken-furniture/doorway",
     "quat-sushi/doorway",
-    "ken-station/wall-door-wide-banner"
+    "ken-station/wall-door-wide-banner",
+    "fs-house/doorway-exterior",
+    "fs-house/doorway"
    ]
   },
   {
@@ -19501,7 +19719,9 @@
     "rgp-medieval/door-porch",
     "ken-platformer/door-large",
     "rgp-medieval/door-arch",
-    "kay-dun-2/wall-doorway-scaffold"
+    "kay-dun-2/wall-doorway-scaffold",
+    "fs-house/door-exterior",
+    "fs-house/door"
    ]
   },
   {
@@ -19719,7 +19939,8 @@
     "ken-station/balcony-floor",
     "isa-bathroom/floor-tiled",
     "lpa-construction/floor-slab",
-    "styloo-school/floor-wood"
+    "styloo-school/floor-wood",
+    "fs-house/floor"
    ]
   },
   {
@@ -19946,7 +20167,8 @@
     "rgp-medieval/forge-chimney",
     "rgp-medieval/chimney",
     "ken-town/overhang",
-    "fs-town/chimney-stone"
+    "fs-town/chimney-stone",
+    "fs-house/chimney"
    ]
   },
   {
@@ -20019,7 +20241,8 @@
     "wizp-asia/arch-beam",
     "kay-platformer/bracing-large",
     "kay-platformer/bracing-medium",
-    "kay-platformer/bracing-small"
+    "kay-platformer/bracing-small",
+    "fs-house/wall-joint-top"
    ]
   },
   {
@@ -20114,7 +20337,11 @@
     "isa-bathroom/wall-tiled-corner-out",
     "isa-bathroom/wall-tiled",
     "styloo-school/wall-wainscot",
-    "styloo-school/wall"
+    "styloo-school/wall",
+    "fs-house/wall-exterior",
+    "fs-house/wall-curved-large",
+    "fs-house/wall-curved-small",
+    "fs-house/wall"
    ]
   },
   {
@@ -20187,7 +20414,9 @@
     "kay-proto/wall-window-open",
     "isa-bathroom/wall-tiled-window",
     "styloo-school/wall-window-wainscot",
-    "styloo-school/wall-window"
+    "styloo-school/wall-window",
+    "fs-house/window-double",
+    "fs-house/window-single"
    ]
   },
   {
@@ -20251,7 +20480,8 @@
     "ken-modular/window-brown-round-low",
     "ken-modular/window-brown-narrow",
     "ken-modular/window-brown-tall",
-    "ken-modular/window-brown-wide"
+    "ken-modular/window-brown-wide",
+    "fs-house/shutter"
    ]
   },
   {
@@ -20879,7 +21109,8 @@
     "lpa-construction/pipe-holder-a",
     "lpa-construction/pipe-holder-b",
     "lpa-construction/plank-holder",
-    "lpa-construction/steel-holder"
+    "lpa-construction/steel-holder",
+    "fs-house/stove-hood"
    ]
   },
   {
@@ -20936,7 +21167,11 @@
     "styloo-school/canvas-square",
     "styloo-school/canvas-tall",
     "styloo-school/canvas-tall-b",
-    "styloo-school/picture-frame"
+    "styloo-school/picture-frame",
+    "fs-house/picture-landscape",
+    "fs-house/picture-portrait",
+    "fs-house/picture-square-large",
+    "fs-house/picture-square-small"
    ]
   },
   {
@@ -21875,7 +22110,14 @@
     "western/fence-rail",
     "lpa-construction/barrier-a",
     "lpa-construction/fence-a",
-    "lpa-construction/fence-b"
+    "lpa-construction/fence-b",
+    "fs-house/railing-corner",
+    "fs-house/railing",
+    "fs-house/railing-baluster",
+    "fs-house/railing-post",
+    "fs-house/railing-stairs-curved-inner",
+    "fs-house/railing-stairs-curved-outer",
+    "fs-house/railing-stairs"
    ]
   },
   {
@@ -23727,7 +23969,18 @@
     "ken-station/stairs-small-corner-inner",
     "ken-station/stairs-small-corner",
     "ken-station/structure-panel",
-    "styloo-school/cork"
+    "styloo-school/cork",
+    "fs-house/fireplace-chimney",
+    "fs-house/sofa-center",
+    "fs-house/sofa-corner",
+    "fs-house/sofa-end",
+    "fs-house/bar-end",
+    "fs-house/railing-baluster",
+    "fs-house/railing-post",
+    "fs-house/railing-stairs-curved-inner",
+    "fs-house/railing-stairs-curved-outer",
+    "fs-house/railing-stairs",
+    "fs-house/wall-joint-top"
    ]
   },
   {
@@ -24497,7 +24750,30 @@
     "styloo-school/wall-clock",
     "styloo-school/picture-frame",
     "styloo-school/toilet-roll-holder",
-    "styloo-school/urinal"
+    "styloo-school/urinal",
+    "fs-house/shower-curtain",
+    "fs-house/toilet-paper-holder",
+    "fs-house/towel-rail",
+    "fs-house/towel-rail-towel",
+    "fs-house/mirror",
+    "fs-house/curtains-wide",
+    "fs-house/curtains",
+    "fs-house/chimney",
+    "fs-house/shutter",
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b",
+    "fs-house/ceiling-light-triple",
+    "fs-house/ceiling-light",
+    "fs-house/picture-landscape",
+    "fs-house/picture-portrait",
+    "fs-house/picture-square-large",
+    "fs-house/picture-square-small",
+    "fs-house/shelves-corner",
+    "fs-house/wall-cabinet-corner",
+    "fs-house/wall-cabinet",
+    "fs-house/wall-cabinet-narrow",
+    "fs-house/wall-cabinet-open",
+    "fs-house/wall-cabinet-short"
    ]
   },
   {
@@ -25994,7 +26270,16 @@
     "western/fence-rail",
     "isa-bathroom/floor-tiled",
     "isa-bathroom/plant",
-    "lpa-construction/spanner-b"
+    "lpa-construction/spanner-b",
+    "fs-house/rug-round",
+    "fs-house/rug-square",
+    "fs-house/wall-exterior",
+    "fs-house/floor",
+    "fs-house/railing-corner",
+    "fs-house/railing",
+    "fs-house/wall-curved-large",
+    "fs-house/wall-curved-small",
+    "fs-house/wall"
    ]
   },
   {
