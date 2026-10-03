@@ -208,15 +208,18 @@ function las(primitief, midden, metUvs) {
   const posities = [];
   const normalen = [];
   const uvs = [];
+  const kleuren = [];
   const nieuw = new Int32Array(aantal);
 
   const heeftNormalen = Boolean(primitief.normalen);
   const heeftUvs = Boolean(primitief.uvs) && metUvs;
+  const heeftKleuren = Boolean(primitief.hoekkleuren);
 
-  const values = new Float32Array(8);
+  const values = new Float32Array(11);
   const bits = new Int32Array(values.buffer);
-  const width = 3 + (heeftNormalen ? 3 : 0) + (heeftUvs ? 2 : 0);
-  const uvAt = width - 2;
+  const width = 3 + (heeftNormalen ? 3 : 0) + (heeftUvs ? 2 : 0) + (heeftKleuren ? 3 : 0);
+  const uvAt = 3 + (heeftNormalen ? 3 : 0);
+  const kleurAt = uvAt + (heeftUvs ? 2 : 0);
 
   const matches = (index) => {
     for (let k = 0; k < 3; k++) if (!sameNumber(posities[index * 3 + k], values[k])) return false;
@@ -226,6 +229,9 @@ function las(primitief, midden, metUvs) {
     if (heeftUvs) {
       for (let k = 0; k < 2; k++) if (!sameNumber(uvs[index * 2 + k], values[uvAt + k])) return false;
     }
+    if (heeftKleuren) {
+      for (let k = 0; k < 3; k++) if (!sameNumber(kleuren[index * 3 + k], values[kleurAt + k])) return false;
+    }
     return true;
   };
 
@@ -233,6 +239,7 @@ function las(primitief, midden, metUvs) {
     for (let k = 0; k < 3; k++) values[k] = bron[i * 3 + k] - midden[k];
     if (heeftNormalen) for (let k = 0; k < 3; k++) values[3 + k] = primitief.normalen[i * 3 + k];
     if (heeftUvs) for (let k = 0; k < 2; k++) values[uvAt + k] = primitief.uvs[i * 2 + k];
+    if (heeftKleuren) for (let k = 0; k < 3; k++) values[kleurAt + k] = primitief.hoekkleuren[i * 3 + k];
 
     let key = 0x811c9dc5;
     for (let k = 0; k < width; k++) key = Math.imul(key ^ (values[k] === 0 ? 0 : bits[k]), 0x01000193);
@@ -251,6 +258,7 @@ function las(primitief, midden, metUvs) {
       posities.push(values[0], values[1], values[2]);
       if (heeftNormalen) normalen.push(values[3], values[4], values[5]);
       if (heeftUvs) uvs.push(values[uvAt], values[uvAt + 1]);
+      if (heeftKleuren) kleuren.push(values[kleurAt], values[kleurAt + 1], values[kleurAt + 2]);
       if (candidates) candidates.push(index);
       else buckets.set(key, [index]);
     }
@@ -261,6 +269,7 @@ function las(primitief, midden, metUvs) {
     posities: Float32Array.from(posities),
     normalen: heeftNormalen ? Float32Array.from(normalen) : null,
     uvs: heeftUvs ? Float32Array.from(uvs) : null,
+    kleuren: heeftKleuren ? Float32Array.from(kleuren) : null,
     indices: Array.from(primitief.indices, (i) => nieuw[i]),
   };
 }
@@ -299,7 +308,7 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
 
   for (const [n, primitief] of primitieven.entries()) {
     const textuurNaam = texturen[n];
-    const { posities, normalen, uvs, indices: driehoeken } = las(primitief, midden, Boolean(textuurNaam));
+    const { posities, normalen, uvs, kleuren: hoekkleuren, indices: driehoeken } = las(primitief, midden, Boolean(textuurNaam));
     const aantal = posities.length / 3;
     const min = [Infinity, Infinity, Infinity];
     const max = [-Infinity, -Infinity, -Infinity];
@@ -316,6 +325,7 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
     };
     if (normalen) attributes.NORMAL = voegToe(normalen, 34962, 5126, 'VEC3', { count: aantal });
     if (uvs) attributes.TEXCOORD_0 = voegToe(uvs, 34962, 5126, 'VEC2', { count: aantal });
+    if (hoekkleuren) attributes.COLOR_0 = voegToe(hoekkleuren, 34962, 5126, 'VEC3', { count: aantal });
 
     const smal = aantal <= 0xffff;
     const indices = voegToe(

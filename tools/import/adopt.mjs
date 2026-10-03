@@ -19,7 +19,8 @@ the two no longer fight; the pack's own colours (texture, else vertex colour
 times material colour) are replaced by the bands of kits/colormap.png. A
 texture is read as the mean over each flat face (triangles sharing edges in one
 plane), and over each triangle elsewhere, with UVs outside 0..1 repeating, so
-every corner of a face takes the same colour.
+every corner of a face takes the same colour, unless the entry sets faces
+to false.
 
 A plan is a list of entries:
 
@@ -32,6 +33,8 @@ A plan is a list of entries:
              and a triangle takes the band most of its corners have
   threshold  optional: how far apart two source colours are one cluster (48)
   scale      optional: overrides the kit's own scale
+  faces      optional: false reads the texture per triangle instead of per
+             flat face, for a pattern drawn by triangles within one plane
 
 Run without bands to print the clusters of every entry and stop.`;
 
@@ -197,7 +200,7 @@ function flatFaces(primitive) {
   return { faces, area };
 }
 
-function sourceColors(primitive, images, rule) {
+function sourceColors(primitive, images, rule, perFace = true) {
   const corners = primitive.indices.length;
   const out = new Array(corners);
   const material = mapped(primitive, rule);
@@ -229,7 +232,9 @@ function sourceColors(primitive, images, rule) {
       }
       return sum.map((v) => v / n);
     };
-    const { faces, area } = flatFaces(primitive);
+    const { faces, area } = perFace
+      ? flatFaces(primitive)
+      : { faces: Array.from({ length: corners / 3 }, (_, t) => [t]), area: [] };
     for (const members of faces) {
       const sum = [0, 0, 0];
       let weight = 0;
@@ -255,11 +260,11 @@ function sourceColors(primitive, images, rule) {
 
 const apart = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
 
-function clusters(model, images, threshold, rule) {
+function clusters(model, images, threshold, rule, perFace) {
   const groups = [];
   for (const primitive of model.primitieven) {
     const counted = new Map();
-    for (const color of sourceColors(primitive, images, rule)) {
+    for (const color of sourceColors(primitive, images, rule, perFace)) {
       const key = color.join(',');
       const seen = counted.get(key);
       if (seen) seen.n++;
@@ -379,13 +384,13 @@ function insetInnerTwins(positions, normals, triangles) {
 }
 
 function adopt(entry) {
-  const { pack, src, kit, name, bands, threshold = 48 } = entry;
+  const { pack, src, kit, name, bands, threshold = 48, faces: perFace = true } = entry;
   const { bronkit, modellen, images, textureMap } = loadPack(pack);
   const model = modellen.find((m) => m.naam === src);
   if (!model) throw new Error(`${pack}: no model ${src}`);
   const rule = textureMap.get(basename(model.bestand));
 
-  const groups = clusters(model, images, threshold, rule);
+  const groups = clusters(model, images, threshold, rule, perFace);
   if (!bands) return { groups };
   if (bands.length !== groups.length) {
     throw new Error(`${kit}/${name}: ${groups.length} source colours, ${bands.length} bands given`);
@@ -423,7 +428,7 @@ function adopt(entry) {
   const known = new Map();
 
   for (const primitive of model.primitieven) {
-    const colors = sourceColors(primitive, images, rule);
+    const colors = sourceColors(primitive, images, rule, perFace);
     const faceNormal = (indices) => {
       const p = indices.map((index) => [0, 1, 2].map((k) => primitive.posities[index * 3 + k]));
       const a = [0, 1, 2].map((k) => p[1][k] - p[0][k]);
