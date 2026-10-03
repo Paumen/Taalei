@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 41, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model, in the five fields of the style guide. type is material (what it is made of, closed, 41, parented \u2014 a model carries the subtype it is, never the parent on top), kind (what it is \u2014 the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), use (what it is for, zero or more, stored and never implied by kind), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), or tag (anything else worth finding, such as flags). size is measured at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "metal",
@@ -641,7 +641,55 @@
     "ken-train/diesel-c-train",
     "ken-train/locomotive-a-train",
     "ken-train/locomotive-b-passenger-train",
-    "ken-train/diesel-box-passenger-train"
+    "ken-train/diesel-box-passenger-train",
+    "ken-factory/conveyor",
+    "ken-factory/conveyor-long",
+    "ken-factory/conveyor-stripe-corner",
+    "ken-factory/conveyor-long-sides",
+    "ken-factory/conveyor-long-stripe-sides",
+    "ken-factory/conveyor-stripe-junction-t",
+    "ken-factory/conveyor-stripe-cross",
+    "ken-factory/conveyor-stripe-sides-cross",
+    "ken-factory/conveyor-junction-t",
+    "ken-factory/conveyor-sides-cross",
+    "ken-factory/conveyor-corner",
+    "ken-proto/pipe-section",
+    "ken-proto/pipe-half-section",
+    "ken-station/stairs-small-edges",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single",
+    "ken-station/stairs",
+    "ken-station/stairs-ramp",
+    "ken-station/stairs-small-edge-handrail",
+    "ken-station/floor",
+    "ken-station/floor-detail",
+    "ken-station/wall-pillar",
+    "ken-station/wall-pillar-banner",
+    "ken-station/wall-corner-banner",
+    "ken-station/wall-corner",
+    "ken-station/stairs-small-corner-inner",
+    "ken-station/stairs-small-corner",
+    "ken-station/wall-corner-round",
+    "ken-station/wall-corner-round-banner",
+    "ken-station/structure-panel",
+    "ken-station/balcony-rail-corner",
+    "ken-station/balcony-floor-corner",
+    "ken-station/balcony-floor-center",
+    "ken-station/balcony-floor",
+    "ken-train/railroad-straight",
+    "ken-train/railroad-corner-large",
+    "ken-train/railroad-corner-small",
+    "ken-train/railroad-damaged-straight",
+    "ken-train/railroad-damaged-corner-large",
+    "ken-train/railroad-damaged-corner-small",
+    "ken-train/railroad-damaged-straight-hill-complete",
+    "ken-train/railroad-curve",
+    "ken-train/railroad-damaged-curve",
+    "ken-train/railroad-damaged-straight-bump-up",
+    "ken-train/railroad-damaged-straight-hill-complete-half",
+    "ken-train/railroad-straight-bump-down",
+    "ken-train/railroad-straight-bump-up",
+    "ken-train/railroad-straight-hill-complete"
    ]
   },
   {
@@ -1441,7 +1489,23 @@
     "sq-cards/gacha-machine",
     "sq-casino/slot-cabinet",
     "kay-mixed/guitar-a",
-    "kay-mixed/guitar-b"
+    "kay-mixed/guitar-b",
+    "quat-scifi/rifle-ar",
+    "quat-scifi/rifle-assault",
+    "quat-scifi/rifle-assault-b",
+    "quat-scifi/rifle-assault-c",
+    "quat-scifi/rifle-assault-d",
+    "quat-scifi/grenade",
+    "quat-scifi/grenade-launcher",
+    "quat-scifi/pistol",
+    "quat-scifi/pistol-b",
+    "quat-scifi/pistol-c",
+    "quat-scifi/smg",
+    "quat-scifi/sniper",
+    "quat-scifi/sniper-b",
+    "rey-studio/carving-knife",
+    "kay-platformer/button-base",
+    "rey-studio/brush-fluffy"
    ],
    "parent": "metal-iron"
   },
@@ -1449,7 +1513,7 @@
    "id": "metal-iron-wrought",
    "name": "Wrought iron",
    "type": "material",
-   "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
+   "description": "Wrought iron: forge work \u2014 hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
    "models": [
     "rgp-asia/cart",
     "rgp-asia/katana",
@@ -1823,7 +1887,7 @@
    "id": "metal-iron-cast",
    "name": "Cast iron",
    "type": "material",
-   "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
+   "description": "Cast iron: poured, heavy and brittle \u2014 cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
    "models": [
     "rgp-asia/cauldron",
     "rgp-asia/rampart-post",
@@ -2297,7 +2361,39 @@
     "household/safe",
     "zombie-weapons/grenade",
     "quat-dun-1/arch-door",
-    "ken-factory/floor-checkerboard"
+    "ken-factory/floor-checkerboard",
+    "kay-platformer/bracing-small",
+    "kay-platformer/arch-tall",
+    "kay-platformer/platform-arrow-2x2",
+    "kay-platformer/platform-arrow-4x4",
+    "kay-platformer/frame-a",
+    "kay-platformer/strut-horizontal",
+    "kay-platformer/strut-vertical",
+    "kay-platformer/railing-single",
+    "kay-platformer/railing-single-hunter",
+    "kay-platformer/railing-padded",
+    "kay-platformer/railing-padded-hunter",
+    "kay-platformer/railing-double",
+    "kay-platformer/railing-double-hunter",
+    "kay-platformer/railing-corner-single",
+    "kay-platformer/railing-corner-single-hunter",
+    "kay-platformer/railing-corner-padded",
+    "kay-platformer/railing-corner-padded-hunter",
+    "kay-platformer/railing-corner-double",
+    "kay-platformer/railing-corner-double-hunter",
+    "quat-scifi/rifle-ar",
+    "quat-scifi/rifle-assault",
+    "quat-scifi/rifle-assault-b",
+    "quat-scifi/rifle-assault-c",
+    "quat-scifi/rifle-assault-d",
+    "quat-scifi/grenade",
+    "quat-scifi/grenade-launcher",
+    "quat-scifi/pistol",
+    "quat-scifi/pistol-b",
+    "quat-scifi/pistol-c",
+    "quat-scifi/smg",
+    "quat-scifi/sniper",
+    "quat-scifi/sniper-b"
    ],
    "parent": "metal-iron"
   },
@@ -3011,7 +3107,9 @@
     "ken-train/diesel-box-train",
     "household/hand-saw",
     "architecture/barn",
-    "ken-skate/floor-wood"
+    "ken-skate/floor-wood",
+    "rey-studio/carving-knife",
+    "rey-studio/paintbrush-large"
    ],
    "parent": "wood"
   },
@@ -3849,7 +3947,9 @@
     "rgp-weapons/club-spiked-a",
     "rgp-weapons/club-spiked-b",
     "kay-mixed/guitar-a",
-    "kay-mixed/guitar-b"
+    "kay-mixed/guitar-b",
+    "rey-studio/easel-set",
+    "rey-studio/easel-leaning"
    ],
    "parent": "wood"
   },
@@ -5007,7 +5107,22 @@
     "taalei-kit/scarecrow-pumpkin",
     "taalei-kit/scarecrow-tattered",
     "zombie-weapons/axe",
-    "quat-sushi/floor-kitchen"
+    "quat-sushi/floor-kitchen",
+    "kay-proto/wall-window-open",
+    "ken-train/railroad-straight",
+    "ken-train/railroad-corner-large",
+    "ken-train/railroad-corner-small",
+    "ken-train/railroad-damaged-straight",
+    "ken-train/railroad-damaged-corner-large",
+    "ken-train/railroad-damaged-corner-small",
+    "ken-train/railroad-damaged-straight-hill-complete",
+    "ken-train/railroad-curve",
+    "ken-train/railroad-damaged-curve",
+    "ken-train/railroad-damaged-straight-bump-up",
+    "ken-train/railroad-damaged-straight-hill-complete-half",
+    "ken-train/railroad-straight-bump-down",
+    "ken-train/railroad-straight-bump-up",
+    "ken-train/railroad-straight-hill-complete"
    ],
    "parent": "wood"
   },
@@ -6222,7 +6337,10 @@
     "ken-cave/gate-metal-bars",
     "ken-mini-dun/floor-detail",
     "ken-proto/floor-square-small",
-    "ken-proto/floor-square"
+    "ken-proto/floor-square",
+    "kay-proto/wall",
+    "kay-proto/wall-doorway",
+    "kay-proto/wall-window-open"
    ],
    "parent": "stone"
   },
@@ -7556,7 +7674,12 @@
     "taalei-kit/balloon-net",
     "taalei-kit/scarecrow",
     "taalei-kit/scarecrow-pumpkin",
-    "taalei-kit/scarecrow-tattered"
+    "taalei-kit/scarecrow-tattered",
+    "ken-station/wall-corner-banner",
+    "ken-station/wall-corner-round-banner",
+    "rey-studio/easel-set",
+    "rey-studio/brush-fluffy",
+    "rey-studio/mannequin"
    ]
   },
   {
@@ -8730,7 +8853,8 @@
     "makeup/lotion-pump-small",
     "jb-kitchen/plate",
     "quat-sushi/floor-kitchen",
-    "quat-sushi/floor-tile"
+    "quat-sushi/floor-tile",
+    "rey-studio/easel-set"
    ]
   },
   {
@@ -9441,7 +9565,55 @@
     "ken-factory/scanner-low",
     "kay-mixed/guitar-a",
     "kay-mixed/guitar-b",
-    "kay-proto/floor-prototype"
+    "kay-proto/floor-prototype",
+    "kay-platformer/bracing-small",
+    "kay-platformer/pipe-90-b",
+    "kay-platformer/arch-tall",
+    "kay-platformer/platform-arrow-2x2",
+    "kay-platformer/platform-arrow-4x4",
+    "kay-platformer/button-base",
+    "kay-platformer/railing-single",
+    "kay-platformer/railing-single-hunter",
+    "kay-platformer/railing-padded",
+    "kay-platformer/railing-padded-hunter",
+    "kay-platformer/railing-double",
+    "kay-platformer/railing-double-hunter",
+    "kay-platformer/railing-corner-single",
+    "kay-platformer/railing-corner-single-hunter",
+    "kay-platformer/railing-corner-padded",
+    "kay-platformer/railing-corner-padded-hunter",
+    "kay-platformer/railing-corner-double",
+    "kay-platformer/railing-corner-double-hunter",
+    "kay-proto/wall",
+    "kay-proto/wall-doorway",
+    "kay-proto/wall-window-open",
+    "ken-factory/conveyor-stripe-corner",
+    "ken-factory/conveyor-corner",
+    "ken-proto/pipe-section",
+    "ken-proto/pipe-split",
+    "ken-proto/pipe-half-section",
+    "ken-proto/pipe-half",
+    "ken-proto/pipe-corner",
+    "ken-proto/pipe",
+    "ken-station/stairs-small-edges",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single",
+    "ken-station/stairs-small-edge-handrail",
+    "ken-station/wall-pillar-banner",
+    "ken-station/balcony-rail-corner",
+    "quat-scifi/rifle-ar",
+    "quat-scifi/rifle-assault",
+    "quat-scifi/rifle-assault-b",
+    "quat-scifi/rifle-assault-c",
+    "quat-scifi/rifle-assault-d",
+    "quat-scifi/grenade",
+    "quat-scifi/grenade-launcher",
+    "quat-scifi/pistol",
+    "quat-scifi/pistol-b",
+    "quat-scifi/pistol-c",
+    "quat-scifi/smg",
+    "quat-scifi/sniper",
+    "quat-scifi/sniper-b"
    ]
   },
   {
@@ -9525,7 +9697,13 @@
     "zombie-weapons/police-baton",
     "zombie-weapons/revolver",
     "zombie-weapons/sledgehammer",
-    "kay-space/spacetruck-with-trailer"
+    "kay-space/spacetruck-with-trailer",
+    "ken-factory/conveyor",
+    "ken-factory/conveyor-long",
+    "ken-factory/conveyor-long-sides",
+    "ken-factory/conveyor-long-stripe-sides",
+    "ken-factory/conveyor-junction-t",
+    "ken-factory/conveyor-cross"
    ]
   },
   {
@@ -11034,7 +11212,9 @@
     "sq-lab/flask-beaker",
     "sq-lab/petri-stack",
     "household/cauldron",
-    "household/cup-of-tea"
+    "household/cup-of-tea",
+    "rey-studio/easel-set",
+    "rey-studio/paintbrush-large"
    ]
   },
   {
@@ -11463,32 +11643,32 @@
     "taalei-kit/totem-thunderbird"
    ],
    "reasons": {
-    "ken-town/fountain-round": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
-    "ken-town/fountain-round-detail": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
-    "quat-pirate/house-3": "clear glass — N4: five bands and the clear glass of its windows; the PO kept all six.",
+    "ken-town/fountain-round": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
+    "ken-town/fountain-round-detail": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
+    "quat-pirate/house-3": "clear glass \u2014 N4: five bands and the clear glass of its windows; the PO kept all six.",
     "quat-pirate/pirate-captain": "M20: its boot is leather and the model takes no bark band; N4 leaves no room for a seventh and the joker is spent on M20.",
-    "quat-pirate/tentacle": "terracotta 5,0 — N1: fauna made of nothing appendix A names; the tag is its only material.",
-    "quat-nature/log-moss": "dark green 1,1 — M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
-    "kay-food/crate-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-food/food-ingredient-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-tools/compass-base": "clear glass — N4: five bands and the clear glass of its lid; the PO kept all six.",
-    "kay-tools/pencil-a-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-a-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/torch-burnt": "blue-grey 6,1 — C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
-    "fs-town/stucco-arch-half": "render — appendix A gives stucco no material and no band.",
-    "fs-town/stucco-block": "render — appendix A gives stucco no material and no band.",
-    "ken-town/fountain-square": "blue 4,2 — C4: the water in its basin, blue per M28; C4’s minor-accent cap does not fit a body of water.",
-    "taalei-kit/graduation-cap": "basalt 13,3 — 5.1: the black mortarboard; textile has no black, and a cap in another colour no longer reads as a graduation cap. The PO kept it.",
-    "ken-pirate/mast": "slate 6,1 — 5.1: the furled sail on the mast top; textile has no slate, and B42 gives a ship its slate cloth. The PO kept it.",
-    "quat-sushi/panda": "basalt 13,3 — 5.1: the black fur of a panda; skin has no black, and a panda without it no longer reads as one. The PO kept it.",
-    "quat-sushi/rabbit": "ivory 5,2 — 5.1: the white fur of a rabbit; skin has no white. The PO kept it.",
-    "rgp-vintage/record": "basalt 13,3 — 5.1: the black vinyl of a record; plastic has no black, and a record in another colour no longer reads as one. The PO kept it.",
-    "sq-pool/diving-board": "ivory 5,2 — 5.1: the white board of a diving board; plastic has no white. The PO kept it.",
-    "taalei-kit/totem-raven": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "taalei-kit/totem-owl": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "taalei-kit/totem-thunderbird": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own."
+    "quat-pirate/tentacle": "terracotta 5,0 \u2014 N1: fauna made of nothing appendix A names; the tag is its only material.",
+    "quat-nature/log-moss": "dark green 1,1 \u2014 M4: the moss on a fallen log; M4 gives foliage light green outside the tree and grass groups, and a mossy log is neither.",
+    "kay-food/crate-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-food/food-ingredient-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-tools/compass-base": "clear glass \u2014 N4: five bands and the clear glass of its lid; the PO kept all six.",
+    "kay-tools/pencil-a-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-a-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/torch-burnt": "blue-grey 6,1 \u2014 C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
+    "fs-town/stucco-arch-half": "render \u2014 appendix A gives stucco no material and no band.",
+    "fs-town/stucco-block": "render \u2014 appendix A gives stucco no material and no band.",
+    "ken-town/fountain-square": "blue 4,2 \u2014 C4: the water in its basin, blue per M28; C4\u2019s minor-accent cap does not fit a body of water.",
+    "taalei-kit/graduation-cap": "basalt 13,3 \u2014 5.1: the black mortarboard; textile has no black, and a cap in another colour no longer reads as a graduation cap. The PO kept it.",
+    "ken-pirate/mast": "slate 6,1 \u2014 5.1: the furled sail on the mast top; textile has no slate, and B42 gives a ship its slate cloth. The PO kept it.",
+    "quat-sushi/panda": "basalt 13,3 \u2014 5.1: the black fur of a panda; skin has no black, and a panda without it no longer reads as one. The PO kept it.",
+    "quat-sushi/rabbit": "ivory 5,2 \u2014 5.1: the white fur of a rabbit; skin has no white. The PO kept it.",
+    "rgp-vintage/record": "basalt 13,3 \u2014 5.1: the black vinyl of a record; plastic has no black, and a record in another colour no longer reads as one. The PO kept it.",
+    "sq-pool/diving-board": "ivory 5,2 \u2014 5.1: the white board of a diving board; plastic has no white. The PO kept it.",
+    "taalei-kit/totem-raven": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "taalei-kit/totem-owl": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "taalei-kit/totem-thunderbird": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own."
    },
    "po": true
   },
@@ -15319,7 +15499,8 @@
     "quat-rpg/padlock",
     "quat-survival/bear-trap-anim",
     "quat-survival/bear-trap",
-    "taalei-kit/magnet"
+    "taalei-kit/magnet",
+    "kay-platformer/button-base"
    ]
   },
   {
@@ -15379,7 +15560,8 @@
     "makeup/nail-file",
     "makeup/tweezers",
     "zombie-weapons/pipe-wrench",
-    "zombie-weapons/crowbar"
+    "zombie-weapons/crowbar",
+    "rey-studio/carving-knife"
    ]
   },
   {
@@ -15396,7 +15578,9 @@
     "makeup/brush-pencil",
     "makeup/brush-powder",
     "makeup/lash-brush",
-    "mek-tools/brush"
+    "mek-tools/brush",
+    "rey-studio/brush-fluffy",
+    "rey-studio/paintbrush-large"
    ]
   },
   {
@@ -16418,7 +16602,10 @@
     "ken-space/weapon-gun",
     "quat-guns/pistol",
     "zombie-weapons/pistol",
-    "zombie-weapons/revolver"
+    "zombie-weapons/revolver",
+    "quat-scifi/pistol",
+    "quat-scifi/pistol-b",
+    "quat-scifi/pistol-c"
    ]
   },
   {
@@ -16429,7 +16616,8 @@
    "models": [
     "quat-apocalypse/smg",
     "quat-shoot/smg",
-    "zombie-weapons/smg"
+    "zombie-weapons/smg",
+    "quat-scifi/smg"
    ]
   },
   {
@@ -16460,7 +16648,8 @@
     "sq-gym/punching-bag",
     "taalei-kit/scarecrow",
     "taalei-kit/scarecrow-pumpkin",
-    "taalei-kit/scarecrow-tattered"
+    "taalei-kit/scarecrow-tattered",
+    "rey-studio/mannequin"
    ]
   },
   {
@@ -17826,7 +18015,21 @@
     "wizp-mediev/rail-curve",
     "wizp-mediev/rail-long",
     "wizp-mediev/rail-short",
-    "wizp-mediev/rail-straight"
+    "wizp-mediev/rail-straight",
+    "ken-train/railroad-straight",
+    "ken-train/railroad-corner-large",
+    "ken-train/railroad-corner-small",
+    "ken-train/railroad-damaged-straight",
+    "ken-train/railroad-damaged-corner-large",
+    "ken-train/railroad-damaged-corner-small",
+    "ken-train/railroad-damaged-straight-hill-complete",
+    "ken-train/railroad-curve",
+    "ken-train/railroad-damaged-curve",
+    "ken-train/railroad-damaged-straight-bump-up",
+    "ken-train/railroad-damaged-straight-hill-complete-half",
+    "ken-train/railroad-straight-bump-down",
+    "ken-train/railroad-straight-bump-up",
+    "ken-train/railroad-straight-hill-complete"
    ]
   },
   {
@@ -17975,7 +18178,15 @@
     "ken-town/stairs-full-corner-inner",
     "ken-town/stairs-full-corner-outer",
     "ken-town/stairs-full",
-    "ken-castle/stairs-stone-square"
+    "ken-castle/stairs-stone-square",
+    "ken-station/stairs-small-edges",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single",
+    "ken-station/stairs",
+    "ken-station/stairs-ramp",
+    "ken-station/stairs-small-edge-handrail",
+    "ken-station/stairs-small-corner-inner",
+    "ken-station/stairs-small-corner"
    ]
   },
   {
@@ -18078,7 +18289,20 @@
     "styloo-farm/fence-rail-clean",
     "styloo-farm/fence-rail-mirror",
     "styloo-farm/fence-rail",
-    "kay-hexagon/fence-stone-gate"
+    "kay-hexagon/fence-stone-gate",
+    "kay-platformer/railing-single",
+    "kay-platformer/railing-single-hunter",
+    "kay-platformer/railing-padded",
+    "kay-platformer/railing-padded-hunter",
+    "kay-platformer/railing-double",
+    "kay-platformer/railing-double-hunter",
+    "kay-platformer/railing-corner-single",
+    "kay-platformer/railing-corner-single-hunter",
+    "kay-platformer/railing-corner-padded",
+    "kay-platformer/railing-corner-padded-hunter",
+    "kay-platformer/railing-corner-double",
+    "kay-platformer/railing-corner-double-hunter",
+    "ken-station/balcony-rail-corner"
    ]
   },
   {
@@ -18265,7 +18489,8 @@
     "ken-cave/gate-metal-bars",
     "quat-dun-1/arch",
     "quat-sushi/arch",
-    "ken-arena/wall-gate"
+    "ken-arena/wall-gate",
+    "kay-platformer/arch-tall"
    ]
   },
   {
@@ -18412,7 +18637,12 @@
     "ken-skate/floor-wood",
     "kay-proto/floor",
     "kay-proto/floor-dirt",
-    "kay-proto/floor-prototype"
+    "kay-proto/floor-prototype",
+    "ken-station/floor",
+    "ken-station/floor-detail",
+    "ken-station/balcony-floor-corner",
+    "ken-station/balcony-floor-center",
+    "ken-station/balcony-floor"
    ]
   },
   {
@@ -18476,7 +18706,9 @@
     "fs-town/stucco-support-beam-b",
     "fs-town/stucco-support-beam-c",
     "fs-town/stucco-support-pillar-b",
-    "fs-town/stucco-support-pillar-c"
+    "fs-town/stucco-support-pillar-c",
+    "kay-platformer/frame-a",
+    "ken-station/structure-panel"
    ]
   },
   {
@@ -18609,7 +18841,9 @@
     "quat-dun-2/column",
     "quat-dun-2/column-2",
     "ken-space/monorail-track-support-corner",
-    "ken-space/monorail-track-support"
+    "ken-space/monorail-track-support",
+    "kay-platformer/strut-horizontal",
+    "kay-platformer/strut-vertical"
    ]
   },
   {
@@ -18705,7 +18939,8 @@
     "wizp-grave/arch-stone",
     "wizp-asia/arch-beam",
     "kay-platformer/bracing-large",
-    "kay-platformer/bracing-medium"
+    "kay-platformer/bracing-medium",
+    "kay-platformer/bracing-small"
    ]
   },
   {
@@ -18788,7 +19023,14 @@
     "ken-station/wall",
     "ken-station/wall-banner",
     "medieval-forge/wall-1",
-    "medieval-forge/wall-2"
+    "medieval-forge/wall-2",
+    "kay-proto/wall",
+    "ken-station/wall-pillar",
+    "ken-station/wall-pillar-banner",
+    "ken-station/wall-corner-banner",
+    "ken-station/wall-corner",
+    "ken-station/wall-corner-round",
+    "ken-station/wall-corner-round-banner"
    ]
   },
   {
@@ -18823,7 +19065,8 @@
     "ken-holiday/cabin-door",
     "ken-holiday/cabin-overhang-door",
     "ken-holiday/cabin-doorway",
-    "ken-holiday/cabin-overhang-doorway"
+    "ken-holiday/cabin-overhang-doorway",
+    "kay-proto/wall-doorway"
    ]
   },
   {
@@ -18853,7 +19096,8 @@
     "kay-food/wall-window-closed",
     "ken-proto/wall-window-large",
     "ken-town/wall-wood-window-glass",
-    "fs-town/window-upper-convex"
+    "fs-town/window-upper-convex",
+    "kay-proto/wall-window-open"
    ]
   },
   {
@@ -19197,7 +19441,9 @@
    "description": "Platform with no leaf that fits.",
    "color": "#877a63",
    "models": [
-    "ken-skate/structure-platform"
+    "ken-skate/structure-platform",
+    "kay-platformer/platform-arrow-2x2",
+    "kay-platformer/platform-arrow-4x4"
    ]
   },
   {
@@ -19530,7 +19776,8 @@
     "kay-dun-2/sword-shield-broken",
     "household/fruit-bowl",
     "sq-bowling/score-console",
-    "kay-food/fridge-a-decorated-anim"
+    "kay-food/fridge-a-decorated-anim",
+    "rey-studio/easel-set"
    ]
   },
   {
@@ -19578,7 +19825,8 @@
     "kay-mixed/instant-camera-picture",
     "sq-cinema/poster-lightboxes",
     "sq-rink/stripe-panels",
-    "household/painting"
+    "household/painting",
+    "rey-studio/easel-leaning"
    ]
   },
   {
@@ -20179,7 +20427,14 @@
     "kay-platformer/pipe-180-a",
     "kay-platformer/pipe-90",
     "ken-space/pipe-corner",
-    "kay-platformer/pipe-180-b"
+    "kay-platformer/pipe-180-b",
+    "kay-platformer/pipe-90-b",
+    "ken-proto/pipe-section",
+    "ken-proto/pipe-split",
+    "ken-proto/pipe-half-section",
+    "ken-proto/pipe-half",
+    "ken-proto/pipe-corner",
+    "ken-proto/pipe"
    ]
   },
   {
@@ -20203,7 +20458,19 @@
     "ken-factory/conveyor-long-stripe",
     "sq-carwash/conveyor-track",
     "ken-factory/conveyor-stripe",
-    "ken-factory/conveyor-stripe-sides"
+    "ken-factory/conveyor-stripe-sides",
+    "ken-factory/conveyor",
+    "ken-factory/conveyor-long",
+    "ken-factory/conveyor-stripe-corner",
+    "ken-factory/conveyor-long-sides",
+    "ken-factory/conveyor-long-stripe-sides",
+    "ken-factory/conveyor-stripe-junction-t",
+    "ken-factory/conveyor-stripe-cross",
+    "ken-factory/conveyor-stripe-sides-cross",
+    "ken-factory/conveyor-junction-t",
+    "ken-factory/conveyor-cross",
+    "ken-factory/conveyor-sides-cross",
+    "ken-factory/conveyor-corner"
    ]
   },
   {
@@ -20862,7 +21129,12 @@
     "ken-blaster/blaster-p",
     "ken-space/weapon-rifle",
     "zombie-weapons/assault-rifle",
-    "zombie-weapons/lever-rifle"
+    "zombie-weapons/lever-rifle",
+    "quat-scifi/rifle-ar",
+    "quat-scifi/rifle-assault",
+    "quat-scifi/rifle-assault-b",
+    "quat-scifi/rifle-assault-c",
+    "quat-scifi/rifle-assault-d"
    ]
   },
   {
@@ -20874,7 +21146,9 @@
     "quat-guns/sniper-rifle",
     "quat-shoot/sniper",
     "quat-shoot/sniper-black",
-    "zombie-weapons/sniper-rifle"
+    "zombie-weapons/sniper-rifle",
+    "quat-scifi/sniper",
+    "quat-scifi/sniper-b"
    ]
   },
   {
@@ -20901,7 +21175,8 @@
     "quat-shoot/grenade",
     "rgp-explosives/grenade-stick",
     "zombie-weapons/grenade",
-    "zombie-weapons/molotov"
+    "zombie-weapons/molotov",
+    "quat-scifi/grenade"
    ]
   },
   {
@@ -20913,7 +21188,8 @@
     "zombie-weapons/bazooka",
     "quat-shoot/grenade-launcher",
     "zombie-weapons/grenade-launcher",
-    "quat-shoot/rocket-launcher"
+    "quat-shoot/rocket-launcher",
+    "quat-scifi/grenade-launcher"
    ]
   },
   {
@@ -22299,7 +22575,17 @@
     "isa-playground/stepping-stump-amber",
     "cooking-assets/stove-induction",
     "kay-food/stove-countertop",
-    "kay-food/stove-single-countertop"
+    "kay-food/stove-single-countertop",
+    "kay-platformer/bracing-small",
+    "kay-platformer/pipe-90-b",
+    "kay-platformer/frame-a",
+    "kay-platformer/strut-horizontal",
+    "kay-platformer/strut-vertical",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single",
+    "ken-station/stairs-small-corner-inner",
+    "ken-station/stairs-small-corner",
+    "ken-station/structure-panel"
    ]
   },
   {
@@ -22749,7 +23035,14 @@
     "rgp-medieval/fence-picket-broken",
     "rgp-medieval/fallen-tree",
     "rgp-medieval/pine-dead",
-    "kay-dun-2/sword-shield-broken"
+    "kay-dun-2/sword-shield-broken",
+    "ken-train/railroad-damaged-straight",
+    "ken-train/railroad-damaged-corner-large",
+    "ken-train/railroad-damaged-corner-small",
+    "ken-train/railroad-damaged-straight-hill-complete",
+    "ken-train/railroad-damaged-curve",
+    "ken-train/railroad-damaged-straight-bump-up",
+    "ken-train/railroad-damaged-straight-hill-complete-half"
    ]
   },
   {
@@ -23954,7 +24247,41 @@
     "ken-station/door-single",
     "ken-station/wall",
     "ken-station/wall-banner",
-    "kay-space/spacetruck-with-trailer"
+    "kay-space/spacetruck-with-trailer",
+    "ken-station/stairs-small-edges",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single",
+    "ken-station/stairs",
+    "ken-station/stairs-ramp",
+    "ken-station/stairs-small-edge-handrail",
+    "ken-station/floor",
+    "ken-station/floor-detail",
+    "ken-station/wall-pillar",
+    "ken-station/wall-pillar-banner",
+    "ken-station/wall-corner-banner",
+    "ken-station/wall-corner",
+    "ken-station/stairs-small-corner-inner",
+    "ken-station/stairs-small-corner",
+    "ken-station/wall-corner-round",
+    "ken-station/wall-corner-round-banner",
+    "ken-station/structure-panel",
+    "ken-station/balcony-rail-corner",
+    "ken-station/balcony-floor-corner",
+    "ken-station/balcony-floor-center",
+    "ken-station/balcony-floor",
+    "quat-scifi/rifle-ar",
+    "quat-scifi/rifle-assault",
+    "quat-scifi/rifle-assault-b",
+    "quat-scifi/rifle-assault-c",
+    "quat-scifi/rifle-assault-d",
+    "quat-scifi/grenade",
+    "quat-scifi/grenade-launcher",
+    "quat-scifi/pistol",
+    "quat-scifi/pistol-b",
+    "quat-scifi/pistol-c",
+    "quat-scifi/smg",
+    "quat-scifi/sniper",
+    "quat-scifi/sniper-b"
    ]
   },
   {
