@@ -3458,6 +3458,45 @@
   ]
  },
  {
+  "kind": "obj-furnishing-furniture-seating-bench-backrest",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-holiday/bench",
+     "ken-holiday/bench-short"
+    ],
+    "text": "Holiday bench legs slate, bench-short legs basalt; source has one leg colour for both",
+    "options": [
+     "Both basalt",
+     "Both slate",
+     "Keep as is"
+    ],
+    "picked": [
+     "Both basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-medieval/bench"
+    ],
+    "text": "Flat chestnut at 0.28, no gradient, while the kind spreads 0.44-0.94",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread by height, mid 0.5",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
   "kind": "obj-transport-land-cart",
   "date": "2026-10-03",
   "suggestions": [
@@ -3604,6 +3643,104 @@
     ],
     "picked": [
      "Slate → nickel"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-racing/radar-equipment"
+    ],
+    "text": "Back-facing triangles at the dish-base/box joint show magenta; first read as a hole",
+    "options": [
+     "Close the hole",
+     "Flip inner face",
+     "Keep as is"
+    ],
+    "picked": [
+     "Close the hole",
+     "PO accepted fix: flip the 3 inward-facing triangles at the joint"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-roads/electricity-pole",
+     "ken-roads/electricity-pole-single",
+     "ken-roads/electricity-pole-wide"
+    ],
+    "text": "Poles flat colour, every part at 0.50; rest of kind has gradients",
+    "options": [
+     "Spread by height, keep mid",
+     "Wood only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility-machine",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-factory/machine-window",
+     "ken-factory/machine-window-bar"
+    ],
+    "text": "Body flat azure at 0.97 vs machine bodies mid 0.49; source same colour as machine",
+    "options": [
+     "Match machine",
+     "Spread by height, mid 0.6",
+     "Keep as is"
+    ],
+    "picked": [
+     "Match machine"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-factory/scanner-low"
+    ],
+    "text": "All nickel while scanner-high is azure arm with amber feet; source shares body colour",
+    "options": [
+     "Like scanner-high",
+     "Azure arm, grey feet",
+     "Keep as is"
+    ],
+    "picked": [
+     "Like scanner-high"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-factory/scanner-low"
+    ],
+    "text": "Magenta seams on feet: each foot is an outer shell plus an inward-facing inner shell 1-3 mm inside, open at the rims",
+    "options": [
+     "Remove slivers",
+     "Flip them",
+     "Keep as is",
+     "Snap seams shut",
+     "Rebuild feet as boxes"
+    ],
+    "picked": [
+     "Snap seams shut"
     ]
    }
   ]
