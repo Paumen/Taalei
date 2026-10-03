@@ -3949,7 +3949,6 @@ window.KENNEY_KITS = [
    "barrier",
    "barrier-large",
    "barrier-single",
-   "bear-trap",
    "car-broken",
    "carbine",
    "cardboard-box",
