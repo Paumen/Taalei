@@ -1166,8 +1166,8 @@
    "kit": "quat-shoot",
    "format": "glb",
    "inSource": 73,
-   "inCatalog": 63,
-   "listed": 10,
+   "inCatalog": 62,
+   "listed": 11,
    "unmatched": 0,
    "scale": 0.35
   },
@@ -1950,10 +1950,10 @@
    "name": "Taalei",
    "kit": "taalei-kit",
    "format": "glb",
-   "inSource": 30,
+   "inSource": 41,
    "inCatalog": 45,
    "listed": 1,
-   "unmatched": 15,
+   "unmatched": 4,
    "scale": 1
   }
  ],
@@ -3111,6 +3111,14 @@
    "name": "Unit"
   },
   {
+   "id": "str-part-wall-unit-doorway",
+   "name": "Doorway"
+  },
+  {
+   "id": "str-part-wall-unit-window",
+   "name": "Window"
+  },
+  {
    "id": "str-part-wall-rampart",
    "name": "Rampart"
   },
@@ -3217,6 +3225,10 @@
   {
    "id": "str-barrier-fence-mid",
    "name": "Mid"
+  },
+  {
+   "id": "str-barrier-fence-gate",
+   "name": "Gate"
   },
   {
    "id": "str-barrier-post",
@@ -3373,6 +3385,14 @@
   {
    "id": "str-fixture-utility-machine",
    "name": "Machine"
+  },
+  {
+   "id": "str-fixture-utility-machine-crane",
+   "name": "Crane"
+  },
+  {
+   "id": "str-fixture-utility-machine-drivethrough",
+   "name": "Drivethrough"
   },
   {
    "id": "str-fixture-utility-hopper",
@@ -38406,6 +38426,7 @@
   {
    "kit": "AssetPack",
    "name": "DoorWall",
+   "kind": "str-part-wall-unit-doorway",
    "wdh": [
     1.7,
     1.4,
@@ -44194,6 +44215,23 @@
    "scaled": true,
    "reason": "style",
    "file": "Tripod.glb"
+  },
+  {
+   "kit": "Toon_Shooter_Game_Kit",
+   "name": "Bear Trap",
+   "kind": "obj-equipment-tool-mechanism",
+   "wdh": [
+    0.3,
+    0.1,
+    0.4
+   ],
+   "tris": 608,
+   "tpu": 1773,
+   "mat": 1,
+   "bytes": 24416,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Bear Trap.glb"
   },
   {
    "kit": "Toon_Shooter_Game_Kit",
@@ -70398,6 +70436,7 @@
   {
    "kit": "All_Skate_Roller_Rink",
    "name": "exchange_turnstile",
+   "kind": "str-barrier-fence-gate",
    "wdh": [
     0.4,
     0.3,
