@@ -3230,5 +3230,126 @@
     ]
    }
   ]
+ },
+ {
+  "kind": "obj-equipment-apparel-headgear",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-skeleton-1/hood-masked"
+    ],
+    "text": "Inverted strip on the inner mask edge, present in the KayKit source too",
+    "options": [
+     "Flip it",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip it"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "taalei-kit/diving-helmet",
+     "quat-rpg/crown",
+     "quat-rpg/crown-2"
+    ],
+    "text": "Diving helmet fully flat-shaded and crowns mostly flat, while aq hats and kay hoods are smooth",
+    "options": [
+     "smooth.mjs 50° on helmet",
+     "smooth.mjs 50° on helmet + crowns",
+     "Keep as is"
+    ],
+    "picked": [
+     "smooth.mjs 50° on helmet + crowns"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-light-traffic",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-racing/light-colored",
+     "ken-racing/light-red",
+     "ken-racing/light-red-double"
+    ],
+    "text": "Visor side stubs still inverted; source is wound inside-out and the import flipped all but these",
+    "options": [
+     "Flip the stubs",
+     "Remove the stubs",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip the stubs"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-roads/traffic-light-object-hanging",
+     "ken-roads/traffic-light-object-horizontal",
+     "ken-roads/traffic-light-object-vertical"
+    ],
+    "text": "Lamps face -X as in source; the other 10 models face +Z",
+    "options": [
+     "Turn to face +Z",
+     "Keep -X"
+    ],
+    "picked": [
+     "Turn to face +Z"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-roads/traffic-light-object-hanging",
+     "ken-roads/traffic-light-object-horizontal",
+     "ken-roads/traffic-light-object-vertical"
+    ],
+    "text": "Head back, plate and brackets in slate while the same parts on ken-roads traffic-light and -hanging are nickel; source is grey",
+    "options": [
+     "Slate → nickel",
+     "Nickel → slate on the full ones",
+     "Keep as is"
+    ],
+    "picked": [
+     "Slate → nickel"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility-turbine",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-space/*",
+     "ken-industrial/*"
+    ],
+    "text": "Kits differ in accent: kay amber blade tips and collar, ken ivory blade root and sienna base",
+    "options": [
+     "Keep as is",
+     "Amber tips on ken blades",
+     "Sienna base on kay-tall"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
  }
 ]
