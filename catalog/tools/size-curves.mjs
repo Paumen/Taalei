@@ -195,6 +195,7 @@ const SIZES = {
   'obj-furnishing-furniture-seating-chair-lounge': 0.85,
   'obj-furnishing-furniture-seating-sofa': 0.85,
   'obj-furnishing-furniture-seating-stool': 0.45,
+  'obj-furnishing-furniture-seating-stool-bar': 0.75,
   'obj-furnishing-furniture-storage': 1.2,
   'obj-furnishing-furniture-storage-bookcase': 1.8,
   'obj-furnishing-furniture-storage-cabinet': 1.8,
