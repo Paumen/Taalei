@@ -198,6 +198,7 @@ const SIZES = {
   'obj-furnishing-furniture-storage': 1.2,
   'obj-furnishing-furniture-storage-bookcase': 1.8,
   'obj-furnishing-furniture-storage-cabinet': 1.8,
+  'obj-furnishing-furniture-storage-dresser': 1,
   'obj-furnishing-furniture-storage-shelf': 0.8,
   'obj-furnishing-furniture-storage-shelf-rack': 1.8,
   'obj-furnishing-furniture-table': 0.75,
