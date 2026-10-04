@@ -5,6 +5,57 @@ import { inflateSync } from 'node:zlib';
 const MAGIC = 'Kaydara FBX Binary  ';
 const AFBEELDING = /\.(png|jpe?g)$/i;
 
+function driehoeken(punten) {
+  const n = punten.length;
+  if (n < 3) return [];
+  if (n === 3) return [[0, 1, 2]];
+
+  const normaal = [0, 0, 0];
+  for (let i = 0; i < n; i++) {
+    const [a, b] = [punten[i], punten[(i + 1) % n]];
+    normaal[0] += (a[1] - b[1]) * (a[2] + b[2]);
+    normaal[1] += (a[2] - b[2]) * (a[0] + b[0]);
+    normaal[2] += (a[0] - b[0]) * (a[1] + b[1]);
+  }
+  const as = normaal.map(Math.abs);
+  const weg = as[0] >= as[1] && as[0] >= as[2] ? 0 : as[1] >= as[2] ? 1 : 2;
+  const [u, v] = [[1, 2], [2, 0], [0, 1]][weg];
+  const teken = normaal[weg] < 0 ? -1 : 1;
+  const vlak = punten.map((p) => [p[u], p[v] * teken]);
+
+  const kruis = (a, b, c) => (vlak[b][0] - vlak[a][0]) * (vlak[c][1] - vlak[a][1]) - (vlak[b][1] - vlak[a][1]) * (vlak[c][0] - vlak[a][0]);
+  const maat = Math.max(...vlak.flat()) - Math.min(...vlak.flat());
+  const tol = maat * maat * 1e-9;
+  const zelfde = (a, b) => vlak[a][0] === vlak[b][0] && vlak[a][1] === vlak[b][1];
+  const binnen = (p, a, b, c) => kruis(a, b, p) >= 0 && kruis(b, c, p) >= 0 && kruis(c, a, p) >= 0;
+
+  const over = [...Array(n).keys()];
+  const uit = [];
+  let mis = 0;
+  for (let i = 0; over.length > 3 && mis < over.length; ) {
+    const m = over.length;
+    const [a, b, c] = [over[(i + m - 1) % m], over[i % m], over[(i + 1) % m]];
+    let oor = kruis(a, b, c) > tol;
+    for (const p of over) {
+      if (!oor) break;
+      if (p === a || p === b || p === c || zelfde(p, a) || zelfde(p, b) || zelfde(p, c)) continue;
+      if (binnen(p, a, b, c)) oor = false;
+    }
+    if (oor) {
+      uit.push([a, b, c]);
+      over.splice(i % m, 1);
+      mis = 0;
+    } else {
+      i = (i + 1) % m;
+      mis++;
+    }
+  }
+  for (let k = 1; k + 1 < over.length; k++) {
+    if (Math.abs(kruis(over[0], over[k], over[k + 1])) > tol) uit.push([over[0], over[k], over[k + 1]]);
+  }
+  return uit;
+}
+
 function readProperty(buf, pos) {
   const type = String.fromCharCode(buf[pos]);
   pos += 1;
@@ -313,8 +364,8 @@ export function leesFbx(pad) {
       if (polygons[i] >= 0) continue;
 
       const deel = deelVan(materiaalVan(polygoon));
-      for (let k = 1; k + 1 < hoeken.length; k++) {
-        for (const hoek of [hoeken[0], hoeken[k], hoeken[k + 1]]) {
+      for (const drie of driehoeken(hoeken.map((h) => h.p))) {
+        for (const hoek of drie.map((k) => hoeken[k])) {
           deel.posities.push(...hoek.p);
           if (hoek.n) deel.normalen.push(...hoek.n);
           else heeftNormalen = false;
