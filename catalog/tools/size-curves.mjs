@@ -127,6 +127,7 @@ const SIZES = {
   'obj-equipment-weapon-ranged-crossbow': 0.8,
   'obj-equipment-weapon-ranged-firearm': 1.2,
   'obj-equipment-weapon-ranged-firearm-hand': 0.35,
+  'obj-equipment-weapon-ranged-firearm-hand-revolver': 0.3,
   'obj-equipment-weapon-ranged-firearm-rifle': 1.15,
   'obj-equipment-weapon-ranged-firearm-rifle-sniper': 1.2,
   'obj-equipment-weapon-ranged-firearm-shotgun': 1.1,

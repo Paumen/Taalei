@@ -2913,7 +2913,7 @@
    },
    "kitCheck": {
     "factor": 1.08,
-    "kinds": 3
+    "kinds": 4
    }
   },
   {
@@ -3133,7 +3133,7 @@
    },
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 21
+    "kinds": 22
    }
   },
   {
@@ -4487,7 +4487,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 26
+    "kinds": 27
    }
   }
  ],
@@ -21064,6 +21064,13 @@
    "count": 31
   },
   {
+   "id": "obj-equipment-weapon-ranged-firearm-hand-revolver",
+   "name": "Revolver",
+   "type": "kind",
+   "description": "Handgun with a revolving cylinder.",
+   "count": 6
+  },
+  {
    "id": "obj-equipment-weapon-ranged-firearm-smg",
    "name": "SMG",
    "type": "kind",
@@ -24079,6 +24086,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-weapon-ranged-firearm-hand": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-ranged-firearm-hand-revolver": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.5,
@@ -273580,7 +273593,7 @@
   {
    "kit": "quat-guns",
    "name": "revolver-ribbed",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
     0.244,
@@ -273626,7 +273639,7 @@
   {
    "kit": "quat-guns",
    "name": "revolver-steel",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
     0.234,
@@ -273666,7 +273679,7 @@
   {
    "kit": "quat-guns",
    "name": "revolver",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
     0.244,
@@ -293995,7 +294008,7 @@
   {
    "kit": "quat-shoot",
    "name": "revolver-short",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
     0.232,
@@ -294040,7 +294053,7 @@
   {
    "kit": "quat-shoot",
    "name": "revolver",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
     0.346,
@@ -376924,7 +376937,7 @@
   {
    "kit": "zombie-weapons",
    "name": "revolver",
-   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
     0.178,
