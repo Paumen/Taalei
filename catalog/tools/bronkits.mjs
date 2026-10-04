@@ -207,4 +207,11 @@ export const BRONKITS = [
   { map: 'LowPolyStore_Polygonal_Mind', naam: 'LowPolyStore', kit: 'pm-store', source: 'polygonalmind', formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
   { map: 'Weapon_Pack_LP', naam: 'Weapon Pack', kit: 'weapon-pack', formaat: 'glb' },
   { map: 'Gothic_Like_Structures', naam: 'Gothic Like Structures', kit: null, formaat: 'glb', splitsPerMesh: true },
+
+  { map: 'Ultimate_Space_Kit', naam: 'Ultimate Space Kit', kit: null, source: 'qua', formaat: 'glb' },
+  { map: 'Ultimate_House_Interior_Pack', naam: 'Ultimate House Interior Pack', kit: null, source: 'qua', formaat: 'glb' },
+  { map: 'Cars_Bundle', naam: 'Cars Bundle', kit: null, source: 'qua', formaat: 'glb' },
+  { map: 'Enemies_Pack', naam: 'Enemies Pack', kit: null, formaat: 'glb' },
+  { map: 'Animated_Enemies', naam: 'Animated Enemies', kit: null, formaat: 'glb' },
+  { map: 'Lava_Tileset', naam: 'Lava Tileset', kit: null, formaat: 'glb', splitsPerMesh: true },
 ];
