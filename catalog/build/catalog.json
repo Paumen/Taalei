@@ -352264,8 +352264,8 @@
    "kind": "obj-equipment-tool-stationery",
    "size": "s",
    "wdh": [
-    0.018,
-    0.006,
+    0.013,
+    0.002,
     0.028
    ],
    "tris": 1754,
@@ -352273,14 +352273,15 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 60128,
+   "bytes": 60148,
    "vtx": 1505,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0012,
    "avgTri": 0,
-   "anglePct": 42,
+   "anglePct": 48,
    "vpt": 0.86,
    "grad": 0.44,
    "spread": {
@@ -352312,6 +352313,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 0.028 under min 0.08 (obj-equipment-tool-stationery)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0012 wants min 0.006"
     }
    ]
   },
@@ -353086,43 +353092,44 @@
    "size": "s",
    "wdh": [
     0.428,
-    0.35,
-    0.333
+    0.347,
+    0.332
    ],
-   "tris": 33482,
-   "tpu": 97615,
+   "tris": 47368,
+   "tpu": 138099,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 1003460,
-   "vtx": 25034,
+   "bytes": 1291320,
+   "vtx": 31426,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00001,
-   "anglePct": 5,
-   "vpt": 0.75,
-   "grad": 0.62,
+   "minTube": 0.008,
+   "avgTri": 0,
+   "anglePct": 3,
+   "vpt": 0.66,
+   "grad": 0.19,
    "spread": {
     "15,3": [
-     0.117,
-     0.969
+     0.297,
+     0.508
     ],
     "8,0": [
-     0.016,
-     0.977
+     0.445,
+     0.555
     ],
     "5,2": [
-     0.313,
+     0.32,
      0.523
-    ],
-    "13,3": [
-     0.016,
-     0.656
     ],
     "4,2": [
      0.367,
      0.648
+    ],
+    "13,3": [
+     0.523,
+     0.656
     ]
    },
    "colors": [
@@ -353141,7 +353148,12 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 97615 over max 10000 (obj)"
+     "text": "tpu 138099 over max 10000 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.008 wants min 0.026"
     }
    ]
   },
@@ -353941,8 +353953,8 @@
    "kind": "obj-equipment-tool-stationery",
    "size": "s",
    "wdh": [
-    0.011,
-    0.009,
+    0.008,
+    0.006,
     0.073
    ],
    "tris": 3192,
@@ -353956,9 +353968,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0064,
+   "minTube": 0.0008,
    "avgTri": 0,
-   "anglePct": 16,
+   "anglePct": 19,
    "vpt": 0.76,
    "grad": 0.76,
    "spread": {
@@ -354004,6 +354016,11 @@
      "level": "error",
      "check": "measures",
      "text": "G12 bands 5 wants max 3"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0008 wants min 0.006"
     }
    ]
   },
@@ -356456,16 +356473,12 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
-   "avgTri": 0.0001,
-   "anglePct": 73,
+   "minTube": 0.0019,
+   "avgTri": 0.00009,
+   "anglePct": 71,
    "vpt": 1.1,
    "grad": 0.31,
    "spread": {
-    "8,0": [
-     0.43,
-     0.555
-    ],
     "13,3": [
      0.484,
      0.805
@@ -356473,6 +356486,10 @@
     "5,2": [
      0.492,
      0.492
+    ],
+    "8,0": [
+     0.5,
+     0.555
     ]
    },
    "colors": [
@@ -356485,6 +356502,13 @@
     "mounted",
     "plastic",
     "styloo"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0019 wants min 0.012"
+    }
    ]
   },
   {
