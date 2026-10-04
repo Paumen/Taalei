@@ -2292,8 +2292,8 @@
     "0.0009": 89
    },
    "smooth": {
-    "none": 80,
-    "smooth": 9
+    "none": 79,
+    "smooth": 10
    },
    "kitCheck": {
     "factor": 0.87,
@@ -17977,14 +17977,14 @@
    "name": "Ceramic",
    "type": "material",
    "description": "Fired clay: jugs, vases, plates, bowls, pots, ceramic bottles, roof tiles.",
-   "count": 551
+   "count": 553
   },
   {
    "id": "plastic",
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 879
+   "count": 877
   },
   {
    "id": "rubber",
@@ -19901,14 +19901,14 @@
    "name": "Firearm",
    "type": "kind",
    "description": "Weapon that fires a shot with powder.",
-   "count": 82
+   "count": 84
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-part",
    "name": "Firearm part",
    "type": "kind",
    "description": "Gun attachment or magazine: scope, silencer, clip.",
-   "count": 7
+   "count": 9
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -44756,20 +44756,20 @@
    "avgTri": 0.0017,
    "anglePct": 94,
    "vpt": 1.66,
-   "grad": 0,
+   "grad": 0.5,
    "spread": {
     "1,0": [
-     0.5,
-     0.5
+     0.281,
+     0.781
     ],
-    "5,2": [
-     0.492,
-     0.492
+    "15,3": [
+     0.336,
+     0.836
     ]
    },
    "colors": [
-    "#b58158",
-    "#d8d1bd"
+    "#82868e",
+    "#b58158"
    ],
    "tags": [
     "fs",
@@ -132124,15 +132124,15 @@
    "avgTri": 0.00018,
    "anglePct": 24,
    "vpt": 0.64,
-   "grad": 0,
+   "grad": 0.54,
    "spread": {
     "15,3": [
-     0.5,
-     0.5
+     0.203,
+     0.758
     ],
     "4,2": [
-     0.5,
-     0.5
+     0.25,
+     0.758
     ]
    },
    "colors": [
@@ -154893,7 +154893,7 @@
   {
    "kit": "ken-blaster",
    "name": "bullet-foam-tip-thick",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-firearm-part",
    "size": "s",
    "wdh": [
     0.015,
@@ -154939,7 +154939,7 @@
   {
    "kit": "ken-blaster",
    "name": "bullet-foam-tip",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-firearm-part",
    "size": "s",
    "wdh": [
     0.012,
@@ -234596,23 +234596,23 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16672,
-   "vtx": 434,
+   "bytes": 11420,
+   "vtx": 270,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "avgTri": 0.00043,
    "anglePct": 16,
-   "vpt": 1.94,
-   "grad": 0,
+   "vpt": 1.21,
+   "grad": 0.5,
    "spread": {
     "5,2": [
-     0.492,
-     0.492
+     0.25,
+     0.75
     ],
     "15,3": [
-     0.5,
-     0.5
+     0.109,
+     0.609
     ]
    },
    "colors": [
@@ -234854,34 +234854,34 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4504,
-   "vtx": 88,
+   "bytes": 4568,
+   "vtx": 90,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00993,
-   "anglePct": 89,
-   "vpt": 2,
-   "grad": 0,
+   "avgTri": 0.0099,
+   "anglePct": 87,
+   "vpt": 2.05,
+   "grad": 0.5,
    "spread": {
     "5,2": [
-     0.492,
-     0.492
+     0.25,
+     0.75
     ],
-    "4,2": [
-     0.5,
-     0.5
+    "15,3": [
+     0.25,
+     0.75
     ]
    },
    "colors": [
-    "#1367a6",
+    "#82868e",
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "glass",
     "lpa",
-    "mounted",
-    "plastic"
+    "mounted"
    ],
    "variant": "v1306"
   },
@@ -234900,34 +234900,34 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4508,
-   "vtx": 88,
+   "bytes": 4572,
+   "vtx": 90,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "avgTri": 0.00471,
-   "anglePct": 87,
-   "vpt": 2,
-   "grad": 0,
+   "avgTri": 0.00469,
+   "anglePct": 83,
+   "vpt": 2.05,
+   "grad": 0.5,
    "spread": {
     "5,2": [
-     0.492,
-     0.492
+     0.25,
+     0.75
     ],
-    "4,2": [
-     0.5,
-     0.5
+    "15,3": [
+     0.25,
+     0.75
     ]
    },
    "colors": [
-    "#1367a6",
+    "#82868e",
     "#d8d1bd"
    ],
    "tags": [
+    "ceramic",
     "glass",
     "lpa",
-    "mounted",
-    "plastic"
+    "mounted"
    ],
    "variant": "v1306"
   },
@@ -238613,15 +238613,15 @@
    "avgTri": 0.00021,
    "anglePct": 7,
    "vpt": 2.08,
-   "grad": 0,
+   "grad": 0.5,
    "spread": {
     "15,3": [
-     0.5,
-     0.5
+     0.289,
+     0.789
     ],
     "1,0": [
-     0.5,
-     0.5
+     0.086,
+     0.586
     ]
    },
    "colors": [
@@ -336550,31 +336550,31 @@
    "size": "s",
    "wdh": [
     0.111,
-    0.009,
+    0.005,
     0.111
    ],
-   "tris": 632,
-   "tpu": 1843,
+   "tris": 2384,
+   "tpu": 6950,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 35636,
-   "vtx": 949,
+   "bytes": 79020,
+   "vtx": 1976,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00001,
-   "anglePct": 28,
-   "vpt": 1.5,
-   "grad": 0,
+   "avgTri": 0,
+   "anglePct": 9,
+   "vpt": 0.83,
+   "grad": 0.52,
    "spread": {
     "13,3": [
-     0.5,
-     0.5
+     0.234,
+     0.758
     ],
     "15,3": [
-     0.5,
-     0.5
+     0.234,
+     0.758
     ]
    },
    "colors": [
@@ -336600,28 +336600,28 @@
     0.004,
     0.102
    ],
-   "tris": 2250,
-   "tpu": 6560,
+   "tris": 1928,
+   "tpu": 5621,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 80092,
-   "vtx": 2034,
+   "bytes": 122384,
+   "vtx": 3416,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "avgTri": 0.00001,
-   "anglePct": 43,
-   "vpt": 0.9,
-   "grad": 0,
+   "avgTri": 0,
+   "anglePct": 62,
+   "vpt": 1.77,
+   "grad": 0.69,
    "spread": {
     "13,3": [
-     0.5,
-     0.5
+     0.156,
+     0.836
     ],
     "15,3": [
-     0.5,
-     0.5
+     0.109,
+     0.828
     ]
    },
    "colors": [
@@ -336647,28 +336647,28 @@
     0.003,
     0.128
    ],
-   "tris": 3928,
-   "tpu": 11452,
+   "tris": 3992,
+   "tpu": 11638,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 116544,
-   "vtx": 2859,
+   "bytes": 248864,
+   "vtx": 6982,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0,
-   "anglePct": 69,
-   "vpt": 0.73,
-   "grad": 0,
+   "anglePct": 51,
+   "vpt": 1.75,
+   "grad": 0.59,
    "spread": {
     "13,3": [
-     0.5,
-     0.5
+     0.25,
+     0.75
     ],
     "15,3": [
-     0.5,
-     0.5
+     0.125,
+     0.813
     ]
    },
    "colors": [
@@ -336694,28 +336694,28 @@
     0.006,
     0.109
    ],
-   "tris": 1160,
-   "tpu": 3382,
+   "tris": 1132,
+   "tpu": 3300,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 47544,
-   "vtx": 1222,
+   "bytes": 65620,
+   "vtx": 1792,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "avgTri": 0.00001,
-   "anglePct": 69,
-   "vpt": 1.05,
-   "grad": 0,
+   "anglePct": 52,
+   "vpt": 1.58,
+   "grad": 0.5,
    "spread": {
     "15,3": [
-     0.5,
-     0.5
+     0.25,
+     0.75
     ],
     "13,3": [
-     0.5,
-     0.5
+     0.25,
+     0.75
     ]
    },
    "colors": [
