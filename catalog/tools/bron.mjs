@@ -4,6 +4,46 @@ import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { readGlb, readAccessor } from '../../catalog/tools/glb.mjs';
+import draco3d from 'draco3d';
+
+const DRACO = await draco3d.createDecoderModule({});
+
+function dracoPrimitief({ json, bin }, prim) {
+  const ext = prim.extensions?.KHR_draco_mesh_compression;
+  if (!ext) return null;
+  const view = json.bufferViews[ext.bufferView];
+  const start = view.byteOffset ?? 0;
+  const bytes = new Int8Array(bin.buffer, bin.byteOffset + start, view.byteLength);
+
+  const decoder = new DRACO.Decoder();
+  const buffer = new DRACO.DecoderBuffer();
+  buffer.Init(bytes, bytes.length);
+  const mesh = new DRACO.Mesh();
+  const status = decoder.DecodeBufferToMesh(buffer, mesh);
+  if (!status.ok()) throw new Error(`draco: ${status.error_msg()}`);
+
+  const punten = mesh.num_points();
+  const uit = { indices: null, attributen: {} };
+  for (const [semantiek, id] of Object.entries(ext.attributes)) {
+    const attribuut = decoder.GetAttributeByUniqueId(mesh, id);
+    const width = attribuut.num_components();
+    const lengte = punten * width;
+    const ptr = DRACO._malloc(lengte * 4);
+    decoder.GetAttributeDataArrayForAllPoints(mesh, attribuut, DRACO.DT_FLOAT32, lengte * 4, ptr);
+    uit.attributen[semantiek] = { data: new Float32Array(DRACO.HEAPF32.buffer, ptr, lengte).slice(), count: punten, width };
+    DRACO._free(ptr);
+  }
+  const lengte = mesh.num_faces() * 3;
+  const ptr = DRACO._malloc(lengte * 4);
+  decoder.GetTrianglesUInt32Array(mesh, lengte * 4, ptr);
+  uit.indices = new Uint32Array(DRACO.HEAPU32.buffer, ptr, lengte).slice();
+  DRACO._free(ptr);
+
+  DRACO.destroy(mesh);
+  DRACO.destroy(buffer);
+  DRACO.destroy(decoder);
+  return uit;
+}
 
 const EENHEID = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
@@ -96,7 +136,8 @@ function materiaalUitGltf(json, index, dir, bin) {
   const pbr = materiaal.pbrMetallicRoughness ?? {};
   const texIndex = pbr.baseColorTexture?.index;
   if (texIndex !== undefined) {
-    const image = json.images?.[json.textures?.[texIndex]?.source];
+    const textuur = json.textures?.[texIndex];
+    const image = json.images?.[textuur?.source ?? textuur?.extensions?.EXT_texture_webp?.source];
     if (!image) throw new Error('baseColorTexture zonder image');
     if (image.uri) return { naam, textuur: resolve(dir, decodeURIComponent(image.uri)), kleur: null };
     if (image.bufferView !== undefined) {
@@ -133,7 +174,9 @@ export function leesGltf(pad) {
     for (const prim of json.meshes[node.mesh].primitives ?? []) {
       if (prim.mode !== undefined && prim.mode !== 4) continue;
 
-      const pos = readAccessor(glb, prim.attributes.POSITION);
+      const draco = dracoPrimitief(glb, prim);
+      const lees = (semantiek) => draco?.attributen[semantiek] ?? readAccessor(glb, prim.attributes[semantiek]);
+      const pos = lees('POSITION');
       const posities = new Float64Array(pos.count * 3);
       for (let i = 0; i < pos.count; i++) {
         const [x, y, z] = punt(m, pos.data[i * 3], pos.data[i * 3 + 1], pos.data[i * 3 + 2]);
@@ -144,7 +187,7 @@ export function leesGltf(pad) {
 
       let normalen = null;
       if (prim.attributes.NORMAL !== undefined) {
-        const bron = readAccessor(glb, prim.attributes.NORMAL);
+        const bron = lees('NORMAL');
         normalen = new Float64Array(bron.count * 3);
         for (let i = 0; i < bron.count; i++) {
           const [x, y, z] = richting(m, bron.data[i * 3], bron.data[i * 3 + 1], bron.data[i * 3 + 2]);
@@ -157,13 +200,13 @@ export function leesGltf(pad) {
 
       let uvs = null;
       if (prim.attributes.TEXCOORD_0 !== undefined) {
-        uvs = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
+        uvs = lees('TEXCOORD_0').data;
       }
 
       let hoekkleuren = null;
       if (prim.attributes.COLOR_0 !== undefined) {
         const accessor = json.accessors[prim.attributes.COLOR_0];
-        const bron = readAccessor(glb, prim.attributes.COLOR_0);
+        const bron = lees('COLOR_0');
         const deler =
           accessor.componentType === 5121 ? 255
           : accessor.componentType === 5123 ? 65535
@@ -175,7 +218,8 @@ export function leesGltf(pad) {
       }
 
       let indices;
-      if (prim.indices !== undefined) {
+      if (draco) indices = draco.indices;
+      else if (prim.indices !== undefined) {
         const bron = readAccessor(glb, prim.indices);
         indices = Uint32Array.from(bron.data);
       } else {
