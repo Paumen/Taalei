@@ -1954,8 +1954,8 @@
     "smooth": 67
    },
    "kitCheck": {
-    "factor": 0.9,
-    "kinds": 44
+    "factor": 0.91,
+    "kinds": 45
    }
   },
   {
@@ -3399,8 +3399,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1,
-    "kinds": 71
+    "factor": 1.02,
+    "kinds": 72
    }
   },
   {
@@ -20067,14 +20067,14 @@
    "name": "Shelf",
    "type": "kind",
    "description": "Boards carried on brackets or a frame, open on the front.",
-   "count": 37
+   "count": 40
   },
   {
    "id": "obj-furnishing-furniture-storage-shelf-rack",
    "name": "Rack",
    "type": "kind",
    "description": "Open rack for showing or holding goods or gear: display rack, spinner rack, slat wall, ball or dumbbell rack.",
-   "count": 18
+   "count": 21
   },
   {
    "id": "obj-furnishing-furniture-storage-shelf-rack-weapon",
@@ -20082,6 +20082,13 @@
    "type": "kind",
    "description": "weapon rack, weapon stand",
    "count": 4
+  },
+  {
+   "id": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "name": "Coat rack",
+   "type": "kind",
+   "description": "Standing or wall coat rack with hooks.",
+   "count": 3
   },
   {
    "id": "obj-furnishing-furniture-table",
@@ -22945,6 +22952,7 @@
   "obj-furnishing-furniture-storage-cabinet",
   "obj-furnishing-furniture-storage-dresser",
   "obj-furnishing-furniture-storage-shelf",
+  "obj-furnishing-furniture-storage-shelf-rack-coat",
   "obj-furnishing-furniture-storage-shelf-rack-weapon",
   "obj-furnishing-light-campfire",
   "obj-furnishing-light-lamp",
@@ -24583,6 +24591,12 @@
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.95,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-storage-shelf-rack-coat": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1,
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-storage-shelf-rack-weapon": {
@@ -177442,7 +177456,7 @@
   {
    "kit": "ken-furniture",
    "name": "coat-rack-standing",
-   "kind": "obj-furnishing-furniture-storage",
+   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
    "size": "m",
    "wdh": [
     0.232,
@@ -177482,7 +177496,7 @@
   {
    "kit": "ken-furniture",
    "name": "coat-rack",
-   "kind": "obj-furnishing-furniture-storage",
+   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
    "size": "s",
    "wdh": [
     0.381,
@@ -323789,7 +323803,7 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "coat-rack",
-   "kind": "obj-furnishing-furniture-storage",
+   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
    "size": "m",
    "wdh": [
     0.436,

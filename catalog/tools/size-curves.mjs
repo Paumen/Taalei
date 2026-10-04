@@ -201,6 +201,7 @@ const SIZES = {
   'obj-furnishing-furniture-storage-dresser': 1,
   'obj-furnishing-furniture-storage-shelf': 0.8,
   'obj-furnishing-furniture-storage-shelf-rack': 1.8,
+  'obj-furnishing-furniture-storage-shelf-rack-coat': 1.7,
   'obj-furnishing-furniture-table': 0.75,
   'obj-furnishing-furniture-table-desk': 0.75,
   'obj-furnishing-furniture-table-round': 0.75,
