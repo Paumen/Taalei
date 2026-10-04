@@ -20740,6 +20740,27 @@
    "count": 31
   },
   {
+   "id": "obj-equipment-tool-supplies-chain",
+   "name": "Chain",
+   "type": "kind",
+   "description": "Chain coil, hanging chain, single links and shackles.",
+   "count": 7
+  },
+  {
+   "id": "obj-equipment-tool-supplies-hook",
+   "name": "Hook",
+   "type": "kind",
+   "description": "Hook to hang things from, meat hook, or a fishing lure with its hook.",
+   "count": 9
+  },
+  {
+   "id": "obj-equipment-tool-supplies-rope",
+   "name": "Rope",
+   "type": "kind",
+   "description": "Rope coil, bundle, hanging rope or net.",
+   "count": 7
+  },
+  {
    "id": "obj-transport",
    "name": "Transport",
    "type": "kind",
@@ -23884,6 +23905,24 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-supplies": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-supplies-chain": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-supplies-hook": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-supplies-rope": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -134795,7 +134834,7 @@
   {
    "kit": "kay-mixed",
    "name": "chain-anchor",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "s",
    "wdh": [
     0.09,
@@ -134833,7 +134872,7 @@
   {
    "kit": "kay-mixed",
    "name": "chain-hanging-a",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "m",
    "wdh": [
     0.09,
@@ -134874,7 +134913,7 @@
   {
    "kit": "kay-mixed",
    "name": "chain-hanging-b",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "m",
    "wdh": [
     0.75,
@@ -134915,7 +134954,7 @@
   {
    "kit": "kay-mixed",
    "name": "chain-link",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "s",
    "wdh": [
     0.073,
@@ -134954,7 +134993,7 @@
   {
    "kit": "kay-mixed",
    "name": "chain-links",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "s",
    "wdh": [
     0.073,
@@ -136231,7 +136270,7 @@
   {
    "kit": "kay-mixed",
    "name": "shackle",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "s",
    "wdh": [
     0.14,
@@ -152381,7 +152420,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "rope-bundle-a",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
     0.418,
@@ -152423,7 +152462,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "rope-bundle-b",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
     0.317,
@@ -269368,7 +269407,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "lure-a",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.062,
@@ -269419,7 +269458,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "lure-b",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.062,
@@ -269470,7 +269509,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "lure-c",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.062,
@@ -269516,7 +269555,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "lure-d",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.062,
@@ -269572,7 +269611,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "lure-e",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.062,
@@ -269628,7 +269667,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "lure-f",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.062,
@@ -286238,7 +286277,7 @@
   {
    "kit": "quat-props",
    "name": "chain-coil",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-chain",
    "size": "m",
    "wdh": [
     0.749,
@@ -286636,7 +286675,7 @@
   {
    "kit": "quat-props",
    "name": "rope-1",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
     0.39,
@@ -286675,7 +286714,7 @@
   {
    "kit": "quat-props",
    "name": "rope-2",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "m",
    "wdh": [
     0.565,
@@ -286714,7 +286753,7 @@
   {
    "kit": "quat-props",
    "name": "rope-3",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "m",
    "wdh": [
     0.86,
@@ -316049,7 +316088,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "hook",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.053,
@@ -317152,7 +317191,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "meat-hook",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.065,
@@ -319686,7 +319725,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "rope",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
     0.035,
@@ -358829,7 +358868,7 @@
   {
    "kit": "taalei-kit",
    "name": "hook",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-hook",
    "size": "s",
    "wdh": [
     0.145,
@@ -364234,7 +364273,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "net",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-rope",
    "size": "m",
    "wdh": [
     0.863,
