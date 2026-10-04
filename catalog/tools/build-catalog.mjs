@@ -446,6 +446,7 @@ const SOURCES = [
   { id: 'milkandbanana', name: 'MilkAndBanana', description: 'Kits from MilkAndBanana.' },
   { id: 'creativetrio', name: 'Creative Trio', description: 'Kits from Creative Trio.' },
   { id: 'rey', name: 'reyshapes', description: 'Kits from reyshapes (poly.pizza/u/reyshapes).' },
+  { id: 'gualtieris', name: 'Gualtieris', description: 'Kits from Gualtieris.' },
 ];
 
 function readSourcePerKit() {
