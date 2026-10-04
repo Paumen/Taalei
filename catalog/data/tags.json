@@ -4006,9 +4006,6 @@
     "fs-town/boat-oars-b",
     "ken-pirate/tool-paddle",
     "kay-mixed/circus-tent",
-    "kay-mixed/comic-box-closed",
-    "kay-mixed/comic-box-open",
-    "kay-mixed/comic-box-filled",
     "kay-mixed/umbrella-c",
     "kay-mixed/umbrella-d",
     "wizp-fish/boat-oars",
@@ -5243,7 +5240,6 @@
     "rgp-props/fishing-rod-b",
     "rgp-props/fishing-rod-c",
     "kay-mixed/circus-tent",
-    "kay-mixed/comic-box-closed",
     "wizp-fish/boat-oars",
     "wizp-fish/boat-rack",
     "wizp-fish/boat-poles",
@@ -6465,7 +6461,10 @@
     "styloo-school/toilet-roll",
     "quat-interior/toilet-paper-holder",
     "quat-interior/toilet-paper-stack",
-    "ken-survival/box"
+    "ken-survival/box",
+    "kay-mixed/comic-box-closed",
+    "kay-mixed/comic-box-open",
+    "kay-mixed/comic-box-filled"
    ],
    "parent": "wood"
   },
@@ -14929,51 +14928,13 @@
    "description": "crate, box, case",
    "models": [
     "lpa-desert/crate",
-    "kay-food/crate",
-    "kay-food/crate-closed",
-    "ken-pirate/crate",
     "medieval-forge/box",
-    "kay-food/crate-lid",
     "wizp-mediev/dynamite-crate-open",
-    "kay-hexagon/crate-long-a",
-    "kay-hexagon/crate-long-b",
-    "kay-hexagon/crate-long-c",
-    "kay-hexagon/crate-long",
     "kay-hexagon/crate-open",
-    "styloo-farm/crate-open",
-    "styloo-farm/crate-open-slate",
-    "rgp-explosives/ammo-crate",
-    "rgp-medieval/crate-open",
-    "kay-space/cargo-a-stacked",
-    "kay-space/containers-a",
-    "ken-station/container",
-    "ken-station/container-flat",
-    "ken-blaster/crate-medium",
-    "kay-mixed/comic-box-closed",
     "sq-bank/coin-trays",
-    "kay-mixed/comic-box-open",
-    "kay-mixed/comic-box-filled",
-    "kay-space/cargo-b-stacked",
-    "ken-blaster/crate-small",
-    "ken-blaster/crate-wide",
-    "ken-station/container-tall",
-    "ken-station/container-wide",
-    "ken-station/container-flat-open",
-    "kay-space/cargo-a",
-    "kay-space/cargo-b",
-    "kay-space/cargo-a-packed",
-    "kay-space/cargo-b-packed",
     "household/toolbox",
-    "zombie-weapons/ammo-box-grenade",
-    "zombie-weapons/ammo-box-shotgun",
-    "zombie-weapons/ammo-box-rifle",
-    "zombie-weapons/ammo-box-pistol",
     "lpa-construction/crate-slatted",
-    "lpa-construction/toolbox",
-    "styloo-guns/ammo-box",
-    "kay-space/containers-b",
-    "lpa-west/crate",
-    "quat-space/pickup-crate"
+    "lpa-construction/toolbox"
    ]
   },
   {
@@ -15052,7 +15013,69 @@
     "ken-survival/box",
     "quat-shoot/cardboard-box",
     "ken-factory/box-small",
-    "ken-furniture/cardboard-box-closed"
+    "ken-furniture/cardboard-box-closed",
+    "kay-mixed/comic-box-closed",
+    "kay-mixed/comic-box-open",
+    "kay-mixed/comic-box-filled"
+   ]
+  },
+  {
+   "id": "obj-container-crate-ammo",
+   "name": "Ammo box",
+   "type": "kind",
+   "description": "Box or can for ammunition, metal, plastic or wood.",
+   "models": [
+    "styloo-guns/ammo-box",
+    "zombie-weapons/ammo-box-rifle",
+    "zombie-weapons/ammo-box-grenade",
+    "zombie-weapons/ammo-box-shotgun",
+    "zombie-weapons/ammo-box-pistol",
+    "rgp-explosives/ammo-crate"
+   ]
+  },
+  {
+   "id": "obj-container-crate-scifi",
+   "name": "Sci-fi crate",
+   "type": "kind",
+   "description": "Futuristic cargo pod, supply crate or canister.",
+   "models": [
+    "kay-space/cargo-a",
+    "kay-space/cargo-a-stacked",
+    "kay-space/cargo-a-packed",
+    "kay-space/cargo-b",
+    "kay-space/cargo-b-stacked",
+    "kay-space/cargo-b-packed",
+    "kay-space/containers-a",
+    "kay-space/containers-b",
+    "ken-station/container",
+    "ken-station/container-flat",
+    "ken-station/container-flat-open",
+    "ken-station/container-tall",
+    "ken-station/container-wide",
+    "quat-space/pickup-crate",
+    "ken-blaster/crate-small",
+    "ken-blaster/crate-medium",
+    "ken-blaster/crate-wide"
+   ]
+  },
+  {
+   "id": "obj-container-crate-produce",
+   "name": "Produce crate",
+   "type": "kind",
+   "description": "Shallow open crate for fruit, vegetables or bottles, and its lid.",
+   "models": [
+    "kay-food/crate",
+    "kay-food/crate-closed",
+    "kay-food/crate-lid",
+    "kay-hexagon/crate-long",
+    "kay-hexagon/crate-long-a",
+    "kay-hexagon/crate-long-b",
+    "kay-hexagon/crate-long-c",
+    "lpa-west/crate",
+    "ken-pirate/crate",
+    "rgp-medieval/crate-open",
+    "styloo-farm/crate-open",
+    "styloo-farm/crate-open-slate"
    ]
   },
   {
@@ -16029,18 +16052,11 @@
    "type": "kind",
    "description": "Soft furnishing: pillow, rug, curtain, blinds.",
    "models": [
-    "isa-bakery/curtains",
-    "isa-kitchen/blinds",
-    "lpa-home/curtains",
     "isa-bathroom/towel-blue",
     "isa-bathroom/towel-pink",
     "isa-bathroom/towel-yellow",
     "isa-bathroom/towel-stack",
-    "styloo-school/curtain",
-    "fs-house/shower-curtain",
-    "fs-house/curtains-wide",
-    "fs-house/curtains",
-    "quat-interior/curtains-double"
+    "fs-house/curtains-wide"
    ]
   },
   {
@@ -16054,6 +16070,21 @@
     "sq-gym/yoga-mats",
     "lpa-home/mat",
     "isa-bathroom/bath-mat"
+   ]
+  },
+  {
+   "id": "obj-furnishing-textile-curtains",
+   "name": "Curtains",
+   "type": "kind",
+   "description": "Curtains, blinds or a shower curtain, usually on a rail.",
+   "models": [
+    "isa-kitchen/blinds",
+    "styloo-school/curtain",
+    "fs-house/curtains",
+    "isa-bakery/curtains",
+    "lpa-home/curtains",
+    "quat-interior/curtains-double",
+    "fs-house/shower-curtain"
    ]
   },
   {
@@ -16108,14 +16139,7 @@
    "type": "kind",
    "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail, changing stall.",
    "models": [
-    "sq-pool/changing-stall",
-    "lpa-home/toilet-roll-holder",
-    "lpa-home/toilet-rolls",
-    "fs-house/toilet-paper-holder",
-    "styloo-school/toilet-roll",
-    "styloo-school/toilet-roll-holder",
-    "quat-interior/toilet-paper-holder",
-    "quat-interior/toilet-paper-stack"
+    "sq-pool/changing-stall"
    ]
   },
   {
@@ -16130,6 +16154,21 @@
     "lpa-home/towel-rail",
     "kay-food/shelf-paper-towel",
     "quat-interior/towel-rail"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom-toiletroll",
+   "name": "Toilet roll",
+   "type": "kind",
+   "description": "Toilet roll, a stack of rolls, or a holder with a roll.",
+   "models": [
+    "fs-house/toilet-paper-holder",
+    "quat-interior/toilet-paper-holder",
+    "quat-interior/toilet-paper-stack",
+    "styloo-school/toilet-roll",
+    "lpa-home/toilet-roll-holder",
+    "styloo-school/toilet-roll-holder",
+    "lpa-home/toilet-rolls"
    ]
   },
   {
@@ -16231,7 +16270,6 @@
     "kay-dun-2/bed-frame",
     "kay-furniture/bed-single-a",
     "kay-furniture/bed-single-b",
-    "ken-furniture/bed-bunk",
     "ken-furniture/bed-double",
     "ken-furniture/bed-single",
     "ken-nature/bed-floor",
@@ -16246,13 +16284,9 @@
     "ken-survival/bedroll",
     "ken-survival/camp-bed",
     "lpa-home/bed-single",
-    "lpa-home/bunk-bed",
-    "lpa-home/bunk-bed-triple",
     "western/bed",
-    "fs-house/bed-bunk",
     "fs-house/bed-single",
-    "quat-interior/bed-single",
-    "quat-interior/bed-bunk"
+    "quat-interior/bed-single"
    ]
   },
   {
@@ -16267,6 +16301,19 @@
     "kay-furniture/bed-double-b",
     "household/bed",
     "quat-interior/bed-king"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-bed-bunk",
+   "name": "Bunk bed",
+   "type": "kind",
+   "description": "Two or more beds stacked in one frame.",
+   "models": [
+    "quat-interior/bed-bunk",
+    "ken-furniture/bed-bunk",
+    "fs-house/bed-bunk",
+    "lpa-home/bunk-bed",
+    "lpa-home/bunk-bed-triple"
    ]
   },
   {
@@ -17492,9 +17539,6 @@
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
    "models": [
     "fs-town/lamp-wall",
-    "kay-furniture/lamp-standing",
-    "ken-furniture/lamp-round-floor",
-    "ken-furniture/lamp-square-floor",
     "sq-rink/floor-spot",
     "sq-rink/light-bar",
     "ken-holiday/lights-colored",
@@ -17503,23 +17547,18 @@
     "ipoly-concert/spotlight",
     "ipoly-concert/led-panel",
     "ipoly-concert/spotlight-barndoor",
-    "lpa-home/floor-lamp-a",
-    "lpa-home/floor-lamp-b",
     "lpa-home/wall-light",
     "lpa-construction/work-light-b",
     "lpa-construction/work-light-a",
-    "pm-store/stage-light",
-    "quat-interior/floor-lamp-slim",
-    "quat-interior/floor-lamp"
+    "pm-store/stage-light"
    ]
   },
   {
    "id": "obj-furnishing-light-lamp-ceiling",
    "name": "Ceiling lamp",
    "type": "kind",
-   "description": "ceiling lamp, chandelier, ceiling fan, ceiling light, disco ball",
+   "description": "ceiling lamp, chandelier, ceiling light, disco ball",
    "models": [
-    "ken-furniture/ceiling-fan-anim",
     "sq-lab/ceiling-lamp",
     "fs-house/ceiling-light",
     "lpa-home/ceiling-light",
@@ -17527,12 +17566,7 @@
     "sq-rink/disco-ball",
     "styloo-furniture/lamp",
     "western/lamp-hanging",
-    "household/ceiling-fan",
     "household/chandelier",
-    "ken-furniture/ceiling-fan",
-    "lpa-home/ceiling-fan",
-    "fs-house/ceiling-fan-a",
-    "fs-house/ceiling-fan-b",
     "quat-interior/ceiling-light",
     "quat-interior/ceiling-light-single",
     "quat-interior/ceiling-light-cluster-a",
@@ -17542,6 +17576,20 @@
     "quat-interior/ceiling-light-cube-frame",
     "quat-interior/ceiling-light-cube",
     "quat-interior/ceiling-light-icosahedron"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-ceiling-fan",
+   "name": "Ceiling fan",
+   "type": "kind",
+   "description": "Ceiling fan, with or without a light.",
+   "models": [
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b",
+    "lpa-home/ceiling-fan",
+    "ken-furniture/ceiling-fan-anim",
+    "ken-furniture/ceiling-fan",
+    "household/ceiling-fan"
    ]
   },
   {
@@ -17563,6 +17611,21 @@
     "quat-interior/table-lamp-b",
     "quat-interior/table-lamp-c",
     "quat-interior/desk-lamp"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-floor",
+   "name": "Floor lamp",
+   "type": "kind",
+   "description": "Standing lamp on a pole, with a shade or bare light.",
+   "models": [
+    "kay-furniture/lamp-standing",
+    "ken-furniture/lamp-round-floor",
+    "ken-furniture/lamp-square-floor",
+    "quat-interior/floor-lamp-slim",
+    "lpa-home/floor-lamp-a",
+    "lpa-home/floor-lamp-b",
+    "quat-interior/floor-lamp"
    ]
   },
   {

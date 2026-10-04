@@ -250,7 +250,7 @@
    ],
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 33
+    "kinds": 37
    }
   },
   {
@@ -342,8 +342,8 @@
     "none": 45
    },
    "kitCheck": {
-    "factor": 0.87,
-    "kinds": 39
+    "factor": 0.88,
+    "kinds": 40
    }
   },
   {
@@ -689,7 +689,7 @@
    ],
    "kitCheck": {
     "factor": 1.04,
-    "kinds": 77
+    "kinds": 78
    }
   },
   {
@@ -1227,8 +1227,8 @@
     "none": 15
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 24
+    "factor": 1.03,
+    "kinds": 25
    }
   },
   {
@@ -1954,8 +1954,8 @@
     "smooth": 67
    },
    "kitCheck": {
-    "factor": 0.91,
-    "kinds": 41
+    "factor": 0.9,
+    "kinds": 42
    }
   },
   {
@@ -2319,7 +2319,7 @@
    },
    "kitCheck": {
     "factor": 0.87,
-    "kinds": 39
+    "kinds": 44
    }
   },
   {
@@ -2938,8 +2938,8 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 0.84,
-    "kinds": 23
+    "factor": 0.86,
+    "kinds": 26
    }
   },
   {
@@ -3399,8 +3399,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.02,
-    "kinds": 70
+    "factor": 1,
+    "kinds": 71
    }
   },
   {
@@ -4037,7 +4037,7 @@
    },
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 30
+    "kinds": 32
    }
   },
   {
@@ -18875,7 +18875,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 997,
+   "count": 994,
    "parent": "wood"
   },
   {
@@ -18883,7 +18883,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1360,
+   "count": 1359,
    "parent": "wood"
   },
   {
@@ -18907,7 +18907,7 @@
    "name": "Cardboard",
    "type": "material",
    "description": "Corrugated board: shipping boxes, parcels, cartons folded from brown board. Printed paper labels and tape on it are paper.",
-   "count": 27,
+   "count": 30,
    "parent": "wood"
   },
   {
@@ -19497,7 +19497,28 @@
    "name": "Cardboard box",
    "type": "kind",
    "description": "cardboard box, package, present",
-   "count": 39
+   "count": 42
+  },
+  {
+   "id": "obj-container-crate-ammo",
+   "name": "Ammo box",
+   "type": "kind",
+   "description": "Box or can for ammunition, metal, plastic or wood.",
+   "count": 6
+  },
+  {
+   "id": "obj-container-crate-scifi",
+   "name": "Sci-fi crate",
+   "type": "kind",
+   "description": "Futuristic cargo pod, supply crate or canister.",
+   "count": 17
+  },
+  {
+   "id": "obj-container-crate-produce",
+   "name": "Produce crate",
+   "type": "kind",
+   "description": "Shallow open crate for fruit, vegetables or bottles, and its lid.",
+   "count": 12
   },
   {
    "id": "obj-container-pot",
@@ -19846,6 +19867,13 @@
    "count": 5
   },
   {
+   "id": "obj-furnishing-textile-curtains",
+   "name": "Curtains",
+   "type": "kind",
+   "description": "Curtains, blinds or a shower curtain, usually on a rail.",
+   "count": 7
+  },
+  {
    "id": "obj-furnishing-textile-rug",
    "name": "Rug",
    "type": "kind",
@@ -19865,6 +19893,13 @@
    "type": "kind",
    "description": "towel rail",
    "count": 6
+  },
+  {
+   "id": "obj-furnishing-bathroom-toiletroll",
+   "name": "Toilet roll",
+   "type": "kind",
+   "description": "Toilet roll, a stack of rolls, or a holder with a roll.",
+   "count": 7
   },
   {
    "id": "obj-furnishing-bathroom-shower",
@@ -19921,6 +19956,13 @@
    "type": "kind",
    "description": "double bed",
    "count": 6
+  },
+  {
+   "id": "obj-furnishing-furniture-bed-bunk",
+   "name": "Bunk bed",
+   "type": "kind",
+   "description": "Two or more beds stacked in one frame.",
+   "count": 5
   },
   {
    "id": "obj-furnishing-furniture-seating",
@@ -20334,8 +20376,15 @@
    "id": "obj-furnishing-light-lamp-ceiling",
    "name": "Ceiling lamp",
    "type": "kind",
-   "description": "ceiling lamp, chandelier, ceiling fan, ceiling light, disco ball",
+   "description": "ceiling lamp, chandelier, ceiling light, disco ball",
    "count": 23
+  },
+  {
+   "id": "obj-furnishing-light-lamp-ceiling-fan",
+   "name": "Ceiling fan",
+   "type": "kind",
+   "description": "Ceiling fan, with or without a light.",
+   "count": 6
   },
   {
    "id": "obj-furnishing-light-lamp-table",
@@ -20343,6 +20392,13 @@
    "type": "kind",
    "description": "table lamp, desk lamp",
    "count": 13
+  },
+  {
+   "id": "obj-furnishing-light-lamp-floor",
+   "name": "Floor lamp",
+   "type": "kind",
+   "description": "Standing lamp on a pole, with a shade or bare light.",
+   "count": 7
   },
   {
    "id": "str-fixture-light-post",
@@ -22859,8 +22915,10 @@
   "obj-furnishing-bathroom-shower",
   "obj-furnishing-bathroom-sink",
   "obj-furnishing-bathroom-toilet",
+  "obj-furnishing-bathroom-toiletroll",
   "obj-furnishing-bathroom-towelrail",
   "obj-furnishing-furniture-bed",
+  "obj-furnishing-furniture-bed-bunk",
   "obj-furnishing-furniture-seating-chair",
   "obj-furnishing-furniture-seating-stool",
   "obj-furnishing-furniture-storage-cabinet",
@@ -22869,8 +22927,10 @@
   "obj-furnishing-light-campfire",
   "obj-furnishing-light-lamp",
   "obj-furnishing-light-lamp-ceiling",
+  "obj-furnishing-light-lamp-ceiling-fan",
   "obj-furnishing-light-lantern",
   "obj-furnishing-light-torch",
+  "obj-furnishing-textile-curtains",
   "obj-furnishing-textile-pillow",
   "obj-kitchenware-cookware-board",
   "obj-kitchenware-cookware-cookpot",
@@ -23346,6 +23406,12 @@
    "longest.max": 1.05,
    "tpu.max": 10000
   },
+  "obj-container-crate-ammo": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.05,
+   "tpu.max": 10000
+  },
   "obj-container-crate-cardboard": {
    "high.max": 8,
    "longest.min": 0.15,
@@ -23356,6 +23422,18 @@
    "high.max": 8,
    "longest.min": 0.25,
    "longest.max": 0.7,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-produce": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.05,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-scifi": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.05,
    "tpu.max": 10000
   },
   "obj-container-cylinder": {
@@ -24344,6 +24422,12 @@
    "longest.max": 1.35,
    "tpu.max": 5000
   },
+  "obj-furnishing-bathroom-toiletroll": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.15,
+   "tpu.max": 5000
+  },
   "obj-furnishing-bathroom-towelrail": {
    "high.max": 8,
    "longest.min": 0.23,
@@ -24372,6 +24456,12 @@
    "high.max": 8,
    "longest.min": 0.55,
    "longest.max": 1.1,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-bed-bunk": {
+   "high.max": 8,
+   "longest.min": 0.8,
+   "longest.max": 1.35,
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-bed-double": {
@@ -24512,6 +24602,18 @@
    "longest.max": 1.3,
    "tpu.max": 5000
   },
+  "obj-furnishing-light-lamp-ceiling-fan": {
+   "high.max": 8,
+   "longest.min": 0.35,
+   "longest.max": 1.3,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-light-lamp-floor": {
+   "high.max": 8,
+   "longest.min": 0.14,
+   "longest.max": 1.1,
+   "tpu.max": 5000
+  },
   "obj-furnishing-light-lamp-table": {
    "high.max": 8,
    "longest.min": 0.14,
@@ -24534,6 +24636,12 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-textile-curtains": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2,
    "tpu.max": 5000
   },
   "obj-furnishing-textile-mat": {
@@ -25565,6 +25673,42 @@
    "tpu.max": 10000
   },
   "obj-container-crate-cardboard scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 2.1,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-ammo scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.525,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-ammo scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 2.1,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-scifi scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.525,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-scifi scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 2.1,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-produce scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.525,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-produce scale-big": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 2.1,
@@ -44791,7 +44935,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "bed-bunk",
-   "kind": "obj-furnishing-furniture-bed",
+   "kind": "obj-furnishing-furniture-bed-bunk",
    "size": "m",
    "wdh": [
     0.637,
@@ -44844,11 +44988,6 @@
     "wood-worked"
    ],
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.208 over max 1.1 (obj-furnishing-furniture-bed)"
-    },
     {
      "level": "error",
      "check": "tpu",
@@ -44976,7 +45115,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-fan-a",
-   "kind": "obj-furnishing-light-lamp-ceiling",
+   "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "m",
    "wdh": [
     0.73,
@@ -45036,7 +45175,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-fan-b",
-   "kind": "obj-furnishing-light-lamp-ceiling",
+   "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "m",
    "wdh": [
     1.125,
@@ -45425,7 +45564,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "curtains",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.495,
@@ -46826,7 +46965,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "shower-curtain",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.9,
@@ -47421,7 +47560,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "toilet-paper-holder",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.118,
@@ -66550,7 +66689,7 @@
   {
    "kit": "household",
    "name": "ceiling-fan",
-   "kind": "obj-furnishing-light-lamp-ceiling",
+   "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "m",
    "wdh": [
     0.748,
@@ -73070,7 +73209,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "curtains",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.598,
@@ -80300,7 +80439,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "blinds",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.512,
@@ -112652,7 +112791,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "crate-closed",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.6,
@@ -112788,7 +112927,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "crate-lid",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.6,
@@ -113022,7 +113161,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.6,
@@ -121777,7 +121916,7 @@
    "kit": "kay-furniture",
    "collection": "kay-interior",
    "name": "lamp-standing",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
     0.3,
@@ -127221,7 +127360,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-long-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.68,
@@ -127271,7 +127410,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-long-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.68,
@@ -127321,7 +127460,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-long-c",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.68,
@@ -127372,7 +127511,7 @@
   {
    "kit": "kay-hexagon",
    "name": "crate-long",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.68,
@@ -134984,7 +135123,7 @@
   {
    "kit": "kay-mixed",
    "name": "comic-box-closed",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.216,
@@ -135006,7 +135145,7 @@
    "vpt": 1.24,
    "grad": 0.58,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.063,
      0.688
     ],
@@ -135017,20 +135156,19 @@
    },
    "colors": [
     "#8b5936",
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "kay",
     "scale-small",
-    "wood-beam",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v422"
   },
   {
    "kit": "kay-mixed",
    "name": "comic-box-filled",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.191,
@@ -135052,7 +135190,7 @@
    "vpt": 1.34,
    "grad": 0.55,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.063,
      0.836
     ],
@@ -135077,22 +135215,22 @@
     "#23562c",
     "#7f3927",
     "#8b7561",
-    "#b58158",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#dbae80"
    ],
    "tags": [
     "kay",
     "paper",
     "scale-small",
     "textile",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v422"
   },
   {
    "kit": "kay-mixed",
    "name": "comic-box-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.216,
@@ -135114,18 +135252,18 @@
    "vpt": 1.18,
    "grad": 0.77,
    "spread": {
-    "1,0": [
+    "0,0": [
      0.063,
      0.836
     ]
    },
    "colors": [
-    "#b58158"
+    "#dbae80"
    ],
    "tags": [
     "kay",
     "scale-small",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v422"
   },
@@ -146619,7 +146757,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-a-packed",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.573,
@@ -146676,7 +146814,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-a-stacked",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     1.123,
@@ -146733,7 +146871,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.55,
@@ -146790,7 +146928,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-b-packed",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.573,
@@ -146847,7 +146985,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-b-stacked",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     1.123,
@@ -146904,7 +147042,7 @@
   {
    "kit": "kay-space",
    "name": "cargo-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.55,
@@ -147130,7 +147268,7 @@
   {
    "kit": "kay-space",
    "name": "containers-a",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.55,
@@ -147176,7 +147314,7 @@
   {
    "kit": "kay-space",
    "name": "containers-b",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.55,
@@ -157575,7 +157713,7 @@
   {
    "kit": "ken-blaster",
    "name": "crate-medium",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.275,
@@ -157625,7 +157763,7 @@
   {
    "kit": "ken-blaster",
    "name": "crate-small",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
     0.275,
@@ -157675,7 +157813,7 @@
   {
    "kit": "ken-blaster",
    "name": "crate-wide",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.275,
@@ -176104,7 +176242,7 @@
   {
    "kit": "ken-furniture",
    "name": "bed-bunk",
-   "kind": "obj-furnishing-furniture-bed",
+   "kind": "obj-furnishing-furniture-bed-bunk",
    "size": "m",
    "wdh": [
     0.485,
@@ -176894,7 +177032,7 @@
   {
    "kit": "ken-furniture",
    "name": "ceiling-fan-anim",
-   "kind": "obj-furnishing-light-lamp-ceiling",
+   "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "s",
    "wdh": [
     0.387,
@@ -176951,7 +177089,7 @@
   {
    "kit": "ken-furniture",
    "name": "ceiling-fan",
-   "kind": "obj-furnishing-light-lamp-ceiling",
+   "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "s",
    "wdh": [
     0.387,
@@ -178827,7 +178965,7 @@
   {
    "kit": "ken-furniture",
    "name": "lamp-round-floor",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
     0.129,
@@ -178963,7 +179101,7 @@
   {
    "kit": "ken-furniture",
    "name": "lamp-square-floor",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
     0.102,
@@ -196594,7 +196732,7 @@
   {
    "kit": "ken-pirate",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "s",
    "wdh": [
     0.323,
@@ -213789,7 +213927,7 @@
   {
    "kit": "ken-station",
    "name": "container-flat-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.659,
@@ -213846,7 +213984,7 @@
   {
    "kit": "ken-station",
    "name": "container-flat",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.659,
@@ -213898,7 +214036,7 @@
   {
    "kit": "ken-station",
    "name": "container-tall",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.6,
@@ -213950,7 +214088,7 @@
   {
    "kit": "ken-station",
    "name": "container-wide",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.6,
@@ -214002,7 +214140,7 @@
   {
    "kit": "ken-station",
    "name": "container",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.575,
@@ -237803,7 +237941,7 @@
   {
    "kit": "lpa-home",
    "name": "bunk-bed-triple",
-   "kind": "obj-furnishing-furniture-bed",
+   "kind": "obj-furnishing-furniture-bed-bunk",
    "size": "m",
    "wdh": [
     0.467,
@@ -237849,19 +237987,12 @@
     "textile",
     "wood-beam"
    ],
-   "variant": "v1303",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.281 over max 1.1 (obj-furnishing-furniture-bed)"
-    }
-   ]
+   "variant": "v1303"
   },
   {
    "kit": "lpa-home",
    "name": "bunk-bed",
-   "kind": "obj-furnishing-furniture-bed",
+   "kind": "obj-furnishing-furniture-bed-bunk",
    "size": "m",
    "wdh": [
     0.467,
@@ -237919,7 +238050,7 @@
   {
    "kit": "lpa-home",
    "name": "ceiling-fan",
-   "kind": "obj-furnishing-light-lamp-ceiling",
+   "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "m",
    "wdh": [
     0.917,
@@ -238322,7 +238453,7 @@
   {
    "kit": "lpa-home",
    "name": "curtains",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.666,
@@ -238551,7 +238682,7 @@
   {
    "kit": "lpa-home",
    "name": "floor-lamp-a",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
     0.329,
@@ -238602,7 +238733,7 @@
   {
    "kit": "lpa-home",
    "name": "floor-lamp-b",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
     0.329,
@@ -240625,7 +240756,7 @@
   {
    "kit": "lpa-home",
    "name": "toilet-roll-holder",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.08,
@@ -240670,7 +240801,7 @@
   {
    "kit": "lpa-home",
    "name": "toilet-rolls",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.094,
@@ -245813,7 +245944,7 @@
   {
    "kit": "lpa-west",
    "name": "crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "s",
    "wdh": [
     0.261,
@@ -273890,7 +274021,7 @@
   {
    "kit": "quat-interior",
    "name": "bed-bunk",
-   "kind": "obj-furnishing-furniture-bed",
+   "kind": "obj-furnishing-furniture-bed-bunk",
    "size": "m",
    "wdh": [
     0.477,
@@ -274921,7 +275052,7 @@
   {
    "kit": "quat-interior",
    "name": "curtains-double",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.763,
@@ -275441,7 +275572,7 @@
   {
    "kit": "quat-interior",
    "name": "floor-lamp-slim",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "s",
    "wdh": [
     0.062,
@@ -275486,7 +275617,7 @@
   {
    "kit": "quat-interior",
    "name": "floor-lamp",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
     0.17,
@@ -276665,7 +276796,7 @@
   {
    "kit": "quat-interior",
    "name": "toilet-paper-holder",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.066,
@@ -276716,7 +276847,7 @@
   {
    "kit": "quat-interior",
    "name": "toilet-paper-stack",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.074,
@@ -295831,7 +295962,7 @@
   {
    "kit": "quat-space",
    "name": "pickup-crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
     0.192,
@@ -312291,7 +312422,7 @@
    "kit": "rgp-explosives",
    "collection": "rgp",
    "name": "ammo-crate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
     0.46,
@@ -314571,7 +314702,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "crate-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "s",
    "wdh": [
     0.369,
@@ -340194,7 +340325,7 @@
   {
    "kit": "styloo-farm",
    "name": "crate-open-slate",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     1.005,
@@ -340240,7 +340371,7 @@
   {
    "kit": "styloo-farm",
    "name": "crate-open",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     1.005,
@@ -347264,7 +347395,7 @@
   {
    "kit": "styloo-guns",
    "name": "ammo-box",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
     0.172,
@@ -352258,7 +352389,7 @@
   {
    "kit": "styloo-school",
    "name": "curtain",
-   "kind": "obj-furnishing-textile",
+   "kind": "obj-furnishing-textile-curtains",
    "size": "l",
    "wdh": [
     1.393,
@@ -356023,7 +356154,7 @@
   {
    "kit": "styloo-school",
    "name": "toilet-roll-holder",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.067,
@@ -356068,7 +356199,7 @@
   {
    "kit": "styloo-school",
    "name": "toilet-roll",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.074,
@@ -375003,7 +375134,7 @@
   {
    "kit": "zombie-weapons",
    "name": "ammo-box-grenade",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
     0.114,
@@ -375053,7 +375184,7 @@
   {
    "kit": "zombie-weapons",
    "name": "ammo-box-pistol",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
     0.05,
@@ -375103,7 +375234,7 @@
   {
    "kit": "zombie-weapons",
    "name": "ammo-box-rifle",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
     0.075,
@@ -375154,7 +375285,7 @@
   {
    "kit": "zombie-weapons",
    "name": "ammo-box-shotgun",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
     0.081,
