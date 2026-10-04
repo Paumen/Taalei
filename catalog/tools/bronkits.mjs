@@ -213,5 +213,5 @@ export const BRONKITS = [
   { map: 'Cars_Bundle', naam: 'Cars Bundle', kit: 'quat-cars', source: 'qua', formaat: 'glb' },
   { map: 'Enemies_Pack', naam: 'Enemies Pack', kit: null, formaat: 'glb' },
   { map: 'Animated_Enemies', naam: 'Animated Enemies', kit: null, formaat: 'glb' },
-  { map: 'Lava_Tileset', naam: 'Lava Tileset', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Lava_Tileset', naam: 'Lava Tileset', kit: 'wizp-lava', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
 ];
