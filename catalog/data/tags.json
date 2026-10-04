@@ -13094,17 +13094,33 @@
    "type": "kind",
    "description": "Countertop or catering appliance: coffee machine, microwave, mixer, fryer, popcorn machine.",
    "models": [
-    "isa-bakery/coffee-machine",
-    "ken-furniture/kitchen-coffee-machine",
-    "ken-furniture/kitchen-microwave",
     "cooking-assets/rice-cooker",
     "isa-bakery/stand-mixer-anim",
     "isa-bakery/stand-mixer",
     "sq-lab/hot-plate",
     "sq-fastfood/fryer-bank",
-    "sq-cinema/popcorn-machine",
-    "lpa-home/microwave",
+    "sq-cinema/popcorn-machine"
+   ]
+  },
+  {
+   "id": "obj-device-appliance-kitchen-coffeemaker",
+   "name": "Coffee maker",
+   "type": "kind",
+   "description": "coffee machine, coffee maker",
+   "models": [
+    "ken-furniture/kitchen-coffee-machine",
     "styloo-school/coffee-maker",
+    "isa-bakery/coffee-machine"
+   ]
+  },
+  {
+   "id": "obj-device-appliance-kitchen-microwave",
+   "name": "Microwave",
+   "type": "kind",
+   "description": "microwave",
+   "models": [
+    "ken-furniture/kitchen-microwave",
+    "lpa-home/microwave",
     "fs-house/microwave"
    ]
   },
@@ -13150,16 +13166,32 @@
    "description": "Astronomy instrument: telescope, orrery, armillary sphere, globe, star projector.",
    "models": [
     "sq-observatory/armillary-sphere",
-    "sq-observatory/refractor-telescope",
     "sq-observatory/star-projector",
     "sq-observatory/orrery",
-    "rgp-vintage/globe",
-    "rgp-vintage/telescope",
-    "household/globe",
-    "household/telescope",
-    "lpa-home/globe",
-    "styloo-school/globe",
     "styloo-school/orrery"
+   ]
+  },
+  {
+   "id": "obj-device-science-astro-telescope",
+   "name": "Telescope",
+   "type": "kind",
+   "description": "telescope",
+   "models": [
+    "rgp-vintage/telescope",
+    "household/telescope",
+    "sq-observatory/refractor-telescope"
+   ]
+  },
+  {
+   "id": "obj-device-science-astro-globe",
+   "name": "Globe",
+   "type": "kind",
+   "description": "globe",
+   "models": [
+    "styloo-school/globe",
+    "rgp-vintage/globe",
+    "lpa-home/globe",
+    "household/globe"
    ]
   },
   {
@@ -13250,7 +13282,6 @@
     "ipoly-electronics/microchip",
     "ipoly-electronics/ssd",
     "ipoly-electronics/ram",
-    "household/printer",
     "lpa-home/phone",
     "lpa-home/tablet",
     "styloo-school/router",
@@ -13298,7 +13329,6 @@
    "description": "Computer, laptop, keyboard or computer desk.",
    "models": [
     "ken-station/computer",
-    "ken-furniture/computer-keyboard",
     "ken-station/computer-system",
     "ken-space/desk-computer",
     "ken-space/desk-computer-corner",
@@ -13306,20 +13336,38 @@
     "ken-space/desk-computer-screen",
     "ken-station/computer-screen",
     "ken-station/computer-wide",
-    "household/computer",
-    "household/computer-mouse",
     "sq-lab/analysis-console",
     "lpa-home/console-c",
     "lpa-home/console-d",
-    "lpa-home/keyboard",
     "lpa-home/laptop",
-    "lpa-home/computer",
-    "styloo-school/keyboard",
-    "styloo-school/computer-mouse",
-    "styloo-school/pc-tower",
-    "styloo-school/pc-tower-old",
     "styloo-school/printer",
-    "styloo-school/computer-desk"
+    "styloo-school/computer-desk",
+    "household/printer"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-computer-keyboard",
+   "name": "Keyboard",
+   "type": "kind",
+   "description": "keyboard (computer), mouse (computer)",
+   "models": [
+    "styloo-school/keyboard",
+    "lpa-home/keyboard",
+    "ken-furniture/computer-keyboard",
+    "styloo-school/computer-mouse",
+    "household/computer-mouse"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-computer-tower",
+   "name": "Computer tower",
+   "type": "kind",
+   "description": "pc tower, computer tower",
+   "models": [
+    "household/computer",
+    "lpa-home/computer",
+    "styloo-school/pc-tower",
+    "styloo-school/pc-tower-old"
    ]
   },
   {
@@ -13365,27 +13413,43 @@
     "ken-factory/screen-panel-wide",
     "ken-factory/screen-small",
     "ken-factory/screen-wide",
-    "ken-furniture/computer-screen",
-    "ken-furniture/television-modern",
     "ken-station/display-wall",
     "sq-bowling/monitor-rig",
     "sq-lab/vitals-console",
-    "ken-furniture/television-vintage",
     "ken-station/display-wall-wide",
     "ken-station/table-display",
     "ken-station/table-display-planet",
     "ken-station/table-inset",
     "ken-station/table-display-small",
-    "ken-station/table-inset-small",
-    "ken-furniture/television-antenna",
+    "ken-station/table-inset-small"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-screen-monitor",
+   "name": "Monitor",
+   "type": "kind",
+   "description": "monitor, computer screen",
+   "models": [
+    "ken-furniture/computer-screen",
     "household/monitor",
     "lpa-home/monitor",
+    "styloo-school/monitor",
+    "styloo-school/monitor-crt"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-screen-tv",
+   "name": "TV",
+   "type": "kind",
+   "description": "television, tv antenna, tv",
+   "models": [
     "lpa-home/tv-a",
     "lpa-home/tv-b",
     "styloo-school/tv-crt",
     "styloo-school/tv-flat",
-    "styloo-school/monitor",
-    "styloo-school/monitor-crt",
+    "ken-furniture/television-vintage",
+    "ken-furniture/television-antenna",
+    "ken-furniture/television-modern",
     "fs-house/tv"
    ]
   },
@@ -13437,19 +13501,27 @@
    "description": "tub, trough, bin",
    "color": "#dd9f79",
    "models": [
-    "quat-props/cage-small",
     "rgp-props/trough-1-a",
     "rgp-props/trough-3-a",
     "rgp-medieval/trough-hay",
     "ken-food/takeaway-box",
-    "ipoly-torture/cage-square",
-    "ipoly-torture/cage-round",
     "household/piggy-bank",
     "household/safe",
     "lpa-home/safe-a",
     "lpa-home/safe-b",
     "styloo-school/cork",
     "styloo-school/beaker"
+   ]
+  },
+  {
+   "id": "obj-container-cage",
+   "name": "Cage",
+   "type": "kind",
+   "description": "cage",
+   "models": [
+    "ipoly-torture/cage-round",
+    "quat-props/cage-small",
+    "ipoly-torture/cage-square"
    ]
   },
   {
@@ -13685,26 +13757,34 @@
     "wizp-mediev/barrel-ore",
     "kay-hexagon/barrel",
     "styloo-farm/barrel",
-    "ken-survival/barrel",
-    "kay-resources/fuel-barrel-a",
-    "kay-resources/fuel-barrel-c",
-    "quat-apocalypse/barrel",
-    "quat-shoot/barrel",
     "ken-food/barrel",
     "nature-assets/barrel-dark",
     "nature-assets/barrel-light",
+    "rgp-explosives/barrel-tnt",
+    "rgp-medieval/barrel",
+    "rgp-medieval/barrel-open"
+   ]
+  },
+  {
+   "id": "obj-container-barrel-metal",
+   "name": "Metal barrel",
+   "type": "kind",
+   "description": "metal barrel, oil drum, fuel barrel, chemical drum",
+   "models": [
+    "ken-survival/barrel",
     "ken-survival/barrel-open",
+    "quat-shoot/barrel",
+    "quat-apocalypse/barrel",
+    "kay-proto/barrel-a",
+    "styloo-school/chemical-drum",
+    "sq-lab/drum",
+    "kay-resources/fuel-barrel-a",
+    "kay-resources/fuel-barrel-c",
     "kay-resources/fuel-barrel-a-dirty",
     "kay-resources/fuel-barrel-c-dirty",
     "kay-resources/fuel-barrels-a",
     "kay-resources/fuel-barrels-c",
-    "kay-proto/barrel-a",
-    "rgp-explosives/barrel-tnt",
-    "rgp-medieval/barrel",
-    "rgp-medieval/barrel-open",
-    "sq-lab/drum",
-    "lpa-construction/barrel-a",
-    "styloo-school/chemical-drum"
+    "lpa-construction/barrel-a"
    ]
   },
   {
@@ -13851,12 +13931,20 @@
     "kay-hexagon/bucket-water",
     "styloo-farm/bucket-metal",
     "styloo-farm/bucket-wooden",
-    "aq-pond/tub-metal",
-    "aq-pond/tub-wood",
-    "rgp-medieval/tub",
     "rgp-medieval/bucket",
-    "rgp-medieval/tub-apples",
     "lpa-construction/bucket"
+   ]
+  },
+  {
+   "id": "obj-container-bucket-tub",
+   "name": "Tub",
+   "type": "kind",
+   "description": "tub",
+   "models": [
+    "aq-pond/tub-wood",
+    "aq-pond/tub-metal",
+    "rgp-medieval/tub",
+    "rgp-medieval/tub-apples"
    ]
   },
   {
@@ -14908,21 +14996,26 @@
    "description": "Furnishing with no leaf that fits.",
    "color": "#c07c8a",
    "models": [
-    "rgp-vintage/clock",
-    "sq-pool/pace-clock",
-    "household/alarm-clock",
-    "household/grandfather-clock",
-    "lpa-home/alarm-clock",
-    "lpa-home/clock",
     "lpa-home/radiator-a",
     "lpa-home/radiator-b",
-    "styloo-school/wall-clock",
-    "styloo-school/toilet-roll",
-    "styloo-school/toilet-roll-holder",
     "styloo-school/soap-bar-red",
     "styloo-school/soap-bar-pink",
-    "styloo-school/soap-dish",
-    "fs-house/toilet-paper-holder"
+    "styloo-school/soap-dish"
+   ]
+  },
+  {
+   "id": "obj-furnishing-clock",
+   "name": "Clock",
+   "type": "kind",
+   "description": "clock, alarm clock, wall clock, grandfather clock",
+   "models": [
+    "household/alarm-clock",
+    "styloo-school/wall-clock",
+    "lpa-home/alarm-clock",
+    "lpa-home/clock",
+    "rgp-vintage/clock",
+    "household/grandfather-clock",
+    "sq-pool/pace-clock"
    ]
   },
   {
@@ -15080,36 +15173,81 @@
    "type": "kind",
    "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail, changing stall.",
    "models": [
-    "ken-furniture/toilet",
-    "ken-furniture/toilet-square",
-    "ken-furniture/shower",
-    "ken-furniture/shower-round",
-    "ken-furniture/bathroom-sink",
-    "ken-furniture/bathroom-sink-square",
-    "ken-furniture/bathroom-mirror",
-    "kay-food/towel-rail",
     "sq-pool/changing-stall",
-    "household/bathroom-sink",
-    "household/toilet",
-    "lpa-home/shower",
-    "lpa-home/sink",
     "lpa-home/toilet-roll-holder",
     "lpa-home/toilet-rolls",
-    "lpa-home/toilet",
-    "lpa-home/towel-rail",
-    "lpa-home/mirror-a",
-    "lpa-home/mirror-b",
-    "isa-bathroom/sink-cabinet",
-    "isa-bathroom/mirror",
-    "lpa-construction/portable-toilet-a",
-    "lpa-construction/portable-toilet-b",
-    "styloo-school/toilet",
-    "styloo-school/urinal",
-    "fs-house/toilet",
+    "fs-house/toilet-paper-holder",
+    "styloo-school/toilet-roll",
+    "styloo-school/toilet-roll-holder"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom-towelrail",
+   "name": "Towel rail",
+   "type": "kind",
+   "description": "towel rail",
+   "models": [
     "fs-house/towel-rail",
     "fs-house/towel-rail-towel",
+    "kay-food/towel-rail",
+    "lpa-home/towel-rail",
+    "kay-food/shelf-paper-towel"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom-shower",
+   "name": "Shower",
+   "type": "kind",
+   "description": "shower, portable toilet",
+   "models": [
+    "lpa-construction/portable-toilet-a",
+    "lpa-construction/portable-toilet-b",
+    "ken-furniture/shower",
+    "ken-furniture/shower-round",
+    "lpa-home/shower"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom-sink",
+   "name": "Sink",
+   "type": "kind",
+   "description": "bathroom sink, bathroom cabinet",
+   "models": [
+    "fs-house/bathroom-cabinet-sink",
+    "household/bathroom-sink",
+    "ken-furniture/bathroom-sink",
+    "ken-furniture/bathroom-sink-square",
+    "lpa-home/sink",
+    "isa-bathroom/sink-cabinet",
+    "ken-furniture/bathroom-cabinet-drawer"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom-mirror",
+   "name": "Mirror",
+   "type": "kind",
+   "description": "bathroom mirror",
+   "models": [
+    "ken-furniture/bathroom-mirror",
     "fs-house/mirror",
-    "fs-house/bathroom-cabinet-sink"
+    "isa-bathroom/mirror",
+    "lpa-home/mirror-a",
+    "lpa-home/mirror-b"
+   ]
+  },
+  {
+   "id": "obj-furnishing-bathroom-toilet",
+   "name": "Toilet",
+   "type": "kind",
+   "description": "toilet, urinal",
+   "models": [
+    "fs-house/toilet",
+    "household/toilet",
+    "ken-furniture/toilet",
+    "ken-furniture/toilet-square",
+    "lpa-home/toilet",
+    "styloo-school/toilet",
+    "styloo-school/urinal"
    ]
   },
   {
@@ -15150,8 +15288,6 @@
    "models": [
     "kay-dun-2/bed-floor",
     "kay-dun-2/bed-frame",
-    "kay-furniture/bed-double-a",
-    "kay-furniture/bed-double-b",
     "kay-furniture/bed-single-a",
     "kay-furniture/bed-single-b",
     "ken-furniture/bed-bunk",
@@ -15168,15 +15304,25 @@
     "ken-survival/bedroll-frame",
     "ken-survival/bedroll",
     "ken-survival/camp-bed",
-    "household/bed",
-    "lpa-home/bed-double",
     "lpa-home/bed-single",
     "lpa-home/bunk-bed",
     "lpa-home/bunk-bed-triple",
     "western/bed",
     "fs-house/bed-bunk",
-    "fs-house/bed-double",
     "fs-house/bed-single"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-bed-double",
+   "name": "Double bed",
+   "type": "kind",
+   "description": "double bed",
+   "models": [
+    "fs-house/bed-double",
+    "lpa-home/bed-double",
+    "kay-furniture/bed-double-a",
+    "kay-furniture/bed-double-b",
+    "household/bed"
    ]
   },
   {
@@ -15380,12 +15526,8 @@
    "type": "kind",
    "description": "chest of drawers, dresser, coat rack, weapon rack",
    "models": [
-    "kay-dun-1/weapon-rack",
-    "kay-hexagon/weapon-rack",
-    "ken-arena/weapon-rack",
     "ken-furniture/coat-rack-standing",
     "ken-furniture/coat-rack",
-    "quat-props/weapon-stand",
     "rgp-vintage/coat-rack",
     "household/dresser",
     "lpa-home/dresser",
@@ -15440,7 +15582,6 @@
     "kay-food/cabinet",
     "kay-furniture/cabinet-medium",
     "kay-furniture/cabinet-small",
-    "ken-furniture/bathroom-cabinet-drawer",
     "ken-furniture/bathroom-cabinet",
     "ken-furniture/cabinet-bed-drawer-table",
     "ken-furniture/cabinet-bed-drawer",
@@ -15451,21 +15592,29 @@
     "ken-furniture/kitchen-cabinet-upper-low",
     "ken-furniture/kitchen-cabinet-upper",
     "quat-sushi/cabinet-doors",
-    "sq-bank/deposit-box-wall",
     "sq-cards/glass-counter",
-    "sq-lab/storage-cabinet",
-    "sq-rink/locker-bank",
     "ken-furniture/kitchen-cabinet-upper-corner",
     "kay-food/cabinet-half",
     "kay-food/cabinet-corner-half",
     "household/cabinet",
-    "styloo-school/locker",
     "fs-house/tv-stand",
     "fs-house/wall-cabinet-corner",
     "fs-house/wall-cabinet",
     "fs-house/wall-cabinet-narrow",
     "fs-house/wall-cabinet-open",
     "fs-house/wall-cabinet-short"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-storage-cabinet-locker",
+   "name": "Locker",
+   "type": "kind",
+   "description": "locker, locker bank, deposit box",
+   "models": [
+    "styloo-school/locker",
+    "sq-rink/locker-bank",
+    "sq-lab/storage-cabinet",
+    "sq-bank/deposit-box-wall"
    ]
   },
   {
@@ -15483,7 +15632,6 @@
     "isa-kitchen/wall-shelf",
     "kay-dun-2/shelf-large",
     "kay-dun-2/shelf-small",
-    "kay-food/shelf-paper-towel",
     "kay-furniture/shelf-a-big",
     "kay-furniture/shelf-a-small",
     "kay-furniture/shelf-b-large",
@@ -15493,7 +15641,6 @@
     "lpa-home/wall-shelf-a",
     "lpa-home/wall-shelf-b",
     "isa-bathroom/wall-shelf",
-    "styloo-school/shelf-cart",
     "fs-house/shelves-corner"
    ]
   },
@@ -15515,7 +15662,20 @@
     "sq-bank/vault-shelving",
     "sq-bowling/cubby-wall",
     "sq-cards/display-tower",
-    "styloo-school/display-rack"
+    "styloo-school/display-rack",
+    "styloo-school/shelf-cart"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "name": "Weapon rack",
+   "type": "kind",
+   "description": "weapon rack, weapon stand",
+   "models": [
+    "kay-dun-1/weapon-rack",
+    "ken-arena/weapon-rack",
+    "quat-props/weapon-stand",
+    "kay-hexagon/weapon-rack"
    ]
   },
   {
@@ -15626,11 +15786,19 @@
    "color": "#9c3f2e",
    "models": [
     "isa-kitchen/dishrack",
-    "isa-kitchen/paper-towel-holder",
-    "isa-kitchen/wall-paper-towel-holder",
-    "kay-food/dishrack",
+    "kay-food/dishrack"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-papertowel",
+   "name": "Paper towel",
+   "type": "kind",
+   "description": "paper towel, kitchen roll, paper towel holder",
+   "models": [
+    "lpa-home/kitchen-roll",
     "kay-food/paper-towel",
-    "lpa-home/kitchen-roll"
+    "isa-kitchen/paper-towel-holder",
+    "isa-kitchen/wall-paper-towel-holder"
    ]
   },
   {
@@ -16264,14 +16432,7 @@
    "type": "kind",
    "description": "chandelier, match, string lights",
    "color": "#f2cb45",
-   "models": [
-    "ken-furniture/ceiling-fan",
-    "household/ceiling-fan",
-    "household/chandelier",
-    "lpa-home/ceiling-fan",
-    "fs-house/ceiling-fan-a",
-    "fs-house/ceiling-fan-b"
-   ]
+   "models": []
   },
   {
    "id": "obj-furnishing-light-candle",
@@ -16350,37 +16511,59 @@
    "models": [
     "fs-town/lamp-wall",
     "kay-furniture/lamp-standing",
-    "kay-furniture/lamp-table",
     "ken-furniture/lamp-round-floor",
-    "ken-furniture/lamp-round-table",
-    "ken-furniture/lamp-square-ceiling",
     "ken-furniture/lamp-square-floor",
-    "ken-furniture/lamp-square-table",
-    "sq-bank/bankers-lamp",
-    "sq-lab/ceiling-lamp",
-    "sq-rink/disco-ball",
     "sq-rink/floor-spot",
     "sq-rink/light-bar",
-    "styloo-furniture/lamp",
-    "ken-furniture/ceiling-fan-anim",
     "ken-holiday/lights-colored",
     "ipoly-concert/spotlight-moving",
     "ipoly-concert/spotlight-ribbed",
     "ipoly-concert/spotlight",
     "ipoly-concert/led-panel",
     "ipoly-concert/spotlight-barndoor",
-    "household/desk-lamp",
-    "household/table-lamp",
-    "lpa-home/ceiling-light",
     "lpa-home/floor-lamp-a",
     "lpa-home/floor-lamp-b",
-    "lpa-home/table-lamp",
     "lpa-home/wall-light",
-    "western/lamp-hanging",
     "lpa-construction/work-light-b",
-    "lpa-construction/work-light-a",
-    "fs-house/ceiling-light-triple",
+    "lpa-construction/work-light-a"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-ceiling",
+   "name": "Ceiling lamp",
+   "type": "kind",
+   "description": "ceiling lamp, chandelier, ceiling fan, ceiling light, disco ball",
+   "models": [
+    "ken-furniture/ceiling-fan-anim",
+    "sq-lab/ceiling-lamp",
     "fs-house/ceiling-light",
+    "lpa-home/ceiling-light",
+    "fs-house/ceiling-light-triple",
+    "sq-rink/disco-ball",
+    "styloo-furniture/lamp",
+    "western/lamp-hanging",
+    "household/ceiling-fan",
+    "household/chandelier",
+    "ken-furniture/ceiling-fan",
+    "lpa-home/ceiling-fan",
+    "fs-house/ceiling-fan-a",
+    "fs-house/ceiling-fan-b"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-table",
+   "name": "Table lamp",
+   "type": "kind",
+   "description": "table lamp, desk lamp",
+   "models": [
+    "sq-bank/bankers-lamp",
+    "household/desk-lamp",
+    "lpa-home/table-lamp",
+    "household/table-lamp",
+    "ken-furniture/lamp-round-table",
+    "ken-furniture/lamp-square-ceiling",
+    "ken-furniture/lamp-square-table",
+    "kay-furniture/lamp-table",
     "fs-house/lamp-table"
    ]
   },
@@ -16993,14 +17176,8 @@
     "kay-tools/handplane",
     "kay-tools/knife",
     "kay-tools/magnifying-glass",
-    "kay-tools/screwdriver-a-long",
-    "kay-tools/screwdriver-a-short",
-    "kay-tools/screwdriver-b-long",
-    "kay-tools/screwdriver-b-short",
     "kay-tools/tongs",
     "kay-tools/trowel",
-    "kay-tools/wrench-a",
-    "kay-tools/wrench-b",
     "ken-survival/tool-hoe-upgraded",
     "ken-survival/tool-hoe",
     "medieval-forge/forceps",
@@ -17009,19 +17186,41 @@
     "styloo-farm/trowel",
     "taalei-kit/plunger",
     "fs-terrain/cave-prop-pick-small",
-    "household/screwdriver",
-    "household/wrench",
     "makeup/nail-file",
     "makeup/tweezers",
-    "zombie-weapons/pipe-wrench",
     "zombie-weapons/crowbar",
     "rey-studio/carving-knife",
     "lpa-weapons/sickle",
     "lpa-construction/drill",
-    "lpa-construction/level",
+    "lpa-construction/level"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-screwdriver",
+   "name": "Screwdriver",
+   "type": "kind",
+   "description": "screwdriver",
+   "models": [
+    "household/screwdriver",
     "lpa-construction/screwdriver",
+    "kay-tools/screwdriver-a-long",
+    "kay-tools/screwdriver-a-short",
+    "kay-tools/screwdriver-b-long",
+    "kay-tools/screwdriver-b-short"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-wrench",
+   "name": "Wrench",
+   "type": "kind",
+   "description": "wrench, spanner, pipe wrench",
+   "models": [
+    "zombie-weapons/pipe-wrench",
     "lpa-construction/spanner-a",
-    "lpa-construction/spanner-b"
+    "lpa-construction/spanner-b",
+    "household/wrench",
+    "kay-tools/wrench-a",
+    "kay-tools/wrench-b"
    ]
   },
   {
@@ -17088,13 +17287,21 @@
    "type": "kind",
    "description": "Tool swung or pushed with both hands on a long shaft.",
    "models": [
-    "rgp-asia/rake",
     "mek-tools/saw-crosscut",
-    "household/rake",
-    "household/hoe",
     "zombie-weapons/sledgehammer",
-    "lpa-construction/rake",
     "lpa-construction/sledgehammer"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-twohand-rake",
+   "name": "Rake",
+   "type": "kind",
+   "description": "rake, hoe",
+   "models": [
+    "household/hoe",
+    "lpa-construction/rake",
+    "rgp-asia/rake",
+    "household/rake"
    ]
   },
   {
@@ -17400,14 +17607,6 @@
     "kay-city/car-sedan",
     "kay-city/car-stationwagon",
     "kay-city/car-taxi",
-    "kay-space/spacetruck-large",
-    "kay-space/spacetruck-trailer",
-    "kay-space/spacetruck",
-    "ken-car/ambulance",
-    "ken-car/delivery-flat",
-    "ken-car/delivery",
-    "ken-car/firetruck",
-    "ken-car/garbage-truck",
     "ken-car/hatchback-sports",
     "ken-car/police",
     "ken-car/race-future",
@@ -17431,9 +17630,25 @@
     "quat-sushi/sushi-truck",
     "styloo-farm/tractor",
     "ken-racing/race-car-orange",
-    "ken-racing/race-car-white",
+    "ken-racing/race-car-white"
+   ]
+  },
+  {
+   "id": "obj-transport-land-road-truck",
+   "name": "Truck",
+   "type": "kind",
+   "description": "truck, bus, fire truck, garbage truck, ambulance, delivery truck",
+   "models": [
     "kay-space/spacetruck-with-trailer",
-    "styloo-school/school-bus"
+    "kay-space/spacetruck-trailer",
+    "kay-space/spacetruck",
+    "kay-space/spacetruck-large",
+    "styloo-school/school-bus",
+    "ken-car/firetruck",
+    "ken-car/ambulance",
+    "ken-car/garbage-truck",
+    "ken-car/delivery",
+    "ken-car/delivery-flat"
    ]
   },
   {
@@ -17557,16 +17772,24 @@
    "description": "wheelbarrow, sled, minecart, small cart",
    "models": [
     "isa-playground/cart",
-    "kay-hexagon/wheelbarrow",
     "ken-holiday/sled-long",
     "ken-holiday/sled",
     "ken-market/shopping-cart",
-    "rgp-medieval/wheelbarrow",
     "sq-laundry/rolling-cart",
     "wizp-mediev/minecart-ore",
     "wizp-mediev/minecart",
-    "fs-terrain/cave-prop-minecart",
-    "lpa-construction/wheelbarrow"
+    "fs-terrain/cave-prop-minecart"
+   ]
+  },
+  {
+   "id": "obj-transport-land-cart-small-wheelbarrow",
+   "name": "Wheelbarrow",
+   "type": "kind",
+   "description": "wheelbarrow",
+   "models": [
+    "kay-hexagon/wheelbarrow",
+    "lpa-construction/wheelbarrow",
+    "rgp-medieval/wheelbarrow"
    ]
   },
   {
@@ -18525,8 +18748,6 @@
    "type": "kind",
    "description": "cactus, succulent",
    "models": [
-    "isa-plants/cacti-potted-large",
-    "isa-plants/cacti-potted-small",
     "isa-plants/cactus-a",
     "isa-plants/cactus-b",
     "isa-plants/cactus-c",
@@ -18535,12 +18756,6 @@
     "isa-plants/succulent-b",
     "isa-plants/succulent-c",
     "isa-plants/succulent-d",
-    "isa-plants/succulents-potted-large",
-    "isa-plants/succulents-potted-small",
-    "kay-furniture/cactus-potted-medium-a",
-    "kay-furniture/cactus-potted-medium-b",
-    "kay-furniture/cactus-potted-small-a",
-    "kay-furniture/cactus-potted-small-b",
     "kay-minigame/cactus",
     "quat-nature/cactus-2",
     "quat-nature/cactus-3",
@@ -18555,9 +18770,25 @@
     "wizp-tree/cactus-round",
     "wizp-tree/cactus-tall",
     "western/cactus-a",
-    "western/cactus-b",
+    "western/cactus-b"
+   ]
+  },
+  {
+   "id": "env-flora-plant-cactus-potted",
+   "name": "Potted cactus",
+   "type": "kind",
+   "description": "potted cactus, potted succulent",
+   "models": [
+    "isa-plants/cacti-potted-large",
+    "isa-plants/cacti-potted-small",
+    "styloo-school/cactus-pot",
+    "kay-furniture/cactus-potted-medium-a",
+    "kay-furniture/cactus-potted-medium-b",
+    "kay-furniture/cactus-potted-small-a",
+    "kay-furniture/cactus-potted-small-b",
     "isa-bathroom/plant",
-    "styloo-school/cactus-pot"
+    "isa-plants/succulents-potted-large",
+    "isa-plants/succulents-potted-small"
    ]
   },
   {
@@ -18761,25 +18992,33 @@
     "isa-plants/yucca-plant-small",
     "isa-plants/yucca-branch-medium-b",
     "isa-plants/yucca-branch-medium-a",
-    "isa-plants/yucca-branch-medium-c",
-    "isa-plants/monstera-potted-large",
-    "isa-plants/monstera-potted-medium",
-    "isa-plants/monstera-potted-small",
-    "isa-plants/sansevieria-potted-large",
-    "isa-plants/sansevieria-potted-medium",
-    "isa-plants/sansevieria-potted-small",
-    "isa-plants/zzplant-potted-large",
-    "isa-plants/zzplant-potted-medium",
-    "isa-plants/zzplant-potted-small",
-    "isa-plants/yucca-potted-large",
-    "isa-plants/yucca-potted-medium",
-    "isa-plants/yucca-potted-small",
-    "isa-plants/pothos-potted-small",
+    "isa-plants/yucca-branch-medium-c"
+   ]
+  },
+  {
+   "id": "env-flora-plant-leafy-potted",
+   "name": "Potted plant",
+   "type": "kind",
+   "description": "potted plant",
+   "models": [
     "isa-plants/pothos-potted-medium",
     "isa-plants/pothos-potted-large",
+    "isa-plants/pothos-potted-small",
+    "isa-plants/monstera-potted-medium",
+    "isa-plants/monstera-potted-large",
+    "isa-plants/monstera-potted-small",
+    "isa-plants/sansevieria-potted-medium",
+    "isa-plants/sansevieria-potted-large",
+    "isa-plants/sansevieria-potted-small",
+    "lpa-home/potted-plant",
     "ken-furniture/potted-plant",
     "household/potted-plant",
-    "lpa-home/potted-plant"
+    "isa-plants/yucca-potted-medium",
+    "isa-plants/yucca-potted-large",
+    "isa-plants/yucca-potted-small",
+    "isa-plants/zzplant-potted-medium",
+    "isa-plants/zzplant-potted-large",
+    "isa-plants/zzplant-potted-small"
    ]
   },
   {
@@ -21501,27 +21740,43 @@
    "description": "Musical instrument: gong, drum.",
    "models": [
     "fs-town/bell-a",
-    "quat-apocalypse/guitar",
-    "quat-pirate/lute",
-    "rgp-asia/drum",
     "rgp-asia/gong",
     "rgp-asia/rope-bells",
     "rgp-vintage/gramophone-record",
     "rgp-vintage/gramophone",
     "rgp-weapons/war-horn",
     "sq-studio/amp-stack",
-    "sq-studio/drum-kit",
     "sq-studio/mic-stand",
     "sq-studio/mixing-console",
     "wizp-asia/bell",
-    "wizp-asia/drum-loose",
-    "wizp-asia/drum",
     "wizp-asia/gong",
     "ipoly-concert/mic-stand",
+    "western/piano"
+   ]
+  },
+  {
+   "id": "obj-leisure-art-instrument-drum",
+   "name": "Drum",
+   "type": "kind",
+   "description": "drum, drum kit",
+   "models": [
+    "rgp-asia/drum",
+    "wizp-asia/drum",
+    "wizp-asia/drum-loose",
+    "sq-studio/drum-kit"
+   ]
+  },
+  {
+   "id": "obj-leisure-art-instrument-string",
+   "name": "String instrument",
+   "type": "kind",
+   "description": "lute, guitar, mandolin",
+   "models": [
+    "quat-apocalypse/guitar",
     "kay-mixed/guitar-a",
     "kay-mixed/guitar-b",
-    "lpa-weapons/mandolin",
-    "western/piano"
+    "quat-pirate/lute",
+    "lpa-weapons/mandolin"
    ]
   },
   {
@@ -21591,7 +21846,6 @@
     "kay-holiday/snowman-hat",
     "kay-holiday/snowman",
     "ken-arena/statue",
-    "ken-arena/trophy",
     "ken-furniture/bear-head",
     "ken-holiday/snowman-hat",
     "ken-holiday/snowman",
@@ -21608,7 +21862,6 @@
     "rgp-asia/dragon-ornament",
     "rgp-asia/geisha-a",
     "rgp-asia/geisha-b",
-    "sq-cards/trophy",
     "wizp-asia/statue-frog",
     "wizp-asia/statue-monk",
     "wizp-asia/wall-decor-a",
@@ -21617,9 +21870,19 @@
     "wizp-asia/wall-decor-d",
     "wizp-grave/statue-mourner",
     "quat-town/town-center-1-a",
-    "taalei-kit/trophy",
-    "household/trophy",
     "styloo-school/bust"
+   ]
+  },
+  {
+   "id": "obj-leisure-art-sculpture-prize",
+   "name": "Prize",
+   "type": "kind",
+   "description": "trophy, prize cup",
+   "models": [
+    "taalei-kit/trophy",
+    "sq-cards/trophy",
+    "ken-arena/trophy",
+    "household/trophy"
    ]
   },
   {
