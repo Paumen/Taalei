@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=37e9d76992';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=37e9d76992';
-import { colorSwatches, setBands } from './color-edits.js?v=37e9d76992';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=37e9d76992';
-import { mountExtractBar, setPageParts } from './extract.js?v=37e9d76992';
-import './bouwstempel.js?v=37e9d76992';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=1fefb088b2';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=1fefb088b2';
+import { colorSwatches, setBands } from './color-edits.js?v=1fefb088b2';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=1fefb088b2';
+import { mountExtractBar, setPageParts } from './extract.js?v=1fefb088b2';
+import './bouwstempel.js?v=1fefb088b2';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -75,7 +75,7 @@ const detail = document.querySelector('#detail');
 const cards = [];
 const sections = [];
 
-let grouping = 'kind6';
+let grouping = 'kind7';
 let sorting = 'naam';
 
 const chosenPaths = new Set();
@@ -470,7 +470,7 @@ const WITHOUT = '_zonder';
 
 const groupingType = () => grouping;
 
-const KIND_DEPTH = { kindauto: 2, kind1: 1, kind2: 2, kind3: 3, kind4: 4, kind5: 5, kind6: 6 };
+const KIND_DEPTH = { kindauto: 2, kind1: 1, kind2: 2, kind3: 3, kind4: 4, kind5: 5, kind6: 6, kind7: 7 };
 
 const KIND_SPLIT_OVER = { kindauto: 48 };
 
