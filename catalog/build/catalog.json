@@ -342,8 +342,8 @@
     "none": 45
    },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 41
+    "factor": 0.9,
+    "kinds": 42
    }
   },
   {
@@ -1955,7 +1955,7 @@
    },
    "kitCheck": {
     "factor": 0.9,
-    "kinds": 43
+    "kinds": 44
    }
   },
   {
@@ -2319,7 +2319,7 @@
    },
    "kitCheck": {
     "factor": 0.87,
-    "kinds": 45
+    "kinds": 46
    }
   },
   {
@@ -3852,8 +3852,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.95,
-    "kinds": 41
+    "factor": 0.96,
+    "kinds": 42
    }
   },
   {
@@ -20098,6 +20098,13 @@
    "count": 13
   },
   {
+   "id": "obj-furnishing-furniture-table-desk",
+   "name": "Desk",
+   "type": "kind",
+   "description": "Work or office desk, straight or corner.",
+   "count": 5
+  },
+  {
    "id": "obj-kitchenware",
    "name": "Kitchenware",
    "type": "kind",
@@ -24571,6 +24578,13 @@
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-table": {
+   "high.min": 0.2,
+   "high.max": 0.6,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-table-desk": {
    "high.min": 0.2,
    "high.max": 0.6,
    "longest.min": 0.05,
@@ -67111,7 +67125,7 @@
   {
    "kit": "household",
    "name": "desk",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
     0.9,
@@ -177586,7 +177600,7 @@
   {
    "kit": "ken-furniture",
    "name": "desk-corner",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
     0.828,
@@ -177630,7 +177644,7 @@
   {
    "kit": "ken-furniture",
    "name": "desk",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
     0.624,
@@ -238513,7 +238527,7 @@
   {
    "kit": "lpa-home",
    "name": "desk",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
     0.854,
@@ -328849,7 +328863,7 @@
    "kit": "sq-bank",
    "collection": "sq-props",
    "name": "managers-desk",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
     0.8,
