@@ -192,7 +192,7 @@ export const BRONKITS = [
   { map: 'Low_Poly_Horror_Room_Assets', naam: 'Low Poly 3D Horror Pack Room Assets', kit: null, formaat: 'glb', alleMappen: true },
   { map: 'Dungeon_Asset_Pack', naam: 'Dungeon Asset Pack', kit: null, formaat: 'fbx' },
 
-  { map: 'modular_temple_collection', naam: 'Modular Temple Collection', kit: null, source: 'fs', formaat: 'obj' },
+  { map: 'modular_temple_collection', naam: 'Modular Temple Collection', kit: 'fs-temple', source: 'fs', formaat: 'obj' },
   { map: 'modular_house_collection', naam: 'Modular House Collection', kit: 'fs-house', source: 'fs', formaat: 'obj' },
   { map: 'Low_Poly_Construction', naam: 'Low Poly Construction', kit: 'lpa-construction', source: 'lpa', formaat: 'fbx' },
   { map: 'Bubbly_Bathroom_Set', naam: 'Bubbly Bathroom Set', kit: 'isa-bathroom', source: 'isa', formaat: 'glb' },
