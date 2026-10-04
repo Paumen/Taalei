@@ -157,6 +157,32 @@
           "package",
           "present"
          ]
+        },
+        {
+         "id": "obj-container-crate-ammo",
+         "nouns": [
+          "ammo box",
+          "ammo can",
+          "ammo crate"
+         ]
+        },
+        {
+         "id": "obj-container-crate-scifi",
+         "nouns": [
+          "cargo pod",
+          "supply crate",
+          "cargo canister",
+          "sci-fi crate"
+         ]
+        },
+        {
+         "id": "obj-container-crate-produce",
+         "nouns": [
+          "produce crate",
+          "fruit crate",
+          "vegetable crate",
+          "bottle crate"
+         ]
         }
        ]
       },
@@ -465,9 +491,6 @@
           "camel",
           "chestnut"
          ],
-         "nouns": [
-          "tankard"
-         ],
          "children": [
           {
            "id": "obj-kitchenware-tableware-drinkware-mug",
@@ -494,6 +517,23 @@
             "goblet",
             "chalice",
             "wine glass"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-tankard",
+           "longest.min": 0.1,
+           "longest.max": 0.3,
+           "has": [
+            [
+             "wood",
+             "metal"
+            ]
+           ],
+           "nouns": [
+            "tankard",
+            "stein",
+            "ale mug",
+            "flagon"
            ]
           },
           {
@@ -1420,8 +1460,16 @@
              "longest.min": 0.1,
              "longest.max": 0.5,
              "nouns": [
-              "pistol",
-              "revolver"
+              "pistol"
+             ],
+             "children": [
+              {
+               "id": "obj-equipment-weapon-ranged-firearm-hand-revolver",
+               "nouns": [
+                "revolver",
+                "six-shooter"
+               ]
+              }
              ]
             },
             {
@@ -1626,8 +1674,6 @@
         "cape",
         "cloak",
         "robe",
-        "boots",
-        "shoes",
         "belt",
         "hand fan"
        ],
@@ -1672,6 +1718,19 @@
           "glove",
           "mitt",
           "oven mitt"
+         ]
+        },
+        {
+         "id": "obj-equipment-apparel-footwear",
+         "longest.min": 0.1,
+         "longest.max": 0.35,
+         "nouns": [
+          "boots",
+          "shoes",
+          "slippers",
+          "skates",
+          "roller skates",
+          "ice skates"
          ]
         },
         {
@@ -1952,12 +2011,39 @@
           "screw",
           "nail",
           "bolt (fastener)",
-          "rope",
-          "chain",
-          "hook",
           "wire",
           "matchbox",
           "match"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-tool-supplies-chain",
+           "nouns": [
+            "chain",
+            "chain link",
+            "chain coil",
+            "shackle"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-supplies-hook",
+           "nouns": [
+            "hook",
+            "meat hook",
+            "fish hook",
+            "fishing lure"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-supplies-rope",
+           "nouns": [
+            "rope",
+            "rope coil",
+            "rope bundle",
+            "net",
+            "fishing net"
+           ]
+          }
          ]
         },
         {
@@ -2338,7 +2424,6 @@
          "longest.max": 1.1,
          "nouns": [
           "lamp",
-          "floor lamp",
           "wall lamp",
           "spotlight",
           "stage light"
@@ -2352,14 +2437,30 @@
            ]
           },
           {
+           "id": "obj-furnishing-light-lamp-floor",
+           "nouns": [
+            "floor lamp",
+            "standing lamp"
+           ]
+          },
+          {
            "id": "obj-furnishing-light-lamp-ceiling",
            "longest.max": 1.3,
            "nouns": [
             "ceiling lamp",
             "chandelier",
-            "ceiling fan",
             "ceiling light",
             "disco ball"
+           ],
+           "children": [
+            {
+             "id": "obj-furnishing-light-lamp-ceiling-fan",
+             "longest.min": 0.35,
+             "longest.max": 1.3,
+             "nouns": [
+              "ceiling fan"
+             ]
+            }
            ]
           }
          ]
@@ -2404,9 +2505,7 @@
         "sienna"
        ],
        "nouns": [
-        "changing stall",
-        "toilet roll",
-        "toilet paper holder"
+        "changing stall"
        ],
        "children": [
         {
@@ -2459,6 +2558,17 @@
          "longest.max": 1.35,
          "nouns": [
           "towel rail"
+         ]
+        },
+        {
+         "id": "obj-furnishing-bathroom-toiletroll",
+         "longest.min": 0.05,
+         "longest.max": 0.15,
+         "nouns": [
+          "toilet roll",
+          "toilet paper",
+          "toilet paper holder",
+          "toilet roll holder"
          ]
         }
        ]
@@ -2534,6 +2644,17 @@
            "nouns": [
             "stool",
             "footstool"
+           ],
+           "children": [
+            {
+             "id": "obj-furnishing-furniture-seating-stool-bar",
+             "nouns": [
+              "bar stool",
+              "lab stool",
+              "counter stool",
+              "roller stool"
+             ]
+            }
            ]
           },
           {
@@ -2552,8 +2673,7 @@
          "high.min": 0.2,
          "high.max": 0.6,
          "nouns": [
-          "table",
-          "desk"
+          "table"
          ],
          "children": [
           {
@@ -2562,6 +2682,26 @@
            "high.max": 0.6,
            "nouns": [
             "square table"
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-table-round",
+           "high.min": 0.2,
+           "high.max": 0.6,
+           "nouns": [
+            "round table",
+            "oval table"
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-table-desk",
+           "high.min": 0.2,
+           "high.max": 0.6,
+           "nouns": [
+            "desk",
+            "office desk",
+            "corner desk",
+            "writing desk"
            ]
           }
          ]
@@ -2573,7 +2713,6 @@
          "nouns": [
           "bed",
           "bedroll",
-          "bunk",
           "cot",
           "hammock"
          ],
@@ -2583,18 +2722,35 @@
            "nouns": [
             "double bed"
            ]
+          },
+          {
+           "id": "obj-furnishing-furniture-bed-bunk",
+           "longest.min": 0.8,
+           "longest.max": 1.35,
+           "nouns": [
+            "bunk bed",
+            "bunk"
+           ]
           }
          ]
         },
         {
          "id": "obj-furnishing-furniture-storage",
          "nouns": [
-          "chest of drawers",
-          "dresser",
-          "coat rack",
           "plate tree"
          ],
          "children": [
+          {
+           "id": "obj-furnishing-furniture-storage-dresser",
+           "longest.min": 0.4,
+           "longest.max": 1.2,
+           "nouns": [
+            "dresser",
+            "chest of drawers",
+            "sideboard",
+            "tv stand"
+           ]
+          },
           {
            "id": "obj-furnishing-furniture-storage-cabinet",
            "longest.min": 0.35,
@@ -2648,6 +2804,17 @@
                 "weapon rack",
                 "weapon stand"
                ]
+              },
+              {
+               "id": "obj-furnishing-furniture-storage-shelf-rack-coat",
+               "longest.min": 0.2,
+               "longest.max": 1,
+               "nouns": [
+                "coat rack",
+                "coat stand",
+                "hat stand",
+                "coat hooks"
+               ]
               }
              ]
             }
@@ -2693,10 +2860,6 @@
        "band.textile": [
         "sienna"
        ],
-       "nouns": [
-        "curtain",
-        "blinds"
-       ],
        "children": [
         {
          "id": "obj-furnishing-textile-pillow",
@@ -2727,6 +2890,17 @@
           "mat",
           "doormat",
           "yoga mat"
+         ]
+        },
+        {
+         "id": "obj-furnishing-textile-curtains",
+         "longest.min": 0.4,
+         "longest.max": 2,
+         "nouns": [
+          "curtain",
+          "curtains",
+          "blinds",
+          "shower curtain"
          ]
         }
        ]
