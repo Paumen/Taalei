@@ -69,14 +69,23 @@ const SAMPLE = ${SAMPLE};
 const renderer = new THREE.WebGLRenderer({ antialias: false });
 renderer.setSize(S, S);
 renderer.setClearColor(0x000000, 0);
+renderer.autoClear = false;
 const target = new THREE.WebGLRenderTarget(S, S);
-const material = new THREE.ShaderMaterial({
-  side: THREE.DoubleSide,
-  vertexShader: \`attribute float tri; varying float vTri;
-    void main() { vTri = tri; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }\`,
+const vertexShader = \`attribute float tri; varying float vTri;
+  void main() { vTri = tri; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }\`;
+const frontSide = new THREE.ShaderMaterial({
+  side: THREE.FrontSide,
+  vertexShader,
+  fragmentShader: \`void main() { gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); }\`,
+});
+const backSide = new THREE.ShaderMaterial({
+  side: THREE.BackSide,
+  polygonOffset: true,
+  polygonOffsetFactor: 1,
+  polygonOffsetUnits: 4,
+  vertexShader,
   fragmentShader: \`varying float vTri;
     void main() {
-      if (gl_FrontFacing) { gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); return; }
       float id = floor(vTri + 0.5) + 1.0;
       gl_FragColor = vec4(mod(id, 256.0), mod(floor(id / 256.0), 256.0), floor(id / 65536.0), 255.0) / 255.0;
     }\`,
@@ -183,7 +192,6 @@ window.measure = async (url) => {
     for (let t = 0; t < tris; t++) ids[t * 3] = ids[t * 3 + 1] = ids[t * 3 + 2] = offset + t;
     flat.setAttribute('tri', new THREE.BufferAttribute(ids, 1));
     o.geometry = flat;
-    o.material = material;
     parts.push({ mesh: o, geometry: original });
     offset += tris;
   });
@@ -201,6 +209,10 @@ window.measure = async (url) => {
       centre.z + distance * Math.cos(e) * Math.cos(a));
     camera.lookAt(centre);
     renderer.setRenderTarget(target);
+    renderer.clear();
+    for (const { mesh } of parts) mesh.material = frontSide;
+    renderer.render(scene, camera);
+    for (const { mesh } of parts) mesh.material = backSide;
     renderer.render(scene, camera);
     renderer.readRenderTargetPixels(target, 0, 0, S, S, pixels);
     let fill = 0, back = 0;
