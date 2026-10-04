@@ -2166,7 +2166,6 @@ window.KENNEY_KITS = [
    "crown-2",
    "dagger",
    "dart",
-   "fish-bone",
    "glove",
    "gold-ingots",
    "hammer-double",
