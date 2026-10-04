@@ -15,6 +15,8 @@ const DOEL_DIR = join(ROOT, 'kits', 'tbd');
 const DOEL_PAD = 'kits/tbd';
 const AFGEWEZEN_DIR = join(ROOT, 'kits', 'reject');
 const AFGEWEZEN_PAD = 'kits/reject';
+const NPC_DIR = join(ROOT, 'kits', 'npc');
+const NPC_PAD = 'kits/npc';
 const BRON_DIR = join(ROOT, 'kits', 'sources');
 const CACHE_FILE = join(ROOT, 'kits', '.cache', 'build-lists.json');
 
@@ -24,6 +26,7 @@ const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'preview-colors.json'), 'utf8'));
 const AFWIJZINGEN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'rejects.json'), 'utf8'));
+const NPCS = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'npc.json'), 'utf8'));
 
 const round1 = (v) => Math.max(Math.round(v * 10) / 10, 0.1);
 
@@ -385,10 +388,12 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
 
 mkdirSync(DOEL_DIR, { recursive: true });
 mkdirSync(AFGEWEZEN_DIR, { recursive: true });
+mkdirSync(NPC_DIR, { recursive: true });
 
 const LIJSTEN = [
   { sleutel: 'ontbreekt', dir: DOEL_DIR, pad: DOEL_PAD, bestand: 'tbd.json', modellen: [], bronnen: [], varianten: [] },
   { sleutel: 'afgewezen', dir: AFGEWEZEN_DIR, pad: AFGEWEZEN_PAD, bestand: 'reject.json', modellen: [], bronnen: [], varianten: [] },
+  { sleutel: 'npc', dir: NPC_DIR, pad: NPC_PAD, bestand: 'npc.json', modellen: [], bronnen: [], varianten: [] },
 ];
 
 const force = process.argv.includes('--force');
@@ -422,6 +427,7 @@ const packKey = (bronkit) =>
       bronkit.kit ? dirKey(join(WERK_DIR, bronkit.kit)) : '',
       JSON.stringify(HANDKLEUREN[bronId(bronkit)] ?? HANDKLEUREN[bronkit.map] ?? null),
       JSON.stringify(AFWIJZINGEN[bronId(bronkit)] ?? null),
+      JSON.stringify(NPCS[bronId(bronkit)] ?? null),
     ].join('\n'),
   );
 
@@ -573,9 +579,11 @@ for (const bronkit of BRONKITS) {
   }
 
   const afwijzingen = AFWIJZINGEN[bronId(bronkit)] ?? {};
+  const npcs = new Set(NPCS[bronId(bronkit)] ?? []);
   const perLijst = {
-    ontbreekt: ontbreekt.filter((model) => !afwijzingen[model.naam]),
+    ontbreekt: ontbreekt.filter((model) => !afwijzingen[model.naam] && !npcs.has(model.naam)),
     afgewezen: ontbreekt.filter((model) => afwijzingen[model.naam]),
+    npc: ontbreekt.filter((model) => !afwijzingen[model.naam] && npcs.has(model.naam)),
   };
 
   for (const lijst of LIJSTEN) {
@@ -688,6 +696,7 @@ for (const bronkit of BRONKITS) {
     `${bronId(bronkit).padEnd(38)} ${String(gemeten.length).padStart(4)} in source, ` +
     `${String(kit.aantal).padStart(4)} in catalog → ${String(perLijst.ontbreekt.length).padStart(4)} tbd` +
     (perLijst.afgewezen.length ? `, ${perLijst.afgewezen.length} reject` : '') +
+    (perLijst.npc.length ? `, ${perLijst.npc.length} npc` : '') +
     (onherkend ? `  (${onherkend} workfiles unmatched)` : '') +
     (bronkit.kit ? '' : '  — never imported');
 
@@ -711,6 +720,19 @@ if (losseAfwijzingen.length) {
     `${losseAfwijzingen.length} entries in catalog/data/rejects.json match no source model outside the ` +
       'catalog — they were renamed, imported, or the pack was dropped:\n' +
       losseAfwijzingen.map((id) => `    ${id}`).join('\n'),
+  );
+}
+
+const npcLijst = LIJSTEN.find((l) => l.sleutel === 'npc');
+const geraakteNpcs = new Set(npcLijst.modellen.map((m) => `${m.kit}/${m.name}`));
+const losseNpcs = Object.entries(NPCS)
+  .flatMap(([kit, namen]) => namen.map((naam) => `${kit}/${naam}`))
+  .filter((id) => !geraakteNpcs.has(id));
+if (losseNpcs.length) {
+  waarschuwingen.push(
+    `${losseNpcs.length} entries in catalog/data/npc.json match no source model outside the catalog ` +
+      'or are rejected:\n' +
+      losseNpcs.map((id) => `    ${id}`).join('\n'),
   );
 }
 

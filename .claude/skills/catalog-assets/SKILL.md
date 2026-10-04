@@ -204,12 +204,12 @@ Before committing, run every lint (`size`, `tpu`, `measures`, `mat`, `palette`,
 error counts of all seven before the work as well, so "no new errors" is a
 comparison rather than a claim.
 
-`build-lists.mjs` regenerates `kits/tbd/` and the catalogue pages get a fresh
+`build-lists.mjs` regenerates `kits/tbd/` and `kits/npc/`, and the catalogue pages get a fresh
 build stamp, so even a small change touches a few hundred files. Check that
 nothing outside the set you meant to touch was written.
 
 It rebuilds only the packs whose source zips, workfiles, preview colours,
-rejects or tooling changed; the rest come from `kits/.cache`. `--force`
+rejects, NPC entries or tooling changed; the rest come from `kits/.cache`. `--force`
 rebuilds every pack. `build-catalog.mjs` likewise re-measures only the
 workfiles whose file, colormap or tooling changed; delete
 `kits/.cache/build-catalog.json` to measure all of them. `backfaces.mjs`

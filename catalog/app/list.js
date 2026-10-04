@@ -1,4 +1,4 @@
-import './bouwstempel.js?v=ee984d8538';
+import './bouwstempel.js?v=939ca8a4ad';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -15,6 +15,7 @@ const PAGE = {
   list: document.body.dataset.list ?? '../build/tbd.json',
   swipe: document.body.dataset.swipe ?? 'tbd',
   reject: 'reject' in document.body.dataset,
+  npc: 'npc' in document.body.dataset,
 };
 
 function span(className, text) {
@@ -551,7 +552,9 @@ function draw() {
       ? `${number.format(gekozen.length)} of ${number.format(total)} models shown`
       : PAGE.reject
         ? `${number.format(total)} models turned down, from ${register.packs.size} packs — ${reasonBreakdown(register.models)}`
-        : `${number.format(total)} models in a source pack but not in the catalog, from ${register.packs.size} packs`;
+        : PAGE.npc
+          ? `${number.format(total)} NPC models in a source pack but not in the catalog, from ${register.packs.size} packs`
+          : `${number.format(total)} models in a source pack but not in the catalog, from ${register.packs.size} packs`;
 
   const filtered = Boolean(state.search || state.pack || state.state || state.reason);
   el('#alles-wis').hidden = !filtered;

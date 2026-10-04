@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taaleiland — Reject: turned down</title>
-<meta name="description" content="Models from the source packs that will not be imported: their style does not fit the island, or the catalog already has the shape. Shown straight from the source, so a call can be looked at again.">
+<title>Taaleiland — NPC: characters and animals</title>
+<meta name="description" content="Characters and animals from the source packs that are not in the catalog, kept apart from TBD. The list lives in catalog/data/npc.json. Shown straight from the source.">
 <meta name="catalogus-gebouwd" content="2026-10-04T00:54:58Z">
 <meta name="catalogus-versie" content="939ca8a4ad">
 <link rel="stylesheet" href="catalog.css?v=939ca8a4ad">
 <link rel="stylesheet" href="list.css?v=939ca8a4ad"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
 </head>
-<body data-list="../build/reject.json" data-swipe="reject" data-reject>
+<body data-list="../build/npc.json" data-swipe="npc" data-npc>
 
 <header class="kop">
   <nav class="paginabalk" aria-label="Pages">
@@ -25,18 +25,18 @@
 
   <nav class="paginabalk sub-bar" aria-label="TBD pages">
     <a href="tbd.html">TBD</a>
-    <a href="npc.html">NPC</a>
-    <span aria-current="page">Reject</span>
+    <span aria-current="page">NPC</span>
+    <a href="reject.html">Reject</a>
   </nav>
 
   <p class="kop-sub" id="samenvatting">Loading…</p>
 
   <div class="kop-bediening">
     <div class="knopgroep">
-      <a class="licht-knop" id="naar-swipe" href="swipe.html?source=reject"
-         title="Go through these one at a time and note per direction whether the call still stands">Swipe these</a>
+      <a class="licht-knop" id="naar-swipe" href="swipe.html?source=npc"
+         title="Judge these models one at a time and note per direction why each was left out">Swipe these</a>
 
-      <a class="licht-knop" id="naar-swipe-pack" href="swipe.html?source=reject" hidden
+      <a class="licht-knop" id="naar-swipe-pack" href="swipe.html?source=npc" hidden
          title="Swipe only the models of the pack this page is filtered to">Swipe this pack</a>
 
       <button class="licht-knop" id="kiesmodus" type="button" aria-pressed="false"
@@ -48,16 +48,6 @@
   </div>
   <span class="bouwstempel" id="bouwstempel"></span>
 </header>
-
-<p class="uitleg-blok">
-  These models sit in a source pack under <code>kits/sources</code> and are turned down, each for a
-  reason: <em>style</em> — shape, proportion or finish that does not fit the island — or
-  <em>duplicate</em> — the catalog already has this shape. Hue and size are out of scope here:
-  those are fixed on import. The list lives in <code>catalog/rejects.json</code>.
-  They're shown exactly as the source has them: own colours, own scale, no palette. Models of one
-  pack that share a shape and differ only in colour sit on one card, marked ⧉; the other colours
-  are in the model panel.
-</p>
 
 <div class="sort-bar">
   <input type="search" id="zoek" placeholder="Search by name" autocomplete="off" aria-label="Search by name">
@@ -72,13 +62,7 @@
     <option value="">all packs</option>
   </select>
 
-  <select id="filter-reden" aria-label="Why it was turned down" title="Why it was turned down">
-    <option value="">every reason</option>
-    <option value="style">turned down for style</option>
-    <option value="dedupe">turned down as duplicate</option>
-  </select>
-
-  <select id="filter-staat" aria-label="Where the pack stands" title="Where the pack stands">
+  <select id="filter-staat" aria-label="Why it is not in the catalog" title="Why it is not in the catalog">
     <option value="">imported and never imported packs</option>
     <option value="uit">taken out of an imported pack</option>
     <option value="nooit">from a pack that was never imported</option>
