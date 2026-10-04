@@ -1033,8 +1033,9 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.18,
-    "kinds": 8
+    "factor": 1.43,
+    "kinds": 7,
+    "level": "error"
    }
   },
   {
@@ -1712,7 +1713,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.96,
+    "factor": 0.99,
     "kinds": 9
    }
   },
@@ -1902,8 +1903,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.9,
-    "kinds": 14
+    "factor": 0.98,
+    "kinds": 13
    }
   },
   {
@@ -1954,7 +1955,7 @@
    },
    "kitCheck": {
     "factor": 0.91,
-    "kinds": 42
+    "kinds": 41
    }
   },
   {
@@ -2224,7 +2225,7 @@
    },
    "kitCheck": {
     "factor": 1.07,
-    "kinds": 28
+    "kinds": 27
    }
   },
   {
@@ -18866,7 +18867,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 623,
+   "count": 622,
    "parent": "wood"
   },
   {
@@ -18874,7 +18875,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 998,
+   "count": 997,
    "parent": "wood"
   },
   {
@@ -18906,7 +18907,7 @@
    "name": "Cardboard",
    "type": "material",
    "description": "Corrugated board: shipping boxes, parcels, cartons folded from brown board. Printed paper labels and tape on it are paper.",
-   "count": 26,
+   "count": 27,
    "parent": "wood"
   },
   {
@@ -19489,14 +19490,14 @@
    "name": "Cube",
    "type": "kind",
    "description": "cube crate, cube box",
-   "count": 30
+   "count": 24
   },
   {
    "id": "obj-container-crate-cardboard",
    "name": "Cardboard box",
    "type": "kind",
    "description": "cardboard box, package, present",
-   "count": 33
+   "count": 39
   },
   {
    "id": "obj-container-pot",
@@ -95679,7 +95680,7 @@
   {
    "kit": "kay-city",
    "name": "box-a",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.4,
@@ -158214,7 +158215,7 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "box",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.393,
@@ -165082,7 +165083,7 @@
   {
    "kit": "ken-factory",
    "name": "box-small",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.298,
@@ -176815,7 +176816,7 @@
   {
    "kit": "ken-furniture",
    "name": "cardboard-box-closed",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.181,
@@ -176849,14 +176850,7 @@
     "ken",
     "wood-cardboard"
    ],
-   "variant": "v815",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.24 under min 0.25 (obj-container-crate-cube)"
-    }
-   ]
+   "variant": "v815"
   },
   {
    "kit": "ken-furniture",
@@ -218715,7 +218709,7 @@
   {
    "kit": "ken-survival",
    "name": "box",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.375,
@@ -218752,8 +218746,7 @@
    ],
    "tags": [
     "ken",
-    "wood-planks",
-    "wood-worked"
+    "wood-cardboard"
    ],
    "variant": "v270"
   },
@@ -292668,7 +292661,7 @@
   {
    "kit": "quat-shoot",
    "name": "cardboard-box",
-   "kind": "obj-container-crate-cube",
+   "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.341,
