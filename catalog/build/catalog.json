@@ -203,8 +203,8 @@
     "smooth": 8
    },
    "kitCheck": {
-    "factor": 0.92,
-    "kinds": 28
+    "factor": 0.93,
+    "kinds": 27
    }
   },
   {
@@ -2251,7 +2251,7 @@
     "smooth": 9
    },
    "kitCheck": {
-    "factor": 0.86,
+    "factor": 0.87,
     "kinds": 39
    }
   },
@@ -3621,8 +3621,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.96,
-    "kinds": 42
+    "factor": 0.95,
+    "kinds": 41
    }
   },
   {
@@ -3701,7 +3701,7 @@
     "smooth": 21
    },
    "kitCheck": {
-    "factor": 0.92,
+    "factor": 0.87,
     "kinds": 13
    }
   },
@@ -3805,8 +3805,8 @@
     "none": 15
    },
    "kitCheck": {
-    "factor": 0.96,
-    "kinds": 31
+    "factor": 1.02,
+    "kinds": 30
    }
   },
   {
@@ -18508,7 +18508,7 @@
    "name": "Mirror",
    "type": "kind",
    "description": "bathroom mirror",
-   "count": 3
+   "count": 5
   },
   {
    "id": "obj-furnishing-bathroom-toilet",
@@ -21456,15 +21456,21 @@
   "obj-food-vegetable-root",
   "obj-food-vegetable-root-carrot",
   "obj-food-vegetable-tomato",
-  "obj-furnishing-bathroom",
   "obj-furnishing-bathroom-bath",
+  "obj-furnishing-bathroom-mirror",
+  "obj-furnishing-bathroom-shower",
+  "obj-furnishing-bathroom-sink",
+  "obj-furnishing-bathroom-toilet",
+  "obj-furnishing-bathroom-towelrail",
   "obj-furnishing-furniture-bed",
   "obj-furnishing-furniture-seating-chair",
   "obj-furnishing-furniture-seating-stool",
   "obj-furnishing-furniture-storage-cabinet",
   "obj-furnishing-furniture-storage-shelf",
+  "obj-furnishing-furniture-storage-shelf-rack-weapon",
   "obj-furnishing-light-campfire",
   "obj-furnishing-light-lamp",
+  "obj-furnishing-light-lamp-ceiling",
   "obj-furnishing-light-lantern",
   "obj-furnishing-light-torch",
   "obj-furnishing-textile-pillow",
@@ -22906,8 +22912,8 @@
   },
   "obj-furnishing-bathroom": {
    "high.max": 8,
-   "longest.min": 0.23,
-   "longest.max": 1.35,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "obj-furnishing-bathroom-bath": {
@@ -23066,7 +23072,7 @@
   "obj-furnishing-furniture-storage-shelf-rack-weapon": {
    "high.max": 8,
    "longest.min": 0.3,
-   "longest.max": 0.95,
+   "longest.max": 1.1,
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-table": {
@@ -23105,7 +23111,7 @@
   "obj-furnishing-light-lamp-ceiling": {
    "high.max": 8,
    "longest.min": 0.14,
-   "longest.max": 1.1,
+   "longest.max": 1.3,
    "tpu.max": 5000
   },
   "obj-furnishing-light-lamp-table": {
@@ -43388,14 +43394,7 @@
     "mounted",
     "wood-worked"
    ],
-   "variant": "v1357",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.125 over max 1.1 (obj-furnishing-light-lamp)"
-    }
-   ]
+   "variant": "v1357"
   },
   {
    "kit": "fs-house",
@@ -45716,13 +45715,6 @@
     "metal-iron-steel",
     "mounted",
     "paper"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.118 under min 0.23 (obj-furnishing-bathroom)"
-    }
    ]
   },
   {
@@ -227510,7 +227502,7 @@
   {
    "kit": "lpa-home",
    "name": "mirror-a",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-mirror",
    "size": "m",
    "wdh": [
     0.299,
@@ -227556,7 +227548,7 @@
   {
    "kit": "lpa-home",
    "name": "mirror-b",
-   "kind": "obj-furnishing-bathroom",
+   "kind": "obj-furnishing-bathroom-mirror",
    "size": "s",
    "wdh": [
     0.233,
@@ -228960,13 +228952,6 @@
     "metal-iron-steel",
     "mounted",
     "paper"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.08 under min 0.23 (obj-furnishing-bathroom)"
-    }
    ]
   },
   {
@@ -262272,13 +262257,6 @@
     "metal-iron-steel",
     "qua",
     "wood-beam"
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.97 over max 0.95 (obj-furnishing-furniture-storage-shelf)"
-    }
    ]
   },
   {
@@ -327860,13 +327838,6 @@
     "mounted",
     "plastic",
     "styloo"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.067 under min 0.23 (obj-furnishing-bathroom)"
-    }
    ]
   },
   {
@@ -327922,11 +327893,6 @@
     }
    },
    "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.073 under min 0.23 (obj-furnishing-bathroom)"
-    },
     {
      "level": "error",
      "check": "backface",

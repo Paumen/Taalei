@@ -1223,78 +1223,6 @@
   ]
  },
  {
-  "slug": "obj-furnishing-bathroom-mirror",
-  "name": "Object › Furnishing › Bathroom › Mirror",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.23,
-   "longest.max": 1.35,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-house",
-    "model": "mirror",
-    "wdh": [
-     0.4,
-     0.03,
-     0.45
-    ],
-    "tags": [
-     "fs",
-     "glass",
-     "mounted",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-bathroom",
-    "model": "mirror",
-    "wdh": [
-     0.4,
-     0.03,
-     0.5
-    ],
-    "tags": [
-     "ceramic",
-     "glass",
-     "isa",
-     "mounted"
-    ],
-    "colors": [
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "bathroom-mirror",
-    "wdh": [
-     0.25,
-     0.1,
-     0.35
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal-iron-steel",
-     "mounted",
-     "wood-worked"
-    ],
-    "colors": [
-     "#82868e",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-kitchenware-cookware-utensil-rollingpin",
   "name": "Object › Kitchenware › Cookware › Utensil › Rolling pin",
   "category": "obj-gen",
@@ -2925,10 +2853,11 @@
   "slug": "obj-furnishing-furniture-storage-shelf-rack-weapon",
   "name": "Object › Furnishing › Furniture › Storage › Shelf › Rack › Weapon",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.3,
-   "longest.max": 0.95,
+   "longest.max": 1.1,
    "tpu.max": 5000
   },
   "items": [
@@ -4875,9 +4804,230 @@
   ]
  },
  {
+  "slug": "obj-furnishing-bathroom",
+  "name": "Object › Furnishing › Bathroom",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-house",
+    "model": "toilet-paper-holder",
+    "wdh": [
+     0.1,
+     0.07,
+     0.06
+    ],
+    "tags": [
+     "fs",
+     "metal-iron-steel",
+     "mounted",
+     "paper"
+    ],
+    "colors": [
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "toilet-roll-holder",
+    "wdh": [
+     0.08,
+     0.06,
+     0.06
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-steel",
+     "mounted",
+     "paper"
+    ],
+    "colors": [
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-pool",
+    "collection": "sq-props",
+    "model": "changing-stall",
+    "wdh": [
+     0.5,
+     0.6,
+     1
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "plastic",
+     "sidequest"
+    ],
+    "colors": [
+     "#23562c",
+     "#343745",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-school",
+    "model": "toilet-roll-holder",
+    "wdh": [
+     0.07,
+     0.03,
+     0.01
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "mounted",
+     "plastic",
+     "styloo"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "styloo-school",
+    "model": "toilet-roll",
+    "wdh": [
+     0.07,
+     0.05,
+     0.06
+    ],
+    "tags": [
+     "paper",
+     "styloo",
+     "wood-cardboard"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-furnishing-bathroom-mirror",
+  "name": "Object › Furnishing › Bathroom › Mirror",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.23,
+   "longest.max": 1.35,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-house",
+    "model": "mirror",
+    "wdh": [
+     0.4,
+     0.03,
+     0.45
+    ],
+    "tags": [
+     "fs",
+     "glass",
+     "mounted",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-bathroom",
+    "model": "mirror",
+    "wdh": [
+     0.4,
+     0.03,
+     0.5
+    ],
+    "tags": [
+     "ceramic",
+     "glass",
+     "isa",
+     "mounted"
+    ],
+    "colors": [
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "bathroom-mirror",
+    "wdh": [
+     0.25,
+     0.1,
+     0.35
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal-iron-steel",
+     "mounted",
+     "wood-worked"
+    ],
+    "colors": [
+     "#82868e",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "mirror-a",
+    "wdh": [
+     0.3,
+     0.04,
+     0.65
+    ],
+    "tags": [
+     "glass",
+     "lpa",
+     "mounted",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "mirror-b",
+    "wdh": [
+     0.25,
+     0.04,
+     0.35
+    ],
+    "tags": [
+     "glass",
+     "lpa",
+     "mounted",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d8d1bd"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-furnishing-bathroom-shower",
   "name": "Object › Furnishing › Bathroom › Shower",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.23,
@@ -4985,6 +5135,7 @@
   "slug": "obj-furnishing-bathroom-towelrail",
   "name": "Object › Furnishing › Bathroom › Towel rail",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.23,
@@ -7999,157 +8150,10 @@
   ]
  },
  {
-  "slug": "obj-furnishing-bathroom",
-  "name": "Object › Furnishing › Bathroom",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.23,
-   "longest.max": 1.35,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-house",
-    "model": "toilet-paper-holder",
-    "wdh": [
-     0.1,
-     0.07,
-     0.06
-    ],
-    "tags": [
-     "fs",
-     "metal-iron-steel",
-     "mounted",
-     "paper"
-    ],
-    "colors": [
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "mirror-a",
-    "wdh": [
-     0.3,
-     0.04,
-     0.65
-    ],
-    "tags": [
-     "glass",
-     "lpa",
-     "mounted",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "mirror-b",
-    "wdh": [
-     0.25,
-     0.04,
-     0.35
-    ],
-    "tags": [
-     "glass",
-     "lpa",
-     "mounted",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "toilet-roll-holder",
-    "wdh": [
-     0.08,
-     0.06,
-     0.06
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-steel",
-     "mounted",
-     "paper"
-    ],
-    "colors": [
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-pool",
-    "collection": "sq-props",
-    "model": "changing-stall",
-    "wdh": [
-     0.5,
-     0.6,
-     1
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "plastic",
-     "sidequest"
-    ],
-    "colors": [
-     "#23562c",
-     "#343745",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-school",
-    "model": "toilet-roll-holder",
-    "wdh": [
-     0.07,
-     0.03,
-     0.01
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "mounted",
-     "plastic",
-     "styloo"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "styloo-school",
-    "model": "toilet-roll",
-    "wdh": [
-     0.07,
-     0.05,
-     0.06
-    ],
-    "tags": [
-     "paper",
-     "styloo",
-     "wood-cardboard"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-furnishing-bathroom-sink",
   "name": "Object › Furnishing › Bathroom › Sink",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.23,
@@ -8301,6 +8305,7 @@
   "slug": "obj-furnishing-bathroom-toilet",
   "name": "Object › Furnishing › Bathroom › Toilet",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.23,
@@ -18923,10 +18928,11 @@
   "slug": "obj-furnishing-light-lamp-ceiling",
   "name": "Object › Furnishing › Light › Lamp › Ceiling",
   "category": "obj-gen",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
    "longest.min": 0.14,
-   "longest.max": 1.1,
+   "longest.max": 1.3,
    "tpu.max": 5000
   },
   "items": [
