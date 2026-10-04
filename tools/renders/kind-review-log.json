@@ -3987,5 +3987,171 @@
     ]
    }
   ]
+ },
+ {
+  "kind": "env-remains-bones-fishbone",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "quat-food/fish-bone",
+     "quat-rpg/fish-bone"
+    ],
+    "text": "Same source model FishBone in both packs; only tri count and size differ",
+    "options": [
+     "Reject quat-rpg",
+     "Reject quat-food",
+     "Keep both"
+    ],
+    "picked": [
+     "Reject quat-rpg"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/fish-bones",
+     "styloo-farm/fish-carcass",
+     "styloo-farm/fish-carcass-tan",
+     "styloo-farm/fish-carcass-umber"
+    ],
+    "text": "Small flipped face on the spine behind the head, also in source",
+    "options": [
+     "Flip it",
+     "Remove it",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip it"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "styloo-farm/*"
+    ],
+    "text": "Styloo set smooth-shaded with soft/sharp per part; ken and quat flat",
+    "options": [
+     "Keep as is",
+     "Flat-ish styloo",
+     "One rule, 41°"
+    ],
+    "picked": [
+     "One rule, 41°"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-leisure-art-instrument-string",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "lpa-weapons/mandolin"
+    ],
+    "text": "Front faces +X while the others face +Z",
+    "options": [
+     "Face +Z",
+     "Keep as is"
+    ],
+    "picked": [
+     "Face +Z"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "quat-pirate/lute"
+    ],
+    "text": "Stands upside down, peghead at y=0, as in source",
+    "options": [
+     "Stand upright",
+     "Keep as is"
+    ],
+    "picked": [
+     "Stand upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "lpa-weapons/mandolin"
+    ],
+    "text": "Strings read as one grey bar with magenta slits; on closer look they are 8 separate strings seen edge-on, fixed by the +Z turn",
+    "options": [
+     "Merge per course",
+     "Spread them",
+     "Keep as is",
+     "Pair into courses"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-corridor",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-space/corridor-window-closed"
+    ],
+    "text": "One window pane faces inward and shows as a magenta hole from outside",
+    "options": [
+     "Double-side panes",
+     "Flip it",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side panes"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-space/corridor-detailed"
+    ],
+    "text": "Frame ring in near-black slate reads heavier than the ivory and nickel ken set; source is mid-dark grey",
+    "options": [
+     "Keep slate",
+     "Nickel, darker",
+     "Nickel, same spot"
+    ],
+    "picked": [
+     "Nickel, darker"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-space/*",
+     "ken-space/*"
+    ],
+    "text": "Kay closed bevelled tubes and ken open angular frames are two modular systems",
+    "options": [
+     "Keep both",
+     "Split kay tunnels",
+     "Reject kay tunnels"
+    ],
+    "picked": [
+     "Keep both"
+    ]
+   }
+  ]
  }
 ]
