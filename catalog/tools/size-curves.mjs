@@ -222,6 +222,7 @@ const SIZES = {
   'obj-kitchenware-tableware-drinkware-goblet': 0.18,
   'obj-kitchenware-tableware-drinkware-mug': 0.12,
   'obj-kitchenware-tableware-drinkware-takeaway': 0.18,
+  'obj-kitchenware-tableware-drinkware-tankard': 0.16,
   'obj-kitchenware-tableware-plate': 0.26,
   'obj-kitchenware-tableware-serving': 0.4,
   'obj-leisure-game-ball': 0.22,

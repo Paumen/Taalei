@@ -20256,7 +20256,7 @@
    "name": "Mug",
    "type": "kind",
    "description": "mug",
-   "count": 20
+   "count": 12
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-goblet",
@@ -20264,6 +20264,13 @@
    "type": "kind",
    "description": "Stemmed drinking vessel on a foot.",
    "count": 15
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-tankard",
+   "name": "Tankard",
+   "type": "kind",
+   "description": "Ale vessel of staves or metal with a handle, lidded or open.",
+   "count": 9
   },
   {
    "id": "obj-furnishing-light",
@@ -22857,10 +22864,10 @@
   "obj-kitchenware-cookware-utensil-whisk",
   "obj-kitchenware-tableware-cutlery",
   "obj-kitchenware-tableware-cutlery-chopsticks",
-  "obj-kitchenware-tableware-drinkware",
   "obj-kitchenware-tableware-drinkware-glass",
   "obj-kitchenware-tableware-drinkware-goblet",
   "obj-kitchenware-tableware-drinkware-mug",
+  "obj-kitchenware-tableware-drinkware-tankard",
   "obj-kitchenware-tableware-serving",
   "obj-leisure-art-frame",
   "obj-leisure-game-ball",
@@ -24646,12 +24653,6 @@
    "longest.max": 0.4,
    "tpu.max": 5000
   },
-  "obj-kitchenware-tableware-drinkware": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.3,
-   "tpu.max": 5000
-  },
   "obj-kitchenware-tableware-drinkware-cup": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -24677,6 +24678,12 @@
    "tpu.max": 5000
   },
   "obj-kitchenware-tableware-drinkware-takeaway": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-tableware-drinkware-tankard": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.3,
@@ -92376,7 +92383,7 @@
    "kit": "kay-adventurers",
    "collection": "kay-rpg",
    "name": "mug-empty",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.16,
@@ -92422,7 +92429,7 @@
    "kit": "kay-adventurers",
    "collection": "kay-rpg",
    "name": "mug-full",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.16,
@@ -101020,7 +101027,7 @@
   {
    "kit": "kay-dun-1",
    "name": "mug",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.175,
@@ -172924,7 +172931,7 @@
   {
    "kit": "ken-food",
    "name": "mug",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.153,
@@ -244154,7 +244161,7 @@
   {
    "kit": "lpa-weapons",
    "name": "tankard",
-   "kind": "obj-kitchenware-tableware-drinkware",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.099,
@@ -262173,7 +262180,7 @@
   {
    "kit": "props",
    "name": "cup-a",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.147,
@@ -262217,7 +262224,7 @@
   {
    "kit": "props",
    "name": "cup-b",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.147,
@@ -286215,7 +286222,7 @@
   {
    "kit": "quat-props",
    "name": "mug",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.134,
@@ -321001,7 +321008,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "tankard",
-   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
     0.123,
