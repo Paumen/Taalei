@@ -8580,5 +8580,45 @@ window.KENNEY_KITS = [
    "sword-1",
    "sword-2"
   ]
+ },
+ {
+  "slug": "pm-store",
+  "name": "pm-store",
+  "url": "https://github.com/PolygonalMind/initiative-opensource-release",
+  "licenseLabel": "CC0 1.0",
+  "note": "Polygonal Mind, LowPolyStore; see kits/sources/LowPolyStore_Polygonal_Mind/LowPolyStore_FBX_PNG.zip README.txt.",
+  "models": [
+   "bell",
+   "bell-frame",
+   "candle",
+   "candy-cane",
+   "dj-booth",
+   "dragon",
+   "emblem-tiger",
+   "fireplace",
+   "floor-planks",
+   "frieze",
+   "gateway-board",
+   "ground-garden",
+   "lantern-standing",
+   "notice-board",
+   "picture-frame",
+   "pillar",
+   "platform",
+   "present",
+   "robot",
+   "roof-panel",
+   "rug",
+   "rug-long",
+   "screen-dais",
+   "shop",
+   "snow-globe",
+   "stage-light",
+   "stairs",
+   "star",
+   "string-lights",
+   "table",
+   "tank"
+  ]
  }
 ]
