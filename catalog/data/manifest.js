@@ -8535,6 +8535,7 @@ window.KENNEY_KITS = [
    "small-wall-b",
    "small-window-a",
    "small-window-b",
+   "stagecoach",
    "staircase-a",
    "staircase-b",
    "stairs-a",
@@ -8765,6 +8766,37 @@ window.KENNEY_KITS = [
    "wheelie-bin",
    "window-large",
    "window-round"
+  ]
+ },
+ {
+  "slug": "quat-cars",
+  "name": "quat-cars",
+  "url": "https://quaternius.com/",
+  "licenseLabel": "CC0 1.0",
+  "note": "Quaternius; source zip carries no licence file.",
+  "models": [
+   "car",
+   "hatchback",
+   "police-car",
+   "sports-car",
+   "sports-car-b",
+   "suv",
+   "taxi"
+  ]
+ },
+ {
+  "slug": "rgs-vehicles",
+  "name": "rgs-vehicles",
+  "url": "https://www.patreon.com/rgsdev",
+  "licenseLabel": "CC0 1.0",
+  "note": "By Raphael Gonçalves (Rgsdev); see kits/workfiles/rgs-vehicles/LICENSE.txt.",
+  "models": [
+   "ambulance",
+   "bus",
+   "firetruck",
+   "limousine",
+   "monster-truck",
+   "truck-with-trailer"
   ]
  }
 ]

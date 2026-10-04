@@ -106,7 +106,7 @@ export const BRONKITS = [
   { map: 'kenney_food-kit', naam: 'Kenney Food Kit', kit: 'ken-food', source: 'ken', formaat: 'glb' },
   { map: 'Food_Asset_Pack', naam: 'Food Asset Pack', kit: 'food-pack', formaat: 'fbx' },
   { map: 'RPG-Mini-Asset-Package', naam: 'RPG Mini Asset Package', kit: 'rpg-mini', formaat: 'fbx' },
-  { map: 'Free_Low_Poly_Vehicles_Pack_by_Rgsdev', naam: 'Low Poly Vehicles Pack', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Free_Low_Poly_Vehicles_Pack_by_Rgsdev', naam: 'Low Poly Vehicles Pack', kit: 'rgs-vehicles', formaat: 'fbx', alleMappen: true },
 
   { map: 'Free_Mushroom_Pack_AssetQuest', naam: 'Free Mushroom Pack', kit: 'aq-mushroom', formaat: 'fbx' },
   { map: 'Halloween_Kit_AssetQuest', naam: 'Halloween Kit', kit: 'aq-hallow', formaat: 'fbx' },
@@ -210,7 +210,7 @@ export const BRONKITS = [
 
   { map: 'Ultimate_Space_Kit', naam: 'Ultimate Space Kit', kit: 'quat-space', source: 'qua', formaat: 'glb' },
   { map: 'Ultimate_House_Interior_Pack', naam: 'Ultimate House Interior Pack', kit: 'quat-interior', source: 'qua', formaat: 'glb' },
-  { map: 'Cars_Bundle', naam: 'Cars Bundle', kit: null, source: 'qua', formaat: 'glb' },
+  { map: 'Cars_Bundle', naam: 'Cars Bundle', kit: 'quat-cars', source: 'qua', formaat: 'glb' },
   { map: 'Enemies_Pack', naam: 'Enemies Pack', kit: null, formaat: 'glb' },
   { map: 'Animated_Enemies', naam: 'Animated Enemies', kit: null, formaat: 'glb' },
   { map: 'Lava_Tileset', naam: 'Lava Tileset', kit: null, formaat: 'glb', splitsPerMesh: true },
