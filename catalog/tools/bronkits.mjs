@@ -203,4 +203,7 @@ export const BRONKITS = [
   { map: 'Low_Poly_Wild_West', naam: 'Low Poly Wild West', kit: null, source: 'lpa', formaat: 'fbx', alleMappen: true },
   { map: 'LowPoly_Buildings', naam: 'LowPoly Buildings', kit: null, source: 'gualtieris', formaat: 'fbx', alleMappen: true },
   { map: 'Potions_Asset_Pack_v2', naam: 'Potions Asset Pack v2', kit: null, source: 'gualtieris', formaat: 'fbx', alleMappen: true },
+
+  { map: 'LowPolyStore_Polygonal_Mind', naam: 'LowPolyStore', kit: null, source: 'polygonalmind', formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Weapon_Pack_LP', naam: 'Weapon Pack', kit: null, formaat: 'glb' },
 ];
