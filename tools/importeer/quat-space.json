@@ -1,0 +1,884 @@
+{
+ "kit": "quat-space",
+ "map": "Ultimate_Space_Kit",
+ "bron": "Ultimate Space Kit",
+ "url": "https://quaternius.com/",
+ "note": "Quaternius; source zip carries no licence file.",
+ "schaal": 0.22,
+ "drempel": 60,
+ "banden": {
+  "171,171,171": "ivory",
+  "119,119,119": "nickel",
+  "102,102,102": "nickel",
+  "55,55,55": "basalt",
+  "33,33,33": "basalt",
+  "241,241,241": "ivory",
+  "251,179,61": "amber",
+  "132,76,35": "taupe"
+ },
+ "varianten": [
+  {
+   "leden": [
+    "rover",
+    "rover-long"
+   ]
+  },
+  {
+   "leden": [
+    "rock-a",
+    "rock-b",
+    "rock-c",
+    "rock-d"
+   ]
+  },
+  {
+   "leden": [
+    "rock-large-a",
+    "rock-large-b",
+    "rock-large-c"
+   ]
+  },
+  {
+   "leden": [
+    "tree-light-a",
+    "tree-light-b",
+    "plant-bulb"
+   ]
+  },
+  {
+   "leden": [
+    "solar-panel",
+    "solar-panel-ground"
+   ]
+  },
+  {
+   "leden": [
+    "planet-banded",
+    "planet-ringed"
+   ]
+  },
+  {
+   "leden": [
+    "house-single",
+    "house-open"
+   ]
+  }
+ ],
+ "modellen": [
+  {
+   "bron": "Base Large",
+   "naam": "base-large",
+   "kind": "str-building-work-industrial",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "attributen": [
+    "storeys-1"
+   ]
+  },
+  {
+   "bron": "Building L",
+   "naam": "building-l",
+   "kind": "str-building-work-industrial",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "attributen": [
+    "storeys-1"
+   ]
+  },
+  {
+   "bron": "Geodesic Dome",
+   "naam": "geodesic-dome",
+   "kind": "str-building-work-industrial",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "House Cylinder",
+   "naam": "house-cylinder",
+   "kind": "str-building-residential-house",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "attributen": [
+    "storeys-1"
+   ]
+  },
+  {
+   "bron": "House Long",
+   "naam": "house-long",
+   "kind": "str-building-residential-house",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "attributen": [
+    "storeys-1"
+   ]
+  },
+  {
+   "bron": "House Open",
+   "naam": "house-open",
+   "kind": "str-building-residential-house",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "attributen": [
+    "storeys-1"
+   ]
+  },
+  {
+   "bron": "House Single",
+   "naam": "house-single",
+   "kind": "str-building-residential-house",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "attributen": [
+    "storeys-1"
+   ]
+  },
+  {
+   "bron": "House Pod",
+   "naam": "house-pod",
+   "kind": "str-building-residential-house",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "plural"
+   ]
+  },
+  {
+   "bron": "House Single Support",
+   "naam": "house-support",
+   "kind": "str-part-frame",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "comp"
+   ]
+  },
+  {
+   "bron": "Connector",
+   "naam": "connector",
+   "kind": "str-part-corridor",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Ramp",
+   "naam": "ramp",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "metal",
+    "rubber"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Stairs",
+   "naam": "stairs",
+   "kind": "str-access-stairs",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Roof Antenna",
+   "naam": "roof-antenna",
+   "kind": "str-fixture-utility",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Roof Radar",
+   "naam": "roof-radar",
+   "kind": "str-fixture-utility",
+   "materialen": [
+    "metal"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "mounted"
+   ]
+  },
+  {
+   "bron": "Solar Panel",
+   "naam": "solar-panel",
+   "kind": "str-fixture-utility-solar",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "171,171,171": "nickel",
+    "102,102,102": "nickel"
+   }
+  },
+  {
+   "bron": "Solar Panel Ground",
+   "naam": "solar-panel-ground",
+   "kind": "str-fixture-utility-solar",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "171,171,171": "nickel",
+    "102,102,102": "nickel"
+   }
+  },
+  {
+   "bron": "Solar Panel Structure",
+   "naam": "solar-panel-structure",
+   "kind": "str-fixture-utility-solar",
+   "materialen": [
+    "metal",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "171,171,171": "nickel",
+    "102,102,102": "nickel"
+   }
+  },
+  {
+   "bron": "Rover",
+   "naam": "rover",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "rubber",
+    "emissive"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "227,151,23": "amber"
+   }
+  },
+  {
+   "bron": "Rover-WRd1piJOfh",
+   "naam": "rover-long",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "rubber",
+    "emissive"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "227,151,23": "amber"
+   }
+  },
+  {
+   "bron": "Round Rover",
+   "naam": "rover-round",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "rubber"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "227,151,23": "amber"
+   }
+  },
+  {
+   "bron": "Spaceship",
+   "naam": "spaceship-a",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "63,63,63": "slate",
+    "189,92,32": "terracotta",
+    "34,34,34": "basalt"
+   }
+  },
+  {
+   "bron": "Spaceship-Jqfed124pQ",
+   "naam": "spaceship-b",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "63,63,63": "slate",
+    "180,96,155": "sienna",
+    "129,64,112": "sienna",
+    "116,116,116": "nickel",
+    "35,35,35": "basalt"
+   }
+  },
+  {
+   "bron": "Spaceship-VSxUAFhzbA",
+   "naam": "spaceship-c",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "191,110,34": "terracotta",
+    "71,101,39": "hunter",
+    "90,90,90": "nickel",
+    "34,34,34": "basalt"
+   }
+  },
+  {
+   "bron": "Spaceship-u105mYHLHU",
+   "naam": "spaceship-d",
+   "kind": "obj-transport-air-space",
+   "materialen": [
+    "metal",
+    "plastic",
+    "glass"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "184,144,43": "amber",
+    "32,33,36": "basalt",
+    "36,147,170": "azure"
+   }
+  },
+  {
+   "bron": "Bullets Pickup",
+   "naam": "pickup-bullets",
+   "kind": "obj-equipment-weapon-ranged-firearm-part",
+   "materialen": [
+    "metal-gold"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ]
+  },
+  {
+   "bron": "Pickup Crate",
+   "naam": "pickup-crate",
+   "kind": "obj-container-crate",
+   "materialen": [
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ],
+   "banden": {
+    "167,112,30": "amber"
+   }
+  },
+  {
+   "bron": "Pickup Health",
+   "naam": "pickup-health",
+   "kind": "obj-container-bag-kit",
+   "materialen": [
+    "plastic",
+    "paper"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ],
+   "banden": {
+    "51,102,31": "hunter"
+   }
+  },
+  {
+   "bron": "Pickup Jar",
+   "naam": "pickup-jar",
+   "kind": "obj-container-pot-jar",
+   "materialen": [
+    "metal-iron-steel",
+    "plastic",
+    "emissive"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ]
+  },
+  {
+   "bron": "Pickup Key Card",
+   "naam": "pickup-keycard",
+   "kind": "obj-equipment-pocketitem-key",
+   "materialen": [
+    "plastic",
+    "metal-iron-steel"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ],
+   "banden": {
+    "102,102,102": "basalt",
+    "171,171,171": "nickel"
+   }
+  },
+  {
+   "bron": "Pickup Sphere",
+   "naam": "pickup-sphere",
+   "kind": "obj-symbol",
+   "materialen": [
+    "metal-iron-steel",
+    "gemstone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ],
+   "banden": {
+    "176,3,3": "sienna"
+   }
+  },
+  {
+   "bron": "Pickup Thunder",
+   "naam": "pickup-thunder",
+   "kind": "obj-symbol",
+   "materialen": [
+    "plastic"
+   ],
+   "themas": [
+    "space"
+   ],
+   "vlaggen": [
+    "pickup"
+   ]
+  },
+  {
+   "bron": "Planet-18Uxrb2dIc",
+   "naam": "planet-lava",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "30,30,30": "basalt",
+    "209,62,46": "sienna"
+   }
+  },
+  {
+   "bron": "Planet-4NxxeyYMPJ",
+   "naam": "planet-crater",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "123,124,143": "nickel",
+    "102,102,129": "slate"
+   }
+  },
+  {
+   "bron": "Planet-5zzi8WUMXj",
+   "naam": "planet-swirl",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "124,94,205": "azure",
+    "150,82,184": "sienna",
+    "130,68,159": "sienna"
+   }
+  },
+  {
+   "bron": "Planet-9g1aIbfR9Y",
+   "naam": "planet-ringed",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "203,145,87": "camel",
+    "157,114,79": "terracotta",
+    "182,115,70": "terracotta",
+    "217,177,116": "camel"
+   }
+  },
+  {
+   "bron": "Planet-B7xd3SZq0z",
+   "naam": "planet-earth",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone",
+    "liquid"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "104,170,91": "moss",
+    "105,170,170": "azure",
+    "186,186,186": "ivory"
+   }
+  },
+  {
+   "bron": "Planet-EC1Lk2IamI",
+   "naam": "planet-ice-spiky",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "154,195,203": "azure",
+    "190,203,203": "ivory"
+   }
+  },
+  {
+   "bron": "Planet-IVnmauIgWX",
+   "naam": "planet-banded",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "203,145,87": "camel",
+    "157,114,79": "terracotta",
+    "182,115,70": "terracotta",
+    "217,177,116": "camel"
+   }
+  },
+  {
+   "bron": "Planet-hKZtOOMadH",
+   "naam": "planet-red-ring",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "150,32,35": "sienna",
+    "209,62,46": "terracotta",
+    "30,30,30": "sienna"
+   }
+  },
+  {
+   "bron": "Planet-pHZz4EMvVM",
+   "naam": "planet-ice",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "190,203,203": "ivory",
+    "154,195,203": "azure"
+   }
+  },
+  {
+   "bron": "Planet-rYguWNNPvA",
+   "naam": "planet-river",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "203,145,87": "camel",
+    "105,170,170": "azure"
+   }
+  },
+  {
+   "bron": "Planet",
+   "naam": "planet-spiked",
+   "kind": "obj-device-science-astro-globe",
+   "materialen": [
+    "stone"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "203,145,87": "camel",
+    "157,114,79": "chestnut"
+   }
+  },
+  {
+   "bron": "Rock",
+   "naam": "rock-a",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Rock-34W5ymEePk",
+   "naam": "rock-b",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Rock-R2UjZAX3By",
+   "naam": "rock-c",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Rock-b7gRkv0cEa",
+   "naam": "rock-d",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Rock Large",
+   "naam": "rock-large-a",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Rock Large-li0YBlBEMz",
+   "naam": "rock-large-b",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Rock Large-d2VWOdthtR",
+   "naam": "rock-large-c",
+   "kind": "env-terrain-rock-boulder",
+   "materialen": [
+    "stone-rock"
+   ],
+   "themas": [
+    "space"
+   ]
+  },
+  {
+   "bron": "Bush",
+   "naam": "bush-spiral",
+   "kind": "env-flora-plant-bush",
+   "materialen": [
+    "foliage"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "99,18,96": "moss"
+   }
+  },
+  {
+   "bron": "Grass",
+   "naam": "grass",
+   "kind": "env-flora-plant-grass",
+   "materialen": [
+    "foliage"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "191,110,34": "moss"
+   }
+  },
+  {
+   "bron": "Plant-VwXvoIpCHP",
+   "naam": "plant-curl",
+   "kind": "env-flora-plant",
+   "materialen": [
+    "foliage"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "76,124,38": "moss"
+   }
+  },
+  {
+   "bron": "Plant-s0joFFrQoy",
+   "naam": "plant-bulb",
+   "kind": "env-flora-plant-flower",
+   "materialen": [
+    "foliage",
+    "emissive"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "196,156,21": "amber",
+    "97,25,104": "moss"
+   }
+  },
+  {
+   "bron": "Tree Light",
+   "naam": "tree-light-a",
+   "kind": "env-flora-plant-flower",
+   "materialen": [
+    "foliage",
+    "emissive"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "196,156,21": "amber",
+    "97,25,104": "moss"
+   }
+  },
+  {
+   "bron": "Tree Light-om4BJAL82T",
+   "naam": "tree-light-b",
+   "kind": "env-flora-plant-flower",
+   "materialen": [
+    "foliage",
+    "emissive"
+   ],
+   "themas": [
+    "space"
+   ],
+   "banden": {
+    "196,156,21": "amber",
+    "97,25,104": "moss"
+   }
+  }
+ ]
+}
