@@ -83,6 +83,7 @@ const SIZES = {
   'obj-device-electronics-screen': 0.7,
   'obj-device-electronics-vending': 1.8,
   'obj-equipment-apparel': 0.7,
+  'obj-equipment-apparel-footwear': 0.28,
   'obj-equipment-apparel-glasses': 0.15,
   'obj-equipment-apparel-headgear': 0.3,
   'obj-equipment-apparel-quiver': 0.6,

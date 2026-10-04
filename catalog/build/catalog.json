@@ -713,7 +713,7 @@
    },
    "kitCheck": {
     "factor": 1.15,
-    "kinds": 14
+    "kinds": 15
    }
   },
   {
@@ -1276,8 +1276,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.14,
-    "kinds": 9
+    "factor": 1.08,
+    "kinds": 10
    }
   },
   {
@@ -19592,6 +19592,13 @@
    "count": 3
   },
   {
+   "id": "obj-equipment-apparel-footwear",
+   "name": "Footwear",
+   "type": "kind",
+   "description": "Shoes, boots, slippers and skates, single or as a pair.",
+   "count": 7
+  },
+  {
    "id": "obj-equipment-apparel-glasses",
    "name": "Glasses",
    "type": "kind",
@@ -22854,6 +22861,7 @@
   "obj-device-electronics-register",
   "obj-device-electronics-screen",
   "obj-device-electronics-vending",
+  "obj-equipment-apparel-footwear",
   "obj-equipment-apparel-glove",
   "obj-equipment-apparel-headgear",
   "obj-equipment-apparel-quiver",
@@ -23693,6 +23701,12 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-apparel-footwear": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.35,
    "tpu.max": 10000
   },
   "obj-equipment-apparel-glasses": {
@@ -76925,7 +76939,7 @@
   {
    "kit": "isa-bathroom",
    "name": "slippers",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.235,
@@ -79426,7 +79440,7 @@
    "kit": "isa-homely",
    "collection": "isa-tt",
    "name": "boots",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.304,
@@ -136066,7 +136080,7 @@
   {
    "kit": "kay-mixed",
    "name": "rollerskate-a",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.081,
@@ -136116,7 +136130,7 @@
   {
    "kit": "kay-mixed",
    "name": "rollerskate-b",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.081,
@@ -136166,7 +136180,7 @@
   {
    "kit": "kay-mixed",
    "name": "rollerskate-pair",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.167,
@@ -339013,7 +339027,7 @@
    "kit": "sq-rink",
    "collection": "sq-props",
    "name": "skates-pair-a",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.19,
@@ -339081,7 +339095,7 @@
    "kit": "sq-rink",
    "collection": "sq-props",
    "name": "skates-pair-b",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
     0.19,
