@@ -58781,15 +58781,15 @@
    "size": "s",
    "wdh": [
     0.137,
-    0.193,
-    0.007
+    0.007,
+    0.193
    ],
    "tris": 164,
    "tpu": 478,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16680,
+   "bytes": 16704,
    "vtx": 446,
    "grounded": true,
    "centered": true,
@@ -58818,11 +58818,23 @@
     "paper",
     "wood-worked"
    ],
+   "backface": {
+    "share": 0.9952,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
     {
      "level": "error",
      "check": "palette",
      "text": "paper wants ivory, has camel azure"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100% of view 180/20 over 5%: open 100%"
     }
    ]
   },
@@ -280946,8 +280958,8 @@
    "kind": "obj-leisure-art-frame",
    "size": "m",
    "wdh": [
-    0.217,
     0.292,
+    0.217,
     0.635
    ],
    "tris": 340,

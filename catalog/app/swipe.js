@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=ee984d8538';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=ee984d8538';
-import { colorSwatches, setBands } from './color-edits.js?v=ee984d8538';
-import { renderCommentBox } from './comments.js?v=ee984d8538';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=ee984d8538';
-import './bouwstempel.js?v=ee984d8538';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=803e42f19d';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=803e42f19d';
+import { colorSwatches, setBands } from './color-edits.js?v=803e42f19d';
+import { renderCommentBox } from './comments.js?v=803e42f19d';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=803e42f19d';
+import './bouwstempel.js?v=803e42f19d';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -29,6 +29,12 @@ const SOURCES = {
     title: 'Swipe what was turned down',
     key: 'reject',
     labels: { links: 'Rightly turned down', rechts: 'Wants adding after all', omhoog: 'Turned down for another reason', omlaag: 'Look again' },
+  },
+  npc: {
+    file: '../build/npc.json',
+    title: 'Swipe the NPCs',
+    key: 'npc',
+    labels: { links: 'Rightly left out', rechts: 'Wants adding', omhoog: 'Wrong style', omlaag: 'Look again' },
   },
   lint: {
     file: '../build/catalog.json',
@@ -600,7 +606,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=ee984d8538'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=803e42f19d'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];

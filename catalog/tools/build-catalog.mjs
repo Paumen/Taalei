@@ -217,7 +217,7 @@ const fileIn = (name) => join(name.endsWith('.json') ? BUILD_DIR : APP_DIR, name
 
 function writeVersion() {
   const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
-    'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'list.css', 'list.js', 'thumbs.json', 'overview.js', ...MODULES]
+    'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'npc.json', 'list.css', 'list.js', 'thumbs.json', 'overview.js', ...MODULES]
     .filter((name) => existsSync(fileIn(name)))
     .map((name) => unstamped(readFileSync(fileIn(name), 'utf8')))
     .join('');
@@ -261,7 +261,7 @@ function writeVersion() {
       [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
     ]);
   }
-  for (const page of ['tbd.html', 'reject.html']) {
+  for (const page of ['tbd.html', 'reject.html', 'npc.html']) {
     stamp(join(APP_DIR, page), [
       [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
       [/href="list\.css(?:\?v=[a-f0-9]+)?"/, `href="list.css?v=${version}"`],
@@ -274,7 +274,7 @@ function writeVersion() {
   ]);
   console.log(
     `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/app/${p}`).join(', ')},` +
-      ' catalog/app/swipe.html, catalog/app/lint.html, catalog/app/tbd.html, catalog/app/reject.html, catalog/app/overview.html',
+      ' catalog/app/swipe.html, catalog/app/lint.html, catalog/app/tbd.html, catalog/app/reject.html, catalog/app/npc.html, catalog/app/overview.html',
   );
 }
 
