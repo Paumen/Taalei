@@ -447,6 +447,7 @@ const SOURCES = [
   { id: 'creativetrio', name: 'Creative Trio', description: 'Kits from Creative Trio.' },
   { id: 'rey', name: 'reyshapes', description: 'Kits from reyshapes (poly.pizza/u/reyshapes).' },
   { id: 'gualtieris', name: 'Gualtieris', description: 'Kits from Gualtieris.' },
+  { id: 'polygonalmind', name: 'Polygonal Mind', description: 'Kits from Polygonal Mind (polygonalmind.com).' },
 ];
 
 function readSourcePerKit() {
