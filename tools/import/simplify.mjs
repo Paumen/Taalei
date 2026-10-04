@@ -421,8 +421,14 @@ function compact(glb, prim, { out, normals }, replaced) {
   }
   const position = json.accessors[prim.attributes.POSITION];
   const data = new Float32Array(replaced.get(prim.attributes.POSITION).buffer, replaced.get(prim.attributes.POSITION).byteOffset, order.length * 3);
-  position.min = [0, 1, 2].map((k) => Math.min(...order.map((_, i) => data[i * 3 + k])));
-  position.max = [0, 1, 2].map((k) => Math.max(...order.map((_, i) => data[i * 3 + k])));
+  position.min = [Infinity, Infinity, Infinity];
+  position.max = [-Infinity, -Infinity, -Infinity];
+  for (let i = 0; i < order.length; i++) {
+    for (let k = 0; k < 3; k++) {
+      position.min[k] = Math.min(position.min[k], data[i * 3 + k]);
+      position.max[k] = Math.max(position.max[k], data[i * 3 + k]);
+    }
+  }
 
   const Type = order.length < 65536 ? Uint16Array : Uint32Array;
   const indices = Type.from(corner);

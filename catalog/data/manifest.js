@@ -8583,6 +8583,33 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "slug": "loaf-gothic",
+  "name": "loaf-gothic",
+  "url": null,
+  "licenseLabel": "CC0 1.0",
+  "note": "Gothic Like Structures by loafbrr; source zip carries no licence file; see kits/workfiles/loaf-gothic/LICENSE.txt.",
+  "models": [
+   "ambulatory-inner-roof-a",
+   "church-a",
+   "church-b",
+   "church-c",
+   "post-a-top",
+   "post-b-top",
+   "roof-tower",
+   "structure-a",
+   "structure-b",
+   "structure-c",
+   "structure-d",
+   "structure-e",
+   "structure-f",
+   "structure-g",
+   "structure-h",
+   "structure-i",
+   "structure-j",
+   "structure-k"
+  ]
+ },
+ {
   "slug": "pm-store",
   "name": "pm-store",
   "url": "https://github.com/PolygonalMind/initiative-opensource-release",
