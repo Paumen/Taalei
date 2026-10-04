@@ -3040,7 +3040,6 @@
       {
        "id": "obj-device-electronics",
        "nouns": [
-        "phone",
         "battery",
         "gramophone",
         "record",
@@ -3166,6 +3165,14 @@
           "security camera",
           "film camera",
           "projector"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-phone",
+         "nouns": [
+          "phone",
+          "telephone",
+          "mobile phone"
          ]
         }
        ]
@@ -3334,14 +3341,22 @@
           "roulette wheel",
           "prize wheel",
           "wheel of fortune",
-          "casino table",
-          "card table",
-          "poker table",
           "chip tray",
-          "craps table",
           "big six wheel",
-          "deck box",
-          "playmat"
+          "deck box"
+         ],
+         "children": [
+          {
+           "id": "obj-leisure-game-gamble-table",
+           "nouns": [
+            "casino table",
+            "card table",
+            "poker table",
+            "craps table",
+            "roulette table",
+            "playmat"
+           ]
+          }
          ]
         }
        ]
@@ -3738,9 +3753,7 @@
          "id": "str-building-work-industrial",
          "nouns": [
           "factory",
-          "plant",
-          "mine",
-          "mine entrance"
+          "plant"
          ],
          "children": [
           {
@@ -3765,6 +3778,14 @@
             "sail (windmill)",
             "flume",
             "water channel"
+           ]
+          },
+          {
+           "id": "str-building-work-industrial-mine",
+           "nouns": [
+            "mine",
+            "mine entrance",
+            "mine portal"
            ]
           }
          ]

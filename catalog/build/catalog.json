@@ -87,6 +87,11 @@
    "smooth": {
     "smooth": 10,
     "none": 1
+   },
+   "kitCheck": {
+    "factor": 1.88,
+    "kinds": 3,
+    "level": "error"
    }
   },
   {
@@ -2319,7 +2324,7 @@
    },
    "kitCheck": {
     "factor": 0.87,
-    "kinds": 48
+    "kinds": 49
    }
   },
   {
@@ -19146,7 +19151,7 @@
    "name": "Kitchen appliance",
    "type": "kind",
    "description": "Countertop or catering appliance: coffee machine, microwave, mixer, fryer, popcorn machine.",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-device-appliance-kitchen-coffeemaker",
@@ -19215,8 +19220,15 @@
    "id": "obj-leisure-game-gamble",
    "name": "Gamble",
    "type": "kind",
-   "description": "Gambling and card-table gear: dice, card decks, casino chips and trays, roulette, big six and prize wheels, casino and card tables, playmats.",
+   "description": "Gambling gear: dice, card decks, casino chips and trays, roulette, big six and prize wheels.",
    "count": 14
+  },
+  {
+   "id": "obj-leisure-game-gamble-table",
+   "name": "Table",
+   "type": "kind",
+   "description": "Table or mat laid out for a game of chance or cards: casino, poker, craps, roulette and card tables, playmats.",
+   "count": 6
   },
   {
    "id": "obj-leisure-game-ball",
@@ -19229,7 +19241,7 @@
    "id": "obj-device-electronics",
    "name": "Electronics",
    "type": "kind",
-   "description": "Electronic device: television, computer, speaker, camera, phone, battery, cash register, console.",
+   "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
    "count": 124
   },
   {
@@ -19315,6 +19327,13 @@
    "type": "kind",
    "description": "radio",
    "count": 5
+  },
+  {
+   "id": "obj-device-electronics-phone",
+   "name": "Phone",
+   "type": "kind",
+   "description": "Telephone or mobile phone.",
+   "count": 3
   },
   {
    "id": "obj-container",
@@ -20554,7 +20573,7 @@
    "name": "Parts",
    "type": "kind",
    "description": "cog, spare part, pipe (stock)",
-   "count": 12
+   "count": 14
   },
   {
    "id": "obj-resource-stone",
@@ -21412,7 +21431,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 2289,
+   "count": 2291,
    "color": "#877a63"
   },
   {
@@ -21477,7 +21496,7 @@
    "name": "Long",
    "type": "kind",
    "description": "Whole crossing in one model, bank to bank.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "str-access-ladder",
@@ -21534,7 +21553,7 @@
    "name": "Building",
    "type": "kind",
    "description": "gazebo, well",
-   "count": 373,
+   "count": 375,
    "color": "#7d4f3a"
   },
   {
@@ -21542,7 +21561,7 @@
    "name": "Work",
    "type": "kind",
    "description": "Building for work: agricultural, industrial, commercial.",
-   "count": 143
+   "count": 145
   },
   {
    "id": "str-part",
@@ -21840,7 +21859,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 189,
+   "count": 187,
    "color": "#b5651d"
   },
   {
@@ -22116,7 +22135,14 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 93
+   "count": 95
+  },
+  {
+   "id": "str-building-work-industrial-mine",
+   "name": "Mine",
+   "type": "kind",
+   "description": "Mine entrance cut into rock, with its portal frame and the rails, carts and crates around it.",
+   "count": 5
   },
   {
    "id": "str-barrier-fence-mid",
@@ -22425,7 +22451,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 302
+   "count": 304
   },
   {
    "id": "plural",
@@ -23660,6 +23686,12 @@
    "tpu.max": 10000
   },
   "obj-device-electronics-computer-tower": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-device-electronics-phone": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -25038,6 +25070,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-leisure-game-gamble-table": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-leisure-game-gym": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -25207,12 +25245,6 @@
    "longest.max": 30
   },
   "str": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "str-access-bridge": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -25418,6 +25450,12 @@
    "tpu.max": 10000
   },
   "str-building-work-industrial-mill": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "str-building-work-industrial-mine": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -31955,7 +31993,7 @@
   {
    "kit": "architecture",
    "name": "bridge",
-   "kind": "str-access-bridge",
+   "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     10.81,
@@ -32000,6 +32038,13 @@
     "metal",
     "stone-asphalt",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 10.81 over max 7 (str-access-bridge-long)"
+    }
    ]
   },
   {
@@ -56114,7 +56159,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "cave-prop-entrance",
-   "kind": "str-building-work-industrial",
+   "kind": "str-building-work-industrial-mine",
    "size": "m",
    "wdh": [
     1.208,
@@ -56145,6 +56190,7 @@
     "#dbae80"
    ],
    "tags": [
+    "comp",
     "fs",
     "wood-log"
    ]
@@ -95008,7 +95054,7 @@
   {
    "kit": "kay-builder",
    "name": "mine",
-   "kind": "str-building-work-industrial",
+   "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
     2.906,
@@ -128653,7 +128699,7 @@
   {
    "kit": "kay-hexagon",
    "name": "mine",
-   "kind": "set",
+   "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
     2.729,
@@ -128727,6 +128773,13 @@
     "textile",
     "wood-beam",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
    ]
   },
   {
@@ -235482,7 +235535,7 @@
   {
    "kit": "lpa-construction",
    "name": "steel-a",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
     1.311,
@@ -235522,7 +235575,7 @@
   {
    "kit": "lpa-construction",
    "name": "steel-b",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "l",
    "wdh": [
     1.67,
@@ -238679,7 +238732,7 @@
   {
    "kit": "lpa-home",
    "name": "dishwasher",
-   "kind": "obj-device-appliance",
+   "kind": "obj-device-appliance-kitchen",
    "size": "s",
    "wdh": [
     0.275,
@@ -239760,7 +239813,7 @@
   {
    "kit": "lpa-home",
    "name": "phone",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-phone",
    "size": "s",
    "wdh": [
     0.072,
@@ -249834,7 +249887,7 @@
   {
    "kit": "lpa-west",
    "name": "table-b",
-   "kind": "obj-leisure-game-gamble",
+   "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
     0.541,
@@ -299206,7 +299259,7 @@
   {
    "kit": "quat-survival",
    "name": "phone",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-phone",
    "size": "s",
    "wdh": [
     0.066,
@@ -306340,7 +306393,7 @@
   {
    "kit": "quat-town",
    "name": "mine",
-   "kind": "str-building-work-industrial",
+   "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
     2.569,
@@ -330903,7 +330956,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "play-table",
-   "kind": "obj-leisure-game-gamble",
+   "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
     0.9,
@@ -330955,7 +331008,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "playmat",
-   "kind": "obj-leisure-game-gamble",
+   "kind": "obj-leisure-game-gamble-table",
    "size": "s",
    "wdh": [
     0.3,
@@ -330996,6 +331049,7 @@
     "#f2a93c"
    ],
    "tags": [
+    "comp",
     "paper",
     "plastic",
     "sidequest"
@@ -332299,7 +332353,7 @@
    "kit": "sq-casino",
    "collection": "sq-props",
    "name": "craps-table",
-   "kind": "obj-leisure-game-gamble",
+   "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
     1.4,
@@ -332417,7 +332471,7 @@
    "kit": "sq-casino",
    "collection": "sq-props",
    "name": "poker-table",
-   "kind": "obj-leisure-game-gamble",
+   "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
     0.763,
@@ -332582,7 +332636,7 @@
    "kit": "sq-casino",
    "collection": "sq-props",
    "name": "roulette-table",
-   "kind": "obj-leisure-game-gamble",
+   "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
     1.3,
@@ -356061,7 +356115,7 @@
   {
    "kit": "styloo-school",
    "name": "telephone",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-phone",
    "size": "s",
    "wdh": [
     0.107,
@@ -371785,7 +371839,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "mine-entrance",
-   "kind": "set",
+   "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
     3.684,
@@ -371861,6 +371915,13 @@
     "wood-beam",
     "wood-planks",
     "wood-worked"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
    ]
   },
   {

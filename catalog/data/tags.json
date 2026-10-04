@@ -13934,7 +13934,6 @@
    "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
    "models": [
     "household/hair-dryer",
-    "lpa-home/dishwasher",
     "lpa-home/fan"
    ]
   },
@@ -13961,7 +13960,8 @@
     "isa-bakery/stand-mixer",
     "sq-lab/hot-plate",
     "sq-fastfood/fryer-bank",
-    "sq-cinema/popcorn-machine"
+    "sq-cinema/popcorn-machine",
+    "lpa-home/dishwasher"
    ]
   },
   {
@@ -14110,22 +14110,30 @@
    "id": "obj-leisure-game-gamble",
    "name": "Gamble",
    "type": "kind",
-   "description": "Gambling and card-table gear: dice, card decks, casino chips and trays, roulette, big six and prize wheels, casino and card tables, playmats.",
+   "description": "Gambling gear: dice, card decks, casino chips and trays, roulette, big six and prize wheels.",
    "models": [
     "sq-casino/big-six",
     "sq-casino/card-deck",
     "sq-casino/chip-stack-red",
     "sq-casino/chip-tray",
-    "sq-casino/craps-table",
     "ken-arcade/prize-wheel",
-    "sq-casino/poker-table",
-    "sq-cards/playmat",
-    "sq-cards/play-table",
     "sq-casino/roulette-wheel",
-    "sq-casino/roulette-table",
     "taalei-kit/dice",
-    "taalei-kit/dice-pair",
-    "lpa-west/table-b"
+    "taalei-kit/dice-pair"
+   ]
+  },
+  {
+   "id": "obj-leisure-game-gamble-table",
+   "name": "Table",
+   "type": "kind",
+   "description": "Table or mat laid out for a game of chance or cards: casino, poker, craps, roulette and card tables, playmats.",
+   "models": [
+    "lpa-west/table-b",
+    "sq-cards/play-table",
+    "sq-cards/playmat",
+    "sq-casino/craps-table",
+    "sq-casino/poker-table",
+    "sq-casino/roulette-table"
    ]
   },
   {
@@ -14146,23 +14154,20 @@
    "id": "obj-device-electronics",
    "name": "Electronics",
    "type": "kind",
-   "description": "Electronic device: television, computer, speaker, camera, phone, battery, cash register, console.",
+   "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
    "models": [
     "quat-survival/battery-slim",
     "quat-survival/battery",
-    "quat-survival/phone",
     "rgp-vintage/record",
     "ipoly-electronics/circuit-board",
     "ipoly-electronics/microchip-small",
     "ipoly-electronics/microchip",
     "ipoly-electronics/ssd",
     "ipoly-electronics/ram",
-    "lpa-home/phone",
     "lpa-home/tablet",
     "styloo-school/router",
     "styloo-school/usb-stick-swivel",
-    "styloo-school/usb-stick",
-    "styloo-school/telephone"
+    "styloo-school/usb-stick"
    ]
   },
   {
@@ -14368,6 +14373,17 @@
     "quat-survival/radio",
     "lpa-construction/radio",
     "styloo-school/radio"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-phone",
+   "name": "Phone",
+   "type": "kind",
+   "description": "Telephone or mobile phone.",
+   "models": [
+    "lpa-home/phone",
+    "quat-survival/phone",
+    "styloo-school/telephone"
    ]
   },
   {
@@ -17984,8 +18000,6 @@
     "kay-resources/iron-nuggets",
     "quat-rpg/gold-ingots",
     "sq-bank/gold-stack",
-    "lpa-construction/steel-a",
-    "lpa-construction/steel-b",
     "lpa-west/gold-bar"
    ]
   },
@@ -18006,7 +18020,9 @@
     "kay-resources/parts-pile-small",
     "quat-apocalypse/pipes",
     "quat-shoot/pipes",
-    "lpa-construction/pipe-b"
+    "lpa-construction/pipe-b",
+    "lpa-construction/steel-a",
+    "lpa-construction/steel-b"
    ]
   },
   {
@@ -21046,9 +21062,7 @@
    "name": "Bridge",
    "type": "kind",
    "description": "bridge, plank (crossing), rope bridge",
-   "models": [
-    "architecture/bridge"
-   ]
+   "models": []
   },
   {
    "id": "str-access-bridge-section",
@@ -21098,7 +21112,8 @@
     "wizp-asia/bridge-wood",
     "rgp-medieval/bridge-planks",
     "rgp-medieval/bridge",
-    "rgp-asia/walkway"
+    "rgp-asia/walkway",
+    "architecture/bridge"
    ]
   },
   {
@@ -22987,7 +23002,6 @@
     "kay-dun-2/sword-shield",
     "kay-dun-2/sword-shield-gold",
     "kay-food/crate-potatoes",
-    "wizp-mediev/mine-entrance",
     "isa-bakery/pastry-stand-filled",
     "kay-minigame/forest-detail",
     "kay-builder/forest-detail-a",
@@ -23093,7 +23107,6 @@
     "kay-city/building-f",
     "kay-city/building-g",
     "kay-city/building-h",
-    "kay-hexagon/mine",
     "kay-hexagon/well",
     "kay-hexagon/well-anim",
     "kay-hexagon/windmill",
@@ -24013,7 +24026,6 @@
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
    "models": [
-    "kay-builder/mine",
     "kay-space/basemodule-a",
     "kay-space/basemodule-b",
     "kay-space/basemodule-c",
@@ -24048,11 +24060,22 @@
     "ken-space/hangar-round-glass",
     "ken-space/hangar-small-a",
     "ken-space/hangar-small-b",
-    "quat-town/mine",
-    "fs-terrain/cave-prop-entrance",
     "quat-space/base-large",
     "quat-space/building-l",
     "quat-space/geodesic-dome"
+   ]
+  },
+  {
+   "id": "str-building-work-industrial-mine",
+   "name": "Mine",
+   "type": "kind",
+   "description": "Mine entrance cut into rock, with its portal frame and the rails, carts and crates around it.",
+   "models": [
+    "kay-builder/mine",
+    "quat-town/mine",
+    "kay-hexagon/mine",
+    "wizp-mediev/mine-entrance",
+    "fs-terrain/cave-prop-entrance"
    ]
   },
   {
@@ -26123,7 +26146,9 @@
     "loaf-gothic/ambulatory-inner-roof-a",
     "loaf-gothic/post-a-top",
     "loaf-gothic/post-b-top",
-    "loaf-gothic/roof-tower"
+    "loaf-gothic/roof-tower",
+    "sq-cards/playmat",
+    "fs-terrain/cave-prop-entrance"
    ]
   },
   {
