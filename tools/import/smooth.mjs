@@ -1,13 +1,18 @@
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { editablePrimitives, rawRows, repack, faceNormal, welder, fixBounds } from './mesh-edit.mjs';
 
-const HELP = `smooth.mjs [--angle <degrees>] <workfile.glb> [...]
+const HELP = `smooth.mjs [--angle <degrees>] [--keep <band>[,<band>...]] <workfile.glb> [...]
 
 Sets every normal again: a corner takes the angle-weighted mean of the faces
 around its position that lie within --angle (50 by default) of its own face, so
 folds sharper than that stay hard and the rest are smoothed. Positions, UVs and
-triangles are kept. Primitives with morph targets are left alone.`;
+triangles are kept. Primitives with morph targets are left alone.
+
+--keep leaves the faces drawn in those colour bands as they are, and the faces
+around them do not blend with them.`;
+
+const BANDS = JSON.parse(readFileSync(new URL('../../lint/materials.json', import.meta.url))).bands;
 
 const unit = (v) => {
   const l = Math.hypot(v[0], v[1], v[2]);
@@ -21,20 +26,38 @@ function cornerAngle(p, a, b, c) {
   return Math.acos(Math.max(-1, Math.min(1, u[0] * v[0] + u[1] * v[1] + u[2] * v[2])));
 }
 
-function smoothPrimitive(glb, prim, cos, replaced) {
+function keptFaces(glb, prim, idx, keep) {
+  const kept = new Uint8Array(idx.length / 3);
+  const textured = glb.json.materials?.[prim.material]?.pbrMetallicRoughness?.baseColorTexture !== undefined;
+  if (!keep.size || !textured || prim.attributes.TEXCOORD_0 === undefined) return kept;
+  const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
+  for (let f = 0; f < kept.length; f++) {
+    let u = 0;
+    let v = 0;
+    for (let k = 0; k < 3; k++) {
+      u += uv[idx[f * 3 + k] * 2] / 3;
+      v += uv[idx[f * 3 + k] * 2 + 1] / 3;
+    }
+    kept[f] = keep.has(`${Math.floor(u * 16)},${Math.floor(v * 4)}`) ? 1 : 0;
+  }
+  return kept;
+}
+
+function smoothPrimitive(glb, prim, cos, keep, replaced) {
   const { json } = glb;
   const pos = readAccessor(glb, prim.attributes.POSITION).data;
   const old = readAccessor(glb, prim.attributes.NORMAL).data;
   const idx = readAccessor(glb, prim.indices).data;
   const { weld } = welder(pos);
   const faces = idx.length / 3;
+  const kept = keptFaces(glb, prim, idx, keep);
 
   const normal = [];
   const around = new Map();
   for (let f = 0; f < faces; f++) {
     const c = [idx[f * 3], idx[f * 3 + 1], idx[f * 3 + 2]];
     normal[f] = unit(faceNormal(pos, ...c));
-    if (!normal[f]) continue;
+    if (!normal[f] || kept[f]) continue;
     for (let k = 0; k < 3; k++) {
       const w = weld(c[k]);
       if (!around.has(w)) around.set(w, []);
@@ -53,7 +76,7 @@ function smoothPrimitive(glb, prim, cos, replaced) {
     for (let k = 0; k < 3; k++) {
       const v = idx[f * 3 + k];
       let n = null;
-      if (own) {
+      if (own && !kept[f]) {
         const sum = [0, 0, 0];
         for (const { f: g, angle } of around.get(weld(v))) {
           const m = normal[g];
@@ -98,7 +121,7 @@ function smoothPrimitive(glb, prim, cos, replaced) {
   return { before: old.length / 3, after: from.length };
 }
 
-function smooth(file, cos) {
+function smooth(file, cos, keep) {
   const glb = readGlb(file);
   const replaced = new Map();
   let before = 0;
@@ -106,7 +129,7 @@ function smooth(file, cos) {
   let skipped = 0;
   for (const prim of editablePrimitives(glb.json)) {
     if (prim.targets?.length || prim.attributes.NORMAL === undefined) { skipped++; continue; }
-    const r = smoothPrimitive(glb, prim, cos, replaced);
+    const r = smoothPrimitive(glb, prim, cos, keep, replaced);
     before += r.before;
     after += r.after;
   }
@@ -121,13 +144,20 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const at = argv.indexOf('--angle');
-const angle = at < 0 ? 50 : Number(argv[at + 1]);
+const option = (name) => {
+  const i = argv.indexOf(name);
+  return i < 0 ? null : argv[i + 1];
+};
+const angle = Number(option('--angle') ?? 50);
 if (!(angle > 0 && angle < 180)) throw new Error('--angle must be between 0 and 180');
-const files = argv.filter((_, i) => at < 0 || (i !== at && i !== at + 1));
+const keep = new Set((option('--keep') ?? '').split(',').filter(Boolean).map((band) => {
+  if (!BANDS[band]) throw new Error(`--keep: no colour band ${band}`);
+  return BANDS[band];
+}));
+const files = argv.filter((a, i) => !a.startsWith('--') && !['--angle', '--keep'].includes(argv[i - 1]));
 const cos = Math.cos((angle * Math.PI) / 180);
 
 for (const file of files) {
-  const { before, after, skipped } = smooth(file, cos);
+  const { before, after, skipped } = smooth(file, cos, keep);
   console.log(`${file}: ${before} -> ${after} vertices${skipped ? `, ${skipped} primitive(s) left alone` : ''}`);
 }
