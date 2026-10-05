@@ -1609,6 +1609,9 @@
            "id": "obj-equipment-weapon-siege-ammunition",
            "longest.min": 0.1,
            "longest.max": 0.3,
+           "scale": {
+            "big": 3
+           },
            "children": [
             {
              "id": "obj-equipment-weapon-siege-ammunition-cannonball",
@@ -2222,6 +2225,9 @@
           "wagon",
           "carriage"
          ],
+         "scale": {
+          "big": 2
+         },
          "children": [
           {
            "id": "obj-transport-land-cart-small",
@@ -2256,6 +2262,7 @@
          "children": [
           {
            "id": "obj-transport-land-road-truck",
+           "longest.max": 4.1,
            "nouns": [
             "truck",
             "bus",
@@ -4313,6 +4320,8 @@
          "children": [
           {
            "id": "str-fixture-utility-machine-crane",
+           "high.max": 13,
+           "longest.max": 13,
            "nouns": [
             "robot arm",
             "industrial crane"
@@ -4532,7 +4541,10 @@
        "nouns": [
         "bird",
         "penguin"
-       ]
+       ],
+       "scale": {
+        "big": 2
+       }
       },
       {
        "id": "env-fauna-insect",
@@ -4580,7 +4592,10 @@
          "tpu.max": 10000,
          "nouns": [
           "skull"
-         ]
+         ],
+         "scale": {
+          "big": 4
+         }
         },
         {
          "id": "env-remains-bones-limb",
@@ -4589,7 +4604,10 @@
          "nouns": [
           "bone",
           "bone (single)"
-         ]
+         ],
+         "scale": {
+          "big": 1.5
+         }
         },
         {
          "id": "env-remains-bones-fishbone",
@@ -4608,7 +4626,10 @@
          "longest.max": 0.6,
          "nouns": [
           "ribcage"
-         ]
+         ],
+         "scale": {
+          "big": 3
+         }
         }
        ]
       },

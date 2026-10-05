@@ -89,9 +89,9 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.88,
+    "factor": 1.31,
     "kinds": 3,
-    "level": "error"
+    "level": "warning"
    }
   },
   {
@@ -322,7 +322,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.97,
+    "factor": 0.98,
     "kinds": 43
    }
   },
@@ -1158,7 +1158,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.23,
+    "factor": 1.2,
     "kinds": 56
    }
   },
@@ -1718,7 +1718,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.99,
+    "factor": 0.96,
     "kinds": 9
    }
   },
@@ -1908,7 +1908,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.98,
+    "factor": 0.82,
     "kinds": 13
    }
   },
@@ -4041,7 +4041,7 @@
     "none": 14
    },
    "kitCheck": {
-    "factor": 0.96,
+    "factor": 0.89,
     "kinds": 33
    }
   },
@@ -4465,7 +4465,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.82,
+    "factor": 1.46,
     "kinds": 6,
     "level": "error"
    }
@@ -22616,7 +22616,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 264,
+   "count": 265,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -22657,7 +22657,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 138,
+   "count": 155,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -22670,9 +22670,11 @@
     "obj-food-fish",
     "obj-food-egg",
     "obj-equipment-weapon-explosive",
+    "obj-equipment-weapon-siege-ammunition",
     "obj-equipment-weapon-siege-ammunition-cannonball",
     "obj-transport-watercraft-ship",
     "obj-transport-pallet",
+    "obj-transport-land-cart",
     "obj-resource-wood-log",
     "obj-furnishing-light-candle",
     "obj-device-appliance-oven",
@@ -22694,6 +22696,10 @@
     "str-fixture-utility-well",
     "env-fauna-fish",
     "env-fauna-starfish",
+    "env-fauna-bird",
+    "env-remains-bones-skull",
+    "env-remains-bones-limb",
+    "env-remains-bones-ribcage",
     "env-remains-deadwood-stump",
     "env-flora-plant-leafy",
     "env-flora-plant-cactus"
@@ -23061,6 +23067,7 @@
   "obj-transport-land-cart",
   "obj-transport-land-cart-small",
   "obj-transport-land-road",
+  "obj-transport-land-road-truck",
   "obj-transport-pallet",
   "obj-transport-part-paddle",
   "obj-transport-part-wheel",
@@ -25207,7 +25214,7 @@
   "obj-transport-land-road-truck": {
    "high.max": 30,
    "longest.min": 0.95,
-   "longest.max": 1.7,
+   "longest.max": 4.1,
    "tpu.max": 10000
   },
   "obj-transport-pallet": {
@@ -25639,9 +25646,9 @@
    "tpu.max": 5000
   },
   "str-fixture-utility-machine-crane": {
-   "high.max": 8,
+   "high.max": 13,
    "longest.min": 0.4,
-   "longest.max": 2.2,
+   "longest.max": 13,
    "tpu.max": 5000
   },
   "str-fixture-utility-machine-drivethrough": {
@@ -26104,6 +26111,12 @@
    "longest.max": 0.6,
    "tpu.max": 10000
   },
+  "obj-equipment-weapon-siege-ammunition scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.9,
+   "tpu.max": 10000
+  },
   "obj-equipment-weapon-siege-ammunition-cannonball scale-big": {
    "high.max": 8,
    "longest.min": 0.2,
@@ -26174,6 +26187,24 @@
    "high.max": 30,
    "longest.min": 0.6,
    "longest.max": 1.6,
+   "tpu.max": 10000
+  },
+  "obj-transport-land-cart scale-big": {
+   "high.max": 30,
+   "longest.min": 1.1,
+   "longest.max": 4,
+   "tpu.max": 10000
+  },
+  "obj-transport-land-cart-small scale-big": {
+   "high.max": 30,
+   "longest.min": 0.8,
+   "longest.max": 1.9,
+   "tpu.max": 10000
+  },
+  "obj-transport-land-cart-small-wheelbarrow scale-big": {
+   "high.max": 30,
+   "longest.min": 0.8,
+   "longest.max": 1.9,
    "tpu.max": 10000
   },
   "obj-resource-metal scale-small": {
@@ -26481,6 +26512,30 @@
    "longest.min": 0.1,
    "longest.max": 0.6,
    "tpu.max": 10000
+  },
+  "env-fauna-bird scale-big": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.6,
+   "tpu.max": 10000
+  },
+  "env-remains-bones-skull scale-big": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2,
+   "tpu.max": 10000
+  },
+  "env-remains-bones-limb scale-big": {
+   "high.max": 8,
+   "longest.min": 0.225,
+   "longest.max": 0.675,
+   "tpu.max": 5000
+  },
+  "env-remains-bones-ribcage scale-big": {
+   "high.max": 8,
+   "longest.min": 0.75,
+   "longest.max": 1.8,
+   "tpu.max": 5000
   },
   "env-remains-deadwood-tree scale-small": {
    "high.max": 8,
@@ -32262,17 +32317,11 @@
    ],
    "tags": [
     "metal",
+    "scale-big",
     "stone-asphalt",
     "stone-masonry"
    ],
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 10.81 over max 7 (str-access-bridge-long)"
-    }
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "architecture",
@@ -66719,18 +66768,12 @@
     "ceramic",
     "fs",
     "glass",
+    "scale-big",
     "wood-beam"
    ],
    "alpha": true,
    "pbr": true,
    "thickRel": 1.05,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.6 over max 1.2 (str-part-roof-unit)"
-    }
-   ],
    "mark": [
     "centered"
    ]
@@ -115470,18 +115513,10 @@
    "tags": [
     "kay",
     "mounted",
-    "scale-small",
     "wood-worked"
    ],
    "variant": "v840",
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-furnishing-furniture-storage-cabinet scale-small)"
-    }
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "kay-food",
@@ -115574,18 +115609,10 @@
    "tags": [
     "kay",
     "mounted",
-    "scale-small",
     "wood-worked"
    ],
    "variant": "v840",
-   "thickRel": 1.41,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.6 over max 0.45 (obj-furnishing-furniture-storage-cabinet scale-small)"
-    }
-   ]
+   "thickRel": 1.41
   },
   {
    "kit": "kay-food",
@@ -153149,14 +153176,7 @@
     "rubber",
     "space"
    ],
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 2.105 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "kay-space",
@@ -163548,14 +163568,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.787 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-car",
@@ -164136,14 +164149,7 @@
     "plastic"
    ],
    "variant": "v949",
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.787 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "ken-car",
@@ -164212,14 +164218,7 @@
     "plastic"
    ],
    "variant": "v949",
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.787 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.06
   },
   {
    "kit": "ken-car",
@@ -164287,14 +164286,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.11,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.87 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.11
   },
   {
    "kit": "ken-car",
@@ -164362,14 +164354,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.897 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "ken-car",
@@ -241669,16 +241654,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "high 11.758 over max 8 (defaults)"
-    },
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 12.738 over max 2.2 (str-fixture-utility-machine)"
-    },
-    {
-     "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0222 wants min 0.026"
     }
@@ -251158,14 +251133,15 @@
    "tags": [
     "lpa",
     "metal-iron-cast",
+    "scale-big",
     "wood-worked"
    ],
    "thickRel": 7.05,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.901 over max 0.3 (obj-equipment-weapon-siege-ammunition)"
+     "text": "longest 0.901 over max 0.9 (obj-equipment-weapon-siege-ammunition scale-big)"
     }
    ]
   },
@@ -258485,16 +258461,10 @@
    "tags": [
     "lpa",
     "metal-iron-cast",
+    "scale-big",
     "wood-beam"
    ],
-   "thickRel": 1.07,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.725 over max 2 (obj-transport-land-cart)"
-    }
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "lpa-west",
@@ -268718,6 +268688,7 @@
    ],
    "tags": [
     "polygonalmind",
+    "scale-big",
     "wood-planks"
    ],
    "thickRel": 0.46,
@@ -268725,7 +268696,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 20 over max 1.35 (str-part-floor-unit)"
+     "text": "longest 20 over max 2.7 (str-part-floor-unit scale-big)"
     }
    ]
   },
@@ -269274,16 +269245,10 @@
    ],
    "tags": [
     "polygonalmind",
+    "scale-big",
     "wood-planks"
    ],
-   "thickRel": 0.34,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.582 over max 1.2 (str-part-roof-unit)"
-    }
-   ]
+   "thickRel": 0.34
   },
   {
    "kit": "pm-store",
@@ -292301,16 +292266,10 @@
     "#f2a93c"
    ],
    "tags": [
-    "qua"
+    "qua",
+    "scale-big"
    ],
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.505 over max 0.3 (env-fauna-bird)"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "quat-ocean",
@@ -338285,14 +338244,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.14,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.772 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.14
   },
   {
    "kit": "rgs-vehicles",
@@ -338348,14 +338300,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.2,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 3.203 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.2
   },
   {
    "kit": "rgs-vehicles",
@@ -338422,14 +338367,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.91,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 2.157 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 0.91
   },
   {
    "kit": "rgs-vehicles",
@@ -338616,14 +338554,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.25,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 4.026 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.25
   },
   {
    "kit": "rocks",
@@ -365457,17 +365388,11 @@
     "#d8d1bd"
    ],
    "tags": [
+    "scale-small",
     "stone-masonry",
     "styloo"
    ],
-   "thickRel": 1.11,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.048 under min 0.08 (obj-equipment-tool-stationery)"
-    }
-   ]
+   "thickRel": 1.11
   },
   {
    "kit": "styloo-school",
@@ -367883,15 +367808,11 @@
    ],
    "tags": [
     "plastic",
+    "scale-small",
     "styloo"
    ],
    "thickRel": 1.22,
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.073 under min 0.08 (obj-equipment-tool-stationery)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -368963,11 +368884,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "longest 2.863 over max 1.7 (obj-transport-land-road)"
-    },
-    {
-     "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0164 wants min 0.026"
     }
@@ -369159,14 +369075,15 @@
    "tags": [
     "metal-iron-steel",
     "plastic",
+    "scale-small",
     "styloo"
    ],
    "thickRel": 0.22,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 0.039 under min 0.08 (obj-equipment-tool-stationery)"
+     "text": "longest 0.039 under min 0.04 (obj-equipment-tool-stationery scale-small)"
     },
     {
      "level": "error",
@@ -383258,17 +383175,11 @@
    ],
    "tags": [
     "bone",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1460",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.568 over max 0.45 (env-remains-bones-limb)"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "wizp-lava",
@@ -383366,17 +383277,11 @@
    "tags": [
     "bone",
     "emissive",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1460",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.568 over max 0.45 (env-remains-bones-limb)"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "wizp-lava",
@@ -383982,17 +383887,11 @@
    ],
    "tags": [
     "bone",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1465",
-   "thickRel": 0.89,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.562 over max 0.6 (env-remains-bones-ribcage)"
-    }
-   ]
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-lava",
@@ -384031,17 +383930,11 @@
    ],
    "tags": [
     "bone",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1466",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.454 over max 0.6 (env-remains-bones-ribcage)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "wizp-lava",
@@ -384086,17 +383979,11 @@
    "tags": [
     "bone",
     "emissive",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1465",
-   "thickRel": 0.89,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.562 over max 0.6 (env-remains-bones-ribcage)"
-    }
-   ]
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-lava",
@@ -384141,17 +384028,11 @@
    "tags": [
     "bone",
     "emissive",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1466",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.454 over max 0.6 (env-remains-bones-ribcage)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "wizp-lava",
@@ -384813,17 +384694,11 @@
    "tags": [
     "bone",
     "emissive",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1463",
-   "thickRel": 0.43,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.296 over max 0.5 (env-remains-bones-skull)"
-    }
-   ]
+   "thickRel": 0.43
   },
   {
    "kit": "wizp-lava",
@@ -384861,17 +384736,11 @@
    ],
    "tags": [
     "bone",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1463",
-   "thickRel": 0.43,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.296 over max 0.5 (env-remains-bones-skull)"
-    }
-   ]
+   "thickRel": 0.43
   },
   {
    "kit": "wizp-lava",
@@ -384915,17 +384784,11 @@
    "tags": [
     "bone",
     "emissive",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1464",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.751 over max 0.5 (env-remains-bones-skull)"
-    }
-   ]
+   "thickRel": 0.4
   },
   {
    "kit": "wizp-lava",
@@ -384963,17 +384826,11 @@
    ],
    "tags": [
     "bone",
+    "scale-big",
     "wizp"
    ],
    "variant": "v1464",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.751 over max 0.5 (env-remains-bones-skull)"
-    }
-   ]
+   "thickRel": 0.4
   },
   {
    "kit": "wizp-lava",
