@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=1d7657a4b8';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=1d7657a4b8';
-import { colorSwatches, setBands } from './color-edits.js?v=1d7657a4b8';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=1d7657a4b8';
-import { mountExtractBar, setPageParts } from './extract.js?v=1d7657a4b8';
-import './bouwstempel.js?v=1d7657a4b8';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=a08fd9d4fe';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=a08fd9d4fe';
+import { colorSwatches, setBands } from './color-edits.js?v=a08fd9d4fe';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=a08fd9d4fe';
+import { mountExtractBar, setPageParts } from './extract.js?v=a08fd9d4fe';
+import './bouwstempel.js?v=a08fd9d4fe';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -455,6 +455,8 @@ const SORTINGS = {
   grootsteRand: (a, b) => num(b.minEdge) - num(a.minEdge),
   meestOpRaster: (a, b) => num(b.anglePct) - num(a.anglePct),
   minstOpRaster: (a, b) => num(a.anglePct) - num(b.anglePct),
+  dunsteVsSoort: (a, b) => (a.thickRel ?? Infinity) - (b.thickRel ?? Infinity),
+  diksteVsSoort: (a, b) => num(b.thickRel) - num(a.thickRel),
   breedsteVerloop: (a, b) => num(b.grad) - num(a.grad),
   smalsteVerloop: (a, b) => num(a.grad) - num(b.grad),
   meesteBanden: (a, b) => num(b.bands) - num(a.bands),
@@ -775,6 +777,11 @@ function showDetail(model) {
       { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
       { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
       { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
+      {
+        kop: 'Thick',
+        vol: 'Mean depth of the visible solid over the middle extent, then against the kind median',
+        waarde: model.thick === undefined ? '—' : `${unit.format(model.thick)}${model.thickRel === undefined ? '' : ` · ${unit.format(model.thickRel)}×`}`,
+      },
       {
         kop: 'Gradient',
         vol: 'Gradient spread within the colour band',

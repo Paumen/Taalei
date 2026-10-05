@@ -64,7 +64,7 @@
     "wdh": [
      0.55,
      0.55,
-     0.75
+     0.7
     ],
     "tags": [
      "metal-iron-cast",
@@ -165,7 +165,7 @@
     "wdh": [
      0.4,
      0.4,
-     0.8
+     0.7
     ],
     "tags": [
      "foliage",
@@ -316,7 +316,7 @@
     "wdh": [
      0.15,
      0.07,
-     0.01
+     0.02
     ],
     "tags": [
      "ceramic",
@@ -427,9 +427,9 @@
     "slug": "lpa-construction",
     "model": "steel-a",
     "wdh": [
-     1.3,
-     0.09,
-     0.09
+     1.05,
+     0.15,
+     0.1
     ],
     "tags": [
      "lpa",
@@ -1336,7 +1336,7 @@
     "wdh": [
      0.4,
      0.4,
-     0.75
+     0.65
     ],
     "tags": [
      "foliage",
@@ -1355,7 +1355,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.45
+     0.35
     ],
     "tags": [
      "foliage",
@@ -1629,6 +1629,142 @@
     ],
     "colors": [
      "#b58158"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-resource",
+  "name": "Object › Resource",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "lpa-construction",
+    "model": "spool-a",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "spool-b",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "rubber",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "hide-roll",
+    "wdh": [
+     0.09,
+     0.09,
+     0.45
+    ],
+    "tags": [
+     "leather",
+     "rgp"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-resource-textile",
+  "name": "Object › Resource › Textile",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.35,
+   "longest.max": 0.85,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "textiles-a",
+    "wdh": [
+     0.25,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "textiles-c",
+    "wdh": [
+     0.2,
+     0.45,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "cloth-roll",
+    "wdh": [
+     0.09,
+     0.1,
+     0.45
+    ],
+    "tags": [
+     "rgp",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561"
     ]
    }
   ]
@@ -3415,96 +3551,6 @@
   ]
  },
  {
-  "slug": "obj-resource",
-  "name": "Object › Resource",
-  "category": "obj-gen",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "lpa-construction",
-    "model": "spool-a",
-    "wdh": [
-     0.65,
-     0.65,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "spool-b",
-    "wdh": [
-     0.65,
-     0.65,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "rubber",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "hide-roll",
-    "wdh": [
-     0.09,
-     0.09,
-     0.45
-    ],
-    "tags": [
-     "leather",
-     "rgp"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "skin-hang-a",
-    "wdh": [
-     0.6,
-     1.05,
-     0.95
-    ],
-    "tags": [
-     "leather",
-     "rgp",
-     "rope",
-     "wood-log"
-    ],
-    "colors": [
-     "#563b2b",
-     "#8b5936",
-     "#907a66",
-     "#b58158"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-resource-metal",
   "name": "Object › Resource › Metal",
   "category": "obj-gen",
@@ -3580,92 +3626,6 @@
     ],
     "colors": [
      "#f2a93c"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-resource-textile",
-  "name": "Object › Resource › Textile",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.35,
-   "longest.max": 0.85,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "pallet-wood-covered-a",
-    "wdh": [
-     0.5,
-     0.5,
-     0.09
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "wood-planks"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "textiles-a",
-    "wdh": [
-     0.25,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "textiles-c",
-    "wdh": [
-     0.2,
-     0.45,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "cloth-roll",
-    "wdh": [
-     0.09,
-     0.1,
-     0.45
-    ],
-    "tags": [
-     "rgp",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561"
     ]
    }
   ]
@@ -5339,7 +5299,7 @@
     "wdh": [
      0.5,
      0.9,
-     0.65
+     0.7
     ],
     "tags": [
      "qua",
@@ -5406,7 +5366,7 @@
     "wdh": [
      0.35,
      0.2,
-     0.01
+     0.03
     ],
     "tags": [
      "ken",
@@ -5749,9 +5709,9 @@
     "slug": "zombie-weapons",
     "model": "golf-club",
     "wdh": [
-     0.09,
-     0.06,
-     0.65
+     0.15,
+     0.1,
+     0.6
     ],
     "tags": [
      "creativetrio",
@@ -5770,8 +5730,8 @@
     "model": "hockey-stick",
     "wdh": [
      0.15,
-     0.01,
-     0.75
+     0.03,
+     0.65
     ],
     "tags": [
      "creativetrio",
@@ -6969,9 +6929,9 @@
     "slug": "quat-interior",
     "model": "bed-king",
     "wdh": [
-     0.65,
-     0.85,
-     0.25
+     0.7,
+     0.9,
+     0.3
     ],
     "tags": [
      "qua",
@@ -7049,7 +7009,7 @@
     "model": "ceiling-fan",
     "wdh": [
      0.75,
-     0.85,
+     0.9,
      0.35
     ],
     "tags": [
@@ -7110,8 +7070,8 @@
     "slug": "lpa-home",
     "model": "ceiling-fan",
     "wdh": [
-     0.9,
-     0.9,
+     0.8,
+     0.8,
      0.15
     ],
     "tags": [
@@ -8568,7 +8528,7 @@
     "wdh": [
      0.65,
      0.35,
-     0.35
+     0.4
     ],
     "tags": [
      "ceramic",
@@ -8587,7 +8547,7 @@
     "model": "bathtub",
     "wdh": [
      0.35,
-     0.85,
+     0.75,
      0.3
     ],
     "tags": [
@@ -8677,7 +8637,7 @@
     "model": "clock",
     "wdh": [
      0.15,
-     0.02,
+     0.04,
      0.15
     ],
     "tags": [
@@ -8779,7 +8739,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.35
+     0.3
     ],
     "tags": [
      "ken",
@@ -8797,7 +8757,7 @@
     "wdh": [
      0.25,
      0.2,
-     0.35
+     0.3
     ],
     "tags": [
      "ken",
@@ -8833,7 +8793,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.3
+     0.25
     ],
     "tags": [
      "qua",
@@ -8892,7 +8852,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.35
+     0.3
     ],
     "tags": [
      "metal-iron-steel",
@@ -8979,7 +8939,7 @@
     "wdh": [
      0.35,
      0.35,
-     0.75
+     0.65
     ],
     "tags": [
      "lpa",
@@ -8998,7 +8958,7 @@
     "wdh": [
      0.35,
      0.35,
-     0.75
+     0.65
     ],
     "tags": [
      "lpa",
@@ -9016,7 +8976,7 @@
     "wdh": [
      0.06,
      0.07,
-     0.35
+     0.3
     ],
     "tags": [
      "emissive",
@@ -9034,7 +8994,7 @@
     "wdh": [
      0.15,
      0.2,
-     0.65
+     0.6
     ],
     "tags": [
      "metal",
@@ -9165,7 +9125,7 @@
     "model": "curtains-double",
     "wdh": [
      0.75,
-     0.1,
+     0.15,
      0.95
     ],
     "tags": [
@@ -10606,7 +10566,7 @@
     "model": "string-lights",
     "wdh": [
      2.7,
-     0.02,
+     0.06,
      0.15
     ],
     "tags": [
@@ -10664,7 +10624,7 @@
     "wdh": [
      0.9,
      0.45,
-     0.3
+     0.35
     ],
     "tags": [
      "creativetrio",
@@ -10840,7 +10800,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.02
+     0.04
     ],
     "tags": [
      "milkandbanana",
@@ -10856,7 +10816,7 @@
     "model": "barbecue",
     "wdh": [
      0.55,
-     0.2,
+     0.25,
      0.5
     ],
     "tags": [
@@ -11774,6 +11734,191 @@
   ]
  },
  {
+  "slug": "obj-device-electronics-audio",
+  "name": "Object › Device › Electronics › Audio",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "headphones",
+    "wdh": [
+     0.1,
+     0.03,
+     0.09
+    ],
+    "tags": [
+     "creativetrio",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "ipoly-concert",
+    "collection": "ipoly",
+    "model": "speaker-large",
+    "wdh": [
+     0.65,
+     0.45,
+     0.85
+    ],
+    "tags": [
+     "ipoly",
+     "metal-iron-cast",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "ipoly-concert",
+    "collection": "ipoly",
+    "model": "speaker-small",
+    "wdh": [
+     0.3,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "ipoly",
+     "metal-iron-cast",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "speaker-small",
+    "wdh": [
+     0.15,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "rubber",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "speaker",
+    "wdh": [
+     0.15,
+     0.15,
+     0.55
+    ],
+    "tags": [
+     "ken",
+     "rubber",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "speaker",
+    "wdh": [
+     0.07,
+     0.07,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "metal",
+     "plastic",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "pm-store",
+    "model": "dj-booth",
+    "wdh": [
+     1.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic",
+     "polygonalmind"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "dj-booth",
+    "wdh": [
+     0.7,
+     0.35,
+     0.55
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "plastic",
+     "sidequest",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#7f3927",
+     "#8b5936",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "speaker-stack",
+    "wdh": [
+     0.3,
+     0.3,
+     0.75
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "metal-iron-wrought",
+     "sidequest"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-device-electronics-vending",
   "name": "Object › Device › Electronics › Vending",
   "category": "obj-gen",
@@ -12549,7 +12694,7 @@
     "slug": "jb-kitchen",
     "model": "sink",
     "wdh": [
-     1.2,
+     1.25,
      0.6,
      0.95
     ],
@@ -12648,7 +12793,7 @@
     "wdh": [
      0.2,
      0.25,
-     0.4
+     0.45
     ],
     "tags": [
      "metal-iron-steel",
@@ -13247,7 +13392,7 @@
     "wdh": [
      0.08,
      0.08,
-     0.15
+     0.1
     ],
     "tags": [
      "glass",
@@ -13721,208 +13866,6 @@
      "scale-small"
     ],
     "colors": [
-     "#5b5550"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-device-electronics-audio",
-  "name": "Object › Device › Electronics › Audio",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "household",
-    "model": "headphones",
-    "wdh": [
-     0.1,
-     0.03,
-     0.09
-    ],
-    "tags": [
-     "creativetrio",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "ipoly-concert",
-    "collection": "ipoly",
-    "model": "speaker-large",
-    "wdh": [
-     0.65,
-     0.45,
-     0.85
-    ],
-    "tags": [
-     "ipoly",
-     "metal-iron-cast",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "ipoly-concert",
-    "collection": "ipoly",
-    "model": "speaker-small",
-    "wdh": [
-     0.3,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "ipoly",
-     "metal-iron-cast",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "speaker-small",
-    "wdh": [
-     0.15,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "rubber",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "speaker",
-    "wdh": [
-     0.15,
-     0.15,
-     0.55
-    ],
-    "tags": [
-     "ken",
-     "rubber",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "ear-defenders",
-    "wdh": [
-     0.1,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "lpa",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "speaker",
-    "wdh": [
-     0.07,
-     0.07,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "metal",
-     "plastic",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "pm-store",
-    "model": "dj-booth",
-    "wdh": [
-     1.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic",
-     "polygonalmind"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "dj-booth",
-    "wdh": [
-     0.7,
-     0.35,
-     0.55
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "plastic",
-     "sidequest",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#7f3927",
-     "#8b5936",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "speaker-stack",
-    "wdh": [
-     0.3,
-     0.3,
-     0.75
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "metal-iron-wrought",
-     "sidequest"
-    ],
-    "colors": [
-     "#343745",
      "#5b5550"
     ]
    }
@@ -15264,9 +15207,9 @@
     "slug": "ken-food",
     "model": "leek",
     "wdh": [
-     0.1,
-     0.1,
-     0.4
+     0.15,
+     0.15,
+     0.3
     ],
     "tags": [
      "foliage",
@@ -15350,7 +15293,7 @@
     "wdh": [
      0.05,
      0.01,
-     0.35
+     0.3
     ],
     "tags": [
      "metal-iron-steel",
@@ -15366,9 +15309,9 @@
     "slug": "cooking-assets",
     "model": "cleaver",
     "wdh": [
-     0.07,
+     0.09,
      0.01,
-     0.3
+     0.25
     ],
     "tags": [
      "metal-iron-steel",
@@ -15420,7 +15363,7 @@
     "slug": "cooking-assets",
     "model": "peeling-knife",
     "wdh": [
-     0.03,
+     0.04,
      0.01,
      0.2
     ],
@@ -15456,9 +15399,9 @@
     "slug": "jb-kitchen",
     "model": "kitchen-knife",
     "wdh": [
-     0.03,
+     0.04,
      0.01,
-     0.25
+     0.2
     ],
     "tags": [
      "metal-iron-steel",
@@ -15474,7 +15417,7 @@
     "model": "knife-chopping",
     "wdh": [
      0.09,
-     0.01,
+     0.02,
      0.25
     ],
     "tags": [
@@ -15491,7 +15434,7 @@
     "slug": "ken-food",
     "model": "knife-cooking",
     "wdh": [
-     0.06,
+     0.08,
      0.01,
      0.3
     ],
@@ -15510,8 +15453,8 @@
     "model": "cleaver",
     "wdh": [
      0.08,
-     0.01,
-     0.25
+     0.02,
+     0.2
     ],
     "tags": [
      "creativetrio",
@@ -15544,7 +15487,7 @@
     "wdh": [
      0.09,
      0.05,
-     0.35
+     0.3
     ],
     "tags": [
      "metal-iron-steel",
@@ -15578,8 +15521,8 @@
     "slug": "cooking-assets",
     "model": "ladle-b",
     "wdh": [
-     0.09,
-     0.15,
+     0.1,
+     0.2,
      0.3
     ],
     "tags": [
@@ -15625,8 +15568,8 @@
     "slug": "ken-food",
     "model": "spoon-cooking",
     "wdh": [
-     0.08,
-     0.01,
+     0.1,
+     0.02,
      0.3
     ],
     "tags": [
@@ -17376,7 +17319,7 @@
     "model": "sauce-pan-large",
     "wdh": [
      0.2,
-     0.35,
+     0.3,
      0.1
     ],
     "tags": [
@@ -17392,7 +17335,7 @@
     "model": "sauce-pan-small",
     "wdh": [
      0.15,
-     0.3,
+     0.25,
      0.1
     ],
     "tags": [
@@ -17682,7 +17625,7 @@
     "wdh": [
      0.08,
      0.03,
-     0.3
+     0.25
     ],
     "tags": [
      "ken",
@@ -17699,8 +17642,8 @@
     "model": "cheese-slicer",
     "wdh": [
      0.09,
-     0.01,
-     0.3
+     0.02,
+     0.25
     ],
     "tags": [
      "ken",
@@ -17731,8 +17674,8 @@
     "model": "cooking-fork",
     "wdh": [
      0.03,
-     0.03,
-     0.3
+     0.04,
+     0.25
     ],
     "tags": [
      "ken",
@@ -17766,7 +17709,7 @@
     "slug": "styloo-kitchen",
     "model": "cleaver",
     "wdh": [
-     0.04,
+     0.05,
      0.01,
      0.2
     ],
@@ -17799,7 +17742,7 @@
     "slug": "cooking-assets",
     "model": "spatula-rubber",
     "wdh": [
-     0.08,
+     0.1,
      0.01,
      0.3
     ],
@@ -17853,7 +17796,7 @@
     "slug": "cooking-assets",
     "model": "wooden-paddle",
     "wdh": [
-     0.08,
+     0.1,
      0.01,
      0.3
     ],
@@ -17888,8 +17831,8 @@
     "slug": "ken-food",
     "model": "spatula",
     "wdh": [
-     0.08,
-     0.03,
+     0.1,
+     0.04,
      0.3
     ],
     "tags": [
@@ -17970,8 +17913,8 @@
     "slug": "styloo-kitchen",
     "model": "turner",
     "wdh": [
-     0.06,
-     0.01,
+     0.08,
+     0.02,
      0.2
     ],
     "tags": [
@@ -17986,9 +17929,9 @@
     "slug": "styloo-kitchen",
     "model": "wooden-spatula",
     "wdh": [
-     0.03,
-     0.01,
-     0.2
+     0.04,
+     0.02,
+     0.15
     ],
     "tags": [
      "styloo",
@@ -18169,7 +18112,7 @@
     "model": "mic-stand",
     "wdh": [
      0.45,
-     0.3,
+     0.35,
      0.85
     ],
     "tags": [
@@ -18742,7 +18685,7 @@
     "model": "desk-chair",
     "wdh": [
      0.25,
-     0.25,
+     0.3,
      0.45
     ],
     "tags": [
@@ -19723,7 +19666,7 @@
     "wdh": [
      0.35,
      0.35,
-     0.65
+     0.55
     ],
     "tags": [
      "glass",
@@ -19853,7 +19796,7 @@
     "slug": "household",
     "model": "desk-lamp",
     "wdh": [
-     0.08,
+     0.09,
      0.15,
      0.3
     ],
@@ -20109,7 +20052,7 @@
     "wdh": [
      0.45,
      0.25,
-     0.03
+     0.06
     ],
     "tags": [
      "ceramic",
@@ -20363,7 +20306,7 @@
     "collection": "sq-props",
     "model": "barbell-loaded",
     "wdh": [
-     1.1,
+     0.95,
      0.25,
      0.25
     ],
@@ -20469,9 +20412,9 @@
     "collection": "sq-props",
     "model": "power-rack",
     "wdh": [
-     0.65,
-     0.65,
-     1.1
+     0.7,
+     0.7,
+     1.15
     ],
     "tags": [
      "metal-iron-cast",
@@ -21034,7 +20977,7 @@
     "wdh": [
      0.6,
      0.25,
-     0.3
+     0.25
     ],
     "tags": [
      "qua",
@@ -21193,7 +21136,7 @@
     "model": "vault-shelving",
     "wdh": [
      0.5,
-     0.2,
+     0.25,
      0.9
     ],
     "tags": [
@@ -21215,7 +21158,7 @@
     "model": "ball-rack",
     "wdh": [
      0.75,
-     0.25,
+     0.3,
      0.45
     ],
     "tags": [
@@ -21412,7 +21355,7 @@
     "wdh": [
      0.45,
      0.3,
-     0.7
+     0.65
     ],
     "tags": [
      "metal-iron-steel",
@@ -21445,7 +21388,7 @@
     "wdh": [
      0.06,
      0.06,
-     0.2
+     0.15
     ],
     "tags": [
      "glass",
@@ -21475,8 +21418,8 @@
     "slug": "cooking-assets",
     "model": "cognac-glass",
     "wdh": [
-     0.1,
-     0.1,
+     0.15,
+     0.15,
      0.1
     ],
     "tags": [
@@ -21493,7 +21436,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.2
+     0.15
     ],
     "tags": [
      "glass",
@@ -21509,7 +21452,7 @@
     "wdh": [
      0.08,
      0.08,
-     0.2
+     0.15
     ],
     "tags": [
      "glass",
@@ -21523,8 +21466,8 @@
     "slug": "cooking-assets",
     "model": "margarita-glass",
     "wdh": [
-     0.15,
-     0.15,
+     0.2,
+     0.2,
      0.15
     ],
     "tags": [
@@ -21622,8 +21565,8 @@
     "slug": "props",
     "model": "goblet-a",
     "wdh": [
-     0.1,
-     0.1,
+     0.15,
+     0.15,
      0.2
     ],
     "tags": [
@@ -21639,8 +21582,8 @@
     "slug": "quat-props",
     "model": "chalice",
     "wdh": [
-     0.08,
-     0.09,
+     0.1,
+     0.1,
      0.2
     ],
     "tags": [
@@ -23242,7 +23185,7 @@
     "model": "popsicle-chocolate",
     "wdh": [
      0.08,
-     0.02,
+     0.03,
      0.2
     ],
     "tags": [
@@ -23261,7 +23204,7 @@
     "model": "popsicle",
     "wdh": [
      0.08,
-     0.02,
+     0.03,
      0.2
     ],
     "tags": [
@@ -23701,7 +23644,7 @@
     "slug": "lpa-west",
     "model": "lantern",
     "wdh": [
-     0.09,
+     0.1,
      0.15,
      0.25
     ],
@@ -24579,9 +24522,9 @@
     "slug": "quat-interior",
     "model": "ceiling-light-cluster-a",
     "wdh": [
-     0.15,
-     0.15,
-     0.3
+     0.2,
+     0.2,
+     0.25
     ],
     "tags": [
      "emissive",
@@ -24617,7 +24560,7 @@
     "slug": "quat-interior",
     "model": "ceiling-light-cube-frame",
     "wdh": [
-     0.1,
+     0.15,
      0.15,
      0.2
     ],
@@ -24639,7 +24582,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.25
+     0.2
     ],
     "tags": [
      "emissive",
@@ -24659,7 +24602,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.2
+     0.15
     ],
     "tags": [
      "emissive",
@@ -24678,7 +24621,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.2
+     0.15
     ],
     "tags": [
      "emissive",
@@ -24717,7 +24660,7 @@
     "wdh": [
      0.08,
      0.08,
-     0.2
+     0.15
     ],
     "tags": [
      "emissive",
@@ -24848,7 +24791,7 @@
     "slug": "cooking-assets",
     "model": "frying-pan",
     "wdh": [
-     0.3,
+     0.25,
      0.15,
      0.06
     ],
@@ -24864,7 +24807,7 @@
     "slug": "cooking-assets",
     "model": "saute-pan",
     "wdh": [
-     0.5,
+     0.45,
      0.3,
      0.1
     ],
@@ -24947,7 +24890,7 @@
     "wdh": [
      0.4,
      0.2,
-     0.05
+     0.06
     ],
     "tags": [
      "metal-iron-cast"
@@ -25118,7 +25061,7 @@
     "slug": "styloo-kitchen",
     "model": "frying-pan",
     "wdh": [
-     0.45,
+     0.4,
      0.25,
      0.06
     ],
@@ -25167,7 +25110,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.05
+     0.06
     ],
     "tags": [
      "ceramic",
@@ -25590,7 +25533,7 @@
     "wdh": [
      0.4,
      0.9,
-     0.1
+     0.15
     ],
     "tags": [
      "ken",
@@ -25764,7 +25707,7 @@
     "model": "bed-single",
     "wdh": [
      0.45,
-     0.85,
+     0.9,
      0.3
     ],
     "tags": [
@@ -27861,9 +27804,9 @@
     "slug": "props",
     "model": "candle-a",
     "wdh": [
-     0.06,
-     0.06,
-     0.25
+     0.08,
+     0.08,
+     0.2
     ],
     "tags": [
      "halloween",
@@ -31244,7 +31187,7 @@
     "wdh": [
      1.3,
      1.3,
-     0.02
+     0.03
     ],
     "tags": [
      "isa",
@@ -31261,7 +31204,7 @@
     "wdh": [
      1.6,
      1.3,
-     0.02
+     0.03
     ],
     "tags": [
      "isa",
@@ -31278,7 +31221,7 @@
     "wdh": [
      1.9,
      1.3,
-     0.02
+     0.03
     ],
     "tags": [
      "isa",
@@ -31295,7 +31238,7 @@
     "wdh": [
      0.9,
      0.6,
-     0.02
+     0.03
     ],
     "tags": [
      "kay",
@@ -31312,7 +31255,7 @@
     "wdh": [
      0.9,
      0.6,
-     0.02
+     0.04
     ],
     "tags": [
      "kay",
@@ -31329,7 +31272,7 @@
     "wdh": [
      0.9,
      0.6,
-     0.02
+     0.04
     ],
     "tags": [
      "kay",
@@ -31346,7 +31289,7 @@
     "wdh": [
      0.9,
      0.6,
-     0.02
+     0.04
     ],
     "tags": [
      "kay",
@@ -31362,7 +31305,7 @@
     "wdh": [
      0.85,
      0.9,
-     0.02
+     0.04
     ],
     "tags": [
      "kay",
@@ -31378,7 +31321,7 @@
     "wdh": [
      0.6,
      0.6,
-     0.02
+     0.04
     ],
     "tags": [
      "kay",
@@ -31394,7 +31337,7 @@
     "wdh": [
      1.35,
      0.8,
-     0.01
+     0.03
     ],
     "tags": [
      "ken",
@@ -31411,7 +31354,7 @@
     "wdh": [
      0.8,
      0.8,
-     0.01
+     0.03
     ],
     "tags": [
      "ken",
@@ -31428,7 +31371,7 @@
     "wdh": [
      1.35,
      0.8,
-     0.01
+     0.03
     ],
     "tags": [
      "ken",
@@ -31445,7 +31388,7 @@
     "wdh": [
      0.75,
      0.8,
-     0.01
+     0.03
     ],
     "tags": [
      "ken",
@@ -31462,7 +31405,7 @@
     "wdh": [
      1.05,
      0.55,
-     0.03
+     0.05
     ],
     "tags": [
      "lpa",
@@ -31479,7 +31422,7 @@
     "wdh": [
      1.05,
      0.45,
-     0.02
+     0.05
     ],
     "tags": [
      "lpa",
@@ -31496,7 +31439,7 @@
     "wdh": [
      0.45,
      0.4,
-     0.01
+     0.02
     ],
     "tags": [
      "lpa",
@@ -31512,7 +31455,7 @@
     "wdh": [
      1.15,
      3.15,
-     0.03
+     0.08
     ],
     "tags": [
      "polygonalmind",
@@ -31529,7 +31472,7 @@
     "wdh": [
      0.3,
      0.65,
-     0.02
+     0.06
     ],
     "tags": [
      "polygonalmind",
@@ -31546,7 +31489,7 @@
     "wdh": [
      1.1,
      0.75,
-     0.01
+     0.04
     ],
     "tags": [
      "textile"
@@ -31561,7 +31504,7 @@
     "wdh": [
      0.55,
      0.55,
-     0.01
+     0.02
     ],
     "tags": [
      "qua",
@@ -31578,7 +31521,7 @@
     "wdh": [
      0.45,
      0.7,
-     0.01
+     0.03
     ],
     "tags": [
      "qua",
@@ -31595,7 +31538,7 @@
     "wdh": [
      0.5,
      0.8,
-     0.01
+     0.02
     ],
     "tags": [
      "textile"
@@ -31623,7 +31566,7 @@
     "slug": "cooking-assets",
     "model": "butter-knife",
     "wdh": [
-     0.02,
+     0.03,
      0.01,
      0.2
     ],
@@ -31864,9 +31807,9 @@
     "slug": "quat-food",
     "model": "fork",
     "wdh": [
-     0.04,
+     0.05,
      0.01,
-     0.35
+     0.3
     ],
     "tags": [
      "metal-iron-steel",
@@ -31880,9 +31823,9 @@
     "slug": "quat-food",
     "model": "knife",
     "wdh": [
-     0.03,
+     0.04,
      0.01,
-     0.35
+     0.3
     ],
     "tags": [
      "metal-iron-steel",
@@ -31896,8 +31839,8 @@
     "slug": "quat-food",
     "model": "spoon",
     "wdh": [
-     0.07,
-     0.01,
+     0.09,
+     0.02,
      0.3
     ],
     "tags": [
@@ -31912,9 +31855,9 @@
     "slug": "quat-props",
     "model": "table-fork",
     "wdh": [
-     0.04,
+     0.05,
      0.01,
-     0.2
+     0.15
     ],
     "tags": [
      "metal-iron-steel",
@@ -31928,7 +31871,7 @@
     "slug": "quat-props",
     "model": "table-knife",
     "wdh": [
-     0.03,
+     0.04,
      0.01,
      0.2
     ],
@@ -31944,8 +31887,8 @@
     "slug": "quat-props",
     "model": "table-spoon",
     "wdh": [
-     0.03,
-     0.01,
+     0.04,
+     0.02,
      0.2
     ],
     "tags": [
@@ -32040,9 +31983,9 @@
     "slug": "styloo-kitchen",
     "model": "spoon-long",
     "wdh": [
-     0.02,
+     0.03,
      0.01,
-     0.2
+     0.15
     ],
     "tags": [
      "metal-iron-steel",
@@ -32056,7 +31999,7 @@
     "slug": "styloo-kitchen",
     "model": "spoon",
     "wdh": [
-     0.03,
+     0.04,
      0.01,
      0.1
     ],
@@ -32135,7 +32078,7 @@
     "slug": "cooking-assets",
     "model": "casserole-pot",
     "wdh": [
-     0.3,
+     0.35,
      0.2,
      0.15
     ],
@@ -32167,7 +32110,7 @@
     "slug": "cooking-assets",
     "model": "dutch-oven",
     "wdh": [
-     0.4,
+     0.45,
      0.2,
      0.15
     ],
@@ -33684,7 +33627,7 @@
     "collection": "sq-props",
     "model": "plastic-chair",
     "wdh": [
-     0.25,
+     0.3,
      0.3,
      0.45
     ],
@@ -33718,7 +33661,7 @@
     "slug": "styloo-furniture",
     "model": "chair-b",
     "wdh": [
-     0.25,
+     0.3,
      0.25,
      0.4
     ],
@@ -33853,8 +33796,8 @@
     "model": "plate-rectangle",
     "wdh": [
      0.2,
-     0.08,
-     0.01
+     0.09,
+     0.02
     ],
     "tags": [
      "ceramic",
@@ -33868,9 +33811,9 @@
     "slug": "food-pack-2",
     "model": "plate",
     "wdh": [
-     0.45,
-     0.45,
-     0.05
+     0.35,
+     0.35,
+     0.07
     ],
     "tags": [
      "ceramic"
@@ -35835,7 +35778,7 @@
     "wdh": [
      0.75,
      0.3,
-     0.35
+     0.3
     ],
     "tags": [
      "lpa",
@@ -36069,7 +36012,7 @@
     "collection": "rgp",
     "model": "console-table",
     "wdh": [
-     0.45,
+     0.5,
      0.2,
      0.35
     ],
@@ -36177,7 +36120,7 @@
     "slug": "styloo-school",
     "model": "side-table",
     "wdh": [
-     0.35,
+     0.4,
      0.3,
      0.3
     ],
@@ -37805,6 +37748,186 @@
   ]
  },
  {
+  "slug": "obj-container",
+  "name": "Object › Container",
+  "category": "obj-container",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "piggy-bank",
+    "wdh": [
+     0.09,
+     0.15,
+     0.09
+    ],
+    "tags": [
+     "ceramic",
+     "creativetrio"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "safe",
+    "wdh": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "creativetrio",
+     "metal-iron-cast",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "safe-a",
+    "wdh": [
+     0.2,
+     0.1,
+     0.09
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "safe-b",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "trough-a",
+    "wdh": [
+     0.2,
+     0.6,
+     0.15
+    ],
+    "tags": [
+     "liquid",
+     "lpa",
+     "wood-planks"
+    ],
+    "colors": [
+     "#1367a6",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "trough-b",
+    "wdh": [
+     0.2,
+     0.6,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "trough-hay",
+    "wdh": [
+     1.1,
+     0.3,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "vegetation",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "trough-1-a",
+    "wdh": [
+     0.35,
+     1.65,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "rgp",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "trough-3-a",
+    "wdh": [
+     0.35,
+     1.65,
+     0.25
+    ],
+    "tags": [
+     "liquid",
+     "metal-iron-wrought",
+     "rgp",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-container-can-wateringcan",
   "name": "Object › Container › Can › Wateringcan",
   "category": "obj-container",
@@ -37981,174 +38104,6 @@
     "colors": [
      "#82868e",
      "#d07b56"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-carton",
-  "name": "Object › Container › Carton",
-  "category": "obj-container",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.3,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "food-pack-2",
-    "model": "milk-carton-chocolate",
-    "wdh": [
-     0.1,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "paper"
-    ],
-    "colors": [
-     "#563b2b",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "milk-carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "paper"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "collection": "isa-tt",
-    "model": "milk-carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "paper"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "carton-small",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "ken",
-     "paper"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "paper",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-laundry",
-    "collection": "sq-props",
-    "model": "box-brand-b",
-    "wdh": [
-     0.15,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "paper",
-     "plastic",
-     "sidequest"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-food",
-    "model": "pizza-box",
-    "wdh": [
-     0.3,
-     0.3,
-     0.04
-    ],
-    "tags": [
-     "paper",
-     "styloo"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "egg-carton",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "paper",
-     "styloo"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "milk-carton",
-    "wdh": [
-     0.05,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "paper",
-     "styloo"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
     ]
    }
   ]
@@ -38508,8 +38463,8 @@
     "model": "gas-cylinder",
     "wdh": [
      0.2,
-     0.15,
-     0.65
+     0.2,
+     0.55
     ],
     "tags": [
      "metal-iron-cast",
@@ -38707,48 +38662,99 @@
   ]
  },
  {
-  "slug": "obj-container",
-  "name": "Object › Container",
+  "slug": "obj-container-carton",
+  "name": "Object › Container › Carton",
   "category": "obj-container",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
    "tpu.max": 10000
   },
   "items": [
    {
-    "slug": "household",
-    "model": "piggy-bank",
+    "slug": "food-pack-2",
+    "model": "milk-carton-chocolate",
     "wdh": [
-     0.09,
-     0.15,
-     0.09
+     0.1,
+     0.1,
+     0.3
     ],
     "tags": [
-     "ceramic",
-     "creativetrio"
+     "paper"
     ],
     "colors": [
-     "#d07b56"
+     "#563b2b",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "household",
-    "model": "safe",
+    "slug": "food-pack-2",
+    "model": "milk-carton",
     "wdh": [
-     0.2,
-     0.2,
-     0.2
+     0.1,
+     0.1,
+     0.3
     ],
     "tags": [
-     "creativetrio",
-     "metal-iron-cast",
-     "metal-iron-wrought"
+     "paper"
     ],
     "colors": [
-     "#343745",
-     "#5b5550"
+     "#1367a6",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "collection": "isa-tt",
+    "model": "milk-carton",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "paper"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "carton-small",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "ken",
+     "paper"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "carton",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "paper",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d8d1bd"
     ]
    },
    {
@@ -38768,151 +38774,72 @@
     ]
    },
    {
-    "slug": "lpa-home",
-    "model": "safe-a",
-    "wdh": [
-     0.2,
-     0.1,
-     0.09
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "safe-b",
+    "slug": "sq-laundry",
+    "collection": "sq-props",
+    "model": "box-brand-b",
     "wdh": [
      0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "trough-a",
-    "wdh": [
-     0.2,
-     0.6,
+     0.05,
      0.15
     ],
     "tags": [
-     "liquid",
-     "lpa",
-     "wood-planks"
+     "paper",
+     "plastic",
+     "sidequest"
     ],
     "colors": [
-     "#1367a6",
-     "#dbae80"
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "lpa-west",
-    "model": "trough-b",
+    "slug": "styloo-food",
+    "model": "pizza-box",
     "wdh": [
-     0.2,
-     0.6,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "trough-hay",
-    "wdh": [
-     1.1,
      0.3,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "vegetation",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "trough-1-a",
-    "wdh": [
-     0.35,
-     1.65,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "rgp",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "trough-3-a",
-    "wdh": [
-     0.35,
-     1.65,
-     0.25
-    ],
-    "tags": [
-     "liquid",
-     "metal-iron-wrought",
-     "rgp",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-school",
-    "model": "beaker",
-    "wdh": [
-     0.04,
-     0.04,
+     0.3,
      0.04
     ],
     "tags": [
-     "glass",
+     "paper",
      "styloo"
     ],
     "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "egg-carton",
+    "wdh": [
+     0.15,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "paper",
+     "styloo"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "milk-carton",
+    "wdh": [
+     0.05,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "paper",
+     "styloo"
+    ],
+    "colors": [
+     "#1367a6",
      "#d8d1bd"
     ]
    }
@@ -39150,7 +39077,7 @@
     "model": "makeup-bag",
     "wdh": [
      0.2,
-     0.15,
+     0.2,
      0.06
     ],
     "tags": [
@@ -40829,7 +40756,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.2
+     0.25
     ],
     "tags": [
      "metal-iron-wrought",
@@ -41754,7 +41681,7 @@
     "collection": "fs-buildings",
     "model": "vase-c",
     "wdh": [
-     0.15,
+     0.2,
      0.15,
      0.2
     ],
@@ -42488,6 +42415,28 @@
     ],
     "colors": [
      "#82868e"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "pencil-cup",
+    "wdh": [
+     0.08,
+     0.07,
+     0.15
+    ],
+    "tags": [
+     "ceramic",
+     "creativetrio",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#7f3927",
+     "#82868e",
+     "#d07b56",
+     "#f2a93c"
     ]
    },
    {
@@ -43906,7 +43855,7 @@
     "wdh": [
      0.2,
      0.2,
-     0.25
+     0.2
     ],
     "tags": [
      "ken",
@@ -43920,7 +43869,7 @@
     "slug": "ken-furniture",
     "model": "cardboard-box-open",
     "wdh": [
-     0.3,
+     0.35,
      0.2,
      0.25
     ],
@@ -45203,6 +45152,22 @@
    },
    {
     "slug": "styloo-school",
+    "model": "beaker",
+    "wdh": [
+     0.04,
+     0.04,
+     0.04
+    ],
+    "tags": [
+     "glass",
+     "styloo"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-school",
     "model": "flask-conical",
     "wdh": [
      0.04,
@@ -45271,7 +45236,7 @@
     "model": "wheelbarrow",
     "wdh": [
      0.35,
-     0.8,
+     0.7,
      0.3
     ],
     "tags": [
@@ -45391,8 +45356,8 @@
     "model": "boat-oars-a",
     "wdh": [
      0.3,
-     0.75,
-     0.03
+     0.65,
+     0.05
     ],
     "tags": [
      "fs",
@@ -45409,8 +45374,8 @@
     "model": "boat-oars-b",
     "wdh": [
      0.2,
-     0.8,
-     0.06
+     0.7,
+     0.1
     ],
     "tags": [
      "fs",
@@ -46305,9 +46270,9 @@
     "slug": "quat-ships",
     "model": "ship-sail",
     "wdh": [
-     2.2,
+     2.55,
      8.3,
-     5
+     4.5
     ],
     "tags": [
      "hero",
@@ -46596,7 +46561,7 @@
     "model": "bus",
     "wdh": [
      1.15,
-     4.1,
+     3.2,
      1.3
     ],
     "tags": [
@@ -46616,7 +46581,7 @@
     "model": "firetruck",
     "wdh": [
      1,
-     2.9,
+     2.15,
      1.2
     ],
     "tags": [
@@ -46694,355 +46659,6 @@
      "#5b5550",
      "#d07b56",
      "#f2a93c"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-transport-land-cart",
-  "name": "Object › Transport › Land › Cart",
-  "category": "obj-transport",
-  "byLongest": true,
-  "limits": {
-   "high.max": 30,
-   "longest.min": 0.55,
-   "longest.max": 2,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "fs-town",
-    "collection": "fs-modular",
-    "model": "cart-a-barrels",
-    "wdh": [
-     0.9,
-     1.7,
-     0.65
-    ],
-    "tags": [
-     "fs",
-     "metal-iron-wrought",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "collection": "fs-modular",
-    "model": "cart-a",
-    "wdh": [
-     0.9,
-     1.7,
-     0.65
-    ],
-    "tags": [
-     "fs",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "collection": "ken-village",
-    "model": "cart-high-empty",
-    "wdh": [
-     0.8,
-     1.25,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-wrought",
-     "tba",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "collection": "ken-village",
-    "model": "cart-high",
-    "wdh": [
-     0.8,
-     1.25,
-     0.75
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-wrought",
-     "tba",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#b58158",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "ken-town",
-    "collection": "ken-village",
-    "model": "cart",
-    "wdh": [
-     0.8,
-     1.2,
-     0.5
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-wrought",
-     "tba",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "cart-a",
-    "wdh": [
-     0.7,
-     1.45,
-     0.45
-    ],
-    "tags": [
-     "lpa",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "cart-b",
-    "wdh": [
-     0.85,
-     2.65,
-     0.7
-    ],
-    "tags": [
-     "lpa",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "cart-c",
-    "wdh": [
-     0.85,
-     2.65,
-     1.4
-    ],
-    "tags": [
-     "lpa",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "stagecoach",
-    "wdh": [
-     1.25,
-     3.65,
-     1.3
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-cast",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "model": "cart",
-    "wdh": [
-     0.5,
-     1,
-     0.9
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "qua",
-     "sailing",
-     "textile",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#b58158",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "rgp-asia",
-    "model": "cart",
-    "wdh": [
-     0.85,
-     1.6,
-     0.45
-    ],
-    "tags": [
-     "asia",
-     "metal-iron-wrought",
-     "rgp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "handcart",
-    "wdh": [
-     0.8,
-     1.7,
-     0.55
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "rope",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#907a66",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "wagon",
-    "wdh": [
-     0.8,
-     1.55,
-     0.6
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#343745",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "cart-1-a",
-    "wdh": [
-     0.95,
-     1.95,
-     0.75
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "rgp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "cart",
-    "wdh": [
-     0.65,
-     1.05,
-     0.7
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "styloo",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#82868e",
-     "#8b5936",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "western",
-    "model": "cart",
-    "wdh": [
-     0.9,
-     0.4,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "wood-beam"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "cart",
-    "wdh": [
-     0.5,
-     1,
-     0.4
-    ],
-    "tags": [
-     "asia",
-     "wizp",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#8b5936",
-     "#b58158"
     ]
    }
   ]
@@ -47319,91 +46935,6 @@
     ]
    },
    {
-    "slug": "ken-space",
-    "model": "rover",
-    "wdh": [
-     0.4,
-     0.45,
-     0.5
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "rover-long",
-    "wdh": [
-     1,
-     1.45,
-     1.05
-    ],
-    "tags": [
-     "emissive",
-     "metal",
-     "qua",
-     "rubber",
-     "space"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "rover-round",
-    "wdh": [
-     1.25,
-     0.8,
-     1.15
-    ],
-    "tags": [
-     "metal",
-     "qua",
-     "rubber",
-     "space"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "rover",
-    "wdh": [
-     1,
-     1.15,
-     1.05
-    ],
-    "tags": [
-     "emissive",
-     "metal",
-     "qua",
-     "rubber",
-     "space"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
     "slug": "quat-space",
     "model": "spaceship-a",
     "wdh": [
@@ -47504,6 +47035,355 @@
      "#343745",
      "#82868e",
      "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-transport-land-cart",
+  "name": "Object › Transport › Land › Cart",
+  "category": "obj-transport",
+  "byLongest": true,
+  "limits": {
+   "high.max": 30,
+   "longest.min": 0.55,
+   "longest.max": 2,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "fs-town",
+    "collection": "fs-modular",
+    "model": "cart-a-barrels",
+    "wdh": [
+     0.9,
+     1.7,
+     0.65
+    ],
+    "tags": [
+     "fs",
+     "metal-iron-wrought",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "collection": "fs-modular",
+    "model": "cart-a",
+    "wdh": [
+     0.9,
+     1.7,
+     0.65
+    ],
+    "tags": [
+     "fs",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "collection": "ken-village",
+    "model": "cart-high-empty",
+    "wdh": [
+     0.8,
+     1.25,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-wrought",
+     "tba",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "collection": "ken-village",
+    "model": "cart-high",
+    "wdh": [
+     0.8,
+     1.25,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-wrought",
+     "tba",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#b58158",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "ken-town",
+    "collection": "ken-village",
+    "model": "cart",
+    "wdh": [
+     0.8,
+     1.2,
+     0.5
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-wrought",
+     "tba",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "cart-a",
+    "wdh": [
+     0.7,
+     1.45,
+     0.45
+    ],
+    "tags": [
+     "lpa",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "cart-b",
+    "wdh": [
+     0.85,
+     2.15,
+     0.7
+    ],
+    "tags": [
+     "lpa",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "cart-c",
+    "wdh": [
+     0.85,
+     2.15,
+     1.4
+    ],
+    "tags": [
+     "lpa",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "stagecoach",
+    "wdh": [
+     1.25,
+     2.75,
+     1.3
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-cast",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "model": "cart",
+    "wdh": [
+     0.5,
+     1,
+     0.9
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "qua",
+     "sailing",
+     "textile",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927",
+     "#b58158",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "rgp-asia",
+    "model": "cart",
+    "wdh": [
+     0.85,
+     1.6,
+     0.45
+    ],
+    "tags": [
+     "asia",
+     "metal-iron-wrought",
+     "rgp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "handcart",
+    "wdh": [
+     0.85,
+     1.7,
+     0.55
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "rope",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#907a66",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "wagon",
+    "wdh": [
+     0.8,
+     1.55,
+     0.6
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#343745",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "cart-1-a",
+    "wdh": [
+     0.95,
+     1.95,
+     0.75
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "rgp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "cart",
+    "wdh": [
+     0.65,
+     1.05,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "styloo",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#82868e",
+     "#8b5936",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "western",
+    "model": "cart",
+    "wdh": [
+     0.9,
+     0.4,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "wood-beam"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "cart",
+    "wdh": [
+     0.5,
+     1,
+     0.4
+    ],
+    "tags": [
+     "asia",
+     "wizp",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#8b5936",
+     "#b58158"
     ]
    }
   ]
@@ -48791,6 +48671,27 @@
     ]
    },
    {
+    "slug": "ken-space",
+    "model": "rover",
+    "wdh": [
+     0.4,
+     0.45,
+     0.5
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
     "slug": "quat-cars",
     "model": "car",
     "wdh": [
@@ -48940,6 +48841,70 @@
      "#343745",
      "#7f3927",
      "#82868e",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "rover-long",
+    "wdh": [
+     1,
+     1.45,
+     1.05
+    ],
+    "tags": [
+     "emissive",
+     "metal",
+     "qua",
+     "rubber",
+     "space"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "rover-round",
+    "wdh": [
+     1.25,
+     0.8,
+     1.15
+    ],
+    "tags": [
+     "metal",
+     "qua",
+     "rubber",
+     "space"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "rover",
+    "wdh": [
+     1,
+     1.15,
+     1.05
+    ],
+    "tags": [
+     "emissive",
+     "metal",
+     "qua",
+     "rubber",
+     "space"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd",
      "#f2a93c"
     ]
    },
@@ -51454,8 +51419,8 @@
     "slug": "lpa-construction",
     "model": "sledgehammer",
     "wdh": [
-     0.05,
-     0.15,
+     0.08,
+     0.2,
      0.45
     ],
     "tags": [
@@ -51472,8 +51437,8 @@
     "slug": "mek-tools",
     "model": "saw-crosscut",
     "wdh": [
-     0.03,
-     0.75,
+     0.05,
+     0.7,
      0.2
     ],
     "tags": [
@@ -51489,9 +51454,9 @@
     "slug": "zombie-weapons",
     "model": "sledgehammer",
     "wdh": [
-     0.1,
+     0.15,
      0.5,
-     0.05
+     0.07
     ],
     "tags": [
      "creativetrio",
@@ -51656,9 +51621,9 @@
     "slug": "lpa-weapons",
     "model": "pitchfork",
     "wdh": [
-     0.03,
-     0.15,
-     0.6
+     0.04,
+     0.2,
+     0.55
     ],
     "tags": [
      "lpa",
@@ -51712,9 +51677,9 @@
     "slug": "zombie-weapons",
     "model": "pitchfork",
     "wdh": [
-     0.15,
-     0.06,
-     0.85
+     0.2,
+     0.08,
+     0.8
     ],
     "tags": [
      "creativetrio",
@@ -51743,7 +51708,7 @@
     "slug": "household",
     "model": "hoe",
     "wdh": [
-     1.05,
+     0.9,
      0.1,
      0.25
     ],
@@ -51847,9 +51812,9 @@
     "slug": "lpa-weapons",
     "model": "scythe",
     "wdh": [
-     0.07,
+     0.08,
      0.3,
-     0.65
+     0.6
     ],
     "tags": [
      "leather",
@@ -51869,8 +51834,8 @@
     "model": "scythe",
     "wdh": [
      0.5,
-     0.05,
-     0.9
+     0.08,
+     0.75
     ],
     "tags": [
      "metal-iron-steel",
@@ -51886,8 +51851,8 @@
     "slug": "zombie-weapons",
     "model": "scythe",
     "wdh": [
-     0.55,
-     0.1,
+     0.75,
+     0.15,
      1.05
     ],
     "tags": [
@@ -51953,9 +51918,9 @@
     "slug": "zombie-weapons",
     "model": "chainsaw-pole",
     "wdh": [
-     0.8,
+     0.7,
      0.09,
-     0.05
+     0.06
     ],
     "tags": [
      "creativetrio",
@@ -52289,7 +52254,7 @@
     "wdh": [
      0.2,
      0.2,
-     0.03
+     0.06
     ],
     "tags": [
      "leather",
@@ -52310,7 +52275,7 @@
     "wdh": [
      0.15,
      0.1,
-     0.01
+     0.03
     ],
     "tags": [
      "leather",
@@ -52565,7 +52530,7 @@
     "model": "hand-saw",
     "wdh": [
      0.02,
-     0.4,
+     0.3,
      0.08
     ],
     "tags": [
@@ -52602,9 +52567,9 @@
     "slug": "lpa-construction",
     "model": "saw",
     "wdh": [
-     0.03,
+     0.04,
      0.35,
-     0.1
+     0.15
     ],
     "tags": [
      "lpa",
@@ -52966,8 +52931,8 @@
     "slug": "zombie-weapons",
     "model": "smg",
     "wdh": [
-     0.4,
-     0.03,
+     0.35,
+     0.06,
      0.15
     ],
     "tags": [
@@ -53257,8 +53222,8 @@
     "collection": "fs-modular",
     "model": "broom",
     "wdh": [
-     0.06,
      0.08,
+     0.1,
      0.4
     ],
     "tags": [
@@ -53332,9 +53297,9 @@
     "slug": "rgp-props",
     "model": "broom-a",
     "wdh": [
-     0.05,
+     0.07,
      0.15,
-     0.8
+     0.75
     ],
     "tags": [
      "rgp",
@@ -53388,9 +53353,9 @@
     "slug": "lpa-weapons",
     "model": "falchion",
     "wdh": [
-     0.02,
-     0.1,
-     0.6
+     0.03,
+     0.15,
+     0.55
     ],
     "tags": [
      "leather",
@@ -53406,8 +53371,8 @@
     "slug": "quat-pirate",
     "model": "cutlass",
     "wdh": [
-     0.15,
-     0.04,
+     0.2,
+     0.06,
      0.45
     ],
     "tags": [
@@ -53586,9 +53551,9 @@
     "slug": "zombie-weapons",
     "model": "revolver",
     "wdh": [
-     0.2,
-     0.02,
-     0.08
+     0.15,
+     0.04,
+     0.09
     ],
     "tags": [
      "creativetrio",
@@ -54156,8 +54121,8 @@
     "model": "crossbow",
     "wdh": [
      0.3,
-     0.55,
-     0.15
+     0.45,
+     0.2
     ],
     "tags": [
      "creativetrio",
@@ -54188,8 +54153,8 @@
     "slug": "quat-guns",
     "model": "sniper-rifle",
     "wdh": [
-     0.06,
-     0.8,
+     0.09,
+     0.65,
      0.15
     ],
     "tags": [
@@ -54284,8 +54249,8 @@
     "slug": "styloo-guns",
     "model": "sniper-rifle",
     "wdh": [
-     0.85,
-     0.04,
+     0.7,
+     0.05,
      0.15
     ],
     "tags": [
@@ -54304,8 +54269,8 @@
     "slug": "zombie-weapons",
     "model": "sniper-rifle",
     "wdh": [
-     0.04,
-     0.6,
+     0.06,
+     0.55,
      0.15
     ],
     "tags": [
@@ -54442,9 +54407,9 @@
     "slug": "lpa-weapons",
     "model": "quiver-arrows",
     "wdh": [
-     0.05,
+     0.08,
      0.1,
-     0.35
+     0.3
     ],
     "tags": [
      "leather",
@@ -54464,9 +54429,9 @@
     "slug": "lpa-weapons",
     "model": "quiver",
     "wdh": [
-     0.05,
+     0.08,
      0.1,
-     0.3
+     0.25
     ],
     "tags": [
      "leather",
@@ -54484,9 +54449,9 @@
     "slug": "zombie-weapons",
     "model": "quiver",
     "wdh": [
-     0.09,
      0.1,
-     0.45
+     0.1,
+     0.35
     ],
     "tags": [
      "creativetrio",
@@ -54537,9 +54502,9 @@
     "slug": "lpa-weapons",
     "model": "javelin",
     "wdh": [
-     0.02,
-     0.02,
-     0.65
+     0.04,
+     0.04,
+     0.55
     ],
     "tags": [
      "lpa",
@@ -54816,9 +54781,9 @@
     "slug": "zombie-weapons",
     "model": "bazooka",
     "wdh": [
-     0.9,
-     0.07,
-     0.15
+     0.8,
+     0.09,
+     0.25
     ],
     "tags": [
      "creativetrio",
@@ -54839,7 +54804,7 @@
     "model": "grenade-launcher",
     "wdh": [
      0.35,
-     0.09,
+     0.1,
      0.15
     ],
     "tags": [
@@ -55154,9 +55119,9 @@
     "slug": "lpa-weapons",
     "model": "flail",
     "wdh": [
-     0.08,
-     0.08,
-     0.45
+     0.1,
+     0.1,
+     0.4
     ],
     "tags": [
      "lpa",
@@ -55172,9 +55137,9 @@
     "slug": "lpa-weapons",
     "model": "mace",
     "wdh": [
-     0.06,
-     0.08,
-     0.45
+     0.1,
+     0.1,
+     0.35
     ],
     "tags": [
      "leather",
@@ -55192,7 +55157,7 @@
     "wdh": [
      0.15,
      0.15,
-     0.45
+     0.4
     ],
     "tags": [
      "leather",
@@ -55208,8 +55173,8 @@
     "slug": "quat-rpg",
     "model": "hammer-double",
     "wdh": [
-     0.3,
-     0.1,
+     0.4,
+     0.15,
      0.65
     ],
     "tags": [
@@ -55853,7 +55818,7 @@
     "model": "staff-druid-a",
     "wdh": [
      0.3,
-     0.07,
+     0.08,
      0.55
     ],
     "tags": [
@@ -56423,9 +56388,9 @@
     "slug": "quat-guns",
     "model": "shotgun-pump",
     "wdh": [
-     0.7,
-     0.03,
-     0.1
+     0.55,
+     0.06,
+     0.15
     ],
     "tags": [
      "metal-iron-steel",
@@ -56461,9 +56426,9 @@
     "slug": "quat-guns",
     "model": "shotgun",
     "wdh": [
-     0.7,
-     0.03,
-     0.1
+     0.55,
+     0.06,
+     0.15
     ],
     "tags": [
      "metal-iron-steel",
@@ -56520,8 +56485,8 @@
     "slug": "styloo-guns",
     "model": "shotgun",
     "wdh": [
-     0.5,
-     0.02,
+     0.4,
+     0.03,
      0.1
     ],
     "tags": [
@@ -56538,9 +56503,9 @@
     "slug": "zombie-weapons",
     "model": "shotgun-double",
     "wdh": [
-     0.6,
-     0.03,
-     0.1
+     0.5,
+     0.05,
+     0.15
     ],
     "tags": [
      "creativetrio",
@@ -56556,9 +56521,9 @@
     "slug": "zombie-weapons",
     "model": "shotgun-pump",
     "wdh": [
-     0.6,
-     0.02,
-     0.1
+     0.55,
+     0.03,
+     0.15
     ],
     "tags": [
      "creativetrio",
@@ -56575,8 +56540,8 @@
     "model": "shotgun-sawed-off",
     "wdh": [
      0.3,
-     0.03,
-     0.08
+     0.04,
+     0.1
     ],
     "tags": [
      "creativetrio",
@@ -56729,7 +56694,7 @@
     "model": "ballista",
     "wdh": [
      1.95,
-     2.55,
+     2.6,
      1.2
     ],
     "tags": [
@@ -56772,8 +56737,8 @@
     "slug": "lpa-weapons",
     "model": "catapult",
     "wdh": [
-     1.75,
-     2.3,
+     1.8,
+     2.4,
      1.6
     ],
     "tags": [
@@ -56794,7 +56759,7 @@
     "wdh": [
      1.95,
      3.65,
-     5.75
+     4.9
     ],
     "tags": [
      "lpa",
@@ -57142,9 +57107,9 @@
     "slug": "lpa-west",
     "model": "dynamite-a",
     "wdh": [
-     0.02,
-     0.02,
-     0.2
+     0.04,
+     0.04,
+     0.15
     ],
     "tags": [
      "lpa",
@@ -57181,7 +57146,7 @@
     "wdh": [
      0.1,
      0.1,
-     0.1
+     0.15
     ],
     "tags": [
      "metal-iron-cast",
@@ -57218,7 +57183,7 @@
     "model": "claymore",
     "wdh": [
      0.09,
-     0.05,
+     0.06,
      0.09
     ],
     "tags": [
@@ -57234,9 +57199,9 @@
     "collection": "rgp",
     "model": "dynamite-a",
     "wdh": [
-     0.04,
-     0.04,
-     0.2
+     0.05,
+     0.05,
+     0.15
     ],
     "tags": [
      "paper",
@@ -57254,8 +57219,8 @@
     "collection": "rgp",
     "model": "dynamite-b",
     "wdh": [
-     0.04,
-     0.04,
+     0.05,
+     0.06,
      0.15
     ],
     "tags": [
@@ -57274,8 +57239,8 @@
     "collection": "rgp",
     "model": "dynamite-c",
     "wdh": [
-     0.05,
-     0.04,
+     0.08,
+     0.06,
      0.15
     ],
     "tags": [
@@ -57294,8 +57259,8 @@
     "collection": "rgp",
     "model": "dynamite-d",
     "wdh": [
-     0.04,
-     0.04,
+     0.06,
+     0.05,
      0.15
     ],
     "tags": [
@@ -57581,9 +57546,9 @@
     "slug": "zombie-weapons",
     "model": "molotov",
     "wdh": [
-     0.03,
-     0.03,
-     0.1
+     0.05,
+     0.04,
+     0.08
     ],
     "tags": [
      "creativetrio",
@@ -57724,7 +57689,7 @@
     "slug": "lpa-construction",
     "model": "hammer",
     "wdh": [
-     0.03,
+     0.04,
      0.15,
      0.15
     ],
@@ -57867,8 +57832,8 @@
     "collection": "fs-modular",
     "model": "cave-prop-pick-large",
     "wdh": [
-     0.3,
-     0.03,
+     0.4,
+     0.04,
      0.4
     ],
     "tags": [
@@ -57984,9 +57949,9 @@
     "slug": "lpa-west",
     "model": "pickaxe",
     "wdh": [
-     0.08,
+     0.1,
      0.45,
-     0.55
+     0.5
     ],
     "tags": [
      "lpa",
@@ -58002,8 +57967,8 @@
     "slug": "mek-tools",
     "model": "pickaxe",
     "wdh": [
-     0.3,
-     0.05,
+     0.4,
+     0.07,
      0.4
     ],
     "tags": [
@@ -58078,8 +58043,8 @@
     "model": "pickaxe",
     "wdh": [
      0.35,
-     0.25,
-     0.02
+     0.35,
+     0.03
     ],
     "tags": [
      "metal-iron-steel",
@@ -58094,8 +58059,8 @@
     "slug": "zombie-weapons",
     "model": "pickaxe",
     "wdh": [
-     0.35,
-     0.06,
+     0.5,
+     0.08,
      0.55
     ],
     "tags": [
@@ -58404,9 +58369,9 @@
     "slug": "household",
     "model": "baseball-bat",
     "wdh": [
-     0.05,
-     0.05,
-     0.65
+     0.07,
+     0.06,
+     0.6
     ],
     "tags": [
      "creativetrio",
@@ -58478,8 +58443,8 @@
     "slug": "lpa-weapons",
     "model": "spiked-club",
     "wdh": [
-     0.1,
-     0.1,
+     0.15,
+     0.15,
      0.4
     ],
     "tags": [
@@ -58576,9 +58541,9 @@
     "slug": "zombie-weapons",
     "model": "baseball-bat-nails",
     "wdh": [
-     0.1,
-     0.1,
-     0.5
+     0.2,
+     0.2,
+     0.45
     ],
     "tags": [
      "creativetrio",
@@ -58596,9 +58561,9 @@
     "slug": "zombie-weapons",
     "model": "fire-poker",
     "wdh": [
-     0.06,
-     0.02,
-     0.55
+     0.08,
+     0.03,
+     0.5
     ],
     "tags": [
      "creativetrio",
@@ -58612,9 +58577,9 @@
     "slug": "zombie-weapons",
     "model": "lead-pipe",
     "wdh": [
+     0.09,
      0.05,
-     0.03,
-     0.5
+     0.45
     ],
     "tags": [
      "creativetrio",
@@ -58628,8 +58593,8 @@
     "slug": "zombie-weapons",
     "model": "police-baton",
     "wdh": [
-     0.06,
-     0.01,
+     0.08,
+     0.02,
      0.2
     ],
     "tags": [
@@ -58723,9 +58688,9 @@
     "slug": "lpa-tools",
     "model": "wooden-spear",
     "wdh": [
-     0.06,
-     0.04,
-     0.9
+     0.1,
+     0.08,
+     0.8
     ],
     "tags": [
      "lpa",
@@ -58741,9 +58706,9 @@
     "slug": "lpa-weapons",
     "model": "bardiche",
     "wdh": [
-     0.03,
-     0.09,
-     0.8
+     0.05,
+     0.1,
+     0.7
     ],
     "tags": [
      "lpa",
@@ -58759,9 +58724,9 @@
     "slug": "lpa-weapons",
     "model": "halberd",
     "wdh": [
-     0.03,
-     0.2,
-     0.9
+     0.05,
+     0.3,
+     0.8
     ],
     "tags": [
      "lpa",
@@ -58777,9 +58742,9 @@
     "slug": "lpa-weapons",
     "model": "lance",
     "wdh": [
-     0.1,
-     0.1,
-     0.9
+     0.15,
+     0.15,
+     0.85
     ],
     "tags": [
      "leather",
@@ -58795,9 +58760,9 @@
     "slug": "lpa-weapons",
     "model": "polearm",
     "wdh": [
-     0.02,
      0.04,
-     0.95
+     0.08,
+     0.85
     ],
     "tags": [
      "lpa",
@@ -58813,9 +58778,9 @@
     "slug": "lpa-weapons",
     "model": "spear",
     "wdh": [
-     0.02,
-     0.06,
-     0.9
+     0.04,
+     0.09,
+     0.7
     ],
     "tags": [
      "lpa",
@@ -59189,8 +59154,8 @@
     "slug": "styloo-weapons",
     "model": "battleaxe",
     "wdh": [
-     0.2,
-     0.02,
+     0.3,
+     0.03,
      0.4
     ],
     "tags": [
@@ -59210,8 +59175,8 @@
     "model": "axe-1",
     "wdh": [
      0.25,
-     0.04,
-     0.65
+     0.09,
+     0.55
     ],
     "tags": [
      "metal-iron-steel",
@@ -59240,309 +59205,6 @@
      "#5b5550",
      "#82868e",
      "#8b5936"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-equipment-apparel-headgear",
-  "name": "Object › Equipment › Apparel › Headgear",
-  "category": "obj-equip",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.45,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "aq-hallow",
-    "model": "hat-pirate",
-    "wdh": [
-     0.35,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "aq",
-     "halloween",
-     "leather",
-     "pirate"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "aq-hallow",
-    "model": "hat-top",
-    "wdh": [
-     0.3,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "aq",
-     "halloween",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "aq-hallow",
-    "model": "hat-wizard",
-    "wdh": [
-     0.45,
-     0.45,
-     0.4
-    ],
-    "tags": [
-     "aq",
-     "halloween",
-     "textile"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "mining-helmet",
-    "wdh": [
-     0.35,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "leather",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#563b2b",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "collection": "kay-undead",
-    "model": "hood-masked",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "collection": "kay-undead",
-    "model": "hood",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "collection": "kay-undead",
-    "model": "mage-cowl",
-    "wdh": [
-     0.35,
-     0.35,
-     0.2
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "helmet",
-    "wdh": [
-     0.3,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "plastic"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "hat-a",
-    "wdh": [
-     0.2,
-     0.2,
-     0.09
-    ],
-    "tags": [
-     "leather",
-     "lpa"
-    ],
-    "colors": [
-     "#563b2b",
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "hat-b",
-    "wdh": [
-     0.25,
-     0.25,
-     0.06
-    ],
-    "tags": [
-     "lpa",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "hat-c",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "lpa",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "crown-2",
-    "wdh": [
-     0.25,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "gemstone",
-     "metal-gold",
-     "qua",
-     "textile"
-    ],
-    "colors": [
-     "#7f3927",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "crown",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "hero",
-     "metal-gold",
-     "qua"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "diving-helmet",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "glass",
-     "metal-copper",
-     "metal-gold"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "graduation-cap",
-    "wdh": [
-     0.3,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "special",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "western",
-    "model": "cowboy-hat",
-    "wdh": [
-     0.2,
-     0.25,
-     0.07
-    ],
-    "tags": [
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#7f3927"
     ]
    }
   ]
@@ -60098,9 +59760,9 @@
     "slug": "lpa-weapons",
     "model": "longbow",
     "wdh": [
-     0.02,
+     0.03,
      0.1,
-     0.85
+     0.7
     ],
     "tags": [
      "lpa",
@@ -60116,9 +59778,9 @@
     "slug": "lpa-weapons",
     "model": "recurve-bow",
     "wdh": [
-     0.01,
-     0.1,
-     0.6
+     0.03,
+     0.15,
+     0.5
     ],
     "tags": [
      "lpa",
@@ -60179,9 +59841,9 @@
     "collection": "rgp",
     "model": "bow",
     "wdh": [
-     0.1,
-     0.03,
-     0.65
+     0.15,
+     0.04,
+     0.6
     ],
     "tags": [
      "metal-iron-steel",
@@ -60201,9 +59863,9 @@
     "slug": "zombie-weapons",
     "model": "bow",
     "wdh": [
-     0.15,
-     0.02,
-     0.7
+     0.2,
+     0.03,
+     0.65
     ],
     "tags": [
      "creativetrio",
@@ -60215,6 +59877,326 @@
      "#82868e",
      "#8b7561",
      "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-equipment-apparel-headgear",
+  "name": "Object › Equipment › Apparel › Headgear",
+  "category": "obj-equip",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.45,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "aq-hallow",
+    "model": "hat-pirate",
+    "wdh": [
+     0.35,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "aq",
+     "halloween",
+     "leather",
+     "pirate"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "aq-hallow",
+    "model": "hat-top",
+    "wdh": [
+     0.3,
+     0.3,
+     0.2
+    ],
+    "tags": [
+     "aq",
+     "halloween",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "aq-hallow",
+    "model": "hat-wizard",
+    "wdh": [
+     0.45,
+     0.45,
+     0.4
+    ],
+    "tags": [
+     "aq",
+     "halloween",
+     "textile"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "mining-helmet",
+    "wdh": [
+     0.35,
+     0.4,
+     0.25
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "leather",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#563b2b",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "collection": "kay-undead",
+    "model": "hood-masked",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "collection": "kay-undead",
+    "model": "hood",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "collection": "kay-undead",
+    "model": "mage-cowl",
+    "wdh": [
+     0.35,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "ear-defenders",
+    "wdh": [
+     0.1,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "lpa",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "helmet",
+    "wdh": [
+     0.3,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "plastic"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "hat-a",
+    "wdh": [
+     0.2,
+     0.2,
+     0.09
+    ],
+    "tags": [
+     "leather",
+     "lpa"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "hat-b",
+    "wdh": [
+     0.25,
+     0.25,
+     0.06
+    ],
+    "tags": [
+     "lpa",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "hat-c",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "lpa",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "crown-2",
+    "wdh": [
+     0.25,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "gemstone",
+     "metal-gold",
+     "qua",
+     "textile"
+    ],
+    "colors": [
+     "#7f3927",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "crown",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "hero",
+     "metal-gold",
+     "qua"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "diving-helmet",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "glass",
+     "metal-copper",
+     "metal-gold"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d07b56",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "graduation-cap",
+    "wdh": [
+     0.3,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "special",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "western",
+    "model": "cowboy-hat",
+    "wdh": [
+     0.2,
+     0.25,
+     0.07
+    ],
+    "tags": [
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#7f3927"
     ]
    }
   ]
@@ -60449,8 +60431,8 @@
     "slug": "lpa-weapons",
     "model": "arrow",
     "wdh": [
-     0.02,
-     0.02,
+     0.03,
+     0.03,
      0.25
     ],
     "tags": [
@@ -60529,9 +60511,9 @@
     "collection": "rgp",
     "model": "arrow-a",
     "wdh": [
-     0.03,
      0.04,
-     0.4
+     0.05,
+     0.35
     ],
     "tags": [
      "metal-iron-steel",
@@ -60550,9 +60532,9 @@
     "collection": "rgp",
     "model": "arrow-b",
     "wdh": [
-     0.04,
-     0.04,
-     0.4
+     0.05,
+     0.05,
+     0.35
     ],
     "tags": [
      "metal-iron-steel",
@@ -60881,7 +60863,7 @@
     "model": "assault-rifle-short",
     "wdh": [
      0.4,
-     0.02,
+     0.03,
      0.15
     ],
     "tags": [
@@ -60936,9 +60918,9 @@
     "slug": "zombie-weapons",
     "model": "lever-rifle",
     "wdh": [
-     0.02,
-     0.6,
-     0.1
+     0.04,
+     0.5,
+     0.15
     ],
     "tags": [
      "creativetrio",
@@ -61554,9 +61536,9 @@
     "slug": "lpa-weapons",
     "model": "two-handed-axe",
     "wdh": [
-     0.06,
+     0.07,
      0.2,
-     0.6
+     0.55
     ],
     "tags": [
      "lpa",
@@ -61670,9 +61652,9 @@
     "collection": "rgp",
     "model": "axe",
     "wdh": [
-     0.15,
-     0.04,
-     0.4
+     0.2,
+     0.07,
+     0.35
     ],
     "tags": [
      "metal-iron-steel",
@@ -61772,8 +61754,8 @@
     "slug": "zombie-weapons",
     "model": "axe",
     "wdh": [
-     0.09,
-     0.01,
+     0.1,
+     0.02,
      0.3
     ],
     "tags": [
@@ -61956,7 +61938,7 @@
     "model": "dagger",
     "wdh": [
      0.02,
-     0.1,
+     0.15,
      0.3
     ],
     "tags": [
@@ -64460,9 +64442,9 @@
     "collection": "fs-modular",
     "model": "cave-prop-pick-small",
     "wdh": [
-     0.15,
      0.25,
-     0.03
+     0.25,
+     0.04
     ],
     "tags": [
      "fs",
@@ -64948,8 +64930,8 @@
     "model": "crowbar",
     "wdh": [
      0.08,
-     0.02,
-     0.4
+     0.05,
+     0.35
     ],
     "tags": [
      "creativetrio",
@@ -64973,28 +64955,6 @@
    "tpu.max": 10000
   },
   "items": [
-   {
-    "slug": "household",
-    "model": "pencil-cup",
-    "wdh": [
-     0.08,
-     0.07,
-     0.15
-    ],
-    "tags": [
-     "ceramic",
-     "creativetrio",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#7f3927",
-     "#82868e",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
    {
     "slug": "household",
     "model": "stapler",
@@ -65833,9 +65793,9 @@
     "slug": "lpa-weapons",
     "model": "claymore",
     "wdh": [
-     0.01,
-     0.2,
-     0.75
+     0.02,
+     0.25,
+     0.7
     ],
     "tags": [
      "leather",
@@ -65851,9 +65811,9 @@
     "slug": "lpa-weapons",
     "model": "greatsword",
     "wdh": [
-     0.02,
+     0.04,
      0.15,
-     0.65
+     0.55
     ],
     "tags": [
      "leather",
@@ -65869,9 +65829,9 @@
     "slug": "lpa-weapons",
     "model": "sword",
     "wdh": [
-     0.01,
-     0.1,
-     0.6
+     0.03,
+     0.15,
+     0.45
     ],
     "tags": [
      "leather",
@@ -65887,9 +65847,9 @@
     "slug": "lpa-weapons",
     "model": "two-handed-sword",
     "wdh": [
-     0.03,
+     0.05,
      0.15,
-     0.7
+     0.6
     ],
     "tags": [
      "leather",
@@ -65941,9 +65901,9 @@
     "slug": "quat-rpg",
     "model": "sword-big",
     "wdh": [
-     0.1,
+     0.15,
      0.03,
-     0.7
+     0.65
     ],
     "tags": [
      "hero",
@@ -66004,9 +65964,9 @@
     "collection": "rgp",
     "model": "sword-a",
     "wdh": [
-     0.03,
-     0.1,
-     0.55
+     0.05,
+     0.15,
+     0.5
     ],
     "tags": [
      "metal-iron-steel",
@@ -66025,9 +65985,9 @@
     "collection": "rgp",
     "model": "sword-b",
     "wdh": [
-     0.03,
-     0.1,
-     0.55
+     0.05,
+     0.15,
+     0.5
     ],
     "tags": [
      "metal-iron-steel",
@@ -66104,8 +66064,8 @@
     "slug": "styloo-weapons",
     "model": "longsword",
     "wdh": [
-     0.25,
-     0.04,
+     0.35,
+     0.06,
      0.75
     ],
     "tags": [
@@ -66145,9 +66105,9 @@
     "slug": "styloo-weapons",
     "model": "sword",
     "wdh": [
-     0.1,
-     0.03,
-     0.7
+     0.15,
+     0.04,
+     0.65
     ],
     "tags": [
      "metal-iron-steel",
@@ -66204,9 +66164,9 @@
     "slug": "zombie-weapons",
     "model": "katana",
     "wdh": [
-     0.05,
-     0.05,
-     0.5
+     0.07,
+     0.07,
+     0.45
     ],
     "tags": [
      "creativetrio",
@@ -66684,7 +66644,7 @@
     "slug": "lpa-weapons",
     "model": "shield-d",
     "wdh": [
-     0.07,
+     0.09,
      0.3,
      0.4
     ],
@@ -66704,9 +66664,9 @@
     "slug": "lpa-weapons",
     "model": "shield-f",
     "wdh": [
-     0.07,
+     0.09,
      0.3,
-     0.6
+     0.5
     ],
     "tags": [
      "leather",
@@ -66780,7 +66740,7 @@
     "model": "shield-round",
     "wdh": [
      0.4,
-     0.05,
+     0.1,
      0.4
     ],
     "tags": [
@@ -66942,7 +66902,7 @@
     "model": "shield-bin-lid",
     "wdh": [
      0.3,
-     0.05,
+     0.1,
      0.3
     ],
     "tags": [
@@ -66958,7 +66918,7 @@
     "model": "stop-sign-shield",
     "wdh": [
      0.3,
-     0.03,
+     0.06,
      0.3
     ],
     "tags": [
@@ -68416,7 +68376,7 @@
     "wdh": [
      0.9,
      0.5,
-     1.6
+     1.65
     ],
     "tags": [
      "creativetrio",
@@ -70730,7 +70690,7 @@
     "slug": "lpa-west",
     "model": "hitching-post",
     "wdh": [
-     0.08,
+     0.1,
      0.65,
      0.4
     ],
@@ -71315,7 +71275,7 @@
     "model": "marquee-star",
     "wdh": [
      0.45,
-     0.03,
+     0.07,
      0.5
     ],
     "tags": [
@@ -76793,7 +76753,7 @@
     "slug": "lpa-construction",
     "model": "barrier-c",
     "wdh": [
-     0.25,
+     0.3,
      0.5,
      0.5
     ],
@@ -76816,7 +76776,7 @@
     "wdh": [
      0.1,
      0.6,
-     0.7
+     0.75
     ],
     "tags": [
      "lpa",
@@ -76870,7 +76830,7 @@
     "wdh": [
      0.6,
      0.3,
-     0.3
+     0.35
     ],
     "tags": [
      "metal",
@@ -94159,7 +94119,7 @@
     "model": "palisade-a",
     "wdh": [
      1.35,
-     0.2,
+     0.35,
      1.3
     ],
     "tags": [
@@ -94182,7 +94142,7 @@
     "model": "palisade-b",
     "wdh": [
      1.35,
-     0.2,
+     0.35,
      1.3
     ],
     "tags": [
@@ -100173,7 +100133,7 @@
     "wdh": [
      1.6,
      1.45,
-     0.04
+     0.08
     ],
     "tags": [
      "polygonalmind",
@@ -112284,9 +112244,9 @@
     "slug": "quat-nature",
     "model": "tree-pine-3",
     "wdh": [
-     0.85,
+     0.9,
      0.8,
-     1.3
+     1.35
     ],
     "tags": [
      "foliage",
@@ -116346,7 +116306,7 @@
     "collection": "quat-sea",
     "model": "fish-2",
     "wdh": [
-     0.05,
+     0.07,
      0.25,
      0.15
     ],

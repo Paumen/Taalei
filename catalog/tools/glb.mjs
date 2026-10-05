@@ -580,7 +580,6 @@ export function measureTubes(glb) {
 }
 
 export const STICK_RATIO = 6;
-export const STICK_SQUARE = 0.4;
 
 function narrowestTurn(points, center, u, w) {
   const uw = points.map((p) => {
@@ -615,7 +614,7 @@ export function measureSticks(glb) {
       return hi - lo;
     };
     const length = extent(axis), narrow = extent(u), wide = extent(w);
-    if (!(wide > 0) || length < STICK_RATIO * wide || narrow < STICK_SQUARE * wide) continue;
+    if (!(wide > 0) || length < STICK_RATIO * wide) continue;
     sticks.push({ prim: part.prim, shells: part.shells, vertices: part.vertices, width: narrow, wide, length, linear: part.linear, frame: { center, axis, u, w } });
   }
   return sticks;
@@ -624,4 +623,133 @@ export function measureSticks(glb) {
 export function thinnestPart(glb) {
   const widths = [...measureTubes(glb).map((t) => t.diameter), ...measureSticks(glb).map((s) => s.width)];
   return widths.length ? Math.min(...widths) : null;
+}
+
+const THICK_CELLS = 60;
+const THICK_PAD = 4;
+const THICK_SEAL = 2;
+const THICK_VIEWS = [
+  ...[-1, 0, 1].flatMap((x) => [0, 1].flatMap((y) => [-1, 0, 1].map((z) => [x, y, z]))).filter((d) => d.some(Boolean)),
+  ...[[2, 1], [1, 2]].flatMap(([p, q]) => [-1, 1].flatMap((sx) => [-1, 1].map((sz) => [p * sx, 1, q * sz]))),
+];
+
+function squaredDistance1d(f, n, d, v, z) {
+  let k = 0;
+  v[0] = 0;
+  z[0] = -Infinity;
+  z[1] = Infinity;
+  const meet = (q, p) => (f[q] + q * q - f[p] - p * p) / (2 * q - 2 * p);
+  for (let q = 1; q < n; q++) {
+    let s = meet(q, v[k]);
+    while (s <= z[k]) s = meet(q, v[--k]);
+    k++;
+    v[k] = q;
+    z[k] = s;
+    z[k + 1] = Infinity;
+  }
+  k = 0;
+  for (let q = 0; q < n; q++) {
+    while (z[k + 1] < q) k++;
+    d[q] = (q - v[k]) ** 2 + f[v[k]];
+  }
+}
+
+function squaredDistance(mask, [X, Y, Z]) {
+  const f = new Float64Array(mask.length);
+  for (let i = 0; i < mask.length; i++) f[i] = mask[i] ? 0 : 1e12;
+  const n = Math.max(X, Y, Z);
+  const line = new Float64Array(n), out = new Float64Array(n), v = new Int32Array(n), z = new Float64Array(n + 1);
+  const pass = (length, step, starts) => {
+    for (const start of starts) {
+      for (let k = 0; k < length; k++) line[k] = f[start + k * step];
+      squaredDistance1d(line, length, out, v, z);
+      for (let k = 0; k < length; k++) f[start + k * step] = out[k];
+    }
+  };
+  const starts = (a, b, at) => Array.from({ length: a * b }, (_, i) => at(i % a, Math.floor(i / a)));
+  pass(X, 1, starts(Y, Z, (y, zz) => (zz * Y + y) * X));
+  pass(Y, X, starts(X, Z, (x, zz) => zz * Y * X + x));
+  pass(Z, X * Y, starts(X, Y, (x, y) => y * X + x));
+  return f;
+}
+
+export function thickness(glb) {
+  const { json } = glb;
+  const world = worldMatrices(json);
+  const triangles = [];
+  json.nodes?.forEach((node, n) => {
+    if (node.mesh === undefined || !world[n]) return;
+    for (const prim of json.meshes[node.mesh].primitives ?? []) {
+      if ((prim.mode ?? 4) !== 4 || prim.attributes.POSITION === undefined) continue;
+      const pos = readAccessor(glb, prim.attributes.POSITION).data;
+      const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : null;
+      const count = idx ? idx.length : pos.length / 3;
+      for (let t = 0; t + 2 < count; t += 3) {
+        triangles.push([0, 1, 2].map((k) => {
+          const i = idx ? idx[t + k] : t + k;
+          return multiplyPoint(world[n], pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]);
+        }));
+      }
+    }
+  });
+  if (!triangles.length) return null;
+
+  const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+  for (const tri of triangles) for (const p of tri) for (let k = 0; k < 3; k++) {
+    lo[k] = Math.min(lo[k], p[k]);
+    hi[k] = Math.max(hi[k], p[k]);
+  }
+  const extent = hi.map((h, k) => h - lo[k]);
+  const middle = [...extent].sort((a, b) => a - b)[1];
+  const cell = Math.max(...extent) / THICK_CELLS;
+  if (!(cell > 0) || !(middle > 0)) return null;
+  const dims = extent.map((e) => Math.ceil(e / cell) + 2 * THICK_PAD + 1);
+  const [X, Y, Z] = dims;
+  const at = (x, y, z) => (z * Y + y) * X + x;
+
+  const surface = new Uint8Array(X * Y * Z);
+  for (const [a, b, c] of triangles) {
+    const u = [0, 1, 2].map((k) => b[k] - a[k]), w = [0, 1, 2].map((k) => c[k] - a[k]);
+    const steps = Math.ceil(Math.max(Math.hypot(...u), Math.hypot(...w), Math.hypot(c[0] - b[0], c[1] - b[1], c[2] - b[2])) / (cell * 0.4)) + 1;
+    const ox = (a[0] - lo[0]) / cell + THICK_PAD, oy = (a[1] - lo[1]) / cell + THICK_PAD, oz = (a[2] - lo[2]) / cell + THICK_PAD;
+    const ux = u[0] / steps / cell, uy = u[1] / steps / cell, uz = u[2] / steps / cell;
+    const wx = w[0] / steps / cell, wy = w[1] / steps / cell, wz = w[2] / steps / cell;
+    for (let i = 0; i <= steps; i++) {
+      for (let j = 0; j <= steps - i; j++) {
+        surface[at(Math.floor(ox + ux * i + wx * j), Math.floor(oy + uy * i + wy * j), Math.floor(oz + uz * i + wz * j))] = 1;
+      }
+    }
+  }
+
+  const near = squaredDistance(surface, dims);
+  const open = new Uint8Array(surface.length);
+  for (let i = 0; i < surface.length; i++) open[i] = near[i] > THICK_SEAL * THICK_SEAL ? 1 : 0;
+  const seen = new Uint8Array(surface.length);
+  const lit = new Uint8Array(surface.length);
+  for (const [dx, dy, dz] of THICK_VIEWS) {
+    lit.fill(0);
+    const offset = dx + dy * X + dz * X * Y;
+    for (let zi = 0; zi < Z; zi++) {
+      const z = dz > 0 ? Z - 1 - zi : zi, zEdge = z + dz < 0 || z + dz >= Z;
+      for (let yi = 0; yi < Y; yi++) {
+        const y = dy > 0 ? Y - 1 - yi : yi, yzEdge = zEdge || y + dy < 0 || y + dy >= Y, row = at(0, y, z);
+        for (let xi = 0; xi < X; xi++) {
+          const x = dx > 0 ? X - 1 - xi : xi, i = row + x;
+          if (!open[i]) continue;
+          if (yzEdge || x + dx < 0 || x + dx >= X || lit[i + offset]) lit[i] = seen[i] = 1;
+        }
+      }
+    }
+  }
+  const reach = squaredDistance(seen, dims);
+  const outside = new Uint8Array(surface.length);
+  for (let i = 0; i < surface.length; i++) outside[i] = reach[i] <= THICK_SEAL * THICK_SEAL && !surface[i] ? 1 : 0;
+  const depth = squaredDistance(outside, dims);
+  let sum = 0, solid = 0;
+  for (let i = 0; i < surface.length; i++) {
+    if (outside[i]) continue;
+    sum += Math.sqrt(depth[i]);
+    solid++;
+  }
+  return solid ? (2 * (sum / solid) * cell) / middle : null;
 }

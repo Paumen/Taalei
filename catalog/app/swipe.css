@@ -191,6 +191,21 @@ body:not([data-zes]) .zes-alleen { display: none !important; }
   overflow: visible;
 }
 
+.opzet-filters .tagbak,
+.opzet-filters .tagbak .tagbak {
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  gap: 3px;
+  min-width: 0;
+  margin: 2px 0 0;
+  padding: 3px 4px;
+  border-radius: 10px;
+}
+
+.opzet-filters .tagbak[hidden] { display: none; }
+.opzet-filters .tagknop-ouder { border-right-color: var(--accent); }
+
 .opzet-rij {
   display: grid;
   grid-template-columns: 44px 1fr auto;
