@@ -1634,6 +1634,142 @@
   ]
  },
  {
+  "slug": "obj-resource",
+  "name": "Object › Resource",
+  "category": "obj-gen",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "lpa-construction",
+    "model": "spool-a",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "spool-b",
+    "wdh": [
+     0.65,
+     0.65,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "rubber",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "hide-roll",
+    "wdh": [
+     0.09,
+     0.09,
+     0.45
+    ],
+    "tags": [
+     "leather",
+     "rgp"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-resource-textile",
+  "name": "Object › Resource › Textile",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.35,
+   "longest.max": 0.85,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "textiles-a",
+    "wdh": [
+     0.25,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "textiles-c",
+    "wdh": [
+     0.2,
+     0.45,
+     0.15
+    ],
+    "tags": [
+     "kay",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#23562c",
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "cloth-roll",
+    "wdh": [
+     0.09,
+     0.1,
+     0.45
+    ],
+    "tags": [
+     "rgp",
+     "textile"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-resource-wood-log-scale-big",
   "name": "Object › Resource › Wood › Log · scale-big",
   "category": "obj-gen",
@@ -3415,96 +3551,6 @@
   ]
  },
  {
-  "slug": "obj-resource",
-  "name": "Object › Resource",
-  "category": "obj-gen",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "lpa-construction",
-    "model": "spool-a",
-    "wdh": [
-     0.65,
-     0.65,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "spool-b",
-    "wdh": [
-     0.65,
-     0.65,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "rubber",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "hide-roll",
-    "wdh": [
-     0.09,
-     0.09,
-     0.45
-    ],
-    "tags": [
-     "leather",
-     "rgp"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "skin-hang-a",
-    "wdh": [
-     0.6,
-     1.05,
-     0.95
-    ],
-    "tags": [
-     "leather",
-     "rgp",
-     "rope",
-     "wood-log"
-    ],
-    "colors": [
-     "#563b2b",
-     "#8b5936",
-     "#907a66",
-     "#b58158"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-resource-metal",
   "name": "Object › Resource › Metal",
   "category": "obj-gen",
@@ -3580,92 +3626,6 @@
     ],
     "colors": [
      "#f2a93c"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-resource-textile",
-  "name": "Object › Resource › Textile",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.35,
-   "longest.max": 0.85,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "pallet-wood-covered-a",
-    "wdh": [
-     0.5,
-     0.5,
-     0.09
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "wood-planks"
-    ],
-    "colors": [
-     "#563b2b",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "textiles-a",
-    "wdh": [
-     0.25,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "textiles-c",
-    "wdh": [
-     0.2,
-     0.45,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#23562c",
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "cloth-roll",
-    "wdh": [
-     0.09,
-     0.1,
-     0.45
-    ],
-    "tags": [
-     "rgp",
-     "textile"
-    ],
-    "colors": [
-     "#8b7561"
     ]
    }
   ]
@@ -11774,6 +11734,191 @@
   ]
  },
  {
+  "slug": "obj-device-electronics-audio",
+  "name": "Object › Device › Electronics › Audio",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "headphones",
+    "wdh": [
+     0.1,
+     0.03,
+     0.09
+    ],
+    "tags": [
+     "creativetrio",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "ipoly-concert",
+    "collection": "ipoly",
+    "model": "speaker-large",
+    "wdh": [
+     0.65,
+     0.45,
+     0.85
+    ],
+    "tags": [
+     "ipoly",
+     "metal-iron-cast",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "ipoly-concert",
+    "collection": "ipoly",
+    "model": "speaker-small",
+    "wdh": [
+     0.3,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "ipoly",
+     "metal-iron-cast",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "speaker-small",
+    "wdh": [
+     0.15,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "rubber",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "speaker",
+    "wdh": [
+     0.15,
+     0.15,
+     0.55
+    ],
+    "tags": [
+     "ken",
+     "rubber",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "speaker",
+    "wdh": [
+     0.07,
+     0.07,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "metal",
+     "plastic",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#b58158"
+    ]
+   },
+   {
+    "slug": "pm-store",
+    "model": "dj-booth",
+    "wdh": [
+     1.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "plastic",
+     "polygonalmind"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "dj-booth",
+    "wdh": [
+     0.7,
+     0.35,
+     0.55
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "plastic",
+     "sidequest",
+     "wood-beam"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#7f3927",
+     "#8b5936",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "speaker-stack",
+    "wdh": [
+     0.3,
+     0.3,
+     0.75
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "metal-iron-wrought",
+     "sidequest"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-device-electronics-vending",
   "name": "Object › Device › Electronics › Vending",
   "category": "obj-gen",
@@ -13721,208 +13866,6 @@
      "scale-small"
     ],
     "colors": [
-     "#5b5550"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-device-electronics-audio",
-  "name": "Object › Device › Electronics › Audio",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "household",
-    "model": "headphones",
-    "wdh": [
-     0.1,
-     0.03,
-     0.09
-    ],
-    "tags": [
-     "creativetrio",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "ipoly-concert",
-    "collection": "ipoly",
-    "model": "speaker-large",
-    "wdh": [
-     0.65,
-     0.45,
-     0.85
-    ],
-    "tags": [
-     "ipoly",
-     "metal-iron-cast",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "ipoly-concert",
-    "collection": "ipoly",
-    "model": "speaker-small",
-    "wdh": [
-     0.3,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "ipoly",
-     "metal-iron-cast",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "speaker-small",
-    "wdh": [
-     0.15,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "rubber",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "speaker",
-    "wdh": [
-     0.15,
-     0.15,
-     0.55
-    ],
-    "tags": [
-     "ken",
-     "rubber",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "ear-defenders",
-    "wdh": [
-     0.1,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "lpa",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "speaker",
-    "wdh": [
-     0.07,
-     0.07,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "metal",
-     "plastic",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#b58158"
-    ]
-   },
-   {
-    "slug": "pm-store",
-    "model": "dj-booth",
-    "wdh": [
-     1.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "plastic",
-     "polygonalmind"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "dj-booth",
-    "wdh": [
-     0.7,
-     0.35,
-     0.55
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "plastic",
-     "sidequest",
-     "wood-beam"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#7f3927",
-     "#8b5936",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "speaker-stack",
-    "wdh": [
-     0.3,
-     0.3,
-     0.75
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "metal-iron-wrought",
-     "sidequest"
-    ],
-    "colors": [
-     "#343745",
      "#5b5550"
     ]
    }
@@ -37805,6 +37748,186 @@
   ]
  },
  {
+  "slug": "obj-container",
+  "name": "Object › Container",
+  "category": "obj-container",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "piggy-bank",
+    "wdh": [
+     0.09,
+     0.15,
+     0.09
+    ],
+    "tags": [
+     "ceramic",
+     "creativetrio"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "safe",
+    "wdh": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "creativetrio",
+     "metal-iron-cast",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "safe-a",
+    "wdh": [
+     0.2,
+     0.1,
+     0.09
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "safe-b",
+    "wdh": [
+     0.15,
+     0.15,
+     0.2
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-steel",
+     "metal-iron-wrought"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "trough-a",
+    "wdh": [
+     0.2,
+     0.6,
+     0.15
+    ],
+    "tags": [
+     "liquid",
+     "lpa",
+     "wood-planks"
+    ],
+    "colors": [
+     "#1367a6",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "trough-b",
+    "wdh": [
+     0.2,
+     0.6,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "trough-hay",
+    "wdh": [
+     1.1,
+     0.3,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "vegetation",
+     "wood-planks"
+    ],
+    "colors": [
+     "#343745",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "trough-1-a",
+    "wdh": [
+     0.35,
+     1.65,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "rgp",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "trough-3-a",
+    "wdh": [
+     0.35,
+     1.65,
+     0.25
+    ],
+    "tags": [
+     "liquid",
+     "metal-iron-wrought",
+     "rgp",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#8b5936",
+     "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-container-can-wateringcan",
   "name": "Object › Container › Can › Wateringcan",
   "category": "obj-container",
@@ -37981,174 +38104,6 @@
     "colors": [
      "#82868e",
      "#d07b56"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-carton",
-  "name": "Object › Container › Carton",
-  "category": "obj-container",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.3,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "food-pack-2",
-    "model": "milk-carton-chocolate",
-    "wdh": [
-     0.1,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "paper"
-    ],
-    "colors": [
-     "#563b2b",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "milk-carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.3
-    ],
-    "tags": [
-     "paper"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "isa-bakery",
-    "collection": "isa-tt",
-    "model": "milk-carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "paper"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "carton-small",
-    "wdh": [
-     0.1,
-     0.1,
-     0.15
-    ],
-    "tags": [
-     "ken",
-     "paper"
-    ],
-    "colors": [
-     "#8b7561",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "carton",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "paper",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "sq-laundry",
-    "collection": "sq-props",
-    "model": "box-brand-b",
-    "wdh": [
-     0.15,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "paper",
-     "plastic",
-     "sidequest"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-food",
-    "model": "pizza-box",
-    "wdh": [
-     0.3,
-     0.3,
-     0.04
-    ],
-    "tags": [
-     "paper",
-     "styloo"
-    ],
-    "colors": [
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "egg-carton",
-    "wdh": [
-     0.15,
-     0.15,
-     0.1
-    ],
-    "tags": [
-     "paper",
-     "styloo"
-    ],
-    "colors": [
-     "#d8d1bd",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-kitchen",
-    "model": "milk-carton",
-    "wdh": [
-     0.05,
-     0.05,
-     0.15
-    ],
-    "tags": [
-     "paper",
-     "styloo"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d8d1bd"
     ]
    }
   ]
@@ -38707,48 +38662,99 @@
   ]
  },
  {
-  "slug": "obj-container",
-  "name": "Object › Container",
+  "slug": "obj-container-carton",
+  "name": "Object › Container › Carton",
   "category": "obj-container",
+  "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
    "tpu.max": 10000
   },
   "items": [
    {
-    "slug": "household",
-    "model": "piggy-bank",
+    "slug": "food-pack-2",
+    "model": "milk-carton-chocolate",
     "wdh": [
-     0.09,
-     0.15,
-     0.09
+     0.1,
+     0.1,
+     0.3
     ],
     "tags": [
-     "ceramic",
-     "creativetrio"
+     "paper"
     ],
     "colors": [
-     "#d07b56"
+     "#563b2b",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "household",
-    "model": "safe",
+    "slug": "food-pack-2",
+    "model": "milk-carton",
     "wdh": [
-     0.2,
-     0.2,
-     0.2
+     0.1,
+     0.1,
+     0.3
     ],
     "tags": [
-     "creativetrio",
-     "metal-iron-cast",
-     "metal-iron-wrought"
+     "paper"
     ],
     "colors": [
-     "#343745",
-     "#5b5550"
+     "#1367a6",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "isa-bakery",
+    "collection": "isa-tt",
+    "model": "milk-carton",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "isa",
+     "paper"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "carton-small",
+    "wdh": [
+     0.1,
+     0.1,
+     0.15
+    ],
+    "tags": [
+     "ken",
+     "paper"
+    ],
+    "colors": [
+     "#8b7561",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "carton",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "paper",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d8d1bd"
     ]
    },
    {
@@ -38768,151 +38774,72 @@
     ]
    },
    {
-    "slug": "lpa-home",
-    "model": "safe-a",
-    "wdh": [
-     0.2,
-     0.1,
-     0.09
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "safe-b",
+    "slug": "sq-laundry",
+    "collection": "sq-props",
+    "model": "box-brand-b",
     "wdh": [
      0.15,
-     0.15,
-     0.2
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-steel",
-     "metal-iron-wrought"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "trough-a",
-    "wdh": [
-     0.2,
-     0.6,
+     0.05,
      0.15
     ],
     "tags": [
-     "liquid",
-     "lpa",
-     "wood-planks"
+     "paper",
+     "plastic",
+     "sidequest"
     ],
     "colors": [
-     "#1367a6",
-     "#dbae80"
+     "#5b5550",
+     "#7f3927",
+     "#d8d1bd"
     ]
    },
    {
-    "slug": "lpa-west",
-    "model": "trough-b",
+    "slug": "styloo-food",
+    "model": "pizza-box",
     "wdh": [
-     0.2,
-     0.6,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "trough-hay",
-    "wdh": [
-     1.1,
      0.3,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "vegetation",
-     "wood-planks"
-    ],
-    "colors": [
-     "#343745",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "trough-1-a",
-    "wdh": [
-     0.35,
-     1.65,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "rgp",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "trough-3-a",
-    "wdh": [
-     0.35,
-     1.65,
-     0.25
-    ],
-    "tags": [
-     "liquid",
-     "metal-iron-wrought",
-     "rgp",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#8b5936",
-     "#dbae80"
-    ]
-   },
-   {
-    "slug": "styloo-school",
-    "model": "beaker",
-    "wdh": [
-     0.04,
-     0.04,
+     0.3,
      0.04
     ],
     "tags": [
-     "glass",
+     "paper",
      "styloo"
     ],
     "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "egg-carton",
+    "wdh": [
+     0.15,
+     0.15,
+     0.1
+    ],
+    "tags": [
+     "paper",
+     "styloo"
+    ],
+    "colors": [
+     "#d8d1bd",
+     "#dbae80"
+    ]
+   },
+   {
+    "slug": "styloo-kitchen",
+    "model": "milk-carton",
+    "wdh": [
+     0.05,
+     0.05,
+     0.15
+    ],
+    "tags": [
+     "paper",
+     "styloo"
+    ],
+    "colors": [
+     "#1367a6",
      "#d8d1bd"
     ]
    }
@@ -42491,6 +42418,28 @@
     ]
    },
    {
+    "slug": "household",
+    "model": "pencil-cup",
+    "wdh": [
+     0.08,
+     0.07,
+     0.15
+    ],
+    "tags": [
+     "ceramic",
+     "creativetrio",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#7f3927",
+     "#82868e",
+     "#d07b56",
+     "#f2a93c"
+    ]
+   },
+   {
     "slug": "isa-bakery",
     "collection": "isa-tt",
     "model": "cookie-jar",
@@ -45203,6 +45152,22 @@
    },
    {
     "slug": "styloo-school",
+    "model": "beaker",
+    "wdh": [
+     0.04,
+     0.04,
+     0.04
+    ],
+    "tags": [
+     "glass",
+     "styloo"
+    ],
+    "colors": [
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "styloo-school",
     "model": "flask-conical",
     "wdh": [
      0.04,
@@ -46699,6 +46664,382 @@
   ]
  },
  {
+  "slug": "obj-transport-air-space",
+  "name": "Object › Transport › Air › Space",
+  "category": "obj-transport",
+  "limits": {
+   "high.max": 30,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-space",
+    "model": "lander-a",
+    "wdh": [
+     1.5,
+     1.55,
+     1.3
+    ],
+    "tags": [
+     "kay",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#7f3927",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-space",
+    "model": "lander-b",
+    "wdh": [
+     1.5,
+     1.55,
+     1.2
+    ],
+    "tags": [
+     "glass",
+     "kay",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#7f3927",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-cargo-a",
+    "wdh": [
+     2.1,
+     3.2,
+     1.05
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-cargo-b",
+    "wdh": [
+     1.95,
+     3.25,
+     1.15
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-miner",
+    "wdh": [
+     2.35,
+     3.4,
+     0.9
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-racer",
+    "wdh": [
+     1.55,
+     2.65,
+     1
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-speeder-a",
+    "wdh": [
+     2.6,
+     2.75,
+     1.05
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-speeder-b",
+    "wdh": [
+     2.6,
+     2.65,
+     0.8
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-speeder-c",
+    "wdh": [
+     3.65,
+     2.5,
+     0.8
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "craft-speeder-d",
+    "wdh": [
+     3.65,
+     2.9,
+     1.15
+    ],
+    "tags": [
+     "glass",
+     "ken",
+     "metal",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "rocket-a",
+    "wdh": [
+     2.35,
+     2.35,
+     5.2
+    ],
+    "tags": [
+     "hero",
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "ken-space",
+    "model": "rocket-b",
+    "wdh": [
+     2.35,
+     2.35,
+     6.25
+    ],
+    "tags": [
+     "hero",
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#1367a6",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "spaceship-a",
+    "wdh": [
+     2.2,
+     2.45,
+     0.5
+    ],
+    "tags": [
+     "metal",
+     "plastic",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "spaceship-b",
+    "wdh": [
+     2.45,
+     1.9,
+     0.55
+    ],
+    "tags": [
+     "metal",
+     "plastic",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#5b5550",
+     "#7f3927",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "spaceship-c",
+    "wdh": [
+     2.55,
+     0.9,
+     0.65
+    ],
+    "tags": [
+     "metal",
+     "plastic",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550",
+     "#82868e",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "spaceship-d",
+    "wdh": [
+     1.6,
+     1.1,
+     1.25
+    ],
+    "tags": [
+     "glass",
+     "metal",
+     "plastic",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#1367a6",
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "ufo",
+    "wdh": [
+     2.5,
+     2.5,
+     1.15
+    ],
+    "tags": [
+     "emissive",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#1367a6",
+     "#343745",
+     "#82868e",
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-transport-land-cart",
   "name": "Object › Transport › Land › Cart",
   "category": "obj-transport",
@@ -47043,467 +47384,6 @@
     "colors": [
      "#8b5936",
      "#b58158"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-transport-air-space",
-  "name": "Object › Transport › Air › Space",
-  "category": "obj-transport",
-  "limits": {
-   "high.max": 30,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-space",
-    "model": "lander-a",
-    "wdh": [
-     1.5,
-     1.55,
-     1.3
-    ],
-    "tags": [
-     "kay",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#7f3927",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-space",
-    "model": "lander-b",
-    "wdh": [
-     1.5,
-     1.55,
-     1.2
-    ],
-    "tags": [
-     "glass",
-     "kay",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#7f3927",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-cargo-a",
-    "wdh": [
-     2.1,
-     3.2,
-     1.05
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-cargo-b",
-    "wdh": [
-     1.95,
-     3.25,
-     1.15
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-miner",
-    "wdh": [
-     2.35,
-     3.4,
-     0.9
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-racer",
-    "wdh": [
-     1.55,
-     2.65,
-     1
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-speeder-a",
-    "wdh": [
-     2.6,
-     2.75,
-     1.05
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-speeder-b",
-    "wdh": [
-     2.6,
-     2.65,
-     0.8
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-speeder-c",
-    "wdh": [
-     3.65,
-     2.5,
-     0.8
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "craft-speeder-d",
-    "wdh": [
-     3.65,
-     2.9,
-     1.15
-    ],
-    "tags": [
-     "glass",
-     "ken",
-     "metal",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "rocket-a",
-    "wdh": [
-     2.35,
-     2.35,
-     5.2
-    ],
-    "tags": [
-     "hero",
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "rocket-b",
-    "wdh": [
-     2.35,
-     2.35,
-     6.25
-    ],
-    "tags": [
-     "hero",
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#1367a6",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "ken-space",
-    "model": "rover",
-    "wdh": [
-     0.4,
-     0.45,
-     0.5
-    ],
-    "tags": [
-     "ken",
-     "metal",
-     "plastic",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "rover-long",
-    "wdh": [
-     1,
-     1.45,
-     1.05
-    ],
-    "tags": [
-     "emissive",
-     "metal",
-     "qua",
-     "rubber",
-     "space"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "rover-round",
-    "wdh": [
-     1.25,
-     0.8,
-     1.15
-    ],
-    "tags": [
-     "metal",
-     "qua",
-     "rubber",
-     "space"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "rover",
-    "wdh": [
-     1,
-     1.15,
-     1.05
-    ],
-    "tags": [
-     "emissive",
-     "metal",
-     "qua",
-     "rubber",
-     "space"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "spaceship-a",
-    "wdh": [
-     2.2,
-     2.45,
-     0.5
-    ],
-    "tags": [
-     "metal",
-     "plastic",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "spaceship-b",
-    "wdh": [
-     2.45,
-     1.9,
-     0.55
-    ],
-    "tags": [
-     "metal",
-     "plastic",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#343745",
-     "#5b5550",
-     "#7f3927",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "spaceship-c",
-    "wdh": [
-     2.55,
-     0.9,
-     0.65
-    ],
-    "tags": [
-     "metal",
-     "plastic",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550",
-     "#82868e",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "spaceship-d",
-    "wdh": [
-     1.6,
-     1.1,
-     1.25
-    ],
-    "tags": [
-     "glass",
-     "metal",
-     "plastic",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#1367a6",
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "ufo",
-    "wdh": [
-     2.5,
-     2.5,
-     1.15
-    ],
-    "tags": [
-     "emissive",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#343745",
-     "#82868e",
-     "#f2a93c"
     ]
    }
   ]
@@ -48791,6 +48671,27 @@
     ]
    },
    {
+    "slug": "ken-space",
+    "model": "rover",
+    "wdh": [
+     0.4,
+     0.45,
+     0.5
+    ],
+    "tags": [
+     "ken",
+     "metal",
+     "plastic",
+     "space"
+    ],
+    "colors": [
+     "#343745",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
     "slug": "quat-cars",
     "model": "car",
     "wdh": [
@@ -48940,6 +48841,70 @@
      "#343745",
      "#7f3927",
      "#82868e",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "rover-long",
+    "wdh": [
+     1,
+     1.45,
+     1.05
+    ],
+    "tags": [
+     "emissive",
+     "metal",
+     "qua",
+     "rubber",
+     "space"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "rover-round",
+    "wdh": [
+     1.25,
+     0.8,
+     1.15
+    ],
+    "tags": [
+     "metal",
+     "qua",
+     "rubber",
+     "space"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "rover",
+    "wdh": [
+     1,
+     1.15,
+     1.05
+    ],
+    "tags": [
+     "emissive",
+     "metal",
+     "qua",
+     "rubber",
+     "space"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#d8d1bd",
      "#f2a93c"
     ]
    },
@@ -59245,309 +59210,6 @@
   ]
  },
  {
-  "slug": "obj-equipment-apparel-headgear",
-  "name": "Object › Equipment › Apparel › Headgear",
-  "category": "obj-equip",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.45,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "aq-hallow",
-    "model": "hat-pirate",
-    "wdh": [
-     0.35,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "aq",
-     "halloween",
-     "leather",
-     "pirate"
-    ],
-    "colors": [
-     "#563b2b"
-    ]
-   },
-   {
-    "slug": "aq-hallow",
-    "model": "hat-top",
-    "wdh": [
-     0.3,
-     0.3,
-     0.2
-    ],
-    "tags": [
-     "aq",
-     "halloween",
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "aq-hallow",
-    "model": "hat-wizard",
-    "wdh": [
-     0.45,
-     0.45,
-     0.4
-    ],
-    "tags": [
-     "aq",
-     "halloween",
-     "textile"
-    ],
-    "colors": [
-     "#343745",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "mining-helmet",
-    "wdh": [
-     0.35,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "ceramic",
-     "kay",
-     "leather",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#563b2b",
-     "#82868e",
-     "#d8d1bd",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "collection": "kay-undead",
-    "model": "hood-masked",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "collection": "kay-undead",
-    "model": "hood",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "kay-skeleton-1",
-    "collection": "kay-undead",
-    "model": "mage-cowl",
-    "wdh": [
-     0.35,
-     0.35,
-     0.2
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "textile"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "helmet",
-    "wdh": [
-     0.3,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "plastic"
-    ],
-    "colors": [
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "hat-a",
-    "wdh": [
-     0.2,
-     0.2,
-     0.09
-    ],
-    "tags": [
-     "leather",
-     "lpa"
-    ],
-    "colors": [
-     "#563b2b",
-     "#5b5550"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "hat-b",
-    "wdh": [
-     0.25,
-     0.25,
-     0.06
-    ],
-    "tags": [
-     "lpa",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "hat-c",
-    "wdh": [
-     0.2,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "lpa",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#7f3927"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "crown-2",
-    "wdh": [
-     0.25,
-     0.25,
-     0.15
-    ],
-    "tags": [
-     "gemstone",
-     "metal-gold",
-     "qua",
-     "textile"
-    ],
-    "colors": [
-     "#7f3927",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "crown",
-    "wdh": [
-     0.2,
-     0.2,
-     0.15
-    ],
-    "tags": [
-     "hero",
-     "metal-gold",
-     "qua"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "diving-helmet",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "glass",
-     "metal-copper",
-     "metal-gold"
-    ],
-    "colors": [
-     "#1367a6",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "graduation-cap",
-    "wdh": [
-     0.3,
-     0.3,
-     0.1
-    ],
-    "tags": [
-     "special",
-     "textile"
-    ],
-    "colors": [
-     "#5b5550",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "western",
-    "model": "cowboy-hat",
-    "wdh": [
-     0.2,
-     0.25,
-     0.07
-    ],
-    "tags": [
-     "leather",
-     "textile"
-    ],
-    "colors": [
-     "#563b2b",
-     "#7f3927"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-equipment-tool-hand-brush",
   "name": "Object › Equipment › Tool › Hand › Brush",
   "category": "obj-equip",
@@ -60215,6 +59877,326 @@
      "#82868e",
      "#8b7561",
      "#dbae80"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-equipment-apparel-headgear",
+  "name": "Object › Equipment › Apparel › Headgear",
+  "category": "obj-equip",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.45,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "aq-hallow",
+    "model": "hat-pirate",
+    "wdh": [
+     0.35,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "aq",
+     "halloween",
+     "leather",
+     "pirate"
+    ],
+    "colors": [
+     "#563b2b"
+    ]
+   },
+   {
+    "slug": "aq-hallow",
+    "model": "hat-top",
+    "wdh": [
+     0.3,
+     0.3,
+     0.2
+    ],
+    "tags": [
+     "aq",
+     "halloween",
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "aq-hallow",
+    "model": "hat-wizard",
+    "wdh": [
+     0.45,
+     0.45,
+     0.4
+    ],
+    "tags": [
+     "aq",
+     "halloween",
+     "textile"
+    ],
+    "colors": [
+     "#343745",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "kay-mixed",
+    "model": "mining-helmet",
+    "wdh": [
+     0.35,
+     0.4,
+     0.25
+    ],
+    "tags": [
+     "ceramic",
+     "kay",
+     "leather",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#563b2b",
+     "#82868e",
+     "#d8d1bd",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "collection": "kay-undead",
+    "model": "hood-masked",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "collection": "kay-undead",
+    "model": "hood",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "kay-skeleton-1",
+    "collection": "kay-undead",
+    "model": "mage-cowl",
+    "wdh": [
+     0.35,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "textile"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "ear-defenders",
+    "wdh": [
+     0.1,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "lpa",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "helmet",
+    "wdh": [
+     0.3,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "plastic"
+    ],
+    "colors": [
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "hat-a",
+    "wdh": [
+     0.2,
+     0.2,
+     0.09
+    ],
+    "tags": [
+     "leather",
+     "lpa"
+    ],
+    "colors": [
+     "#563b2b",
+     "#5b5550"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "hat-b",
+    "wdh": [
+     0.25,
+     0.25,
+     0.06
+    ],
+    "tags": [
+     "lpa",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "hat-c",
+    "wdh": [
+     0.2,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "lpa",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#7f3927"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "crown-2",
+    "wdh": [
+     0.25,
+     0.25,
+     0.15
+    ],
+    "tags": [
+     "gemstone",
+     "metal-gold",
+     "qua",
+     "textile"
+    ],
+    "colors": [
+     "#7f3927",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "crown",
+    "wdh": [
+     0.2,
+     0.2,
+     0.15
+    ],
+    "tags": [
+     "hero",
+     "metal-gold",
+     "qua"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "diving-helmet",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "glass",
+     "metal-copper",
+     "metal-gold"
+    ],
+    "colors": [
+     "#1367a6",
+     "#d07b56",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "graduation-cap",
+    "wdh": [
+     0.3,
+     0.3,
+     0.1
+    ],
+    "tags": [
+     "special",
+     "textile"
+    ],
+    "colors": [
+     "#5b5550",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "western",
+    "model": "cowboy-hat",
+    "wdh": [
+     0.2,
+     0.25,
+     0.07
+    ],
+    "tags": [
+     "leather",
+     "textile"
+    ],
+    "colors": [
+     "#563b2b",
+     "#7f3927"
     ]
    }
   ]
@@ -64973,28 +64955,6 @@
    "tpu.max": 10000
   },
   "items": [
-   {
-    "slug": "household",
-    "model": "pencil-cup",
-    "wdh": [
-     0.08,
-     0.07,
-     0.15
-    ],
-    "tags": [
-     "ceramic",
-     "creativetrio",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#1367a6",
-     "#7f3927",
-     "#82868e",
-     "#d07b56",
-     "#f2a93c"
-    ]
-   },
    {
     "slug": "household",
     "model": "stapler",
