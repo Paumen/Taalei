@@ -1,0 +1,57 @@
+{
+  "room": {
+    "floor": {
+      "parts": {
+        ".": "fs-house/floor",
+        "s": "fs-temple/puzzle-floor-conduit-standard-straight",
+        "S": { "m": "fs-temple/puzzle-floor-conduit-standard-straight", "rot": 90 },
+        "a": "fs-temple/puzzle-floor-conduit-standard-corner",
+        "b": { "m": "fs-temple/puzzle-floor-conduit-standard-corner", "rot": 180 },
+        "c": { "m": "fs-temple/puzzle-floor-conduit-standard-corner", "rot": 270 },
+        "x": "fs-temple/puzzle-floor-conduit-rotating-housing-cross",
+        "h": { "m": "fs-temple/puzzle-floor-conduit-control-housing-straight", "rot": 90 },
+        "e": { "m": "fs-temple/puzzle-track-standard-end", "rot": 180 },
+        "f": "fs-temple/puzzle-track-standard-end"
+      },
+      "rows": [
+        "...S..",
+        ".bsx..",
+        ".S..bs",
+        ".hefh.",
+        ".cssa.",
+        "......"
+      ]
+    },
+    "walls": {
+      "parts": {
+        "w": "fs-temple/wall-straight-middle",
+        "n": "fs-temple/wall-straight-window",
+        "d": "fs-temple/wall-straight-doorway",
+        "E": { "m": "fs-temple/puzzle-wall-conduit-emitter-end", "rot": 180 },
+        "C": { "m": "fs-temple/puzzle-wall-conduit-path-corner", "rot": 180, "roll": 90 },
+        "V": { "m": "fs-temple/puzzle-wall-conduit-path-straight", "rot": 180, "roll": 90 },
+        "I": { "m": "fs-temple/puzzle-wall-conduit-indicator-a", "rot": 180 }
+      },
+      "corner": ["fs-temple/pillar-wall-base", "fs-temple/pillar-wall-top"],
+      "north": ["wwwVww", "wwECww"],
+      "east": ["wICwww", "wwwwww"],
+      "south": ["wwwdww", "wnw nw"],
+      "west": ["wwwwww", "wnwwnw"]
+    }
+  },
+  "zones": {
+    "puzzle": [
+      { "m": "fs-temple/puzzle-floor-conduit-rotating-platform-corner", "at": [0.225, -0.675], "y": -0.099 },
+      { "m": "fs-temple/puzzle-control-lever", "at": [-0.675, 0.225], "y": -0.099 },
+      { "m": "fs-temple/puzzle-control-pressure-plate", "at": [0.675, 0.225], "y": -0.099 },
+      { "m": "fs-temple/puzzle-sliding-mirror", "at": [0.225, 0.225], "y": -0.099 }
+    ],
+    "decor": [
+      { "m": "fs-temple/vase-c", "at": [-1.215, 1.238] },
+      { "m": "fs-temple/vase-a", "at": [-1.238, 1.058] },
+      { "m": "fs-temple/vase-d", "at": [1.215, 1.215] },
+      { "m": "fs-temple/flag-sun", "at": [-0.675, -1.305], "y": 0.27, "wall": "north" },
+      { "m": "fs-temple/flag-moon", "at": [0.675, -1.305], "y": 0.27, "wall": "north" }
+    ]
+  }
+}

@@ -180,11 +180,37 @@ const yQuat = (deg) => {
   const r = (deg * Math.PI) / 360;
   return [0, Math.sin(r), 0, Math.cos(r)];
 };
+const zQuat = (deg) => {
+  const r = (deg * Math.PI) / 360;
+  return [0, 0, Math.sin(r), Math.cos(r)];
+};
 const round = (v) => Math.round(v * 1e5) / 1e5;
+const part = (p) => (typeof p === 'string' ? { m: p } : p);
 
-function place(id, { at = [0, 0], y = 0, rot = 0, scale = 1 }, name) {
+function rolled(model, roll) {
+  const { min, max } = model.bounds;
+  if (!(roll % 360)) return { min, max, offset: null };
+  const cy = (min[1] + max[1]) / 2;
+  const c = Math.cos((roll * Math.PI) / 180);
+  const s = Math.sin((roll * Math.PI) / 180);
+  const offset = [s * cy, cy - c * cy, 0];
+  const xs = [];
+  const ys = [];
+  for (const x of [min[0], max[0]]) for (const y of [min[1], max[1]]) {
+    xs.push(c * x - s * y + offset[0]);
+    ys.push(s * x + c * y + offset[1]);
+  }
+  return { min: [Math.min(...xs), Math.min(...ys), min[2]], max: [Math.max(...xs), Math.max(...ys), max[2]], offset };
+}
+
+function place(id, { at = [0, 0], y = 0, rot = 0, roll = 0, scale = 1 }, name) {
   const model = loadModel(id);
-  const children = model.roots.map((r) => cloneNode(model, r));
+  let children = model.roots.map((r) => cloneNode(model, r));
+  const { min, max, offset } = rolled(model, roll);
+  if (offset) {
+    out.nodes.push({ name: 'roll', children, translation: offset.map(round), rotation: zQuat(roll).map(round) });
+    children = [out.nodes.length - 1];
+  }
   const node = { name: name ?? path.basename(id), children, extras: { model: id } };
   if (at[0] || y || at[1]) node.translation = [round(at[0]), round(y), round(at[1])];
   if (rot % 360) node.rotation = yQuat(rot).map(round);
@@ -194,7 +220,6 @@ function place(id, { at = [0, 0], y = 0, rot = 0, scale = 1 }, name) {
 
   const c = Math.cos((rot * Math.PI) / 180);
   const s = Math.sin((rot * Math.PI) / 180);
-  const { min, max } = model.bounds;
   const xs = [];
   const zs = [];
   for (const x of [min[0], max[0]]) for (const z of [min[2], max[2]]) {
@@ -210,7 +235,7 @@ function place(id, { at = [0, 0], y = 0, rot = 0, scale = 1 }, name) {
 
 const room = layout.room;
 const { parts: floorParts, rows } = room.floor;
-const floorModels = Object.values(floorParts).map(loadModel);
+const floorModels = Object.values(floorParts).map((p) => loadModel(part(p).m));
 const tile = floorModels[0].bounds.max[0] - floorModels[0].bounds.min[0];
 for (const model of floorModels) {
   const { min, max } = model.bounds;
@@ -229,32 +254,38 @@ const floorTiles = [];
 rows.forEach((row, j) => [...row].forEach((key, i) => {
   if (!floorParts[key]) throw new Error(`floor: no part for "${key}"`);
   const at = [-sizeX / 2 + tile / 2 + i * tile, -sizeZ / 2 + tile / 2 + j * tile];
-  floorTiles.push(place(floorParts[key], { at }, `floor-${i}-${j}`).index);
+  const { m, rot } = part(floorParts[key]);
+  floorTiles.push(place(m, { at, rot }, `floor-${i}-${j}`).index);
 }));
 const roomChildren = [addGroup('floor', floorTiles)];
 
 const wall = room.walls;
-const wallModel = loadModel(wall.parts.w);
+const wallModel = loadModel(part(wall.parts.w).m);
 const wallScale = wall.scale ?? 1;
 const segment = (wallModel.bounds.max[0] - wallModel.bounds.min[0]) * wallScale;
 const front = wallModel.bounds.max[2] * wallScale;
 const depth = (wallModel.bounds.max[2] - wallModel.bounds.min[2]) * wallScale;
+const tierHeight = (wallModel.bounds.max[1] - wallModel.bounds.min[1]) * wallScale;
+const tiers = (v) => (Array.isArray(v) ? v : [v]);
 const wallGroups = {};
 for (const [side, { normal, rot }] of Object.entries(SIDES)) {
-  const pattern = wall[side];
-  if (!pattern) continue;
+  if (!wall[side]) continue;
   const length = normal[0] ? sizeZ : sizeX;
-  if (Math.abs(pattern.length * segment - length) > 0.01) {
-    throw new Error(`${side} wall: ${pattern.length} segments of ${segment.toFixed(3)} do not span ${length.toFixed(3)}`);
-  }
   const half = (normal[0] ? sizeX : sizeZ) / 2 + front;
   const tangent = [-normal[2], 0, normal[0]];
-  const parts = [...pattern].map((key, k) => {
-    const id = wall.parts[key];
-    if (!id) throw new Error(`${side} wall: no part for "${key}"`);
-    const along = -length / 2 + segment / 2 + k * segment;
-    const at = [normal[0] * half + tangent[0] * along, normal[2] * half + tangent[2] * along];
-    return place(id, { at, rot, scale: wallScale }, `${side}-${k}`).index;
+  const parts = [];
+  tiers(wall[side]).forEach((pattern, tier) => {
+    if (Math.abs(pattern.length * segment - length) > 0.01) {
+      throw new Error(`${side} wall: ${pattern.length} segments of ${segment.toFixed(3)} do not span ${length.toFixed(3)}`);
+    }
+    [...pattern].forEach((key, k) => {
+      if (key === ' ') return;
+      if (!wall.parts[key]) throw new Error(`${side} wall: no part for "${key}"`);
+      const { m, rot: turn = 0, roll } = part(wall.parts[key]);
+      const along = -length / 2 + segment / 2 + k * segment;
+      const at = [normal[0] * half + tangent[0] * along, normal[2] * half + tangent[2] * along];
+      parts.push(place(m, { at, y: tier * tierHeight, rot: rot + turn, roll, scale: wallScale }, tier ? `${side}-${k}-${tier}` : `${side}-${k}`).index);
+    });
   });
   roomChildren.push(addGroup('wall-' + side, parts, { normal, distance: half - front }));
   wallGroups[side] = roomChildren[roomChildren.length - 1];
@@ -264,8 +295,8 @@ if (wall.corner) {
     if (!wall[a] || !wall[b]) continue;
     const n = [SIDES[a].normal[0] + SIDES[b].normal[0], SIDES[a].normal[2] + SIDES[b].normal[2]];
     const at = [n[0] * (sizeX / 2 + depth / 2), n[1] * (sizeZ / 2 + depth / 2)];
-    const { index } = place(wall.corner, { at, scale: wallScale }, `${a}-${b}`);
-    roomChildren.push(addGroup(`corner-${a}-${b}`, [index], { walls: [a, b] }));
+    const pillar = tiers(wall.corner).map((id, tier) => place(id, { at, y: tier * tierHeight, scale: wallScale }, tier ? `${a}-${b}-${tier}` : `${a}-${b}`).index);
+    roomChildren.push(addGroup(`corner-${a}-${b}`, pillar, { walls: [a, b] }));
   }
 }
 
