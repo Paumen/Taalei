@@ -8222,6 +8222,7 @@ window.KENNEY_KITS = [
    "flag-moon",
    "flag-stars",
    "flag-sun",
+   "floor",
    "floor-bridge-ramp",
    "pillar-large-arch",
    "pillar-large-arch-top",

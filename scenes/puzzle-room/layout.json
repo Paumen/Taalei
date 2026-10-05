@@ -2,7 +2,7 @@
   "room": {
     "floor": {
       "parts": {
-        ".": "fs-house/floor",
+        ".": "fs-temple/floor",
         "s": "fs-temple/puzzle-floor-conduit-standard-straight",
         "S": { "m": "fs-temple/puzzle-floor-conduit-standard-straight", "rot": 90 },
         "a": "fs-temple/puzzle-floor-conduit-standard-corner",
@@ -11,10 +11,11 @@
         "x": "fs-temple/puzzle-floor-conduit-rotating-housing-cross",
         "h": { "m": "fs-temple/puzzle-floor-conduit-control-housing-straight", "rot": 90 },
         "e": { "m": "fs-temple/puzzle-track-standard-end", "rot": 180 },
-        "f": "fs-temple/puzzle-track-standard-end"
+        "f": "fs-temple/puzzle-track-standard-end",
+        "t": "fs-temple/puzzle-track-standard-straight"
       },
       "rows": [
-        "...S..",
+        "etfS..",
         ".bsx..",
         ".S..bs",
         ".hefh.",
@@ -30,13 +31,15 @@
         "E": { "m": "fs-temple/puzzle-wall-conduit-emitter-end", "rot": 180 },
         "C": { "m": "fs-temple/puzzle-wall-conduit-path-corner", "rot": 180, "roll": 90 },
         "V": { "m": "fs-temple/puzzle-wall-conduit-path-straight", "rot": 180, "roll": 90 },
-        "I": { "m": "fs-temple/puzzle-wall-conduit-indicator-a", "rot": 180 }
+        "I": { "m": "fs-temple/puzzle-wall-conduit-indicator-a", "rot": 180 },
+        "H": { "m": "fs-temple/puzzle-wall-conduit-path-straight", "rot": 180 },
+        "K": { "m": "fs-temple/puzzle-wall-conduit-keyhole-end", "rot": 180, "roll": 180 }
       },
       "corner": ["fs-temple/pillar-wall-base", "fs-temple/pillar-wall-top"],
       "north": ["wwwVww", "wwECww"],
       "east": ["wICwww", "wwwwww"],
       "south": ["wwwdww", "wnw nw"],
-      "west": ["wwwwww", "wnwwnw"]
+      "west": ["wwwIHK", "wnwwnw"]
     }
   },
   "zones": {
@@ -44,7 +47,8 @@
       { "m": "fs-temple/puzzle-floor-conduit-rotating-platform-corner", "at": [0.225, -0.675], "y": -0.099 },
       { "m": "fs-temple/puzzle-control-lever", "at": [-0.675, 0.225], "y": -0.099 },
       { "m": "fs-temple/puzzle-control-pressure-plate", "at": [0.675, 0.225], "y": -0.099 },
-      { "m": "fs-temple/puzzle-sliding-mirror", "at": [0.225, 0.225], "y": -0.099 }
+      { "m": "fs-temple/puzzle-sliding-mirror", "at": [0.225, 0.225], "y": -0.099 },
+      { "m": "fs-temple/puzzle-sliding-key", "at": [-0.675, -1.125], "y": -0.099, "rot": 90 }
     ],
     "decor": [
       { "m": "fs-temple/vase-c", "at": [-1.215, 1.238] },
