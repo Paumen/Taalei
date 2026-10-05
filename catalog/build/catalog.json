@@ -19066,7 +19066,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 162
+   "count": 163
   },
   {
    "id": "cork",
@@ -82512,24 +82512,24 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 13416,
-   "vtx": 330,
+   "bytes": 18284,
+   "vtx": 484,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "thick": 0.2286,
    "avgTri": 0.00137,
    "anglePct": 92,
-   "vpt": 1.5,
-   "grad": 0.37,
+   "vpt": 2.2,
+   "grad": 0.21,
    "spread": {
-    "5,0": [
+    "1,0": [
      0.148,
      0.75
     ],
-    "0,0": [
+    "14,2": [
      0.031,
-     0.195
+     0.141
     ],
     "8,0": [
      0.148,
@@ -82542,16 +82542,24 @@
    },
    "colors": [
     "#7f3927",
-    "#d07b56",
-    "#d8d1bd",
-    "#dbae80"
+    "#907a66",
+    "#b58158",
+    "#d8d1bd"
    ],
    "tags": [
     "isa",
     "paper",
+    "rope",
     "wood-cardboard"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.92,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-cardboard wants tan, has camel twine sienna ivory"
+    }
+   ]
   },
   {
    "kit": "isa-homely",
@@ -157674,7 +157682,7 @@
    "vpt": 2.95,
    "grad": 0.56,
    "spread": {
-    "1,0": [
+    "2,0": [
      0.563,
      0.992
     ],
@@ -157685,7 +157693,7 @@
    },
    "colors": [
     "#82868e",
-    "#b58158"
+    "#8b5936"
    ],
    "tags": [
     "kay",
@@ -157698,7 +157706,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "wood-planks wants tan, has camel nickel"
+     "text": "wood-planks wants tan, has chestnut nickel"
     }
    ]
   },
@@ -170606,13 +170614,13 @@
      0.344,
      0.977
     ],
-    "5,0": [
+    "1,0": [
      0.016,
      0.977
     ]
    },
    "colors": [
-    "#d07b56",
+    "#b58158",
     "#dbae80"
    ],
    "tags": [
@@ -170652,13 +170660,13 @@
      0.344,
      0.977
     ],
-    "5,0": [
+    "1,0": [
      0.016,
      0.977
     ]
    },
    "colors": [
-    "#d07b56",
+    "#b58158",
     "#dbae80"
    ],
    "tags": [
@@ -170708,7 +170716,7 @@
    "vpt": 1.69,
    "grad": 0.84,
    "spread": {
-    "5,0": [
+    "1,0": [
      0.016,
      0.977
     ],
@@ -170718,7 +170726,7 @@
     ]
    },
    "colors": [
-    "#d07b56",
+    "#b58158",
     "#dbae80"
    ],
    "tags": [
@@ -170754,7 +170762,7 @@
    "vpt": 1.69,
    "grad": 0.84,
    "spread": {
-    "5,0": [
+    "1,0": [
      0.016,
      0.977
     ],
@@ -170764,7 +170772,7 @@
     ]
    },
    "colors": [
-    "#d07b56",
+    "#b58158",
     "#dbae80"
    ],
    "tags": [
@@ -325297,7 +325305,7 @@
      0.016,
      0.977
     ],
-    "1,0": [
+    "2,0": [
      0.109,
      0.969
     ],
@@ -325313,8 +325321,8 @@
    "colors": [
     "#23562c",
     "#563b2b",
-    "#907a66",
-    "#b58158"
+    "#8b5936",
+    "#907a66"
    ],
    "tags": [
     "metal",
@@ -325322,7 +325330,14 @@
     "rope",
     "wood-worked"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-worked wants camel, has hunter chestnut umber twine"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
