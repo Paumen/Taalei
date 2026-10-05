@@ -19869,8 +19869,15 @@
    "id": "obj-furnishing-furniture-counter",
    "name": "Counter",
    "type": "kind",
-   "description": "Kitchen or shop counter with worktop, including counter sinks, kitchen bars and host stands.",
+   "description": "Kitchen or shop counter with worktop, including kitchen bars and host stands.",
    "count": 50
+  },
+  {
+   "id": "obj-furnishing-furniture-counter-sink",
+   "name": "Counter sink",
+   "type": "kind",
+   "description": "Counter or table with a sink basin set in its top.",
+   "count": 9
   },
   {
    "id": "obj-furnishing-decor",
@@ -24607,6 +24614,12 @@
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-counter": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-counter-sink": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -45599,7 +45612,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "counter-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     0.45,
@@ -80889,7 +80902,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "counter-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     0.64,
@@ -91257,7 +91270,7 @@
   {
    "kit": "jb-kitchen",
    "name": "sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     1.213,
@@ -112771,7 +112784,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "counter-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     0.6,
@@ -117450,7 +117463,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "table-sink-large",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     0.9,
@@ -117491,7 +117504,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "table-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     0.6,
@@ -178992,7 +179005,7 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "s",
    "wdh": [
     0.366,
@@ -276200,7 +276213,7 @@
   {
    "kit": "quat-interior",
    "name": "kitchen-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "s",
    "wdh": [
     0.222,
@@ -300586,7 +300599,7 @@
   {
    "kit": "quat-sushi",
    "name": "counter-sink",
-   "kind": "obj-furnishing-furniture-counter",
+   "kind": "obj-furnishing-furniture-counter-sink",
    "size": "m",
    "wdh": [
     0.8,
