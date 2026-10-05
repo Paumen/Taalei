@@ -3069,7 +3069,7 @@
     "smooth": 87
    },
    "kitCheck": {
-    "factor": 0.97,
+    "factor": 0.99,
     "kinds": 19
    }
   },
@@ -32428,7 +32428,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0119,
+   "minTube": 0.0077,
    "thick": 0.1697,
    "avgTri": 0.01149,
    "anglePct": 95,
@@ -33256,23 +33256,23 @@
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.072,
-    0.021,
-    0.175
+    0.058,
+    0.013,
+    0.191
    ],
    "tris": 256,
    "tpu": 746,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10484,
+   "bytes": 10464,
    "vtx": 234,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.1279,
-   "avgTri": 0.00008,
-   "anglePct": 24,
+   "minEdge": 0.001,
+   "thick": 0.1403,
+   "avgTri": 0.00005,
+   "anglePct": 48,
    "vpt": 0.91,
    "grad": 0,
    "spread": {
@@ -33294,7 +33294,7 @@
     "milkandbanana",
     "rubber"
    ],
-   "thickRel": 0.93
+   "thickRel": 1.01
   },
   {
    "kit": "cooking-assets",
@@ -34402,7 +34402,7 @@
     "milkandbanana",
     "rubber"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "cooking-assets",
@@ -34637,6 +34637,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0,
    "thick": 0.0579,
    "avgTri": 0.00054,
    "anglePct": 19,
@@ -34683,6 +34684,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0,
    "thick": 0.0727,
    "avgTri": 0.00031,
    "anglePct": 12,
@@ -34936,7 +34938,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0157,
+   "minTube": 0.0078,
    "thick": 0.2499,
    "avgTri": 0.00224,
    "anglePct": 92,
@@ -35400,7 +35402,7 @@
     "milkandbanana",
     "wood-worked"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "cooking-assets",
@@ -35441,7 +35443,7 @@
     "milkandbanana",
     "wood-worked"
    ],
-   "thickRel": 3.22
+   "thickRel": 3.2
   },
   {
    "kit": "cooking-assets",
@@ -35799,6 +35801,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.013,
    "thick": 0.1085,
    "avgTri": 0.00077,
    "anglePct": 32,
@@ -35818,7 +35821,14 @@
     "milkandbanana"
    ],
    "variant": "v331",
-   "thickRel": 1.47
+   "thickRel": 1.47,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.013 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -37715,7 +37725,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0131,
+   "minTube": 0.0078,
    "thick": 0.2301,
    "avgTri": 0.00041,
    "anglePct": 1,
@@ -37739,7 +37749,14 @@
     "foliage",
     "food"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0078 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "food-pack",
@@ -50572,6 +50589,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
+   "minTube": 0.0112,
    "thick": 0.3667,
    "avgTri": 0.00174,
    "anglePct": 100,
@@ -50590,6 +50608,13 @@
     "comp",
     "fs",
     "stone-masonry"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
    ]
   },
   {
@@ -56890,7 +56915,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.0999,
+   "minTube": 0.025,
    "thick": 0.0856,
    "avgTri": 0.00723,
    "anglePct": 62,
@@ -56916,6 +56941,13 @@
     "sailing",
     "wood-bark",
     "wood-log"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.025 wants min 0.026"
+    }
    ]
   },
   {
@@ -58234,6 +58266,7 @@
    "vtx": 240,
    "grounded": true,
    "minEdge": 0.025,
+   "minTube": 0.0249,
    "thick": 0.0427,
    "avgTri": 0.00931,
    "anglePct": 72,
@@ -58260,6 +58293,13 @@
    ],
    "variant": "v207",
    "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0249 wants min 0.026"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -58285,6 +58325,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.025,
+   "minTube": 0.0249,
    "thick": 0.039,
    "avgTri": 0.00927,
    "anglePct": 39,
@@ -58310,7 +58351,14 @@
     "wood-planks"
    ],
    "variant": "v207",
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0249 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
@@ -61595,7 +61643,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0614,
+   "minTube": 0.0249,
    "thick": 0.1363,
    "avgTri": 0.00258,
    "anglePct": 30,
@@ -61627,7 +61675,14 @@
     "wood-worked"
    ],
    "variant": "v410",
-   "thickRel": 1.33
+   "thickRel": 1.33,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0249 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -61650,7 +61705,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0609,
+   "minTube": 0.0249,
    "thick": 0.0921,
    "avgTri": 0.00592,
    "anglePct": 36,
@@ -61670,7 +61725,14 @@
     "wood-worked"
    ],
    "variant": "v410",
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0249 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -66823,7 +66885,7 @@
    "vtx": 1213,
    "gridMod": true,
    "minEdge": 0.006,
-   "minTube": 0.0612,
+   "minTube": 0.016,
    "thick": 0.0341,
    "avgTri": 0.02324,
    "anglePct": 20,
@@ -66855,6 +66917,13 @@
    ],
    "anim": [
     "spin"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.016 wants min 0.026"
+    }
    ],
    "mark": [
     "grounded",
@@ -70485,7 +70554,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0326,
+   "minTube": 0.0095,
    "thick": 0.0628,
    "avgTri": 0.00095,
    "anglePct": 18,
@@ -70510,7 +70579,14 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.5,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0095 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -70728,7 +70804,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0468,
+   "minTube": 0.0155,
    "thick": 0.0758,
    "avgTri": 0.01155,
    "anglePct": 30,
@@ -70753,6 +70829,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 1.632 over max 1.4 (str-access-ladder)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0155 wants min 0.026"
     }
    ]
   },
@@ -70823,6 +70904,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.001,
    "thick": 0.1254,
    "avgTri": 0.0001,
    "anglePct": 7,
@@ -70853,7 +70935,14 @@
     "metal-iron-wrought",
     "textile"
    ],
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.001 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -71199,6 +71288,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.006,
    "thick": 0.1133,
    "avgTri": 0.00017,
    "anglePct": 37,
@@ -71246,7 +71336,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0064,
+   "minTube": 0.0009,
    "thick": 0.1855,
    "avgTri": 0.00079,
    "anglePct": 9,
@@ -71277,7 +71367,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 2.41
+   "thickRel": 2.41,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0009 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -71463,7 +71560,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0265,
+   "minTube": 0.0105,
    "thick": 0.0704,
    "avgTri": 0.0438,
    "anglePct": 78,
@@ -71488,7 +71585,14 @@
     "metal",
     "rubber"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.65,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0105 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ipoly-concert",
@@ -72329,6 +72433,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0011,
    "thick": 0.0407,
    "avgTri": 0.00005,
    "anglePct": 92,
@@ -72352,7 +72457,14 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0011 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "ipoly-glasses",
@@ -73327,6 +73439,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0152,
    "thick": 0.0441,
    "avgTri": 0.00422,
    "anglePct": 90,
@@ -73387,6 +73500,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0152,
    "thick": 0.036,
    "avgTri": 0.00482,
    "anglePct": 94,
@@ -73441,6 +73555,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0265,
    "thick": 0.0407,
    "avgTri": 0.00124,
    "anglePct": 89,
@@ -73501,6 +73616,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0265,
    "thick": 0.0403,
    "avgTri": 0.00161,
    "anglePct": 93,
@@ -73561,6 +73677,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0265,
    "thick": 0.0519,
    "avgTri": 0.00111,
    "anglePct": 94,
@@ -73621,6 +73738,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0265,
    "thick": 0.0505,
    "avgTri": 0.00113,
    "anglePct": 93,
@@ -73681,6 +73799,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0265,
    "thick": 0.0505,
    "avgTri": 0.00123,
    "anglePct": 94,
@@ -73741,6 +73860,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0152,
    "thick": 0.07,
    "avgTri": 0.00136,
    "anglePct": 81,
@@ -73795,6 +73915,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0152,
    "thick": 0.0617,
    "avgTri": 0.00177,
    "anglePct": 87,
@@ -73849,6 +73970,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0152,
    "thick": 0.0762,
    "avgTri": 0.00184,
    "anglePct": 85,
@@ -73903,6 +74025,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0152,
    "thick": 0.0656,
    "avgTri": 0.00193,
    "anglePct": 91,
@@ -73957,6 +74080,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0152,
    "thick": 0.0555,
    "avgTri": 0.00317,
    "anglePct": 86,
@@ -74017,7 +74141,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.1153,
+   "minTube": 0.0152,
    "thick": 0.0633,
    "avgTri": 0.00212,
    "anglePct": 92,
@@ -74172,7 +74296,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0612,
+   "minTube": 0.0112,
    "thick": 0.0491,
    "avgTri": 0.01865,
    "anglePct": 98,
@@ -74197,7 +74321,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ipoly-torture",
@@ -74554,7 +74685,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0589,
+   "minTube": 0.0095,
    "thick": 0.2383,
    "avgTri": 0.00457,
    "anglePct": 98,
@@ -75855,7 +75986,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.023,
-   "minTube": 0.0742,
+   "minTube": 0.016,
    "thick": 0.1246,
    "avgTri": 0.01219,
    "anglePct": 89,
@@ -75875,7 +76006,14 @@
     "scale-small",
     "wood-beam"
    ],
-   "thickRel": 1.74
+   "thickRel": 1.74,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.016 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -76627,6 +76765,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0038,
    "thick": 0.0876,
    "avgTri": 0.00017,
    "anglePct": 76,
@@ -76650,7 +76789,14 @@
     "isa",
     "paper"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.53,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0038 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -76692,7 +76838,7 @@
     "isa",
     "wood-worked"
    ],
-   "thickRel": 2.63
+   "thickRel": 2.61
   },
   {
    "kit": "isa-bakery",
@@ -78145,7 +78291,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 1.7
+   "thickRel": 1.69
   },
   {
    "kit": "isa-bakery",
@@ -83449,7 +83595,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0319,
+   "minTube": 0.0095,
    "thick": 0.2581,
    "avgTri": 0.00447,
    "anglePct": 78,
@@ -83485,7 +83631,14 @@
     "paper",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0095 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "isa-kitchen",
@@ -84069,7 +84222,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0128,
+   "minTube": 0.0095,
    "thick": 0.2138,
    "avgTri": 0.00219,
    "anglePct": 93,
@@ -84106,7 +84259,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0128 wants min 0.026"
+     "text": "G27 minTube 0.0095 wants min 0.026"
     }
    ]
   },
@@ -86806,6 +86959,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0033,
    "thick": 0.1431,
    "avgTri": 0.00014,
    "anglePct": 63,
@@ -86830,6 +86984,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.047 under min 0.05 (obj-food-dairy-cheese)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0033 wants min 0.012"
     }
    ]
   },
@@ -86854,6 +87013,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.0095,
    "thick": 0.2457,
    "avgTri": 0.00149,
    "anglePct": 76,
@@ -86877,7 +87037,14 @@
     "isa",
     "plastic"
    ],
-   "thickRel": 3.01
+   "thickRel": 3.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0095 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "isa-picnic",
@@ -87872,6 +88039,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0057,
    "thick": 0.1576,
    "avgTri": 0.00037,
    "anglePct": 81,
@@ -87906,7 +88074,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0057 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "isa-picnic",
@@ -91988,7 +92163,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.2437,
+   "minTube": 0.096,
    "thick": 0.1917,
    "avgTri": 0.00245,
    "anglePct": 97,
@@ -93157,7 +93332,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0531,
+   "minTube": 0.0195,
    "thick": 0.1835,
    "avgTri": 0.00184,
    "anglePct": 76,
@@ -98454,7 +98629,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0612,
+   "minTube": 0.0382,
    "thick": 0.1095,
    "avgTri": 0.03011,
    "anglePct": 72,
@@ -98515,7 +98690,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0612,
+   "minTube": 0.0382,
    "thick": 0.1095,
    "avgTri": 0.03011,
    "anglePct": 72,
@@ -105393,7 +105568,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0523,
    "avgTri": 0.0508,
    "anglePct": 100,
@@ -105441,7 +105616,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0522,
    "avgTri": 0.05062,
    "anglePct": 100,
@@ -105489,7 +105664,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0523,
    "avgTri": 0.05062,
    "anglePct": 100,
@@ -105537,7 +105712,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0523,
    "avgTri": 0.0506,
    "anglePct": 100,
@@ -105585,7 +105760,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0455,
    "avgTri": 0.05027,
    "anglePct": 100,
@@ -105633,6 +105808,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
+   "minTube": 0.04,
    "thick": 0.0467,
    "avgTri": 0.036,
    "anglePct": 100,
@@ -105680,6 +105856,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
+   "minTube": 0.04,
    "thick": 0.0466,
    "avgTri": 0.03836,
    "anglePct": 100,
@@ -105727,6 +105904,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
+   "minTube": 0.04,
    "thick": 0.0402,
    "avgTri": 0.03836,
    "anglePct": 100,
@@ -105774,7 +105952,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.08,
+   "minTube": 0.04,
    "thick": 0.0464,
    "avgTri": 0.04064,
    "anglePct": 100,
@@ -105822,6 +106000,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
+   "minTube": 0.04,
    "thick": 0.0458,
    "avgTri": 0.06024,
    "anglePct": 100,
@@ -105863,7 +106042,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0434,
    "avgTri": 0.04446,
    "anglePct": 100,
@@ -105911,7 +106090,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0432,
    "avgTri": 0.04385,
    "anglePct": 100,
@@ -105959,7 +106138,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0454,
    "avgTri": 0.04385,
    "anglePct": 100,
@@ -106007,7 +106186,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0432,
    "avgTri": 0.04392,
    "anglePct": 100,
@@ -106055,7 +106234,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0426,
    "avgTri": 0.04232,
    "anglePct": 100,
@@ -106103,7 +106282,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.1037,
    "avgTri": 0.03354,
    "anglePct": 100,
@@ -106151,7 +106330,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.1037,
    "avgTri": 0.03354,
    "anglePct": 100,
@@ -106199,7 +106378,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0449,
    "avgTri": 0.04515,
    "anglePct": 100,
@@ -106247,7 +106426,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0522,
    "avgTri": 0.03939,
    "anglePct": 100,
@@ -106295,7 +106474,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.1036,
    "avgTri": 0.03433,
    "anglePct": 100,
@@ -106343,7 +106522,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0889,
    "avgTri": 0.03493,
    "anglePct": 100,
@@ -106487,6 +106666,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
+   "minTube": 0.04,
    "thick": 0.0884,
    "avgTri": 0.06133,
    "anglePct": 100,
@@ -106528,7 +106708,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.08,
+   "minTube": 0.04,
    "thick": 0.0909,
    "avgTri": 0.0412,
    "anglePct": 100,
@@ -106767,7 +106947,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.08,
    "avgTri": 0.0401,
    "anglePct": 100,
@@ -106815,7 +106995,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0799,
+   "minTube": 0.0399,
    "thick": 0.0551,
    "avgTri": 0.034,
    "anglePct": 100,
@@ -108281,7 +108461,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.09,
+   "minTube": 0.0599,
    "thick": 0.1623,
    "avgTri": 0.01237,
    "anglePct": 80,
@@ -108418,7 +108598,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.09,
+   "minTube": 0.0599,
    "thick": 0.1788,
    "avgTri": 0.012,
    "anglePct": 77,
@@ -112551,7 +112731,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0552,
+   "minTube": 0.026,
    "thick": 0.0793,
    "avgTri": 0.00102,
    "anglePct": 5,
@@ -112599,7 +112779,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0552,
+   "minTube": 0.0252,
    "thick": 0.0736,
    "avgTri": 0.00097,
    "anglePct": 7,
@@ -112653,7 +112833,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0552,
+   "minTube": 0.0252,
    "thick": 0.0736,
    "avgTri": 0.00097,
    "anglePct": 7,
@@ -120960,7 +121140,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0345,
+   "minTube": 0.0115,
    "thick": 0.1279,
    "avgTri": 0.00129,
    "anglePct": 60,
@@ -121013,7 +121193,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0662,
+   "minTube": 0.0115,
    "thick": 0.1047,
    "avgTri": 0.00298,
    "anglePct": 78,
@@ -121033,7 +121213,14 @@
     "metal-iron-steel"
    ],
    "variant": "v844",
-   "thickRel": 0.59
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0115 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "kay-food",
@@ -130153,7 +130340,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.0303,
+   "minTube": 0.0221,
    "thick": 0.1954,
    "avgTri": 0.02347,
    "anglePct": 87,
@@ -130859,7 +131046,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
-   "minTube": 0.0748,
+   "minTube": 0.0221,
    "thick": 0.196,
    "avgTri": 0.03098,
    "anglePct": 88,
@@ -130908,7 +131095,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.77
+   "thickRel": 1.77,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0221 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "kay-hexagon",
@@ -133272,7 +133466,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
-   "minTube": 0.0594,
+   "minTube": 0.0339,
    "thick": 0.0582,
    "avgTri": 0.01881,
    "anglePct": 77,
@@ -139356,6 +139550,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0176,
    "thick": 0.1512,
    "avgTri": 0.00326,
    "anglePct": 29,
@@ -139397,7 +139592,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.33,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0176 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -141657,7 +141859,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.3014,
+   "minTube": 0.06,
    "thick": 0.0852,
    "avgTri": 0.00391,
    "anglePct": 58,
@@ -144838,6 +145040,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.045,
+   "minTube": 0.0599,
    "thick": 0.0754,
    "avgTri": 0.062,
    "anglePct": 100,
@@ -159614,7 +159817,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0235,
+   "minTube": 0.0058,
    "thick": 0.2884,
    "avgTri": 0.00016,
    "anglePct": 39,
@@ -159639,7 +159842,14 @@
     "metal-iron-steel",
     "textile"
    ],
-   "thickRel": 1.93
+   "thickRel": 1.93,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0058 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "kay-weapons",
@@ -159709,7 +159919,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.03,
+   "minTube": 0.0186,
    "thick": 0.1322,
    "avgTri": 0.00024,
    "anglePct": 5,
@@ -159831,6 +160041,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0119,
    "thick": 0.1068,
    "avgTri": 0.00695,
    "anglePct": 98,
@@ -159871,7 +160082,14 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.52,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0119 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-arcade",
@@ -160113,7 +160331,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.028,
+   "minTube": 0.0159,
    "thick": 0.1604,
    "avgTri": 0.0039,
    "anglePct": 86,
@@ -160165,6 +160383,11 @@
      "level": "error",
      "check": "measures",
      "text": "G13 bands 6 wants max 5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0159 wants min 0.026"
     }
    ]
   },
@@ -160624,7 +160847,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0489,
+   "minTube": 0.0118,
    "thick": 0.257,
    "avgTri": 0.0046,
    "anglePct": 90,
@@ -160665,7 +160888,14 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.24,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0118 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-arcade",
@@ -166827,7 +167057,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0612,
+   "minTube": 0.0249,
    "thick": 0.0571,
    "avgTri": 0.01418,
    "anglePct": 78,
@@ -166882,7 +167112,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0612,
+   "minTube": 0.025,
    "thick": 0.0659,
    "avgTri": 0.01363,
    "anglePct": 84,
@@ -167266,7 +167496,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.06,
+   "minTube": 0.0199,
    "thick": 0.055,
    "avgTri": 0.02391,
    "anglePct": 100,
@@ -167292,7 +167522,14 @@
     "wood-planks"
    ],
    "variant": "v166",
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0199 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-castle",
@@ -167314,7 +167551,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.06,
+   "minTube": 0.0199,
    "thick": 0.0582,
    "avgTri": 0.02323,
    "anglePct": 100,
@@ -167340,7 +167577,14 @@
     "wood-planks"
    ],
    "variant": "v166",
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0199 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-castle",
@@ -167579,7 +167823,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0175,
+   "minTube": 0.0009,
    "thick": 0.0778,
    "avgTri": 0.00683,
    "anglePct": 62,
@@ -167610,7 +167854,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0175 wants min 0.026"
+     "text": "G27 minTube 0.0009 wants min 0.026"
     }
    ]
   },
@@ -167717,7 +167961,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0599,
+   "minTube": 0.0399,
    "thick": 0.056,
    "avgTri": 0.00831,
    "anglePct": 70,
@@ -167764,7 +168008,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0599,
+   "minTube": 0.0399,
    "thick": 0.059,
    "avgTri": 0.01032,
    "anglePct": 83,
@@ -167811,7 +168055,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.0599,
+   "minTube": 0.0399,
    "thick": 0.0516,
    "avgTri": 0.02008,
    "anglePct": 97,
@@ -172827,7 +173071,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.031,
-   "minTube": 0.1,
+   "minTube": 0.0312,
    "thick": 0.0629,
    "avgTri": 0.01303,
    "anglePct": 56,
@@ -175774,6 +176018,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0007,
    "thick": 0.1731,
    "avgTri": 0.00122,
    "anglePct": 15,
@@ -175793,7 +176038,14 @@
     "textile"
    ],
    "variant": "v662",
-   "thickRel": 0.79
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0007 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -177287,7 +177539,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 1.89
+   "thickRel": 1.88
   },
   {
    "kit": "ken-food",
@@ -177309,7 +177561,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0482,
+   "minTube": 0.0048,
    "thick": 0.3824,
    "avgTri": 0.00054,
    "anglePct": 85,
@@ -177340,6 +177592,11 @@
      "level": "error",
      "check": "bands",
      "text": "— wants sienna, has camel chestnut (obj-food-meat)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0048 wants min 0.012"
     }
    ]
   },
@@ -178274,7 +178531,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0302,
+   "minTube": 0.0057,
    "thick": 0.284,
    "avgTri": 0.00035,
    "anglePct": 71,
@@ -178303,7 +178560,14 @@
     "food",
     "ken"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.63,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0057 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -179801,7 +180065,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "ken-food",
@@ -180188,7 +180452,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 2.58
+   "thickRel": 2.56
   },
   {
    "kit": "ken-food",
@@ -180266,6 +180530,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.0048,
    "thick": 0.3447,
    "avgTri": 0.00024,
    "anglePct": 57,
@@ -180301,7 +180566,14 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 1.98
+   "thickRel": 1.98,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0048 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -181216,7 +181488,7 @@
     "ken",
     "metal-iron-steel"
    ],
-   "thickRel": 2.12
+   "thickRel": 2.1
   },
   {
    "kit": "ken-forest-mini",
@@ -182903,6 +183175,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0182,
    "thick": 0.2991,
    "avgTri": 0.00654,
    "anglePct": 100,
@@ -182950,6 +183223,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0182,
    "thick": 0.1382,
    "avgTri": 0.00736,
    "anglePct": 100,
@@ -186539,6 +186813,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
+   "minTube": 0.0509,
    "thick": 0.0639,
    "avgTri": 0.01154,
    "anglePct": 96,
@@ -187937,7 +188212,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.034,
-   "minTube": 0.0979,
+   "minTube": 0.04,
    "thick": 0.089,
    "avgTri": 0.00829,
    "anglePct": 55,
@@ -189827,7 +190102,7 @@
    "vtx": 414,
    "grounded": true,
    "minEdge": 0.01,
-   "minTube": 0.0653,
+   "minTube": 0.0359,
    "thick": 0.0796,
    "avgTri": 0.00452,
    "anglePct": 56,
@@ -189982,7 +190257,7 @@
    "vtx": 372,
    "grounded": true,
    "minEdge": 0.01,
-   "minTube": 0.0653,
+   "minTube": 0.0359,
    "thick": 0.0707,
    "avgTri": 0.0042,
    "anglePct": 49,
@@ -190128,7 +190403,7 @@
    "vtx": 368,
    "grounded": true,
    "minEdge": 0.01,
-   "minTube": 0.0653,
+   "minTube": 0.0359,
    "thick": 0.055,
    "avgTri": 0.00321,
    "anglePct": 90,
@@ -191272,7 +191547,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.026,
-   "minTube": 0.0755,
+   "minTube": 0.0309,
    "thick": 0.0889,
    "avgTri": 0.00493,
    "anglePct": 55,
@@ -207303,7 +207578,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0711,
+   "minTube": 0.018,
    "thick": 0.0662,
    "avgTri": 0.03195,
    "anglePct": 73,
@@ -207329,7 +207604,14 @@
     "wood-planks"
    ],
    "variant": "v118",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.018 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-platformer",
@@ -210449,6 +210731,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0,
    "thick": 0.0936,
    "avgTri": 0.00108,
    "anglePct": 83,
@@ -211552,6 +211835,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.024,
+   "minTube": 0.0603,
    "thick": 0.217,
    "avgTri": 0.00585,
    "anglePct": 81,
@@ -211690,6 +211974,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0,
    "thick": 0.1301,
    "avgTri": 0.12514,
    "anglePct": 82,
@@ -211732,6 +212017,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0,
    "thick": 0.0932,
    "avgTri": 0.07446,
    "anglePct": 84,
@@ -212400,7 +212686,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
-   "minTube": 0.0611,
+   "minTube": 0.05,
    "thick": 0.0764,
    "avgTri": 0.00283,
    "anglePct": 32,
@@ -212470,7 +212756,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
-   "minTube": 0.0611,
+   "minTube": 0.05,
    "thick": 0.0512,
    "avgTri": 0.00301,
    "anglePct": 32,
@@ -212535,6 +212821,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.035,
+   "minTube": 0.05,
    "thick": 0.1865,
    "avgTri": 0.0029,
    "anglePct": 17,
@@ -212578,6 +212865,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.035,
+   "minTube": 0.05,
    "thick": 0.1046,
    "avgTri": 0.00406,
    "anglePct": 0,
@@ -218557,6 +218845,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0009,
    "thick": 0.0414,
    "avgTri": 0.00735,
    "anglePct": 96,
@@ -218588,6 +218877,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.325 under min 0.35 (str-barrier-fence)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0009 wants min 0.026"
     }
    ]
   },
@@ -218611,7 +218905,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.2776,
+   "minTube": 0.0009,
    "thick": 0.1342,
    "avgTri": 0.00608,
    "anglePct": 94,
@@ -218643,6 +218937,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.325 under min 0.35 (str-barrier-fence)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0009 wants min 0.026"
     }
    ]
   },
@@ -224128,6 +224427,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.001,
    "thick": 0.0868,
    "avgTri": 0.01343,
    "anglePct": 100,
@@ -224154,7 +224454,14 @@
     "mounted",
     "space"
    ],
-   "variant": "v1119"
+   "variant": "v1119",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.001 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-station",
@@ -226787,7 +227094,7 @@
    "vtx": 240,
    "grounded": true,
    "minEdge": 0.03,
-   "minTube": 0.0641,
+   "minTube": 0.03,
    "thick": 0.0554,
    "avgTri": 0.01272,
    "anglePct": 97,
@@ -226974,6 +227281,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.023,
+   "minTube": 0.0233,
    "thick": 0.0587,
    "avgTri": 0.01015,
    "anglePct": 100,
@@ -226992,7 +227300,14 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0233 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -227015,7 +227330,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.023,
-   "minTube": 0.0655,
+   "minTube": 0.0299,
    "thick": 0.058,
    "avgTri": 0.02052,
    "anglePct": 100,
@@ -227058,7 +227373,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.03,
-   "minTube": 0.0655,
+   "minTube": 0.0299,
    "thick": 0.0622,
    "avgTri": 0.02102,
    "anglePct": 100,
@@ -227926,7 +228241,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.03,
-   "minTube": 0.0655,
+   "minTube": 0.03,
    "thick": 0.1089,
    "avgTri": 0.02039,
    "anglePct": 100,
@@ -228213,7 +228528,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.03,
-   "minTube": 0.0655,
+   "minTube": 0.03,
    "thick": 0.0655,
    "avgTri": 0.02034,
    "anglePct": 53,
@@ -230763,6 +231078,7 @@
    "vtx": 168,
    "grounded": true,
    "minEdge": 0.027,
+   "minTube": 0.027,
    "thick": 0.0895,
    "avgTri": 0.01438,
    "anglePct": 100,
@@ -230808,6 +231124,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.027,
+   "minTube": 0.027,
    "thick": 0.0439,
    "avgTri": 0.01222,
    "anglePct": 100,
@@ -230850,6 +231167,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.027,
+   "minTube": 0.027,
    "thick": 0.0452,
    "avgTri": 0.02471,
    "anglePct": 100,
@@ -233550,7 +233868,7 @@
    "vtx": 44,
    "grounded": true,
    "minEdge": 0.045,
-   "minTube": 0.09,
+   "minTube": 0.045,
    "thick": 0.2141,
    "avgTri": 0.02968,
    "anglePct": 100,
@@ -234333,6 +234651,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
+   "minTube": 0.0137,
    "thick": 0.1697,
    "avgTri": 0.00495,
    "anglePct": 90,
@@ -234363,7 +234682,14 @@
     "wood-planks"
    ],
    "variant": "v957",
-   "thickRel": 0.75
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0137 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -234985,7 +235311,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.0518,
+   "minTube": 0.0137,
    "thick": 0.2686,
    "avgTri": 0.00626,
    "anglePct": 85,
@@ -235026,7 +235352,14 @@
     "metal",
     "wood-planks"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0137 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -235724,7 +236057,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.1319,
+   "minTube": 0.055,
    "thick": 0.0449,
    "avgTri": 0.00576,
    "anglePct": 72,
@@ -235878,6 +236211,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
+   "minTube": 0.0556,
    "thick": 0.0452,
    "avgTri": 0.00561,
    "anglePct": 63,
@@ -235927,7 +236261,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0866,
+   "minTube": 0.055,
    "thick": 0.1348,
    "avgTri": 0.00536,
    "anglePct": 22,
@@ -236026,7 +236360,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.1242,
+   "minTube": 0.0549,
    "thick": 0.1259,
    "avgTri": 0.00537,
    "anglePct": 24,
@@ -236126,6 +236460,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
+   "minTube": 0.055,
    "thick": 0.1398,
    "avgTri": 0.0055,
    "anglePct": 26,
@@ -236180,6 +236515,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
+   "minTube": 0.055,
    "thick": 0.14,
    "avgTri": 0.0055,
    "anglePct": 26,
@@ -236235,7 +236571,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.1296,
+   "minTube": 0.0549,
    "thick": 0.1271,
    "avgTri": 0.00551,
    "anglePct": 26,
@@ -238858,7 +239194,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.028,
-   "minTube": 0.1099,
+   "minTube": 0.0546,
    "thick": 0.0991,
    "avgTri": 0.10964,
    "anglePct": 21,
@@ -238902,7 +239238,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.028,
-   "minTube": 0.1099,
+   "minTube": 0.0549,
    "thick": 0.0701,
    "avgTri": 0.06514,
    "anglePct": 24,
@@ -239305,7 +239641,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.1045,
+   "minTube": 0.0046,
    "thick": 0.2093,
    "avgTri": 0.02678,
    "anglePct": 56,
@@ -239359,7 +239695,14 @@
    "alpha": true,
    "pbr": true,
    "variant": "v762",
-   "thickRel": 2.13
+   "thickRel": 2.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0046 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-water",
@@ -239382,7 +239725,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.1045,
+   "minTube": 0.0033,
    "thick": 0.185,
    "avgTri": 0.03079,
    "anglePct": 54,
@@ -239436,7 +239779,14 @@
    "alpha": true,
    "pbr": true,
    "variant": "v762",
-   "thickRel": 1.88
+   "thickRel": 1.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0033 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-water",
@@ -239459,7 +239809,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.1045,
+   "minTube": 0.0033,
    "thick": 0.185,
    "avgTri": 0.06764,
    "anglePct": 66,
@@ -239507,7 +239857,14 @@
    "alpha": true,
    "pbr": true,
    "variant": "v762",
-   "thickRel": 1.88
+   "thickRel": 1.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0033 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "ken-water",
@@ -239530,7 +239887,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.1045,
+   "minTube": 0.0046,
    "thick": 0.2093,
    "avgTri": 0.06702,
    "anglePct": 71,
@@ -239578,7 +239935,14 @@
    "alpha": true,
    "pbr": true,
    "variant": "v762",
-   "thickRel": 2.13
+   "thickRel": 2.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0046 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "loaf-gothic",
@@ -239660,7 +240024,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0061,
+   "minTube": 0.0028,
    "thick": 0.1498,
    "avgTri": 0.00255,
    "anglePct": 77,
@@ -239689,7 +240053,14 @@
     "glass",
     "stone-masonry"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0028 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "loaf-gothic",
@@ -239711,7 +240082,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0202,
+   "minTube": 0,
    "thick": 0.1788,
    "avgTri": 0.00338,
    "anglePct": 77,
@@ -239762,7 +240133,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0074,
+   "minTube": 0,
    "thick": 0.1571,
    "avgTri": 0.00365,
    "anglePct": 78,
@@ -240126,7 +240497,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0167,
+   "minTube": 0.0025,
    "thick": 0.1449,
    "avgTri": 0.00431,
    "anglePct": 91,
@@ -240156,7 +240527,14 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0025 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "loaf-gothic",
@@ -240610,7 +240988,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0721,
+   "minTube": 0.0203,
    "thick": 0.1397,
    "avgTri": 0.00121,
    "anglePct": 69,
@@ -240910,7 +241288,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0298,
+   "minTube": 0.0074,
    "thick": 0.2431,
    "avgTri": 0.00101,
    "anglePct": 100,
@@ -240952,7 +241330,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0298,
+   "minTube": 0.0074,
    "thick": 0.2297,
    "avgTri": 0.00112,
    "anglePct": 99,
@@ -241046,7 +241424,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0721,
+   "minTube": 0.0203,
    "thick": 0.1601,
    "avgTri": 0.00275,
    "anglePct": 98,
@@ -241237,7 +241615,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0721,
+   "minTube": 0.0203,
    "thick": 0.1739,
    "avgTri": 0.0014,
    "anglePct": 48,
@@ -241536,7 +241914,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0264,
+   "minTube": 0.0222,
    "thick": 0.0456,
    "avgTri": 0.0075,
    "anglePct": 72,
@@ -241588,6 +241966,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 12.738 over max 2.2 (str-fixture-utility-machine)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0222 wants min 0.026"
     }
    ]
   },
@@ -242561,7 +242944,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0721,
+   "minTube": 0.0203,
    "thick": 0.058,
    "avgTri": 0.00204,
    "anglePct": 96,
@@ -242586,7 +242969,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.78,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0203 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-construction",
@@ -242695,7 +243085,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.114,
+   "minTube": 0.0442,
    "thick": 0.0739,
    "avgTri": 0.01108,
    "anglePct": 40,
@@ -243139,7 +243529,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
-   "minTube": 0.0451,
+   "minTube": 0.0364,
    "thick": 0.0641,
    "avgTri": 0.00932,
    "anglePct": 99,
@@ -244418,7 +244808,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0449,
+   "minTube": 0.0104,
    "thick": 0.0789,
    "avgTri": 0.00118,
    "anglePct": 97,
@@ -244455,6 +244845,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.572 under min 0.6 (str-part-door-single)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0104 wants min 0.026"
     }
    ]
   },
@@ -244591,7 +244986,7 @@
    "vtx": 17547,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0122,
+   "minTube": 0.0071,
    "thick": 0.1957,
    "avgTri": 0.00969,
    "anglePct": 98,
@@ -244635,7 +245030,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0071 wants min 0.026"
     }
    ],
    "mark": [
@@ -244660,7 +245055,7 @@
    "bytes": 394672,
    "vtx": 11121,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.1993,
    "avgTri": 0.01323,
    "anglePct": 99,
@@ -244700,6 +245095,13 @@
    ],
    "variant": "v367",
    "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -244723,7 +245125,7 @@
    "bytes": 482676,
    "vtx": 13660,
    "minEdge": 0.003,
-   "minTube": 0.0122,
+   "minTube": 0.0071,
    "thick": 0.1735,
    "avgTri": 0.00939,
    "anglePct": 99,
@@ -244767,7 +245169,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0071 wants min 0.026"
     }
    ],
    "mark": [
@@ -244793,7 +245195,7 @@
    "bytes": 314520,
    "vtx": 8868,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.1789,
    "avgTri": 0.01229,
    "anglePct": 99,
@@ -244833,6 +245235,13 @@
    ],
    "variant": "v367",
    "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -244857,7 +245266,7 @@
    "vtx": 9867,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0122,
+   "minTube": 0.0071,
    "thick": 0.1901,
    "avgTri": 0.01612,
    "anglePct": 99,
@@ -244895,7 +245304,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0071 wants min 0.026"
     }
    ],
    "mark": [
@@ -244971,7 +245380,7 @@
    "bytes": 259188,
    "vtx": 7271,
    "minEdge": 0.004,
-   "minTube": 0.0122,
+   "minTube": 0.0071,
    "thick": 0.0939,
    "avgTri": 0.01615,
    "anglePct": 100,
@@ -245015,7 +245424,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0071 wants min 0.026"
     }
    ],
    "mark": [
@@ -245098,7 +245507,7 @@
    "bytes": 166808,
    "vtx": 4680,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.1485,
    "avgTri": 0.01481,
    "anglePct": 99,
@@ -245138,6 +245547,13 @@
    ],
    "variant": "v391",
    "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -245162,7 +245578,7 @@
    "vtx": 3731,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.2254,
    "avgTri": 0.01341,
    "anglePct": 99,
@@ -245202,6 +245618,13 @@
    ],
    "variant": "v392",
    "thickRel": 1.24,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ],
    "mark": [
     "grounded"
    ]
@@ -245328,7 +245751,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.0664,
    "avgTri": 0.00051,
    "anglePct": 89,
@@ -245361,7 +245784,14 @@
     "wood-worked"
    ],
    "variant": "v647",
-   "thickRel": 0.75
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-desert",
@@ -245383,7 +245813,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.066,
    "avgTri": 0.0005,
    "anglePct": 89,
@@ -245416,7 +245846,14 @@
     "wood-worked"
    ],
    "variant": "v647",
-   "thickRel": 0.75
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-desert",
@@ -245437,7 +245874,7 @@
    "vtx": 2680,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0412,
+   "minTube": 0.0081,
    "thick": 0.2113,
    "avgTri": 0.01169,
    "anglePct": 99,
@@ -245477,6 +245914,13 @@
    ],
    "variant": "v393",
    "thickRel": 1.17,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0081 wants min 0.026"
+    }
+   ],
    "mark": [
     "grounded"
    ]
@@ -249422,7 +249866,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0488,
+   "minTube": 0.0249,
    "thick": 0.1177,
    "avgTri": 0.00107,
    "anglePct": 87,
@@ -251900,7 +252344,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0061,
+   "minTube": 0.0028,
    "thick": 0.1979,
    "avgTri": 0.00009,
    "anglePct": 49,
@@ -251931,7 +252375,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.42,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0028 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -253267,7 +253718,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0323,
+   "minTube": 0.0314,
    "thick": 0.0635,
    "avgTri": 0.00384,
    "anglePct": 24,
@@ -253409,7 +253860,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.06,
+   "minTube": 0.0323,
    "thick": 0.0457,
    "avgTri": 0.00383,
    "anglePct": 18,
@@ -254262,7 +254713,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0328,
+   "minTube": 0.0306,
    "thick": 0.087,
    "avgTri": 0.00186,
    "anglePct": 53,
@@ -254425,7 +254876,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
-   "minTube": 0.0261,
+   "minTube": 0.0222,
    "thick": 0.0675,
    "avgTri": 0.00564,
    "anglePct": 100,
@@ -254444,7 +254895,14 @@
     "lpa",
     "metal-iron-cast"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0222 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -254635,7 +255093,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0265,
+   "minTube": 0.0248,
    "thick": 0.0599,
    "avgTri": 0.0023,
    "anglePct": 80,
@@ -254660,7 +255118,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.51,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0248 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -254682,7 +255147,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0243,
+   "minTube": 0.0083,
    "thick": 0.0766,
    "avgTri": 0.00067,
    "anglePct": 72,
@@ -255244,6 +255709,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0437,
    "avgTri": 0.01043,
    "anglePct": 95,
@@ -255285,6 +255751,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0437,
    "avgTri": 0.00666,
    "anglePct": 94,
@@ -255326,6 +255793,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0432,
    "avgTri": 0.0054,
    "anglePct": 95,
@@ -255367,6 +255835,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0434,
    "avgTri": 0.00563,
    "anglePct": 94,
@@ -255408,6 +255877,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0435,
    "avgTri": 0.008,
    "anglePct": 95,
@@ -255448,6 +255918,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0719,
    "avgTri": 0.01265,
    "anglePct": 99,
@@ -255494,6 +255965,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0718,
    "avgTri": 0.00807,
    "anglePct": 97,
@@ -255540,6 +256012,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0686,
    "avgTri": 0.0068,
    "anglePct": 99,
@@ -255586,6 +256059,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.078,
    "avgTri": 0.00389,
    "anglePct": 98,
@@ -255632,6 +256106,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0779,
    "avgTri": 0.00311,
    "anglePct": 96,
@@ -255678,6 +256153,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0295,
    "thick": 0.0744,
    "avgTri": 0.0027,
    "anglePct": 98,
@@ -255724,7 +256200,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0265,
+   "minTube": 0.0197,
    "thick": 0.0475,
    "avgTri": 0.00323,
    "anglePct": 92,
@@ -255749,7 +256225,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -258114,6 +258597,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0197,
    "thick": 0.0727,
    "avgTri": 0.00285,
    "anglePct": 44,
@@ -258145,7 +258629,14 @@
     "wood-planks"
    ],
    "variant": "v1430",
-   "thickRel": 0.82
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -258167,6 +258658,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0197,
    "thick": 0.0693,
    "avgTri": 0.00212,
    "anglePct": 69,
@@ -258198,7 +258690,14 @@
     "wood-planks"
    ],
    "variant": "v1430",
-   "thickRel": 0.78
+   "thickRel": 0.78,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -258366,7 +258865,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0265,
+   "minTube": 0.0248,
    "thick": 0.0447,
    "avgTri": 0.00235,
    "anglePct": 76,
@@ -258391,7 +258890,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0248 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -258413,7 +258919,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0265,
+   "minTube": 0.0248,
    "thick": 0.0687,
    "avgTri": 0.00262,
    "anglePct": 86,
@@ -258438,7 +258944,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0248 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -258460,7 +258973,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0265,
+   "minTube": 0.0248,
    "thick": 0.0687,
    "avgTri": 0.00262,
    "anglePct": 86,
@@ -258485,7 +258998,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0248 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -258507,7 +259027,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0265,
+   "minTube": 0.0248,
    "thick": 0.0447,
    "avgTri": 0.00279,
    "anglePct": 86,
@@ -258532,7 +259052,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0248 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -259289,7 +259816,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0295,
+   "minTube": 0.0197,
    "thick": 0.2359,
    "avgTri": 0.00808,
    "anglePct": 75,
@@ -259320,7 +259847,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.14,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -259437,7 +259971,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.026,
+   "minTube": 0.0238,
    "thick": 0.178,
    "avgTri": 0.00833,
    "anglePct": 20,
@@ -259456,7 +259990,14 @@
     "lpa",
     "metal-iron-cast"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.41,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0238 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -259478,6 +260019,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0197,
    "thick": 0.0588,
    "avgTri": 0.0027,
    "anglePct": 46,
@@ -259509,7 +260051,14 @@
     "wood-planks"
    ],
    "variant": "v1431",
-   "thickRel": 0.67
+   "thickRel": 0.67,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -259531,6 +260080,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0197,
    "thick": 0.0474,
    "avgTri": 0.00252,
    "anglePct": 50,
@@ -259562,7 +260112,14 @@
     "wood-planks"
    ],
    "variant": "v1432",
-   "thickRel": 0.54
+   "thickRel": 0.54,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -259584,6 +260141,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0197,
    "thick": 0.0536,
    "avgTri": 0.00222,
    "anglePct": 71,
@@ -259615,7 +260173,14 @@
     "wood-planks"
    ],
    "variant": "v1431",
-   "thickRel": 0.61
+   "thickRel": 0.61,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -259637,6 +260202,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0197,
    "thick": 0.0452,
    "avgTri": 0.00211,
    "anglePct": 73,
@@ -259668,7 +260234,14 @@
     "wood-planks"
    ],
    "variant": "v1432",
-   "thickRel": 0.51
+   "thickRel": 0.51,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0197 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "makeup",
@@ -260424,6 +260997,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0022,
    "thick": 0.2771,
    "avgTri": 0.00027,
    "anglePct": 100,
@@ -260448,7 +261022,14 @@
     "paper",
     "rubber"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.52,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0022 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "makeup",
@@ -261110,7 +261691,7 @@
    "bytes": 23752,
    "vtx": 624,
    "minEdge": 0.007,
-   "minTube": 0.0613,
+   "minTube": 0.0362,
    "thick": 0.0865,
    "avgTri": 0.00733,
    "anglePct": 47,
@@ -261208,6 +261789,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0208,
    "thick": 0.0696,
    "avgTri": 0.00381,
    "anglePct": 90,
@@ -261231,7 +261813,14 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0208 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "medieval-forge",
@@ -261397,7 +261986,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0347,
+   "minTube": 0.0129,
    "thick": 0.1203,
    "avgTri": 0.00046,
    "anglePct": 69,
@@ -261439,7 +262028,14 @@
     "spin"
    ],
    "variant": "v919",
-   "thickRel": 0.8
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0129 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "medieval-forge",
@@ -261461,7 +262057,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0361,
+   "minTube": 0.0129,
    "thick": 0.1199,
    "avgTri": 0.00095,
    "anglePct": 69,
@@ -261499,7 +262095,14 @@
     "wood-beam"
    ],
    "variant": "v919",
-   "thickRel": 0.8
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0129 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "medieval-forge",
@@ -261875,7 +262478,7 @@
    "vtx": 1104,
    "grounded": true,
    "minEdge": 0.059,
-   "minTube": 0.0599,
+   "minTube": 0.0586,
    "thick": 0.0423,
    "avgTri": 0.02743,
    "anglePct": 98,
@@ -261916,7 +262519,7 @@
    "bytes": 62264,
    "vtx": 1712,
    "minEdge": 0.036,
-   "minTube": 0.0611,
+   "minTube": 0.0586,
    "thick": 0.0512,
    "avgTri": 0.02548,
    "anglePct": 94,
@@ -261960,6 +262563,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0168,
    "thick": 0.1255,
    "avgTri": 0.00015,
    "anglePct": 55,
@@ -262154,6 +262758,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0077,
    "thick": 0.1031,
    "avgTri": 0.00018,
    "anglePct": 88,
@@ -262205,6 +262810,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0103,
    "thick": 0.1362,
    "avgTri": 0.00019,
    "anglePct": 72,
@@ -262228,7 +262834,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0103 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "mek-tools",
@@ -263281,6 +263894,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0009,
    "thick": 0.0975,
    "avgTri": 0.00278,
    "anglePct": 3,
@@ -263305,7 +263919,14 @@
     "wood-bark"
    ],
    "variant": "v983",
-   "thickRel": 0.52
+   "thickRel": 0.52,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0009 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "nature-assets",
@@ -263932,6 +264553,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0324,
    "thick": 0.2438,
    "avgTri": 0.0003,
    "anglePct": 1,
@@ -264141,7 +264763,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0261,
+   "minTube": 0.0159,
    "thick": 0.0679,
    "avgTri": 0.00073,
    "anglePct": 3,
@@ -264466,6 +265088,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.0085,
    "thick": 0.0508,
    "avgTri": 0.00036,
    "anglePct": 4,
@@ -264569,6 +265192,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.008,
    "thick": 0.0603,
    "avgTri": 0.00034,
    "anglePct": 2,
@@ -264620,7 +265244,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0203,
+   "minTube": 0.0083,
    "thick": 0.0615,
    "avgTri": 0.0003,
    "anglePct": 0,
@@ -264724,7 +265348,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0183,
+   "minTube": 0.008,
    "thick": 0.0648,
    "avgTri": 0.00024,
    "anglePct": 2,
@@ -264828,6 +265452,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.008,
    "thick": 0.0688,
    "avgTri": 0.00015,
    "anglePct": 2,
@@ -264931,6 +265556,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
+   "minTube": 0.0133,
    "thick": 0.0502,
    "avgTri": 0.00037,
    "anglePct": 10,
@@ -265034,6 +265660,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
+   "minTube": 0.011,
    "thick": 0.0616,
    "avgTri": 0.0003,
    "anglePct": 1,
@@ -265085,7 +265712,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0199,
+   "minTube": 0.0081,
    "thick": 0.0495,
    "avgTri": 0.00027,
    "anglePct": 2,
@@ -265189,7 +265816,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0207,
+   "minTube": 0.0089,
    "thick": 0.0583,
    "avgTri": 0.00033,
    "anglePct": 5,
@@ -268570,7 +269197,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0347,
+   "minTube": 0.0045,
    "thick": 0.0566,
    "avgTri": 0.00297,
    "anglePct": 68,
@@ -268608,6 +269235,11 @@
      "level": "error",
      "check": "palette",
      "text": "wood-worked wants camel, has sienna ivory amber"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0045 wants min 0.006"
     }
    ]
   },
@@ -269351,6 +269983,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
+   "minTube": 0.0334,
    "thick": 0.5819,
    "avgTri": 0.00163,
    "anglePct": 87,
@@ -271284,6 +271917,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0168,
    "thick": 0.2361,
    "avgTri": 0.00752,
    "anglePct": 77,
@@ -272647,7 +273281,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0246,
+   "minTube": 0.0036,
    "thick": 0.1682,
    "avgTri": 0.00016,
    "anglePct": 52,
@@ -272678,7 +273312,14 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0036 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -272851,7 +273492,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0265,
+   "minTube": 0.0052,
    "thick": 0.2678,
    "avgTri": 0.00017,
    "anglePct": 89,
@@ -272894,6 +273535,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.157 under min 0.2 (obj-container-chest)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0052 wants min 0.026"
     }
    ]
   },
@@ -272917,7 +273563,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0265,
+   "minTube": 0.0049,
    "thick": 0.2873,
    "avgTri": 0.00021,
    "anglePct": 87,
@@ -272960,6 +273606,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.157 under min 0.2 (obj-container-chest)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0049 wants min 0.026"
     }
    ]
   },
@@ -273347,7 +273998,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0061,
+   "minTube": 0.0009,
    "thick": 0.1133,
    "avgTri": 0.00015,
    "anglePct": 67,
@@ -273403,6 +274054,11 @@
      "level": "warning",
      "check": "backface",
      "text": "1% of view 270/50 over 1%: open 100%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0009 wants min 0.006"
     }
    ]
   },
@@ -273479,6 +274135,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
+   "minTube": 0.0088,
    "thick": 0.0675,
    "avgTri": 0.00268,
    "anglePct": 97,
@@ -273499,7 +274156,14 @@
     "wood-planks"
    ],
    "variant": "v479",
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0088 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -273521,6 +274185,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
+   "minTube": 0.0088,
    "thick": 0.0699,
    "avgTri": 0.00268,
    "anglePct": 100,
@@ -273540,7 +274205,14 @@
     "wood-planks"
    ],
    "variant": "v479",
-   "thickRel": 0.94
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0088 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -274172,7 +274844,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0265,
+   "minTube": 0.0036,
    "thick": 0.0909,
    "avgTri": 0.00009,
    "anglePct": 3,
@@ -274221,7 +274893,14 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.71,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0036 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -275133,7 +275812,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0413,
+   "minTube": 0.0194,
    "thick": 0.227,
    "avgTri": 0.00127,
    "anglePct": 39,
@@ -275174,7 +275853,14 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.05,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0194 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-cars",
@@ -275520,6 +276206,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0112,
    "thick": 0.2781,
    "avgTri": 0.00112,
    "anglePct": 23,
@@ -275544,7 +276231,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.12,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -275622,6 +276316,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0086,
    "thick": 0.1297,
    "avgTri": 0.00118,
    "anglePct": 23,
@@ -275681,6 +276376,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0085,
    "thick": 0.2491,
    "avgTri": 0.00126,
    "anglePct": 32,
@@ -275712,7 +276408,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0085 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -275865,6 +276568,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0149,
    "thick": 0.2598,
    "avgTri": 0.0013,
    "anglePct": 94,
@@ -276258,6 +276962,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
+   "minTube": 0.0105,
    "thick": 0.0619,
    "avgTri": 0.00224,
    "anglePct": 63,
@@ -276291,7 +276996,14 @@
     "wood-worked"
    ],
    "variant": "v405",
-   "thickRel": 0.62
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0105 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -276314,6 +277026,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
+   "minTube": 0.0105,
    "thick": 0.0479,
    "avgTri": 0.00196,
    "anglePct": 59,
@@ -276346,7 +277059,14 @@
     "wood-worked"
    ],
    "variant": "v405",
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0105 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -276788,7 +277508,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0746,
+   "minTube": 0.0149,
    "thick": 0.2598,
    "avgTri": 0.0013,
    "anglePct": 94,
@@ -277005,6 +277725,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0051,
    "thick": 0.0468,
    "avgTri": 0.00009,
    "anglePct": 80,
@@ -277029,6 +277750,13 @@
     "metal-iron-steel",
     "qua",
     "wood-beam"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0051 wants min 0.006"
+    }
    ]
   },
   {
@@ -277093,7 +277821,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0602,
+   "minTube": 0.0233,
    "thick": 0.1149,
    "avgTri": 0.02884,
    "anglePct": 73,
@@ -277132,7 +277860,14 @@
     "wood-worked"
    ],
    "variant": "v444",
-   "thickRel": 0.71
+   "thickRel": 0.71,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0233 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-farms",
@@ -277214,7 +277949,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.0604,
+   "minTube": 0.0184,
    "thick": 0.1208,
    "avgTri": 0.02573,
    "anglePct": 75,
@@ -277253,7 +277988,14 @@
     "wood-worked"
    ],
    "variant": "v444",
-   "thickRel": 0.75
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0184 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-farms",
@@ -277275,7 +278017,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0602,
+   "minTube": 0.0233,
    "thick": 0.1447,
    "avgTri": 0.03377,
    "anglePct": 75,
@@ -277314,7 +278056,14 @@
     "wood-worked"
    ],
    "variant": "v444",
-   "thickRel": 0.89
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0233 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-farms",
@@ -277480,7 +278229,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0973,
+   "minTube": 0.0275,
    "thick": 0.2032,
    "avgTri": 0.00808,
    "anglePct": 48,
@@ -277545,7 +278294,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0973,
+   "minTube": 0.0427,
    "thick": 0.2999,
    "avgTri": 0.00998,
    "anglePct": 37,
@@ -278383,7 +279132,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0897,
+   "minTube": 0.0165,
    "thick": 0.1036,
    "avgTri": 0.00388,
    "anglePct": 55,
@@ -278410,7 +279159,14 @@
     "wood-planks"
    ],
    "variant": "v861",
-   "thickRel": 1.15
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0165 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -278433,7 +279189,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0885,
+   "minTube": 0.0139,
    "thick": 0.1014,
    "avgTri": 0.0037,
    "anglePct": 53,
@@ -278466,7 +279222,14 @@
     "wood-planks"
    ],
    "variant": "v861",
-   "thickRel": 1.13
+   "thickRel": 1.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0139 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -278489,7 +279252,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0895,
+   "minTube": 0.0166,
    "thick": 0.0516,
    "avgTri": 0.00447,
    "anglePct": 49,
@@ -278515,7 +279278,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0166 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -278538,7 +279308,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.051,
+   "minTube": 0.0139,
    "thick": 0.062,
    "avgTri": 0.00538,
    "anglePct": 57,
@@ -278571,7 +279341,14 @@
     "wood-planks"
    ],
    "variant": "v861",
-   "thickRel": 0.69
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0139 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -278904,7 +279681,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0062,
+   "minTube": 0.005,
    "thick": 0.0939,
    "avgTri": 0.00004,
    "anglePct": 22,
@@ -278929,7 +279706,14 @@
     "qua"
    ],
    "variant": "v864",
-   "thickRel": 0.6
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.005 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -278952,7 +279736,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.006,
+   "minTube": 0.0058,
    "thick": 0.1114,
    "avgTri": 0.00005,
    "anglePct": 23,
@@ -278987,7 +279771,14 @@
     "qua"
    ],
    "variant": "v864",
-   "thickRel": 0.72
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0058 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -282153,6 +282944,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.01,
    "thick": 0.2024,
    "avgTri": 0.00016,
    "anglePct": 75,
@@ -282551,6 +283343,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0029,
    "thick": 0.1836,
    "avgTri": 0.00021,
    "anglePct": 94,
@@ -282576,7 +283369,14 @@
     "wood-worked"
    ],
    "variant": "v385",
-   "thickRel": 0.8
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0029 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-food",
@@ -282598,6 +283398,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0029,
    "thick": 0.1836,
    "avgTri": 0.00015,
    "anglePct": 94,
@@ -282633,7 +283434,14 @@
     "wood-worked"
    ],
    "variant": "v385",
-   "thickRel": 0.8
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0029 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-food",
@@ -284081,6 +284889,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0258,
    "thick": 0.0569,
    "avgTri": 0.01152,
    "anglePct": 100,
@@ -284656,7 +285465,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0285,
+   "minTube": 0.006,
    "thick": 0.1144,
    "avgTri": 0.00131,
    "anglePct": 81,
@@ -284676,7 +285485,14 @@
     "wood-beam"
    ],
    "variant": "v1444",
-   "thickRel": 0.91
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -284698,7 +285514,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0121,
+   "minTube": 0.0037,
    "thick": 0.1141,
    "avgTri": 0.00113,
    "anglePct": 78,
@@ -284718,7 +285534,14 @@
     "wood-beam"
    ],
    "variant": "v1444",
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0037 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -285002,6 +285825,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0238,
    "thick": 0.0594,
    "avgTri": 0.00323,
    "anglePct": 49,
@@ -285743,6 +286567,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0007,
    "thick": 0.2178,
    "avgTri": 0.00013,
    "anglePct": 30,
@@ -285774,7 +286599,14 @@
     "scale-small",
     "stone-soil"
    ],
-   "thickRel": 1.81
+   "thickRel": 1.81,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0007 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -286955,7 +287787,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0192,
+   "minTube": 0.0013,
    "thick": 0.0969,
    "avgTri": 0.00023,
    "anglePct": 87,
@@ -287000,6 +287832,11 @@
      "level": "warning",
      "check": "backface",
      "text": "2% of view 270/20 over 1%: inverted 56%, open 44%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0013 wants min 0.012"
     }
    ]
   },
@@ -287533,6 +288370,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0048,
    "thick": 0.2738,
    "avgTri": 0.00031,
    "anglePct": 41,
@@ -287564,6 +288402,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.225 under min 0.3 (obj-container-barrel)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0048 wants min 0.026"
     }
    ]
   },
@@ -287705,6 +288548,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
+   "minTube": 0.0168,
    "thick": 0.1323,
    "avgTri": 0.00219,
    "anglePct": 90,
@@ -287745,6 +288589,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
+   "minTube": 0.0139,
    "thick": 0.0895,
    "avgTri": 0.0025,
    "anglePct": 59,
@@ -287909,7 +288754,7 @@
    "vtx": 2878,
    "grounded": true,
    "minEdge": 0.003,
-   "minTube": 0.022,
+   "minTube": 0.0132,
    "thick": 0.0499,
    "avgTri": 0.00239,
    "anglePct": 65,
@@ -287951,7 +288796,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.022 wants min 0.026"
+     "text": "G27 minTube 0.0132 wants min 0.026"
     }
    ],
    "mark": [
@@ -288699,7 +289544,7 @@
    "vtx": 13120,
    "grounded": true,
    "minEdge": 0.002,
-   "minTube": 0.0145,
+   "minTube": 0.006,
    "thick": 0.1547,
    "avgTri": 0.02635,
    "anglePct": 59,
@@ -288766,6 +289611,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
+   "minTube": 0.017,
    "thick": 0.0988,
    "avgTri": 0.00471,
    "anglePct": 84,
@@ -288784,7 +289630,14 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.017 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-medieval",
@@ -288902,7 +289755,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.0603,
+   "minTube": 0.019,
    "thick": 0.057,
    "avgTri": 0.00688,
    "anglePct": 56,
@@ -288932,7 +289785,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.019 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-medieval",
@@ -288954,7 +289814,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.0602,
+   "minTube": 0.019,
    "thick": 0.0756,
    "avgTri": 0.00829,
    "anglePct": 74,
@@ -288984,7 +289844,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.2,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.019 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-medieval",
@@ -289318,7 +290185,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.0245,
+   "minTube": 0.0169,
    "thick": 0.0861,
    "avgTri": 0.00495,
    "anglePct": 40,
@@ -289367,7 +290234,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0245 wants min 0.026"
+     "text": "G27 minTube 0.0169 wants min 0.026"
     }
    ]
   },
@@ -289391,7 +290258,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.0245,
+   "minTube": 0.018,
    "thick": 0.0861,
    "avgTri": 0.00532,
    "anglePct": 40,
@@ -289436,7 +290303,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0245 wants min 0.026"
+     "text": "G27 minTube 0.018 wants min 0.026"
     }
    ]
   },
@@ -292834,7 +293701,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0452,
+   "minTube": 0.0113,
    "thick": 0.1047,
    "avgTri": 0.00083,
    "anglePct": 46,
@@ -292906,7 +293773,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0605,
+   "minTube": 0.012,
    "thick": 0.2603,
    "avgTri": 0.00175,
    "anglePct": 44,
@@ -292933,7 +293800,14 @@
     "tba",
     "wood-worked"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.012 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -293510,7 +294384,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0267,
+   "minTube": 0.0136,
    "thick": 0.1811,
    "avgTri": 0.0045,
    "anglePct": 47,
@@ -293560,7 +294434,14 @@
    ],
    "alpha": true,
    "variant": "v902",
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0136 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -293582,7 +294463,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0267,
+   "minTube": 0.0141,
    "thick": 0.1979,
    "avgTri": 0.00702,
    "anglePct": 46,
@@ -293625,7 +294506,14 @@
     "wood-planks"
    ],
    "variant": "v902",
-   "thickRel": 1.09
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0141 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -293711,7 +294599,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0607,
+   "minTube": 0.0145,
    "thick": 0.1299,
    "avgTri": 0.00741,
    "anglePct": 58,
@@ -293765,7 +294653,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0145 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -294812,7 +295707,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0448,
+   "minTube": 0.0137,
    "thick": 0.1087,
    "avgTri": 0.00254,
    "anglePct": 27,
@@ -294846,7 +295741,14 @@
     "sailing",
     "wood-worked"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0137 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -296480,7 +297382,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0215,
+   "minTube": 0.0142,
    "thick": 0.0461,
    "avgTri": 0.00254,
    "anglePct": 99,
@@ -296507,7 +297409,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0215 wants min 0.026"
+     "text": "G27 minTube 0.0142 wants min 0.026"
     }
    ]
   },
@@ -297556,7 +298458,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0512,
+   "minTube": 0.0162,
    "thick": 0.0608,
    "avgTri": 0.00117,
    "anglePct": 57,
@@ -297805,24 +298707,24 @@
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
+    0.032,
     0.037,
-    0.037,
-    0.316
+    0.369
    ],
    "tris": 134,
    "tpu": 391,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9800,
+   "bytes": 9756,
    "vtx": 234,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0122,
-   "thick": 0.3318,
-   "avgTri": 0.00014,
-   "anglePct": 64,
+   "minEdge": 0.001,
+   "minTube": 0.006,
+   "thick": 0.3324,
+   "avgTri": 0.00009,
+   "anglePct": 81,
    "vpt": 1.75,
    "grad": 0.17,
    "spread": {
@@ -297845,7 +298747,14 @@
     "wood-beam"
    ],
    "variant": "v316",
-   "thickRel": 1.26
+   "thickRel": 1.26,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -297853,24 +298762,24 @@
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
+    0.032,
     0.037,
-    0.037,
-    0.316
+    0.369
    ],
    "tris": 136,
    "tpu": 397,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10184,
+   "bytes": 10140,
    "vtx": 246,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0122,
-   "thick": 0.3318,
-   "avgTri": 0.00014,
-   "anglePct": 63,
+   "minEdge": 0.001,
+   "minTube": 0.006,
+   "thick": 0.3324,
+   "avgTri": 0.00009,
+   "anglePct": 81,
    "vpt": 1.81,
    "grad": 0.31,
    "spread": {
@@ -297899,7 +298808,14 @@
     "wood-beam"
    ],
    "variant": "v316",
-   "thickRel": 1.26
+   "thickRel": 1.26,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -298796,7 +299712,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0534,
+   "minTube": 0.0042,
    "thick": 0.2479,
    "avgTri": 0.00046,
    "anglePct": 34,
@@ -298822,7 +299738,14 @@
     "wood-worked"
    ],
    "variant": "v319",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0042 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -298845,7 +299768,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0534,
+   "minTube": 0.0042,
    "thick": 0.1521,
    "avgTri": 0.00041,
    "anglePct": 29,
@@ -298878,7 +299801,14 @@
     "wood-worked"
    ],
    "variant": "v319",
-   "thickRel": 0.68
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0042 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -298901,7 +299831,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0534,
+   "minTube": 0.0043,
    "thick": 0.0853,
    "avgTri": 0.00048,
    "anglePct": 23,
@@ -298927,7 +299857,14 @@
     "wood-worked"
    ],
    "variant": "v319",
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0043 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -299215,6 +300152,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.006,
    "thick": 0.1732,
    "avgTri": 0.00005,
    "anglePct": 75,
@@ -299245,7 +300183,14 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.08,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -303010,7 +303955,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0284,
+   "minTube": 0.0073,
    "thick": 0.0908,
    "avgTri": 0.00138,
    "anglePct": 45,
@@ -303072,6 +304017,11 @@
      "level": "error",
      "check": "backface",
      "text": "3% of view 45/20 over 2%: inside-out 61%, other 21%, inverted 18%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0073 wants min 0.026"
     }
    ]
   },
@@ -303095,7 +304045,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0622,
+   "minTube": 0.0124,
    "thick": 0.0669,
    "avgTri": 0.01186,
    "anglePct": 85,
@@ -303143,6 +304093,11 @@
      "level": "warning",
      "check": "backface",
      "text": "1% of view 270/20 over 1%: inverted 100%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0124 wants min 0.026"
     }
    ]
   },
@@ -303222,7 +304177,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0603,
+   "minTube": 0.0124,
    "thick": 0.0673,
    "avgTri": 0.00518,
    "anglePct": 79,
@@ -303263,7 +304218,14 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.61,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0124 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -303578,6 +304540,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.0203,
    "thick": 0.2547,
    "avgTri": 0.00677,
    "anglePct": 89,
@@ -303602,7 +304565,14 @@
     "qua",
     "scale-small"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0203 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -304330,7 +305300,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.055,
+   "minTube": 0.0112,
    "thick": 0.0588,
    "avgTri": 0.00395,
    "anglePct": 76,
@@ -304357,7 +305327,14 @@
     "wood-worked"
    ],
    "variant": "v448",
-   "thickRel": 0.79
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -304379,7 +305356,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
-   "minTube": 0.0535,
+   "minTube": 0.0112,
    "thick": 0.074,
    "avgTri": 0.00799,
    "anglePct": 98,
@@ -304399,7 +305376,14 @@
     "wood-planks"
    ],
    "variant": "v448",
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -304519,6 +305503,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
+   "minTube": 0.0131,
    "thick": 0.0932,
    "avgTri": 0.00261,
    "anglePct": 32,
@@ -304537,6 +305522,13 @@
     "plural",
     "qua",
     "wood-planks"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0131 wants min 0.026"
+    }
    ]
   },
   {
@@ -304842,6 +305834,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "minTube": 0.0203,
    "thick": 0.3166,
    "avgTri": 0.00712,
    "anglePct": 88,
@@ -304865,7 +305858,14 @@
     "metal-iron-steel",
     "qua"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0203 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -305310,7 +306310,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0556,
+   "minTube": 0.012,
    "thick": 0.1562,
    "avgTri": 0.0095,
    "anglePct": 58,
@@ -305384,7 +306384,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0267,
+   "minTube": 0.0073,
    "thick": 0.1393,
    "avgTri": 0.00703,
    "anglePct": 76,
@@ -305447,7 +306447,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0142,
+   "minTube": 0.0112,
    "thick": 0.1651,
    "avgTri": 0.00949,
    "anglePct": 77,
@@ -305514,7 +306514,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0284,
+   "minTube": 0.0073,
    "thick": 0.2363,
    "avgTri": 0.00645,
    "anglePct": 79,
@@ -307631,7 +308631,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0281,
+   "minTube": 0,
    "thick": 0.071,
    "avgTri": 0.00208,
    "anglePct": 97,
@@ -308344,6 +309344,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0179,
    "thick": 0.1544,
    "avgTri": 0.00294,
    "anglePct": 77,
@@ -308374,7 +309375,14 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.69
+   "thickRel": 1.69,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0179 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-space",
@@ -309368,6 +310376,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0013,
    "thick": 0.0885,
    "avgTri": 0.00007,
    "anglePct": 45,
@@ -309414,7 +310423,14 @@
     "hop-settle"
    ],
    "variant": "v923",
-   "thickRel": 0.68
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0013 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-survival",
@@ -309436,6 +310452,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0013,
    "thick": 0.0885,
    "avgTri": 0.00007,
    "anglePct": 45,
@@ -309472,7 +310489,14 @@
     "tba"
    ],
    "variant": "v923",
-   "thickRel": 0.68
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0013 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-survival",
@@ -309983,6 +311007,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0009,
    "thick": 0.1004,
    "avgTri": 0.00009,
    "anglePct": 95,
@@ -310007,7 +311032,14 @@
     "metal",
     "qua"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0009 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-survival",
@@ -310918,7 +311950,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0294,
+   "minTube": 0.0175,
    "thick": 0.2909,
    "avgTri": 0.00586,
    "anglePct": 96,
@@ -311152,6 +312184,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
+   "minTube": 0.02,
    "thick": 0.183,
    "avgTri": 0.00769,
    "anglePct": 97,
@@ -311245,7 +312278,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0312,
+   "minTube": 0.0186,
    "thick": 0.2886,
    "avgTri": 0.0069,
    "anglePct": 97,
@@ -311293,7 +312326,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0312,
+   "minTube": 0.0186,
    "thick": 0.2838,
    "avgTri": 0.0066,
    "anglePct": 97,
@@ -311387,7 +312420,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0312,
+   "minTube": 0.0186,
    "thick": 0.2408,
    "avgTri": 0.00622,
    "anglePct": 97,
@@ -311441,6 +312474,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
+   "minTube": 0.0066,
    "thick": 0.1989,
    "avgTri": 0.00914,
    "anglePct": 97,
@@ -311466,7 +312500,14 @@
     "wood-worked"
    ],
    "variant": "v816",
-   "thickRel": 1.03
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0066 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-sushi",
@@ -311488,6 +312529,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
+   "minTube": 0.0186,
    "thick": 0.2817,
    "avgTri": 0.01037,
    "anglePct": 97,
@@ -313676,6 +314718,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.028,
+   "minTube": 0.0281,
    "thick": 0.0707,
    "avgTri": 0.02528,
    "anglePct": 100,
@@ -314413,7 +315456,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0209,
+   "minTube": 0.0197,
    "thick": 0.0585,
    "avgTri": 0.00529,
    "anglePct": 100,
@@ -314438,7 +315481,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0209 wants min 0.026"
+     "text": "G27 minTube 0.0197 wants min 0.026"
     }
    ]
   },
@@ -314608,7 +315651,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.009,
+   "minTube": 0.0053,
    "thick": 0.0844,
    "avgTri": 0.01172,
    "anglePct": 81,
@@ -314640,7 +315683,14 @@
     "wood-beam"
    ],
    "variant": "v358",
-   "thickRel": 0.67
+   "thickRel": 0.67,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -314662,7 +315712,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.009,
+   "minTube": 0.0053,
    "thick": 0.0771,
    "avgTri": 0.01887,
    "anglePct": 80,
@@ -314689,7 +315739,14 @@
     "wood-beam"
    ],
    "variant": "v358",
-   "thickRel": 0.61
+   "thickRel": 0.61,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -314711,7 +315768,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.009,
+   "minTube": 0.0053,
    "thick": 0.0888,
    "avgTri": 0.02307,
    "anglePct": 84,
@@ -314744,7 +315801,14 @@
     "wood-beam"
    ],
    "variant": "v358",
-   "thickRel": 0.7
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -314767,7 +315831,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.009,
+   "minTube": 0.0053,
    "thick": 0.0899,
    "avgTri": 0.01009,
    "anglePct": 84,
@@ -314819,6 +315883,11 @@
      "level": "warning",
      "check": "backface",
      "text": "1% of view 45/20 over 1%: open 100%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
     }
    ]
   },
@@ -314842,7 +315911,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.009,
+   "minTube": 0.0065,
    "thick": 0.1096,
    "avgTri": 0.01577,
    "anglePct": 85,
@@ -314903,7 +315972,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.009,
+   "minTube": 0.0065,
    "thick": 0.0936,
    "avgTri": 0.01526,
    "anglePct": 86,
@@ -315895,7 +316964,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.047,
-   "minTube": 0.0638,
+   "minTube": 0.0606,
    "thick": 0.1417,
    "avgTri": 0.05142,
    "anglePct": 47,
@@ -315944,7 +317013,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.049,
-   "minTube": 0.0638,
+   "minTube": 0.061,
    "thick": 0.0677,
    "avgTri": 0.05196,
    "anglePct": 67,
@@ -315993,7 +317062,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.049,
-   "minTube": 0.0612,
+   "minTube": 0.061,
    "thick": 0.062,
    "avgTri": 0.05585,
    "anglePct": 72,
@@ -316048,7 +317117,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.047,
-   "minTube": 0.0612,
+   "minTube": 0.061,
    "thick": 0.1315,
    "avgTri": 0.05461,
    "anglePct": 71,
@@ -316150,7 +317219,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0612,
+   "minTube": 0.0475,
    "thick": 0.1145,
    "avgTri": 0.05134,
    "anglePct": 83,
@@ -316198,7 +317267,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0074,
    "thick": 0.1796,
    "avgTri": 0.01318,
    "anglePct": 51,
@@ -316242,7 +317311,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0074 wants min 0.026"
     }
    ]
   },
@@ -316266,7 +317335,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.1666,
    "avgTri": 0.0122,
    "anglePct": 47,
@@ -316304,7 +317373,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -316887,7 +317956,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.053,
    "avgTri": 0.00485,
    "anglePct": 44,
@@ -316935,7 +318004,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -316959,7 +318028,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.0407,
    "avgTri": 0.00745,
    "anglePct": 44,
@@ -317007,7 +318076,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -317031,7 +318100,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.0458,
    "avgTri": 0.00889,
    "anglePct": 54,
@@ -317079,7 +318148,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -317103,7 +318172,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.0699,
    "avgTri": 0.00861,
    "anglePct": 74,
@@ -317169,7 +318238,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -317193,7 +318262,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0498,
    "avgTri": 0.009,
    "anglePct": 74,
@@ -317253,7 +318322,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
+     "text": "G27 minTube 0.0053 wants min 0.026"
     }
    ]
   },
@@ -317277,7 +318346,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0502,
    "avgTri": 0.00978,
    "anglePct": 75,
@@ -317337,7 +318406,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
+     "text": "G27 minTube 0.0053 wants min 0.026"
     }
    ]
   },
@@ -317361,7 +318430,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.1687,
    "avgTri": 0.01407,
    "anglePct": 27,
@@ -317410,7 +318479,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -317622,7 +318691,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0548,
    "avgTri": 0.01407,
    "anglePct": 76,
@@ -317659,7 +318728,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
+     "text": "G27 minTube 0.0053 wants min 0.026"
     }
    ]
   },
@@ -317683,7 +318752,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0506,
    "avgTri": 0.01592,
    "anglePct": 75,
@@ -317720,7 +318789,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
+     "text": "G27 minTube 0.0053 wants min 0.026"
     }
    ]
   },
@@ -317744,7 +318813,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0475,
    "avgTri": 0.02975,
    "anglePct": 83,
@@ -317781,7 +318850,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
+     "text": "G27 minTube 0.0053 wants min 0.026"
     }
    ]
   },
@@ -317806,7 +318875,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0655,
    "avgTri": 0.01653,
    "anglePct": 72,
@@ -317855,7 +318924,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v348"
+   "variant": "v348",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -317877,7 +318953,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.012,
+   "minTube": 0.0053,
    "thick": 0.0788,
    "avgTri": 0.02278,
    "anglePct": 80,
@@ -317931,7 +319007,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v348"
+   "variant": "v348",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -318116,7 +319199,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.103,
    "avgTri": 0.01654,
    "anglePct": 69,
@@ -318148,7 +319231,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -318172,7 +319255,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.1302,
    "avgTri": 0.01666,
    "anglePct": 65,
@@ -318204,7 +319287,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -318228,7 +319311,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.1571,
    "avgTri": 0.0142,
    "anglePct": 61,
@@ -318260,7 +319343,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -318351,7 +319434,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.1977,
    "avgTri": 0.00905,
    "anglePct": 76,
@@ -318406,7 +319489,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -318430,7 +319513,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0061,
    "thick": 0.1756,
    "avgTri": 0.0121,
    "anglePct": 80,
@@ -318485,7 +319568,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0061 wants min 0.026"
     }
    ]
   },
@@ -318977,6 +320060,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
+   "minTube": 0.1527,
    "thick": 0.2277,
    "avgTri": 0.08063,
    "anglePct": 73,
@@ -319540,7 +320624,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0056,
    "thick": 0.1587,
    "avgTri": 0.00887,
    "anglePct": 86,
@@ -319577,7 +320661,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0056 wants min 0.026"
     }
    ]
   },
@@ -319601,7 +320685,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0122,
+   "minTube": 0.0056,
    "thick": 0.166,
    "avgTri": 0.01086,
    "anglePct": 94,
@@ -319638,7 +320722,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.0056 wants min 0.026"
     }
    ]
   },
@@ -319797,7 +320881,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0129,
+   "minTube": 0.0074,
    "thick": 0.1209,
    "avgTri": 0.02175,
    "anglePct": 43,
@@ -319846,7 +320930,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0129 wants min 0.026"
+     "text": "G27 minTube 0.0074 wants min 0.026"
     }
    ]
   },
@@ -321104,7 +322188,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0265,
+   "minTube": 0.0247,
    "thick": 0.1017,
    "avgTri": 0.00081,
    "anglePct": 26,
@@ -321131,7 +322215,14 @@
     "wood-beam"
    ],
    "variant": "v635",
-   "thickRel": 1.02
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0247 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -321153,7 +322244,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0265,
+   "minTube": 0.0251,
    "thick": 0.1011,
    "avgTri": 0.00073,
    "anglePct": 36,
@@ -321180,7 +322271,14 @@
     "wood-beam"
    ],
    "variant": "v635",
-   "thickRel": 1.02
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0251 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -321398,7 +322496,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
-   "minTube": 0.1099,
+   "minTube": 0.0426,
    "thick": 0.0712,
    "avgTri": 0.01417,
    "anglePct": 63,
@@ -321546,7 +322644,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
-   "minTube": 0.0612,
+   "minTube": 0.0415,
    "thick": 0.0479,
    "avgTri": 0.00373,
    "anglePct": 70,
@@ -321643,7 +322741,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0122,
+   "minTube": 0.0056,
    "thick": 0.3922,
    "avgTri": 0.00003,
    "anglePct": 24,
@@ -321687,7 +322785,14 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 2.63
+   "thickRel": 2.63,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0056 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -321805,7 +322910,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0077,
+   "minTube": 0.0006,
    "thick": 0.2378,
    "avgTri": 0.00019,
    "anglePct": 65,
@@ -321832,7 +322937,14 @@
     "rgp",
     "rope"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0006 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -322094,7 +323206,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
-   "minTube": 0.0608,
+   "minTube": 0.0396,
    "thick": 0.0487,
    "avgTri": 0.05006,
    "anglePct": 100,
@@ -322334,7 +323446,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.06,
+   "minTube": 0.0366,
    "thick": 0.0526,
    "avgTri": 0.00665,
    "anglePct": 2,
@@ -322382,7 +323494,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.097,
-   "minTube": 0.3706,
+   "minTube": 0.2278,
    "thick": 0.177,
    "avgTri": 0.13435,
    "anglePct": 26,
@@ -322680,6 +323792,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
+   "minTube": 0.0208,
    "thick": 0.2026,
    "avgTri": 0.00019,
    "anglePct": 24,
@@ -322945,7 +324058,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.018,
-   "minTube": 0.0218,
+   "minTube": 0.0181,
    "thick": 0.0484,
    "avgTri": 0.00443,
    "anglePct": 100,
@@ -322976,7 +324089,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0218 wants min 0.026"
+     "text": "G27 minTube 0.0181 wants min 0.026"
     }
    ]
   },
@@ -323383,7 +324496,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
-   "minTube": 0.1303,
+   "minTube": 0.0218,
    "thick": 0.0695,
    "avgTri": 0.00937,
    "anglePct": 83,
@@ -324258,7 +325371,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0291,
+   "minTube": 0,
    "thick": 0.1992,
    "avgTri": 0.00004,
    "anglePct": 30,
@@ -324476,7 +325589,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.061,
+   "minTube": 0.046,
    "thick": 0.0491,
    "avgTri": 0.02296,
    "anglePct": 80,
@@ -325335,7 +326448,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.047,
+   "minTube": 0.0336,
    "thick": 0.0702,
    "avgTri": 0.00225,
    "anglePct": 70,
@@ -325617,7 +326730,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.022,
-   "minTube": 0.0613,
+   "minTube": 0.0407,
    "thick": 0.0994,
    "avgTri": 0.02976,
    "anglePct": 38,
@@ -326041,7 +327154,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0124,
+   "minTube": 0.0096,
    "thick": 0.0942,
    "avgTri": 0.00045,
    "anglePct": 19,
@@ -326111,7 +327224,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0177,
+   "minTube": 0.012,
    "thick": 0.222,
    "avgTri": 0.00158,
    "anglePct": 87,
@@ -326279,6 +327392,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0118,
    "thick": 0.0659,
    "avgTri": 0.00436,
    "anglePct": 83,
@@ -326315,6 +327429,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 1.157 over max 1.1 (str-part-door-single)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0118 wants min 0.026"
     }
    ]
   },
@@ -326461,7 +327580,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0513,
+   "minTube": 0.0143,
    "thick": 0.1806,
    "avgTri": 0.03494,
    "anglePct": 57,
@@ -326493,7 +327612,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0143 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -326757,6 +327883,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
+   "minTube": 0.0186,
    "thick": 0.0771,
    "avgTri": 0.00362,
    "anglePct": 84,
@@ -326783,7 +327910,14 @@
     "wood-planks"
    ],
    "variant": "v1146",
-   "thickRel": 0.77
+   "thickRel": 0.77,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0186 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -326806,6 +327940,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
+   "minTube": 0.0186,
    "thick": 0.0759,
    "avgTri": 0.00506,
    "anglePct": 90,
@@ -326831,7 +327966,14 @@
     "wood-planks"
    ],
    "variant": "v1146",
-   "thickRel": 0.76
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0186 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -326903,6 +328045,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0175,
    "thick": 0.2961,
    "avgTri": 0.0004,
    "anglePct": 25,
@@ -327075,7 +328218,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0247,
+   "minTube": 0.0069,
    "thick": 0.2854,
    "avgTri": 0.00017,
    "anglePct": 43,
@@ -327244,7 +328387,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.029,
+   "minTube": 0.0277,
    "thick": 0.0982,
    "avgTri": 0.00731,
    "anglePct": 52,
@@ -327577,7 +328720,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
-   "minTube": 0.0593,
+   "minTube": 0.0422,
    "thick": 0.1683,
    "avgTri": 0.09058,
    "anglePct": 67,
@@ -327638,7 +328781,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.018,
-   "minTube": 0.0612,
+   "minTube": 0.0176,
    "thick": 0.2593,
    "avgTri": 0.12604,
    "anglePct": 86,
@@ -327676,7 +328819,14 @@
     "wood-beam"
    ],
    "variant": "v1157",
-   "thickRel": 1.43
+   "thickRel": 1.43,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0176 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -327700,7 +328850,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.018,
-   "minTube": 0.0612,
+   "minTube": 0.0176,
    "thick": 0.2593,
    "avgTri": 0.12604,
    "anglePct": 86,
@@ -327738,7 +328888,14 @@
     "wood-beam"
    ],
    "variant": "v1157",
-   "thickRel": 1.43
+   "thickRel": 1.43,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0176 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -327761,7 +328918,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0695,
+   "minTube": 0.0103,
    "thick": 0.2746,
    "avgTri": 0.12005,
    "anglePct": 59,
@@ -327799,7 +328956,14 @@
     "wood-beam"
    ],
    "variant": "v1156",
-   "thickRel": 1.52
+   "thickRel": 1.52,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0103 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -327822,7 +328986,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.0611,
+   "minTube": 0.0118,
    "thick": 0.2735,
    "avgTri": 0.12211,
    "anglePct": 60,
@@ -327860,7 +329024,14 @@
     "wood-beam"
    ],
    "variant": "v1156",
-   "thickRel": 1.51
+   "thickRel": 1.51,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0118 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -328110,7 +329281,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0245,
+   "minTube": 0.0176,
    "thick": 0.1504,
    "avgTri": 0.04326,
    "anglePct": 63,
@@ -328158,7 +329329,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0245 wants min 0.026"
+     "text": "G27 minTube 0.0176 wants min 0.026"
     }
    ]
   },
@@ -328183,7 +329354,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.015,
+   "minTube": 0.0069,
    "thick": 0.2199,
    "avgTri": 0.0081,
    "anglePct": 58,
@@ -328232,7 +329403,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.015 wants min 0.026"
+     "text": "G27 minTube 0.0069 wants min 0.026"
     }
    ]
   },
@@ -328257,7 +329428,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.063,
+   "minTube": 0.0229,
    "thick": 0.1741,
    "avgTri": 0.03508,
    "anglePct": 56,
@@ -328295,7 +329466,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0229 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -328476,7 +329654,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0224,
+   "minTube": 0.0183,
    "thick": 0.0787,
    "avgTri": 0.00454,
    "anglePct": 51,
@@ -328574,7 +329752,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.0224,
+   "minTube": 0.0183,
    "thick": 0.0699,
    "avgTri": 0.00632,
    "anglePct": 24,
@@ -329330,6 +330508,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
+   "minTube": 0.0545,
    "thick": 0.3098,
    "avgTri": 0.03826,
    "anglePct": 98,
@@ -329372,6 +330551,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
+   "minTube": 0.0542,
    "thick": 0.3099,
    "avgTri": 0.0087,
    "anglePct": 95,
@@ -329414,6 +330594,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
+   "minTube": 0.0546,
    "thick": 0.3169,
    "avgTri": 0.01648,
    "anglePct": 79,
@@ -329499,6 +330680,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
+   "minTube": 0.0542,
    "thick": 0.2819,
    "avgTri": 0.01551,
    "anglePct": 72,
@@ -329541,6 +330723,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
+   "minTube": 0.0542,
    "thick": 0.2335,
    "avgTri": 0.01655,
    "anglePct": 83,
@@ -329624,7 +330807,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0592,
+   "minTube": 0.0209,
    "thick": 0.065,
    "avgTri": 0.01302,
    "anglePct": 90,
@@ -329650,7 +330833,14 @@
     "wood-beam"
    ],
    "variant": "v1168",
-   "thickRel": 1.07
+   "thickRel": 1.07,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0209 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -329673,7 +330863,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0611,
+   "minTube": 0.0209,
    "thick": 0.066,
    "avgTri": 0.01249,
    "anglePct": 88,
@@ -329699,7 +330889,14 @@
     "wood-beam"
    ],
    "variant": "v1168",
-   "thickRel": 1.08
+   "thickRel": 1.08,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0209 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -329722,7 +330919,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minTube": 0.0611,
+   "minTube": 0.0227,
    "thick": 0.064,
    "avgTri": 0.00961,
    "anglePct": 87,
@@ -329748,7 +330945,14 @@
     "wood-beam"
    ],
    "variant": "v1168",
-   "thickRel": 1.05
+   "thickRel": 1.05,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0227 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -329771,7 +330975,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minTube": 0.048,
+   "minTube": 0.016,
    "thick": 0.0615,
    "avgTri": 0.00694,
    "anglePct": 90,
@@ -329796,7 +331000,14 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.016 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -330015,7 +331226,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
-   "minTube": 0.098,
+   "minTube": 0.0188,
    "thick": 0.0475,
    "avgTri": 0.01623,
    "anglePct": 17,
@@ -330046,7 +331257,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.51,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0188 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -330267,7 +331485,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0603,
+   "minTube": 0.0283,
    "thick": 0.1797,
    "avgTri": 0.0351,
    "anglePct": 81,
@@ -330392,7 +331610,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.021,
-   "minTube": 0.1413,
+   "minTube": 0.1208,
    "thick": 0.1803,
    "avgTri": 0.06694,
    "anglePct": 95,
@@ -331016,7 +332234,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0591,
+   "minTube": 0.0098,
    "thick": 0.3111,
    "avgTri": 0.00521,
    "anglePct": 32,
@@ -331048,7 +332266,14 @@
     "wood-beam"
    ],
    "variant": "v1153",
-   "thickRel": 3.11
+   "thickRel": 3.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0098 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -331071,7 +332296,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0589,
+   "minTube": 0.0208,
    "thick": 0.2638,
    "avgTri": 0.00332,
    "anglePct": 28,
@@ -331103,7 +332328,14 @@
     "wood-beam"
    ],
    "variant": "v1153",
-   "thickRel": 2.64
+   "thickRel": 2.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0208 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -331126,7 +332358,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0589,
+   "minTube": 0.0208,
    "thick": 0.3163,
    "avgTri": 0.00445,
    "anglePct": 31,
@@ -331158,7 +332390,14 @@
     "wood-beam"
    ],
    "variant": "v1153",
-   "thickRel": 3.16
+   "thickRel": 3.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0208 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -331590,7 +332829,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
-   "minTube": 0.0447,
+   "minTube": 0.0219,
    "thick": 0.069,
    "avgTri": 0.00125,
    "anglePct": 3,
@@ -331615,7 +332854,14 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0219 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -331728,6 +332974,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
+   "minTube": 0.0187,
    "thick": 0.0516,
    "avgTri": 0.00967,
    "anglePct": 65,
@@ -331770,7 +333017,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0605,
+   "minTube": 0.0161,
    "thick": 0.0646,
    "avgTri": 0.01469,
    "anglePct": 55,
@@ -331802,7 +333049,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0161 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -331884,6 +333138,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0069,
    "thick": 0.0572,
    "avgTri": 0.00079,
    "anglePct": 90,
@@ -331909,7 +333164,14 @@
     "rgp",
     "wood-planks"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.65,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0069 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -332176,7 +333438,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0274,
+   "minTube": 0.0204,
    "thick": 0.1312,
    "avgTri": 0.03041,
    "anglePct": 51,
@@ -332271,7 +333533,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0615,
+   "minTube": 0.0264,
    "thick": 0.0686,
    "avgTri": 0.01488,
    "anglePct": 90,
@@ -332457,7 +333719,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0611,
+   "minTube": 0.0256,
    "thick": 0.0875,
    "avgTri": 0.01772,
    "anglePct": 41,
@@ -332494,6 +333756,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.083 over max 1.35 (str-canopy-stall)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0256 wants min 0.026"
     }
    ]
   },
@@ -332518,7 +333785,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0601,
+   "minTube": 0.0245,
    "thick": 0.0529,
    "avgTri": 0.00443,
    "anglePct": 26,
@@ -332561,6 +333828,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 1.562 over max 1.35 (str-canopy-stall)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0245 wants min 0.026"
     }
    ]
   },
@@ -332819,7 +334091,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0609,
+   "minTube": 0.0267,
    "thick": 0.0908,
    "avgTri": 0.00504,
    "anglePct": 81,
@@ -333189,7 +334461,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0256,
+   "minTube": 0.0177,
    "thick": 0.0855,
    "avgTri": 0.00175,
    "anglePct": 29,
@@ -333219,7 +334491,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0256 wants min 0.026"
+     "text": "G27 minTube 0.0177 wants min 0.026"
     }
    ]
   },
@@ -333244,7 +334516,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0602,
+   "minTube": 0.0507,
    "thick": 0.1328,
    "avgTri": 0.01893,
    "anglePct": 61,
@@ -333305,7 +334577,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.1014,
+   "minTube": 0.0507,
    "thick": 0.0861,
    "avgTri": 0.01507,
    "anglePct": 45,
@@ -333478,7 +334750,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0176,
+   "minTube": 0.0082,
    "thick": 0.1155,
    "avgTri": 0.00162,
    "anglePct": 14,
@@ -333513,7 +334785,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0176 wants min 0.026"
+     "text": "G27 minTube 0.0082 wants min 0.026"
     }
    ]
   },
@@ -333670,7 +334942,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0394,
+   "minTube": 0.0132,
    "thick": 0.0374,
    "avgTri": 0.00117,
    "anglePct": 57,
@@ -333696,7 +334968,14 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0132 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -333719,7 +334998,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0263,
+   "minTube": 0.0069,
    "thick": 0.068,
    "avgTri": 0.001,
    "anglePct": 52,
@@ -333752,7 +335031,14 @@
     "wood-beam"
    ],
    "variant": "v1162",
-   "thickRel": 0.77
+   "thickRel": 0.77,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0069 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-props",
@@ -334373,7 +335659,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.031,
+   "minTube": 0.0086,
    "thick": 0.2905,
    "avgTri": 0.00021,
    "anglePct": 42,
@@ -334439,7 +335725,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.031,
+   "minTube": 0.0086,
    "thick": 0.2905,
    "avgTri": 0.00021,
    "anglePct": 42,
@@ -334500,7 +335786,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0309,
+   "minTube": 0.0086,
    "thick": 0.2904,
    "avgTri": 0.0002,
    "anglePct": 41,
@@ -334614,7 +335900,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0272,
+   "minTube": 0.0245,
    "thick": 0.0943,
    "avgTri": 0.00106,
    "anglePct": 19,
@@ -335486,7 +336772,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.001,
+   "minTube": 0,
    "thick": 0.1275,
    "avgTri": 0.00012,
    "anglePct": 79,
@@ -335524,14 +336810,7 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.001 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-vintage",
@@ -336012,7 +337291,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0533,
+   "minTube": 0.013,
    "thick": 0.0633,
    "avgTri": 0.00011,
    "anglePct": 35,
@@ -336038,7 +337317,14 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.013 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-vintage",
@@ -336110,7 +337396,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0383,
+   "minTube": 0.0139,
    "thick": 0.045,
    "avgTri": 0.00579,
    "anglePct": 90,
@@ -336135,7 +337421,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0139 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-weapons",
@@ -338775,6 +340068,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0055,
    "thick": 0.0718,
    "avgTri": 0.00005,
    "anglePct": 37,
@@ -338798,7 +340092,14 @@
     "bone"
    ],
    "variant": "v676",
-   "thickRel": 0.64
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0055 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -338820,6 +340121,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0055,
    "thick": 0.0718,
    "avgTri": 0.00005,
    "anglePct": 37,
@@ -338843,7 +340145,14 @@
     "bone"
    ],
    "variant": "v676",
-   "thickRel": 0.64
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0055 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -338865,6 +340174,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0055,
    "thick": 0.0718,
    "avgTri": 0.00005,
    "anglePct": 37,
@@ -338888,7 +340198,14 @@
     "bone"
    ],
    "variant": "v676",
-   "thickRel": 0.64
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0055 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -339156,6 +340473,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0055,
    "thick": 0.1045,
    "avgTri": 0.00007,
    "anglePct": 20,
@@ -339184,7 +340502,14 @@
     "bone",
     "ceramic"
    ],
-   "variant": "v677"
+   "variant": "v677",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0055 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -339206,6 +340531,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0055,
    "thick": 0.1045,
    "avgTri": 0.00007,
    "anglePct": 20,
@@ -339234,7 +340560,14 @@
     "bone",
     "ceramic"
    ],
-   "variant": "v677"
+   "variant": "v677",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0055 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "rpg-mini",
@@ -339256,6 +340589,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0055,
    "thick": 0.1045,
    "avgTri": 0.00007,
    "anglePct": 20,
@@ -339279,7 +340613,14 @@
     "bone",
     "ceramic"
    ],
-   "variant": "v677"
+   "variant": "v677",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0055 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "scythian",
@@ -339408,7 +340749,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0267,
+   "minTube": 0.0059,
    "thick": 0.241,
    "avgTri": 0.00153,
    "anglePct": 85,
@@ -339455,6 +340796,11 @@
      "level": "error",
      "check": "palette",
      "text": "metal-iron-steel wants nickel, has slate amber moss azure ivory"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0059 wants min 0.026"
     }
    ]
   },
@@ -340998,7 +342344,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0126,
+   "minTube": 0.008,
    "thick": 0.0652,
    "avgTri": 0.00125,
    "anglePct": 100,
@@ -341829,7 +343175,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0177,
+   "minTube": 0.0109,
    "thick": 0.1089,
    "avgTri": 0.00186,
    "anglePct": 41,
@@ -341864,7 +343210,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0177 wants min 0.026"
+     "text": "G27 minTube 0.0109 wants min 0.026"
     }
    ]
   },
@@ -341889,7 +343235,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0212,
+   "minTube": 0.0112,
    "thick": 0.0862,
    "avgTri": 0.00709,
    "anglePct": 82,
@@ -341929,7 +343275,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0212 wants min 0.026"
+     "text": "G27 minTube 0.0112 wants min 0.026"
     }
    ]
   },
@@ -342056,7 +343402,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0265,
+   "minTube": 0.0109,
    "thick": 0.0906,
    "avgTri": 0.00107,
    "anglePct": 95,
@@ -342161,7 +343507,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0233,
+   "minTube": 0.0118,
    "thick": 0.149,
    "avgTri": 0.00149,
    "anglePct": 86,
@@ -342208,7 +343554,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0233 wants min 0.026"
+     "text": "G27 minTube 0.0118 wants min 0.026"
     }
    ]
   },
@@ -342295,7 +343641,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.026,
+   "minTube": 0.006,
    "thick": 0.2209,
    "avgTri": 0.00322,
    "anglePct": 99,
@@ -342336,7 +343682,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "sq-bowling",
@@ -343042,7 +344395,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0451,
+   "minTube": 0.0074,
    "thick": 0.0671,
    "avgTri": 0.00165,
    "anglePct": 100,
@@ -343084,7 +344437,14 @@
     "sidequest",
     "wood-beam"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.66,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0074 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "sq-cards",
@@ -343463,7 +344823,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.065,
+   "minTube": 0.0099,
    "thick": 0.0646,
    "avgTri": 0.00485,
    "anglePct": 100,
@@ -343498,7 +344858,14 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0099 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-carwash",
@@ -343584,7 +344951,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0499,
+   "minTube": 0.0249,
    "thick": 0.1534,
    "avgTri": 0.00169,
    "anglePct": 98,
@@ -343647,7 +345014,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0152,
+   "minTube": 0.0042,
    "thick": 0.0555,
    "avgTri": 0.00245,
    "anglePct": 82,
@@ -343687,7 +345054,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0152 wants min 0.026"
+     "text": "G27 minTube 0.0042 wants min 0.026"
     }
    ]
   },
@@ -343917,7 +345284,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0265,
+   "minTube": 0.0007,
    "thick": 0.3264,
    "avgTri": 0.00308,
    "anglePct": 97,
@@ -343958,7 +345325,14 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.24,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0007 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-casino",
@@ -344254,7 +345628,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.013,
+   "minTube": 0.0032,
    "thick": 0.0808,
    "avgTri": 0.00766,
    "anglePct": 100,
@@ -344295,7 +345669,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0032 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "sq-casino",
@@ -345174,7 +346555,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0249,
+   "minTube": 0.0052,
    "thick": 0.0653,
    "avgTri": 0.0027,
    "anglePct": 100,
@@ -345225,7 +346606,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0249 wants min 0.026"
+     "text": "G27 minTube 0.0052 wants min 0.026"
     }
    ]
   },
@@ -345322,7 +346703,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0628,
+   "minTube": 0.0299,
    "thick": 0.0869,
    "avgTri": 0.01162,
    "anglePct": 100,
@@ -345910,7 +347291,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0157,
+   "minTube": 0.0149,
    "thick": 0.1129,
    "avgTri": 0.00145,
    "anglePct": 96,
@@ -346174,7 +347555,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0417,
+   "minTube": 0.0112,
    "thick": 0.1801,
    "avgTri": 0.00143,
    "anglePct": 100,
@@ -346215,7 +347596,14 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-fastfood",
@@ -348838,6 +350226,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0149,
    "thick": 0.3402,
    "avgTri": 0.00262,
    "anglePct": 99,
@@ -348878,7 +350267,14 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.24,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0149 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-laundry",
@@ -349623,7 +351019,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0149,
+   "minTube": 0.0129,
    "thick": 0.0776,
    "avgTri": 0.00036,
    "anglePct": 50,
@@ -349883,7 +351279,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0188,
+   "minTube": 0.0175,
    "thick": 0.0634,
    "avgTri": 0.00056,
    "anglePct": 92,
@@ -349930,7 +351326,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.045,
+   "minTube": 0.0125,
    "thick": 0.0774,
    "avgTri": 0.00728,
    "anglePct": 79,
@@ -350099,6 +351495,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0117,
    "thick": 0.5426,
    "avgTri": 0.00014,
    "anglePct": 16,
@@ -350128,7 +351525,14 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 4.89
+   "thickRel": 4.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0117 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-pool",
@@ -350285,7 +351689,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0172,
+   "minTube": 0.0103,
    "thick": 0.0579,
    "avgTri": 0.00258,
    "anglePct": 76,
@@ -350320,7 +351724,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0172 wants min 0.026"
+     "text": "G27 minTube 0.0103 wants min 0.026"
     }
    ]
   },
@@ -350346,7 +351750,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0179,
+   "minTube": 0.015,
    "thick": 0.1,
    "avgTri": 0.00352,
    "anglePct": 97,
@@ -350381,7 +351785,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0179 wants min 0.026"
+     "text": "G27 minTube 0.015 wants min 0.026"
     }
    ]
   },
@@ -350694,7 +352098,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0265,
+   "minTube": 0.0203,
    "thick": 0.1921,
    "avgTri": 0.00368,
    "anglePct": 86,
@@ -350735,7 +352139,14 @@
     "sidequest",
     "wood-beam"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.77,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0203 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-rink",
@@ -350758,7 +352169,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0137,
+   "minTube": 0.004,
    "thick": 0.1244,
    "avgTri": 0.0059,
    "anglePct": 100,
@@ -350803,7 +352214,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0137 wants min 0.026"
+     "text": "G27 minTube 0.004 wants min 0.026"
     }
    ]
   },
@@ -351056,7 +352467,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.02,
+   "minTube": 0.015,
    "thick": 0.1069,
    "avgTri": 0.00578,
    "anglePct": 99,
@@ -351091,7 +352502,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.02 wants min 0.026"
+     "text": "G27 minTube 0.015 wants min 0.026"
     }
    ]
   },
@@ -351170,6 +352581,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "minTube": 0.0039,
    "thick": 0.0333,
    "avgTri": 0.03024,
    "anglePct": 100,
@@ -351194,7 +352606,14 @@
     "sidequest",
     "wood-worked"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0039 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "sq-rink",
@@ -352057,7 +353476,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.084,
+   "minTube": 0,
    "thick": 0.175,
    "avgTri": 0.05261,
    "anglePct": 33,
@@ -352117,7 +353536,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "minTube": 0.0725,
+   "minTube": 0,
    "thick": 0.2376,
    "avgTri": 0.06342,
    "anglePct": 25,
@@ -352185,7 +353604,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.084,
+   "minTube": 0,
    "thick": 0.2159,
    "avgTri": 0.04421,
    "anglePct": 42,
@@ -352697,7 +354116,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0249,
+   "minTube": 0.0139,
    "thick": 0.0498,
    "avgTri": 0.00288,
    "anglePct": 63,
@@ -352745,7 +354164,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0249,
+   "minTube": 0.0139,
    "thick": 0.0498,
    "avgTri": 0.00288,
    "anglePct": 63,
@@ -352799,6 +354218,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0,
    "thick": 0.2201,
    "avgTri": 0.00174,
    "anglePct": 95,
@@ -354434,7 +355854,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0531,
+   "minTube": 0.0168,
    "thick": 0.1532,
    "avgTri": 0.0035,
    "anglePct": 16,
@@ -355670,7 +357090,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0229,
+   "minTube": 0.0175,
    "thick": 0.14,
    "avgTri": 0.00411,
    "anglePct": 39,
@@ -355710,7 +357130,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0229 wants min 0.026"
+     "text": "G27 minTube 0.0175 wants min 0.026"
     }
    ]
   },
@@ -356159,7 +357579,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0368,
+   "minTube": 0.013,
    "thick": 0.1258,
    "avgTri": 0.01254,
    "anglePct": 29,
@@ -356202,7 +357622,14 @@
     "spin"
    ],
    "variant": "v530",
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.013 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -356224,7 +357651,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.044,
+   "minTube": 0.0155,
    "thick": 0.1458,
    "avgTri": 0.00695,
    "anglePct": 32,
@@ -356272,7 +357699,14 @@
    "alpha": true,
    "pbr": true,
    "variant": "v530",
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0155 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -356294,7 +357728,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.044,
+   "minTube": 0.0155,
    "thick": 0.1457,
    "avgTri": 0.0069,
    "anglePct": 32,
@@ -356338,7 +357772,14 @@
    "alpha": true,
    "pbr": true,
    "variant": "v530",
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0155 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -356360,7 +357801,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0285,
+   "minTube": 0.01,
    "thick": 0.1117,
    "avgTri": 0.01084,
    "anglePct": 40,
@@ -356397,7 +357838,14 @@
     "spin"
    ],
    "variant": "v530",
-   "thickRel": 0.89
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.01 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -356419,7 +357867,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0285,
+   "minTube": 0.01,
    "thick": 0.1117,
    "avgTri": 0.01251,
    "anglePct": 39,
@@ -356452,7 +357900,14 @@
     "wood-beam"
    ],
    "variant": "v530",
-   "thickRel": 0.89
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.01 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -356474,7 +357929,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0368,
+   "minTube": 0.013,
    "thick": 0.1257,
    "avgTri": 0.01414,
    "anglePct": 29,
@@ -356513,7 +357968,14 @@
     "wood-beam"
    ],
    "variant": "v530",
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.013 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -360134,7 +361596,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0121,
+   "minTube": 0.0008,
    "thick": 0.1117,
    "avgTri": 0.00004,
    "anglePct": 66,
@@ -360166,7 +361628,14 @@
     "wood-worked"
    ],
    "variant": "v1347",
-   "thickRel": 0.69
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0008 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "styloo-guns",
@@ -361034,7 +362503,7 @@
     "rubber",
     "styloo"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.51
   },
   {
    "kit": "styloo-kitchen",
@@ -365231,7 +366700,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0452,
+   "minTube": 0.0056,
    "thick": 0.0416,
    "avgTri": 0.01428,
    "anglePct": 25,
@@ -365272,6 +366741,11 @@
      "level": "warning",
      "check": "backface",
      "text": "1% of view 0/20 over 1%: inverted 49%, other 49%, open 2%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0056 wants min 0.012"
     }
    ]
   },
@@ -365885,7 +367359,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0147,
+   "minTube": 0.0132,
    "thick": 0.1732,
    "avgTri": 0.00105,
    "anglePct": 88,
@@ -367174,7 +368648,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0008,
+   "minTube": 0.0005,
    "thick": 0.4682,
    "avgTri": 0,
    "anglePct": 19,
@@ -367228,7 +368702,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0008 wants min 0.006"
+     "text": "G27 minTube 0.0005 wants min 0.006"
     }
    ]
   },
@@ -368140,6 +369614,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "minTube": 0.0039,
    "thick": 0.2333,
    "avgTri": 0.0002,
    "anglePct": 81,
@@ -368170,6 +369645,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.452 over max 0.45 (obj-device-electronics-radio)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0039 wants min 0.006"
     }
    ]
   },
@@ -368244,7 +369724,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0988,
+   "minTube": 0.0164,
    "thick": 0.322,
    "avgTri": 0.00155,
    "anglePct": 77,
@@ -368286,6 +369766,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.863 over max 1.7 (obj-transport-land-road)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0164 wants min 0.026"
     }
    ]
   },
@@ -368452,6 +369937,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0004,
    "thick": 0.0862,
    "avgTri": 0,
    "anglePct": 52,
@@ -368482,6 +369968,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 0.039 under min 0.08 (obj-equipment-tool-stationery)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0004 wants min 0.006"
     }
    ]
   },
@@ -370074,7 +371565,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0403,
+   "minTube": 0,
    "thick": 0.13,
    "avgTri": 0.00003,
    "anglePct": 27,
@@ -370127,7 +371618,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0398,
+   "minTube": 0,
    "thick": 0.0879,
    "avgTri": 0.00003,
    "anglePct": 32,
@@ -370713,6 +372204,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0059,
    "thick": 0.2633,
    "avgTri": 0.00016,
    "anglePct": 53,
@@ -370743,7 +372235,14 @@
     "styloo",
     "textile"
    ],
-   "thickRel": 1.76
+   "thickRel": 1.76,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0059 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "styloo-weapons",
@@ -374178,7 +375677,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0265,
+   "minTube": 0.0049,
    "thick": 0.085,
    "avgTri": 0.00297,
    "anglePct": 100,
@@ -374217,6 +375716,11 @@
      "level": "warning",
      "check": "backface",
      "text": "1% of view 135/20 over 1%: inverted 79%, open 21%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0049 wants min 0.026"
     }
    ]
   },
@@ -374325,7 +375829,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0264,
+   "minTube": 0.0057,
    "thick": 0.1008,
    "avgTri": 0.00178,
    "anglePct": 49,
@@ -374358,6 +375862,11 @@
      "level": "warning",
      "check": "backface",
      "text": "1% of view 270/20 over 1%: open 100%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0057 wants min 0.026"
     }
    ]
   },
@@ -374381,7 +375890,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0265,
+   "minTube": 0.006,
    "thick": 0.0881,
    "avgTri": 0.00203,
    "anglePct": 100,
@@ -374401,7 +375910,14 @@
     "wood-beam"
    ],
    "variant": "v1314",
-   "thickRel": 0.89
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "western",
@@ -374703,7 +376219,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0142,
+   "minTube": 0.0106,
    "thick": 0.0737,
    "avgTri": 0.00054,
    "anglePct": 88,
@@ -374749,7 +376265,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
-   "minTube": 0.0265,
+   "minTube": 0.0172,
    "thick": 0.1332,
    "avgTri": 0.0093,
    "anglePct": 46,
@@ -374773,7 +376289,14 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0172 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "western",
@@ -376093,7 +377616,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.023,
+   "minTube": 0.0121,
    "thick": 0.1433,
    "avgTri": 0.00108,
    "anglePct": 6,
@@ -376130,7 +377653,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.023 wants min 0.026"
+     "text": "G27 minTube 0.0121 wants min 0.026"
     }
    ]
   },
@@ -377304,7 +378827,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0252,
+   "minTube": 0.0147,
    "thick": 0.1238,
    "avgTri": 0.00246,
    "anglePct": 66,
@@ -377345,7 +378868,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0252 wants min 0.026"
+     "text": "G27 minTube 0.0147 wants min 0.026"
     }
    ]
   },
@@ -380527,6 +382050,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
+   "minTube": 0.036,
    "thick": 0.2323,
    "avgTri": 0.00124,
    "anglePct": 35,
@@ -380576,6 +382100,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
+   "minTube": 0.036,
    "thick": 0.1769,
    "avgTri": 0.00127,
    "anglePct": 36,
@@ -380625,6 +382150,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
+   "minTube": 0.036,
    "thick": 0.16,
    "avgTri": 0.0012,
    "anglePct": 34,
@@ -384832,7 +386358,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0611,
+   "minTube": 0.0117,
    "thick": 0.1536,
    "avgTri": 0.00585,
    "anglePct": 42,
@@ -384884,7 +386410,14 @@
    ],
    "alpha": true,
    "variant": "v899",
-   "thickRel": 0.85
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0117 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "wizp-mediev",
@@ -384907,7 +386440,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0611,
+   "minTube": 0.0117,
    "thick": 0.1975,
    "avgTri": 0.00826,
    "anglePct": 43,
@@ -384951,7 +386484,14 @@
     "wood-beam"
    ],
    "variant": "v899",
-   "thickRel": 1.09
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0117 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "wizp-mediev",
@@ -385554,7 +387094,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0646,
+   "minTube": 0.0304,
    "thick": 0.0749,
    "avgTri": 0.00339,
    "anglePct": 86,
@@ -386150,7 +387690,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0272,
+   "minTube": 0.0082,
    "thick": 0.1702,
    "avgTri": 0.00785,
    "anglePct": 48,
@@ -389195,7 +390735,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0062,
+   "minTube": 0.0059,
    "thick": 0.1206,
    "avgTri": 0.0001,
    "anglePct": 40,
@@ -389231,7 +390771,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0062 wants min 0.012"
+     "text": "G27 minTube 0.0059 wants min 0.012"
     }
    ]
   },
@@ -389334,7 +390874,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0083,
+   "minTube": 0.0042,
    "thick": 0.1278,
    "avgTri": 0.00014,
    "anglePct": 26,
@@ -389365,7 +390905,14 @@
     "textile",
     "wood-planks"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0042 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "zombie-weapons",
@@ -389982,7 +391529,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0136,
+   "minTube": 0.0062,
    "thick": 0.3019,
    "avgTri": 0.00003,
    "anglePct": 40,
@@ -390019,7 +391566,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 2.02
+   "thickRel": 2.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0062 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "zombie-weapons",
@@ -390326,6 +391880,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0103,
    "thick": 0.1817,
    "avgTri": 0.0001,
    "anglePct": 85,
@@ -391163,7 +392718,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0131,
+   "minTube": 0,
    "thick": 0.2566,
    "avgTri": 0.00004,
    "anglePct": 18,

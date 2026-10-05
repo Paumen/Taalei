@@ -1,9 +1,9 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=ee3de2b60b';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=ee3de2b60b';
-import { colorSwatches, setBands } from './color-edits.js?v=ee3de2b60b';
-import { renderCommentBox } from './comments.js?v=ee3de2b60b';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=ee3de2b60b';
-import './bouwstempel.js?v=ee3de2b60b';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=ca6be05372';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=ca6be05372';
+import { colorSwatches, setBands } from './color-edits.js?v=ca6be05372';
+import { renderCommentBox } from './comments.js?v=ca6be05372';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=ca6be05372';
+import './bouwstempel.js?v=ca6be05372';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -227,8 +227,9 @@ function remaining() {
 
 const keysWith = (own, value) => Object.keys(own).filter((id) => own[id] === value);
 
-function passes(mine, own, { all = false } = {}) {
-  const only = keysWith(own, 'only');
+function passes(mine, own, { all = false, tree = false } = {}) {
+  const picked = keysWith(own, 'only');
+  const only = tree ? picked.filter((k) => !picked.some((o) => o.startsWith(`${k}-`))) : picked;
   if (only.length && !(all ? only.every((id) => mine.includes(id)) : mine.some((id) => only.includes(id)))) return false;
   const not = keysWith(own, 'not');
   return !mine.some((id) => not.includes(id));
@@ -247,7 +248,7 @@ const valuesOf = {
 function matches(model) {
   const { search } = state.filters;
   for (const field of FILTER_FIELDS) {
-    if (!passes(valuesOf[field](model), state.filters[field] ?? {}, { all: !ANY_FIELDS.has(field) && field !== 'kinds' })) return false;
+    if (!passes(valuesOf[field](model), state.filters[field] ?? {}, { all: !ANY_FIELDS.has(field) && field !== 'kinds', tree: field === 'kinds' })) return false;
   }
   if (search) {
     const needle = search.toLowerCase();
@@ -606,7 +607,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=ee3de2b60b'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=ca6be05372'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];

@@ -580,7 +580,6 @@ export function measureTubes(glb) {
 }
 
 export const STICK_RATIO = 6;
-export const STICK_SQUARE = 0.4;
 
 function narrowestTurn(points, center, u, w) {
   const uw = points.map((p) => {
@@ -615,7 +614,7 @@ export function measureSticks(glb) {
       return hi - lo;
     };
     const length = extent(axis), narrow = extent(u), wide = extent(w);
-    if (!(wide > 0) || length < STICK_RATIO * wide || narrow < STICK_SQUARE * wide) continue;
+    if (!(wide > 0) || length < STICK_RATIO * wide) continue;
     sticks.push({ prim: part.prim, shells: part.shells, vertices: part.vertices, width: narrow, wide, length, linear: part.linear, frame: { center, axis, u, w } });
   }
   return sticks;
