@@ -4509,5 +4509,87 @@
     ]
    }
   ]
+ },
+ {
+  "kind": "str-part-gate-gateway",
+  "date": "2026-10-05",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-town/*",
+     "kay-builder/wall-gate",
+     "kay-builder/wall-gate-closed",
+     "kay-hexagon/wall-gate",
+     "kay-hexagon/wall-corner-a-gate",
+     "kay-hexagon/fence-wood-gate",
+     "fs-temple/*",
+     "ken-castle/*"
+    ],
+    "text": "9 models are walls, not gateways; the fence gate fits str-barrier-fence-gate; fs-temple and ken-castle doorway walls are too tall for wall-unit-doorway",
+    "options": [
+     "Ramparts + fence gate",
+     "Also move doorway walls",
+     "Fence gate only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Fence gate only"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-minigame/gate-large",
+     "kay-minigame/gate-small"
+    ],
+    "text": "flat azure at 0.50 with no gradient, faceted; source is smooth and light; platformer arches run 0.21 top to 0.70 bottom",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread + smooth shading",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-castle/wall-doorway",
+     "ken-castle/wall-narrow-gate",
+     "ken-pirate/castle-gate",
+     "ken-pirate/castle-door"
+    ],
+    "text": "taupe fades from about 0.15 at the top to 0.90-0.98 at the feet, far more than stone peers; source style",
+    "options": [
+     "Narrow to ~0.30-0.75",
+     "Narrow castle only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Narrow to ~0.30-0.75"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-dun-1/arch"
+    ],
+    "text": "taupe mean 0.74 against peers at about 0.50, reads as a darker stone",
+    "options": [
+     "Lift to mid",
+     "Lift + spread by height",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lift to mid"
+    ]
+   }
+  ]
  }
 ]

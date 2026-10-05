@@ -1232,8 +1232,8 @@
     "none": 15
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 25
+    "factor": 1.04,
+    "kinds": 26
    }
   },
   {
@@ -21518,7 +21518,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 267,
+   "count": 268,
    "color": "#b08968"
   },
   {
@@ -21540,7 +21540,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 191
+   "count": 192
   },
   {
    "id": "str-barrier-post",
@@ -21569,7 +21569,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 909,
+   "count": 908,
    "color": "#a8762a"
   },
   {
@@ -21605,14 +21605,14 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 51
+   "count": 50
   },
   {
    "id": "str-part-gate-gateway",
    "name": "Gateway",
    "type": "kind",
    "description": "The opening a gate hangs in, with the structure around it.",
-   "count": 41
+   "count": 40
   },
   {
    "id": "str-part-gate-single",
@@ -22157,7 +22157,7 @@
    "name": "Gate",
    "type": "kind",
    "description": "Gate, turnstile or arch set in a fence or hedge run.",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -127967,7 +127967,7 @@
   {
    "kit": "kay-hexagon",
    "name": "fence-wood-gate",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-barrier-fence-gate",
    "size": "l",
    "wdh": [
     1.963,
@@ -134131,11 +134131,11 @@
    "avgTri": 0.00334,
    "anglePct": 25,
    "vpt": 0.6,
-   "grad": 0,
+   "grad": 0.5,
    "spread": {
     "4,2": [
-     0.5,
-     0.5
+     0.289,
+     0.789
     ]
    },
    "colors": [
@@ -134171,11 +134171,11 @@
    "avgTri": 0.00178,
    "anglePct": 18,
    "vpt": 0.58,
-   "grad": 0,
+   "grad": 0.5,
    "spread": {
     "4,2": [
-     0.5,
-     0.5
+     0.273,
+     0.773
     ]
    },
    "colors": [
@@ -162251,11 +162251,11 @@
    "avgTri": 0.01099,
    "anglePct": 80,
    "vpt": 1.11,
-   "grad": 0.79,
+   "grad": 0.45,
    "spread": {
     "14,3": [
-     0.102,
-     0.891
+     0.297,
+     0.75
     ]
    },
    "colors": [
@@ -162290,11 +162290,11 @@
    "avgTri": 0.02296,
    "anglePct": 84,
    "vpt": 1.43,
-   "grad": 0.79,
+   "grad": 0.45,
    "spread": {
     "14,3": [
-     0.102,
-     0.891
+     0.297,
+     0.75
     ]
    },
    "colors": [
@@ -196659,11 +196659,11 @@
    "avgTri": 0.01538,
    "anglePct": 79,
    "vpt": 1.32,
-   "grad": 0.93,
+   "grad": 0.5,
    "spread": {
     "14,3": [
-     0.055,
-     0.977
+     0.297,
+     0.75
     ],
     "0,0": [
      0.016,
@@ -196703,11 +196703,11 @@
    "avgTri": 0.01692,
    "anglePct": 70,
    "vpt": 1.32,
-   "grad": 0.95,
+   "grad": 0.45,
    "spread": {
     "14,3": [
-     0.016,
-     0.969
+     0.297,
+     0.75
     ]
    },
    "colors": [
@@ -265990,11 +265990,11 @@
    "avgTri": 0.00304,
    "anglePct": 77,
    "vpt": 2.01,
-   "grad": 0.77,
+   "grad": 0.7,
    "spread": {
     "14,3": [
-     0.188,
-     0.961
+     0.023,
+     0.727
     ]
    },
    "colors": [
