@@ -148,6 +148,8 @@ Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (
 
 `G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, table cutlery, spatulas, fauna, shells, bags, glasses, pocket items, stationery, hand tools, crates and sets, and also grass, deadwood branches, apparel, tool supplies, gas cylinders, bottles, kettles, ovens, pickaxes, radios, signs, target dummies, sculptures, air transport, churches and barracks. Food, books, weapons, vials, furnishing and toys set 0.012.
 
+`thick` reads `I01`: twice the mean depth of the model's solid over its middle extent. The solid is everything not seen from a view at or above the horizon, so a hollow shell that shows no opening counts as solid and an open barrel shows its walls; gaps narrower than about 7% of the longest extent are closed first. `thickRel` is `thick` over the median of the deepest kind with at least 8 models, `tag:plural`, `tag:piece`, `tag:comp` and `kind:set` left out. No row asserts on either.
+
 `G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself.
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.

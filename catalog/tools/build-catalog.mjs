@@ -5,7 +5,7 @@ import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, thinnestPart, trianglesPerUnit, smoothShare } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare } from './glb.mjs';
 import { readPng } from './png.mjs';
 import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
@@ -327,6 +327,7 @@ function measureFile(dir, file) {
       pivotIsCenter: scene.pivotIsCenter,
       minEdgeLength: scene.minEdgeLength,
       minTube: thinnest,
+      thickness: thickness(glb),
       averageTriangleArea: scene.averageTriangleArea,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
@@ -745,6 +746,7 @@ const rows = models.map((m) => {
     centered: m.pivotIsCenter || undefined,
     minEdge: round(m.minEdgeLength, 4),
     minTube: m.minTube === null ? undefined : Math.floor(m.minTube * 1e4) / 1e4,
+    thick: m.thickness == null ? undefined : round(m.thickness, 4),
     avgTri: round(m.averageTriangleArea, 5),
     anglePct: Math.round(m.strictAnglePercent),
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
@@ -761,6 +763,31 @@ const rows = models.map((m) => {
   };
   return row;
 });
+
+const THICK_PEERS = 8;
+const THICK_SKIP_TAGS = ['plural', 'piece', 'comp'];
+const thickPeer = (row) =>
+  row.thick !== undefined && !kindIs(row.kind, 'set') && !THICK_SKIP_TAGS.some((t) => row.tags?.includes(t));
+const thickByKind = new Map();
+for (const row of rows.filter(thickPeer)) {
+  const parts = row.kind.split('-');
+  for (let n = 1; n <= parts.length; n++) {
+    const kind = parts.slice(0, n).join('-');
+    if (!thickByKind.has(kind)) thickByKind.set(kind, []);
+    thickByKind.get(kind).push(row.thick);
+  }
+}
+const thickMedian = new Map([...thickByKind].map(([kind, values]) => {
+  const sorted = [...values].sort((a, b) => a - b), mid = sorted.length / 2;
+  return [kind, sorted.length % 2 ? sorted[Math.floor(mid)] : (sorted[mid - 1] + sorted[mid]) / 2];
+}));
+for (const row of rows.filter(thickPeer)) {
+  const parts = row.kind.split('-');
+  let n = parts.length;
+  while (n > 1 && thickByKind.get(parts.slice(0, n).join('-')).length < THICK_PEERS) n--;
+  row.thickRel = round(row.thick / thickMedian.get(parts.slice(0, n).join('-')), 2);
+}
+
 LINT_CHECKS.kitScales = buildKitScales(rows, LINT_CHECKS);
 const kitCheckOf = (slug) => {
   const k = LINT_CHECKS.kitScales.get(slug);
