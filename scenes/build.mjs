@@ -208,66 +208,72 @@ function place(id, { at = [0, 0], y = 0, rot = 0, scale = 1 }, name) {
   return { index, box };
 }
 
-const room = layout.room;
-const { parts: floorParts, rows } = room.floor;
-const floorModels = Object.values(floorParts).map(loadModel);
-const tile = floorModels[0].bounds.max[0] - floorModels[0].bounds.min[0];
-for (const model of floorModels) {
-  const { min, max } = model.bounds;
-  if (Math.abs(max[0] - min[0] - tile) > 0.01 || Math.abs(max[2] - min[2] - tile) > 0.01) {
-    throw new Error(`floor part ${model.id} is not a ${tile.toFixed(3)} tile`);
+function buildRoom(room) {
+  const { parts: floorParts, rows } = room.floor;
+  const floorModels = Object.values(floorParts).map(loadModel);
+  const tile = floorModels[0].bounds.max[0] - floorModels[0].bounds.min[0];
+  for (const model of floorModels) {
+    const { min, max } = model.bounds;
+    if (Math.abs(max[0] - min[0] - tile) > 0.01 || Math.abs(max[2] - min[2] - tile) > 0.01) {
+      throw new Error(`floor part ${model.id} is not a ${tile.toFixed(3)} tile`);
+    }
   }
-}
-const tilesX = rows[0].length;
-const tilesZ = rows.length;
-if (rows.some((row) => row.length !== tilesX)) throw new Error('floor rows differ in length');
-const sizeX = tilesX * tile;
-const sizeZ = tilesZ * tile;
-const floorTop = Math.max(...floorModels.map((m) => m.bounds.max[1]));
+  const tilesX = rows[0].length;
+  const tilesZ = rows.length;
+  if (rows.some((row) => row.length !== tilesX)) throw new Error('floor rows differ in length');
+  const sizeX = tilesX * tile;
+  const sizeZ = tilesZ * tile;
+  const floorTop = Math.max(...floorModels.map((m) => m.bounds.max[1]));
 
-const floorTiles = [];
-rows.forEach((row, j) => [...row].forEach((key, i) => {
-  if (!floorParts[key]) throw new Error(`floor: no part for "${key}"`);
-  const at = [-sizeX / 2 + tile / 2 + i * tile, -sizeZ / 2 + tile / 2 + j * tile];
-  floorTiles.push(place(floorParts[key], { at }, `floor-${i}-${j}`).index);
-}));
-const roomChildren = [addGroup('floor', floorTiles)];
+  const floorTiles = [];
+  rows.forEach((row, j) => [...row].forEach((key, i) => {
+    if (!floorParts[key]) throw new Error(`floor: no part for "${key}"`);
+    const at = [-sizeX / 2 + tile / 2 + i * tile, -sizeZ / 2 + tile / 2 + j * tile];
+    floorTiles.push(place(floorParts[key], { at }, `floor-${i}-${j}`).index);
+  }));
+  const roomChildren = [addGroup('floor', floorTiles)];
 
-const wall = room.walls;
-const wallModel = loadModel(wall.parts.w);
-const wallScale = wall.scale ?? 1;
-const segment = (wallModel.bounds.max[0] - wallModel.bounds.min[0]) * wallScale;
-const front = wallModel.bounds.max[2] * wallScale;
-const depth = (wallModel.bounds.max[2] - wallModel.bounds.min[2]) * wallScale;
-const wallGroups = {};
-for (const [side, { normal, rot }] of Object.entries(SIDES)) {
-  const pattern = wall[side];
-  if (!pattern) continue;
-  const length = normal[0] ? sizeZ : sizeX;
-  if (Math.abs(pattern.length * segment - length) > 0.01) {
-    throw new Error(`${side} wall: ${pattern.length} segments of ${segment.toFixed(3)} do not span ${length.toFixed(3)}`);
+  const wall = room.walls;
+  const wallModel = loadModel(wall.parts.w);
+  const wallScale = wall.scale ?? 1;
+  const segment = (wallModel.bounds.max[0] - wallModel.bounds.min[0]) * wallScale;
+  const front = wallModel.bounds.max[2] * wallScale;
+  const depth = (wallModel.bounds.max[2] - wallModel.bounds.min[2]) * wallScale;
+  const wallGroups = {};
+  for (const [side, { normal, rot }] of Object.entries(SIDES)) {
+    const pattern = wall[side];
+    if (!pattern) continue;
+    const length = normal[0] ? sizeZ : sizeX;
+    if (Math.abs(pattern.length * segment - length) > 0.01) {
+      throw new Error(`${side} wall: ${pattern.length} segments of ${segment.toFixed(3)} do not span ${length.toFixed(3)}`);
+    }
+    const half = (normal[0] ? sizeX : sizeZ) / 2 + front;
+    const tangent = [-normal[2], 0, normal[0]];
+    const parts = [...pattern].map((key, k) => {
+      const id = wall.parts[key];
+      if (!id) throw new Error(`${side} wall: no part for "${key}"`);
+      const along = -length / 2 + segment / 2 + k * segment;
+      const at = [normal[0] * half + tangent[0] * along, normal[2] * half + tangent[2] * along];
+      return place(id, { at, rot, scale: wallScale }, `${side}-${k}`).index;
+    });
+    roomChildren.push(addGroup('wall-' + side, parts, { normal, distance: half - front }));
+    wallGroups[side] = roomChildren[roomChildren.length - 1];
   }
-  const half = (normal[0] ? sizeX : sizeZ) / 2 + front;
-  const tangent = [-normal[2], 0, normal[0]];
-  const parts = [...pattern].map((key, k) => {
-    const id = wall.parts[key];
-    if (!id) throw new Error(`${side} wall: no part for "${key}"`);
-    const along = -length / 2 + segment / 2 + k * segment;
-    const at = [normal[0] * half + tangent[0] * along, normal[2] * half + tangent[2] * along];
-    return place(id, { at, rot, scale: wallScale }, `${side}-${k}`).index;
-  });
-  roomChildren.push(addGroup('wall-' + side, parts, { normal, distance: half - front }));
-  wallGroups[side] = roomChildren[roomChildren.length - 1];
-}
-if (wall.corner) {
-  for (const [a, b] of CORNERS) {
-    if (!wall[a] || !wall[b]) continue;
-    const n = [SIDES[a].normal[0] + SIDES[b].normal[0], SIDES[a].normal[2] + SIDES[b].normal[2]];
-    const at = [n[0] * (sizeX / 2 + depth / 2), n[1] * (sizeZ / 2 + depth / 2)];
-    const { index } = place(wall.corner, { at, scale: wallScale }, `${a}-${b}`);
-    roomChildren.push(addGroup(`corner-${a}-${b}`, [index], { walls: [a, b] }));
+  if (wall.corner) {
+    for (const [a, b] of CORNERS) {
+      if (!wall[a] || !wall[b]) continue;
+      const n = [SIDES[a].normal[0] + SIDES[b].normal[0], SIDES[a].normal[2] + SIDES[b].normal[2]];
+      const at = [n[0] * (sizeX / 2 + depth / 2), n[1] * (sizeZ / 2 + depth / 2)];
+      const { index } = place(wall.corner, { at, scale: wallScale }, `${a}-${b}`);
+      roomChildren.push(addGroup(`corner-${a}-${b}`, [index], { walls: [a, b] }));
+    }
   }
+  return { children: roomChildren, wallGroups, floorTop, sizeX, sizeZ };
 }
+
+const room = layout.room ? buildRoom(layout.room) : null;
+const floorTop = room?.floorTop ?? 0;
+const wallGroups = room?.wallGroups ?? {};
 
 const boxes = [];
 const zoneNodes = Object.entries(layout.zones).map(([zone, items]) => {
@@ -282,7 +288,7 @@ const zoneNodes = Object.entries(layout.zones).map(([zone, items]) => {
   return addGroup(zone, nodes);
 });
 
-out.scenes[0].nodes.push(addGroup(sceneName, [addGroup('room', roomChildren), addGroup('zones', zoneNodes)]));
+out.scenes[0].nodes.push(addGroup(sceneName, [...(room ? [addGroup('room', room.children)] : []), addGroup('zones', zoneNodes)]));
 out.buffers[0].byteLength = binLength;
 if (extensions.size) out.extensionsUsed = [...extensions].sort();
 for (const k of ['textures', 'images', 'samplers', 'materials']) if (!out[k].length) delete out[k];
@@ -292,7 +298,8 @@ writeGlb(target, out, Buffer.concat(chunks), fs.writeFileSync);
 
 const gap = 0.005;
 const findings = [];
-for (const { label, box } of boxes) {
+for (const { label, box } of room ? boxes : []) {
+  const { sizeX, sizeZ } = room;
   if (box.min[0] < -sizeX / 2 - gap || box.max[0] > sizeX / 2 + gap || box.min[2] < -sizeZ / 2 - gap || box.max[2] > sizeZ / 2 + gap) {
     findings.push('outside room: ' + label);
   }
