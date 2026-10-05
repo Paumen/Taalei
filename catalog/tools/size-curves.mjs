@@ -43,10 +43,12 @@ const SIZES = {
   'obj-container-bag-sack': 0.45,
   'obj-container-barrel': 0.9,
   'obj-container-barrel-keg': 0.5,
+  'obj-container-barrel-metal': 0.9,
   'obj-container-basket': 0.4,
   'obj-container-bottle': 0.28,
   'obj-container-bottle-vial': 0.18,
   'obj-container-bucket': 0.3,
+  'obj-container-bucket-tub': 0.6,
   'obj-container-can': 0.12,
   'obj-container-can-gas': 0.4,
   'obj-container-can-wateringcan': 0.5,
@@ -72,16 +74,22 @@ const SIZES = {
   'obj-device-appliance-extractor': 0.9,
   'obj-device-appliance-fridge': 1.8,
   'obj-device-appliance-kitchen': 0.4,
+  'obj-device-appliance-kitchen-coffeemaker': 0.35,
+  'obj-device-appliance-kitchen-microwave': 0.5,
   'obj-device-appliance-laundry': 0.85,
+  'obj-device-appliance-oven': 0.9,
   'obj-device-appliance-stove': 0.9,
   'obj-device-appliance-toaster': 0.3,
   'obj-device-electronics-arcade': 1.8,
   'obj-device-electronics-audio': 0.5,
-  'obj-device-electronics-camera': 0.2,
   'obj-device-electronics-computer': 0.5,
+  'obj-device-electronics-computer-tower': 0.45,
+  'obj-device-electronics-radio': 0.3,
   'obj-device-electronics-register': 0.45,
   'obj-device-electronics-screen': 0.7,
+  'obj-device-electronics-screen-monitor': 0.55,
   'obj-device-electronics-vending': 1.8,
+  'obj-device-science-astro-telescope': 1.2,
   'obj-equipment-apparel': 0.7,
   'obj-equipment-apparel-footwear': 0.28,
   'obj-equipment-apparel-glasses': 0.15,
@@ -101,6 +109,8 @@ const SIZES = {
   'obj-equipment-tool-hand-brush': 0.2,
   'obj-equipment-tool-hand-hammer': 0.35,
   'obj-equipment-tool-hand-saw': 0.5,
+  'obj-equipment-tool-hand-screwdriver': 0.2,
+  'obj-equipment-tool-hand-wrench': 0.25,
   'obj-equipment-tool-mechanism': 0.3,
   'obj-equipment-tool-station': 0.8,
   'obj-equipment-tool-stationery': 0.15,
@@ -108,6 +118,7 @@ const SIZES = {
   'obj-equipment-tool-twohand-broom': 1.3,
   'obj-equipment-tool-twohand-pickaxe': 0.9,
   'obj-equipment-tool-twohand-pitchfork': 1.5,
+  'obj-equipment-tool-twohand-rake': 1.6,
   'obj-equipment-tool-twohand-rod': 2.5,
   'obj-equipment-tool-twohand-scythe': 1.7,
   'obj-equipment-tool-twohand-shovel': 1.2,
@@ -186,9 +197,14 @@ const SIZES = {
   'obj-food-vegetable-tomato': 0.08,
   'obj-furnishing-bathroom': 1.2,
   'obj-furnishing-bathroom-bath': 1.7,
+  'obj-furnishing-bathroom-mirror': 0.6,
+  'obj-furnishing-bathroom-shower': 2.1,
+  'obj-furnishing-bathroom-toilet': 0.75,
   'obj-furnishing-bathroom-toiletroll': 0.11,
+  'obj-furnishing-bathroom-towelrail': 0.6,
   'obj-furnishing-furniture-bed': 2,
   'obj-furnishing-furniture-bed-bunk': 2,
+  'obj-furnishing-furniture-bed-double': 2.1,
   'obj-furnishing-furniture-counter': 0.9,
   'obj-furnishing-furniture-counter-sink': 0.9,
   'obj-furnishing-furniture-seating-bench-backrest': 0.85,
@@ -206,15 +222,16 @@ const SIZES = {
   'obj-furnishing-furniture-storage-shelf': 0.8,
   'obj-furnishing-furniture-storage-shelf-rack': 1.8,
   'obj-furnishing-furniture-storage-shelf-rack-coat': 1.7,
+  'obj-furnishing-furniture-storage-shelf-rack-weapon': 1.2,
   'obj-furnishing-furniture-table': 0.75,
   'obj-furnishing-furniture-table-desk': 0.75,
   'obj-furnishing-furniture-table-round': 0.75,
   'obj-furnishing-furniture-table-square': 0.75,
   'obj-furnishing-light-campfire': 1,
   'obj-furnishing-light-candle': 0.2,
-  'obj-furnishing-light-lamp': 0.6,
   'obj-furnishing-light-lamp-ceiling-fan': 0.9,
   'obj-furnishing-light-lamp-floor': 1.5,
+  'obj-furnishing-light-lamp-table': 0.45,
   'obj-furnishing-light-lantern': 0.3,
   'obj-furnishing-light-torch': 0.6,
   'obj-furnishing-textile-curtains': 1.2,
@@ -228,11 +245,15 @@ const SIZES = {
   'obj-kitchenware-cookware-pan-frying': 0.45,
   'obj-kitchenware-cookware-utensil': 0.3,
   'obj-kitchenware-cookware-utensil-knife': 0.3,
+  'obj-kitchenware-cookware-utensil-rollingpin': 0.45,
   'obj-kitchenware-cookware-utensil-spatula': 0.3,
   'obj-kitchenware-cookware-utensil-spoon': 0.3,
+  'obj-kitchenware-cookware-utensil-whisk': 0.28,
+  'obj-kitchenware-papertowel': 0.28,
   'obj-kitchenware-tableware-bowl': 0.2,
   'obj-kitchenware-tableware-condiment': 0.15,
   'obj-kitchenware-tableware-cutlery': 0.2,
+  'obj-kitchenware-tableware-cutlery-chopsticks': 0.23,
   'obj-kitchenware-tableware-drinkware-cup': 0.1,
   'obj-kitchenware-tableware-drinkware-glass': 0.15,
   'obj-kitchenware-tableware-drinkware-goblet': 0.18,
@@ -241,8 +262,9 @@ const SIZES = {
   'obj-kitchenware-tableware-drinkware-tankard': 0.16,
   'obj-kitchenware-tableware-plate': 0.26,
   'obj-kitchenware-tableware-serving': 0.4,
+  'obj-leisure-art-instrument-string': 1,
+  'obj-leisure-art-sculpture-prize': 0.35,
   'obj-leisure-game-ball': 0.22,
-  'obj-leisure-game-gym': 0.5,
   'obj-leisure-toy': 0.3,
   'obj-resource-haystack': 1.5,
   'obj-resource-metal': 0.2,
@@ -250,10 +272,10 @@ const SIZES = {
   'obj-resource-textile': 0.5,
   'obj-resource-wood-log': 0.5,
   'obj-resource-wood-plank': 1.5,
-  'obj-transport-air': 25,
   'obj-transport-air-space': 20,
   'obj-transport-land-cart': 2.5,
   'obj-transport-land-cart-small': 1.4,
+  'obj-transport-land-cart-small-wheelbarrow': 1.5,
   'obj-transport-land-road': 4.5,
   'obj-transport-pallet': 1.2,
   'obj-transport-part-paddle': 1.8,
@@ -298,7 +320,6 @@ const SIZES = {
   'str-fixture-utility-fountain': 3,
   'str-fixture-utility-hydrant': 0.8,
   'str-fixture-utility-machine': 2,
-  'str-fixture-utility-machine-crane': 2,
   'str-fixture-utility-machine-drivethrough': 3,
   'str-fixture-utility-solar': 1.7,
   'str-fixture-utility-well': 2,
@@ -325,6 +346,7 @@ const HIGH = new Set([
   'obj-container-trashcan',
   'obj-device-appliance-fridge',
   'obj-device-appliance-laundry',
+  'obj-device-appliance-oven',
   'obj-device-appliance-stove',
   'obj-device-electronics-arcade',
   'obj-furnishing-furniture-counter',
@@ -384,6 +406,11 @@ const DROPPED_KINDS = [
   'str-part-roof',
   'str-part-wall-rampart',
   'str-access-platform-deck',
+  'obj-device-electronics-camera',
+  'obj-furnishing-light-lamp',
+  'obj-leisure-game-gym',
+  'obj-transport-air',
+  'str-fixture-utility-machine-crane',
 ];
 
 const SCALE_SIZES = {
@@ -426,6 +453,7 @@ const STOREY_M = 3;
 const ROOF_M = 1.5;
 const SHAKY = 0.3;
 const EDGE = 0.002;
+const MAX_UNITS = 10;
 
 const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
@@ -488,10 +516,10 @@ const gather = () => {
   const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog', 'build', 'catalog.json'), 'utf8'));
   const bySize = [...catalog.models].sort((a, b) => Math.max(...a.wdh) - Math.max(...b.wdh));
   const cut = Math.floor(bySize.length * EDGE);
-  const edges = new Set([...bySize.slice(0, cut), ...bySize.slice(bySize.length - cut)]);
+  const edges = new Set(bySize.slice(0, cut));
   const picked = [];
   for (const model of catalog.models) {
-    if (edges.has(model) || !counted(model)) continue;
+    if (edges.has(model) || Math.max(...model.wdh) > MAX_UNITS || !counted(model)) continue;
     const assumed = realOf(model);
     if (!assumed) continue;
     const u = assumed.high ? model.wdh[2] : Math.max(...model.wdh);
@@ -735,7 +763,8 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
         <li>all root +1 except <code>env-fungi</code></li>
         ${VARS.exemptKinds.map((k) => `<li><code>kind:${k}</code></li>`).join('\n        ')}
         ${DROPPED_TAGS.map((t) => `<li><code>tag:${t}</code></li>`).join('\n        ')}
-        <li>the smallest and the largest ${EDGE * 100}% of the whole catalogue by longest side</li>
+        <li>the smallest ${EDGE * 100}% of the whole catalogue by longest side</li>
+        <li>models longer than ${MAX_UNITS} units on their longest side</li>
       </ul>
     </div>
     <div class="rule">
