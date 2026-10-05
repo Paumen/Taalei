@@ -255,7 +255,7 @@
    ],
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 38
+    "kinds": 37
    }
   },
   {
@@ -322,7 +322,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
+    "factor": 0.97,
     "kinds": 43
    }
   },
@@ -987,7 +987,7 @@
    ],
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 30
+    "kinds": 29
    }
   },
   {
@@ -1204,7 +1204,7 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 1.13,
+    "factor": 1.1,
     "kinds": 16
    }
   },
@@ -2125,8 +2125,8 @@
     "none": 2
    },
    "kitCheck": {
-    "factor": 0.99,
-    "kinds": 18
+    "factor": 1,
+    "kinds": 17
    }
   },
   {
@@ -20173,7 +20173,7 @@
    "name": "Square",
    "type": "kind",
    "description": "square table",
-   "count": 13
+   "count": 16
   },
   {
    "id": "obj-furnishing-furniture-table-round",
@@ -21484,7 +21484,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 244,
+   "count": 248,
    "color": "#c98a5a"
   },
   {
@@ -21548,14 +21548,14 @@
    "name": "Stairs",
    "type": "kind",
    "description": "stairs, steps, ramp",
-   "count": 86
+   "count": 85
   },
   {
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 268,
+   "count": 269,
    "color": "#b08968"
   },
   {
@@ -21577,7 +21577,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 192
+   "count": 158
   },
   {
    "id": "str-barrier-post",
@@ -21606,7 +21606,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 910,
+   "count": 906,
    "color": "#a8762a"
   },
   {
@@ -21663,14 +21663,14 @@
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 186
+   "count": 134
   },
   {
    "id": "str-part-floor-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
-   "count": 164
+   "count": 114
   },
   {
    "id": "str-part-frame",
@@ -21685,6 +21685,13 @@
    "type": "kind",
    "description": "Enclosed passage piece: corridor, tunnel.",
    "count": 18
+  },
+  {
+   "id": "str-part-puzzle",
+   "name": "Puzzle",
+   "type": "kind",
+   "description": "Puzzle mechanism piece for floor or wall: conduit, track, rotating housing, sliding platform.",
+   "count": 72
   },
   {
    "id": "str-part-frame-scaffold",
@@ -21719,28 +21726,28 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, arch (building), corner",
-   "count": 280
+   "count": 256
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 238
+   "count": 217
   },
   {
    "id": "str-part-wall-unit-doorway",
    "name": "Doorway",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid, with a doorway in it.",
-   "count": 48
+   "count": 50
   },
   {
    "id": "str-part-wall-unit-window",
    "name": "Window",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid, with a window in it.",
-   "count": 47
+   "count": 49
   },
   {
    "id": "str-part-wall-rampart",
@@ -21839,7 +21846,7 @@
    "name": "Platform",
    "type": "kind",
    "description": "Platform with no leaf that fits.",
-   "count": 43,
+   "count": 48,
    "color": "#877a63"
   },
   {
@@ -21854,14 +21861,14 @@
    "name": "Deck",
    "type": "kind",
    "description": "deck, boardwalk",
-   "count": 22
+   "count": 24
   },
   {
    "id": "str-access-platform-dock",
    "name": "Dock",
    "type": "kind",
    "description": "dock, pier, jetty",
-   "count": 12
+   "count": 15
   },
   {
    "id": "str-canopy",
@@ -22187,14 +22194,21 @@
    "name": "Mid",
    "type": "kind",
    "description": "Fence between knee and chest height, and the gates in such a run.",
-   "count": 141
+   "count": 115
   },
   {
    "id": "str-barrier-fence-gate",
    "name": "Gate",
    "type": "kind",
    "description": "Gate, turnstile or arch set in a fence or hedge run.",
-   "count": 17
+   "count": 21
+  },
+  {
+   "id": "str-barrier-railing",
+   "name": "Railing",
+   "type": "kind",
+   "description": "railing, balustrade, baluster, handrail, banister",
+   "count": 27
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -22489,7 +22503,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 304
+   "count": 307
   },
   {
    "id": "plural",
@@ -22653,7 +22667,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 265,
+   "count": 205,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -25402,6 +25416,12 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-barrier-railing": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-barrier-traffic": {
    "high.min": 0.15,
    "high.max": 1.2,
@@ -25811,6 +25831,12 @@
    "high.max": 8,
    "longest.min": 0.5,
    "longest.max": 2,
+   "tpu.max": 5000
+  },
+  "str-part-puzzle": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "str-part-roof": {
@@ -27559,7 +27585,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "aq-hallow",
@@ -29199,7 +29225,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 1.84
+   "thickRel": 1.94
   },
   {
    "kit": "aq-mushroom",
@@ -32234,7 +32260,7 @@
    "tags": [
     "stone-masonry"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.99
   },
   {
    "kit": "architecture",
@@ -46860,7 +46886,7 @@
     "stone-masonry",
     "wood-planks"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.9
   },
   {
    "kit": "fs-house",
@@ -47245,7 +47271,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-baluster",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "s",
    "wdh": [
     0.027,
@@ -47287,7 +47313,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-corner",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "s",
    "wdh": [
     0.472,
@@ -47325,17 +47351,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.45
   },
   {
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-post",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "s",
    "wdh": [
     0.068,
@@ -47377,7 +47402,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-stairs-curved-inner",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.495,
@@ -47426,7 +47451,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-stairs-curved-outer",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.945,
@@ -47474,7 +47499,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-stairs",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.045,
@@ -47521,7 +47546,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "s",
    "wdh": [
     0.045,
@@ -47559,11 +47584,10 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.96
   },
   {
    "kit": "fs-house",
@@ -48413,7 +48437,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.84
   },
   {
    "kit": "fs-house",
@@ -49124,7 +49148,7 @@
     "wood-worked"
    ],
    "variant": "v1363",
-   "thickRel": 0.49
+   "thickRel": 0.52
   },
   {
    "kit": "fs-house",
@@ -49173,7 +49197,7 @@
     "wood-worked"
    ],
    "variant": "v1363",
-   "thickRel": 0.69
+   "thickRel": 0.73
   },
   {
    "kit": "fs-house",
@@ -49226,7 +49250,7 @@
     "stone-masonry",
     "wood-worked"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.18
   },
   {
    "kit": "fs-house",
@@ -49315,7 +49339,7 @@
     "stone-masonry",
     "wood-worked"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.77
   },
   {
    "kit": "fs-house",
@@ -50294,7 +50318,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-closed-conduit-control-connector",
-   "kind": "str-part-floor",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.27,
@@ -50335,7 +50359,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-closed-conduit-straight",
-   "kind": "str-part-floor",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.495,
@@ -50384,7 +50408,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-closed-conduit-terminator",
-   "kind": "str-part-floor",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.09,
@@ -50555,7 +50579,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-control-housing-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50594,17 +50618,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1383",
-   "thickRel": 1.31
+   "thickRel": 0.96
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-control-housing-cross",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50643,17 +50666,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1383",
-   "thickRel": 1.26
+   "thickRel": 0.92
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-control-housing-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50692,17 +50714,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1383",
-   "thickRel": 1.33
+   "thickRel": 0.98
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-control-housing-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50741,17 +50762,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1383",
-   "thickRel": 1.31
+   "thickRel": 0.96
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-control-housing-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50790,17 +50810,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1383",
-   "thickRel": 1.28
+   "thickRel": 0.94
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-control-housing-unconnected",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50833,17 +50852,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1383",
-   "thickRel": 1.36
+   "thickRel": 0.99
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-housing-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50882,17 +50900,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1384",
-   "thickRel": 0.94
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-housing-cross",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50931,17 +50948,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1384",
-   "thickRel": 0.95
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-housing-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -50980,17 +50996,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1384",
-   "thickRel": 0.94
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-housing-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51029,17 +51044,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1384",
-   "thickRel": 0.94
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-housing-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51078,17 +51092,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1384",
-   "thickRel": 0.94
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-platform-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -51136,7 +51149,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-platform-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -51184,7 +51197,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-platform-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -51232,7 +51245,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-rotating-platform-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -51280,7 +51293,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-standard-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51319,17 +51332,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1386",
-   "thickRel": 1.43
+   "thickRel": 1.05
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-standard-cross",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51368,17 +51380,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1386",
-   "thickRel": 1.36
+   "thickRel": 0.99
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-standard-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51417,17 +51428,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1386",
-   "thickRel": 1.47
+   "thickRel": 1.08
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-standard-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51466,17 +51476,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1386",
-   "thickRel": 1.43
+   "thickRel": 1.04
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-conduit-standard-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51515,17 +51524,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1386",
-   "thickRel": 1.39
+   "thickRel": 1.02
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-wall-conduit-connector-base",
-   "kind": "str-part-wall",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51566,7 +51574,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-floor-wall-conduit-connector",
-   "kind": "str-part-wall",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.169,
@@ -51614,7 +51622,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-sliding-base",
-   "kind": "str",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.315,
@@ -51649,7 +51657,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.54
   },
   {
    "kit": "fs-temple",
@@ -51882,7 +51890,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-sliding-platform-1x1",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -51915,17 +51923,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1381",
-   "thickRel": 1.75
+   "thickRel": 1.28
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-sliding-platform-1x2",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "m",
    "wdh": [
     0.9,
@@ -51961,13 +51968,13 @@
     "stone-masonry"
    ],
    "variant": "v1381",
-   "thickRel": 2.22
+   "thickRel": 1.62
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-sliding-platform-1x3",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "m",
    "wdh": [
     1.35,
@@ -52003,7 +52010,7 @@
     "stone-masonry"
    ],
    "variant": "v1381",
-   "thickRel": 2.52
+   "thickRel": 1.84
   },
   {
    "kit": "fs-temple",
@@ -52057,7 +52064,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-button-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52090,17 +52097,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1387",
-   "thickRel": 1.34
+   "thickRel": 0.98
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-button-cross",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52133,17 +52139,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1387",
-   "thickRel": 1.21
+   "thickRel": 0.89
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-button-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52176,17 +52181,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1387",
-   "thickRel": 1.41
+   "thickRel": 1.03
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-button-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52219,17 +52223,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1387",
-   "thickRel": 1.34
+   "thickRel": 0.98
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-button-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52262,17 +52265,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1387",
-   "thickRel": 1.28
+   "thickRel": 0.94
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-housing-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52305,17 +52307,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1388",
-   "thickRel": 0.95
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-housing-cross",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52348,17 +52349,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1388",
-   "thickRel": 0.95
+   "thickRel": 0.7
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-housing-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52391,17 +52391,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1388",
-   "thickRel": 0.95
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-housing-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52434,17 +52433,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1388",
-   "thickRel": 0.95
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-housing-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52477,17 +52475,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1388",
-   "thickRel": 0.95
+   "thickRel": 0.7
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-housing-unconnected",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52520,17 +52517,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1388",
-   "thickRel": 0.94
+   "thickRel": 0.69
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-platform-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -52572,7 +52568,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-platform-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -52614,7 +52610,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-platform-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -52656,7 +52652,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-platform-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -52698,7 +52694,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-rotating-platform-unconnected",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.405,
@@ -52740,7 +52736,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-standard-corner",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52773,17 +52769,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1390",
-   "thickRel": 1.3
+   "thickRel": 0.95
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-standard-cross",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52816,17 +52811,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1390",
-   "thickRel": 1.17
+   "thickRel": 0.86
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-standard-end",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52859,17 +52853,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1390",
-   "thickRel": 1.36
+   "thickRel": 0.99
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-standard-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52902,17 +52895,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1390",
-   "thickRel": 1.3
+   "thickRel": 0.95
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-track-standard-t-joint",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52945,17 +52937,16 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1390",
-   "thickRel": 1.24
+   "thickRel": 0.91
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-corner",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -52994,7 +52985,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1391",
@@ -53004,7 +52994,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-cross",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53043,7 +53033,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1391",
@@ -53053,7 +53042,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-end",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53092,7 +53081,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1391",
@@ -53102,7 +53090,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-straight",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53141,7 +53129,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1391",
@@ -53151,7 +53138,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-t-joint",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53190,17 +53177,16 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1391",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-unconnected",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53239,7 +53225,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1391",
@@ -53249,7 +53234,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-indicator-a",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53288,7 +53273,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "thickRel": 1.18
@@ -53297,7 +53281,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-keyhole-corner",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53336,7 +53320,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1392",
@@ -53346,7 +53329,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-keyhole-cross",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53385,7 +53368,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1392",
@@ -53395,7 +53377,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-keyhole-end",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53434,7 +53416,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1392",
@@ -53444,7 +53425,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-keyhole-straight",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53483,7 +53464,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1392",
@@ -53493,7 +53473,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-keyhole-t-joint",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53532,7 +53512,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1392",
@@ -53542,7 +53521,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-keyhole-unconnected",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53581,7 +53560,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1392",
@@ -53591,7 +53569,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-passthrough-base",
-   "kind": "str-part-wall",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53633,7 +53611,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-passthrough",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53666,7 +53644,6 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "stone-masonry"
    ],
    "thickRel": 1.12
@@ -53675,7 +53652,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-corner",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53714,7 +53691,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1393",
@@ -53724,7 +53700,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-cross",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53763,7 +53739,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1393",
@@ -53773,7 +53748,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-curved-small-inner",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.495,
@@ -53813,7 +53788,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "thickRel": 0.99
@@ -53822,7 +53796,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-curved-small-outer",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.495,
@@ -53862,7 +53836,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "thickRel": 1
@@ -53871,7 +53844,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-end",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53910,7 +53883,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1393",
@@ -53920,7 +53892,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-straight",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -53959,7 +53931,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1393",
@@ -53969,7 +53940,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-path-t-joint",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.45,
@@ -54008,7 +53979,6 @@
    "tags": [
     "fs",
     "gemstone",
-    "scale-small",
     "stone-masonry"
    ],
    "variant": "v1393",
@@ -54819,7 +54789,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.53
   },
   {
    "kit": "fs-temple",
@@ -55323,7 +55293,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.73
   },
   {
    "kit": "fs-temple",
@@ -55366,7 +55336,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.11
   },
   {
    "kit": "fs-temple",
@@ -55494,7 +55464,7 @@
     "stone-masonry"
    ],
    "variant": "v1376",
-   "thickRel": 1.1
+   "thickRel": 1.16
   },
   {
    "kit": "fs-temple",
@@ -55537,7 +55507,7 @@
     "stone-masonry"
    ],
    "variant": "v1376",
-   "thickRel": 1.08
+   "thickRel": 1.14
   },
   {
    "kit": "fs-temple",
@@ -55580,7 +55550,7 @@
     "stone-masonry"
    ],
    "variant": "v1377",
-   "thickRel": 1.6
+   "thickRel": 1.69
   },
   {
    "kit": "fs-temple",
@@ -55623,7 +55593,7 @@
     "stone-masonry"
    ],
    "variant": "v1377",
-   "thickRel": 1.57
+   "thickRel": 1.66
   },
   {
    "kit": "fs-temple",
@@ -55666,7 +55636,7 @@
     "stone-masonry"
    ],
    "variant": "v1374",
-   "thickRel": 1.06
+   "thickRel": 1.12
   },
   {
    "kit": "fs-temple",
@@ -55709,7 +55679,7 @@
     "stone-masonry"
    ],
    "variant": "v1374",
-   "thickRel": 1.07
+   "thickRel": 1.13
   },
   {
    "kit": "fs-temple",
@@ -55752,7 +55722,7 @@
     "stone-masonry"
    ],
    "variant": "v1374",
-   "thickRel": 1.12
+   "thickRel": 1.18
   },
   {
    "kit": "fs-temple",
@@ -55795,7 +55765,7 @@
     "stone-masonry"
    ],
    "variant": "v1374",
-   "thickRel": 1.12
+   "thickRel": 1.18
   },
   {
    "kit": "fs-temple",
@@ -55838,7 +55808,7 @@
     "stone-masonry"
    ],
    "variant": "v1375",
-   "thickRel": 1.44
+   "thickRel": 1.52
   },
   {
    "kit": "fs-temple",
@@ -55881,7 +55851,7 @@
     "stone-masonry"
    ],
    "variant": "v1375",
-   "thickRel": 1.84
+   "thickRel": 1.94
   },
   {
    "kit": "fs-temple",
@@ -56442,7 +56412,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.2
   },
   {
    "kit": "fs-temple",
@@ -56815,7 +56785,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "beach-prop-docks-straight",
-   "kind": "str-part-floor-unit",
+   "kind": "str-access-platform-dock",
    "size": "m",
    "wdh": [
     0.5,
@@ -56852,17 +56822,10 @@
     "#dbae80"
    ],
    "tags": [
+    "comp",
     "fs",
     "wood-bark",
     "wood-planks"
-   ],
-   "thickRel": 1.24,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.65 under min 0.7 (str-part-floor-unit)"
-    }
    ],
    "mark": [
     "grounded"
@@ -58007,7 +57970,7 @@
     "wood-planks"
    ],
    "variant": "v207",
-   "thickRel": 0.6
+   "thickRel": 0.61
   },
   {
    "kit": "fs-terrain",
@@ -58114,7 +58077,7 @@
     "wood-planks"
    ],
    "variant": "v207",
-   "thickRel": 0.39,
+   "thickRel": 0.4,
    "lint": [
     {
      "level": "error",
@@ -58169,7 +58132,7 @@
     "wood-planks"
    ],
    "variant": "v38",
-   "thickRel": 1,
+   "thickRel": 1.17,
    "mark": [
     "centered"
    ]
@@ -58220,7 +58183,7 @@
     "wood-planks"
    ],
    "variant": "v38",
-   "thickRel": 1,
+   "thickRel": 1.17,
    "mark": [
     "centered"
    ]
@@ -61676,7 +61639,7 @@
     "stone-masonry"
    ],
    "variant": "v552",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded",
     "centered"
@@ -61721,7 +61684,7 @@
     "stone-masonry"
    ],
    "variant": "v552",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded",
     "centered"
@@ -61766,7 +61729,7 @@
     "stone-masonry"
    ],
    "variant": "v552",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded",
     "centered"
@@ -61811,7 +61774,7 @@
     "stone-masonry"
    ],
    "variant": "v552",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded",
     "centered"
@@ -61856,7 +61819,7 @@
     "stone-masonry"
    ],
    "variant": "v552",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded",
     "centered"
@@ -62035,7 +61998,7 @@
     "stone-soil"
    ],
    "variant": "v306",
-   "thickRel": 1.56,
+   "thickRel": 1.57,
    "mark": [
     "grounded"
    ]
@@ -62079,7 +62042,7 @@
     "fs",
     "stone-soil"
    ],
-   "thickRel": 1.19,
+   "thickRel": 1.2,
    "mark": [
     "grounded"
    ]
@@ -62123,7 +62086,7 @@
     "scale-small",
     "stone-soil"
    ],
-   "thickRel": 1.63,
+   "thickRel": 2,
    "mark": [
     "grounded",
     "centered"
@@ -63997,7 +63960,7 @@
     "wood-worked"
    ],
    "variant": "v49",
-   "thickRel": 1.73,
+   "thickRel": 1.88,
    "mark": [
     "centered"
    ]
@@ -64097,7 +64060,7 @@
     "wood-worked"
    ],
    "variant": "v20",
-   "thickRel": 1.28,
+   "thickRel": 1.39,
    "mark": [
     "centered"
    ]
@@ -64193,7 +64156,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.9
   },
   {
    "kit": "fs-town",
@@ -64236,7 +64199,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.9
   },
   {
    "kit": "fs-town",
@@ -64504,7 +64467,7 @@
     "stone-masonry"
    ],
    "variant": "v04",
-   "thickRel": 0.5,
+   "thickRel": 0.52,
    "mark": [
     "centered"
    ]
@@ -64549,7 +64512,7 @@
     "stone-masonry"
    ],
    "variant": "v04",
-   "thickRel": 0.5,
+   "thickRel": 0.52,
    "mark": [
     "centered"
    ]
@@ -64594,7 +64557,7 @@
     "stone-masonry"
    ],
    "variant": "v04",
-   "thickRel": 0.5,
+   "thickRel": 0.52,
    "mark": [
     "centered"
    ]
@@ -64639,7 +64602,7 @@
     "stone-masonry"
    ],
    "variant": "v04",
-   "thickRel": 0.5,
+   "thickRel": 0.52,
    "mark": [
     "centered"
    ]
@@ -64684,7 +64647,7 @@
     "stone-masonry"
    ],
    "variant": "v04",
-   "thickRel": 0.5,
+   "thickRel": 0.52,
    "mark": [
     "centered"
    ]
@@ -64820,7 +64783,7 @@
     "scale-small",
     "special"
    ],
-   "thickRel": 2.76
+   "thickRel": 2.92
   },
   {
    "kit": "fs-town",
@@ -64865,7 +64828,7 @@
     "fs",
     "wood-beam"
    ],
-   "thickRel": 1.73,
+   "thickRel": 1.88,
    "mark": [
     "centered"
    ]
@@ -64913,7 +64876,7 @@
     "fs",
     "wood-beam"
    ],
-   "thickRel": 1.25,
+   "thickRel": 1.36,
    "mark": [
     "centered"
    ]
@@ -65690,7 +65653,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "v597",
-   "thickRel": 2.21,
+   "thickRel": 2.22,
    "mark": [
     "centered"
    ]
@@ -65902,7 +65865,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "v598",
-   "thickRel": 2.21,
+   "thickRel": 2.22,
    "mark": [
     "centered"
    ]
@@ -66747,7 +66710,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 1.78,
+   "thickRel": 1.79,
    "lint": [
     {
      "level": "warning",
@@ -66899,7 +66862,7 @@
     "wood-worked"
    ],
    "variant": "v580",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded"
    ]
@@ -66945,7 +66908,7 @@
     "wood-worked"
    ],
    "variant": "v580",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded"
    ]
@@ -66991,7 +66954,7 @@
     "wood-worked"
    ],
    "variant": "v580",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded"
    ]
@@ -67037,7 +67000,7 @@
     "wood-worked"
    ],
    "variant": "v580",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded"
    ]
@@ -67083,7 +67046,7 @@
     "wood-worked"
    ],
    "variant": "v580",
-   "thickRel": 1,
+   "thickRel": 1.23,
    "mark": [
     "grounded"
    ]
@@ -67181,7 +67144,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-railing-corner",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.55,
@@ -67213,11 +67176,10 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "wood-beam"
    ],
    "variant": "v640",
-   "thickRel": 0.81,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
@@ -67234,7 +67196,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-railing-stairs",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     1.009,
@@ -67286,7 +67248,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-railing-straight",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.5,
@@ -67318,11 +67280,10 @@
    ],
    "tags": [
     "fs",
-    "scale-small",
     "wood-beam"
    ],
    "variant": "v639",
-   "thickRel": 1.27,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "error",
@@ -67339,7 +67300,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-rope-corner",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.558,
@@ -67380,7 +67341,7 @@
     "wood-beam"
    ],
    "variant": "v640",
-   "thickRel": 0.9,
+   "thickRel": 0.85,
    "mark": [
     "grounded",
     "centered"
@@ -67390,7 +67351,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-rope-stairs",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     1.01,
@@ -67441,7 +67402,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-rope-straight",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.5,
@@ -67479,11 +67440,10 @@
    "tags": [
     "fs",
     "rope",
-    "scale-small",
     "wood-beam"
    ],
    "variant": "v639",
-   "thickRel": 1.4,
+   "thickRel": 1.33,
    "mark": [
     "grounded",
     "centered"
@@ -71344,7 +71304,7 @@
     "metal",
     "rubber"
    ],
-   "thickRel": 0.65,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "error",
@@ -75681,7 +75641,7 @@
     "scale-small",
     "wood-beam"
    ],
-   "thickRel": 1.69
+   "thickRel": 2.08
   },
   {
    "kit": "isa-bakery",
@@ -75723,7 +75683,7 @@
     "isa",
     "scale-small"
    ],
-   "thickRel": 1.74
+   "thickRel": 2.14
   },
   {
    "kit": "isa-bakery",
@@ -75766,7 +75726,7 @@
     "scale-small",
     "wood-beam"
    ],
-   "thickRel": 1.74,
+   "thickRel": 2.13,
    "lint": [
     {
      "level": "error",
@@ -77093,7 +77053,7 @@
     "isa",
     "wood-beam"
    ],
-   "thickRel": 1.45,
+   "thickRel": 1.53,
    "lint": [
     {
      "level": "warning",
@@ -77156,7 +77116,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.27,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -77211,7 +77171,7 @@
     "wood-beam"
    ],
    "variant": "v1403",
-   "thickRel": 0.74,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "warning",
@@ -77265,7 +77225,7 @@
     "isa",
     "wood-beam"
    ],
-   "thickRel": 0.73,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "warning",
@@ -77320,7 +77280,7 @@
     "wood-beam"
    ],
    "variant": "v1403",
-   "thickRel": 1.51,
+   "thickRel": 1.59,
    "lint": [
     {
      "level": "warning",
@@ -77374,7 +77334,7 @@
     "isa",
     "wood-beam"
    ],
-   "thickRel": 1.47,
+   "thickRel": 1.55,
    "lint": [
     {
      "level": "warning",
@@ -77539,7 +77499,7 @@
     "wood-beam"
    ],
    "variant": "v524",
-   "thickRel": 0.74,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "warning",
@@ -77713,7 +77673,7 @@
     "wood-beam"
    ],
    "variant": "v524",
-   "thickRel": 1.53,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -78661,7 +78621,7 @@
     "isa",
     "scale-small"
    ],
-   "thickRel": 1.75
+   "thickRel": 2.15
   },
   {
    "kit": "isa-bathroom",
@@ -79682,7 +79642,7 @@
     "ceramic",
     "isa"
    ],
-   "thickRel": 1.44,
+   "thickRel": 1.52,
    "lint": [
     {
      "level": "warning",
@@ -79735,7 +79695,7 @@
     "ceramic",
     "isa"
    ],
-   "thickRel": 1.44,
+   "thickRel": 1.52,
    "lint": [
     {
      "level": "warning",
@@ -79795,7 +79755,7 @@
     "metal-gold",
     "wood-worked"
    ],
-   "thickRel": 1.26,
+   "thickRel": 1.36,
    "lint": [
     {
      "level": "warning",
@@ -79909,7 +79869,7 @@
     "ceramic",
     "isa"
    ],
-   "thickRel": 1.53,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -81803,7 +81763,7 @@
     "isa",
     "wood-planks"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "isa-homely",
@@ -81846,7 +81806,7 @@
     "wood-planks"
    ],
    "variant": "v703",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "isa-homely",
@@ -81889,7 +81849,7 @@
     "wood-planks"
    ],
    "variant": "v703",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "isa-homely",
@@ -81932,7 +81892,7 @@
     "wood-planks"
    ],
    "variant": "v703",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "isa-homely",
@@ -81975,7 +81935,7 @@
     "wood-planks"
    ],
    "variant": "v702",
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "isa-homely",
@@ -82018,7 +81978,7 @@
     "wood-planks"
    ],
    "variant": "v702",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "isa-homely",
@@ -82061,7 +82021,7 @@
     "wood-planks"
    ],
    "variant": "v702",
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "isa-homely",
@@ -82329,7 +82289,7 @@
     "metal-iron-cast",
     "wood-planks"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.53
   },
   {
    "kit": "isa-homely",
@@ -83374,7 +83334,7 @@
     "isa",
     "scale-small"
    ],
-   "thickRel": 1.77
+   "thickRel": 2.18
   },
   {
    "kit": "isa-kitchen",
@@ -84161,7 +84121,7 @@
     "wood-worked"
    ],
    "variant": "v521",
-   "thickRel": 0.94
+   "thickRel": 1.01
   },
   {
    "kit": "isa-kitchen",
@@ -84210,7 +84170,7 @@
     "wood-worked"
    ],
    "variant": "v521",
-   "thickRel": 1.12
+   "thickRel": 1.2
   },
   {
    "kit": "isa-kitchen",
@@ -84663,7 +84623,7 @@
     "isa"
    ],
    "variant": "v836",
-   "thickRel": 1.39,
+   "thickRel": 1.4,
    "lint": [
     {
      "level": "warning",
@@ -84976,7 +84936,7 @@
     "isa",
     "stone-masonry"
    ],
-   "thickRel": 1.44,
+   "thickRel": 1.52,
    "lint": [
     {
      "level": "warning",
@@ -85033,7 +84993,7 @@
     "tba",
     "wood-worked"
    ],
-   "thickRel": 1.27,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -85271,7 +85231,7 @@
     "isa",
     "stone-masonry"
    ],
-   "thickRel": 0.71,
+   "thickRel": 0.75,
    "lint": [
     {
      "level": "warning",
@@ -85444,7 +85404,7 @@
     "isa",
     "stone-masonry"
    ],
-   "thickRel": 1.53,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -91094,7 +91054,7 @@
     "isa",
     "wood-worked"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "isa-playground",
@@ -91266,7 +91226,7 @@
     "wood-worked"
    ],
    "variant": "v463",
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "isa-playground",
@@ -94142,7 +94102,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.08
   },
   {
    "kit": "kay-adventurers",
@@ -103857,7 +103817,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.51
   },
   {
    "kit": "kay-dun-1",
@@ -103898,7 +103858,7 @@
     "scale-big",
     "stone-masonry"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.57
   },
   {
    "kit": "kay-dun-1",
@@ -103939,7 +103899,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.71
   },
   {
    "kit": "kay-dun-1",
@@ -103980,7 +103940,7 @@
     "wood-worked"
    ],
    "variant": "v551",
-   "thickRel": 0.71
+   "thickRel": 0.87
   },
   {
    "kit": "kay-dun-1",
@@ -104021,7 +103981,7 @@
     "wood-worked"
    ],
    "variant": "v551",
-   "thickRel": 0.71
+   "thickRel": 0.87
   },
   {
    "kit": "kay-dun-1",
@@ -104062,7 +104022,7 @@
     "wood-worked"
    ],
    "variant": "v551",
-   "thickRel": 0.68
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-1",
@@ -107705,7 +107665,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.31
   },
   {
    "kit": "kay-dun-1",
@@ -107746,7 +107706,7 @@
     "scale-big",
     "stone-masonry"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.6
   },
   {
    "kit": "kay-dun-1",
@@ -107787,7 +107747,7 @@
     "scale-big",
     "stone-masonry"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.56
   },
   {
    "kit": "kay-dun-1",
@@ -108247,7 +108207,7 @@
     "stone-masonry"
    ],
    "variant": "v1217",
-   "thickRel": 1.4
+   "thickRel": 1.41
   },
   {
    "kit": "kay-dun-2",
@@ -108291,7 +108251,7 @@
     "stone-masonry"
    ],
    "variant": "v1217",
-   "thickRel": 1.63
+   "thickRel": 1.65
   },
   {
    "kit": "kay-dun-2",
@@ -108334,7 +108294,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "kay-dun-2",
@@ -108377,7 +108337,7 @@
     "stone-masonry"
    ],
    "variant": "v1216",
-   "thickRel": 1.25,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
@@ -108428,7 +108388,7 @@
     "stone-masonry"
    ],
    "variant": "v1216",
-   "thickRel": 1.8,
+   "thickRel": 1.81,
    "lint": [
     {
      "level": "warning",
@@ -109437,7 +109397,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "ceiling-tile",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor",
    "size": "m",
    "wdh": [
     1.2,
@@ -109938,7 +109898,7 @@
     "stone-soil"
    ],
    "variant": "v549",
-   "thickRel": 0.51
+   "thickRel": 0.63
   },
   {
    "kit": "kay-dun-2",
@@ -109981,7 +109941,7 @@
     "stone-soil"
    ],
    "variant": "v549",
-   "thickRel": 0.47
+   "thickRel": 0.58
   },
   {
    "kit": "kay-dun-2",
@@ -110025,7 +109985,7 @@
     "stone-soil"
    ],
    "variant": "v550",
-   "thickRel": 0.69
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
@@ -110069,7 +110029,7 @@
     "stone-soil"
    ],
    "variant": "v550",
-   "thickRel": 0.69
+   "thickRel": 0.85
   },
   {
    "kit": "kay-dun-2",
@@ -110113,7 +110073,7 @@
     "stone-soil"
    ],
    "variant": "v550",
-   "thickRel": 0.69
+   "thickRel": 0.85
   },
   {
    "kit": "kay-dun-2",
@@ -110157,7 +110117,7 @@
     "stone-soil"
    ],
    "variant": "v550",
-   "thickRel": 0.75
+   "thickRel": 0.92
   },
   {
    "kit": "kay-dun-2",
@@ -110201,7 +110161,7 @@
     "stone-soil"
    ],
    "variant": "v550",
-   "thickRel": 0.68
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
@@ -110251,7 +110211,7 @@
     "stone-soil"
    ],
    "variant": "v550",
-   "thickRel": 0.72
+   "thickRel": 0.88
   },
   {
    "kit": "kay-dun-2",
@@ -110515,7 +110475,7 @@
     "stone-masonry"
    ],
    "variant": "v548",
-   "thickRel": 3.74
+   "thickRel": 3.75
   },
   {
    "kit": "kay-dun-2",
@@ -110564,7 +110524,7 @@
     "metal-iron-cast",
     "stone-masonry"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.75
   },
   {
    "kit": "kay-dun-2",
@@ -110614,7 +110574,7 @@
     "stone-masonry",
     "tba"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.76
   },
   {
    "kit": "kay-dun-2",
@@ -110664,7 +110624,7 @@
     "scale-big",
     "stone-masonry"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.99
   },
   {
    "kit": "kay-dun-2",
@@ -110758,7 +110718,7 @@
     "stone-masonry"
    ],
    "variant": "v549",
-   "thickRel": 0.71
+   "thickRel": 0.88
   },
   {
    "kit": "kay-dun-2",
@@ -110801,7 +110761,7 @@
     "stone-masonry"
    ],
    "variant": "v549",
-   "thickRel": 0.61
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
@@ -110846,7 +110806,7 @@
     "stone-masonry"
    ],
    "variant": "v550",
-   "thickRel": 0.77
+   "thickRel": 0.95
   },
   {
    "kit": "kay-dun-2",
@@ -110891,7 +110851,7 @@
     "stone-masonry"
    ],
    "variant": "v550",
-   "thickRel": 0.78
+   "thickRel": 0.95
   },
   {
    "kit": "kay-dun-2",
@@ -110935,7 +110895,7 @@
     "stone-masonry"
    ],
    "variant": "v550",
-   "thickRel": 0.78
+   "thickRel": 0.96
   },
   {
    "kit": "kay-dun-2",
@@ -111038,7 +110998,7 @@
     "stone-masonry"
    ],
    "variant": "v550",
-   "thickRel": 0.8
+   "thickRel": 0.98
   },
   {
    "kit": "kay-dun-2",
@@ -111087,7 +111047,7 @@
     "stone-masonry"
    ],
    "variant": "v550",
-   "thickRel": 0.8
+   "thickRel": 0.98
   },
   {
    "kit": "kay-dun-2",
@@ -111131,7 +111091,7 @@
     "stone-masonry"
    ],
    "variant": "v550",
-   "thickRel": 0.81
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
@@ -111173,7 +111133,7 @@
     "wood-worked"
    ],
    "variant": "v579",
-   "thickRel": 0.61
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
@@ -111215,7 +111175,7 @@
     "wood-worked"
    ],
    "variant": "v579",
-   "thickRel": 0.61
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
@@ -111258,7 +111218,7 @@
     "wood-worked"
    ],
    "variant": "v579",
-   "thickRel": 0.81
+   "thickRel": 0.99
   },
   {
    "kit": "kay-dun-2",
@@ -111301,7 +111261,7 @@
     "wood-worked"
    ],
    "variant": "v579",
-   "thickRel": 0.81
+   "thickRel": 0.99
   },
   {
    "kit": "kay-dun-2",
@@ -113222,7 +113182,7 @@
     "wood-worked"
    ],
    "variant": "v727",
-   "thickRel": 0.7
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
@@ -113265,7 +113225,7 @@
     "wood-worked"
    ],
    "variant": "v727",
-   "thickRel": 0.7
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
@@ -113413,7 +113373,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.09
   },
   {
    "kit": "kay-dun-2",
@@ -113767,7 +113727,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.8
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
@@ -114036,7 +113996,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 1.3
+   "thickRel": 1.37
   },
   {
    "kit": "kay-dun-2",
@@ -114091,7 +114051,7 @@
     "wood-beam"
    ],
    "variant": "v554",
-   "thickRel": 1.46
+   "thickRel": 1.55
   },
   {
    "kit": "kay-dun-2",
@@ -114139,7 +114099,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 2.41
+   "thickRel": 2.54
   },
   {
    "kit": "kay-dun-2",
@@ -114188,7 +114148,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 1.46
+   "thickRel": 1.55
   },
   {
    "kit": "kay-dun-2",
@@ -114243,7 +114203,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.93
+   "thickRel": 0.98
   },
   {
    "kit": "kay-dun-2",
@@ -114291,7 +114251,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.96
+   "thickRel": 1.01
   },
   {
    "kit": "kay-dun-2",
@@ -114357,7 +114317,7 @@
     "open"
    ],
    "variant": "v33",
-   "thickRel": 0.85
+   "thickRel": 0.92
   },
   {
    "kit": "kay-dun-2",
@@ -114404,7 +114364,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 1
+   "thickRel": 1.09
   },
   {
    "kit": "kay-dun-2",
@@ -114451,7 +114411,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.33
   },
   {
    "kit": "kay-dun-2",
@@ -114517,7 +114477,7 @@
     "open"
    ],
    "variant": "v33",
-   "thickRel": 0.85
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-2",
@@ -114566,7 +114526,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 3.03
+   "thickRel": 3.19
   },
   {
    "kit": "kay-dun-2",
@@ -114621,7 +114581,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.8
+   "thickRel": 0.85
   },
   {
    "kit": "kay-dun-2",
@@ -114669,7 +114629,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 1.63
+   "thickRel": 1.72
   },
   {
    "kit": "kay-dun-2",
@@ -114717,7 +114677,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 1.74
+   "thickRel": 1.83
   },
   {
    "kit": "kay-dun-2",
@@ -114765,7 +114725,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 1.77
+   "thickRel": 1.87
   },
   {
    "kit": "kay-dun-2",
@@ -114813,7 +114773,7 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.88
   },
   {
    "kit": "kay-dun-2",
@@ -114861,7 +114821,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 1.05
+   "thickRel": 1.11
   },
   {
    "kit": "kay-dun-2",
@@ -114915,7 +114875,7 @@
     "wood-beam"
    ],
    "variant": "v554",
-   "thickRel": 0.92
+   "thickRel": 0.97
   },
   {
    "kit": "kay-dun-2",
@@ -115034,7 +114994,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.84
+   "thickRel": 0.89
   },
   {
    "kit": "kay-dun-2",
@@ -115082,7 +115042,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.95
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
@@ -115130,7 +115090,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.95
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
@@ -115404,7 +115364,7 @@
     "stone-masonry"
    ],
    "variant": "v554",
-   "thickRel": 0.92
+   "thickRel": 0.97
   },
   {
    "kit": "kay-food",
@@ -117085,7 +117045,7 @@
     "stone-masonry"
    ],
    "variant": "v652",
-   "thickRel": 1.78
+   "thickRel": 2.19
   },
   {
    "kit": "kay-food",
@@ -117133,7 +117093,7 @@
     "stone-masonry"
    ],
    "variant": "v652",
-   "thickRel": 1.08
+   "thickRel": 1.33
   },
   {
    "kit": "kay-food",
@@ -120416,7 +120376,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "table-kitchen-b",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-square",
    "size": "m",
    "wdh": [
     0.6,
@@ -120459,7 +120419,7 @@
     "plastic"
    ],
    "variant": "v843",
-   "thickRel": 0.96
+   "thickRel": 0.99
   },
   {
    "kit": "kay-food",
@@ -120586,7 +120546,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "table-kitchen",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-square",
    "size": "m",
    "wdh": [
     0.6,
@@ -120623,7 +120583,7 @@
     "metal-iron-steel"
    ],
    "variant": "v653",
-   "thickRel": 0.96
+   "thickRel": 0.99
   },
   {
    "kit": "kay-food",
@@ -121170,7 +121130,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "wall-doorway",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1.2,
@@ -121218,7 +121178,7 @@
     "stone-masonry"
    ],
    "variant": "v519",
-   "thickRel": 0.74
+   "thickRel": 0.8
   },
   {
    "kit": "kay-food",
@@ -121408,7 +121368,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "wall-window",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.2,
@@ -121456,7 +121416,7 @@
     "stone-masonry"
    ],
    "variant": "v519",
-   "thickRel": 0.75
+   "thickRel": 0.83
   },
   {
    "kit": "kay-food",
@@ -121504,7 +121464,7 @@
     "stone-masonry"
    ],
    "variant": "v519",
-   "thickRel": 0.79
+   "thickRel": 0.83
   },
   {
    "kit": "kay-forest",
@@ -127041,7 +127001,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 1
+   "thickRel": 1.07
   },
   {
    "kit": "kay-furniture",
@@ -127083,7 +127043,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.5
   },
   {
    "kit": "kay-hallow",
@@ -127127,12 +127087,12 @@
     "stone-masonry"
    ],
    "variant": "v209",
-   "thickRel": 0.68
+   "thickRel": 0.79
   },
   {
    "kit": "kay-hallow",
    "name": "arch-gate-right",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.483,
@@ -127171,7 +127131,7 @@
     "scale-big"
    ],
    "variant": "v209",
-   "thickRel": 0.81,
+   "thickRel": 1,
    "mark": [
     "centered"
    ]
@@ -127226,7 +127186,7 @@
     "tba"
    ],
    "variant": "v209",
-   "thickRel": 0.62
+   "thickRel": 0.73
   },
   {
    "kit": "kay-hallow",
@@ -127269,7 +127229,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.79
   },
   {
    "kit": "kay-hallow",
@@ -127766,7 +127726,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate-left",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.483,
@@ -127805,7 +127765,7 @@
     "scale-big"
    ],
    "variant": "v208",
-   "thickRel": 0.8,
+   "thickRel": 0.99,
    "mark": [
     "centered"
    ]
@@ -127852,7 +127812,7 @@
     "stone-masonry"
    ],
    "variant": "v208",
-   "thickRel": 1.01,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -127864,7 +127824,7 @@
   {
    "kit": "kay-hallow",
    "name": "fence-gate-right",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.483,
@@ -127903,7 +127863,7 @@
     "scale-big"
    ],
    "variant": "v208",
-   "thickRel": 0.81,
+   "thickRel": 1,
    "mark": [
     "centered"
    ]
@@ -127957,7 +127917,7 @@
     "tba"
    ],
    "variant": "v208",
-   "thickRel": 0.7
+   "thickRel": 0.82
   },
   {
    "kit": "kay-hallow",
@@ -128089,7 +128049,7 @@
     "metal-iron-cast"
    ],
    "variant": "v225",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "kay-hallow",
@@ -128133,7 +128093,7 @@
     "metal-iron-cast"
    ],
    "variant": "v225",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "kay-hallow",
@@ -128183,7 +128143,7 @@
     "stone-masonry"
    ],
    "variant": "v641",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "kay-hallow",
@@ -128224,7 +128184,7 @@
     "kay",
     "stone-soil"
    ],
-   "thickRel": 0.84,
+   "thickRel": 1.03,
    "mark": [
     "grounded"
    ]
@@ -128270,7 +128230,7 @@
     "scale-small",
     "stone-soil"
    ],
-   "thickRel": 1.78
+   "thickRel": 2.19
   },
   {
    "kit": "kay-hallow",
@@ -128312,7 +128272,7 @@
     "kay",
     "stone-soil"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.34
   },
   {
    "kit": "kay-hallow",
@@ -131877,7 +131837,7 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "thickRel": 2.64
+   "thickRel": 2.79
   },
   {
    "kit": "kay-hexagon",
@@ -131917,7 +131877,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 3.09
+   "thickRel": 3.11
   },
   {
    "kit": "kay-hexagon",
@@ -131971,7 +131931,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.31
   },
   {
    "kit": "kay-hexagon",
@@ -137719,7 +137679,7 @@
     "scale-small"
    ],
    "variant": "v650",
-   "thickRel": 2
+   "thickRel": 2.02
   },
   {
    "kit": "kay-minigame",
@@ -137763,7 +137723,7 @@
     "scale-small"
    ],
    "variant": "v650",
-   "thickRel": 1.52
+   "thickRel": 1.53
   },
   {
    "kit": "kay-minigame",
@@ -142993,7 +142953,7 @@
     "plastic"
    ],
    "variant": "v1271",
-   "thickRel": 2.91
+   "thickRel": 2.87
   },
   {
    "kit": "kay-platformer",
@@ -143041,13 +143001,13 @@
     "plastic"
    ],
    "variant": "v1271",
-   "thickRel": 1.87
+   "thickRel": 1.85
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-corner-double-hunter",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143090,13 +143050,13 @@
     "plastic"
    ],
    "variant": "v1270",
-   "thickRel": 0.66
+   "thickRel": 0.63
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-corner-double",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143139,13 +143099,13 @@
     "plastic"
    ],
    "variant": "v1270",
-   "thickRel": 0.66
+   "thickRel": 0.63
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-corner-padded-hunter",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.63,
@@ -143193,13 +143153,13 @@
     "plastic"
    ],
    "variant": "v1269",
-   "thickRel": 1.24
+   "thickRel": 1.18
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-corner-padded",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.63,
@@ -143247,13 +143207,13 @@
     "plastic"
    ],
    "variant": "v1269",
-   "thickRel": 1.24
+   "thickRel": 1.18
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-corner-single-hunter",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143296,13 +143256,13 @@
     "plastic"
    ],
    "variant": "v1268",
-   "thickRel": 0.63
+   "thickRel": 0.6
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-corner-single",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143345,13 +143305,13 @@
     "plastic"
    ],
    "variant": "v1268",
-   "thickRel": 0.63
+   "thickRel": 0.6
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-double-hunter",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143394,13 +143354,13 @@
     "plastic"
    ],
    "variant": "v1267",
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-double",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143443,13 +143403,13 @@
     "plastic"
    ],
    "variant": "v1267",
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-padded-hunter",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143497,13 +143457,13 @@
     "plastic"
    ],
    "variant": "v1266",
-   "thickRel": 2.03
+   "thickRel": 1.94
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-padded",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143551,13 +143511,13 @@
     "plastic"
    ],
    "variant": "v1266",
-   "thickRel": 2.03
+   "thickRel": 1.94
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-single-hunter",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143600,13 +143560,13 @@
     "plastic"
    ],
    "variant": "v1265",
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "railing-single",
-   "kind": "str-barrier-fence",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.6,
@@ -143649,7 +143609,7 @@
     "plastic"
    ],
    "variant": "v1265",
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
@@ -144800,7 +144760,7 @@
     "kay",
     "stone-soil"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.34
   },
   {
    "kit": "kay-proto",
@@ -144841,7 +144801,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.34
   },
   {
    "kit": "kay-proto",
@@ -144882,7 +144842,7 @@
     "kay",
     "stone-asphalt"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.33
   },
   {
    "kit": "kay-proto",
@@ -145559,7 +145519,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.85
   },
   {
    "kit": "kay-proto",
@@ -145606,7 +145566,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.8
   },
   {
    "kit": "kay-proto",
@@ -145706,7 +145666,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.83
   },
   {
    "kit": "kay-resources",
@@ -152585,7 +152545,7 @@
     "space"
    ],
    "variant": "v1397",
-   "thickRel": 1.78
+   "thickRel": 1.73
   },
   {
    "kit": "kay-space",
@@ -152633,7 +152593,7 @@
     "space"
    ],
    "variant": "v1397",
-   "thickRel": 2.04
+   "thickRel": 1.98
   },
   {
    "kit": "kay-space",
@@ -154867,7 +154827,7 @@
     "metal-iron-cast",
     "stone-masonry"
    ],
-   "thickRel": 0.57,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "error",
@@ -154924,7 +154884,7 @@
     "metal-iron-cast",
     "stone-masonry"
    ],
-   "thickRel": 1.32,
+   "thickRel": 1.34,
    "lint": [
     {
      "level": "error",
@@ -155126,7 +155086,7 @@
     "scale-big",
     "stone-soil"
    ],
-   "thickRel": 1.69
+   "thickRel": 2.08
   },
   {
    "kit": "kay-spook",
@@ -160428,7 +160388,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.57
   },
   {
    "kit": "ken-arcade",
@@ -160888,7 +160848,7 @@
     "metal",
     "stone-masonry"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.86
   },
   {
    "kit": "ken-arcade",
@@ -161003,7 +160963,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 2
+   "thickRel": 2.12
   },
   {
    "kit": "ken-arena",
@@ -161104,7 +161064,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 2.77
+   "thickRel": 3.4
   },
   {
    "kit": "ken-arena",
@@ -161620,7 +161580,7 @@
     "stone-masonry"
    ],
    "variant": "v980",
-   "thickRel": 1.46
+   "thickRel": 1.54
   },
   {
    "kit": "ken-arena",
@@ -161716,7 +161676,7 @@
     "stone-masonry"
    ],
    "variant": "v980",
-   "thickRel": 1.99
+   "thickRel": 2.1
   },
   {
    "kit": "ken-arena",
@@ -167911,7 +167871,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.88
   },
   {
    "kit": "ken-chars",
@@ -171041,7 +171001,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-factory",
@@ -171088,7 +171048,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "ken-factory",
@@ -171135,7 +171095,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "ken-factory",
@@ -171276,7 +171236,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "ken-factory",
@@ -173022,7 +172982,7 @@
     "ken",
     "metal-iron-cast"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.57
   },
   {
    "kit": "ken-factory",
@@ -181515,7 +181475,7 @@
     "scale-small",
     "wood-beam"
    ],
-   "thickRel": 1.84
+   "thickRel": 1.86
   },
   {
    "kit": "ken-forest-mini",
@@ -184027,7 +183987,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.65
   },
   {
    "kit": "ken-furniture",
@@ -184067,7 +184027,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.83
   },
   {
    "kit": "ken-furniture",
@@ -186909,7 +186869,7 @@
     "metal-iron-steel"
    ],
    "variant": "v812",
-   "thickRel": 0.75,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -187011,7 +186971,7 @@
     "wood-worked"
    ],
    "variant": "v812",
-   "thickRel": 0.75,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -187637,7 +187597,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.67
   },
   {
    "kit": "ken-furniture",
@@ -187781,7 +187741,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.6
   },
   {
    "kit": "ken-furniture",
@@ -188077,7 +188037,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "brick-wall-curve-small",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -188121,13 +188081,13 @@
     "stone-masonry"
    ],
    "variant": "v1400",
-   "thickRel": 1.29
+   "thickRel": 1.15
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "brick-wall-curve",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -188171,13 +188131,13 @@
     "stone-masonry"
    ],
    "variant": "v1400",
-   "thickRel": 1.26
+   "thickRel": 1.13
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "brick-wall-end",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -188221,13 +188181,13 @@
     "stone-masonry"
    ],
    "variant": "v1400",
-   "thickRel": 1.55
+   "thickRel": 1.39
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "brick-wall",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -188272,7 +188232,7 @@
     "stone-masonry"
    ],
    "variant": "v1400",
-   "thickRel": 1.75
+   "thickRel": 1.56
   },
   {
    "kit": "ken-grave",
@@ -189316,13 +189276,13 @@
     "wood-worked"
    ],
    "variant": "v298",
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "fence-gate",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.9,
@@ -189364,7 +189324,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.42
   },
   {
    "kit": "ken-grave",
@@ -189413,7 +189373,7 @@
     "wood-worked"
    ],
    "variant": "v298",
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "ken-grave",
@@ -189961,7 +189921,7 @@
     "stone-masonry"
    ],
    "variant": "v637",
-   "thickRel": 0.8,
+   "thickRel": 0.81,
    "mark": [
     "centered"
    ]
@@ -190015,7 +189975,7 @@
     "stone-masonry"
    ],
    "variant": "v302",
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "ken-grave",
@@ -190116,7 +190076,7 @@
     "stone-masonry"
    ],
    "variant": "v301",
-   "thickRel": 0.71,
+   "thickRel": 0.72,
    "mark": [
     "centered"
    ]
@@ -190209,7 +190169,7 @@
     "metal-iron-cast"
    ],
    "variant": "v637",
-   "thickRel": 0.54,
+   "thickRel": 0.55,
    "mark": [
     "centered"
    ]
@@ -190256,7 +190216,7 @@
     "metal-iron-cast"
    ],
    "variant": "v301",
-   "thickRel": 0.55,
+   "thickRel": 0.56,
    "mark": [
     "centered"
    ]
@@ -191011,7 +190971,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "stone-wall-column",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -191053,7 +191013,7 @@
     "stone-masonry"
    ],
    "variant": "v561",
-   "thickRel": 1.21,
+   "thickRel": 1.08,
    "mark": [
     "centered"
    ]
@@ -191062,7 +191022,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "stone-wall-curve",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -191105,13 +191065,13 @@
     "stone-masonry"
    ],
    "variant": "v561",
-   "thickRel": 0.94
+   "thickRel": 0.84
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "stone-wall-damaged",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -191154,7 +191114,7 @@
     "stone-masonry"
    ],
    "variant": "v561",
-   "thickRel": 1.26,
+   "thickRel": 1.12,
    "mark": [
     "centered"
    ]
@@ -191163,7 +191123,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "stone-wall",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier",
    "size": "m",
    "wdh": [
     0.9,
@@ -191205,7 +191165,7 @@
     "stone-masonry"
    ],
    "variant": "v561",
-   "thickRel": 1.3,
+   "thickRel": 1.16,
    "mark": [
     "centered"
    ]
@@ -191457,7 +191417,7 @@
     "wood-worked"
    ],
    "variant": "v571",
-   "thickRel": 1.06,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
@@ -191511,7 +191471,7 @@
     "wood-worked"
    ],
    "variant": "v571",
-   "thickRel": 1.01,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "warning",
@@ -191560,7 +191520,7 @@
     "scale-small",
     "wood-worked"
    ],
-   "thickRel": 1.6,
+   "thickRel": 1.61,
    "lint": [
     {
      "level": "error",
@@ -191621,7 +191581,7 @@
     "wood-worked"
    ],
    "variant": "v571",
-   "thickRel": 1.08,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "warning",
@@ -191682,7 +191642,7 @@
     "wood-worked"
    ],
    "variant": "v571",
-   "thickRel": 1.01,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "warning",
@@ -192112,7 +192072,7 @@
     "wood-worked"
    ],
    "variant": "v517",
-   "thickRel": 1.21,
+   "thickRel": 1.22,
    "lint": [
     {
      "level": "warning",
@@ -192386,7 +192346,7 @@
     "scale-small",
     "stone-masonry"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.85
   },
   {
    "kit": "ken-holiday",
@@ -192435,7 +192395,7 @@
     "wood-planks"
    ],
    "variant": "v578",
-   "thickRel": 0.76
+   "thickRel": 0.94
   },
   {
    "kit": "ken-holiday",
@@ -192478,7 +192438,7 @@
     "wood-planks"
    ],
    "variant": "v578",
-   "thickRel": 0.76
+   "thickRel": 0.94
   },
   {
    "kit": "ken-holiday",
@@ -196227,7 +196187,7 @@
     "ceramic",
     "ken"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.57
   },
   {
    "kit": "ken-market",
@@ -196333,7 +196293,7 @@
    "kit": "ken-market",
    "collection": "ken-mini",
    "name": "railing",
-   "kind": "str-barrier-fence-mid",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.546,
@@ -196367,10 +196327,9 @@
    ],
    "tags": [
     "ken",
-    "metal-iron-cast",
-    "scale-small"
+    "metal-iron-cast"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.9
   },
   {
    "kit": "ken-market",
@@ -196703,7 +196662,7 @@
     "plastic",
     "scale-small"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.55
   },
   {
    "kit": "ken-market",
@@ -196761,7 +196720,7 @@
     "stone-masonry",
     "tba"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.86
   },
   {
    "kit": "ken-market",
@@ -197140,7 +197099,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.6
   },
   {
    "kit": "ken-mini-dun",
@@ -199841,7 +199800,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.53
+   "thickRel": 1.8
   },
   {
    "kit": "ken-nature",
@@ -199924,7 +199883,7 @@
     "wood-planks"
    ],
    "variant": "v559",
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "ken-nature",
@@ -199972,7 +199931,7 @@
     "wood-planks"
    ],
    "variant": "v560",
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "ken-nature",
@@ -200019,7 +199978,7 @@
     "wood-planks"
    ],
    "variant": "v560",
-   "thickRel": 0.44
+   "thickRel": 0.45
   },
   {
    "kit": "ken-nature",
@@ -200109,7 +200068,7 @@
     "wood-planks"
    ],
    "variant": "v560",
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "ken-nature",
@@ -200152,7 +200111,7 @@
     "wood-planks"
    ],
    "variant": "v560",
-   "thickRel": 2.48
+   "thickRel": 2.5
   },
   {
    "kit": "ken-nature",
@@ -200200,7 +200159,7 @@
     "wood-planks"
    ],
    "variant": "v560",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "ken-nature",
@@ -204546,7 +204505,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.9
   },
   {
    "kit": "ken-pirate",
@@ -205377,7 +205336,7 @@
   {
    "kit": "ken-pirate",
    "name": "structure-platform-dock-small",
-   "kind": "str-part-floor-unit",
+   "kind": "str-access-platform-dock",
    "size": "m",
    "wdh": [
     0.57,
@@ -205415,19 +205374,19 @@
     "#dbae80"
    ],
    "tags": [
+    "comp",
     "ken",
     "pirate",
     "sailing",
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v122",
-   "thickRel": 1.22
+   "variant": "v122"
   },
   {
    "kit": "ken-pirate",
    "name": "structure-platform-dock",
-   "kind": "str-part-floor-unit",
+   "kind": "str-access-platform-dock",
    "size": "m",
    "wdh": [
     0.75,
@@ -205466,19 +205425,19 @@
     "#dbae80"
    ],
    "tags": [
+    "comp",
     "ken",
     "pirate",
     "sailing",
     "wood-beam",
     "wood-planks"
    ],
-   "variant": "v121",
-   "thickRel": 0.98
+   "variant": "v121"
   },
   {
    "kit": "ken-pirate",
    "name": "structure-platform-small",
-   "kind": "str-part-floor-unit",
+   "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
     0.57,
@@ -205523,12 +205482,12 @@
     "wood-planks"
    ],
    "variant": "v122",
-   "thickRel": 1.2
+   "thickRel": 1.39
   },
   {
    "kit": "ken-pirate",
    "name": "structure-platform",
-   "kind": "str-part-floor-unit",
+   "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
     0.75,
@@ -205574,7 +205533,7 @@
     "wood-planks"
    ],
    "variant": "v121",
-   "thickRel": 0.98
+   "thickRel": 1.13
   },
   {
    "kit": "ken-pirate",
@@ -206598,7 +206557,7 @@
     "wood-planks"
    ],
    "variant": "v642",
-   "thickRel": 1.42,
+   "thickRel": 1.43,
    "mark": [
     "centered"
    ]
@@ -206650,7 +206609,7 @@
     "wood-planks"
    ],
    "variant": "v297",
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "ken-platformer",
@@ -206698,7 +206657,7 @@
     "wood-planks"
    ],
    "variant": "v297",
-   "thickRel": 0.54
+   "thickRel": 0.55
   },
   {
    "kit": "ken-platformer",
@@ -206747,7 +206706,7 @@
     "wood-log"
    ],
    "variant": "v300",
-   "thickRel": 2.47,
+   "thickRel": 2.49,
    "mark": [
     "centered"
    ]
@@ -206800,7 +206759,7 @@
     "wood-log"
    ],
    "variant": "v299",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "ken-platformer",
@@ -206850,7 +206809,7 @@
     "wood-log"
    ],
    "variant": "v299",
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "ken-platformer",
@@ -206899,7 +206858,7 @@
     "wood-log"
    ],
    "variant": "v300",
-   "thickRel": 2.54,
+   "thickRel": 2.56,
    "mark": [
     "centered"
    ]
@@ -206956,7 +206915,7 @@
     "wood-bark",
     "wood-log"
    ],
-   "thickRel": 2.09
+   "thickRel": 2.11
   },
   {
    "kit": "ken-platformer",
@@ -207004,7 +206963,7 @@
     "wood-planks"
    ],
    "variant": "v642",
-   "thickRel": 1.43,
+   "thickRel": 1.44,
    "mark": [
     "centered"
    ]
@@ -207502,7 +207461,7 @@
     "wood-planks"
    ],
    "variant": "v118",
-   "thickRel": 1.1,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -207606,7 +207565,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "ken-platformer",
@@ -207655,7 +207614,7 @@
     "wood-planks"
    ],
    "variant": "v118",
-   "thickRel": 1
+   "thickRel": 0.97
   },
   {
    "kit": "ken-platformer",
@@ -208463,7 +208422,7 @@
     "stone-masonry"
    ],
    "variant": "v1264",
-   "thickRel": 0.46
+   "thickRel": 0.57
   },
   {
    "kit": "ken-proto",
@@ -208504,7 +208463,7 @@
     "stone-masonry"
    ],
    "variant": "v1264",
-   "thickRel": 0.46
+   "thickRel": 0.57
   },
   {
    "kit": "ken-proto",
@@ -209169,7 +209128,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.26
   },
   {
    "kit": "ken-proto",
@@ -209215,7 +209174,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.74
   },
   {
    "kit": "ken-proto",
@@ -209261,13 +209220,13 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.23
   },
   {
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "wall-doorway",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.95,
@@ -209308,13 +209267,13 @@
     "stone-masonry"
    ],
    "variant": "v515",
-   "thickRel": 0.92
+   "thickRel": 1
   },
   {
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "wall-window-cutout-large",
-   "kind": "str-part-wall-unit",
+   "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     0.95,
@@ -209350,7 +209309,7 @@
     "stone-masonry"
    ],
    "variant": "v515",
-   "thickRel": 0.9
+   "thickRel": 1
   },
   {
    "kit": "ken-proto",
@@ -209392,7 +209351,7 @@
     "stone-masonry"
    ],
    "variant": "v856",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "ken-proto",
@@ -209518,7 +209477,7 @@
     "stone-masonry"
    ],
    "variant": "v515",
-   "thickRel": 1.13
+   "thickRel": 1.19
   },
   {
    "kit": "ken-proto",
@@ -210031,7 +209990,7 @@
     "metal",
     "textile"
    ],
-   "thickRel": 0.56,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "warning",
@@ -215449,7 +215408,7 @@
     "ken",
     "stone-asphalt"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.57
   },
   {
    "kit": "ken-skate",
@@ -215490,7 +215449,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.57
   },
   {
    "kit": "ken-skate",
@@ -216073,7 +216032,7 @@
     "ken",
     "wood-beam"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "ken-skate",
@@ -216790,7 +216749,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.75
   },
   {
    "kit": "ken-space",
@@ -216842,7 +216801,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.85
   },
   {
    "kit": "ken-space",
@@ -219358,7 +219317,7 @@
     "space"
    ],
    "variant": "v1096",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-space",
@@ -219411,7 +219370,7 @@
     "space"
    ],
    "variant": "v1096",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "ken-space",
@@ -219459,7 +219418,7 @@
     "space"
    ],
    "variant": "v1097",
-   "thickRel": 0.41,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
@@ -219519,7 +219478,7 @@
     "space"
    ],
    "variant": "v1097",
-   "thickRel": 1.34,
+   "thickRel": 1.42,
    "lint": [
     {
      "level": "warning",
@@ -221169,7 +221128,7 @@
     "space"
    ],
    "variant": "v1285",
-   "thickRel": 1.51
+   "thickRel": 1.86
   },
   {
    "kit": "ken-station",
@@ -221215,7 +221174,7 @@
     "metal",
     "space"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.67
   },
   {
    "kit": "ken-station",
@@ -221262,7 +221221,7 @@
     "space"
    ],
    "variant": "v1285",
-   "thickRel": 1.61
+   "thickRel": 1.97
   },
   {
    "kit": "ken-station",
@@ -221316,7 +221275,7 @@
     "space"
    ],
    "variant": "v1103",
-   "thickRel": 2.07
+   "thickRel": 2.18
   },
   {
    "kit": "ken-station",
@@ -221368,7 +221327,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.13
   },
   {
    "kit": "ken-station",
@@ -221426,7 +221385,7 @@
     "space"
    ],
    "variant": "v1103",
-   "thickRel": 1.22
+   "thickRel": 1.28
   },
   {
    "kit": "ken-station",
@@ -223039,7 +222998,7 @@
     "space"
    ],
    "variant": "v1284",
-   "thickRel": 2.02
+   "thickRel": 2.48
   },
   {
    "kit": "ken-station",
@@ -223087,7 +223046,7 @@
     "space"
    ],
    "variant": "v1284",
-   "thickRel": 2.02
+   "thickRel": 2.48
   },
   {
    "kit": "ken-station",
@@ -223134,7 +223093,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.79
   },
   {
    "kit": "ken-station",
@@ -223181,7 +223140,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.12
   },
   {
    "kit": "ken-station",
@@ -223294,7 +223253,7 @@
   {
    "kit": "ken-station",
    "name": "stairs-handrail-single",
-   "kind": "str-access-stairs",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     0.1,
@@ -224369,7 +224328,7 @@
     "textile"
    ],
    "variant": "v1236",
-   "thickRel": 1.23
+   "thickRel": 1.3
   },
   {
    "kit": "ken-station",
@@ -224422,7 +224381,7 @@
     "textile"
    ],
    "variant": "v1281",
-   "thickRel": 1.59
+   "thickRel": 1.68
   },
   {
    "kit": "ken-station",
@@ -224475,7 +224434,7 @@
     "textile"
    ],
    "variant": "v1282",
-   "thickRel": 1.5
+   "thickRel": 1.58
   },
   {
    "kit": "ken-station",
@@ -224522,7 +224481,7 @@
     "space"
    ],
    "variant": "v1282",
-   "thickRel": 1.5
+   "thickRel": 1.59
   },
   {
    "kit": "ken-station",
@@ -224569,7 +224528,7 @@
     "space"
    ],
    "variant": "v1281",
-   "thickRel": 1.59
+   "thickRel": 1.67
   },
   {
    "kit": "ken-station",
@@ -224674,7 +224633,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.23
   },
   {
    "kit": "ken-station",
@@ -224786,7 +224745,7 @@
     "space"
    ],
    "variant": "v1237",
-   "thickRel": 1.09
+   "thickRel": 1.19
   },
   {
    "kit": "ken-station",
@@ -224838,7 +224797,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.23
   },
   {
    "kit": "ken-station",
@@ -224892,7 +224851,7 @@
     "space"
    ],
    "variant": "v1283",
-   "thickRel": 1.59
+   "thickRel": 1.67
   },
   {
    "kit": "ken-station",
@@ -224940,7 +224899,7 @@
     "space"
    ],
    "variant": "v1283",
-   "thickRel": 1.57
+   "thickRel": 1.66
   },
   {
    "kit": "ken-station",
@@ -225197,7 +225156,7 @@
     "space"
    ],
    "variant": "v1236",
-   "thickRel": 1.23
+   "thickRel": 1.3
   },
   {
    "kit": "ken-suburban",
@@ -227658,7 +227617,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 0.54,
+   "thickRel": 0.64,
    "mark": [
     "centered"
    ]
@@ -227746,7 +227705,7 @@
     "scale-big",
     "wood-worked"
    ],
-   "thickRel": 0.52,
+   "thickRel": 0.53,
    "mark": [
     "centered"
    ]
@@ -227888,7 +227847,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.82,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -227938,7 +227897,7 @@
     "wood-planks"
    ],
    "variant": "v47",
-   "thickRel": 0.81
+   "thickRel": 0.99
   },
   {
    "kit": "ken-survival",
@@ -227981,7 +227940,7 @@
     "wood-planks"
    ],
    "variant": "v47",
-   "thickRel": 0.87
+   "thickRel": 1.06
   },
   {
    "kit": "ken-survival",
@@ -228022,7 +227981,7 @@
     "metal-iron-cast"
    ],
    "variant": "v211",
-   "thickRel": 1
+   "thickRel": 1.06
   },
   {
    "kit": "ken-survival",
@@ -228070,7 +228029,7 @@
     "scale-small"
    ],
    "variant": "v211",
-   "thickRel": 1.05
+   "thickRel": 1.1
   },
   {
    "kit": "ken-survival",
@@ -228117,7 +228076,7 @@
     "metal-iron-wrought"
    ],
    "variant": "v211",
-   "thickRel": 1.05
+   "thickRel": 1.11
   },
   {
    "kit": "ken-survival",
@@ -228164,7 +228123,7 @@
     "metal-iron-wrought"
    ],
    "variant": "v211",
-   "thickRel": 0.51
+   "thickRel": 0.54
   },
   {
    "kit": "ken-survival",
@@ -228205,7 +228164,7 @@
     "metal-iron-cast"
    ],
    "variant": "v211",
-   "thickRel": 0.51
+   "thickRel": 0.54
   },
   {
    "kit": "ken-survival",
@@ -230777,7 +230736,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 1.23,
+   "thickRel": 1.24,
    "mark": [
     "centered"
    ]
@@ -230888,7 +230847,7 @@
     "tba",
     "wood-beam"
    ],
-   "thickRel": 1.26,
+   "thickRel": 1.48,
    "lint": [
     {
      "level": "warning",
@@ -230944,7 +230903,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.16,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "warning",
@@ -231686,7 +231645,7 @@
     "wood-planks"
    ],
    "variant": "v577",
-   "thickRel": 1.25,
+   "thickRel": 1.53,
    "mark": [
     "centered"
    ]
@@ -231732,7 +231691,7 @@
     "wood-planks"
    ],
    "variant": "v577",
-   "thickRel": 0.61
+   "thickRel": 0.75
   },
   {
    "kit": "ken-town",
@@ -231775,7 +231734,7 @@
     "wood-planks"
    ],
    "variant": "v577",
-   "thickRel": 0.63
+   "thickRel": 0.77
   },
   {
    "kit": "ken-town",
@@ -233536,7 +233495,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.57,
+   "thickRel": 0.6,
    "mark": [
     "centered"
    ]
@@ -233592,7 +233551,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 2.15,
+   "thickRel": 2.27,
    "mark": [
     "centered"
    ]
@@ -233643,7 +233602,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 1.94
+   "thickRel": 2.04
   },
   {
    "kit": "ken-town",
@@ -233690,7 +233649,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 2.63
+   "thickRel": 2.78
   },
   {
    "kit": "ken-town",
@@ -233738,7 +233697,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.53,
+   "thickRel": 0.56,
    "mark": [
     "centered"
    ]
@@ -233788,7 +233747,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.54,
+   "thickRel": 0.57,
    "mark": [
     "centered"
    ]
@@ -233839,7 +233798,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.54
+   "thickRel": 0.57
   },
   {
    "kit": "ken-town",
@@ -233887,7 +233846,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.52
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -233935,7 +233894,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.55
+   "thickRel": 0.58
   },
   {
    "kit": "ken-town",
@@ -233984,7 +233943,7 @@
     "wood-planks"
    ],
    "variant": "v553",
-   "thickRel": 0.52
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -234031,7 +233990,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.58,
+   "thickRel": 0.61,
    "mark": [
     "centered"
    ]
@@ -234081,7 +234040,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.57,
+   "thickRel": 0.6,
    "mark": [
     "centered"
    ]
@@ -234131,7 +234090,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.58,
+   "thickRel": 0.61,
    "mark": [
     "centered"
    ]
@@ -234181,7 +234140,7 @@
     "wood-planks"
    ],
    "variant": "v553",
-   "thickRel": 0.58
+   "thickRel": 0.61
   },
   {
    "kit": "ken-town",
@@ -234229,7 +234188,7 @@
     "wood-beam"
    ],
    "variant": "v165",
-   "thickRel": 0.6,
+   "thickRel": 0.65,
    "mark": [
     "centered"
    ]
@@ -234278,7 +234237,7 @@
     "ken",
     "wood-beam"
    ],
-   "thickRel": 0.65,
+   "thickRel": 0.7,
    "mark": [
     "centered"
    ]
@@ -234431,7 +234390,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 1.08,
+   "thickRel": 1.14,
    "mark": [
     "centered"
    ]
@@ -234481,7 +234440,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 2.18,
+   "thickRel": 2.3,
    "mark": [
     "centered"
    ]
@@ -234681,7 +234640,7 @@
     "wood-beam"
    ],
    "variant": "v553",
-   "thickRel": 0.55,
+   "thickRel": 0.58,
    "mark": [
     "centered"
    ]
@@ -242346,7 +242305,7 @@
     "lpa",
     "metal"
    ],
-   "thickRel": 0.64,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "error",
@@ -243429,7 +243388,7 @@
     "plastic"
    ],
    "variant": "v1327",
-   "thickRel": 0.52,
+   "thickRel": 0.53,
    "lint": [
     {
      "level": "warning",
@@ -243532,7 +243491,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.84
   },
   {
    "kit": "lpa-construction",
@@ -243573,7 +243532,7 @@
     "lpa",
     "stone-masonry"
    ],
-   "thickRel": 0.89
+   "thickRel": 1.09
   },
   {
    "kit": "lpa-construction",
@@ -245999,7 +245958,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.08,
+   "thickRel": 1.18,
    "lint": [
     {
      "level": "warning",
@@ -250675,7 +250634,7 @@
     "lpa",
     "wood-beam"
    ],
-   "thickRel": 1.05,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "warning",
@@ -254992,7 +254951,7 @@
     "wood-planks"
    ],
    "variant": "v1435",
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "lpa-west",
@@ -255039,7 +254998,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.03
   },
   {
    "kit": "lpa-west",
@@ -255086,7 +255045,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -255133,7 +255092,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -255181,7 +255140,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -255229,7 +255188,7 @@
     "wood-planks"
    ],
    "variant": "v1435",
-   "thickRel": 0.78
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-west",
@@ -255276,7 +255235,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.72
   },
   {
    "kit": "lpa-west",
@@ -256239,7 +256198,7 @@
     "lpa",
     "metal-iron-cast"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.47
   },
   {
    "kit": "lpa-west",
@@ -256729,7 +256688,7 @@
     "wood-planks"
    ],
    "variant": "v1434",
-   "thickRel": 1
+   "thickRel": 1.09
   },
   {
    "kit": "lpa-west",
@@ -256782,7 +256741,7 @@
     "wood-planks"
    ],
    "variant": "v1434",
-   "thickRel": 1
+   "thickRel": 1.09
   },
   {
    "kit": "lpa-west",
@@ -256982,7 +256941,7 @@
     "scale-big",
     "wood-planks"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "lpa-west",
@@ -257024,7 +256983,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.75
   },
   {
    "kit": "lpa-west",
@@ -257066,7 +257025,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.75
   },
   {
    "kit": "lpa-west",
@@ -257108,7 +257067,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -257150,7 +257109,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -257192,7 +257151,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -257239,7 +257198,7 @@
     "stone-masonry",
     "wood-planks"
    ],
-   "thickRel": 1
+   "thickRel": 1.23
   },
   {
    "kit": "lpa-west",
@@ -257286,7 +257245,7 @@
     "stone-masonry",
     "wood-planks"
    ],
-   "thickRel": 1
+   "thickRel": 1.23
   },
   {
    "kit": "lpa-west",
@@ -257333,7 +257292,7 @@
     "stone-masonry",
     "wood-planks"
    ],
-   "thickRel": 0.96
+   "thickRel": 1.17
   },
   {
    "kit": "lpa-west",
@@ -257380,7 +257339,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.33
   },
   {
    "kit": "lpa-west",
@@ -257427,7 +257386,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.33
   },
   {
    "kit": "lpa-west",
@@ -257474,7 +257433,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-west",
@@ -257521,7 +257480,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "error",
@@ -258340,7 +258299,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.69
   },
   {
    "kit": "lpa-west",
@@ -258392,7 +258351,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.56
   },
   {
    "kit": "lpa-west",
@@ -258437,7 +258396,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.69
   },
   {
    "kit": "lpa-west",
@@ -258482,7 +258441,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.49
   },
   {
    "kit": "lpa-west",
@@ -258611,7 +258570,7 @@
     "wood-planks"
    ],
    "variant": "v1428",
-   "thickRel": 0.97
+   "thickRel": 1.03
   },
   {
    "kit": "lpa-west",
@@ -258657,7 +258616,7 @@
     "wood-planks"
    ],
    "variant": "v1428",
-   "thickRel": 0.93
+   "thickRel": 0.98
   },
   {
    "kit": "lpa-west",
@@ -258751,7 +258710,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.66
   },
   {
    "kit": "lpa-west",
@@ -258803,7 +258762,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.11
   },
   {
    "kit": "lpa-west",
@@ -258855,7 +258814,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.6
   },
   {
    "kit": "lpa-west",
@@ -258907,7 +258866,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.1
   },
   {
    "kit": "lpa-west",
@@ -259530,7 +259489,7 @@
     "wood-planks"
    ],
    "variant": "v1433",
-   "thickRel": 0.73
+   "thickRel": 0.8
   },
   {
    "kit": "lpa-west",
@@ -259583,7 +259542,7 @@
     "wood-planks"
    ],
    "variant": "v1433",
-   "thickRel": 0.68
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-west",
@@ -259629,7 +259588,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.72
   },
   {
    "kit": "lpa-west",
@@ -259675,7 +259634,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.49,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "warning",
@@ -259825,7 +259784,7 @@
     "wood-planks"
    ],
    "variant": "v1427",
-   "thickRel": 0.76
+   "thickRel": 0.81
   },
   {
    "kit": "lpa-west",
@@ -259871,7 +259830,7 @@
     "wood-planks"
    ],
    "variant": "v1427",
-   "thickRel": 0.69
+   "thickRel": 0.73
   },
   {
    "kit": "lpa-west",
@@ -260700,7 +260659,7 @@
     "wood-planks"
    ],
    "variant": "v1425",
-   "thickRel": 0.62
+   "thickRel": 0.65
   },
   {
    "kit": "lpa-west",
@@ -260742,7 +260701,7 @@
     "wood-planks"
    ],
    "variant": "v1426",
-   "thickRel": 0.48
+   "thickRel": 0.51
   },
   {
    "kit": "lpa-west",
@@ -260788,7 +260747,7 @@
     "wood-planks"
    ],
    "variant": "v1425",
-   "thickRel": 0.58
+   "thickRel": 0.62
   },
   {
    "kit": "lpa-west",
@@ -260834,7 +260793,7 @@
     "wood-planks"
    ],
    "variant": "v1426",
-   "thickRel": 0.47
+   "thickRel": 0.49
   },
   {
    "kit": "lpa-west",
@@ -260881,7 +260840,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.65
   },
   {
    "kit": "lpa-west",
@@ -260928,7 +260887,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.66
   },
   {
    "kit": "lpa-west",
@@ -260980,7 +260939,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.63
   },
   {
    "kit": "lpa-west",
@@ -261032,7 +260991,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.64
   },
   {
    "kit": "lpa-west",
@@ -261084,7 +261043,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.61
   },
   {
    "kit": "lpa-west",
@@ -263670,7 +263629,7 @@
     "wood-beam"
    ],
    "variant": "v583",
-   "thickRel": 1.62,
+   "thickRel": 1.71,
    "lint": [
     {
      "level": "error",
@@ -263737,7 +263696,7 @@
     "wood-beam"
    ],
    "variant": "v583",
-   "thickRel": 1.59,
+   "thickRel": 1.68,
    "lint": [
     {
      "level": "error",
@@ -263786,7 +263745,7 @@
    "tags": [
     "wood-planks"
    ],
-   "thickRel": 0.7,
+   "thickRel": 0.68,
    "mark": [
     "centered"
    ]
@@ -263827,7 +263786,7 @@
    "tags": [
     "wood-planks"
    ],
-   "thickRel": 0.85,
+   "thickRel": 0.83,
    "mark": [
     "grounded",
     "centered"
@@ -264571,7 +264530,7 @@
     "scale-small",
     "wood-planks"
    ],
-   "thickRel": 0.79,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -270266,7 +270225,7 @@
     "scale-big",
     "wood-planks"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.57,
    "lint": [
     {
      "level": "error",
@@ -270690,7 +270649,7 @@
     "polygonalmind",
     "wood-planks"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.37
   },
   {
    "kit": "pm-store",
@@ -277901,7 +277860,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.52
   },
   {
    "kit": "quat-dun-1",
@@ -277943,7 +277902,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.24
   },
   {
    "kit": "quat-dun-1",
@@ -278415,7 +278374,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 0.95
+   "thickRel": 1
   },
   {
    "kit": "quat-dun-2",
@@ -279430,7 +279389,7 @@
     "wood-beam"
    ],
    "variant": "v445",
-   "thickRel": 1.69
+   "thickRel": 1.7
   },
   {
    "kit": "quat-farms",
@@ -279472,7 +279431,7 @@
     "wood-beam"
    ],
    "variant": "v445",
-   "thickRel": 1.8
+   "thickRel": 1.82
   },
   {
    "kit": "quat-farms",
@@ -287669,7 +287628,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "quat-interior",
@@ -290996,7 +290955,7 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -306089,7 +306048,7 @@
     "qua"
    ],
    "variant": "v528",
-   "thickRel": 0.85,
+   "thickRel": 0.86,
    "lint": [
     {
      "level": "error",
@@ -314563,7 +314522,7 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.33
   },
   {
    "kit": "quat-sushi",
@@ -314614,7 +314573,7 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.33
   },
   {
    "kit": "quat-sushi",
@@ -314654,7 +314613,7 @@
     "ceramic",
     "qua"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.49
   },
   {
    "kit": "quat-sushi",
@@ -314702,7 +314661,7 @@
     "wood-worked"
    ],
    "variant": "v818",
-   "thickRel": 1.22
+   "thickRel": 1.49
   },
   {
    "kit": "quat-sushi",
@@ -314749,7 +314708,7 @@
     "wood-worked"
    ],
    "variant": "v818",
-   "thickRel": 1.26
+   "thickRel": 1.55
   },
   {
    "kit": "quat-sushi",
@@ -316108,7 +316067,7 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.76
   },
   {
    "kit": "quat-sushi",
@@ -316163,7 +316122,7 @@
     "wood-worked"
    ],
    "variant": "v822",
-   "thickRel": 0.93
+   "thickRel": 0.99
   },
   {
    "kit": "quat-sushi",
@@ -316513,7 +316472,7 @@
   {
    "kit": "quat-sushi",
    "name": "table",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-square",
    "size": "s",
    "wdh": [
     0.435,
@@ -316549,7 +316508,7 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.68
   },
   {
    "kit": "quat-sushi",
@@ -316840,7 +316799,7 @@
     "qua",
     "wood-worked"
    ],
-   "thickRel": 0.6,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "error",
@@ -316896,7 +316855,7 @@
     "wood-worked"
    ],
    "variant": "v822",
-   "thickRel": 0.93
+   "thickRel": 0.98
   },
   {
    "kit": "quat-sushi",
@@ -316945,7 +316904,7 @@
     "wood-worked"
    ],
    "variant": "v822",
-   "thickRel": 0.92
+   "thickRel": 0.97
   },
   {
    "kit": "quat-sushi",
@@ -323487,7 +323446,7 @@
     "wood-beam"
    ],
    "variant": "v634",
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "rgp-asia",
@@ -323530,7 +323489,7 @@
     "wood-beam"
    ],
    "variant": "v634",
-   "thickRel": 1.36
+   "thickRel": 1.37
   },
   {
    "kit": "rgp-asia",
@@ -323579,7 +323538,7 @@
     "wood-beam"
    ],
    "variant": "v635",
-   "thickRel": 1.02,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "error",
@@ -324596,7 +324555,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.79
   },
   {
    "kit": "rgp-asia",
@@ -324637,7 +324596,7 @@
     "rgp",
     "stone-masonry"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.44
   },
   {
    "kit": "rgp-asia",
@@ -324690,7 +324649,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "rgp-asia",
@@ -329194,7 +329153,7 @@
     "wood-bark"
    ],
    "variant": "v1147",
-   "thickRel": 0.88
+   "thickRel": 0.93
   },
   {
    "kit": "rgp-medieval",
@@ -329237,7 +329196,7 @@
     "wood-bark"
    ],
    "variant": "v1147",
-   "thickRel": 0.88
+   "thickRel": 0.93
   },
   {
    "kit": "rgp-medieval",
@@ -329287,7 +329246,7 @@
     "wood-planks"
    ],
    "variant": "v1146",
-   "thickRel": 0.77,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "error",
@@ -329343,7 +329302,7 @@
     "wood-planks"
    ],
    "variant": "v1146",
-   "thickRel": 0.76,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -333643,7 +333602,7 @@
     "wood-beam"
    ],
    "variant": "v1153",
-   "thickRel": 3.11,
+   "thickRel": 3.28,
    "lint": [
     {
      "level": "error",
@@ -333705,7 +333664,7 @@
     "wood-beam"
    ],
    "variant": "v1153",
-   "thickRel": 2.64,
+   "thickRel": 2.78,
    "lint": [
     {
      "level": "error",
@@ -333767,7 +333726,7 @@
     "wood-beam"
    ],
    "variant": "v1153",
-   "thickRel": 3.16,
+   "thickRel": 3.34,
    "lint": [
     {
      "level": "error",
@@ -338298,7 +338257,7 @@
     "rgp",
     "wood-planks"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.57
   },
   {
    "kit": "rgp-vintage",
@@ -338779,7 +338738,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
@@ -344341,7 +344300,7 @@
     "sidequest",
     "wood-worked"
    ],
-   "thickRel": 0.7,
+   "thickRel": 0.86,
    "lint": [
     {
      "level": "warning",
@@ -346899,7 +346858,7 @@
     "metal-gold",
     "sidequest"
    ],
-   "thickRel": 0.65,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -352385,7 +352344,7 @@
     "sidequest",
     "stone-masonry"
    ],
-   "thickRel": 0.81,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "error",
@@ -352446,7 +352405,7 @@
     "sidequest",
     "stone-masonry"
    ],
-   "thickRel": 1.39,
+   "thickRel": 1.71,
    "lint": [
     {
      "level": "error",
@@ -353110,7 +353069,7 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.65
   },
   {
    "kit": "sq-rink",
@@ -353163,7 +353122,7 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 1.07,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "error",
@@ -353223,7 +353182,7 @@
     "sidequest",
     "wood-worked"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.64
   },
   {
    "kit": "sq-rink",
@@ -353272,7 +353231,7 @@
     "sidequest",
     "wood-worked"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.57,
    "lint": [
     {
      "level": "error",
@@ -356263,7 +356222,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.12,
+   "thickRel": 1.32,
    "lint": [
     {
      "level": "warning",
@@ -367896,7 +367855,7 @@
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.57
   },
   {
    "kit": "styloo-school",
@@ -371964,7 +371923,7 @@
     "wood-worked"
    ],
    "variant": "v1345",
-   "thickRel": 0.44
+   "thickRel": 0.48
   },
   {
    "kit": "styloo-school",
@@ -372011,7 +371970,7 @@
     "wood-worked"
    ],
    "variant": "v1345",
-   "thickRel": 0.44
+   "thickRel": 0.48
   },
   {
    "kit": "styloo-school",
@@ -372058,7 +372017,7 @@
     "wood-worked"
    ],
    "variant": "v1344",
-   "thickRel": 0.44
+   "thickRel": 0.47
   },
   {
    "kit": "styloo-school",
@@ -372193,7 +372152,7 @@
     "styloo"
    ],
    "variant": "v1344",
-   "thickRel": 0.45
+   "thickRel": 0.47
   },
   {
    "kit": "styloo-weapons",
@@ -376351,7 +376310,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.01,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -377999,7 +377958,7 @@
     "wood-beam"
    ],
    "variant": "v558",
-   "thickRel": 1.9
+   "thickRel": 1.92
   },
   {
    "kit": "wizp-asia",
@@ -378044,7 +378003,7 @@
     "wood-beam"
    ],
    "variant": "v558",
-   "thickRel": 1.88
+   "thickRel": 1.89
   },
   {
    "kit": "wizp-asia",
@@ -380268,7 +380227,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.33
   },
   {
    "kit": "wizp-asia",
@@ -382472,7 +382431,7 @@
     "wood-beam"
    ],
    "variant": "v424",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "wizp-fish",
@@ -382522,7 +382481,7 @@
     "wood-beam"
    ],
    "variant": "v424",
-   "thickRel": 1.37
+   "thickRel": 1.38
   },
   {
    "kit": "wizp-fish",
@@ -382572,7 +382531,7 @@
     "wood-worked"
    ],
    "variant": "v425",
-   "thickRel": 2.34
+   "thickRel": 2.35
   },
   {
    "kit": "wizp-fish",
@@ -382622,7 +382581,7 @@
     "wood-worked"
    ],
    "variant": "v425",
-   "thickRel": 1.78
+   "thickRel": 1.79
   },
   {
    "kit": "wizp-fish",
@@ -383489,7 +383448,7 @@
     "scale-big",
     "wizp"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.38
   },
   {
    "kit": "wizp-grave",
@@ -383539,7 +383498,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -383596,7 +383555,7 @@
     "wizp"
    ],
    "variant": "v636",
-   "thickRel": 2.29,
+   "thickRel": 2.31,
    "lint": [
     {
      "level": "error",
@@ -383653,7 +383612,7 @@
     "wizp"
    ],
    "variant": "v636",
-   "thickRel": 2.08,
+   "thickRel": 2.1,
    "lint": [
     {
      "level": "error",
@@ -383839,7 +383798,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "wizp-grave",
@@ -383888,7 +383847,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 1.91,
+   "thickRel": 1.93,
    "lint": [
     {
      "level": "error",
@@ -387401,7 +387360,7 @@
     "wood-planks"
    ],
    "variant": "v429",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "wizp-mediev",
@@ -387450,7 +387409,7 @@
     "wood-planks"
    ],
    "variant": "v429",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "wizp-mediev",
@@ -387499,7 +387458,7 @@
     "wood-planks"
    ],
    "variant": "v429",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "wizp-mediev",
@@ -387547,7 +387506,7 @@
     "wizp",
     "wood-planks"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "wizp-mediev",
@@ -390458,7 +390417,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.33
   },
   {
    "kit": "wizp-village",
