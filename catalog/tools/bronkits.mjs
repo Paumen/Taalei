@@ -30,7 +30,6 @@ export const BRONKITS = [
   { map: 'PropsLite_FBX', naam: 'Medieval Props Lite', kit: 'props', formaat: 'fbx' },
   { map: 'Rocks', naam: 'Rocks', kit: 'rocks', formaat: 'fbx', splitsPerMesh: true },
   { map: 'ocean', naam: 'Ocean', kit: 'quat-ocean', source: 'qua', formaat: 'fbx' },
-  { map: 'TropicalIslandLite_FBX', naam: 'Tropical Island Lite', kit: 'tropical-island', formaat: 'fbx' },
 
   { map: 'KayKit_Dungeon_Pack_1.0', naam: 'KayKit Dungeon Pack 1.0', kit: 'kay-dun-1', source: 'kay', formaat: 'glb' },
   { map: 'KayKit_Skeletons_1.0', naam: 'KayKit Skeletons 1.0', kit: 'kay-skeleton-1', source: 'kay', formaat: 'glb' },
@@ -189,7 +188,6 @@ export const BRONKITS = [
   { map: 'Low_Poly_Medieval_Weapons', naam: 'Low Poly Medieval Weapons', kit: 'lpa-weapons', source: 'lpa', formaat: 'fbx', alleMappen: true },
   { map: 'Low_Poly_Household_Items', naam: 'Low Poly Household Items', kit: 'lpa-home', source: 'lpa', formaat: 'fbx', alleMappen: true },
   { map: 'Low_Poly_Western_Objects', naam: 'Low Poly Western Objects', kit: 'western', formaat: 'fbx', splitsPerMesh: true },
-  { map: 'Low_Poly_Horror_Room_Assets', naam: 'Low Poly 3D Horror Pack Room Assets', kit: null, formaat: 'glb', alleMappen: true },
   { map: 'Dungeon_Asset_Pack', naam: 'Dungeon Asset Pack', kit: null, formaat: 'fbx' },
 
   { map: 'modular_temple_collection', naam: 'Modular Temple Collection', kit: 'fs-temple', source: 'fs', formaat: 'obj' },

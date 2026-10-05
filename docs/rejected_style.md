@@ -697,11 +697,3 @@ ocean/SeaWeed
 ocean/SeaWeed1
 ocean/Shells
 ocean/TunaFish
-TropicalIslandLite_FBX/Chest_01
-TropicalIslandLite_FBX/Chest_01_2
-TropicalIslandLite_FBX/CoralReef_01
-TropicalIslandLite_FBX/PalmTree_05
-TropicalIslandLite_FBX/Pier_02
-TropicalIslandLite_FBX/PirateSword_01
-TropicalIslandLite_FBX/Rock_01
-TropicalIslandLite_FBX/Skull_01 
