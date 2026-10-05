@@ -193,20 +193,20 @@
    "name": "fs-buildings",
    "artist": "FS",
    "licenseLabel": "CC0 1.0",
-   "count": 241,
+   "count": 242,
    "packs": [
     "Modular House Collection",
     "Modular Temple Collection"
    ],
    "origins": {
     "Modular House Collection": 83,
-    "Modular Temple Collection": 158
+    "Modular Temple Collection": 159
    },
    "scales": {
-    "0.45": 241
+    "0.45": 242
    },
    "smooth": {
-    "none": 220,
+    "none": 221,
     "smooth": 21
    },
    "members": [
@@ -237,18 +237,18 @@
      "note": "Source zip without a licence file or maker; see kits/workfiles/fs-temple/LICENSE.txt.",
      "artist": "FS",
      "licenseLabel": "CC0 1.0",
-     "count": 158,
+     "count": 159,
      "packs": [
       "Modular Temple Collection"
      ],
      "origins": {
-      "Modular Temple Collection": 158
+      "Modular Temple Collection": 159
      },
      "scales": {
-      "0.45": 158
+      "0.45": 159
      },
      "smooth": {
-      "none": 149,
+      "none": 150,
       "smooth": 9
      }
     }
@@ -18921,7 +18921,7 @@
    "name": "Masonry",
    "type": "material",
    "description": "Stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving. Raw stone is stone-rock.",
-   "count": 986,
+   "count": 987,
    "parent": "stone"
   },
   {
@@ -21432,7 +21432,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 2289,
+   "count": 2290,
    "color": "#877a63"
   },
   {
@@ -21569,7 +21569,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 908,
+   "count": 909,
    "color": "#a8762a"
   },
   {
@@ -21626,14 +21626,14 @@
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 186
+   "count": 187
   },
   {
    "id": "str-part-floor-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
-   "count": 164
+   "count": 165
   },
   {
    "id": "str-part-frame",
@@ -22616,7 +22616,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 264,
+   "count": 265,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -22711,7 +22711,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 3239
+   "count": 3240
   },
   {
    "id": "m",
@@ -22781,7 +22781,7 @@
    "name": "FS",
    "type": "artist",
    "description": "Kits from FS. Derived from the models themselves, so not tracked in catalog/tags.json.",
-   "count": 472
+   "count": 473
   },
   {
    "id": "lpa",
@@ -49792,6 +49792,48 @@
     "stone-masonry"
    ],
    "thickRel": 1.8
+  },
+  {
+   "kit": "fs-temple",
+   "collection": "fs-buildings",
+   "name": "floor",
+   "kind": "str-part-floor-unit",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.09
+   ],
+   "tris": 12,
+   "tpu": 35,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2204,
+   "vtx": 24,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.09,
+   "thick": 0.1112,
+   "avgTri": 0.04725,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.23,
+   "spread": {
+    "5,2": [
+     0.227,
+     0.461
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "fs",
+    "scale-small",
+    "stone-masonry"
+   ],
+   "thickRel": 1.55
   },
   {
    "kit": "fs-temple",
