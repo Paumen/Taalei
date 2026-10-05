@@ -218,7 +218,7 @@ function showThumb(box) {
   const image = document.createElement('img');
   image.src = thumbSrc(box);
   image.alt = box.dataset.alt;
-  image.width = image.height = 256;
+  image.width = image.height = 192;
   image.loading = 'lazy';
   image.decoding = 'async';
   box.replaceChildren(image);
