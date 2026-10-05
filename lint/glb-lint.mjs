@@ -13,7 +13,6 @@ const CFG = {
   doubledWarn: 0.01,
   atlas: { cols: 16, rows: 4, eps: 1e-3 },
   nonManifoldWarn: 0.02,
-  ruleAgreeMin: 0.9,         // below this: "no single soft/sharp rule"
   densityLow: 150,           // triangles per m² of surface
   densityHigh: 20000,
   rawExtentFar: 50,          // raw shape bigger than this (before node scale) = odd units
@@ -108,30 +107,9 @@ function analysePrim(P, N, I) {
     }
   }
   let doubled = 0; for (const c of triKeys.values()) if (c > 1) doubled += c;
-  let nonMan = 0; const folds = [];
-  for (const L of edges.values()) {
-    if (L.length > 2) nonMan++;
-    if (L.length !== 2) continue;
-    const [e1, e2] = L, fold = deg(dot(fn[e1.f], fn[e2.f]));
-    if (fold < 0.5) continue;
-    const at = w => [e1.u, e1.v].find(x => weld[x] === w), bt = w => [e2.u, e2.v].find(x => weld[x] === w);
-    const shared = weld[e1.u];
-    const d = len(sub(nvv(at(shared)), nvv(bt(shared))));
-    folds.push([fold, d > 0.02]);
-  }
+  let nonMan = 0; for (const L of edges.values()) if (L.length > 2) nonMan++;
   const used = new Set(); for (let v = 0; v < nv; v++) used.add(find(weld[v]));
-  return { nt, nv, uniq: keys.size, zeroN, degen, flat, surf, doubled, nonMan, edges: edges.size, folds, parts: used.size };
-}
-
-function bestRule(folds) {
-  if (!folds.length) return null;
-  let best = { cut: 0, agree: -1 };
-  for (let t = 0; t <= 180; t++) {
-    let ok = 0; for (const [a, s] of folds) if ((a > t) === s) ok++;
-    if (ok > best.agree) best = { cut: t, agree: ok };
-  }
-  const softMax = Math.max(0, ...folds.filter(f => !f[1]).map(f => f[0]));
-  return { cut: best.cut, agree: best.agree / folds.length, allSharp: folds.every(f => f[1]), allSoft: folds.every(f => !f[1]), softMax };
+  return { nt, nv, uniq: keys.size, zeroN, degen, flat, surf, doubled, nonMan, edges: edges.size, parts: used.size };
 }
 
 // ---------- per file ----------
@@ -163,7 +141,7 @@ async function lint(file) {
   if ((j.animations || []).length) add('info', 'structure', `${j.animations.length} animation(s): ${j.animations.map(a => a.name).join(', ')}`);
 
   let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity], rawExt = 0;
-  const T = { nt: 0, nv: 0, uniq: 0, zeroN: 0, degen: 0, flat: 0, surf: 0, doubled: 0, nonMan: 0, edges: 0, parts: 0 }, folds = [];
+  const T = { nt: 0, nv: 0, uniq: 0, zeroN: 0, degen: 0, flat: 0, surf: 0, doubled: 0, nonMan: 0, edges: 0, parts: 0 };
   let xband = 0;
   for (let ni = 0; ni < nodes.length; ni++) {
     if (!('mesh' in nodes[ni])) continue;
@@ -200,7 +178,6 @@ async function lint(file) {
       }
       const r = analysePrim(P, N, I);
       for (const k in T) T[k] += r[k];
-      folds.push(...r.folds);
     }
   }
   if (!T.nt) { add('error', 'geometry', 'no triangles'); return { file, findings: out }; }
@@ -216,20 +193,13 @@ async function lint(file) {
   if (xband) add('error', 'colour', `${xband} triangles with corners in different colormap cells (smeared band)`);
   if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('warn', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
-  const rule = bestRule(folds);
-  let shade = 'n/a';
-  if (rule) {
-    shade = rule.allSharp ? 'all sharp' : rule.allSoft ? 'all soft' : rule.agree >= CFG.ruleAgreeMin ? `rule ~${rule.cut}° (${pct(rule.agree)} fit)` : `no single rule (best ~${rule.cut}°, ${pct(rule.agree)} fit)`;
-    if (!rule.allSharp && !rule.allSoft && rule.agree < CFG.ruleAgreeMin) add('info', 'shading', `soft/sharp set per part, not by one angle (best fit ~${rule.cut}° explains ${pct(rule.agree)})`);
-    if (rule.allSoft && rule.softMax >= 80) add('info', 'shading', `everything soft, even ${rule.softMax.toFixed(0)}° corners`);
-  }
   const density = T.nt / T.surf;
   if (density < CFG.densityLow) add('info', 'detail', `${density.toFixed(0)} triangles/m²: coarse (fine for boxy shapes, curves look polygonal)`);
   if (density > CFG.densityHigh) add('info', 'detail', `${density.toFixed(0)} triangles/m²: very fine for its size`);
 
   return {
     file, findings: out,
-    stats: { tris: T.nt, verts: T.nv, vertsPerCorner: +(T.nv / T.uniq).toFixed(2), parts: T.parts, flatFaces: +(T.flat / T.nt).toFixed(3), shading: shade,
+    stats: { tris: T.nt, verts: T.nv, vertsPerCorner: +(T.nv / T.uniq).toFixed(2), parts: T.parts, flatFaces: +(T.flat / T.nt).toFixed(3),
       size: size.map(v => +v.toFixed(3)), minY: +lo[1].toFixed(4), density: Math.round(density) },
   };
 }
@@ -244,7 +214,7 @@ for (const r of results) {
   const probs = r.findings.filter(f => f.level !== 'info');
   if (onlyProblems && !probs.length) continue;
   const s = r.stats;
-  console.log(`\n${path.relative(process.cwd(), r.file)}${s ? `  [${s.tris} tris, ${s.parts} parts, ${s.size.join('×')} m, ${s.shading}]` : ''}`);
+  console.log(`\n${path.relative(process.cwd(), r.file)}${s ? `  [${s.tris} tris, ${s.parts} parts, ${s.size.join('×')} m]` : ''}`);
   for (const f of r.findings.sort((a, b) => ORDER[a.level] - ORDER[b.level])) if (!onlyProblems || f.level !== 'info') console.log(`  ${ICON[f.level]} ${f.check.padEnd(9)} ${f.msg}`);
 }
 const count = l => results.filter(r => r.findings.some(f => f.level === l)).length;
