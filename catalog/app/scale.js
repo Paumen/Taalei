@@ -1,15 +1,26 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=111d56f3c4';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=111d56f3c4';
-import './bouwstempel.js?v=111d56f3c4';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=3dc6c783af';
+import { drawFamily, loadModel, version } from './scale-draw.js?v=3dc6c783af';
+import './bouwstempel.js?v=3dc6c783af';
 
 const MODEL_PATH = 'kits/workfiles';
 
 const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
-const [allGroups, catalogData] = await Promise.all([
+const [allGroups, catalogData, curveData] = await Promise.all([
   fetch(`../build/scale-groups.json?v=${version}`).then((r) => r.json()),
   fetch(`../build/catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
+  fetch(`../build/size-curves.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
 ]);
+
+const curveKinds = new Map((curveData.kinds ?? []).map((k) => [k.kind, k]));
+const curveOf = (slug) => {
+  const [, kind, scale] = slug.match(/^(.*?)(?:-scale-(small|big))?$/);
+  const row = curveKinds.get(kind);
+  if (!row) return { in: false, why: 'not in the curve table' };
+  if (!row.curve) return { in: false, why: row.reason };
+  if (scale && row.scale?.[scale] === undefined) return { in: false, why: `no real size for scale-${scale}` };
+  return { in: true, why: 'in the size curves' };
+};
 
 const TABS = CATEGORY ? CATEGORY.split(',') : null;
 const groups = TABS ? allGroups.filter((g) => TABS.includes(g.category)) : allGroups;
@@ -173,7 +184,8 @@ function buildSections() {
     const section = document.createElement('section');
     section.className = 'familie';
     section.id = group.slug;
-    section.innerHTML = `<h2>${group.name}</h2><div class="familie-doek"><canvas width="${WIDTH}" height="400"></canvas></div>`;
+    const curve = curveOf(group.slug);
+    section.innerHTML = `<h2><span class="curve-stip${curve.in ? ' in' : ''}" title="${curve.why}" aria-label="${curve.why}"></span>${group.name}</h2><div class="familie-doek"><canvas width="${WIDTH}" height="400"></canvas></div>`;
     content.appendChild(section);
   }
 

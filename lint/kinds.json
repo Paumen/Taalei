@@ -91,7 +91,7 @@
       },
       {
        "id": "obj-container-bucket",
-       "longest.min": 0.25,
+       "longest.min": 0.22,
        "longest.max": 0.6,
        "mat.metal": "metal-iron",
        "has": [
@@ -340,7 +340,7 @@
       },
       {
        "id": "obj-container-trashcan",
-       "longest.min": 0.25,
+       "longest.min": 0.2,
        "longest.max": 0.65,
        "nouns": [
         "trashcan",
@@ -1609,6 +1609,9 @@
            "id": "obj-equipment-weapon-siege-ammunition",
            "longest.min": 0.1,
            "longest.max": 0.3,
+           "scale": {
+            "big": 3
+           },
            "children": [
             {
              "id": "obj-equipment-weapon-siege-ammunition-cannonball",
@@ -2165,7 +2168,7 @@
         },
         {
          "id": "obj-transport-part-wheel",
-         "longest.min": 0.35,
+         "longest.min": 0.29,
          "longest.max": 0.75,
          "nouns": [
           "wheel",
@@ -2222,6 +2225,9 @@
           "wagon",
           "carriage"
          ],
+         "scale": {
+          "big": 2
+         },
          "children": [
           {
            "id": "obj-transport-land-cart-small",
@@ -2256,6 +2262,7 @@
          "children": [
           {
            "id": "obj-transport-land-road-truck",
+           "longest.max": 4.1,
            "nouns": [
             "truck",
             "bus",
@@ -2881,7 +2888,7 @@
         {
          "id": "obj-furnishing-textile-rug",
          "longest.min": 0.5,
-         "longest.max": 2,
+         "longest.max": 2.54,
          "nouns": [
           "rug",
           "carpet",
@@ -3992,7 +3999,7 @@
         },
         "big": {
          "longest.min": 0.9,
-         "longest.max": 2.35
+         "longest.max": 2.79
         }
        }
       },
@@ -4068,7 +4075,7 @@
       {
        "id": "str-canopy-stall",
        "longest.min": 0.65,
-       "longest.max": 1.35,
+       "longest.max": 1.67,
        "nouns": [
         "stall",
         "market stand",
@@ -4086,7 +4093,7 @@
         {
          "id": "str-canopy-tent-camping",
          "longest.min": 0.75,
-         "longest.max": 1.25,
+         "longest.max": 1.76,
          "nouns": [
           "camping tent"
          ]
@@ -4130,7 +4137,7 @@
           {
            "id": "str-fixture-marker-sign-signpost",
            "longest.min": 0.4,
-           "longest.max": 2,
+           "longest.max": 2.26,
            "nouns": [
             "signpost",
             "direction sign",
@@ -4274,7 +4281,7 @@
         },
         {
          "id": "str-fixture-utility-solar",
-         "longest.min": 0.65,
+         "longest.min": 0.48,
          "longest.max": 1.55,
          "nouns": [
           "solar panel"
@@ -4313,6 +4320,8 @@
          "children": [
           {
            "id": "str-fixture-utility-machine-crane",
+           "high.max": 13,
+           "longest.max": 13,
            "nouns": [
             "robot arm",
             "industrial crane"
@@ -4360,7 +4369,7 @@
       {
        "id": "str-fixture-leisure",
        "longest.min": 0.8,
-       "longest.max": 4.1,
+       "longest.max": 9.11,
        "nouns": [
         "ferris wheel",
         "grandstand",
@@ -4407,7 +4416,7 @@
         {
          "id": "str-fixture-light-street",
          "longest.min": 0.9,
-         "longest.max": 2,
+         "longest.max": 2.06,
          "mat.metal-iron": "metal-iron-steel",
          "nouns": [
           "street light",
@@ -4532,7 +4541,10 @@
        "nouns": [
         "bird",
         "penguin"
-       ]
+       ],
+       "scale": {
+        "big": 2
+       }
       },
       {
        "id": "env-fauna-insect",
@@ -4580,7 +4592,10 @@
          "tpu.max": 10000,
          "nouns": [
           "skull"
-         ]
+         ],
+         "scale": {
+          "big": 4
+         }
         },
         {
          "id": "env-remains-bones-limb",
@@ -4589,7 +4604,10 @@
          "nouns": [
           "bone",
           "bone (single)"
-         ]
+         ],
+         "scale": {
+          "big": 1.5
+         }
         },
         {
          "id": "env-remains-bones-fishbone",
@@ -4608,7 +4626,10 @@
          "longest.max": 0.6,
          "nouns": [
           "ribcage"
-         ]
+         ],
+         "scale": {
+          "big": 3
+         }
         }
        ]
       },
@@ -4622,7 +4643,7 @@
         {
          "id": "env-remains-deadwood-tree",
          "longest.min": 0.9,
-         "longest.max": 2.3,
+         "longest.max": 2.4,
          "scale": {
           "small": 0.5
          },
@@ -4633,7 +4654,7 @@
         },
         {
          "id": "env-remains-deadwood-stump",
-         "longest.min": 0.25,
+         "longest.min": 0.21,
          "longest.max": 0.65,
          "scale": {
           "big": 2

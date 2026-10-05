@@ -367,6 +367,8 @@ const DROPPED_KINDS = [
   'env-terrain-mountain',
   'obj-leisure-art-instrument',
   'obj-leisure-art-sculpture',
+  'obj-leisure-toy',
+  'obj-device-electronics-audio',
   'obj-equipment-pocketitem',
   'obj-equipment-weapon-melee',
   'obj-equipment-weapon-ranged',

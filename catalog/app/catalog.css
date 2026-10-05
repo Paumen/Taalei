@@ -13,6 +13,8 @@
   --lint-fout: #c0392b;
   --lint-waarschuwing: #b07a1e;
   --limiet-lijn: #b5543f;
+  --curve-in: #3f8f4f;
+  --curve-uit: #c0392b;
   --radius: 12px;
   --schaduw: 0 1px 2px rgba(47, 42, 38, .06), 0 4px 14px rgba(47, 42, 38, .05);
   color-scheme: light dark;
@@ -33,6 +35,8 @@
     --lint-fout: #e8705f;
     --lint-waarschuwing: #d9a441;
     --limiet-lijn: #e08a70;
+    --curve-in: #6cc07c;
+    --curve-uit: #e8705f;
     --schaduw: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
   }
 }
@@ -1207,6 +1211,18 @@ body:has(.selectiebalk:not([hidden])):has(.tagedit-balk:not([hidden])) { padding
   font-weight: 600;
   line-height: 1.25;
 }
+
+.curve-stip {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--curve-uit);
+  vertical-align: 1px;
+}
+
+.curve-stip.in { background: var(--curve-in); }
 
 .familie-meta {
   margin: 0 0 10px;
