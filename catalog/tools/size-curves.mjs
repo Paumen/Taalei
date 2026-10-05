@@ -516,7 +516,7 @@ const gather = () => {
   const catalog = JSON.parse(readFileSync(join(ROOT, 'catalog', 'build', 'catalog.json'), 'utf8'));
   const bySize = [...catalog.models].sort((a, b) => Math.max(...a.wdh) - Math.max(...b.wdh));
   const cut = Math.floor(bySize.length * EDGE);
-  const edges = new Set([...bySize.slice(0, cut), ...bySize.slice(bySize.length - cut)]);
+  const edges = new Set(bySize.slice(0, cut));
   const picked = [];
   for (const model of catalog.models) {
     if (edges.has(model) || Math.max(...model.wdh) > MAX_UNITS || !counted(model)) continue;
@@ -763,7 +763,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
         <li>all root +1 except <code>env-fungi</code></li>
         ${VARS.exemptKinds.map((k) => `<li><code>kind:${k}</code></li>`).join('\n        ')}
         ${DROPPED_TAGS.map((t) => `<li><code>tag:${t}</code></li>`).join('\n        ')}
-        <li>the smallest and the largest ${EDGE * 100}% of the whole catalogue by longest side</li>
+        <li>the smallest ${EDGE * 100}% of the whole catalogue by longest side</li>
         <li>models longer than ${MAX_UNITS} units on their longest side</li>
       </ul>
     </div>
