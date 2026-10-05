@@ -1687,6 +1687,7 @@ window.KENNEY_KITS = [
    "snowman-hat",
    "stool",
    "street-lantern",
+   "train-track",
    "tree-stand",
    "wreath"
   ]
@@ -2939,6 +2940,7 @@ window.KENNEY_KITS = [
    "snowman-hat",
    "stocking",
    "stocking-cane",
+   "train-track",
    "tree",
    "tree-decorated",
    "tree-decorated-snow",
@@ -8424,6 +8426,18 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "slug": "lowpoly-buildings",
+  "name": "lowpoly-buildings",
+  "url": null,
+  "note": "Gualtieris; source zip carries no licence file.",
+  "models": [
+   "apartment-5",
+   "apartment-7",
+   "apartment-8",
+   "apartment-9"
+  ]
+ },
+ {
   "slug": "lpa-west",
   "name": "lpa-west",
   "url": null,
@@ -8745,6 +8759,7 @@ window.KENNEY_KITS = [
    "desk-lamp",
    "door-double",
    "door-glass",
+   "door-panelled",
    "door-plain",
    "dresser-a",
    "dresser-b",
@@ -8789,7 +8804,8 @@ window.KENNEY_KITS = [
    "washing-machine",
    "wheelie-bin",
    "window-large",
-   "window-round"
+   "window-round",
+   "window-small"
   ]
  },
  {
