@@ -14088,7 +14088,7 @@
    "id": "obj-leisure-game-gym",
    "name": "Gym",
    "type": "kind",
-   "description": "Gym weight or machine: dumbbell, barbell, kettlebell, plates, treadmill, exercise bike, power rack.",
+   "description": "Gym weight or machine: dumbbell, barbell, kettlebell, plates, treadmill, exercise bike, power rack, punching bag.",
    "models": [
     "sq-gym/barbell-loaded",
     "sq-gym/dumbbell-pair",
@@ -14103,7 +14103,8 @@
     "taalei-kit/kettlebell",
     "taalei-kit/punching-bag",
     "household/dumbbell",
-    "household/treadmill"
+    "household/treadmill",
+    "sq-gym/punching-bag"
    ]
   },
   {
@@ -19237,7 +19238,8 @@
     "quat-rpg/hammer-double",
     "lpa-weapons/flail",
     "lpa-weapons/mace",
-    "lpa-weapons/spiked-mace"
+    "lpa-weapons/spiked-mace",
+    "kay-weapons/hammer-b"
    ]
   },
   {
@@ -19250,7 +19252,6 @@
     "quat-apocalypse/bat-saw",
     "lpa-tools/stone-club",
     "lpa-tools/wooden-club",
-    "kay-weapons/hammer-b",
     "kay-weapons/hammer-c",
     "rgp-weapons/club-spiked-a",
     "rgp-weapons/club-spiked-b",
@@ -19576,7 +19577,6 @@
     "rgp-props/mannequin-1-a",
     "kay-proto/dummy-base",
     "rgp-medieval/training-dummy",
-    "sq-gym/punching-bag",
     "taalei-kit/scarecrow",
     "taalei-kit/scarecrow-pumpkin",
     "taalei-kit/scarecrow-tattered",
@@ -21203,8 +21203,6 @@
     "ken-station/stairs-small-edges-handrail",
     "rgp-medieval/stairs-stone",
     "rgp-medieval/stairs-wood",
-    "ken-space/platform-high",
-    "ken-space/platform-low",
     "ken-town/stairs-full-corner-inner",
     "ken-town/stairs-full-corner-outer",
     "ken-town/stairs-full",
@@ -21462,7 +21460,6 @@
     "kay-food/door-b",
     "fs-town/door-simple",
     "ken-castle/gate",
-    "ken-castle/metal-gate",
     "kay-dun-1/door",
     "ken-furniture/door",
     "ken-furniture/door-front",
@@ -21489,7 +21486,6 @@
     "rgp-medieval/door-porch",
     "ken-platformer/door-large",
     "rgp-medieval/door-arch",
-    "kay-dun-2/wall-doorway-scaffold",
     "fs-house/door-exterior",
     "fs-house/door",
     "fs-temple/wall-straight-door",
@@ -21521,7 +21517,9 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "models": []
+   "models": [
+    "ken-castle/metal-gate"
+   ]
   },
   {
    "id": "str-part-gate-gateway",
@@ -22332,7 +22330,8 @@
     "lpa-west/wall-door-b",
     "lpa-west/wall-door-c",
     "lpa-west/wall-door-d",
-    "lpa-west/wall-door-e"
+    "lpa-west/wall-door-e",
+    "kay-dun-2/wall-doorway-scaffold"
    ]
   },
   {
@@ -22694,8 +22693,6 @@
     "kay-hallow/gravestone",
     "kay-hallow/plaque",
     "kay-spook/gravestone",
-    "ken-grave/altar-stone",
-    "ken-grave/altar-wood",
     "ken-grave/cross-column",
     "ken-grave/cross-wood",
     "ken-grave/cross",
@@ -22775,7 +22772,9 @@
    "models": [
     "ken-skate/structure-platform",
     "kay-platformer/platform-arrow-2x2",
-    "kay-platformer/platform-arrow-4x4"
+    "kay-platformer/platform-arrow-4x4",
+    "ken-space/platform-high",
+    "ken-space/platform-low"
    ]
   },
   {
@@ -23679,7 +23678,6 @@
     "quat-farms/silo-house",
     "quat-farms/silo",
     "wizp-asia/granary",
-    "wizp-asia/tower",
     "wizp-mediev/silo",
     "wizp-village/granary-large"
    ]
@@ -24495,7 +24493,10 @@
     "wizp-asia/altar-a",
     "wizp-asia/altar-b",
     "rgp-asia/gazebo",
-    "wizp-village/shrine"
+    "wizp-village/shrine",
+    "wizp-asia/tower",
+    "ken-grave/altar-stone",
+    "ken-grave/altar-wood"
    ]
   },
   {
