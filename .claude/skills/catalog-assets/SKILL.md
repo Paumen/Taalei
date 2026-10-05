@@ -182,7 +182,7 @@ untouched so the diff stays additive.
     node lint/tpu.mjs
     node lint/measures.mjs
     node catalog/tools/build-lists.mjs
-    node catalog/tools/build-thumbs.mjs --jobs 3
+    node catalog/tools/build-thumbs.mjs --jobs 4
     node catalog/tools/size-curves.mjs
 
 Then render the models you touched and look at them, as the bible's process

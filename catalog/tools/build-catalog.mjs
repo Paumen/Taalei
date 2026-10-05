@@ -1,12 +1,13 @@
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname, relative, resolve, sep } from 'node:path';
+import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
+import { availableParallelism } from 'node:os';
+import { Worker } from 'node:worker_threads';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
-import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare } from './glb.mjs';
-import { readPng } from './png.mjs';
+import { atlasKey, readAtlas, hex, round, COLUMNS, ROWS } from './measure.mjs';
 import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
 
@@ -19,9 +20,6 @@ const KITS_DIR = join(ROOT, 'kits');
 const MODEL_DIR = join(KITS_DIR, 'workfiles');
 const MODEL_PATH = 'kits/workfiles';
 
-const COLUMNS = 16;
-const ROWS = 4;
-const SMOOTH_SHARE = 0.01;
 
 
 const LINT_VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
@@ -42,7 +40,6 @@ function backfaceOf(id, hash) {
   if (m?.hash !== hash) { noBackface.push(id); return {}; }
   return m.share >= LINT_VARS.backface.warn ? { backface: { share: m.share, view: m.view, causes: m.causes } } : {};
 }
-const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 const stripNull = (key, value) => (value === null ? undefined : value);
 
 function readKitMetadata() {
@@ -101,99 +98,6 @@ function readVariants(idsInCatalog) {
   });
 
   return { groups, perModel };
-}
-
-const atlasKeys = new Map();
-const atlases = new Map();
-
-function atlasKey(path) {
-  if (!atlasKeys.has(path)) {
-    atlasKeys.set(path, existsSync(path) ? createHash('sha256').update(readFileSync(path)).digest('hex').slice(0, 12) : null);
-  }
-  return atlasKeys.get(path);
-}
-
-function readAtlas(path) {
-  const key = atlasKey(path);
-  if (!atlases.has(key)) atlases.set(key, { ...readPng(path), key });
-  return atlases.get(key);
-}
-
-function toSrgb(linear) {
-  const v = linear <= 0.0031308 ? linear * 12.92 : 1.055 * linear ** (1 / 2.4) - 0.055;
-  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
-}
-
-const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
-
-function readColors(glb, dir) {
-  const { json } = glb;
-  const lanes = new Set();
-  const gradient = new Map();
-  const materials = new Map();
-  let atlasPath = null;
-
-  for (const mesh of json.meshes ?? []) {
-    for (const prim of mesh.primitives ?? []) {
-      const material = json.materials?.[prim.material];
-      if (!material) continue;
-      const texIndex = material.pbrMetallicRoughness?.baseColorTexture?.index;
-
-      if (texIndex === undefined) {
-        const factor = material.pbrMetallicRoughness?.baseColorFactor;
-        if (!factor) continue;
-        materials.set(hex(...factor.slice(0, 3).map(toSrgb)), material.name ?? 'material');
-        continue;
-      }
-
-      const source = json.images?.[json.textures?.[texIndex]?.source]?.uri;
-      if (!source || prim.attributes?.TEXCOORD_0 === undefined) continue;
-      const path = join(dir, decodeURIComponent(source));
-      if (atlasPath && atlasPath !== path) throw new Error(`${dir}: more than one colormap in a single model`);
-      atlasPath = path;
-
-      const atlas = readAtlas(path);
-      const cellWidth = atlas.width / COLUMNS;
-      const cellHeight = atlas.height / ROWS;
-      const uv = readAccessor(glb, prim.attributes.TEXCOORD_0);
-
-      for (let i = 0; i < uv.count; i++) {
-        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.width), 0), atlas.width - 1);
-        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.height), 0), atlas.height - 1);
-        const i4 = (y * atlas.width + x) * 4;
-        if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
-        const row = Math.floor(y / cellHeight);
-        const lane = `${Math.floor(x / cellWidth)},${row}`;
-        lanes.add(lane);
-
-        const position = (y - row * cellHeight) / cellHeight;
-        const seen = gradient.get(lane);
-        if (!seen) gradient.set(lane, { min: position, max: position, count: 1 });
-        else {
-          if (position < seen.min) seen.min = position;
-          if (position > seen.max) seen.max = position;
-          seen.count++;
-        }
-      }
-    }
-  }
-
-  return { atlas: atlasPath, lanes, gradient, materials };
-}
-
-function gradientSpread(gradient) {
-  let spread = 0;
-  let total = 0;
-  for (const { min, max, count } of gradient.values()) {
-    spread += (max - min) * count;
-    total += count;
-  }
-  return total === 0 ? null : spread / total;
-}
-
-function laneSpread(gradient) {
-  if (gradient.size === 0) return null;
-  return Object.fromEntries([...gradient].map(([lane, { min, max }]) => [lane, [round(min, 3), round(max, 3)]]));
 }
 
 function laneColor(atlas, lane) {
@@ -287,7 +191,7 @@ const kitSlugs = readdirSync(MODEL_DIR)
 
 const CACHE_FILE = join(KITS_DIR, '.cache', 'build-catalog.json');
 const TOOLING = createHash('sha256')
-  .update(['build-catalog.mjs', 'glb.mjs', 'png.mjs'].map((f) => readFileSync(join(CATALOG_DIR, 'tools', f), 'utf8')).join(''))
+  .update(['build-catalog.mjs', 'measure.mjs', 'glb.mjs', 'png.mjs'].map((f) => readFileSync(join(CATALOG_DIR, 'tools', f), 'utf8')).join(''))
   .digest('hex')
   .slice(0, 12);
 const oldCache = existsSync(CACHE_FILE) ? JSON.parse(readFileSync(CACHE_FILE, 'utf8')) : {};
@@ -295,57 +199,68 @@ const cache = oldCache.tooling === TOOLING ? oldCache.models : {};
 const newCache = {};
 let fromCache = 0;
 
-function measureFile(dir, file) {
-  const glb = readGlb(join(dir, file));
-  const gltf = glb.json;
-  const scene = measureScene(glb);
-  const thinnest = thinnestPart(glb);
-  const origin = gltf.asset?.extras?.taaleiland ?? {};
-  const read = readColors(glb, dir);
-  return {
-    schaal: origin.schaal ?? 'none',
-    bron: origin.bron ?? 'none',
-    smooth: smoothShare(glb) >= SMOOTH_SHARE,
-    atlas: read.atlas ? relative(ROOT, read.atlas).split(sep).join('/') : null,
-    atlasKey: read.atlas ? atlasKey(read.atlas) : null,
-    lanes: [...read.lanes],
-    gradient: [...read.gradient],
-    materials: [...read.materials],
-    fields: {
-      triangles: scene.triangles,
-      trianglesPerUnit: trianglesPerUnit(scene.triangles, scene.wdh),
-      materials: (gltf.materials ?? []).length,
-      alpha: (gltf.materials ?? []).some((m) => (m.alphaMode ?? 'OPAQUE') !== 'OPAQUE'),
-      pbr: (gltf.materials ?? []).some((m) =>
-        (m.pbrMetallicRoughness?.roughnessFactor ?? 1) !== 1 || (m.pbrMetallicRoughness?.metallicFactor ?? 1) !== 0),
-      bands: read.lanes.size,
-      wdh: scene.wdh,
-      calls: scene.calls,
-      vertices: scene.vertices,
-      isGridModular: scene.isGridModular,
-      isGrounded: scene.isGrounded,
-      pivotIsCenter: scene.pivotIsCenter,
-      minEdgeLength: scene.minEdgeLength,
-      minTube: thinnest,
-      thickness: thickness(glb),
-      averageTriangleArea: scene.averageTriangleArea,
-      strictAnglePercent: scene.strictAnglePercent,
-      gradientSpread: gradientSpread(read.gradient),
-      laneSpread: laneSpread(read.gradient),
-      ...((gltf.animations ?? []).length
-        ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
-        : {}),
-    },
-  };
+function kitFiles(slug) {
+  const meta = kitMeta.get(slug);
+  return readdirSync(join(MODEL_DIR, slug))
+    .filter((n) => n.endsWith('.glb'))
+    .filter((n) => !meta?.outsideCatalogModels.has(n.replace(/\.glb$/, '')))
+    .sort();
 }
 
+const hashes = new Map();
+function fileHash(dir, file) {
+  const path = join(dir, file);
+  if (!hashes.has(path)) {
+    const bytes = readFileSync(path);
+    hashes.set(path, { hash: createHash('sha256').update(bytes).digest('hex').slice(0, 16), bytes: bytes.length });
+  }
+  return hashes.get(path);
+}
+
+function isFresh(cached, hash) {
+  return cached?.hash === hash && (!cached.atlas || atlasKey(join(ROOT, cached.atlas)) === cached.atlasKey);
+}
+
+async function measureAll(todo, jobs) {
+  const results = new Map();
+  let next = 0;
+  const run = () => new Promise((done, fail) => {
+    const worker = new Worker(new URL('./measure.mjs', import.meta.url));
+    const send = () => {
+      if (next >= todo.length) { worker.terminate().then(() => done()); return; }
+      const item = todo[next++];
+      worker.removeAllListeners('message');
+      worker.on('message', ({ result, error }) => {
+        if (error) { worker.terminate(); fail(new Error(error)); return; }
+        results.set(item.path, result);
+        send();
+      });
+      worker.postMessage({ dir: item.dir, file: item.file });
+    };
+    worker.on('error', fail);
+    send();
+  });
+  await Promise.all(Array.from({ length: Math.min(jobs, todo.length) }, run));
+  return results;
+}
+
+const jobsArg = process.argv.indexOf('--jobs');
+const JOBS = Math.max(1, Number(jobsArg === -1 ? availableParallelism() : process.argv[jobsArg + 1]) || 1);
+const todo = [];
+for (const slug of kitSlugs) {
+  const dir = join(MODEL_DIR, slug);
+  for (const file of kitFiles(slug)) {
+    const path = `${MODEL_PATH}/${slug}/${file}`;
+    if (!isFresh(cache[path], fileHash(dir, file).hash)) todo.push({ dir, file, path });
+  }
+}
+const fresh = await measureAll(todo, JOBS);
+
 function measured(dir, file, path) {
-  const bytes = readFileSync(join(dir, file));
-  const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 16);
+  const { hash, bytes } = fileHash(dir, file);
   const cached = cache[path];
-  const fresh = cached?.hash === hash && (!cached.atlas || atlasKey(join(ROOT, cached.atlas)) === cached.atlasKey);
-  const entry = fresh ? cached : JSON.parse(JSON.stringify({ hash, bytes: bytes.length, ...measureFile(dir, file) }));
-  if (fresh) fromCache++;
+  const entry = fresh.has(path) ? JSON.parse(JSON.stringify({ hash, bytes, ...fresh.get(path) })) : cached;
+  if (!fresh.has(path)) fromCache++;
   newCache[path] = entry;
   return entry;
 }
@@ -361,10 +276,7 @@ for (const slug of kitSlugs) {
   const meta = kitMeta.get(slug);
   if (!meta) noMetadata.push(slug);
 
-  const files = readdirSync(dir)
-    .filter((n) => n.endsWith('.glb'))
-    .filter((n) => !meta?.outsideCatalogModels.has(n.replace(/\.glb$/, '')))
-    .sort();
+  const files = kitFiles(slug);
   if (files.length === 0) continue;
 
   const scales = {};

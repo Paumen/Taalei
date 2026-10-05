@@ -638,10 +638,14 @@ function squaredDistance1d(f, n, d, v, z) {
   v[0] = 0;
   z[0] = -Infinity;
   z[1] = Infinity;
-  const meet = (q, p) => (f[q] + q * q - f[p] - p * p) / (2 * q - 2 * p);
   for (let q = 1; q < n; q++) {
-    let s = meet(q, v[k]);
-    while (s <= z[k]) s = meet(q, v[--k]);
+    const fq = f[q] + q * q;
+    let p = v[k];
+    let s = (fq - f[p] - p * p) / (2 * q - 2 * p);
+    while (s <= z[k]) {
+      p = v[--k];
+      s = (fq - f[p] - p * p) / (2 * q - 2 * p);
+    }
     k++;
     v[k] = q;
     z[k] = s;
@@ -650,7 +654,8 @@ function squaredDistance1d(f, n, d, v, z) {
   k = 0;
   for (let q = 0; q < n; q++) {
     while (z[k + 1] < q) k++;
-    d[q] = (q - v[k]) ** 2 + f[v[k]];
+    const p = v[k];
+    d[q] = (q - p) ** 2 + f[p];
   }
 }
 
@@ -659,17 +664,19 @@ function squaredDistance(mask, [X, Y, Z]) {
   for (let i = 0; i < mask.length; i++) f[i] = mask[i] ? 0 : 1e12;
   const n = Math.max(X, Y, Z);
   const line = new Float64Array(n), out = new Float64Array(n), v = new Int32Array(n), z = new Float64Array(n + 1);
-  const pass = (length, step, starts) => {
-    for (const start of starts) {
-      for (let k = 0; k < length; k++) line[k] = f[start + k * step];
-      squaredDistance1d(line, length, out, v, z);
-      for (let k = 0; k < length; k++) f[start + k * step] = out[k];
+  const pass = (length, step, start) => {
+    let empty = true;
+    for (let k = 0, i = start; k < length; k++, i += step) {
+      line[k] = f[i];
+      if (line[k] !== 1e12) empty = false;
     }
+    if (empty) return;
+    squaredDistance1d(line, length, out, v, z);
+    for (let k = 0, i = start; k < length; k++, i += step) f[i] = out[k];
   };
-  const starts = (a, b, at) => Array.from({ length: a * b }, (_, i) => at(i % a, Math.floor(i / a)));
-  pass(X, 1, starts(Y, Z, (y, zz) => (zz * Y + y) * X));
-  pass(Y, X, starts(X, Z, (x, zz) => zz * Y * X + x));
-  pass(Z, X * Y, starts(X, Y, (x, y) => y * X + x));
+  for (let zz = 0; zz < Z; zz++) for (let y = 0; y < Y; y++) pass(X, 1, (zz * Y + y) * X);
+  for (let zz = 0; zz < Z; zz++) for (let x = 0; x < X; x++) pass(Y, X, zz * Y * X + x);
+  for (let y = 0; y < Y; y++) for (let x = 0; x < X; x++) pass(Z, X * Y, y * X + x);
   return f;
 }
 
@@ -715,8 +722,9 @@ export function thickness(glb) {
     const ux = u[0] / steps / cell, uy = u[1] / steps / cell, uz = u[2] / steps / cell;
     const wx = w[0] / steps / cell, wy = w[1] / steps / cell, wz = w[2] / steps / cell;
     for (let i = 0; i <= steps; i++) {
+      const rx = ox + ux * i, ry = oy + uy * i, rz = oz + uz * i;
       for (let j = 0; j <= steps - i; j++) {
-        surface[at(Math.floor(ox + ux * i + wx * j), Math.floor(oy + uy * i + wy * j), Math.floor(oz + uz * i + wz * j))] = 1;
+        surface[(Math.floor(rz + wz * j) * Y + Math.floor(ry + wy * j)) * X + Math.floor(rx + wx * j)] = 1;
       }
     }
   }
