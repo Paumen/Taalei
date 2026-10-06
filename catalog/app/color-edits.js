@@ -1,4 +1,4 @@
-import { readStore, writeStore } from './shared.js';
+import { readStore, writeStore } from './shared.js?v=401e058e54';
 
 const STORAGE_KEY = 'taaleiland-kleurmerken-v1';
 

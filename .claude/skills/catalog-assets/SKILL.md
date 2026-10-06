@@ -66,10 +66,11 @@ one costs the tab once per model in the pack.
 
 A kit slug goes by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius), `rgp-` (RG Poly), `ipoly-` (iPoly3D), `rey-` (reyshapes), `rgs-` (Rgsdev); anything else takes the kit's own word. Two words at
-most. A kit needs its row in `catalog/data/manifest.js` (slug, name, url, note,
-licence label); `zetManifest` fills the model list but will not create the row.
-Kits that share style and source units go in a collection row there
-(`collection`, `name`, `kits`), per the bible's `P15`; give them one scale
+most. A kit needs its row in `catalog/data/manifest.js` (slug, url, note,
+licence label; `name` only when it differs from the slug);
+`tools/importeer/zet-catalogus.mjs` writes it when missing. Kits that share
+style and source units go in a collection row there (`collection`, `kits`, and
+`name` only when it differs from the collection id), per the bible's `P15`; give them one scale
 factor first.
 
 ## 3. Colour and bands
@@ -165,13 +166,8 @@ Group what reads as one thing, following the bible's variants section. Clusters
 live in `catalog/data/asset_variants.json`: `members`, `main`, `type`. Name and
 triangle count propose a group; shape and a render confirm it before you write
 it down. `type` takes one of the values the file already uses —
-`detail-variant`, `color-variant`, `maatvariant` — so the tab keeps grouping
-them as it does now.
-
-The file also carries measured fields from the clustering tool, but
-`build-catalog.mjs` reads only `members`, `main` and `type`. Append new clusters
-with those plus `kits` and `types: ["manual"]`, and leave the existing entries
-untouched so the diff stays additive.
+`detail-variant`, `color-variant`, `maatvariant`. Append new clusters at the
+end: a cluster's id comes from its position in the file.
 
 ## 6. Rebuild, look, check
 

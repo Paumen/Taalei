@@ -1,15 +1,15 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=fe16180116';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=85a8110145';
-import { colorSwatches, setBands } from './color-edits.js?v=c41ea485be';
-import { renderCommentBox } from './comments.js?v=7825dfa9fd';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=40c5afee7d';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=54863cb420';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=440305f7d7';
+import { colorSwatches, setBands } from './color-edits.js?v=7b9619fe4c';
+import { renderCommentBox } from './comments.js?v=b702908fd9';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a3e6fa214c';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import {
   number, readableBytes, dimensions, longest, kindParent, kindChain,
   SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText,
   withParents, collectColors, hydrate, WORKFILES, modelUrl, flatMode, setLighting, copyWithFeedback, saveFile,
-} from './shared.js';
-import './bouwstempel.js?v=aad2769343';
+} from './shared.js?v=401e058e54';
+import './bouwstempel.js?v=2d49c008a7';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -527,7 +527,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=9aa0155fa8'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=1464439712'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];

@@ -60,17 +60,11 @@ function readKitMetadata() {
       continue;
     }
     meta.set(kit.slug, {
-      name: kit.name,
+      name: kit.name ?? kit.slug,
       url: kit.url,
-      tab: kit.tab ?? null,
       note: kit.note ?? null,
-      outsideCatalog: kit.outsideCatalog === true,
-      outsideCatalogModels: new Set(
-        Array.isArray(kit.outsideCatalog) ? kit.outsideCatalog : [],
-      ),
       ownPalette: kit.ownPalette === true,
       licenseLabel: kit.licenseLabel ?? 'CC0',
-      listed: Array.isArray(kit.models) ? kit.models : null,
     });
   }
   for (const c of collections) {
@@ -114,7 +108,6 @@ const { meta: kitMeta, collections } = readKitMetadata();
 const collectionOf = new Map(collections.flatMap((c) => c.kits.map((k) => [k, c.slug])));
 const kitSlugs = readdirSync(MODEL_DIR)
   .filter((name) => statSync(join(MODEL_DIR, name)).isDirectory())
-  .filter((name) => !kitMeta.get(name)?.outsideCatalog)
   .sort();
 
 const CACHE_FILE = join(KITS_DIR, '.cache', 'build-catalog.json');
@@ -128,10 +121,8 @@ const newCache = {};
 let fromCache = 0;
 
 function kitFiles(slug) {
-  const meta = kitMeta.get(slug);
   return readdirSync(join(MODEL_DIR, slug))
     .filter((n) => n.endsWith('.glb'))
-    .filter((n) => !meta?.outsideCatalogModels.has(n.replace(/\.glb$/, '')))
     .sort();
 }
 
@@ -252,7 +243,6 @@ for (const slug of kitSlugs) {
     license: `${MODEL_PATH}/${slug}/LICENSE.txt`,
     licenseLabel: meta?.licenseLabel ?? 'CC0',
     count: files.length,
-    tab: meta?.tab ?? null,
     ownPalette: meta?.ownPalette ?? false,
     note: meta?.note ?? null,
     palette: null,
@@ -327,7 +317,7 @@ const DERIVED = [
     id: 'animation',
     name: 'Animation',
     description:
-      'Carries its own animations in the .glb: things that open, flip or turn.',
+      'Carries an animation clip in the .glb: things that open, flip or turn. Exempt from I08 and I11, so its moving parts may be transparent and draw separately.',
     belongs: (m) => Boolean(m.animations?.length),
   },
 ];
@@ -446,7 +436,7 @@ for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
     id,
     name,
     type,
-    description: [description, 'Derived from the models themselves, so not tracked in catalog/tags.json.']
+    description: [description, 'Derived from the models themselves, so not tracked in catalog/data/tags.json.']
       .filter(Boolean).join(' '),
     count: members.length,
   });
@@ -691,7 +681,7 @@ const output = {
   bands: BANDS,
   tags: tags.tags.map((t) => ({
     id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
-    ...(t.parent ? { parent: t.parent } : {}), ...(t.po ? { po: true } : {}),
+    ...(t.parent ? { parent: t.parent } : {}),
     ...(t.color ? { color: t.color } : {}),
     ...(t.type === 'attribute' ? { kinds: attributeKinds(t.id, LINT_CHECKS.vars, LINT_CHECKS.scales) ?? undefined } : {}),
   })),
@@ -708,11 +698,11 @@ writeFileSync(join(BUILD_DIR, 'catalog.json'), JSON.stringify(output, stripNull,
 const scaleGroups = buildScaleGroups(models);
 writeFileSync(join(BUILD_DIR, 'scale-groups.json'), JSON.stringify(scaleGroups, stripNull, 1) + '\n');
 const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
-console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/scale-groups.json`);
+console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/build/scale-groups.json`);
 
 stampPages();
 
-console.log(`${models.length} models in ${kits.length} kits → catalog/catalog.json`);
+console.log(`${models.length} models in ${kits.length} kits → catalog/build/catalog.json`);
 for (const tag of tags.tags) console.log(`${tag.type} ${tag.id}: ${tag.count} models`);
 for (const p of catalog.palettes) {
   console.log(`palette ${p.id} — ${p.colors.length} colours from ${p.atlas ?? 'own materials'}:`);
@@ -734,8 +724,8 @@ for (const kit of kits) {
   if (kit.palette) kitsPerPalette.set(kit.palette, (kitsPerPalette.get(kit.palette) ?? 0) + 1);
 }
 for (const kit of kits) {
-  if (kit.palette && kitsPerPalette.get(kit.palette) === 1 && !kit.tab && !kit.ownPalette) {
-    console.warn(`! ${kit.slug} has its own palette but no "tabblad" in manifest.js`);
+  if (kit.palette && kitsPerPalette.get(kit.palette) === 1 && !kit.ownPalette) {
+    console.warn(`! ${kit.slug} has its own palette but no "ownPalette": true in manifest.js`);
   }
 }
 
@@ -746,21 +736,6 @@ if (flat.length) {
 
 if (noMetadata.length) console.warn(`! no metadata in manifest.js: ${noMetadata.join(', ')}`);
 
-for (const [slug, meta] of kitMeta) {
-  if (!meta.listed) continue;
-  const dir = join(MODEL_DIR, slug);
-  const aanwezig = existsSync(dir)
-    ? new Set(readdirSync(dir).filter((n) => n.endsWith('.glb')).map((n) => n.slice(0, -4)))
-    : new Set();
-  const zonderBestand = meta.listed.filter((naam) => !aanwezig.has(naam));
-  const zonderVermelding = [...aanwezig].filter((naam) => !meta.listed.includes(naam));
-  if (zonderBestand.length) {
-    console.warn(`! ${slug}: in manifest.js but no workfile: ${zonderBestand.join(', ')}`);
-  }
-  if (zonderVermelding.length) {
-    console.warn(`! ${slug}: workfile but not in manifest.js: ${zonderVermelding.join(', ')}`);
-  }
-}
 const noSource = kits
   .map(({ slug }) => slug)
   .filter((slug) => !SOURCE_PER_KIT.has(slug) && BRONKITS.some((b) => b.kit === slug));

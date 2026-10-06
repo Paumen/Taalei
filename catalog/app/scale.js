@@ -1,10 +1,10 @@
 import {
   layoutChips, chipName, matchesState as matches, buildColorBar, buildChipRow as chipRow, syncSubtypes as syncChipStates, clearStates,
-} from './chiprij.js?v=85a8110145';
-import { drawFamily, loadModel } from './scale-draw.js?v=9aa0155fa8';
+} from './chiprij.js?v=440305f7d7';
+import { drawFamily, loadModel } from './scale-draw.js?v=1464439712';
 import { stamped } from './stamps.js?v=04e3ee3113';
-import { WORKFILES, SIZE_CLASSES, TAG_TYPES, withParents, collectColors, readStore } from './shared.js';
-import './bouwstempel.js?v=aad2769343';
+import { WORKFILES, SIZE_CLASSES, TAG_TYPES, withParents, collectColors, readStore } from './shared.js?v=401e058e54';
+import './bouwstempel.js?v=2d49c008a7';
 
 const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
