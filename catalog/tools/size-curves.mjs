@@ -293,7 +293,7 @@ const SIZES = {
   'str-barrier-post': 1.2,
   'str-barrier-railing': 1,
   'str-barrier-traffic': 1.2,
-  'str-barrier-traffic-cone': 0.7,
+  'str-barrier-traffic-cone': 0.3,
   'str-canopy-stall': 2.5,
   'str-canopy-tent-camping': 2.5,
   'str-fixture-chimney': 20,
@@ -404,6 +404,8 @@ const DROPPED_KINDS = [
   'obj-leisure-game-gym',
   'obj-transport-air',
   'str-fixture-utility-machine-crane',
+  'str-fixture-leisure-playground',
+  'obj-food-fruit',
 ];
 
 const SCALE_SIZES = {
@@ -411,12 +413,15 @@ const SCALE_SIZES = {
   'env-flora-plant-leafy': { small: 0.3, big: 1.2 },
   'obj-container-crate': { small: 0.3, big: 1.2 },
   'obj-container-pot': { small: 0.2, big: 0.8 },
+  'obj-container-trashcan': { small: 0.35 },
   'obj-equipment-target-bullseye': { small: 0.5 },
+  'obj-equipment-pocketitem-book-closed': { small: 0.12 },
   'obj-equipment-weapon-explosive': { big: 0.4 },
   'obj-equipment-weapon-siege-ammunition-cannonball': { big: 0.3 },
   'obj-furnishing-furniture-storage-cabinet': { small: 0.7 },
-  'obj-furnishing-textile-rug': { small: 0.5 },
+  'obj-furnishing-textile-rug': { small: 0.5, big: 4 },
   'obj-kitchenware-tableware-condiment': { big: 0.25 },
+  'obj-leisure-game-ball': { big: 0.65 },
   'obj-resource-metal': { small: 0.06 },
   'obj-resource-wood-log': { big: 2 },
   'obj-transport-watercraft-ship': { big: 250 },
@@ -578,12 +583,15 @@ const build = (models, weighted) => {
       })),
       up: strip(up), down: strip(down),
     });
-    all.push(...scored);
+    all.push(...members);
   }
   kits.sort((a, b) => a.slope - b.slope);
   const refPts = pointsOf(models);
   const ref = fit(refPts, weighted);
-  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
+  const top = all.map((m) => ({
+    name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit: m.kit,
+    res: round3(Math.log2(m.u / m.real) - (ref.icpt + ref.slope * Math.log2(m.at))),
+  })).sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
   return { kits, ref: { slope: round3(ref.slope), icpt: round3(ref.icpt) }, top };
 };
 
@@ -731,7 +739,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </section>
 
 <section id="panel-outliers" role="tabpanel" aria-labelledby="tab-outliers" hidden>
-  <div class="top"><span>The 50 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
+  <div class="top"><span>The 50 models furthest from <b>the whole catalogue's curve</b> (the dashed line), in log2. <b>+</b> drawn larger than the catalogue's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
   <div class="wrap"><table id="ot"><thead><tr>
     <th class="n" data-k="rank">#</th><th class="n" data-k="res">off line</th><th data-k="res"></th><th data-k="name">model</th><th data-k="kit">kit</th><th data-k="kind">kind</th>
     <th class="n" data-k="u">measured</th><th class="n" data-k="real">assumed</th><th class="n" data-k="res">factor</th>

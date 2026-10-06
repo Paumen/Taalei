@@ -985,7 +985,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.06,
+    "factor": 1.04,
     "kinds": 30
    }
   },
@@ -24951,16 +24951,18 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 203,
+   "count": 207,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
     "obj-container-pot",
+    "obj-container-trashcan",
     "obj-container-cargo",
     "obj-kitchenware-tableware-plate",
     "obj-food-baked-bread",
     "obj-equipment-target-bullseye",
     "obj-equipment-apparel-quiver",
+    "obj-equipment-pocketitem-book-closed",
     "obj-equipment-tool-hand",
     "obj-equipment-tool-stationery",
     "obj-resource-metal",
@@ -24990,7 +24992,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 156,
+   "count": 160,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -25010,8 +25012,10 @@
     "obj-transport-land-cart",
     "obj-resource-wood-log",
     "obj-furnishing-light-candle",
+    "obj-furnishing-textile-rug",
     "obj-device-appliance-oven",
     "obj-device-appliance-stove",
+    "obj-leisure-game-ball",
     "str-part-door-trapdoor",
     "str-part-floor-unit",
     "str-part-roof-unit",
@@ -28339,6 +28343,12 @@
    "longest.max": 1.1,
    "tpu.max": 10000
   },
+  "obj-container-trashcan scale-small": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.325,
+   "tpu.max": 10000
+  },
   "obj-container-cargo scale-small": {
    "high.max": 8,
    "longest.min": 0.675,
@@ -28513,6 +28523,12 @@
    "longest.max": 0.325,
    "tpu.max": 10000
   },
+  "obj-equipment-pocketitem-book-closed scale-small": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.2,
+   "tpu.max": 10000
+  },
   "obj-equipment-tool-hand scale-small": {
    "high.max": 8,
    "longest.min": 0.075,
@@ -28628,6 +28644,12 @@
    "longest.max": 1.27,
    "tpu.max": 5000
   },
+  "obj-furnishing-textile-rug scale-big": {
+   "high.max": 8,
+   "longest.min": 1,
+   "longest.max": 5.08,
+   "tpu.max": 5000
+  },
   "obj-device-appliance-oven scale-big": {
    "high.max": 8,
    "longest.min": 0.7,
@@ -28669,6 +28691,12 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "obj-leisure-game-ball scale-big": {
+   "high.max": 8,
+   "longest.min": 0.45,
+   "longest.max": 1.8,
+   "tpu.max": 10000
   },
   "str-part-door-trapdoor scale-big": {
    "high.max": 8,
@@ -142453,7 +142481,8 @@
    ],
    "tags": [
     "kay",
-    "plastic"
+    "plastic",
+    "scale-big"
    ],
    "thickRel": 1.55
   },
@@ -145843,7 +145872,8 @@
    ],
    "tags": [
     "kay",
-    "plastic"
+    "plastic",
+    "scale-big"
    ],
    "variant": "kay-platformer/ball",
    "thickRel": 1.56
@@ -145896,7 +145926,8 @@
    ],
    "tags": [
     "kay",
-    "plastic"
+    "plastic",
+    "scale-big"
    ],
    "variant": "kay-platformer/ball",
    "thickRel": 1.56
@@ -278406,17 +278437,11 @@
    ],
    "tags": [
     "polygonalmind",
+    "scale-big",
     "textile"
    ],
    "variant": "pm-store/rug",
-   "thickRel": 1.77,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 3.165 over max 2.54 (obj-furnishing-textile-rug)"
-    }
-   ]
+   "thickRel": 1.77
   },
   {
    "kit": "pm-store",
@@ -297188,17 +297213,11 @@
    "tags": [
     "metal-iron-steel",
     "plastic",
-    "qua"
+    "qua",
+    "scale-small"
    ],
    "variant": "quat-interior/trashcan-small-a",
-   "thickRel": 0.54,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.157 under min 0.2 (obj-container-trashcan)"
-    }
-   ]
+   "thickRel": 0.54
   },
   {
    "kit": "quat-interior",
@@ -297237,17 +297256,11 @@
    ],
    "tags": [
     "metal-iron-steel",
-    "qua"
+    "qua",
+    "scale-small"
    ],
    "variant": "quat-interior/trashcan-small-a",
-   "thickRel": 0.48,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.123 under min 0.2 (obj-container-trashcan)"
-    }
-   ]
+   "thickRel": 0.48
   },
   {
    "kit": "quat-interior",
@@ -375368,17 +375381,11 @@
    ],
    "tags": [
     "paper",
+    "scale-small",
     "styloo"
    ],
    "variant": "styloo-school/book-red",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.066 under min 0.1 (obj-equipment-pocketitem-book-closed)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "styloo-school",
@@ -375516,17 +375523,11 @@
    ],
    "tags": [
     "paper",
+    "scale-small",
     "styloo"
    ],
    "variant": "styloo-school/book-red",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.066 under min 0.1 (obj-equipment-pocketitem-book-closed)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "styloo-school",
