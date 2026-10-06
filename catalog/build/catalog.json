@@ -985,7 +985,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.06,
+    "factor": 1.04,
     "kinds": 30
    }
   },
@@ -24990,7 +24990,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 156,
+   "count": 159,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -25012,6 +25012,7 @@
     "obj-furnishing-light-candle",
     "obj-device-appliance-oven",
     "obj-device-appliance-stove",
+    "obj-leisure-game-ball",
     "str-part-door-trapdoor",
     "str-part-floor-unit",
     "str-part-roof-unit",
@@ -28669,6 +28670,12 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "obj-leisure-game-ball scale-big": {
+   "high.max": 8,
+   "longest.min": 0.45,
+   "longest.max": 1.8,
+   "tpu.max": 10000
   },
   "str-part-door-trapdoor scale-big": {
    "high.max": 8,
@@ -142453,7 +142460,8 @@
    ],
    "tags": [
     "kay",
-    "plastic"
+    "plastic",
+    "scale-big"
    ],
    "thickRel": 1.55
   },
@@ -145843,7 +145851,8 @@
    ],
    "tags": [
     "kay",
-    "plastic"
+    "plastic",
+    "scale-big"
    ],
    "variant": "kay-platformer/ball",
    "thickRel": 1.56
@@ -145896,7 +145905,8 @@
    ],
    "tags": [
     "kay",
-    "plastic"
+    "plastic",
+    "scale-big"
    ],
    "variant": "kay-platformer/ball",
    "thickRel": 1.56
