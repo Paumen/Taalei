@@ -7809,69 +7809,17 @@
   },
   {
    "members": [
-    "kay-food/pot-a",
     "kay-food/pot-a-stew",
-    "kay-food/pot-b"
+    "kay-food/pot-b",
+    "kay-food/pot-b-stew"
    ],
-   "main": "kay-food/pot-a",
+   "main": "kay-food/pot-a-stew",
    "kits": [
     "kay-food"
    ],
    "type": "detail-variant",
    "types": [
-    "naming",
     "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "wdh": [
-    [
-     0.343,
-     0.245,
-     0.123
-    ],
-    [
-     0.343,
-     0.245,
-     0.126
-    ],
-    [
-     0.343,
-     0.245,
-     0.123
-    ]
-   ],
-   "driehoeken": [
-    324,
-    612,
-    324
-   ],
-   "kleuren": [
-    [
-     "#6d738a"
-    ],
-    [
-     "#79757b",
-     "#d07b56",
-     "#d8d1bd"
-    ],
-    [
-     "#3e3e44"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "kay-food/pot-a",
-     "b": "kay-food/pot-a-stew",
-     "soort": "handmatig",
-     "overlap": null
-    },
-    {
-     "a": "kay-food/pot-a-stew",
-     "b": "kay-food/pot-b",
-     "soort": "handmatig",
-     "overlap": null
-    }
    ]
   },
   {
@@ -24825,11 +24773,13 @@
   },
   {
    "members": [
+    "ken-food/ice-cream",
     "quat-food/ice-cream-cone",
     "quat-food/ice-cream-cone-waffle"
    ],
-   "main": "quat-food/ice-cream-cone",
+   "main": "ken-food/ice-cream",
    "kits": [
+    "ken-food",
     "quat-food"
    ],
    "type": "detail-variant",
@@ -27719,14 +27669,16 @@
   },
   {
    "members": [
+    "kay-food/stove",
     "kay-food/stove-countertop",
-    "kay-food/stove-single-countertop"
+    "kay-food/stove-single-countertop",
+    "kay-food/stove-single"
    ],
-   "main": "kay-food/stove-countertop",
+   "main": "kay-food/stove",
    "kits": [
     "kay-food"
    ],
-   "type": "maatvariant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -29259,41 +29211,15 @@
   },
   {
    "members": [
+    "ken-train/diesel-c-train",
+    "ken-train/carriage-flatbed",
+    "ken-train/carriage-flatbed-wood",
+    "ken-train/carriage-lumber",
     "ken-train/carriage-container-red",
-    "ken-train/carriage-container-blue",
-    "ken-train/carriage-container-green"
+    "ken-train/carriage-container-green",
+    "ken-train/carriage-container-blue"
    ],
-   "main": "ken-train/carriage-container-red",
-   "kits": [
-    "ken-train"
-   ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "ken-train/carriage-tank",
-    "ken-train/carriage-tank-large"
-   ],
-   "main": "ken-train/carriage-tank",
-   "kits": [
-    "ken-train"
-   ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "ken-train/carriage-box",
-    "ken-train/carriage-coal",
-    "ken-train/carriage-dirt",
-    "ken-train/carriage-wood"
-   ],
-   "main": "ken-train/carriage-box",
+   "main": "ken-train/diesel-c-train",
    "kits": [
     "ken-train"
    ],
@@ -29304,11 +29230,29 @@
   },
   {
    "members": [
-    "ken-train/carriage-flatbed",
-    "ken-train/carriage-flatbed-wood",
-    "ken-train/carriage-lumber"
+    "ken-train/diesel-a-train",
+    "ken-train/diesel-a",
+    "ken-train/carriage-tank",
+    "ken-train/carriage-tank-large"
    ],
-   "main": "ken-train/carriage-flatbed",
+   "main": "ken-train/diesel-a-train",
+   "kits": [
+    "ken-train"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-train/locomotive-a-train",
+    "ken-train/carriage-box",
+    "ken-train/carriage-coal",
+    "ken-train/carriage-dirt",
+    "ken-train/carriage-wood"
+   ],
+   "main": "ken-train/locomotive-a-train",
    "kits": [
     "ken-train"
    ],
@@ -30397,14 +30341,16 @@
   {
    "members": [
     "food-pack-2/icecream-vanilla",
+    "food-pack-2/icecream-strawberry",
     "food-pack-2/icecream-chocolate",
-    "food-pack-2/icecream-strawberry"
+    "food-pack-2/icecream-scoop",
+    "food-pack-2/icecream-cone"
    ],
    "main": "food-pack-2/icecream-vanilla",
    "kits": [
     "food-pack-2"
    ],
-   "type": "color-variant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -30778,14 +30724,16 @@
   },
   {
    "members": [
+    "kay-space/spacetruck-with-trailer",
     "kay-space/spacetruck",
-    "kay-space/spacetruck-large"
+    "kay-space/spacetruck-large",
+    "kay-space/spacetruck-trailer"
    ],
-   "main": "kay-space/spacetruck",
+   "main": "kay-space/spacetruck-with-trailer",
    "kits": [
     "kay-space"
    ],
-   "type": "maatvariant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -33014,11 +32962,12 @@
   },
   {
    "members": [
+    "ken-train/diesel-box-passenger-train",
     "ken-train/diesel-box",
     "ken-train/diesel-box-b",
     "ken-train/diesel-box-c"
    ],
-   "main": "ken-train/diesel-box",
+   "main": "ken-train/diesel-box-passenger-train",
    "kits": [
     "ken-train"
    ],
@@ -35896,7 +35845,8 @@
   {
    "members": [
     "potions/potion-3-red",
-    "potions/potion-3-label-red"
+    "potions/potion-3-label-red",
+    "potions/potion-4-red"
    ],
    "main": "potions/potion-3-red",
    "kits": [
@@ -36941,6 +36891,151 @@
    "main": "ken-roads/road-driveway-single",
    "kits": [
     "ken-roads"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-space/monorail-train-commuter",
+    "ken-space/monorail-train-freight",
+    "ken-space/monorail-train-box",
+    "ken-space/monorail-train-cargo"
+   ],
+   "main": "ken-space/monorail-train-commuter",
+   "kits": [
+    "ken-space"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-space/monorail-train-front",
+    "ken-space/monorail-train-passenger",
+    "ken-space/monorail-train-flat",
+    "ken-space/monorail-train-end"
+   ],
+   "main": "ken-space/monorail-train-front",
+   "kits": [
+    "ken-space"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "quat-cars/sports-car",
+    "quat-cars/sports-car-b"
+   ],
+   "main": "quat-cars/sports-car",
+   "kits": [
+    "quat-cars"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "kay-food/plate",
+    "kay-food/plate-dirty"
+   ],
+   "main": "kay-food/plate",
+   "kits": [
+    "kay-food"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "kay-adventurers/mug-empty",
+    "kay-adventurers/mug-full"
+   ],
+   "main": "kay-adventurers/mug-empty",
+   "kits": [
+    "kay-adventurers"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "fs-house/trashcan",
+    "fs-house/trashcan-kitchen"
+   ],
+   "main": "fs-house/trashcan",
+   "kits": [
+    "fs-house"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "quat-interior/trashcan-small-a",
+    "quat-interior/trashcan-small-b"
+   ],
+   "main": "quat-interior/trashcan-small-a",
+   "kits": [
+    "quat-interior"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "quat-interior/trashcan-large",
+    "quat-interior/trashcan"
+   ],
+   "main": "quat-interior/trashcan-large",
+   "kits": [
+    "quat-interior"
+   ],
+   "type": "maatvariant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "potions/potion-11-red",
+    "potions/potion-12-red"
+   ],
+   "main": "potions/potion-11-red",
+   "kits": [
+    "potions"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "potions/potion-14-red",
+    "potions/potion-15-red",
+    "potions/potion-16-red"
+   ],
+   "main": "potions/potion-14-red",
+   "kits": [
+    "potions"
    ],
    "type": "detail-variant",
    "types": [
