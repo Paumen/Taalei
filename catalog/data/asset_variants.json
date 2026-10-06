@@ -7811,7 +7811,8 @@
    "members": [
     "kay-food/pot-a-stew",
     "kay-food/pot-b",
-    "kay-food/pot-b-stew"
+    "kay-food/pot-b-stew",
+    "kay-food/pot-a"
    ],
    "main": "kay-food/pot-a-stew",
    "kits": [
@@ -24888,14 +24889,16 @@
   },
   {
    "members": [
-    "kay-food/table-kitchen",
-    "kay-food/table-kitchen-large"
+    "kay-food/table-kitchen-b-large",
+    "kay-food/table-kitchen-large",
+    "kay-food/table-kitchen-b",
+    "kay-food/table-kitchen"
    ],
-   "main": "kay-food/table-kitchen",
+   "main": "kay-food/table-kitchen-b-large",
    "kits": [
     "kay-food"
    ],
-   "type": "maatvariant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -25977,7 +25980,8 @@
   {
    "members": [
     "kay-dun-2/table-long",
-    "kay-dun-2/table-long-tablecloth"
+    "kay-dun-2/table-long-tablecloth",
+    "kay-dun-2/table-long-broken"
    ],
    "main": "kay-dun-2/table-long",
    "kits": [
@@ -27607,20 +27611,6 @@
     "kay-food"
    ],
    "type": "detail-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "kay-food/table-kitchen-b",
-    "kay-food/table-kitchen-b-large"
-   ],
-   "main": "kay-food/table-kitchen-b",
-   "kits": [
-    "kay-food"
-   ],
-   "type": "maatvariant",
    "types": [
     "manual"
    ]
@@ -32695,22 +32685,10 @@
   },
   {
    "members": [
+    "ken-blaster/blaster-g",
+    "ken-blaster/blaster-a",
     "ken-blaster/blaster-c",
     "ken-blaster/blaster-b"
-   ],
-   "main": "ken-blaster/blaster-c",
-   "kits": [
-    "ken-blaster"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "ken-blaster/blaster-g",
-    "ken-blaster/blaster-a"
    ],
    "main": "ken-blaster/blaster-g",
    "kits": [
@@ -32738,7 +32716,9 @@
   {
    "members": [
     "ken-blaster/blaster-r",
-    "ken-blaster/blaster-h"
+    "ken-blaster/blaster-h",
+    "ken-blaster/blaster-n",
+    "ken-blaster/blaster-j"
    ],
    "main": "ken-blaster/blaster-r",
    "kits": [
@@ -32755,20 +32735,6 @@
     "ken-blaster/blaster-q"
    ],
    "main": "ken-blaster/blaster-l",
-   "kits": [
-    "ken-blaster"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "ken-blaster/blaster-n",
-    "ken-blaster/blaster-j"
-   ],
-   "main": "ken-blaster/blaster-n",
    "kits": [
     "ken-blaster"
    ],
@@ -36503,14 +36469,15 @@
   },
   {
    "members": [
+    "quat-interior/table-lamp-a",
     "quat-interior/table-lamp-b",
     "quat-interior/table-lamp-c"
    ],
-   "main": "quat-interior/table-lamp-b",
+   "main": "quat-interior/table-lamp-a",
    "kits": [
     "quat-interior"
    ],
-   "type": "maatvariant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -37036,6 +37003,167 @@
    "main": "potions/potion-14-red",
    "kits": [
     "potions"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "fs-temple/rug-corner-inner",
+    "fs-temple/rug-side",
+    "fs-temple/rug-corner-outer"
+   ],
+   "main": "fs-temple/rug-corner-inner",
+   "kits": [
+    "fs-temple"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-survival/campfire-fishing-stand",
+    "ken-survival/campfire-stand"
+   ],
+   "main": "ken-survival/campfire-fishing-stand",
+   "kits": [
+    "ken-survival"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "fs-house/bar-corner-inner",
+    "fs-house/bar-corner-outer",
+    "fs-house/bar-end",
+    "fs-house/bar-half"
+   ],
+   "main": "fs-house/bar-corner-inner",
+   "kits": [
+    "fs-house"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-furniture/kitchen-cabinet-corner-inner",
+    "ken-furniture/kitchen-cabinet-corner-round"
+   ],
+   "main": "ken-furniture/kitchen-cabinet-corner-inner",
+   "kits": [
+    "ken-furniture"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "fs-house/sofa-corner",
+    "fs-house/sofa-center",
+    "fs-house/sofa-end"
+   ],
+   "main": "fs-house/sofa-corner",
+   "kits": [
+    "fs-house"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "fs-temple/puzzle-sliding-key",
+    "fs-temple/puzzle-control-rising-switch",
+    "fs-temple/puzzle-sliding-emitter",
+    "fs-temple/puzzle-control-pressure-plate",
+    "fs-temple/puzzle-sliding-mirror"
+   ],
+   "main": "fs-temple/puzzle-sliding-key",
+   "kits": [
+    "fs-temple"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "isa-playground/shovel",
+    "isa-playground/shovel-plastic"
+   ],
+   "main": "isa-playground/shovel",
+   "kits": [
+    "isa-playground"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "cooking-assets/tongs",
+    "cooking-assets/tongs-open"
+   ],
+   "main": "cooking-assets/tongs",
+   "kits": [
+    "cooking-assets"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "kay-adventurers/crossbow-two-handed",
+    "kay-adventurers/crossbow-one-handed"
+   ],
+   "main": "kay-adventurers/crossbow-two-handed",
+   "kits": [
+    "kay-adventurers"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "lpa-tools/stone-arrow",
+    "lpa-tools/wooden-arrow"
+   ],
+   "main": "lpa-tools/stone-arrow",
+   "kits": [
+    "lpa-tools"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-blaster/blaster-p",
+    "ken-blaster/blaster-d"
+   ],
+   "main": "ken-blaster/blaster-p",
+   "kits": [
+    "ken-blaster"
    ],
    "type": "detail-variant",
    "types": [
