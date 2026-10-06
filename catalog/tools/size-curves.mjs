@@ -581,12 +581,15 @@ const build = (models, weighted) => {
       })),
       up: strip(up), down: strip(down),
     });
-    all.push(...scored);
+    all.push(...members);
   }
   kits.sort((a, b) => a.slope - b.slope);
   const refPts = pointsOf(models);
   const ref = fit(refPts, weighted);
-  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
+  const top = all.map((m) => ({
+    name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit: m.kit,
+    res: round3(Math.log2(m.u / m.real) - (ref.icpt + ref.slope * Math.log2(m.at))),
+  })).sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
   return { kits, ref: { slope: round3(ref.slope), icpt: round3(ref.icpt) }, top };
 };
 
@@ -734,7 +737,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </section>
 
 <section id="panel-outliers" role="tabpanel" aria-labelledby="tab-outliers" hidden>
-  <div class="top"><span>The 50 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
+  <div class="top"><span>The 50 models furthest from <b>the whole catalogue's curve</b> (the dashed line), in log2. <b>+</b> drawn larger than the catalogue's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
   <div class="wrap"><table id="ot"><thead><tr>
     <th class="n" data-k="rank">#</th><th class="n" data-k="res">off line</th><th data-k="res"></th><th data-k="name">model</th><th data-k="kit">kit</th><th data-k="kind">kind</th>
     <th class="n" data-k="u">measured</th><th class="n" data-k="real">assumed</th><th class="n" data-k="res">factor</th>
