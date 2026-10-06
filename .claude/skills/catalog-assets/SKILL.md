@@ -127,9 +127,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   `scale-small` or `scale-big` only on a kind whose `scale` in
   `lint/kinds.json` sets that value, for a clearly smaller or bigger
   version of it.
-- **use** — zero or more of the eight `use:` tags.
 - **theme** — only when obvious. Existing sets: `pirate`, `halloween`,
-  `robin-hood`, `asia`, `grave`, `sailing`. A new theme is worth opening
+  `robin-hood`, `asia`, `grave`, `sailing`, `space`. A new theme is worth opening
   only if dozens of assets will carry it; a large kit is not a reason to sweep
   every model into one.
 - **flags** — `plural` (several instances of one thing), `pickup` (a lone coin,
@@ -156,8 +155,8 @@ A source name is not a kind: a pack's "stage" is a construction site, its
 still resolve badly against the glossary, put them to the PO in one question
 rather than guessing each.
 
-`zetTags` throws on any kind, material or flag id that is not already a row in
-`catalog/data/tags.json`. Check the whole set of ids against that file before the
+`tools/importeer/zet-catalogus.mjs` throws on any kind, material or flag id that
+is not already a row in `catalog/data/tags.json`. Check the whole set of ids against that file before the
 first run.
 
 ## 5. Variants

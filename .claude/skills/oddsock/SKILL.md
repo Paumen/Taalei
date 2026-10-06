@@ -117,7 +117,7 @@ suggestion gets an answer later; a record replaces that kind's suggestions.
   that get different bands, and drop vertices no triangle uses. Check that no
   triangle ends with vertices in two bands.
 - After the change, rebuild as `CLAUDE.md` says, and compare the error
-  counts of all six lints with the counts from before.
+  counts of all seven lints with the counts from before.
 
 ## 6. Show before and after
 
