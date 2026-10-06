@@ -255,7 +255,7 @@
    ],
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 37
+    "kinds": 38
    }
   },
   {
@@ -986,7 +986,7 @@
    ],
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 29
+    "kinds": 30
    }
   },
   {
@@ -1601,7 +1601,7 @@
    ],
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 43
+    "kinds": 44
    }
   },
   {
@@ -1904,8 +1904,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.82,
-    "kinds": 13
+    "factor": 0.81,
+    "kinds": 14
    }
   },
   {
@@ -22973,8 +22973,15 @@
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism",
    "type": "kind",
-   "description": "Mechanism worked by hand or foot: lever, spring, gear, pulley, floor button, bear trap.",
+   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap, lock.",
    "count": 23
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-lever",
+   "name": "Lever",
+   "type": "kind",
+   "description": "Lever pulled or pushed by hand, standing on the floor or fixed to a wall.",
+   "count": 7
   },
   {
    "id": "obj-equipment-tool-stationery",
@@ -26281,6 +26288,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-mechanism": {
+   "high.max": 8,
+   "longest.min": 0.13,
+   "longest.max": 1.15,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-mechanism-lever": {
    "high.max": 8,
    "longest.min": 0.13,
    "longest.max": 1.15,
@@ -53318,7 +53331,7 @@
    "collection": "fs-buildings",
    "name": "puzzle-control-lever",
    "hash": "e987ac9d4d",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "s",
    "wdh": [
     0.248,
@@ -146868,7 +146881,7 @@
    "collection": "kay-play",
    "name": "lever-floor",
    "hash": "ca389004b9",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "m",
    "wdh": [
     0.36,
@@ -146921,7 +146934,7 @@
    "collection": "kay-play",
    "name": "lever-wall-a",
    "hash": "70b99be450",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "s",
    "wdh": [
     0.24,
@@ -146975,7 +146988,7 @@
    "collection": "kay-play",
    "name": "lever-wall-b",
    "hash": "cc3af0e787",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "s",
    "wdh": [
     0.3,
@@ -178496,7 +178509,7 @@
    "kit": "ken-factory",
    "name": "lever-double",
    "hash": "23fc3dd309",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "s",
    "wdh": [
     0.27,
@@ -178543,7 +178556,7 @@
    "kit": "ken-factory",
    "name": "lever-single",
    "hash": "4118667800",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "s",
    "wdh": [
     0.25,
@@ -213459,7 +213472,7 @@
    "collection": "ken-mini",
    "name": "lever",
    "hash": "863adad0d9",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "size": "m",
    "wdh": [
     0.569,
@@ -247828,7 +247841,7 @@
   {
    "kit": "loaf-gothic",
    "name": "ambulatory-inner-roof-a",
-   "hash": "8d08e0561f",
+   "hash": "c2a3bee398",
    "kind": "str-part-roof",
    "size": "l",
    "wdh": [
@@ -247841,7 +247854,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12468,
+   "bytes": 12480,
    "vtx": 284,
    "grounded": true,
    "centered": true,
@@ -248034,7 +248047,7 @@
   {
    "kit": "loaf-gothic",
    "name": "post-a-top",
-   "hash": "3f9492a1de",
+   "hash": "0bdd5f64d3",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
@@ -248081,7 +248094,7 @@
   {
    "kit": "loaf-gothic",
    "name": "post-b-top",
-   "hash": "069bb0836c",
+   "hash": "4f049e44bf",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
@@ -248128,7 +248141,7 @@
   {
    "kit": "loaf-gothic",
    "name": "roof-tower",
-   "hash": "c1566c43ba",
+   "hash": "48918a53e3",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [

@@ -18194,17 +18194,11 @@
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism",
    "type": "kind",
-   "description": "Mechanism worked by hand or foot: lever, spring, gear, pulley, floor button, bear trap.",
+   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap, lock.",
    "models": [
-    "kay-platformer/lever-floor",
-    "kay-platformer/lever-wall-a",
-    "kay-platformer/lever-wall-b",
     "kay-platformer/spring",
     "ken-factory/button-floor-round-small",
     "ken-factory/button-floor-round",
-    "ken-factory/lever-double",
-    "ken-factory/lever-single",
-    "ken-platformer/lever",
     "ken-platformer/lock",
     "ken-platformer/spring-anim",
     "ken-platformer/spring",
@@ -18213,12 +18207,26 @@
     "quat-survival/bear-trap",
     "taalei-kit/magnet",
     "kay-platformer/button-base",
-    "fs-temple/puzzle-control-lever",
     "fs-temple/puzzle-control-pressure-plate",
     "fs-temple/puzzle-control-rising-switch",
     "fs-temple/puzzle-sliding-emitter",
     "fs-temple/puzzle-sliding-key",
     "fs-temple/puzzle-sliding-mirror"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-lever",
+   "name": "Lever",
+   "type": "kind",
+   "description": "Lever pulled or pushed by hand, standing on the floor or fixed to a wall.",
+   "models": [
+    "fs-temple/puzzle-control-lever",
+    "kay-platformer/lever-floor",
+    "ken-factory/lever-double",
+    "ken-platformer/lever",
+    "kay-platformer/lever-wall-a",
+    "kay-platformer/lever-wall-b",
+    "ken-factory/lever-single"
    ]
   },
   {

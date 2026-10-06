@@ -666,7 +666,7 @@
    "format": "glb",
    "inSource": 99,
    "inCatalog": 46,
-   "listed": 37,
+   "listed": 47,
    "scale": 0.5,
    "folder": "Models/GLB format"
   },
@@ -1219,7 +1219,7 @@
    "format": "gltf",
    "inSource": 98,
    "inCatalog": 49,
-   "listed": 39,
+   "listed": 51,
    "scale": 0.3,
    "folder": "KayKit_Holiday_Bits_1.0_FREE/Assets/gltf"
   },
@@ -1275,7 +1275,7 @@
    "inSource": 148,
    "inCatalog": 118,
    "listed": 30,
-   "scale": 0.444444
+   "scale": 0.5
   },
   {
    "slug": "Food_Asset_Pack",
@@ -1992,7 +1992,7 @@
    "inSource": 20,
    "inCatalog": 14,
    "listed": 6,
-   "scale": 0.75,
+   "scale": 0.9,
    "folder": "Styloo Guns Asset Pack GLTF FBX V1.1/Normal version Color and NormalMap/GLB"
   },
   {
@@ -2046,7 +2046,7 @@
    "format": "glb",
    "inSource": 403,
    "inCatalog": 18,
-   "listed": 385,
+   "listed": 387,
    "scale": 0.14
   },
   {
@@ -2076,7 +2076,7 @@
    "format": "glb",
    "inSource": 64,
    "inCatalog": 40,
-   "listed": 23,
+   "listed": 24,
    "scale": 1
   }
  ],
@@ -2856,6 +2856,10 @@
   {
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism"
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-lever",
+   "name": "Lever"
   },
   {
    "id": "obj-equipment-tool-stationery",
@@ -13411,7 +13415,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "lever-double",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "wdh": [
     0.5,
     0.4,
@@ -13429,7 +13433,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "lever-single",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lever",
    "wdh": [
     0.5,
     0.4,
@@ -15339,6 +15343,127 @@
   },
   {
    "kit": "kenney_holidaykit",
+   "name": "train-locomotive",
+   "kind": "obj-transport-land-rail",
+   "wdh": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "tris": 740,
+   "tpu": 2157,
+   "mat": 1,
+   "hash": "6d01a79b6f",
+   "bytes": 33608,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-locomotive.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "train-tender",
+   "kind": "obj-transport-land-rail",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 320,
+   "tpu": 933,
+   "mat": 1,
+   "hash": "ebdf627640",
+   "bytes": 15456,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-tender.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "train-wagon-flat-short",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "hash": "324155bc6d",
+   "bytes": 17252,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-wagon-flat-short.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "train-wagon-flat",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 662,
+   "tpu": 1930,
+   "mat": 1,
+   "hash": "9b48445d82",
+   "bytes": 29996,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-wagon-flat.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "train-wagon-logs",
+   "wdh": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "tris": 762,
+   "tpu": 2222,
+   "mat": 1,
+   "hash": "3a1cd7d016",
+   "bytes": 34408,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-wagon-logs.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "train-wagon-short",
+   "wdh": [
+    0.2,
+    0.2,
+    0.1
+   ],
+   "tris": 536,
+   "tpu": 1563,
+   "mat": 1,
+   "hash": "5c215f131f",
+   "bytes": 24060,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-wagon-short.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "train-wagon",
+   "wdh": [
+    0.4,
+    0.2,
+    0.1
+   ],
+   "tris": 934,
+   "tpu": 2723,
+   "mat": 1,
+   "hash": "ec42245f6f",
+   "bytes": 39944,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train-wagon.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
    "name": "trainset-rail-bend",
    "wdh": [
     0.4,
@@ -15371,6 +15496,58 @@
    "scaled": true,
    "reason": "style",
    "file": "trainset-rail-corner.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "trainset-rail-detailed-bend",
+   "wdh": [
+    0.5,
+    0.1,
+    0.5
+   ],
+   "tris": 196,
+   "tpu": 571,
+   "mat": 1,
+   "hash": "f31bb560e7",
+   "bytes": 9748,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "trainset-rail-detailed-bend.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "trainset-rail-detailed-corner",
+   "kind": "str-part-wall",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 96,
+   "tpu": 280,
+   "mat": 1,
+   "hash": "34758c3cc5",
+   "bytes": 5696,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "trainset-rail-detailed-corner.glb"
+  },
+  {
+   "kit": "kenney_holidaykit",
+   "name": "trainset-rail-detailed-straight",
+   "wdh": [
+    0.3,
+    0.1,
+    0.2
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "hash": "0961ddfd2f",
+   "bytes": 4940,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "trainset-rail-detailed-straight.glb"
   },
   {
    "kit": "kenney_holidaykit",
@@ -50661,6 +50838,214 @@
    "variant": "v261"
   },
   {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "tracks_crossing",
+   "kind": "str-access-road",
+   "wdh": [
+    0.6,
+    0.1,
+    0.6
+   ],
+   "tris": 382,
+   "tpu": 1114,
+   "mat": 1,
+   "hash": "0cd760a916",
+   "bytes": 26848,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "tracks_crossing.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "tracks_curve",
+   "wdh": [
+    0.7,
+    0.1,
+    0.7
+   ],
+   "tris": 316,
+   "tpu": 921,
+   "mat": 1,
+   "hash": "8273b316c4",
+   "bytes": 19924,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "tracks_curve.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "tracks_split_left",
+   "wdh": [
+    0.8,
+    0.2,
+    0.7
+   ],
+   "tris": 634,
+   "tpu": 1848,
+   "mat": 3,
+   "hash": "9938800cb9",
+   "bytes": 39224,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "tracks_split_left.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "tracks_split_right",
+   "wdh": [
+    0.8,
+    0.2,
+    0.7
+   ],
+   "tris": 634,
+   "tpu": 1848,
+   "mat": 3,
+   "hash": "f90c72b756",
+   "bytes": 39352,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "tracks_split_right.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "tracks_straight",
+   "wdh": [
+    0.1,
+    0.1,
+    0.3
+   ],
+   "tris": 84,
+   "tpu": 245,
+   "mat": 1,
+   "hash": "89c177c09d",
+   "bytes": 7272,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "tracks_straight.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "tracks_straight_station",
+   "wdh": [
+    0.1,
+    0.1,
+    0.9
+   ],
+   "tris": 180,
+   "tpu": 408,
+   "mat": 1,
+   "hash": "f7151d13e1",
+   "bytes": 13240,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "tracks_straight_station.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "train_locomotive",
+   "kind": "obj-transport-land-rail",
+   "wdh": [
+    0.1,
+    0.2,
+    0.3
+   ],
+   "tris": 1912,
+   "tpu": 5574,
+   "mat": 2,
+   "hash": "4eec550ea6",
+   "bytes": 95748,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train_locomotive.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "train_tender_coal",
+   "kind": "obj-transport-land-rail",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 934,
+   "tpu": 2723,
+   "mat": 1,
+   "hash": "c98dc7a61c",
+   "bytes": 52288,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train_tender_coal.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "train_tender_empty",
+   "kind": "obj-transport-land-rail",
+   "wdh": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "tris": 824,
+   "tpu": 2402,
+   "mat": 1,
+   "hash": "8015f88f34",
+   "bytes": 46672,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train_tender_empty.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "train_tender_presents_A",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 1412,
+   "tpu": 4117,
+   "mat": 1,
+   "hash": "4c2dc1e3a5",
+   "bytes": 74336,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train_tender_presents_A.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "train_tender_presents_B",
+   "wdh": [
+    0.1,
+    0.2,
+    0.2
+   ],
+   "tris": 1412,
+   "tpu": 4117,
+   "mat": 1,
+   "hash": "a114d9f0c0",
+   "bytes": 74272,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train_tender_presents_B.gltf"
+  },
+  {
+   "kit": "KayKit_Holiday_Bits_1.0_FREE",
+   "name": "train_wagon",
+   "wdh": [
+    0.1,
+    0.2,
+    0.3
+   ],
+   "tris": 1596,
+   "tpu": 4653,
+   "mat": 1,
+   "hash": "89538c57f6",
+   "bytes": 81756,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "train_wagon.gltf"
+  },
+  {
    "kit": "KayKit_Medieval_Hexagon_Pack_1.0_FREE",
    "name": "building_archeryrange_green",
    "wdh": [
@@ -57530,8 +57915,8 @@
    "tris": 120,
    "tpu": 350,
    "mat": 4,
-   "hash": "328518ba86",
-   "bytes": 8840,
+   "hash": "83d579f8c3",
+   "bytes": 8820,
    "scaled": true,
    "reason": "style",
    "file": "Avocado Half.glb"
@@ -57542,13 +57927,13 @@
    "wdh": [
     0.1,
     0.1,
-    0.2
+    0.3
    ],
    "tris": 40,
    "tpu": 117,
    "mat": 2,
-   "hash": "fab3b43620",
-   "bytes": 3320,
+   "hash": "87ee27dfff",
+   "bytes": 3300,
    "scaled": true,
    "reason": "style",
    "file": "Bacon.glb"
@@ -57564,8 +57949,8 @@
    "tris": 100,
    "tpu": 292,
    "mat": 3,
-   "hash": "4b810b8cd9",
-   "bytes": 6496,
+   "hash": "2cc5764914",
+   "bytes": 6476,
    "scaled": true,
    "reason": "style",
    "file": "Beet.glb"
@@ -57575,15 +57960,15 @@
    "name": "Bowl Broth",
    "kind": "obj-kitchenware-tableware-bowl",
    "wdh": [
-    0.2,
+    0.3,
     0.1,
     0.3
    ],
    "tris": 236,
    "tpu": 688,
    "mat": 9,
-   "hash": "d3dd467716",
-   "bytes": 15052,
+   "hash": "e9e5b7e9df",
+   "bytes": 15032,
    "scaled": true,
    "reason": "style",
    "file": "Bowl Broth.glb"
@@ -57593,15 +57978,15 @@
    "name": "Bowl Cereal",
    "kind": "obj-kitchenware-tableware-bowl",
    "wdh": [
-    0.2,
+    0.3,
     0.2,
     0.3
    ],
    "tris": 138,
    "tpu": 402,
    "mat": 5,
-   "hash": "56e27f5a6f",
-   "bytes": 8836,
+   "hash": "fc00059920",
+   "bytes": 8816,
    "scaled": true,
    "reason": "style",
    "file": "Bowl Cereal.glb"
@@ -57618,8 +58003,8 @@
    "tris": 780,
    "tpu": 2274,
    "mat": 36,
-   "hash": "edb30ec494",
-   "bytes": 58680,
+   "hash": "a700d599c4",
+   "bytes": 58660,
    "scaled": true,
    "reason": "style",
    "file": "Cake.glb"
@@ -57635,8 +58020,8 @@
    "tris": 48,
    "tpu": 140,
    "mat": 3,
-   "hash": "1298ad80b7",
-   "bytes": 4892,
+   "hash": "a3e379054c",
+   "bytes": 4872,
    "scaled": true,
    "reason": "style",
    "file": "Candy Bar Wrapper.glb"
@@ -57645,15 +58030,15 @@
    "kit": "kenney_food-kit",
    "name": "Chinese",
    "wdh": [
-    0.2,
+    0.3,
     0.3,
     0.2
    ],
    "tris": 198,
    "tpu": 577,
    "mat": 6,
-   "hash": "da1ee0a5c7",
-   "bytes": 12852,
+   "hash": "8a7cb27dcf",
+   "bytes": 12832,
    "scaled": true,
    "reason": "style",
    "file": "Chinese.glb"
@@ -57663,14 +58048,14 @@
    "name": "Cocktail",
    "wdh": [
     0.1,
-    0.2,
+    0.3,
     0.2
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 6,
-   "hash": "e0392fdda0",
-   "bytes": 9904,
+   "hash": "8a1a6ed4af",
+   "bytes": 9884,
    "scaled": true,
    "reason": "style",
    "file": "Cocktail.glb"
@@ -57687,8 +58072,8 @@
    "tris": 68,
    "tpu": 198,
    "mat": 2,
-   "hash": "3458ac1b2e",
-   "bytes": 4320,
+   "hash": "f7383a169b",
+   "bytes": 4300,
    "scaled": true,
    "reason": "style",
    "file": "Cookie.glb"
@@ -57704,8 +58089,8 @@
    "tris": 92,
    "tpu": 268,
    "mat": 2,
-   "hash": "e505bb1a98",
-   "bytes": 4864,
+   "hash": "4f49c00104",
+   "bytes": 4844,
    "scaled": true,
    "reason": "style",
    "file": "Egg Cooked.glb"
@@ -57721,8 +58106,8 @@
    "tris": 84,
    "tpu": 245,
    "mat": 2,
-   "hash": "0ee0be95bf",
-   "bytes": 4532,
+   "hash": "79b53bc145",
+   "bytes": 4512,
    "scaled": true,
    "reason": "style",
    "file": "Egg Cup.glb"
@@ -57738,8 +58123,8 @@
    "tris": 564,
    "tpu": 1644,
    "mat": 2,
-   "hash": "c6e2e4f47f",
-   "bytes": 31224,
+   "hash": "0f51da1055",
+   "bytes": 31204,
    "scaled": true,
    "reason": "style",
    "file": "Fries.glb"
@@ -57756,8 +58141,8 @@
    "tris": 104,
    "tpu": 303,
    "mat": 2,
-   "hash": "5d75094578",
-   "bytes": 5156,
+   "hash": "8788d17984",
+   "bytes": 5136,
    "scaled": true,
    "reason": "style",
    "file": "Meat Patty.glb"
@@ -57767,15 +58152,15 @@
    "name": "Meat Ribs",
    "kind": "obj-food-meat",
    "wdh": [
-    0.2,
+    0.3,
     0.1,
     0.2
    ],
    "tris": 164,
    "tpu": 478,
    "mat": 2,
-   "hash": "9a31312658",
-   "bytes": 8196,
+   "hash": "8acc4a2e60",
+   "bytes": 8176,
    "scaled": true,
    "reason": "style",
    "file": "Meat Ribs.glb"
@@ -57792,8 +58177,8 @@
    "tris": 320,
    "tpu": 933,
    "mat": 1,
-   "hash": "e3bab94dca",
-   "bytes": 11136,
+   "hash": "cdb6579871",
+   "bytes": 11116,
    "scaled": true,
    "reason": "style",
    "file": "Meat Sausage.glb"
@@ -57803,15 +58188,15 @@
    "name": "Mincemeat Pie",
    "kind": "obj-food-baked-pie",
    "wdh": [
-    0.2,
+    0.3,
     0.1,
     0.3
    ],
    "tris": 164,
    "tpu": 478,
    "mat": 3,
-   "hash": "63f3638e9a",
-   "bytes": 7676,
+   "hash": "118257e9fd",
+   "bytes": 7656,
    "scaled": true,
    "reason": "style",
    "file": "Mincemeat Pie.glb"
@@ -57827,8 +58212,8 @@
    "tris": 90,
    "tpu": 262,
    "mat": 2,
-   "hash": "ed2299281e",
-   "bytes": 4816,
+   "hash": "e358c58c49",
+   "bytes": 4796,
    "scaled": true,
    "reason": "style",
    "file": "Mussel Open.glb"
@@ -57838,15 +58223,15 @@
    "name": "Pizza Box",
    "kind": "obj-container-crate",
    "wdh": [
+    0.5,
     0.4,
-    0.4,
-    0.4
+    0.5
    ],
    "tris": 60,
    "tpu": 175,
    "mat": 2,
-   "hash": "b2bd9e2ed7",
-   "bytes": 4668,
+   "hash": "f40ce970a2",
+   "bytes": 4648,
    "scaled": true,
    "reason": "style",
    "file": "Pizza Box.glb"
@@ -57862,8 +58247,8 @@
    "tris": 1552,
    "tpu": 4525,
    "mat": 40,
-   "hash": "b51a2ecf60",
-   "bytes": 83192,
+   "hash": "24e6d7bc7f",
+   "bytes": 83172,
    "scaled": true,
    "reason": "style",
    "file": "Pizza.glb"
@@ -57879,8 +58264,8 @@
    "tris": 56,
    "tpu": 163,
    "mat": 3,
-   "hash": "89765b5d59",
-   "bytes": 4388,
+   "hash": "ca17e87952",
+   "bytes": 4368,
    "scaled": true,
    "reason": "style",
    "file": "Pudding.glb"
@@ -57889,15 +58274,15 @@
    "kit": "kenney_food-kit",
    "name": "Salad",
    "wdh": [
-    0.2,
+    0.3,
     0.1,
     0.3
    ],
    "tris": 188,
    "tpu": 548,
    "mat": 4,
-   "hash": "f747cfafba",
-   "bytes": 10076,
+   "hash": "66b4af6bcf",
+   "bytes": 10056,
    "scaled": true,
    "reason": "style",
    "file": "Salad.glb"
@@ -57914,8 +58299,8 @@
    "tris": 92,
    "tpu": 268,
    "mat": 1,
-   "hash": "b3823e8caa",
-   "bytes": 3996,
+   "hash": "dee5ca9e68",
+   "bytes": 3976,
    "scaled": true,
    "reason": "style",
    "file": "Sausage.glb"
@@ -57932,8 +58317,8 @@
    "tris": 116,
    "tpu": 338,
    "mat": 3,
-   "hash": "d0b0cdbca5",
-   "bytes": 6440,
+   "hash": "e58541cc7c",
+   "bytes": 6420,
    "scaled": true,
    "reason": "style",
    "file": "Shaker Salt.glb"
@@ -57950,8 +58335,8 @@
    "tris": 124,
    "tpu": 362,
    "mat": 5,
-   "hash": "fa960e9c55",
-   "bytes": 8428,
+   "hash": "a449179125",
+   "bytes": 8408,
    "scaled": true,
    "reason": "style",
    "file": "Soda Glass.glb"
@@ -57967,8 +58352,8 @@
    "tris": 68,
    "tpu": 198,
    "mat": 2,
-   "hash": "136f76d3a4",
-   "bytes": 3996,
+   "hash": "bf7a6e4a41",
+   "bytes": 3976,
    "scaled": true,
    "reason": "style",
    "file": "Soy.glb"
@@ -57984,8 +58369,8 @@
    "tris": 148,
    "tpu": 431,
    "mat": 3,
-   "hash": "a0dcdfa671",
-   "bytes": 7840,
+   "hash": "026d982c76",
+   "bytes": 7820,
    "scaled": true,
    "reason": "style",
    "file": "Strawberry.glb"
@@ -57996,13 +58381,13 @@
    "wdh": [
     0.6,
     0.4,
-    0.3
+    0.4
    ],
    "tris": 282,
    "tpu": 822,
    "mat": 6,
-   "hash": "27cea34842",
-   "bytes": 15356,
+   "hash": "9d10e098a9",
+   "bytes": 15336,
    "scaled": true,
    "reason": "style",
    "file": "Styrofoam Dinner.glb"
@@ -58018,8 +58403,8 @@
    "tris": 80,
    "tpu": 233,
    "mat": 1,
-   "hash": "126089175e",
-   "bytes": 3596,
+   "hash": "1f36b88336",
+   "bytes": 3576,
    "scaled": true,
    "reason": "style",
    "file": "Whipped Cream.glb"
@@ -58035,8 +58420,8 @@
    "tris": 128,
    "tpu": 373,
    "mat": 4,
-   "hash": "0d3cb2e0fb",
-   "bytes": 7420,
+   "hash": "3ced32cd07",
+   "bytes": 7400,
    "scaled": true,
    "reason": "dedupe",
    "file": "Wine Red.glb"
@@ -83298,15 +83683,15 @@
    "name": "board",
    "kind": "obj-resource-wood-plank",
    "wdh": [
-    1.4,
-    0.8,
+    1.7,
+    0.9,
     0.1
    ],
    "tris": 28,
-   "tpu": 36,
+   "tpu": 25,
    "mat": 1,
-   "hash": "ffc62f1ec2",
-   "bytes": 3064,
+   "hash": "96107ccbc8",
+   "bytes": 3060,
    "scaled": true,
    "reason": "style",
    "file": "board.glb"
@@ -83322,8 +83707,8 @@
    "tris": 158,
    "tpu": 461,
    "mat": 1,
-   "hash": "c9aff91281",
-   "bytes": 6104,
+   "hash": "212b0f12c6",
+   "bytes": 6100,
    "scaled": true,
    "reason": "style",
    "file": "bullet1.glb"
@@ -83340,8 +83725,8 @@
    "tris": 156,
    "tpu": 455,
    "mat": 1,
-   "hash": "7433d455e1",
-   "bytes": 6068,
+   "hash": "4852e028a1",
+   "bytes": 6064,
    "scaled": true,
    "reason": "style",
    "file": "bulletPEW.glb"
@@ -83357,8 +83742,8 @@
    "tris": 124,
    "tpu": 362,
    "mat": 1,
-   "hash": "3d5c5d34cf",
-   "bytes": 6616,
+   "hash": "3b15d899c2",
+   "bytes": 6612,
    "scaled": true,
    "reason": "style",
    "file": "bulletshotgun.glb"
@@ -83374,8 +83759,8 @@
    "tris": 156,
    "tpu": 455,
    "mat": 1,
-   "hash": "331084fba9",
-   "bytes": 6072,
+   "hash": "febd4a9919",
+   "bytes": 6068,
    "scaled": true,
    "reason": "style",
    "file": "bulletsniper.glb"
@@ -83391,8 +83776,8 @@
    "tris": 144,
    "tpu": 420,
    "mat": 1,
-   "hash": "54cdfea75d",
-   "bytes": 8720,
+   "hash": "de5a8a6bfa",
+   "bytes": 8716,
    "scaled": true,
    "reason": "style",
    "file": "flashbang_low.glb"
@@ -89631,6 +90016,42 @@
    "scaled": true,
    "reason": "style",
    "file": "TrashPolka/Models/UpperPipe_Art.fbx"
+  },
+  {
+   "kit": "Gothic_Like_Structures",
+   "name": "Church_B",
+   "kind": "str-building-religious-church",
+   "wdh": [
+    6,
+    4.6,
+    8.5
+   ],
+   "tris": 228707,
+   "tpu": 976,
+   "mat": 7,
+   "hash": "595bd5bf90",
+   "bytes": 12372084,
+   "scaled": true,
+   "reason": "style",
+   "file": "GothicLikeStructures_web.glb"
+  },
+  {
+   "kit": "Gothic_Like_Structures",
+   "name": "Church_C",
+   "kind": "str-building-religious-church",
+   "wdh": [
+    5.1,
+    7.3,
+    9
+   ],
+   "tris": 511439,
+   "tpu": 1525,
+   "mat": 6,
+   "hash": "5f0574c0d2",
+   "bytes": 24858244,
+   "scaled": true,
+   "reason": "style",
+   "file": "GothicLikeStructures_web.glb"
   },
   {
    "kit": "Gothic_Like_Structures",
@@ -97116,6 +97537,23 @@
    "mat": 1,
    "hash": "d1f55e5bcc",
    "bytes": 4076,
+   "scaled": true,
+   "reason": "style",
+   "file": "magma tileset.glb"
+  },
+  {
+   "kit": "Lava_Tileset",
+   "name": "inner_A",
+   "wdh": [
+    2,
+    1,
+    2
+   ],
+   "tris": 91,
+   "tpu": 23,
+   "mat": 1,
+   "hash": "79ea9e59cc",
+   "bytes": 5676,
    "scaled": true,
    "reason": "style",
    "file": "magma tileset.glb"
