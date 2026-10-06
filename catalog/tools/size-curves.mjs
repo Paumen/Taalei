@@ -823,7 +823,7 @@ const nice = k => k.replace(/^(obj|env|str)-/, '');
 const sign = r => (r > 0 ? '+' : '') + r.toFixed(2);
 
 const lines = new Map(), dots = new Map(), rows = new Map(), shaky = new Set();
-const spanText = d => d.range ? d.range[0].toFixed(2) + ' to ' + d.range[1].toFixed(2) : '—';
+const spanText = d => d.range ? d.range[0].toFixed(1) + ' to ' + d.range[1].toFixed(1) : '—';
 let sel = null;
 const info = document.getElementById('info');
 let REST = '';
@@ -839,7 +839,7 @@ function show(k) {
   const fmt = v => v < 1 ? v.toFixed(2) : v.toFixed(0);
   const line = (o, dir) => o ? \`<br>\${dir}: <b>\${o.name}</b> — \${nice(o.kind)}, \${o.u} u \${o.high ? 'high' : 'long'} against \${o.real} m\${o.high ? ' high' : ''}, <span class="res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</span>\` : '';
   const stab = d.range ? \`one kind left out: \${spanText(d)}\` : 'too few kinds to leave one out';
-  info.innerHTML = \`<b>\${k}</b> · slope \${d.slope.toFixed(2)} · \${(2 ** d.icpt).toFixed(2)} units per m at 1 m · \${d.n} kinds · scatter \${d.mad.toFixed(2)} · covers \${fmt(lo)} – \${fmt(hi)} m\`
+  info.innerHTML = \`<b>\${k}</b> · slope \${d.slope.toFixed(1)} · \${(2 ** d.icpt).toFixed(2)} units per m at 1 m · \${d.n} kinds · scatter \${d.mad.toFixed(2)} · covers \${fmt(lo)} – \${fmt(hi)} m\`
     + \` · <span class="\${d.shaky ? 'shk' : ''}">\${stab}\${d.shaky ? ', unstable' : ''}</span>\`
     + line(d.up, 'too large') + line(d.down, 'too small');
 }
@@ -848,7 +848,7 @@ function drawFit() {
   lines.clear(); dots.clear(); shaky.clear();
   ref = PAYLOAD[mode].ref;
   el('line', { x1: sx(X0), y1: sy(ref.icpt + ref.slope * X0), x2: sx(X1), y2: sy(ref.icpt + ref.slope * X1), class: 'ref' }, gFit);
-  REST = \`Dashed line: the whole catalogue's own curve — slope \${ref.slope.toFixed(2)}. Colour: red toward toy, blue toward linear.\`;
+  REST = \`Dashed line: the whole catalogue's own curve — slope \${ref.slope.toFixed(1)}. Colour: red toward toy, blue toward linear.\`;
   for (const d of DATA) {
     const xs = d.pts.map(p => p.x), lo = Math.min(...xs), hi = Math.max(...xs);
     if (d.shaky) shaky.add(d.kit);
@@ -881,7 +881,7 @@ function render() {
     const tr = document.createElement('tr'); tr.className = 'row'; tr.tabIndex = 0;
     const w = Math.round(Math.min(Math.abs(d.slope), 1.2) * 60);
     const cell = (o) => o ? \`<span class="nm" title="\${o.name} — \${nice(o.kind)}">\${o.name}</span> <span class="res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</span>\` : '<span class="muted">—</span>';
-    tr.innerHTML = \`<td>\${d.kit}</td><td class="n">\${d.n}</td><td class="n">\${d.slope.toFixed(2)}</td>\`
+    tr.innerHTML = \`<td>\${d.kit}</td><td class="n">\${d.n}</td><td class="n">\${d.slope.toFixed(1)}</td>\`
       + \`<td><span class="bar" style="width:\${w}px;background:\${mix(d.slope)}"></span></td>\`
       + \`<td class="n\${d.shaky ? ' shk' : ''}">\${spanText(d)}</td>\`
       + \`<td class="n">\${(2 ** d.icpt).toFixed(2)}</td><td class="n">\${d.mad.toFixed(2)}</td>\`
