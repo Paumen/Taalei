@@ -207,7 +207,7 @@ What a model *is*, before any material or colour question.
 | `T03` | `*` | — | `tags` | is | the artist tag from the kit, only for artists with several kits adopted |
 | `T04` | `tag:plural` | — | model | is | several instances of one thing in one model |
 | `T05` | `mat:special` | — | `specialWhy` | not | empty |
-| `T07` | `kind:str-building` | — | `storeys` | is | the storeys read from the model — door height, wall bands, floor lines — in steps of 0.5; a room in the roof is half a step; a building whose storeys do not read carries none |
+| `T07` | `kind:str-building` | — | `storeys` | is | the storeys read from the model — door height, wall bands, floor lines — in steps of 0.5; a room in the roof is half a step; where they do not read, its height against the kit's own storeyed buildings; mandatory on every building except `comp`, `plural`, `pickup`, `broken` and `piece`, and the only size a building is held to |
 | `T08` | `*` | — | `kind` | is | a node holding at least 4 models, unless the split it makes is significant and clear |
 | `T09` | a variant split on shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
 | `T10` | a word two kinds both answer to | — | the specialised `kind` | is | the qualified form (`warhammer`, `cookpot`); the generic one stays plain |

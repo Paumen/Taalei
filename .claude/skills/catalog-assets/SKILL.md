@@ -124,7 +124,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   `build-catalog.mjs` and `zet-catalogus.mjs` throw on a parent carried with its
   subtype; the tag editor drops the other one when either is picked.
 - **attribute** — at most one value per attribute. `storeys-0-5` … `storeys-6`
-  on a `kind:str-building` model whose storeys read; none when they do not.
+  on every `kind:str-building` model, per the bible's `T07`; `build-catalog.mjs`
+  throws on a building without one.
   `scale-small` or `scale-big` only on a kind whose `scale` in
   `lint/kinds.json` sets that value, for a clearly smaller or bigger
   version of it.

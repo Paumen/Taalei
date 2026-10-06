@@ -8,7 +8,7 @@ import { Worker } from 'node:worker_threads';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest } from './scale-groups.mjs';
 import { atlasKey, readAtlas, hex, round, COLUMNS, ROWS } from './measure.mjs';
-import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
+import { attributeKinds, buildChecks, buildKitScales, checkModel, isBuilding, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
 import { stampPages } from './stamp.mjs';
 
@@ -392,6 +392,12 @@ function readTags(known) {
     }
   }
   if (parentOnTop.length) throw new Error(`material carried with its own subtype: ${parentOnTop.join('; ')}`);
+
+  const noStoreys = [...kindsPer]
+    .filter(([id, k]) => known.has(id) && k.some(isBuilding))
+    .filter(([id]) => !(perModel.get(id) ?? []).some((t) => t.startsWith('storeys-') || LINT_VARS.exemptTags.includes(t)))
+    .map(([id]) => id);
+  if (noStoreys.length) throw new Error(`building without a storeys tag: ${noStoreys.join(', ')}`);
 
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
