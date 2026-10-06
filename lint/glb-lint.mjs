@@ -4,6 +4,7 @@
 import fs from 'fs';
 import path from 'path';
 import validator from 'gltf-validator';
+import { parseGlb, readAccessor, multiplyMatrix, nodeMatrix } from '../catalog/tools/glb.mjs';
 
 const CFG = {
   groundTol: 0.02,           // m: lowest point must be within this of y=0
@@ -30,37 +31,7 @@ const files = inputs.flatMap(p => fs.statSync(p).isDirectory()
   ? fs.readdirSync(p, { recursive: true }).filter(f => f.endsWith('.glb')).map(f => path.join(p, f))
   : [p]).sort();
 
-// ---------- reading ----------
-function readGlb(buf) {
-  let json, bin;
-  for (let o = 12; o < buf.length;) {
-    const len = buf.readUInt32LE(o), type = buf.readUInt32LE(o + 4), chunk = buf.subarray(o + 8, o + 8 + len);
-    if (type === 0x4E4F534A) json = JSON.parse(chunk.toString('utf8')); else bin = chunk;
-    o += 8 + len;
-  }
-  return { json, bin };
-}
-const COMP = { 5120: Int8Array, 5121: Uint8Array, 5122: Int16Array, 5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array };
-const NCOMP = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
-function accessor(g, i) {
-  const a = g.json.accessors[i], bv = g.json.bufferViews[a.bufferView], T = COMP[a.componentType], n = NCOMP[a.type];
-  const size = T.BYTES_PER_ELEMENT, stride = bv.byteStride || size * n;
-  const base = g.bin.byteOffset + (bv.byteOffset || 0) + (a.byteOffset || 0);
-  const dv = new DataView(g.bin.buffer), out = new Float64Array(a.count * n);
-  const get = { 5120: 'getInt8', 5121: 'getUint8', 5122: 'getInt16', 5123: 'getUint16', 5125: 'getUint32', 5126: 'getFloat32' }[a.componentType];
-  for (let k = 0; k < a.count; k++) for (let c = 0; c < n; c++) out[k * n + c] = dv[get](base + k * stride + c * size, true);
-  return out;
-}
-
 // ---------- small maths ----------
-const mul = (a, b) => { const r = new Array(16).fill(0); for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) for (let k = 0; k < 4; k++) r[j * 4 + i] += a[k * 4 + i] * b[j * 4 + k]; return r; };
-function local(n) {
-  if (n.matrix) return n.matrix.slice();
-  const [x, y, z, w] = n.rotation || [0, 0, 0, 1], [sx, sy, sz] = n.scale || [1, 1, 1], [tx, ty, tz] = n.translation || [0, 0, 0];
-  return [(1 - 2 * (y * y + z * z)) * sx, (2 * (x * y + z * w)) * sx, (2 * (x * z - y * w)) * sx, 0,
-          (2 * (x * y - z * w)) * sy, (1 - 2 * (x * x + z * z)) * sy, (2 * (y * z + x * w)) * sy, 0,
-          (2 * (x * z + y * w)) * sz, (2 * (y * z - x * w)) * sz, (1 - 2 * (x * x + y * y)) * sz, 0, tx, ty, tz, 1];
-}
 function normalMat(m) {
   const a = [m[0], m[1], m[2], m[4], m[5], m[6], m[8], m[9], m[10]];
   const c = [a[4] * a[8] - a[5] * a[7], a[5] * a[6] - a[3] * a[8], a[3] * a[7] - a[4] * a[6],
@@ -114,7 +85,7 @@ function analysePrim(P, N, I) {
 
 // ---------- per file ----------
 async function lint(file) {
-  const buf = fs.readFileSync(file), g = readGlb(buf), j = g.json, out = [];
+  const buf = fs.readFileSync(file), g = parseGlb(buf, file), j = g.json, out = [];
   const add = (level, check, msg) => out.push({ level, check, msg });
   const pct = x => (100 * x).toFixed(1) + '%';
 
@@ -134,7 +105,7 @@ async function lint(file) {
 
   const nodes = j.nodes || [], parent = {};
   nodes.forEach((n, i) => (n.children || []).forEach(c => parent[c] = i));
-  const world = i => { let m = local(nodes[i]); while (parent[i] !== undefined) { i = parent[i]; m = mul(local(nodes[i]), m); } return m; };
+  const world = i => { let m = nodeMatrix(nodes[i]); while (parent[i] !== undefined) { i = parent[i]; m = multiplyMatrix(nodeMatrix(nodes[i]), m); } return m; };
   if (nodes.some((n, i) => n.children && !('mesh' in n) && parent[i] === undefined && n.children.length === 1)) add('info', 'structure', 'wrapper node around the mesh (box inside a box)');
   if (nodes.some(n => n.rotation && Math.abs(n.rotation[3]) < 0.9999)) add('info', 'structure', 'rotation stored on the node, not in the shape');
   if (nodes.some(n => n.scale && (Math.abs(n.scale[0] - n.scale[1]) > 1e-6 || Math.abs(n.scale[0] - n.scale[2]) > 1e-6))) add('warn', 'structure', 'non-uniform scale on a node');
@@ -148,10 +119,10 @@ async function lint(file) {
     const W = world(ni), NM = normalMat(W);
     for (const pr of j.meshes[nodes[ni].mesh].primitives) {
       if ((pr.mode ?? 4) !== 4) { add('warn', 'geometry', `primitive mode ${pr.mode} (not triangles) skipped`); continue; }
-      const Pr = accessor(g, pr.attributes.POSITION), nv = Pr.length / 3;
-      const Nr = pr.attributes.NORMAL !== undefined ? accessor(g, pr.attributes.NORMAL) : null;
+      const Pr = readAccessor(g, pr.attributes.POSITION).data, nv = Pr.length / 3;
+      const Nr = pr.attributes.NORMAL !== undefined ? readAccessor(g, pr.attributes.NORMAL).data : null;
       if (!Nr) add('warn', 'shading', 'no stored normals: viewer will guess');
-      const I = pr.indices !== undefined ? accessor(g, pr.indices) : Float64Array.from({ length: nv }, (_, k) => k);
+      const I = pr.indices !== undefined ? readAccessor(g, pr.indices).data : Float64Array.from({ length: nv }, (_, k) => k);
       const P = new Float64Array(nv * 3), N = new Float64Array(nv * 3);
       for (let v = 0; v < nv; v++) {
         const [x, y, z] = [Pr[3 * v], Pr[3 * v + 1], Pr[3 * v + 2]];
@@ -165,7 +136,7 @@ async function lint(file) {
       }
       const mat = (j.materials || [])[pr.material];
       if (mat?.pbrMetallicRoughness?.baseColorTexture && pr.attributes.TEXCOORD_0 !== undefined) {
-        const Uv = accessor(g, pr.attributes.TEXCOORD_0);
+        const Uv = readAccessor(g, pr.attributes.TEXCOORD_0).data;
         for (let t = 0; t + 2 < I.length; t += 3) {
           const cu = Math.floor((Uv[2 * I[t]] + Uv[2 * I[t + 1]] + Uv[2 * I[t + 2]]) / 3 * CFG.atlas.cols);
           const cv = Math.floor((Uv[2 * I[t] + 1] + Uv[2 * I[t + 1] + 1] + Uv[2 * I[t + 2] + 1]) / 3 * CFG.atlas.rows);

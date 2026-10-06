@@ -4,11 +4,11 @@ import { basename, extname, join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
-import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, readAccessor, toSrgb } from '../../catalog/tools/glb.mjs';
 import { readPng } from '../../catalog/tools/png.mjs';
 import { BRONKITS } from '../../catalog/tools/bronkits.mjs';
 import { bronModellen, alleBestanden } from '../../catalog/tools/bronmodellen.mjs';
-import { repack, fixBounds, welder, editablePrimitives, vertexAdder, faceNormal, primitiveMatrix } from './mesh-edit.mjs';
+import { repack, fixBounds, welder, editablePrimitives, vertexAdder, faceNormal, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
 const HELP = `face-bands.mjs [--dry] <workfile.glb> [...]
 
@@ -60,9 +60,7 @@ const into = ([u, v], cell) => {
   return [u + (tu - cu) / 16, v + (tv - cv) / 4];
 };
 const sameUv = (a, b) => Math.abs(a[0] - b[0]) < SAME_UV && Math.abs(a[1] - b[1]) < SAME_UV;
-const edgeKey = (a, b) => (a < b ? `${a},${b}` : `${b},${a}`);
 const linear = (v) => (v / 255 <= 0.04045 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
-const srgb = (v) => Math.round(Math.min(Math.max(v <= 0.0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - 0.055, 0), 1) * 255);
 
 const packs = new Map();
 function pack(naam) {
@@ -162,7 +160,7 @@ function sourceTriangles(source) {
               n++;
             }
           }
-          return sum.map((v) => srgb(v / n));
+          return sum.map((v) => toSrgb(v / n));
         },
       });
     }

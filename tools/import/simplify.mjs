@@ -1,8 +1,6 @@
-import { readFileSync, writeFileSync } from 'node:fs';
-import { basename, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, worldMatrices, thinnestPart } from '../../catalog/tools/glb.mjs';
-import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
+import { rawRows, repack, dot, edgeKey, catalogTubeNeed } from './mesh-edit.mjs';
 import { MeshoptSimplifier } from './vendor/meshoptimizer/meshopt_simplifier.js';
 
 const HELP = `simplify.mjs [--error <fraction>] [--ratio <fraction>] [--hard <degrees>] [--mesh <n,n>] [--list] <workfile.glb> [...]
@@ -28,12 +26,6 @@ const WEIGHT_NORMAL = 1;
 const WEIGHT_UV = 1;
 const STREAK = 0.2;
 
-const COMPONENT = {
-  5120: Int8Array, 5121: Uint8Array, 5122: Int16Array,
-  5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array,
-};
-const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16 };
-
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(args.length ? 0 : 1); }
 let error = 0.01;
@@ -56,29 +48,7 @@ if (hard !== null && !(hard > 0 && hard < 180)) throw new Error('--hard needs an
 
 await MeshoptSimplifier.ready;
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
-let models = null;
-let kindFields = null;
-function needOf(file) {
-  if (!models) {
-    models = new Map(readJson('catalog/build/catalog.json').models.map((m) => [`${m.kit}/${m.name}`, m]));
-    kindFields = buildKindFields(readJson('lint/kinds.json'));
-  }
-  const model = models.get(`${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`);
-  return model ? tubeNeed(withKindFields(model, kindFields)) : null;
-}
 const thinnest = (glb) => thinnestPart(glb) ?? Infinity;
-
-function rawRows(glb, index) {
-  const accessor = glb.json.accessors[index];
-  const Type = COMPONENT[accessor.componentType];
-  const size = PARTS[accessor.type] * Type.BYTES_PER_ELEMENT;
-  const view = glb.json.bufferViews[accessor.bufferView];
-  const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
-  const step = view.byteStride ?? size;
-  return { size, row: (i) => glb.bin.subarray(start + i * step, start + i * step + size) };
-}
 
 function weldMap(glb, prim, count) {
   const rows = Object.entries(prim.attributes).filter(([k]) => hard === null || k !== 'NORMAL').map(([, a]) => rawRows(glb, a));
@@ -117,7 +87,7 @@ function inspect(idx, pos, nrm, id) {
     for (let e = 0; e < 3; e++) {
       const a = id[idx[t + e]], b = id[idx[t + (e + 1) % 3]];
       if (a === b) continue;
-      const k = a < b ? `${a},${b}` : `${b},${a}`;
+      const k = edgeKey(a, b);
       edges.set(k, (edges.get(k) ?? 0) + 1);
     }
   }
@@ -152,7 +122,6 @@ function lockUnder(lock, idx, pos, tris, tolerance) {
     if (!f) continue;
     const e0 = [0, 1, 2].map((k) => pos[b * 3 + k] - pos[a * 3 + k]);
     const e1 = [0, 1, 2].map((k) => pos[c * 3 + k] - pos[a * 3 + k]);
-    const dot = (x, y) => x[0] * y[0] + x[1] * y[1] + x[2] * y[2];
     const d00 = dot(e0, e0), d01 = dot(e0, e1), d11 = dot(e1, e1);
     const den = d00 * d11 - d01 * d01;
     lock[a] = lock[b] = lock[c] = 1;
@@ -360,44 +329,6 @@ function simplifyPrimitive(glb, prim, absError) {
   return null;
 }
 
-function repack(glb, replaced) {
-  const { json } = glb;
-  const chunks = [];
-  let length = 0;
-  const views = [];
-  const push = (bytes, from) => {
-    const pad = (4 - (length % 4)) % 4;
-    if (pad) { chunks.push(Buffer.alloc(pad)); length += pad; }
-    const view = { buffer: 0, byteOffset: length, byteLength: bytes.length };
-    if (from?.target !== undefined) view.target = from.target;
-    chunks.push(bytes);
-    length += bytes.length;
-    views.push(view);
-    return views.length - 1;
-  };
-  for (const image of json.images ?? []) {
-    if (image.bufferView === undefined) continue;
-    const view = json.bufferViews[image.bufferView];
-    image.bufferView = push(Buffer.from(glb.bin.subarray(view.byteOffset ?? 0, (view.byteOffset ?? 0) + view.byteLength)), view);
-  }
-  json.accessors.forEach((accessor, index) => {
-    if (accessor.bufferView === undefined) return;
-    if (accessor.sparse) throw new Error('sparse accessor is not supported');
-    const from = json.bufferViews[accessor.bufferView];
-    let bytes = replaced.get(index);
-    if (!bytes) {
-      const { size, row } = rawRows(glb, index);
-      bytes = Buffer.alloc(size * accessor.count);
-      for (let i = 0; i < accessor.count; i++) row(i).copy(bytes, i * size);
-    }
-    accessor.bufferView = push(bytes, from);
-    delete accessor.byteOffset;
-  });
-  json.bufferViews = views;
-  json.buffers = [{ byteLength: length }];
-  glb.bin = Buffer.concat(chunks, length);
-}
-
 function compact(glb, prim, { out, normals }, replaced) {
   const { json } = glb;
   const order = [];
@@ -497,7 +428,7 @@ for (const file of files) {
   }
   const original = thinnest(readGlb(file));
   repack(glb, replaced);
-  const need = needOf(file);
+  const need = catalogTubeNeed(file);
   if (need !== null && thinnest(glb) < need && !(original < need)) {
     console.log(`${file}: ${before} -> ${after} triangles would fail G27, left as it was`);
     continue;

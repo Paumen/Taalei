@@ -88,14 +88,13 @@ const matches = (name, base) => {
     at + i < name.length && (i < last ? name[at + i] === word : new RegExp(`^${word}(s|es)?$`).test(name[at + i]))));
 };
 
-export function kindFromName(name, within = null) {
+export function kindFromName(name) {
   const words = segments(name);
   if (!words.length) return null;
 
   let best = 0;
   let found = new Set();
   for (const { id, base, qualifier } of NOUNS) {
-    if (within && !kindIs(id, within)) continue;
     if (!matches(words, base)) continue;
     const score = base.length + (qualifier.length && qualifier.some((word) => words.includes(word)) ? 0.5 : 0);
     if (score < best) continue;

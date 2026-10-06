@@ -3,7 +3,7 @@ import { join, dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { isMainThread, parentPort } from 'node:worker_threads';
-import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare, toSrgb } from './glb.mjs';
 import { readPng } from './png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -28,11 +28,6 @@ export function readAtlas(path) {
   const key = atlasKey(path);
   if (!atlases.has(key)) atlases.set(key, { ...readPng(path), key });
   return atlases.get(key);
-}
-
-function toSrgb(linear) {
-  const v = linear <= 0.0031308 ? linear * 12.92 : 1.055 * linear ** (1 / 2.4) - 0.055;
-  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
 }
 
 export const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
@@ -107,7 +102,7 @@ function laneSpread(gradient) {
   return Object.fromEntries([...gradient].map(([lane, { min, max }]) => [lane, [round(min, 3), round(max, 3)]]));
 }
 
-export function measureFile(dir, file) {
+function measureFile(dir, file) {
   const glb = readGlb(join(dir, file));
   const gltf = glb.json;
   const scene = measureScene(glb);

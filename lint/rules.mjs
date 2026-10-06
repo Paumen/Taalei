@@ -1,4 +1,4 @@
-export const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
+const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
 export const KIND_FIELDS = ['bands.max', 'tube.min'];
 
 const EPSILON = 1e-9;
@@ -206,7 +206,7 @@ export function buildMaterialRules(kinds) {
   return rules;
 }
 
-export function materialsOf(model, materialIds, vars) {
+function materialsOf(model, materialIds, vars) {
   const ignored = vars.mat.ignoreMaterials;
   return (model.tags ?? []).filter((t) => materialIds.has(t) && !ignored.includes(t));
 }
@@ -247,7 +247,7 @@ export function buildPalettes(materials, vars) {
   return { lanes, names, rows };
 }
 
-export function paletteOf(material, size, palettes) {
+function paletteOf(material, size, palettes) {
   const rows = palettes.rows.filter((row) => idUnder(material, row.mat));
   const row = rows.find((r) => r.size === size) ?? rows.find((r) => r.size === null);
   if (!row) return null;
@@ -330,14 +330,14 @@ export function tubeNeed(model) {
   return model.tubemin ?? 0;
 }
 
-export function fieldOf(model, name, materialIds, vars) {
+function fieldOf(model, name, materialIds, vars) {
   if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
   if (name === 'tubeneed') return tubeNeed(model);
   if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
   return model[name];
 }
 
-export function matchTerm(term, model, materialIds, vars) {
+function matchTerm(term, model, materialIds, vars) {
   const text = term.trim();
   if (text === '') return false;
   const or = text.split('|');
@@ -428,19 +428,22 @@ const CHECK_TEXT = {
 
 export const findingText = (check, row) => CHECK_TEXT[check](row);
 
-export function buildChecks({ vars, kinds, materials, measures }) {
-  const materialIds = new Set();
+export function materialIdsOf(materials) {
+  const ids = new Set();
   const collect = (nodes) => {
     for (const node of nodes) {
-      materialIds.add(node.id);
+      ids.add(node.id);
       collect(node.children ?? []);
     }
   };
   collect(materials.materials);
+  return ids;
+}
 
+export function buildChecks({ vars, kinds, materials, measures }) {
   return {
     vars,
-    materialIds,
+    materialIds: materialIdsOf(materials),
     limits: buildLimits(kinds),
     scales: buildScales(kinds),
     mat: buildMaterialRules(kinds),

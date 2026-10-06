@@ -1,8 +1,6 @@
-import { readFileSync, writeFileSync } from 'node:fs';
-import { basename, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, measureTubes, measureSticks, TUBE_SLICES } from '../../catalog/tools/glb.mjs';
-import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
+import { dot, vec3View, catalogTubeNeed } from './mesh-edit.mjs';
 
 const HELP = `thicken.mjs [--min <diameter>] [--max <diameter>] [--list] <workfile.glb> [...]
 
@@ -15,22 +13,8 @@ from its kind in lint/kinds.json and its size in catalog/build/catalog.json. --m
 every tube thicker than it down to it instead, and only that; sticks are left alone.
 --list prints the tubes and sticks and changes nothing.`;
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
-
 const MARGIN = 1.02;
 const STICK_PASSES = 6;
-
-function writer(glb, accessorIndex) {
-  const accessor = glb.json.accessors[accessorIndex];
-  if (accessor.componentType !== 5126 || accessor.type !== 'VEC3' || accessor.sparse) throw new Error('expects float VEC3');
-  const view = glb.json.bufferViews[accessor.bufferView];
-  const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
-  const step = view.byteStride ?? 12;
-  return (i) => new Float32Array(glb.bin.buffer, glb.bin.byteOffset + start + i * step, 3);
-}
-
-const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 
 function ringAt(rings, t) {
   if (t <= rings[0].t) return rings[0];
@@ -58,7 +42,7 @@ const times = (m, p) => [
 function widen(glb, tube, factor) {
   const { center, axis, u, w, rings } = tube.frame;
   const back = invert3(tube.linear);
-  const position = writer(glb, tube.prim.attributes.POSITION);
+  const position = vec3View(glb, tube.prim.attributes.POSITION);
   for (const v of new Set(tube.vertices)) {
     const p = position(v);
     const q = times(tube.linear, p);
@@ -75,7 +59,7 @@ function widen(glb, tube, factor) {
 function widenStick(glb, stick, min) {
   const { center, axis, u, w } = stick.frame;
   const back = invert3(stick.linear);
-  const position = writer(glb, stick.prim.attributes.POSITION);
+  const position = vec3View(glb, stick.prim.attributes.POSITION);
   const vertices = [...new Set(stick.vertices)];
   const local = vertices.map((v) => {
     const q = times(stick.linear, position(v));
@@ -143,8 +127,8 @@ function faceDirections(glb, prim, vertices, point) {
 
 function turnNormals(glb, prim, vertices, before) {
   if (prim.attributes.NORMAL === undefined) return;
-  const position = writer(glb, prim.attributes.POSITION);
-  const normal = writer(glb, prim.attributes.NORMAL);
+  const position = vec3View(glb, prim.attributes.POSITION);
+  const normal = vec3View(glb, prim.attributes.NORMAL);
   const from = faceDirections(glb, prim, vertices, (v) => before.get(v) ?? [...position(v)]);
   const to = faceDirections(glb, prim, vertices, (v) => [...position(v)]);
   const unit = (n) => { const len = Math.hypot(...n); return len ? n.map((x) => x / len) : null; };
@@ -164,8 +148,8 @@ function turnNormals(glb, prim, vertices, before) {
 
 function renormal(glb, prim, vertices) {
   if (prim.attributes.NORMAL === undefined) return;
-  const position = writer(glb, prim.attributes.POSITION);
-  const normal = writer(glb, prim.attributes.NORMAL);
+  const position = vec3View(glb, prim.attributes.POSITION);
+  const normal = vec3View(glb, prim.attributes.NORMAL);
   const count = glb.json.accessors[prim.attributes.POSITION].count;
   const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, i) => i);
   const sum = new Map([...vertices].map((v) => [v, [0, 0, 0]]));
@@ -212,17 +196,11 @@ if (min !== null && !(min > 0)) throw new Error('--min needs a positive number')
 if (max !== null && !(max > 0 && Number.isFinite(max))) throw new Error('--max needs a positive number');
 if (min !== null && max !== null) throw new Error('give --min or --max, not both');
 
-let models = null;
-let kindFields = null;
 function minOf(file) {
   if (min !== null) return min;
-  if (!models) {
-    models = new Map(readJson('catalog/build/catalog.json').models.map((m) => [`${m.kit}/${m.name}`, m]));
-    kindFields = buildKindFields(readJson('lint/kinds.json'));
-  }
-  const id = `${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`;
-  if (!models.has(id)) throw new Error(`${file}: not in the catalogue, give --min`);
-  return tubeNeed(withKindFields(models.get(id), kindFields));
+  const need = catalogTubeNeed(file);
+  if (need === null) throw new Error(`${file}: not in the catalogue, give --min`);
+  return need;
 }
 
 for (const file of files) {
@@ -260,7 +238,7 @@ for (const file of files) {
       if (!left.length) break;
       for (const s of left) {
         if (!stickBefore.has(s.prim)) stickBefore.set(s.prim, new Map());
-        const position = writer(glb, s.prim.attributes.POSITION);
+        const position = vec3View(glb, s.prim.attributes.POSITION);
         for (const v of s.vertices) if (!stickBefore.get(s.prim).has(v)) stickBefore.get(s.prim).set(v, [...position(v)]);
         widenStick(glb, s, min);
         touch(s);

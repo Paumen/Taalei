@@ -1,18 +1,29 @@
 # Importing a pack
 
 `importeer.mjs` turns source models into workfiles; `zet-catalogus.mjs` writes
-what the catalogue reads about them.
+what the catalogue reads about them. Both read one config per pack:
 
-    node tools/importeer/importeer.mjs tools/importeer/<kit>.json
-    node tools/importeer/zet-catalogus.mjs tools/importeer/<kit>.json
+    node tools/importeer/importeer.mjs <kit>.json
+    node tools/importeer/zet-catalogus.mjs <kit>.json
 
-A config holds the kit slug, the `BRONKITS` folder it reads, the pack's scale
-and shading threshold, the source colour → band table, and a row per model with
-its source name, its workfile name, its kind, its materials and its flags. A row
-may override the table for its own model, and may carry a `factor` on top of the
-pack's scale where the style guide's `P10` names one. Where a pack's materials ask for a
-texture file the pack does not carry under that name, `texturen` maps the name
-asked for to the file that is there; anything but a PNG is converted on read.
+A config is a JSON object:
+
+- `kit`: workfile folder and catalogue slug.
+- `map`: the `BRONKITS` folder the source models come from; `bron`: the pack name
+  written into each model.
+- `url`, `licenseLabel`, `note`: the manifest row; `licentie`: a licence file
+  copied to the kit's `LICENSE.txt`.
+- `schaal`: the pack's scale; `drempel`: the angle in degrees below which faces
+  share a smoothed normal.
+- `banden`: source colour (`"r,g,b"`) → band.
+- `texturen`: texture name a material asks for → file the pack carries; anything
+  but a PNG is converted on read.
+- `modellen`: a row per model with `bron` (source name), `naam` (workfile name),
+  `kind`, `materialen`, `vlaggen`, `attributen`, `themas`, and optionally its own
+  `banden` and a `factor` on top of the pack's scale where the style guide's `P10`
+  names one.
+- `varianten`: groups of `leden` (workfile names) with a `type`, `detail-variant`
+  when left out.
 
 Per model the tool merges the source primitives into one draw call, reads a
 band per triangle from the source colour, recomputes vertex normals with faces
