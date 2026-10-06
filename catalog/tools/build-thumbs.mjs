@@ -10,7 +10,7 @@ const CATALOG_DIR = join(ROOT, 'catalog');
 const THUMB_DIR = join(CATALOG_DIR, 'build', 'thumbs');
 const MANIFEST = join(CATALOG_DIR, 'build', 'thumbs.json');
 
-const SIZE = 256;
+const SIZE = 192;
 const QUALITY = 0.82;
 const LOAD_TIMEOUT = 90_000;
 
