@@ -382,6 +382,7 @@ const DROPPED_KINDS = [
   'obj-leisure-art-instrument',
   'obj-leisure-art-sculpture',
   'obj-leisure-toy',
+  'obj-device-appliance',
   'obj-device-electronics-audio',
   'obj-equipment-pocketitem',
   'obj-equipment-weapon-melee',
