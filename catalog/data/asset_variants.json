@@ -12604,51 +12604,18 @@
   },
   {
    "members": [
+    "ken-nature/patch-sand",
     "ken-pirate/patch-sand-foliage",
     "ken-pirate/patch-sand"
    ],
-   "main": "ken-pirate/patch-sand-foliage",
+   "main": "ken-nature/patch-sand",
    "kits": [
+    "ken-nature",
     "ken-pirate"
    ],
    "type": "detail-variant",
    "types": [
     "manual"
-   ],
-   "sameSize": true,
-   "minOverlap": null,
-   "wdh": [
-    [
-     2,
-     1.5,
-     0.1
-    ],
-    [
-     2,
-     1.5,
-     0.1
-    ]
-   ],
-   "driehoeken": [
-    636,
-    108
-   ],
-   "kleuren": [
-    [
-     "#68872d",
-     "#8b7561"
-    ],
-    [
-     "#8b7561"
-    ]
-   ],
-   "paren": [
-    {
-     "a": "ken-pirate/patch-sand-foliage",
-     "b": "ken-pirate/patch-sand",
-     "soort": "handmatig",
-     "overlap": null
-    }
    ]
   },
   {
@@ -15068,25 +15035,17 @@
   {
    "members": [
     "quat-pirate/fish-tuna",
-    "quat-pirate/fish-mackerel"
+    "quat-pirate/fish-mackerel",
+    "quat-sushi/tuna"
    ],
    "main": "quat-pirate/fish-tuna",
    "kits": [
-    "quat-pirate"
+    "quat-pirate",
+    "quat-sushi"
    ],
    "type": "detail-variant",
    "types": [
     "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
-    {
-     "a": "quat-pirate/fish-tuna",
-     "b": "quat-pirate/fish-mackerel",
-     "soort": "handmatig",
-     "overlap": null
-    }
    ]
   },
   {
@@ -15318,33 +15277,20 @@
   },
   {
    "members": [
+    "isa-plants/yucca-plant-medium",
+    "isa-plants/yucca-plant-large",
+    "isa-plants/yucca-plant-small",
     "isa-plants/yucca-branch-medium-b",
     "isa-plants/yucca-branch-medium-a",
     "isa-plants/yucca-branch-medium-c"
    ],
-   "main": "isa-plants/yucca-branch-medium-b",
+   "main": "isa-plants/yucca-plant-medium",
    "kits": [
     "isa-plants"
    ],
    "type": "detail-variant",
    "types": [
     "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
-    {
-     "a": "isa-plants/yucca-branch-medium-b",
-     "b": "isa-plants/yucca-branch-medium-a",
-     "soort": "handmatig",
-     "overlap": null
-    },
-    {
-     "a": "isa-plants/yucca-branch-medium-b",
-     "b": "isa-plants/yucca-branch-medium-c",
-     "soort": "handmatig",
-     "overlap": null
-    }
    ]
   },
   {
@@ -15373,37 +15319,6 @@
     {
      "a": "isa-plants/sansevieria-plant-large",
      "b": "isa-plants/sansevieria-plant-small",
-     "soort": "handmatig",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "isa-plants/yucca-plant-medium",
-    "isa-plants/yucca-plant-large",
-    "isa-plants/yucca-plant-small"
-   ],
-   "main": "isa-plants/yucca-plant-medium",
-   "kits": [
-    "isa-plants"
-   ],
-   "type": "maatvariant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
-    {
-     "a": "isa-plants/yucca-plant-medium",
-     "b": "isa-plants/yucca-plant-large",
-     "soort": "handmatig",
-     "overlap": null
-    },
-    {
-     "a": "isa-plants/yucca-plant-medium",
-     "b": "isa-plants/yucca-plant-small",
      "soort": "handmatig",
      "overlap": null
     }
@@ -15846,34 +15761,15 @@
   {
    "members": [
     "fs-town/canopy-sides-opposite",
-    "fs-town/canopy-full"
+    "fs-town/canopy-full",
+    "fs-town/canopy-ramp-corner",
+    "fs-town/canopy-ramp-full",
+    "fs-town/canopy-ramp-mid",
+    "fs-town/canopy-side",
+    "fs-town/canopy-corner",
+    "fs-town/canopy-top"
    ],
    "main": "fs-town/canopy-sides-opposite",
-   "kits": [
-    "fs-town"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ],
-   "sameSize": false,
-   "minOverlap": null,
-   "paren": [
-    {
-     "a": "fs-town/canopy-sides-opposite",
-     "b": "fs-town/canopy-full",
-     "soort": "handmatig",
-     "overlap": null
-    }
-   ]
-  },
-  {
-   "members": [
-    "fs-town/canopy-ramp-corner",
-    "fs-town/canopy-ramp-mid",
-    "fs-town/canopy-ramp-full"
-   ],
-   "main": "fs-town/canopy-ramp-corner",
    "kits": [
     "fs-town"
    ],
@@ -24563,20 +24459,6 @@
   },
   {
    "members": [
-    "fs-town/canopy-side",
-    "fs-town/canopy-corner"
-   ],
-   "main": "fs-town/canopy-side",
-   "kits": [
-    "fs-town"
-   ],
-   "type": "detail-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
     "lpa-desert/awning-a",
     "lpa-desert/awning-b"
    ],
@@ -25519,23 +25401,11 @@
    "members": [
     "aq-mushroom/bolete",
     "aq-mushroom/bolete-large",
-    "aq-mushroom/bolete-small"
-   ],
-   "main": "aq-mushroom/bolete",
-   "kits": [
-    "aq-mushroom"
-   ],
-   "type": "maatvariant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
+    "aq-mushroom/bolete-small",
     "aq-mushroom/bolete-group-a",
     "aq-mushroom/bolete-group-b"
    ],
-   "main": "aq-mushroom/bolete-group-a",
+   "main": "aq-mushroom/bolete",
    "kits": [
     "aq-mushroom"
    ],
@@ -25577,23 +25447,11 @@
    "members": [
     "aq-mushroom/inkcap",
     "aq-mushroom/inkcap-large",
-    "aq-mushroom/inkcap-small"
-   ],
-   "main": "aq-mushroom/inkcap",
-   "kits": [
-    "aq-mushroom"
-   ],
-   "type": "maatvariant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
+    "aq-mushroom/inkcap-small",
     "aq-mushroom/inkcap-group-a",
     "aq-mushroom/inkcap-group-b"
    ],
-   "main": "aq-mushroom/inkcap-group-a",
+   "main": "aq-mushroom/inkcap",
    "kits": [
     "aq-mushroom"
    ],
@@ -36654,55 +36512,19 @@
   {
    "members": [
     "wizp-lava/rock-a",
-    "wizp-lava/rock-hot-a"
+    "wizp-lava/rock-hot-a",
+    "wizp-lava/rock-b",
+    "wizp-lava/rock-hot-b",
+    "wizp-lava/rock-c",
+    "wizp-lava/rock-hot-c",
+    "wizp-lava/rock-d",
+    "wizp-lava/rock-hot-d"
    ],
    "main": "wizp-lava/rock-a",
    "kits": [
     "wizp-lava"
    ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "wizp-lava/rock-b",
-    "wizp-lava/rock-hot-b"
-   ],
-   "main": "wizp-lava/rock-b",
-   "kits": [
-    "wizp-lava"
-   ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "wizp-lava/rock-c",
-    "wizp-lava/rock-hot-c"
-   ],
-   "main": "wizp-lava/rock-c",
-   "kits": [
-    "wizp-lava"
-   ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "wizp-lava/rock-d",
-    "wizp-lava/rock-hot-d"
-   ],
-   "main": "wizp-lava/rock-d",
-   "kits": [
-    "wizp-lava"
-   ],
-   "type": "color-variant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -36710,41 +36532,17 @@
   {
    "members": [
     "wizp-lava/rock-e",
-    "wizp-lava/rock-hot-e"
+    "wizp-lava/rock-hot-e",
+    "wizp-lava/rock-f",
+    "wizp-lava/rock-hot-f",
+    "wizp-lava/rock-g",
+    "wizp-lava/rock-hot-g"
    ],
    "main": "wizp-lava/rock-e",
    "kits": [
     "wizp-lava"
    ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "wizp-lava/rock-f",
-    "wizp-lava/rock-hot-f"
-   ],
-   "main": "wizp-lava/rock-f",
-   "kits": [
-    "wizp-lava"
-   ],
-   "type": "color-variant",
-   "types": [
-    "manual"
-   ]
-  },
-  {
-   "members": [
-    "wizp-lava/rock-g",
-    "wizp-lava/rock-hot-g"
-   ],
-   "main": "wizp-lava/rock-g",
-   "kits": [
-    "wizp-lava"
-   ],
-   "type": "color-variant",
+   "type": "detail-variant",
    "types": [
     "manual"
    ]
@@ -37164,6 +36962,190 @@
    "main": "ken-blaster/blaster-p",
    "kits": [
     "ken-blaster"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "kay-furniture/cactus-potted-medium-a",
+    "kay-furniture/cactus-potted-small-a"
+   ],
+   "main": "kay-furniture/cactus-potted-medium-a",
+   "kits": [
+    "kay-furniture"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "lpa-west/cactus-c",
+    "lpa-west/cactus-a",
+    "lpa-west/cactus-b"
+   ],
+   "main": "lpa-west/cactus-c",
+   "kits": [
+    "lpa-west"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "isa-plants/monstera-plant-large",
+    "isa-plants/monstera-plant-medium",
+    "isa-plants/monstera-plant-small"
+   ],
+   "main": "isa-plants/monstera-plant-large",
+   "kits": [
+    "isa-plants"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "isa-park/floor-grass",
+    "isa-park/floor-grass-sliced-b"
+   ],
+   "main": "isa-park/floor-grass",
+   "kits": [
+    "isa-park"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "quat-town/farm-field-c",
+    "quat-town/farm-field-b"
+   ],
+   "main": "quat-town/farm-field-c",
+   "kits": [
+    "quat-town"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "rgp-medieval/stall",
+    "rgp-medieval/stall-cloth"
+   ],
+   "main": "rgp-medieval/stall",
+   "kits": [
+    "rgp-medieval"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-train/railroad-straight-skew-left",
+    "ken-train/railroad-straight-skew-right"
+   ],
+   "main": "ken-train/railroad-straight-skew-left",
+   "kits": [
+    "ken-train"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-train/railroad-straight-hill-beginning",
+    "ken-train/railroad-straight-hill-end"
+   ],
+   "main": "ken-train/railroad-straight-hill-beginning",
+   "kits": [
+    "ken-train"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-train/track-detailed",
+    "ken-train/track-single-detailed"
+   ],
+   "main": "ken-train/track-detailed",
+   "kits": [
+    "ken-train"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "kay-city/road-corner-curved",
+    "kay-city/road-corner"
+   ],
+   "main": "kay-city/road-corner-curved",
+   "kits": [
+    "kay-city"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-roads/road-end-round",
+    "ken-roads/road-end"
+   ],
+   "main": "ken-roads/road-end-round",
+   "kits": [
+    "ken-roads"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-roads/road-crossroad-line",
+    "ken-roads/road-crossroad"
+   ],
+   "main": "ken-roads/road-crossroad-line",
+   "kits": [
+    "ken-roads"
+   ],
+   "type": "detail-variant",
+   "types": [
+    "manual"
+   ]
+  },
+  {
+   "members": [
+    "ken-roads/road-slant-curve",
+    "ken-roads/road-slant-flat-curve"
+   ],
+   "main": "ken-roads/road-slant-curve",
+   "kits": [
+    "ken-roads"
    ],
    "type": "detail-variant",
    "types": [
