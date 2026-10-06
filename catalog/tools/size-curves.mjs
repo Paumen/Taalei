@@ -404,6 +404,8 @@ const DROPPED_KINDS = [
   'obj-leisure-game-gym',
   'obj-transport-air',
   'str-fixture-utility-machine-crane',
+  'str-fixture-leisure-playground',
+  'obj-food-fruit',
 ];
 
 const SCALE_SIZES = {
