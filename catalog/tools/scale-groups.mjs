@@ -127,6 +127,7 @@ export function buildScaleGroups(models) {
         slug: m.kit,
         collection: m.collection,
         model: m.name,
+        hash: m.hash,
         wdh: m.wdh.map(round1),
         tags: m.tags?.length ? m.tags : undefined,
         colors: m.colors?.length ? m.colors : undefined,

@@ -7,6 +7,7 @@ import { readPng, writePng } from './png.mjs';
 import { readKindTree, kindName, kindFromName } from './kinds.mjs';
 import { BRONKITS } from './bronkits.mjs';
 import { alleBestanden, bronModellen, bronId, meet, kebab } from './bronmodellen.mjs';
+import { hashOf, stampPages } from './stamp.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
@@ -658,6 +659,7 @@ for (const bronkit of BRONKITS) {
         tris: model.driehoeken,
         tpu: trianglesPerUnit(model.driehoeken, wdh),
         mat: model.primitieven.length,
+        hash: hashOf(readFileSync(pad)),
         bytes: statSync(pad).size,
         scaled: kit.schaal !== null || undefined,
         reason: afwijzingen[model.naam] ?? null,
@@ -764,3 +766,5 @@ for (const lijst of LIJSTEN) {
 }
 
 for (const regel of waarschuwingen) console.warn(`! ${regel}`);
+
+stampPages();

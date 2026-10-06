@@ -1,4 +1,4 @@
-import { makeChipStrip, layoutChips, syncChips, chipName, shortChipName } from './chiprij.js?v=21c9279f65';
+import { makeChipStrip, layoutChips, syncChips, chipName, shortChipName } from './chiprij.js?v=85a8110145';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 

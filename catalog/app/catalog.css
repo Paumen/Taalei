@@ -737,6 +737,15 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   --progress-bar-color: var(--accent);
 }
 .kaart-viewer img { object-fit: contain; }
+.kaart-viewer:has(> img.sprite) { overflow: hidden; }
+.kaart-viewer img.sprite {
+  position: absolute;
+  width: calc(var(--cols) * 100%);
+  height: auto;
+  max-width: none;
+  left: calc(var(--col) * -100%);
+  top: calc(var(--row) * -100%);
+}
 
 .kaart-tekst {
   display: flex;

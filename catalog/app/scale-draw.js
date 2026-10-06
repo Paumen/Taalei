@@ -1,5 +1,6 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
+import { withHash } from './stamps.js?v=04e3ee3113';
 
 const GRID_MINOR = 0.1;
 const GRID_MAJOR = 0.2;
@@ -41,10 +42,10 @@ const waiting = [];
 const slot = () => new Promise((res) => (inFlight < LOAD_LIMIT ? (inFlight++, res()) : waiting.push(res)));
 const free = () => (waiting.length ? waiting.shift()() : inFlight--);
 
-export function loadModel(path) {
+export function loadModel(path, hash) {
   if (!models.has(path)) {
     const p = slot()
-      .then(() => load(modelUrl(`../../${path}`)))
+      .then(() => load(withHash(`../../${path}`, hash)))
       .then((gltf) => gltf.scene, (error) => { models.delete(path); throw error; })
       .finally(free);
     models.set(path, p);
@@ -223,7 +224,7 @@ export async function drawFamily(group, canvas, width) {
   const words = kindWords(group.name);
   const pieces = [];
   const loaded = await Promise.all(group.items.map((item) =>
-    loadModel(item.path).catch((error) => { console.error('load failed', item.path, error); return null; })));
+    loadModel(item.path, item.hash).catch((error) => { console.error('load failed', item.path, error); return null; })));
   for (const [i, item] of group.items.entries()) {
     const obj = loaded[i];
     if (!obj) continue;
@@ -363,5 +364,3 @@ export async function drawFamily(group, canvas, width) {
   return { height, width: canvasW, count: pieces.length, boxes: inPixels };
 }
 
-export const version = document.querySelector('meta[name=catalogus-versie]')?.content ?? '';
-const modelUrl = (path) => (version ? `${path}?v=${version}` : path);

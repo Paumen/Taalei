@@ -3,6 +3,7 @@ import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readKindTree } from './kinds.mjs';
 import { isExempt, scaleTagOf, SCALE_PREFIX } from '../../lint/rules.mjs';
+import { stampPages } from './stamp.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
@@ -960,12 +961,7 @@ load('weighted');
 `;
 
 const out = process.argv[2] ?? join(ROOT, 'catalog', 'app', 'size-curves.html');
-const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
-const meta = (name) => index.match(new RegExp(`<meta name="${name}" content="([^"]*)">`))?.[1] ?? '';
-const version = meta('catalogus-versie');
-writeFileSync(out, page
-  .replace('<meta name="catalogus-versie" content="">', `<meta name="catalogus-versie" content="${version}">`)
-  .replace('<meta name="catalogus-gebouwd" content="">', `<meta name="catalogus-gebouwd" content="${meta('catalogus-gebouwd')}">`)
-  .replace('href="catalog.css"', `href="catalog.css?v=${version}"`));
+writeFileSync(out, page);
+if (!process.argv[2]) stampPages();
 const w = payload.weighted;
 console.log(`${models.length} models · ${w.kits.length} kits · ref slope ${w.ref.slope} → ${out}`);

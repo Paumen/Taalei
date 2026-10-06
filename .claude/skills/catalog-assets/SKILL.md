@@ -204,9 +204,20 @@ Before committing, run every lint (`size`, `tpu`, `measures`, `mat`, `palette`,
 error counts of all seven before the work as well, so "no new errors" is a
 comparison rather than a claim.
 
-`build-lists.mjs` regenerates `kits/tbd/` and `kits/npc/`, and the catalogue pages get a fresh
-build stamp, so even a small change touches a few hundred files. Check that
-nothing outside the set you meant to touch was written.
+`build-lists.mjs` regenerates `kits/tbd/` and `kits/npc/`, so even a small change touches a
+few hundred files. Check that nothing outside the set you meant to touch was written.
+
+Each build tool ends with `catalog/tools/stamp.mjs`, which can also run on its own. It
+stamps every script and stylesheet reference with that file's content hash and writes
+the data files' hashes into each page's `catalogus-hashes` meta; a model's `.glb` is
+stamped with the `hash` in `catalog.json`, `scale-groups.json` or the list files. An
+unchanged file keeps its URL, so browsers keep it cached. `vendor/` is not stamped.
+
+`build-thumbs.mjs` renders 128×128 tiles into `kits/.cache/thumbs` and packs them into
+one sprite sheet per kind, `catalog/build/thumbs/<kind>.webp` and `<kind>.flat.webp`;
+`thumbs.json` gives each sheet's grid and hashes and each model's kind and place. It
+renders only models whose `.glb` changed; a tile missing from the cache is cut back out
+of the committed sheet. A sheet is rebuilt only when its members or their `.glb` changed.
 
 It rebuilds only the packs whose source zips, workfiles, preview colours,
 rejects, NPC entries or tooling changed; the rest come from `kits/.cache`. `--force`
