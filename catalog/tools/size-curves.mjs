@@ -293,7 +293,7 @@ const SIZES = {
   'str-barrier-post': 1.2,
   'str-barrier-railing': 1,
   'str-barrier-traffic': 1.2,
-  'str-barrier-traffic-cone': 0.5,
+  'str-barrier-traffic-cone': 0.3,
   'str-canopy-stall': 2.5,
   'str-canopy-tent-camping': 2.5,
   'str-fixture-chimney': 20,
