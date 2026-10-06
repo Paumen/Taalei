@@ -81,8 +81,9 @@ render.mjs <file.glb|dir> [...] [flags]
                        9-16 tiles 4 cols @476   17-28 tiles 4 cols @364
   --mark <shells>    paint those shells a loud band and render that, so a part can be
                      pointed at. Repeat for more groups, each in its own colour.
-                     Shell numbers are the ones tools/importeer/reband.mjs --list
-                     prints. One model at a time; the original is never changed.
+                     Shells count from 1 in file order, as meshShells in
+                     catalog/tools/glb.mjs numbers them. One model at a time; the
+                     original is never changed.
   --band <col,row>   keep one cell of the colormap and flatten every other filled
                      cell to grey, so only the triangles carrying that band stay
                      coloured. Cells are the 16x4 grid of kits/colormap.png, so
@@ -91,8 +92,8 @@ render.mjs <file.glb|dir> [...] [flags]
   --stats            <name>.stats.json next to the tiles: counts, bounds, mesh
                      integrity, UV layout and the palette the model actually uses
   --three <dir|url>  where the page gets three.js: a package directory or a base
-                     URL. Default: the installed three (vendor/three next to this
-                     script, then node_modules, then NODE_PATH), else the CDN.
+                     URL. Default: the installed three (node_modules, then
+                     NODE_PATH), else the CDN.
                      The library version changes lit output, so it is reported on
                      every run and recorded in --stats.
   --timeout <ms> --verbose
@@ -356,11 +357,9 @@ async function kitName(file) {
 function resolveThree() {
   const spec = opts.three.trim();
   if (/^https?:\/\//i.test(spec)) return { base: spec.replace(/\/+$/, ''), source: 'url', version: '' };
-  const here = path.dirname(fileURLToPath(import.meta.url));
   const cands = [];
   if (spec) cands.push(path.resolve(spec));
   else {
-    cands.push(path.join(here, 'vendor', 'three'));
     // three's package.json is not exported, so resolve the entry point and walk up
     try { cands.push(path.resolve(path.dirname(createRequire(import.meta.url).resolve('three')), '..')); } catch {}
     for (const root of (process.env.NODE_PATH || '').split(path.delimiter).filter(Boolean))

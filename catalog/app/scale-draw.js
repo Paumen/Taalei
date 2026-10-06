@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
-import { withHash } from './stamps.js?v=04e3ee3113';
+import { modelUrl } from './shared.js?v=401e058e54';
 
 const GRID_MINOR = 0.1;
 const GRID_MAJOR = 0.2;
@@ -45,7 +45,7 @@ const free = () => (waiting.length ? waiting.shift()() : inFlight--);
 export function loadModel(path, hash) {
   if (!models.has(path)) {
     const p = slot()
-      .then(() => load(withHash(`../../${path}`, hash)))
+      .then(() => load(modelUrl({ path, hash })))
       .then((gltf) => gltf.scene, (error) => { models.delete(path); throw error; })
       .finally(free);
     models.set(path, p);

@@ -66,10 +66,11 @@ one costs the tab once per model in the pack.
 
 A kit slug goes by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
 `quat-` (Quaternius), `rgp-` (RG Poly), `ipoly-` (iPoly3D), `rey-` (reyshapes), `rgs-` (Rgsdev); anything else takes the kit's own word. Two words at
-most. A kit needs its row in `catalog/data/manifest.js` (slug, name, url, note,
-licence label); `zetManifest` fills the model list but will not create the row.
-Kits that share style and source units go in a collection row there
-(`collection`, `name`, `kits`), per the bible's `P15`; give them one scale
+most. A kit needs its row in `catalog/data/manifest.js` (slug, url, note,
+licence label; `name` only when it differs from the slug);
+`tools/importeer/zet-catalogus.mjs` writes it when missing. Kits that share
+style and source units go in a collection row there (`collection`, `kits`, and
+`name` only when it differs from the collection id), per the bible's `P15`; give them one scale
 factor first.
 
 ## 3. Colour and bands
@@ -127,9 +128,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   `scale-small` or `scale-big` only on a kind whose `scale` in
   `lint/kinds.json` sets that value, for a clearly smaller or bigger
   version of it.
-- **use** — zero or more of the eight `use:` tags.
 - **theme** — only when obvious. Existing sets: `pirate`, `halloween`,
-  `robin-hood`, `asia`, `grave`, `sailing`. A new theme is worth opening
+  `robin-hood`, `asia`, `grave`, `sailing`, `space`. A new theme is worth opening
   only if dozens of assets will carry it; a large kit is not a reason to sweep
   every model into one.
 - **flags** — `plural` (several instances of one thing), `pickup` (a lone coin,
@@ -156,8 +156,8 @@ A source name is not a kind: a pack's "stage" is a construction site, its
 still resolve badly against the glossary, put them to the PO in one question
 rather than guessing each.
 
-`zetTags` throws on any kind, material or flag id that is not already a row in
-`catalog/data/tags.json`. Check the whole set of ids against that file before the
+`tools/importeer/zet-catalogus.mjs` throws on any kind, material or flag id that
+is not already a row in `catalog/data/tags.json`. Check the whole set of ids against that file before the
 first run.
 
 ## 5. Variants
@@ -166,13 +166,8 @@ Group what reads as one thing, following the bible's variants section. Clusters
 live in `catalog/data/asset_variants.json`: `members`, `main`, `type`. Name and
 triangle count propose a group; shape and a render confirm it before you write
 it down. `type` takes one of the values the file already uses —
-`detail-variant`, `color-variant`, `maatvariant` — so the tab keeps grouping
-them as it does now.
-
-The file also carries measured fields from the clustering tool, but
-`build-catalog.mjs` reads only `members`, `main` and `type`. Append new clusters
-with those plus `kits` and `types: ["manual"]`, and leave the existing entries
-untouched so the diff stays additive.
+`detail-variant`, `color-variant`, `maatvariant`. A cluster's id is its `main`,
+so each `main` leads one cluster only.
 
 ## 6. Rebuild, look, check
 

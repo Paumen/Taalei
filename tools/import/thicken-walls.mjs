@@ -1,9 +1,6 @@
-import { readFileSync, writeFileSync } from 'node:fs';
-import { basename, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
-import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
-import { buildTree, throughDepth } from './mesh-edit.mjs';
+import { buildTree, throughDepth, sub, cross, vec3View, catalogTubeNeed } from './mesh-edit.mjs';
 
 const HELP = `thicken-walls.mjs [--min <thickness>] [--list] <workfile.glb> [...]
 
@@ -14,14 +11,8 @@ or above --min do not move. Without --min each model takes the diameter G27 asks
 from its kind in lint/kinds.json. --list prints how many positions are thin and changes
 nothing. Skinned meshes are left alone.`;
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
-
 const MARGIN = 1.02;
 
-const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
-const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
-const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 const xf = (m, p) => [0, 1, 2].map((k) => m[k] * p[0] + m[4 + k] * p[1] + m[8 + k] * p[2] + m[12 + k]);
 
 function inverseLinear(m) {
@@ -32,15 +23,6 @@ function inverseLinear(m) {
 }
 const timesLinear = (m, p) => [0, 1, 2].map((k) => m[k] * p[0] + m[3 + k] * p[1] + m[6 + k] * p[2]);
 
-function writer(glb, accessorIndex) {
-  const accessor = glb.json.accessors[accessorIndex];
-  if (accessor.componentType !== 5126 || accessor.type !== 'VEC3' || accessor.sparse) throw new Error('expects float VEC3');
-  const view = glb.json.bufferViews[accessor.bufferView];
-  const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
-  const step = view.byteStride ?? 12;
-  return (i) => new Float32Array(glb.bin.buffer, glb.bin.byteOffset + start + i * step, 3);
-}
-
 function thicken(glb, min, list) {
   const { json } = glb;
   const world = worldMatrices(json);
@@ -50,7 +32,7 @@ function thicken(glb, min, list) {
     for (const prim of json.meshes[node.mesh].primitives ?? []) {
       if ((prim.mode ?? 4) !== 4) continue;
       const count = json.accessors[prim.attributes.POSITION].count;
-      const position = writer(glb, prim.attributes.POSITION);
+      const position = vec3View(glb, prim.attributes.POSITION);
       const indices = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, i) => i);
       const points = Array.from({ length: count }, (_, v) => xf(world[n], position(v)));
       prims.push({ prim, count, position, indices, points, back: inverseLinear(world[n]) });
@@ -109,7 +91,7 @@ function thicken(glb, min, list) {
     }
     if (!moved) return;
     if (p.prim.attributes.NORMAL !== undefined) {
-      const normal = writer(glb, p.prim.attributes.NORMAL);
+      const normal = vec3View(glb, p.prim.attributes.NORMAL);
       const sum = Array.from({ length: p.count }, () => [0, 0, 0]);
       for (let t = 0; t + 2 < p.indices.length; t += 3) {
         const corners = [p.indices[t], p.indices[t + 1], p.indices[t + 2]];
@@ -147,17 +129,11 @@ for (let i = 0; i < args.length; i++) {
 }
 if (min !== null && !(min > 0)) throw new Error('--min needs a positive number');
 
-let models = null;
-let kindFields = null;
 function minOf(file) {
   if (min !== null) return min;
-  if (!models) {
-    models = new Map(readJson('catalog/build/catalog.json').models.map((m) => [`${m.kit}/${m.name}`, m]));
-    kindFields = buildKindFields(readJson('lint/kinds.json'));
-  }
-  const id = `${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`;
-  if (!models.has(id)) throw new Error(`${file}: not in the catalogue, give --min`);
-  return tubeNeed(withKindFields(models.get(id), kindFields));
+  const need = catalogTubeNeed(file);
+  if (need === null) throw new Error(`${file}: not in the catalogue, give --min`);
+  return need;
 }
 
 for (const file of files) {

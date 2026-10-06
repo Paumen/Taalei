@@ -153,18 +153,10 @@ change with the least scope. Before changing anything:
 
 ## 9. Check before pushing
 
-    node catalog/tools/backfaces.mjs
-    node catalog/tools/build-catalog.mjs
-    node catalog/tools/build-lists.mjs
-    node catalog/tools/build-thumbs.mjs --jobs 4
-    node lint/size.mjs && node lint/tpu.mjs && node lint/measures.mjs && node lint/mat.mjs
-    node lint/palette.mjs && node lint/bands.mjs && node lint/backface.mjs
-
-Compare every count against the branch point, not against zero — the
-catalogue carries findings that are not yours. Then render the changed models
-and look, and put at least one beside catalogue siblings at locked scale:
-
-    node tools/renders/render.mjs <dir> --out <out> --views iso --lock-scale --sheet --sheet-only
+Rebuild and lint as `catalog-assets` §6 says. Compare every count against the
+branch point, not against zero — the catalogue carries findings that are not
+yours. Then render the changed models and look, and put at least one beside
+catalogue siblings at locked scale, with the render command in that section.
 
 ## Gotchas
 

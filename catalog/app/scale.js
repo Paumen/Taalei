@@ -1,9 +1,10 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85a8110145';
-import { drawFamily, loadModel } from './scale-draw.js?v=9aa0155fa8';
+import {
+  layoutChips, chipName, matchesState as matches, buildColorBar, buildChipRow as chipRow, syncSubtypes as syncChipStates, clearStates,
+} from './chiprij.js?v=440305f7d7';
+import { drawFamily, loadModel } from './scale-draw.js?v=1464439712';
 import { stamped } from './stamps.js?v=04e3ee3113';
-import './bouwstempel.js?v=aad2769343';
-
-const MODEL_PATH = 'kits/workfiles';
+import { WORKFILES, SIZE_CLASSES, TAG_TYPES, withParents, collectColors, readStore } from './shared.js?v=401e058e54';
+import './bouwstempel.js?v=2d49c008a7';
 
 const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
@@ -32,7 +33,7 @@ const shortKit = (slug) => (kitsMap.get(slug)?.name ?? slug).replace(/\s+Kit$/, 
 
 for (const group of groups) {
   for (const item of group.items) {
-    item.path = `${MODEL_PATH}/${item.slug}/${item.model}.glb`;
+    item.path = `${WORKFILES}/${item.slug}/${item.model}.glb`;
     item.group = item.collection ?? item.slug;
     item.kit = shortKit(item.group);
   }
@@ -40,42 +41,17 @@ for (const group of groups) {
 
 const content = document.getElementById('inhoud');
 
-const SIZE_CLASSES = [
-  { id: 's', sign: 'S', short: 'Small', limit: 0.5, hint: 'small — under half a unit' },
-  { id: 'm', sign: 'M', short: 'Medium', limit: 1.5, hint: 'medium — half to one and a half units' },
-  { id: 'l', sign: 'L', short: 'Large', limit: Infinity, hint: 'large — over one and a half units' },
-];
-
-const sizeOf = (item) => {
-  const longest = Math.max(...item.wdh);
-  return (SIZE_CLASSES.find((k) => longest < k.limit) ?? SIZE_CLASSES.at(-1)).id;
-};
-
-const TAG_TYPES = [
-  { type: 'material', head: 'Material' },
-  { type: 'attribute', head: 'Attributes' },
-  { type: 'tag', head: 'Tags' },
-  { type: 'theme', head: 'Theme' },
-  { type: 'artist', head: 'Artist' },
-];
+const sizePerModel = new Map((catalogData.models ?? []).map((m) => [`${m.kit}/${m.name}`, m.size]));
 
 const parentOf = new Map();
 for (const tag of catalogData.tags ?? []) {
   if (tag.parent) parentOf.set(tag.id, tag.parent);
 }
 
-const withParents = (ids) => {
-  const own = new Set(ids);
-  for (const id of ids) {
-    for (let p = parentOf.get(id); p && !own.has(p); p = parentOf.get(p)) own.add(p);
-  }
-  return [...own];
-};
-
 const allItems = groups.flatMap((g) => g.items);
 for (const item of allItems) {
-  item.tagIds = withParents(item.tags ?? []);
-  item.sizeId = sizeOf(item);
+  item.tagIds = withParents(item.tags ?? [], parentOf);
+  item.sizeId = sizePerModel.get(`${item.slug}/${item.model}`);
 }
 
 const KIT_IDS = [...new Set(allItems.map((i) => i.group))];
@@ -87,28 +63,6 @@ const tagState = new Map();
 const kitState = new Map();
 
 const chipButtons = [];
-
-const NEXT = { undefined: 'only', only: 'not', not: undefined };
-
-function rotateState(state, key, button) {
-  const next = NEXT[state.get(key)];
-  if (next) state.set(key, next);
-  else state.delete(key);
-  showState(button, next);
-  return next;
-}
-
-const keysWith = (state, value) => [...state].filter(([, v]) => v === value).map(([k]) => k);
-
-function matches(own, state, { any = [] } = {}) {
-  const only = keysWith(state, 'only');
-  const either = only.filter((e) => any.includes(e));
-  const all = only.filter((e) => !any.includes(e));
-  if (either.length && !own.some((e) => either.includes(e))) return false;
-  if (!all.every((e) => own.includes(e))) return false;
-  const not = keysWith(state, 'not');
-  return !own.some((e) => not.includes(e));
-}
 
 const STORAGE_KEY = 'taaleiland-scale-filters-v1';
 const STORED_STATES = { color: colorState, tag: tagState, size: sizeState, kit: kitState };
@@ -124,13 +78,7 @@ function saveStates() {
 }
 
 function loadStates() {
-  let stored;
-  try {
-    stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
-  } catch {
-    return;
-  }
-  if (!stored || typeof stored !== 'object') return;
+  const stored = readStore(STORAGE_KEY);
   for (const [name, state] of Object.entries(STORED_STATES)) {
     for (const [id, value] of Object.entries(stored[name] ?? {})) {
       if (value === 'only' || value === 'not') state.set(id, value);
@@ -153,15 +101,7 @@ const filtersOff = () => colorState.size + tagState.size + sizeState.size + kitS
 
 const reorder = () => layoutChips(chipButtons);
 
-function syncSubtypes() {
-  syncChips(chipButtons, {
-    stateOf: (id, chip) => chip.state.get(id),
-    onHide: (chip) => { chip.state.delete(chip.id); },
-  });
-  for (const chip of chipButtons) {
-    if (chip.count === 0 && chip.state.get(chip.id) === 'only') chip.state.delete(chip.id);
-  }
-}
+const syncSubtypes = () => syncChipStates(chipButtons);
 
 function apply() {
   syncSubtypes();
@@ -216,82 +156,18 @@ function buildSections() {
   for (const section of content.querySelectorAll('.familie')) watcher.observe(section);
 }
 
-function collectColors(items) {
-  const counts = new Map();
-  for (const item of items) {
-    for (const hex of item.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
-  }
-  return [...counts]
-    .map(([hex, count]) => ({ hex, count, name: bandNames.get(hex) ?? 'no band' }))
-    .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
-}
-
-function checkColor(hex) {
-  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
-}
-
-function buildColorBar(colors) {
-  const container = document.querySelector('#kleurbalk-stalen');
-  const swatches = document.createElement('div');
-  swatches.className = 'kleurgroep-stalen';
-  swatches.setAttribute('role', 'group');
-  swatches.setAttribute('aria-label', 'Filter by colour');
-
-  for (const color of colors) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'staal';
-    button.dataset.sleutel = color.hex;
-    button.style.setProperty('--staal-kleur', color.hex);
-    button.style.setProperty('--vink', checkColor(color.hex));
-    showState(button, colorState.get(color.hex));
-    button.title = `${color.name} ${color.hex} — ${color.count} models`;
-    button.setAttribute('aria-label', `${color.name} ${color.hex}, ${color.count} models`);
-
-    button.addEventListener('click', () => {
-      rotateState(colorState, color.hex, button);
-      apply();
-    });
-
-    swatches.append(button);
-  }
-
-  const group = document.createElement('div');
-  group.className = 'kleurgroep';
-  group.append(swatches);
-  container.append(group);
-}
-
-function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false } = {}) {
-  const { row, chips } = makeChipStrip({
-    label: `Filter by ${head.toLowerCase()}`,
-    items, container, shareRow, byCount, hideEmpty: true,
-    stateOf: (id) => state.get(id),
-    onPick: (id, button) => {
-      rotateState(state, id, button);
-      apply();
-    },
-  });
-  for (const chip of chips) { chip.state = state; chip.field = field; }
-  chipButtons.push(...chips);
-  return row;
-}
+const buildChipRow = (container, head, items, state, field, options) =>
+  chipRow(chipButtons, container, head, items, state, field, apply, options);
 
 function onClear() {
-  colorState.clear();
-  tagState.clear();
-  sizeState.clear();
-  kitState.clear();
-  for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
-  for (const { element } of chipButtons) showState(element, undefined);
+  clearStates([colorState, tagState, sizeState, kitState], chipButtons);
   apply();
 }
 
 function buildFilters() {
   const count = (f) => allItems.filter(f).length;
 
-  buildColorBar(collectColors(allItems));
+  buildColorBar(collectColors(allItems, bandNames), colorState, apply);
 
   const container = document.querySelector('#tagbalk');
 

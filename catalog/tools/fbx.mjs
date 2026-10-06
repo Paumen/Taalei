@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { inflateSync } from 'node:zlib';
+import { toSrgb } from './glb.mjs';
 
 const MAGIC = 'Kaydara FBX Binary  ';
 const AFBEELDING = /\.(png|jpe?g)$/i;
@@ -224,11 +225,6 @@ function pakMediaUit(video, dir) {
   return naam;
 }
 
-const naarSrgb = (lineair) => {
-  const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
-  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
-};
-
 export function leesFbx(pad) {
   const { roots } = readTree(pad);
   const objects = roots.find((r) => r.name === 'Objects');
@@ -264,7 +260,7 @@ export function leesFbx(pad) {
 
   const beschrijf = (materiaal) => {
     const rauw = property70(materiaal, 'DiffuseColor') ?? property70(materiaal, 'Diffuse');
-    const kleur = rauw ? rauw.slice(0, 3).map(naarSrgb) : null;
+    const kleur = rauw ? rauw.slice(0, 3).map(toSrgb) : null;
     const naam = naamVan(materiaal);
 
     for (const textuur of hangtOnder(materiaal.props[0], 'Texture')) {

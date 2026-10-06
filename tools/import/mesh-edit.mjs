@@ -1,10 +1,14 @@
+import { readFileSync } from 'node:fs';
+import { basename, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
+import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
 
-export const COMPONENT = {
+const COMPONENT = {
   5120: Int8Array, 5121: Uint8Array, 5122: Int16Array,
   5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array,
 };
-export const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
+const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16 };
 
 export function rawRows(glb, index) {
   const accessor = glb.json.accessors[index];
@@ -61,6 +65,11 @@ export function repack(glb, replaced) {
   glb.bin = Buffer.concat(chunks, length);
 }
 
+export const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+export const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+export const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+export const edgeKey = (a, b) => (a < b ? `${a},${b}` : `${b},${a}`);
+
 export const faceNormal = (p, a, b, c) => {
   const u = [0, 1, 2].map((k) => p[b * 3 + k] - p[a * 3 + k]);
   const v = [0, 1, 2].map((k) => p[c * 3 + k] - p[a * 3 + k]);
@@ -87,7 +96,7 @@ export function fixBounds(glb) {
   return fixed;
 }
 
-export const WELD = 1e-5;
+const WELD = 1e-5;
 
 export function welder(pos) {
   let extent = 0;
@@ -120,39 +129,27 @@ export function primitiveMatrix(json, prim) {
   return node < 0 ? [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1] : world[node];
 }
 
-export function meshScale(json, prim) {
-  const m = primitiveMatrix(json, prim);
-  return Math.cbrt(Math.abs(
-    m[0] * (m[5] * m[10] - m[6] * m[9]) - m[4] * (m[1] * m[10] - m[2] * m[9]) + m[8] * (m[1] * m[6] - m[2] * m[5]),
-  )) || 1;
-}
-
-export function sceneTriangles(glb) {
-  const { json } = glb;
-  const world = worldMatrices(json);
-  const out = [];
-  (json.nodes ?? []).forEach((node, i) => {
-    if (node.mesh === undefined || !world[i]) return;
-    const m = world[i];
-    for (const prim of json.meshes[node.mesh].primitives ?? []) {
-      if ((prim.mode ?? 4) !== 4 || prim.attributes.POSITION === undefined) continue;
-      const pos = readAccessor(glb, prim.attributes.POSITION).data;
-      const count = pos.length / 3;
-      const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, k) => k);
-      for (const v of idx) {
-        const [x, y, z] = [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
-        out.push(m[0] * x + m[4] * y + m[8] * z + m[12], m[1] * x + m[5] * y + m[9] * z + m[13], m[2] * x + m[6] * y + m[10] * z + m[14]);
-      }
-    }
-  });
-  return Float64Array.from(out);
-}
-
-export function writeVec3(glb, accessorIndex, i, values) {
+export function vec3View(glb, accessorIndex) {
   const accessor = glb.json.accessors[accessorIndex];
+  if (accessor.componentType !== 5126 || accessor.type !== 'VEC3' || accessor.sparse) throw new Error('expects float VEC3');
   const view = glb.json.bufferViews[accessor.bufferView];
   const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
-  new Float32Array(glb.bin.buffer, glb.bin.byteOffset + start + i * (view.byteStride ?? 12), 3).set(values);
+  const step = view.byteStride ?? 12;
+  return (i) => new Float32Array(glb.bin.buffer, glb.bin.byteOffset + start + i * step, 3);
+}
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const readJson = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
+let catalogModels = null;
+let kindFields = null;
+
+export function catalogTubeNeed(file) {
+  if (!catalogModels) {
+    catalogModels = new Map(readJson('catalog/build/catalog.json').models.map((m) => [`${m.kit}/${m.name}`, m]));
+    kindFields = buildKindFields(readJson('lint/kinds.json'));
+  }
+  const model = catalogModels.get(`${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`);
+  return model ? tubeNeed(withKindFields(model, kindFields)) : null;
 }
 
 export function vertexAdder(glb, prim) {
@@ -196,9 +193,6 @@ export function vertexAdder(glb, prim) {
   };
 }
 
-const sub3 = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
-const dot3 = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-const cross3 = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 
 export function buildTree(tris) {
   const box = (i) => {
@@ -242,17 +236,17 @@ export function hitBox(b, o, inv, far) {
 }
 
 export function hitTriangle(o, d, [a, b, c]) {
-  const e1 = sub3(b, a), e2 = sub3(c, a);
-  const p = cross3(d, e2);
-  const det = dot3(e1, p);
+  const e1 = sub(b, a), e2 = sub(c, a);
+  const p = cross(d, e2);
+  const det = dot(e1, p);
   if (Math.abs(det) < 1e-18) return -1;
-  const s = sub3(o, a);
-  const u = dot3(s, p) / det;
+  const s = sub(o, a);
+  const u = dot(s, p) / det;
   if (u < 0 || u > 1) return -1;
-  const q = cross3(s, e1);
-  const v = dot3(d, q) / det;
+  const q = cross(s, e1);
+  const v = dot(d, q) / det;
   if (v < 0 || u + v > 1) return -1;
-  return dot3(e2, q) / det;
+  return dot(e2, q) / det;
 }
 
 export function throughDepth(tree, tris, normals, o, d, far, near) {
@@ -266,7 +260,7 @@ export function throughDepth(tree, tris, normals, o, d, far, near) {
     for (let i = node.start; i < node.end; i++) {
       const t = tree.order[i];
       const at = hitTriangle(o, d, tris[t]);
-      const facing = dot3(normals[t], d);
+      const facing = dot(normals[t], d);
       if (at > near && Math.abs(facing) > 1e-9) hits.push([at, facing]);
     }
   }

@@ -1,25 +1,12 @@
-import { readFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { buildPalettes, buildKindBands, kindBandFindingsFor, idUnder } from './rules.mjs';
+import { buildPalettes, buildKindBands, kindBandFindingsFor, idUnder, materialIdsOf } from './rules.mjs';
+import { read, VARS, printTally, widthsOf } from './report.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
-
-const VARS = read('lint/variables.json');
 const MATERIALS = read(VARS.materials);
 const PALETTES = buildPalettes(MATERIALS, VARS);
 const RULES = buildKindBands(read(VARS.kinds));
 const { models } = read(VARS.models);
 
-const materialIds = new Set();
-const collect = (nodes) => {
-  for (const node of nodes) {
-    materialIds.add(node.id);
-    collect(node.children ?? []);
-  }
-};
-collect(MATERIALS.materials);
+const materialIds = materialIdsOf(MATERIALS);
 
 const findings = [];
 let checked = 0;
@@ -35,8 +22,7 @@ for (const m of models) {
 
 findings.sort((a, b) => a.kit.localeCompare(b.kit) || a.id.localeCompare(b.id) || a.material.localeCompare(b.material));
 
-const width = (key) => Math.max(...findings.map((f) => String(f[key]).length), 0);
-const w = { id: width('id'), kind: width('kind'), material: width('material'), wants: width('wants'), has: width('has') };
+const w = widthsOf(findings, ['id', 'kind', 'material', 'wants', 'has']);
 
 for (const f of findings) {
   console.log(
@@ -45,15 +31,7 @@ for (const f of findings) {
   );
 }
 
-const perKit = new Map();
-for (const f of findings) perKit.set(f.kit, (perKit.get(f.kit) ?? 0) + 1);
-if (perKit.size) {
-  console.log('');
-  const kw = Math.max(...[...perKit.keys()].map((k) => k.length));
-  for (const [kit, n] of [...perKit].sort(([a], [b]) => a.localeCompare(b))) {
-    console.log(`${kit.padEnd(kw)}  ${String(n).padStart(3)} errors`);
-  }
-}
+printTally(findings, 'kit', { levels: false });
 
 console.log(`\n${checked} checked, ${skipped} exempt, ${findings.length} errors`);
 

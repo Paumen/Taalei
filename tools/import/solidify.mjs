@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
-import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
-import { repack, fixBounds, editablePrimitives, vertexAdder, buildTree, throughDepth, hitBox, hitTriangle } from './mesh-edit.mjs';
+import { readGlb, writeGlb, readAccessor, worldMatrices, multiplyMatrix } from '../../catalog/tools/glb.mjs';
+import { repack, fixBounds, editablePrimitives, vertexAdder, buildTree, throughDepth, hitBox, hitTriangle, sub, dot, cross } from './mesh-edit.mjs';
 
 const HELP = `solidify.mjs [--thick <t>] [--dry] <workfile.glb> [...]
 
@@ -25,9 +25,6 @@ const ELEVATIONS = [20, 50];
 const FOV = 35;
 const GRAZE = 1e-3;
 
-const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
-const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const unit = (a) => { const l = Math.hypot(...a); return l ? a.map((x) => x / l) : null; };
 const xf = (m, p) => [0, 1, 2].map((k) => m[k] * p[0] + m[4 + k] * p[1] + m[8 + k] * p[2] + m[12 + k]);
 const transposed = (m, p) => [0, 1, 2].map((k) => m[k * 4] * p[0] + m[k * 4 + 1] * p[1] + m[k * 4 + 2] * p[2]);
@@ -58,18 +55,12 @@ function firstHit(tree, tris, o, d, far, near) {
   return best;
 }
 
-function multiply(a, b) {
-  const r = new Array(16).fill(0);
-  for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) for (let k = 0; k < 4; k++) r[j * 4 + i] += a[k * 4 + i] * b[j * 4 + k];
-  return r;
-}
-
 function skinMatrices(glb, world, p) {
   const skin = glb.json.skins[p.skin];
   const ibm = skin.inverseBindMatrices !== undefined ? readAccessor(glb, skin.inverseBindMatrices).data : null;
   const bones = skin.joints.map((joint, k) => {
     const inverse = ibm ? Array.from(ibm.slice(k * 16, k * 16 + 16)) : [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
-    return multiply(multiply(world[joint], inverse), p.matrix);
+    return multiplyMatrix(multiplyMatrix(world[joint], inverse), p.matrix);
   });
   const joints = readAccessor(glb, p.prim.attributes.JOINTS_0).data;
   const weights = readAccessor(glb, p.prim.attributes.WEIGHTS_0);

@@ -1,12 +1,6 @@
-import { readFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { buildLimits, tpuFindingsFor, isExempt } from './rules.mjs';
+import { read, VARS, printTally, widthsOf } from './report.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
-
-const VARS = read('lint/variables.json');
 const LIMITS = buildLimits(read(VARS.kinds));
 const { models } = read(VARS.models);
 
@@ -24,8 +18,7 @@ for (const m of models) {
 
 findings.sort((a, b) => a.kit.localeCompare(b.kit) || a.id.localeCompare(b.id));
 
-const width = (key) => Math.max(...findings.map((f) => String(f[key]).length), 0);
-const w = { id: width('id'), kind: width('kind') };
+const w = widthsOf(findings, ['id', 'kind']);
 
 for (const f of findings) {
   console.log(
@@ -34,19 +27,7 @@ for (const f of findings) {
   );
 }
 
-const perKit = new Map();
-for (const f of findings) {
-  const row = perKit.get(f.kit) ?? { errors: 0, warnings: 0 };
-  row[`${f.level}s`]++;
-  perKit.set(f.kit, row);
-}
-if (perKit.size) {
-  console.log('');
-  const kw = Math.max(...[...perKit.keys()].map((k) => k.length));
-  for (const [kit, row] of [...perKit].sort(([a], [b]) => a.localeCompare(b))) {
-    console.log(`${kit.padEnd(kw)}  ${String(row.errors).padStart(3)} errors  ${String(row.warnings).padStart(3)} warnings`);
-  }
-}
+printTally(findings, 'kit');
 
 const errors = findings.filter((f) => f.level === 'error').length;
 const warnings = findings.length - errors;

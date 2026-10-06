@@ -1,24 +1,11 @@
-import { readFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { measureFindingsFor, buildKindFields } from './rules.mjs';
+import { measureFindingsFor, buildKindFields, materialIdsOf } from './rules.mjs';
+import { read, VARS, printTally, widthsOf } from './report.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const read = (path) => JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
-
-const VARS = read('lint/variables.json');
 const { rows } = read(VARS.measures);
 const KIND_FIELDS = buildKindFields(read(VARS.kinds));
 const { models } = read(VARS.models);
 
-const materialIds = new Set();
-const collect = (nodes) => {
-  for (const node of nodes) {
-    materialIds.add(node.id);
-    collect(node.children ?? []);
-  }
-};
-collect(read(VARS.materials).materials);
+const materialIds = materialIdsOf(read(VARS.materials));
 
 const only = process.argv.slice(2);
 const active = only.length ? rows.filter((r) => only.includes(r.id)) : rows;
@@ -32,8 +19,7 @@ for (const m of models) {
 
 findings.sort((a, b) => a.rule.localeCompare(b.rule) || a.kit.localeCompare(b.kit) || a.id.localeCompare(b.id));
 
-const width = (key) => Math.max(...findings.map((f) => String(f[key]).length), 0);
-const w = { id: width('id'), kind: width('kind'), field: width('field'), actual: width('actual') };
+const w = widthsOf(findings, ['id', 'kind', 'field', 'actual']);
 
 for (const f of findings) {
   console.log(
@@ -42,18 +28,7 @@ for (const f of findings) {
   );
 }
 
-const perRule = new Map();
-for (const f of findings) {
-  const row = perRule.get(f.rule) ?? { errors: 0, warnings: 0 };
-  row[`${f.level}s`]++;
-  perRule.set(f.rule, row);
-}
-if (perRule.size) {
-  console.log('');
-  for (const [rule, row] of [...perRule].sort(([a], [b]) => a.localeCompare(b))) {
-    console.log(`${rule}  ${String(row.errors).padStart(4)} errors  ${String(row.warnings).padStart(4)} warnings`);
-  }
-}
+printTally(findings, 'rule', { width: 4, pad: false });
 
 const errors = findings.filter((f) => f.level === 'error').length;
 const warnings = findings.length - errors;

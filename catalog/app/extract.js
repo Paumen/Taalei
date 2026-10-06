@@ -1,12 +1,11 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=fe16180116';
-import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=c41ea485be';
-import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=7825dfa9fd';
-
-const meta = (name) => document.querySelector(`meta[name="${name}"]`)?.content ?? '';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=6756ccea56';
+import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=7b9619fe4c';
+import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=b702908fd9';
+import { meta, saveFile } from './shared.js?v=401e058e54';
 
 const NOTE = [
   'One extract per session, whatever was staged in the browser.',
-  '"tags" holds the tag and kind edits: per tag, "add" ids join that tag\'s "models" in catalog/tags.json and "remove" ids leave it.',
+  '"tags" holds the tag and kind edits: per tag, "add" ids join that tag\'s "models" in catalog/data/tags.json and "remove" ids leave it.',
   '"colours" holds colour marks per model, keyed by the hex the panel shows: "partial" is partly wrong, "wrong" is the wrong colour outright, "add" is a band the model does not carry and should.',
   '"comments" holds one free-text note per model.',
   '"views" holds, per commented model, the angle the panel was showing when the note was written: "view" and "fov" go straight to tools/renders/render.mjs --views and --fov, "zoom" is how far in the view was against the framing the panel chose, so above about 1.3 the note is about a detail, and "orbit" is what the panel reported.',
@@ -36,7 +35,7 @@ const staged = () => {
   return out;
 };
 
-export function buildExtract() {
+function buildExtract() {
   const page = document.title;
   const own = ownSections();
   return {
@@ -58,16 +57,8 @@ const counts = () => [
   ...ownCounts(),
 ];
 
-export const extractCount = () => counts().reduce((sum, part) => sum + part.n, 0);
-
 export function downloadExtract() {
-  const blob = new Blob([JSON.stringify(buildExtract(), null, 1) + '\n'], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `taalei-extract-${timeStamp()}.json`;
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  saveFile(`taalei-extract-${timeStamp()}.json`, JSON.stringify(buildExtract(), null, 1) + '\n', 'application/json');
 }
 
 export function mountExtractBar() {

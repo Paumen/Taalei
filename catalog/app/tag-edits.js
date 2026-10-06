@@ -1,16 +1,9 @@
-import { makeChipStrip, layoutChips, syncChips, chipName, shortChipName } from './chiprij.js?v=85a8110145';
+import { makeChipStrip, layoutChips, syncChips, chipName, shortChipName } from './chiprij.js?v=440305f7d7';
+import { kindParent, readStore, writeStore } from './shared.js?v=401e058e54';
 
 const STORAGE_KEY = 'taaleiland-tagedits-v1';
 
-function load() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
-    if (stored && typeof stored === 'object') return stored;
-  } catch {}
-  return {};
-}
-
-let edits = load();
+let edits = readStore(STORAGE_KEY);
 {
   const before = JSON.stringify(edits);
   for (const id of Object.keys(edits)) prune(id);
@@ -21,9 +14,7 @@ const listeners = [];
 const expanded = new Set();
 
 function save() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
-  } catch {}
+  writeStore(STORAGE_KEY, edits);
 }
 
 function notify() {
@@ -45,7 +36,7 @@ export function onChange(fn) {
   listeners.push(fn);
 }
 
-export const isKindId = (id, tagsById) => tagsById?.get(id)?.type === 'kind';
+const isKindId = (id, tagsById) => tagsById?.get(id)?.type === 'kind';
 
 const bases = new WeakMap();
 const baseIds = (model) => {
@@ -70,10 +61,6 @@ export function effectiveTags(model) {
 export const effectiveKind = (model, tagsById) =>
   effectiveTags(model).find((id) => isKindId(id, tagsById)) ?? null;
 
-export function hasPendingEdit(model) {
-  return Object.values(edits).some((e) => e.add.includes(model.id) || e.remove.includes(model.id));
-}
-
 function stage(model, tagId, on) {
   const hadBase = baseIds(model).includes(tagId);
   const e = (edits[tagId] ??= { add: [], remove: [] });
@@ -87,7 +74,7 @@ function stage(model, tagId, on) {
   prune(tagId);
 }
 
-export function toggleTag(model, tagId) {
+function toggleTag(model, tagId) {
   const nowHas = effectiveTags(model).includes(tagId);
   stage(model, tagId, !nowHas);
   save();
@@ -95,7 +82,7 @@ export function toggleTag(model, tagId) {
   return !nowHas;
 }
 
-export function setKind(model, kindId, tagsById) {
+function setKind(model, kindId, tagsById) {
   const current = effectiveKind(model, tagsById);
   if (current === kindId) return;
   if (current) stage(model, current, false);
@@ -110,7 +97,7 @@ const materialAncestors = (id, tagsById) => {
   return out;
 };
 
-export function setMaterial(model, tagId, tagsById) {
+function setMaterial(model, tagId, tagsById) {
   const current = effectiveTags(model);
   if (current.includes(tagId)) stage(model, tagId, false);
   else {
@@ -154,8 +141,6 @@ export const allEdits = () =>
       .map(([id, e]) => [id, { add: [...e.add].sort(), remove: [...e.remove].sort() }]),
   );
 
-const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
-
 const allowedFor = (tag, kind) => !tag.kinds || Boolean(kind && tag.kinds.some((k) => kind === k || kind.startsWith(`${k}-`)));
 
 const SCALE_TAG = /^scale-/;
@@ -177,7 +162,7 @@ export function renderTagEditor(container, model, tagsById, options = {}) {
     { label: 'Attributes', of: (t) => t.type === 'attribute'
         && (on.has(t.id) || (allScale && SCALE_TAG.test(t.id)) || allowedFor(t, effectiveKind(model, tagsById))),
       pick: (id) => setAttribute(model, id, tagsById) },
-    { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },
+    { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' && !t.derived },
     { label: 'Theme', of: (t) => t.type === 'theme' },
   ];
 

@@ -1,24 +1,16 @@
+import { readStore, writeStore } from './shared.js?v=401e058e54';
+
 const STORAGE_KEY = 'taaleiland-opmerkingen-v1';
 const VIEW_KEY = 'taaleiland-opmerking-zicht-v1';
 const SAVE_AFTER = 400;
 
-function load(key) {
-  try {
-    const stored = JSON.parse(localStorage.getItem(key) ?? 'null');
-    if (stored && typeof stored === 'object') return stored;
-  } catch {}
-  return {};
-}
-
-let notes = load(STORAGE_KEY);
-let views = load(VIEW_KEY);
+let notes = readStore(STORAGE_KEY);
+let views = readStore(VIEW_KEY);
 const listeners = [];
 
 function save() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
-    localStorage.setItem(VIEW_KEY, JSON.stringify(views));
-  } catch {}
+  writeStore(STORAGE_KEY, notes);
+  writeStore(VIEW_KEY, views);
 }
 
 function notify() {
@@ -29,13 +21,13 @@ export function onChange(fn) {
   listeners.push(fn);
 }
 
-export const commentOf = (model) => notes[model.id] ?? '';
+const commentOf = (model) => notes[model.id] ?? '';
 
 export const hasComment = (model) => Boolean(notes[model.id]);
 
 // The view is whatever the panel was showing when the note was written, so a note
 // about a part carries the angle the part was visible from.
-export function setComment(model, text, view = null) {
+function setComment(model, text, view = null) {
   const trimmed = text.trim();
   if (trimmed) {
     notes[model.id] = trimmed;

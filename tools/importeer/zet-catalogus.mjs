@@ -48,9 +48,7 @@ for (const config of configs) {
     varianten.clusters.push({
       members: leden,
       main: leden[0],
-      kits: [config.kit],
       type: groep.type ?? 'detail-variant',
-      types: ['manual'],
     });
   }
 }
@@ -66,11 +64,9 @@ const rijen = configs
     JSON.stringify(
       {
         slug: config.kit,
-        name: config.kit,
         url: config.url ?? null,
         ...(config.licenseLabel ? { licenseLabel: config.licenseLabel } : {}),
         ...(config.note ? { note: config.note } : {}),
-        models: config.modellen.map((m) => m.naam).sort(),
       },
       null,
       1,

@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
-import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
-import { rawRows, repack, fixBounds } from './mesh-edit.mjs';
+import { readGlb, writeGlb, readAccessor, worldMatrices, multiplyMatrix } from '../../catalog/tools/glb.mjs';
+import { rawRows, repack, fixBounds, cross, dot } from './mesh-edit.mjs';
 
 const HELP = `upright.mjs [--up <±x|±y|±z|x,y,z>] [--front <±x|±y|±z|x,y,z>] [--dry] <workfile.glb> [...]
 
@@ -22,16 +22,7 @@ function axis(text) {
   return v.map((x) => x / Math.hypot(...v));
 }
 
-const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
-const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-
 const apply = (m, v, w = 1) => [0, 1, 2].map((r) => m[r] * v[0] + m[4 + r] * v[1] + m[8 + r] * v[2] + m[12 + r] * w);
-
-function multiply(a, b) {
-  const out = new Array(16).fill(0);
-  for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) for (let k = 0; k < 4; k++) out[c * 4 + r] += a[k * 4 + r] * b[c * 4 + k];
-  return out;
-}
 
 function invert(m) {
   const lin = [[m[0], m[4], m[8]], [m[1], m[5], m[9]], [m[2], m[6], m[10]]];
@@ -66,7 +57,7 @@ function bounds(glb, nodes, turn) {
   const min = [Infinity, Infinity, Infinity];
   const max = [-Infinity, -Infinity, -Infinity];
   for (const { node, world } of nodes) {
-    const m = multiply(turn, world);
+    const m = multiplyMatrix(turn, world);
     for (const prim of glb.json.meshes[node.mesh].primitives) {
       const pos = readAccessor(glb, prim.attributes.POSITION).data;
       for (let i = 0; i < pos.length; i += 3) {
@@ -111,7 +102,7 @@ function upright(file, upArg, frontArg, dry) {
 
   const turned = bounds(glb, nodes, turn);
   const shift = [-(turned.min[0] + turned.max[0]) / 2, -turned.min[1], -(turned.min[2] + turned.max[2]) / 2];
-  const placed = multiply([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ...shift, 1], turn);
+  const placed = multiplyMatrix([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ...shift, 1], turn);
   const wdh = [turned.max[0] - turned.min[0], turned.max[2] - turned.min[2], turned.max[1] - turned.min[1]].map((v) => +v.toFixed(3));
   const name = (v) => (v.filter((x) => Math.abs(x) > 1e-9).length === 1
     ? `${v.find((x) => Math.abs(x) > 1e-9) < 0 ? '-' : '+'}${'xyz'[v.findIndex((x) => Math.abs(x) > 1e-9)]}`
@@ -121,7 +112,7 @@ function upright(file, upArg, frontArg, dry) {
   const replaced = new Map();
   const done = new Set();
   for (const { node, world } of nodes) {
-    const m = multiply(invert(world), multiply(placed, world));
+    const m = multiplyMatrix(invert(world), multiplyMatrix(placed, world));
     const direction = (v) => {
       const d = apply(m, v, 0);
       const l = Math.hypot(...d) || 1;

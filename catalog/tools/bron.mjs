@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { readGlb, readAccessor } from '../../catalog/tools/glb.mjs';
+import { readGlb, readAccessor, multiplyMatrix, nodeMatrix, IDENTITY_MATRIX, toSrgb } from './glb.mjs';
 import draco3d from 'draco3d';
 
 const DRACO = await draco3d.createDecoderModule({});
@@ -45,37 +45,6 @@ function dracoPrimitief({ json, bin }, prim) {
   return uit;
 }
 
-const EENHEID = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
-
-function maal(a, b) {
-  const r = new Array(16).fill(0);
-  for (let kolom = 0; kolom < 4; kolom++) {
-    for (let rij = 0; rij < 4; rij++) {
-      let som = 0;
-      for (let k = 0; k < 4; k++) som += a[k * 4 + rij] * b[kolom * 4 + k];
-      r[kolom * 4 + rij] = som;
-    }
-  }
-  return r;
-}
-
-function nodeMatrix(node) {
-  if (node.matrix) return node.matrix;
-  const [tx, ty, tz] = node.translation ?? [0, 0, 0];
-  const [qx, qy, qz, qw] = node.rotation ?? [0, 0, 0, 1];
-  const [sx, sy, sz] = node.scale ?? [1, 1, 1];
-  const x2 = qx + qx, y2 = qy + qy, z2 = qz + qz;
-  const xx = qx * x2, xy = qx * y2, xz = qx * z2;
-  const yy = qy * y2, yz = qy * z2, zz = qz * z2;
-  const wx = qw * x2, wy = qw * y2, wz = qw * z2;
-  return [
-    (1 - (yy + zz)) * sx, (xy + wz) * sx, (xz - wy) * sx, 0,
-    (xy - wz) * sy, (1 - (xx + zz)) * sy, (yz + wx) * sy, 0,
-    (xz + wy) * sz, (yz - wx) * sz, (1 - (xx + yy)) * sz, 0,
-    tx, ty, tz, 1,
-  ];
-}
-
 const punt = (m, x, y, z) => [
   m[0] * x + m[4] * y + m[8] * z + m[12],
   m[1] * x + m[5] * y + m[9] * z + m[13],
@@ -87,11 +56,6 @@ const richting = (m, x, y, z) => [
   m[1] * x + m[5] * y + m[9] * z,
   m[2] * x + m[6] * y + m[10] * z,
 ];
-
-const naarSrgb = (lineair) => {
-  const v = lineair <= 0.0031308 ? lineair * 12.92 : 1.055 * lineair ** (1 / 2.4) - 0.055;
-  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
-};
 
 function leesGltfBestand(pad) {
   if (pad.endsWith('.glb')) return readGlb(pad);
@@ -147,7 +111,7 @@ function materiaalUitGltf(json, index, dir, bin) {
   }
 
   const factor = pbr.baseColorFactor ?? [1, 1, 1, 1];
-  return { naam, textuur: null, kleur: factor.slice(0, 3).map(naarSrgb) };
+  return { naam, textuur: null, kleur: factor.slice(0, 3).map(toSrgb) };
 }
 
 export function leesGltf(pad) {
@@ -160,11 +124,11 @@ export function leesGltf(pad) {
   const zet = (index, ouder) => {
     const node = nodes[index];
     if (!node) return;
-    wereld[index] = maal(ouder, nodeMatrix(node));
+    wereld[index] = multiplyMatrix(ouder, nodeMatrix(node));
     for (const kind of node.children ?? []) zet(kind, wereld[index]);
   };
   const scene = json.scenes?.[json.scene ?? 0];
-  for (const wortel of scene?.nodes ?? nodes.map((_, i) => i)) zet(wortel, EENHEID);
+  for (const wortel of scene?.nodes ?? nodes.map((_, i) => i)) zet(wortel, IDENTITY_MATRIX);
 
   const primitieven = [];
   nodes.forEach((node, index) => {
@@ -252,7 +216,7 @@ function leesMtl(pad) {
       huidig = { textuur: null, kleur: [255, 255, 255] };
       materialen.set(rest.join(' '), huidig);
     } else if (!huidig) continue;
-    else if (sleutel === 'Kd') huidig.kleur = rest.slice(0, 3).map((v) => naarSrgb(Number(v)));
+    else if (sleutel === 'Kd') huidig.kleur = rest.slice(0, 3).map((v) => toSrgb(Number(v)));
     else if (sleutel === 'map_Kd') {
       const bestand = rest.join(' ').replace(/\\+/g, '/');
       huidig.textuur = resolve(dirname(pad), bestand);

@@ -184,3 +184,97 @@ export function syncChips(chips, { stateOf, countOf = null, onHide = null, skip 
     row.hidden = !chips.some((c) => c.row === row && !c.element.hidden);
   }
 }
+
+const NEXT = { undefined: 'only', only: 'not', not: undefined };
+
+export const nextState = (state) => NEXT[state];
+
+export function rotateState(states, key, button) {
+  const next = NEXT[states.get(key)];
+  if (next) states.set(key, next);
+  else states.delete(key);
+  showChipState(button, next);
+  return next;
+}
+
+export const keysWithState = (states, value) => [...states].filter(([, v]) => v === value).map(([k]) => k);
+
+export function matchesState(own, states, { any = [] } = {}) {
+  const only = keysWithState(states, 'only');
+  const either = only.filter((e) => any.includes(e));
+  const all = only.filter((e) => !any.includes(e));
+  if (either.length && !own.some((e) => either.includes(e))) return false;
+  if (!all.every((e) => own.includes(e))) return false;
+  const not = keysWithState(states, 'not');
+  return !own.some((e) => not.includes(e));
+}
+
+function checkColor(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
+}
+
+export function buildColorBar(colors, states, onPick) {
+  const container = document.querySelector('#kleurbalk-stalen');
+  const swatches = document.createElement('div');
+  swatches.className = 'kleurgroep-stalen';
+  swatches.setAttribute('role', 'group');
+  swatches.setAttribute('aria-label', 'Filter by colour');
+
+  for (const color of colors) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'staal';
+    button.dataset.sleutel = color.hex;
+    button.style.setProperty('--staal-kleur', color.hex);
+    button.style.setProperty('--vink', checkColor(color.hex));
+    showChipState(button, states.get(color.hex));
+    button.title = `${color.name} ${color.hex} — ${color.count} models`;
+    button.setAttribute('aria-label', `${color.name} ${color.hex}, ${color.count} models`);
+
+    button.addEventListener('click', () => {
+      rotateState(states, color.hex, button);
+      onPick();
+    });
+
+    swatches.append(button);
+  }
+
+  const group = document.createElement('div');
+  group.className = 'kleurgroep';
+  group.append(swatches);
+  container.append(group);
+}
+
+export function buildChipRow(chipButtons, container, head, items, states, field, onPick, { shareRow = null, byCount = false, extra = false } = {}) {
+  const { row, chips } = makeChipStrip({
+    label: `Filter by ${head.toLowerCase()}`,
+    items, container, shareRow, byCount, hideEmpty: true,
+    stateOf: (id) => states.get(id),
+    onPick: (id, button) => {
+      rotateState(states, id, button);
+      onPick(id);
+    },
+  });
+  for (const chip of chips) { chip.state = states; chip.field = field; chip.extra = extra; }
+  chipButtons.push(...chips);
+  return row;
+}
+
+export function syncSubtypes(chipButtons, { countOf = null, skip = null } = {}) {
+  syncChips(chipButtons, {
+    stateOf: (id, chip) => chip.state.get(id),
+    countOf,
+    onHide: (chip) => { chip.state.delete(chip.id); },
+    skip,
+  });
+  for (const chip of chipButtons) {
+    if (chip.count === 0 && chip.state.get(chip.id) === 'only') chip.state.delete(chip.id);
+  }
+}
+
+export function clearStates(stateMaps, chipButtons) {
+  for (const states of stateMaps) states.clear();
+  for (const button of document.querySelectorAll('.staal')) showChipState(button, undefined);
+  for (const { element } of chipButtons) showChipState(element, undefined);
+}

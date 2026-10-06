@@ -35,7 +35,7 @@ const limitsOf = (kind, scale) => {
   return found.length ? Object.fromEntries(found) : undefined;
 };
 
-export const SCALE_TABS = [
+const SCALE_TABS = [
   {
     id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
     branches: ['obj', 'obj-kitchenware', 'obj-furnishing', 'obj-food',

@@ -1,7 +1,6 @@
 import { readFileSync } from 'node:fs';
 
-export function readGlb(path) {
-  const buf = readFileSync(path);
+export function parseGlb(buf, path) {
   if (buf.length < 20 || buf.readUInt32LE(0) !== 0x46546c67) {
     throw new Error(`not a valid GLB: ${path}`);
   }
@@ -20,6 +19,10 @@ export function readGlb(path) {
   }
 
   return { json, bin };
+}
+
+export function readGlb(path) {
+  return parseGlb(readFileSync(path), path);
 }
 
 export function writeGlb(path, json, bin, writeFile) {
@@ -44,9 +47,9 @@ export function writeGlb(path, json, bin, writeFile) {
   writeFile(path, Buffer.concat([header, jsonHeader, jsonChunk, binHeader, binChunk]));
 }
 
-const IDENTITY_MATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+export const IDENTITY_MATRIX = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
-function multiplyMatrix(a, b) {
+export function multiplyMatrix(a, b) {
   const r = new Array(16).fill(0);
   for (let column = 0; column < 4; column++) {
     for (let row = 0; row < 4; row++) {
@@ -58,7 +61,7 @@ function multiplyMatrix(a, b) {
   return r;
 }
 
-function nodeMatrix(node) {
+export function nodeMatrix(node) {
   if (node.matrix) return node.matrix;
 
   const [tx, ty, tz] = node.translation ?? [0, 0, 0];
@@ -82,6 +85,11 @@ const multiplyPoint = (m, x, y, z) => [
   m[1] * x + m[5] * y + m[9] * z + m[13],
   m[2] * x + m[6] * y + m[10] * z + m[14],
 ];
+
+export const toSrgb = (linear) => {
+  const v = linear <= 0.0031308 ? linear * 12.92 : 1.055 * linear ** (1 / 2.4) - 0.055;
+  return Math.round(Math.min(Math.max(v, 0), 1) * 255);
+};
 
 const COMPONENT = {
   5120: Int8Array, 5121: Uint8Array, 5122: Int16Array,
@@ -242,17 +250,7 @@ function isStrictAngle(component) {
 export function measureScene(glb) {
   const { json } = glb;
   const nodes = json.nodes ?? [];
-  const scene = json.scenes?.[json.scene ?? 0];
-
-  const world = new Array(nodes.length).fill(null);
-  const setWorld = (index, parent) => {
-    if (world[index]) return;
-    const node = nodes[index];
-    if (!node) return;
-    world[index] = multiplyMatrix(parent, nodeMatrix(node));
-    for (const child of node.children ?? []) setWorld(child, world[index]);
-  };
-  for (const index of scene?.nodes ?? []) setWorld(index, IDENTITY_MATRIX);
+  const world = worldMatrices(json);
 
   const min = [Infinity, Infinity, Infinity];
   const max = [-Infinity, -Infinity, -Infinity];
@@ -427,7 +425,7 @@ export function worldMatrices(json) {
   return world;
 }
 
-export function symmetricEigen(c) {
+function symmetricEigen(c) {
   const a = c.map((r) => r.slice());
   const v = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
   for (let it = 0; it < 50; it++) {
@@ -579,7 +577,7 @@ export function measureTubes(glb) {
   return tubes;
 }
 
-export const STICK_RATIO = 6;
+const STICK_RATIO = 6;
 
 function narrowestTurn(points, center, u, w) {
   const uw = points.map((p) => {

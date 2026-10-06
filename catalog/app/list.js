@@ -1,13 +1,10 @@
-import { stamped, withHash } from './stamps.js?v=04e3ee3113';
-import './bouwstempel.js?v=aad2769343';
-
-const number = new Intl.NumberFormat('en-GB');
-const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
-
-const readableBytes = (bytes) =>
-  bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
-
-const modelUrl = (model) => withHash(`../../${model.path}`, model.hash);
+import { stamped } from './stamps.js?v=04e3ee3113';
+import {
+  number, unit, readableBytes, longest, kindChain, rootRank, modelUrl, foldVariants,
+  span, glyph, flatMode, setLighting, watchViewers,
+  makeSelection, choiceChip, copyPathsOnClick, copyWithFeedback,
+} from './shared.js?v=401e058e54';
+import './bouwstempel.js?v=2d49c008a7';
 
 const el = (sel) => document.querySelector(sel);
 
@@ -18,30 +15,10 @@ const PAGE = {
   npc: 'npc' in document.body.dataset,
 };
 
-function span(className, text) {
-  const node = document.createElement('span');
-  node.className = className;
-  if (text !== undefined) node.textContent = text;
-  return node;
-}
-
-function glyph(kind, sign, hint) {
-  const node = span(`glyf glyf-${kind}`, sign);
-  node.title = hint;
-  return node;
-}
-
 const register = { models: [], packs: new Map(), kinds: new Map(), variants: new Map(), byId: new Map() };
 const variantMain = new Map();
 
-const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
-const kindChain = (id) => {
-  const chain = [];
-  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
-  return chain;
-};
 const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : 'No kind');
-const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'set', 'scene'];
 const cards = [];
 let sections = [];
 
@@ -58,8 +35,8 @@ const REASONS = {
 
 const reasonOf = (model) => REASONS[model.reason] ?? null;
 
-const chosenPaths = new Set();
-const cardsPerPath = new Map();
+const selection = makeSelection(() => updateSelection());
+const { chosen: chosenPaths, cardsPerPath, set: setSelection } = selection;
 let lastChoice = null;
 let selectMode = false;
 let swipe = null;
@@ -79,8 +56,6 @@ function matches(model) {
   return true;
 }
 
-const longest = (m) => Math.max(...m.wdh);
-
 const SORTINGS = {
   naam: (a, b) => a.name.localeCompare(b.name, 'en') || a.kit.localeCompare(b.kit),
   groot: (a, b) => longest(b) - longest(a),
@@ -89,74 +64,7 @@ const SORTINGS = {
   licht: (a, b) => a.tris - b.tris,
 };
 
-const FLAT_ENVIRONMENT = 'effen-omgeving.png';
-const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
-const flatMode = { on: false };
-
-function setLighting(viewer, shadow) {
-  viewer.setAttribute('tone-mapping', 'neutral');
-  if (flatMode.on) {
-    viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
-    viewer.setAttribute('shadow-intensity', '0');
-    viewer.setAttribute('exposure', '1.3');
-  } else {
-    viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
-    viewer.setAttribute('shadow-intensity', shadow);
-    viewer.setAttribute('exposure', '1.5');
-  }
-}
-
-function attachViewer(box) {
-  if (box.querySelector('model-viewer')) return;
-  const viewer = document.createElement('model-viewer');
-  viewer.src = box.dataset.src;
-  viewer.alt = box.dataset.alt;
-  viewer.setAttribute('camera-orbit', '35deg 68deg auto');
-  viewer.setAttribute('shadow-softness', '0.9');
-  setLighting(viewer, '0.6');
-  viewer.setAttribute('interaction-prompt', 'none');
-  viewer.setAttribute('disable-zoom', '');
-  viewer.setAttribute('loading', 'eager');
-  box.replaceChildren(viewer);
-}
-
-const soon = globalThis.requestIdleCallback ?? ((f) => setTimeout(f, 1));
-
-function detachViewer(box) {
-  const viewer = box.querySelector('model-viewer');
-  if (!viewer) return;
-
-  if (viewer.loaded && !box.dataset.momentopname) {
-    soon(() => {
-      if (box.dataset.momentopname || !viewer.loaded) return;
-      try {
-        box.dataset.momentopname = viewer.toDataURL('image/webp', 0.72);
-        if (!box.contains(viewer)) showSnapshot(box);
-      } catch {}
-    });
-  }
-
-  if (box.dataset.momentopname) showSnapshot(box);
-  else box.replaceChildren();
-}
-
-function showSnapshot(box) {
-  const image = document.createElement('img');
-  image.src = box.dataset.momentopname;
-  image.alt = box.dataset.alt;
-  image.loading = 'lazy';
-  box.replaceChildren(image);
-}
-
-const observer = new IntersectionObserver(
-  (observations) => {
-    for (const { target, isIntersecting } of observations) {
-      if (isIntersecting) attachViewer(target);
-      else detachViewer(target);
-    }
-  },
-  { rootMargin: '800px 0px' },
-);
+const observer = watchViewers();
 
 const dialog = el('#detail');
 const detailSelect = el('#detail-selecteer');
@@ -170,30 +78,6 @@ function fact(list, name, value, wide) {
   dd.textContent = value;
   if (wide) dt.className = dd.className = 'breed';
   list.append(dt, dd);
-}
-
-function choiceChip(text, active, action, container, path) {
-  const chip = document.createElement('button');
-  chip.type = 'button';
-  chip.className = 'keuzechip';
-  chip.textContent = text;
-  chip.setAttribute('aria-pressed', String(active));
-  chip.addEventListener('click', () => {
-    for (const sibling of container.querySelectorAll('.keuzechip')) sibling.setAttribute('aria-pressed', 'false');
-    chip.setAttribute('aria-pressed', 'true');
-    action();
-  });
-  const pick = document.createElement('input');
-  pick.type = 'checkbox';
-  pick.className = 'keuzechip-kies';
-  pick.checked = chosenPaths.has(path);
-  pick.setAttribute('aria-label', `Select ${text}`);
-  pick.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setSelection([path], pick.checked);
-  });
-  chip.prepend(pick);
-  return chip;
 }
 
 function showDetail(model) {
@@ -237,23 +121,13 @@ function showDetail(model) {
   el('#detail-variant').hidden = members.length < 2;
   el('#detail-variant-keuze').replaceChildren(
     ...members.map((v) =>
-      choiceChip(v.name, v.id === model.id, () => showDetail(v), el('#detail-variant-keuze'), v.path),
+      choiceChip(v.name, v.id === model.id, () => showDetail(v), el('#detail-variant-keuze'), v.path, selection),
     ),
   );
 
   el('#detail-download').href = modelUrl(model);
   el('#detail-download').setAttribute('download', `${model.name}.glb`);
-  el('#detail-kopieer').onclick = async (e) => {
-    const button = e.currentTarget;
-    const old = button.textContent;
-    try {
-      await navigator.clipboard.writeText(model.path);
-      button.textContent = 'Copied';
-    } catch {
-      button.textContent = 'Copy failed';
-    }
-    setTimeout(() => { button.textContent = old; }, 1400);
-  };
+  el('#detail-kopieer').onclick = (e) => copyWithFeedback(model.path, e.currentTarget);
 
   updateSelection();
   dialog.showModal();
@@ -272,15 +146,6 @@ detailSelect.addEventListener('click', () => {
 const selectionBar = el('#selectiebalk');
 const selectionCount = el('#selectiebalk-telling');
 const selectionCopy = el('#selectie-kopieer');
-
-function setSelection(paths, on) {
-  for (const path of paths) {
-    if (on) chosenPaths.add(path);
-    else chosenPaths.delete(path);
-    for (const sibling of cardsPerPath.get(path) ?? []) sibling.checkbox.checked = on;
-  }
-  updateSelection();
-}
 
 function pickRange(to, on) {
   const from = cards.indexOf(lastChoice);
@@ -301,35 +166,7 @@ function updateSelection() {
   }
 }
 
-async function toClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {}
-
-  const field = document.createElement('textarea');
-  field.value = text;
-  field.setAttribute('readonly', '');
-  field.style.cssText = 'position:fixed;top:0;left:-9999px';
-  document.body.append(field);
-  field.select();
-  try {
-    return document.execCommand('copy');
-  } catch {
-    return false;
-  } finally {
-    field.remove();
-  }
-}
-
-selectionCopy.addEventListener('click', async () => {
-  const count = chosenPaths.size;
-  const ok = await toClipboard([...chosenPaths].join('\n'));
-  selectionCopy.textContent = ok
-    ? `${count} path${count === 1 ? '' : 's'} copied`
-    : 'Copy failed';
-  setTimeout(() => { selectionCopy.textContent = 'Copy paths'; }, 1600);
-});
+copyPathsOnClick(selectionCopy, chosenPaths);
 
 el('#selectie-alles').addEventListener('click', () => {
   setSelection(cards.flatMap((k) => k.paths), true);
@@ -339,27 +176,6 @@ el('#selectie-wis').addEventListener('click', () => {
   setSelection([...chosenPaths], false);
   lastChoice = null;
 });
-
-function foldVariants(models) {
-  const perGroup = new Map();
-  const out = [];
-  for (const model of models) {
-    const existing = model.variant ? perGroup.get(model.variant) : null;
-    if (existing) {
-      if (model.id === variantMain.get(model.variant)) {
-        existing.variants.push(existing.model);
-        existing.model = model;
-      } else {
-        existing.variants.push(model);
-      }
-      continue;
-    }
-    const item = { model, variants: [] };
-    if (model.variant) perGroup.set(model.variant, item);
-    out.push(item);
-  }
-  return out;
-}
 
 function makeCard(model, variants = []) {
   const pack = register.packs.get(model.kit);
@@ -479,7 +295,7 @@ function groupsFor(models) {
       if (!per.has(key)) per.set(key, []);
       per.get(key).push(model);
     }
-    const rank = (id) => (id ? ROOT_ORDER.indexOf(id.split('-')[0]) : 99);
+    const rank = (id) => (id ? rootRank(id) : 99);
     return [...per]
       .map(([id, own]) => ({ key: id, title: id ? kindLabel(id) : 'No kind', models: own }))
       .sort((a, b) => rank(a.key) - rank(b.key) || a.models.length - b.models.length || a.title.localeCompare(b.title));
@@ -536,7 +352,7 @@ function draw() {
     if (group.models.length === 0) continue;
     const { section, grid } = makeSection({ title: group.title, hint: group.hint, count: group.models.length });
     const own = [];
-    for (const { model, variants } of foldVariants(group.models)) {
+    for (const { model, variants } of foldVariants(group.models, variantMain)) {
       const item = makeCard(model, variants);
       grid.append(item.element);
       own.push(item);

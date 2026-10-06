@@ -1,10 +1,15 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=fe16180116';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85a8110145';
-import { colorSwatches, setBands } from './color-edits.js?v=c41ea485be';
-import { renderCommentBox } from './comments.js?v=7825dfa9fd';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=40c5afee7d';
-import { stamped, withHash } from './stamps.js?v=04e3ee3113';
-import './bouwstempel.js?v=aad2769343';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=6756ccea56';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=440305f7d7';
+import { colorSwatches, setBands } from './color-edits.js?v=7b9619fe4c';
+import { renderCommentBox } from './comments.js?v=b702908fd9';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=8b5410e2bf';
+import { stamped } from './stamps.js?v=04e3ee3113';
+import {
+  number, readableBytes, dimensions, longest, kindParent, kindChain,
+  SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText,
+  withParents, collectColors, hydrate, WORKFILES, modelUrl, flatMode, setLighting, copyWithFeedback, saveFile,
+} from './shared.js?v=401e058e54';
+import './bouwstempel.js?v=2d49c008a7';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -57,35 +62,10 @@ const STORAGE_KEY =
   `taaleiland-swipe-v1${SOURCE.key ? `-${SOURCE.key}` : ''}`
   + `${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
-const FLAT_ENVIRONMENT = 'effen-omgeving.png';
-const SOFT_ENVIRONMENT = 'zachte-omgeving.png';
 
 let limitsPerKind = {};
 let longestKinds = new Set();
 let drawAtScale = null;
-
-const lintText = (f) => `${f.check} · ${f.text}`;
-
-const SIZE_CLASSES = [
-  { id: 's', name: 'S', hint: 'small — under half a unit' },
-  { id: 'm', name: 'M', hint: 'medium — up to one and a half units' },
-  { id: 'l', name: 'L', hint: 'large — over one and a half units' },
-];
-
-const LINT_LEVELS = [
-  { id: 'error', name: 'Errors', hint: 'Breaks a rule, or outside a size limit by more than the warning band' },
-  { id: 'warning', name: 'Warnings', hint: 'Outside a size limit but within the warning band' },
-];
-
-const LINT_CHECKS = [
-  { id: 'size', name: 'Size', hint: 'Extents, per kind' },
-  { id: 'tpu', name: 'Triangles', hint: 'Triangle budget, per kind' },
-  { id: 'mat', name: 'Materials', hint: 'The materials a kind is asked to carry' },
-  { id: 'palette', name: 'Palette', hint: 'The bands a material may draw from' },
-  { id: 'bands', name: 'Bands', hint: 'The bands a kind may draw from' },
-  { id: 'measures', name: 'Measures', hint: 'Rows that assert on one recorded field' },
-  { id: 'backface', name: 'Backfaces', hint: 'Share of a view that shows back faces' },
-];
 
 const TAG_TYPES = [
   { type: 'material', head: 'Material' },
@@ -94,29 +74,6 @@ const TAG_TYPES = [
   { type: 'theme', head: 'Theme' },
   { type: 'artist', head: 'Artist' },
 ];
-
-const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];
-const lintChecks = (m) => [...new Set((m.lint ?? []).map((f) => f.check))];
-
-const number = new Intl.NumberFormat('en-GB');
-const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
-
-const readableBytes = (bytes) =>
-  bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
-
-const dimensions = (wdh) =>
-  Array.isArray(wdh) ? `${wdh.map((v) => unit.format(v)).join(' × ')} units` : '—';
-
-let modelPath = 'kits/workfiles';
-
-const modelUrl = (model) => withHash(`../../${model.path}`, model.hash);
-
-function hydrate(m) {
-  m.id = `${m.kit}/${m.name}`;
-  m.path = `${modelPath}/${m.kit}/${m.name}.glb`;
-  m.group = m.collection ?? m.kit;
-  return m;
-}
 
 const el = (sel) => document.querySelector(sel);
 
@@ -127,32 +84,18 @@ const stack = el('#stapel');
 const notice = el('#melding');
 const summary = el('#samenvatting');
 
-const flatMode = { on: false };
-
 let refreshExtract = () => {};
 
 const register = { models: [], perId: new Map(), kits: new Map(), kinds: new Map(), tags: new Map(), bands: [] };
 
 const WITHOUT = '_zonder';
-const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
-const kindChain = (id) => {
-  const chain = [];
-  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
-  return chain;
-};
 const kindLabel = (id) => (id ? kindChain(id).map((k) => register.kinds.get(k)?.name ?? k).join(' › ') : '—');
 
 const parentOf = new Map();
 const tagCache = new WeakMap();
 
 function tagsOf(model) {
-  if (!tagCache.has(model)) {
-    const own = new Set(model.tags ?? []);
-    for (const id of model.tags ?? []) {
-      for (let p = parentOf.get(id); p && !own.has(p); p = parentOf.get(p)) own.add(p);
-    }
-    tagCache.set(model, [...own]);
-  }
+  if (!tagCache.has(model)) tagCache.set(model, withParents(model.tags ?? [], parentOf));
   return tagCache.get(model);
 }
 
@@ -294,7 +237,12 @@ function updateSummary() {
 const draft = Object.fromEntries(FILTER_FIELDS.map((f) => [f, {}]));
 const filterChips = [];
 
-const NEXT = { undefined: 'only', only: 'not', not: undefined };
+function rotateDraft(own, id, button) {
+  const next = nextState(own[id]);
+  if (next) own[id] = next;
+  else delete own[id];
+  showState(button, next);
+}
 
 function setupFilters() {
   return {
@@ -355,10 +303,7 @@ function colorRow(container, colors) {
     button.setAttribute('aria-label', button.title);
     showState(button, draft.colors[color.hex]);
     button.addEventListener('click', () => {
-      const next = NEXT[draft.colors[color.hex]];
-      if (next) draft.colors[color.hex] = next;
-      else delete draft.colors[color.hex];
-      showState(button, next);
+      rotateDraft(draft.colors, color.hex, button);
       setupCount();
     });
     strip.append(button);
@@ -376,10 +321,7 @@ function filterRow(container, head, items, field, { byCount = false } = {}) {
     items, container: strip, byCount, hideEmpty: true,
     stateOf: (id) => draft[field][id],
     onPick: (id, button) => {
-      const next = NEXT[draft[field][id]];
-      if (next) draft[field][id] = next;
-      else delete draft[field][id];
-      showState(button, next);
+      rotateDraft(draft[field], id, button);
       syncFilterChips();
       setupCount();
     },
@@ -425,12 +367,7 @@ function filterItems() {
     }))
     .filter((t) => t.count > 0);
 
-  const bandNames = new Map(register.bands.map((b) => [b.hex, b.name]));
-  const colorCounts = new Map();
-  for (const m of register.models) for (const hex of m.colors ?? []) colorCounts.set(hex, (colorCounts.get(hex) ?? 0) + 1);
-  const colors = [...colorCounts]
-    .map(([hex, n]) => ({ hex, count: n, name: bandNames.get(hex) ?? 'no band' }))
-    .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
+  const colors = collectColors(register.models, new Map(register.bands.map((b) => [b.hex, b.name])));
 
   const fixed = (list, of) => list
     .map((k) => ({ id: k.id, name: k.name, hint: k.hint, dot: true, count: count((m) => of(m).includes(k.id)) }))
@@ -440,7 +377,7 @@ function filterItems() {
     colors,
     kits,
     kinds,
-    sizes: fixed(SIZE_CLASSES, valuesOf.sizes),
+    sizes: fixed(SIZE_CLASSES.map((k) => ({ ...k, name: k.sign })), valuesOf.sizes),
     lint: fixed(LINT_LEVELS, lintLevels),
     checks: fixed(LINT_CHECKS, lintChecks),
     tags,
@@ -485,19 +422,6 @@ function fillSetup() {
   showSix(state.six);
   for (const direction of DIRECTIONS) el(`#label-${direction.id}`).value = state.labels[direction.id];
   setupCount();
-}
-
-function setLighting(viewer) {
-  viewer.setAttribute('tone-mapping', 'neutral');
-  if (flatMode.on) {
-    viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
-    viewer.setAttribute('shadow-intensity', '0');
-    viewer.setAttribute('exposure', '1.3');
-  } else {
-    viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
-    viewer.setAttribute('shadow-intensity', '0.7');
-    viewer.setAttribute('exposure', '1.5');
-  }
 }
 
 function makeCard(model, depth) {
@@ -607,12 +531,12 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=9aa0155fa8'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=1464439712'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
-  const longest = Math.max(...model.wdh);
-  const reach = Math.max(high, longest, ...Object.values(limits).filter((v) => v <= longest * 4));
+  const long = longest(model);
+  const reach = Math.max(high, long, ...Object.values(limits).filter((v) => v <= long * 4));
   const step = 0.2;
   const rulerHeight = Math.max(step, Math.ceil((reach * 1.25) / step) * step);
   await drawAtScale(
@@ -738,7 +662,7 @@ function makeDraggable(card) {
 
   card.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
-    if (e.target.closest('button, input, textarea, select, a, .tagedit-toggles')) return;
+    if (e.target.closest('button, input, textarea, select, a')) return;
     if (e.pointerType !== 'mouse' && e.target.closest('.swipe-tekst')) return;
     if (card.hasAttribute('data-draaien') && e.target.closest('model-viewer')) return;
     start = { x: e.clientX, y: e.clientY, id: e.pointerId };
@@ -805,24 +729,13 @@ function rows() {
   });
 }
 
-async function copy(text, button) {
-  const old = button.textContent;
-  try {
-    await navigator.clipboard.writeText(text);
-    button.textContent = 'Copied';
-  } catch {
-    button.textContent = 'Copy failed';
-  }
-  setTimeout(() => { button.textContent = old; }, 1400);
-}
-
 function copyButton(text, label, list) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'knop';
   button.textContent = label;
   button.disabled = list.length === 0;
-  button.addEventListener('click', () => copy(text, button));
+  button.addEventListener('click', () => copyWithFeedback(text, button));
   return button;
 }
 
@@ -907,16 +820,6 @@ function drawResults() {
   el('#verder').disabled = open === 0;
 }
 
-function file(name, content, type) {
-  const blob = new Blob([content], { type });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = name;
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
 const timeStamp = () => new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
 
 function swipeSection() {
@@ -946,15 +849,15 @@ function exportCsv() {
     ['direction', 'label', 'id', 'name', 'kit', 'kind', 'path'],
     ...rows().map((r) => [r.direction, r.label, r.id, r.name, r.kit, r.kind, r.path]),
   ];
-  file(`swipe-${timeStamp()}.csv`, rowsOut.map((row) => row.map(cell).join(',')).join('\n') + '\n', 'text/csv');
+  saveFile(`swipe-${timeStamp()}.csv`, rowsOut.map((row) => row.map(cell).join(',')).join('\n') + '\n', 'text/csv');
 }
 
 async function start() {
   const response = await fetch(stamped(SOURCE.file));
   if (!response.ok) throw new Error(`${SOURCE.file} not found (${response.status})`);
   const data = await response.json();
-  modelPath = data.modelPath ?? modelPath;
-  data.models.forEach(hydrate);
+  const modelPath = data.modelPath ?? WORKFILES;
+  for (const model of data.models) hydrate(model, modelPath);
 
   if (SOURCE.onlyLint) data.models = data.models.filter((m) => m.lint?.length);
   limitsPerKind = data.limits ?? {};

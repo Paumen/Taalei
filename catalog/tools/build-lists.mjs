@@ -688,7 +688,6 @@ for (const bronkit of BRONKITS) {
       inSource: gemeten.length,
       inCatalog: kit.aantal,
       listed: eigen.length,
-      unmatched: onherkend,
       scale: kit.schaal,
       folder: map.slice(uitgepakt.length + 1) || null,
     };
