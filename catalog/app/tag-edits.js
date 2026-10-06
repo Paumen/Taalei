@@ -162,7 +162,7 @@ export function renderTagEditor(container, model, tagsById, options = {}) {
     { label: 'Attributes', of: (t) => t.type === 'attribute'
         && (on.has(t.id) || (allScale && SCALE_TAG.test(t.id)) || allowedFor(t, effectiveKind(model, tagsById))),
       pick: (id) => setAttribute(model, id, tagsById) },
-    { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' },
+    { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' && !t.derived },
     { label: 'Theme', of: (t) => t.type === 'theme' },
   ];
 

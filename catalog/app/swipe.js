@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=54863cb420';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=6756ccea56';
 import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=440305f7d7';
 import { colorSwatches, setBands } from './color-edits.js?v=7b9619fe4c';
 import { renderCommentBox } from './comments.js?v=b702908fd9';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a3e6fa214c';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=8b5410e2bf';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import {
   number, readableBytes, dimensions, longest, kindParent, kindChain,
@@ -52,6 +52,10 @@ const SOURCES = {
 };
 
 const PARAMS = new URLSearchParams(location.search);
+if (!document.body.dataset.source && PARAMS.get('source') === 'lint') {
+  PARAMS.delete('source');
+  location.replace(`lint.html${PARAMS.size ? `?${PARAMS}` : ''}`);
+}
 const SOURCE = SOURCES[document.body.dataset.source ?? PARAMS.get('source')] ?? SOURCES.catalogus;
 const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
 const STORAGE_KEY =

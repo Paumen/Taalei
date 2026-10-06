@@ -166,8 +166,8 @@ Group what reads as one thing, following the bible's variants section. Clusters
 live in `catalog/data/asset_variants.json`: `members`, `main`, `type`. Name and
 triangle count propose a group; shape and a render confirm it before you write
 it down. `type` takes one of the values the file already uses —
-`detail-variant`, `color-variant`, `maatvariant`. Append new clusters at the
-end: a cluster's id comes from its position in the file.
+`detail-variant`, `color-variant`, `maatvariant`. A cluster's id is its `main`,
+so each `main` leads one cluster only.
 
 ## 6. Rebuild, look, check
 

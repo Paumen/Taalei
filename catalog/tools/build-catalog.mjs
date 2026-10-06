@@ -82,14 +82,14 @@ function readVariants(idsInCatalog) {
   const groups = [];
   const perModel = new Map();
 
-  source.clusters?.forEach((cluster, n) => {
+  for (const cluster of source.clusters ?? []) {
     const members = cluster.members.filter((id) => idsInCatalog.has(id));
-    if (members.length < 2) return;
-    const id = `v${String(n + 1).padStart(2, '0')}`;
+    if (members.length < 2) continue;
+    const id = cluster.main;
     const main = members.includes(cluster.main) ? cluster.main : members[0];
     groups.push({ id, type: cluster.type, main, members });
     for (const member of members) perModel.set(member, id);
-  });
+  }
 
   return { groups, perModel };
 }
@@ -436,6 +436,7 @@ for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
     id,
     name,
     type,
+    derived: true,
     description: [description, 'Derived from the models themselves, so not tracked in catalog/data/tags.json.']
       .filter(Boolean).join(' '),
     count: members.length,
@@ -683,6 +684,7 @@ const output = {
     id: t.id, name: t.name, type: t.type, description: t.description, count: t.count,
     ...(t.parent ? { parent: t.parent } : {}),
     ...(t.color ? { color: t.color } : {}),
+    ...(t.derived ? { derived: true } : {}),
     ...(t.type === 'attribute' ? { kinds: attributeKinds(t.id, LINT_CHECKS.vars, LINT_CHECKS.scales) ?? undefined } : {}),
   })),
   byLongest: [...new Set(models.map((m) => m.kind).filter(Boolean))].sort().filter(byLongest),
