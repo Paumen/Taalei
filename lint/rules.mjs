@@ -6,6 +6,7 @@ const MAT_PREFIX = 'mat.';
 const BAND = 'band';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
+export const isBuilding = (kind) => idUnder(kind, 'str-building');
 
 const SIZE_MEASURES = ['high', 'longest'];
 const measureOf = (field) => field.split('.')[0];
@@ -510,6 +511,7 @@ function limitFindings(limits, measures, tags, vars) {
 export function findingsFor(model, kindLimits, vars, scales) {
   const { limits, refused, why } = limitsForModel(model, kindLimits, scales);
   if (refused) return [{ level: 'error', measure: 'scale', value: refused, bound: 'not on', limit: model.kind, from: why }];
+  if (isBuilding(model.kind)) return [];
   return limitFindings(limits, { high: model.wdh[2], longest: Math.max(...model.wdh) }, model.tags ?? [], vars);
 }
 

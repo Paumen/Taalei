@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readKindTree } from './kinds.mjs';
-import { isExempt, scaleTagOf, SCALE_PREFIX } from '../../lint/rules.mjs';
+import { isBuilding, isExempt, scaleTagOf, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { stampPages } from './stamp.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -294,17 +294,6 @@ const SIZES = {
   'str-barrier-railing': 1,
   'str-barrier-traffic': 1.2,
   'str-barrier-traffic-cone': 0.7,
-  'str-building-military-barracks': 9,
-  'str-building-religious-church': 12,
-  'str-building-religious-crypt': 3,
-  'str-building-religious-shrine': 3,
-  'str-building-residential-house': 7.5,
-  'str-building-tower': 12,
-  'str-building-work-agricultural': 7.5,
-  'str-building-work-agricultural-silo': 8,
-  'str-building-work-commercial': 6,
-  'str-building-work-industrial-mill': 10,
-  'str-building-work-industrial-workshop': 6,
   'str-canopy-stall': 2.5,
   'str-canopy-tent-camping': 2.5,
   'str-fixture-chimney': 20,
@@ -459,7 +448,6 @@ const EDGE = 0.002;
 const MAX_UNITS = 10;
 const MAX_REAL_M = 24;
 
-const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
 const round3 = (v) => Math.round(v * 1000) / 1000;
 
@@ -499,9 +487,7 @@ const fit = (pts, weighted) => {
 const realOf = (model) => {
   if (isBuilding(model.kind)) {
     const tag = (model.tags ?? []).find((t) => t in STOREYS);
-    if (tag) return { real: STOREYS[tag] * STOREY_M + ROOF_M, high: true };
-    const flat = SIZES[model.kind];
-    return flat === undefined ? null : { real: flat, high: true };
+    return tag ? { real: STOREYS[tag] * STOREY_M + ROOF_M, high: true } : null;
   }
   const scale = scaleTagOf(model)?.[0]?.slice(SCALE_PREFIX.length);
   const real = scale ? SCALE_SIZES[model.kind]?.[scale] : SIZES[model.kind];
@@ -607,7 +593,7 @@ const sizeRows = [...Object.entries(SIZES), ...Object.entries(SCALE_SIZES)
   .flatMap(([kind, by]) => Object.entries(by).map(([scale, real]) => [`${kind} ${SCALE_PREFIX}${scale}`, real]))]
   .filter(([k]) => !DROPPED_KINDS.includes(k))
   .sort(([a], [b]) => a.localeCompare(b))
-  .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind.split(' ')[0]) || isBuilding(kind), storeys: isBuilding(kind) }));
+  .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind.split(' ')[0]) }));
 
 const curveKinds = [...readKindTree().keys()].sort().map((kind) => {
   const building = isBuilding(kind);
@@ -760,7 +746,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
     </div>
     <div class="rule">
       <h3>Buildings</h3>
-      <p>A building's assumed real size is its own height, read from its <code>storeys-N</code> tag: <code>storeys &times; ${STOREY_M} m + ${ROOF_M} m</code> of roof. Buildings carrying no such tag fall back to the flat height in the table below.</p>
+      <p>A building's assumed real size is its own height, read from its <code>storeys-N</code> tag: <code>storeys &times; ${STOREY_M} m + ${ROOF_M} m</code> of roof.</p>
     </div>
     <div class="rule">
       <h3><span class="kw">Excluded</span></h3>
@@ -945,7 +931,7 @@ document.getElementById('hi').innerHTML = HIGH_ROWS.map(k => {
 const sz = document.getElementById('sz');
 for (const r of SIZE_ROWS) {
   const d = document.createElement('div');
-  d.innerHTML = \`<span>\${r.kind}</span> \${r.real} m\${r.high ? ' high' : ''}\${r.storeys ? ' <span class="muted">(no storeys tag)</span>' : ''}\`;
+  d.innerHTML = \`<span>\${r.kind}</span> \${r.real} m\${r.high ? ' high' : ''}\`;
   sz.appendChild(d);
 }
 
