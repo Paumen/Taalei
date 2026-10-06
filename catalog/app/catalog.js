@@ -1,9 +1,10 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=21c9279f65';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=21c9279f65';
-import { colorSwatches, setBands } from './color-edits.js?v=21c9279f65';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=21c9279f65';
-import { mountExtractBar, setPageParts } from './extract.js?v=21c9279f65';
-import './bouwstempel.js?v=21c9279f65';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=fe16180116';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85a8110145';
+import { colorSwatches, setBands } from './color-edits.js?v=c41ea485be';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=7825dfa9fd';
+import { mountExtractBar, setPageParts } from './extract.js?v=40c5afee7d';
+import { stamped, withHash } from './stamps.js?v=04e3ee3113';
+import './bouwstempel.js?v=aad2769343';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
@@ -30,10 +31,10 @@ const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
 const MODEL_PATH = 'kits/workfiles';
 const THUMB_PATH = 'catalog/build/thumbs';
 
-const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
-const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+const modelUrl = (model) => withHash(model.path, model.hash);
 
 const thumbs = new Map();
+const sheets = new Map();
 
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
@@ -211,16 +212,22 @@ function showSnapshot(box) {
   box.replaceChildren(image);
 }
 
-const thumbSrc = (box) =>
-  `${box.dataset.thumb}${flatMode.on ? '.flat' : ''}.webp?v=${box.dataset.thumbV}`;
+const thumbSrc = (box) => {
+  const sheet = sheets.get(box.dataset.thumb);
+  return withHash(`${THUMB_PATH}/${box.dataset.thumb}${flatMode.on ? '.flat' : ''}.webp`, flatMode.on ? sheet.f : sheet.v);
+};
 
-function showThumb(box) {
+function showThumb(box, at) {
+  const { cols } = sheets.get(box.dataset.thumb);
   const image = document.createElement('img');
+  image.className = 'sprite';
   image.src = thumbSrc(box);
   image.alt = box.dataset.alt;
-  image.width = image.height = 192;
   image.loading = 'lazy';
   image.decoding = 'async';
+  image.style.setProperty('--cols', cols);
+  image.style.setProperty('--col', at % cols);
+  image.style.setProperty('--row', Math.floor(at / cols));
   box.replaceChildren(image);
 }
 
@@ -260,13 +267,12 @@ function makeCard(model, kits, variants = []) {
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
-  box.dataset.src = modelUrl(model.path);
+  box.dataset.src = modelUrl(model);
   box.dataset.alt = `3D model ${model.name} from ${kit?.name ?? model.group}`;
   const thumb = thumbs.get(model.id);
   if (thumb) {
-    box.dataset.thumb = `${THUMB_PATH}/${model.kit}/${model.name}`;
-    box.dataset.thumbV = thumb;
-    showThumb(box);
+    box.dataset.thumb = thumb.kind;
+    showThumb(box, thumb.at);
   }
 
   const size = sizeClass(model);
@@ -805,11 +811,11 @@ function showDetail(model) {
   fillFacts(lines);
 
   const download = document.querySelector('#detail-download');
-  download.href = modelUrl(model.path);
+  download.href = modelUrl(model);
   download.setAttribute('download', `${model.name}.glb`);
 
   const viewer = document.createElement('model-viewer');
-  viewer.src = modelUrl(model.path);
+  viewer.src = modelUrl(model);
   viewer.alt = `3D model ${model.name}`;
   viewer.setAttribute('camera-controls', '');
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
@@ -1267,15 +1273,16 @@ function filter() {
 
 async function loadThumbs() {
   try {
-    const response = await fetch(modelUrl('catalog/build/thumbs.json'));
+    const response = await fetch(stamped('catalog/build/thumbs.json'));
     if (!response.ok) return;
     const data = await response.json();
-    for (const [id, own] of Object.entries(data.models ?? {})) thumbs.set(id, own.v);
+    for (const [kind, sheet] of Object.entries(data.sheets ?? {})) sheets.set(kind, sheet);
+    for (const [id, own] of Object.entries(data.models ?? {})) if (sheets.has(own.kind)) thumbs.set(id, own);
   } catch {}
 }
 
 async function start() {
-  const response = await fetch(modelUrl('catalog/build/catalog.json'));
+  const response = await fetch(stamped('catalog/build/catalog.json'));
   if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
   const data = await response.json();
   data.models.forEach(hydrate);

@@ -1,9 +1,10 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=21c9279f65';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=21c9279f65';
-import { colorSwatches, setBands } from './color-edits.js?v=21c9279f65';
-import { renderCommentBox } from './comments.js?v=21c9279f65';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=21c9279f65';
-import './bouwstempel.js?v=21c9279f65';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=fe16180116';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85a8110145';
+import { colorSwatches, setBands } from './color-edits.js?v=c41ea485be';
+import { renderCommentBox } from './comments.js?v=7825dfa9fd';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=40c5afee7d';
+import { stamped, withHash } from './stamps.js?v=04e3ee3113';
+import './bouwstempel.js?v=aad2769343';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -108,8 +109,7 @@ const dimensions = (wdh) =>
 
 let modelPath = 'kits/workfiles';
 
-const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
-const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+const modelUrl = (model) => withHash(`../../${model.path}`, model.hash);
 
 function hydrate(m) {
   m.id = `${m.kit}/${m.name}`;
@@ -513,7 +513,7 @@ function makeCard(model, depth) {
   const box = document.createElement('div');
   box.className = 'swipe-viewer';
   const viewer = document.createElement('model-viewer');
-  viewer.src = modelUrl(`../../${model.path}`);
+  viewer.src = modelUrl(model);
   viewer.alt = `3D model ${model.name} from ${kit?.name ?? model.group}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('shadow-softness', '0.9');
@@ -607,7 +607,7 @@ function makeCard(model, depth) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=21c9279f65'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=9aa0155fa8'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
@@ -623,7 +623,7 @@ async function drawScaleCard(model, canvas) {
       byLongest: longestKinds.has(model.kind) || undefined,
       rulerHeight,
       rowWidth: Math.max(model.wdh[0] * 4, reach * 1.1),
-      items: [{ slug: model.kit, model: model.name, wdh: model.wdh, tags: model.tags, path: model.path }],
+      items: [{ slug: model.kit, model: model.name, wdh: model.wdh, tags: model.tags, path: model.path, hash: model.hash }],
     },
     canvas,
     canvas.width,
@@ -950,7 +950,7 @@ function exportCsv() {
 }
 
 async function start() {
-  const response = await fetch(SOURCE.file);
+  const response = await fetch(stamped(SOURCE.file));
   if (!response.ok) throw new Error(`${SOURCE.file} not found (${response.status})`);
   const data = await response.json();
   modelPath = data.modelPath ?? modelPath;

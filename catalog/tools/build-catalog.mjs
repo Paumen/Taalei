@@ -6,14 +6,14 @@ import { createHash } from 'node:crypto';
 import { availableParallelism } from 'node:os';
 import { Worker } from 'node:worker_threads';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
-import { buildScaleGroups, byLongest, SCALE_TABS } from './scale-groups.mjs';
+import { buildScaleGroups, byLongest } from './scale-groups.mjs';
 import { atlasKey, readAtlas, hex, round, COLUMNS, ROWS } from './measure.mjs';
 import { attributeKinds, buildChecks, buildKitScales, checkModel, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
+import { stampPages } from './stamp.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CATALOG_DIR = join(ROOT, 'catalog');
-const APP_DIR = join(CATALOG_DIR, 'app');
 const DATA_DIR = join(CATALOG_DIR, 'data');
 const BUILD_DIR = join(CATALOG_DIR, 'build');
 const KITS_DIR = join(ROOT, 'kits');
@@ -108,78 +108,6 @@ function laneColor(atlas, lane) {
   const y = Math.floor(row * cellHeight + cellHeight / 2);
   const i4 = (y * atlas.width + x) * 4;
   return hex(atlas.pixels[i4], atlas.pixels[i4 + 1], atlas.pixels[i4 + 2]);
-}
-
-const SCALE_PAGES = SCALE_TABS.map((t) => t.file);
-
-const MODULES = ['tag-edits.js', 'chiprij.js', 'scale-draw.js', 'color-edits.js', 'comments.js',
-  'extract.js', 'bouwstempel.js'];
-const IMPORTERS = ['catalog.js', 'scale.js', 'swipe.js', 'list.js', 'tag-edits.js', 'extract.js'];
-const unstamped = (text) => text.replace(/\?v=[a-f0-9]{10}/g, '');
-
-const fileIn = (name) => join(name.endsWith('.json') ? BUILD_DIR : APP_DIR, name);
-
-function writeVersion() {
-  const content = ['catalog.json', 'catalog.css', 'catalog.js', 'scale-groups.json', 'scale.js',
-    'swipe.css', 'swipe.js', 'tbd.json', 'reject.json', 'npc.json', 'list.css', 'list.js', 'thumbs.json', 'overview.js', ...MODULES]
-    .filter((name) => existsSync(fileIn(name)))
-    .map((name) => unstamped(readFileSync(fileIn(name), 'utf8')))
-    .join('');
-  const version = createHash('sha256').update(content).digest('hex').slice(0, 10);
-
-  for (const name of IMPORTERS) {
-    const path = join(APP_DIR, name);
-    if (!existsSync(path)) continue;
-    const before = readFileSync(path, 'utf8');
-    const after = before.replace(
-      new RegExp(`('\\./(?:${MODULES.map((m) => m.replace('.', '\\.')).join('|')}))(?:\\?v=[a-f0-9]+)?'`, 'g'),
-      `$1?v=${version}'`,
-    );
-    if (after !== before) writeFileSync(path, after);
-  }
-
-  const builtAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-
-  const stamp = (path, replacements) => {
-    let html = readFileSync(path, 'utf8');
-    for (const [search, replacement] of replacements) html = html.replace(search, replacement);
-    writeFileSync(path, html
-      .replace(/<meta name="catalogus-versie" content="[^"]*">/, `<meta name="catalogus-versie" content="${version}">`)
-      .replace(/<meta name="catalogus-gebouwd" content="[^"]*">/, `<meta name="catalogus-gebouwd" content="${builtAt}">`));
-  };
-
-  stamp(join(ROOT, 'index.html'), [
-    [/href="catalog\/app\/catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog/app/catalog.css?v=${version}"`],
-    [/src="catalog\/app\/catalog\.js(?:\?v=[a-f0-9]+)?"/, `src="catalog/app/catalog.js?v=${version}"`],
-  ]);
-  for (const page of SCALE_PAGES) {
-    stamp(join(APP_DIR, page), [
-      [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-      [/src="scale\.js(?:\?v=[a-f0-9]+)?"/, `src="scale.js?v=${version}"`],
-    ]);
-  }
-  for (const page of ['swipe.html', 'lint.html']) {
-    stamp(join(APP_DIR, page), [
-      [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-      [/href="swipe\.css(?:\?v=[a-f0-9]+)?"/, `href="swipe.css?v=${version}"`],
-      [/src="swipe\.js(?:\?v=[a-f0-9]+)?"/, `src="swipe.js?v=${version}"`],
-    ]);
-  }
-  for (const page of ['tbd.html', 'reject.html', 'npc.html']) {
-    stamp(join(APP_DIR, page), [
-      [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-      [/href="list\.css(?:\?v=[a-f0-9]+)?"/, `href="list.css?v=${version}"`],
-      [/src="list\.js(?:\?v=[a-f0-9]+)?"/, `src="list.js?v=${version}"`],
-    ]);
-  }
-  stamp(join(APP_DIR, 'overview.html'), [
-    [/href="catalog\.css(?:\?v=[a-f0-9]+)?"/, `href="catalog.css?v=${version}"`],
-    [/src="overview\.js(?:\?v=[a-f0-9]+)?"/, `src="overview.js?v=${version}"`],
-  ]);
-  console.log(
-    `version ${version} → index.html, ${SCALE_PAGES.map((p) => `catalog/app/${p}`).join(', ')},` +
-      ' catalog/app/swipe.html, catalog/app/lint.html, catalog/app/tbd.html, catalog/app/reject.html, catalog/app/npc.html, catalog/app/overview.html',
-  );
 }
 
 const { meta: kitMeta, collections } = readKitMetadata();
@@ -309,6 +237,7 @@ for (const slug of kitSlugs) {
       palette: null,
       colors: [],
       path,
+      hash: entry.hash.slice(0, 10),
       bytes: entry.bytes,
       ...JSON.parse(JSON.stringify(entry.fields)),
       ...backfaceOf(`${slug}/${name}`, entry.hash),
@@ -643,6 +572,7 @@ const rows = models.map((m) => {
     kit: m.kit,
     collection: m.collection,
     name: m.name,
+    hash: m.hash,
     kind: m.kind,
     size: m.size,
     wdh: m.wdh,
@@ -780,7 +710,7 @@ writeFileSync(join(BUILD_DIR, 'scale-groups.json'), JSON.stringify(scaleGroups, 
 const inScaleGroup = scaleGroups.reduce((sum, g) => sum + g.items.length, 0);
 console.log(`${scaleGroups.length} families, ${inScaleGroup} models → catalog/scale-groups.json`);
 
-writeVersion();
+stampPages();
 
 console.log(`${models.length} models in ${kits.length} kits → catalog/catalog.json`);
 for (const tag of tags.tags) console.log(`${tag.type} ${tag.id}: ${tag.count} models`);

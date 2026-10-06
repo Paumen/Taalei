@@ -1,15 +1,16 @@
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=21c9279f65';
-import { drawFamily, loadModel, version } from './scale-draw.js?v=21c9279f65';
-import './bouwstempel.js?v=21c9279f65';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85a8110145';
+import { drawFamily, loadModel } from './scale-draw.js?v=9aa0155fa8';
+import { stamped } from './stamps.js?v=04e3ee3113';
+import './bouwstempel.js?v=aad2769343';
 
 const MODEL_PATH = 'kits/workfiles';
 
 const CATEGORY = document.querySelector('meta[name=scale-category]')?.content || null;
 
 const [allGroups, catalogData, curveData] = await Promise.all([
-  fetch(`../build/scale-groups.json?v=${version}`).then((r) => r.json()),
-  fetch(`../build/catalog.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
-  fetch(`../build/size-curves.json?v=${version}`).then((r) => r.json()).catch(() => ({})),
+  fetch(stamped('../build/scale-groups.json')).then((r) => r.json()),
+  fetch(stamped('../build/catalog.json')).then((r) => r.json()).catch(() => ({})),
+  fetch(stamped('../build/size-curves.json')).then((r) => r.json()).catch(() => ({})),
 ]);
 
 const curveKinds = new Map((curveData.kinds ?? []).map((k) => [k.kind, k]));
@@ -197,7 +198,7 @@ function buildSections() {
       const group = visible.find((g) => g.slug === section.id);
       const canvas = section.querySelector('canvas');
       section.classList.add('bezig');
-      for (const item of group.items) loadModel(item.path).catch(() => {});
+      for (const item of group.items) loadModel(item.path, item.hash).catch(() => {});
       queue = queue.then(async () => {
         try {
           const out = await drawFamily(group, canvas, group.wideRow ? WIDTH * 2 : WIDTH);

@@ -1,4 +1,5 @@
-import './bouwstempel.js?v=21c9279f65';
+import { stamped, withHash } from './stamps.js?v=04e3ee3113';
+import './bouwstempel.js?v=aad2769343';
 
 const number = new Intl.NumberFormat('en-GB');
 const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
@@ -6,8 +7,7 @@ const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
 const readableBytes = (bytes) =>
   bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
 
-const CATALOG_VERSION = document.querySelector('meta[name="catalogus-versie"]')?.content ?? '';
-const modelUrl = (path) => (CATALOG_VERSION ? `${path}?v=${CATALOG_VERSION}` : path);
+const modelUrl = (model) => withHash(`../../${model.path}`, model.hash);
 
 const el = (sel) => document.querySelector(sel);
 
@@ -207,7 +207,7 @@ function showDetail(model) {
       : `${pack?.name ?? model.kit} — imported as “${pack?.kit}”, but this model is not in the catalog`;
 
   const viewer = document.createElement('model-viewer');
-  viewer.src = modelUrl(`../../${model.path}`);
+  viewer.src = modelUrl(model);
   viewer.alt = `3D model ${model.name} from ${pack?.name ?? model.kit}`;
   viewer.setAttribute('camera-orbit', '35deg 68deg auto');
   viewer.setAttribute('camera-controls', '');
@@ -241,7 +241,7 @@ function showDetail(model) {
     ),
   );
 
-  el('#detail-download').href = modelUrl(`../../${model.path}`);
+  el('#detail-download').href = modelUrl(model);
   el('#detail-download').setAttribute('download', `${model.name}.glb`);
   el('#detail-kopieer').onclick = async (e) => {
     const button = e.currentTarget;
@@ -370,7 +370,7 @@ function makeCard(model, variants = []) {
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
-  box.dataset.src = modelUrl(`../../${model.path}`);
+  box.dataset.src = modelUrl(model);
   box.dataset.alt = `3D model ${model.name} from ${pack?.name ?? model.kit}`;
 
   const text = document.createElement('div');
@@ -569,7 +569,7 @@ function draw() {
 }
 
 async function start() {
-  const response = await fetch(PAGE.list);
+  const response = await fetch(stamped(PAGE.list));
   if (!response.ok) throw new Error(`${PAGE.list} not found (${response.status}) — run node catalog/tools/build-lists.mjs`);
   const data = await response.json();
 
