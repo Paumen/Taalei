@@ -21853,7 +21853,7 @@
    "name": "Produce crate",
    "type": "kind",
    "description": "Shallow open crate for fruit, vegetables or bottles, and its lid.",
-   "count": 13
+   "count": 11
   },
   {
    "id": "obj-container-pot",
@@ -23624,14 +23624,14 @@
    "name": "Bush",
    "type": "kind",
    "description": "Bush or shrub: a dense low mass of foliage.",
-   "count": 14
+   "count": 13
   },
   {
    "id": "env-flora-plant-leafy",
    "name": "Leafy plant",
    "type": "kind",
    "description": "Plant read through its broad leaves, house plants among them.",
-   "count": 50
+   "count": 51
   },
   {
    "id": "env-flora-plant-leafy-potted",
@@ -24542,7 +24542,7 @@
    "name": "Cookie",
    "type": "kind",
    "description": "cookie, gingerbread man/woman/house",
-   "count": 13
+   "count": 14
   },
   {
    "id": "obj-food-baked-pastry-donut",
@@ -24891,7 +24891,7 @@
    "name": "1.5 storeys",
    "type": "attribute",
    "description": "One storey with a room in the roof.",
-   "count": 52,
+   "count": 51,
    "kinds": [
     "str-building"
    ]
@@ -24901,7 +24901,7 @@
    "name": "2 storeys",
    "type": "attribute",
    "description": "Two storeys read from the model.",
-   "count": 88,
+   "count": 89,
    "kinds": [
     "str-building"
    ]
@@ -24951,7 +24951,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 207,
+   "count": 209,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -39988,7 +39988,7 @@
    "tags": [
     "food"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "food-pack",
@@ -43311,7 +43311,7 @@
     "food"
    ],
    "variant": "food-pack-2/cookie",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "food-pack-2",
@@ -43352,7 +43352,7 @@
     "food"
    ],
    "variant": "food-pack-2/cookie",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "food-pack-2",
@@ -43393,7 +43393,7 @@
     "food"
    ],
    "variant": "food-pack-2/cookie",
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "food-pack-2",
@@ -51576,17 +51576,11 @@
    ],
    "tags": [
     "fs",
-    "metal-iron-steel"
+    "metal-iron-steel",
+    "scale-small"
    ],
    "variant": "fs-house/trashcan",
-   "thickRel": 0.38,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.157 under min 0.2 (obj-container-trashcan)"
-    }
-   ]
+   "thickRel": 0.38
   },
   {
    "kit": "fs-house",
@@ -60647,7 +60641,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-bush-a",
-   "thickRel": 1.22
+   "thickRel": 1.17
   },
   {
    "kit": "fs-terrain",
@@ -60690,7 +60684,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-bush-a",
-   "thickRel": 1.12
+   "thickRel": 1.08
   },
   {
    "kit": "fs-terrain",
@@ -60733,7 +60727,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-bush-a",
-   "thickRel": 1.09
+   "thickRel": 1.05
   },
   {
    "kit": "fs-terrain",
@@ -60776,7 +60770,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-bush-a",
-   "thickRel": 1.09
+   "thickRel": 1.04
   },
   {
    "kit": "fs-terrain",
@@ -78234,7 +78228,7 @@
     "food",
     "isa"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "isa-bakery",
@@ -79292,7 +79286,7 @@
    "collection": "isa-tt",
    "name": "macaron-pink",
    "hash": "7f08b883a4",
-   "kind": "obj-food-baked-pastry",
+   "kind": "obj-food-baked-pastry-cookie",
    "size": "s",
    "wdh": [
     0.08,
@@ -79332,7 +79326,7 @@
     "food",
     "isa"
    ],
-   "thickRel": 1.52
+   "thickRel": 2.2
   },
   {
    "kit": "isa-bakery",
@@ -84385,7 +84379,7 @@
     "food",
     "isa"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.3
   },
   {
    "kit": "isa-food",
@@ -85699,7 +85693,7 @@
    "collection": "isa-tt",
    "name": "foliage-b",
    "hash": "4bca354895",
-   "kind": "env-flora-plant-bush",
+   "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.231,
@@ -85732,10 +85726,11 @@
    ],
    "tags": [
     "foliage",
-    "isa"
+    "isa",
+    "scale-small"
    ],
    "variant": "isa-homely/foliage-a",
-   "thickRel": 0.58
+   "thickRel": 1.54
   },
   {
    "kit": "isa-homely",
@@ -89264,7 +89259,7 @@
     "foliage",
     "isa"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.82
   },
   {
    "kit": "isa-park",
@@ -92368,7 +92363,7 @@
     "isa"
    ],
    "variant": "isa-plants/monstera-plant-large",
-   "thickRel": 0.55
+   "thickRel": 0.53
   },
   {
    "kit": "isa-plants",
@@ -92412,7 +92407,7 @@
     "isa"
    ],
    "variant": "isa-plants/monstera-plant-large",
-   "thickRel": 0.56
+   "thickRel": 0.54
   },
   {
    "kit": "isa-plants",
@@ -92861,7 +92856,7 @@
     "scale-small"
    ],
    "variant": "isa-plants/pothos-plant-large",
-   "thickRel": 0.77
+   "thickRel": 0.75
   },
   {
    "kit": "isa-plants",
@@ -93118,7 +93113,7 @@
     "scale-big"
    ],
    "variant": "isa-plants/sansevieria-plant-large",
-   "thickRel": 1.1
+   "thickRel": 1.07
   },
   {
    "kit": "isa-plants",
@@ -93161,7 +93156,7 @@
     "isa"
    ],
    "variant": "isa-plants/sansevieria-plant-large",
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "isa-plants",
@@ -93206,7 +93201,7 @@
     "scale-small"
    ],
    "variant": "isa-plants/sansevieria-plant-large",
-   "thickRel": 0.84
+   "thickRel": 0.81
   },
   {
    "kit": "isa-plants",
@@ -93971,7 +93966,7 @@
     "wood-bark"
    ],
    "variant": "isa-plants/yucca-plant-medium",
-   "thickRel": 0.64
+   "thickRel": 0.63
   },
   {
    "kit": "isa-plants",
@@ -94021,7 +94016,7 @@
     "wood-bark"
    ],
    "variant": "isa-plants/yucca-plant-medium",
-   "thickRel": 0.64
+   "thickRel": 0.62
   },
   {
    "kit": "isa-plants",
@@ -94071,7 +94066,7 @@
     "wood-bark"
    ],
    "variant": "isa-plants/yucca-plant-medium",
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "isa-plants",
@@ -94222,7 +94217,7 @@
     "wood-bark"
    ],
    "variant": "isa-plants/yucca-plant-medium",
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "isa-plants",
@@ -94526,7 +94521,7 @@
     "scale-small"
    ],
    "variant": "isa-plants/zzplant-plant-medium",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "isa-plants",
@@ -103952,7 +103947,7 @@
     "foliage",
     "kay"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.15
   },
   {
    "kit": "kay-city",
@@ -120622,7 +120617,7 @@
     "wood-worked"
    ],
    "variant": "kay-food/crate",
-   "thickRel": 1.7
+   "thickRel": 1.18
   },
   {
    "kit": "kay-food",
@@ -121009,7 +121004,7 @@
     "wood-worked"
    ],
    "variant": "kay-food/crate",
-   "thickRel": 0.66
+   "thickRel": 0.45
   },
   {
    "kit": "kay-food",
@@ -125910,7 +125905,7 @@
     "kay"
    ],
    "variant": "kay-forest/bush-1-f",
-   "thickRel": 0.88
+   "thickRel": 0.84
   },
   {
    "kit": "kay-forest",
@@ -125952,7 +125947,7 @@
     "kay"
    ],
    "variant": "kay-forest/bush-1-f",
-   "thickRel": 0.8
+   "thickRel": 0.76
   },
   {
    "kit": "kay-forest",
@@ -125993,7 +125988,7 @@
     "foliage",
     "kay"
    ],
-   "thickRel": 0.89,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -135991,7 +135986,7 @@
     "wood-beam"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.92
+   "thickRel": 1.33
   },
   {
    "kit": "kay-hexagon",
@@ -136044,7 +136039,7 @@
     "wood-beam"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.92
+   "thickRel": 1.33
   },
   {
    "kit": "kay-hexagon",
@@ -136098,7 +136093,7 @@
     "wood-beam"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.89
+   "thickRel": 1.3
   },
   {
    "kit": "kay-hexagon",
@@ -136140,7 +136135,7 @@
     "wood-beam"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.19
+   "thickRel": 0.82
   },
   {
    "kit": "kay-hexagon",
@@ -140305,7 +140300,7 @@
     "food",
     "kay"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.13
   },
   {
    "kit": "kay-holiday",
@@ -140551,7 +140546,7 @@
     "food",
     "kay"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "kay-holiday",
@@ -143236,7 +143231,7 @@
     "scale-small"
    ],
    "variant": "kay-minigame/plant-a",
-   "thickRel": 0.9
+   "thickRel": 0.88
   },
   {
    "kit": "kay-minigame",
@@ -143280,7 +143275,7 @@
     "scale-small"
    ],
    "variant": "kay-minigame/plant-a",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-minigame",
@@ -182739,7 +182734,7 @@
     "food",
     "ken"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.44
   },
   {
    "kit": "ken-food",
@@ -183630,7 +183625,7 @@
     "food",
     "ken"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "ken-food",
@@ -198372,7 +198367,7 @@
     "ken"
    ],
    "variant": "ken-holiday/gingerbread-man",
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "ken-holiday",
@@ -198424,7 +198419,7 @@
     "ken"
    ],
    "variant": "ken-holiday/gingerbread-man",
-   "thickRel": 1.1
+   "thickRel": 1.08
   },
   {
    "kit": "ken-holiday",
@@ -209851,7 +209846,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.56
   },
   {
    "kit": "ken-pirate",
@@ -252926,7 +252921,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 2.19
+   "thickRel": 1.51
   },
   {
    "kit": "lpa-desert",
@@ -263686,7 +263681,7 @@
     "lpa",
     "wood-planks"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.46
   },
   {
    "kit": "lpa-west",
@@ -273458,7 +273453,7 @@
    "tags": [
     "foliage"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.09
   },
   {
    "kit": "natuur",
@@ -316893,7 +316888,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.53
   },
   {
    "kit": "quat-space",
@@ -337428,7 +337423,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.4
   },
   {
    "kit": "rgp-medieval",
@@ -339404,7 +339399,7 @@
    ],
    "tags": [
     "rgp",
-    "storeys-1-5",
+    "storeys-2",
     "vegetation",
     "wood-beam",
     "wood-planks"
@@ -363756,7 +363751,7 @@
     "foliage",
     "styloo"
    ],
-   "thickRel": 1
+   "thickRel": 0.96
   },
   {
    "kit": "styloo-farm",
@@ -364006,7 +364001,7 @@
    "kit": "styloo-farm",
    "name": "crate-open-slate",
    "hash": "2cfbb89527",
-   "kind": "obj-container-crate-produce",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     1.005,
@@ -364049,13 +364044,13 @@
     "wood-worked"
    ],
    "variant": "styloo-farm/crate-open",
-   "thickRel": 0.43
+   "thickRel": 0.21
   },
   {
    "kit": "styloo-farm",
    "name": "crate-open",
    "hash": "31f5f24ee2",
-   "kind": "obj-container-crate-produce",
+   "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
     1.005,
@@ -364104,7 +364099,7 @@
     "wood-worked"
    ],
    "variant": "styloo-farm/crate-open",
-   "thickRel": 0.43
+   "thickRel": 0.21
   },
   {
    "kit": "styloo-farm",
@@ -368636,7 +368631,7 @@
     "food",
     "styloo"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.03
   },
   {
    "kit": "styloo-food",
@@ -389820,7 +389815,7 @@
     "scale-big",
     "wizp"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "wizp-asia",
@@ -389870,7 +389865,7 @@
     "vegetation",
     "wizp"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "wizp-asia",
@@ -389914,7 +389909,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/plant-d",
-   "thickRel": 0.71
+   "thickRel": 0.69
   },
   {
    "kit": "wizp-asia",
@@ -389958,7 +389953,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/plant-d",
-   "thickRel": 0.71
+   "thickRel": 0.69
   },
   {
    "kit": "wizp-asia",
@@ -399143,7 +399138,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.5,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
