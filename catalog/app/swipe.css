@@ -101,13 +101,6 @@ body:not([data-zes]) .zes-alleen { display: none !important; }
   font-size: 13px;
 }
 
-.veld-rij {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  min-height: var(--raak);
-}
-
 .veld-hint {
   display: block;
   margin: 2px 0 8px;
@@ -466,8 +459,6 @@ body:not([data-zes]) .zes-alleen { display: none !important; }
   margin-top: 4px;
 }
 
-.swipe-tags .tagedit-chips { gap: 4px; margin-bottom: 4px; }
-
 .tagedit-compact .tagbalk-knoppen { flex-wrap: wrap; gap: 3px; overflow: visible; }
 .tagedit-compact .tagbak,
 .tagedit-compact .tagbak .tagbak {
@@ -485,12 +476,7 @@ body:not([data-zes]) .zes-alleen { display: none !important; }
 .tagedit-compact .tagknop { padding: 1px 6px; font-size: 11.5px; line-height: 1.5; }
 .tagedit-compact .tagknop[aria-pressed="true"] { font-weight: inherit; }
 .tagedit-compact .tagknop-aantal:empty { display: none; }
-.swipe-tags .tagedit-compact.tagrij,
 .swipe-tags .tagrij { padding: 2px 4px; }
-
-.swipe-tags .tagedit-toggles { max-height: 148px; }
-
-.swipe-tags .tagedit-groep { margin: 6px 0 3px; font-size: 10.5px; }
 
 .swipe-tags .keuzechip { min-height: 26px; padding: 3px 9px; font-size: 12px; }
 

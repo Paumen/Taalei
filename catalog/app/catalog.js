@@ -1,9 +1,19 @@
 import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=fe16180116';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName } from './chiprij.js?v=85a8110145';
+import {
+  layoutChips, chipName, keysWithState as keysWith, matchesState as matches,
+  buildColorBar, buildChipRow as chipRow, syncSubtypes as syncChipStates, clearStates,
+} from './chiprij.js?v=85a8110145';
 import { colorSwatches, setBands } from './color-edits.js?v=c41ea485be';
 import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=7825dfa9fd';
 import { mountExtractBar, setPageParts } from './extract.js?v=40c5afee7d';
 import { stamped, withHash } from './stamps.js?v=04e3ee3113';
+import {
+  number, unit, readableBytes, dimensions, longest, kindParent, kindChain, rootRank,
+  SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText, TAG_TYPES,
+  withParents as withParentsIn, collectColors, hydrate, WORKFILES, modelUrl, foldVariants as foldVariantsBy,
+  span, glyph, flatMode, setLighting, attachViewer, watchViewers,
+  makeSelection, choiceChip as makeChoiceChip, copyPathsOnClick,
+} from './shared.js';
 import './bouwstempel.js?v=aad2769343';
 
 const KIT_COLORS = {
@@ -19,54 +29,17 @@ const KIT_COLORS = {
   rocks: '#8a91ae',
 };
 
-const kindParent = (id) => (id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : null);
-const kindChain = (id) => {
-  const chain = [];
-  for (let k = id; k; k = kindParent(k)) chain.unshift(k);
-  return chain;
-};
-const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'set'];
-const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
-
-const MODEL_PATH = 'kits/workfiles';
 const THUMB_PATH = 'catalog/build/thumbs';
-
-const modelUrl = (model) => withHash(model.path, model.hash);
 
 const thumbs = new Map();
 const sheets = new Map();
 
-function hydrate(m) {
-  m.id = `${m.kit}/${m.name}`;
-  m.path = `${MODEL_PATH}/${m.kit}/${m.name}.glb`;
-  m.group = m.collection ?? m.kit;
-  return m;
-}
-
-function collectColors(models, bandNames) {
-  const counts = new Map();
-  for (const model of models) {
-    for (const hex of model.colors ?? []) counts.set(hex, (counts.get(hex) ?? 0) + 1);
-  }
-  return [...counts]
-    .map(([hex, count]) => ({ hex, count, name: bandNames.get(hex) ?? 'no band' }))
-    .sort((a, b) => b.count - a.count || a.hex.localeCompare(b.hex));
-}
-
 const HEAVY_FROM = 5000;
-
-const SIZE_CLASSES = [
-  { id: 's', sign: 'S', short: 'Small', hint: 'small — under half a unit' },
-  { id: 'm', sign: 'M', short: 'Medium', hint: 'medium — half to one and a half units' },
-  { id: 'l', sign: 'L', short: 'Large', hint: 'large — over one and a half units' },
-];
 
 const sizeClass = (model) => ({
   ...(SIZE_CLASSES.find((k) => k.id === model.size) ?? SIZE_CLASSES.at(-1)),
-  longest: Math.max(...model.wdh),
+  longest: longest(model),
 });
-
-const number = new Intl.NumberFormat('en-GB');
 
 const panel = document.querySelector('#paneel');
 const emptyMessage = document.querySelector('#leeg');
@@ -79,8 +52,8 @@ const sections = [];
 let grouping = 'kind7';
 let sorting = 'naam';
 
-const chosenPaths = new Set();
-const cardsPerPath = new Map();
+const selection = makeSelection(() => updateSelection());
+const { chosen: chosenPaths, cardsPerPath, set: setSelection } = selection;
 const familyPerPath = new Map();
 
 let lastChoice = null;
@@ -99,118 +72,12 @@ const tagState = new Map();
 const lintState = new Map();
 const checkState = new Map();
 
-const NEXT = { undefined: 'only', only: 'not', not: undefined };
-
-function rotateState(cardState, key, button) {
-  const next = NEXT[cardState.get(key)];
-  if (next) cardState.set(key, next);
-  else cardState.delete(key);
-  showState(button, next);
-  return next;
-}
-
-const keysWith = (cardState, value) =>
-  [...cardState].filter(([, v]) => v === value).map(([k]) => k);
-
-function matches(own, cardState, { any = [] } = {}) {
-  const only = keysWith(cardState, 'only');
-  const either = only.filter((e) => any.includes(e));
-  const all = only.filter((e) => !any.includes(e));
-  if (either.length && !own.some((e) => either.includes(e))) return false;
-  if (!all.every((e) => own.includes(e))) return false;
-  const not = keysWith(cardState, 'not');
-  return !own.some((e) => not.includes(e));
-}
-
 const chipButtons = [];
 
 let catalog = null;
 let totals = { models: 0, kits: 0 };
 
-const readableBytes = (bytes) =>
-  bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(bytes < 10240 ? 1 : 0)} kB`;
-
-const unit = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 2 });
-
-const dimensions = (wdh) =>
-  Array.isArray(wdh) ? `${wdh.map((v) => unit.format(v)).join(' × ')} units` : '—';
-
-function span(className, text = '') {
-  const element = document.createElement('span');
-  element.className = className;
-  element.textContent = text;
-  return element;
-}
-
-const observer = new IntersectionObserver(
-  (observations) => {
-    for (const { target, isIntersecting } of observations) {
-      if (isIntersecting) attachViewer(target);
-      else detachViewer(target);
-    }
-  },
-  { rootMargin: '800px 0px' },
-);
-
-const FLAT_ENVIRONMENT = 'catalog/app/effen-omgeving.png';
-const SOFT_ENVIRONMENT = 'catalog/app/zachte-omgeving.png';
-const flatMode = { on: false };
-
-function setLighting(viewer, shadow) {
-  viewer.setAttribute('tone-mapping', 'neutral');
-  if (flatMode.on) {
-    viewer.setAttribute('environment-image', FLAT_ENVIRONMENT);
-    viewer.setAttribute('shadow-intensity', '0');
-    viewer.setAttribute('exposure', '1.3');
-  } else {
-    viewer.setAttribute('environment-image', SOFT_ENVIRONMENT);
-    viewer.setAttribute('shadow-intensity', shadow);
-    viewer.setAttribute('exposure', '1.5');
-  }
-}
-
-function attachViewer(box) {
-  if (box.querySelector('model-viewer')) return;
-
-  const viewer = document.createElement('model-viewer');
-  viewer.src = box.dataset.src;
-  viewer.alt = box.dataset.alt;
-  viewer.setAttribute('camera-orbit', '35deg 68deg auto');
-  viewer.setAttribute('shadow-softness', '0.9');
-  setLighting(viewer, '0.6');
-  viewer.setAttribute('interaction-prompt', 'none');
-  viewer.setAttribute('disable-zoom', '');
-  viewer.setAttribute('loading', 'eager');
-  box.replaceChildren(viewer);
-}
-
-const soon = globalThis.requestIdleCallback ?? ((f) => setTimeout(f, 1));
-
-function detachViewer(box) {
-  const viewer = box.querySelector('model-viewer');
-  if (!viewer) return;
-
-  if (viewer.loaded && !box.dataset.momentopname) {
-    soon(() => {
-      if (box.dataset.momentopname || !viewer.loaded) return;
-      try {
-        box.dataset.momentopname = viewer.toDataURL('image/webp', 0.72);
-        if (!box.contains(viewer)) showSnapshot(box);
-      } catch {}
-    });
-  }
-
-  if (box.dataset.momentopname) showSnapshot(box);
-  else box.replaceChildren();
-}
-
-function showSnapshot(box) {
-  const image = document.createElement('img');
-  image.src = box.dataset.momentopname;
-  image.alt = box.dataset.alt;
-  image.loading = 'lazy';
-  box.replaceChildren(image);
-}
+const observer = watchViewers();
 
 const thumbSrc = (box) => {
   const sheet = sheets.get(box.dataset.thumb);
@@ -229,32 +96,6 @@ function showThumb(box, at) {
   image.style.setProperty('--col', at % cols);
   image.style.setProperty('--row', Math.floor(at / cols));
   box.replaceChildren(image);
-}
-
-const LINT_LEVELS = [
-  { id: 'error', title: 'Errors', hint: 'Breaks a rule, or outside a size limit by more than the warning band' },
-  { id: 'warning', title: 'Warnings', hint: 'Outside a size limit but within the warning band' },
-];
-
-const LINT_CHECKS = [
-  { id: 'size', title: 'Size', hint: 'Extents, per kind' },
-  { id: 'tpu', title: 'Triangles', hint: 'Triangle budget, per kind' },
-  { id: 'mat', title: 'Materials', hint: 'The materials a kind is asked to carry' },
-  { id: 'palette', title: 'Palette', hint: 'The bands a material may draw from' },
-  { id: 'bands', title: 'Bands', hint: 'The bands a kind may draw from' },
-  { id: 'measures', title: 'Measures', hint: 'Rows that assert on one recorded field' },
-  { id: 'backface', title: 'Backfaces', hint: 'Share of a view that shows back faces' },
-];
-
-const lintLevels = (m) => [...new Set((m.lint ?? []).map((f) => f.level))];
-const lintChecks = (m) => [...new Set((m.lint ?? []).map((f) => f.check))];
-
-const lintText = (f) => `${f.check} · ${f.text}`;
-
-function glyph(kind, sign, hint) {
-  const el = span(`glyf glyf-${kind}`, sign);
-  el.title = hint;
-  return el;
 }
 
 function makeCard(model, kits, variants = []) {
@@ -438,8 +279,6 @@ function makeSection({ id, type, title, count, color, hint, source }) {
   return { section, grid, countEl };
 }
 
-const longest = (m) => Math.max(...m.wdh);
-
 const num = (v) => v ?? 0;
 const bool = (v) => (v ? 1 : 0);
 
@@ -585,7 +424,7 @@ function sectionsFor(models) {
   if (type === 'lint') {
     return perKey(
       (m) => (lintLevels(m).length ? lintLevels(m) : [WITHOUT]),
-      [...LINT_LEVELS.map((k) => ({ id: k.id, title: k.title, hint: k.hint })), { id: WITHOUT, title: 'Clean' }],
+      [...LINT_LEVELS.map((k) => ({ id: k.id, title: k.name, hint: k.hint })), { id: WITHOUT, title: 'Clean' }],
     );
   }
 
@@ -614,26 +453,7 @@ const byKindPath = (a, b) => (a.kind ?? '~').localeCompare(b.kind ?? '~') || SOR
 
 let variantMain = new Map();
 
-function foldVariants(models) {
-  const perGroup = new Map();
-  const out = [];
-  for (const model of models) {
-    const existing = model.variant ? perGroup.get(model.variant) : null;
-    if (existing) {
-      if (model.id === variantMain.get(model.variant)) {
-        existing.variants.push(existing.model);
-        existing.model = model;
-      } else {
-        existing.variants.push(model);
-      }
-      continue;
-    }
-    const item = { model, variants: [] };
-    if (model.variant) perGroup.set(model.variant, item);
-    out.push(item);
-  }
-  return out;
-}
+const foldVariants = (models) => foldVariantsBy(models, variantMain);
 
 function subtypeRank() {
   const ranked = new Map();
@@ -698,21 +518,7 @@ const register = { models: new Map(), kits: new Map(), kinds: new Map(), variant
 
 const parentOf = new Map();
 const childrenOf = new Map();
-const withParents = (ids) => {
-  const own = new Set(ids);
-  for (const id of ids) {
-    for (let p = parentOf.get(id); p && !own.has(p); p = parentOf.get(p)) own.add(p);
-  }
-  return [...own];
-};
-
-const TAG_TYPES = [
-  { type: 'material', head: 'Material' },
-  { type: 'attribute', head: 'Attributes', extra: true },
-  { type: 'tag', head: 'Tags' },
-  { type: 'theme', head: 'Theme', extra: true },
-  { type: 'artist', head: 'Artist', extra: true },
-];
+const withParents = (ids) => withParentsIn(ids, parentOf);
 
 const marked = (model, field, text) =>
   span((model.mark ?? []).includes(field) ? 'feit-fout' : '', text);
@@ -886,31 +692,8 @@ function showDetail(model) {
 
 const OFF = '';
 
-function choiceChip(text, active, action, container, path) {
-  const chip = document.createElement('button');
-  chip.type = 'button';
-  chip.className = 'keuzechip';
-  chip.textContent = text;
-  chip.setAttribute('aria-pressed', String(active));
-  chip.addEventListener('click', () => {
-    for (const sibling of container.querySelectorAll('.keuzechip')) sibling.setAttribute('aria-pressed', 'false');
-    chip.setAttribute('aria-pressed', 'true');
-    action();
-  });
-  if (path) {
-    const pick = document.createElement('input');
-    pick.type = 'checkbox';
-    pick.className = 'keuzechip-kies';
-    pick.checked = chosenPaths.has(path);
-    pick.setAttribute('aria-label', `Select ${text}`);
-    pick.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setSelection([path], pick.checked);
-    });
-    chip.prepend(pick);
-  }
-  return chip;
-}
+const choiceChip = (text, active, action, container, path) =>
+  makeChoiceChip(text, active, action, container, path, selection);
 
 // What the panel is showing, in the terms tools/renders/render.mjs takes. model-viewer
 // counts phi down from straight up and render.mjs counts elevation up from the
@@ -997,15 +780,6 @@ const detailSelect = document.querySelector('#detail-selecteer');
 
 const visibleCards = () => cards.filter((k) => !k.element.hidden);
 
-function setSelection(paths, on) {
-  for (const path of paths) {
-    if (on) chosenPaths.add(path);
-    else chosenPaths.delete(path);
-    for (const sibling of cardsPerPath.get(path) ?? []) sibling.checkbox.checked = on;
-  }
-  updateSelection();
-}
-
 function pickRange(to, on) {
   const list = visibleCards();
   const from = list.indexOf(lastChoice);
@@ -1027,35 +801,7 @@ function updateSelection() {
   }
 }
 
-async function toClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {}
-
-  const field = document.createElement('textarea');
-  field.value = text;
-  field.setAttribute('readonly', '');
-  field.style.cssText = 'position:fixed;top:0;left:-9999px';
-  document.body.append(field);
-  field.select();
-  try {
-    return document.execCommand('copy');
-  } catch {
-    return false;
-  } finally {
-    field.remove();
-  }
-}
-
-selectionCopy.addEventListener('click', async () => {
-  const count = chosenPaths.size;
-  const ok = await toClipboard([...chosenPaths].join('\n'));
-  selectionCopy.textContent = ok
-    ? `${count} path${count === 1 ? '' : 's'} copied`
-    : 'Copy failed';
-  setTimeout(() => { selectionCopy.textContent = 'Copy paths'; }, 1600);
-});
+copyPathsOnClick(selectionCopy, chosenPaths);
 
 document.querySelector('#selectie-alles').addEventListener('click', () => {
   setSelection(visibleCards().flatMap((k) => k.paths), true);
@@ -1070,75 +816,20 @@ detailSelect.addEventListener('click', () => {
   setSelection(familyPerPath.get(activePath) ?? [activePath], !chosenPaths.has(activePath));
 });
 
-function checkColor(hex) {
-  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6 ? '#2f2a26' : '#ffffff';
-}
-
-function buildColorBar(colors) {
-  colorKeys = colors.map((c) => c.hex);
-  const container = document.querySelector('#kleurbalk-stalen');
-  const swatches = document.createElement('div');
-  swatches.className = 'kleurgroep-stalen';
-  swatches.setAttribute('role', 'group');
-  swatches.setAttribute('aria-label', 'Filter by colour');
-
-  for (const color of colors) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'staal';
-    button.dataset.sleutel = color.hex;
-    button.style.setProperty('--staal-kleur', color.hex);
-    button.style.setProperty('--vink', checkColor(color.hex));
-    button.setAttribute('aria-pressed', 'false');
-    button.title = `${color.name} ${color.hex} — ${color.count} models`;
-    button.setAttribute('aria-label', `${color.name} ${color.hex}, ${color.count} models`);
-
-    button.addEventListener('click', () => {
-      rotateState(colorState, color.hex, button);
-      filter();
-    });
-
-    swatches.append(button);
-  }
-
-  const group = document.createElement('div');
-  group.className = 'kleurgroep';
-  group.append(swatches);
-  container.append(group);
-}
-
 const reorder = () => layoutChips(chipButtons);
 
-function syncSubtypes(counts = null) {
-  syncChips(chipButtons, {
-    stateOf: (id, chip) => chip.state.get(id),
-    countOf: counts ? (chip) => counts.get(`${chip.field}|${chip.id}`) ?? 0 : null,
-    onHide: (chip) => { chip.state.delete(chip.id); },
-    skip: (chip) => chip.extra && !filtersOpen && chip.state.get(chip.id) === undefined,
-  });
-  for (const chip of chipButtons) {
-    if (chip.count === 0 && chip.state.get(chip.id) === 'only') chip.state.delete(chip.id);
-  }
-}
+const syncSubtypes = (counts = null) => syncChipStates(chipButtons, {
+  countOf: counts ? (chip) => counts.get(`${chip.field}|${chip.id}`) ?? 0 : null,
+  skip: (chip) => chip.extra && !filtersOpen && chip.state.get(chip.id) === undefined,
+});
 
-function buildChipRow(container, head, items, state, field, { shareRow = null, byCount = false, extra = false } = {}) {
-  const { row, chips } = makeChipStrip({
-    label: `Filter by ${head.toLowerCase()}`,
-    items, container, shareRow, byCount, hideEmpty: true,
-    stateOf: (id) => state.get(id),
-    onPick: (id, button) => {
-      rotateState(state, id, button);
-      if (items.find((i) => i.id === id)?.parent || items.some((i) => i.parent === id)) { refresh(); return; }
-      syncSubtypes();
-      reorder();
-      filter();
-    },
-  });
-  for (const chip of chips) { chip.state = state; chip.field = field; chip.extra = extra; }
-  chipButtons.push(...chips);
-  return row;
-}
+const buildChipRow = (container, head, items, state, field, options) =>
+  chipRow(chipButtons, container, head, items, state, field, (id) => {
+    if (items.find((i) => i.id === id)?.parent || items.some((i) => i.parent === id)) { refresh(); return; }
+    syncSubtypes();
+    reorder();
+    filter();
+  }, options);
 
 function buildTagBar(tags) {
   const container = document.querySelector('#tagbalk');
@@ -1165,7 +856,7 @@ function buildTagBar(tags) {
   const lintRow = buildChipRow(
     container,
     'Lint',
-    LINT_LEVELS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
+    LINT_LEVELS.map((k) => ({ id: k.id, name: k.name, hint: k.hint, dot: true })),
     lintState,
     'lint',
     { extra: true },
@@ -1173,7 +864,7 @@ function buildTagBar(tags) {
   buildChipRow(
     container,
     'Check',
-    LINT_CHECKS.map((k) => ({ id: k.id, name: k.title, hint: k.hint, dot: true })),
+    LINT_CHECKS.map((k) => ({ id: k.id, name: k.name, hint: k.hint, dot: true })),
     checkState,
     'checks',
     { shareRow: lintRow, extra: true },
@@ -1220,14 +911,7 @@ const filtersOff = () =>
   + lintState.size + checkState.size === 0;
 
 function onClear() {
-  colorState.clear();
-  tagState.clear();
-  sizeState.clear();
-  kindState.clear();
-  lintState.clear();
-  checkState.clear();
-  for (const button of document.querySelectorAll('.staal')) showState(button, undefined);
-  for (const { element } of chipButtons) showState(element, undefined);
+  clearStates([colorState, tagState, sizeState, kindState, lintState, checkState], chipButtons);
   syncSubtypes();
   reorder();
   filter();
@@ -1283,9 +967,9 @@ async function loadThumbs() {
 
 async function start() {
   const response = await fetch(stamped('catalog/build/catalog.json'));
-  if (!response.ok) throw new Error(`catalog/catalog.json not found (${response.status})`);
+  if (!response.ok) throw new Error(`catalog/build/catalog.json not found (${response.status})`);
   const data = await response.json();
-  data.models.forEach(hydrate);
+  for (const model of data.models) hydrate(model, WORKFILES);
 
   const kits = new Map(data.kits.map((k) => [k.slug, k]));
 
@@ -1312,7 +996,8 @@ async function start() {
 
   const bands = data.bands ?? [];
   const colors = collectColors(data.models, new Map(bands.map((b) => [b.hex, b.name])));
-  buildColorBar(colors);
+  colorKeys = colors.map((c) => c.hex);
+  buildColorBar(colors, colorState, () => filter());
   setBands(bands);
   buildTagBar(data.tags ?? []);
   setPageParts();

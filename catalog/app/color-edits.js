@@ -1,17 +1,11 @@
+import { readStore, writeStore } from './shared.js';
+
 const STORAGE_KEY = 'taaleiland-kleurmerken-v1';
 
-export const VERDICTS = ['partial', 'wrong'];
+const VERDICTS = ['partial', 'wrong'];
 const LABEL = { partial: 'partly wrong', wrong: 'wrong', add: 'proposed, not on the model' };
 
-function load() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
-    if (stored && typeof stored === 'object') return stored;
-  } catch {}
-  return {};
-}
-
-let marks = load();
+let marks = readStore(STORAGE_KEY);
 const listeners = [];
 
 let bands = [];
@@ -23,15 +17,13 @@ export function setBands(list) {
   for (const band of list) bandName.set(band.hex, band.name);
 }
 
-export const bandLabel = (hex) => {
+const bandLabel = (hex) => {
   const name = bandName.get(hex);
   return name ? `${name} — ${hex}` : hex;
 };
 
 function save() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(marks));
-  } catch {}
+  writeStore(STORAGE_KEY, marks);
 }
 
 function notify() {
@@ -42,8 +34,8 @@ export function onChange(fn) {
   listeners.push(fn);
 }
 
-export const verdictOf = (model, hex) => marks[model.id]?.[hex] ?? null;
-export const verdictLabel = (verdict) => LABEL[verdict] ?? 'as the rules ask';
+const verdictOf = (model, hex) => marks[model.id]?.[hex] ?? null;
+const verdictLabel = (verdict) => LABEL[verdict] ?? 'as the rules ask';
 
 function set(model, hex, verdict) {
   const own = (marks[model.id] ??= {});
@@ -54,14 +46,14 @@ function set(model, hex, verdict) {
   notify();
 }
 
-export function proposeBand(model, hex) {
+function proposeBand(model, hex) {
   set(model, hex, 'add');
 }
 
-export const proposedBands = (model) =>
+const proposedBands = (model) =>
   Object.entries(marks[model.id] ?? {}).filter(([, v]) => v === 'add').map(([hex]) => hex);
 
-export function cycleVerdict(model, hex) {
+function cycleVerdict(model, hex) {
   const current = verdictOf(model, hex);
   if (current === 'add') {
     set(model, hex, null);
