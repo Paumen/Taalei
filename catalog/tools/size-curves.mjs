@@ -138,7 +138,7 @@ const SIZES = {
   'obj-equipment-weapon-ranged-bow': 1.5,
   'obj-equipment-weapon-ranged-crossbow': 0.8,
   'obj-equipment-weapon-ranged-firearm': 1.2,
-  'obj-equipment-weapon-ranged-firearm-hand': 0.35,
+  'obj-equipment-weapon-ranged-firearm-hand': 0.2,
   'obj-equipment-weapon-ranged-firearm-hand-revolver': 0.3,
   'obj-equipment-weapon-ranged-firearm-rifle': 1.15,
   'obj-equipment-weapon-ranged-firearm-rifle-sniper': 1.2,
@@ -453,9 +453,24 @@ const SHAKY = 0.3;
 const EDGE = 0.002;
 const MAX_UNITS = 10;
 const MAX_REAL_M = 24;
+const MIN_PEERS = 2;
+const SWEEPS = 20;
 
 const depth = (kind) => kind.split('-').length;
 const round3 = (v) => Math.round(v * 1000) / 1000;
+const median = (arr) => {
+  const s = [...arr].sort((a, b) => a - b);
+  return s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2;
+};
+const groupBy = (items, key) => {
+  const map = new Map();
+  for (const it of items) {
+    const k = key(it);
+    if (!map.has(k)) map.set(k, []);
+    map.get(k).push(it);
+  }
+  return map;
+};
 
 const wmedian = (items) => {
   const sorted = [...items].sort((a, b) => a[0] - b[0]);
@@ -534,42 +549,58 @@ const gather = () => {
 };
 
 const pointsOf = (models) => {
-  const groups = new Map();
-  for (const m of models) {
-    const key = m.kind;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(m);
-  }
   const pts = [];
-  for (const [kind, members] of groups) {
-    const ratios = members.map((m) => Math.log2(m.u / m.real)).sort((a, b) => a - b);
-    const reals = members.map((m) => m.at).sort((a, b) => a - b);
-    const mid = (arr) => (arr.length % 2 ? arr[(arr.length - 1) / 2] : (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2);
+  for (const [kind, members] of groupBy(models, (m) => m.kind)) {
     pts.push({
       kind, n: members.length, d: new Set(members.map((m) => m.shape)).size,
-      x: round3(Math.log2(mid(reals))), y: round3(mid(ratios)), members,
+      x: round3(Math.log2(median(members.map((m) => m.at)))), y: round3(median(members.map((m) => Math.log2(m.u / m.real)))), members,
     });
   }
   return pts.sort((a, b) => a.kind.localeCompare(b.kind));
 };
 
-const build = (models, weighted) => {
-  const byKit = new Map();
-  for (const m of models) {
-    if (!byKit.has(m.kit)) byKit.set(m.kit, []);
-    byKit.get(m.kit).push(m);
+const kindLevels = (rows) => {
+  const byKit = groupBy(rows, (r) => r.kit);
+  const byKind = groupBy(rows, (r) => r.kind);
+  const a = new Map([...byKit.keys()].map((k) => [k, 0]));
+  const b = new Map([...byKind.keys()].map((k) => [k, 0]));
+  for (let i = 0; i < SWEEPS; i++) {
+    for (const [k, rs] of byKit) a.set(k, median(rs.map((r) => r.y - b.get(r.kind))));
+    for (const [k, rs] of byKind) b.set(k, median(rs.map((r) => r.y - a.get(r.kit))));
   }
+  const levels = new Map();
+  for (const [kind, rs] of byKind) {
+    if (rs.length >= MIN_PEERS) levels.set(kind, { level: b.get(kind), x: median(rs.map((r) => r.x)) });
+  }
+  return levels;
+};
+
+const peerLevels = (models) => {
+  const rows = [...groupBy(models, (m) => m.kit)].flatMap(([kit, members]) => pointsOf(members).map((p) => ({ kit, kind: p.kind, x: p.x, y: p.y })));
+  const kits = new Set(rows.map((r) => r.kit));
+  return new Map([...kits].map((kit) => [kit, kindLevels(rows.filter((r) => r.kit !== kit))]));
+};
+
+const offsetsFor = (levels, ref) => {
+  const raw = new Map([...levels].map(([kind, l]) => [kind, l.level - (ref.icpt + ref.slope * l.x)]));
+  const centre = raw.size ? median([...raw.values()]) : 0;
+  return new Map([...raw].map(([kind, v]) => [kind, v - centre]));
+};
+
+const build = (models, weighted, peers) => {
+  const ref = fit(pointsOf(models), weighted);
   const kits = [];
   const all = [];
-  for (const [kit, members] of byKit) {
-    const pts = pointsOf(members);
+  for (const [kit, members] of groupBy(models, (m) => m.kit)) {
+    const off = offsetsFor(peers.get(kit), ref);
+    const pts = pointsOf(members).map((p) => ({ ...p, y: round3(p.y - (off.get(p.kind) ?? 0)) }));
     if (!fittable(pts)) continue;
     const { slope, icpt, mad } = fit(pts, weighted);
     const loo = pts.map((_, i) => pts.filter((__, j) => j !== i)).filter(fittable).map((rest) => fit(rest, weighted).slope);
     const range = loo.length ? [round3(Math.min(...loo)), round3(Math.max(...loo))] : null;
     const scored = members.map((m) => ({
       name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit,
-      res: round3(Math.log2(m.u / m.real) - (icpt + slope * Math.log2(m.at))),
+      res: round3(Math.log2(m.u / m.real) - (off.get(m.kind) ?? 0) - (icpt + slope * Math.log2(m.at))),
     })).sort((a, b) => b.res - a.res);
     const up = scored[0];
     const down = scored.at(-1);
@@ -586,8 +617,6 @@ const build = (models, weighted) => {
     all.push(...members);
   }
   kits.sort((a, b) => a.slope - b.slope);
-  const refPts = pointsOf(models);
-  const ref = fit(refPts, weighted);
   const top = all.map((m) => ({
     name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit: m.kit,
     res: round3(Math.log2(m.u / m.real) - (ref.icpt + ref.slope * Math.log2(m.at))),
@@ -596,7 +625,8 @@ const build = (models, weighted) => {
 };
 
 const models = gather();
-const payload = { weighted: build(models, true), plain: build(models, false) };
+const peers = peerLevels(models);
+const payload = { weighted: build(models, true, peers), plain: build(models, false, peers) };
 
 const sizeRows = [...Object.entries(SIZES), ...Object.entries(SCALE_SIZES)
   .flatMap(([kind, by]) => Object.entries(by).map(([scale, real]) => [`${kind} ${SCALE_PREFIX}${scale}`, real]))]
@@ -722,7 +752,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 
 <section id="panel-curves" role="tabpanel" aria-labelledby="tab-curves">
   <div class="top">
-    <span><b>Each line is one kit</b>, fitted through its own kinds against a real-world size table.</span>
+    <span><b>Each line is one kit</b>, fitted through its own kinds, each measured against how the other kits size that kind.</span>
     <span>Flat = keeps real proportions.</span>
     <span>Falling = small things enlarged (toy).</span>
     <span>Dotted = unstable: leaving out one kind moves the slope more than ${SHAKY}, or too few kinds to try.</span>
@@ -750,7 +780,8 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
   <div class="rules">
     <div class="rule">
       <h3>How a curve is fitted</h3>
-      <p>Per kit and kind, the median model size divided by the kind's assumed real size. A Theil&ndash;Sen line through those points, in log2 on both axes, <span id="wtext"></span>. Scatter is the median absolute residual, under the same weighting. A kit needs 3 kinds spanning at least a factor 2 in real size, or it is dropped.</p>
+      <p>Per kit and kind, the median model size divided by the kind's assumed real size, less that kind's usual offset from the dashed line in the other kits. So a kit that sizes every kind the way the other kits do lies on the dashed line, whichever kinds it holds, and its slope shows only how it scales them itself. The usual offset comes from a robust fit of kit level plus kind level over every other kit's points; a kind in fewer than ${MIN_PEERS} other kits has none and is measured against the size table alone.</p>
+      <p>A Theil&ndash;Sen line through those points, in log2 on both axes, <span id="wtext"></span>. Scatter is the median absolute residual, under the same weighting. A kit needs 3 kinds spanning at least a factor 2 in real size, or it is dropped.</p>
       <p>Range is the lowest and highest slope when the line is refitted with each kind left out in turn. A kit is unstable, and drawn dotted, when that range is wider than ${SHAKY}, or when no kind can be left out without the kit falling below the minimum.</p>
     </div>
     <div class="rule">
