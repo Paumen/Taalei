@@ -889,10 +889,17 @@ async function start() {
   load();
 
   if (kit) {
-    state.filters.kits = [kit];
+    state.filters.kits = { [kit]: 'only' };
     state.order = state.order.filter((id) => register.perId.get(id)?.group === kit);
     state.choices = state.choices.filter((k) => register.perId.get(k.id)?.group === kit);
     state.started = state.started && state.order.length > 0;
+  }
+
+  if (state.started) {
+    const known = new Set(state.order);
+    const added = register.models.filter((m) => !known.has(m.id) && matches(m)).map((m) => m.id);
+    state.order.push(...(state.filters.shuffle ? shuffle(added) : added));
+    if (added.length) save();
   }
 
   el('#opzet-formulier').addEventListener('submit', (e) => {
