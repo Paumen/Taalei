@@ -970,7 +970,7 @@ window.KENNEY_KITS = [
   "slug": "dragon",
   "url": "https://www.blendswap.com/blend/93930",
   "licenseLabel": "CC0 1.0",
-  "note": "Drummyfish, after Cethiel's CC0 2D dragon; rigged, with Attack, Die, Idle and Walk clips."
+  "note": "Drummyfish, after Cethiel's CC0 2D dragon; rigged, with Idle, IdleBattle, Walk, Attack1, Attack2, Hurt and Die clips."
  },
  {
   "slug": "rgp-cars",
