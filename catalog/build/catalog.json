@@ -1645,7 +1645,8 @@
     "Kenney Watercraft Pack": 44
    },
    "scales": {
-    "0.55": 145
+    "0.33": 41,
+    "0.55": 104
    },
    "smooth": {
     "smooth": 143,
@@ -1666,7 +1667,7 @@
       "Kenney Car Kit": 41
      },
      "scales": {
-      "0.55": 41
+      "0.33": 41
      },
      "smooth": {
       "smooth": 41
@@ -1715,8 +1716,9 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.96,
-    "kinds": 9
+    "factor": 0.74,
+    "kinds": 9,
+    "level": "warning"
    }
   },
   {
@@ -25057,7 +25059,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3159,
+   "count": 3163,
    "derived": true
   },
   {
@@ -25065,7 +25067,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 2930,
+   "count": 2938,
    "derived": true
   },
   {
@@ -25073,7 +25075,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1163,
+   "count": 1151,
    "derived": true
   },
   {
@@ -168884,26 +168886,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "ambulance",
-   "hash": "527b8b9534",
+   "hash": "fa9c788624",
    "kind": "obj-transport-land-road-truck",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.787,
-    0.99
+    0.495,
+    1.072,
+    0.594
    ],
    "tris": 1708,
-   "tpu": 1170,
+   "tpu": 4598,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 78388,
+   "bytes": 78384,
    "vtx": 2082,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "thick": 0.2477,
-   "avgTri": 0.0066,
+   "avgTri": 0.00238,
    "anglePct": 83,
    "vpt": 1.22,
    "grad": 0.59,
@@ -168953,26 +168955,27 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "box",
-   "hash": "d10de28db1",
+   "hash": "7dade5376f",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
-    0.393,
-    0.393,
-    0.393
+    0.236,
+    0.236,
+    0.236
    ],
    "tris": 116,
    "tpu": 338,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6728,
+   "bytes": 6736,
    "vtx": 144,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "thick": 0.2538,
-   "avgTri": 0.00758,
+   "minEdge": 0.017,
+   "thick": 0.2541,
+   "avgTri": 0.00273,
    "anglePct": 60,
    "vpt": 1.24,
    "grad": 0.56,
@@ -169001,13 +169004,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-bumper",
-   "hash": "22e840e065",
+   "hash": "936a9e3852",
    "kind": "obj-transport-part",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.715,
-    0.248,
-    0.22
+    0.429,
+    0.149,
+    0.132
    ],
    "tris": 116,
    "tpu": 338,
@@ -169018,10 +169021,10 @@
    "vtx": 140,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "minTube": 0.0673,
-   "thick": 0.1904,
-   "avgTri": 0.00422,
+   "minEdge": 0.013,
+   "minTube": 0.0404,
+   "thick": 0.1908,
+   "avgTri": 0.00152,
    "anglePct": 92,
    "vpt": 1.21,
    "grad": 0.6,
@@ -169039,19 +169042,19 @@
     "ken",
     "metal"
    ],
-   "thickRel": 2.03
+   "thickRel": 2.04
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-door-window",
-   "hash": "4b1774e208",
+   "hash": "f88c6b816b",
    "kind": "obj-transport-part",
    "size": "s",
    "wdh": [
-    0.103,
-    0.44,
-    0.495
+    0.062,
+    0.264,
+    0.297
    ],
    "tris": 80,
    "tpu": 233,
@@ -169063,8 +169066,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0915,
-   "avgTri": 0.00637,
+   "thick": 0.0914,
+   "avgTri": 0.00229,
    "anglePct": 90,
    "vpt": 1.2,
    "grad": 0.55,
@@ -169100,13 +169103,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-door",
-   "hash": "554d941c12",
+   "hash": "951cb8c0b9",
    "kind": "obj-transport-part",
    "size": "s",
    "wdh": [
-    0.103,
-    0.44,
-    0.495
+    0.062,
+    0.264,
+    0.297
    ],
    "tris": 66,
    "tpu": 192,
@@ -169117,9 +169120,9 @@
    "vtx": 84,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.039,
+   "minEdge": 0.023,
    "thick": 0.0915,
-   "avgTri": 0.0072,
+   "avgTri": 0.00259,
    "anglePct": 90,
    "vpt": 1.27,
    "grad": 0.6,
@@ -169149,13 +169152,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-drivetrain-axle",
-   "hash": "93bd13baed",
+   "hash": "d93241575e",
    "kind": "obj-transport-part",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.662,
-    0.191,
-    0.163
+    0.397,
+    0.115,
+    0.098
    ],
    "tris": 198,
    "tpu": 577,
@@ -169166,10 +169169,10 @@
    "vtx": 249,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "minTube": 0.0612,
+   "minEdge": 0.012,
+   "minTube": 0.0367,
    "thick": 0.2303,
-   "avgTri": 0.00191,
+   "avgTri": 0.00069,
    "anglePct": 81,
    "vpt": 1.26,
    "grad": 0.6,
@@ -169194,16 +169197,16 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-drivetrain",
-   "hash": "e87c774d7a",
+   "hash": "d69f4a4ac6",
    "kind": "obj-transport-part",
    "size": "m",
    "wdh": [
-    0.662,
-    1.056,
-    0.163
+    0.397,
+    0.634,
+    0.098
    ],
    "tris": 400,
-   "tpu": 817,
+   "tpu": 1166,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -169211,10 +169214,10 @@
    "vtx": 516,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.019,
-   "minTube": 0.0611,
-   "thick": 0.0799,
-   "avgTri": 0.00239,
+   "minEdge": 0.012,
+   "minTube": 0.0367,
+   "thick": 0.0797,
+   "avgTri": 0.00086,
    "anglePct": 85,
    "vpt": 1.29,
    "grad": 0.6,
@@ -169239,27 +169242,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-plate-a",
-   "hash": "d794cb45ef",
+   "hash": "f3efcf92f2",
    "kind": "obj-transport-part",
    "size": "s",
    "wdh": [
-    0.495,
-    0.495,
-    0.055
+    0.297,
+    0.297,
+    0.033
    ],
    "tris": 38,
    "tpu": 111,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3408,
+   "bytes": 3404,
    "vtx": 54,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.039,
+   "minEdge": 0.023,
    "thick": 0.0705,
-   "avgTri": 0.01551,
+   "avgTri": 0.00558,
    "anglePct": 100,
    "vpt": 1.42,
    "grad": 0.29,
@@ -169289,27 +169291,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-plate-b",
-   "hash": "dd81e8fc0f",
+   "hash": "249a918c97",
    "kind": "obj-transport-part",
    "size": "s",
    "wdh": [
-    0.495,
-    0.495,
-    0.11
+    0.297,
+    0.297,
+    0.066
    ],
    "tris": 44,
    "tpu": 128,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3252,
+   "bytes": 3248,
    "vtx": 48,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.055,
-   "thick": 0.0722,
-   "avgTri": 0.01348,
+   "minEdge": 0.033,
+   "thick": 0.0721,
+   "avgTri": 0.00485,
    "anglePct": 17,
    "vpt": 1.09,
    "grad": 0.3,
@@ -169339,13 +169340,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-spoiler-a",
-   "hash": "adafc8273d",
+   "hash": "4ac4692271",
    "kind": "obj-transport-part",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.605,
-    0.131,
-    0.165
+    0.363,
+    0.078,
+    0.099
    ],
    "tris": 48,
    "tpu": 140,
@@ -169356,9 +169357,9 @@
    "vtx": 76,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "thick": 0.2321,
-   "avgTri": 0.00576,
+   "minEdge": 0.017,
+   "thick": 0.2316,
+   "avgTri": 0.00208,
    "anglePct": 85,
    "vpt": 1.58,
    "grad": 0.45,
@@ -169382,33 +169383,33 @@
     "metal"
    ],
    "variant": "ken-car/debris-spoiler-a",
-   "thickRel": 2.48
+   "thickRel": 2.47
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-spoiler-b",
-   "hash": "325ac13a21",
+   "hash": "dd30ba0ce6",
    "kind": "obj-transport-part",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.55,
-    0.186,
-    0.192
+    0.33,
+    0.111,
+    0.115
    ],
    "tris": 88,
    "tpu": 257,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6092,
+   "bytes": 6096,
    "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "minTube": 0.1867,
-   "thick": 0.1915,
-   "avgTri": 0.00363,
+   "minEdge": 0.017,
+   "minTube": 0.112,
+   "thick": 0.1913,
+   "avgTri": 0.00131,
    "anglePct": 87,
    "vpt": 1.45,
    "grad": 0.51,
@@ -169432,19 +169433,19 @@
     "metal"
    ],
    "variant": "ken-car/debris-spoiler-a",
-   "thickRel": 2.05
+   "thickRel": 2.04
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "debris-tire",
-   "hash": "7a22de1928",
+   "hash": "e7b1096eb5",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.192,
-    0.33,
-    0.33
+    0.115,
+    0.198,
+    0.198
    ],
    "tris": 288,
    "tpu": 840,
@@ -169455,9 +169456,9 @@
    "vtx": 295,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
+   "minEdge": 0.013,
    "thick": 0.1222,
-   "avgTri": 0.00132,
+   "avgTri": 0.00048,
    "anglePct": 20,
    "vpt": 1.02,
    "grad": 0.6,
@@ -169481,16 +169482,16 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "delivery-flat",
-   "hash": "3901b88929",
+   "hash": "23f20439bc",
    "kind": "obj-transport-land-road-truck",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.787,
-    0.742
+    0.495,
+    1.072,
+    0.445
    ],
    "tris": 1141,
-   "tpu": 1043,
+   "tpu": 3072,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -169498,9 +169499,9 @@
    "vtx": 1330,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
+   "minEdge": 0.002,
    "thick": 0.1836,
-   "avgTri": 0.00496,
+   "avgTri": 0.00179,
    "anglePct": 70,
    "vpt": 1.17,
    "grad": 0.58,
@@ -169546,26 +169547,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "delivery",
-   "hash": "efda11fba0",
+   "hash": "6bc5156cec",
    "kind": "obj-transport-land-road-truck",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.787,
-    0.907
+    0.495,
+    1.072,
+    0.544
    ],
    "tris": 1362,
-   "tpu": 1019,
+   "tpu": 3667,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 61780,
+   "bytes": 61776,
    "vtx": 1628,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "thick": 0.2634,
-   "avgTri": 0.00739,
+   "avgTri": 0.00266,
    "anglePct": 84,
    "vpt": 1.2,
    "grad": 0.59,
@@ -169616,16 +169617,16 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "firetruck",
-   "hash": "894fc3a925",
+   "hash": "0f73d0ba60",
    "kind": "obj-transport-land-road-truck",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.87,
-    0.935
+    0.495,
+    1.122,
+    0.561
    ],
    "tris": 1648,
-   "tpu": 1142,
+   "tpu": 4239,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -169633,9 +169634,9 @@
    "vtx": 2095,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "thick": 0.2742,
-   "avgTri": 0.00618,
+   "minEdge": 0.002,
+   "thick": 0.2736,
+   "avgTri": 0.00223,
    "anglePct": 77,
    "vpt": 1.27,
    "grad": 0.58,
@@ -169679,22 +169680,22 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "garbage-truck",
-   "hash": "7e83dbf059",
+   "hash": "46f78b4340",
    "kind": "obj-transport-land-road-truck",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.88,
-    1.897,
-    0.88
+    0.528,
+    1.138,
+    0.528
    ],
    "tris": 1818,
-   "tpu": 1238,
+   "tpu": 4322,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -169702,9 +169703,9 @@
    "vtx": 2303,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.25,
-   "avgTri": 0.00479,
+   "minEdge": 0,
+   "thick": 0.2501,
+   "avgTri": 0.00172,
    "anglePct": 74,
    "vpt": 1.27,
    "grad": 0.58,
@@ -169754,16 +169755,16 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "hatchback-sports",
-   "hash": "27722e5373",
+   "hash": "71372c7363",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.715,
-    1.568,
-    0.605
+    0.429,
+    0.941,
+    0.363
    ],
    "tris": 1282,
-   "tpu": 1634,
+   "tpu": 3738,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -169771,9 +169772,9 @@
    "vtx": 1473,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.2497,
-   "avgTri": 0.00432,
+   "minEdge": 0,
+   "thick": 0.2499,
+   "avgTri": 0.00155,
    "anglePct": 59,
    "vpt": 1.15,
    "grad": 0.58,
@@ -169817,32 +169818,39 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.941 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "police",
-   "hash": "0edb46527e",
+   "hash": "a95d1441cb",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.705,
-    0.715
+    0.495,
+    1.023,
+    0.429
    ],
    "tris": 1984,
-   "tpu": 1973,
+   "tpu": 5597,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 80064,
+   "bytes": 80068,
    "vtx": 2083,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "thick": 0.2284,
-   "avgTri": 0.00299,
+   "avgTri": 0.00107,
    "anglePct": 64,
    "vpt": 1.05,
    "grad": 0.59,
@@ -169886,39 +169894,32 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.05,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.705 over max 1.7 (obj-transport-land-road)"
-    }
-   ]
+   "thickRel": 1.05
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "race-future",
-   "hash": "ef392209c4",
+   "hash": "69b3ecb3a6",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.66,
-    1.463,
-    0.458
+    0.396,
+    0.878,
+    0.275
    ],
    "tris": 1304,
-   "tpu": 1929,
+   "tpu": 3802,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 54564,
+   "bytes": 54560,
    "vtx": 1413,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "thick": 0.181,
-   "avgTri": 0.00331,
+   "minEdge": 0.002,
+   "thick": 0.1809,
+   "avgTri": 0.00119,
    "anglePct": 58,
    "vpt": 1.08,
    "grad": 0.53,
@@ -169959,32 +169960,39 @@
     "plastic"
    ],
    "variant": "ken-car/race",
-   "thickRel": 0.83
+   "thickRel": 0.83,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.878 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "race",
-   "hash": "478bc332e6",
+   "hash": "f6ef21057e",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.715,
-    1.408,
-    0.403
+    0.429,
+    0.845,
+    0.242
    ],
    "tris": 948,
-   "tpu": 1345,
+   "tpu": 2764,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 40340,
+   "bytes": 40344,
    "vtx": 1036,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
+   "minEdge": 0.008,
    "thick": 0.1524,
-   "avgTri": 0.00359,
+   "avgTri": 0.00129,
    "anglePct": 63,
    "vpt": 1.09,
    "grad": 0.51,
@@ -170025,32 +170033,39 @@
     "plastic"
    ],
    "variant": "ken-car/race",
-   "thickRel": 0.7
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.845 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "sedan-sports",
-   "hash": "7ace20179c",
+   "hash": "dec9e07556",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.715,
-    1.402,
-    0.605
+    0.429,
+    0.841,
+    0.363
    ],
    "tris": 1301,
-   "tpu": 1854,
+   "tpu": 3793,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 56232,
+   "bytes": 56248,
    "vtx": 1466,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.2403,
-   "avgTri": 0.00436,
+   "minEdge": 0,
+   "thick": 0.2402,
+   "avgTri": 0.00157,
    "anglePct": 63,
    "vpt": 1.13,
    "grad": 0.58,
@@ -170090,32 +170105,39 @@
     "plastic"
    ],
    "variant": "ken-car/sedan",
-   "thickRel": 1.11
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.841 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "sedan",
-   "hash": "dfe59d0f78",
+   "hash": "1d36a1ec27",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.825,
-    1.402,
-    0.715
+    0.495,
+    0.841,
+    0.429
    ],
    "tris": 1254,
-   "tpu": 1516,
+   "tpu": 3656,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 52820,
+   "bytes": 52836,
    "vtx": 1369,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.2155,
-   "avgTri": 0.00417,
+   "minEdge": 0,
+   "thick": 0.2154,
+   "avgTri": 0.0015,
    "anglePct": 52,
    "vpt": 1.09,
    "grad": 0.58,
@@ -170155,32 +170177,39 @@
     "plastic"
    ],
    "variant": "ken-car/sedan",
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.841 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "suv-luxury",
-   "hash": "4fe05e4432",
+   "hash": "7dad587de4",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.568,
-    0.715
+    0.495,
+    0.941,
+    0.429
    ],
    "tris": 1207,
-   "tpu": 1305,
+   "tpu": 3519,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 51832,
+   "bytes": 51836,
    "vtx": 1346,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "thick": 0.2375,
-   "avgTri": 0.0049,
+   "avgTri": 0.00176,
    "anglePct": 60,
    "vpt": 1.12,
    "grad": 0.58,
@@ -170220,22 +170249,29 @@
     "plastic"
    ],
    "variant": "ken-car/suv",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.941 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "suv",
-   "hash": "5d386f06b0",
+   "hash": "b971bd6163",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.825,
-    1.485,
-    0.715
+    0.495,
+    0.891,
+    0.429
    ],
    "tris": 1502,
-   "tpu": 1715,
+   "tpu": 4379,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -170243,9 +170279,9 @@
    "vtx": 1631,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.2291,
-   "avgTri": 0.00385,
+   "minEdge": 0,
+   "thick": 0.2289,
+   "avgTri": 0.00139,
    "anglePct": 59,
    "vpt": 1.09,
    "grad": 0.58,
@@ -170290,22 +170326,29 @@
     "plastic"
    ],
    "variant": "ken-car/suv",
-   "thickRel": 1.06
+   "thickRel": 1.06,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.891 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "taxi",
-   "hash": "38bbdc17af",
+   "hash": "d0843cf8dd",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.512,
-    0.825
+    0.495,
+    0.907,
+    0.495
    ],
    "tris": 1934,
-   "tpu": 1879,
+   "tpu": 5638,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -170313,9 +170356,9 @@
    "vtx": 1962,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.2213,
-   "avgTri": 0.00289,
+   "minEdge": 0,
+   "thick": 0.2214,
+   "avgTri": 0.00104,
    "anglePct": 55,
    "vpt": 1.01,
    "grad": 0.58,
@@ -170354,34 +170397,40 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.907 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "tractor-police",
-   "hash": "f37c00b26d",
+   "hash": "76924a2483",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.738,
-    1.266,
-    0.936
+    0.443,
+    0.76,
+    0.562
    ],
    "tris": 1676,
-   "tpu": 1916,
+   "tpu": 4886,
    "mat": 1,
    "bands": 5,
    "calls": 1,
    "bytes": 70652,
    "vtx": 1845,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0611,
+   "minEdge": 0.005,
+   "minTube": 0.0367,
    "thick": 0.1651,
-   "avgTri": 0.0045,
+   "avgTri": 0.00162,
    "anglePct": 65,
    "vpt": 1.1,
    "grad": 0.59,
@@ -170421,33 +170470,40 @@
     "plastic"
    ],
    "variant": "ken-car/tractor",
-   "thickRel": 0.76
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.76 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "tractor-shovel",
-   "hash": "70c5f7338d",
+   "hash": "d0c7995bc7",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.913,
-    1.359,
-    0.832
+    0.548,
+    0.815,
+    0.499
    ],
    "tris": 1746,
-   "tpu": 1691,
+   "tpu": 5090,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 73580,
+   "bytes": 73576,
    "vtx": 1924,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.2066,
+   "minEdge": 0.003,
+   "minTube": 0.1239,
    "thick": 0.1812,
-   "avgTri": 0.00396,
+   "avgTri": 0.00143,
    "anglePct": 65,
    "vpt": 1.1,
    "grad": 0.58,
@@ -170487,22 +170543,29 @@
     "plastic"
    ],
    "variant": "ken-car/tractor",
-   "thickRel": 0.84
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.815 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "tractor",
-   "hash": "0de460efe6",
+   "hash": "71fd4008a9",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
-    0.738,
-    1.218,
-    0.881
+    0.443,
+    0.731,
+    0.529
    ],
    "tris": 1548,
-   "tpu": 1955,
+   "tpu": 4513,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -170510,10 +170573,10 @@
    "vtx": 1634,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0611,
+   "minEdge": 0.005,
+   "minTube": 0.0367,
    "thick": 0.1742,
-   "avgTri": 0.00463,
+   "avgTri": 0.00167,
    "anglePct": 64,
    "vpt": 1.06,
    "grad": 0.58,
@@ -170548,19 +170611,26 @@
     "plastic"
    ],
    "variant": "ken-car/tractor",
-   "thickRel": 0.8
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.731 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "traffic-cone-flat",
-   "hash": "b85618779f",
+   "hash": "726d403a1b",
    "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
-    0.262,
-    0.262,
-    0.155
+    0.157,
+    0.157,
+    0.093
    ],
    "tris": 160,
    "tpu": 466,
@@ -170569,12 +170639,11 @@
    "calls": 1,
    "bytes": 7672,
    "vtx": 164,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.1592,
-   "avgTri": 0.00136,
+   "minEdge": 0.006,
+   "thick": 0.159,
+   "avgTri": 0.00049,
    "anglePct": 78,
    "vpt": 1.02,
    "grad": 0.43,
@@ -170597,19 +170666,26 @@
     "plastic"
    ],
    "variant": "ken-car/traffic-cone",
-   "thickRel": 0.97
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.093 under min 0.15 (str-barrier-traffic)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "traffic-cone",
-   "hash": "ace8af2ee3",
+   "hash": "108f7be2ea",
    "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
-    0.262,
-    0.262,
-    0.327
+    0.157,
+    0.157,
+    0.196
    ],
    "tris": 168,
    "tpu": 490,
@@ -170618,12 +170694,11 @@
    "calls": 1,
    "bytes": 7964,
    "vtx": 172,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.1853,
-   "avgTri": 0.00171,
+   "minEdge": 0.006,
+   "thick": 0.1854,
+   "avgTri": 0.00061,
    "anglePct": 60,
    "vpt": 1.02,
    "grad": 0.43,
@@ -170652,26 +170727,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "truck-flat",
-   "hash": "d15e717a54",
+   "hash": "7179112119",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.51,
-    0.715
+    0.495,
+    0.906,
+    0.429
    ],
    "tris": 1349,
-   "tpu": 1515,
+   "tpu": 3933,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 60364,
+   "bytes": 60368,
    "vtx": 1586,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1845,
-   "avgTri": 0.00452,
+   "minEdge": 0,
+   "thick": 0.1844,
+   "avgTri": 0.00163,
    "anglePct": 70,
    "vpt": 1.18,
    "grad": 0.59,
@@ -170711,32 +170786,39 @@
     "plastic"
    ],
    "variant": "ken-car/truck",
-   "thickRel": 0.85
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.906 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "truck",
-   "hash": "9db468fbe4",
+   "hash": "ff5e3a39a0",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.622,
-    0.715
+    0.495,
+    0.973,
+    0.429
    ],
    "tris": 1247,
-   "tpu": 1303,
+   "tpu": 3636,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 53080,
+   "bytes": 53084,
    "vtx": 1378,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "thick": 0.1914,
-   "avgTri": 0.00473,
+   "avgTri": 0.0017,
    "anglePct": 61,
    "vpt": 1.11,
    "grad": 0.57,
@@ -170787,16 +170869,16 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "van",
-   "hash": "19776fd24d",
+   "hash": "8b5d44fc8b",
    "kind": "obj-transport-land-road",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.825,
-    1.513,
-    0.743
+    0.495,
+    0.908,
+    0.446
    ],
    "tris": 1296,
-   "tpu": 1397,
+   "tpu": 3778,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -170804,9 +170886,9 @@
    "vtx": 1413,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.2444,
-   "avgTri": 0.00453,
+   "minEdge": 0,
+   "thick": 0.2443,
+   "avgTri": 0.00163,
    "anglePct": 56,
    "vpt": 1.09,
    "grad": 0.57,
@@ -170850,32 +170932,39 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.13,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.908 under min 0.95 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-dark",
-   "hash": "c3fc6d9d1b",
+   "hash": "556734ce79",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.22,
-    0.33,
-    0.33
+    0.132,
+    0.198,
+    0.198
    ],
    "tris": 308,
    "tpu": 898,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13324,
+   "bytes": 13320,
    "vtx": 312,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
+   "minEdge": 0.007,
    "thick": 0.2044,
-   "avgTri": 0.00118,
+   "avgTri": 0.00043,
    "anglePct": 32,
    "vpt": 1.01,
    "grad": 0.59,
@@ -170905,26 +170994,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-default",
-   "hash": "5de01eaa8e",
+   "hash": "ace0c4ae95",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.22,
-    0.33,
-    0.33
+    0.132,
+    0.198,
+    0.198
    ],
    "tris": 330,
    "tpu": 962,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14424,
+   "bytes": 14420,
    "vtx": 342,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
+   "minEdge": 0.008,
    "thick": 0.2176,
-   "avgTri": 0.00108,
+   "avgTri": 0.00039,
    "anglePct": 33,
    "vpt": 1.04,
    "grad": 0.57,
@@ -170954,26 +171043,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-racing",
-   "hash": "c29a814ddd",
+   "hash": "5ff5324a41",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.22,
-    0.33,
-    0.33
+    0.132,
+    0.198,
+    0.198
    ],
    "tris": 310,
    "tpu": 904,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 13404,
+   "bytes": 13400,
    "vtx": 314,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
+   "minEdge": 0.007,
    "thick": 0.2044,
-   "avgTri": 0.00118,
+   "avgTri": 0.00042,
    "anglePct": 32,
    "vpt": 1.01,
    "grad": 0.5,
@@ -171008,13 +171097,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-tractor-back",
-   "hash": "d80565535c",
+   "hash": "35aafad832",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.296,
-    0.481,
-    0.481
+    0.177,
+    0.289,
+    0.289
    ],
    "tris": 353,
    "tpu": 1029,
@@ -171025,9 +171114,9 @@
    "vtx": 361,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "thick": 0.2046,
-   "avgTri": 0.00211,
+   "minEdge": 0.008,
+   "thick": 0.2045,
+   "avgTri": 0.00076,
    "anglePct": 33,
    "vpt": 1.02,
    "grad": 0.59,
@@ -171062,13 +171151,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-tractor-dark-back",
-   "hash": "4e663e1cfd",
+   "hash": "95d54173c5",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.296,
-    0.481,
-    0.481
+    0.177,
+    0.289,
+    0.289
    ],
    "tris": 343,
    "tpu": 1000,
@@ -171079,9 +171168,9 @@
    "vtx": 351,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "thick": 0.2045,
-   "avgTri": 0.00217,
+   "minEdge": 0.008,
+   "thick": 0.2044,
+   "avgTri": 0.00078,
    "anglePct": 33,
    "vpt": 1.02,
    "grad": 0.59,
@@ -171116,26 +171205,26 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-tractor-dark-front",
-   "hash": "f31de963f2",
+   "hash": "c5d01b2e1a",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.203,
-    0.296,
-    0.296
+    0.122,
+    0.178,
+    0.178
    ],
    "tris": 312,
    "tpu": 910,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13832,
+   "bytes": 13836,
    "vtx": 326,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "thick": 0.2093,
-   "avgTri": 0.00096,
+   "minEdge": 0.006,
+   "thick": 0.2094,
+   "avgTri": 0.00034,
    "anglePct": 32,
    "vpt": 1.04,
    "grad": 0.59,
@@ -171165,13 +171254,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-tractor-front",
-   "hash": "f35d813a0b",
+   "hash": "7865b676c5",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.203,
-    0.296,
-    0.296
+    0.122,
+    0.178,
+    0.178
    ],
    "tris": 314,
    "tpu": 915,
@@ -171182,9 +171271,9 @@
    "vtx": 318,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "thick": 0.2093,
-   "avgTri": 0.00095,
+   "minEdge": 0.006,
+   "thick": 0.2094,
+   "avgTri": 0.00034,
    "anglePct": 31,
    "vpt": 1.01,
    "grad": 0.59,
@@ -171214,13 +171303,13 @@
    "kit": "ken-car",
    "collection": "ken-transport",
    "name": "wheel-truck",
-   "hash": "98e844c36d",
+   "hash": "d849253a88",
    "kind": "obj-transport-part-wheel",
    "size": "s",
    "wdh": [
-    0.193,
-    0.33,
-    0.33
+    0.115,
+    0.198,
+    0.198
    ],
    "tris": 345,
    "tpu": 1006,
@@ -171231,9 +171320,9 @@
    "vtx": 364,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.2029,
-   "avgTri": 0.00097,
+   "minEdge": 0.005,
+   "thick": 0.2028,
+   "avgTri": 0.00035,
    "anglePct": 36,
    "vpt": 1.06,
    "grad": 0.59,
