@@ -2448,6 +2448,30 @@
    }
   },
   {
+   "slug": "loaf-bones",
+   "name": "loaf-bones",
+   "url": "https://loafbrr.itch.io/3d-bones-asset",
+   "note": "Bones 3D Asset by loafbrr; the pack's itch.io page states CC0, see kits/sources/Bones_Asset_loafbrr/bones-asset-itch-page.mhtml.",
+   "licenseLabel": "CC0 1.0",
+   "count": 20,
+   "packs": [
+    "Bones 3D Asset"
+   ],
+   "origins": {
+    "Bones 3D Asset": 20
+   },
+   "scales": {
+    "0.8": 20
+   },
+   "smooth": {
+    "smooth": 20
+   },
+   "kitCheck": {
+    "factor": 1.08,
+    "kinds": 3
+   }
+  },
+  {
    "slug": "loaf-gothic",
    "name": "loaf-gothic",
    "note": "Gothic Like Structures by loafbrr; source zip carries no licence file; see kits/workfiles/loaf-gothic/LICENSE.txt.",
@@ -21700,6 +21724,15 @@
     "styloo-school/locker",
     "styloo-school/locker-black"
    ]
+  },
+  {
+   "id": "loaf-bones/skull",
+   "type": "detail-variant",
+   "main": "loaf-bones/skull",
+   "members": [
+    "loaf-bones/skull",
+    "loaf-bones/skull-jawless"
+   ]
   }
  ],
  "bands": [
@@ -21988,7 +22021,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat.",
-   "count": 126
+   "count": 146
   },
   {
    "id": "shell",
@@ -24115,7 +24148,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 1002,
+   "count": 1022,
    "color": "#6cb588"
   },
   {
@@ -24329,7 +24362,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "egg (wild), nest, feather",
-   "count": 171,
+   "count": 191,
    "color": "#cfc6ad"
   },
   {
@@ -24337,21 +24370,21 @@
    "name": "Bones",
    "type": "kind",
    "description": "skeleton (prop), ribcage, carcass",
-   "count": 64
+   "count": 84
   },
   {
    "id": "env-remains-bones-limb",
    "name": "Limb",
    "type": "kind",
    "description": "A single bone off a skeleton.",
-   "count": 10
+   "count": 13
   },
   {
    "id": "env-remains-bones-skull",
    "name": "Skull",
    "type": "kind",
    "description": "skull",
-   "count": 23
+   "count": 25
   },
   {
    "id": "env-terrain-rock",
@@ -25281,7 +25314,7 @@
    "name": "Ribcage",
    "type": "kind",
    "description": "ribcage",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -25428,7 +25461,7 @@
    "name": "Halloween",
    "type": "theme",
    "description": "Everything for a Halloween or graveyard build: the halloween and graveyard kits, bones, candles, lanterns, cobwebs, dead trees, dark stone.",
-   "count": 455
+   "count": 475
   },
   {
    "id": "robin-hood",
@@ -25456,7 +25489,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 282
+   "count": 292
   },
   {
    "id": "pickup",
@@ -25709,7 +25742,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3258,
+   "count": 3271,
    "derived": true
   },
   {
@@ -25717,7 +25750,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3032,
+   "count": 3039,
    "derived": true
   },
   {
@@ -35368,7 +35401,7 @@
     "grave",
     "halloween"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.31
   },
   {
    "kit": "aq-hallow",
@@ -35411,7 +35444,7 @@
     "grave",
     "halloween"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "aq-hallow",
@@ -35454,7 +35487,7 @@
     "grave",
     "halloween"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "aq-hallow",
@@ -124106,7 +124139,7 @@
     "bone",
     "kay"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "kay-dun-1",
@@ -144690,7 +144723,7 @@
     "kay"
    ],
    "variant": "kay-hallow/bone-a",
-   "thickRel": 1.29
+   "thickRel": 1.27
   },
   {
    "kit": "kay-hallow",
@@ -144735,7 +144768,7 @@
     "kay"
    ],
    "variant": "kay-hallow/bone-a",
-   "thickRel": 1.14
+   "thickRel": 1.38
   },
   {
    "kit": "kay-hallow",
@@ -144779,7 +144812,7 @@
     "kay"
    ],
    "variant": "kay-hallow/bone-a",
-   "thickRel": 1.45
+   "thickRel": 1.43
   },
   {
    "kit": "kay-hallow",
@@ -146519,7 +146552,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.22,
+   "thickRel": 1.24,
    "lint": [
     {
      "level": "warning",
@@ -146816,7 +146849,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "kay-hallow",
@@ -147005,7 +147038,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.23
   },
   {
    "kit": "kay-hallow",
@@ -166551,7 +166584,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.97,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -166719,7 +166752,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "kay-skeleton",
@@ -167782,7 +167815,7 @@
     "hero",
     "kay"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.57
   },
   {
    "kit": "kay-skeleton",
@@ -167825,7 +167858,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "kay-skeleton",
@@ -167934,7 +167967,7 @@
     "kay"
    ],
    "variant": "kay-skeleton-1/bone",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "kay-skeleton-1",
@@ -167980,7 +168013,7 @@
     "kay"
    ],
    "variant": "kay-skeleton-1/bone",
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "kay-skeleton-1",
@@ -168490,7 +168523,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.57
   },
   {
    "kit": "kay-skeleton-1",
@@ -168648,7 +168681,7 @@
     "kay"
    ],
    "variant": "kay-skeleton-1/skull",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "kay-skeleton-1",
@@ -168691,7 +168724,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.92
   },
   {
    "kit": "kay-skeleton-1",
@@ -168735,7 +168768,7 @@
     "kay"
    ],
    "variant": "kay-skeleton-1/skull",
-   "thickRel": 1.07
+   "thickRel": 1.09
   },
   {
    "kit": "kay-skeleton-1",
@@ -168835,7 +168868,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.84
+   "thickRel": 1.02
   },
   {
    "kit": "kay-skeleton-1",
@@ -196358,7 +196391,7 @@
     "bone",
     "ken"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.79
   },
   {
    "kit": "ken-food",
@@ -236094,7 +236127,7 @@
     "ken",
     "space"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.61
   },
   {
    "kit": "ken-space",
@@ -261499,6 +261532,839 @@
      "text": "G27 minTube 0.0051 wants min 0.026"
     }
    ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-1",
+   "hash": "4d034f72ec",
+   "kind": "env-remains-bones-limb",
+   "size": "s",
+   "wdh": [
+    0.058,
+    0.291,
+    0.046
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9044,
+   "vtx": 187,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2495,
+   "avgTri": 0.00009,
+   "anglePct": 10,
+   "vpt": 0.73,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 1.35
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-2",
+   "hash": "163d25bb8b",
+   "kind": "env-remains-bones-limb",
+   "size": "s",
+   "wdh": [
+    0.092,
+    0.388,
+    0.067
+   ],
+   "tris": 336,
+   "tpu": 980,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13072,
+   "vtx": 298,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "thick": 0.2008,
+   "avgTri": 0.00013,
+   "anglePct": 5,
+   "vpt": 0.89,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 1.09
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-3",
+   "hash": "fff950083d",
+   "kind": "env-remains-bones-limb",
+   "size": "s",
+   "wdh": [
+    0.175,
+    0.414,
+    0.105
+   ],
+   "tris": 400,
+   "tpu": 1166,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 17840,
+   "vtx": 435,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.1164,
+   "avgTri": 0.00016,
+   "anglePct": 3,
+   "vpt": 1.09,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 0.63
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-1",
+   "hash": "a7a4151137",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.725,
+    0.682,
+    0.23
+   ],
+   "tris": 5732,
+   "tpu": 16561,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 217440,
+   "vtx": 5672,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0867,
+   "thick": 0.0631,
+   "avgTri": 0.00015,
+   "anglePct": 6,
+   "vpt": 0.99,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-10",
+   "hash": "8561e81d8f",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.447,
+    0.995
+   ],
+   "tris": 10412,
+   "tpu": 21356,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 361428,
+   "vtx": 9294,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.0822,
+   "avgTri": 0.0001,
+   "anglePct": 1,
+   "vpt": 0.89,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-2",
+   "hash": "73e2fda59a",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.632,
+    0.918,
+    0.205
+   ],
+   "tris": 7868,
+   "tpu": 19373,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 311440,
+   "vtx": 8209,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.0726,
+   "avgTri": 0.00012,
+   "anglePct": 3,
+   "vpt": 1.04,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-3",
+   "hash": "42ecf81de0",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.487,
+    0.461,
+    0.335
+   ],
+   "tris": 5884,
+   "tpu": 17155,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 179500,
+   "vtx": 4458,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.1023,
+   "avgTri": 0.00012,
+   "anglePct": 3,
+   "vpt": 0.76,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-4",
+   "hash": "5f5cfb2244",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.749,
+    0.874,
+    0.138
+   ],
+   "tris": 4112,
+   "tpu": 8973,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 136516,
+   "vtx": 3447,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0467,
+   "avgTri": 0.00011,
+   "anglePct": 2,
+   "vpt": 0.84,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-5",
+   "hash": "4820c99b1e",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.422,
+    0.385,
+    0.386
+   ],
+   "tris": 7308,
+   "tpu": 21306,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 217040,
+   "vtx": 5364,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.0952,
+   "avgTri": 0.00013,
+   "anglePct": 3,
+   "vpt": 0.73,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-6",
+   "hash": "2bd785ea80",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.678,
+    0.789,
+    0.193
+   ],
+   "tris": 8456,
+   "tpu": 22582,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 405756,
+   "vtx": 11046,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0626,
+   "thick": 0.0503,
+   "avgTri": 0.00012,
+   "anglePct": 6,
+   "vpt": 1.31,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-7",
+   "hash": "1829cf1444",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.62,
+    0.606,
+    0.194
+   ],
+   "tris": 8724,
+   "tpu": 25434,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 256644,
+   "vtx": 6336,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0791,
+   "avgTri": 0.00012,
+   "anglePct": 2,
+   "vpt": 0.73,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-8",
+   "hash": "612ca488a5",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.407,
+    0.474,
+    0.397
+   ],
+   "tris": 4484,
+   "tpu": 13073,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 174532,
+   "vtx": 4565,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0867,
+   "thick": 0.0778,
+   "avgTri": 0.00016,
+   "anglePct": 6,
+   "vpt": 1.02,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "bone-pile-9",
+   "hash": "53591d4f33",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.18,
+    0.278,
+    0.333
+   ],
+   "tris": 4432,
+   "tpu": 12921,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 128616,
+   "vtx": 3140,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.0894,
+   "avgTri": 0.0001,
+   "anglePct": 5,
+   "vpt": 0.71,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween",
+    "plural"
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "hip-bone",
+   "hash": "ef11096f75",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.195,
+    0.368,
+    0.222
+   ],
+   "tris": 344,
+   "tpu": 1003,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16292,
+   "vtx": 397,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0855,
+   "avgTri": 0.00046,
+   "anglePct": 4,
+   "vpt": 1.15,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 0.67
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "jaw",
+   "hash": "8ac4a48e0d",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.145,
+    0.11,
+    0.116
+   ],
+   "tris": 460,
+   "tpu": 1341,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16988,
+   "vtx": 398,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.056,
+   "avgTri": 0.00007,
+   "anglePct": 0,
+   "vpt": 0.87,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 0.44
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "pelvis",
+   "hash": "1324b4be3f",
+   "kind": "env-remains-bones",
+   "size": "s",
+   "wdh": [
+    0.405,
+    0.368,
+    0.222
+   ],
+   "tris": 688,
+   "tpu": 2006,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 31040,
+   "vtx": 794,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0546,
+   "avgTri": 0.00046,
+   "anglePct": 4,
+   "vpt": 1.15,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 0.43
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "ribcage",
+   "hash": "dd72fe2863",
+   "kind": "env-remains-bones-ribcage",
+   "size": "s",
+   "wdh": [
+    0.407,
+    0.418,
+    0.188
+   ],
+   "tris": 2444,
+   "tpu": 7125,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 114284,
+   "vtx": 3066,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0867,
+   "thick": 0.043,
+   "avgTri": 0.0002,
+   "anglePct": 9,
+   "vpt": 1.25,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 7125 over max 5000 (env)"
+    }
+   ]
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "skull-jawless",
+   "hash": "4cc7ff8179",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.152,
+    0.185,
+    0.205
+   ],
+   "tris": 1324,
+   "tpu": 3860,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 38708,
+   "vtx": 914,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0479,
+   "avgTri": 0.00013,
+   "anglePct": 4,
+   "vpt": 0.69,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "variant": "loaf-bones/skull",
+   "thickRel": 0.26
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "skull",
+   "hash": "1afbc89c6b",
+   "kind": "env-remains-bones-skull",
+   "size": "s",
+   "wdh": [
+    0.152,
+    0.237,
+    0.205
+   ],
+   "tris": 1784,
+   "tpu": 5201,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 54192,
+   "vtx": 1312,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0556,
+   "avgTri": 0.00011,
+   "anglePct": 3,
+   "vpt": 0.74,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "variant": "loaf-bones/skull",
+   "thickRel": 0.3
+  },
+  {
+   "kit": "loaf-bones",
+   "name": "spine",
+   "hash": "20654de4d9",
+   "kind": "env-remains-bones",
+   "size": "m",
+   "wdh": [
+    0.142,
+    0.748,
+    0.119
+   ],
+   "tris": 1418,
+   "tpu": 4134,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 77388,
+   "vtx": 2105,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.2112,
+   "avgTri": 0.00011,
+   "anglePct": 2,
+   "vpt": 1.48,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#d8d1bd"
+   ],
+   "tags": [
+    "bone",
+    "halloween"
+   ],
+   "thickRel": 1.65
   },
   {
    "kit": "loaf-gothic",
@@ -299451,7 +300317,7 @@
     "qua"
    ],
    "variant": "quat-dun-1/skull",
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "quat-dun-1",
@@ -300319,7 +301185,7 @@
     "qua"
    ],
    "variant": "quat-dun-1/skull",
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "quat-dun-2",
@@ -305087,7 +305953,7 @@
     "halloween",
     "qua"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.71
   },
   {
    "kit": "quat-food",
@@ -316480,7 +317346,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 0.3
+   "thickRel": 0.36
   },
   {
    "kit": "quat-pirate",
@@ -318361,7 +319227,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.05
   },
   {
    "kit": "quat-pirate",
@@ -319164,7 +320030,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.26
   },
   {
    "kit": "quat-pirate",
@@ -319208,7 +320074,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "quat-pirate",
@@ -319251,7 +320117,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.23
   },
   {
    "kit": "quat-pirate",
@@ -322326,7 +323192,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.08
   },
   {
    "kit": "quat-rpg",
@@ -324068,7 +324934,7 @@
     "bone",
     "qua"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.51
   },
   {
    "kit": "quat-rpg",
@@ -325322,7 +326188,7 @@
     "bone",
     "qua"
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
@@ -325824,7 +326690,7 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "quat-rpg",
@@ -325866,7 +326732,7 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "quat-rpg",
@@ -325911,7 +326777,7 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 1.13
+   "thickRel": 1.15
   },
   {
    "kit": "quat-rpg",
@@ -364975,7 +365841,7 @@
     "bone"
    ],
    "variant": "rpg-mini/feather-black",
-   "thickRel": 0.64,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "error",
@@ -365029,7 +365895,7 @@
     "bone"
    ],
    "variant": "rpg-mini/feather-black",
-   "thickRel": 0.64,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "error",
@@ -365083,7 +365949,7 @@
     "bone"
    ],
    "variant": "rpg-mini/feather-black",
-   "thickRel": 0.64,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "error",
@@ -379206,7 +380072,7 @@
     "bone",
     "styloo"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.39
   },
   {
    "kit": "styloo-farm",
@@ -379255,7 +380121,7 @@
     "styloo"
    ],
    "variant": "styloo-farm/fish-carcass",
-   "thickRel": 1.22
+   "thickRel": 1.46
   },
   {
    "kit": "styloo-farm",
@@ -379304,7 +380170,7 @@
     "styloo"
    ],
    "variant": "styloo-farm/fish-carcass",
-   "thickRel": 1.22
+   "thickRel": 1.46
   },
   {
    "kit": "styloo-farm",
@@ -379353,7 +380219,7 @@
     "styloo"
    ],
    "variant": "styloo-farm/fish-carcass",
-   "thickRel": 1.22
+   "thickRel": 1.46
   },
   {
    "kit": "styloo-farm",
@@ -394277,7 +395143,7 @@
     "stone-soil",
     "styloo"
    ],
-   "thickRel": 1.04,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "error",
@@ -405421,7 +406287,7 @@
     "food",
     "wizp"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.41
   },
   {
    "kit": "wizp-asia",
@@ -405839,7 +406705,7 @@
     "vegetation",
     "wizp"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.98
   },
   {
    "kit": "wizp-asia",
@@ -410580,7 +411446,7 @@
     "halloween",
     "wizp"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "wizp-grave",
@@ -411059,7 +411925,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/bone-a",
-   "thickRel": 0.69,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -411109,7 +411975,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/bone-b",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "wizp-lava",
@@ -411157,7 +412023,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/bone-a",
-   "thickRel": 0.69,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -411213,7 +412079,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/bone-b",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "wizp-lava",
@@ -411409,7 +412275,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/claw",
-   "thickRel": 0.45
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-lava",
@@ -411452,7 +412318,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/claw",
-   "thickRel": 0.45
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-lava",
@@ -411829,7 +412695,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-a",
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-lava",
@@ -411873,7 +412739,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-b",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-lava",
@@ -411923,7 +412789,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-a",
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-lava",
@@ -411973,7 +412839,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-b",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-lava",
@@ -412654,7 +413520,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/skull-rex",
-   "thickRel": 0.43
+   "thickRel": 0.44
   },
   {
    "kit": "wizp-lava",
@@ -412697,7 +413563,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/skull-rex",
-   "thickRel": 0.43
+   "thickRel": 0.44
   },
   {
    "kit": "wizp-lava",
@@ -412746,7 +413612,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/skull-triceratops",
-   "thickRel": 0.4
+   "thickRel": 0.41
   },
   {
    "kit": "wizp-lava",
@@ -412789,7 +413655,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/skull-triceratops",
-   "thickRel": 0.4
+   "thickRel": 0.41
   },
   {
    "kit": "wizp-lava",
@@ -412837,7 +413703,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/spine",
-   "thickRel": 0.62
+   "thickRel": 0.75
   },
   {
    "kit": "wizp-lava",
@@ -412879,7 +413745,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/spine",
-   "thickRel": 0.62
+   "thickRel": 0.75
   },
   {
    "kit": "wizp-mediev",

@@ -1029,5 +1029,11 @@ window.KENNEY_KITS = [
  {
   "slug": "emace-village",
   "url": null
+ },
+ {
+  "slug": "loaf-bones",
+  "url": "https://loafbrr.itch.io/3d-bones-asset",
+  "licenseLabel": "CC0 1.0",
+  "note": "Bones 3D Asset by loafbrr; the pack's itch.io page states CC0, see kits/sources/Bones_Asset_loafbrr/bones-asset-itch-page.mhtml."
  }
 ]
