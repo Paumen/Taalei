@@ -227,4 +227,9 @@ export const BRONKITS = [
   { map: 'Industrial_Props_Pack_2_3dmodelscc0', naam: 'Industrial Props Pack 2', kit: '3dm-industrial-2', formaat: 'fbx', alleMappen: true },
   { map: 'Guns_Explosives_Pack_3dmodelscc0', naam: 'Guns & Explosives Pack', kit: '3dm-guns', formaat: 'fbx', alleMappen: true },
   { map: 'Medieval_Props_3dmodelscc0', naam: 'Medieval Props', kit: '3dm-medieval', formaat: 'fbx', alleMappen: true },
+  { map: 'Scifi_Props_3dmodelscc0', naam: 'Sci-fi Props', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Electronics_Gadgets_Pack_3dmodelscc0', naam: 'Electronics & Gadgets Pack', kit: null, formaat: 'fbx', alleMappen: true },
+  { map: 'Bones_Asset_loafbrr', naam: 'Bones 3D Asset', kit: null, formaat: 'fbx' },
+  { map: 'Base_Meshes_M3-org', naam: 'Base Meshes', kit: null, formaat: 'glb', alleMappen: true },
+  { map: 'Lowbudget_Game_Assets_britdawgmasterfunk', naam: 'Lowbudget Game Assets', kit: null, formaat: 'glb', splitsPerMesh: true },
 ];
