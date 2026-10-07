@@ -215,4 +215,16 @@ export const BRONKITS = [
   { map: 'Enemies_Pack', naam: 'Enemies Pack', kit: null, formaat: 'glb' },
   { map: 'Animated_Enemies', naam: 'Animated Enemies', kit: null, formaat: 'glb' },
   { map: 'Lava_Tileset', naam: 'Lava Tileset', kit: 'wizp-lava', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
+
+  { map: 'Lowpoly_3D_Swords_CC0', naam: 'Lowpoly 3D Swords', kit: 'swords-50', formaat: 'glb' },
+  { map: 'Swordtember2022', naam: 'Swordtember 2022', kit: 'swords-tember', formaat: 'glb' },
+  { map: 'Analog_Memory_80s_Rooms_EmaceArt', naam: 'Analog Memory 80s 90s Rooms', kit: 'emace-80s', formaat: 'glb' },
+  { map: 'Fantasy_Medieval_Houses_EmaceArt', naam: 'Fantasy Medieval Houses', kit: 'emace-village', formaat: 'glb' },
+  { map: 'Cartoon_Car_Megapack_Free', naam: 'Cartoon Car Megapack (Free)', kit: 'rgp-cars', formaat: 'fbx' },
+  { map: 'City_Environment_Pack_3dmodelscc0', naam: 'City Environment Pack', kit: '3dm-city', formaat: 'fbx', extraFormaten: ['obj'], alleMappen: true },
+  { map: 'City_Environment_Pack_2_3dmodelscc0', naam: 'City Environment Pack 2', kit: '3dm-city-2', formaat: 'fbx', alleMappen: true },
+  { map: 'Industrial_3D_Models_3dmodelscc0', naam: 'Industrial 3D Models', kit: '3dm-industrial', formaat: 'fbx', alleMappen: true },
+  { map: 'Industrial_Props_Pack_2_3dmodelscc0', naam: 'Industrial Props Pack 2', kit: '3dm-industrial-2', formaat: 'fbx', alleMappen: true },
+  { map: 'Guns_Explosives_Pack_3dmodelscc0', naam: 'Guns & Explosives Pack', kit: '3dm-guns', formaat: 'fbx', alleMappen: true },
+  { map: 'Medieval_Props_3dmodelscc0', naam: 'Medieval Props', kit: '3dm-medieval', formaat: 'fbx', alleMappen: true },
 ];
