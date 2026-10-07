@@ -2122,16 +2122,16 @@
     "Kenney Racing Kit": 51
    },
    "scales": {
-    "0.726": 51
+    "1.2": 51
    },
    "smooth": {
     "smooth": 46,
     "none": 5
    },
    "kitCheck": {
-    "factor": 0.46,
+    "factor": 0.76,
     "kinds": 12,
-    "level": "error"
+    "level": "warning"
    }
   },
   {
@@ -25035,7 +25035,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3165,
+   "count": 3161,
    "derived": true
   },
   {
@@ -25043,7 +25043,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 2939,
+   "count": 2925,
    "derived": true
   },
   {
@@ -25051,7 +25051,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1148,
+   "count": 1166,
    "derived": true
   },
   {
@@ -216168,27 +216168,27 @@
   {
    "kit": "ken-racing",
    "name": "banner-tower-red",
-   "hash": "cb3b85f620",
+   "hash": "bb3180b15f",
    "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
-    0.285,
-    0.285,
-    0.904
+    0.47,
+    0.47,
+    1.495
    ],
    "tris": 934,
-   "tpu": 2109,
+   "tpu": 1275,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46344,
+   "bytes": 46340,
    "vtx": 1225,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.359,
+   "minEdge": 0.006,
+   "minTube": 0.5934,
    "thick": 0.1116,
-   "avgTri": 0.00122,
+   "avgTri": 0.00333,
    "anglePct": 79,
    "vpt": 1.31,
    "grad": 0.38,
@@ -216216,26 +216216,26 @@
   {
    "kit": "ken-racing",
    "name": "barrier-red",
-   "hash": "da44d8b567",
+   "hash": "f95d9c76c5",
    "kind": "str-barrier-traffic",
    "size": "s",
    "wdh": [
-    0.181,
-    0.089,
-    0.095
+    0.3,
+    0.148,
+    0.157
    ],
    "tris": 28,
    "tpu": 82,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2956,
+   "bytes": 2952,
    "vtx": 40,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "thick": 0.2666,
-   "avgTri": 0.00262,
+   "minEdge": 0.03,
+   "thick": 0.2669,
+   "avgTri": 0.00715,
    "anglePct": 60,
    "vpt": 1.43,
    "grad": 0.6,
@@ -216252,39 +216252,32 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 1.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.095 under min 0.15 (str-barrier-traffic)"
-    }
-   ]
+   "thickRel": 1.5
   },
   {
    "kit": "ken-racing",
    "name": "barrier-wall",
-   "hash": "25a19d7dd5",
+   "hash": "7471408898",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
-    0.726,
-    0.089,
-    0.095
+    1.2,
+    0.148,
+    0.157
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5560,
+   "bytes": 5556,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.018,
-   "minTube": 0.0892,
-   "thick": 0.4123,
-   "avgTri": 0.00335,
+   "minEdge": 0.03,
+   "minTube": 0.1476,
+   "thick": 0.4135,
+   "avgTri": 0.00915,
    "anglePct": 54,
    "vpt": 1.47,
    "grad": 0.6,
@@ -216306,38 +216299,31 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 2.31,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.095 under min 0.15 (str-barrier-traffic)"
-    }
-   ]
+   "thickRel": 2.32
   },
   {
    "kit": "ken-racing",
    "name": "billboard-double-exclusive",
-   "hash": "811507d9cf",
+   "hash": "4920d18be0",
    "kind": "str-fixture-marker-sign",
    "size": "m",
    "wdh": [
-    0.726,
-    0.264,
-    0.726
+    1.2,
+    0.437,
+    1.2
    ],
    "tris": 123,
-   "tpu": 346,
+   "tpu": 195,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 8364,
+   "bytes": 8356,
    "vtx": 189,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
+   "minEdge": 0.038,
    "thick": 0.0468,
-   "avgTri": 0.01207,
+   "avgTri": 0.03299,
    "anglePct": 100,
    "vpt": 1.54,
    "grad": 0.5,
@@ -216377,26 +216363,26 @@
   {
    "kit": "ken-racing",
    "name": "billboard-low",
-   "hash": "301df3fdbd",
+   "hash": "52a8a64d25",
    "kind": "str-fixture-marker-sign",
    "size": "m",
    "wdh": [
-    0.726,
-    0.346,
-    0.501
+    1.2,
+    0.571,
+    0.828
    ],
    "tris": 125,
-   "tpu": 364,
+   "tpu": 220,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 8176,
+   "bytes": 8168,
    "vtx": 184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.064,
-   "avgTri": 0.00677,
+   "minEdge": 0.015,
+   "thick": 0.0642,
+   "avgTri": 0.0185,
    "anglePct": 97,
    "vpt": 1.47,
    "grad": 0.55,
@@ -216431,31 +216417,31 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "ken-racing",
    "name": "billboard-lower",
-   "hash": "0c1353b9cc",
+   "hash": "5ab1b33ae9",
    "kind": "str-fixture-marker-sign",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.363,
-    0.052,
-    0.203
+    0.6,
+    0.086,
+    0.336
    ],
    "tris": 58,
    "tpu": 169,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 5020,
+   "bytes": 5016,
    "vtx": 98,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
-   "thick": 0.1166,
-   "avgTri": 0.00326,
+   "minEdge": 0.036,
+   "thick": 0.1165,
+   "avgTri": 0.00892,
    "anglePct": 100,
    "vpt": 1.69,
    "grad": 0.5,
@@ -216489,31 +216475,31 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "ken-racing",
    "name": "billboard",
-   "hash": "e0c4093ecb",
+   "hash": "43e9b6340f",
    "kind": "str-fixture-marker-sign",
    "size": "m",
    "wdh": [
-    0.726,
-    0.346,
-    0.726
+    1.2,
+    0.571,
+    1.2
    ],
    "tris": 125,
-   "tpu": 351,
+   "tpu": 152,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 7908,
+   "bytes": 7900,
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.0436,
-   "avgTri": 0.00728,
+   "minEdge": 0.015,
+   "thick": 0.0437,
+   "avgTri": 0.0199,
    "anglePct": 96,
    "vpt": 1.41,
    "grad": 0.55,
@@ -216548,31 +216534,31 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "ken-racing",
    "name": "camera-exclusive",
-   "hash": "c5fd138410",
+   "hash": "5f58481622",
    "kind": "obj-device-electronics-camera",
    "size": "s",
    "wdh": [
-    0.078,
-    0.191,
-    0.297
+    0.128,
+    0.316,
+    0.491
    ],
    "tris": 133,
    "tpu": 388,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9276,
+   "bytes": 9268,
    "vtx": 217,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "thick": 0.1026,
-   "avgTri": 0.00057,
+   "minEdge": 0.011,
+   "thick": 0.1024,
+   "avgTri": 0.00156,
    "anglePct": 61,
    "vpt": 1.63,
    "grad": 0.6,
@@ -216599,26 +216585,26 @@
   {
    "kit": "ken-racing",
    "name": "fence-curved",
-   "hash": "af12e9fb24",
+   "hash": "78ceb13e7b",
    "kind": "str-barrier-fence",
    "size": "m",
    "wdh": [
-    0.726,
-    0.232,
-    0.595
+    1.2,
+    0.384,
+    0.984
    ],
    "tris": 351,
-   "tpu": 1023,
+   "tpu": 728,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15696,
+   "bytes": 15692,
    "vtx": 377,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.056,
-   "avgTri": 0.00343,
+   "avgTri": 0.00936,
    "anglePct": 62,
    "vpt": 1.07,
    "grad": 0.6,
@@ -216636,32 +216622,39 @@
     "metal",
     "textile"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.984 over max 0.85 (str-barrier-fence)"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
    "name": "flag-checkers-small",
-   "hash": "5366f81cad",
+   "hash": "196a794445",
    "kind": "str-fixture-marker-flag",
    "size": "s",
    "wdh": [
-    0.138,
-    0.026,
-    0.218
+    0.228,
+    0.043,
+    0.36
    ],
    "tris": 212,
    "tpu": 618,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12124,
+   "bytes": 12120,
    "vtx": 291,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0151,
+   "minTube": 0.025,
    "thick": 0.0636,
-   "avgTri": 0.00019,
+   "avgTri": 0.00051,
    "anglePct": 34,
    "vpt": 1.37,
    "grad": 0.22,
@@ -216702,45 +216695,40 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "longest 0.218 under min 0.325 (str-fixture-marker-flag scale-small)"
-    },
-    {
-     "level": "error",
      "check": "backface",
      "text": "3% of view 180/20 over 2%: open 100%"
     },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0151 wants min 0.026"
+     "text": "G27 minTube 0.025 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ken-racing",
    "name": "flag-checkers",
-   "hash": "6ebfc6f754",
+   "hash": "08aa427b10",
    "kind": "str-fixture-marker-flag",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.149,
-    0.037,
-    0.908
+    0.247,
+    0.061,
+    1.5
    ],
    "tris": 246,
-   "tpu": 553,
+   "tpu": 335,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9980,
+   "bytes": 9968,
    "vtx": 218,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0378,
+   "minTube": 0.0625,
    "thick": 0.2162,
-   "avgTri": 0.00087,
+   "avgTri": 0.00238,
    "anglePct": 42,
    "vpt": 0.89,
    "grad": 0.29,
@@ -216770,39 +216758,32 @@
     "textile"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.56,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.908 under min 1.3 (str-fixture-marker-flag scale-big)"
-    }
-   ]
+   "thickRel": 2.56
   },
   {
    "kit": "ken-racing",
    "name": "flag-green",
-   "hash": "be780cc005",
+   "hash": "8a123db86a",
    "kind": "str-fixture-marker-flag",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.149,
-    0.037,
-    0.908
+    0.247,
+    0.061,
+    1.5
    ],
    "tris": 246,
-   "tpu": 553,
+   "tpu": 335,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12976,
+   "bytes": 12968,
    "vtx": 312,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0378,
+   "minTube": 0.0625,
    "thick": 0.2162,
-   "avgTri": 0.00087,
+   "avgTri": 0.00238,
    "anglePct": 42,
    "vpt": 1.27,
    "grad": 0.19,
@@ -216832,39 +216813,32 @@
     "textile"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.56,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.908 under min 1.3 (str-fixture-marker-flag scale-big)"
-    }
-   ]
+   "thickRel": 2.56
   },
   {
    "kit": "ken-racing",
    "name": "flag-red",
-   "hash": "c059d998aa",
+   "hash": "ea6ec4c446",
    "kind": "str-fixture-marker-flag",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.149,
-    0.037,
-    0.908
+    0.247,
+    0.061,
+    1.5
    ],
    "tris": 246,
-   "tpu": 553,
+   "tpu": 335,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12972,
+   "bytes": 12964,
    "vtx": 312,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0378,
+   "minTube": 0.0625,
    "thick": 0.2162,
-   "avgTri": 0.00087,
+   "avgTri": 0.00238,
    "anglePct": 42,
    "vpt": 1.27,
    "grad": 0.19,
@@ -216894,38 +216868,31 @@
     "textile"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.56,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.908 under min 1.3 (str-fixture-marker-flag scale-big)"
-    }
-   ]
+   "thickRel": 2.56
   },
   {
    "kit": "ken-racing",
    "name": "grand-stand-awning",
-   "hash": "fe070440b8",
+   "hash": "2f83f0252f",
    "kind": "str-fixture-leisure",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.726,
-    0.726,
-    1.006
+    1.2,
+    1.2,
+    1.662
    ],
    "tris": 380,
-   "tpu": 717,
+   "tpu": 159,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 19888,
+   "bytes": 19868,
    "vtx": 502,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1915,
-   "avgTri": 0.00963,
+   "thick": 0.1916,
+   "avgTri": 0.02632,
    "anglePct": 79,
    "vpt": 1.32,
    "grad": 0.54,
@@ -216965,26 +216932,26 @@
   {
    "kit": "ken-racing",
    "name": "grand-stand-covered-round",
-   "hash": "157af78505",
+   "hash": "f4337f7331",
    "kind": "str-fixture-leisure",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.188,
-    1.188,
-    0.861
+    1.964,
+    1.964,
+    1.424
    ],
    "tris": 1301,
-   "tpu": 1071,
+   "tpu": 237,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 52992,
+   "bytes": 52988,
    "vtx": 1363,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1291,
-   "avgTri": 0.00509,
+   "minEdge": 0.001,
+   "thick": 0.1292,
+   "avgTri": 0.01392,
    "anglePct": 40,
    "vpt": 1.05,
    "grad": 0.44,
@@ -217024,26 +216991,26 @@
   {
    "kit": "ken-racing",
    "name": "grand-stand-covered",
-   "hash": "9f5aced8b2",
+   "hash": "ec508e23de",
    "kind": "str-fixture-leisure",
    "size": "m",
    "wdh": [
-    0.726,
-    0.741,
-    0.861
+    1.2,
+    1.224,
+    1.424
    ],
    "tris": 165,
-   "tpu": 356,
+   "tpu": 79,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 10052,
+   "bytes": 10048,
    "vtx": 235,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
+   "minEdge": 0.046,
    "thick": 0.1781,
-   "avgTri": 0.02433,
+   "avgTri": 0.06646,
    "anglePct": 77,
    "vpt": 1.42,
    "grad": 0.49,
@@ -217083,26 +217050,26 @@
   {
    "kit": "ken-racing",
    "name": "grand-stand-round",
-   "hash": "1cb5eeadb0",
+   "hash": "72fc03de74",
    "kind": "str-fixture-leisure",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.188,
-    1.188,
-    0.651
+    1.964,
+    1.964,
+    1.076
    ],
    "tris": 1022,
-   "tpu": 1034,
+   "tpu": 246,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 42588,
+   "bytes": 42584,
    "vtx": 1091,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1367,
-   "avgTri": 0.00475,
+   "thick": 0.1369,
+   "avgTri": 0.01296,
    "anglePct": 57,
    "vpt": 1.07,
    "grad": 0.42,
@@ -217136,26 +217103,26 @@
   {
    "kit": "ken-racing",
    "name": "grand-stand",
-   "hash": "62ba5e83e5",
+   "hash": "6a05ef869b",
    "kind": "str-fixture-leisure",
    "size": "m",
    "wdh": [
-    0.726,
-    0.726,
-    0.651
+    1.2,
+    1.2,
+    1.076
    ],
    "tris": 128,
-   "tpu": 347,
+   "tpu": 83,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 8236,
+   "bytes": 8220,
    "vtx": 186,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.022,
+   "minEdge": 0.036,
    "thick": 0.1896,
-   "avgTri": 0.02242,
+   "avgTri": 0.06125,
    "anglePct": 98,
    "vpt": 1.45,
    "grad": 0.48,
@@ -217184,38 +217151,31 @@
     "stone-masonry"
    ],
    "variant": "ken-racing/grand-stand",
-   "thickRel": 1.95,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.726 under min 0.8 (str-fixture-leisure)"
-    }
-   ]
+   "thickRel": 1.95
   },
   {
    "kit": "ken-racing",
    "name": "light-colored",
-   "hash": "f9affbe535",
+   "hash": "37d4476172",
    "kind": "str-fixture-light-traffic",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.051,
-    0.079,
-    0.469
+    0.085,
+    0.13,
+    0.775
    ],
    "tris": 514,
-   "tpu": 1499,
+   "tpu": 1354,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 28760,
+   "bytes": 28752,
    "vtx": 755,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.3089,
-   "avgTri": 0.00032,
+   "thick": 0.3087,
+   "avgTri": 0.00086,
    "anglePct": 66,
    "vpt": 1.47,
    "grad": 0.58,
@@ -217260,26 +217220,26 @@
   {
    "kit": "ken-racing",
    "name": "light-post-exclusive",
-   "hash": "946f48a38a",
+   "hash": "d0e8328658",
    "kind": "str-fixture-light-street",
    "size": "m",
    "wdh": [
-    0.145,
-    0.07,
-    0.578
+    0.24,
+    0.116,
+    0.955
    ],
    "tris": 163,
-   "tpu": 475,
+   "tpu": 348,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10164,
+   "bytes": 10152,
    "vtx": 239,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.1647,
-   "avgTri": 0.00044,
+   "avgTri": 0.0012,
    "anglePct": 85,
    "vpt": 1.47,
    "grad": 0.58,
@@ -217303,39 +217263,32 @@
     "metal"
    ],
    "variant": "ken-racing/light-post-large",
-   "thickRel": 1.76,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.578 under min 0.9 (str-fixture-light-street)"
-    }
-   ]
+   "thickRel": 1.76
   },
   {
    "kit": "ken-racing",
    "name": "light-post-large",
-   "hash": "eaf190027d",
+   "hash": "4317131fb2",
    "kind": "str-fixture-light-street",
    "size": "m",
    "wdh": [
-    0.276,
-    0.07,
-    0.578
+    0.456,
+    0.116,
+    0.955
    ],
    "tris": 261,
-   "tpu": 761,
+   "tpu": 558,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14836,
+   "bytes": 14828,
    "vtx": 367,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0,
-   "thick": 0.0935,
-   "avgTri": 0.0004,
+   "thick": 0.0936,
+   "avgTri": 0.00108,
    "anglePct": 83,
    "vpt": 1.41,
    "grad": 0.58,
@@ -217370,11 +217323,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "size",
-     "text": "longest 0.578 under min 0.9 (str-fixture-light-street)"
-    },
-    {
-     "level": "error",
      "check": "backface",
      "text": "3% of view 180/50 over 2%: open 100%"
     }
@@ -217383,26 +217331,26 @@
   {
    "kit": "ken-racing",
    "name": "light-post-modern",
-   "hash": "878af5d636",
+   "hash": "b280278ce3",
    "kind": "str-fixture-light-street",
    "size": "m",
    "wdh": [
-    0.036,
-    0.129,
-    0.567
+    0.059,
+    0.213,
+    0.938
    ],
    "tris": 121,
-   "tpu": 353,
+   "tpu": 263,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6668,
+   "bytes": 6656,
    "vtx": 138,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.1566,
-   "avgTri": 0.0004,
+   "minEdge": 0.003,
+   "thick": 0.1567,
+   "avgTri": 0.0011,
    "anglePct": 86,
    "vpt": 1.14,
    "grad": 0.56,
@@ -217426,38 +217374,31 @@
     "metal"
    ],
    "variant": "ken-racing/light-post-large",
-   "thickRel": 1.67,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.567 under min 0.9 (str-fixture-light-street)"
-    }
-   ]
+   "thickRel": 1.67
   },
   {
    "kit": "ken-racing",
    "name": "light-red-double",
-   "hash": "a9055157b9",
+   "hash": "7c4adab2d7",
    "kind": "str-fixture-light-traffic",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.103,
-    0.079,
-    0.496
+    0.17,
+    0.13,
+    0.82
    ],
    "tris": 1896,
-   "tpu": 5528,
+   "tpu": 4719,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 98476,
+   "bytes": 98468,
    "vtx": 2674,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.2783,
-   "avgTri": 0.00036,
+   "thick": 0.2776,
+   "avgTri": 0.00098,
    "anglePct": 47,
    "vpt": 1.41,
    "grad": 0.59,
@@ -217491,39 +217432,32 @@
     "metal"
    ],
    "variant": "ken-racing/light-red",
-   "thickRel": 1.2,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5528 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 1.19
   },
   {
    "kit": "ken-racing",
    "name": "light-red",
-   "hash": "b52a712e3e",
+   "hash": "5a8127bae9",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
-    0.051,
-    0.079,
-    0.518
+    0.085,
+    0.13,
+    0.856
    ],
    "tris": 580,
-   "tpu": 1691,
+   "tpu": 1383,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 31416,
+   "bytes": 31408,
    "vtx": 826,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0145,
-   "thick": 0.3177,
-   "avgTri": 0.00033,
+   "minTube": 0.024,
+   "thick": 0.3172,
+   "avgTri": 0.0009,
    "anglePct": 70,
    "vpt": 1.42,
    "grad": 0.58,
@@ -217557,31 +217491,31 @@
     "metal"
    ],
    "variant": "ken-racing/light-red",
-   "thickRel": 1.37
+   "thickRel": 1.36
   },
   {
    "kit": "ken-racing",
    "name": "overhead-lights",
-   "hash": "8047ebccf7",
+   "hash": "57f7ceb6c5",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.915,
-    0.138,
-    0.504
+    1.512,
+    0.228,
+    0.833
    ],
    "tris": 380,
-   "tpu": 1108,
+   "tpu": 931,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19944,
+   "bytes": 19936,
    "vtx": 504,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1033,
-   "avgTri": 0.00189,
+   "thick": 0.1025,
+   "avgTri": 0.00516,
    "anglePct": 82,
    "vpt": 1.33,
    "grad": 0.53,
@@ -217610,38 +217544,31 @@
     "plastic"
    ],
    "variant": "ken-racing/overhead",
-   "thickRel": 1.14,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.504 under min 0.7 (str-part-gate-gateway)"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "ken-racing",
    "name": "overhead-round-colored",
-   "hash": "4adc26c3b1",
+   "hash": "2f8c41949a",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.355,
-    0.24,
-    0.678
+    2.24,
+    0.396,
+    1.12
    ],
    "tris": 100,
-   "tpu": 292,
+   "tpu": 101,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7268,
+   "bytes": 7264,
    "vtx": 160,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.112,
-   "thick": 0.1548,
-   "avgTri": 0.01806,
+   "minEdge": 0.185,
+   "thick": 0.1549,
+   "avgTri": 0.04934,
    "anglePct": 54,
    "vpt": 1.6,
    "grad": 0.59,
@@ -217664,38 +217591,31 @@
     "metal"
    ],
    "variant": "ken-racing/overhead-round",
-   "thickRel": 1.71,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.678 under min 0.7 (str-part-gate-gateway)"
-    }
-   ]
+   "thickRel": 1.71
   },
   {
    "kit": "ken-racing",
    "name": "overhead-round",
-   "hash": "9503a5f863",
+   "hash": "1a9a744461",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.355,
-    0.24,
-    0.678
+    2.24,
+    0.396,
+    1.12
    ],
    "tris": 132,
-   "tpu": 385,
+   "tpu": 133,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6972,
+   "bytes": 6968,
    "vtx": 145,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.051,
-   "thick": 0.1546,
-   "avgTri": 0.01368,
+   "minEdge": 0.085,
+   "thick": 0.1552,
+   "avgTri": 0.03738,
    "anglePct": 54,
    "vpt": 1.1,
    "grad": 0.54,
@@ -217718,38 +217638,31 @@
     "metal"
    ],
    "variant": "ken-racing/overhead-round",
-   "thickRel": 1.71,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.678 under min 0.7 (str-part-gate-gateway)"
-    }
-   ]
+   "thickRel": 1.71
   },
   {
    "kit": "ken-racing",
    "name": "overhead",
-   "hash": "41b26e3dd5",
+   "hash": "4826af758c",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.915,
-    0.138,
-    0.485
+    1.512,
+    0.228,
+    0.802
    ],
    "tris": 123,
-   "tpu": 359,
+   "tpu": 313,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7112,
+   "bytes": 7108,
    "vtx": 152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "thick": 0.1099,
-   "avgTri": 0.00557,
+   "minEdge": 0.02,
+   "thick": 0.1091,
+   "avgTri": 0.01523,
    "anglePct": 85,
    "vpt": 1.24,
    "grad": 0.6,
@@ -217767,38 +217680,31 @@
     "metal"
    ],
    "variant": "ken-racing/overhead",
-   "thickRel": 1.21,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.485 under min 0.7 (str-part-gate-gateway)"
-    }
-   ]
+   "thickRel": 1.2
   },
   {
    "kit": "ken-racing",
    "name": "pits-garage-closed",
-   "hash": "dd47be9434",
+   "hash": "b1de8ae979",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
-    0.726,
-    0.791,
-    0.508
+    1.2,
+    1.308,
+    0.84
    ],
    "tris": 155,
-   "tpu": 386,
+   "tpu": 118,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 9252,
+   "bytes": 9248,
    "vtx": 212,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "thick": 0.2292,
-   "avgTri": 0.02648,
+   "minEdge": 0.006,
+   "thick": 0.2291,
+   "avgTri": 0.07233,
    "anglePct": 99,
    "vpt": 1.37,
    "grad": 0.43,
@@ -217838,26 +217744,26 @@
   {
    "kit": "ken-racing",
    "name": "pits-garage-corner",
-   "hash": "d8d3b1517b",
+   "hash": "5898ddc8df",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
-    0.762,
-    0.726,
-    0.508
+    1.26,
+    1.2,
+    0.84
    ],
    "tris": 110,
-   "tpu": 284,
+   "tpu": 87,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 7764,
+   "bytes": 7748,
    "vtx": 174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
+   "minEdge": 0.024,
    "thick": 0.2314,
-   "avgTri": 0.01882,
+   "avgTri": 0.05143,
    "anglePct": 100,
    "vpt": 1.58,
    "grad": 0.37,
@@ -217896,26 +217802,26 @@
   {
    "kit": "ken-racing",
    "name": "pits-garage",
-   "hash": "9ffde4f012",
+   "hash": "1ce851db88",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
-    0.726,
-    0.791,
-    0.508
+    1.2,
+    1.308,
+    0.84
    ],
    "tris": 93,
-   "tpu": 231,
+   "tpu": 71,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6460,
+   "bytes": 6456,
    "vtx": 137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
+   "minEdge": 0.048,
    "thick": 0.1093,
-   "avgTri": 0.04227,
+   "avgTri": 0.11548,
    "anglePct": 99,
    "vpt": 1.47,
    "grad": 0.51,
@@ -217950,27 +217856,27 @@
   {
    "kit": "ken-racing",
    "name": "pits-office-corner",
-   "hash": "f797343dd5",
+   "hash": "6cef9c75a0",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
-    0.755,
-    0.755,
-    0.37
+    1.248,
+    1.248,
+    0.612
    ],
    "tris": 128,
-   "tpu": 321,
+   "tpu": 117,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 8640,
+   "bytes": 8636,
    "vtx": 198,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "thick": 0.1701,
-   "avgTri": 0.0188,
+   "minEdge": 0.024,
+   "thick": 0.1705,
+   "avgTri": 0.05137,
    "anglePct": 100,
    "vpt": 1.55,
    "grad": 0.53,
@@ -217999,31 +217905,31 @@
     "metal",
     "storeys-1"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "ken-racing",
    "name": "pits-office-roof",
-   "hash": "a4b46b4d6f",
+   "hash": "1144b0d19b",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
-    0.726,
-    0.755,
-    0.618
+    1.2,
+    1.248,
+    1.022
    ],
    "tris": 144,
-   "tpu": 375,
+   "tpu": 94,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9244,
+   "bytes": 9236,
    "vtx": 214,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "thick": 0.2341,
-   "avgTri": 0.0287,
+   "minEdge": 0.024,
+   "thick": 0.2346,
+   "avgTri": 0.0784,
    "anglePct": 77,
    "vpt": 1.49,
    "grad": 0.57,
@@ -218058,26 +217964,26 @@
   {
    "kit": "ken-racing",
    "name": "pits-office",
-   "hash": "910d5be14c",
+   "hash": "4b8385af32",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
-    0.726,
-    0.755,
-    0.37
+    1.2,
+    1.248,
+    0.612
    ],
    "tris": 90,
-   "tpu": 235,
+   "tpu": 86,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 6664,
+   "bytes": 6660,
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "thick": 0.18,
-   "avgTri": 0.03152,
+   "minEdge": 0.024,
+   "thick": 0.1805,
+   "avgTri": 0.08613,
    "anglePct": 100,
    "vpt": 1.6,
    "grad": 0.49,
@@ -218127,26 +218033,26 @@
   {
    "kit": "ken-racing",
    "name": "pylon",
-   "hash": "312aa843ec",
+   "hash": "60df2a92bf",
    "kind": "str-barrier-traffic-cone",
    "size": "s",
    "wdh": [
-    0.087,
-    0.087,
-    0.096
+    0.144,
+    0.144,
+    0.158
    ],
    "tris": 108,
    "tpu": 315,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5964,
+   "bytes": 5952,
    "vtx": 120,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "thick": 0.1685,
-   "avgTri": 0.00026,
+   "minEdge": 0.005,
+   "thick": 0.1684,
+   "avgTri": 0.00071,
    "anglePct": 53,
    "vpt": 1.11,
    "grad": 0.6,
@@ -218163,38 +218069,31 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "high 0.096 under min 0.15 (str-barrier-traffic)"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "ken-racing",
    "name": "race-car-green",
-   "hash": "eb36335298",
+   "hash": "bb7c5f1047",
    "kind": "obj-transport-land-road",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.529,
-    0.977,
-    0.288
+    0.875,
+    1.615,
+    0.476
    ],
    "tris": 1421,
-   "tpu": 3928,
+   "tpu": 1437,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 61168,
+   "bytes": 61164,
    "vtx": 1597,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "thick": 0.1313,
-   "avgTri": 0.00109,
+   "minEdge": 0.018,
+   "thick": 0.1312,
+   "avgTri": 0.00297,
    "anglePct": 57,
    "vpt": 1.12,
    "grad": 0.58,
@@ -218234,16 +218133,16 @@
   {
    "kit": "ken-racing",
    "name": "race-car-orange",
-   "hash": "7de9b2da99",
+   "hash": "47425d7b06",
    "kind": "obj-transport-land-road",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.529,
-    0.977,
-    0.288
+    0.875,
+    1.615,
+    0.476
    ],
    "tris": 1421,
-   "tpu": 3928,
+   "tpu": 1437,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -218251,9 +218150,9 @@
    "vtx": 1600,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
+   "minEdge": 0.018,
    "thick": 0.1312,
-   "avgTri": 0.00109,
+   "avgTri": 0.00297,
    "anglePct": 57,
    "vpt": 1.13,
    "grad": 0,
@@ -218293,26 +218192,26 @@
   {
    "kit": "ken-racing",
    "name": "race-car-red",
-   "hash": "d48a53e0d2",
+   "hash": "8bb12bfe22",
    "kind": "obj-transport-land-road",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.529,
-    0.977,
-    0.288
+    0.875,
+    1.615,
+    0.476
    ],
    "tris": 1420,
-   "tpu": 3925,
+   "tpu": 1436,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 61156,
+   "bytes": 61148,
    "vtx": 1597,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "thick": 0.1313,
-   "avgTri": 0.00109,
+   "minEdge": 0.018,
+   "thick": 0.1312,
+   "avgTri": 0.00297,
    "anglePct": 57,
    "vpt": 1.12,
    "grad": 0.58,
@@ -218352,26 +218251,26 @@
   {
    "kit": "ken-racing",
    "name": "race-car-white",
-   "hash": "06ecc0613f",
+   "hash": "028daeb4bd",
    "kind": "obj-transport-land-road",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.529,
-    0.977,
-    0.288
+    0.875,
+    1.615,
+    0.476
    ],
    "tris": 1421,
-   "tpu": 3928,
+   "tpu": 1437,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 60600,
+   "bytes": 60596,
    "vtx": 1583,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
+   "minEdge": 0.018,
    "thick": 0.1312,
-   "avgTri": 0.00109,
+   "avgTri": 0.00297,
    "anglePct": 57,
    "vpt": 1.11,
    "grad": 0,
@@ -218405,26 +218304,26 @@
   {
    "kit": "ken-racing",
    "name": "radar-equipment",
-   "hash": "2714e05fe8",
+   "hash": "88462afbec",
    "kind": "str-fixture-utility",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.428,
-    0.3,
-    0.394
+    0.707,
+    0.496,
+    0.652
    ],
    "tris": 336,
    "tpu": 980,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16604,
+   "bytes": 16600,
    "vtx": 408,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "thick": 0.1084,
-   "avgTri": 0.00191,
+   "minEdge": 0.012,
+   "thick": 0.1083,
+   "avgTri": 0.00522,
    "anglePct": 69,
    "vpt": 1.21,
    "grad": 0.57,
@@ -218451,27 +218350,27 @@
   {
    "kit": "ken-racing",
    "name": "rail-double",
-   "hash": "d8bcf733f7",
+   "hash": "103708822c",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
-    0.726,
-    0.036,
-    0.203
+    1.2,
+    0.06,
+    0.336
    ],
    "tris": 112,
    "tpu": 327,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7824,
+   "bytes": 7816,
    "vtx": 176,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.163,
+   "minEdge": 0.024,
+   "minTube": 0.2694,
    "thick": 0.1267,
-   "avgTri": 0.00254,
+   "avgTri": 0.00693,
    "anglePct": 81,
    "vpt": 1.57,
    "grad": 0.6,
@@ -218494,27 +218393,27 @@
   {
    "kit": "ken-racing",
    "name": "rail",
-   "hash": "ccb1c349b4",
+   "hash": "75dcc7cc35",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
-    0.726,
-    0.036,
-    0.116
+    1.2,
+    0.06,
+    0.192
    ],
    "tris": 68,
    "tpu": 198,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5492,
+   "bytes": 5484,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minTube": 0.0365,
-   "thick": 0.2169,
-   "avgTri": 0.00214,
+   "minEdge": 0.024,
+   "minTube": 0.0603,
+   "thick": 0.2168,
+   "avgTri": 0.00585,
    "anglePct": 81,
    "vpt": 1.65,
    "grad": 0.6,
@@ -218532,38 +218431,31 @@
     "metal"
    ],
    "variant": "ken-racing/rail",
-   "thickRel": 1.22,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.116 under min 0.15 (str-barrier-traffic)"
-    }
-   ]
+   "thickRel": 1.22
   },
   {
    "kit": "ken-racing",
    "name": "ramp",
-   "hash": "97c8af66bc",
+   "hash": "dc647d8407",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
-    0.399,
-    0.53,
-    0.24
+    0.66,
+    0.876,
+    0.396
    ],
    "tris": 100,
-   "tpu": 292,
+   "tpu": 247,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6804,
+   "bytes": 6796,
    "vtx": 147,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
+   "minEdge": 0.024,
    "thick": 0.1098,
-   "avgTri": 0.00648,
+   "avgTri": 0.01771,
    "anglePct": 43,
    "vpt": 1.47,
    "grad": 0.59,
@@ -218590,16 +218482,16 @@
   {
    "kit": "ken-racing",
    "name": "road-start",
-   "hash": "96b9082e58",
+   "hash": "42faa03a4b",
    "kind": "str-access-road",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.915,
-    1.452,
-    0.485
+    1.512,
+    2.4,
+    0.802
    ],
    "tris": 177,
-   "tpu": 190,
+   "tpu": 61,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -218607,9 +218499,9 @@
    "vtx": 233,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
+   "minEdge": 0.012,
    "thick": 0.063,
-   "avgTri": 0.01017,
+   "avgTri": 0.02779,
    "anglePct": 93,
    "vpt": 1.32,
    "grad": 0,
@@ -218643,27 +218535,27 @@
   {
    "kit": "ken-racing",
    "name": "tent-closed-long",
-   "hash": "38603a02f8",
+   "hash": "468e0803fd",
    "kind": "str-canopy",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.452,
-    0.726,
-    0.508
+    2.4,
+    1.2,
+    0.84
    ],
    "tris": 128,
-   "tpu": 173,
+   "tpu": 53,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8124,
+   "bytes": 8104,
    "vtx": 182,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0,
    "thick": 0.1303,
-   "avgTri": 0.0458,
+   "avgTri": 0.12514,
    "anglePct": 82,
    "vpt": 1.42,
    "grad": 0.6,
@@ -218687,27 +218579,27 @@
   {
    "kit": "ken-racing",
    "name": "tent-closed",
-   "hash": "f5ec1fd158",
+   "hash": "337e26c4e1",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.726,
-    0.726,
-    0.508
+    1.2,
+    1.2,
+    0.84
    ],
    "tris": 128,
-   "tpu": 347,
+   "tpu": 106,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8108,
+   "bytes": 8092,
    "vtx": 182,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0,
    "thick": 0.0933,
-   "avgTri": 0.02725,
+   "avgTri": 0.07446,
    "anglePct": 84,
    "vpt": 1.42,
    "grad": 0.6,
@@ -218731,26 +218623,26 @@
   {
    "kit": "ken-racing",
    "name": "tent-long",
-   "hash": "196763bde4",
+   "hash": "933facb181",
    "kind": "str-canopy",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.452,
-    0.726,
-    0.508
+    2.4,
+    1.2,
+    0.84
    ],
    "tris": 84,
-   "tpu": 114,
+   "tpu": 35,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5596,
+   "bytes": 5580,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "thick": 0.1388,
-   "avgTri": 0.04282,
+   "minEdge": 0.024,
+   "thick": 0.1392,
+   "avgTri": 0.11698,
    "anglePct": 70,
    "vpt": 1.33,
    "grad": 0.6,
@@ -218774,27 +218666,27 @@
   {
    "kit": "ken-racing",
    "name": "tent-roof-double",
-   "hash": "07334cf3c0",
+   "hash": "dc5e9b4765",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.813,
-    0.719,
-    0.458
+    1.345,
+    1.188,
+    0.756
    ],
    "tris": 196,
-   "tpu": 479,
+   "tpu": 162,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12308,
+   "bytes": 12300,
    "vtx": 300,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0145,
-   "thick": 0.0849,
-   "avgTri": 0.00897,
+   "minTube": 0.0239,
+   "thick": 0.0852,
+   "avgTri": 0.0245,
    "anglePct": 30,
    "vpt": 1.53,
    "grad": 0.58,
@@ -218818,33 +218710,33 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0145 wants min 0.026"
+     "text": "G27 minTube 0.0239 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ken-racing",
    "name": "tent-roof",
-   "hash": "56140b527e",
+   "hash": "e9016a89e6",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.407,
-    0.719,
-    0.458
+    0.673,
+    1.188,
+    0.756
    ],
    "tris": 108,
-   "tpu": 315,
+   "tpu": 179,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7536,
+   "bytes": 7528,
    "vtx": 168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "thick": 0.1311,
-   "avgTri": 0.00844,
+   "minEdge": 0.024,
+   "thick": 0.1309,
+   "avgTri": 0.02307,
    "anglePct": 32,
    "vpt": 1.56,
    "grad": 0.58,
@@ -218863,31 +218755,31 @@
     "textile"
    ],
    "variant": "ken-racing/tent-roof",
-   "thickRel": 1.41
+   "thickRel": 1.4
   },
   {
    "kit": "ken-racing",
    "name": "tent",
-   "hash": "e68c613bd3",
+   "hash": "1c8cf87ec1",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.726,
-    0.726,
-    0.508
+    1.2,
+    1.2,
+    0.84
    ],
    "tris": 84,
-   "tpu": 228,
+   "tpu": 69,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5584,
+   "bytes": 5564,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
+   "minEdge": 0.024,
    "thick": 0.1025,
-   "avgTri": 0.02243,
+   "avgTri": 0.06128,
    "anglePct": 70,
    "vpt": 1.33,
    "grad": 0.6,
@@ -218911,27 +218803,27 @@
   {
    "kit": "ken-racing",
    "name": "tree-large",
-   "hash": "ee416098af",
+   "hash": "e5046a564d",
    "kind": "env-flora-tree",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.259,
-    0.299,
-    1.094
+    0.428,
+    0.494,
+    1.808
    ],
    "tris": 72,
-   "tpu": 134,
+   "tpu": 81,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4796,
+   "bytes": 4788,
    "vtx": 90,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
-   "minTube": 0.1813,
+   "minEdge": 0.048,
+   "minTube": 0.2997,
    "thick": 0.2941,
-   "avgTri": 0.00941,
+   "avgTri": 0.02572,
    "anglePct": 3,
    "vpt": 1.25,
    "grad": 0.46,
@@ -278263,7 +278155,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "pm-store",
@@ -316481,7 +316373,7 @@
     "metal-iron-steel",
     "qua"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "quat-shoot",
@@ -357506,7 +357398,7 @@
     "sidequest",
     "textile"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "sq-cinema",
@@ -362378,7 +362270,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 2.26,
+   "thickRel": 2.27,
    "lint": [
     {
      "level": "error",
