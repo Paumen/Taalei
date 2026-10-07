@@ -124,9 +124,16 @@ function keerBinnenstebuiten(posities, driehoeken) {
   }
 }
 
+function textuurkaart(uitgepakt) {
+  const pad = join(uitgepakt, 'texture-map.json');
+  if (!existsSync(pad)) return new Map();
+  return new Map(Object.entries(JSON.parse(readFileSync(pad, 'utf8'))).map(([bestand, regel]) => [basename(bestand), regel]));
+}
+
 function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
   const opNaam = new Map(alleBestanden(uitgepakt).map((pad) => [basename(pad).toLowerCase(), pad]));
   const gevraagd = (pad) => texturen[basename(pad)] ?? basename(pad);
+  const regel = textuurkaart(uitgepakt).get(basename(model.bestand ?? ''));
   const driehoeken = [];
   const posities = [];
   const index = new Map();
@@ -141,9 +148,13 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
   };
 
   for (const p of model.primitieven) {
-    const textuur = p.materiaal.textuur
-      ? opNaam.get(gevraagd(p.materiaal.textuur).toLowerCase()) ?? p.materiaal.textuur
-      : null;
+    const kaart = regel?.materials?.[p.materiaal.naam]?.texture ?? regel?.texture;
+    const textuur = kaart
+      ? opNaam.get(kaart.toLowerCase()) ?? null
+      : p.materiaal.textuur
+        ? opNaam.get(gevraagd(p.materiaal.textuur).toLowerCase()) ??
+          (existsSync(p.materiaal.textuur) ? p.materiaal.textuur : null)
+        : null;
     for (let t = 0; t < p.indices.length; t += 3) {
       const hoeken = [0, 1, 2].map((k) => punt(p, p.indices[t + k]));
       if (p.normalen) {

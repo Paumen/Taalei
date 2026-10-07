@@ -971,5 +971,22 @@ window.KENNEY_KITS = [
   "url": "https://www.blendswap.com/blend/93930",
   "licenseLabel": "CC0 1.0",
   "note": "Drummyfish, after Cethiel's CC0 2D dragon; rigged, with Attack, Die, Idle and Walk clips."
+ },
+ {
+  "slug": "rgp-cars",
+  "url": null,
+  "note": "Cartoon Car Megapack (Free). Source zip has no licence file."
+ },
+ {
+  "slug": "swords-tember",
+  "url": null
+ },
+ {
+  "slug": "3dm-guns",
+  "url": null
+ },
+ {
+  "slug": "emace-80s",
+  "url": null
  }
 ]

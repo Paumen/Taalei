@@ -18,6 +18,7 @@ A config is a JSON object:
 - `banden`: source colour (`"r,g,b"`) → band.
 - `texturen`: texture name a material asks for → file the pack carries; anything
   but a PNG is converted on read.
+  A pack's `texture-map.json` wins over both, as on the TBD tab.
 - `modellen`: a row per model with `bron` (source name), `naam` (workfile name),
   `kind`, `materialen`, `vlaggen`, `attributen`, `themas`, and optionally its own
   `banden` and a `factor` on top of the pack's scale where the style guide's `P10`
