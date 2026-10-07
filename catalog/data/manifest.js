@@ -965,5 +965,11 @@ window.KENNEY_KITS = [
   "slug": "wizp-lava",
   "url": null,
   "note": "WizP; source zip carries no licence file and names no maker."
+ },
+ {
+  "slug": "dragon",
+  "url": "https://www.blendswap.com/blend/93930",
+  "licenseLabel": "CC0 1.0",
+  "note": "Drummyfish, after Cethiel's CC0 2D dragon; rigged, with Attack, Die, Idle and Walk clips."
  }
 ]
