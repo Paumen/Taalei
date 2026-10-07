@@ -229,7 +229,7 @@ export const BRONKITS = [
   { map: 'Medieval_Props_3dmodelscc0', naam: 'Medieval Props', kit: '3dm-medieval', formaat: 'fbx', alleMappen: true },
   { map: 'Scifi_Props_3dmodelscc0', naam: 'Sci-fi Props', kit: null, formaat: 'fbx', alleMappen: true },
   { map: 'Electronics_Gadgets_Pack_3dmodelscc0', naam: 'Electronics & Gadgets Pack', kit: null, formaat: 'fbx', alleMappen: true },
-  { map: 'Bones_Asset_loafbrr', naam: 'Bones 3D Asset', kit: null, formaat: 'fbx' },
+  { map: 'Bones_Asset_loafbrr', naam: 'Bones 3D Asset', kit: 'loaf-bones', formaat: 'fbx' },
   { map: 'Base_Meshes_M3-org', naam: 'Base Meshes', kit: null, formaat: 'glb', alleMappen: true },
   { map: 'Lowbudget_Game_Assets_britdawgmasterfunk', naam: 'Lowbudget Game Assets', kit: null, formaat: 'glb', splitsPerMesh: true },
 ];
