@@ -2290,8 +2290,8 @@
     "smooth": 12
    },
    "kitCheck": {
-    "factor": 0.95,
-    "kinds": 35
+    "factor": 0.97,
+    "kinds": 34
    }
   },
   {
@@ -21959,7 +21959,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 861,
+   "count": 862,
    "color": "#6b5b95"
   },
   {
@@ -22227,7 +22227,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 668,
+   "count": 667,
    "color": "#c07c8a"
   },
   {
@@ -22242,7 +22242,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 422
+   "count": 421
   },
   {
    "id": "obj-furnishing-furniture-counter",
@@ -22382,7 +22382,7 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 135
+   "count": 134
   },
   {
    "id": "obj-furnishing-furniture-seating-sofa",
@@ -22438,7 +22438,7 @@
    "name": "Stool",
    "type": "kind",
    "description": "stool, footstool",
-   "count": 27
+   "count": 26
   },
   {
    "id": "obj-furnishing-furniture-seating-stool-bar",
@@ -23023,7 +23023,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 237,
+   "count": 238,
    "color": "#6d738a"
   },
   {
@@ -51379,7 +51379,7 @@
     "fs",
     "textile"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.5
   },
   {
    "kit": "fs-house",
@@ -73029,7 +73029,7 @@
   {
    "kit": "household",
    "name": "grandfather-clock",
-   "hash": "84ca6818d7",
+   "hash": "9e36700919",
    "kind": "obj-furnishing-clock",
    "size": "m",
    "wdh": [
@@ -73054,7 +73054,7 @@
    "vpt": 2.41,
    "grad": 0,
    "spread": {
-    "1,0": [
+    "2,0": [
      0.5,
      0.5
     ],
@@ -73073,7 +73073,7 @@
    },
    "colors": [
     "#5b5550",
-    "#b58158",
+    "#8b5936",
     "#d8d1bd",
     "#f2a93c"
    ],
@@ -73084,7 +73084,14 @@
     "paper",
     "wood-worked"
    ],
-   "thickRel": 2.22
+   "thickRel": 2.22,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-worked wants camel, has chestnut basalt amber ivory"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -90945,7 +90952,7 @@
    "kit": "isa-picnic",
    "collection": "isa-tt",
    "name": "drink-can",
-   "hash": "7e82e346c3",
+   "hash": "f613e28c90",
    "kind": "obj-container-can",
    "size": "s",
    "wdh": [
@@ -90969,7 +90976,7 @@
    "vpt": 0.78,
    "grad": 0.3,
    "spread": {
-    "5,0": [
+    "8,0": [
      0.398,
      0.641
     ],
@@ -90979,8 +90986,8 @@
     ]
    },
    "colors": [
-    "#82868e",
-    "#d07b56"
+    "#7f3927",
+    "#82868e"
    ],
    "tags": [
     "isa",
@@ -117141,7 +117148,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-dun-2",
@@ -124877,7 +124884,7 @@
     "metal-iron-steel",
     "textile"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "kay-food",
@@ -130489,7 +130496,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/chair-stool-wood",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "kay-furniture",
@@ -130538,7 +130545,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/chair-stool-wood",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "kay-furniture",
@@ -140849,7 +140856,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.49
   },
   {
    "kit": "kay-holiday",
@@ -142380,7 +142387,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "kay-holiday",
@@ -143501,7 +143508,7 @@
    "kit": "kay-minigame",
    "collection": "kay-play",
    "name": "hoop",
-   "hash": "0b04906eff",
+   "hash": "0e16256095",
    "kind": "obj-equipment-target",
    "size": "m",
    "wdh": [
@@ -143530,13 +143537,13 @@
      0.5,
      0.5
     ],
-    "8,0": [
+    "4,2": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#7f3927",
+    "#1367a6",
     "#82868e"
    ],
    "tags": [
@@ -147260,7 +147267,7 @@
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "hoop-angled",
-   "hash": "c65646048f",
+   "hash": "5b23bc7cf9",
    "kind": "obj-equipment-target",
    "size": "m",
    "wdh": [
@@ -147293,7 +147300,7 @@
      0.32,
      0.727
     ],
-    "5,2": [
+    "6,0": [
      0.148,
      0.883
     ]
@@ -147301,7 +147308,7 @@
    "colors": [
     "#1367a6",
     "#82868e",
-    "#d8d1bd"
+    "#f2a93c"
    ],
    "tags": [
     "kay",
@@ -183101,7 +183108,7 @@
   {
    "kit": "ken-food",
    "name": "coconut-half",
-   "hash": "6f86de68cf",
+   "hash": "cb2ec31e11",
    "kind": "obj-food-fruit-coconut",
    "size": "s",
    "wdh": [
@@ -183125,7 +183132,7 @@
    "vpt": 1.06,
    "grad": 0.6,
    "spread": {
-    "2,0": [
+    "3,0": [
      0.148,
      0.75
     ],
@@ -183135,7 +183142,7 @@
     ]
    },
    "colors": [
-    "#8b5936",
+    "#563b2b",
     "#d8d1bd"
    ],
    "tags": [
@@ -192083,7 +192090,7 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "ken-furniture",
@@ -193039,7 +193046,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/stool-bar",
-   "thickRel": 1.31
+   "thickRel": 1.29
   },
   {
    "kit": "ken-furniture",
@@ -193087,7 +193094,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/stool-bar",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-furniture",
@@ -216570,7 +216577,7 @@
   {
    "kit": "ken-racing",
    "name": "barrier-red",
-   "hash": "f95d9c76c5",
+   "hash": "1083c94fa0",
    "kind": "str-barrier-traffic",
    "size": "s",
    "wdh": [
@@ -216594,13 +216601,13 @@
    "vpt": 1.43,
    "grad": 0.6,
    "spread": {
-    "8,0": [
+    "5,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#7f3927"
+    "#d07b56"
    ],
    "tags": [
     "ken",
@@ -216611,7 +216618,7 @@
   {
    "kit": "ken-racing",
    "name": "barrier-wall",
-   "hash": "7471408898",
+   "hash": "b664b232a9",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
@@ -216640,13 +216647,13 @@
      0.148,
      0.75
     ],
-    "8,0": [
+    "5,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#7f3927",
+    "#d07b56",
     "#d8d1bd"
    ],
    "tags": [
@@ -224692,7 +224699,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "ken-space",
@@ -248613,7 +248620,7 @@
   {
    "kit": "loaf-gothic",
    "name": "ambulatory-inner-roof-a",
-   "hash": "2d85bf308b",
+   "hash": "0236852e82",
    "kind": "str-part-roof",
    "size": "l",
    "wdh": [
@@ -248642,13 +248649,13 @@
      0.195,
      0.594
     ],
-    "13,3": [
+    "8,0": [
      0.016,
      0.695
     ]
    },
    "colors": [
-    "#5b5550",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -248660,7 +248667,7 @@
   {
    "kit": "loaf-gothic",
    "name": "church-a",
-   "hash": "c0bfbba08a",
+   "hash": "969ceccff7",
    "kind": "str-building-religious-church",
    "size": "l",
    "wdh": [
@@ -248671,7 +248678,7 @@
    "tris": 6618,
    "tpu": 28,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 447744,
    "vtx": 11466,
@@ -248689,18 +248696,23 @@
      0.047,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.148,
      0.695
     ],
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.148,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -248714,7 +248726,7 @@
   {
    "kit": "loaf-gothic",
    "name": "church-b",
-   "hash": "9375e94300",
+   "hash": "f3225959a3",
    "kind": "str-building-religious-church",
    "size": "l",
    "wdh": [
@@ -248725,7 +248737,7 @@
    "tris": 5286,
    "tpu": 31,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 358544,
    "vtx": 9178,
@@ -248743,18 +248755,23 @@
      0.094,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.148,
      0.695
     ],
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.148,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -248768,7 +248785,7 @@
   {
    "kit": "loaf-gothic",
    "name": "church-c",
-   "hash": "cfec4fa331",
+   "hash": "34083ba587",
    "kind": "str-building-religious-church",
    "size": "l",
    "wdh": [
@@ -248779,7 +248796,7 @@
    "tris": 5746,
    "tpu": 22,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 390752,
    "vtx": 10012,
@@ -248797,18 +248814,23 @@
      0.047,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.148,
      0.695
     ],
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.148,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -248869,7 +248891,7 @@
   {
    "kit": "loaf-gothic",
    "name": "post-b-top",
-   "hash": "39ec54a3ba",
+   "hash": "ec6e85d15a",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
@@ -248897,13 +248919,13 @@
      0.094,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.148,
      0.695
     ]
    },
    "colors": [
-    "#5b5550",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -248916,7 +248938,7 @@
   {
    "kit": "loaf-gothic",
    "name": "roof-tower",
-   "hash": "eb12c38afe",
+   "hash": "7e3505318c",
    "kind": "str-part-roof",
    "size": "m",
    "wdh": [
@@ -248944,13 +248966,13 @@
      0.094,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.016,
      0.695
     ]
    },
    "colors": [
-    "#5b5550",
+    "#7f3927",
     "#d8d1bd"
    ],
    "tags": [
@@ -248962,7 +248984,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-a",
-   "hash": "2a0588c26c",
+   "hash": "398202fadc",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -248973,7 +248995,7 @@
    "tris": 996,
    "tpu": 168,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 70288,
    "vtx": 1779,
@@ -248985,11 +249007,11 @@
    "avgTri": 0.0492,
    "anglePct": 86,
    "vpt": 1.79,
-   "grad": 0.77,
+   "grad": 0.73,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.367
     ],
     "2,0": [
      0.297,
@@ -249002,11 +249024,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.531,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249022,7 +249049,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-b",
-   "hash": "cfd22e4c5a",
+   "hash": "2cd72d06f8",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249033,7 +249060,7 @@
    "tris": 612,
    "tpu": 78,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 44144,
    "vtx": 1106,
@@ -249044,11 +249071,11 @@
    "avgTri": 0.1036,
    "anglePct": 86,
    "vpt": 1.81,
-   "grad": 0.76,
+   "grad": 0.69,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.359
     ],
     "2,0": [
      0.297,
@@ -249061,11 +249088,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.531,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249081,7 +249113,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-c",
-   "hash": "85a1a2ae85",
+   "hash": "50cd028216",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249092,7 +249124,7 @@
    "tris": 952,
    "tpu": 106,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 65028,
    "vtx": 1631,
@@ -249104,18 +249136,22 @@
    "avgTri": 0.07338,
    "anglePct": 61,
    "vpt": 1.71,
-   "grad": 0.82,
+   "grad": 0.79,
    "spread": {
     "5,2": [
      0.047,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.32
     ],
     "2,0": [
      0.297,
+     0.695
+    ],
+    "13,3": [
+     0.445,
      0.695
     ],
     "4,2": [
@@ -249126,6 +249162,7 @@
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249140,7 +249177,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-d",
-   "hash": "708e225de0",
+   "hash": "01c85567a3",
    "kind": "str-building-religious-church",
    "size": "l",
    "wdh": [
@@ -249151,7 +249188,7 @@
    "tris": 7808,
    "tpu": 174,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 514672,
    "vtx": 13111,
@@ -249163,7 +249200,7 @@
    "avgTri": 0.02262,
    "anglePct": 65,
    "vpt": 1.68,
-   "grad": 0.82,
+   "grad": 0.81,
    "spread": {
     "5,2": [
      0.047,
@@ -249177,14 +249214,19 @@
      0.297,
      0.695
     ],
-    "13,3": [
+    "8,0": [
      0.016,
+     0.336
+    ],
+    "13,3": [
+     0.352,
      0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249193,7 +249235,14 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 5 wants max 4"
+    }
+   ]
   },
   {
    "kit": "loaf-gothic",
@@ -249251,7 +249300,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-f",
-   "hash": "8d8f0df5b2",
+   "hash": "cea703de7b",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249262,7 +249311,7 @@
    "tris": 2272,
    "tpu": 72,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 155268,
    "vtx": 3956,
@@ -249274,11 +249323,11 @@
    "avgTri": 0.0663,
    "anglePct": 76,
    "vpt": 1.74,
-   "grad": 0.78,
+   "grad": 0.77,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.57
     ],
     "2,0": [
      0.297,
@@ -249291,11 +249340,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.625,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249311,7 +249365,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-g",
-   "hash": "0e5ceb23ff",
+   "hash": "611cb18bd9",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249322,7 +249376,7 @@
    "tris": 3022,
    "tpu": 125,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 204496,
    "vtx": 5213,
@@ -249334,11 +249388,11 @@
    "avgTri": 0.03881,
    "anglePct": 89,
    "vpt": 1.73,
-   "grad": 0.78,
+   "grad": 0.77,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.273
     ],
     "2,0": [
      0.297,
@@ -249351,11 +249405,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.625,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249371,7 +249430,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-h",
-   "hash": "0685eeaea8",
+   "hash": "d4f665e8df",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249382,7 +249441,7 @@
    "tris": 1058,
    "tpu": 149,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 73276,
    "vtx": 1849,
@@ -249394,15 +249453,15 @@
    "avgTri": 0.05716,
    "anglePct": 92,
    "vpt": 1.75,
-   "grad": 0.78,
+   "grad": 0.75,
    "spread": {
     "5,2": [
      0.094,
      0.898
     ],
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.43
     ],
     "2,0": [
      0.297,
@@ -249411,11 +249470,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.539,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249430,7 +249494,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-i",
-   "hash": "7d55cda42d",
+   "hash": "4ffba9847d",
    "kind": "str-building-residential",
    "size": "l",
    "wdh": [
@@ -249441,7 +249505,7 @@
    "tris": 5478,
    "tpu": 87,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 378320,
    "vtx": 9724,
@@ -249453,11 +249517,11 @@
    "avgTri": 0.04636,
    "anglePct": 83,
    "vpt": 1.78,
-   "grad": 0.83,
+   "grad": 0.82,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.516
     ],
     "5,2": [
      0.047,
@@ -249470,11 +249534,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.375,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249542,7 +249611,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-k",
-   "hash": "6a61026265",
+   "hash": "fc66509b34",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249553,7 +249622,7 @@
    "tris": 1412,
    "tpu": 89,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 95988,
    "vtx": 2426,
@@ -249565,15 +249634,15 @@
    "avgTri": 0.06101,
    "anglePct": 78,
    "vpt": 1.72,
-   "grad": 0.77,
+   "grad": 0.75,
    "spread": {
     "2,0": [
      0.297,
      0.695
     ],
-    "13,3": [
+    "8,0": [
      0.016,
-     0.695
+     0.523
     ],
     "5,2": [
      0.094,
@@ -249582,11 +249651,16 @@
     "4,2": [
      0.195,
      0.797
+    ],
+    "13,3": [
+     0.383,
+     0.695
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
+    "#7f3927",
     "#8b5936",
     "#d8d1bd"
    ],
@@ -249824,7 +249898,7 @@
   {
    "kit": "lpa-construction",
    "name": "barrel-a",
-   "hash": "76b5e7f078",
+   "hash": "aa6e07432f",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
@@ -249848,7 +249922,7 @@
    "vpt": 1.88,
    "grad": 0,
    "spread": {
-    "4,2": [
+    "6,0": [
      0.5,
      0.5
     ],
@@ -249862,9 +249936,9 @@
     ]
    },
    "colors": [
-    "#1367a6",
     "#5b5550",
-    "#d8d1bd"
+    "#d8d1bd",
+    "#f2a93c"
    ],
    "tags": [
     "lpa",
@@ -249987,7 +250061,7 @@
   {
    "kit": "lpa-construction",
    "name": "barrier-b",
-   "hash": "53bcd74d19",
+   "hash": "8ae31f1c6f",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
@@ -250011,13 +250085,13 @@
    "vpt": 2.04,
    "grad": 0,
    "spread": {
-    "8,0": [
+    "5,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#7f3927"
+    "#d07b56"
    ],
    "tags": [
     "lpa",
@@ -250028,7 +250102,7 @@
   {
    "kit": "lpa-construction",
    "name": "barrier-c",
-   "hash": "a4a2651357",
+   "hash": "2499a3af0f",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
@@ -250065,14 +250139,14 @@
      0.492,
      0.492
     ],
-    "8,0": [
+    "5,0": [
      0.5,
      0.5
     ]
    },
    "colors": [
-    "#7f3927",
     "#82868e",
+    "#d07b56",
     "#d8d1bd",
     "#f2a93c"
    ],
@@ -251614,7 +251688,7 @@
    "kit": "lpa-construction",
    "name": "ladder-b",
    "hash": "836399b539",
-   "kind": "obj-furnishing-furniture-seating-stool",
+   "kind": "obj-equipment-tool",
    "size": "s",
    "wdh": [
     0.159,
@@ -251656,12 +251730,12 @@
     "metal-iron-steel",
     "rubber"
    ],
-   "thickRel": 0.66,
+   "thickRel": 0.53,
    "lint": [
     {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.191 under min 0.2 (obj-furnishing-furniture-seating-stool)"
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0122 wants min 0.026"
     }
    ]
   },
@@ -255204,7 +255278,7 @@
     "metal-iron-steel",
     "textile"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "lpa-home",
@@ -257560,7 +257634,7 @@
   {
    "kit": "lpa-home",
    "name": "office-chair",
-   "hash": "1c26c19812",
+   "hash": "d7e73a9005",
    "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
@@ -257584,7 +257658,7 @@
    "vpt": 2.17,
    "grad": 0,
    "spread": {
-    "6,0": [
+    "8,0": [
      0.5,
      0.5
     ],
@@ -257599,8 +257673,8 @@
    },
    "colors": [
     "#5b5550",
-    "#82868e",
-    "#f2a93c"
+    "#7f3927",
+    "#82868e"
    ],
    "tags": [
     "lpa",
@@ -263707,7 +263781,7 @@
   {
    "kit": "lpa-west",
    "name": "bucket",
-   "hash": "ea86b88807",
+   "hash": "07b8067aad",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -263732,7 +263806,7 @@
    "vpt": 1.16,
    "grad": 0.6,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.148,
      0.75
     ],
@@ -263743,14 +263817,21 @@
    },
    "colors": [
     "#343745",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "lpa",
     "metal-iron-cast",
     "wood-planks"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-planks wants tan, has camel slate"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -291724,7 +291805,7 @@
   {
    "kit": "quat-food",
    "name": "cupcake",
-   "hash": "a0a04e5b7e",
+   "hash": "9f5d9e5b8e",
    "kind": "obj-food-baked-pastry-cupcake",
    "size": "s",
    "wdh": [
@@ -291752,7 +291833,7 @@
      0.758,
      0.961
     ],
-    "5,0": [
+    "5,2": [
      0.195,
      0.836
     ],
@@ -291763,7 +291844,7 @@
    },
    "colors": [
     "#8b5936",
-    "#d07b56",
+    "#d8d1bd",
     "#dbae80"
    ],
    "tags": [
@@ -295544,7 +295625,7 @@
   {
    "kit": "quat-interior",
    "name": "couch-corner",
-   "hash": "0a9ef5c4aa",
+   "hash": "c900272fa8",
    "kind": "obj-furnishing-furniture-seating-sofa",
    "size": "l",
    "wdh": [
@@ -295568,19 +295649,26 @@
    "vpt": 0.69,
    "grad": 0.6,
    "spread": {
-    "3,0": [
+    "8,0": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#563b2b"
+    "#7f3927"
    ],
    "tags": [
     "leather",
     "qua"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "leather wants umber, has sienna"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -297375,7 +297463,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "quat-interior",
@@ -325659,7 +325747,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "quat-sushi",
@@ -332226,7 +332314,7 @@
   {
    "kit": "rey-studio",
    "name": "mannequin",
-   "hash": "6bc5446d0c",
+   "hash": "a80aaed528",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
    "wdh": [
@@ -332237,25 +332325,30 @@
    "tris": 462,
    "tpu": 1163,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 13668,
-   "vtx": 297,
+   "bytes": 14180,
+   "vtx": 313,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.2452,
    "avgTri": 0.00064,
    "anglePct": 6,
-   "vpt": 0.64,
+   "vpt": 0.68,
    "grad": 0.7,
    "spread": {
+    "1,0": [
+     0.281,
+     0.977
+    ],
     "5,2": [
      0.281,
      0.977
     ]
    },
    "colors": [
+    "#b58158",
     "#d8d1bd"
    ],
    "tags": [
@@ -337649,7 +337742,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "bucket",
-   "hash": "34bba5f22a",
+   "hash": "91c2eb4217",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -337673,7 +337766,7 @@
    "vpt": 0.79,
    "grad": 0.96,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.016,
      0.977
     ],
@@ -337684,14 +337777,21 @@
    },
    "colors": [
     "#343745",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "metal-iron-cast",
     "rgp",
     "wood-planks"
    ],
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-planks wants tan, has camel slate"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -342832,7 +342932,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "reeds",
-   "hash": "75046e2832",
+   "hash": "c125d3f809",
    "kind": "env-flora-waterplant-cattail",
    "size": "l",
    "wdh": [
@@ -342861,14 +342961,14 @@
      0.227,
      0.773
     ],
-    "8,0": [
+    "3,0": [
      0.016,
      0.977
     ]
    },
    "colors": [
-    "#68872d",
-    "#7f3927"
+    "#563b2b",
+    "#68872d"
    ],
    "tags": [
     "plural",
@@ -345082,7 +345182,7 @@
     "rgp",
     "wood-worked"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "rgp-medieval",
@@ -345398,7 +345498,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "tub-apples",
-   "hash": "c4b17a9a66",
+   "hash": "36d23d6838",
    "kind": "obj-container-bucket-tub",
    "size": "m",
    "wdh": [
@@ -345422,7 +345522,7 @@
    "vpt": 0.9,
    "grad": 0.76,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.016,
      0.977
     ],
@@ -345443,7 +345543,7 @@
     "#343745",
     "#7f3927",
     "#907a66",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "food",
@@ -345459,6 +345559,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.638 over max 0.6 (obj-container-bucket)"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-planks wants tan, has camel slate twine sienna"
     }
    ]
   },
@@ -345466,7 +345571,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "tub",
-   "hash": "63928e6c67",
+   "hash": "b640c3895a",
    "kind": "obj-container-bucket-tub",
    "size": "m",
    "wdh": [
@@ -345490,7 +345595,7 @@
    "vpt": 1.34,
    "grad": 0.28,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.5,
      0.5
     ],
@@ -345506,7 +345611,7 @@
    "colors": [
     "#343745",
     "#907a66",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "metal-iron-cast",
@@ -345521,6 +345626,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.638 over max 0.6 (obj-container-bucket)"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-planks wants tan, has camel slate twine"
     }
    ]
   },
@@ -347501,7 +347611,7 @@
     "rgp",
     "wood-worked"
    ],
-   "thickRel": 0.65,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "warning",
@@ -355121,7 +355231,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "play-stool",
-   "hash": "f06271c514",
+   "hash": "b243b015b0",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
    "wdh": [
@@ -355132,7 +355242,7 @@
    "tris": 205,
    "tpu": 598,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 13808,
    "vtx": 346,
@@ -355145,12 +355255,8 @@
    "vpt": 1.69,
    "grad": 0.6,
    "spread": {
-    "13,3": [
+    "15,3": [
      0.148,
-     0.75
-    ],
-    "6,1": [
-     0.156,
      0.75
     ],
     "8,0": [
@@ -355159,9 +355265,8 @@
     ]
    },
    "colors": [
-    "#343745",
-    "#5b5550",
-    "#7f3927"
+    "#7f3927",
+    "#82868e"
    ],
    "tags": [
     "metal-iron-cast",
@@ -355169,7 +355274,19 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "metal-iron-cast wants slate, has nickel sienna"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "rubber wants basalt, has nickel sienna"
+    }
+   ]
   },
   {
    "kit": "sq-cards",
@@ -356904,7 +357021,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "sq-casino",
@@ -360280,7 +360397,7 @@
    "kit": "sq-lab",
    "collection": "sq-props",
    "name": "lab-stool",
-   "hash": "6565b48a33",
+   "hash": "87ba7699f3",
    "kind": "obj-furnishing-furniture-seating-stool-bar",
    "size": "s",
    "wdh": [
@@ -360305,7 +360422,7 @@
    "vpt": 1.43,
    "grad": 0.6,
    "spread": {
-    "6,1": [
+    "13,3": [
      0.148,
      0.75
     ],
@@ -360315,7 +360432,7 @@
     ]
    },
    "colors": [
-    "#343745",
+    "#5b5550",
     "#7f3927"
    ],
    "tags": [
@@ -360323,7 +360440,14 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "metal-iron-cast wants slate, has basalt sienna"
+    }
+   ]
   },
   {
    "kit": "sq-lab",
@@ -364510,7 +364634,7 @@
   {
    "kit": "styloo-farm",
    "name": "bucket-wooden",
-   "hash": "e7ea885346",
+   "hash": "76a2017b42",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -364534,7 +364658,7 @@
    "vpt": 1.41,
    "grad": 0.64,
    "spread": {
-    "0,0": [
+    "1,0": [
      0.156,
      0.852
     ],
@@ -364545,14 +364669,21 @@
    },
    "colors": [
     "#5b5550",
-    "#dbae80"
+    "#b58158"
    ],
    "tags": [
     "metal-iron-wrought",
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-planks wants tan, has camel basalt"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -378406,7 +378537,7 @@
     "plastic",
     "styloo"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "styloo-school",
@@ -380360,7 +380491,7 @@
   {
    "kit": "styloo-school",
    "name": "poop",
-   "hash": "a98e66b4e8",
+   "hash": "030584605a",
    "kind": "env-remains",
    "size": "s",
    "wdh": [
@@ -380384,19 +380515,26 @@
    "vpt": 0.5,
    "grad": 0,
    "spread": {
-    "4,0": [
+    "2,0": [
      0.492,
      0.492
     ]
    },
    "colors": [
-    "#6f5f51"
+    "#8b5936"
    ],
    "tags": [
     "stone-soil",
     "styloo"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.04,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-soil wants loam, has chestnut"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -380782,7 +380920,7 @@
   {
    "kit": "styloo-school",
    "name": "school-chair",
-   "hash": "4b5140659c",
+   "hash": "d8b33aab0c",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
@@ -380814,15 +380952,15 @@
      0.453,
      0.523
     ],
-    "6,0": [
+    "4,2": [
      0.5,
      0.5
     ]
    },
    "colors": [
+    "#1367a6",
     "#5b5550",
-    "#82868e",
-    "#f2a93c"
+    "#82868e"
    ],
    "tags": [
     "metal-iron-steel",
@@ -380876,7 +381014,7 @@
   {
    "kit": "styloo-school",
    "name": "school-table",
-   "hash": "dfa8a72198",
+   "hash": "82b525bdcb",
    "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
@@ -380900,7 +381038,7 @@
    "vpt": 0.89,
    "grad": 0.17,
    "spread": {
-    "6,0": [
+    "4,2": [
      0.5,
      0.5
     ],
@@ -380914,9 +381052,9 @@
     ]
    },
    "colors": [
+    "#1367a6",
     "#5b5550",
-    "#82868e",
-    "#f2a93c"
+    "#82868e"
    ],
    "tags": [
     "metal-iron-steel",
@@ -393376,7 +393514,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "urn-a",
-   "hash": "0bf854ec64",
+   "hash": "292df8d0cd",
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
@@ -393400,13 +393538,13 @@
    "vpt": 1.68,
    "grad": 0.7,
    "spread": {
-    "8,0": [
+    "12,3": [
      0.164,
      0.859
     ]
    },
    "colors": [
-    "#7f3927"
+    "#42362c"
    ],
    "tags": [
     "asia",
@@ -393414,7 +393552,14 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "ceramic wants terracotta ivory sienna, has taupe-dark"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
