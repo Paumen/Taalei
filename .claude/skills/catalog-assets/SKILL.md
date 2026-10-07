@@ -67,7 +67,7 @@ factor: a card holds its texture for as long as it is on the page, so a larger
 one costs the tab once per model in the pack.
 
 A kit slug goes by artist: `ken-` (Kenney), `kay-` (KayKit), `isa-` (Isa),
-`quat-` (Quaternius), `rgp-` (RG Poly), `ipoly-` (iPoly3D), `rey-` (reyshapes), `rgs-` (Rgsdev); anything else takes the kit's own word. Two words at
+`quat-` (Quaternius), `rgp-` (RG Poly), `ipoly-` (iPoly3D), `rey-` (reyshapes), `rgs-` (Rgsdev), `3dm-` (3dmodelscc0), `aq-` (AssetQuest), `m3-` (M3); anything else takes the kit's own word. Two words at
 most. A kit needs its row in `catalog/data/manifest.js` (slug, url, note,
 licence label; `name` only when it differs from the slug);
 `tools/importeer/zet-catalogus.mjs` writes it when missing. Kits that share
