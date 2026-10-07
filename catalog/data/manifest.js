@@ -1048,5 +1048,10 @@ window.KENNEY_KITS = [
  {
   "slug": "lowbudget",
   "url": null
+ },
+ {
+  "slug": "m3-base",
+  "url": "https://github.com/M3-org/base-meshes",
+  "licenseLabel": "CC0 1.0"
  }
 ]
