@@ -1,6 +1,6 @@
 import {
   layoutChips, chipName, matchesState as matches, buildColorBar, buildChipRow as chipRow, syncSubtypes as syncChipStates, clearStates,
-} from './chiprij.js?v=440305f7d7';
+} from './chiprij.js?v=0f98fb02f2';
 import { drawFamily, loadModel } from './scale-draw.js?v=1464439712';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import { WORKFILES, SIZE_CLASSES, TAG_TYPES, withParents, collectColors, readStore } from './shared.js?v=401e058e54';

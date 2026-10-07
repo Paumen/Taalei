@@ -38,7 +38,8 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "taalei-kit",
-  "url": null
+  "url": null,
+  "note": "ornament comes from the Scythian Decoration source zip, which has no licence file and no author named; see kits/workfiles/taalei-kit/ornament-LICENSE.txt."
  },
  {
   "slug": "props",
@@ -333,11 +334,6 @@ window.KENNEY_KITS = [
   "slug": "quat-apocalypse",
   "url": null,
   "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-apocalypse/LICENSE.txt."
- },
- {
-  "slug": "scythian",
-  "url": null,
-  "note": "Source zip with no licence file and no author named; see kits/workfiles/scythian/LICENSE.txt."
  },
  {
   "slug": "styloo-farm",
@@ -810,6 +806,8 @@ window.KENNEY_KITS = [
   "kits": [
    "3dm-city",
    "3dm-city-2",
+   "3dm-electronics",
+   "3dm-guns",
    "3dm-industrial",
    "3dm-industrial-2",
    "3dm-medieval",
