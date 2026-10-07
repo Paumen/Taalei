@@ -570,15 +570,25 @@ const kindLevels = (rows) => {
   }
   const levels = new Map();
   for (const [kind, rs] of byKind) {
-    if (rs.length >= MIN_PEERS) levels.set(kind, { level: b.get(kind), x: median(rs.map((r) => r.x)) });
+    if (rs.length >= MIN_PEERS) levels.set(kind, { level: b.get(kind), x: median(rs.map((r) => r.x)), d: rs.length });
   }
   return levels;
 };
 
+const kitRows = (models) => [...groupBy(models, (m) => m.kit)].flatMap(([kit, members]) => pointsOf(members).map((p) => ({ kit, kind: p.kind, x: p.x, y: p.y })));
+
 const peerLevels = (models) => {
-  const rows = [...groupBy(models, (m) => m.kit)].flatMap(([kit, members]) => pointsOf(members).map((p) => ({ kit, kind: p.kind, x: p.x, y: p.y })));
+  const rows = kitRows(models);
   const kits = new Set(rows.map((r) => r.kit));
   return new Map([...kits].map((kit) => [kit, kindLevels(rows.filter((r) => r.kit !== kit))]));
+};
+
+const refOf = (models, weighted) => {
+  const levels = [...kindLevels(kitRows(models)).values()].map((l) => ({ x: l.x, y: l.level, d: l.d }));
+  const { slope } = fit(levels, weighted);
+  const pts = pointsOf(models);
+  const icpt = wmedian(pts.map((p) => [p.y - slope * p.x, weighted ? Math.sqrt(p.d) : 1]));
+  return { slope, icpt };
 };
 
 const offsetsFor = (levels, ref) => {
@@ -588,7 +598,7 @@ const offsetsFor = (levels, ref) => {
 };
 
 const build = (models, weighted, peers) => {
-  const ref = fit(pointsOf(models), weighted);
+  const ref = refOf(models, weighted);
   const kits = [];
   const all = [];
   for (const [kit, members] of groupBy(models, (m) => m.kit)) {
@@ -780,7 +790,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
   <div class="rules">
     <div class="rule">
       <h3>How a curve is fitted</h3>
-      <p>Per kit and kind, the median model size divided by the kind's assumed real size, less that kind's usual offset from the dashed line in the other kits. So a kit that sizes every kind the way the other kits do lies on the dashed line, whichever kinds it holds, and its slope shows only how it scales them itself. The usual offset comes from a robust fit of kit level plus kind level over every other kit's points; a kind in fewer than ${MIN_PEERS} other kits has none and is measured against the size table alone.</p>
+      <p>Per kit and kind, the median model size divided by the kind's assumed real size, less that kind's usual offset from the dashed line in the other kits. So a kit that sizes every kind the way the other kits do lies on the dashed line, whichever kinds it holds, and its slope shows only how it scales them itself. The usual offset comes from a robust fit of kit level plus kind level over every other kit's points. The dashed line's slope is a Theil&ndash;Sen line through the kind levels of all kits, so it does not depend on which kits hold which kinds; its height is the whole catalogue's median. A kind in fewer than ${MIN_PEERS} other kits has none and is measured against the size table alone.</p>
       <p>A Theil&ndash;Sen line through those points, in log2 on both axes, <span id="wtext"></span>. Scatter is the median absolute residual, under the same weighting. A kit needs 3 kinds spanning at least a factor 2 in real size, or it is dropped.</p>
       <p>Range is the lowest and highest slope when the line is refitted with each kind left out in turn. A kit is unstable, and drawn dotted, when that range is wider than ${SHAKY}, or when no kind can be left out without the kit falling below the minimum.</p>
     </div>
