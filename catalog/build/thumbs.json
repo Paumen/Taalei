@@ -368,9 +368,9 @@
   "obj-container-barrel-metal": {
    "cols": 4,
    "rows": 4,
-   "key": "7409791990",
-   "v": "5799999a6e",
-   "f": "7bfe8805c0"
+   "key": "450c7e1e28",
+   "v": "6c68c2b2a5",
+   "f": "6dae537c5e"
   },
   "obj-container-basket": {
    "cols": 3,
@@ -2566,9 +2566,9 @@
   "str-access-stairs": {
    "cols": 10,
    "rows": 9,
-   "key": "3468435855",
-   "v": "c41ce291bf",
-   "f": "44369092b0"
+   "key": "d0b1f9798d",
+   "v": "135e0919d7",
+   "f": "e24c0846bb"
   },
   "str-access-track": {
    "cols": 6,
@@ -3090,10 +3090,10 @@
   },
   "str-part-pillar": {
    "cols": 9,
-   "rows": 8,
-   "key": "708f3d611c",
-   "v": "580b960c95",
-   "f": "f126a67f65"
+   "rows": 9,
+   "key": "aa7c8a1114",
+   "v": "67514d25a8",
+   "f": "7018168f7e"
   },
   "str-part-puzzle": {
    "cols": 9,
@@ -3133,16 +3133,16 @@
   "str-part-wall-unit": {
    "cols": 11,
    "rows": 11,
-   "key": "94481f21b1",
-   "v": "60ceac0811",
-   "f": "7540b8ed29"
+   "key": "b915f73d4b",
+   "v": "c270329a80",
+   "f": "dc38f11e5f"
   },
   "str-part-wall-unit-doorway": {
    "cols": 8,
    "rows": 7,
-   "key": "a73d2a63e9",
-   "v": "c8543acfc3",
-   "f": "5d03531d44"
+   "key": "c49027ed24",
+   "v": "020f5fefe8",
+   "f": "3bda338a40"
   },
   "str-part-wall-unit-window": {
    "cols": 7,
@@ -20017,6 +20017,11 @@
    "kind": "str-part-roof-unit",
    "at": 31
   },
+  "ken-holiday/cabin-wall": {
+   "glb": "c6fe7e49cb",
+   "kind": "str-part-wall-unit",
+   "at": 63
+  },
   "ken-holiday/cabin-window-a": {
    "glb": "937aa09619",
    "kind": "str-part-wall-unit-window",
@@ -21732,10 +21737,40 @@
    "kind": "str-fixture-utility-pipe",
    "at": 27
   },
+  "ken-proto/shape-hollow-cylinder": {
+   "glb": "8cff6625f8",
+   "kind": "str-part-pillar",
+   "at": 44
+  },
+  "ken-proto/shape-hollow-cylinder-half": {
+   "glb": "3434c7ea38",
+   "kind": "str-part-pillar",
+   "at": 45
+  },
+  "ken-proto/shape-hollow-hexagon": {
+   "glb": "40e5be13bb",
+   "kind": "str-part-pillar",
+   "at": 46
+  },
+  "ken-proto/shape-hollow-hexagon-half": {
+   "glb": "3ed900c3ee",
+   "kind": "str-part-pillar",
+   "at": 47
+  },
   "ken-proto/stairs-diagonal": {
    "glb": "94c5801c8d",
    "kind": "str-access-stairs",
    "at": 35
+  },
+  "ken-proto/stairs-diagonal-small": {
+   "glb": "659771bef4",
+   "kind": "str-access-stairs",
+   "at": 36
+  },
+  "ken-proto/stairs-small": {
+   "glb": "46f7dc5e08",
+   "kind": "str-access-stairs",
+   "at": 37
   },
   "ken-proto/target-a-round": {
    "glb": "3836a08164",
@@ -21760,27 +21795,37 @@
   "ken-proto/wall": {
    "glb": "239399b2ae",
    "kind": "str-part-wall-unit",
-   "at": 63
+   "at": 64
   },
   "ken-proto/wall-doorway": {
    "glb": "7a8df7c317",
    "kind": "str-part-wall-unit-doorway",
    "at": 22
   },
+  "ken-proto/wall-doorway-garage": {
+   "glb": "4931490b60",
+   "kind": "str-part-wall-unit-doorway",
+   "at": 23
+  },
   "ken-proto/wall-doorway-sliding": {
    "glb": "a26cdd7eba",
    "kind": "str-part-wall-unit-doorway",
-   "at": 23
+   "at": 24
   },
   "ken-proto/wall-doorway-wide": {
    "glb": "7d6e7c0936",
    "kind": "str-part-wall-unit-doorway",
-   "at": 24
+   "at": 25
   },
   "ken-proto/wall-doorway-wide-sliding": {
    "glb": "33382217d2",
    "kind": "str-part-wall-unit-doorway",
-   "at": 25
+   "at": 26
+  },
+  "ken-proto/wall-round": {
+   "glb": "c62261a996",
+   "kind": "str-part-wall-unit",
+   "at": 65
   },
   "ken-proto/wall-window-cutout-large": {
    "glb": "dcc753182e",
@@ -22020,7 +22065,7 @@
   "ken-racing/ramp": {
    "glb": "dc647d8407",
    "kind": "str-access-stairs",
-   "at": 36
+   "at": 38
   },
   "ken-racing/road-start": {
    "glb": "42faa03a4b",
@@ -22065,12 +22110,12 @@
   "ken-roads/bridge-pillar": {
    "glb": "99b8c14b73",
    "kind": "str-part-pillar",
-   "at": 44
+   "at": 48
   },
   "ken-roads/bridge-pillar-wide": {
    "glb": "2dbc548b54",
    "kind": "str-part-pillar",
-   "at": 45
+   "at": 49
   },
   "ken-roads/construction-barrier": {
    "glb": "42fe0c0de9",
@@ -22430,7 +22475,7 @@
   "ken-skate/steps": {
    "glb": "75343b8ddb",
    "kind": "str-access-stairs",
-   "at": 37
+   "at": 39
   },
   "ken-skate/structure-platform": {
    "glb": "7143222453",
@@ -22441,6 +22486,11 @@
    "glb": "ab97c0a327",
    "kind": "str-part-frame",
    "at": 36
+  },
+  "ken-space/barrels-rail": {
+   "glb": "b81e04b851",
+   "kind": "obj-container-barrel-metal",
+   "at": 7
   },
   "ken-space/bones": {
    "glb": "252df9db51",
@@ -22510,12 +22560,12 @@
   "ken-space/corridor-wall": {
    "glb": "3f55b561ef",
    "kind": "str-part-wall-unit",
-   "at": 64
+   "at": 66
   },
   "ken-space/corridor-wall-corner": {
    "glb": "dd434d800b",
    "kind": "str-part-wall-unit",
-   "at": 65
+   "at": 67
   },
   "ken-space/corridor-window": {
    "glb": "de79e8f053",
@@ -22680,12 +22730,12 @@
   "ken-space/monorail-track-support": {
    "glb": "934d9fc41f",
    "kind": "str-part-pillar",
-   "at": 46
+   "at": 50
   },
   "ken-space/monorail-track-support-corner": {
    "glb": "3e075c10d3",
    "kind": "str-part-pillar",
-   "at": 47
+   "at": 51
   },
   "ken-space/monorail-train-box": {
    "glb": "68c78f635f",
@@ -22835,17 +22885,17 @@
   "ken-space/stairs": {
    "glb": "3a0d29fe88",
    "kind": "str-access-stairs",
-   "at": 38
+   "at": 40
   },
   "ken-space/stairs-corner": {
    "glb": "48aab84b02",
    "kind": "str-access-stairs",
-   "at": 39
+   "at": 41
   },
   "ken-space/stairs-short": {
    "glb": "1507e248ef",
    "kind": "str-access-stairs",
-   "at": 40
+   "at": 42
   },
   "ken-space/structure": {
    "glb": "be3cd4f42a",
@@ -23095,22 +23145,22 @@
   "ken-station/stairs": {
    "glb": "4f72742e21",
    "kind": "str-access-stairs",
-   "at": 41
+   "at": 43
   },
   "ken-station/stairs-corner": {
    "glb": "dc5177664f",
    "kind": "str-access-stairs",
-   "at": 42
+   "at": 44
   },
   "ken-station/stairs-corner-inner": {
    "glb": "a6f0a7d886",
    "kind": "str-access-stairs",
-   "at": 43
+   "at": 45
   },
   "ken-station/stairs-handrail": {
    "glb": "ccabd043cb",
    "kind": "str-access-stairs",
-   "at": 44
+   "at": 46
   },
   "ken-station/stairs-handrail-single": {
    "glb": "4b34197c8b",
@@ -23120,32 +23170,32 @@
   "ken-station/stairs-ramp": {
    "glb": "e1e0ac280a",
    "kind": "str-access-stairs",
-   "at": 45
+   "at": 47
   },
   "ken-station/stairs-small-corner": {
    "glb": "51d81a9045",
    "kind": "str-access-stairs",
-   "at": 46
+   "at": 48
   },
   "ken-station/stairs-small-corner-inner": {
    "glb": "cd33369094",
    "kind": "str-access-stairs",
-   "at": 47
+   "at": 49
   },
   "ken-station/stairs-small-edge-handrail": {
    "glb": "68d5ddf113",
    "kind": "str-access-stairs",
-   "at": 48
+   "at": 50
   },
   "ken-station/stairs-small-edges": {
    "glb": "63fa240199",
    "kind": "str-access-stairs",
-   "at": 49
+   "at": 51
   },
   "ken-station/stairs-small-edges-handrail": {
    "glb": "99d5e19a35",
    "kind": "str-access-stairs",
-   "at": 50
+   "at": 52
   },
   "ken-station/structure": {
    "glb": "74f41e58b0",
@@ -23205,52 +23255,52 @@
   "ken-station/wall": {
    "glb": "22287a4834",
    "kind": "str-part-wall-unit",
-   "at": 66
+   "at": 68
   },
   "ken-station/wall-banner": {
    "glb": "6a9b7f4b0c",
    "kind": "str-part-wall-unit",
-   "at": 67
+   "at": 69
   },
   "ken-station/wall-corner": {
    "glb": "c0de2e0c4d",
    "kind": "str-part-wall-unit",
-   "at": 68
+   "at": 70
   },
   "ken-station/wall-corner-banner": {
    "glb": "932e1a0f65",
    "kind": "str-part-wall-unit",
-   "at": 69
+   "at": 71
   },
   "ken-station/wall-corner-round": {
    "glb": "b0e8ddb004",
    "kind": "str-part-wall-unit",
-   "at": 70
+   "at": 72
   },
   "ken-station/wall-corner-round-banner": {
    "glb": "cfeee471c6",
    "kind": "str-part-wall-unit",
-   "at": 71
+   "at": 73
   },
   "ken-station/wall-detail": {
    "glb": "68a878ff7f",
    "kind": "str-part-pillar",
-   "at": 48
+   "at": 52
   },
   "ken-station/wall-door": {
    "glb": "5a4ea86798",
    "kind": "str-part-wall-unit-doorway",
-   "at": 26
+   "at": 27
   },
   "ken-station/wall-door-banner": {
    "glb": "1e58bf6987",
    "kind": "str-part-wall-unit-doorway",
-   "at": 27
+   "at": 28
   },
   "ken-station/wall-door-wide": {
    "glb": "4bb0a01211",
    "kind": "str-part-wall-unit-doorway",
-   "at": 28
+   "at": 29
   },
   "ken-station/wall-door-wide-banner": {
    "glb": "6addcece1b",
@@ -23260,12 +23310,12 @@
   "ken-station/wall-pillar": {
    "glb": "e3a1f8e267",
    "kind": "str-part-wall-unit",
-   "at": 72
+   "at": 74
   },
   "ken-station/wall-pillar-banner": {
    "glb": "747c47ad76",
    "kind": "str-part-wall-unit",
-   "at": 73
+   "at": 75
   },
   "ken-station/wall-window": {
    "glb": "48c1362047",
@@ -23405,12 +23455,12 @@
   "ken-survival/barrel": {
    "glb": "7a766516a5",
    "kind": "obj-container-barrel-metal",
-   "at": 7
+   "at": 8
   },
   "ken-survival/barrel-open": {
    "glb": "e52dc9e0f4",
    "kind": "obj-container-barrel-metal",
-   "at": 8
+   "at": 9
   },
   "ken-survival/bedroll": {
    "glb": "20909b606e",
@@ -23525,27 +23575,27 @@
   "ken-survival/metal-panel": {
    "glb": "b7fa476e48",
    "kind": "str-part-wall-unit",
-   "at": 74
+   "at": 76
   },
   "ken-survival/metal-panel-narrow": {
    "glb": "3594c2a628",
    "kind": "str-part-wall-unit",
-   "at": 75
+   "at": 77
   },
   "ken-survival/metal-panel-screws": {
    "glb": "d6ccb42392",
    "kind": "str-part-wall-unit",
-   "at": 76
+   "at": 78
   },
   "ken-survival/metal-panel-screws-half": {
    "glb": "1969c84b26",
    "kind": "str-part-wall-unit",
-   "at": 77
+   "at": 79
   },
   "ken-survival/metal-panel-screws-narrow": {
    "glb": "9fed7df6a9",
    "kind": "str-part-wall-unit",
-   "at": 78
+   "at": 80
   },
   "ken-survival/resource-planks": {
    "glb": "d84b7d823b",
@@ -23900,12 +23950,12 @@
   "ken-town/pillar-stone": {
    "glb": "596aff8111",
    "kind": "str-part-pillar",
-   "at": 49
+   "at": 53
   },
   "ken-town/pillar-wood": {
    "glb": "cec245984a",
    "kind": "str-part-pillar",
-   "at": 50
+   "at": 54
   },
   "ken-town/planks": {
    "glb": "65a6874cd7",
@@ -24015,47 +24065,47 @@
   "ken-town/stairs-full": {
    "glb": "4ed532149e",
    "kind": "str-access-stairs",
-   "at": 51
+   "at": 53
   },
   "ken-town/stairs-full-corner-inner": {
    "glb": "90bf4de68d",
    "kind": "str-access-stairs",
-   "at": 52
+   "at": 54
   },
   "ken-town/stairs-full-corner-outer": {
    "glb": "488dfa196d",
    "kind": "str-access-stairs",
-   "at": 53
+   "at": 55
   },
   "ken-town/stairs-stone-corner": {
    "glb": "855ae35fe5",
    "kind": "str-access-stairs",
-   "at": 54
+   "at": 56
   },
   "ken-town/stairs-stone-round": {
    "glb": "498fc3e109",
    "kind": "str-access-stairs",
-   "at": 55
+   "at": 57
   },
   "ken-town/stairs-wide-wood": {
    "glb": "0f625aa6dd",
    "kind": "str-access-stairs",
-   "at": 56
+   "at": 58
   },
   "ken-town/stairs-wide-wood-handrail": {
    "glb": "0c1061b961",
    "kind": "str-access-stairs",
-   "at": 57
+   "at": 59
   },
   "ken-town/stairs-wood": {
    "glb": "a87c6dfe2c",
    "kind": "str-access-stairs",
-   "at": 58
+   "at": 60
   },
   "ken-town/stairs-wood-handrail": {
    "glb": "be9f9a0ece",
    "kind": "str-access-stairs",
-   "at": 59
+   "at": 61
   },
   "ken-town/stall": {
    "glb": "9e9c72df03",
@@ -24105,87 +24155,87 @@
   "ken-town/wall-wood": {
    "glb": "89468c9831",
    "kind": "str-part-wall-unit",
-   "at": 79
+   "at": 81
   },
   "ken-town/wall-wood-arch": {
    "glb": "43337b3b8a",
    "kind": "str-part-wall-unit",
-   "at": 80
+   "at": 82
   },
   "ken-town/wall-wood-arch-top": {
    "glb": "6c577b189d",
    "kind": "str-part-wall-unit",
-   "at": 81
+   "at": 83
   },
   "ken-town/wall-wood-block": {
    "glb": "4b69683fac",
    "kind": "str-part-wall-unit",
-   "at": 82
+   "at": 84
   },
   "ken-town/wall-wood-block-half": {
    "glb": "da7fcaec71",
    "kind": "str-part-wall-unit",
-   "at": 83
+   "at": 85
   },
   "ken-town/wall-wood-broken": {
    "glb": "7b56976830",
    "kind": "str-part-wall-unit",
-   "at": 84
+   "at": 86
   },
   "ken-town/wall-wood-corner": {
    "glb": "20a133c7a7",
    "kind": "str-part-wall-unit",
-   "at": 85
+   "at": 87
   },
   "ken-town/wall-wood-corner-diagonal": {
    "glb": "57c46a49fe",
    "kind": "str-part-wall-unit",
-   "at": 86
+   "at": 88
   },
   "ken-town/wall-wood-corner-diagonal-half": {
    "glb": "2c8ff09dfc",
    "kind": "str-part-wall-unit",
-   "at": 87
+   "at": 89
   },
   "ken-town/wall-wood-corner-edge": {
    "glb": "65c9ca9218",
    "kind": "str-part-wall-unit",
-   "at": 88
+   "at": 90
   },
   "ken-town/wall-wood-curved": {
    "glb": "0c5c5d6979",
    "kind": "str-part-wall-unit",
-   "at": 89
+   "at": 91
   },
   "ken-town/wall-wood-detail-cross": {
    "glb": "f2071489f5",
    "kind": "str-part-wall-unit",
-   "at": 90
+   "at": 92
   },
   "ken-town/wall-wood-detail-diagonal": {
    "glb": "3fc71785e3",
    "kind": "str-part-wall-unit",
-   "at": 91
+   "at": 93
   },
   "ken-town/wall-wood-detail-horizontal": {
    "glb": "11b88d3d62",
    "kind": "str-part-wall-unit",
-   "at": 92
+   "at": 94
   },
   "ken-town/wall-wood-diagonal": {
    "glb": "fdfee62fed",
    "kind": "str-part-wall-unit",
-   "at": 93
+   "at": 95
   },
   "ken-town/wall-wood-door": {
    "glb": "43cfd93e95",
    "kind": "str-part-wall-unit-doorway",
-   "at": 29
+   "at": 30
   },
   "ken-town/wall-wood-doorway-base": {
    "glb": "8b4e9274c5",
    "kind": "str-part-wall-unit-doorway",
-   "at": 30
+   "at": 31
   },
   "ken-town/wall-wood-doorway-square": {
    "glb": "3b0b568e61",
@@ -24195,17 +24245,17 @@
   "ken-town/wall-wood-doorway-square-wide-curved": {
    "glb": "24ed1e3268",
    "kind": "str-part-wall-unit-doorway",
-   "at": 31
+   "at": 32
   },
   "ken-town/wall-wood-half": {
    "glb": "6934aaf174",
    "kind": "str-part-wall-unit",
-   "at": 94
+   "at": 96
   },
   "ken-town/wall-wood-side": {
    "glb": "2db96bfc4f",
    "kind": "str-part-wall-unit",
-   "at": 95
+   "at": 97
   },
   "ken-town/wall-wood-window-glass": {
    "glb": "5e0ca84b03",
@@ -24710,12 +24760,12 @@
   "ken-water/ramp": {
    "glb": "9096fd1c17",
    "kind": "str-access-stairs",
-   "at": 60
+   "at": 62
   },
   "ken-water/ramp-wide": {
    "glb": "f8cedcc595",
    "kind": "str-access-stairs",
-   "at": 61
+   "at": 63
   },
   "ken-water/ship-cargo-a": {
    "glb": "081d96e210",
@@ -24875,7 +24925,7 @@
   "lpa-construction/barrel-a": {
    "glb": "aa6e07432f",
    "kind": "obj-container-barrel-metal",
-   "at": 9
+   "at": 10
   },
   "lpa-construction/barrels-pallet": {
    "glb": "8b3b14720d",
@@ -25265,7 +25315,7 @@
   "lpa-desert/door-frame-a": {
    "glb": "5c8cb94bbd",
    "kind": "str-part-wall-unit-doorway",
-   "at": 32
+   "at": 33
   },
   "lpa-desert/door-frame-b": {
    "glb": "49865a02f8",
@@ -26210,7 +26260,7 @@
   "lpa-west/big-staircase-a": {
    "glb": "4ee62b435e",
    "kind": "str-access-stairs",
-   "at": 62
+   "at": 64
   },
   "lpa-west/bottle-a": {
    "glb": "ea6a6a8041",
@@ -26280,7 +26330,7 @@
   "lpa-west/cell-wall": {
    "glb": "62abaa14bd",
    "kind": "str-part-wall-unit",
-   "at": 96
+   "at": 98
   },
   "lpa-west/chair": {
    "glb": "cf1a6edff8",
@@ -26290,17 +26340,17 @@
   "lpa-west/corner-staircase-a": {
    "glb": "64aa65e2ea",
    "kind": "str-access-stairs",
-   "at": 63
+   "at": 65
   },
   "lpa-west/corner-staircase-b": {
    "glb": "6e5649c6c9",
    "kind": "str-access-stairs",
-   "at": 64
+   "at": 66
   },
   "lpa-west/corner-stairs": {
    "glb": "404e6f7546",
    "kind": "str-access-stairs",
-   "at": 65
+   "at": 67
   },
   "lpa-west/crate": {
    "glb": "9a0108f5a3",
@@ -26330,12 +26380,12 @@
   "lpa-west/door-and-window-a": {
    "glb": "cd0bc8dad5",
    "kind": "str-part-wall-unit-doorway",
-   "at": 33
+   "at": 34
   },
   "lpa-west/door-and-window-b": {
    "glb": "2064019f62",
    "kind": "str-part-wall-unit-doorway",
-   "at": 34
+   "at": 35
   },
   "lpa-west/door-b": {
    "glb": "d6532403bd",
@@ -26495,22 +26545,22 @@
   "lpa-west/int-door-a": {
    "glb": "92046e798b",
    "kind": "str-part-wall-unit-doorway",
-   "at": 35
+   "at": 36
   },
   "lpa-west/int-door-b": {
    "glb": "ea387e4a96",
    "kind": "str-part-wall-unit-doorway",
-   "at": 36
+   "at": 37
   },
   "lpa-west/int-small-wall": {
    "glb": "c250e79c2f",
    "kind": "str-part-wall-unit",
-   "at": 97
+   "at": 99
   },
   "lpa-west/int-wall": {
    "glb": "366ecffca8",
    "kind": "str-part-wall-unit",
-   "at": 98
+   "at": 100
   },
   "lpa-west/ladder": {
    "glb": "8bc3584831",
@@ -26525,12 +26575,12 @@
   "lpa-west/large-wall-a": {
    "glb": "67e79180a7",
    "kind": "str-part-wall-unit",
-   "at": 99
+   "at": 101
   },
   "lpa-west/large-wall-b": {
    "glb": "de04fd2df2",
    "kind": "str-part-wall-unit",
-   "at": 100
+   "at": 102
   },
   "lpa-west/pickaxe": {
    "glb": "d5f40ad70b",
@@ -26545,22 +26595,22 @@
   "lpa-west/saloon-door-a": {
    "glb": "951bfb439f",
    "kind": "str-part-wall-unit-doorway",
-   "at": 37
+   "at": 38
   },
   "lpa-west/saloon-door-b": {
    "glb": "0736b180a9",
    "kind": "str-part-wall-unit-doorway",
-   "at": 38
+   "at": 39
   },
   "lpa-west/saloon-door-c": {
    "glb": "ee94285103",
    "kind": "str-part-wall-unit-doorway",
-   "at": 39
+   "at": 40
   },
   "lpa-west/saloon-door-d": {
    "glb": "503df5152b",
    "kind": "str-part-wall-unit-doorway",
-   "at": 40
+   "at": 41
   },
   "lpa-west/saloon-sign-a": {
    "glb": "20e5d3bf34",
@@ -26615,12 +26665,12 @@
   "lpa-west/small-door-a": {
    "glb": "dc2a9fd534",
    "kind": "str-part-wall-unit-doorway",
-   "at": 41
+   "at": 42
   },
   "lpa-west/small-door-b": {
    "glb": "81ac91d19f",
    "kind": "str-part-wall-unit-doorway",
-   "at": 42
+   "at": 43
   },
   "lpa-west/small-foundation-a": {
    "glb": "e79750095d",
@@ -26640,17 +26690,17 @@
   "lpa-west/small-stairs": {
    "glb": "156e9f7e17",
    "kind": "str-access-stairs",
-   "at": 66
+   "at": 68
   },
   "lpa-west/small-wall-a": {
    "glb": "cc806ced78",
    "kind": "str-part-wall-unit",
-   "at": 101
+   "at": 103
   },
   "lpa-west/small-wall-b": {
    "glb": "10d92539f4",
    "kind": "str-part-wall-unit",
-   "at": 102
+   "at": 104
   },
   "lpa-west/small-window-a": {
    "glb": "80177ea6d9",
@@ -26670,32 +26720,32 @@
   "lpa-west/staircase-a": {
    "glb": "6a2e7040aa",
    "kind": "str-access-stairs",
-   "at": 67
+   "at": 69
   },
   "lpa-west/staircase-b": {
    "glb": "3c61e73a13",
    "kind": "str-access-stairs",
-   "at": 68
+   "at": 70
   },
   "lpa-west/stairs-a": {
    "glb": "117a867d98",
    "kind": "str-access-stairs",
-   "at": 69
+   "at": 71
   },
   "lpa-west/stairs-b": {
    "glb": "24a0ae282e",
    "kind": "str-access-stairs",
-   "at": 70
+   "at": 72
   },
   "lpa-west/stairs-c": {
    "glb": "7ed5120806",
    "kind": "str-access-stairs",
-   "at": 71
+   "at": 73
   },
   "lpa-west/stairs-d": {
    "glb": "2608b49649",
    "kind": "str-access-stairs",
-   "at": 72
+   "at": 74
   },
   "lpa-west/table-a": {
    "glb": "758ef8dd3a",
@@ -26735,47 +26785,47 @@
   "lpa-west/wall-a": {
    "glb": "70ac54d9cc",
    "kind": "str-part-wall-unit",
-   "at": 103
+   "at": 105
   },
   "lpa-west/wall-b": {
    "glb": "4f57d57597",
    "kind": "str-part-wall-unit",
-   "at": 104
+   "at": 106
   },
   "lpa-west/wall-c": {
    "glb": "def93cf68d",
    "kind": "str-part-wall-unit",
-   "at": 105
+   "at": 107
   },
   "lpa-west/wall-d": {
    "glb": "da8d593410",
    "kind": "str-part-wall-unit",
-   "at": 106
+   "at": 108
   },
   "lpa-west/wall-door-a": {
    "glb": "6b97032931",
    "kind": "str-part-wall-unit-doorway",
-   "at": 43
+   "at": 44
   },
   "lpa-west/wall-door-b": {
    "glb": "44b1e6247a",
    "kind": "str-part-wall-unit-doorway",
-   "at": 44
+   "at": 45
   },
   "lpa-west/wall-door-c": {
    "glb": "7a22ea3c7d",
    "kind": "str-part-wall-unit-doorway",
-   "at": 45
+   "at": 46
   },
   "lpa-west/wall-door-d": {
    "glb": "85d479f773",
    "kind": "str-part-wall-unit-doorway",
-   "at": 46
+   "at": 47
   },
   "lpa-west/wall-door-e": {
    "glb": "fced10014d",
    "kind": "str-part-wall-unit-doorway",
-   "at": 47
+   "at": 48
   },
   "lpa-west/water-tank": {
    "glb": "94e559a500",
@@ -27010,7 +27060,7 @@
   "medieval-forge/stairs": {
    "glb": "df5e01500f",
    "kind": "str-access-stairs",
-   "at": 73
+   "at": 75
   },
   "medieval-forge/stone-bridge": {
    "glb": "8b9738d47d",
@@ -27025,12 +27075,12 @@
   "medieval-forge/wall-1": {
    "glb": "c53c912125",
    "kind": "str-part-wall-unit",
-   "at": 107
+   "at": 109
   },
   "medieval-forge/wall-2": {
    "glb": "1f0d792edb",
    "kind": "str-part-wall-unit",
-   "at": 108
+   "at": 110
   },
   "medieval-forge/wooden-platform": {
    "glb": "fb77ab98dc",
@@ -27765,7 +27815,7 @@
   "pm-store/pillar": {
    "glb": "179d37c39c",
    "kind": "str-part-pillar",
-   "at": 51
+   "at": 55
   },
   "pm-store/platform": {
    "glb": "6de1046ace",
@@ -27820,7 +27870,7 @@
   "pm-store/stairs": {
    "glb": "9de5e680a2",
    "kind": "str-access-stairs",
-   "at": 74
+   "at": 76
   },
   "pm-store/star": {
    "glb": "db449599bf",
@@ -28175,7 +28225,7 @@
   "quat-apocalypse/barrel": {
    "glb": "9c58c7aa83",
    "kind": "obj-container-barrel-metal",
-   "at": 10
+   "at": 11
   },
   "quat-apocalypse/bat-barbed": {
    "glb": "9b27d46c96",
@@ -28455,7 +28505,7 @@
   "quat-dun-1/column": {
    "glb": "8703378a2e",
    "kind": "str-part-pillar",
-   "at": 52
+   "at": 56
   },
   "quat-dun-1/crate": {
    "glb": "eb48083609",
@@ -28490,17 +28540,17 @@
   "quat-dun-1/stairs-modular": {
    "glb": "504c882673",
    "kind": "str-access-stairs",
-   "at": 75
+   "at": 77
   },
   "quat-dun-1/stairs-side-cover": {
    "glb": "d0088ca782",
    "kind": "str-access-stairs",
-   "at": 76
+   "at": 78
   },
   "quat-dun-1/stairs-side-cover-wall": {
    "glb": "484f345107",
    "kind": "str-access-stairs",
-   "at": 77
+   "at": 79
   },
   "quat-dun-1/trapdoor": {
    "glb": "9efe79a2cf",
@@ -28520,7 +28570,7 @@
   "quat-dun-1/wall-modular": {
    "glb": "0dd2348f86",
    "kind": "str-part-wall-unit",
-   "at": 109
+   "at": 111
   },
   "quat-dun-2/arch-door": {
    "glb": "bcdf9db85e",
@@ -28550,12 +28600,12 @@
   "quat-dun-2/column": {
    "glb": "874f83fa49",
    "kind": "str-part-pillar",
-   "at": 53
+   "at": 57
   },
   "quat-dun-2/column-2": {
    "glb": "8fa9fd0279",
    "kind": "str-part-pillar",
-   "at": 54
+   "at": 58
   },
   "quat-dun-2/crate": {
    "glb": "b2fb21a4c4",
@@ -28720,7 +28770,7 @@
   "quat-fishing/dock-stairs": {
    "glb": "3292c5343e",
    "kind": "str-access-stairs",
-   "at": 78
+   "at": 80
   },
   "quat-fishing/dock-wide": {
    "glb": "40533b66f8",
@@ -31180,7 +31230,7 @@
   "quat-shoot/barrel": {
    "glb": "cda2a395bd",
    "kind": "obj-container-barrel-metal",
-   "at": 11
+   "at": 12
   },
   "quat-shoot/barrel-spill": {
    "glb": "a6ae3bc69a",
@@ -31650,7 +31700,7 @@
   "quat-space/ramp": {
    "glb": "83a34afbf4",
    "kind": "str-access-stairs",
-   "at": 79
+   "at": 81
   },
   "quat-space/rock-a": {
    "glb": "c71e8352ef",
@@ -31750,7 +31800,7 @@
   "quat-space/stairs": {
    "glb": "dff3eb1067",
    "kind": "str-access-stairs",
-   "at": 80
+   "at": 82
   },
   "quat-space/tree-light-a": {
    "glb": "2ca371b5c1",
@@ -32245,12 +32295,12 @@
   "quat-sushi/shoji-interior": {
    "glb": "8edcb7ff45",
    "kind": "str-part-wall-unit",
-   "at": 110
+   "at": 112
   },
   "quat-sushi/shoji-wall": {
    "glb": "1a64166fc4",
    "kind": "str-part-wall-unit",
-   "at": 111
+   "at": 113
   },
   "quat-sushi/shrimp": {
    "glb": "2d8b19b04b",
@@ -32320,17 +32370,17 @@
   "quat-sushi/wall": {
    "glb": "acc3b7b092",
    "kind": "str-part-wall-unit",
-   "at": 112
+   "at": 114
   },
   "quat-sushi/wall-lattice-red": {
    "glb": "82bc0f518f",
    "kind": "str-part-wall-unit",
-   "at": 113
+   "at": 115
   },
   "quat-sushi/wall-shelves": {
    "glb": "9b7195e1e9",
    "kind": "str-part-wall-unit",
-   "at": 114
+   "at": 116
   },
   "quat-sushi/wooden-board": {
    "glb": "8908983a7a",
@@ -33015,7 +33065,7 @@
   "rgp-asia/rampart-post": {
    "glb": "bedab99901",
    "kind": "str-part-pillar",
-   "at": 55
+   "at": 59
   },
   "rgp-asia/reeds": {
    "glb": "e6b90fc6b4",
@@ -33085,7 +33135,7 @@
   "rgp-asia/stairs": {
    "glb": "c0869565b1",
    "kind": "str-access-stairs",
-   "at": 81
+   "at": 83
   },
   "rgp-asia/stepping-stone-a": {
    "glb": "c5da0459f5",
@@ -33840,12 +33890,12 @@
   "rgp-medieval/post-a": {
    "glb": "70e8f9e3f6",
    "kind": "str-part-pillar",
-   "at": 56
+   "at": 60
   },
   "rgp-medieval/post-b": {
    "glb": "a7708c4802",
    "kind": "str-part-pillar",
-   "at": 57
+   "at": 61
   },
   "rgp-medieval/pouch": {
    "glb": "608b80f8e1",
@@ -34060,12 +34110,12 @@
   "rgp-medieval/stairs-stone": {
    "glb": "0e8c7c1c43",
    "kind": "str-access-stairs",
-   "at": 82
+   "at": 84
   },
   "rgp-medieval/stairs-wood": {
    "glb": "158f31612b",
    "kind": "str-access-stairs",
-   "at": 83
+   "at": 85
   },
   "rgp-medieval/stakes-a": {
    "glb": "430322fe69",
@@ -34345,7 +34395,7 @@
   "rgp-vintage/beam": {
    "glb": "9970006a06",
    "kind": "str-part-pillar",
-   "at": 58
+   "at": 62
   },
   "rgp-vintage/book-open": {
    "glb": "03588f6e18",
@@ -34420,7 +34470,7 @@
   "rgp-vintage/wall-panelled": {
    "glb": "d0a7095132",
    "kind": "str-part-wall-unit",
-   "at": 115
+   "at": 117
   },
   "rgp-weapons/arrow-a": {
    "glb": "a60746c388",
@@ -35410,7 +35460,7 @@
   "sq-lab/drum": {
    "glb": "e95bb1ddba",
    "kind": "obj-container-barrel-metal",
-   "at": 12
+   "at": 13
   },
   "sq-lab/fire-extinguisher": {
    "glb": "6328423b74",
@@ -37085,7 +37135,7 @@
   "styloo-school/chemical-drum": {
    "glb": "e0ffb002e6",
    "kind": "obj-container-barrel-metal",
-   "at": 13
+   "at": 14
   },
   "styloo-school/coffee-maker": {
    "glb": "86a550c547",
@@ -37550,7 +37600,7 @@
   "styloo-school/wall": {
    "glb": "68380a94b0",
    "kind": "str-part-wall-unit",
-   "at": 116
+   "at": 118
   },
   "styloo-school/wall-clock": {
    "glb": "3997c0fb07",
@@ -37560,17 +37610,17 @@
   "styloo-school/wall-doorway": {
    "glb": "474eb1a86d",
    "kind": "str-part-wall-unit-doorway",
-   "at": 48
+   "at": 49
   },
   "styloo-school/wall-doorway-wainscot": {
    "glb": "ca7812f764",
    "kind": "str-part-wall-unit-doorway",
-   "at": 49
+   "at": 50
   },
   "styloo-school/wall-wainscot": {
    "glb": "c07fd7e7c9",
    "kind": "str-part-wall-unit",
-   "at": 117
+   "at": 119
   },
   "styloo-school/wall-window": {
    "glb": "dbf18d7d9e",
@@ -37765,7 +37815,7 @@
   "taalei-kit/boarding-stairs-wooden": {
    "glb": "752b5ab176",
    "kind": "str-access-stairs",
-   "at": 84
+   "at": 86
   },
   "taalei-kit/boombox": {
    "glb": "89d3c15991",
@@ -38285,7 +38335,7 @@
   "wizp-asia/frame-wood": {
    "glb": "661babeac0",
    "kind": "str-part-pillar",
-   "at": 59
+   "at": 63
   },
   "wizp-asia/garden-wall-a": {
    "glb": "5fb215ec6f",
@@ -38420,37 +38470,37 @@
   "wizp-asia/pillar-a": {
    "glb": "307b3e8969",
    "kind": "str-part-pillar",
-   "at": 60
+   "at": 64
   },
   "wizp-asia/pillar-a-tall": {
    "glb": "245d591129",
    "kind": "str-part-pillar",
-   "at": 61
+   "at": 65
   },
   "wizp-asia/pillar-b": {
    "glb": "9312453930",
    "kind": "str-part-pillar",
-   "at": 62
+   "at": 66
   },
   "wizp-asia/pillar-b-tall": {
    "glb": "d83ed022f4",
    "kind": "str-part-pillar",
-   "at": 63
+   "at": 67
   },
   "wizp-asia/pillar-c": {
    "glb": "c1337dbfc9",
    "kind": "str-part-pillar",
-   "at": 64
+   "at": 68
   },
   "wizp-asia/pillar-c-tall": {
    "glb": "0c5a32baf9",
    "kind": "str-part-pillar",
-   "at": 65
+   "at": 69
   },
   "wizp-asia/pillar-wood": {
    "glb": "5afce6ad96",
    "kind": "str-part-pillar",
-   "at": 66
+   "at": 70
   },
   "wizp-asia/plank-a": {
    "glb": "c815e64ffc",
@@ -38615,7 +38665,7 @@
   "wizp-asia/steps-stone": {
    "glb": "5a8a48585d",
    "kind": "str-access-stairs",
-   "at": 85
+   "at": 87
   },
   "wizp-asia/stone-lantern": {
    "glb": "cfaf84fc33",
@@ -38790,17 +38840,17 @@
   "wizp-grave/column-medium": {
    "glb": "1dc2529b6e",
    "kind": "str-part-pillar",
-   "at": 67
+   "at": 71
   },
   "wizp-grave/column-short": {
    "glb": "b00a7cd9f3",
    "kind": "str-part-pillar",
-   "at": 68
+   "at": 72
   },
   "wizp-grave/column-tall": {
    "glb": "2f4119bc68",
    "kind": "str-part-pillar",
-   "at": 69
+   "at": 73
   },
   "wizp-grave/crate": {
    "glb": "844c1f6d06",
