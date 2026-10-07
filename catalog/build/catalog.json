@@ -143,6 +143,26 @@
    }
   },
   {
+   "slug": "dragon",
+   "name": "dragon",
+   "url": "https://www.blendswap.com/blend/93930",
+   "note": "Drummyfish, after Cethiel's CC0 2D dragon; rigged, with Attack, Die, Idle and Walk clips.",
+   "licenseLabel": "CC0 1.0",
+   "count": 4,
+   "packs": [
+    "Low-Poly Dragon (Blend Swap)"
+   ],
+   "origins": {
+    "Low-Poly Dragon (Blend Swap)": 4
+   },
+   "scales": {
+    "4.3668": 4
+   },
+   "smooth": {
+    "smooth": 4
+   }
+  },
+  {
    "slug": "food-pack",
    "name": "food-pack",
    "note": "Source zip carries no licence file and names no maker.",
@@ -4071,16 +4091,17 @@
    "slug": "taalei-kit",
    "name": "taalei-kit",
    "licenseLabel": "CC0",
-   "count": 56,
+   "count": 64,
    "packs": [
     "Taalei"
    ],
    "origins": {
-    "procedureel": 4,
-    "Taalei": 52
+    "Taalei": 60,
+    "procedureel": 4
    },
    "scales": {
-    "1": 6,
+    "1": 7,
+    "0.7": 8,
     "none": 4,
     "1.256": 1,
     "0.9": 1,
@@ -4089,7 +4110,6 @@
     "0.142": 1,
     "0.841": 1,
     "1.11": 1,
-    "0.7": 1,
     "0.58": 1,
     "0.155": 1,
     "0.83": 1,
@@ -4114,11 +4134,11 @@
     "1.45": 1
    },
    "smooth": {
-    "smooth": 52,
-    "none": 4
+    "none": 12,
+    "smooth": 52
    },
    "kitCheck": {
-    "factor": 1.13,
+    "factor": 1.18,
     "kinds": 11
    }
   },
@@ -21056,6 +21076,39 @@
     "taalei-kit/boombox-compact",
     "taalei-kit/boombox-doubledeck"
    ]
+  },
+  {
+   "id": "dragon/dragon-chestnut",
+   "type": "color-variant",
+   "main": "dragon/dragon-chestnut",
+   "members": [
+    "dragon/dragon-chestnut",
+    "dragon/dragon-umber",
+    "dragon/dragon-sienna",
+    "dragon/dragon-hunter"
+   ]
+  },
+  {
+   "id": "taalei-kit/balance-scale",
+   "type": "detail-variant",
+   "main": "taalei-kit/balance-scale",
+   "members": [
+    "taalei-kit/balance-scale",
+    "taalei-kit/balance-scale-chunky",
+    "taalei-kit/balance-scale-ornate"
+   ]
+  },
+  {
+   "id": "taalei-kit/hanging-scale",
+   "type": "detail-variant",
+   "main": "taalei-kit/hanging-scale",
+   "members": [
+    "taalei-kit/hanging-scale",
+    "taalei-kit/hanging-scale-apothecary",
+    "taalei-kit/hanging-scale-chunky",
+    "taalei-kit/hanging-scale-minimal",
+    "taalei-kit/hanging-scale-wooden"
+   ]
   }
  ],
  "bands": [
@@ -21153,7 +21206,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 992,
+   "count": 994,
    "parent": "metal-iron"
   },
   {
@@ -21161,7 +21214,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 393,
+   "count": 394,
    "parent": "metal-iron"
   },
   {
@@ -21169,7 +21222,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 527,
+   "count": 533,
    "parent": "metal-iron"
   },
   {
@@ -21177,7 +21230,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim. Takes gold 6,0.",
-   "count": 213,
+   "count": 218,
    "parent": "metal"
   },
   {
@@ -21185,7 +21238,7 @@
    "name": "Copper",
    "type": "material",
    "description": "Copper: bars, nuggets and their stacks. Takes terracotta 5,0 and never shares a model with another metal subtype.",
-   "count": 18,
+   "count": 20,
    "parent": "metal"
   },
   {
@@ -21216,7 +21269,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1373,
+   "count": 1374,
    "parent": "wood"
   },
   {
@@ -21344,7 +21397,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat.",
-   "count": 120
+   "count": 124
   },
   {
    "id": "shell",
@@ -21400,7 +21453,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 162
+   "count": 163
   },
   {
    "id": "cork",
@@ -21435,14 +21488,14 @@
    "name": "Skin",
    "type": "material",
    "description": "Bare skin of a human figure: face, hands, arms. Skeletons are bone; sea creatures are fauna.",
-   "count": 33
+   "count": 36
   },
   {
    "id": "obj",
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 3764,
+   "count": 3772,
    "color": "#c07c8a"
   },
   {
@@ -21906,7 +21959,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 853,
+   "count": 861,
    "color": "#6b5b95"
   },
   {
@@ -22970,7 +23023,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 229,
+   "count": 237,
    "color": "#6d738a"
   },
   {
@@ -23006,7 +23059,7 @@
    "name": "Hand",
    "type": "kind",
    "description": "chisel, trowel, wrench, tongs, brush",
-   "count": 75
+   "count": 83
   },
   {
    "id": "obj-equipment-tool-hand-screwdriver",
@@ -23140,7 +23193,7 @@
    "name": "Land vehicle",
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
-   "count": 140
+   "count": 142
   },
   {
    "id": "obj-transport-land-rail",
@@ -23471,7 +23524,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 965,
+   "count": 969,
    "color": "#6cb588"
   },
   {
@@ -23479,7 +23532,7 @@
    "name": "Fauna",
    "type": "kind",
    "description": "octopus, crab, lobster, frog, snail, worm",
-   "count": 80,
+   "count": 84,
    "color": "#3e8fd0"
   },
   {
@@ -25065,7 +25118,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3164,
+   "count": 3172,
    "derived": true
   },
   {
@@ -25081,7 +25134,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1170,
+   "count": 1174,
    "derived": true
   },
   {
@@ -25225,7 +25278,7 @@
    "name": "Animation",
    "type": "tag",
    "description": "Carries an animation clip in the .glb: things that open, flip or turn. Exempt from I08 and I11, so its moving parts may be transparent and draw separately. Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 100,
+   "count": 104,
    "derived": true
   }
  ],
@@ -27533,12 +27586,6 @@
   },
   "obj-symbol": {
    "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "obj-transport": {
-   "high.max": 30,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
@@ -32492,7 +32539,7 @@
     "aq"
    ],
    "variant": "aq-pond/bird-a",
-   "thickRel": 1.59
+   "thickRel": 1.61
   },
   {
    "kit": "aq-pond",
@@ -32548,7 +32595,7 @@
     "aq"
    ],
    "variant": "aq-pond/bird-a",
-   "thickRel": 1.38
+   "thickRel": 1.39
   },
   {
    "kit": "aq-pond",
@@ -32609,7 +32656,7 @@
     "aq"
    ],
    "variant": "aq-pond/bird-a",
-   "thickRel": 1.77
+   "thickRel": 1.8
   },
   {
    "kit": "aq-pond",
@@ -32911,7 +32958,7 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "aq-pond",
@@ -32962,7 +33009,7 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "aq-pond",
@@ -33008,7 +33055,7 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "aq-pond",
@@ -33046,7 +33093,7 @@
     "#8b7561"
    ],
    "variant": "aq-pond/dragonfly",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "aq-pond",
@@ -33098,7 +33145,7 @@
     "hero"
    ],
    "variant": "aq-pond/frog-a",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "aq-pond",
@@ -33150,7 +33197,7 @@
     "hero"
    ],
    "variant": "aq-pond/frog-a",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "aq-pond",
@@ -33202,7 +33249,7 @@
     "hero"
    ],
    "variant": "aq-pond/frog-a",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "aq-pond",
@@ -33249,7 +33296,7 @@
     "hero"
    ],
    "variant": "aq-pond/green-frog",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "aq-pond",
@@ -33742,7 +33789,7 @@
     "#d07b56"
    ],
    "variant": "aq-pond/dragonfly",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "aq-pond",
@@ -34701,7 +34748,7 @@
     "hero"
    ],
    "variant": "aq-pond/green-frog",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "architecture",
@@ -39140,7 +39187,7 @@
     "wood-planks"
    ],
    "variant": "cooking-assets/tongs",
-   "thickRel": 0.74
+   "thickRel": 0.77
   },
   {
    "kit": "cooking-assets",
@@ -39188,7 +39235,7 @@
     "wood-planks"
    ],
    "variant": "cooking-assets/tongs",
-   "thickRel": 0.74
+   "thickRel": 0.77
   },
   {
    "kit": "cooking-assets",
@@ -39539,6 +39586,283 @@
     "wood-worked"
    ],
    "thickRel": 1.68
+  },
+  {
+   "kit": "dragon",
+   "name": "dragon-chestnut",
+   "hash": "c88f82b07e",
+   "kind": "env-fauna",
+   "size": "l",
+   "wdh": [
+    1.696,
+    5,
+    3.165
+   ],
+   "tris": 1262,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 405196,
+   "vtx": 1534,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "thick": 0.1018,
+   "avgTri": 0.01963,
+   "anglePct": 5,
+   "vpt": 1.22,
+   "grad": 0.57,
+   "spread": {
+    "0,0": [
+     0.305,
+     0.742
+    ],
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "5,2": [
+     0.148,
+     0.664
+    ],
+    "5,0": [
+     0.148,
+     0.742
+    ],
+    "8,0": [
+     0.18,
+     0.742
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#8b5936",
+    "#d07b56",
+    "#d8d1bd",
+    "#dbae80"
+   ],
+   "tags": [
+    "animation",
+    "bone",
+    "skin"
+   ],
+   "anim": [
+    "Attack",
+    "Die",
+    "Idle",
+    "Walk"
+   ],
+   "variant": "dragon/dragon-chestnut",
+   "thickRel": 0.74
+  },
+  {
+   "kit": "dragon",
+   "name": "dragon-hunter",
+   "hash": "c13a3c015a",
+   "kind": "env-fauna",
+   "size": "l",
+   "wdh": [
+    1.696,
+    5,
+    3.165
+   ],
+   "tris": 1262,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 405192,
+   "vtx": 1534,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "thick": 0.1018,
+   "avgTri": 0.01963,
+   "anglePct": 5,
+   "vpt": 1.22,
+   "grad": 0.57,
+   "spread": {
+    "3,1": [
+     0.305,
+     0.742
+    ],
+    "1,1": [
+     0.148,
+     0.742
+    ],
+    "5,2": [
+     0.148,
+     0.664
+    ],
+    "5,0": [
+     0.148,
+     0.742
+    ],
+    "8,0": [
+     0.18,
+     0.742
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#68872d",
+    "#7f3927",
+    "#d07b56",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "animation",
+    "bone"
+   ],
+   "anim": [
+    "Attack",
+    "Die",
+    "Idle",
+    "Walk"
+   ],
+   "variant": "dragon/dragon-chestnut",
+   "thickRel": 0.74,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G12 bands 5 wants max 3"
+    }
+   ]
+  },
+  {
+   "kit": "dragon",
+   "name": "dragon-sienna",
+   "hash": "a58addaeb7",
+   "kind": "env-fauna",
+   "size": "l",
+   "wdh": [
+    1.696,
+    5,
+    3.165
+   ],
+   "tris": 1262,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 405192,
+   "vtx": 1534,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "thick": 0.1018,
+   "avgTri": 0.01963,
+   "anglePct": 5,
+   "vpt": 1.22,
+   "grad": 0.57,
+   "spread": {
+    "0,0": [
+     0.305,
+     0.742
+    ],
+    "8,0": [
+     0.148,
+     0.742
+    ],
+    "5,2": [
+     0.148,
+     0.664
+    ],
+    "5,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#7f3927",
+    "#d07b56",
+    "#d8d1bd",
+    "#dbae80"
+   ],
+   "tags": [
+    "animation",
+    "bone",
+    "skin"
+   ],
+   "anim": [
+    "Attack",
+    "Die",
+    "Idle",
+    "Walk"
+   ],
+   "variant": "dragon/dragon-chestnut",
+   "thickRel": 0.74
+  },
+  {
+   "kit": "dragon",
+   "name": "dragon-umber",
+   "hash": "491f33d596",
+   "kind": "env-fauna",
+   "size": "l",
+   "wdh": [
+    1.696,
+    5,
+    3.165
+   ],
+   "tris": 1262,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 405192,
+   "vtx": 1534,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "thick": 0.1018,
+   "avgTri": 0.01963,
+   "anglePct": 5,
+   "vpt": 1.22,
+   "grad": 0.57,
+   "spread": {
+    "0,0": [
+     0.305,
+     0.742
+    ],
+    "3,0": [
+     0.148,
+     0.742
+    ],
+    "5,2": [
+     0.148,
+     0.664
+    ],
+    "5,0": [
+     0.148,
+     0.742
+    ],
+    "8,0": [
+     0.18,
+     0.742
+    ]
+   },
+   "colors": [
+    "#563b2b",
+    "#7f3927",
+    "#d07b56",
+    "#d8d1bd",
+    "#dbae80"
+   ],
+   "tags": [
+    "animation",
+    "bone",
+    "skin"
+   ],
+   "anim": [
+    "Attack",
+    "Die",
+    "Idle",
+    "Walk"
+   ],
+   "variant": "dragon/dragon-chestnut",
+   "thickRel": 0.74
   },
   {
    "kit": "food-pack",
@@ -60155,7 +60479,7 @@
     "fs"
    ],
    "variant": "fs-terrain/beach-prop-starfish-a",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "fs-terrain",
@@ -60541,7 +60865,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.3
+   "thickRel": 0.31
   },
   {
    "kit": "fs-terrain",
@@ -72971,7 +73295,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.99
+   "thickRel": 1.02
   },
   {
    "kit": "household",
@@ -73936,7 +74260,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 2.3
+   "thickRel": 2.39
   },
   {
    "kit": "household",
@@ -74717,7 +75041,7 @@
     "creativetrio",
     "metal-iron-steel"
    ],
-   "thickRel": 1.17,
+   "thickRel": 1.22,
    "lint": [
     {
      "level": "error",
@@ -93655,7 +93979,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "isa-plants",
@@ -96000,7 +96324,7 @@
     "plastic"
    ],
    "variant": "isa-playground/shovel",
-   "thickRel": 0.81
+   "thickRel": 0.84
   },
   {
    "kit": "isa-playground",
@@ -96043,7 +96367,7 @@
     "wood-planks"
    ],
    "variant": "isa-playground/shovel",
-   "thickRel": 0.83
+   "thickRel": 0.86
   },
   {
    "kit": "isa-playground",
@@ -123488,7 +123812,7 @@
     "metal-iron-cast",
     "paper"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "kay-food",
@@ -161039,7 +161363,7 @@
     "textile",
     "wood-planks"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.8
   },
   {
    "kit": "kay-tools",
@@ -161224,7 +161548,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 2.3
+   "thickRel": 2.38
   },
   {
    "kit": "kay-tools",
@@ -161415,7 +161739,7 @@
     "robin-hood",
     "wood-planks"
    ],
-   "thickRel": 2.2
+   "thickRel": 2.29
   },
   {
    "kit": "kay-tools",
@@ -161608,7 +161932,7 @@
    "anim": [
     "spin"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.81
   },
   {
    "kit": "kay-tools",
@@ -161663,7 +161987,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.09
   },
   {
    "kit": "kay-tools",
@@ -161837,7 +162161,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.33
   },
   {
    "kit": "kay-tools",
@@ -161952,7 +162276,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 0.63
+   "thickRel": 0.66
   },
   {
    "kit": "kay-tools",
@@ -162634,7 +162958,7 @@
     "robin-hood",
     "wood-planks"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.65
   },
   {
    "kit": "kay-tools",
@@ -162819,7 +163143,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.14
+   "thickRel": 2.22
   },
   {
    "kit": "kay-tools",
@@ -162869,7 +163193,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.07
+   "thickRel": 2.15
   },
   {
    "kit": "kay-tools",
@@ -162919,7 +163243,7 @@
     "plastic"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.14
+   "thickRel": 2.22
   },
   {
    "kit": "kay-tools",
@@ -162969,7 +163293,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.08,
+   "thickRel": 2.16,
    "lint": [
     {
      "level": "error",
@@ -163078,7 +163402,7 @@
     "metal-iron-steel",
     "tba"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.89
   },
   {
    "kit": "kay-tools",
@@ -163235,7 +163559,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.71
   },
   {
    "kit": "kay-tools",
@@ -163284,7 +163608,7 @@
     "textile"
    ],
    "variant": "kay-tools/wrench-a",
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "kay-tools",
@@ -163327,7 +163651,7 @@
     "metal-iron-steel"
    ],
    "variant": "kay-tools/wrench-a",
-   "thickRel": 1.03
+   "thickRel": 1.07
   },
   {
    "kit": "kay-weapons",
@@ -173440,7 +173764,7 @@
    "collection": "ken-mini",
    "name": "wheelchair-deluxe",
    "hash": "99c35d8343",
-   "kind": "obj-transport",
+   "kind": "obj-transport-land",
    "size": "m",
    "wdh": [
     0.55,
@@ -173482,14 +173806,14 @@
     "textile"
    ],
    "variant": "ken-chars/wheelchair",
-   "thickRel": 0.51
+   "thickRel": 0.4
   },
   {
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "wheelchair-power-deluxe",
    "hash": "a1b7907a0e",
-   "kind": "obj-transport",
+   "kind": "obj-transport-land",
    "size": "m",
    "wdh": [
     0.456,
@@ -173532,7 +173856,7 @@
     "plastic"
    ],
    "variant": "ken-chars/wheelchair-power",
-   "thickRel": 0.81
+   "thickRel": 0.64
   },
   {
    "kit": "ken-chars",
@@ -173575,7 +173899,7 @@
     "metal-iron-steel"
    ],
    "variant": "ken-chars/wheelchair-power",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-chars",
@@ -173624,7 +173948,7 @@
     "textile"
    ],
    "variant": "ken-chars/wheelchair",
-   "thickRel": 0.46
+   "thickRel": 0.47
   },
   {
    "kit": "ken-commercial",
@@ -216193,7 +216517,7 @@
     "plastic",
     "textile"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.38
   },
   {
    "kit": "ken-racing",
@@ -222704,7 +223028,7 @@
     "plastic",
     "wood-worked"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.71
   },
   {
    "kit": "ken-skate",
@@ -227043,7 +227367,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "ken-space",
@@ -236565,7 +236889,7 @@
     "wood-planks"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.93
+   "thickRel": 0.97
   },
   {
    "kit": "ken-survival",
@@ -236614,7 +236938,7 @@
     "wood-planks"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "ken-survival",
@@ -250663,7 +250987,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.66
   },
   {
    "kit": "lpa-construction",
@@ -251434,7 +251758,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.52
   },
   {
    "kit": "lpa-construction",
@@ -252134,7 +252458,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "lpa-construction",
@@ -252285,7 +252609,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 2.36
+   "thickRel": 2.44
   },
   {
    "kit": "lpa-construction",
@@ -252518,7 +252842,7 @@
     "metal-iron-steel"
    ],
    "variant": "lpa-construction/spanner-a",
-   "thickRel": 0.91
+   "thickRel": 0.94
   },
   {
    "kit": "lpa-construction",
@@ -252561,7 +252885,7 @@
     "scale-small"
    ],
    "variant": "lpa-construction/spanner-a",
-   "thickRel": 0.95
+   "thickRel": 0.99
   },
   {
    "kit": "lpa-construction",
@@ -253001,7 +253325,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.47
   },
   {
    "kit": "lpa-construction",
@@ -261921,7 +262245,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.35
+   "thickRel": 0.36
   },
   {
    "kit": "lpa-weapons",
@@ -270094,7 +270418,7 @@
     "paper",
     "rubber"
    ],
-   "thickRel": 1.57,
+   "thickRel": 1.63,
    "lint": [
     {
      "level": "error",
@@ -270484,7 +270808,7 @@
     "metal-iron-steel",
     "milkandbanana"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.4
   },
   {
    "kit": "medieval-forge",
@@ -271004,7 +271328,7 @@
    "tags": [
     "metal-iron-steel"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.95
   },
   {
    "kit": "medieval-forge",
@@ -271908,7 +272232,7 @@
     "metal-iron-wrought",
     "wood-planks"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.61
   },
   {
    "kit": "mek-tools",
@@ -276396,7 +276720,7 @@
     "#8b7561"
    ],
    "variant": "natuur/starfish-bleached",
-   "thickRel": 0.39
+   "thickRel": 0.4
   },
   {
    "kit": "natuur",
@@ -285843,7 +286167,7 @@
     "textile"
    ],
    "variant": "quat-dun-1/cobweb",
-   "thickRel": 0.29
+   "thickRel": 0.3
   },
   {
    "kit": "quat-dun-1",
@@ -290014,7 +290338,7 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 0.6,
+   "thickRel": 0.61,
    "lint": [
     {
      "level": "warning",
@@ -299948,7 +300272,7 @@
     "qua",
     "textile"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.23
   },
   {
    "kit": "quat-medieval",
@@ -302004,7 +302328,7 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "quat-ocean",
@@ -302288,7 +302612,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 1.2,
+   "thickRel": 1.22,
    "lint": [
     {
      "level": "warning",
@@ -302341,7 +302665,7 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.18
   },
   {
    "kit": "quat-ocean",
@@ -302393,7 +302717,7 @@
     "qua",
     "scale-big"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-ocean",
@@ -302689,7 +303013,7 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.62
   },
   {
    "kit": "quat-ocean",
@@ -302823,7 +303147,7 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "quat-ocean",
@@ -306205,7 +306529,7 @@
     "Tentacle_Idle",
     "Tentacle_Poke"
    ],
-   "thickRel": 2.44,
+   "thickRel": 2.47,
    "mark": [
     "centered"
    ]
@@ -320039,7 +320363,7 @@
     "qua",
     "wood-planks"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.61
   },
   {
    "kit": "quat-survival",
@@ -331802,7 +332126,7 @@
     "rey",
     "wood-planks"
    ],
-   "thickRel": 2.26
+   "thickRel": 2.35
   },
   {
    "kit": "rey-studio",
@@ -366150,7 +366474,7 @@
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.83
   },
   {
    "kit": "styloo-farm",
@@ -366984,7 +367308,7 @@
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.64
   },
   {
    "kit": "styloo-farm",
@@ -367659,7 +367983,7 @@
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.96
+   "thickRel": 1
   },
   {
    "kit": "styloo-farm",
@@ -383043,6 +383367,171 @@
   },
   {
    "kit": "taalei-kit",
+   "name": "balance-scale-chunky",
+   "hash": "75a9a8fb9a",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.343,
+    0.133,
+    0.195
+   ],
+   "tris": 308,
+   "tpu": 898,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 32868,
+   "vtx": 924,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0238,
+   "thick": 0.1409,
+   "avgTri": 0.00125,
+   "anglePct": 74,
+   "vpt": 3,
+   "grad": 0.38,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.547,
+     0.867
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-cast"
+   ],
+   "variant": "taalei-kit/balance-scale",
+   "thickRel": 0.83,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-tool)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "balance-scale-ornate",
+   "hash": "6af201e8dc",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.28,
+    0.126,
+    0.282
+   ],
+   "tris": 1284,
+   "tpu": 3743,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 132468,
+   "vtx": 3852,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0083,
+   "thick": 0.0746,
+   "avgTri": 0.00019,
+   "anglePct": 62,
+   "vpt": 3,
+   "grad": 0.37,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.547,
+     0.867
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-cast"
+   ],
+   "variant": "taalei-kit/balance-scale",
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-tool)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "balance-scale",
+   "hash": "2dd109650f",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.344,
+    0.136,
+    0.244
+   ],
+   "tris": 736,
+   "tpu": 2146,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 76504,
+   "vtx": 2208,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.0153,
+   "thick": 0.1102,
+   "avgTri": 0.00052,
+   "anglePct": 67,
+   "vpt": 3,
+   "grad": 0.39,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.547,
+     0.867
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-cast"
+   ],
+   "variant": "taalei-kit/balance-scale",
+   "thickRel": 0.65,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-tool)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
    "name": "balloon-basket-round",
    "hash": "41a768660a",
    "kind": "obj-transport-air",
@@ -384305,6 +384794,286 @@
   },
   {
    "kit": "taalei-kit",
+   "name": "hanging-scale-apothecary",
+   "hash": "e3559ea555",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.344,
+    0.182,
+    0.332
+   ],
+   "tris": 1072,
+   "tpu": 3125,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 110848,
+   "vtx": 3216,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.006,
+   "thick": 0.064,
+   "avgTri": 0.00025,
+   "anglePct": 53,
+   "vpt": 3,
+   "grad": 0.39,
+   "spread": {
+    "6,0": [
+     0.547,
+     0.867
+    ],
+    "5,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#d07b56",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-copper",
+    "metal-gold"
+   ],
+   "variant": "taalei-kit/hanging-scale",
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs metal-iron, has metal-copper metal-gold (obj-equipment-tool)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "hanging-scale-chunky",
+   "hash": "7b72c9dcf6",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.329,
+    0.154,
+    0.287
+   ],
+   "tris": 364,
+   "tpu": 1061,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 38580,
+   "vtx": 1092,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0061,
+   "thick": 0.0627,
+   "avgTri": 0.00067,
+   "anglePct": 68,
+   "vpt": 3,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "5,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#d07b56"
+   ],
+   "tags": [
+    "metal-copper",
+    "metal-iron-cast"
+   ],
+   "variant": "taalei-kit/hanging-scale",
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-tool)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "hanging-scale-minimal",
+   "hash": "8c926eeb0a",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.347,
+    0.147,
+    0.283
+   ],
+   "tris": 592,
+   "tpu": 1726,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 61880,
+   "vtx": 1776,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0061,
+   "thick": 0.0564,
+   "avgTri": 0.00024,
+   "anglePct": 47,
+   "vpt": 3,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "metal-iron-wrought"
+   ],
+   "variant": "taalei-kit/hanging-scale",
+   "thickRel": 0.33
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "hanging-scale-wooden",
+   "hash": "79a541cec8",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.354,
+    0.13,
+    0.351
+   ],
+   "tris": 492,
+   "tpu": 1434,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 31548,
+   "vtx": 847,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.012,
+   "thick": 0.0517,
+   "avgTri": 0.00048,
+   "anglePct": 76,
+   "vpt": 1.72,
+   "grad": 0.52,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.172,
+     0.727
+    ],
+    "14,2": [
+     0.039,
+     0.438
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#82868e",
+    "#8b5936",
+    "#907a66"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "metal-iron-steel",
+    "rope",
+    "wood-beam"
+   ],
+   "variant": "taalei-kit/hanging-scale",
+   "thickRel": 0.3,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs wood-planks, has wood-beam (obj-equipment-tool-hand)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "hanging-scale",
+   "hash": "2c804892f8",
+   "kind": "obj-equipment-tool-hand",
+   "size": "s",
+   "wdh": [
+    0.318,
+    0.154,
+    0.341
+   ],
+   "tris": 804,
+   "tpu": 2344,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 83484,
+   "vtx": 2412,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.006,
+   "thick": 0.0496,
+   "avgTri": 0.0002,
+   "anglePct": 50,
+   "vpt": 3,
+   "grad": 0.38,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.547,
+     0.867
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-cast"
+   ],
+   "variant": "taalei-kit/hanging-scale",
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-steel, has metal-iron-cast (obj-equipment-tool)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
    "name": "hook",
    "hash": "086c1b391e",
    "kind": "obj-equipment-tool-supplies-hook",
@@ -384984,7 +385753,7 @@
     "plastic",
     "wood-planks"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.29
   },
   {
    "kit": "taalei-kit",
@@ -396289,7 +397058,7 @@
     "emissive",
     "wizp"
    ],
-   "thickRel": 0.22
+   "thickRel": 0.23
   },
   {
    "kit": "wizp-lava",
@@ -402699,7 +403468,7 @@
     "creativetrio",
     "metal-iron-steel"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.1
   },
   {
    "kit": "zombie-weapons",
@@ -403512,7 +404281,7 @@
     "creativetrio",
     "metal-iron-steel"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.07
   },
   {
    "kit": "zombie-weapons",

@@ -196,7 +196,7 @@ export const BRONKITS = [
   { map: 'Bubbly_Bathroom_Set', naam: 'Bubbly Bathroom Set', kit: 'isa-bathroom', source: 'isa', formaat: 'glb' },
   { map: 'Low_Poly_Weapons_Blendswap', naam: 'Low-Poly Weapons (Blend Swap)', kit: null, formaat: 'glb' },
   { map: 'Village_on_stilts', naam: 'Village on Stilts (Blend Swap)', kit: null, formaat: 'glb' },
-  { map: 'Low_Poly_Dragon', naam: 'Low-Poly Dragon (Blend Swap)', kit: null, formaat: 'glb' },
+  { map: 'Low_Poly_Dragon', naam: 'Low-Poly Dragon (Blend Swap)', kit: 'dragon', formaat: 'glb' },
   { map: 'Victorian_Style_House', naam: 'Victorian Style House (Blend Swap)', kit: null, formaat: 'glb' },
   { map: 'School_Styloo', naam: 'School (Styloo)', kit: 'styloo-school', source: 'styloo', formaat: 'glb', alleMappen: true },
   { map: 'Guns_Asset_Pack_Styloo', naam: 'Guns Asset Pack', kit: 'styloo-guns', source: 'styloo', formaat: 'glb' },
