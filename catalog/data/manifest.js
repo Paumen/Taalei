@@ -812,7 +812,8 @@ window.KENNEY_KITS = [
    "3dm-city-2",
    "3dm-industrial",
    "3dm-industrial-2",
-   "3dm-medieval"
+   "3dm-medieval",
+   "3dm-scifi"
   ]
  },
  {
@@ -1035,5 +1036,17 @@ window.KENNEY_KITS = [
   "url": "https://loafbrr.itch.io/3d-bones-asset",
   "licenseLabel": "CC0 1.0",
   "note": "Bones 3D Asset by loafbrr; the pack's itch.io page states CC0, see kits/sources/Bones_Asset_loafbrr/bones-asset-itch-page.mhtml."
+ },
+ {
+  "slug": "3dm-electronics",
+  "url": null
+ },
+ {
+  "slug": "3dm-scifi",
+  "url": null
+ },
+ {
+  "slug": "lowbudget",
+  "url": null
  }
 ]

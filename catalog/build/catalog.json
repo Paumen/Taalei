@@ -4,29 +4,32 @@
    "slug": "3dm",
    "name": "3dm",
    "licenseLabel": "CC0",
-   "count": 48,
+   "count": 57,
    "packs": [
     "City Environment Pack",
     "City Environment Pack 2",
     "Industrial 3D Models",
     "Industrial Props Pack 2",
-    "Medieval Props"
+    "Medieval Props",
+    "Sci-fi Props"
    ],
    "origins": {
     "City Environment Pack": 11,
     "City Environment Pack 2": 8,
     "Industrial 3D Models": 11,
     "Industrial Props Pack 2": 8,
-    "Medieval Props": 10
+    "Medieval Props": 10,
+    "Sci-fi Props": 9
    },
    "scales": {
-    "0.0045": 46,
+    "0.0045": 54,
     "0.000585": 1,
-    "0.0026999999999999997": 1
+    "0.0026999999999999997": 1,
+    "0.00153": 1
    },
    "smooth": {
-    "smooth": 45,
-    "none": 3
+    "smooth": 52,
+    "none": 5
    },
    "members": [
     {
@@ -123,11 +126,57 @@
       "smooth": 9,
       "none": 1
      }
+    },
+    {
+     "slug": "3dm-scifi",
+     "name": "3dm-scifi",
+     "licenseLabel": "CC0",
+     "count": 9,
+     "packs": [
+      "Sci-fi Props"
+     ],
+     "origins": {
+      "Sci-fi Props": 9
+     },
+     "scales": {
+      "0.0045": 8,
+      "0.00153": 1
+     },
+     "smooth": {
+      "smooth": 7,
+      "none": 2
+     }
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 28
+    "factor": 1.14,
+    "kinds": 31
+   }
+  },
+  {
+   "slug": "3dm-electronics",
+   "name": "3dm-electronics",
+   "licenseLabel": "CC0",
+   "count": 9,
+   "packs": [
+    "Electronics & Gadgets Pack"
+   ],
+   "origins": {
+    "Electronics & Gadgets Pack": 9
+   },
+   "scales": {
+    "0.00242": 1,
+    "0.01005": 1,
+    "0.000555": 1,
+    "0.000489": 1,
+    "0.00883": 1,
+    "0.01127": 1,
+    "0.002848": 1,
+    "0.000426": 1,
+    "0.01469": 1
+   },
+   "smooth": {
+    "smooth": 9
    }
   },
   {
@@ -2488,6 +2537,24 @@
    },
    "smooth": {
     "none": 18
+   }
+  },
+  {
+   "slug": "lowbudget",
+   "name": "lowbudget",
+   "licenseLabel": "CC0",
+   "count": 3,
+   "packs": [
+    "Lowbudget Game Assets"
+   ],
+   "origins": {
+    "Lowbudget Game Assets": 3
+   },
+   "scales": {
+    "0.135": 3
+   },
+   "smooth": {
+    "smooth": 3
    }
   },
   {
@@ -21815,7 +21882,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 850
+   "count": 853
   },
   {
    "id": "metal-iron",
@@ -21830,7 +21897,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 1031,
+   "count": 1041,
    "parent": "metal-iron"
   },
   {
@@ -21838,7 +21905,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 420,
+   "count": 425,
    "parent": "metal-iron"
   },
   {
@@ -21846,7 +21913,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 544,
+   "count": 545,
    "parent": "metal-iron"
   },
   {
@@ -21885,7 +21952,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 1046,
+   "count": 1047,
    "parent": "wood"
   },
   {
@@ -22007,14 +22074,14 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 971
+   "count": 985
   },
   {
    "id": "rubber",
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 113
+   "count": 116
   },
   {
    "id": "bone",
@@ -22056,7 +22123,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 744
+   "count": 752
   },
   {
    "id": "liquid",
@@ -22070,7 +22137,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 151
+   "count": 155
   },
   {
    "id": "rope",
@@ -22119,7 +22186,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 3917,
+   "count": 3937,
    "color": "#c07c8a"
   },
   {
@@ -22127,7 +22194,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 242
+   "count": 251
   },
   {
    "id": "obj-leisure",
@@ -22183,7 +22250,7 @@
    "name": "Science",
    "type": "kind",
    "description": "Scientific, lab or medical instrument: lab and medical gear.",
-   "count": 34
+   "count": 35
   },
   {
    "id": "obj-device-science-astro",
@@ -22246,28 +22313,28 @@
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
-   "count": 125
+   "count": 133
   },
   {
    "id": "obj-device-electronics-camera",
    "name": "Camera",
    "type": "kind",
    "description": "Camera or film projector.",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-device-electronics-audio",
    "name": "Audio",
    "type": "kind",
    "description": "Speaker or speaker stack.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-device-electronics-computer",
    "name": "Computer",
    "type": "kind",
    "description": "Computer, laptop, keyboard or computer desk.",
-   "count": 22
+   "count": 24
   },
   {
    "id": "obj-device-electronics-computer-keyboard",
@@ -22330,7 +22397,7 @@
    "name": "Radio",
    "type": "kind",
    "description": "radio",
-   "count": 8
+   "count": 10
   },
   {
    "id": "obj-device-electronics-phone",
@@ -22344,7 +22411,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, trough, bin",
-   "count": 573,
+   "count": 575,
    "color": "#dd9f79"
   },
   {
@@ -22443,14 +22510,14 @@
    "name": "Barrel",
    "type": "kind",
    "description": "barrel, cask",
-   "count": 48
+   "count": 49
   },
   {
    "id": "obj-container-barrel-metal",
    "name": "Metal barrel",
    "type": "kind",
    "description": "metal barrel, oil drum, fuel barrel, chemical drum",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-container-barrel-keg",
@@ -22506,7 +22573,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 112
+   "count": 113
   },
   {
    "id": "obj-container-crate-cube",
@@ -22534,7 +22601,7 @@
    "name": "Sci-fi crate",
    "type": "kind",
    "description": "Futuristic cargo pod, supply crate or canister.",
-   "count": 17
+   "count": 18
   },
   {
    "id": "obj-container-crate-produce",
@@ -22583,7 +22650,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 903,
+   "count": 904,
    "color": "#6b5b95"
   },
   {
@@ -22598,7 +22665,7 @@
    "name": "Apparel",
    "type": "kind",
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
-   "count": 81
+   "count": 82
   },
   {
    "id": "obj-equipment-apparel-umbrella",
@@ -22626,7 +22693,7 @@
    "name": "Glasses",
    "type": "kind",
    "description": "Eyewear worn on the face: glasses, sunglasses, goggles.",
-   "count": 26
+   "count": 27
   },
   {
    "id": "obj-equipment-armor-shield",
@@ -22851,7 +22918,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 696,
+   "count": 701,
    "color": "#c07c8a"
   },
   {
@@ -22866,7 +22933,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 444
+   "count": 447
   },
   {
    "id": "obj-furnishing-furniture-counter",
@@ -23006,7 +23073,7 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 141
+   "count": 143
   },
   {
    "id": "obj-furnishing-furniture-seating-sofa",
@@ -23020,14 +23087,14 @@
    "name": "Bench",
    "type": "kind",
    "description": "bench, pew",
-   "count": 30
+   "count": 31
   },
   {
    "id": "obj-furnishing-furniture-seating-bench-nobackrest",
    "name": "No backrest",
    "type": "kind",
    "description": "backless bench",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-furnishing-furniture-seating-bench-backrest",
@@ -23041,7 +23108,7 @@
    "name": "Chair",
    "type": "kind",
    "description": "chair, throne",
-   "count": 62
+   "count": 63
   },
   {
    "id": "obj-furnishing-furniture-seating-chair-desk",
@@ -23076,7 +23143,7 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser, coat rack, weapon rack",
-   "count": 119
+   "count": 120
   },
   {
    "id": "obj-furnishing-furniture-storage-bookcase",
@@ -23097,14 +23164,14 @@
    "name": "Cabinet",
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
-   "count": 31
+   "count": 32
   },
   {
    "id": "obj-furnishing-furniture-storage-cabinet-locker",
    "name": "Locker",
    "type": "kind",
    "description": "locker, locker bank, deposit box",
-   "count": 5
+   "count": 6
   },
   {
    "id": "obj-furnishing-furniture-storage-shelf",
@@ -23413,7 +23480,7 @@
    "name": "Light",
    "type": "kind",
    "description": "chandelier, match, string lights",
-   "count": 116,
+   "count": 118,
    "color": "#f2cb45"
   },
   {
@@ -23435,14 +23502,14 @@
    "name": "Lantern",
    "type": "kind",
    "description": "Portable or hanging lantern: hand, hanging, standing or paper lantern, flashlight.",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-furnishing-light-lamp",
    "name": "Lamp",
    "type": "kind",
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
-   "count": 57
+   "count": 58
   },
   {
    "id": "obj-furnishing-light-lamp-ceiling",
@@ -23802,7 +23869,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 324,
+   "count": 327,
    "color": "#5a7a9c"
   },
   {
@@ -23817,7 +23884,7 @@
    "name": "Land vehicle",
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
-   "count": 155
+   "count": 158
   },
   {
    "id": "obj-transport-land-rail",
@@ -23845,7 +23912,7 @@
    "name": "Road vehicle",
    "type": "kind",
    "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
-   "count": 69
+   "count": 72
   },
   {
    "id": "obj-transport-land-road-truck",
@@ -24449,7 +24516,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 2406,
+   "count": 2407,
    "color": "#877a63"
   },
   {
@@ -24457,7 +24524,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 445
+   "count": 446
   },
   {
    "id": "str-access",
@@ -25060,7 +25127,7 @@
    "name": "Utility",
    "type": "kind",
    "description": "Standing works that serve a settlement: hydrant, utility pole, generator, satellite dish, wind turbine.",
-   "count": 161,
+   "count": 162,
    "color": "#6e8f86"
   },
   {
@@ -25089,7 +25156,7 @@
    "name": "Machine",
    "type": "kind",
    "description": "Standing industrial machinery: presses, pistons and scanners.",
-   "count": 35
+   "count": 36
   },
   {
    "id": "str-fixture-utility-machine-crane",
@@ -25517,7 +25584,7 @@
    "name": "Mounted",
    "type": "tag",
    "description": "Not meant to stand on the ground in a scene: hung from a ceiling, beam or post, fixed to a wall, or set high on a building.",
-   "count": 304
+   "count": 305
   },
   {
    "id": "tba",
@@ -25552,7 +25619,7 @@
    "name": "Space",
    "type": "theme",
    "description": "Space and sci-fi theme set: spacecraft, space base modules, station interiors, corridors and landers.",
-   "count": 285
+   "count": 294
   },
   {
    "id": "storeys-0-5",
@@ -25742,7 +25809,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3271,
+   "count": 3282,
    "derived": true
   },
   {
@@ -25750,7 +25817,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3039,
+   "count": 3047,
    "derived": true
   },
   {
@@ -25758,7 +25825,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1255,
+   "count": 1257,
    "derived": true
   },
   {
@@ -30108,7 +30175,7 @@
     "metal-iron-wrought",
     "plastic"
    ],
-   "thickRel": 1.59,
+   "thickRel": 1.56,
    "lint": [
     {
      "level": "warning",
@@ -30163,7 +30230,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.78
   },
   {
    "kit": "3dm-city",
@@ -30664,6 +30731,462 @@
     "rubber"
    ],
    "thickRel": 1.27
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "console",
+   "hash": "95fccefcb5",
+   "kind": "obj-device-electronics-computer",
+   "size": "s",
+   "wdh": [
+    0.255,
+    0.092,
+    0.264
+   ],
+   "tris": 378,
+   "tpu": 1102,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 18472,
+   "vtx": 458,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0011,
+   "thick": 0.1013,
+   "avgTri": 0.001,
+   "anglePct": 82,
+   "vpt": 1.21,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "plastic"
+   ],
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0011 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "digital-camera",
+   "hash": "3dced37eac",
+   "kind": "obj-device-electronics-camera",
+   "size": "s",
+   "wdh": [
+    0.082,
+    0.151,
+    0.088
+   ],
+   "tris": 1676,
+   "tpu": 4886,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 68952,
+   "vtx": 1791,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2144,
+   "avgTri": 0.00003,
+   "anglePct": 64,
+   "vpt": 1.07,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "thickRel": 1.23
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "flashlight",
+   "hash": "901c1d77f4",
+   "kind": "obj-furnishing-light-lantern",
+   "size": "s",
+   "wdh": [
+    0.247,
+    0.063,
+    0.063
+   ],
+   "tris": 1024,
+   "tpu": 2985,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 38788,
+   "vtx": 972,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0546,
+   "thick": 0.3055,
+   "avgTri": 0.00005,
+   "anglePct": 12,
+   "vpt": 0.95,
+   "grad": 0.59,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ],
+    "13,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "thickRel": 1.43
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "microphone",
+   "hash": "a0598c8a15",
+   "kind": "obj-device-electronics-audio",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.06,
+    0.209
+   ],
+   "tris": 1032,
+   "tpu": 3009,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 39652,
+   "vtx": 998,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0412,
+   "thick": 0.2912,
+   "avgTri": 0.00003,
+   "anglePct": 9,
+   "vpt": 0.97,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.742
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "thickRel": 1.08
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "radio",
+   "hash": "a4bb9c2518",
+   "kind": "obj-device-electronics-radio",
+   "size": "s",
+   "wdh": [
+    0.22,
+    0.116,
+    0.287
+   ],
+   "tris": 1638,
+   "tpu": 4776,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 62344,
+   "vtx": 1593,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0061,
+   "thick": 0.1696,
+   "avgTri": 0.00008,
+   "anglePct": 88,
+   "vpt": 0.97,
+   "grad": 0.59,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.742
+    ],
+    "15,3": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e",
+    "#b58158"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "plastic",
+    "wood-worked"
+   ],
+   "thickRel": 1.04
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "router",
+   "hash": "6af8b51445",
+   "kind": "obj-device-electronics",
+   "size": "s",
+   "wdh": [
+    0.229,
+    0.19,
+    0.223
+   ],
+   "tris": 1453,
+   "tpu": 4236,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 76828,
+   "vtx": 2080,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0261,
+   "thick": 0.1049,
+   "avgTri": 0.00011,
+   "anglePct": 68,
+   "vpt": 1.43,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "plastic"
+   ],
+   "thickRel": 0.62
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "usb-stick",
+   "hash": "a868cbe244",
+   "kind": "obj-device-electronics",
+   "size": "s",
+   "wdh": [
+    0.034,
+    0.105,
+    0.016
+   ],
+   "tris": 412,
+   "tpu": 1201,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 17936,
+   "vtx": 436,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0003,
+   "thick": 0.2482,
+   "avgTri": 0.00003,
+   "anglePct": 80,
+   "vpt": 1.06,
+   "grad": 0.58,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.742
+    ],
+    "4,2": [
+     0.148,
+     0.445
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "plastic"
+   ],
+   "thickRel": 1.46,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0003 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "vr-goggles",
+   "hash": "f9efa2ec96",
+   "kind": "obj-equipment-apparel-glasses",
+   "size": "s",
+   "wdh": [
+    0.247,
+    0.176,
+    0.124
+   ],
+   "tris": 2954,
+   "tpu": 8612,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 110416,
+   "vtx": 2848,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0172,
+   "thick": 0.1122,
+   "avgTri": 0.00006,
+   "anglePct": 29,
+   "vpt": 0.96,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.164,
+     0.727
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "thickRel": 2.52
+  },
+  {
+   "kit": "3dm-electronics",
+   "name": "walkie-talkie",
+   "hash": "15b959a98d",
+   "kind": "obj-device-electronics-radio",
+   "size": "s",
+   "wdh": [
+    0.07,
+    0.039,
+    0.216
+   ],
+   "tris": 1052,
+   "tpu": 3067,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 45772,
+   "vtx": 1185,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0154,
+   "thick": 0.2594,
+   "avgTri": 0.00003,
+   "anglePct": 26,
+   "vpt": 1.13,
+   "grad": 0.57,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.203,
+     0.695
+    ],
+    "3,1": [
+     0.445,
+     0.445
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#68872d",
+    "#f2a93c"
+   ],
+   "tags": [
+    "glass",
+    "plastic"
+   ],
+   "thickRel": 1.59
   },
   {
    "kit": "3dm-guns",
@@ -31855,7 +32378,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 1.98
+   "thickRel": 1.97
   },
   {
    "kit": "3dm-industrial",
@@ -32152,7 +32675,7 @@
    "tags": [
     "plastic"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "3dm-industrial",
@@ -32255,7 +32778,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.45
   },
   {
    "kit": "3dm-industrial-2",
@@ -32308,7 +32831,7 @@
     "metal",
     "rubber"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.39
   },
   {
    "kit": "3dm-industrial-2",
@@ -33168,6 +33691,492 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.092 under min 0.1 (obj-kitchenware-tableware-drinkware-tankard)"
+    }
+   ]
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "barrel",
+   "hash": "d367583575",
+   "kind": "obj-container-barrel-metal",
+   "size": "s",
+   "wdh": [
+    0.273,
+    0.273,
+    0.439
+   ],
+   "tris": 960,
+   "tpu": 2799,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 46276,
+   "vtx": 1219,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.2942,
+   "avgTri": 0.00052,
+   "anglePct": 33,
+   "vpt": 1.27,
+   "grad": 0.58,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.445,
+     0.445
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#7f3927",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "plastic",
+    "space"
+   ],
+   "thickRel": 1.13
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "bench",
+   "hash": "a17e83b92d",
+   "kind": "obj-furnishing-furniture-seating-bench-nobackrest",
+   "size": "m",
+   "wdh": [
+    0.179,
+    1.192,
+    0.204
+   ],
+   "tris": 204,
+   "tpu": 595,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14620,
+   "vtx": 372,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2014,
+   "avgTri": 0.0029,
+   "anglePct": 96,
+   "vpt": 1.82,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal-iron-wrought",
+    "plastic",
+    "space"
+   ],
+   "thickRel": 1.13
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "chair",
+   "hash": "027ccb5918",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.453,
+    0.404,
+    0.669
+   ],
+   "tris": 1436,
+   "tpu": 4187,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 65892,
+   "vtx": 1742,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0495,
+   "thick": 0.1372,
+   "avgTri": 0.00102,
+   "anglePct": 51,
+   "vpt": 1.21,
+   "grad": 0.59,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.188,
+     0.445
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "plastic",
+    "space"
+   ],
+   "thickRel": 1.09
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "chamber",
+   "hash": "ac8743a33a",
+   "kind": "obj-device-science",
+   "size": "m",
+   "wdh": [
+    0.59,
+    0.59,
+    1.148
+   ],
+   "tris": 1088,
+   "tpu": 1934,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 50400,
+   "vtx": 1324,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2636,
+   "avgTri": 0.00388,
+   "anglePct": 9,
+   "vpt": 1.22,
+   "grad": 0.6,
+   "spread": {
+    "4,2": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.195,
+     0.695
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "glass",
+    "metal-iron-steel",
+    "space"
+   ],
+   "thickRel": 1.55
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "container",
+   "hash": "d51f94e41f",
+   "kind": "obj-container-crate-scifi",
+   "size": "s",
+   "wdh": [
+    0.459,
+    0.475,
+    0.452
+   ],
+   "tris": 1456,
+   "tpu": 4245,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 72100,
+   "vtx": 1932,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0238,
+   "thick": 0.2625,
+   "avgTri": 0.00136,
+   "anglePct": 74,
+   "vpt": 1.33,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "space"
+   ],
+   "thickRel": 1.04
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "control-panel",
+   "hash": "9dfc4997ab",
+   "kind": "obj-device-electronics-computer",
+   "size": "m",
+   "wdh": [
+    0.303,
+    0.205,
+    0.675
+   ],
+   "tris": 528,
+   "tpu": 1539,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 24320,
+   "vtx": 613,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1359,
+   "avgTri": 0.00088,
+   "anglePct": 60,
+   "vpt": 1.16,
+   "grad": 0.57,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.219,
+     0.445
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "glass",
+    "metal-iron-steel",
+    "plastic",
+    "space"
+   ],
+   "thickRel": 1.01
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "generator",
+   "hash": "bdc42c3f30",
+   "kind": "str-fixture-utility-machine",
+   "size": "l",
+   "wdh": [
+    3.049,
+    1.524,
+    1.468
+   ],
+   "tris": 3438,
+   "tpu": 504,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 160976,
+   "vtx": 4338,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0491,
+   "thick": 0.2268,
+   "avgTri": 0.00964,
+   "anglePct": 53,
+   "vpt": 1.26,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.742
+    ],
+    "6,1": [
+     0.148,
+     0.281
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "metal-iron-cast",
+    "plastic",
+    "space"
+   ],
+   "thickRel": 1.76,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 3.049 over max 2.2 (str-fixture-utility-machine)"
+    }
+   ]
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "lamp",
+   "hash": "db0bb2ee9a",
+   "kind": "obj-furnishing-light-lamp",
+   "size": "m",
+   "wdh": [
+    0.032,
+    0.666,
+    0.115
+   ],
+   "tris": 792,
+   "tpu": 2309,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 34076,
+   "vtx": 869,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0061,
+   "thick": 0.2367,
+   "avgTri": 0.00037,
+   "anglePct": 65,
+   "vpt": 1.1,
+   "grad": 0.57,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.742
+    ],
+    "15,3": [
+     0.445,
+     0.445
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "mounted",
+    "space"
+   ],
+   "thickRel": 1.93
+  },
+  {
+   "kit": "3dm-scifi",
+   "collection": "3dm",
+   "name": "locker",
+   "hash": "105c9337ab",
+   "kind": "obj-furnishing-furniture-storage-cabinet-locker",
+   "size": "m",
+   "wdh": [
+    0.27,
+    0.436,
+    1.047
+   ],
+   "tris": 952,
+   "tpu": 1856,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 52056,
+   "vtx": 1400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0122,
+   "thick": 0.1667,
+   "avgTri": 0.00311,
+   "anglePct": 81,
+   "vpt": 1.47,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#5b5550",
+    "#82868e"
+   ],
+   "tags": [
+    "metal-iron-steel",
+    "metal-iron-wrought",
+    "space"
+   ],
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.047 over max 0.9 (obj-furnishing-furniture-storage-cabinet)"
     }
    ]
   },
@@ -34757,7 +35766,7 @@
     "mounted"
    ],
    "variant": "aq-hallow/lantern-a",
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "aq-hallow",
@@ -34806,7 +35815,7 @@
     "metal-iron-wrought",
     "mounted"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "aq-hallow",
@@ -34855,7 +35864,7 @@
     "metal-iron-wrought"
    ],
    "variant": "aq-hallow/lantern-a",
-   "thickRel": 1.37
+   "thickRel": 1.32
   },
   {
    "kit": "aq-hallow",
@@ -44254,7 +45263,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "emace-80s",
@@ -44969,7 +45978,7 @@
     "wood-beam"
    ],
    "variant": "emace-village/bench",
-   "thickRel": 1.09
+   "thickRel": 1.06
   },
   {
    "kit": "emace-village",
@@ -45012,7 +46021,7 @@
     "wood-beam"
    ],
    "variant": "emace-village/bench",
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "emace-village",
@@ -64820,7 +65829,7 @@
     "wood-worked"
    ],
    "variant": "fs-house/wall-cabinet",
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "fs-house",
@@ -76563,7 +77572,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/barrel-a",
-   "thickRel": 1.02,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "warning",
@@ -76620,7 +77629,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/barrel-a",
-   "thickRel": 1.03,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -78426,7 +79435,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "fs-town/lamp-street",
-   "thickRel": 0.84,
+   "thickRel": 0.83,
    "mark": [
     "grounded",
     "centered"
@@ -83826,7 +84835,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.39,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -85545,7 +86554,7 @@
     "paper",
     "wood-worked"
    ],
-   "thickRel": 2.24,
+   "thickRel": 2.23,
    "lint": [
     {
      "level": "error",
@@ -85809,7 +86818,7 @@
     "creativetrio",
     "plastic"
    ],
-   "thickRel": 0.31
+   "thickRel": 0.29
   },
   {
    "kit": "household",
@@ -87664,7 +88673,7 @@
     "metal-iron-steel",
     "mounted"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "ipoly-concert",
@@ -87761,7 +88770,7 @@
     "metal-iron-steel"
    ],
    "variant": "ipoly-concert/speaker-large",
-   "thickRel": 0.89
+   "thickRel": 0.82
   },
   {
    "kit": "ipoly-concert",
@@ -87810,7 +88819,7 @@
     "metal-iron-steel"
    ],
    "variant": "ipoly-concert/speaker-large",
-   "thickRel": 0.81
+   "thickRel": 0.74
   },
   {
    "kit": "ipoly-concert",
@@ -87867,7 +88876,7 @@
     "mounted"
    ],
    "variant": "ipoly-concert/spotlight",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "ipoly-concert",
@@ -87922,7 +88931,7 @@
     "metal-iron-cast",
     "metal-iron-steel"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.67
   },
   {
    "kit": "ipoly-concert",
@@ -87979,7 +88988,7 @@
     "mounted"
    ],
    "variant": "ipoly-concert/spotlight",
-   "thickRel": 1.74
+   "thickRel": 1.73
   },
   {
    "kit": "ipoly-concert",
@@ -88036,7 +89045,7 @@
     "mounted"
    ],
    "variant": "ipoly-concert/spotlight",
-   "thickRel": 1.64
+   "thickRel": 1.63
   },
   {
    "kit": "ipoly-electronics",
@@ -88096,7 +89105,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.27
+   "thickRel": 0.26
   },
   {
    "kit": "ipoly-electronics",
@@ -88194,7 +89203,7 @@
     "rubber"
    ],
    "variant": "ipoly-electronics/microchip",
-   "thickRel": 1.36
+   "thickRel": 1.34
   },
   {
    "kit": "ipoly-electronics",
@@ -88248,7 +89257,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ipoly-electronics",
@@ -88349,7 +89358,7 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "ipoly-glasses",
@@ -88397,7 +89406,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ipoly-glasses",
@@ -88445,7 +89454,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "ipoly-glasses",
@@ -88492,7 +89501,7 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 0.93,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
@@ -88546,7 +89555,7 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.97
   },
   {
    "kit": "ipoly-glasses",
@@ -88599,7 +89608,7 @@
     "metal-iron-steel"
    ],
    "variant": "ipoly-glasses/sunglasses-aviator-nickel",
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "ipoly-glasses",
@@ -88647,7 +89656,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-aviator-nickel",
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "ipoly-glasses",
@@ -88699,7 +89708,7 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "ipoly-glasses",
@@ -88742,7 +89751,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-cateye-azure",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ipoly-glasses",
@@ -88785,7 +89794,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-cateye-azure",
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "ipoly-glasses",
@@ -88832,7 +89841,7 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ipoly-glasses",
@@ -88880,7 +89889,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-rect-hunter",
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "ipoly-glasses",
@@ -88928,7 +89937,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-square-ivory",
-   "thickRel": 0.89
+   "thickRel": 0.87
   },
   {
    "kit": "ipoly-glasses",
@@ -88976,7 +89985,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-rect-hunter",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "ipoly-glasses",
@@ -89024,7 +90033,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-rect-hunter",
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "ipoly-glasses",
@@ -89072,7 +90081,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-round-terracotta",
-   "thickRel": 1.15
+   "thickRel": 1.13
   },
   {
    "kit": "ipoly-glasses",
@@ -89125,7 +90134,7 @@
     "metal-gold"
    ],
    "variant": "ipoly-glasses/sunglasses-round-terracotta",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ipoly-glasses",
@@ -89173,7 +90182,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-round-terracotta",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "ipoly-glasses",
@@ -89221,7 +90230,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-shield-azure",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ipoly-glasses",
@@ -89274,7 +90283,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-shield-azure",
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "ipoly-glasses",
@@ -89322,7 +90331,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-square-ivory",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "ipoly-glasses",
@@ -89375,7 +90384,7 @@
     "ipoly",
     "plastic"
    ],
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "ipoly-glasses",
@@ -89423,7 +90432,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-rect-hunter",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "ipoly-signs",
@@ -90898,7 +91907,7 @@
     "ka_ching"
    ],
    "variant": "isa-bakery/cash-register-anim",
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "isa-bakery",
@@ -90949,7 +91958,7 @@
     "tba"
    ],
    "variant": "isa-bakery/cash-register-anim",
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "isa-bakery",
@@ -98071,7 +99080,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "isa-homely",
@@ -100979,7 +101988,7 @@
     "wood-worked"
    ],
    "variant": "isa-kitchen/wall-cabinet",
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "isa-kitchen",
@@ -104452,7 +105461,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.96
   },
   {
    "kit": "isa-picnic",
@@ -109882,7 +110891,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.03
   },
   {
    "kit": "jb-kitchen",
@@ -115573,7 +116582,7 @@
     "stone-masonry",
     "wood-worked"
    ],
-   "thickRel": 1.19,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -116966,7 +117975,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "kay-city",
@@ -117036,7 +118045,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "kay-city",
@@ -117106,7 +118115,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "kay-city",
@@ -117175,7 +118184,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.21
   },
   {
    "kit": "kay-city",
@@ -117245,7 +118254,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "kay-city",
@@ -117338,7 +118347,7 @@
     "kay",
     "metal"
    ],
-   "thickRel": 2.05
+   "thickRel": 2.04
   },
   {
    "kit": "kay-city",
@@ -118511,7 +119520,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "kay-dun-1",
@@ -118552,7 +119561,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 0.77,
+   "thickRel": 0.74,
    "mark": [
     "centered"
    ]
@@ -125094,7 +126103,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/barrel-large",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "kay-dun-2",
@@ -125201,7 +126210,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/barrel-large",
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "kay-dun-2",
@@ -128487,7 +129496,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "kay-dun-2",
@@ -132731,7 +133740,7 @@
     "wood-worked"
    ],
    "variant": "kay-food/cabinet",
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "kay-food",
@@ -132780,7 +133789,7 @@
     "wood-worked"
    ],
    "variant": "kay-food/cabinet",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "kay-food",
@@ -132829,7 +133838,7 @@
     "wood-worked"
    ],
    "variant": "kay-food/cabinet",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "kay-food",
@@ -132878,7 +133887,7 @@
     "wood-worked"
    ],
    "variant": "kay-food/cabinet",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "kay-food",
@@ -142459,7 +143468,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/cabinet-medium",
-   "thickRel": 1.2
+   "thickRel": 1.21
   },
   {
    "kit": "kay-furniture",
@@ -142569,7 +143578,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/cabinet-medium",
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "kay-furniture",
@@ -144679,7 +145688,7 @@
     "kay",
     "wood-worked"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.1
   },
   {
    "kit": "kay-hallow",
@@ -145976,7 +146985,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.08,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "warning",
@@ -146046,7 +147055,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "kay-hallow",
@@ -146426,7 +147435,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.97,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -147604,7 +148613,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "kay-hexagon",
@@ -157357,7 +158366,7 @@
     "kay",
     "metal-iron-cast"
    ],
-   "thickRel": 1.92
+   "thickRel": 1.91
   },
   {
    "kit": "kay-mixed",
@@ -157650,7 +158659,7 @@
     "metal-iron-wrought"
    ],
    "variant": "kay-mixed/instant-camera-a",
-   "thickRel": 1.19
+   "thickRel": 1.14
   },
   {
    "kit": "kay-mixed",
@@ -157714,7 +158723,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/instant-camera-a",
-   "thickRel": 1.18
+   "thickRel": 1.14
   },
   {
    "kit": "kay-mixed",
@@ -171755,7 +172764,7 @@
     "scale-small",
     "space"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.45
   },
   {
    "kit": "kay-space",
@@ -174690,7 +175699,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "kay-tools",
@@ -181156,7 +182165,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-blaster",
@@ -181209,7 +182218,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ken-blaster",
@@ -182586,7 +183595,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "ken-car",
@@ -182655,7 +183664,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "ken-car",
@@ -182721,7 +183730,7 @@
     "plastic"
    ],
    "variant": "ken-car/race",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "ken-car",
@@ -182787,7 +183796,7 @@
     "plastic"
    ],
    "variant": "ken-car/race",
-   "thickRel": 0.69
+   "thickRel": 0.7
   },
   {
    "kit": "ken-car",
@@ -182852,7 +183861,7 @@
     "plastic"
    ],
    "variant": "ken-car/sedan",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "ken-car",
@@ -183052,7 +184061,7 @@
     "plastic"
    ],
    "variant": "ken-car/suv",
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "ken-car",
@@ -183116,7 +184125,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "ken-car",
@@ -183255,7 +184264,7 @@
     "plastic"
    ],
    "variant": "ken-car/tractor",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "ken-car",
@@ -183316,7 +184325,7 @@
     "plastic"
    ],
    "variant": "ken-car/tractor",
-   "thickRel": 0.79,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -183630,7 +184639,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "ken-car",
@@ -186084,7 +187093,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.3
+   "thickRel": 1.23
   },
   {
    "kit": "ken-chars",
@@ -186138,7 +187147,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.3
+   "thickRel": 1.23
   },
   {
    "kit": "ken-chars",
@@ -186181,7 +187190,7 @@
     "metal-iron-steel"
    ],
    "variant": "ken-chars/aid-glasses",
-   "thickRel": 1.6
+   "thickRel": 1.58
   },
   {
    "kit": "ken-chars",
@@ -186225,7 +187234,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-glasses",
-   "thickRel": 1.62
+   "thickRel": 1.6
   },
   {
    "kit": "ken-chars",
@@ -191069,7 +192078,7 @@
     "plastic"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 1.77
+   "thickRel": 1.74
   },
   {
    "kit": "ken-factory",
@@ -191118,7 +192127,7 @@
     "plastic"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 1.24
+   "thickRel": 1.21
   },
   {
    "kit": "ken-factory",
@@ -191173,7 +192182,7 @@
     "plastic"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 0.5
+   "thickRel": 0.49
   },
   {
    "kit": "ken-factory",
@@ -191406,7 +192415,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "ken-factory",
@@ -191452,7 +192461,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "ken-factory",
@@ -191599,7 +192608,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 0.8
+   "thickRel": 0.78
   },
   {
    "kit": "ken-factory",
@@ -191652,7 +192661,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-connection-pipe",
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "ken-factory",
@@ -191705,7 +192714,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-connection-pipe",
-   "thickRel": 0.8
+   "thickRel": 0.79
   },
   {
    "kit": "ken-factory",
@@ -191758,7 +192767,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 1.26
+   "thickRel": 1.24
   },
   {
    "kit": "ken-factory",
@@ -191812,7 +192821,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-window",
-   "thickRel": 1.21
+   "thickRel": 1.19
   },
   {
    "kit": "ken-factory",
@@ -191866,7 +192875,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-window",
-   "thickRel": 1.21
+   "thickRel": 1.19
   },
   {
    "kit": "ken-factory",
@@ -191919,7 +192928,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "ken-factory",
@@ -192803,7 +193812,7 @@
     "metal"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 1.83
+   "thickRel": 1.79
   },
   {
    "kit": "ken-factory",
@@ -192851,7 +193860,7 @@
     "metal"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 1.8
+   "thickRel": 1.77
   },
   {
    "kit": "ken-factory",
@@ -192900,7 +193909,7 @@
     "metal"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.31
+   "thickRel": 2.27
   },
   {
    "kit": "ken-factory",
@@ -192948,7 +193957,7 @@
     "metal"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.41
+   "thickRel": 2.36
   },
   {
    "kit": "ken-factory",
@@ -192992,7 +194001,7 @@
     "mounted"
    ],
    "variant": "ken-factory/robot-arm-a",
-   "thickRel": 1.54
+   "thickRel": 1.51
   },
   {
    "kit": "ken-factory",
@@ -193042,7 +194051,7 @@
     "plastic"
    ],
    "variant": "ken-factory/robot-arm-a",
-   "thickRel": 1.49
+   "thickRel": 1.46
   },
   {
    "kit": "ken-factory",
@@ -193089,7 +194098,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -193136,7 +194145,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.88
   },
   {
    "kit": "ken-factory",
@@ -194382,7 +195391,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "ken-food",
@@ -201161,7 +202170,7 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.86
   },
   {
    "kit": "ken-furniture",
@@ -202101,7 +203110,7 @@
     "textile"
    ],
    "variant": "ken-furniture/chair-modern-cushion",
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "ken-furniture",
@@ -203218,7 +204227,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/kitchen-cabinet-upper",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "ken-furniture",
@@ -204741,7 +205750,7 @@
     "metal",
     "wood-worked"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.04
   },
   {
    "kit": "ken-furniture",
@@ -205206,7 +206215,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/speaker",
-   "thickRel": 1
+   "thickRel": 0.92
   },
   {
    "kit": "ken-furniture",
@@ -205254,7 +206263,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/speaker",
-   "thickRel": 1.47
+   "thickRel": 1.35
   },
   {
    "kit": "ken-furniture",
@@ -209135,7 +210144,7 @@
     "wick"
    ],
    "variant": "ken-grave/lantern-candle",
-   "thickRel": 0.75
+   "thickRel": 0.72
   },
   {
    "kit": "ken-grave",
@@ -209193,7 +210202,7 @@
     "mounted"
    ],
    "variant": "ken-grave/lantern-candle",
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "ken-grave",
@@ -211647,7 +212656,7 @@
     "metal-iron-wrought",
     "mounted"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.7
   },
   {
    "kit": "ken-holiday",
@@ -211747,7 +212756,7 @@
     "metal-iron-wrought",
     "mounted"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-holiday",
@@ -215035,7 +216044,7 @@
     "storeys-5"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "ken-market",
@@ -215938,7 +216947,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "ken-mini-dun",
@@ -222222,7 +223231,7 @@
     "pirate",
     "wood-worked"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-pirate",
@@ -225549,7 +226558,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "ken-platformer",
@@ -228690,7 +229699,7 @@
     "plastic"
    ],
    "variant": "ken-proto/vehicle",
-   "thickRel": 0.73,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -229804,7 +230813,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.59
   },
   {
    "kit": "ken-racing",
@@ -231352,7 +232361,7 @@
     "plastic"
    ],
    "variant": "ken-racing/race-car-red",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-racing",
@@ -231411,7 +232420,7 @@
     "plastic"
    ],
    "variant": "ken-racing/race-car-red",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-racing",
@@ -231470,7 +232479,7 @@
     "plastic"
    ],
    "variant": "ken-racing/race-car-red",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-racing",
@@ -231523,7 +232532,7 @@
     "metal"
    ],
    "variant": "ken-racing/race-car-red",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-racing",
@@ -232480,7 +233489,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "ken-roads",
@@ -232551,7 +233560,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "ken-roads",
@@ -232672,7 +233681,7 @@
     "stone-masonry"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.53
+   "thickRel": 0.52
   },
   {
    "kit": "ken-roads",
@@ -232727,7 +233736,7 @@
     "stone-masonry"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.66
+   "thickRel": 0.65
   },
   {
    "kit": "ken-roads",
@@ -238541,7 +239550,7 @@
     "space"
    ],
    "variant": "ken-space/machine-generator",
-   "thickRel": 1.32
+   "thickRel": 1.29
   },
   {
    "kit": "ken-space",
@@ -238605,7 +239614,7 @@
     "space"
    ],
    "variant": "ken-space/machine-generator",
-   "thickRel": 1.54
+   "thickRel": 1.51
   },
   {
    "kit": "ken-space",
@@ -238664,7 +239673,7 @@
     "space"
    ],
    "variant": "ken-space/machine-wireless",
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "ken-space",
@@ -238723,7 +239732,7 @@
     "space"
    ],
    "variant": "ken-space/machine-wireless",
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "ken-space",
@@ -240354,7 +241363,7 @@
     "space"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.58
+   "thickRel": 0.57
   },
   {
    "kit": "ken-space",
@@ -240408,7 +241417,7 @@
     "space"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "ken-space",
@@ -242495,7 +243504,7 @@
     "space"
    ],
    "variant": "ken-station/container-flat",
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "ken-station",
@@ -242660,7 +243669,7 @@
     "space"
    ],
    "variant": "ken-station/container",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "ken-station",
@@ -251292,7 +252301,7 @@
    ],
    "specialBand": "4,2",
    "variant": "ken-town/fountain-round",
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "ken-town",
@@ -251443,7 +252452,7 @@
    ],
    "specialBand": "4,2",
    "variant": "ken-town/fountain-square",
-   "thickRel": 0.63
+   "thickRel": 0.62
   },
   {
    "kit": "ken-town",
@@ -253441,7 +254450,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.5
   },
   {
    "kit": "ken-town",
@@ -263422,6 +264431,179 @@
    "thickRel": 1.31
   },
   {
+   "kit": "lowbudget",
+   "name": "digger-a",
+   "hash": "a978c2692e",
+   "kind": "obj-transport-land-road",
+   "size": "m",
+   "wdh": [
+    0.551,
+    1.032,
+    0.821
+   ],
+   "tris": 1072,
+   "tpu": 2296,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 58104,
+   "vtx": 1567,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0681,
+   "thick": 0.1281,
+   "avgTri": 0.00271,
+   "anglePct": 58,
+   "vpt": 1.46,
+   "grad": 0.6,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.352,
+     0.711
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#563b2b",
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "glass",
+    "metal",
+    "rubber"
+   ],
+   "thickRel": 0.58
+  },
+  {
+   "kit": "lowbudget",
+   "name": "digger-b",
+   "hash": "7084ed8698",
+   "kind": "obj-transport-land-road",
+   "size": "l",
+   "wdh": [
+    0.622,
+    1.617,
+    0.633
+   ],
+   "tris": 1295,
+   "tpu": 1839,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 72532,
+   "vtx": 1976,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "minTube": 0.0473,
+   "thick": 0.2195,
+   "avgTri": 0.0044,
+   "anglePct": 55,
+   "vpt": 1.53,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.352,
+     0.445
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#563b2b",
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "glass",
+    "metal",
+    "rubber"
+   ],
+   "thickRel": 1
+  },
+  {
+   "kit": "lowbudget",
+   "name": "digger-c",
+   "hash": "fbbd88a4f1",
+   "kind": "obj-transport-land-road",
+   "size": "m",
+   "wdh": [
+    0.551,
+    0.967,
+    0.473
+   ],
+   "tris": 852,
+   "tpu": 2284,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 46612,
+   "vtx": 1249,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "thick": 0.1915,
+   "avgTri": 0.00332,
+   "anglePct": 51,
+   "vpt": 1.47,
+   "grad": 0.6,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.352,
+     0.445
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#563b2b",
+    "#5b5550",
+    "#f2a93c"
+   ],
+   "tags": [
+    "glass",
+    "metal",
+    "rubber"
+   ],
+   "thickRel": 0.87
+  },
+  {
    "kit": "lowpoly-buildings",
    "name": "apartment-5",
    "hash": "d62ecab743",
@@ -264446,7 +265628,7 @@
     "metal",
     "rubber"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "lpa-construction",
@@ -264704,7 +265886,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.36,
+   "thickRel": 0.35,
    "lint": [
     {
      "level": "error",
@@ -265294,7 +266476,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 1.75
+   "thickRel": 1.73
   },
   {
    "kit": "lpa-construction",
@@ -266179,7 +267361,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1.8,
+   "thickRel": 1.72,
    "lint": [
     {
      "level": "warning",
@@ -267202,7 +268384,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/work-light-a",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "lpa-construction",
@@ -267256,7 +268438,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/work-light-a",
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "lpa-desert",
@@ -267419,7 +268601,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 1.05,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "warning",
@@ -268889,7 +270071,7 @@
     "lpa",
     "metal"
    ],
-   "thickRel": 2.37
+   "thickRel": 2.36
   },
   {
    "kit": "lpa-home",
@@ -271378,7 +272560,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.72
+   "thickRel": 1.7
   },
   {
    "kit": "lpa-home",
@@ -271482,7 +272664,7 @@
     "lpa",
     "metal"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.67
   },
   {
    "kit": "lpa-home",
@@ -271631,7 +272813,7 @@
     "mounted"
    ],
    "variant": "lpa-home/radiator-a",
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "lpa-home",
@@ -271679,7 +272861,7 @@
     "mounted"
    ],
    "variant": "lpa-home/radiator-a",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "lpa-home",
@@ -272128,7 +273310,7 @@
     "plastic",
     "wood-worked"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.14
   },
   {
    "kit": "lpa-home",
@@ -272561,7 +273743,7 @@
     "lpa",
     "metal"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.41
   },
   {
    "kit": "lpa-home",
@@ -273058,7 +274240,7 @@
     "mounted",
     "wood-worked"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.5
   },
   {
    "kit": "lpa-home",
@@ -277275,7 +278457,7 @@
     "metal-iron-cast",
     "wood-planks"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "lpa-west",
@@ -280414,7 +281596,7 @@
     "lpa",
     "metal-iron-wrought"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-west",
@@ -284731,7 +285913,7 @@
     "wood-worked"
    ],
    "variant": "medieval-forge/barrel",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "medieval-forge",
@@ -284778,7 +285960,7 @@
     "wood-worked"
    ],
    "variant": "medieval-forge/barrel",
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "medieval-forge",
@@ -286177,7 +287359,7 @@
     "wood-beam"
    ],
    "variant": "nature-assets/barrel-light",
-   "thickRel": 0.86,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -286231,7 +287413,7 @@
     "wood-planks"
    ],
    "variant": "nature-assets/barrel-light",
-   "thickRel": 0.86,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -292117,7 +293299,7 @@
     "plastic",
     "polygonalmind"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.1
   },
   {
    "kit": "pm-store",
@@ -293242,7 +294424,7 @@
     "plastic",
     "polygonalmind"
    ],
-   "thickRel": 1.76
+   "thickRel": 1.74
   },
   {
    "kit": "pm-store",
@@ -295018,7 +296200,7 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 1.12,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -297441,7 +298623,7 @@
     "metal",
     "qua"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.5
   },
   {
    "kit": "quat-apocalypse",
@@ -299030,7 +300212,7 @@
     "qua"
    ],
    "variant": "quat-cars/car",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-cars",
@@ -299093,7 +300275,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "quat-cars",
@@ -299161,7 +300343,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "quat-cars",
@@ -299225,7 +300407,7 @@
     "qua"
    ],
    "variant": "quat-cars/sports-car",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-cars",
@@ -299348,7 +300530,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.03,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
@@ -299414,7 +300596,7 @@
     "qua"
    ],
    "variant": "quat-cars/car",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-dun-1",
@@ -299733,7 +300915,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.1,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "error",
@@ -312271,7 +313453,7 @@
     "sailing",
     "wood-worked"
    ],
-   "thickRel": 1.09,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "warning",
@@ -312445,7 +313627,7 @@
     "qua",
     "wood-worked"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.74
   },
   {
    "kit": "quat-medieval",
@@ -317239,7 +318421,7 @@
     "sailing",
     "wood-worked"
    ],
-   "thickRel": 0.94,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -328456,7 +329638,7 @@
     "qua",
     "rubber"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.52
   },
   {
    "kit": "quat-shoot",
@@ -333293,7 +334475,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.75
+   "thickRel": 1.74
   },
   {
    "kit": "quat-space",
@@ -333403,7 +334585,7 @@
     "space"
    ],
    "variant": "quat-space/rover",
-   "thickRel": 0.65,
+   "thickRel": 0.66,
    "lint": [
     {
      "level": "error",
@@ -334275,7 +335457,7 @@
     "qua"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.93
+   "thickRel": 1.9
   },
   {
    "kit": "quat-survival",
@@ -334328,7 +335510,7 @@
     "qua"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.71
+   "thickRel": 1.68
   },
   {
    "kit": "quat-survival",
@@ -334986,7 +336168,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.22
   },
   {
    "kit": "quat-survival",
@@ -335334,7 +336516,7 @@
     "metal",
     "qua"
    ],
-   "thickRel": 0.6,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -335543,7 +336725,7 @@
     "qua",
     "tba"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.8
   },
   {
    "kit": "quat-survival",
@@ -336050,7 +337232,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.72,
+   "thickRel": 0.7,
    "lint": [
     {
      "level": "warning",
@@ -336297,7 +337479,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "quat-sushi",
@@ -339526,7 +340708,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.48,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "error",
@@ -347486,7 +348668,7 @@
     "rope"
    ],
    "variant": "rgp-asia/lantern-paper-a",
-   "thickRel": 1.15,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "error",
@@ -347543,7 +348725,7 @@
     "rope"
    ],
    "variant": "rgp-asia/lantern-paper-a",
-   "thickRel": 1.38
+   "thickRel": 1.34
   },
   {
    "kit": "rgp-asia",
@@ -349705,7 +350887,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "rgp-cars",
@@ -349901,7 +351083,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-cars",
@@ -350037,7 +351219,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "rgp-cars",
@@ -350100,7 +351282,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "rgp-cars",
@@ -350237,7 +351419,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "rgp-explosives",
@@ -350334,7 +351516,7 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "rgp-explosives",
@@ -351686,7 +352868,7 @@
     "wood-planks"
    ],
    "variant": "rgp-medieval/barrel",
-   "thickRel": 0.34
+   "thickRel": 0.33
   },
   {
    "kit": "rgp-medieval",
@@ -351735,7 +352917,7 @@
     "wood-planks"
    ],
    "variant": "rgp-medieval/barrel",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "rgp-medieval",
@@ -351887,7 +353069,7 @@
     "rgp",
     "wood-worked"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-medieval",
@@ -359937,7 +361119,7 @@
     "vegetation",
     "wood-planks"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "rgp-medieval",
@@ -362491,7 +363673,7 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-vintage",
@@ -364428,7 +365610,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.28,
+   "thickRel": 1.29,
    "lint": [
     {
      "level": "error",
@@ -367743,7 +368925,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.11
   },
   {
    "kit": "sq-bank",
@@ -368008,7 +369190,7 @@
     "mounted",
     "sidequest"
    ],
-   "thickRel": 1.84
+   "thickRel": 1.83
   },
   {
    "kit": "sq-bank",
@@ -368515,7 +369697,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 2.02,
+   "thickRel": 1.98,
    "lint": [
     {
      "level": "warning",
@@ -369193,7 +370375,7 @@
     "sidequest",
     "wood-worked"
    ],
-   "thickRel": 1.18,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "error",
@@ -370152,7 +371334,7 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.53
   },
   {
    "kit": "sq-carwash",
@@ -370216,7 +371398,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.59
   },
   {
    "kit": "sq-carwash",
@@ -370334,7 +371516,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.27,
+   "thickRel": 1.25,
    "lint": [
     {
      "level": "error",
@@ -370400,7 +371582,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.51,
+   "thickRel": 0.5,
    "lint": [
     {
      "level": "error",
@@ -370594,7 +371776,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "error",
@@ -370665,7 +371847,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.51,
+   "thickRel": 0.5,
    "lint": [
     {
      "level": "error",
@@ -370737,7 +371919,7 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "sq-carwash",
@@ -370802,7 +371984,7 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 0.53,
+   "thickRel": 0.52,
    "lint": [
     {
      "level": "error",
@@ -371851,7 +373033,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.18
   },
   {
    "kit": "sq-cinema",
@@ -372238,7 +373420,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.72,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -373560,7 +374742,7 @@
     "textile"
    ],
    "variant": "sq-gym/flat-bench",
-   "thickRel": 0.7
+   "thickRel": 0.68
   },
   {
    "kit": "sq-gym",
@@ -373615,7 +374797,7 @@
     "textile"
    ],
    "variant": "sq-gym/flat-bench",
-   "thickRel": 0.44
+   "thickRel": 0.43
   },
   {
    "kit": "sq-gym",
@@ -374331,7 +375513,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.31
   },
   {
    "kit": "sq-lab",
@@ -374637,7 +375819,7 @@
     "metal-iron-cast",
     "sidequest"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.71
   },
   {
    "kit": "sq-lab",
@@ -375211,7 +376393,7 @@
     "rubber",
     "sidequest"
    ],
-   "thickRel": 2.38,
+   "thickRel": 2.27,
    "lint": [
     {
      "level": "error",
@@ -376941,7 +378123,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "sq-pool",
@@ -377299,7 +378481,7 @@
     "sidequest",
     "wood-planks"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.75
   },
   {
    "kit": "sq-rink",
@@ -377422,7 +378604,7 @@
     "sidequest",
     "wood-beam"
    ],
-   "thickRel": 0.78,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "error",
@@ -377620,7 +378802,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "sq-rink",
@@ -377678,7 +378860,7 @@
     "plastic",
     "sidequest"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "sq-rink",
@@ -378142,7 +379324,7 @@
     "metal-iron-wrought",
     "sidequest"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.16
   },
   {
    "kit": "sq-rink",
@@ -378992,7 +380174,7 @@
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "styloo-farm",
@@ -379034,7 +380216,7 @@
     "styloo",
     "wood-planks"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.44
   },
   {
    "kit": "styloo-farm",
@@ -382512,7 +383694,7 @@
     "metal",
     "styloo"
    ],
-   "thickRel": 0.63,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "error",
@@ -391805,7 +392987,7 @@
     "plastic",
     "styloo"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.8
   },
   {
    "kit": "styloo-school",
@@ -393040,7 +394222,7 @@
     "styloo",
     "wood-worked"
    ],
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -393199,7 +394381,7 @@
     "styloo"
    ],
    "variant": "styloo-school/locker",
-   "thickRel": 1.48
+   "thickRel": 1.49
   },
   {
    "kit": "styloo-school",
@@ -393462,7 +394644,7 @@
     "styloo",
     "tba"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.71
   },
   {
    "kit": "styloo-school",
@@ -393525,7 +394707,7 @@
     "plastic",
     "styloo"
    ],
-   "thickRel": 0.28,
+   "thickRel": 0.27,
    "lint": [
     {
      "level": "error",
@@ -395352,7 +396534,7 @@
     "plastic",
     "styloo"
    ],
-   "thickRel": 1.04
+   "thickRel": 1
   },
   {
    "kit": "styloo-school",
@@ -395401,7 +396583,7 @@
     "styloo",
     "tba"
    ],
-   "thickRel": 1.49,
+   "thickRel": 1.43,
    "lint": [
     {
      "level": "warning",
@@ -395465,7 +396647,7 @@
     "plastic",
     "styloo"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "styloo-school",
@@ -395875,7 +397057,7 @@
     "wax"
    ],
    "variant": "styloo-school/soap-bar-red",
-   "thickRel": 1.88,
+   "thickRel": 1.86,
    "lint": [
     {
      "level": "warning",
@@ -395929,7 +397111,7 @@
     "wax"
    ],
    "variant": "styloo-school/soap-bar-red",
-   "thickRel": 1.88,
+   "thickRel": 1.86,
    "lint": [
     {
      "level": "warning",
@@ -396188,7 +397370,7 @@
     "styloo",
     "tba"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "styloo-school",
@@ -396328,7 +397510,7 @@
     "metal-iron-steel",
     "styloo"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.57
   },
   {
    "kit": "styloo-school",
@@ -396818,7 +398000,7 @@
     "styloo"
    ],
    "variant": "styloo-school/usb-stick",
-   "thickRel": 1.47
+   "thickRel": 1.45
   },
   {
    "kit": "styloo-school",
@@ -396871,7 +398053,7 @@
     "styloo"
    ],
    "variant": "styloo-school/usb-stick",
-   "thickRel": 1.5
+   "thickRel": 1.48
   },
   {
    "kit": "styloo-school",
@@ -397051,7 +398233,7 @@
     "plastic",
     "styloo"
    ],
-   "thickRel": 0.47,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "error",
@@ -399633,7 +400815,7 @@
     "plastic"
    ],
    "variant": "taalei-kit/boombox",
-   "thickRel": 0.84
+   "thickRel": 0.8
   },
   {
    "kit": "taalei-kit",
@@ -399696,7 +400878,7 @@
     "plastic"
    ],
    "variant": "taalei-kit/boombox",
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "taalei-kit",
@@ -399759,7 +400941,7 @@
     "plastic"
    ],
    "variant": "taalei-kit/boombox",
-   "thickRel": 0.99
+   "thickRel": 0.95
   },
   {
    "kit": "taalei-kit",
@@ -403735,7 +404917,7 @@
     "emissive",
     "metal-iron-wrought"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "western",
@@ -404560,7 +405742,7 @@
     "wood-worked"
    ],
    "variant": "wizp-asia/barrel-a",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "wizp-asia",
@@ -404616,7 +405798,7 @@
     "wood-worked"
    ],
    "variant": "wizp-asia/barrel-a",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "wizp-asia",
@@ -411360,7 +412542,7 @@
     "mounted",
     "wizp"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "wizp-grave",
@@ -413854,7 +415036,7 @@
     "wood-worked"
    ],
    "variant": "wizp-mediev/barrel",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "wizp-mediev",
@@ -413902,7 +415084,7 @@
     "wizp",
     "wood-worked"
    ],
-   "thickRel": 0.91,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "error",
@@ -413958,7 +415140,7 @@
     "wood-worked"
    ],
    "variant": "wizp-mediev/barrel",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "wizp-mediev",
