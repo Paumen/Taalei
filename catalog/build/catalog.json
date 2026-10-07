@@ -4071,19 +4071,20 @@
    "slug": "taalei-kit",
    "name": "taalei-kit",
    "licenseLabel": "CC0",
-   "count": 45,
+   "count": 53,
    "packs": [
     "Taalei"
    ],
    "origins": {
     "procedureel": 4,
-    "Taalei": 41
+    "Taalei": 49
    },
    "scales": {
     "1": 6,
     "none": 4,
     "1.256": 1,
     "0.9": 1,
+    "0.4": 9,
     "0.72": 2,
     "0.142": 1,
     "0.841": 1,
@@ -4096,7 +4097,6 @@
     "0.88": 1,
     "0.8": 1,
     "1.29": 1,
-    "0.4": 1,
     "0.388": 1,
     "0.347": 1,
     "0.328": 1,
@@ -4114,12 +4114,12 @@
     "1.45": 1
    },
    "smooth": {
-    "smooth": 44,
-    "none": 1
+    "smooth": 49,
+    "none": 4
    },
    "kitCheck": {
-    "factor": 1.18,
-    "kinds": 7
+    "factor": 1.16,
+    "kinds": 10
    }
   },
   {
@@ -21026,6 +21026,26 @@
     "wizp-asia/urn-a",
     "wizp-asia/urn-b"
    ]
+  },
+  {
+   "id": "taalei-kit/ice-cream-cart",
+   "type": "detail-variant",
+   "main": "taalei-kit/ice-cream-cart",
+   "members": [
+    "taalei-kit/ice-cream-cart",
+    "taalei-kit/ice-cream-cart-deluxe",
+    "taalei-kit/ice-cream-cart-parasol"
+   ]
+  },
+  {
+   "id": "taalei-kit/stair-truck",
+   "type": "detail-variant",
+   "main": "taalei-kit/stair-truck",
+   "members": [
+    "taalei-kit/stair-truck",
+    "taalei-kit/stair-truck-regional",
+    "taalei-kit/stair-truck-widebody"
+   ]
   }
  ],
  "bands": [
@@ -21108,7 +21128,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 808
+   "count": 815
   },
   {
    "id": "metal-iron",
@@ -21139,7 +21159,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 526,
+   "count": 527,
    "parent": "metal-iron"
   },
   {
@@ -21170,7 +21190,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 620,
+   "count": 621,
    "parent": "wood"
   },
   {
@@ -21178,7 +21198,7 @@
    "name": "Worked",
    "type": "material",
    "description": "Planks shaped into a thing rather than lying as stock: barrels, kegs, buckets, crates, chests, trunks, plank furniture. Takes mid brown 1,0.",
-   "count": 990,
+   "count": 994,
    "parent": "wood"
   },
   {
@@ -21186,7 +21206,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1372,
+   "count": 1373,
    "parent": "wood"
   },
   {
@@ -21272,7 +21292,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 728
+   "count": 731
   },
   {
    "id": "leather",
@@ -21300,14 +21320,14 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 922
+   "count": 927
   },
   {
    "id": "rubber",
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 99
+   "count": 107
   },
   {
    "id": "bone",
@@ -21328,7 +21348,7 @@
    "name": "Food",
    "type": "material",
    "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
-   "count": 635
+   "count": 638
   },
   {
    "id": "wax",
@@ -21349,7 +21369,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
-   "count": 721
+   "count": 725
   },
   {
    "id": "liquid",
@@ -21363,7 +21383,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 149
+   "count": 150
   },
   {
    "id": "rope",
@@ -21412,7 +21432,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 3754,
+   "count": 3761,
    "color": "#c07c8a"
   },
   {
@@ -23095,7 +23115,7 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 303,
+   "count": 310,
    "color": "#5a7a9c"
   },
   {
@@ -23110,7 +23130,7 @@
    "name": "Land vehicle",
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
-   "count": 134
+   "count": 140
   },
   {
    "id": "obj-transport-land-rail",
@@ -23138,21 +23158,21 @@
    "name": "Road vehicle",
    "type": "kind",
    "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
-   "count": 55
+   "count": 58
   },
   {
    "id": "obj-transport-land-road-truck",
    "name": "Truck",
    "type": "kind",
    "description": "truck, bus, fire truck, garbage truck, ambulance, delivery truck",
-   "count": 15
+   "count": 18
   },
   {
    "id": "obj-transport-watercraft",
    "name": "Watercraft",
    "type": "kind",
    "description": "Watercraft with no leaf that fits.",
-   "count": 66
+   "count": 67
   },
   {
    "id": "obj-transport-part",
@@ -23173,14 +23193,14 @@
    "name": "Boat",
    "type": "kind",
    "description": "boat, rowboat, canoe, raft, dinghy",
-   "count": 45
+   "count": 46
   },
   {
    "id": "obj-transport-land-cart",
    "name": "Cart",
    "type": "kind",
    "description": "cart, wagon, carriage",
-   "count": 28
+   "count": 31
   },
   {
    "id": "obj-transport-land-cart-small",
@@ -23742,7 +23762,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 2315,
+   "count": 2316,
    "color": "#877a63"
   },
   {
@@ -23757,7 +23777,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 248,
+   "count": 249,
    "color": "#c98a5a"
   },
   {
@@ -23821,7 +23841,7 @@
    "name": "Stairs",
    "type": "kind",
    "description": "stairs, steps, ramp",
-   "count": 85
+   "count": 86
   },
   {
    "id": "str-barrier",
@@ -25043,7 +25063,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 2925,
+   "count": 2929,
    "derived": true
   },
   {
@@ -25051,7 +25071,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1166,
+   "count": 1170,
    "derived": true
   },
   {
@@ -51074,7 +51094,7 @@
     "wood-worked"
    ],
    "variant": "fs-house/stairs",
-   "thickRel": 1.41
+   "thickRel": 1.44
   },
   {
    "kit": "fs-house",
@@ -51123,7 +51143,7 @@
     "wood-worked"
    ],
    "variant": "fs-house/stairs",
-   "thickRel": 1.47
+   "thickRel": 1.51
   },
   {
    "kit": "fs-house",
@@ -52882,7 +52902,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.84
   },
   {
    "kit": "fs-temple",
@@ -55104,7 +55124,7 @@
     "gemstone",
     "stone-masonry"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.87
   },
   {
    "kit": "fs-temple",
@@ -57635,7 +57655,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.5
   },
   {
    "kit": "fs-temple",
@@ -57677,7 +57697,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.84
   },
   {
    "kit": "fs-temple",
@@ -57720,7 +57740,7 @@
     "stone-masonry"
    ],
    "variant": "fs-temple/tower-bottom",
-   "thickRel": 0.78
+   "thickRel": 0.8
   },
   {
    "kit": "fs-temple",
@@ -57861,7 +57881,7 @@
     "stone-masonry"
    ],
    "variant": "fs-temple/tower-bottom",
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "fs-temple",
@@ -59895,7 +59915,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "fs-terrain",
@@ -63911,7 +63931,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/boat-a",
-   "thickRel": 0.63,
+   "thickRel": 0.62,
    "mark": [
     "grounded"
    ]
@@ -64672,7 +64692,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/cart-a",
-   "thickRel": 1.33,
+   "thickRel": 1.31,
    "lint": [
     {
      "level": "error",
@@ -64723,7 +64743,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/cart-a",
-   "thickRel": 0.9,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "error",
@@ -67573,7 +67593,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-steps",
-   "thickRel": 2.1
+   "thickRel": 2.15
   },
   {
    "kit": "fs-town",
@@ -67617,7 +67637,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-steps",
-   "thickRel": 2.1
+   "thickRel": 2.15
   },
   {
    "kit": "fs-town",
@@ -67661,7 +67681,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-steps",
-   "thickRel": 2.1
+   "thickRel": 2.15
   },
   {
    "kit": "fs-town",
@@ -70901,7 +70921,7 @@
     "wood-planks"
    ],
    "variant": "fs-town/wood-steps",
-   "thickRel": 2.18
+   "thickRel": 2.23
   },
   {
    "kit": "fs-town",
@@ -70945,7 +70965,7 @@
     "wood-planks"
    ],
    "variant": "fs-town/wood-steps",
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "household",
@@ -104144,7 +104164,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "kay-city",
@@ -104214,7 +104234,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "kay-city",
@@ -111124,7 +111144,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "kay-dun-1",
@@ -116332,7 +116352,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.64,
+   "thickRel": 1.68,
    "mark": [
     "centered"
    ]
@@ -116383,7 +116403,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.56,
+   "thickRel": 1.6,
    "mark": [
     "centered"
    ]
@@ -116435,7 +116455,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs-wall-left",
-   "thickRel": 1.27
+   "thickRel": 1.3
   },
   {
    "kit": "kay-dun-2",
@@ -116484,7 +116504,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs-wall-left",
-   "thickRel": 1.27
+   "thickRel": 1.3
   },
   {
    "kit": "kay-dun-2",
@@ -116531,7 +116551,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 1.53,
+   "thickRel": 1.57,
    "mark": [
     "centered"
    ]
@@ -116582,7 +116602,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.44,
+   "thickRel": 1.47,
    "mark": [
     "centered"
    ]
@@ -116690,7 +116710,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.95,
+   "thickRel": 0.97,
    "mark": [
     "centered"
    ]
@@ -116741,7 +116761,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.31,
+   "thickRel": 1.34,
    "mark": [
     "centered"
    ]
@@ -158181,7 +158201,7 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.88
+   "thickRel": 0.94
   },
   {
    "kit": "kay-space",
@@ -158241,7 +158261,7 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.76
+   "thickRel": 0.81
   },
   {
    "kit": "kay-space",
@@ -158308,7 +158328,7 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.97
+   "thickRel": 1.03
   },
   {
    "kit": "kay-space",
@@ -158373,7 +158393,7 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.84
+   "thickRel": 0.9
   },
   {
    "kit": "kay-space",
@@ -166503,7 +166523,7 @@
     "stone-masonry"
    ],
    "variant": "ken-arena/stairs",
-   "thickRel": 1.39
+   "thickRel": 1.42
   },
   {
    "kit": "ken-arena",
@@ -166546,7 +166566,7 @@
     "stone-masonry"
    ],
    "variant": "ken-arena/stairs",
-   "thickRel": 1.11
+   "thickRel": 1.14
   },
   {
    "kit": "ken-arena",
@@ -166589,7 +166609,7 @@
     "stone-masonry"
    ],
    "variant": "ken-arena/stairs",
-   "thickRel": 1.27
+   "thickRel": 1.3
   },
   {
    "kit": "ken-arena",
@@ -168896,7 +168916,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.07
   },
   {
    "kit": "ken-car",
@@ -169487,7 +169507,7 @@
     "plastic"
    ],
    "variant": "ken-car/delivery",
-   "thickRel": 0.74
+   "thickRel": 0.79
   },
   {
    "kit": "ken-car",
@@ -169557,7 +169577,7 @@
     "plastic"
    ],
    "variant": "ken-car/delivery",
-   "thickRel": 1.06
+   "thickRel": 1.14
   },
   {
    "kit": "ken-car",
@@ -169626,7 +169646,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.18
   },
   {
    "kit": "ken-car",
@@ -169695,7 +169715,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.08
   },
   {
    "kit": "ken-car",
@@ -169764,7 +169784,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "ken-car",
@@ -169833,7 +169853,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "ken-car",
@@ -169899,7 +169919,7 @@
     "plastic"
    ],
    "variant": "ken-car/race",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "ken-car",
@@ -170095,7 +170115,7 @@
     "plastic"
    ],
    "variant": "ken-car/sedan",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "ken-car",
@@ -170494,7 +170514,7 @@
     "plastic"
    ],
    "variant": "ken-car/tractor",
-   "thickRel": 0.8,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -170739,7 +170759,7 @@
     "plastic"
    ],
    "variant": "ken-car/truck",
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "ken-car",
@@ -172387,7 +172407,7 @@
     "stone-masonry"
    ],
    "variant": "ken-castle/stairs-stone",
-   "thickRel": 1.25
+   "thickRel": 1.28
   },
   {
    "kit": "ken-castle",
@@ -172429,7 +172449,7 @@
     "stone-masonry"
    ],
    "variant": "ken-castle/stairs-stone",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "ken-castle",
@@ -173502,7 +173522,7 @@
     "plastic"
    ],
    "variant": "ken-chars/wheelchair-power",
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "ken-chars",
@@ -173545,7 +173565,7 @@
     "metal-iron-steel"
    ],
    "variant": "ken-chars/wheelchair-power",
-   "thickRel": 0.58
+   "thickRel": 0.59
   },
   {
    "kit": "ken-chars",
@@ -173594,7 +173614,7 @@
     "textile"
    ],
    "variant": "ken-chars/wheelchair",
-   "thickRel": 0.45
+   "thickRel": 0.46
   },
   {
    "kit": "ken-commercial",
@@ -176557,7 +176577,7 @@
     "plastic"
    ],
    "variant": "ken-factory/catwalk-stairs",
-   "thickRel": 0.64
+   "thickRel": 0.66
   },
   {
    "kit": "ken-factory",
@@ -176606,7 +176626,7 @@
     "plastic"
    ],
    "variant": "ken-factory/catwalk-stairs",
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "ken-factory",
@@ -192484,7 +192504,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.64
   },
   {
    "kit": "ken-furniture",
@@ -192533,7 +192553,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/stairs-open",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "ken-furniture",
@@ -192583,7 +192603,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/stairs-open",
-   "thickRel": 0.55,
+   "thickRel": 0.56,
    "lint": [
     {
      "level": "error",
@@ -192637,7 +192657,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.62
+   "thickRel": 1.66
   },
   {
    "kit": "ken-furniture",
@@ -203436,7 +203456,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.65
+   "thickRel": 1.69
   },
   {
    "kit": "ken-mini-dun",
@@ -205646,7 +205666,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.29
   },
   {
    "kit": "ken-nature",
@@ -209406,7 +209426,7 @@
     "wood-beam"
    ],
    "variant": "ken-pirate/boat-row-large",
-   "thickRel": 0.47
+   "thickRel": 0.46
   },
   {
    "kit": "ken-pirate",
@@ -209451,7 +209471,7 @@
     "wood-beam"
    ],
    "variant": "ken-pirate/boat-row-large",
-   "thickRel": 0.51
+   "thickRel": 0.5
   },
   {
    "kit": "ken-pirate",
@@ -215412,7 +215432,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.11
   },
   {
    "kit": "ken-proto",
@@ -215637,7 +215657,7 @@
     "plastic"
    ],
    "variant": "ken-proto/vehicle",
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -218477,7 +218497,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.96
   },
   {
    "kit": "ken-racing",
@@ -222674,7 +222694,7 @@
     "plastic",
     "wood-worked"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.69
   },
   {
    "kit": "ken-skate",
@@ -222722,7 +222742,7 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.14
   },
   {
    "kit": "ken-skate",
@@ -227013,7 +227033,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "ken-space",
@@ -227248,7 +227268,7 @@
     "metal",
     "space"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.48
   },
   {
    "kit": "ken-space",
@@ -227303,7 +227323,7 @@
     "space"
    ],
    "variant": "ken-space/stairs",
-   "thickRel": 0.7
+   "thickRel": 0.72
   },
   {
    "kit": "ken-space",
@@ -227358,7 +227378,7 @@
     "space"
    ],
    "variant": "ken-space/stairs",
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "ken-space",
@@ -230065,7 +230085,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-corner",
-   "thickRel": 1.02
+   "thickRel": 1.05
   },
   {
    "kit": "ken-station",
@@ -230120,7 +230140,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-corner",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "ken-station",
@@ -230279,7 +230299,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "ken-station",
@@ -230425,7 +230445,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-small-edges-handrail",
-   "thickRel": 1.03
+   "thickRel": 1.05
   },
   {
    "kit": "ken-station",
@@ -230480,7 +230500,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-small-edges-handrail",
-   "thickRel": 1
+   "thickRel": 1.02
   },
   {
    "kit": "ken-station",
@@ -230529,7 +230549,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-small-edges-handrail",
-   "thickRel": 1.86
+   "thickRel": 1.91
   },
   {
    "kit": "ken-station",
@@ -230578,7 +230598,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 0.94
+   "thickRel": 0.96
   },
   {
    "kit": "ken-station",
@@ -237432,7 +237452,7 @@
     "wood-worked"
    ],
    "variant": "ken-town/cart-high",
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "ken-town",
@@ -237492,7 +237512,7 @@
     "wood-worked"
    ],
    "variant": "ken-town/cart-high",
-   "thickRel": 1.49
+   "thickRel": 1.47
   },
   {
    "kit": "ken-town",
@@ -237546,7 +237566,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1,
+   "thickRel": 0.99,
    "mark": [
     "centered"
    ]
@@ -239750,7 +239770,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-full-corner-outer",
-   "thickRel": 1.63
+   "thickRel": 1.67
   },
   {
    "kit": "ken-town",
@@ -239793,7 +239813,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-full-corner-outer",
-   "thickRel": 1.36
+   "thickRel": 1.39
   },
   {
    "kit": "ken-town",
@@ -239836,7 +239856,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-full-corner-outer",
-   "thickRel": 1.52
+   "thickRel": 1.55
   },
   {
    "kit": "ken-town",
@@ -239879,7 +239899,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-stone-round",
-   "thickRel": 1.48
+   "thickRel": 1.52
   },
   {
    "kit": "ken-town",
@@ -239921,7 +239941,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-stone-round",
-   "thickRel": 0.54,
+   "thickRel": 0.55,
    "mark": [
     "centered"
    ]
@@ -239973,7 +239993,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wide-wood",
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "ken-town",
@@ -240022,7 +240042,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wide-wood",
-   "thickRel": 0.49
+   "thickRel": 0.5
   },
   {
    "kit": "ken-town",
@@ -240072,7 +240092,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wood-handrail",
-   "thickRel": 0.59
+   "thickRel": 0.61
   },
   {
    "kit": "ken-town",
@@ -240122,7 +240142,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wood-handrail",
-   "thickRel": 0.51
+   "thickRel": 0.52
   },
   {
    "kit": "ken-town",
@@ -245580,7 +245600,7 @@
     "spin"
    ],
    "variant": "ken-water/boat-fan-anim",
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "ken-water",
@@ -245636,7 +245656,7 @@
     "tba"
    ],
    "variant": "ken-water/boat-fan-anim",
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "ken-water",
@@ -245695,7 +245715,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "ken-water",
@@ -245753,7 +245773,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-house-a",
-   "thickRel": 1.35
+   "thickRel": 1.33
   },
   {
    "kit": "ken-water",
@@ -245822,7 +245842,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-house-a",
-   "thickRel": 1.35
+   "thickRel": 1.34
   },
   {
    "kit": "ken-water",
@@ -245897,7 +245917,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-house-a",
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "ken-water",
@@ -245966,7 +245986,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-house-a",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "ken-water",
@@ -246023,7 +246043,7 @@
     "textile"
    ],
    "variant": "ken-water/boat-sail-a",
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "ken-water",
@@ -246143,7 +246163,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.47
+   "thickRel": 1.45
   },
   {
    "kit": "ken-water",
@@ -246207,7 +246227,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.44
+   "thickRel": 1.43
   },
   {
    "kit": "ken-water",
@@ -246271,7 +246291,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.46
+   "thickRel": 1.45
   },
   {
    "kit": "ken-water",
@@ -246330,7 +246350,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "ken-water",
@@ -246389,7 +246409,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-water",
@@ -246453,7 +246473,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "ken-water",
@@ -246511,7 +246531,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.53
+   "thickRel": 1.51
   },
   {
    "kit": "ken-water",
@@ -246575,7 +246595,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.32
+   "thickRel": 1.31
   },
   {
    "kit": "ken-water",
@@ -246633,7 +246653,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.5
+   "thickRel": 1.48
   },
   {
    "kit": "ken-water",
@@ -246692,7 +246712,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-speed-a",
-   "thickRel": 1.44
+   "thickRel": 1.42
   },
   {
    "kit": "ken-water",
@@ -246762,7 +246782,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tow-a-anim",
-   "thickRel": 1.27,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
@@ -246837,7 +246857,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tow-a-anim",
-   "thickRel": 1.27,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
@@ -246914,7 +246934,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tow-a-anim",
-   "thickRel": 1.4,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -246986,7 +247006,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tow-a-anim",
-   "thickRel": 1.4,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -247061,7 +247081,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tug-a-anim",
-   "thickRel": 1.11,
+   "thickRel": 1.1,
    "mark": [
     "centered"
    ]
@@ -247128,7 +247148,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tug-a-anim",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "ken-water",
@@ -247196,7 +247216,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tug-a-anim",
-   "thickRel": 1.02,
+   "thickRel": 1.01,
    "mark": [
     "centered"
    ]
@@ -247263,7 +247283,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tug-a-anim",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-water",
@@ -247321,7 +247341,7 @@
    "alpha": true,
    "pbr": true,
    "variant": "ken-water/boat-tug-a-anim",
-   "thickRel": 1.44
+   "thickRel": 1.42
   },
   {
    "kit": "ken-water",
@@ -263146,7 +263166,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -263620,7 +263640,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "lpa-west",
@@ -263669,7 +263689,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/cart-b",
-   "thickRel": 1.21,
+   "thickRel": 1.19,
    "lint": [
     {
      "level": "warning",
@@ -263731,7 +263751,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/cart-b",
-   "thickRel": 0.71,
+   "thickRel": 0.7,
    "lint": [
     {
      "level": "warning",
@@ -263913,7 +263933,7 @@
     "wood-beam"
    ],
    "variant": "lpa-west/corner-staircase-b",
-   "thickRel": 1.24
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-west",
@@ -263962,7 +263982,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/corner-staircase-b",
-   "thickRel": 1.24
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-west",
@@ -264010,7 +264030,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.51,
+   "thickRel": 0.52,
    "lint": [
     {
      "level": "error",
@@ -265768,7 +265788,7 @@
     "lpa",
     "metal-iron-wrought"
    ],
-   "thickRel": 0.23
+   "thickRel": 0.24
   },
   {
    "kit": "lpa-west",
@@ -267468,7 +267488,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.06,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "warning",
@@ -267742,7 +267762,7 @@
     "scale-big",
     "wood-beam"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "lpa-west",
@@ -267784,7 +267804,7 @@
     "wood-beam"
    ],
    "variant": "lpa-west/staircase-b",
-   "thickRel": 1.37
+   "thickRel": 1.4
   },
   {
    "kit": "lpa-west",
@@ -267833,7 +267853,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/staircase-b",
-   "thickRel": 1.2
+   "thickRel": 1.23
   },
   {
    "kit": "lpa-west",
@@ -267881,7 +267901,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.38,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "error",
@@ -267937,7 +267957,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/stairs-d",
-   "thickRel": 0.59,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -267993,7 +268013,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/stairs-d",
-   "thickRel": 0.59,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -268049,7 +268069,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/stairs-d",
-   "thickRel": 0.38,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "error",
@@ -271308,7 +271328,7 @@
    "tags": [
     "stone-masonry"
    ],
-   "thickRel": 1.35,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -279150,7 +279170,7 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.37
   },
   {
    "kit": "pm-store",
@@ -284949,7 +284969,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "quat-cars",
@@ -285140,7 +285160,7 @@
     "qua"
    ],
    "variant": "quat-cars/sports-car",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "quat-cars",
@@ -286217,7 +286237,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.78
+   "thickRel": 0.8
   },
   {
    "kit": "quat-dun-1",
@@ -286261,7 +286281,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.95
+   "thickRel": 0.98
   },
   {
    "kit": "quat-dun-1",
@@ -286305,7 +286325,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.91
+   "thickRel": 0.93
   },
   {
    "kit": "quat-dun-1",
@@ -288671,7 +288691,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "error",
@@ -298522,7 +298542,7 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 0.49,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
@@ -313712,7 +313732,7 @@
     "qua",
     "rope"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "quat-ships",
@@ -314305,7 +314325,7 @@
     "qua",
     "rubber"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "quat-shoot",
@@ -318785,7 +318805,7 @@
      "open": 0.35
     }
    },
-   "thickRel": 0.61,
+   "thickRel": 0.62,
    "lint": [
     {
      "level": "warning",
@@ -319851,7 +319871,7 @@
      "inverted": 0.28
     }
    },
-   "thickRel": 0.67,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -321487,7 +321507,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "quat-survival",
@@ -325375,7 +325395,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.49,
+   "thickRel": 0.5,
    "lint": [
     {
      "level": "error",
@@ -332190,7 +332210,7 @@
     "rgp",
     "wood-worked"
    ],
-   "thickRel": 0.83,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "error",
@@ -334506,7 +334526,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.41,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "error",
@@ -338936,7 +338956,7 @@
     "rope",
     "wood-worked"
    ],
-   "thickRel": 0.96,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "warning",
@@ -343266,7 +343286,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "rgp-medieval",
@@ -344209,7 +344229,7 @@
     "rgp",
     "stone-masonry"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.46
   },
   {
    "kit": "rgp-medieval",
@@ -344270,7 +344290,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.59,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -345217,7 +345237,7 @@
     "rgp",
     "wood-worked"
    ],
-   "thickRel": 0.84,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "warning",
@@ -346067,7 +346087,7 @@
     "sailing",
     "wood-beam"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.63
   },
   {
    "kit": "rgp-props",
@@ -346227,7 +346247,7 @@
     "rgp",
     "wood-worked"
    ],
-   "thickRel": 1.02,
+   "thickRel": 1,
    "mark": [
     "centered"
    ]
@@ -349330,7 +349350,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.22
   },
   {
    "kit": "rgs-vehicles",
@@ -349387,7 +349407,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.28
   },
   {
    "kit": "rgs-vehicles",
@@ -349455,7 +349475,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.91,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "error",
@@ -349519,7 +349539,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.3,
+   "thickRel": 1.31,
    "lint": [
     {
      "level": "error",
@@ -349589,7 +349609,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.45
   },
   {
    "kit": "rgs-vehicles",
@@ -349652,7 +349672,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.34
   },
   {
    "kit": "rocks",
@@ -364341,7 +364361,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "styloo-farm",
@@ -380416,7 +380436,7 @@
     "rubber",
     "styloo"
    ],
-   "thickRel": 1.3,
+   "thickRel": 1.39,
    "lint": [
     {
      "level": "error",
@@ -383408,6 +383428,77 @@
   },
   {
    "kit": "taalei-kit",
+   "name": "boarding-stairs-wooden",
+   "hash": "752b5ab176",
+   "kind": "str-access-stairs",
+   "size": "l",
+   "wdh": [
+    1.547,
+    0.544,
+    1.308
+   ],
+   "tris": 1680,
+   "tpu": 1526,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 103212,
+   "vtx": 2864,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0265,
+   "thick": 0.0482,
+   "avgTri": 0.00289,
+   "anglePct": 88,
+   "vpt": 1.7,
+   "grad": 0.6,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.742
+    ],
+    "8,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#7f3927",
+    "#8b5936",
+    "#b58158",
+    "#dbae80"
+   ],
+   "tags": [
+    "metal-iron-cast",
+    "plastic",
+    "rubber",
+    "wood-beam",
+    "wood-planks",
+    "wood-worked"
+   ],
+   "thickRel": 0.42
+  },
+  {
+   "kit": "taalei-kit",
    "name": "dice-pair",
    "hash": "33050f28e3",
    "kind": "obj-leisure-game-gamble",
@@ -384127,6 +384218,215 @@
   },
   {
    "kit": "taalei-kit",
+   "name": "ice-cream-cart-deluxe",
+   "hash": "3cca369f4d",
+   "kind": "obj-transport-land-cart",
+   "size": "m",
+   "wdh": [
+    0.677,
+    0.399,
+    0.69
+   ],
+   "tris": 3722,
+   "tpu": 10851,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 232076,
+   "vtx": 6508,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0264,
+   "thick": 0.108,
+   "avgTri": 0.00113,
+   "anglePct": 87,
+   "vpt": 1.75,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.742
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#b58158",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "emissive",
+    "food",
+    "glass",
+    "metal",
+    "rubber",
+    "textile",
+    "wood-worked"
+   ],
+   "variant": "taalei-kit/ice-cream-cart",
+   "thickRel": 1.04,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 10851 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "ice-cream-cart-parasol",
+   "hash": "49d944696e",
+   "kind": "obj-transport-land-cart",
+   "size": "m",
+   "wdh": [
+    0.693,
+    0.596,
+    0.802
+   ],
+   "tris": 1382,
+   "tpu": 3517,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 84624,
+   "vtx": 2339,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0265,
+   "thick": 0.1084,
+   "avgTri": 0.00225,
+   "anglePct": 68,
+   "vpt": 1.69,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "1,1": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#23562c",
+    "#5b5550",
+    "#7f3927",
+    "#b58158",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "glass",
+    "metal",
+    "rubber",
+    "textile",
+    "wood-worked"
+   ],
+   "variant": "taalei-kit/ice-cream-cart",
+   "thickRel": 1.04
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "ice-cream-cart",
+   "hash": "9bdd9f2824",
+   "kind": "obj-transport-land-cart",
+   "size": "m",
+   "wdh": [
+    0.658,
+    0.383,
+    0.73
+   ],
+   "tris": 2144,
+   "tpu": 5994,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 124196,
+   "vtx": 3433,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0264,
+   "thick": 0.111,
+   "avgTri": 0.00154,
+   "anglePct": 75,
+   "vpt": 1.6,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#5b5550",
+    "#7f3927",
+    "#b58158",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "food",
+    "glass",
+    "metal",
+    "rubber",
+    "textile",
+    "wood-worked"
+   ],
+   "variant": "taalei-kit/ice-cream-cart",
+   "thickRel": 1.07
+  },
+  {
+   "kit": "taalei-kit",
    "name": "jet",
    "hash": "5cf174cce1",
    "kind": "obj-transport-air",
@@ -384175,6 +384475,64 @@
     "metal-iron-steel"
    ],
    "thickRel": 0.69
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "jetski",
+   "hash": "5c29b2ed5c",
+   "kind": "obj-transport-watercraft-boat",
+   "size": "m",
+   "wdh": [
+    1.276,
+    0.488,
+    0.53
+   ],
+   "tris": 586,
+   "tpu": 1344,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 30004,
+   "vtx": 783,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.2437,
+   "thick": 0.2658,
+   "avgTri": 0.00872,
+   "anglePct": 14,
+   "vpt": 1.34,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.742
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#5b5550",
+    "#d8d1bd"
+   ],
+   "tags": [
+    "metal",
+    "plastic",
+    "rubber"
+   ],
+   "thickRel": 1.65
   },
   {
    "kit": "taalei-kit",
@@ -384799,6 +385157,214 @@
    ],
    "variant": "taalei-kit/scarecrow",
    "thickRel": 0.79
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "stair-truck-regional",
+   "hash": "b1dfd0272d",
+   "kind": "obj-transport-land-road-truck",
+   "size": "l",
+   "wdh": [
+    1.896,
+    0.976,
+    1.654
+   ],
+   "tris": 1080,
+   "tpu": 353,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 71260,
+   "vtx": 1978,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0279,
+   "thick": 0.0876,
+   "avgTri": 0.01864,
+   "anglePct": 84,
+   "vpt": 1.83,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#1367a6",
+    "#343745",
+    "#5b5550",
+    "#7f3927",
+    "#82868e",
+    "#f2a93c"
+   ],
+   "tags": [
+    "glass",
+    "metal",
+    "plastic",
+    "rubber"
+   ],
+   "variant": "taalei-kit/stair-truck",
+   "thickRel": 0.38
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "stair-truck-widebody",
+   "hash": "e321868861",
+   "kind": "obj-transport-land-road-truck",
+   "size": "l",
+   "wdh": [
+    2.956,
+    0.976,
+    2.98
+   ],
+   "tris": 1464,
+   "tpu": 170,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 95064,
+   "vtx": 2650,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0279,
+   "thick": 0.0518,
+   "avgTri": 0.0222,
+   "anglePct": 72,
+   "vpt": 1.81,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#7f3927",
+    "#82868e",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal",
+    "plastic",
+    "rubber"
+   ],
+   "variant": "taalei-kit/stair-truck",
+   "thickRel": 0.22
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "stair-truck",
+   "hash": "dd1ee94647",
+   "kind": "obj-transport-land-road-truck",
+   "size": "l",
+   "wdh": [
+    2.236,
+    0.976,
+    2.034
+   ],
+   "tris": 1200,
+   "tpu": 270,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 78736,
+   "vtx": 2190,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0279,
+   "thick": 0.0696,
+   "avgTri": 0.01906,
+   "anglePct": 82,
+   "vpt": 1.83,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.742
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#343745",
+    "#5b5550",
+    "#7f3927",
+    "#82868e",
+    "#d8d1bd",
+    "#f2a93c"
+   ],
+   "tags": [
+    "metal",
+    "plastic",
+    "rubber"
+   ],
+   "variant": "taalei-kit/stair-truck",
+   "thickRel": 0.3
   },
   {
    "kit": "taalei-kit",
@@ -386320,7 +386886,7 @@
      "other": 0
     }
    },
-   "thickRel": 0.83,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "warning",
@@ -387789,7 +388355,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "wizp-asia",
@@ -392329,7 +392895,7 @@
     "wood-worked"
    ],
    "variant": "wizp-fish/boat-oars",
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "wizp-fish",
@@ -392392,7 +392958,7 @@
     "wood-worked"
    ],
    "variant": "wizp-fish/boat-oars",
-   "thickRel": 0.51
+   "thickRel": 0.5
   },
   {
    "kit": "wizp-fish",
