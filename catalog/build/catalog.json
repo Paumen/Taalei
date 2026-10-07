@@ -3982,8 +3982,8 @@
     "smooth": 14
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 8
+    "factor": 1.05,
+    "kinds": 7
    }
   },
   {
@@ -23413,7 +23413,7 @@
    "name": "Handgun",
    "type": "kind",
    "description": "pistol, revolver",
-   "count": 31
+   "count": 32
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-hand-revolver",
@@ -23427,7 +23427,7 @@
    "name": "SMG",
    "type": "kind",
    "description": "A compact automatic gun held in one or two hands: submachine gun, machine pistol.",
-   "count": 5
+   "count": 4
   },
   {
    "id": "obj-equipment-target",
@@ -167665,7 +167665,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/blaster-o",
-   "thickRel": 1,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "error",
@@ -372295,7 +372295,7 @@
    "kit": "styloo-guns",
    "name": "machine-pistol",
    "hash": "38d6518eba",
-   "kind": "obj-equipment-weapon-ranged-firearm-smg",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.211,
@@ -372342,14 +372342,7 @@
     "metal-iron-wrought",
     "styloo"
    ],
-   "thickRel": 0.46,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.211 under min 0.25 (obj-equipment-weapon-ranged-firearm-smg)"
-    }
-   ]
+   "thickRel": 0.48
   },
   {
    "kit": "styloo-guns",
