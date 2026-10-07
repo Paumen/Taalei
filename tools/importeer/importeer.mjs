@@ -130,8 +130,13 @@ function textuurkaart(uitgepakt) {
   return new Map(Object.entries(JSON.parse(readFileSync(pad, 'utf8'))).map(([bestand, regel]) => [basename(bestand), regel]));
 }
 
-function bronVanModel(bronkit, uitgepakt, model, texturen = {}) {
-  const opNaam = new Map(alleBestanden(uitgepakt).map((pad) => [basename(pad).toLowerCase(), pad]));
+function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt) {
+  const eigenMap = dirname(join(wortel, model.bestand ?? ''));
+  const opNaam = new Map(
+    alleBestanden(uitgepakt)
+      .sort((a, b) => (dirname(a) === eigenMap) - (dirname(b) === eigenMap))
+      .map((pad) => [basename(pad).toLowerCase(), pad]),
+  );
   const gevraagd = (pad) => texturen[basename(pad)] ?? basename(pad);
   const regel = textuurkaart(uitgepakt).get(basename(model.bestand ?? ''));
   const driehoeken = [];
@@ -292,7 +297,7 @@ const config = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const bronkit = BRONKITS.find((b) => b.map === config.map);
 if (!bronkit) throw new Error(`${config.map}: no row in BRONKITS`);
 
-const { uitgepakt, modellen } = bronModellen(bronkit);
+const { map: wortel, uitgepakt, modellen } = bronModellen(bronkit);
 const opBronnaam = new Map(modellen.map((m) => [m.naam, m]));
 
 const doel = join(WERK_DIR, config.kit);
@@ -305,7 +310,7 @@ if (config.licentie && existsSync(join(ROOT, config.licentie))) {
 for (const rij of config.modellen) {
   const model = opBronnaam.get(rij.bron);
   if (!model) throw new Error(`${config.map}: no source model named ${rij.bron}`);
-  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen);
+  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel);
   const banden = { ...(config.banden ?? {}), ...(rij.banden ?? {}) };
   const { json, bin } = bouwGlb(
     rij.naam,

@@ -799,6 +799,23 @@ window.KENNEY_KITS = [
   ]
  },
  {
+  "collection": "emace",
+  "kits": [
+   "emace-80s",
+   "emace-village"
+  ]
+ },
+ {
+  "collection": "3dm",
+  "kits": [
+   "3dm-city",
+   "3dm-city-2",
+   "3dm-industrial",
+   "3dm-industrial-2",
+   "3dm-medieval"
+  ]
+ },
+ {
   "slug": "ipoly-concert",
   "url": "https://poly.pizza/u/iPoly3D",
   "licenseLabel": "CC0 1.0"
@@ -987,6 +1004,30 @@ window.KENNEY_KITS = [
  },
  {
   "slug": "emace-80s",
+  "url": null
+ },
+ {
+  "slug": "3dm-city-2",
+  "url": null
+ },
+ {
+  "slug": "3dm-city",
+  "url": null
+ },
+ {
+  "slug": "3dm-industrial-2",
+  "url": null
+ },
+ {
+  "slug": "3dm-industrial",
+  "url": null
+ },
+ {
+  "slug": "3dm-medieval",
+  "url": null
+ },
+ {
+  "slug": "emace-village",
   "url": null
  }
 ]
