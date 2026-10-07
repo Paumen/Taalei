@@ -337,7 +337,7 @@ Making and validating:
 - **`P06`** — When creating an asset, Claude first renders and looks at the reference assets.
 - **`P07`** — When validating, Claude renders 2+ references of the group beside it at the same scale.
 - **`P08`** — A `kind:set` is not validated directly.
-- **`P09`** — Rescaling is done globally for a kit.
+- **`P09`** — Rescaling is done globally for a kit, with `tools/import/scale.mjs`. A model's size lives in its geometry: no root node carries a scale, and `taaleiland.schaal` records the factor.
 
 Importing a pack:
 

@@ -108,6 +108,7 @@ async function lint(file) {
   const world = i => { let m = nodeMatrix(nodes[i]); while (parent[i] !== undefined) { i = parent[i]; m = multiplyMatrix(nodeMatrix(nodes[i]), m); } return m; };
   if (nodes.some((n, i) => n.children && !('mesh' in n) && parent[i] === undefined && n.children.length === 1)) add('info', 'structure', 'wrapper node around the mesh (box inside a box)');
   if (nodes.some(n => n.rotation && Math.abs(n.rotation[3]) < 0.9999)) add('info', 'structure', 'rotation stored on the node, not in the shape');
+  if ((j.scenes?.[j.scene ?? 0]?.nodes || []).some(i => nodes[i].scale)) add('error', 'house', 'scale on a root node: the size belongs in the geometry (tools/import/scale.mjs)');
   if (nodes.some(n => n.scale && (Math.abs(n.scale[0] - n.scale[1]) > 1e-6 || Math.abs(n.scale[0] - n.scale[2]) > 1e-6))) add('warn', 'structure', 'non-uniform scale on a node');
   if ((j.animations || []).length) add('info', 'structure', `${j.animations.length} animation(s): ${j.animations.map(a => a.name).join(', ')}`);
 
