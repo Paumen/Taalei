@@ -29,5 +29,5 @@ Per model the tool merges the source primitives into one draw call, reads a
 band per triangle from the source colour, recomputes vertex normals with faces
 joining below the threshold, and writes the UV into that band's cell of
 `kits/colormap.png`, light at the top of the gradient and dark at the bottom.
-Geometry stays in source units; the node carries the scale and the translation
-that grounds and centres the model.
+The scale is built into the geometry; the node carries only the translation that
+grounds and centres the model.

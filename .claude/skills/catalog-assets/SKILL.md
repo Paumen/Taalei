@@ -21,6 +21,8 @@ different colours, is evened in place with `tools/import/face-bands.mjs`. A tube
 or stick thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
 A model lying in its source pose where its kind stands upright is turned in
 place with `tools/import/upright.mjs`, which also grounds and centres it.
+A kit's size is set in place with `tools/import/scale.mjs --to` (or `--by` for a kit
+with per-model factors), which writes it into the geometry.
 A model with more triangles than its shape needs is thinned in place with
 `tools/import/simplify.mjs`; render every model it changed, before and after,
 and put back any that look wrong.

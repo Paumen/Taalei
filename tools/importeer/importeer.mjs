@@ -186,7 +186,7 @@ function bouwGlb(naam, bron, banden, schaal, drempel, bronkitNaam, bronbestand) 
     for (const [k, hoek] of tri.hoeken.entries()) {
       const n = normalen[f * 3 + k];
       const uv = bandUv(band, n[1]);
-      const p = [posities[hoek * 3], posities[hoek * 3 + 1], posities[hoek * 3 + 2]];
+      const p = [posities[hoek * 3] * schaal, posities[hoek * 3 + 1] * schaal, posities[hoek * 3 + 2] * schaal];
       const sleutel = [...p, ...n.map((v) => v.toFixed(4)), ...uv.map((v) => v.toFixed(5))].join(',');
       let i = gezien.get(sleutel);
       if (i === undefined) {
@@ -244,12 +244,7 @@ function bouwGlb(naam, bron, banden, schaal, drempel, bronkitNaam, bronbestand) 
       {
         name: naam,
         mesh: 0,
-        scale: [schaal, schaal, schaal],
-        translation: [
-          -((laag[0] + hoog[0]) / 2) * schaal,
-          -laag[1] * schaal,
-          -((laag[2] + hoog[2]) / 2) * schaal,
-        ],
+        translation: [-(laag[0] + hoog[0]) / 2, -laag[1], -(laag[2] + hoog[2]) / 2],
       },
     ],
     meshes: [
