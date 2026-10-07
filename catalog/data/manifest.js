@@ -534,20 +534,15 @@ window.KENNEY_KITS = [
   ]
  },
  {
-  "collection": "ken-transport",
-  "kits": [
-   "ken-car",
-   "ken-train",
-   "ken-water"
-  ]
- },
- {
   "collection": "ken-city",
   "kits": [
    "ken-commercial",
    "ken-industrial",
    "ken-suburban",
-   "ken-roads"
+   "ken-roads",
+   "ken-car",
+   "ken-train",
+   "ken-water"
   ]
  },
  {
