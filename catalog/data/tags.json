@@ -2601,7 +2601,8 @@
     "m3-base/wood-barrel",
     "m3-base/anchor-01",
     "m3-base/outdoor-wall-light-01",
-    "m3-base/propeller-01"
+    "m3-base/propeller-01",
+    "emace-80s/telescope-stand"
    ],
    "parent": "metal-iron"
   },
@@ -3483,7 +3484,8 @@
     "m3-base/fleur-de-lys-01",
     "m3-base/goblet-06",
     "m3-base/saber-01",
-    "pm-store/bell"
+    "pm-store/bell",
+    "emace-80s/telescope-stand"
    ],
    "parent": "metal"
   },
@@ -6938,7 +6940,8 @@
     "m3-base/wooden-square-bollard",
     "m3-base/estate-sign-04",
     "m3-base/sign-shelter-01",
-    "m3-base/ship-wheel"
+    "m3-base/ship-wheel",
+    "emace-80s/telescope-stand"
    ],
    "parent": "wood"
   },
@@ -14627,7 +14630,8 @@
     "m3-base/display-table-03",
     "m3-base/outdoor-wall-light-01",
     "m3-base/pint-glass-01",
-    "m3-base/reed-diffuser-01"
+    "m3-base/reed-diffuser-01",
+    "emace-80s/telescope-stand"
    ]
   },
   {
@@ -15810,7 +15814,8 @@
     "household/telescope",
     "sq-observatory/refractor-telescope",
     "emace-80s/telescope-legs",
-    "emace-80s/telescope"
+    "emace-80s/telescope",
+    "emace-80s/telescope-stand"
    ]
   },
   {
@@ -15940,7 +15945,6 @@
    "models": [
     "quat-survival/battery-slim",
     "quat-survival/battery",
-    "rgp-vintage/record",
     "ipoly-electronics/circuit-board",
     "ipoly-electronics/microchip-small",
     "ipoly-electronics/microchip",
@@ -15948,24 +15952,33 @@
     "ipoly-electronics/ram",
     "lpa-home/tablet",
     "styloo-school/router",
-    "styloo-school/usb-stick-swivel",
-    "styloo-school/usb-stick",
     "3dm-electronics/router",
-    "3dm-electronics/usb-stick",
-    "m3-base/cd",
     "m3-base/circuit-breaker",
     "m3-base/fire-alarm-system",
     "m3-base/fuse-box",
-    "m3-base/game-cartridge-01",
     "m3-base/light-switch",
     "m3-base/lightbulb",
     "m3-base/plug-socket",
     "m3-base/smoke-detector",
     "m3-base/speedometer-needle",
-    "m3-base/usb-stick",
+    "m3-base/dish-antenna-01"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-media",
+   "name": "Media",
+   "type": "kind",
+   "description": "cd, record, vinyl, record sleeve, game cartridge, usb stick",
+   "models": [
+    "m3-base/cd",
+    "m3-base/game-cartridge-01",
+    "rgp-vintage/record",
     "m3-base/vinyl",
     "m3-base/vinyl-sleeve",
-    "m3-base/dish-antenna-01"
+    "styloo-school/usb-stick",
+    "styloo-school/usb-stick-swivel",
+    "m3-base/usb-stick",
+    "3dm-electronics/usb-stick"
    ]
   },
   {
@@ -16181,14 +16194,22 @@
     "isa-picnic/radio",
     "ken-furniture/radio",
     "quat-survival/radio",
-    "lpa-construction/radio",
     "styloo-school/radio",
     "taalei-kit/boombox",
     "taalei-kit/boombox-compact",
     "taalei-kit/boombox-doubledeck",
-    "3dm-electronics/radio",
-    "3dm-electronics/walkie-talkie",
-    "m3-base/walkie-talkie"
+    "3dm-electronics/radio"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-radio-walkietalkie",
+   "name": "Walkie-talkie",
+   "type": "kind",
+   "description": "walkie-talkie",
+   "models": [
+    "lpa-construction/radio",
+    "m3-base/walkie-talkie",
+    "3dm-electronics/walkie-talkie"
    ]
   },
   {
@@ -19132,7 +19153,7 @@
    "id": "obj-kitchenware-cookware-utensil-spoon",
    "name": "Spoon",
    "type": "kind",
-   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon, ladle.",
+   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon.",
    "models": [
     "styloo-kitchen/wooden-spoon-a",
     "styloo-kitchen/wooden-spoon-b",
@@ -19140,37 +19161,53 @@
     "styloo-furniture/wooden-spoon",
     "cooking-assets/wooden-spoon",
     "cooking-assets/cooking-spoon",
-    "cooking-assets/ladle-a",
-    "cooking-assets/ladle-b",
     "styloo-furniture/wooden-spoon-round",
-    "jb-kitchen/ladle",
     "emace-village/spoon-a",
     "emace-village/spoon-b",
     "emace-village/spoon-c",
     "emace-village/spoon-d",
-    "m3-base/ladle",
     "m3-base/wooden-spoon"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-spoon-ladle",
+   "name": "Ladle",
+   "type": "kind",
+   "description": "ladle",
+   "models": [
+    "cooking-assets/ladle-b",
+    "cooking-assets/ladle-a",
+    "m3-base/ladle",
+    "jb-kitchen/ladle"
    ]
   },
   {
    "id": "obj-kitchenware-cookware-utensil-knife",
    "name": "Knife",
    "type": "kind",
-   "description": "Kitchen knife for cutting food: chef knife, bread knife, cleaver.",
+   "description": "Kitchen knife for cutting food: chef knife, bread knife.",
    "models": [
-    "cooking-assets/nakiri-knife",
     "cooking-assets/santoku-knife",
     "cooking-assets/paring-knife",
     "cooking-assets/peeling-knife",
     "cooking-assets/chef-knife",
-    "cooking-assets/cleaver",
     "cooking-assets/bread-knife",
     "ken-food/knife-cooking",
     "jb-kitchen/kitchen-knife",
     "ken-food/knife-chopping",
+    "m3-base/kitchen-knife"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-knife-cleaver",
+   "name": "Cleaver",
+   "type": "kind",
+   "description": "cleaver, nakiri knife",
+   "models": [
     "zombie-weapons/cleaver",
     "m3-base/cleaver",
-    "m3-base/kitchen-knife"
+    "cooking-assets/cleaver",
+    "cooking-assets/nakiri-knife"
    ]
   },
   {
@@ -21132,37 +21169,45 @@
    "type": "kind",
    "description": "Aircraft: airplane, airliner, hot-air balloon.",
    "models": [
-    "styloo-planes/plane-stylized-anim",
-    "styloo-planes/plane-stylized-amber",
-    "styloo-planes/plane-stylized-amber-anim",
-    "styloo-planes/plane-stylized",
-    "styloo-planes/plane-stylized-sienna",
-    "styloo-planes/plane-stylized-sienna-anim",
-    "styloo-planes/plane-sty-hunter-anim",
-    "styloo-planes/plane-sty-anim",
-    "styloo-planes/plane-sty-b",
-    "styloo-planes/plane-sty-b-anim",
-    "styloo-planes/plane-sty-hunter",
-    "styloo-planes/plane-sty",
-    "styloo-planes/plane-helice",
-    "styloo-planes/plane-helice-b",
-    "styloo-planes/plane-azer-anim",
-    "styloo-planes/plane-azer",
-    "styloo-planes/plane-azer-hunter",
-    "styloo-planes/plane-azer-hunter-anim",
-    "styloo-planes/plane-animal",
-    "styloo-planes/plane-animal-b",
     "taalei-kit/balloon-basket-round",
     "taalei-kit/balloon",
     "taalei-kit/balloon-basket-square",
-    "styloo-planes/airliner",
-    "taalei-kit/jet",
     "taalei-kit/drone",
     "taalei-kit/drone-canopy",
     "taalei-kit/drone-gimbal",
     "taalei-kit/drone-unibody",
-    "taalei-kit/balloon-net",
-    "m3-base/glider"
+    "taalei-kit/balloon-net"
+   ]
+  },
+  {
+   "id": "obj-transport-air-plane",
+   "name": "Airplane",
+   "type": "kind",
+   "description": "airplane, plane, airliner, jet, glider",
+   "models": [
+    "styloo-planes/airliner",
+    "m3-base/glider",
+    "taalei-kit/jet",
+    "styloo-planes/plane-animal",
+    "styloo-planes/plane-animal-b",
+    "styloo-planes/plane-azer",
+    "styloo-planes/plane-azer-anim",
+    "styloo-planes/plane-azer-hunter",
+    "styloo-planes/plane-azer-hunter-anim",
+    "styloo-planes/plane-helice",
+    "styloo-planes/plane-helice-b",
+    "styloo-planes/plane-sty-hunter",
+    "styloo-planes/plane-sty-hunter-anim",
+    "styloo-planes/plane-sty",
+    "styloo-planes/plane-sty-anim",
+    "styloo-planes/plane-sty-b",
+    "styloo-planes/plane-sty-b-anim",
+    "styloo-planes/plane-stylized",
+    "styloo-planes/plane-stylized-anim",
+    "styloo-planes/plane-stylized-amber",
+    "styloo-planes/plane-stylized-amber-anim",
+    "styloo-planes/plane-stylized-sienna",
+    "styloo-planes/plane-stylized-sienna-anim"
    ]
   },
   {
@@ -21492,16 +21537,24 @@
     "ken-car/wheel-tractor-dark-front",
     "ken-car/wheel-tractor-front",
     "ken-car/wheel-truck",
-    "ken-town/wheel",
     "quat-apocalypse/wheel",
     "quat-apocalypse/wheels",
     "quat-shoot/tires",
-    "rgp-medieval/wheel",
+    "m3-base/car-tire-01",
+    "m3-base/car-tire-02"
+   ]
+  },
+  {
+   "id": "obj-transport-part-wheel-wooden",
+   "name": "Wooden wheel",
+   "type": "kind",
+   "description": "wooden wheel, cartwheel",
+   "models": [
+    "ken-town/wheel",
+    "m3-base/cartwheel",
     "rgp-props/wheel-a",
     "lpa-west/wheel-a",
-    "m3-base/car-tire-01",
-    "m3-base/car-tire-02",
-    "m3-base/cartwheel"
+    "rgp-medieval/wheel"
    ]
   },
   {
@@ -25949,7 +26002,6 @@
     "rgp-asia/rope-bells",
     "rgp-vintage/gramophone-record",
     "rgp-vintage/gramophone",
-    "rgp-weapons/war-horn",
     "sq-studio/amp-stack",
     "sq-studio/mic-stand",
     "sq-studio/mixing-console",
@@ -25958,11 +26010,8 @@
     "ipoly-concert/mic-stand",
     "western/piano",
     "m3-base/glockenspiel",
-    "m3-base/honk-honk-horn",
-    "m3-base/horn",
     "m3-base/piano",
-    "m3-base/plectrum",
-    "m3-base/vintage-horn"
+    "m3-base/plectrum"
    ]
   },
   {
@@ -25976,6 +26025,18 @@
     "wizp-asia/drum-loose",
     "sq-studio/drum-kit",
     "m3-base/drum-stick"
+   ]
+  },
+  {
+   "id": "obj-leisure-art-instrument-horn",
+   "name": "Horn",
+   "type": "kind",
+   "description": "horn",
+   "models": [
+    "m3-base/horn",
+    "m3-base/honk-honk-horn",
+    "m3-base/vintage-horn",
+    "rgp-weapons/war-horn"
    ]
   },
   {
@@ -29235,7 +29296,8 @@
     "m3-base/kitbash-c-20",
     "m3-base/kitbash-c-22",
     "m3-base/kitbash-f-01",
-    "m3-base/u-arrowhead"
+    "m3-base/u-arrowhead",
+    "emace-80s/telescope"
    ]
   },
   {

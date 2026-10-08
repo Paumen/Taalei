@@ -671,8 +671,15 @@
            "longest.max": 0.4,
            "nouns": [
             "wooden spoon",
-            "cooking spoon",
-            "ladle"
+            "cooking spoon"
+           ],
+           "children": [
+            {
+             "id": "obj-kitchenware-cookware-utensil-spoon-ladle",
+             "nouns": [
+              "ladle"
+             ]
+            }
            ]
           },
           {
@@ -707,8 +714,16 @@
            "longest.min": 0.15,
            "longest.max": 0.45,
            "nouns": [
-            "cleaver",
             "knife (kitchen)"
+           ],
+           "children": [
+            {
+             "id": "obj-kitchenware-cookware-utensil-knife-cleaver",
+             "nouns": [
+              "cleaver",
+              "nakiri knife"
+             ]
+            }
            ]
           }
          ]
@@ -2167,6 +2182,15 @@
          "nouns": [
           "wheel",
           "tire"
+         ],
+         "children": [
+          {
+           "id": "obj-transport-part-wheel-wooden",
+           "nouns": [
+            "wooden wheel",
+            "cartwheel"
+           ]
+          }
          ]
         }
        ]
@@ -2186,14 +2210,21 @@
        "id": "obj-transport-air",
        "tube.min": 0.006,
        "nouns": [
-        "airplane",
-        "plane",
-        "airliner",
         "balloon",
         "hot-air balloon",
         "drone"
        ],
        "children": [
+        {
+         "id": "obj-transport-air-plane",
+         "nouns": [
+          "airplane",
+          "plane",
+          "airliner",
+          "jet",
+          "glider"
+         ]
+        },
         {
          "id": "obj-transport-air-space",
          "nouns": [
@@ -3040,23 +3071,39 @@
        "nouns": [
         "battery",
         "gramophone",
-        "record",
         "circuit board",
         "microchip",
         "memory module",
         "ssd",
-        "router",
-        "usb stick"
+        "router"
        ],
        "children": [
+        {
+         "id": "obj-device-electronics-media",
+         "nouns": [
+          "cd",
+          "record",
+          "vinyl",
+          "record sleeve",
+          "game cartridge",
+          "usb stick"
+         ]
+        },
         {
          "id": "obj-device-electronics-radio",
          "longest.min": 0.15,
          "longest.max": 0.45,
          "tube.min": 0.006,
          "nouns": [
-          "radio",
-          "walkie-talkie"
+          "radio"
+         ],
+         "children": [
+          {
+           "id": "obj-device-electronics-radio-walkietalkie",
+           "nouns": [
+            "walkie-talkie"
+           ]
+          }
          ]
         },
         {
@@ -3274,6 +3321,12 @@
            "nouns": [
             "drum",
             "drum kit"
+           ]
+          },
+          {
+           "id": "obj-leisure-art-instrument-horn",
+           "nouns": [
+            "horn"
            ]
           }
          ]
