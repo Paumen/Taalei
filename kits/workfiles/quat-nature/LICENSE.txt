@@ -1,0 +1,85 @@
+	Quaternius Nature
+
+			------------------------------
+
+	Ultimate Nature Pack
+	Gemaakt door Quaternius — https://quaternius.com/
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Deze content is vrij te gebruiken voor persoonlijke, educatieve en
+	commerciële projecten. De licentie staat in de pack zelf.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De pack is aangeleverd als .fbx en .blend, en die leest het
+	gereedschap in deze repo niet. Dezelfde pack staat op de
+	downloadmap van de maker zelf ook als Wavefront OBJ (150 .obj met
+	150 .mtl); die versie is opgehaald, staat in
+	kits/sources/Ultimate_Nature_Pack_by_Quaternius_OBJ en is de bron
+	waar deze modellen uit komen.
+
+	CamelCase en onderstrepingen zijn koppeltekens geworden en alles
+	is klein gezet. Bij de bomen is het zelfstandig naamwoord
+	vooropgezet, zoals overal in deze catalogus, anders staat dezelfde
+	soort op vier plekken in de lijst:
+
+	  BirchTree_Dead_1       → tree-birch-dead-1
+	  CommonTree_Dead_Snow_1 → tree-common-dead-snow-1
+	  PineTree_1             → tree-pine-1
+	  Willow_Dead_1          → tree-willow-dead-1
+	  TreeStump_Moss         → tree-stump-moss
+	  WoodLog_Moss           → log-moss
+
+	De pack schrijft de cactusbloemen als CactusFlower_1 en
+	CactusFlowers_2 t/m 5; dat zijn cactus-flower-1 t/m
+	cactus-flower-5 geworden, met het enkelvoud overal.
+
+	Van de 150 modellen zijn er 60 gekozen: 31 bomen (berken, gewone
+	bomen, wilgen en twee dennen, dood en besneeuwd, plus stronken en
+	stammen), 22 planten (cactussen en cactusbloemen, gras, koren,
+	tarwe, lelieblad) en zeven rotsen.
+
+	Geen schaling. De pack staat in meters, net als deze collectie: de
+	dennen zijn 2,7 tot 4,5 hoog (survival-kit/tree-tall is 3,08) en
+	de rotsen 0,4 tot 1,3 (rocks/rock-natural-a is 1,5).
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-quaternius-nature.mjs: omgezet naar .glb, met de
+	oorsprong op y = 0 en het grondvlak gecentreerd in X en Z.
+
+	De modellen dragen geen textuur maar vlakke materiaalkleuren, die
+	Blender in lineaire ruimte wegschrijft; die zijn eerst naar sRGB
+	gezet en daarna op de gedeelde sheet gelegd. Er is dus per model
+	maar een handvol kleuren, en er is geen ingebakken schaduw om te
+	bewaren.
+
+	De modellen dragen geen textuur maar vlakke materiaalkleuren, die
+	Blender in lineaire ruimte wegschrijft; die zijn eerst naar sRGB
+	gezet en daarna op de gedeelde kits/colormap.png gelegd, zodat
+	deze modellen dezelfde kleuren delen met de andere kits en in
+	hetzelfde kleurfilter meedoen.
+
+	Ook hier wordt de baan gekozen op kleur alleen — de afstand in het
+	a/b-vlak van Oklab, waar toon en verzadiging in zitten en
+	lichtheid niet — en bepaalt de lichtheid alleen waar in die baan
+	de kleur terechtkomt. Zo landen twee tinten van hetzelfde
+	materiaal op dezelfde baan. Veel valt er hier overigens niet
+	uiteen: er is per model maar een handvol kleuren, geen verloop en
+	geen ingebakken schaduw.
+
+	De verste sprong is het magenta van de cactusbloemen (10,4). Dat
+	raakt zes modellen — cactus-flower-1 t/m 5 en lilypad: de bloemen
+	lezen bruin in plaats van roze, want er staat geen magenta op de
+	gedeelde sheet. Besluit PO: geen kleur toevoegen. De rest van de
+	pack blijft onder 5.
+
+	Elk hoekpunt is vóór het hermappen losgemaakt van de driehoeken
+	die het deelt, anders zou één hoekpunt de kleuren van twee
+	buurvlakken over elkaar heen slepen. Daarna zijn gelijke
+	hoekpunten (zelfde plek, normaal én UV) weer samengevoegd. De
+	geometrie is ongemoeid: er is geen driehoek bijgekomen, afgegaan
+	of verplaatst.

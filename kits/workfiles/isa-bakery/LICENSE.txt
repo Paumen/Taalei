@@ -1,0 +1,88 @@
+	Bakery Interior (isa-bakery)
+
+			------------------------------
+
+	Tiny Treats : Bakery Interior (1.1)
+	Created by Isa Lousberg — https://www.isalousberg.com
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes. The licence file is in the pack itself.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Tiny_Treats_Bakery_Interior_1.1_FREE/`.
+	The pack is one .gltf per model with one shared texture. 34 of the 114
+	models are loaded. The modular walls, floors, countertop runs, display
+	cases, the bread oven, the coffee machine and the cash register are left
+	in the missing tab.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,32, the same
+	factor as isa-kitchen, which is the same kind of interior set. It is set by
+	comparison: `chair` lands at 0,39 high beside isa-kitchen/chair at 0,40,
+	`plate` at 0,03 beside isa-kitchen/plate at 0,03, and `mug-ivory` at 0,11
+	beside isa-kitchen/mug-ivory at 0,11.
+
+	Every model stays inside its limits at that factor.
+
+
+	Names
+
+	The pack names in mixed case with underscores; here that is kebab-case with
+	a name that says what the thing is. A recoloured model is named after the
+	band it landed on, as the catalogue does elsewhere. The source name is in
+	every .glb under `asset.extras.taaleiland.bronmodel`.
+
+  countertop_closet_A_large     -> counter-closet-a-large
+  dough_roller                  -> rolling-pin
+  egg_A / egg_B                 -> egg-ivory, egg-camel
+  flour_sack_closed / _open     -> flour-sack, flour-sack-open
+  mug_A_blue / mug_B            -> mug-taupe, mug-ivory
+  mug_B_stacked                 -> mug-ivory-stacked
+  pastry_stand_A                -> pastry-stand
+  pastry_stand_A_covered        -> pastry-stand-covered
+  pastry_stand_A_decorated      -> pastry-stand-filled
+  pastry_stand_B                -> pastry-stand-tiered
+  table_round_A                 -> table-round
+  tin_A_beige / tin_B_beige     -> tin-a, tin-b
+
+
+	Colour
+
+	The pack shares the Tiny Treats colour sheet: an 8 x 8 grid, each column
+	holding four colours and each colour a base row and a shadow row under it.
+	That sheet is not carried over — every source cell is mapped to a cell of
+	the shared kits/colormap.png and each triangle keeps its place inside the
+	cell, so the baked light-to-dark reading survives. A base row and its
+	shadow row are one source colour and land on one band.
+
+  white          -> ceramic, ivory          brown wood -> wood-beam, chestnut
+  light blue     -> ceramic, terracotta     tan wood   -> wood-worked, camel
+  grey           -> metal-iron-steel        cream      -> ceramic/food, ivory
+  baked crust    -> food, camel             raw dough  -> food, tan
+  blue check     -> textile, hunter         white cloth-> textile, ivory
+
+	Blue has no ceramic or textile band — those palettes hold ivory, terracotta,
+	taupe and sienna, and ivory, hunter, taupe and sienna (§5.1) — so the blue
+	mug reads as taupe and is named for it, the blue plate pattern as
+	terracotta, and the blue rug and tray cloth as hunter.
+
+	`cookie` is a jam-filled biscuit; B37 holds a `obj-food-grain` to tan,
+	camel and chestnut, so the jam reads as chestnut. The flour sacks are
+	`vegetation` on tan and camel for the same reason: a textile band would
+	break B37.
+
+	The glass dome on `pastry-stand-covered` is `glass`, which is not
+	band-checked (§5.1), and sits on hunter.
+
+
+	What happened to the files is in tools/importeer/tiny-treats.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, and written
+	as one draw call. The scale sits on the root node, not in the vertices.

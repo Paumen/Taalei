@@ -1,0 +1,66 @@
+	Clay Items
+
+			------------------------------
+
+	Clay Items — Free Tier (1.1)
+	Made by OG Shmiggy —
+	https://og-shmiggy.itch.io/clay-items
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	The itch.io pack page names OG Shmiggy as author and CC0 1.0
+	Universal as the licence; a copy of that page is in
+	kits/sources/ClayItems_FreeTier_1.1/clay-items-itch-page.mhtml.
+	The licence file in the zip names Glitch Pixel Interactive
+	(https://glitchpixelinteractive.com) as affirmer.
+
+	You may use this content for personal, educational and commercial
+	purposes. The licence is in the pack itself. The Glitch Pixel
+	Interactive name and logo are not covered by it and did not come
+	along.
+
+			------------------------------
+
+	Origin and edits
+
+	Names written together are split and lower-cased: CrockpotLid
+	becomes crockpot-lid and WideVase becomes wide-vase. No model was
+	skipped: all 10 models of the free tier are in the kit.
+
+	Scaled to 0,65, against the tableware already in the catalogue.
+	plate measures 0,20 wide, exactly restaurant/plate and
+	dungeon/plate, and bowl 0,19 beside restaurant/bowl at 0,2. jug
+	comes to 0,22 × 0,23 beside props/jug-a at 0,2 × 0,2.
+
+	What happened to the files is in tools/importeer/aanvullen.mjs:
+	converted to .glb, origin at y = 0 and the footprint centred in X
+	and Z. The scale (0,65) is on the root node, not in the vertices.
+
+	This pack does not use a grid of bands but a painted albedo
+	texture, plus a normal and a roughness map. Those last two did not
+	come along — the style guide asks for roughness 1 and metallic 0
+	(§1). The albedo is sampled per triangle and mapped onto the shared
+	kits/colormap.png, so the models share their colours with the other
+	kits and take part in the same colour filter.
+
+	Compared in Oklab, where equal distance means roughly equal visible
+	difference; the distances below are in that measure, on a scale
+	where 100 is the whole range.
+
+	The whole pack is one material, fired clay, and so lands on one
+	band: terracotta 5,0. The largest jump is the crockpot and the
+	wide-vase at 7,7 — the pack's burnt red-brown (#9f4624) is a little
+	lighter and more orange on the shared sheet.
+
+	Two things to know. The models are smooth-shaded around a round
+	cross-section rather than flat-faceted; they therefore carry
+	`ngons`, and §2 counts their faces. And because each model uses
+	exactly one band, one material is tagged per model, `ceramic`,
+	which meets N1 to N3 exactly.
+
+	Every vertex was split from the triangles it shares before
+	remapping, otherwise one vertex would drag the colours of two
+	neighbouring faces over each other. Equal vertices (same position,
+	normal and UV) were then merged again. The geometry is untouched:
+	no triangle was added, removed or moved.

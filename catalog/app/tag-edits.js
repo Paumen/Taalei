@@ -1,0 +1,210 @@
+import { makeChipStrip, layoutChips, syncChips, chipName, shortChipName } from './chiprij.js?v=0f98fb02f2';
+import { kindParent, readStore, writeStore } from './shared.js?v=401e058e54';
+
+const STORAGE_KEY = 'taaleiland-tagedits-v1';
+
+let edits = readStore(STORAGE_KEY);
+{
+  const before = JSON.stringify(edits);
+  for (const id of Object.keys(edits)) prune(id);
+  if (JSON.stringify(edits) !== before) save();
+}
+const listeners = [];
+
+const expanded = new Set();
+
+function save() {
+  writeStore(STORAGE_KEY, edits);
+}
+
+function notify() {
+  for (const fn of listeners) fn();
+}
+
+function prune(tagId) {
+  const e = edits[tagId];
+  if (!e) return;
+  const both = e.add.filter((id) => e.remove.includes(id));
+  if (both.length) {
+    e.add = e.add.filter((id) => !both.includes(id));
+    e.remove = e.remove.filter((id) => !both.includes(id));
+  }
+  if (e.add.length === 0 && e.remove.length === 0) delete edits[tagId];
+}
+
+export function onChange(fn) {
+  listeners.push(fn);
+}
+
+const isKindId = (id, tagsById) => tagsById?.get(id)?.type === 'kind';
+
+const bases = new WeakMap();
+const baseIds = (model) => {
+  if (!bases.has(model)) {
+    bases.set(model, [
+      ...(model.tags ?? []),
+      ...(model.kind ? [model.kind] : []),
+    ]);
+  }
+  return bases.get(model);
+};
+
+export function effectiveTags(model) {
+  const tags = new Set(baseIds(model));
+  for (const [tagId, e] of Object.entries(edits)) {
+    if (e.add.includes(model.id)) tags.add(tagId);
+    if (e.remove.includes(model.id)) tags.delete(tagId);
+  }
+  return [...tags];
+}
+
+export const effectiveKind = (model, tagsById) =>
+  effectiveTags(model).find((id) => isKindId(id, tagsById)) ?? null;
+
+function stage(model, tagId, on) {
+  const hadBase = baseIds(model).includes(tagId);
+  const e = (edits[tagId] ??= { add: [], remove: [] });
+  if (on) {
+    if (hadBase) e.remove = e.remove.filter((id) => id !== model.id);
+    else if (!e.add.includes(model.id)) e.add.push(model.id);
+  } else {
+    if (hadBase) { if (!e.remove.includes(model.id)) e.remove.push(model.id); }
+    else e.add = e.add.filter((id) => id !== model.id);
+  }
+  prune(tagId);
+}
+
+function toggleTag(model, tagId) {
+  const nowHas = effectiveTags(model).includes(tagId);
+  stage(model, tagId, !nowHas);
+  save();
+  notify();
+  return !nowHas;
+}
+
+function setKind(model, kindId, tagsById) {
+  const current = effectiveKind(model, tagsById);
+  if (current === kindId) return;
+  if (current) stage(model, current, false);
+  if (kindId) stage(model, kindId, true);
+  save();
+  notify();
+}
+
+const materialAncestors = (id, tagsById) => {
+  const out = [];
+  for (let p = tagsById.get(id)?.parent; p; p = tagsById.get(p)?.parent) out.push(p);
+  return out;
+};
+
+function setMaterial(model, tagId, tagsById) {
+  const current = effectiveTags(model);
+  if (current.includes(tagId)) stage(model, tagId, false);
+  else {
+    const above = materialAncestors(tagId, tagsById);
+    for (const id of current) {
+      if (above.includes(id) || materialAncestors(id, tagsById).includes(tagId)) stage(model, id, false);
+    }
+    stage(model, tagId, true);
+  }
+  save();
+  notify();
+}
+
+const attributeFamily = (id) => id.split('-')[0];
+
+export function setAttribute(model, tagId, tagsById) {
+  const family = attributeFamily(tagId);
+  const current = effectiveTags(model).find(
+    (id) => tagsById.get(id)?.type === 'attribute' && attributeFamily(id) === family);
+  if (current) stage(model, current, false);
+  if (current !== tagId) stage(model, tagId, true);
+  save();
+  notify();
+}
+
+export function pendingCount() {
+  return Object.values(edits).reduce((n, e) => n + e.add.length + e.remove.length, 0);
+}
+
+export function clearEdits() {
+  edits = {};
+  save();
+  notify();
+}
+
+export const allEdits = () =>
+  Object.fromEntries(
+    Object.entries(edits)
+      .filter(([, e]) => e.add.length || e.remove.length)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([id, e]) => [id, { add: [...e.add].sort(), remove: [...e.remove].sort() }]),
+  );
+
+const allowedFor = (tag, kind) => !tag.kinds || Boolean(kind && tag.kinds.some((k) => kind === k || kind.startsWith(`${k}-`)));
+
+const SCALE_TAG = /^scale-/;
+
+export function renderTagEditor(container, model, tagsById, options = {}) {
+  const { onChange: onEdit, compact = false, allScale = false } = options;
+  container.replaceChildren();
+  container.classList.toggle('tagedit-compact', compact);
+  const redraw = () => renderTagEditor(container, model, tagsById, options);
+  const nameOf = compact ? shortChipName : chipName;
+  const on = new Set(effectiveTags(model));
+  const tags = [...tagsById.values()];
+
+  const rows = [
+    { label: 'Kind', of: (t) => t.type === 'kind', parent: (t) => kindParent(t.id),
+      pick: (id) => setKind(model, id === effectiveKind(model, tagsById) ? null : id, tagsById) },
+    { label: 'Materials', of: (t) => t.type === 'material', parent: (t) => t.parent ?? null,
+      pick: (id) => { expanded.add(id); setMaterial(model, id, tagsById); } },
+    { label: 'Attributes', of: (t) => t.type === 'attribute'
+        && (on.has(t.id) || (allScale && SCALE_TAG.test(t.id)) || allowedFor(t, effectiveKind(model, tagsById))),
+      pick: (id) => setAttribute(model, id, tagsById) },
+    { label: 'Tags', of: (t) => (t.type ?? 'tag') === 'tag' && !t.derived },
+    { label: 'Theme', of: (t) => t.type === 'theme' },
+  ];
+
+  const parentOf = new Map();
+  for (const { of, parent } of rows) {
+    if (!parent) continue;
+    for (const t of tags.filter(of)) parentOf.set(t.id, parent(t));
+  }
+  const open = new Set();
+  for (const id of [...on, ...expanded]) {
+    for (let p = parentOf.get(id); p; p = parentOf.get(p)) open.add(p);
+  }
+
+  const stateOf = (id) => (on.has(id) ? 'only' : expanded.has(id) || open.has(id) ? 'open' : undefined);
+
+  const all = [];
+  for (const { label, of, parent, pick } of rows) {
+    const own = tags.filter(of);
+    if (!own.length) continue;
+    const { chips } = makeChipStrip({
+      label: `Set ${label.toLowerCase()}`,
+      items: own.map((t) => ({
+        id: t.id,
+        name: nameOf(t),
+        full: t.name ?? t.id,
+        hint: t.description,
+        parent: parent?.(t) ?? null,
+      })),
+      container,
+      stable: compact,
+      stateOf,
+      onPick: (id) => {
+        if (pick) pick(id);
+        else { expanded.add(id); toggleTag(model, id); }
+        redraw();
+        onEdit?.();
+      },
+    });
+    all.push(...chips);
+  }
+
+  syncChips(all, { stateOf });
+  layoutChips(all);
+}
+
