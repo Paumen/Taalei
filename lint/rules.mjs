@@ -411,7 +411,7 @@ export function backfaceFindingsFor(model, vars) {
   return [{ level: share >= error ? 'error' : 'warning', ...model.backface, limit: share >= error ? error : warn }];
 }
 
-const percent = (v) => `${Math.round(v * 100)}%`;
+const percent = (v) => `${(v * 100).toFixed(1)}%`;
 
 const CHECK_TEXT = {
   size: (f) => (f.measure === 'scale'
