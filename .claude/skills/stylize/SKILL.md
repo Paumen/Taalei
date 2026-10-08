@@ -106,10 +106,7 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
 3. Copy into `kits/workfiles/<kit>`, then run `backfaces`, `build-catalog` and
    the lints. Diff against the baseline by the line text with numbers
    stripped.
-4. Thin tubes: `node tools/import/thicken.mjs kits/workfiles/<kit>/<name>.glb`
-   takes the kind's minimum from the catalogue. Run it after
-   `build-catalog`, then rebuild.
-5. Rebuild per `catalog-assets` §6 and render a locked-scale sheet beside
+4. Rebuild per `catalog-assets` §6 and render a locked-scale sheet beside
    catalogue peers.
 
 ## Gotchas
@@ -153,7 +150,7 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
 - **Candles in holders**: inflate only the holder material; wax and wick keep
   their proportions.
 - **Thin parts after shrinking** (cannon axles, ladder rungs, barrier bars):
-  thicken those parts to the minimum with `thicken.mjs`. If that makes the
+  thicken those parts to the minimum. If that makes the
   model a mess (microwave handle, a tangled phone cord, a keyboard layout),
   revert it and report the old finding.
 - **Modular parts** (doors, bricks, wall panels, rails): size them by the
