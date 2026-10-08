@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const HELP = `kind-pick.mjs [--count 3] [--min 4] [--max 24] [--kits 2] [--render <dir>] [--dry]
+const HELP = `kind-pick.mjs [--count 3] [--min 4] [--max 48] [--kits 2] [--render <dir>] [--dry]
              [--kind <id[,id]>] [--log <file>]
 kind-pick.mjs --record <file.json> [--log <file>]
 kind-pick.mjs --stats [--log <file>]
@@ -14,8 +14,8 @@ the log (tools/renders/kind-review-log.json). --kind picks those kinds instead
 and logs them too. --dry prints the picks without logging them.
 
 --render <dir> renders each pick with kind-sheet.mjs into <dir>/<kind>, pbr
-from iso, each tile fitted to its own model. A kind of more than 12 models also gets two halves
-of at most 12, in <dir>/<kind>/pbr/c01 and c02.
+from iso, each tile fitted to its own model. A kind of more than 16 models also gets
+even sheets of at most 16, in <dir>/<kind>/pbr/c01, c02, ….
 
 --record <file.json> sets the suggestions of logged kinds from a file holding
 one entry or a list of entries:
@@ -49,7 +49,7 @@ if (has('help')) {
 
 const count = Number(flag('count', '3'));
 const min = Number(flag('min', '4'));
-const max = Number(flag('max', '24'));
+const max = Number(flag('max', '48'));
 const minKits = Number(flag('kits', '2'));
 const logPath = resolve(flag('log', join(ROOT, 'tools', 'renders', 'kind-review-log.json')));
 const out = flag('render');
@@ -152,7 +152,7 @@ if (out) {
   for (const kind of picks) {
     const n = byKind.get(kind).length;
     const sheetArgs = [join(ROOT, 'tools', 'renders', 'kind-sheet.mjs'), '--kind', kind, '--out', join(out, kind), '--modes', 'pbr', '--free-scale'];
-    sheetArgs.push(...(n > 12 ? ['--chunk', String(Math.ceil(n / 2))] : ['--no-chunks']));
+    sheetArgs.push(...(n > 16 ? ['--chunk', String(Math.ceil(n / Math.ceil(n / 16)))] : ['--no-chunks']));
     execFileSync(process.execPath, sheetArgs, { stdio: 'inherit' });
   }
 }

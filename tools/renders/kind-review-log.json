@@ -4981,5 +4981,506 @@
     ]
    }
   ]
+ },
+ {
+  "kind": "obj-equipment-apparel-jewellery",
+  "date": "2026-10-08",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-rpg/necklace-2",
+     "quat-rpg/necklace-3"
+    ],
+    "text": "Import fault: gem hues are swapped against the source (orig/cmp/out-neck/sheet.png). necklace-2's gem is red in the source but now hunter (green); necklace-3's gem is mint in the source but now sienna (rust). necklace-1 lilac to azure is fine. Swap: necklace-2 gem hunter to sienna, necklace-3 gem sienna to hunter. Each gem keeps its place in the band (0.08-0.20, mean about 0.13). Both bands are in the gemstone palette, so no tag change is needed. 'Mint to azure' would match the source hue better, but then necklace-3 would duplicate necklace-1's azure.",
+    "options": [
+     "Swap gem bands",
+     "necklace-3 gem azure",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-rpg/necklace-1",
+     "quat-rpg/necklace-2",
+     "quat-rpg/necklace-3"
+    ],
+    "text": "The quat necklace bands are squeezed, while every m3 band spans 0.15-0.75 (mean 0.45) (pbr/sheet.png). Now: necklace-2 gem in hunter 0.08-0.20 (mean 0.12), necklace-3 gem in sienna 0.08-0.20 (0.14), and all three clasps in amber 0.48-0.68 (about 0.57), so the gems read flat and pale. After: gems and clasps spread by height over 0.15-0.75, light at the top and dark at the bottom, mean about 0.45. necklace-1's azure gem (0.07-0.73) only needs re-centring. The twine cord is a stripe tile and stays as is.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread gems only",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "quat-rpg/necklace-1",
+     "quat-rpg/necklace-2",
+     "quat-rpg/necklace-3",
+     "m3-base/circular-barbell"
+    ],
+    "text": "The cords are hairline next to the chunky m3 pieces (follow/claywire/sheet.png). Measured strand thickness: necklace-1 cord 5.4 mm (below the G24 cord minimum of 6 mm), necklace-2 and necklace-3 6.6 mm. The circular-barbell ring tube is about 2.9 mm, with its end balls left as they are. Thickening to about 12 mm matches what was picked before, and the source is just as thin, so this is a style change, not an import fault. Only the cord parts and the barbell ring change; the twine tile keeps u around the strand.",
+    "options": [
+     "Thicken to ~12 mm",
+     "Thicken to ~8 mm",
+     "Cords only, ~12 mm",
+     "Leave as is"
+    ],
+    "picked": [
+     "PO: read the style guide; then leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "quat-rpg/necklace-1",
+     "quat-rpg/necklace-2",
+     "quat-rpg/necklace-3"
+    ],
+    "text": "The necklaces keep the source's hanging pose. The loop leans about 45 degrees back and rises to 0.24 m, and the whole thing balances on the pendant tip at y=0 (follow/views/sheet.png, left view). The m3 pieces all stand upright on their edge, facing +Z. Stand upright: rotate about X until the loop is in the XY plane with the pendant at the bottom, then sink to y=0. Lay flat: put the loop in the XZ plane at y=0 with the pendant beside it.",
+    "options": [
+     "Stand upright, sink to y=0",
+     "Lay flat on ground",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "m3-base/dog-collar-tag"
+    ],
+    "text": "The m3 source is all silver, but the import made the tag amber (gold) and the ring nickel, so this is the only piece in the kind mixing two metals (orig/cmp/out-m3/sheet.png). The barbell and badge are all amber. Ring to amber: move part 1 (768 tris) from nickel to amber, keeping its 0.15-0.75 spread, and drop the metal-iron-steel tag. metal-gold stays, so the kind's metal-gold-or-gemstone requirement still passes. All nickel would drop metal-gold and fail that requirement.",
+    "options": [
+     "Ring to amber",
+     "Leave two metals"
+    ],
+    "picked": [
+     "Leave two metals"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-seafood",
+  "date": "2026-10-08",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-sushi/tentacle"
+    ],
+    "text": "Import fault (simplify): every sucker cap on quat-sushi/tentacle was an octagon in the source (amber-like cell, 15 verts, 88 tris per sucker) and is now a skewed amber quad (4 verts, 66–72 tris per sucker; parts 2–9), with the rest of the cap in sienna. Reads as a yellow sticker, not a sucker. Render: kind-review/obj-food-seafood/close-albedo/sheet.png (top row, source left). Amber stays amber at 0.20–0.27; no tag or material change.",
+    "options": [
+     "Restore octagon caps from source",
+     "Recolour whole flat cap amber",
+     "Leave as is"
+    ],
+    "picked": [
+     "Restore octagon caps from source"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-sushi/octopus",
+     "quat-sushi/squid"
+    ],
+    "text": "Import fault (simplify): the octopus X eyes (parts 2–5, basalt, 12–14 tris each, source 36) were straightened into flat slabs, so the body pokes through the crossing and each X reads as three loose bars. Both octopus and squid eyes also sit at basalt 0.45–0.46 (mid grey #5b5550) where the source is black. Render: kind-review/obj-food-seafood/eye/sheet.png (source top, workfile bottom). The darken option moves the eye parts to 0.85 of basalt on both models; no tag change.",
+    "options": [
+     "Restore eyes from source",
+     "Restore and darken to 0.85",
+     "Push bars out 2 mm",
+     "Leave as is"
+    ],
+    "picked": [
+     "Restore and darken to 0.85"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-sushi/octopus"
+    ],
+    "text": "Octopus body is terracotta (light orange, 0.16–0.75, mean 0.46) while squid and both tentacles are sienna, so the one whole octopus does not match its own tentacles. Sienna option: part 1 terracotta → sienna at the same positions (0.16–0.75, mean 0.46); ivory underside (mean 0.56) and basalt eyes stay. Bands become sienna, ivory, basalt (3, under budget); the kind has no band list, food has no palette, so no tag change. Render: kind-review/obj-food-seafood/pbr/sheet.png.",
+    "options": [
+     "Octopus to sienna",
+     "Keep terracotta"
+    ],
+    "picked": [
+     "Keep terracotta"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/tentacle",
+     "quat-sushi/tentacle"
+    ],
+    "text": "quat-food/tentacle body is sienna squeezed into 0.03–0.21 (mean 0.11, grad 0.17) while the sushi models spread sienna 0.15–0.75 (mean ~0.45). Its 18 sucker rings are terracotta at 0.80–0.96 (mean 0.85), the sushi tentacle's suckers are amber at 0.20–0.27. Spread option: body top 0.15 → bottom 0.75 by height, keeping mean ~0.45. Sucker option also moves the food rings terracotta → amber at 0.25 so both tentacles share a sucker colour. No tag change. Render: kind-review/obj-food-seafood/pbr/sheet.png (top-left vs bottom-middle).",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread + suckers amber",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread + suckers amber"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-sushi/squid"
+    ],
+    "text": "Source squid has a lighter head than mantle (chestnut vs camel cells); the workfile maps all three parts to sienna (head part 1 0.35–0.75 mean 0.54, mantle part 2 mean 0.47, fins part 3 mean 0.43), so head and mantle merge and the eyes vanish into one dark mass. Two-tone option: head part 1 → terracotta at the same positions (bands sienna, terracotta, basalt; no tag change). Lighter option keeps sienna but shifts the head to 0.15–0.45. Render: kind-review/obj-food-seafood/cmp-orig/sheet.png (top row, 3rd/4th tile).",
+    "options": [
+     "Head to terracotta",
+     "Head lighter in sienna",
+     "Leave as is"
+    ],
+    "picked": [
+     "Head to terracotta"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-sweet",
+  "date": "2026-10-08",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "aq-hallow/candy-a-sienna",
+     "aq-hallow/candy-b-moss"
+    ],
+    "text": "The two recoloured aq variants are flat: every vertex sits at 0.50 in its band (candy-a-sienna: sienna ends + ivory body; candy-b-moss: moss body + ivory lid/star), while their siblings aq-hallow/candy-a (moss/hunter 0.15-0.75, mean 0.45) and aq-hallow/candy-b (slate 0.15-0.75, mean 0.40-0.48) and quat-sushi/dango (0.15-0.75, mean 0.45) carry a height gradient. Side by side the variants read flatter than their own originals. Spreading them by height keeps the 2 bands, no tag change. Render: cmp-aq/sheet.png.",
+    "options": [
+     "Spread by height, keep mid",
+     "Copy sibling's UV positions",
+     "Keep flat"
+    ],
+    "picked": [
+     "Keep flat"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "aq-hallow/candy-b"
+    ],
+    "text": "aq-hallow/candy-b puts lid and body in one band (slate; lid y>0.09 at mean 0.40, body mean 0.48), so the box loses the two-tone lid that the source Candy_2 (light grey lid, dark grey body) and its own variant candy-b-moss (ivory lid, moss body) have. Moving the lid triangles (y>0.09) from slate to ivory, at 0.45 like the star, keeps 2 bands (slate, ivory) and fits the paper tag (ivory). Render: cmp-aq/sheet.png.",
+    "options": [
+     "Lid to ivory",
+     "Lid to light slate (0.15)",
+     "Keep one-tone"
+    ],
+    "picked": [
+     "Lid to ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "aq-hallow/candy-b"
+    ],
+    "text": "aq-hallow/candy-b has its normals smoothed across the bevels (flat-face share 0.40 vs 0.91 in candy-b-moss and the source Candy_2), so the top edges blur, and dark shading lines run along the lid seam and diagonally down the right side. The source and the moss variant have hard bevels. An import fault, not the source's style. Render: shade-candyb/sheet.png (normals, rows: candy-b, candy-b-moss, Candy_2).",
+    "options": [
+     "Hard edges like source",
+     "Keep smooth"
+    ],
+    "picked": [
+     "Keep smooth"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "quat-sushi/dango"
+    ],
+    "text": "quat-sushi/dango has 1732 triangles, 4.5x the kind median (384). Its 6 balls are icospheres of 176 triangles each, much finer than the 12-sided kay-spook candies and the low-poly aq bars, and lint marks it as very fine (20819 tris/m²). Halving the balls to ~88 triangles each, with the 3 sticks kept at 12 mm, brings it to ~1200 triangles with the same silhouette. The source Dango has the same density, so this is the source's own style. Render: detail/sheet.png.",
+    "options": [
+     "Simplify balls ~50%",
+     "Keep as is"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-vegetable-leafy",
+  "date": "2026-10-08",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/lettuce-whole",
+     "ken-food/cabbage",
+     "ken-food/cauliflower"
+    ],
+    "text": "Moss gradient does not follow height the way kay-food lettuce does (kay: base ~0.75, top ~0.40). quat-food/lettuce-whole sits in the light half only: all 9 parts mean 0.25 (range 0.03-0.48), base 0.26, top 0.23, so it reads pale and flat. ken-food cabbage/cauliflower outer leaves (6 parts) mean 0.45 at both base and top. Render: pbr/sheet.png and look/sheet.png (albedo columns). Spread: base -> ~0.75, top -> ~0.25, mid ~0.50. Band stays moss, no tag change.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread quat only",
+     "Darken quat to mid 0.5",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "ken-food/cabbage",
+     "ken-food/cauliflower",
+     "quat-food/lettuce-whole"
+    ],
+    "text": "Leaves are single flat sheets: ken-food cabbage/cauliflower have 6 outer leaves (parts 2-7, 40 tris each) as paper-thin planes, quat-food/lettuce-whole has 4 flared outer leaves (parts 5-8) as thin slabs; back faces show magenta at the ken base and the quat flare tips. kay-food and styloo-food leaves are solid, rounded slabs. Source has the same thin leaves (cmp-orig/sheet.png), so this is source style, not an import fault. Render: thin/sheet.png (claywire 20/5 and iso-back). Thicken with tools/import/thicken.mjs or solidify.mjs; no tag change.",
+    "options": [
+     "Thicken leaves to ~12 mm",
+     "Solidify to 6 mm slabs",
+     "Flip back faces only",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "ken-food/cauliflower",
+     "ken-food/cabbage"
+    ],
+    "text": "Same geometry: cauliflower and cabbage share the 6 outer leaves exactly; the only difference is the head band. From iso the ivory curd is hidden behind the front leaf and the pair read as one model twice (pbr/sheet.png tiles 3-4); the curd only shows from above (kenhead/sheet.png). Also cabbage carries a hidden ivory disk (4 tris at y=0.111 inside the head, cabivory/ken-food__cabbage_band5-2_sheet.png) that is never seen; removing it leaves cabbage on moss only (foliage palette moss/hunter, food has no band limit).",
+    "options": [
+     "Lower leaves, show curd",
+     "Raise curd above leaves",
+     "Drop hidden cabbage disk only",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "ken-food/cabbage",
+     "ken-food/cauliflower",
+     "quat-food/lettuce-whole",
+     "kay-food/food-ingredient-lettuce"
+    ],
+    "text": "Two styles in one kind: kay-food lettuce and styloo-food leaf are soft, smooth-shaded rounded leaves (anglePct 0-6, flatFaces <=0.004), ken-food is hard-faceted with sharp pointed leaves (anglePct 21-22, flatFaces 0.07) and quat-food is flat-faceted (flatFaces 0.26). Render: look/sheet.png (claywire column) and pbr/sheet.png. Leaning to kay means smoothing ken/quat normals across leaf faces (keep hard edges at leaf rims); leaning to ken means nothing changes. No tag or material change.",
+    "options": [
+     "Lean to kay: smooth shading",
+     "Smooth quat only",
+     "Keep mixed facets"
+    ],
+    "picked": [
+     "Keep mixed facets"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-bathroom-toiletroll",
+  "date": "2026-10-08",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-house/toilet-paper-holder",
+     "lpa-home/toilet-roll-holder",
+     "lpa-home/toilet-rolls",
+     "styloo-school/toilet-roll",
+     "styloo-school/toilet-roll-holder"
+    ],
+    "text": "Five models have no gradient: every vertex sits at 0.50 of its band (lpa-home both, styloo-school both: ivory, tan, nickel, basalt all 0.50 flat; fs-house ivory 0.40-0.71 mean 0.50, nickel 0.50 flat). m3-base/toilet-roll and both quat-interior models spread 0.15 (top) to 0.75 (bottom), mean 0.45. Shown in pbr/sheet.png and fu/sheet.png (albedo tiles: lpa and styloo read as one flat tone). Spread by height: per part, top 0.15 to bottom 0.75, keeping the mean near 0.45; band choice unchanged, no tag change.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread rolls only",
+     "Leave flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "lpa-home/toilet-rolls",
+     "lpa-home/toilet-roll-holder"
+    ],
+    "text": "The lpa-home rolls have no cardboard core: the hole wall is ivory like the paper, while m3-base, quat-interior (both) and styloo-school/toilet-roll show a tan core. lpa-home/toilet-rolls: 3 parts, 48 inner-wall tris each (radius ~0.5 of the 0.031 outer radius), all ivory 0.50 now; recolour those 144 tris to tan, at 0.45 mean (0.15 top to 0.75 bottom) to match quat. lpa-home/toilet-roll-holder: the octagonal hole wall of part 2 (ivory) around the nickel spindle, to tan the same way. Both need tag wood-cardboard added (tan is its only band; paper allows only ivory). See pbr/sheet.png, top row tiles 2-3 vs bottom row tiles 1-2.",
+    "options": [
+     "Tan core, add tag",
+     "Rolls only",
+     "Leave ivory"
+    ],
+    "picked": [
+     "Tan core, add tag"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-school/toilet-roll",
+     "m3-base/toilet-roll"
+    ],
+    "text": "styloo-school/toilet-roll: a stray single triangle (part 2, 1 tri, ivory, at x 0.04 y 0.03-0.04 z -0.03 to -0.01) and the wedge ends of the hanging sheet show back faces (red in faceorient, magenta in pbr) at its free edge and its lower fold; the source sheet is single-sided. m3-base/toilet-roll: a thin back-face ring at the top rim of the hole where the paper top meets the tan core. Shown in art/sheet.png (faceorient and claywire, az20/el40 and az205/30) and cmp-sty/sheet.png (source beside workfile). No band or tag change.",
+    "options": [
+     "Remove stray, flip faces",
+     "Remove stray only",
+     "Leave as is"
+    ],
+    "picked": [
+     "Remove stray, flip faces"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "m3-base/toilet-roll",
+     "styloo-school/toilet-roll",
+     "styloo-school/toilet-roll-holder"
+    ],
+    "text": "Facet style splits the kind. fs-house, lpa-home and quat-interior rolls are 8-sided, flat-shaded (flat faces 55-100%). m3-base/toilet-roll is ~24-sided, smooth-shaded (34% flat faces, 560 tris, 1.57x kind median) with a cup-like taper to a rounded bottom; styloo-school/toilet-roll is ~32-sided smooth (17% flat, 823 tris), and styloo-school/toilet-roll-holder a smooth round tube (2% flat). Shown in art/sheet.png (claywire) and fu/sheet.png (normal tiles: smooth gradients vs flat blocks). Rebuilding to 8 sides flat-shaded matches the majority (style guide I02: clean facets, chamfered edges); flat-shade only keeps the side count. No tag change.",
+    "options": [
+     "Re-facet to 8, flat",
+     "Flat-shade only",
+     "Leave smooth"
+    ],
+    "picked": [
+     "PO: all rolls to 12 sides, smooth-shaded"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-transport-part-wheel-wooden",
+  "date": "2026-10-08",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "rgp-props/wheel-a"
+    ],
+    "text": "Import fault (orig/cmp/out/sheet.png, props-src vs workfile): the source's 'Metal' material (306 tris: outer tyre ring + hub, atlas grey #938D81) came in as wood. Now the tyre ring sits in camel at mean 0.31 (part 1, 336 verts) and the hub in camel at 0.23 (part 2, 152 verts); only the inner felloe is chestnut 0.94 and spokes chestnut ~0.78. Fix moves tyre ring + hub to an iron band, keeping each vertex's place (tyre ~0.31, hub ~0.23). Basalt needs tag metal-iron-wrought added; slate needs metal-iron-cast. camel then stays only if wood-worked keeps a camel part, so the rim wood stays chestnut (wood-beam) and wood-worked tag drops.",
+    "options": [
+     "Tyre+hub to basalt",
+     "Tyre+hub to slate",
+     "Leave as wood"
+    ],
+    "picked": [
+     "Tyre+hub to basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-medieval/wheel"
+    ],
+    "text": "Spokes jump across the camel band side by side (albedo/sheet.png, left tile): part 3 at 0.97, part 4 at 0.96, part 5 at 0.11, part 6 at 0.33-0.97 (mean 0.65), so light and dark spokes alternate. Wood rim camel mean 0.32 (0.02-0.53). Spread by height would put each spoke vertex at its y over the wheel (top 0.3, bottom 0.7, mid ~0.5); one value puts all spokes at 0.5. Stays camel, no tag change.",
+    "options": [
+     "Spread by height, keep mid",
+     "All spokes at 0.5",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-town/wheel",
+     "rgp-props/wheel-a"
+    ],
+    "text": "ken-town/wheel leans about 14 degrees off vertical (side/sheet.png, first tile; the Kenney source ships it leaning too, orig/cmp/out/sheet.png), which also inflates its depth to 0.215 against 0.04-0.08 for the rest. rgp-props/wheel-a dips below the floor (minY -0.0128). Fix stands ken upright on its tread and lifts rgp-props by 13 mm so both rest at y=0.",
+    "options": [
+     "Stand upright, sink to y=0",
+     "Only fix rgp-props y",
+     "Leave as is"
+    ],
+    "picked": [
+     "Stand upright, sink to y=0"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "rgp-props/wheel-a",
+     "rgp-medieval/wheel",
+     "lpa-west/wheel-a"
+    ],
+    "text": "Spokes are much thinner than m3-base/cartwheel's (minTube 0.0415) and ken's (claywire/sheet.png): rgp-props 0.022 and rgp-medieval 0.024 (both fail G27 min 0.026), lpa-west 0.0296. lpa-west's whole wheel is also the thinnest slab, 0.037 deep vs 0.048-0.076 (side/sheet.png). Thicken spokes to about 0.035-0.04 across; optionally thicken lpa-west's rim and spokes in depth to ~0.05. Diameter unchanged.",
+    "options": [
+     "Spokes to ~0.035, lpa rim ~0.05",
+     "Spokes to ~0.035 only",
+     "Only fix G27 pair",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spokes ~35 mm only"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "rgp-medieval/wheel",
+     "ken-town/wheel",
+     "m3-base/cartwheel"
+    ],
+    "text": "The iron in this kind uses two bands (pbr/sheet.png): rgp-medieval's tyre and hub are slate (blue-black, tyre mean 0.40, hub 0.56), while ken-town's tyre and m3-base's hub are basalt (warm grey, mean 0.50 and 0.45). Rgp-medieval's tyre is the darkest, coldest part in the kind. Moving it to basalt keeps the same positions and changes tag metal-iron-cast to metal-iron-wrought. Iron hoops on wheels are wrought, so basalt fits the material.",
+    "options": [
+     "Medieval iron to basalt",
+     "Leave slate"
+    ],
+    "picked": [
+     "Medieval iron to basalt"
+    ]
+   }
+  ]
  }
 ]
