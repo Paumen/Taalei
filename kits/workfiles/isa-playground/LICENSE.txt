@@ -1,0 +1,78 @@
+	Fun Playground (isa-playground)
+
+			------------------------------
+
+	Tiny Treats : Fun Playground (1.0)
+	Created by Isa Lousberg — https://www.isalousberg.com
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes. The licence file is in the pack itself.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/Tiny_Treats_Fun_Playground_1.0_FREE/`.
+	The pack is one .gltf per model with one shared texture. 21 of the 47
+	models are loaded: the fences, the sand play, the stumps, the trees, the
+	cart and the picnic table. The swings, slides, monkey bars, seesaws,
+	spring horses, merry-go-round and sandboxes are left in the missing tab.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,24, the factor
+	the other Tiny Treats outdoor kits use. It is set by comparison:
+	`tree-large` lands at 1,01 high between isa-park/tree at 0,87 and
+	isa-park/tree-large at 1,20.
+
+	`shovel` runs 0,20 long against the 0,30 minimum on obj-tool-long — it is a
+	child's beach spade, not a full shovel, but the glossary resolves the noun
+	there (§3, T01). The one pack factor wins (§6, P10).
+
+
+	Names
+
+	The pack names in mixed case with underscores; here that is kebab-case with
+	a name that says what the thing is. The source name is in every .glb under
+	`asset.extras.taaleiland.bronmodel`.
+
+  bucket_A                    -> bucket
+  fence_straight_long_open    -> fence-straight-long-open
+  sandcastle_A / _B / _C      -> sandcastle-a, sandcastle-b, sandcastle-c
+  shovel_A                    -> shovel
+  stepping_stumps_B           -> stepping-stumps
+  stepping_stumps_B_small     -> stepping-stump-small
+  tree_large / tree_small     -> tree-large, tree-small
+
+
+	Colour
+
+	The pack shares the Tiny Treats colour sheet: an 8 x 8 grid, each column
+	holding four colours and each colour a base row and a shadow row under it.
+	That sheet is not carried over — every source cell is mapped to a cell of
+	the shared kits/colormap.png and each triangle keeps its place inside the
+	cell, so the baked light-to-dark reading survives. A base row and its
+	shadow row are one source colour and land on one band.
+
+  green paint   -> wood-worked, camel      sand      -> stone-soil, taupe
+  tan wood      -> wood-planks, tan        olive     -> foliage, hunter
+  stump wood    -> wood-log, tan           bark      -> wood-bark, umber
+  white, grey   -> metal-iron-steel        black     -> metal, basalt
+  red paint     -> metal, sienna           yellow    -> wood-worked, camel
+
+	The green fences have no band: `wood-worked` draws from camel only (§5.1),
+	so the painted green reads as bare wood. The red cart body and the black
+	wheels stay red and black on the parent `metal`, which carries no palette
+	of its own.
+
+	The sandcastles are `stone-soil`, which draws from taupe only, so the sand
+	reads greyer here than in the source.
+
+
+	What happened to the files is in tools/importeer/tiny-treats.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, and written
+	as one draw call. The scale sits on the root node, not in the vertices.

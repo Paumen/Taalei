@@ -1,0 +1,134 @@
+	Props
+
+	Medieval Props (Lite)
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`PropsLite_FBX`, zonder licentiebestand en zonder verwijzing naar een
+	maker of een packpagina. De CC0-vermelding hierboven is vastgesteld
+	door de eigenaar van dit project bij het inladen; ze komt niet uit de
+	pack zelf. De maker is niet bekend en er is dus ook niemand om te
+	crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Van de 48 modellen in de pack zijn er 27 ingeladen; ze staan onder 26
+	namen in de kit, want `Bucket_01` en `Bucket_01_2` zijn samen één
+	emmer:
+
+	  Bag_01        → bag-a          Furniture_01  → table-a
+	  Barrel_01     → barrel-a       Furniture_02  → bench-a
+	  Bottle_01     → bottle-a       Furniture_03  → stool-a
+	  Bottle_02     → bottle-b       Jug_01        → jug-a
+	  Bottle_03     → bottle-c       Jug_02        → jug-b
+	  Box_01        → box-a          Jug_03        → jug-c
+	  Bucket_01     → bucket-a       Jug_04        → jug-d
+	  Bucket_01_2   → bucket-a
+	  Candle_02     → candle-a       Plate_02      → plate-b
+	  Candle_03     → candle-b       Plate_03      → plate-c
+	  Carpet_01     → carpet-a       Stairs_01     → stairs-a
+	  Cup_01        → cup-a          Food_03       → roast-a
+	  Fire_01       → fire-a         Food_04       → meat-leg-a
+	  Firewood_01   → firewood-a     Food_06       → mushroom-a
+
+	Zes namen zeggen in de pack niet wat het model is. `Furniture_01/02/03`
+	blijken een tafel, een bank en een kruk, en `Food_03/04/06` een
+	gebraden vogel, een stuk vlees aan het bot en een paddenstoel; die
+	heten hier naar wat ze zijn. De letters lopen door vanaf `a` in de
+	volgorde hierboven en volgen dus niet de nummering van de pack —
+	`Candle_01` en `Food_01/02/05` zijn niet ingeladen.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-props.mjs: omgezet naar .glb en met de oorsprong op
+	y=0 en het grondvlak gecentreerd. Er is niet geschaald: deze pack staat
+	al op het raster van de repo.
+
+	`Bucket_01` is de kuip en `Bucket_01_2` het beugelhengsel dat erin
+	hangt — twee objecten in de pack, maar één emmer. Ze zijn na het
+	inladen door tools/voeg-samen.mjs tot één model `bucket-a` gemaakt,
+	met de onderdelen op de plek waar de pack ze zette.
+
+	De pack heeft een eigen texture-atlas van 1024 × 1024. Die is niet
+	meegekomen: de UV's zijn omgezet naar de gedeelde kits/colormap.png,
+	zodat deze modellen dezelfde kleuren delen met de andere kits en in
+	hetzelfde kleurfilter meedoen. De geometrie is verder ongemoeid.
+
+	Bronnaam in de extras
+
+	De importeur van deze kit legde de bronnaam niet vast, alleen voor de
+	zes modellen die hij hernoemde (`Candle_02`, `Candle_03`, `Food_02`,
+	`Fence_01`, `Plate_01`, `Plate_04`). catalog/tools/build-missing.mjs
+	koppelt een werkbestand in de eerste plaats aan zijn bronmodel via die
+	`bronmodel` in de .glb-extras, en pas daarna op naam; de andere 22
+	modellen droegen hem niet en werden daardoor als ontbrekend gemeld
+	terwijl ze er gewoon in zaten — `Box_01`, `Barrel_01` en `Bag_01`
+	stonden al als box-a, barrel-a en bag-a in de catalogus.
+
+	Die 22 dragen hem nu wel. De koppeling is geverifieerd op
+	driehoekental én op de verhoudingen van de bounding box tegen de
+	uitgepakte pack, en komt overeen met de tabel hierboven. Alleen de
+	extras zijn aangeraakt; aan de geometrie is niets veranderd.
+
+	Twee bronmodellen blijven als ontbrekend gemeld, en terecht:
+	`Bucket_01_2` is het hengsel dat in bucket-a is opgegaan — een
+	werkbestand kan maar één `bronmodel` vastleggen, en dat is `Bucket_01`
+	— en `Cup_02` is de tweede beker, die niet is ingeladen.
+
+			------------------------------
+
+	Cup_02 (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs is Cup_02 → cup-b toegevoegd, in de
+	letterreeks van hierboven. De kit staat op 0,6, maar Cup_02 is net als
+	Candle_02 en Plate_01 in centimeters geëxporteerd (20 breed); hij
+	staat daarom op 0,006 als die andere aanvullingen en meet 0,122 ×
+	0,081 × 0,118, precies cup-a.
+
+	De sprong is 5,6 (van 5,3 naar donkergrijs 13,3). De pack kleurt deze
+	beker donkerder dan cup-a; hij staat nu op dezelfde banen: de romp op
+	donkerbruin 2,0 (wood-beam), de banden en het oor op lichtgrijs 15,3
+	(staal, M62).
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.
+
+			------------------------------
+
+	Wineglass_01 (aanvulling)
+
+	Met tools/importeer/aanvullen.mjs is Wineglass_01 → goblet-a
+	toegevoegd. De naam volgt appendix B, waar `goblet` op
+	obj-kitchenware-tableware uitkomt: het model is een zware, dichte kelk,
+	geen glas. De kit staat op 0,6, maar Wineglass_01 is net als Cup_02,
+	Candle_02 en Plate_01 in centimeters geëxporteerd (24 hoog); hij staat
+	daarom op 0,006 met de wrapper van ×1,1 en meet 0,092 × 0,092 × 0,161,
+	naast cup-a (0,134 × 0,089 × 0,130).
+
+	De pack heeft een eigen kleurenvel; dat is niet meegekomen. De
+	modellen zijn met tools/importeer/aanvullen.mjs op de gedeelde
+	kits/colormap.png gezet, baan voor baan: van elke baan van de pack
+	wordt één keer bepaald welke baan van de gedeelde sheet er het beste
+	bij past, waarna álle driehoeken van die bronbaan daarheen gaan en elk
+	hoekpunt zijn eigen plek in het verloop houdt. Vergeleken is in Oklab,
+	op een schaal waar 100 het hele bereik is. Die keuze kijkt alleen naar
+	kleur, niet naar wat een baan ís; waar ze een baan op een cel zette die
+	appendix A van de stijlgids er niet aan geeft, is die daarna met
+	tools/colormap-recolor.mjs verplaatst — dat staat hieronder per model.
+
+	De sprong is 5 (van 14,14 naar donkerrood 8,0). De kelk zelf kwam op
+	donkergrijs 13,3 en staat nu op lichtgrijs 15,3 (staal, M62 en C1), als
+	cup-a; het drankvlak erin blijft op donkerrood 8,0 (liquid, M28).
+
+	De oorsprong staat op y = 0 en het grondvlak gecentreerd in X en Z; de
+	schaal staat op de wortelnode, niet in de hoekpunten. De geometrie is
+	ongemoeid: er is geen driehoek bijgekomen, afgegaan of verplaatst.

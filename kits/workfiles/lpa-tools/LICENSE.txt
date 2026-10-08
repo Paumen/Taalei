@@ -1,0 +1,72 @@
+	Low Poly Primitive Tools
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als .fbx aangeleverd, in een zip met de naam
+	`Low_Poly_Primitive_Tools`, zonder licentiebestand en zonder
+	verwijzing naar een maker of een packpagina. De CC0-vermelding
+	hierboven is vastgesteld door de eigenaar van dit project bij het
+	inladen; ze komt niet uit de pack zelf. De maker is niet bekend en er
+	is dus ook niemand om te crediteren — wie de herkomst alsnog
+	achterhaalt, vult hem hier aan.
+
+	Alle 20 modellen van de pack zijn ingeladen. Spaties zijn koppeltekens
+	geworden en alles is klein gezet: `Stone Pickaxe` wordt
+	stone-pickaxe. Er is geen naam aangepast.
+
+	Schaal
+
+	Op 0,00354 gezet. Twee referenties uit de catalogus wijzen dezelfde
+	kant op: de boog meet 142,020 in de pack en komt op 0,503 uit —
+	precies weapons/bow-b (0,503) — en `Wooden Pickaxe` meet 114,757 en
+	komt op 0,406 uit, precies rpgtools/pickaxe (0,406). De speren en
+	bijlen van deze pack zijn naar verhouding langer dan die van KayKit
+	(stone-axe 0,47 tegen adventurers/axe-one-handed 0,33); dat is de
+	verhouding van de pack zelf en geldt voor de hele pack, want §4 geeft
+	één factor per pack.
+
+	Kleur
+
+	De pack heeft geen texture-atlas: hij kleurt met vlakke materialen,
+	per polygoon toegewezen. Een model draagt er twee tot vier — steel,
+	kop en binding zijn elk hun eigen materiaal — en komt dus op evenzoveel
+	banen van de gedeelde kits/colormap.png uit. Zes bronkleuren zijn in
+	gebruik:
+
+	  #89593f  → dark brown 2,0    19 modellen
+	  #b48666  → mid brown 1,0     18 modellen
+	  #5c5c5c  → dark grey 13,3     9 modellen
+	  #9a4e47  → dark red 8,0       1 model  (Stone Arrow)
+	  #adadad  → light grey 15,3    1 model  (Wooden Arrow)
+	  #5e3d2c  → bark 3,0           1 model  (Torch)
+
+	Vergeleken is in Oklab, waar gelijke afstand ongeveer gelijk zichtbaar
+	verschil betekent; de afstanden hieronder staan in die maat, op een
+	schaal waar 100 het hele bereik is. De verste sprong is 2,2, van het
+	roodbruin #9a4e47 naar dark red 8,0; daarna 1,4 van #b48666 naar mid
+	brown 1,0. De pack valt dus vrijwel samen met de gedeelde sheet.
+
+	De stenen koppen staan op taupe 14,3 (stone-rock).
+
+	Let op bij het taggen: de overige banen zijn die van de pack zelf en
+	niet die van Appendix A. Grips en bindingen staan op bruin in plaats
+	van op taupe 14,3 (M19, M22). Wie die banen naar de regels
+	terugzet, doet dat met de hand — de importer kiest de dichtstbijzijnde
+	baan en weet van materialen niets. De namen van de pack zijn
+	onaangeroerd gebleven; ze zeggen ook niets over de kleur.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer/aanvullen.mjs: omgezet naar .glb, met de oorsprong op
+	y = 0 en het grondvlak gecentreerd in X en Z. De schaal staat op de
+	wortelnode, niet in de hoekpunten. De geometrie is ongemoeid: er is
+	geen driehoek bijgekomen, afgegaan of verplaatst.

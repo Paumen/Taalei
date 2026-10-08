@@ -1,0 +1,520 @@
+const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
+export const KIND_FIELDS = ['bands.max', 'tube.min'];
+
+const EPSILON = 1e-9;
+const MAT_PREFIX = 'mat.';
+const BAND = 'band';
+
+export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
+export const isBuilding = (kind) => idUnder(kind, 'str-building');
+
+const SIZE_MEASURES = ['high', 'longest'];
+const measureOf = (field) => field.split('.')[0];
+
+export function buildLimits(kinds, fields = LIMIT_FIELDS) {
+  const own = new Map();
+  const parent = new Map();
+  const walk = (node, from) => {
+    own.set(node.id, Object.fromEntries(
+      fields.filter((f) => node[f] !== undefined).map((f) => [f, node[f]]),
+    ));
+    parent.set(node.id, from);
+    for (const child of node.children ?? []) walk(child, node.id);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+
+  const chainOf = (id) => {
+    const out = [];
+    for (let at = id; at; at = parent.get(at)) out.push(at);
+    return out;
+  };
+
+  const measuresOf = (at) => new Set(Object.keys(own.get(at) ?? {}).map(measureOf).filter((m) => SIZE_MEASURES.includes(m)));
+  const localDefaults = new Map();
+  const walkDefaults = (node) => {
+    if (node.defaults) localDefaults.set(node.id, node.defaults);
+    for (const child of node.children ?? []) walkDefaults(child);
+  };
+  for (const root of kinds.kinds) walkDefaults(root);
+  const defaultOf = (chain, field) => {
+    const at = chain.find((id) => localDefaults.get(id)?.[field] !== undefined);
+    return at ? localDefaults.get(at)[field] : kinds.defaults?.[field];
+  };
+
+  const limits = new Map();
+  for (const id of own.keys()) {
+    const chain = chainOf(id);
+    const owner = chain.find((at) => measuresOf(at).size);
+    const measures = owner ? measuresOf(owner) : null;
+    const out = {};
+    for (const field of fields) {
+      const other = measures && SIZE_MEASURES.includes(measureOf(field)) && !measures.has(measureOf(field));
+      const from = other ? undefined : chain.find((at) => own.get(at)?.[field] !== undefined);
+      if (from) out[field] = { value: own.get(from)[field], from };
+      else if (defaultOf(chain, field) !== undefined) out[field] = { value: defaultOf(chain, field), from: 'defaults' };
+    }
+    limits.set(id, out);
+  }
+  return limits;
+}
+
+export const SCALE_PREFIX = 'scale-';
+
+export function buildScales(kinds) {
+  const scales = new Map();
+  const walk = (node, from) => {
+    const at = node.scale ? { config: node.scale, from: node.id } : from;
+    scales.set(node.id, at);
+    for (const child of node.children ?? []) walk(child, at);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+  return scales;
+}
+
+const roundLimit = (v) => Math.round(v * 1e6) / 1e6;
+
+function scaledLimits(limits, tag, scale) {
+  const rule = scale?.config[tag.slice(SCALE_PREFIX.length)];
+  if (rule === undefined) return null;
+  const out = {};
+  for (const [field, entry] of Object.entries(limits ?? {})) {
+    if (field.startsWith('tpu.')) out[field] = entry;
+    else if (typeof rule === 'number' && entry.from === 'defaults') out[field] = entry;
+    else if (typeof rule === 'number') out[field] = { value: roundLimit(entry.value * rule), from: `${entry.from} ${tag}` };
+    else if (rule[field] !== undefined) out[field] = { value: rule[field], from: `${scale.from} ${tag}` };
+    else out[field] = entry;
+  }
+  if (typeof rule === 'object') {
+    for (const [field, value] of Object.entries(rule)) out[field] ??= { value, from: `${scale.from} ${tag}` };
+  }
+  return out;
+}
+
+export function attributeKinds(tagId, vars, scales) {
+  const [family, ...rest] = tagId.split('-');
+  if (`${family}-` === SCALE_PREFIX) {
+    return [...scales].filter(([id, at]) => at?.from === id && at.config[rest.join('-')] !== undefined).map(([id]) => id);
+  }
+  return vars.attributeKinds?.[family] ?? null;
+}
+
+export function scaleTagOf(model) {
+  const found = (model.tags ?? []).filter((t) => t.startsWith(SCALE_PREFIX));
+  return found.length ? found : null;
+}
+
+export function limitsForModel(model, limits, scales) {
+  const tags = scaleTagOf(model);
+  if (!tags) return { limits };
+  if (tags.length > 1) return { refused: tags.join(' '), why: 'one scale value at most' };
+  const scale = scales?.get(model.kind);
+  const scaled = scaledLimits(limits, tags[0], scale);
+  if (scaled) return { limits: scaled, scale: tags[0] };
+  return { refused: tags[0], why: scale ? `${scale.from} sets no ${tags[0]}` : 'kind sets no scale' };
+}
+
+const median = (values) => {
+  const s = [...values].sort((a, b) => a - b);
+  const n = s.length;
+  return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2;
+};
+
+const rangeOf = (limits) => {
+  for (const m of SIZE_MEASURES) {
+    const lo = limits?.[`${m}.min`];
+    const hi = limits?.[`${m}.max`];
+    if (lo && hi && lo.from !== 'defaults' && hi.from !== 'defaults') return { measure: m, lo: lo.value, hi: hi.value };
+  }
+  return null;
+};
+
+export function buildKitScales(models, { vars, limits: kindLimits, scales }) {
+  const byKit = new Map();
+  for (const m of models) {
+    if (!m.kind || isExempt(m, vars) || (m.tags ?? []).some((t) => vars.exemptTags.includes(t))) continue;
+    const range = rangeOf(limitsForModel(m, kindLimits.get(m.kind), scales).limits);
+    const value = range && (range.measure === 'high' ? m.wdh[2] : Math.max(...m.wdh));
+    if (!(value > 0)) continue;
+    const group = `${m.kind} ${scaleTagOf(m)?.join(' ') ?? ''}`;
+    const slug = m.collection ?? m.kit;
+    const kit = byKit.get(slug) ?? { groups: new Map(), kinds: new Set() };
+    kit.groups.set(group, [...(kit.groups.get(group) ?? []), Math.log(value / Math.sqrt(range.lo * range.hi))]);
+    kit.kinds.add(m.kind);
+    byKit.set(slug, kit);
+  }
+  const out = new Map();
+  for (const [slug, { groups, kinds }] of byKit) {
+    if (kinds.size < vars.kit.minKinds) continue;
+    const factor = Math.round(Math.exp(median([...groups.values()].map(median))) * 100) / 100;
+    const off = Math.abs(Math.log(factor));
+    const level = off > Math.log(vars.kit.error) + EPSILON ? 'error' : off > Math.log(vars.kit.warn) + EPSILON ? 'warning' : undefined;
+    out.set(slug, { factor, kinds: kinds.size, level });
+  }
+  return out;
+}
+
+export function buildKindFields(kinds) {
+  const byKind = new Map();
+  const defaults = Object.fromEntries(KIND_FIELDS.filter((f) => kinds.defaults?.[f] !== undefined)
+    .map((f) => [f, { value: kinds.defaults[f], from: 'defaults' }]));
+  byKind.set(null, defaults);
+  for (const [id, fields] of buildLimits(kinds, KIND_FIELDS)) byKind.set(id, fields);
+  return byKind;
+}
+
+export function withKindFields(model, kindFields) {
+  if (!kindFields) return model;
+  const fields = kindFields.get(model.kind) ?? kindFields.get(null);
+  return {
+    ...model,
+    ...Object.fromEntries(Object.entries(fields).map(([field, { value }]) => [field.replace('.', ''), value])),
+  };
+}
+
+export function buildMaterialRules(kinds) {
+  const own = new Map();
+  const parent = new Map();
+  const walk = (node, from) => {
+    own.set(node.id, {
+      subtype: Object.entries(node)
+        .filter(([key]) => key.startsWith(MAT_PREFIX))
+        .map(([key, required]) => [key.slice(MAT_PREFIX.length), required]),
+      has: (node.has ?? []).map((entry) => (Array.isArray(entry) ? entry : [entry])),
+    });
+    parent.set(node.id, from);
+    for (const child of node.children ?? []) walk(child, node.id);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+
+  const rules = new Map();
+  for (const id of own.keys()) {
+    const subtype = new Map();
+    const has = [];
+    const seen = new Set();
+    for (let at = id; at; at = parent.get(at)) {
+      for (const [family, required] of own.get(at).subtype) {
+        if (!subtype.has(family)) subtype.set(family, { required, from: at });
+      }
+      for (const any of own.get(at).has) {
+        const key = any.join('|');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        has.push({ any, from: at });
+      }
+    }
+    rules.set(id, { subtype, has });
+  }
+  return rules;
+}
+
+function materialsOf(model, materialIds, vars) {
+  const ignored = vars.mat.ignoreMaterials;
+  return (model.tags ?? []).filter((t) => materialIds.has(t) && !ignored.includes(t));
+}
+
+export function materialFindingsFor(model, rules, materialIds, vars) {
+  const out = [];
+  const mats = materialsOf(model, materialIds, vars);
+  for (const parent of mats) {
+    const under = mats.filter((m) => m !== parent && idUnder(m, parent));
+    if (under.length) out.push({ family: parent, required: 'no parent tag', from: 'tags', present: [parent, ...under].join(' ') });
+  }
+  for (const [family, { required, from }] of rules?.subtype ?? []) {
+    const present = mats.filter((m) => idUnder(m, family));
+    const allowed = [required].flat();
+    if (!present.length || present.some((m) => allowed.some((id) => idUnder(m, id)))) continue;
+    out.push({ family, required: allowed.join(' or '), from, present: present.join(' ') });
+  }
+  for (const { any, from } of rules?.has ?? []) {
+    if (mats.some((m) => any.some((id) => idUnder(m, id)))) continue;
+    out.push({ family: '—', required: any.join(' or '), from, present: mats.join(' ') || '—' });
+  }
+  return out;
+}
+
+export function buildPalettes(materials, vars) {
+  const lanes = new Map(Object.entries(materials.bands));
+  const names = new Map([...lanes].map(([band, lane]) => [lane, band]));
+  const rows = [];
+  const walk = (node) => {
+    if (node.bands) rows.push({ mat: node.id, size: null, bands: node.bands });
+    for (const child of node.children ?? []) walk(child);
+  };
+  for (const root of materials.materials) walk(root);
+  for (const [mat, bySize] of Object.entries(vars.palette.sizeBands ?? {})) {
+    for (const [size, bands] of Object.entries(bySize)) rows.push({ mat, size, bands });
+  }
+  rows.sort((a, b) => b.mat.length - a.mat.length);
+  return { lanes, names, rows };
+}
+
+function paletteOf(material, size, palettes) {
+  const rows = palettes.rows.filter((row) => idUnder(material, row.mat));
+  const row = rows.find((r) => r.size === size) ?? rows.find((r) => r.size === null);
+  if (!row) return null;
+  return { bands: row.bands, lanes: row.bands.map((band) => palettes.lanes.get(band)) };
+}
+
+export function paletteFindingsFor(model, palettes, materialIds, vars) {
+  const out = [];
+  const used = Object.keys(model.spread ?? {});
+  const special = model.specialBand && used.includes(model.specialBand);
+  for (const material of materialsOf(model, materialIds, vars)) {
+    const palette = paletteOf(material, model.size, palettes);
+    if (!palette) continue;
+    if (special || palette.lanes.some((lane) => lane === null || used.includes(lane))) continue;
+    out.push({
+      material,
+      wants: palette.bands.join(' '),
+      has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
+    });
+  }
+  return out;
+}
+
+export function buildKindBands(kinds) {
+  const own = new Map();
+  const parent = new Map();
+  const walk = (node, from) => {
+    own.set(node.id, Object.entries(node)
+      .filter(([key]) => key === BAND || key.startsWith(`${BAND}.`))
+      .map(([key, bands]) => [key === BAND ? null : key.slice(BAND.length + 1), bands]));
+    parent.set(node.id, from);
+    for (const child of node.children ?? []) walk(child, node.id);
+  };
+  for (const root of kinds.kinds) walk(root, null);
+
+  const byKind = new Map();
+  for (const id of own.keys()) {
+    const byMat = new Map();
+    for (let at = id; at; at = parent.get(at)) {
+      for (const [mat, bands] of own.get(at)) {
+        if (!byMat.has(mat)) byMat.set(mat, { bands, from: at });
+      }
+    }
+    byKind.set(id, byMat);
+  }
+  return byKind;
+}
+
+export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
+  const out = [];
+  const used = Object.keys(model.spread ?? {});
+  const mats = materialsOf(model, materialIds, vars);
+  for (const [mat, row] of rules ?? []) {
+    const present = mat === null ? [] : mats.filter((m) => idUnder(m, mat));
+    if (mat !== null && !present.length) continue;
+    const groups = Array.isArray(row.bands[0]) ? row.bands : [row.bands];
+    for (const group of groups) {
+      const lanes = group.map((band) => palettes.lanes.get(band));
+      if (lanes.some((lane) => lane === null || used.includes(lane))) continue;
+      out.push({
+        from: row.from,
+        material: present.join(' ') || '—',
+        wants: group.join(' '),
+        has: used.map((lane) => palettes.names.get(lane) ?? lane).join(' ') || '—',
+      });
+    }
+  }
+  return out;
+}
+
+const NUMERIC_OPS = {
+  '=': (a, b) => a === b,
+  '>': (a, b) => a > b,
+  '>=': (a, b) => a >= b,
+  '<': (a, b) => a < b,
+  '<=': (a, b) => a <= b,
+};
+
+export function tubeNeed(model) {
+  return model.tubemin ?? 0;
+}
+
+function fieldOf(model, name, materialIds, vars) {
+  if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
+  if (name === 'tubeneed') return tubeNeed(model);
+  if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
+  return model[name];
+}
+
+function matchTerm(term, model, materialIds, vars) {
+  const text = term.trim();
+  if (text === '') return false;
+  const or = text.split('|');
+  if (or.length > 1) return or.some((t) => matchTerm(t, model, materialIds, vars));
+  const and = text.split('&');
+  if (and.length > 1) return and.every((t) => matchTerm(t, model, materialIds, vars));
+  if (text.startsWith('!')) return !matchTerm(text.slice(1), model, materialIds, vars);
+  if (text === '*') return true;
+  const [, key, op, value] = text.match(/^([a-zA-Z]+)(:|=|>=|<=|>|<)(.+)$/) ?? [];
+  if (!key) throw new Error(`term not understood: ${text}`);
+  switch (key) {
+    case 'kind': return idUnder(model.kind, value);
+    case 'mat': {
+      const mats = materialsOf(model, materialIds, vars);
+      return op === ':' ? mats.some((m) => idUnder(m, value)) : mats.includes(value);
+    }
+    case 'tag': return (model.tags ?? []).includes(value);
+    case 'attr': return (model.tags ?? []).includes(value);
+    case 'size': return model.size === value;
+    default: return NUMERIC_OPS[op](fieldOf(model, key, materialIds, vars), Number(value));
+  }
+}
+
+function resolveValue(value, model, materialIds, vars) {
+  if (typeof value !== 'string') return value;
+  const scaled = value.match(/^([a-zA-Z]+)(?:\s*×\s*([\d.]+))?$/);
+  if (scaled) return fieldOf(model, scaled[1], materialIds, vars) * Number(scaled[2] ?? 1);
+  const range = value.match(/^([\d.]+)\s*[–-]\s*([\d.]+)$/);
+  if (range) return [Number(range[1]), Number(range[2])];
+  throw new Error(`value not understood: ${value}`);
+}
+
+function holds(assert, actual, wanted) {
+  switch (assert) {
+    case 'min': return actual >= wanted;
+    case 'max': return actual <= wanted;
+    case 'range': return actual >= wanted[0] && actual <= wanted[1];
+    case 'is': return (actual ?? false) === wanted;
+    case 'not': return (actual ?? false) !== wanted;
+    default: throw new Error(`assert not understood: ${assert}`);
+  }
+}
+
+export function measureFindingsFor(subject, rows, materialIds, vars, kindFields) {
+  const model = withKindFields(subject, kindFields);
+  const out = [];
+  for (const row of rows) {
+    if (!matchTerm(row.when, model, materialIds, vars)) continue;
+    if (row.except && matchTerm(row.except, model, materialIds, vars)) continue;
+    const actual = fieldOf(model, row.field, materialIds, vars);
+    const wanted = resolveValue(row.value, model, materialIds, vars);
+    if (holds(row.assert, actual, wanted)) continue;
+    out.push({
+      rule: row.id,
+      field: row.field,
+      actual: actual ?? '—',
+      wants: `${row.assert} ${Array.isArray(wanted) ? wanted.join('–') : wanted}`,
+      level: row.level ?? 'error',
+    });
+  }
+  return out;
+}
+
+export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
+
+export function backfaceFindingsFor(model, vars) {
+  const share = model.backface?.share ?? 0;
+  const { warn, error } = vars.backface;
+  if (share < warn) return [];
+  return [{ level: share >= error ? 'error' : 'warning', ...model.backface, limit: share >= error ? error : warn }];
+}
+
+const percent = (v) => `${Math.round(v * 100)}%`;
+
+const CHECK_TEXT = {
+  size: (f) => (f.measure === 'scale'
+    ? `${f.value} not on ${f.limit} (${f.from})`
+    : `${f.measure} ${f.value} ${f.bound === 'min' ? 'under min' : 'over max'} ${f.limit} (${f.from})`),
+  tpu: (f) => `tpu ${f.value} over max ${f.limit} (${f.from})`,
+  mat: (f) => `${f.family} needs ${f.required}, has ${f.present} (${f.from})`,
+  palette: (f) => `${f.material} wants ${f.wants}, has ${f.has}`,
+  bands: (f) => `${f.material} wants ${f.wants}, has ${f.has} (${f.from})`,
+  measures: (f) => `${f.rule} ${f.field} ${f.actual} wants ${f.wants}`,
+  backface: (f) => `${percent(f.share)} of view ${f.view} over ${percent(f.limit)}: `
+    + Object.entries(f.causes).sort((a, b) => b[1] - a[1]).filter(([, v]) => v > 0)
+      .map(([cause, v]) => `${cause} ${percent(v)}`).join(', '),
+};
+
+export const findingText = (check, row) => CHECK_TEXT[check](row);
+
+export function materialIdsOf(materials) {
+  const ids = new Set();
+  const collect = (nodes) => {
+    for (const node of nodes) {
+      ids.add(node.id);
+      collect(node.children ?? []);
+    }
+  };
+  collect(materials.materials);
+  return ids;
+}
+
+export function buildChecks({ vars, kinds, materials, measures }) {
+  return {
+    vars,
+    materialIds: materialIdsOf(materials),
+    limits: buildLimits(kinds),
+    scales: buildScales(kinds),
+    mat: buildMaterialRules(kinds),
+    palettes: buildPalettes(materials, vars),
+    bands: buildKindBands(kinds),
+    measures: measures.rows,
+    kindFields: buildKindFields(kinds),
+  };
+}
+
+export function checkModel(model, checks) {
+  const { vars, materialIds } = checks;
+  const exempt = (check) => vars[check].exemptKinds.some((k) => idUnder(model.kind, k));
+  const found = [];
+  const push = (check, level, rows) => {
+    for (const row of rows) found.push({ level: level ?? row.level, check, text: CHECK_TEXT[check](row) });
+  };
+
+  if (model.kind) {
+    if (!isExempt(model, vars)) {
+      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales));
+      push('tpu', null, tpuFindingsFor(model, checks.limits.get(model.kind), vars));
+    }
+    if (!exempt('mat')) {
+      push('mat', 'error', materialFindingsFor(model, checks.mat.get(model.kind), materialIds, vars));
+    }
+    if (!exempt('palette')) {
+      push('palette', 'error', paletteFindingsFor(model, checks.palettes, materialIds, vars));
+    }
+    if (!exempt('bands')) {
+      push('bands', 'error',
+        kindBandFindingsFor(model, checks.bands.get(model.kind), checks.palettes, materialIds, vars));
+    }
+  }
+
+  push('backface', null, backfaceFindingsFor(model, vars));
+
+  const mark = [];
+  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields)) {
+    if (vars.mark.includes(row.rule)) mark.push(row.field);
+    else push('measures', row.level, [row]);
+  }
+
+  return { lint: found.length ? found : undefined, mark: mark.length ? mark : undefined };
+}
+
+function limitFindings(limits, measures, tags, vars) {
+  const out = [];
+  for (const [field, { value: kindLimit, from }] of Object.entries(limits ?? {})) {
+    const [measure, bound] = field.split('.');
+    if (!(measure in measures)) continue;
+    const value = measures[measure];
+    if (value === null || value === undefined) continue;
+    if (tags.some((t) => (vars[measure]?.exemptTags ?? vars.exemptTags).includes(t))) continue;
+    const raise = bound === 'max' ? tags.reduce((p, t) => p * (vars[measure]?.tagFactors?.[t] ?? 1), 1) : 1;
+    const limit = kindLimit * raise;
+    const deviation = bound === 'min' ? (limit - value) / limit : (value - limit) / limit;
+    if (deviation <= EPSILON) continue;
+    out.push({ level: deviation <= vars.warnBand + EPSILON ? 'warning' : 'error', measure, value, bound, limit, from });
+  }
+  return out;
+}
+
+export function findingsFor(model, kindLimits, vars, scales) {
+  const { limits, refused, why } = limitsForModel(model, kindLimits, scales);
+  if (refused) return [{ level: 'error', measure: 'scale', value: refused, bound: 'not on', limit: model.kind, from: why }];
+  if (isBuilding(model.kind)) return [];
+  return limitFindings(limits, { high: model.wdh[2], longest: Math.max(...model.wdh) }, model.tags ?? [], vars);
+}
+
+export function tpuFindingsFor(model, kindLimits, vars) {
+  return limitFindings(kindLimits, { tpu: model.tpu }, model.tags ?? [], vars);
+}

@@ -1,0 +1,64 @@
+	Mini-Game Variety (kay-minigame)
+
+			------------------------------
+
+	KayKit : Mini-Game Variety Pack (1.2)
+	Created by Kay Lousberg — https://www.kaylousberg.com
+
+	License: Creative Commons Zero (CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use this content for personal, educational and commercial
+	purposes. The licence file is in the pack itself.
+
+			------------------------------
+
+	Origin
+
+	The source is `kits/sources/KayKit_Mini-Game_Variety_Pack_1.2/`.
+	The pack is one .glb per model. 3 of the 132 models are loaded: the bomb
+	and the two plants. The rest is team-coloured game furniture — gates,
+	flags, hoops, blasters, barriers — that has no place in the catalogue and
+	stays in the missing tab.
+
+
+	Scale
+
+	One scale factor for the whole pack (style guide §6, P10): 0,30, the
+	standard factor for KayKit packs. It is set by comparison: `pine` lands at
+	0,90 high beside kay-forest/tree-1-a at 1,25 and isa-park/tree at 0,87.
+
+
+	Names
+
+	The pack names in mixed case; here that is kebab-case with a name that says
+	what the thing is. The source name is in every .glb under
+	`asset.extras.taaleiland.bronmodel`.
+
+  powerupBomb  -> bomb
+  tree_desert  -> cactus
+  tree_forest  -> pine
+
+	`tree_desert` is a saguaro and resolves to `env-flora-plant-cactus` by
+	shape; the kit of origin does not decide the kind (§3, T02).
+
+
+	Colour
+
+	The source paints one flat colour per material, four in all. None of them
+	came along: each is mapped to a band of the shared kits/colormap.png and
+	placed in that band at the height whose luminance matches the source
+	colour, shaded along normal Y, so the relative light-to-dark reading is
+	kept.
+
+  GreenDark  -> foliage, hunter / vegetation, hunter
+  BrownDark  -> wood-bark, umber
+  BlackDark  -> metal-iron-cast, slate
+  Beige      -> rope, taupe
+
+	The bands follow §4 and §5 of the style guide.
+
+
+	What happened to the files is in tools/importeer/flat-packs.mjs: scaled,
+	origin at y=0 with the footprint centred, vertices re-welded, normals
+	smoothed at 60°, and written as one draw call.

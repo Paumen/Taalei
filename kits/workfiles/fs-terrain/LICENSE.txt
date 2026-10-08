@@ -1,0 +1,46 @@
+	Modulair Terrein
+
+	Modular Terrain Collection
+
+			------------------------------
+
+	Licentie: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	Je mag deze content gebruiken voor persoonlijke, educatieve en
+	commerciële doeleinden.
+
+			------------------------------
+
+	Herkomst en bewerking
+
+	De bronbestanden zijn als Wavefront OBJ aangeleverd, in een zip met de
+	naam `modular_terrain_collection`: 305 .obj-bestanden en één gedeelde
+	`Materials_Modular_Terrain.mtl`, zonder licentiebestand en zonder
+	verwijzing naar een maker of een packpagina. De CC0-vermelding hierboven
+	is vastgesteld door de eigenaar van dit project bij het inladen; ze komt
+	niet uit de pack zelf. De maker is niet bekend en er is dus ook niemand
+	om te crediteren — wie de herkomst alsnog achterhaalt, vult hem hier aan.
+
+	Alle 305 modellen zijn ingeladen.
+
+	Wat er met de bestanden is gebeurd, staat in
+	tools/importeer-modulair-terrein.mjs: omgezet naar .glb en op de gedeelde
+	kits/colormap.png gezet. Verder is er niets aan gedaan.
+
+	Niet geschaald, en de oorsprong is niet verlegd. Dat is een bewuste
+	afwijking van de gewoonte in deze repo, en de reden staat in dat script:
+	de pack staat al op het raster van één unit per wand-/vloersegment, en de
+	oorsprong van elk stuk ís zijn rastervak. Een steiger die op y = 0,75
+	begint hoort op palen te liggen, en een kliffhoek die op x = -0,5 begint
+	sluit daar op de buurtegel aan. Wie die twee "rechtzet", maakt de kit
+	onmodulair.
+
+	De pack heeft geen texture-atlas maar 36 vlakke materiaalkleuren. Die zijn
+	omgezet naar de gedeelde kits/colormap.png, zodat deze modellen dezelfde
+	kleuren delen met de andere kits en in hetzelfde kleurfilter meedoen.
+	Achtentwintig kleuren stonden daar al in; voor de acht die er niet in
+	pasten zijn zes cellen aan de gedeelde sheet toegevoegd — grasgroen,
+	naaldgroen, zonnegeel, bloemroze, dieprood en fel blauw. Welke dat zijn en
+	waarom staat in hetzelfde script. De geometrie is ongemoeid: er is geen
+	hoekpunt bijgekomen, afgegaan of verplaatst.

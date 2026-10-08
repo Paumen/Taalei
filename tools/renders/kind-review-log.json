@@ -1,0 +1,4985 @@
+[
+ {
+  "kind": "env-remains-bones-ribcage",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-hallow/*",
+     "kay-skeleton/*",
+     "kay-skeleton-1/*",
+     "quat-pirate/*",
+     "quat-rpg/*"
+    ],
+    "text": "kay ribcages are flat-shaded and angular, quat ones smooth and tubular",
+    "options": [
+     "Flatten quat normals",
+     "Reject quat ribcages as off-style"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "quat-rpg/ribcage"
+    ],
+    "text": "Ribs are closed loops with no spine or sternum; reads as a coil",
+    "options": [
+     "Reject as off-style",
+     "Rework: open the ribs, add a spine"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-pirate/ribcage"
+    ],
+    "text": "Narrow, 0.16 m wide against 0.22-0.25 m for the rest",
+    "options": [
+     "Widen to about 0.22 m"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "kay-hallow/ribcage",
+     "kay-skeleton/ribcage"
+    ],
+    "text": "Near-identical models at slightly different sizes",
+    "options": [
+     "Reject one as duplicate",
+     "Tag as variants"
+    ],
+    "picked": null
+   }
+  ]
+ },
+ {
+  "kind": "obj-container-cargo",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-apocalypse/*"
+    ],
+    "text": "About 35% larger than the rest (2.23 m long against 1.5-1.65 m)",
+    "options": [
+     "Shrink to about 1.6 m long"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-apocalypse/*"
+    ],
+    "text": "Frame band differs: dark taupe 13,3 against grey 15,3 on the others",
+    "options": [
+     "Grey 15,3",
+     "Dark taupe 13,3",
+     "Recolour ken frames to the frame band",
+     "Leave ken frames as is"
+    ],
+    "picked": [
+     "Grey 15,3",
+     "Leave ken frames as is",
+     "PO: same midpoint on the band, keep gradient spreads"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "ken-industrial/*",
+     "quat-apocalypse/*",
+     "quat-shoot/*"
+    ],
+    "text": "ken is bevelled and chunky, quat is sharp with an outer frame",
+    "options": [
+     "Pick one edge style",
+     "Keep two variant groups"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-water/cargo-container-b"
+    ],
+    "text": "Low-detail version of ken-industrial: flat roof, lower body",
+    "options": [
+     "Reject as duplicate",
+     "Match height and roof ribs to ken-industrial"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-shoot/container"
+    ],
+    "text": "A cube, reads as a crate or small cargo box",
+    "options": [
+     "Move to another kind"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-industrial/*",
+     "quat-apocalypse/*"
+    ],
+    "text": "Roof ribs run across on some and lengthwise on others",
+    "options": [
+     "One rib direction for all"
+    ],
+    "picked": null
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-appliance-fridge",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-food/fridge-a",
+     "kay-food/fridge-b"
+    ],
+    "text": "Black side stripes: triangles with corners in hunter and moss run across the empty cell between",
+    "options": [
+     "face-bands.mjs (source colour)",
+     "Split at door seam",
+     "All crossing → moss",
+     "Keep as is"
+    ],
+    "picked": [
+     "face-bands.mjs (source colour)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/fridge"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Only the fridge",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "colour",
+    "models": [
+     "kay-food/fridge-a",
+     "kay-food/fridge-b",
+     "kay-food/fridge-a-decorated"
+    ],
+    "text": "Green fridge looks weird, did you check source? Source is one mint body; import split it into moss and hunter",
+    "options": [
+     "All moss, fade per part",
+     "All hunter, fade per part",
+     "Keep two-tone"
+    ],
+    "picked": [
+     "All moss, fade per part",
+     "Add moss to plastic"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "look",
+    "models": [
+     "styloo-furniture/fridge",
+     "ken-market/freezers-standing",
+     "ken-market/freezer-chest"
+    ],
+    "text": "Grey fridges do not read like steel",
+    "options": [
+     "Lighter, more contrast",
+     "Full band spread",
+     "Enamel body",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lighter, more contrast"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "detail",
+    "models": [
+     "kay-food/fridge-a-decorated"
+    ],
+    "text": "What is decorated about the decorated fridge: food hidden behind closed doors",
+    "options": [
+     "Keep, fix like a/b",
+     "Open the doors",
+     "Reject as duplicate"
+    ],
+    "picked": [
+     "Keep, fix like a/b",
+     "PO: add open animation, new decorated-anim, 2 clips, doors not perfectly synchronous",
+     "PO: drop the chevron detail"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "colour",
+    "models": [
+     "kay-food/fridge-a-decorated"
+    ],
+    "text": "Check the fridge food against the kit foods: cheese, steak and tomato in wrong bands",
+    "options": [
+     "Match standalone ingredients"
+    ],
+    "picked": [
+     "Match standalone ingredients"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "detail",
+    "models": [
+     "quat-sushi/drinks-fridge"
+    ],
+    "text": "Hidden content check: bottles and cans behind an opaque ivory door window",
+    "options": [
+     "Glass window",
+     "Open-door anim",
+     "Both",
+     "Leave it"
+    ],
+    "picked": [
+     "Open-door anim",
+     "PO: also version with partially transparent glass",
+     "New static glass variant"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-appliance-kitchen",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/rice-cooker"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "cooking-assets/rice-cooker"
+    ],
+    "text": "Mostly smooth-shaded where kitchen peers are flat",
+    "options": [
+     "smooth.mjs --angle 30",
+     "facet.mjs all bands",
+     "Keep smooth"
+    ],
+    "picked": [
+     "PO: make others smoother too",
+     "Kitchen kind, smooth.mjs 50°"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "isa-bakery/stand-mixer",
+     "isa-bakery/stand-mixer-anim"
+    ],
+    "text": "Static and animated mixer look identical",
+    "options": [
+     "Keep both",
+     "Reject static",
+     "Reject -anim"
+    ],
+    "picked": [
+     "Keep both"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "isa-bakery/coffee-machine",
+     "ken-furniture/kitchen-coffee-machine"
+    ],
+    "text": "isa coffee machine 0.45 against ken 0.20",
+    "options": [
+     "Leave scale",
+     "Note for pack review"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-hand-hammer",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "household/hammer",
+     "ken-food/meat-tenderizer"
+    ],
+    "text": "Two hammers lie flat while the other 8 stand upright on the handle end",
+    "options": [
+     "Stand both upright",
+     "Lay all on their side",
+     "Keep as is"
+    ],
+    "picked": [
+     "Stand both upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kit/*"
+    ],
+    "text": "Metal heads in nickel read light, mid or dark because gradient spreads differ; meat-tenderizer handle is slate",
+    "options": [
+     "Same nickel midpoint",
+     "Midpoint + tan handle",
+     "Keep as is"
+    ],
+    "picked": [
+     "Same nickel midpoint"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "colour",
+    "models": [
+     "kay-tools/hammer",
+     "lpa-tools/stone-hammer",
+     "ken-survival/tool-hammer-upgraded"
+    ],
+    "text": "The hammers with grip handle where hands go must be taupe and roughly same midpoint. and not to fainth.",
+    "options": [
+     "kay + lpa wraps",
+     "ken-survival sleeve",
+     "meat-tenderizer handle",
+     "rgp end cap"
+    ],
+    "picked": [
+     "kay + lpa wraps",
+     "ken-survival sleeve"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-fish",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-sushi/salmon-fillet",
+     "quat-sushi/shimesaba",
+     "quat-sushi/crabsticks"
+    ],
+    "text": "Sushi toppings could sit in obj-food-fish-sushi",
+    "options": [
+     "Move all 3 to sushi",
+     "Move 2, crab to seafood",
+     "Keep as is"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack-2/salmon"
+    ],
+    "text": "Low-poly lump, all soft shading, bigger than quat pieces",
+    "options": [
+     "Flat-shade edges",
+     "Flat-shade + shrink",
+     "Keep as is"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-sushi/shimesaba"
+    ],
+    "text": "Tiny back-facing slivers near the fish heads",
+    "options": [
+     "Flip or remove them",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip or remove them"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-sweet-lollipop",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "kay-spook/lollipop-a",
+     "kay-spook/lollipop-b"
+    ],
+    "text": "0.455 m, over the kind max 0.3; the others are 0.13-0.21 m",
+    "options": [
+     "Scale to 0.25 m",
+     "Scale to 0.20 m",
+     "Scale to 0.30 m",
+     "Keep as is"
+    ],
+    "picked": [
+     "PO: investigate why they are so long",
+     "PO: give all spooktober candy except bucket and bag a different scale, set the exception in the style guide",
+     "x0.44 (0.154) for candy-a/b and lollipop-a/b"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-spook/lollipop-a",
+     "kay-spook/lollipop-b",
+     "ken-food/lollypop"
+    ],
+    "text": "Stick camel on 3 models, ivory on 6",
+    "options": [
+     "All ivory sticks",
+     "All camel sticks",
+     "Keep as is"
+    ],
+    "picked": [
+     "All ivory sticks"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-vegetable-root-carrot",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "kay-food/food-ingredient-carrot",
+     "kay-food/food-ingredient-carrot-chopped",
+     "quat-food/carrot",
+     "ken-nature/carrot"
+    ],
+    "text": "Whole carrots range 0.20-0.74 m; kay carrot 0.381 m over kind max 0.3",
+    "options": [
+     "Fix kay carrot only",
+     "One root length",
+     "Keep as is"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "food-pack-2/carrot"
+    ],
+    "text": "Leaves are single-sided planes, back faces show magenta",
+    "options": [
+     "Double-side leaves",
+     "Thin solid blades",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side leaves"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "food-pack/carrot",
+     "food-pack-2/carrot",
+     "props/carrot-a"
+    ],
+    "text": "Thin few-sided roots with sparse sprig tops next to chunkier peers; minTube about 0.006 m",
+    "options": [
+     "Thicken the 3 roots",
+     "Thicken roots + tops",
+     "Keep as is"
+    ],
+    "picked": [
+     "Thicken roots + tops"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-residential",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "ken-modular/*",
+     "kay-city/*"
+    ],
+    "text": "Storey height differs by about 30% between kits",
+    "options": [
+     "Scale ken to kay storeys",
+     "Scale kay to ken storeys"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-modular/*",
+     "kay-city/*"
+    ],
+    "text": "ken is all cream and dark brown, kay uses saturated facades",
+    "options": [
+     "Vary ken wall colours with kay's",
+     "Use kay's roof colour on ken"
+    ],
+    "picked": [
+     "PO: keep kay colourful for variety, nudge kay toward ken's cleaner style (dark trim, ivory roof)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-modular/*"
+    ],
+    "text": "kay windows have white frames and sills, ken windows plain panes",
+    "options": [
+     "Cream frame band around ken windows"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-city/*",
+     "ken-modular/*"
+    ],
+    "text": "kay has a flat roof slab, ken a sunken parapet",
+    "options": [
+     "One roof style across the kind"
+    ],
+    "picked": null
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-city/building-b-no-base",
+     "kay-city/building-g-no-base"
+    ],
+    "text": "Small dark marks on plain side walls",
+    "options": [
+     "Check for leftover geometry"
+    ],
+    "picked": null
+   },
+   {
+    "by": "po",
+    "category": "artefact",
+    "models": [
+     "kay-city/*"
+    ],
+    "text": "kay colours smeared across faces at import",
+    "options": [
+     "Remap one band per source texture cell"
+    ],
+    "picked": [
+     "Remap one band per source texture cell"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "artefact",
+    "models": [
+     "kay-city/*"
+    ],
+    "text": "Windows look odd: upper blind pane in a different colour per window",
+    "options": [
+     "One dark glass, no blind",
+     "Grey glass, no blind",
+     "Glass plus one blind colour",
+     "Keep as is"
+    ],
+    "picked": [
+     "Grey glass, no blind"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-modular/*"
+    ],
+    "text": "Roof floor sienna on tower a and b, ivory on c and d",
+    "options": [
+     "Unify roof floor"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-modular/tower-c"
+    ],
+    "text": "tower-c trim bands terracotta, the rest dark taupe",
+    "options": [
+     "Move tower-c trim to dark taupe"
+    ],
+    "picked": [
+     "Move tower-c trim to dark taupe"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "ken-modular/*"
+    ],
+    "text": "Window treatment differs on every tower",
+    "options": [
+     "Same ivory surround and azure glass on all"
+    ],
+    "picked": []
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-light-street",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-racing/light-post-modern"
+    ],
+    "text": "Pole and head in amber, peers keep amber for the lamp only",
+    "options": [
+     "Pole → ivory",
+     "Pole → nickel",
+     "Keep amber"
+    ],
+    "picked": [
+     "PO: think so, check source. Ivory is fine cause it's race."
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-racing/light-post-exclusive",
+     "ken-racing/light-post-large",
+     "ken-racing/light-post-modern"
+    ],
+    "text": "Ivory poles where 10 of 13 street lights are nickel",
+    "options": [
+     "Keep ivory",
+     "Ivory → nickel"
+    ],
+    "picked": [
+     "Keep ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-shoot/street-light"
+    ],
+    "text": "Ivory lens, not emissive, where peers have an amber lamp",
+    "options": [
+     "Lens → amber + emissive",
+     "Keep ivory lens"
+    ],
+    "picked": [
+     "Lens → amber + emissive"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-shoot/street-light",
+     "quat-apocalypse/street-light"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "ken-racing/*",
+     "quat-apocalypse/street-light"
+    ],
+    "text": "Racing posts 0.94–0.96 tall against median 1.2; apocalypse 2.58 over max",
+    "options": [
+     "Leave scale",
+     "Note for pack review"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-floor",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-dun-2/floor-tile-grate-open"
+    ],
+    "text": "Rim sits 0.30 m up on an inward-facing pit, so the pit's outside shows backfaces",
+    "options": [
+     "Sink rim to y=0",
+     "Add outward pit faces",
+     "Keep as is"
+    ],
+    "picked": [
+     "Sink rim to y=0"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-mediev/rail-curve",
+     "wizp-mediev/rail-long",
+     "wizp-mediev/rail-short",
+     "wizp-mediev/rail-straight"
+    ],
+    "text": "Rail track is not floor; no kind fits",
+    "options": [
+     "New track kind",
+     "Reject them",
+     "Keep in floor"
+    ],
+    "picked": [
+     "New track kind"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-dun-1/floor-bricks-separate"
+    ],
+    "text": "taupe-dark 0.14 reads dark next to the taupe bricks and tiles (0.33-0.34)",
+    "options": [
+     "Taupe at 0.34",
+     "Taupe at 0.14",
+     "Keep as is"
+    ],
+    "picked": [
+     "Taupe at 0.34"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "fs-town/dirt-fading",
+     "fs-town/dirt-fading-gathered",
+     "fs-town/dirt-gathered-corner"
+    ],
+    "text": "Dirt slabs flush with the ground but off-centre in x/z",
+    "options": [
+     "Centre x/z only",
+     "Centre and lift",
+     "Keep as is"
+    ],
+    "picked": [
+     "Centre x/z only"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-gate-single",
+  "date": "2026-10-01",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-dun-1/arch-door"
+    ],
+    "text": "Import fault: planks and iron straps both taupe, frame chestnut; the source has the same materials as bottompivot",
+    "options": [
+     "Match bottompivot",
+     "Match quat-dun-2",
+     "Keep as is"
+    ],
+    "picked": [
+     "PO: you choose",
+     "Match bottompivot"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-dun-1/door-gate"
+    ],
+    "text": "Lowest point at y=-0.149, sinks into the ground",
+    "options": [
+     "Lift to y=0",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lift to y=0"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-arena/wall-gate"
+    ],
+    "text": "A wall section with arch and gate, not a door leaf",
+    "options": [
+     "To gate-gateway",
+     "Keep as is"
+    ],
+    "picked": [
+     "To gate-gateway"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "wizp-asia/door-left",
+     "wizp-asia/door-right"
+    ],
+    "text": "Whole door one amber band, reads as solid gold beside the wood doors",
+    "options": [
+     "Keep as is",
+     "Whole door sienna",
+     "Body camel, trim amber"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-flora-plant",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-nature/corn"
+    ],
+    "text": "corn hunter packed at the light end 0.03-0.21, no height gradient; kind foliage band is moss",
+    "options": [
+     "Moss, spread by height",
+     "Hunter, spread by height",
+     "Leave as is"
+    ],
+    "picked": [
+     "Moss, spread by height"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-holiday/mistletoe-a"
+    ],
+    "text": "upright sprig with leaves dark at top, light at bottom",
+    "options": [
+     "Flip to light top",
+     "Leave as is"
+    ],
+    "picked": [
+     "Flip to light top"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-holiday/mistletoe-a",
+     "kay-holiday/mistletoe-b",
+     "ken-nature/corn",
+     "wizp-asia/clover"
+    ],
+    "text": "holly sprigs, a corn stalk and a clover patch do not read as one family",
+    "options": [
+     "Mistletoe → decor",
+     "Corn → new crop kind",
+     "Clover → grass",
+     "Leave all as is"
+    ],
+    "picked": [
+     "Mistletoe → decor",
+     "Clover → grass"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-flora-plant-bush",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/bush"
+    ],
+    "text": "Ring of single-sided leaf cards shows back faces from above (source style)",
+    "options": [
+     "Double-side leaves",
+     "Remove the cards",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side leaves"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "fs-terrain/hilly-prop-bush-a",
+     "fs-terrain/hilly-prop-bush-b",
+     "fs-terrain/hilly-prop-bush-c",
+     "fs-terrain/hilly-prop-bush-d"
+    ],
+    "text": "Smooth blobs with hard seams from the source's smoothing groups",
+    "options": [
+     "Smooth fully",
+     "Flat-shade all",
+     "Keep as is"
+    ],
+    "picked": [
+     "Smooth fully"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "isa-homely/foliage-a",
+     "isa-homely/foliage-b"
+    ],
+    "text": "Loose leaf sprigs rather than bushes; foliage-a under the 0.2 minimum",
+    "options": [
+     "To env-flora-plant",
+     "Keep in bush"
+    ],
+    "picked": [
+     "Keep in bush"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-city/bush-potted"
+    ],
+    "text": "Topiary in a terracotta pot, could be a houseplant",
+    "options": [
+     "Keep in bush",
+     "To plant-leafy, shrink",
+     "To plant-leafy, scale-big"
+    ],
+    "picked": [
+     "Keep in bush"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-flora-tree-palm",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-pirate/tree-palm-1",
+     "quat-pirate/tree-palm-2",
+     "quat-pirate/tree-palm-3"
+    ],
+    "text": "Trunk tan at 0.77-0.96 (dark end), leaves moss at 0.03-0.21 (light end), no height gradient; other kits lighter to the top.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread by height, keep mids",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-terrain/beach-prop-tree-palm-a",
+     "fs-terrain/beach-prop-tree-palm-b",
+     "fs-terrain/beach-prop-tree-palm-c",
+     "natuur/tree-palm-1",
+     "natuur/tree-palm-2",
+     "natuur/tree-palm-3",
+     "natuur/tree-palm-4",
+     "natuur/tree-palm-5",
+     "natuur/tree-palm-6"
+    ],
+    "text": "Tan trunks mid 0.37-0.39 with no height gradient while ken and wizp trunks are darker at the base; natuur leaves moss mid 0.72.",
+    "options": [
+     "Spread trunks by height, keep mid",
+     "Trunks + natuur leaves to mid 0.5",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread trunks by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "wizp-tree/*"
+    ],
+    "text": "wizp trunks camel while the other 16 palms use tan.",
+    "options": [
+     "wizp camel → tan",
+     "camel → tan + retag wood-log",
+     "Leave as is"
+    ],
+    "picked": [
+     "wizp camel → tan"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "fs-terrain/beach-prop-tree-palm-a",
+     "fs-terrain/beach-prop-tree-palm-b",
+     "fs-terrain/beach-prop-tree-palm-c",
+     "quat-pirate/tree-palm-2"
+    ],
+    "text": "fs palms 1.63-2.06 m, 1.34-1.69x the kind median; quat palm-2 1.031 m under min 1.05.",
+    "options": [
+     "Leave scale",
+     "fs down to ~1.45 m",
+     "quat palm-2 up to 1.06 m",
+     "Both"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-tree/palm-young"
+    ],
+    "text": "Squat bulb with fan fronds reads as a young plant more than a palm tree",
+    "options": [
+     "Keep in palm",
+     "To plant-leafy"
+    ],
+    "picked": [
+     "Keep in palm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-flora-waterplant-lilypad",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "aq-pond/*"
+    ],
+    "text": "single-sided zero-thickness pads and blossoms (source style), back faces show",
+    "options": [
+     "Double-side all 5",
+     "Thicken pads, double blossoms",
+     "Leave"
+    ],
+    "picked": [
+     "Thicken pads, double blossoms"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "aq-pond/*",
+     "quat-nature/lilypad"
+    ],
+    "text": "aq-pond 0.08-0.10 m vs median 0.195, quat 0.48",
+    "options": [
+     "Leave scale",
+     "aq-pond x2",
+     "aq-pond x2 + quat x0.6"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-nature/lilypad"
+    ],
+    "text": "flower sienna (source pink); peers ivory or amber",
+    "options": [
+     "Sienna -> ivory",
+     "Sienna -> amber",
+     "Leave"
+    ],
+    "picked": [
+     "Sienna -> amber"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-hexagon/waterlily-a",
+     "kay-hexagon/waterlily-b"
+    ],
+    "text": "29 mm flat slabs, read as stepping stones",
+    "options": [
+     "Leave",
+     "Thin kay to ~12 mm"
+    ],
+    "picked": [
+     "Thin kay to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-container-bag-sack",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-medieval/sack",
+     "rgp-medieval/sack-grain"
+    ],
+    "text": "Taupe body scattered per vertex over the whole band (0.02–0.98), blotchy wrinkles; source is flat burlap",
+    "options": [
+     "Spread by height, keep mid",
+     "Flatten to 0.5",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-props/bag-1-c",
+     "rgp-props/bag-2-c",
+     "rgp-props/bag-3-c"
+    ],
+    "text": "Body in camel (orange wood band), outside the textile palette; tie taupe at 0.03",
+    "options": [
+     "Body camel → taupe, tie → twine",
+     "Body camel → taupe only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Body camel → taupe, tie → twine"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "rgp-props/bag-2-c",
+     "rgp-asia/*",
+     "quat-props/bag",
+     "props/bag-a"
+    ],
+    "text": "Longest 0.147–0.559; bag-2-c under kind min 0.15",
+    "options": [
+     "Leave scale",
+     "Leave, accept bag-2-c under min",
+     "PO: look per model"
+    ],
+    "picked": [
+     "Leave, accept bag-2-c under min"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-electronics-arcade",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-arcade/*",
+     "sq-arcade/*",
+     "sq-cards/gacha-machine",
+     "sq-casino/slot-cabinet"
+    ],
+    "text": "Ken screens flat ivory (off), sq screens azure spread (lit).",
+    "options": [
+     "Ken screens to azure",
+     "Sq screens to ivory",
+     "Leave"
+    ],
+    "picked": [
+     "Sq screens to ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "ken-arcade/*",
+     "sq-arcade/*",
+     "sq-cards/gacha-machine",
+     "sq-casino/slot-cabinet"
+    ],
+    "text": "Ken bodies cool grey nickel and bevelled, sq bodies warm dark basalt and boxy.",
+    "options": [
+     "Leave two styles",
+     "Ken bodies to basalt",
+     "Sq bodies to nickel"
+    ],
+    "picked": [
+     "Sq bodies to nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-arcade/arcade-upright-gamma"
+    ],
+    "text": "Ivory screen makes gamma 6 bands, over the max of 5.",
+    "options": [
+     "Marquee to sienna",
+     "Keep screen azure",
+     "Accept the error"
+    ],
+    "picked": [
+     "Accept the error"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-arcade/arcade-upright-alpha",
+     "sq-arcade/arcade-upright-beta",
+     "sq-arcade/dance-stage"
+    ],
+    "text": "Ivory screens on ivory bodies almost vanish.",
+    "options": [
+     "Screens to 0.70",
+     "Those 3 back to azure",
+     "Leave"
+    ],
+    "picked": [
+     "Screens to 0.70"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-science",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-chars/aid-defibrillator-green"
+    ],
+    "text": "Hunter body narrowed to 0.40-0.58 and flat; red sibling and source run light top to dark bottom.",
+    "options": [
+     "Spread like red",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread like red"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [],
+    "text": "0.95 m floor cabinet with screen, 3.6x the kind median; others are bench-top.",
+    "options": [
+     "Keep in obj-device-science",
+     "Move to electronics-computer",
+     "Scale down to bench size"
+    ],
+    "picked": [
+     "Move to electronics-computer"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-device-science-astro",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/globe",
+     "household/telescope"
+    ],
+    "text": "Flat colour (grad 0) beside peers spread 0.6-0.96",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "sq-observatory/refractor-telescope"
+    ],
+    "text": "A few inverted faces at the eyepiece end and counterweight; source clean",
+    "options": [
+     "Flip them",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip them"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-apparel-quiver",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/*",
+     "kay-skeleton-1/quiver-b",
+     "zombie-weapons/quiver"
+    ],
+    "text": "5 of 7 quivers are one flat shade per band (kay-dun-1 at 0.05, quiver-b and zombie at 0.50) while adventurers and skeleton spread umber 0.19-0.90 light top",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread like adventurers",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread like adventurers"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-dun-1/quiver-full",
+     "kay-dun-1/quiver-half-full"
+    ],
+    "text": "4 fletching triangles face inward (also in source)",
+    "options": [
+     "Flip them",
+     "Remove them",
+     "Leave as is"
+    ],
+    "picked": [
+     "Remove them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-skeleton/quiver",
+     "zombie-weapons/quiver"
+    ],
+    "text": "fletchings sienna here, hunter on the other 4 Kay quivers",
+    "options": [
+     "Leave as is",
+     "All hunter",
+     "All sienna"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "zombie-weapons/quiver"
+    ],
+    "text": "lies on its side while the other 6 stand upright",
+    "options": [
+     "Stand it upright",
+     "Leave lying"
+    ],
+    "picked": [
+     "Stand it upright"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-apparel-umbrella",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/umbrella-closed"
+    ],
+    "text": "Hook is sienna (textile band, no wood tag); other handles are camel (kay-mixed) or chestnut (rgp-vintage, rgp-asia).",
+    "options": [
+     "Hook to chestnut",
+     "Hook to camel",
+     "Keep as is"
+    ],
+    "picked": [
+     "Hook to chestnut"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-pocketitem-book-closed",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-mixed/comic-book-blank"
+    ],
+    "text": "Front cover split diagonally into 6 sienna and 6 taupe triangles, an import of the source's placeholder picture.",
+    "options": [
+     "Taupe → sienna",
+     "Cover → hunter",
+     "Leave"
+    ],
+    "picked": [
+     "Taupe → sienna"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/*",
+     "household/books"
+    ],
+    "text": "Flat colour: kay-dun-1 book-a…f covers at 0.90 of their band, pages at 0.16; household/books everything at 0.50. The other books have a gradient.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread, mid to 0.5",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-rpg/book-3-closed"
+    ],
+    "text": "A strip of inward-facing faces on top of the page block shows magenta.",
+    "options": [
+     "Flip them",
+     "Remove them",
+     "Leave"
+    ],
+    "picked": [
+     "Flip them"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-hand-saw",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "household/hand-saw"
+    ],
+    "text": "Lies flat (0.016 m high) while the other three stand on edge, teeth down, blade along z.",
+    "options": [
+     "Stand on edge",
+     "Leave flat"
+    ],
+    "picked": [
+     "Stand on edge"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "styloo-farm/saw"
+    ],
+    "text": "Blade 31 mm thick, as thick as its handle (household 1 mm, mek 3 mm, kay 18 mm).",
+    "options": [
+     "Thin styloo to ~18 mm",
+     "Thin styloo to ~8 mm",
+     "Leave"
+    ],
+    "picked": [
+     "Thin styloo to ~18 mm"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/hand-saw"
+    ],
+    "text": "Azure plastic handle; the three others have tan wood handles.",
+    "options": [
+     "Keep azure",
+     "Handle to tan"
+    ],
+    "picked": [
+     "Handle to tan"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-stationery",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-survival/compass",
+     "quat-survival/compass-anim",
+     "kay-tools/compass-base",
+     "taalei-kit/hourglass"
+    ],
+    "text": "Compass and hourglass are nouns of obj-equipment-pocketitem",
+    "options": [
+     "Move all 4 to pocketitem",
+     "Move compasses only",
+     "Keep in stationery"
+    ],
+    "picked": [
+     "Move all 4 to pocketitem"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "kay-tools/scissors",
+     "household/stapler"
+    ],
+    "text": "Scissors 0.361 oversized, stapler 0.082 undersized; fixing needs P10 exception",
+    "options": [
+     "Leave scale",
+     "Scissors ×0.6 (P10 exception)",
+     "Scissors ×0.6 + stapler ×2"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-twohand-rod",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-fishing/fishing-rod-*",
+     "rgp-props/fishing-rod-*",
+     "styloo-farm/fishing-rod*",
+     "rgp-medieval/fishing-rod"
+    ],
+    "text": "quat rods 0.50-0.62 m, rgp-props 1.39 m, styloo 1.29 m against kind 0.6-1.12; 8 of 11 warn",
+    "options": [
+     "All to ~1.0 m",
+     "quat up, max to 1.4",
+     "Widen kind only",
+     "Leave scale"
+    ],
+    "picked": [
+     "PO: you can only change kit wide scales"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-fishing/*"
+    ],
+    "text": "kit-wide: quat-fishing non-fish factor 0.08 -> 0.10 brings rods to 0.63-0.78 m, rowboat and worm into range",
+    "options": [
+     "x1.25 non-fish",
+     "Leave quat-fishing"
+    ],
+    "picked": [
+     "x1.25 non-fish"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "rgp-props/*"
+    ],
+    "text": "kit-wide: rgp-props x0.8 brings rods to 1.11 m but drops bucket, stool, bag-2 further under min",
+    "options": [
+     "Raise kind max to 1.4",
+     "Kit x0.8",
+     "Leave"
+    ],
+    "picked": [
+     "Leave"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "styloo-farm/fishing-rod",
+     "styloo-farm/fishing-rod-hunter"
+    ],
+    "text": "styloo rods in 0.44 group at 1.29 m; move to 0.32 group or shrink group",
+    "options": [
+     "Rods to 0.32 group",
+     "Covered by max 1.4",
+     "Leave"
+    ],
+    "picked": [
+     "Leave"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-fishing/fishing-rod-b"
+    ],
+    "text": "source black grip and reel collapsed into hunter at import",
+    "options": [
+     "Grip+reel -> basalt",
+     "Grip only -> basalt",
+     "Leave as is"
+    ],
+    "picked": [
+     "Grip+reel -> basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-fishing/fishing-rod-b",
+     "quat-fishing/fishing-rod-c",
+     "quat-fishing/fishing-rod-d"
+    ],
+    "text": "reel, crank and guides in the rod band; quat-e, rgp and styloo use nickel",
+    "options": [
+     "Reel+crank+guides -> nickel",
+     "Reel+crank only -> nickel",
+     "Leave as is"
+    ],
+    "picked": [
+     "Reel+crank+guides -> nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-fishing/fishing-rod-b"
+    ],
+    "text": "grip+reel basalt and reel+crank+guides nickel overlap on the reel",
+    "options": [
+     "Basalt",
+     "Nickel"
+    ],
+    "picked": [
+     "Nickel"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "detail",
+    "models": [
+     "taalei-kit/fishing-rod"
+    ],
+    "text": "add Tripo fishing rod to the Taalei kit",
+    "options": [
+     "Rod family look",
+     "Fewer bands",
+     "Keep one band for now"
+    ],
+    "picked": [
+     "Rod family look",
+     "PO: remove box"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "taalei-kit/fishing-rod"
+    ],
+    "text": "Tripo rod kind after removing the box",
+    "options": [
+     "Rod kind",
+     "Leave untagged"
+    ],
+    "picked": [
+     "Rod kind"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-twohand-shovel",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-survival/tool-shovel",
+     "ken-survival/tool-shovel-upgraded",
+     "lpa-tools/stone-shovel",
+     "lpa-tools/wooden-shovel",
+     "quat-shoot/shovel",
+     "zombie-weapons/spade"
+    ],
+    "text": "4 stand blade-down, 5 blade-up (source pose), zombie spade lies flat",
+    "options": [
+     "All blade-down, upright",
+     "Blade-down, leave zombie lying",
+     "Keep as is"
+    ],
+    "picked": [
+     "All blade-down, upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "ken-pirate/tool-shovel",
+     "zombie-weapons/spade",
+     "quat-shoot/shovel"
+    ],
+    "text": "Longest 0.39–0.79, ken-pirate ~1.8× quat-shoot; all within kind range",
+    "options": [
+     "Leave scale",
+     "PO: look at --compare first"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "shape",
+    "models": [
+     "quat-survival/shovel",
+     "quat-shoot/shovel",
+     "zombie-weapons/spade",
+     "ken-survival/tool-shovel",
+     "ken-survival/tool-shovel-upgraded",
+     "ken-pirate/tool-shovel"
+    ],
+    "text": "Blade thickness 0–62 mm (0–35% of blade width)",
+    "options": [],
+    "picked": [
+     "PO: make thinnest blades thicker, and thickest thinner; mind how it looks vs poles and straps; adjust poles if needed"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-melee-axe-single",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "mek-tools/axe",
+     "props/axe-a",
+     "styloo-weapons/axe"
+    ],
+    "text": "Turned 90°: blade along z, edge-on from the front; other 16 face the blade to the front (8 to -x, 6 to +x)",
+    "options": [
+     "Turn the 3, blade to -x",
+     "Turn 3 + all blades to -x",
+     "Leave"
+    ],
+    "picked": [
+     "Turn the 3, blade to -x"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/axe-common",
+     "kay-dun-1/axe-uncommon",
+     "kay-dun-1/axe-rare",
+     "lpa-tools/stone-axe",
+     "lpa-tools/wooden-axe",
+     "mek-tools/axe",
+     "styloo-weapons/axe",
+     "quat-pirate/axe",
+     "quat-rpg/axe-small",
+     "quat-apocalypse/axe",
+     "props/axe-a"
+    ],
+    "text": "7 axes one flat shade per band (kay-dun-1 nickel 0.03-0.34, mek nickel 0.05/chestnut 0.95, styloo 0.50); 4 packed dark 0.8-0.9; rest spread light top around 0.5",
+    "options": [
+     "Spread all 11 around 0.5",
+     "Spread flat 7, keep mid",
+     "Leave"
+    ],
+    "picked": [
+     "Spread flat 7, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/axe"
+    ],
+    "text": "Only tan handle (pale, 0.51); 9 chestnut, 6 camel",
+    "options": [
+     "Zombie tan → chestnut",
+     "Zombie tan → camel",
+     "Leave"
+    ],
+    "picked": [
+     "Zombie tan → chestnut"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "styloo-weapons/axe"
+    ],
+    "text": "3379 tris, 7x kind median 488, mostly ringed grip wrap and spike",
+    "options": [
+     "Simplify to ~800 tris",
+     "Leave"
+    ],
+    "picked": [
+     "Simplify to ~800 tris"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-melee-club",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "household/baseball-bat",
+     "quat-apocalypse/bat-saw",
+     "zombie-weapons/*"
+    ],
+    "text": "10 of 16 clubs lie flat (source pose); 102 of 124 melee weapons stand upright",
+    "options": [
+     "Stand all 10 upright",
+     "Only the 2 non-zombie",
+     "Leave"
+    ],
+    "picked": [
+     "Stand all 10 upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/baseball-bat-nails",
+     "zombie-weapons/hockey-stick",
+     "kay-weapons/hammer-c",
+     "rgp-weapons/club-spiked-a",
+     "rgp-weapons/club-spiked-b",
+     "lpa-tools/wooden-club"
+    ],
+    "text": "Club wood spread over camel, tan, chestnut and umber through wood tags",
+    "options": [
+     "Tan + chestnut → camel",
+     "All → camel",
+     "Only zombie tan → camel",
+     "Leave"
+    ],
+    "picked": [
+     "Tan + chestnut → camel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "zombie-weapons/crowbar",
+     "zombie-weapons/golf-club",
+     "zombie-weapons/hockey-stick"
+    ],
+    "text": "Crowbar is a hand tool, golf club and hockey stick are sports gear",
+    "options": [
+     "Move all 3",
+     "Crowbar only",
+     "Leave"
+    ],
+    "picked": [
+     "Move all 3"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-melee-sword-broad",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "zombie-weapons/machete"
+    ],
+    "text": "Machete lies flat (source pose); the other 5 stand hilt down",
+    "options": [
+     "Stand upright",
+     "Leave"
+    ],
+    "picked": [
+     "Stand upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "zombie-weapons/machete"
+    ],
+    "text": "Blades 5 and 6 mm thick against 12–16 mm on the others",
+    "options": [
+     "Thicken to ~12 mm",
+     "Thicken to ~9 mm",
+     "Leave"
+    ],
+    "picked": [
+     "Thicken to ~12 mm"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-pirate/swords"
+    ],
+    "text": "Two crossed cutlasses as an emblem; combos like sword-shield are set",
+    "options": [
+     "Move to set",
+     "Keep in broad"
+    ],
+    "picked": [
+     "Keep in broad"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-melee-warhammer",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/hammer-rare"
+    ],
+    "text": "Gems sit mid-dark in sienna (0.59) and read as holes against the amber head; source gems are bright red.",
+    "options": [
+     "Lighten in sienna",
+     "Gems to azure",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lighten in sienna"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-ranged-launcher",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "zombie-weapons/bazooka",
+     "zombie-weapons/grenade-launcher"
+    ],
+    "text": "Zombie launchers lie flat along z; quat-shoot pair and rifles/shotguns stand on grip, muzzle -x",
+    "options": [
+     "Stand zombie 2 upright",
+     "Lay quat 2 flat",
+     "Leave"
+    ],
+    "picked": [
+     "Stand zombie 2 upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/grenade-launcher"
+    ],
+    "text": "All basalt flat 0.50 (mono black in source); peers use 3-4 bands",
+    "options": [
+     "Drum + caps → nickel",
+     "Stock + grips → chestnut",
+     "Both",
+     "Leave"
+    ],
+    "picked": [
+     "Drum + caps → nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kit/*"
+    ],
+    "text": "All four flat at 0.50 per band; bazooka chestnut grips 0.41 vs 0.78",
+    "options": [
+     "Spread by height, keep mid",
+     "Even bazooka grips only",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-baked-pastry-cookie",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "isa-bakery/cookie"
+    ],
+    "text": "The jam dome is orange in the source but chestnut (mid 0.43) in the workfile, so it reads as dough.",
+    "options": [
+     "Jam → terracotta",
+     "Jam → amber",
+     "Jam → sienna",
+     "Leave"
+    ],
+    "picked": [
+     "Jam → terracotta"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-holiday/gingerbread-man",
+     "ken-food/gingerbread-man",
+     "ken-holiday/gingerbread-man",
+     "ken-holiday/gingerbread-woman"
+    ],
+    "text": "Two gingerbread figures lie flat, face up; the two ken-holiday figures stand upright.",
+    "options": [
+     "Lay ken-holiday flat",
+     "Stand others up",
+     "Leave"
+    ],
+    "picked": [
+     "Stand others up"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "ken-food/gingerbread-man",
+     "ken-holiday/gingerbread-man",
+     "ken-holiday/gingerbread-woman",
+     "ken-food/cookie-chocolate"
+    ],
+    "text": "Ken cookies are flat-shaded hard blocks (64–100% sharp edges); the others are smooth and rounded.",
+    "options": [
+     "Leave",
+     "Smooth ken figures",
+     "Smooth all ken"
+    ],
+    "picked": [
+     "Smooth ken figures"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-baked-pastry-cupcake",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack-2/*",
+     "isa-food/*",
+     "ken-food/*",
+     "quat-food/cupcake"
+    ],
+    "text": "food-pack-2 muffins smooth-shaded, isa, ken and quat flat-faceted",
+    "options": [
+     "Flat-shade food-pack-2",
+     "Smooth the others",
+     "Leave as is"
+    ],
+    "picked": [
+     "Smooth the others"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/muffin"
+    ],
+    "text": "dark chestnut wrapper under light camel top, inverse of every other muffin",
+    "options": [
+     "Swap the bands",
+     "Wrapper -> tan only",
+     "Leave as source"
+    ],
+    "picked": [
+     "Swap the bands"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-meat-ham",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "props/chicken-leg-a"
+    ],
+    "text": "Bone shaft in sienna (meat), only the knob is bone; others have an ivory shaft. Source colouring.",
+    "options": [
+     "Shaft to ivory",
+     "Leave"
+    ],
+    "picked": [
+     "Shaft to ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "props/chicken-leg-a"
+    ],
+    "text": "Both bands flat at 0.50, no gradient.",
+    "options": [
+     "Spread by height, keep mid",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-pirate/chicken-leg"
+    ],
+    "text": "Bone at dark end of ivory (mid 0.88), reads grey next to others (0.41-0.50).",
+    "options": [
+     "Spread by height, keep 0.45",
+     "Shift to 0.45",
+     "Leave"
+    ],
+    "picked": [
+     "Shift to 0.45"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack/ham",
+     "ken-food/ham"
+    ],
+    "text": "Coarse flat-faceted meat next to soft-shaded rest of the kind.",
+    "options": [
+     "Smooth both",
+     "Smooth meat only",
+     "Leave faceted"
+    ],
+    "picked": [
+     "Smooth both"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack/ham",
+     "ken-food/ham"
+    ],
+    "text": "Smoothing at 50° barely shows on these coarse meshes; 90° softens inner faces, outline stays polygonal.",
+    "options": [
+     "Smooth at 90°",
+     "Keep 50°",
+     "Revert"
+    ],
+    "picked": [
+     "Smooth at 90°"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-vegetable-eggplant",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "food-pack-2/eggplant",
+     "styloo-farm/eggplant"
+    ],
+    "text": "Calyx leaves are single-sided cards; backs show from many angles (source style).",
+    "options": [
+     "Double-side leaves",
+     "Flip back faces only",
+     "Keep as is"
+    ],
+    "picked": [
+     "PO: thicken also to 0.006"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "styloo-farm/eggplant"
+    ],
+    "text": "Leans ~45° diagonally (as in source); the others stand upright stem up.",
+    "options": [
+     "Stand upright",
+     "Keep tilted"
+    ],
+    "picked": [
+     "Stand upright"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-holiday/wreath",
+     "sq-cinema/usher-stand"
+    ],
+    "text": "Kind noun is only clock; wreath and usher stand are not clocks",
+    "options": [
+     "New decor kind + counter",
+     "Add nouns only",
+     "Keep as is"
+    ],
+    "picked": [
+     "New decor kind + counter"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-pool/pace-clock"
+    ],
+    "text": "Thick red sienna hands while the other clocks have basalt hands",
+    "options": [
+     "Hands → basalt",
+     "Keep red"
+    ],
+    "picked": [
+     "Hands → basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-holiday/wreath",
+     "ken-holiday/wreath-decorated"
+    ],
+    "text": "Two more wreaths tagged as set",
+    "options": [
+     "Move both to decor",
+     "Keep as set",
+     "Look first"
+    ],
+    "picked": [
+     "Move both to decor"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-holiday/wreath"
+    ],
+    "text": "tpu 6391 over the 5000 max decor inherits from obj-furnishing",
+    "options": [
+     "Simplify the wreath",
+     "Raise decor tpu.max",
+     "Keep kay wreath as set"
+    ],
+    "picked": [
+     "Raise decor tpu.max"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-light",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-survival/match",
+     "quat-survival/match-burnt"
+    ],
+    "text": "Matches sit with chandelier and fans; matchbox is in obj-equipment-tool-supplies (tube 0.006), which also clears both G27 errors",
+    "options": [
+     "Move both to tool-supplies",
+     "Keep in light"
+    ],
+    "picked": [
+     "Move both to tool-supplies"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/ceiling-fan",
+     "household/chandelier"
+    ],
+    "text": "One band basalt flat 0.50 (mono in source); ken fan spreads 0.15-0.75 light top",
+    "options": [
+     "Spread by height, keep mid",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-light-campfire",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-survival/campfire-stand",
+     "ken-survival/campfire-fishing-stand"
+    ],
+    "text": "bare wooden frames without logs or fire",
+    "options": [
+     "Keep in campfire",
+     "New stand kind",
+     "Reject both"
+    ],
+    "picked": [
+     "Keep in campfire"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "natuur/campfire-star",
+     "natuur/campfire-teepee"
+    ],
+    "text": "smooth round 16-sided logs against flat hex logs of fs, quat and rgp",
+    "options": [
+     "Flat-shade natuur",
+     "Leave as is"
+    ],
+    "picked": [
+     "Leave as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "natuur/campfire-star",
+     "fs-terrain/hilly-prop-camp-campfire"
+    ],
+    "text": "same radial star layout at the same size",
+    "options": [
+     "Keep both",
+     "Reject natuur star",
+     "Reject fs-terrain"
+    ],
+    "picked": [
+     "Keep both"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-textile-rug",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "isa-picnic/*",
+     "kay-furniture/rug-rectangle-b"
+    ],
+    "text": "blankets named hunter/taupe are sienna; folded three identical",
+    "options": [
+     "Per name",
+     "Per name + kay rect-b",
+     "Leave"
+    ],
+    "picked": []
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "props/carpet-a",
+     "isa-picnic/*"
+    ],
+    "text": "top shade spread: picnic 0.04, props 0.80, others 0.23-0.43",
+    "options": [
+     "Even both ends",
+     "Only props/carpet-a",
+     "Leave"
+    ],
+    "picked": [
+     "Even both ends"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "kay-furniture/rug-rectangle-stripes-a"
+    ],
+    "text": "source nested stripes barely show (0.48 vs 0.32 sienna)",
+    "options": [
+     "Stripes -> ivory",
+     "Stripes darker sienna",
+     "Leave"
+    ],
+    "picked": [
+     "Stripes darker sienna"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "kay-furniture/*",
+     "isa-bakery/rug",
+     "isa-picnic/*"
+    ],
+    "text": "thickness 8-47 mm; thick ones read as mattresses",
+    "options": [
+     "Leave",
+     "Thin to ~15 mm"
+    ],
+    "picked": [
+     "Thin to ~15 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-cookware-board",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "cooking-assets/cutting-board-a",
+     "cooking-assets/charcuterie-board"
+    ],
+    "text": "Back-facing sliver triangles on top of cutting-board-a and in the charcuterie handle hole; same in the source OBJ",
+    "options": [
+     "Flip or remove them",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip or remove them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/charcuterie-board",
+     "cooking-assets/cutting-board-a",
+     "cooking-assets/cutting-board-b",
+     "cooking-assets/cutting-board-plastic"
+    ],
+    "text": "Flat colour, every vertex at one point of its band; peers spread 0.25-0.78",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread along length",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/cutting-board"
+    ],
+    "text": "Tan (wood-planks) beside six camel wood-worked boards",
+    "options": [
+     "Camel + wood-worked",
+     "Keep as is"
+    ],
+    "picked": [
+     "Camel + wood-worked"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "cooking-assets/cutting-board-plastic"
+    ],
+    "text": "4 mm thick against 15-45 mm peers, reads as a sheet",
+    "options": [
+     "Thicken to ~12 mm",
+     "Keep as is",
+     "Reject"
+    ],
+    "picked": [
+     "Thicken to ~12 mm"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-tableware-condiment",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/shaker",
+     "cooking-assets/pepper-grinder",
+     "ken-food/pepper-mill"
+    ],
+    "text": "Every part sits at exactly 0.50 of its band, with no gradient; jb-kitchen and styloo have one.",
+    "options": [
+     "Spread by height, keep mid",
+     "Bodies only",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/pepper-mill"
+    ],
+    "text": "Light camel wood next to chestnut wood mills. Chestnut needs material wood-beam; wood-worked allows camel only.",
+    "options": [
+     "Leave",
+     "Camel → chestnut",
+     "Tag → wood-beam",
+     "Revert to camel"
+    ],
+    "picked": [
+     "Camel → chestnut",
+     "Tag → wood-beam"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-barrier-post",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-pirate/dock-pole",
+     "kay-hallow/post"
+    ],
+    "text": "Heights 1.157 m and 0.99 m over the kind's 0.9 m high.max; median about 0.48 m.",
+    "options": [
+     "Leave",
+     "Scale both to 0.9 m",
+     "Dock-pole only to 0.9 m"
+    ],
+    "picked": [
+     "Leave"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "sq-casino/stanchion",
+     "kay-spook/fence-post"
+    ],
+    "text": "Flat by height (r -0.05 and -0.20) while the other posts are darker at the base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread, kay-spook to mid 0.56",
+     "Leave as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-hallow/post"
+    ],
+    "text": "Upright with arm and brace, unlike the plain posts, pillars and bollards.",
+    "options": [
+     "Keep in str-barrier-post",
+     "Move to signpost kind"
+    ],
+    "picked": [
+     "Keep in str-barrier-post"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-military-castle",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "architecture/castle"
+    ],
+    "text": "Almost all taupe-dark (mean 0.12), near-black beside peers; source is light beige stone.",
+    "options": [
+     "Taupe, keep 0.12",
+     "Taupe, spread by height",
+     "Ivory, keep 0.12",
+     "Leave"
+    ],
+    "picked": [
+     "Taupe, spread by height"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "architecture/fortress"
+    ],
+    "text": "One flat taupe band (mean 0.35, p5-p95 0.07-0.42); towers, walls and floors merge.",
+    "options": [
+     "Spread by height, keep mid",
+     "Darker tops",
+     "Leave"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-town/wonder-walls-1",
+     "quat-town/wonder-walls-2"
+    ],
+    "text": "Only a ring of walls and corner towers, no keep; str-part-wall-rampart lists perimeter wall and palisade.",
+    "options": [
+     "Move to rampart",
+     "Keep in castle"
+    ],
+    "picked": [
+     "Keep in castle"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-religious-shrine",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "kay-spook/shrine"
+    ],
+    "text": "plain one-band stone grave lantern among timber Asian pavilions",
+    "options": [
+     "Move to grave marker",
+     "Move to pillar",
+     "Leave as is"
+    ],
+    "picked": [
+     "Move to grave marker"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "wizp-village/shrine"
+    ],
+    "text": "same geometry, village adds paper panels and amber railing",
+    "options": [
+     "Variant group",
+     "Reject village one",
+     "Keep both"
+    ],
+    "picked": [
+     "PO: keep village, reject asia shrine-small"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "rgp-asia/gazebo",
+     "rgp-asia/shrine"
+    ],
+    "text": "smooth sheet roofs on thin posts vs wizp faceted tile roofs on chunky beams",
+    "options": [
+     "Leave as is",
+     "Flat-shade rgp roofs"
+    ],
+    "picked": [
+     "PO: make rgp move more towards wizp: roof gradient like wizp, timber gradient like wizp, thicker posts"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-work-agricultural",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "architecture/barn"
+    ],
+    "text": "Taupe walls and basalt frames read as a grey stone townhouse beside the timber barns.",
+    "options": [
+     "Timber like quat",
+     "Frames to camel",
+     "Leave"
+    ],
+    "picked": [
+     "Timber like quat"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "architecture/barn"
+    ],
+    "text": "1.33 m high (storeys-3) against 2.0-2.8 m for quat-farms and styloo barns.",
+    "options": [
+     "Scale x1.6",
+     "Scale x1.4",
+     "Leave scale"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/barn-small"
+    ],
+    "text": "Magenta roof teeth: the -z tooth faces of an open roof sheet, seen from behind at a grazing angle (first read as flipped faces; flipping moved the magenta to iso-back).",
+    "options": [
+     "Double-side the teeth",
+     "Leave"
+    ],
+    "picked": [
+     "Double-side the teeth"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-farm/barn-small"
+    ],
+    "text": "Slate roof over sienna walls; styloo siblings have sienna roofs over chestnut walls.",
+    "options": [
+     "Match styloo siblings",
+     "Leave"
+    ],
+    "picked": [
+     "Match styloo siblings"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-building-work-agricultural-silo",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "wizp-village/granary-large"
+    ],
+    "text": "3 back roof ribs face inward (import fault; source correct)",
+    "options": [
+     "Flip the 3 ribs",
+     "Leave"
+    ],
+    "picked": [
+     "Flip the 3 ribs"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "scale",
+    "models": [
+     "quat-farms/silo",
+     "quat-farms/silo-house",
+     "wizp-asia/granary",
+     "wizp-asia/tower"
+    ],
+    "text": "quat silos 3.17 m tall vs wizp-asia 1.48-1.60 m",
+    "options": [
+     "Leave scale",
+     "Quat silos x0.75",
+     "Wizp-asia x1.3"
+    ],
+    "picked": [
+     "Leave scale"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-farms/silo",
+     "quat-farms/silo-house"
+    ],
+    "text": "downpipe slate on silo, basalt on silo-house",
+    "options": [
+     "Both slate",
+     "Both basalt",
+     "Leave"
+    ],
+    "picked": [
+     "Both basalt",
+     "PO: keep basalt, drop metal tag (str kinds require metal-iron-cast)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-asia/tower"
+    ],
+    "text": "square post-and-panel box with plaque, reads as shrine/lantern tower",
+    "options": [
+     "To religious-shrine",
+     "To building-tower",
+     "Keep in silo"
+    ],
+    "picked": [
+     "Keep in silo"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-canopy",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-racing/tent-closed",
+     "ken-racing/tent-closed-long"
+    ],
+    "text": "Single-sided walls show back faces through the open side",
+    "options": [
+     "Double-side walls",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side walls"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-commercial/parasol-table-a",
+     "ken-commercial/parasol-table-b"
+    ],
+    "text": "Cafe table with parasol reads as furniture",
+    "options": [
+     "Keep in str-canopy",
+     "To furniture-table"
+    ],
+    "picked": [
+     "Keep in str-canopy"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-racing/tent",
+     "ken-racing/tent-long",
+     "ken-racing/tent-closed",
+     "ken-racing/tent-closed-long",
+     "ken-racing/tent-roof",
+     "ken-racing/tent-roof-double"
+    ],
+    "text": "Saturated hunter/sienna roofs beside ivory fs canopies and wood porches",
+    "options": [
+     "Keep as is",
+     "Roofs ivory",
+     "Roofs taupe"
+    ],
+    "picked": [
+     "Roofs ivory"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility-solar",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-space/solarpanel",
+     "kay-space/roofmodule-solarpanels"
+    ],
+    "text": "Source blue cells imported as flat slate; ken panels use azure cells",
+    "options": [
+     "Slate → azure",
+     "Leave"
+    ],
+    "picked": [
+     "Slate → azure"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-industrial/solar-panel-flat"
+    ],
+    "text": "Cell backing ivory where ken siblings use nickel/slate; source pale blue",
+    "options": [
+     "Ivory → nickel",
+     "Ivory → slate",
+     "Leave"
+    ],
+    "picked": [
+     "Ivory → nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-space/roofmodule-solarpanels"
+    ],
+    "text": "Roof module with panels; sibling roofmodule-base is str-part-roof-unit",
+    "options": [
+     "Move to roof-unit",
+     "Keep in solar"
+    ],
+    "picked": [
+     "Keep in solar"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-door-doorway",
+  "date": "2026-10-02",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "lpa-desert/door-frame-b"
+    ],
+    "text": "Magenta strip beside the arch jambs (in the source too). Cause found: the plank panel's concave outline beside each jamb was fan-triangulated, so sliver triangles span the opening on both faces.",
+    "options": [
+     "Flip them",
+     "Leave"
+    ],
+    "picked": [
+     "Flip them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-dun-2/wall-doorway-scaffold"
+    ],
+    "text": "A closed plank door fills the opening; the rest are open passages.",
+    "options": [
+     "Move to door-single",
+     "Keep in doorway"
+    ],
+    "picked": [
+     "Move to door-single"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "lpa-desert/door-frame-b"
+    ],
+    "text": "Follow-up after the flip did not help: opening read as missing jamb faces.",
+    "options": [
+     "Add jamb faces",
+     "Leave"
+    ],
+    "picked": [
+     "Add jamb faces"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-remains-shell",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-ocean/shell-clam",
+     "quat-ocean/shell-oyster",
+     "quat-ocean/shell-scallop",
+     "quat-ocean/shell-spiral"
+    ],
+    "text": "Flat colour (grad 0) beside fs-terrain and natuur shells spread 0.16-0.65",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-ocean/shell-spiral"
+    ],
+    "text": "Inward-facing slivers where the whorls meet, already in source Shells.fbx",
+    "options": [
+     "Flip or remove them",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip or remove them"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-container-bag",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-medieval/package",
+     "quat-medieval/package-2"
+    ],
+    "text": "Strapped parcels, not bags; crate-cardboard lists 'package'",
+    "options": [
+     "To crate-cardboard",
+     "To bag-sack",
+     "Keep in bag"
+    ],
+    "picked": [
+     "To crate-cardboard"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-medieval/bag-open"
+    ],
+    "text": "No gradient: taupe flat at 0.53, chestnut at 0.66",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-medieval/package",
+     "quat-medieval/package-2"
+    ],
+    "text": "Straps in the same taupe band as the wrapping",
+    "options": [
+     "Straps → twine",
+     "Straps → chestnut",
+     "Keep as is"
+    ],
+    "picked": [
+     "Straps → twine"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-survival/backpack"
+    ],
+    "text": "Hunter green among browns; kind textile palette taupe/ivory",
+    "options": [
+     "Keep green",
+     "Hunter → taupe",
+     "Hunter → umber"
+    ],
+    "picked": [
+     "Keep green"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-medieval/package",
+     "quat-medieval/package-2"
+    ],
+    "text": "crate-cardboard needs wood, paper, plastic or metal; packages had textile and rope",
+    "options": [
+     "Add paper tag",
+     "Wrap → tan, wood-cardboard",
+     "Kind → bag-sack instead",
+     "Back to obj-container-bag"
+    ],
+    "picked": [
+     "Add paper tag"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-medieval/package",
+     "quat-medieval/package-2"
+    ],
+    "text": "With paper, palette wants ivory; wrap was taupe",
+    "options": [
+     "Wrap → ivory",
+     "Wrap → tan, wood-cardboard",
+     "Keep taupe, accept errors"
+    ],
+    "picked": [
+     "Wrap → ivory"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-container-pot-jar",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-food/jar-c-large",
+     "kay-food/jar-c-medium",
+     "kay-food/jar-c-small"
+    ],
+    "text": "Import made the caramel source body ivory; the ivory label on jar-c-medium vanishes into the body",
+    "options": [
+     "Body → terracotta",
+     "Body → tan + food tag",
+     "Keep as is"
+    ],
+    "picked": [
+     "Body → terracotta"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/canister",
+     "isa-kitchen/canister-a-white",
+     "isa-kitchen/canister-b-white",
+     "isa-kitchen/canister-b-red",
+     "isa-picnic/jam-jar"
+    ],
+    "text": "No gradient on household/canister (all at 0.50); narrow spreads on isa-kitchen canisters and jam-jar",
+    "options": [
+     "Spread by height, keep mid",
+     "Canister + narrow ones",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "household/canister"
+    ],
+    "text": "Fully flat-shaded, 12 sides read as hard facets while peers have smooth sides and crisp rims",
+    "options": [
+     "smooth.mjs 50°",
+     "Keep flat"
+    ],
+    "picked": [
+     "smooth.mjs 50°"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-apparel-headgear",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-skeleton-1/hood-masked"
+    ],
+    "text": "Inverted strip on the inner mask edge, present in the KayKit source too",
+    "options": [
+     "Flip it",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip it"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "taalei-kit/diving-helmet",
+     "quat-rpg/crown",
+     "quat-rpg/crown-2"
+    ],
+    "text": "Diving helmet fully flat-shaded and crowns mostly flat, while aq hats and kay hoods are smooth",
+    "options": [
+     "smooth.mjs 50° on helmet",
+     "smooth.mjs 50° on helmet + crowns",
+     "Keep as is"
+    ],
+    "picked": [
+     "smooth.mjs 50° on helmet + crowns"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-pocketitem-scroll",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "isa-homely/letter"
+    ],
+    "text": "Address lines grey in source, now ivory like the envelope (0.45 vs 0.49), so they vanish",
+    "options": [
+     "Lines to ivory 0.90",
+     "Lines to ivory 0.75",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lines to ivory 0.90"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "quat-pirate/papers"
+    ],
+    "text": "Sheets lean at about 45°; other flat papers lie flat",
+    "options": [
+     "Lay flat",
+     "Stand upright",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lay flat"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-pirate/papers",
+     "quat-rpg/parchment"
+    ],
+    "text": "Sit at 0.87–0.88 of ivory, kay papers and letter near 0.5",
+    "options": [
+     "Spread by height, keep mid",
+     "Shift to mid, keep spread",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "isa-homely/letter"
+    ],
+    "text": "Stands on its edge like a sign",
+    "options": [
+     "Lay flat, face up",
+     "Keep upright"
+    ],
+    "picked": [
+     "Lay flat, face up"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-hand-brush",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "makeup/brush-powder"
+    ],
+    "text": "Metal collar painted tan like the handle; source has a wide grey ferrule",
+    "options": [
+     "Collar back to nickel",
+     "Keep as is"
+    ],
+    "picked": [
+     "Collar back to nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "makeup/*",
+     "mek-tools/brush"
+    ],
+    "text": "No gradient: makeup brushes every vertex at 0.50, mek brush flat per part at band ends",
+    "options": [
+     "Spread by height, keep mid",
+     "Only the makeup brushes",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-mechanism",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-rpg/padlock",
+     "taalei-kit/magnet"
+    ],
+    "text": "Padlock all nickel at 0.87, magnet flat at 0.50",
+    "options": [
+     "Spread by height, keep mid",
+     "Only the padlock",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "quat-survival/bear-trap"
+    ],
+    "text": "Same Quaternius bear trap in two packs",
+    "options": [
+     "Reject quat-shoot",
+     "Reject quat-survival static",
+     "Keep both"
+    ],
+    "picked": [
+     "Reject quat-shoot"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-fruit-avocado",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/avocado"
+    ],
+    "text": "Seed is taupe while quat-sushi pit and food-pack-2 seed are umber",
+    "options": [
+     "Seed → umber",
+     "Keep as is"
+    ],
+    "picked": [
+     "Seed → umber"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "food-pack-2/avocado-half-a",
+     "food-pack-2/avocado-half-b",
+     "quat-food/avocado"
+    ],
+    "text": "food-pack-2 halves smooth across the 115° cut rim so the cut melts into the skin; quat-food near flat",
+    "options": [
+     "smooth.mjs 50° on halves",
+     "Halves + quat-food 50°",
+     "Keep as is"
+    ],
+    "picked": [
+     "smooth.mjs 50° on halves"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/avocado"
+    ],
+    "text": "Skin hunter sits at 0.77–0.96, near black-green; peers 0.30–0.77",
+    "options": [
+     "Move to ~0.35–0.80",
+     "Spread, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "Move to ~0.35–0.80"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-furniture-seating-bench-backrest",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-holiday/bench",
+     "ken-holiday/bench-short"
+    ],
+    "text": "Holiday bench legs slate, bench-short legs basalt; source has one leg colour for both",
+    "options": [
+     "Both basalt",
+     "Both slate",
+     "Keep as is"
+    ],
+    "picked": [
+     "Both basalt"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-medieval/bench"
+    ],
+    "text": "Flat chestnut at 0.28, no gradient, while the kind spreads 0.44-0.94",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread by height, mid 0.5",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-transport-land-cart",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "rgp-props/cart-1-a"
+    ],
+    "text": "Inward-facing sliver on the left bed slat, not in source Cart_1_A; stray light camel triangles on bed slats and one shaft inside chestnut wood",
+    "options": [
+     "Remove sliver + recolour",
+     "Remove sliver only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Remove sliver + recolour"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-props/cart-1-a",
+     "wizp-asia/cart"
+    ],
+    "text": "Bodies mostly chestnut while 9 of 12 carts have camel wood bodies",
+    "options": [
+     "Bodies to camel",
+     "Keep as is"
+    ],
+    "picked": [
+     "Bodies to camel"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-access-bridge-long",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "kay-hexagon/bridge-a"
+    ],
+    "text": "bridge-b is the mirror image of bridge-a: same triangles and size",
+    "options": [
+     "Reject bridge-b",
+     "Keep both"
+    ],
+    "picked": [
+     "Reject bridge-b"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-hexagon/bridge-a"
+    ],
+    "text": "Deck runs at 30 degrees to X (hex grid); every other long bridge runs along X",
+    "options": [
+     "Rotate to X",
+     "Keep as is"
+    ],
+    "picked": [
+     "Rotate to X"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "medieval-forge/stone-bridge",
+     "medieval-forge/stone-bridge-2"
+    ],
+    "text": "Flat taupe (grad 0) beside kay stone bridges spread 0.4-0.7",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-light-traffic",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-racing/light-colored",
+     "ken-racing/light-red",
+     "ken-racing/light-red-double"
+    ],
+    "text": "Visor side stubs still inverted; source is wound inside-out and the import flipped all but these",
+    "options": [
+     "Flip the stubs",
+     "Remove the stubs",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip the stubs"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-roads/traffic-light-object-hanging",
+     "ken-roads/traffic-light-object-horizontal",
+     "ken-roads/traffic-light-object-vertical"
+    ],
+    "text": "Lamps face -X as in source; the other 10 models face +Z",
+    "options": [
+     "Turn to face +Z",
+     "Keep -X"
+    ],
+    "picked": [
+     "Turn to face +Z"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-roads/traffic-light-object-hanging",
+     "ken-roads/traffic-light-object-horizontal",
+     "ken-roads/traffic-light-object-vertical"
+    ],
+    "text": "Head back, plate and brackets in slate while the same parts on ken-roads traffic-light and -hanging are nickel; source is grey",
+    "options": [
+     "Slate → nickel",
+     "Nickel → slate on the full ones",
+     "Keep as is"
+    ],
+    "picked": [
+     "Slate → nickel"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-racing/radar-equipment"
+    ],
+    "text": "Back-facing triangles at the dish-base/box joint show magenta; first read as a hole",
+    "options": [
+     "Close the hole",
+     "Flip inner face",
+     "Keep as is"
+    ],
+    "picked": [
+     "Close the hole",
+     "PO accepted fix: flip the 3 inward-facing triangles at the joint"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-roads/electricity-pole",
+     "ken-roads/electricity-pole-single",
+     "ken-roads/electricity-pole-wide"
+    ],
+    "text": "Poles flat colour, every part at 0.50; rest of kind has gradients",
+    "options": [
+     "Spread by height, keep mid",
+     "Wood only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility-machine",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-factory/machine-window",
+     "ken-factory/machine-window-bar"
+    ],
+    "text": "Body flat azure at 0.97 vs machine bodies mid 0.49; source same colour as machine",
+    "options": [
+     "Match machine",
+     "Spread by height, mid 0.6",
+     "Keep as is"
+    ],
+    "picked": [
+     "Match machine"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-factory/scanner-low"
+    ],
+    "text": "All nickel while scanner-high is azure arm with amber feet; source shares body colour",
+    "options": [
+     "Like scanner-high",
+     "Azure arm, grey feet",
+     "Keep as is"
+    ],
+    "picked": [
+     "Like scanner-high"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-factory/scanner-low"
+    ],
+    "text": "Magenta seams on feet: each foot is an outer shell plus an inward-facing inner shell 1-3 mm inside, open at the rims",
+    "options": [
+     "Remove slivers",
+     "Flip them",
+     "Keep as is",
+     "Snap seams shut",
+     "Rebuild feet as boxes"
+    ],
+    "picked": [
+     "Snap seams shut"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-utility-turbine",
+  "date": "2026-10-03",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-space/*",
+     "ken-industrial/*"
+    ],
+    "text": "Kits differ in accent: kay amber blade tips and collar, ken ivory blade root and sienna base",
+    "options": [
+     "Keep as is",
+     "Amber tips on ken blades",
+     "Sienna base on kay-tall"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-remains-bones-fishbone",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "quat-food/fish-bone"
+    ],
+    "text": "Same source model FishBone in both packs; only tri count and size differ",
+    "options": [
+     "Reject quat-rpg",
+     "Reject quat-food",
+     "Keep both"
+    ],
+    "picked": [
+     "Reject quat-rpg"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-farm/fish-bones",
+     "styloo-farm/fish-carcass",
+     "styloo-farm/fish-carcass-tan",
+     "styloo-farm/fish-carcass-umber"
+    ],
+    "text": "Small flipped face on the spine behind the head, also in source",
+    "options": [
+     "Flip it",
+     "Remove it",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip it"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "styloo-farm/*"
+    ],
+    "text": "Styloo set smooth-shaded with soft/sharp per part; ken and quat flat",
+    "options": [
+     "Keep as is",
+     "Flat-ish styloo",
+     "One rule, 41°"
+    ],
+    "picked": [
+     "One rule, 41°"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-ranged",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "styloo-weapons/shuriken-b",
+     "styloo-weapons/shuriken-c",
+     "styloo-weapons/shuriken-d"
+    ],
+    "text": "Import fault: b/c hub ring filled into a solid disc, c lost its ring inlays, d's round hole became square and lost its dark inlays",
+    "options": [
+     "Rebuild b, c, d hubs",
+     "Reopen b/c rings only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Rebuild b, c, d hubs"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-weapons/*"
+    ],
+    "text": "Inverted faces and open walls on cutouts and hub rims, backface share 0.8-2.6%",
+    "options": [
+     "Flip and close them",
+     "Flip inverted only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip and close them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-minigame/slingshot",
+     "lpa-weapons/javelin"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Slingshot only",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-blaster/bullet-foam-tip",
+     "ken-blaster/bullet-foam-tip-thick"
+    ],
+    "text": "Foam bullets are ammunition, not a ranged weapon",
+    "options": [
+     "To firearm-part",
+     "New ammo kind",
+     "Keep in weapon-ranged"
+    ],
+    "picked": [
+     "To firearm-part"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-bathroom-mirror",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-house/mirror",
+     "lpa-home/mirror-a",
+     "lpa-home/mirror-b"
+    ],
+    "text": "Mirror glass in ivory (fs), nickel (isa, ken) and azure (lpa)",
+    "options": [
+     "All nickel",
+     "fs only to nickel",
+     "Keep as is"
+    ],
+    "picked": [
+     "All nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-house/mirror",
+     "lpa-home/mirror-a",
+     "lpa-home/mirror-b"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "lpa-home/mirror-a",
+     "lpa-home/mirror-b"
+    ],
+    "text": "Flat slab frame about 1 cm wide, no bevel",
+    "options": [
+     "Widen + chamfer",
+     "Chamfer only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Widen + chamfer"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-furnishing-furniture-storage-cabinet",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-house/tv-stand",
+     "fs-house/wall-cabinet",
+     "fs-house/wall-cabinet-corner",
+     "fs-house/wall-cabinet-narrow",
+     "fs-house/wall-cabinet-open",
+     "fs-house/wall-cabinet-short",
+     "household/cabinet"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Only fs-house",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "isa-kitchen/wall-cabinet",
+     "isa-kitchen/wall-cabinet-corner",
+     "isa-kitchen/wall-cabinet-left",
+     "isa-kitchen/wall-cabinet-right"
+    ],
+    "text": "Source has white doors and grey handles; workfile doors camel flat at 0.02, handles camel 0.81",
+    "options": [
+     "Ivory doors + nickel handles",
+     "Camel doors spread + nickel",
+     "Camel doors spread only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "fs-house/tv-stand",
+     "ken-furniture/cabinet-television",
+     "ken-furniture/cabinet-television-doors"
+    ],
+    "text": "TV stands; 'tv stand' is a dresser noun",
+    "options": [
+     "Move 3 to dresser",
+     "Keep in cabinet"
+    ],
+    "picked": [
+     "Move 3 to dresser"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "isa-bakery/display-case-long",
+     "isa-bakery/display-case-short",
+     "sq-cards/glass-counter"
+    ],
+    "text": "Shop display counters, not cabinets",
+    "options": [
+     "Move 3 to counter",
+     "Only glass-counter",
+     "Keep in cabinet"
+    ],
+    "picked": [
+     "Move 3 to counter"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-papertowel",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "lpa-home/kitchen-roll"
+    ],
+    "text": "Flat-shaded octagon with no gradient beside smooth, spread peers",
+    "options": [
+     "Smooth + gradient",
+     "Gradient only",
+     "Smooth only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Smooth + gradient"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-leisure-art-instrument-string",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "lpa-weapons/mandolin"
+    ],
+    "text": "Front faces +X while the others face +Z",
+    "options": [
+     "Face +Z",
+     "Keep as is"
+    ],
+    "picked": [
+     "Face +Z"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "quat-pirate/lute"
+    ],
+    "text": "Stands upside down, peghead at y=0, as in source",
+    "options": [
+     "Stand upright",
+     "Keep as is"
+    ],
+    "picked": [
+     "Stand upright"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "lpa-weapons/mandolin"
+    ],
+    "text": "Strings read as one grey bar with magenta slits; on closer look they are 8 separate strings seen edge-on, fixed by the +Z turn",
+    "options": [
+     "Merge per course",
+     "Spread them",
+     "Keep as is",
+     "Pair into courses"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-corridor",
+  "date": "2026-10-04",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-space/corridor-window-closed"
+    ],
+    "text": "One window pane faces inward and shows as a magenta hole from outside",
+    "options": [
+     "Double-side panes",
+     "Flip it",
+     "Keep as is"
+    ],
+    "picked": [
+     "Double-side panes"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-space/corridor-detailed"
+    ],
+    "text": "Frame ring in near-black slate reads heavier than the ivory and nickel ken set; source is mid-dark grey",
+    "options": [
+     "Keep slate",
+     "Nickel, darker",
+     "Nickel, same spot"
+    ],
+    "picked": [
+     "Nickel, darker"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-space/*",
+     "ken-space/*"
+    ],
+    "text": "Kay closed bevelled tubes and ken open angular frames are two modular systems",
+    "options": [
+     "Keep both",
+     "Split kay tunnels",
+     "Reject kay tunnels"
+    ],
+    "picked": [
+     "Keep both"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "env-flora-plant-cactus-potted",
+  "date": "2026-10-05",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-school/cactus-pot"
+    ],
+    "text": "No gradient: moss, terracotta and loam all at 0.50 in their bands",
+    "options": [
+     "Spread by height, keep mid",
+     "Cactus only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "kay-furniture/cactus-potted-medium-a",
+     "kay-furniture/cactus-potted-small-a"
+    ],
+    "text": "-b has the same geometry as -a, only the moss gradient differs",
+    "options": [
+     "Reject both -b",
+     "Mirror -b",
+     "Keep both"
+    ],
+    "picked": [
+     "Reject both -b"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "quat-interior/cactus",
+     "quat-interior/cactus-small"
+    ],
+    "text": "Faceted (53%/46% flat faces) while kay/isa cacti are smooth",
+    "options": [
+     "Smooth, spines hard",
+     "Smooth bodies only",
+     "Keep faceted"
+    ],
+    "picked": [
+     "Smooth, spines hard"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-tableware-drinkware-takeaway",
+  "date": "2026-10-05",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/frappe",
+     "ken-food/soda",
+     "quat-food/soda"
+    ],
+    "text": "No gradient: every band at 0.50",
+    "options": [
+     "Spread by height, keep mid",
+     "Cup bodies only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "quat-food/soda",
+     "ken-food/soda"
+    ],
+    "text": "Faceted (92%/49% flat faces) while isa and styloo cups are smooth",
+    "options": [
+     "Smooth both at 50°",
+     "Smooth quat only",
+     "Keep faceted"
+    ],
+    "picked": [
+     "Smooth quat only"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "isa-bakery/cup-takeaway",
+     "isa-bakery/cup-takeaway-stacked"
+    ],
+    "text": "Fat rolled rim, about 20% of cup height, vs thin lids elsewhere",
+    "options": [
+     "Keep as is",
+     "Thin the rim"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-resource-metal-parts",
+  "date": "2026-10-05",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "lpa-construction/steel-a",
+     "lpa-construction/steel-b",
+     "lpa-construction/pipe-b",
+     "quat-shoot/pipes"
+    ],
+    "text": "No gradient: all bands at 0.50",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "lpa-construction/steel-a",
+     "lpa-construction/steel-b"
+    ],
+    "text": "Sienna I-beams, outside every metal palette",
+    "options": [
+     "Recolour to nickel",
+     "To terracotta",
+     "Keep sienna"
+    ],
+    "picked": [
+     "Recolour to nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-resources/parts-cog",
+     "kay-resources/parts-pile-large",
+     "kay-resources/parts-pile-small"
+    ],
+    "text": "Sink below the floor: 8, 0.5 and 0.7 mm",
+    "options": [
+     "Lift all three to y=0",
+     "Lift cog only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lift all three to y=0"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-factory/cog-a",
+     "ken-factory/cog-b",
+     "ken-factory/cog-c",
+     "ken-factory/cog-d",
+     "ken-factory/cog-e",
+     "kay-resources/parts-cog"
+    ],
+    "text": "Cogs stand upright on a tooth, the cogs in kay parts-pile-small lie flat",
+    "options": [
+     "Keep upright",
+     "Lay all six flat",
+     "Lay kay cog flat only"
+    ],
+    "picked": [
+     "Lay all six flat"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-fixture-marker-grave",
+  "date": "2026-10-05",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "kay-hallow/grave-a",
+     "kay-hallow/grave-a-destroyed",
+     "kay-hallow/grave-b",
+     "kay-hallow/gravestone",
+     "kay-hallow/gravemarker-a"
+    ],
+    "text": "Import flipped the gradient: dark at the top and light at the foot, with the skull eyes light where the source has them dark",
+    "options": [
+     "Flip to match source",
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "PO: revert to runs dark at top, only for stones"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-grave/*"
+    ],
+    "text": "Each part carries its own full 0.1-0.9 gradient, so a dark shaft foot meets a light base top; bevel, roof and the cross-column shaft are inverted",
+    "options": [
+     "Spread by height, keep mid",
+     "Flip inverted only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-grave/gravestone-bevel",
+     "ken-grave/gravestone-wide",
+     "ken-grave/gravestone-cross",
+     "ken-grave/gravestone-debris",
+     "ken-grave/gravestone-roof",
+     "ken-grave/cross",
+     "ken-grave/cross-column"
+    ],
+    "text": "taupe-dark insets read as near-black holes; no other kit in the kind uses taupe-dark",
+    "options": [
+     "Panels to taupe dark end",
+     "All to taupe dark end",
+     "Keep as is"
+    ],
+    "picked": [
+     "Panels to taupe dark end"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-hallow/gravemarker-a",
+     "kay-hallow/gravemarker-b",
+     "ken-grave/cross-wood"
+    ],
+    "text": "Two woods: kay crosses camel (wood-worked), ken cross chestnut (wood-beam)",
+    "options": [
+     "Keep as is",
+     "All camel",
+     "All chestnut"
+    ],
+    "picked": [
+     "All chestnut"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-spook/shrine"
+    ],
+    "text": "A 0.8 m lantern shrine, not a grave marker",
+    "options": [
+     "Move to shrine kind",
+     "Keep in grave"
+    ],
+    "picked": [
+     "Move to shrine kind"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "colour",
+    "models": [
+     "aq-hallow/*",
+     "kay-hallow/plaque",
+     "kay-spook/gravestone",
+     "ken-grave/*",
+     "wizp-asia/*",
+     "wizp-grave/*"
+    ],
+    "text": "try for other stones too: gradient that runs dark at the top, as on the kay-hallow stones",
+    "options": [
+     "Dark top, keep each shade",
+     "Apply the trial as shown",
+     "Keep as is"
+    ],
+    "picked": [
+     "Keep as is"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "str-part-gate-gateway",
+  "date": "2026-10-05",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-town/*",
+     "kay-builder/wall-gate",
+     "kay-builder/wall-gate-closed",
+     "kay-hexagon/wall-gate",
+     "kay-hexagon/wall-corner-a-gate",
+     "kay-hexagon/fence-wood-gate",
+     "fs-temple/*",
+     "ken-castle/*"
+    ],
+    "text": "9 models are walls, not gateways; the fence gate fits str-barrier-fence-gate; fs-temple and ken-castle doorway walls are too tall for wall-unit-doorway",
+    "options": [
+     "Ramparts + fence gate",
+     "Also move doorway walls",
+     "Fence gate only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Fence gate only"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-minigame/gate-large",
+     "kay-minigame/gate-small"
+    ],
+    "text": "flat azure at 0.50 with no gradient, faceted; source is smooth and light; platformer arches run 0.21 top to 0.70 bottom",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread + smooth shading",
+     "Keep as is"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-castle/wall-doorway",
+     "ken-castle/wall-narrow-gate",
+     "ken-pirate/castle-gate",
+     "ken-pirate/castle-door"
+    ],
+    "text": "taupe fades from about 0.15 at the top to 0.90-0.98 at the feet, far more than stone peers; source style",
+    "options": [
+     "Narrow to ~0.30-0.75",
+     "Narrow castle only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Narrow to ~0.30-0.75"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-dun-1/arch"
+    ],
+    "text": "taupe mean 0.74 against peers at about 0.50, reads as a darker stone",
+    "options": [
+     "Lift to mid",
+     "Lift + spread by height",
+     "Keep as is"
+    ],
+    "picked": [
+     "Lift to mid"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-ranged-arrow",
+  "date": "2026-10-06",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/arrow",
+     "lpa-tools/stone-arrow",
+     "lpa-tools/wooden-arrow",
+     "lpa-weapons/arrow",
+     "zombie-weapons/arrow"
+    ],
+    "text": "No gradient: every band at one point",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread, fletch to ~0.47",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-rpg/arrow",
+     "quat-rpg/arrow-golden"
+    ],
+    "text": "quat azure fletch at 0.88 (navy) and chestnut shafts at 0.88 against 0.50 on the rest",
+    "options": [
+     "Quat to mid 0.50",
+     "Only shafts to 0.50",
+     "Keep as is"
+    ],
+    "picked": [
+     "Quat to mid 0.50"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "lpa-weapons/arrow"
+    ],
+    "text": "Stands head up, fletching down; the other 19 head down",
+    "options": [
+     "Flip head down",
+     "Keep"
+    ],
+    "picked": [
+     "Flip head down"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "quat-rpg/arrow",
+     "quat-rpg/arrow-golden",
+     "rgp-medieval/arrow",
+     "zombie-weapons/arrow"
+    ],
+    "text": "Shafts 6-11 mm read as wire beside 16-43 mm",
+    "options": [
+     "Thicken to ~12 mm",
+     "Thicken to ~18 mm",
+     "Leave"
+    ],
+    "picked": [
+     "Thicken to ~12 mm"
+    ]
+   },
+   {
+    "by": "po",
+    "category": "shape",
+    "models": [
+     "rgp-medieval/arrow"
+    ],
+    "text": "rgp medieval arrow too thick at 12 mm",
+    "options": [
+     "~9 mm, accept G27",
+     "Back to 6 mm",
+     "12 mm, widen fletch+head"
+    ],
+    "picked": [
+     "~9 mm, accept G27"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-food-baked-bread-bun",
+  "date": "2026-10-06",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-food/bun-top",
+     "styloo-food/bun-bottom",
+     "rgp-medieval/bread-round"
+    ],
+    "text": "styloo crust light on top, dark below (source dark on top); rgp gradient diagonal",
+    "options": [
+     "Flip styloo, re-spread rgp",
+     "Flip styloo only",
+     "Keep as is"
+    ],
+    "picked": [
+     "Flip styloo, re-spread rgp"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-food/bun-bottom"
+    ],
+    "text": "Cut face camel like the crust; kay bun-bottom cut face is tan crumb",
+    "options": [
+     "Cut face to tan",
+     "Keep camel"
+    ],
+    "picked": [
+     "Cut face to tan"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-food/bun-top"
+    ],
+    "text": "One stray tan triangle near the crown reads as a chip",
+    "options": [
+     "To camel",
+     "Keep"
+    ],
+    "picked": [
+     "To camel"
+    ]
+   }
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-cookware-utensil-spoon",
+  "date": "2026-10-06",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/cooking-spoon",
+     "cooking-assets/ladle-a",
+     "cooking-assets/ladle-b",
+     "cooking-assets/wooden-spoon",
+     "styloo-furniture/wooden-spoon-round"
+    ],
+    "text": "No gradient: every band at one point",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread, grips to 0.50",
+     "Keep flat"
+    ],
+    "picked": [
+     "Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-furniture/wooden-spoon-round"
+    ],
+    "text": "Slot faces inverted, show magenta; on a closer look the slot geometry is torn at import, shards stick out of the head",
+    "options": [
+     "Flip them",
+     "Keep"
+    ],
+    "picked": [
+     "Flip them",
+     "PO: restore original (re-import from source)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "ken-food/spoon-cooking"
+    ],
+    "text": "Flat faceted board with no bowl reads as a rice paddle",
+    "options": [
+     "Move to utensil (paddle)",
+     "Smooth its shading",
+     "Keep"
+    ],
+    "picked": [
+     "Move to utensil (paddle)"
+    ]
+   }
+  ]
+ }
+]
