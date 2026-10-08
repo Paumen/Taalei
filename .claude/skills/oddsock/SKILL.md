@@ -16,12 +16,12 @@ check a suggestion is allowed.
 
     node tools/renders/kind-pick.mjs --render <scratch>/kind-review
 
-- Picks 3 random kinds with 4–24 models from at least 2 kits, skipping every
+- Picks 3 random kinds with 4–48 models from at least 2 kits, skipping every
   kind in `tools/renders/kind-review-log.json`, and adds the picks to that log.
 - Renders each kind with `kind-sheet.mjs --free-scale`, pbr from iso, each
   tile fitted to its own model:
-  `<kind>/pbr/sheet.png`, plus `c01` and `c02` halves of at most 12 models when
-  the kind has more than 12.
+  `<kind>/pbr/sheet.png`, plus even sheets `c01`, `c02`, … of at most 16 models
+  when the kind has more than 16.
 - `--kind <id,…>` reviews named kinds instead; `--dry` picks without logging.
 - Commit the log with the work, so the next session skips these kinds.
 
