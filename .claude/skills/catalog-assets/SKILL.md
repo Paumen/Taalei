@@ -17,15 +17,11 @@ A workfile in `kits/workfiles` is the asset itself. No model is dropped
 because of a lint error; §7 says how to work one. A wrong band is moved in place
 with `tools/import/recolour.mjs`, for the whole band or for named parts. A
 triangle spanning two colormap cells, or a flat face whose triangles show
-different colours, is evened in place with `tools/import/face-bands.mjs`. A tube
-or stick thinner than `G27` allows is widened in place with `tools/import/thicken.mjs`.
+different colours, is evened in place with `tools/import/face-bands.mjs`.
 A model lying in its source pose where its kind stands upright is turned in
 place with `tools/import/upright.mjs`, which also grounds and centres it.
 A kit's size is set in place with `tools/import/scale.mjs --to` (or `--by` for a kit
 with per-model factors), which writes it into the geometry.
-A model with more triangles than its shape needs is thinned in place with
-`tools/import/simplify.mjs`; render every model it changed, before and after,
-and put back any that look wrong.
 
 ## 1. Is the source pack already in the repo?
 
