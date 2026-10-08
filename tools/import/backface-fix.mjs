@@ -8,8 +8,10 @@ const HELP = `backface-fix.mjs [--dry] [--budget <n>] [--steps <step,step>] <wor
 Repairs the faces catalog/tools/backfaces.mjs counts, per primitive. --steps picks
 which run, in this order (default flip,cap):
   weld     moves each open-edge corner onto the nearest corner of another open
-           edge within 0.5% of the part's size, closing cracks.
-  remove   deletes open shells with less than 5% of the part's area.
+           edge within 0.5% of the part's size, closing cracks; triangles that
+           collapse or come to lie on another are deleted.
+  remove   deletes the open shells with less than 5% of the part's area, when
+           they lie within the bounds of the rest.
   pinch    pulls each open outline under 50% of its shell's size to one point,
            closing the end, and deletes the triangles that collapse.
   flatten  presses each open shell that is within 10% of flat onto its plane.
@@ -228,6 +230,19 @@ function fixPrimitive(glb, prim, replaced, steps, budget) {
     idx = keep;
   };
 
+  const dropCollapsed = () => {
+    const gone = new Set();
+    const seen = new Set();
+    for (let t = 0; t < idx.length / 3; t++) {
+      const c = [0, 1, 2].map((e) => at(idx[t * 3 + e]));
+      if (Math.hypot(...cross(sub(c[1], c[0]), sub(c[2], c[0]))) < 1e-12 * span * span) { gone.add(t); continue; }
+      const key = c.map((p) => p.map((x) => Math.round(x / (1e-5 * span))).join(',')).sort().join('|');
+      if (seen.has(key)) gone.add(t);
+      else seen.add(key);
+    }
+    dropTris(gone);
+  };
+
   if (steps.has('weld')) {
     const { id, open } = analyse();
     const ends = new Map();
@@ -247,14 +262,26 @@ function fixPrimitive(glb, prim, replaced, steps, budget) {
     const by = new Map();
     for (const [v, w] of target) by.set(id[v], at(w));
     for (let v = 0; v < pos.length / 3; v++) if (by.has(id[v])) { move(v, by.get(id[v])); report.welded++; }
+    dropCollapsed();
   }
 
   if (steps.has('remove')) {
     const { open } = analyse();
     const total = areaOf(Array.from({ length: idx.length / 3 }, (_, t) => t));
     const gone = new Set();
+    const box = (tris) => {
+      const l = [Infinity, Infinity, Infinity], h = [-Infinity, -Infinity, -Infinity];
+      for (const t of tris) for (let e = 0; e < 3; e++) for (let k = 0; k < 3; k++) {
+        l[k] = Math.min(l[k], pos[idx[t * 3 + e] * 3 + k]);
+        h[k] = Math.max(h[k], pos[idx[t * 3 + e] * 3 + k]);
+      }
+      return [l, h];
+    };
     for (const g of open) if (areaOf(g.members) < 0.05 * total) for (const t of g.members) gone.add(t);
-    dropTris(gone);
+    const rest = Array.from({ length: idx.length / 3 }, (_, t) => t).filter((t) => !gone.has(t));
+    const [l, h] = box(rest), [gl, gh] = box([...gone]);
+    const eps = 1e-4 * span;
+    if (rest.length && [0, 1, 2].every((k) => gl[k] >= l[k] - eps && gh[k] <= h[k] + eps)) dropTris(gone);
   }
 
   if (steps.has('pinch')) {
@@ -270,14 +297,7 @@ function fixPrimitive(glb, prim, replaced, steps, budget) {
         report.pinched++;
       }
     }
-    if (moved.size) {
-      const gone = new Set();
-      for (let t = 0; t < idx.length / 3; t++) {
-        const c = [0, 1, 2].map((e) => at(idx[t * 3 + e]));
-        if (Math.hypot(...cross(sub(c[1], c[0]), sub(c[2], c[0]))) < 1e-12) gone.add(t);
-      }
-      dropTris(gone);
-    }
+    if (moved.size) dropCollapsed();
   }
 
   if (steps.has('flatten') || steps.has('replace')) {
