@@ -15788,8 +15788,7 @@
     "3dm-scifi/chamber",
     "m3-base/petri-dish",
     "m3-base/petri-dish-lid",
-    "m3-base/pipette",
-    "m3-base/test-tube"
+    "m3-base/pipette"
    ]
   },
   {
@@ -16099,7 +16098,8 @@
     "styloo-school/vending-machine",
     "sq-cinema/popcorn-machine",
     "3dm-city-2/parking-meter",
-    "3dm-city/atm"
+    "3dm-city/atm",
+    "sq-cards/gacha-machine"
    ]
   },
   {
@@ -16180,7 +16180,6 @@
     "sq-arcade/pinball",
     "sq-arcade/skee-ball",
     "sq-casino/slot-cabinet",
-    "sq-cards/gacha-machine",
     "m3-base/pinball-flipper",
     "m3-base/arcade-machine-01"
    ]
@@ -16747,7 +16746,8 @@
     "potions/potion-8-string-label-red",
     "potions/potion-9-red",
     "potions/potion-9-double-handle-red",
-    "m3-base/potion-bottle"
+    "m3-base/potion-bottle",
+    "m3-base/test-tube"
    ]
   },
   {
@@ -18077,7 +18077,7 @@
    "id": "obj-furnishing-decor",
    "name": "Decor",
    "type": "kind",
-   "description": "Hung or laid decoration: wreath, garland.",
+   "description": "Hung or laid decoration: wreath, garland, birdhouse.",
    "models": [
     "ken-holiday/wreath",
     "kay-holiday/wreath",
@@ -18097,7 +18097,9 @@
     "m3-base/mid-century-starburst",
     "m3-base/name-plaque",
     "m3-base/wood-onlay-01",
-    "m3-base/reed-diffuser-01"
+    "m3-base/reed-diffuser-01",
+    "taalei-kit/birdhouse",
+    "household/birdhouse"
    ]
   },
   {
@@ -19281,12 +19283,8 @@
    "type": "kind",
    "description": "pan",
    "models": [
-    "kay-food/lid-large",
     "kay-food/pan-006",
     "kay-food/pan-006-cast",
-    "kay-food/pot-a-closed",
-    "kay-food/pot-large",
-    "kay-food/pot-large-closed",
     "cooking-assets/paella-pan",
     "cooking-assets/sauce-pan-large",
     "cooking-assets/sauce-pan-small",
@@ -19363,7 +19361,11 @@
     "jb-kitchen/cookpot",
     "jb-kitchen/cookpot-lid",
     "lpa-home/cookpot",
-    "kay-food/pot-a"
+    "kay-food/pot-a",
+    "kay-food/pot-a-closed",
+    "kay-food/pot-large",
+    "kay-food/pot-large-closed",
+    "kay-food/lid-large"
    ]
   },
   {
@@ -19503,7 +19505,6 @@
    "models": [
     "isa-kitchen/plate",
     "clay-props/plate",
-    "clay-props/platter",
     "quat-props/table-plate",
     "isa-plants/saucer-a-medium",
     "isa-plants/saucer-a-small",
@@ -19572,7 +19573,8 @@
     "m3-base/cake-stand",
     "m3-base/metal-tray",
     "m3-base/tea-tray-01",
-    "m3-base/tea-tray-02"
+    "m3-base/tea-tray-02",
+    "clay-props/platter"
    ]
   },
   {
@@ -21111,6 +21113,16 @@
    ]
   },
   {
+   "id": "obj-transport-land-military",
+   "name": "Military vehicle",
+   "type": "kind",
+   "description": "Military vehicle: tank.",
+   "models": [
+    "pm-store/tank",
+    "quat-shoot/tank"
+   ]
+  },
+  {
    "id": "obj-transport-land",
    "name": "Land vehicle",
    "type": "kind",
@@ -22119,7 +22131,6 @@
     "quat-scifi/pistol-b",
     "quat-scifi/pistol-c",
     "styloo-guns/pistol",
-    "styloo-guns/machine-pistol",
     "3dm-guns/flare-gun",
     "3dm-guns/luger",
     "3dm-guns/makarov"
@@ -22150,7 +22161,8 @@
     "zombie-weapons/smg",
     "quat-scifi/smg",
     "3dm-guns/grease-gun",
-    "3dm-guns/suomi-kp"
+    "3dm-guns/suomi-kp",
+    "styloo-guns/machine-pistol"
    ]
   },
   {
@@ -25214,7 +25226,34 @@
     "kay-food/wall-window",
     "ken-proto/wall-window-cutout-large",
     "emace-village/wall-timber-windows",
-    "emace-village/wall-log-window"
+    "emace-village/wall-log-window",
+    "fs-town/stucco-window-rounded-narrow-tall",
+    "fs-town/stucco-window-rounded-wide",
+    "fs-town/stucco-window-rounded-narrow",
+    "fs-town/stucco-window-single-narrow-tall",
+    "fs-town/stucco-window-single-wide",
+    "fs-town/stucco-window-single-narrow",
+    "isa-bakery/wall-panelled-window-large",
+    "isa-kitchen/wall-tiles-window-large",
+    "isa-kitchen/wall-tiles-modular-window-large",
+    "kay-dun-2/wall-window-closed-scaffold",
+    "kay-dun-2/wall-window-open",
+    "kay-dun-2/wall-window-open-scaffold",
+    "ken-town/wall-wood-window-round",
+    "ken-town/wall-wood-window-shutters",
+    "kay-dun-2/wall-archedwindow-gated-scaffold",
+    "kay-dun-2/wall-archedwindow-open",
+    "kay-dun-2/wall-broken",
+    "ken-furniture/wall-window-slide",
+    "isa-kitchen/wall-plain-window-small",
+    "ken-proto/wall-window-small",
+    "ken-proto/wall-window-medium",
+    "ken-station/wall-window-banner",
+    "ken-holiday/cabin-window-b",
+    "ken-holiday/cabin-window-c",
+    "fs-town/stucco-window-double-narrow-tall",
+    "fs-town/stucco-window-double-wide",
+    "fs-town/stucco-window-double-wide-tall"
    ]
   },
   {
@@ -25292,41 +25331,6 @@
    ]
   },
   {
-   "id": "str-part-window-unit",
-   "name": "Unit",
-   "type": "kind",
-   "description": "Wall piece with a window, covering one full module of the kit grid.",
-   "models": [
-    "fs-town/stucco-window-rounded-narrow-tall",
-    "fs-town/stucco-window-rounded-wide",
-    "fs-town/stucco-window-rounded-narrow",
-    "fs-town/stucco-window-single-narrow-tall",
-    "fs-town/stucco-window-single-wide",
-    "fs-town/stucco-window-single-narrow",
-    "isa-bakery/wall-panelled-window-large",
-    "isa-kitchen/wall-tiles-window-large",
-    "isa-kitchen/wall-tiles-modular-window-large",
-    "kay-dun-2/wall-window-closed-scaffold",
-    "kay-dun-2/wall-window-open",
-    "kay-dun-2/wall-window-open-scaffold",
-    "ken-town/wall-wood-window-round",
-    "ken-town/wall-wood-window-shutters",
-    "kay-dun-2/wall-archedwindow-gated-scaffold",
-    "kay-dun-2/wall-archedwindow-open",
-    "kay-dun-2/wall-broken",
-    "ken-furniture/wall-window-slide",
-    "isa-kitchen/wall-plain-window-small",
-    "ken-proto/wall-window-small",
-    "ken-proto/wall-window-medium",
-    "ken-station/wall-window-banner",
-    "ken-holiday/cabin-window-b",
-    "ken-holiday/cabin-window-c",
-    "fs-town/stucco-window-double-narrow-tall",
-    "fs-town/stucco-window-double-wide",
-    "fs-town/stucco-window-double-wide-tall"
-   ]
-  },
-  {
    "id": "str-fixture-marker",
    "name": "Marker",
    "type": "kind",
@@ -25353,8 +25357,6 @@
    "models": [
     "isa-homely/mailbox",
     "styloo-farm/mailbox",
-    "taalei-kit/birdhouse",
-    "household/birdhouse",
     "household/mailbox",
     "3dm-city-2/mailbox-post",
     "3dm-city/mailbox-street",
@@ -26221,14 +26223,12 @@
     "kay-mixed/puzzle-cube-incomplete",
     "ken-holiday/nutcracker",
     "ken-holiday/reindeer",
-    "quat-shoot/tank",
     "kay-blocks/decorative-block-amber",
     "kay-blocks/decorative-block-azure",
     "kay-holiday/snowball-cannon",
     "household/doll",
     "household/rubber-duck",
     "isa-bathroom/rubber-duck",
-    "pm-store/tank",
     "m3-base/abacus",
     "m3-base/elephant-jigsaw-ornament",
     "m3-base/foam-finger",
