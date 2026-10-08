@@ -15953,15 +15953,22 @@
     "lpa-home/tablet",
     "styloo-school/router",
     "3dm-electronics/router",
+    "m3-base/speedometer-needle"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-installation",
+   "name": "House electrics",
+   "type": "kind",
+   "description": "Fixed household electrics: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb.",
+   "models": [
     "m3-base/circuit-breaker",
     "m3-base/fire-alarm-system",
     "m3-base/fuse-box",
     "m3-base/light-switch",
     "m3-base/lightbulb",
     "m3-base/plug-socket",
-    "m3-base/smoke-detector",
-    "m3-base/speedometer-needle",
-    "m3-base/dish-antenna-01"
+    "m3-base/smoke-detector"
    ]
   },
   {
@@ -16229,20 +16236,28 @@
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "tub, trough, bin",
+   "description": "tub, bin",
    "color": "#dd9f79",
    "models": [
-    "rgp-props/trough-1-a",
-    "rgp-props/trough-3-a",
-    "rgp-medieval/trough-hay",
     "household/piggy-bank",
     "household/safe",
     "lpa-home/safe-a",
     "lpa-home/safe-b",
     "styloo-school/cork",
-    "lpa-west/trough-a",
-    "lpa-west/trough-b",
     "m3-base/ash-tray"
+   ]
+  },
+  {
+   "id": "obj-container-trough",
+   "name": "Trough",
+   "type": "kind",
+   "description": "trough",
+   "models": [
+    "rgp-props/trough-1-a",
+    "rgp-props/trough-3-a",
+    "rgp-medieval/trough-hay",
+    "lpa-west/trough-a",
+    "lpa-west/trough-b"
    ]
   },
   {
@@ -19021,12 +19036,11 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, mortar and pestle, pepper mill, kitchen scale",
+   "description": "grill, spit, mortar and pestle, pepper mill",
    "models": [
     "ken-food/steamer",
     "cooking-assets/mortar-and-pestle",
     "cooking-assets/trivet",
-    "isa-bakery/scale",
     "taalei-kit/barbecue",
     "household/barbecue",
     "lpa-home/knife-block",
@@ -19846,23 +19860,31 @@
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
    "models": [
     "fs-town/lamp-wall",
-    "sq-rink/floor-spot",
-    "sq-rink/light-bar",
     "ken-holiday/lights-colored",
-    "ipoly-concert/spotlight-moving",
-    "ipoly-concert/spotlight-ribbed",
-    "ipoly-concert/spotlight",
     "ipoly-concert/led-panel",
-    "ipoly-concert/spotlight-barndoor",
     "lpa-home/wall-light",
     "lpa-construction/work-light-b",
     "lpa-construction/work-light-a",
-    "pm-store/stage-light",
     "3dm-industrial/work-light",
     "3dm-scifi/lamp",
     "m3-base/iron-wall-light",
     "m3-base/outdoor-wall-light",
     "m3-base/outdoor-wall-light-01"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-spot",
+   "name": "Spotlight",
+   "type": "kind",
+   "description": "spotlight, stage light, floor spot, light bar",
+   "models": [
+    "ipoly-concert/spotlight",
+    "ipoly-concert/spotlight-ribbed",
+    "ipoly-concert/spotlight-barndoor",
+    "ipoly-concert/spotlight-moving",
+    "sq-rink/floor-spot",
+    "sq-rink/light-bar",
+    "pm-store/stage-light"
    ]
   },
   {
@@ -20535,6 +20557,23 @@
    ]
   },
   {
+   "id": "obj-equipment-tool-scale",
+   "name": "Scale",
+   "type": "kind",
+   "description": "Weighing scale: balance scale, hanging scale, kitchen scale.",
+   "models": [
+    "taalei-kit/balance-scale",
+    "taalei-kit/balance-scale-chunky",
+    "taalei-kit/balance-scale-ornate",
+    "taalei-kit/hanging-scale",
+    "taalei-kit/hanging-scale-apothecary",
+    "taalei-kit/hanging-scale-chunky",
+    "taalei-kit/hanging-scale-minimal",
+    "taalei-kit/hanging-scale-wooden",
+    "isa-bakery/scale"
+   ]
+  },
+  {
    "id": "obj-equipment-tool-station",
    "name": "Station",
    "type": "kind",
@@ -20688,14 +20727,6 @@
     "lpa-weapons/sickle",
     "lpa-construction/drill",
     "lpa-construction/level",
-    "taalei-kit/balance-scale",
-    "taalei-kit/balance-scale-chunky",
-    "taalei-kit/balance-scale-ornate",
-    "taalei-kit/hanging-scale",
-    "taalei-kit/hanging-scale-apothecary",
-    "taalei-kit/hanging-scale-chunky",
-    "taalei-kit/hanging-scale-minimal",
-    "taalei-kit/hanging-scale-wooden",
     "m3-base/bolster",
     "m3-base/brick-trowel",
     "m3-base/chisel",
@@ -23623,28 +23654,14 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
+   "description": "stage, plinth, pedestal, mine entrance",
    "color": "#877a63",
    "models": [
     "sq-cinema/screen-stage",
     "sq-pool/starting-block",
     "sq-pool/diving-board",
     "ipoly-concert/concert-stage",
-    "ipoly-torture/pillory-post",
-    "ipoly-torture/pillory",
-    "ipoly-torture/gallows-platform",
-    "ipoly-torture/guillotine",
-    "ipoly-torture/gibbet",
-    "fs-house/fireplace",
-    "fs-house/fireplace-chimney",
-    "lpa-west/gallows",
-    "pm-store/fireplace",
     "quat-interior/column-round",
-    "quat-interior/fireplace",
-    "3dm-medieval/gallows",
-    "3dm-medieval/guillotine",
-    "emace-village/hearth",
-    "m3-base/cast-iron-grate",
     "m3-base/champion-podium",
     "m3-base/plinth",
     "m3-base/statue-base"
@@ -23657,6 +23674,36 @@
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
    "models": [
     "ken-factory/warning-orange"
+   ]
+  },
+  {
+   "id": "str-fixture-fireplace",
+   "name": "Fireplace",
+   "type": "kind",
+   "description": "fireplace, hearth, fire grate",
+   "models": [
+    "fs-house/fireplace",
+    "fs-house/fireplace-chimney",
+    "pm-store/fireplace",
+    "quat-interior/fireplace",
+    "emace-village/hearth",
+    "m3-base/cast-iron-grate"
+   ]
+  },
+  {
+   "id": "str-fixture-punishment",
+   "name": "Punishment",
+   "type": "kind",
+   "description": "Execution or punishment device: gallows, gibbet, guillotine, pillory, stocks.",
+   "models": [
+    "ipoly-torture/pillory-post",
+    "ipoly-torture/pillory",
+    "ipoly-torture/gallows-platform",
+    "ipoly-torture/guillotine",
+    "ipoly-torture/gibbet",
+    "lpa-west/gallows",
+    "3dm-medieval/gallows",
+    "3dm-medieval/guillotine"
    ]
   },
   {
@@ -26653,20 +26700,14 @@
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, satellite dish, wind turbine.",
+   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, wind turbine.",
    "models": [
     "ken-roads/electricity-pole-single",
     "ken-roads/electricity-pole-wide",
     "ken-roads/electricity-pole",
     "ken-roads/electricity-wires-wide",
     "ken-roads/electricity-wires",
-    "ken-space/satellite-dish-detailed",
-    "ken-space/satellite-dish-large",
-    "ken-space/satellite-dish",
     "sq-bank/night-deposit",
-    "ken-racing/radar-equipment",
-    "quat-space/roof-antenna",
-    "quat-space/roof-radar",
     "ken-roads/electricity-side-single",
     "ken-roads/electricity-side-wide",
     "ken-roads/electricity-side",
@@ -26674,6 +26715,21 @@
     "3dm-industrial/electrical-box"
    ],
    "color": "#6e8f86"
+  },
+  {
+   "id": "str-fixture-utility-antenna",
+   "name": "Antenna",
+   "type": "kind",
+   "description": "satellite dish, antenna, radar",
+   "models": [
+    "ken-space/satellite-dish-detailed",
+    "ken-space/satellite-dish-large",
+    "ken-space/satellite-dish",
+    "ken-racing/radar-equipment",
+    "quat-space/roof-antenna",
+    "quat-space/roof-radar",
+    "m3-base/dish-antenna-01"
+   ]
   },
   {
    "id": "str-fixture-utility-turbine",

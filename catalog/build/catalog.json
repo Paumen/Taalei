@@ -770,8 +770,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.21,
-    "kinds": 5
+    "factor": 1.25,
+    "kinds": 6
    }
   },
   {
@@ -4507,7 +4507,7 @@
     "smooth": 53
    },
    "kitCheck": {
-    "factor": 1.18,
+    "factor": 1.13,
     "kinds": 11
    }
   },
@@ -23498,7 +23498,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4592,
+   "count": 4591,
    "color": "#c07c8a"
   },
   {
@@ -23506,7 +23506,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 289
+   "count": 288
   },
   {
    "id": "obj-leisure",
@@ -23625,7 +23625,14 @@
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
-   "count": 160
+   "count": 159
+  },
+  {
+   "id": "obj-device-electronics-installation",
+   "name": "House electrics",
+   "type": "kind",
+   "description": "Fixed household electrics: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb.",
+   "count": 7
   },
   {
    "id": "obj-device-electronics-media",
@@ -23736,9 +23743,16 @@
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "tub, trough, bin",
+   "description": "tub, bin",
    "count": 673,
    "color": "#dd9f79"
+  },
+  {
+   "id": "obj-container-trough",
+   "name": "Trough",
+   "type": "kind",
+   "description": "trough",
+   "count": 5
   },
   {
    "id": "obj-container-cage",
@@ -23976,7 +23990,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1100,
+   "count": 1101,
    "color": "#6b5b95"
   },
   {
@@ -24574,7 +24588,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 405,
+   "count": 404,
    "color": "#9c3f2e"
   },
   {
@@ -24588,8 +24602,8 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, mortar and pestle, pepper mill, kitchen scale",
-   "count": 177
+   "description": "grill, spit, mortar and pestle, pepper mill",
+   "count": 176
   },
   {
    "id": "obj-device-appliance-extractor",
@@ -24866,6 +24880,13 @@
    "count": 64
   },
   {
+   "id": "obj-furnishing-light-lamp-spot",
+   "name": "Spotlight",
+   "type": "kind",
+   "description": "spotlight, stage light, floor spot, light bar",
+   "count": 7
+  },
+  {
    "id": "obj-furnishing-light-lamp-ceiling",
    "name": "Ceiling lamp",
    "type": "kind",
@@ -25068,8 +25089,15 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 348,
+   "count": 349,
    "color": "#6d738a"
+  },
+  {
+   "id": "obj-equipment-tool-scale",
+   "name": "Scale",
+   "type": "kind",
+   "description": "Weighing scale: balance scale, hanging scale, kitchen scale.",
+   "count": 9
   },
   {
    "id": "obj-equipment-tool-station",
@@ -25104,7 +25132,7 @@
    "name": "Hand",
    "type": "kind",
    "description": "chisel, trowel, wrench, tongs, brush, magnifying glass, nail file, tape measure, craft knife, razor blade, magnet",
-   "count": 129
+   "count": 121
   },
   {
    "id": "obj-equipment-tool-hand-screwdriver",
@@ -25890,8 +25918,8 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
-   "count": 2544,
+   "description": "stage, plinth, pedestal, mine entrance",
+   "count": 2545,
    "color": "#877a63"
   },
   {
@@ -25899,7 +25927,21 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 484
+   "count": 499
+  },
+  {
+   "id": "str-fixture-fireplace",
+   "name": "Fireplace",
+   "type": "kind",
+   "description": "fireplace, hearth, fire grate",
+   "count": 6
+  },
+  {
+   "id": "str-fixture-punishment",
+   "name": "Punishment",
+   "type": "kind",
+   "description": "Execution or punishment device: gallows, gibbet, guillotine, pillory, stocks.",
+   "count": 8
   },
   {
    "id": "str-access",
@@ -26501,9 +26543,16 @@
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, satellite dish, wind turbine.",
-   "count": 170,
+   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, wind turbine.",
+   "count": 171,
    "color": "#6e8f86"
+  },
+  {
+   "id": "str-fixture-utility-antenna",
+   "name": "Antenna",
+   "type": "kind",
+   "description": "satellite dish, antenna, radar",
+   "count": 7
   },
   {
    "id": "str-fixture-utility-turbine",
@@ -28089,6 +28138,12 @@
    "longest.max": 0.65,
    "tpu.max": 10000
   },
+  "obj-container-trough": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-device": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -28204,6 +28259,12 @@
    "tpu.max": 10000
   },
   "obj-device-electronics-computer-tower": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-device-electronics-installation": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -28471,6 +28532,12 @@
    "high.max": 8,
    "longest.min": 0.13,
    "longest.max": 1.15,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-scale": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-equipment-tool-station": {
@@ -29341,6 +29408,12 @@
    "longest.max": 1.1,
    "tpu.max": 5000
   },
+  "obj-furnishing-light-lamp-spot": {
+   "high.max": 8,
+   "longest.min": 0.14,
+   "longest.max": 1.1,
+   "tpu.max": 5000
+  },
   "obj-furnishing-light-lamp-table": {
    "high.max": 8,
    "longest.min": 0.14,
@@ -30112,6 +30185,12 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-fixture-fireplace": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-fixture-leisure": {
    "high.max": 8,
    "longest.min": 0.8,
@@ -30202,7 +30281,19 @@
    "longest.max": 2.26,
    "tpu.max": 5000
   },
+  "str-fixture-punishment": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-fixture-utility": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-fixture-utility-antenna": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -31287,7 +31378,7 @@
     "3dm",
     "metal"
    ],
-   "thickRel": 1.77,
+   "thickRel": 1.8,
    "lint": [
     {
      "level": "error",
@@ -31646,7 +31737,7 @@
     "metal-iron-wrought",
     "plastic"
    ],
-   "thickRel": 1.61,
+   "thickRel": 1.59,
    "lint": [
     {
      "level": "warning",
@@ -32543,7 +32634,7 @@
     "emissive",
     "plastic"
    ],
-   "thickRel": 0.64,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "error",
@@ -34000,7 +34091,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 2.01
+   "thickRel": 2.04
   },
   {
    "kit": "3dm-industrial",
@@ -34943,7 +35034,7 @@
    "collection": "3dm",
    "name": "gallows",
    "hash": "fdaff1491f",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "l",
    "wdh": [
     4.264,
@@ -34979,7 +35070,7 @@
     "3dm",
     "wood-beam"
    ],
-   "thickRel": 0.79
+   "thickRel": 1.42
   },
   {
    "kit": "3dm-medieval",
@@ -35095,7 +35186,7 @@
    "collection": "3dm",
    "name": "guillotine",
    "hash": "dac68ae44c",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "l",
    "wdh": [
     1.278,
@@ -35137,7 +35228,7 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.94
   },
   {
    "kit": "3dm-medieval",
@@ -44268,7 +44359,7 @@
     "mab",
     "stone-rock"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "cooking-assets",
@@ -45987,7 +46078,7 @@
     "wood-planks"
    ],
    "variant": "cooking-assets/tongs",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "cooking-assets",
@@ -46035,7 +46126,7 @@
     "wood-planks"
    ],
    "variant": "cooking-assets/tongs",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "cooking-assets",
@@ -49820,7 +49911,7 @@
    "collection": "emace",
    "name": "hearth",
    "hash": "ccd512961b",
-   "kind": "str",
+   "kind": "str-fixture-fireplace",
    "size": "m",
    "wdh": [
     1.16,
@@ -49887,7 +49978,7 @@
      "inside-out": 0
     }
    },
-   "thickRel": 0.89,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
@@ -65218,7 +65309,7 @@
    "collection": "fs-buildings",
    "name": "fireplace-chimney",
    "hash": "feed9000b9",
-   "kind": "str",
+   "kind": "str-fixture-fireplace",
    "size": "s",
    "wdh": [
     0.405,
@@ -65260,7 +65351,7 @@
    "collection": "fs-buildings",
    "name": "fireplace",
    "hash": "e8139230ea",
-   "kind": "str",
+   "kind": "str-fixture-fireplace",
    "size": "m",
    "wdh": [
     0.765,
@@ -65313,7 +65404,7 @@
     "stone-masonry",
     "wood-log"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "fs-house",
@@ -76088,7 +76179,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.38
   },
   {
    "kit": "fs-terrain",
@@ -86728,7 +86819,7 @@
     "metal-iron-steel",
     "metal-iron-wrought"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "household",
@@ -89528,7 +89619,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 2.44
+   "thickRel": 2.42
   },
   {
    "kit": "household",
@@ -90617,7 +90708,7 @@
    "collection": "ipoly",
    "name": "spotlight-barndoor",
    "hash": "902ed687ce",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "s",
    "wdh": [
     0.337,
@@ -90674,7 +90765,7 @@
    "collection": "ipoly",
    "name": "spotlight-moving",
    "hash": "94fba048af",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "s",
    "wdh": [
     0.198,
@@ -90729,7 +90820,7 @@
    "collection": "ipoly",
    "name": "spotlight-ribbed",
    "hash": "c7999b6bef",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "m",
    "wdh": [
     0.337,
@@ -90786,7 +90877,7 @@
    "collection": "ipoly",
    "name": "spotlight",
    "hash": "c964d100f8",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "s",
    "wdh": [
     0.337,
@@ -90994,7 +91085,7 @@
     "rubber"
    ],
    "variant": "ipoly-electronics/microchip",
-   "thickRel": 1.38
+   "thickRel": 1.36
   },
   {
    "kit": "ipoly-electronics",
@@ -91048,7 +91139,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "ipoly-electronics",
@@ -91102,7 +91193,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.3
+   "thickRel": 0.29
   },
   {
    "kit": "ipoly-glasses",
@@ -93156,7 +93247,7 @@
    "collection": "ipoly",
    "name": "gallows-platform",
    "hash": "2e4571c7c6",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "l",
    "wdh": [
     3.078,
@@ -93198,14 +93289,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.95
   },
   {
    "kit": "ipoly-torture",
    "collection": "ipoly",
    "name": "gibbet",
    "hash": "e79e30ecb2",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "l",
    "wdh": [
     0.923,
@@ -93247,14 +93338,14 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "thickRel": 0.82
+   "thickRel": 1.48
   },
   {
    "kit": "ipoly-torture",
    "collection": "ipoly",
    "name": "guillotine",
    "hash": "9461a3420e",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "l",
    "wdh": [
     0.557,
@@ -93296,14 +93387,14 @@
     "metal-iron-cast",
     "wood-beam"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.69
   },
   {
    "kit": "ipoly-torture",
    "collection": "ipoly",
    "name": "pillory-post",
    "hash": "154d6ecf18",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "m",
    "wdh": [
     0.469,
@@ -93346,14 +93437,14 @@
     "wood-beam"
    ],
    "variant": "ipoly-torture/pillory",
-   "thickRel": 0.77
+   "thickRel": 1.39
   },
   {
    "kit": "ipoly-torture",
    "collection": "ipoly",
    "name": "pillory",
    "hash": "6eb0606134",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "m",
    "wdh": [
     0.572,
@@ -93396,7 +93487,7 @@
     "wood-beam"
    ],
    "variant": "ipoly-torture/pillory",
-   "thickRel": 0.58
+   "thickRel": 1.05
   },
   {
    "kit": "ipoly-torture",
@@ -93704,7 +93795,7 @@
     "ka_ching"
    ],
    "variant": "isa-bakery/cash-register-anim",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "isa-bakery",
@@ -93755,7 +93846,7 @@
     "tba"
    ],
    "variant": "isa-bakery/cash-register-anim",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "isa-bakery",
@@ -95796,7 +95887,7 @@
    "collection": "isa-tt",
    "name": "scale",
    "hash": "87b327d58f",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.21,
@@ -95843,7 +95934,7 @@
     "isa",
     "metal-iron-steel"
    ],
-   "thickRel": 1.25
+   "thickRel": 2.43
   },
   {
    "kit": "isa-bakery",
@@ -103146,7 +103237,7 @@
     "paper",
     "wood-beam"
    ],
-   "thickRel": 2.37
+   "thickRel": 2.38
   },
   {
    "kit": "isa-kitchen",
@@ -103954,7 +104045,7 @@
     "paper",
     "wood-beam"
    ],
-   "thickRel": 2.46
+   "thickRel": 2.47
   },
   {
    "kit": "isa-kitchen",
@@ -111639,7 +111730,7 @@
     "plastic"
    ],
    "variant": "isa-playground/shovel",
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "isa-playground",
@@ -111682,7 +111773,7 @@
     "wood-planks"
    ],
    "variant": "isa-playground/shovel",
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "isa-playground",
@@ -120185,7 +120276,7 @@
     "kay",
     "metal"
    ],
-   "thickRel": 2.09
+   "thickRel": 2.11
   },
   {
    "kit": "kay-city",
@@ -139127,7 +139218,7 @@
     "metal-iron-cast",
     "paper"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.82
   },
   {
    "kit": "kay-food",
@@ -160204,7 +160295,7 @@
     "kay",
     "metal-iron-cast"
    ],
-   "thickRel": 1.96
+   "thickRel": 1.98
   },
   {
    "kit": "kay-mixed",
@@ -164493,7 +164584,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.6
   },
   {
    "kit": "kay-platformer",
@@ -174602,7 +174693,7 @@
     "scale-small",
     "space"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.5
   },
   {
    "kit": "kay-space",
@@ -174661,7 +174752,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "kay-spook",
@@ -176863,7 +176954,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 2.43
+   "thickRel": 2.41
   },
   {
    "kit": "kay-tools",
@@ -177054,7 +177145,7 @@
     "robin-hood",
     "wood-planks"
    ],
-   "thickRel": 2.34
+   "thickRel": 2.31
   },
   {
    "kit": "kay-tools",
@@ -177302,7 +177393,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "kay-tools",
@@ -177476,7 +177567,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.35
   },
   {
    "kit": "kay-tools",
@@ -177591,7 +177682,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "kay-tools",
@@ -178458,7 +178549,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.26
+   "thickRel": 2.24
   },
   {
    "kit": "kay-tools",
@@ -178508,7 +178599,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.2
+   "thickRel": 2.18
   },
   {
    "kit": "kay-tools",
@@ -178558,7 +178649,7 @@
     "plastic"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.27
+   "thickRel": 2.25
   },
   {
    "kit": "kay-tools",
@@ -178608,7 +178699,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.2,
+   "thickRel": 2.18,
    "lint": [
     {
      "level": "error",
@@ -178717,7 +178808,7 @@
     "metal-iron-steel",
     "tba"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "kay-tools",
@@ -178874,7 +178965,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "kay-tools",
@@ -194065,7 +194156,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "ken-factory",
@@ -194111,7 +194202,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -194157,7 +194248,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.69
   },
   {
    "kit": "ken-factory",
@@ -194203,7 +194294,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "ken-factory",
@@ -196730,7 +196821,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 2.3
+   "thickRel": 2.32
   },
   {
    "kit": "ken-factory",
@@ -202024,7 +202115,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 1.95
+   "thickRel": 1.96
   },
   {
    "kit": "ken-food",
@@ -217068,7 +217159,7 @@
     "stone-masonry"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 3.43
+   "thickRel": 3.46
   },
   {
    "kit": "ken-industrial",
@@ -217117,7 +217208,7 @@
     "scale-big",
     "stone-masonry"
    ],
-   "thickRel": 2.19
+   "thickRel": 2.21
   },
   {
    "kit": "ken-industrial",
@@ -217168,7 +217259,7 @@
     "stone-masonry"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 3
+   "thickRel": 3.02
   },
   {
    "kit": "ken-industrial",
@@ -217218,7 +217309,7 @@
     "stone-masonry"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 2.42
+   "thickRel": 2.43
   },
   {
    "kit": "ken-industrial",
@@ -217738,7 +217829,7 @@
     "storeys-4"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "ken-industrial",
@@ -217795,7 +217886,7 @@
     "storeys-5"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "ken-market",
@@ -234303,7 +234394,7 @@
    "kit": "ken-racing",
    "name": "radar-equipment",
    "hash": "88462afbec",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     0.707,
@@ -234343,7 +234434,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "ken-racing",
@@ -235254,7 +235345,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "ken-roads",
@@ -235325,7 +235416,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "ken-roads",
@@ -235501,7 +235592,7 @@
     "stone-masonry"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "ken-roads",
@@ -238956,7 +239047,7 @@
     "space"
    ],
    "variant": "ken-space/chimney",
-   "thickRel": 3.51
+   "thickRel": 3.54
   },
   {
    "kit": "ken-space",
@@ -239005,7 +239096,7 @@
     "space"
    ],
    "variant": "ken-space/chimney",
-   "thickRel": 3.27
+   "thickRel": 3.29
   },
   {
    "kit": "ken-space",
@@ -243070,7 +243161,7 @@
    "kit": "ken-space",
    "name": "satellite-dish-detailed",
    "hash": "6be2bf19b0",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     0.91,
@@ -243134,7 +243225,7 @@
    "kit": "ken-space",
    "name": "satellite-dish-large",
    "hash": "6326f94c22",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     1.103,
@@ -243182,13 +243273,13 @@
     "space"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "ken-space",
    "name": "satellite-dish",
    "hash": "e3adf364ea",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     0.895,
@@ -252586,7 +252677,7 @@
     "wood-planks"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "ken-survival",
@@ -252635,7 +252726,7 @@
     "wood-planks"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "ken-survival",
@@ -268530,7 +268621,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.66
   },
   {
    "kit": "lpa-construction",
@@ -269381,7 +269472,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 2.5
+   "thickRel": 2.48
   },
   {
    "kit": "lpa-construction",
@@ -269944,7 +270035,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 1.16,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "error",
@@ -273901,7 +273992,7 @@
     "lpa",
     "wood-worked"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.38
   },
   {
    "kit": "lpa-home",
@@ -274439,7 +274530,7 @@
     "lpa",
     "metal"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "lpa-home",
@@ -275518,7 +275609,7 @@
     "lpa",
     "metal"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.42
   },
   {
    "kit": "lpa-home",
@@ -282261,7 +282352,7 @@
    "kit": "lpa-west",
    "name": "gallows",
    "hash": "dad16fb16a",
-   "kind": "str",
+   "kind": "str-fixture-punishment",
    "size": "l",
    "wdh": [
     1.397,
@@ -282303,7 +282394,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "error",
@@ -285388,7 +285479,7 @@
    "kit": "lpa-west",
    "name": "trough-a",
    "hash": "5acc1a1369",
-   "kind": "obj-container",
+   "kind": "obj-container-trough",
    "size": "m",
    "wdh": [
     0.181,
@@ -285437,7 +285528,7 @@
    "kit": "lpa-west",
    "name": "trough-b",
    "hash": "995dece2b7",
-   "kind": "obj-container",
+   "kind": "obj-container-trough",
    "size": "m",
    "wdh": [
     0.181,
@@ -288758,7 +288849,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -290895,7 +290986,7 @@
    "kit": "m3-base",
    "name": "cast-iron-grate",
    "hash": "55581cbbca",
-   "kind": "str",
+   "kind": "str-fixture-fireplace",
    "size": "m",
    "wdh": [
     0.6,
@@ -290931,7 +291022,7 @@
     "m3",
     "metal-iron-cast"
    ],
-   "thickRel": 0.53,
+   "thickRel": 0.55,
    "lint": [
     {
      "level": "error",
@@ -291744,7 +291835,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 2.36
+   "thickRel": 2.33
   },
   {
    "kit": "m3-base",
@@ -291981,7 +292072,7 @@
    "kit": "m3-base",
    "name": "circuit-breaker",
    "hash": "23ceb87ec8",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.04,
@@ -292028,7 +292119,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "m3-base",
@@ -292118,7 +292209,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "m3-base",
@@ -293963,7 +294054,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 3.05
+   "thickRel": 3.02
   },
   {
    "kit": "m3-base",
@@ -295700,7 +295791,7 @@
    "kit": "m3-base",
    "name": "dish-antenna-01",
    "hash": "84f33f903d",
-   "kind": "obj-device-electronics",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     0.69,
@@ -295742,7 +295833,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.23
+   "thickRel": 0.35,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal-iron needs metal-iron-cast, has metal-iron-steel (str)"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -295788,7 +295886,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.72
+   "thickRel": 1.73
   },
   {
    "kit": "m3-base",
@@ -297700,7 +297798,7 @@
    "kit": "m3-base",
    "name": "fire-alarm-system",
    "hash": "453609cb6e",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.202,
@@ -297884,7 +297982,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 1.39,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -297974,7 +298072,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "m3-base",
@@ -298283,7 +298381,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 1.85
+   "thickRel": 1.83
   },
   {
    "kit": "m3-base",
@@ -299126,7 +299224,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -299257,7 +299355,7 @@
    "kit": "m3-base",
    "name": "fuse-box",
    "hash": "b193a98935",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.4,
@@ -299298,7 +299396,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 1.1,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "error",
@@ -301387,7 +301485,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -301482,7 +301580,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.79
   },
   {
    "kit": "m3-base",
@@ -304323,7 +304421,7 @@
    "kit": "m3-base",
    "name": "light-switch",
    "hash": "acdf9d9e71",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.186,
@@ -304386,7 +304484,7 @@
    "kit": "m3-base",
    "name": "lightbulb",
    "hash": "a9def706b9",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.103,
@@ -304427,7 +304525,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 1.58
+   "thickRel": 1.56
   },
   {
    "kit": "m3-base",
@@ -305232,7 +305330,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 0.51,
+   "thickRel": 0.5,
    "lint": [
     {
      "level": "error",
@@ -306086,7 +306184,7 @@
     "stone-masonry"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -306533,7 +306631,7 @@
     "metal-iron-steel",
     "pickup"
    ],
-   "thickRel": 2.15
+   "thickRel": 2.13
   },
   {
    "kit": "m3-base",
@@ -310833,7 +310931,7 @@
     "plastic"
    ],
    "variant": "m3-base/plasterers-float-01",
-   "thickRel": 0.42
+   "thickRel": 0.41
   },
   {
    "kit": "m3-base",
@@ -311058,7 +311156,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.73
   },
   {
    "kit": "m3-base",
@@ -311105,7 +311203,7 @@
    "kit": "m3-base",
    "name": "plug-socket",
    "hash": "f28cf8f124",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.247,
@@ -311235,7 +311333,7 @@
     "rubber",
     "wood-planks"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "m3-base",
@@ -312211,7 +312309,7 @@
     "metal-iron-wrought",
     "pickup"
    ],
-   "thickRel": 0.48,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "error",
@@ -316529,7 +316627,7 @@
    "kit": "m3-base",
    "name": "smoke-detector",
    "hash": "79e3ebdf7a",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-installation",
    "size": "s",
    "wdh": [
     0.218,
@@ -316565,7 +316663,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "m3-base",
@@ -317375,7 +317473,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.91
+   "thickRel": 1.92
   },
   {
    "kit": "m3-base",
@@ -320173,7 +320271,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 1.9
+   "thickRel": 1.92
   },
   {
    "kit": "m3-base",
@@ -320751,7 +320849,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "m3-base",
@@ -320879,7 +320977,7 @@
     "metal-iron-steel",
     "pickup"
    ],
-   "thickRel": 1.83
+   "thickRel": 1.81
   },
   {
    "kit": "m3-base",
@@ -321523,7 +321621,7 @@
     "plastic",
     "wood-worked"
    ],
-   "thickRel": 0.9,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "error",
@@ -325144,7 +325242,7 @@
     "paper",
     "rubber"
    ],
-   "thickRel": 1.66,
+   "thickRel": 1.65,
    "lint": [
     {
      "level": "error",
@@ -325534,7 +325632,7 @@
     "mab",
     "metal-iron-steel"
    ],
-   "thickRel": 1.43
+   "thickRel": 1.42
   },
   {
    "kit": "medieval-forge",
@@ -326014,7 +326112,7 @@
    "tags": [
     "metal-iron-steel"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "medieval-forge",
@@ -333149,7 +333247,7 @@
    "kit": "pm-store",
    "name": "fireplace",
    "hash": "f6696dd428",
-   "kind": "str",
+   "kind": "str-fixture-fireplace",
    "size": "l",
    "wdh": [
     1.636,
@@ -333195,7 +333293,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "pm-store",
@@ -334093,7 +334191,7 @@
    "kit": "pm-store",
    "name": "stage-light",
    "hash": "e182dca234",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "s",
    "wdh": [
     0.338,
@@ -338332,7 +338430,7 @@
     "metal",
     "qua"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.56
   },
   {
    "kit": "quat-apocalypse",
@@ -351016,7 +351114,7 @@
    "kit": "quat-interior",
    "name": "fireplace",
    "hash": "c8a84322e6",
-   "kind": "str",
+   "kind": "str-fixture-fireplace",
    "size": "m",
    "wdh": [
     0.975,
@@ -351052,7 +351150,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.11
   },
   {
    "kit": "quat-interior",
@@ -374159,7 +374257,7 @@
    "kit": "quat-space",
    "name": "roof-antenna",
    "hash": "2c5dafa809",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     0.311,
@@ -374202,13 +374300,13 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.78
+   "thickRel": 1.81
   },
   {
    "kit": "quat-space",
    "name": "roof-radar",
    "hash": "af9b26baf6",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-antenna",
    "size": "m",
    "wdh": [
     0.358,
@@ -374251,7 +374349,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.38
   },
   {
    "kit": "quat-space",
@@ -375185,7 +375283,7 @@
     "qua"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.96
+   "thickRel": 1.93
   },
   {
    "kit": "quat-survival",
@@ -375238,7 +375336,7 @@
     "qua"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.73
+   "thickRel": 1.71
   },
   {
    "kit": "quat-survival",
@@ -376246,7 +376344,7 @@
     "metal",
     "qua"
    ],
-   "thickRel": 0.61,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -386840,7 +386938,7 @@
     "rey",
     "wood-planks"
    ],
-   "thickRel": 2.4
+   "thickRel": 2.38
   },
   {
    "kit": "rey-studio",
@@ -400828,7 +400926,7 @@
    "collection": "rgp",
    "name": "trough-hay",
    "hash": "aebbd370b7",
-   "kind": "obj-container",
+   "kind": "obj-container-trough",
    "size": "m",
    "wdh": [
     1.496,
@@ -403012,7 +403110,7 @@
    "kit": "rgp-props",
    "name": "trough-1-a",
    "hash": "b920ef0f02",
-   "kind": "obj-container",
+   "kind": "obj-container-trough",
    "size": "l",
    "wdh": [
     0.368,
@@ -403067,7 +403165,7 @@
    "kit": "rgp-props",
    "name": "trough-3-a",
    "hash": "041fc4b1e3",
-   "kind": "obj-container",
+   "kind": "obj-container-trough",
    "size": "l",
    "wdh": [
     0.368,
@@ -408911,7 +409009,7 @@
     "mounted",
     "sq"
    ],
-   "thickRel": 1.88
+   "thickRel": 1.9
   },
   {
    "kit": "sq-bank",
@@ -412764,7 +412862,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.2
   },
   {
    "kit": "sq-cinema",
@@ -415654,7 +415752,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "error",
@@ -418431,7 +418529,7 @@
    "collection": "sq-props",
    "name": "floor-spot",
    "hash": "7e1086fb01",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "s",
    "wdh": [
     0.138,
@@ -418490,7 +418588,7 @@
    "collection": "sq-props",
    "name": "light-bar",
    "hash": "b6a316152a",
-   "kind": "obj-furnishing-light-lamp",
+   "kind": "obj-furnishing-light-lamp-spot",
    "size": "m",
    "wdh": [
     1,
@@ -421981,7 +422079,7 @@
     "sty",
     "wood-planks"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "styloo-farm",
@@ -423491,7 +423589,7 @@
     "sty",
     "wood-planks"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "styloo-farm",
@@ -436412,7 +436510,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.9
   },
   {
    "kit": "styloo-school",
@@ -437136,7 +437234,7 @@
     "sty",
     "tba"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "styloo-school",
@@ -439899,7 +439997,7 @@
    "kit": "taalei-kit",
    "name": "balance-scale-chunky",
    "hash": "75a9a8fb9a",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.343,
@@ -439941,7 +440039,7 @@
     "metal-iron-cast"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 0.85,
+   "thickRel": 2.2,
    "lint": [
     {
      "level": "error",
@@ -439954,7 +440052,7 @@
    "kit": "taalei-kit",
    "name": "balance-scale-ornate",
    "hash": "6af201e8dc",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.28,
@@ -439996,7 +440094,7 @@
     "metal-iron-cast"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 0.45,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "error",
@@ -440009,7 +440107,7 @@
    "kit": "taalei-kit",
    "name": "balance-scale",
    "hash": "2dd109650f",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.344,
@@ -440051,7 +440149,7 @@
     "metal-iron-cast"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 0.66,
+   "thickRel": 1.72,
    "lint": [
     {
      "level": "error",
@@ -440389,7 +440487,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 1.56,
+   "thickRel": 1.57,
    "lint": [
     {
      "level": "error",
@@ -441326,7 +441424,7 @@
    "kit": "taalei-kit",
    "name": "hanging-scale-apothecary",
    "hash": "e3559ea555",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.344,
@@ -441368,7 +441466,7 @@
     "metal-gold"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.38,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -441381,7 +441479,7 @@
    "kit": "taalei-kit",
    "name": "hanging-scale-chunky",
    "hash": "7b72c9dcf6",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.329,
@@ -441423,7 +441521,7 @@
     "metal-iron-cast"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.38,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "error",
@@ -441436,7 +441534,7 @@
    "kit": "taalei-kit",
    "name": "hanging-scale-minimal",
    "hash": "8c926eeb0a",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.347,
@@ -441478,13 +441576,13 @@
     "metal-iron-wrought"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.34
+   "thickRel": 0.88
   },
   {
    "kit": "taalei-kit",
    "name": "hanging-scale-wooden",
    "hash": "79a541cec8",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.354,
@@ -441538,20 +441636,13 @@
     "wood-beam"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.31,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-planks, has wood-beam (obj-equipment-tool-hand)"
-    }
-   ]
+   "thickRel": 0.81
   },
   {
    "kit": "taalei-kit",
    "name": "hanging-scale",
    "hash": "2c804892f8",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
     0.318,
@@ -441593,7 +441684,7 @@
     "metal-iron-cast"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.3,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
@@ -442324,7 +442415,7 @@
     "plastic",
     "wood-planks"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.31
   },
   {
    "kit": "taalei-kit",
@@ -460049,7 +460140,7 @@
     "ct",
     "metal-iron-steel"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "zombie-weapons",
