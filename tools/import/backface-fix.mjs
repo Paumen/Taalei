@@ -3,18 +3,27 @@ import { basename, dirname, resolve } from 'node:path';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, vec3View, welder, faceNormal, sub, dot, cross, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `backface-fix.mjs [--dry] [--budget <n>] <workfile.glb> [...]
+const HELP = `backface-fix.mjs [--dry] [--budget <n>] [--steps <step,step>] <workfile.glb> [...]
 
-Repairs the faces catalog/tools/backfaces.mjs counts, per primitive:
-  flip  winds every shell one way along its shared edges, then turns a closed
-        shell outward by its volume and an open one the way most of its faces were.
-        A normal that ends up against all its faces is turned round.
-  cap   fills flat open outlines, points in line dropped, most area per triangle
-        first, while the model's added triangles stay within --budget (11).
-        An outline of more than 13 points gets a plate over its convex hull cut
-        to 13 corners instead. A flat open sheet gets one plate over its outer
-        outline, just behind it. A cap takes the colour most of its outline has,
-        and is left out where it would double a face.
+Repairs the faces catalog/tools/backfaces.mjs counts, per primitive. --steps picks
+which run, in this order (default flip,cap):
+  weld     moves each open-edge corner onto the nearest corner of another open
+           edge within 0.5% of the part's size, closing cracks.
+  remove   deletes open shells with less than 5% of the part's area.
+  pinch    pulls each open outline under 50% of its shell's size to one point,
+           closing the end, and deletes the triangles that collapse.
+  flatten  presses each open shell that is within 10% of flat onto its plane.
+  replace  swaps each such shell for a closed slab over its convex hull, as many
+           corners as the budget allows, in the colour most of it has.
+  flip     winds every shell one way along its shared edges, then turns a closed
+           shell outward by its volume and an open one the way most of its faces
+           were. A normal that ends up against all its faces is turned round.
+  cap      fills flat open outlines, points in line dropped, largest first. An outline of more than 13 points gets a plate over its
+           convex hull cut to 13 corners, or down to 3 while it grows the hull by at
+           most 12%, so more outlines fit the budget. A flat open sheet gets one plate
+           over its outer outline, just behind it. A cap takes the colour most of
+           its outline has, and is left out where it would double a face.
+Triangles added minus triangles deleted stay within --budget (11) per model.
 --dry reports without writing.`;
 
 
@@ -135,88 +144,48 @@ function shells(count, idx, id) {
   return { edges, shell, flip, groups };
 }
 
-function fixPrimitive(glb, prim, replaced) {
+function fixPrimitive(glb, prim, replaced, steps, budget) {
   const pos = readAccessor(glb, prim.attributes.POSITION).data;
   const nrm = prim.attributes.NORMAL !== undefined ? readAccessor(glb, prim.attributes.NORMAL).data : null;
-  const idx = Array.from(readAccessor(glb, prim.indices).data);
-  const count = idx.length / 3;
-  const { weld } = welder(pos);
-  const id = Array.from({ length: pos.length / 3 }, (_, v) => weld(v));
+  const uv = prim.attributes.TEXCOORD_0 !== undefined ? readAccessor(glb, prim.attributes.TEXCOORD_0).data : null;
+  let idx = Array.from(readAccessor(glb, prim.indices).data);
   const at = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
   const normalAt = (v) => (nrm ? [nrm[v * 3], nrm[v * 3 + 1], nrm[v * 3 + 2]] : [0, 0, 0]);
-  const report = { flipped: 0, normals: 0, capped: 0, added: 0, open: 0 };
-
-  const { flip, groups } = shells(count, idx, id);
-  const turnTri = (t) => { [idx[t * 3 + 1], idx[t * 3 + 2]] = [idx[t * 3 + 2], idx[t * 3 + 1]]; };
-  for (let t = 0; t < count; t++) if (flip[t]) turnTri(t);
-
-  const used = new Map();
-  for (let t = 0; t < count; t++) for (let e = 0; e < 3; e++) {
-    const key = edgeKey(id[idx[t * 3 + e]], id[idx[t * 3 + (e + 1) % 3]]);
-    used.set(key, (used.get(key) ?? 0) + 1);
-  }
-  const openEdges = (members) => {
-    const list = [];
-    for (const t of members) for (let e = 0; e < 3; e++) {
-      const a = idx[t * 3 + e], b = idx[t * 3 + (e + 1) % 3];
-      if (id[a] !== id[b] && used.get(edgeKey(id[a], id[b])) === 1) list.push([a, b]);
-    }
-    return list;
-  };
-
-  const openShells = [];
-  for (const members of groups) {
-    let score = 0;
-    const closed = !openEdges(members).length;
-    for (const t of members) {
-      const corners = [0, 1, 2].map((e) => idx[t * 3 + e]);
-      if (closed) score += dot(at(corners[0]), cross(at(corners[1]), at(corners[2])));
-      else score += flip[t] ? -1 : 1;
-    }
-    if (score < 0) for (const t of members) { turnTri(t); flip[t] ^= 1; }
-    for (const t of members) if (flip[t]) report.flipped++;
-    if (!closed) openShells.push({ members, open: openEdges(members) });
-  }
-
-  if (nrm) {
-    const against = new Map();
-    for (let t = 0; t < count; t++) {
-      const n = faceNormal(pos, idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]);
-      for (let e = 0; e < 3; e++) {
-        const v = idx[t * 3 + e];
-        against.set(v, (against.get(v) ?? true) && dot(n, normalAt(v)) < 0);
-      }
-    }
-    const row = vec3View(glb, prim.attributes.NORMAL);
-    for (const [v, turn] of against) if (turn) {
-      const r = row(v);
-      for (let k = 0; k < 3; k++) r[k] = nrm[v * 3 + k] = -nrm[v * 3 + k];
-      report.normals++;
-    }
-  }
-
+  const cellOf = (v) => (uv ? `${Math.floor(uv[v * 2] * 16)},${Math.floor(uv[v * 2 + 1] * 4)}` : '');
+  const report = { flipped: 0, normals: 0, capped: 0, added: 0, removed: 0, welded: 0, pinched: 0, flattened: 0, replaced: 0, open: 0 };
   const adder = vertexAdder(glb, prim);
   const extra = [];
-  const uv = prim.attributes.TEXCOORD_0 !== undefined ? readAccessor(glb, prim.attributes.TEXCOORD_0).data : null;
-  const cellOf = (v) => (uv ? `${Math.floor(uv[v * 2] * 16)},${Math.floor(uv[v * 2 + 1] * 4)}` : '');
-  const inside = ([x, y], poly) => poly.reduce((hit, p, i) => {
-    const q = poly[(i + 1) % poly.length];
-    return (p[1] > y) !== (q[1] > y) && x < p[0] + ((y - p[1]) * (q[0] - p[0])) / (q[1] - p[1]) ? !hit : hit;
-  }, false);
-  const doubles = (corners, n, u, w, size) => {
-    const flat2 = corners.map((p) => [dot(p, u), dot(p, w)]);
-    for (let t = 0; t < count; t++) {
-      const c = [0, 1, 2].map((e) => at(idx[t * 3 + e]));
-      const fn = norm(cross(sub(c[1], c[0]), sub(c[2], c[0])));
-      if (Math.abs(dot(fn, n)) < 0.999) continue;
-      const mid = c.reduce((m, p) => m.map((x, k) => x + p[k] / 3), [0, 0, 0]);
-      if (Math.abs(dot(sub(mid, corners[0]), n)) > 1e-3 * size) continue;
-      if (inside([dot(mid, u), dot(mid, w)], flat2)) return true;
-    }
-    return false;
+  const place = vec3View(glb, prim.attributes.POSITION);
+  const move = (v, p) => {
+    const r = place(v);
+    for (let k = 0; k < 3; k++) r[k] = pos[v * 3 + k] = p[k];
   };
+  let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+  for (const v of idx) for (let k = 0; k < 3; k++) { lo[k] = Math.min(lo[k], pos[v * 3 + k]); hi[k] = Math.max(hi[k], pos[v * 3 + k]); }
+  const span = Math.hypot(...sub(hi, lo)) || 1;
 
-  const loops = (open) => {
+  const analyse = () => {
+    const { weld } = welder(pos);
+    const id = Array.from({ length: pos.length / 3 }, (_, v) => weld(v));
+    const count = idx.length / 3;
+    const used = new Map();
+    for (let t = 0; t < count; t++) for (let e = 0; e < 3; e++) {
+      const key = edgeKey(id[idx[t * 3 + e]], id[idx[t * 3 + (e + 1) % 3]]);
+      used.set(key, (used.get(key) ?? 0) + 1);
+    }
+    const openEdges = (members) => {
+      const list = [];
+      for (const t of members) for (let e = 0; e < 3; e++) {
+        const a = idx[t * 3 + e], b = idx[t * 3 + (e + 1) % 3];
+        if (id[a] !== id[b] && used.get(edgeKey(id[a], id[b])) === 1) list.push([a, b]);
+      }
+      return list;
+    };
+    const { flip, groups } = shells(count, idx, id);
+    const open = groups.map((members) => ({ members, open: openEdges(members) })).filter((g) => g.open.length);
+    return { id, count, openEdges, flip, groups, open };
+  };
+  const loopsOf = (open, id) => {
     const out = new Map();
     for (const [a, b] of open) out.set(id[a], [a, b]);
     const seen = new Set();
@@ -234,6 +203,194 @@ function fixPrimitive(glb, prim, replaced) {
       if (w === start && loop.length >= 3) result.push(loop);
     }
     return result;
+  };
+  const bounds = (vs) => {
+    const l = [Infinity, Infinity, Infinity], h = [-Infinity, -Infinity, -Infinity];
+    for (const v of vs) for (let k = 0; k < 3; k++) { l[k] = Math.min(l[k], pos[v * 3 + k]); h[k] = Math.max(h[k], pos[v * 3 + k]); }
+    return Math.hypot(...sub(h, l));
+  };
+  const areaOf = (members) => members.reduce((s, t) => s + Math.hypot(...faceNormal(pos, idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2])) / 2, 0);
+  const plane = (vs) => {
+    const origin = vs.reduce((c, v) => c.map((x, k) => x + pos[v * 3 + k] / vs.length), [0, 0, 0]);
+    let n = [0, 0, 0];
+    for (let i = 0; i < vs.length; i += 3) if (i + 2 < vs.length) {
+      const f = faceNormal(pos, vs[i], vs[i + 1], vs[i + 2]);
+      n = n.map((x, k) => x + f[k]);
+    }
+    return { origin, n: norm(n) };
+  };
+  const dropTris = (gone) => {
+    if (!gone.size) return;
+    const keep = [];
+    for (let t = 0; t < idx.length / 3; t++) if (!gone.has(t)) keep.push(idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]);
+    report.removed += gone.size;
+    budget.left += gone.size;
+    idx = keep;
+  };
+
+  if (steps.has('weld')) {
+    const { id, open } = analyse();
+    const ends = new Map();
+    for (const g of open) for (const [a, b] of g.open) for (const v of [a, b]) ends.set(id[v], v);
+    const list = [...ends.values()];
+    const tol = 0.005 * span;
+    const target = new Map();
+    for (const v of list) {
+      let best = null, d = tol;
+      for (const w of list) {
+        if (id[w] === id[v] || target.has(w)) continue;
+        const e = Math.hypot(...sub(at(v), at(w)));
+        if (e < d) { d = e; best = w; }
+      }
+      if (best !== null) target.set(v, best);
+    }
+    const by = new Map();
+    for (const [v, w] of target) by.set(id[v], at(w));
+    for (let v = 0; v < pos.length / 3; v++) if (by.has(id[v])) { move(v, by.get(id[v])); report.welded++; }
+  }
+
+  if (steps.has('remove')) {
+    const { open } = analyse();
+    const total = areaOf(Array.from({ length: idx.length / 3 }, (_, t) => t));
+    const gone = new Set();
+    for (const g of open) if (areaOf(g.members) < 0.05 * total) for (const t of g.members) gone.add(t);
+    dropTris(gone);
+  }
+
+  if (steps.has('pinch')) {
+    const { id, open } = analyse();
+    const moved = new Set();
+    for (const g of open) {
+      const size = bounds(g.members.flatMap((t) => [idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]]));
+      for (const loop of loopsOf(g.open, id)) {
+        if (bounds(loop) > 0.5 * size) continue;
+        const centre = loop.reduce((c, v) => c.map((x, k) => x + pos[v * 3 + k] / loop.length), [0, 0, 0]);
+        const ring = new Set(loop.map((v) => id[v]));
+        for (let v = 0; v < pos.length / 3; v++) if (ring.has(id[v])) { move(v, centre); moved.add(v); }
+        report.pinched++;
+      }
+    }
+    if (moved.size) {
+      const gone = new Set();
+      for (let t = 0; t < idx.length / 3; t++) {
+        const c = [0, 1, 2].map((e) => at(idx[t * 3 + e]));
+        if (Math.hypot(...cross(sub(c[1], c[0]), sub(c[2], c[0]))) < 1e-12) gone.add(t);
+      }
+      dropTris(gone);
+    }
+  }
+
+  if (steps.has('flatten') || steps.has('replace')) {
+    const { id, open } = analyse();
+    const gone = new Set();
+    for (const g of open) {
+      const vs = g.members.flatMap((t) => [idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]]);
+      const { origin, n } = plane(vs);
+      if (!dot(n, n)) continue;
+      const size = bounds(vs);
+      const depths = vs.map((v) => dot(sub(at(v), origin), n));
+      if (Math.max(...depths) - Math.min(...depths) > 0.1 * size) continue;
+      if (steps.has('flatten')) {
+        for (const v of new Set(vs)) move(v, at(v).map((x, k) => x - dot(sub(at(v), origin), n) * n[k]));
+        report.flattened++;
+        continue;
+      }
+      const u = norm(Math.abs(n[0]) < 0.9 ? cross(n, [1, 0, 0]) : cross(n, [0, 1, 0]));
+      const w = cross(n, u);
+      const outline = hull(vs.map((v) => [dot(sub(at(v), origin), u), dot(sub(at(v), origin), w)]));
+      let k = Math.min(outline.length, Math.floor((budget.left + g.members.length + 4) / 4));
+      if (k < 3) continue;
+      const plate = enclose(outline, k);
+      if (!plate) continue;
+      k = plate.length;
+      const tris = earclip(plate);
+      if (!tris) continue;
+      const half = Math.max(Math.max(...depths) - Math.min(...depths), 0.02 * size) / 2;
+      const cells = new Map();
+      for (const v of vs) cells.set(cellOf(v), [...(cells.get(cellOf(v)) ?? []), v]);
+      const paint = [...cells.values()].sort((a, b) => b.length - a.length)[0][0];
+      const point = ([x, y], side) => [0, 1, 2].map((j) => origin[j] + u[j] * x + w[j] * y + n[j] * half * side);
+      const add = (p, normal) => adder.add(paint, nrm ? { POSITION: p, NORMAL: normal } : { POSITION: p });
+      const front = plate.map((q) => add(point(q, 1), n));
+      const back = plate.map((q) => add(point(q, -1), n.map((x) => -x)));
+      const facing = (tri, want) => {
+        const [a, b, c] = tri.map((q) => q.p);
+        return dot(cross(sub(b, a), sub(c, a)), want) >= 0 ? tri.map((q) => q.v) : [tri[0].v, tri[2].v, tri[1].v];
+      };
+      for (const [a, b, c] of tris) {
+        extra.push(...facing([a, b, c].map((i) => ({ v: front[i], p: point(plate[i], 1) })), n));
+        extra.push(...facing([a, b, c].map((i) => ({ v: back[i], p: point(plate[i], -1) })), n.map((x) => -x)));
+      }
+      const mid = plate.reduce((m, q) => [m[0] + q[0] / k, m[1] + q[1] / k], [0, 0]);
+      for (let i = 0; i < k; i++) {
+        const j = (i + 1) % k;
+        const corners = [[plate[i], 1], [plate[j], 1], [plate[j], -1], [plate[i], -1]].map(([q, side]) => point(q, side));
+        let side = norm(cross(sub(corners[1], corners[0]), n));
+        if (dot(side, sub(corners[0], point(mid, 1))) < 0) side = side.map((x) => -x);
+        const q = corners.map((p) => ({ v: add(p, side), p }));
+        extra.push(...facing([q[0], q[1], q[2]], side), ...facing([q[0], q[2], q[3]], side));
+      }
+      const added = 2 * tris.length + 2 * k;
+      for (const t of g.members) gone.add(t);
+      budget.left -= added;
+      report.added += added;
+      report.replaced++;
+    }
+    dropTris(gone);
+  }
+
+  const { id, count, openEdges } = analyse();
+  const { flip, groups } = shells(count, idx, id);
+  if (!steps.has('flip')) flip.fill(0);
+  const turnTri = (t) => { [idx[t * 3 + 1], idx[t * 3 + 2]] = [idx[t * 3 + 2], idx[t * 3 + 1]]; };
+  for (let t = 0; t < count; t++) if (flip[t]) turnTri(t);
+
+  const openShells = [];
+  for (const members of groups) {
+    let score = 0;
+    const closed = !openEdges(members).length;
+    for (const t of members) {
+      const corners = [0, 1, 2].map((e) => idx[t * 3 + e]);
+      if (closed) score += dot(at(corners[0]), cross(at(corners[1]), at(corners[2])));
+      else score += flip[t] ? -1 : 1;
+    }
+    if (score < 0 && steps.has('flip')) for (const t of members) { turnTri(t); flip[t] ^= 1; }
+    for (const t of members) if (flip[t]) report.flipped++;
+    if (!closed) openShells.push({ members, open: openEdges(members) });
+  }
+
+  if (nrm && steps.has('flip')) {
+    const against = new Map();
+    for (let t = 0; t < count; t++) {
+      const n = faceNormal(pos, idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]);
+      for (let e = 0; e < 3; e++) {
+        const v = idx[t * 3 + e];
+        against.set(v, (against.get(v) ?? true) && dot(n, normalAt(v)) < 0);
+      }
+    }
+    const row = vec3View(glb, prim.attributes.NORMAL);
+    for (const [v, turn] of against) if (turn) {
+      const r = row(v);
+      for (let k = 0; k < 3; k++) r[k] = nrm[v * 3 + k] = -nrm[v * 3 + k];
+      report.normals++;
+    }
+  }
+
+  const inside = ([x, y], poly) => poly.reduce((hit, p, i) => {
+    const q = poly[(i + 1) % poly.length];
+    return (p[1] > y) !== (q[1] > y) && x < p[0] + ((y - p[1]) * (q[0] - p[0])) / (q[1] - p[1]) ? !hit : hit;
+  }, false);
+  const doubles = (corners, n, u, w, size) => {
+    const flat2 = corners.map((p) => [dot(p, u), dot(p, w)]);
+    for (let t = 0; t < count; t++) {
+      const c = [0, 1, 2].map((e) => at(idx[t * 3 + e]));
+      const fn = norm(cross(sub(c[1], c[0]), sub(c[2], c[0])));
+      if (Math.abs(dot(fn, n)) < 0.999) continue;
+      const mid = c.reduce((m, p) => m.map((x, k) => x + p[k] / 3), [0, 0, 0]);
+      if (Math.abs(dot(sub(mid, corners[0]), n)) > 1e-3 * size) continue;
+      if (inside([dot(mid, u), dot(mid, w)], flat2)) return true;
+    }
+    return false;
   };
 
   const straight = (ring) => ring.filter((v, i) => {
@@ -265,38 +422,44 @@ function fixPrimitive(glb, prim, replaced) {
     const to3 = ([x, y]) => [0, 1, 2].map((k) => origin[k] + u[k] * x + w[k] * y + n[k] * lift);
 
     if (Math.max(...pts.map((p) => Math.abs(dot(sub(p, origin), n)))) > 0.05 * size) return null;
-    let corners;
-    if (ring.length <= 13 && earclip(flatPts)) {
-      corners = flat ? pts.map((p) => p.map((x, k) => x + (lift - dot(sub(p, origin), n)) * n[k])) : pts;
-    } else {
-      const outline = hull(flatPts);
-      if (flat && area2(outline) > 1.15 * area) return null;
-      const plate = enclose(outline, 13);
-      if (!plate || area2(plate) > 1.05 * area2(outline)) return null;
-      corners = plate.map(to3);
-    }
-    const tris = earclip(corners.map((p) => [dot(p, u), dot(p, w)]));
-    if (!tris || doubles(corners, n, u, w, size)) return null;
     const cells = new Map();
     for (const v of ring) cells.set(cellOf(v), [...(cells.get(cellOf(v)) ?? []), v]);
     const paint = [...cells.values()].sort((a, b) => b.length - a.length)[0][0];
-    return {
-      flat, area, tris: tris.length,
-      apply() {
-        const copies = corners.map((p) => adder.add(paint, nrm ? { POSITION: p, NORMAL: n } : { POSITION: p }));
-        for (const [a, b, c] of tris) {
-          const face = cross(sub(corners[b], corners[a]), sub(corners[c], corners[a]));
-          extra.push(...(dot(face, n) >= 0 ? [copies[a], copies[b], copies[c]] : [copies[a], copies[c], copies[b]]));
-        }
-        report.capped++;
-        report.added += tris.length;
-      },
+    const variant = (corners) => {
+      const tris = earclip(corners.map((p) => [dot(p, u), dot(p, w)]));
+      if (!tris || doubles(corners, n, u, w, size)) return null;
+      return {
+        tris: tris.length,
+        apply() {
+          const copies = corners.map((p) => adder.add(paint, nrm ? { POSITION: p, NORMAL: n } : { POSITION: p }));
+          for (const [a, b, c] of tris) {
+            const face = cross(sub(corners[b], corners[a]), sub(corners[c], corners[a]));
+            extra.push(...(dot(face, n) >= 0 ? [copies[a], copies[b], copies[c]] : [copies[a], copies[c], copies[b]]));
+          }
+          report.capped++;
+          report.added += tris.length;
+        },
+      };
     };
+    const variants = [];
+    if (ring.length <= 13 && earclip(flatPts)) {
+      variants.push(variant(flat ? pts.map((p) => p.map((x, k) => x + (lift - dot(sub(p, origin), n)) * n[k])) : pts));
+    } else {
+      const outline = hull(flatPts);
+      if (flat && area2(outline) > 1.15 * area) return null;
+      for (let most = Math.min(13, outline.length); most >= 3; most--) {
+        const plate = enclose(outline, most);
+        if (!plate || area2(plate) > 1.12 * area2(outline)) break;
+        variants.push(variant(plate.map(to3)));
+      }
+    }
+    const usable = variants.filter(Boolean).sort((a, b) => a.tris - b.tris);
+    return usable.length ? { flat, area, variants: usable } : null;
   };
 
   const caps = [];
-  for (const s of openShells) {
-    const found = loops(s.open).map((loop) => plan(loop, s.members)).filter(Boolean);
+  if (steps.has('cap')) for (const s of openShells) {
+    const found = loopsOf(s.open, id).map((loop) => plan(loop, s.members)).filter(Boolean);
     const sheet = found.filter((c) => c.flat).sort((a, b) => b.area - a.area)[0];
     caps.push(...found.filter((c) => !c.flat), ...(sheet ? [sheet] : []));
   }
@@ -304,27 +467,35 @@ function fixPrimitive(glb, prim, replaced) {
   return { report, caps, commit: () => adder.commit(idx.concat(extra), replaced) };
 }
 
-function fix(file, { dry, budget }) {
+function fix(file, { dry, budget, steps }) {
   const glb = readGlb(file);
   const key = `${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`;
   const replaced = new Map();
-  const parts = editablePrimitives(glb.json).map((prim) => fixPrimitive(glb, prim, replaced));
-  let left = budget;
-  for (const c of parts.flatMap((p) => p.caps).sort((a, b) => b.area / b.tris - a.area / a.tris)) {
-    if (c.tris > left) continue;
-    c.apply();
-    left -= c.tris;
+  const left = { left: budget };
+  const parts = editablePrimitives(glb.json).map((prim) => fixPrimitive(glb, prim, replaced, steps, left));
+  const caps = parts.flatMap((p) => p.caps).sort((a, b) => b.area - a.area);
+  const pick = new Map();
+  for (const c of caps) if (c.variants[0].tris <= left.left) {
+    pick.set(c, 0);
+    left.left -= c.variants[0].tris;
   }
+  for (const [c, i] of pick) {
+    let best = i;
+    for (let j = i + 1; j < c.variants.length; j++) if (c.variants[j].tris - c.variants[i].tris <= left.left) best = j;
+    left.left -= c.variants[best].tris - c.variants[i].tris;
+    pick.set(c, best);
+  }
+  for (const [c, i] of pick) c.variants[i].apply();
   for (const p of parts) p.commit();
-  const total = { flipped: 0, normals: 0, capped: 0, added: 0, open: 0 };
-  for (const p of parts) for (const k of Object.keys(total)) total[k] += p.report[k] ?? 0;
+  const total = {};
+  for (const p of parts) for (const [k, v] of Object.entries(p.report)) total[k] = (total[k] ?? 0) + v;
   if (!dry) {
     repack(glb, replaced);
     fixBounds(glb);
     writeGlb(file, glb.json, glb.bin, writeFileSync);
   }
-  console.log(`${key}: ${total.flipped} faces flipped, ${total.normals} normals turned, `
-    + `${total.capped} outlines capped, ${total.added} triangles added, ${total.open} open shells`);
+  console.log(`${key}: ${Object.entries(total).filter(([, v]) => v).map(([k, v]) => `${k} ${v}`).join(', ') || 'nothing to do'}`
+    + `, net ${total.added - total.removed} triangles`);
 }
 
 const argv = process.argv.slice(2);
@@ -332,11 +503,12 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { dry: false, budget: 11 };
+const options = { dry: false, budget: 11, steps: new Set(['flip', 'cap']) };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry') options.dry = true;
   else if (argv[i] === '--budget') options.budget = Number(argv[++i]);
+  else if (argv[i] === '--steps') options.steps = new Set(argv[++i].split(','));
   else files.push(argv[i]);
 }
 for (const file of files) fix(file, options);
