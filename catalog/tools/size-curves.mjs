@@ -330,7 +330,6 @@ const SIZES = {
   'str-part-wall-unit-doorway': 3,
   'str-part-wall-unit-window': 3,
   'str-part-window': 1,
-  'str-part-window-unit': 3,
 };
 
 const HIGH = new Set([
@@ -368,7 +367,6 @@ const HIGH = new Set([
   'str-part-wall-unit',
   'str-part-wall-unit-doorway',
   'str-part-wall-unit-window',
-  'str-part-window-unit',
 ]);
 
 const DROPPED_KINDS = [
