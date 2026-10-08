@@ -2601,7 +2601,8 @@
     "m3-base/wood-barrel",
     "m3-base/anchor-01",
     "m3-base/outdoor-wall-light-01",
-    "m3-base/propeller-01"
+    "m3-base/propeller-01",
+    "emace-80s/telescope-stand"
    ],
    "parent": "metal-iron"
   },
@@ -3483,7 +3484,8 @@
     "m3-base/fleur-de-lys-01",
     "m3-base/goblet-06",
     "m3-base/saber-01",
-    "pm-store/bell"
+    "pm-store/bell",
+    "emace-80s/telescope-stand"
    ],
    "parent": "metal"
   },
@@ -6938,7 +6940,8 @@
     "m3-base/wooden-square-bollard",
     "m3-base/estate-sign-04",
     "m3-base/sign-shelter-01",
-    "m3-base/ship-wheel"
+    "m3-base/ship-wheel",
+    "emace-80s/telescope-stand"
    ],
    "parent": "wood"
   },
@@ -14627,7 +14630,8 @@
     "m3-base/display-table-03",
     "m3-base/outdoor-wall-light-01",
     "m3-base/pint-glass-01",
-    "m3-base/reed-diffuser-01"
+    "m3-base/reed-diffuser-01",
+    "emace-80s/telescope-stand"
    ]
   },
   {
@@ -15668,7 +15672,8 @@
     "kay-platformer/sign-caution",
     "quat-shoot/sign-floor",
     "sq-lab/hazard-sign",
-    "3dm-industrial-2/wet-floor-sign"
+    "3dm-industrial-2/wet-floor-sign",
+    "m3-base/wet-floor-sign"
    ]
   },
   {
@@ -15784,8 +15789,7 @@
     "3dm-scifi/chamber",
     "m3-base/petri-dish",
     "m3-base/petri-dish-lid",
-    "m3-base/pipette",
-    "m3-base/test-tube"
+    "m3-base/pipette"
    ]
   },
   {
@@ -15804,13 +15808,15 @@
    "id": "obj-device-science-astro-telescope",
    "name": "Telescope",
    "type": "kind",
-   "description": "telescope",
+   "description": "telescope, binoculars",
    "models": [
     "rgp-vintage/telescope",
     "household/telescope",
     "sq-observatory/refractor-telescope",
     "emace-80s/telescope-legs",
-    "emace-80s/telescope"
+    "emace-80s/telescope",
+    "emace-80s/telescope-stand",
+    "m3-base/binoculars"
    ]
   },
   {
@@ -15940,7 +15946,6 @@
    "models": [
     "quat-survival/battery-slim",
     "quat-survival/battery",
-    "rgp-vintage/record",
     "ipoly-electronics/circuit-board",
     "ipoly-electronics/microchip-small",
     "ipoly-electronics/microchip",
@@ -15948,24 +15953,40 @@
     "ipoly-electronics/ram",
     "lpa-home/tablet",
     "styloo-school/router",
-    "styloo-school/usb-stick-swivel",
-    "styloo-school/usb-stick",
     "3dm-electronics/router",
-    "3dm-electronics/usb-stick",
-    "m3-base/cd",
+    "m3-base/speedometer-needle"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-installation",
+   "name": "House electrics",
+   "type": "kind",
+   "description": "Fixed household electrics: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb.",
+   "models": [
     "m3-base/circuit-breaker",
     "m3-base/fire-alarm-system",
     "m3-base/fuse-box",
-    "m3-base/game-cartridge-01",
     "m3-base/light-switch",
     "m3-base/lightbulb",
     "m3-base/plug-socket",
-    "m3-base/smoke-detector",
-    "m3-base/speedometer-needle",
-    "m3-base/usb-stick",
+    "m3-base/smoke-detector"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-media",
+   "name": "Media",
+   "type": "kind",
+   "description": "cd, record, vinyl, record sleeve, game cartridge, usb stick",
+   "models": [
+    "m3-base/cd",
+    "m3-base/game-cartridge-01",
+    "rgp-vintage/record",
     "m3-base/vinyl",
     "m3-base/vinyl-sleeve",
-    "m3-base/dish-antenna-01"
+    "styloo-school/usb-stick",
+    "styloo-school/usb-stick-swivel",
+    "m3-base/usb-stick",
+    "3dm-electronics/usb-stick"
    ]
   },
   {
@@ -16026,8 +16047,7 @@
     "household/printer",
     "3dm-electronics/console",
     "3dm-scifi/control-panel",
-    "m3-base/cartoon-controller",
-    "m3-base/retro-computer"
+    "m3-base/cartoon-controller"
    ]
   },
   {
@@ -16055,7 +16075,8 @@
     "household/computer",
     "lpa-home/computer",
     "styloo-school/pc-tower",
-    "styloo-school/pc-tower-old"
+    "styloo-school/pc-tower-old",
+    "m3-base/retro-computer"
    ]
   },
   {
@@ -16086,7 +16107,8 @@
     "styloo-school/vending-machine",
     "sq-cinema/popcorn-machine",
     "3dm-city-2/parking-meter",
-    "3dm-city/atm"
+    "3dm-city/atm",
+    "sq-cards/gacha-machine"
    ]
   },
   {
@@ -16167,7 +16189,6 @@
     "sq-arcade/pinball",
     "sq-arcade/skee-ball",
     "sq-casino/slot-cabinet",
-    "sq-cards/gacha-machine",
     "m3-base/pinball-flipper",
     "m3-base/arcade-machine-01"
    ]
@@ -16181,14 +16202,22 @@
     "isa-picnic/radio",
     "ken-furniture/radio",
     "quat-survival/radio",
-    "lpa-construction/radio",
     "styloo-school/radio",
     "taalei-kit/boombox",
     "taalei-kit/boombox-compact",
     "taalei-kit/boombox-doubledeck",
-    "3dm-electronics/radio",
-    "3dm-electronics/walkie-talkie",
-    "m3-base/walkie-talkie"
+    "3dm-electronics/radio"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-radio-walkietalkie",
+   "name": "Walkie-talkie",
+   "type": "kind",
+   "description": "walkie-talkie",
+   "models": [
+    "lpa-construction/radio",
+    "m3-base/walkie-talkie",
+    "3dm-electronics/walkie-talkie"
    ]
   },
   {
@@ -16208,20 +16237,28 @@
    "id": "obj-container",
    "name": "Container",
    "type": "kind",
-   "description": "tub, trough, bin",
+   "description": "tub, bin",
    "color": "#dd9f79",
    "models": [
-    "rgp-props/trough-1-a",
-    "rgp-props/trough-3-a",
-    "rgp-medieval/trough-hay",
     "household/piggy-bank",
     "household/safe",
     "lpa-home/safe-a",
     "lpa-home/safe-b",
     "styloo-school/cork",
-    "lpa-west/trough-a",
-    "lpa-west/trough-b",
     "m3-base/ash-tray"
+   ]
+  },
+  {
+   "id": "obj-container-trough",
+   "name": "Trough",
+   "type": "kind",
+   "description": "trough",
+   "models": [
+    "rgp-props/trough-1-a",
+    "rgp-props/trough-3-a",
+    "rgp-medieval/trough-hay",
+    "lpa-west/trough-a",
+    "lpa-west/trough-b"
    ]
   },
   {
@@ -16726,7 +16763,8 @@
     "potions/potion-8-string-label-red",
     "potions/potion-9-red",
     "potions/potion-9-double-handle-red",
-    "m3-base/potion-bottle"
+    "m3-base/potion-bottle",
+    "m3-base/test-tube"
    ]
   },
   {
@@ -17447,8 +17485,7 @@
     "kay-food/food-ingredient-bun-top",
     "isa-food/bread-roll",
     "food-pack-2/bun-half",
-    "rgp-medieval/bread-round",
-    "m3-base/cheeseburger"
+    "rgp-medieval/bread-round"
    ]
   },
   {
@@ -17485,7 +17522,8 @@
     "quat-food/burger",
     "quat-food/cheeseburger",
     "quat-food/double-cheeseburger",
-    "household/hamburger"
+    "household/hamburger",
+    "m3-base/cheeseburger"
    ]
   },
   {
@@ -17497,7 +17535,6 @@
     "isa-food/cinnamon-roll",
     "isa-bakery/cream-puff",
     "isa-bakery/pretzel",
-    "isa-bakery/macaron-pink",
     "ken-food/pancakes",
     "quat-sushi/gyoza",
     "styloo-food/pain-au-chocolat",
@@ -17865,18 +17902,34 @@
    "models": [
     "kay-spook/candy-a",
     "kay-spook/candy-b",
-    "quat-food/chocolate-bar",
-    "ken-holiday/candy-cane",
-    "kay-holiday/candycane",
-    "ken-food/chocolate-wrapper",
-    "ken-food/chocolate",
     "aq-hallow/candy-a",
     "aq-hallow/candy-b",
     "quat-sushi/dango",
     "aq-hallow/candy-a-sienna",
-    "aq-hallow/candy-b-moss",
+    "aq-hallow/candy-b-moss"
+   ]
+  },
+  {
+   "id": "obj-food-sweet-cane",
+   "name": "Candy cane",
+   "type": "kind",
+   "description": "candy cane",
+   "models": [
     "pm-store/candy-cane",
     "m3-base/candy-cane",
+    "ken-holiday/candy-cane",
+    "kay-holiday/candycane"
+   ]
+  },
+  {
+   "id": "obj-food-sweet-chocolate",
+   "name": "Chocolate",
+   "type": "kind",
+   "description": "chocolate, chocolate bar",
+   "models": [
+    "ken-food/chocolate",
+    "ken-food/chocolate-wrapper",
+    "quat-food/chocolate-bar",
     "m3-base/chocolate-bar"
    ]
   },
@@ -18040,7 +18093,7 @@
    "id": "obj-furnishing-decor",
    "name": "Decor",
    "type": "kind",
-   "description": "Hung or laid decoration: wreath, garland.",
+   "description": "Hung or laid decoration: wreath, garland, birdhouse.",
    "models": [
     "ken-holiday/wreath",
     "kay-holiday/wreath",
@@ -18060,7 +18113,9 @@
     "m3-base/mid-century-starburst",
     "m3-base/name-plaque",
     "m3-base/wood-onlay-01",
-    "m3-base/reed-diffuser-01"
+    "m3-base/reed-diffuser-01",
+    "taalei-kit/birdhouse",
+    "household/birdhouse"
    ]
   },
   {
@@ -18486,7 +18541,6 @@
     "3dm-city-2/camp-chair",
     "emace-village/chair",
     "styloo-school/cafeteria-chair-red",
-    "3dm-scifi/chair",
     "m3-base/dining-chair-01",
     "m3-base/dining-chair-02",
     "m3-base/folded-chair-01",
@@ -18518,7 +18572,8 @@
     "lpa-home/office-chair",
     "styloo-school/desk-chair",
     "styloo-school/executive-chair",
-    "m3-base/office-chair"
+    "m3-base/office-chair",
+    "3dm-scifi/chair"
    ]
   },
   {
@@ -18962,7 +19017,8 @@
    "models": [
     "isa-kitchen/dishrack",
     "kay-food/dishrack",
-    "m3-base/sponge"
+    "m3-base/sponge",
+    "m3-base/dish-sponge"
    ]
   },
   {
@@ -18981,23 +19037,20 @@
    "id": "obj-kitchenware-cookware",
    "name": "Cookware",
    "type": "kind",
-   "description": "grill, spit, mortar and pestle, pepper mill, kitchen scale",
+   "description": "grill, spit, mortar and pestle, pepper mill",
    "models": [
     "ken-food/steamer",
     "cooking-assets/mortar-and-pestle",
     "cooking-assets/trivet",
-    "isa-bakery/scale",
     "taalei-kit/barbecue",
     "household/barbecue",
     "lpa-home/knife-block",
     "m3-base/cupcake-baking-tray",
     "m3-base/cupcake-case",
-    "m3-base/dish-sponge",
     "m3-base/freezer-block",
     "m3-base/funnel",
     "m3-base/mortar-and-pestle-01",
-    "m3-base/mortar-and-pestle-02",
-    "m3-base/toasting-fork"
+    "m3-base/mortar-and-pestle-02"
    ]
   },
   {
@@ -19112,7 +19165,6 @@
    "type": "kind",
    "description": "rice paddle, wooden paddle",
    "models": [
-    "cooking-assets/rice-paddle",
     "ken-food/cake-slicer",
     "ken-food/cheese-slicer",
     "ken-food/cooking-fork",
@@ -19124,15 +19176,15 @@
     "cooking-assets/measuring-cup-small",
     "cooking-assets/measuring-cup-large",
     "styloo-kitchen/cleaver",
-    "ken-food/spoon-cooking",
-    "m3-base/pastry-brush"
+    "m3-base/pastry-brush",
+    "m3-base/toasting-fork"
    ]
   },
   {
    "id": "obj-kitchenware-cookware-utensil-spoon",
    "name": "Spoon",
    "type": "kind",
-   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon, ladle.",
+   "description": "Long spoon for stirring or serving while cooking: wooden spoon, cooking spoon.",
    "models": [
     "styloo-kitchen/wooden-spoon-a",
     "styloo-kitchen/wooden-spoon-b",
@@ -19140,37 +19192,55 @@
     "styloo-furniture/wooden-spoon",
     "cooking-assets/wooden-spoon",
     "cooking-assets/cooking-spoon",
-    "cooking-assets/ladle-a",
-    "cooking-assets/ladle-b",
     "styloo-furniture/wooden-spoon-round",
-    "jb-kitchen/ladle",
     "emace-village/spoon-a",
     "emace-village/spoon-b",
     "emace-village/spoon-c",
     "emace-village/spoon-d",
+    "m3-base/wooden-spoon",
+    "cooking-assets/rice-paddle",
+    "ken-food/spoon-cooking"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-spoon-ladle",
+   "name": "Ladle",
+   "type": "kind",
+   "description": "ladle",
+   "models": [
+    "cooking-assets/ladle-b",
+    "cooking-assets/ladle-a",
     "m3-base/ladle",
-    "m3-base/wooden-spoon"
+    "jb-kitchen/ladle"
    ]
   },
   {
    "id": "obj-kitchenware-cookware-utensil-knife",
    "name": "Knife",
    "type": "kind",
-   "description": "Kitchen knife for cutting food: chef knife, bread knife, cleaver.",
+   "description": "Kitchen knife for cutting food: chef knife, bread knife.",
    "models": [
-    "cooking-assets/nakiri-knife",
     "cooking-assets/santoku-knife",
     "cooking-assets/paring-knife",
     "cooking-assets/peeling-knife",
     "cooking-assets/chef-knife",
-    "cooking-assets/cleaver",
     "cooking-assets/bread-knife",
     "ken-food/knife-cooking",
     "jb-kitchen/kitchen-knife",
     "ken-food/knife-chopping",
+    "m3-base/kitchen-knife"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-knife-cleaver",
+   "name": "Cleaver",
+   "type": "kind",
+   "description": "cleaver, nakiri knife",
+   "models": [
     "zombie-weapons/cleaver",
     "m3-base/cleaver",
-    "m3-base/kitchen-knife"
+    "cooking-assets/cleaver",
+    "cooking-assets/nakiri-knife"
    ]
   },
   {
@@ -19228,12 +19298,8 @@
    "type": "kind",
    "description": "pan",
    "models": [
-    "kay-food/lid-large",
     "kay-food/pan-006",
     "kay-food/pan-006-cast",
-    "kay-food/pot-a-closed",
-    "kay-food/pot-large",
-    "kay-food/pot-large-closed",
     "cooking-assets/paella-pan",
     "cooking-assets/sauce-pan-large",
     "cooking-assets/sauce-pan-small",
@@ -19310,7 +19376,11 @@
     "jb-kitchen/cookpot",
     "jb-kitchen/cookpot-lid",
     "lpa-home/cookpot",
-    "kay-food/pot-a"
+    "kay-food/pot-a",
+    "kay-food/pot-a-closed",
+    "kay-food/pot-large",
+    "kay-food/pot-large-closed",
+    "kay-food/lid-large"
    ]
   },
   {
@@ -19369,11 +19439,7 @@
    "name": "Tableware",
    "type": "kind",
    "description": "and any tableware with no leaf that fits",
-   "models": [
-    "rgp-asia/bowl",
-    "rgp-asia/bowl-shard",
-    "m3-base/straw"
-   ]
+   "models": []
   },
   {
    "id": "obj-kitchenware-tableware-condiment",
@@ -19450,7 +19516,6 @@
    "models": [
     "isa-kitchen/plate",
     "clay-props/plate",
-    "clay-props/platter",
     "quat-props/table-plate",
     "isa-plants/saucer-a-medium",
     "isa-plants/saucer-a-small",
@@ -19519,7 +19584,8 @@
     "m3-base/cake-stand",
     "m3-base/metal-tray",
     "m3-base/tea-tray-01",
-    "m3-base/tea-tray-02"
+    "m3-base/tea-tray-02",
+    "clay-props/platter"
    ]
   },
   {
@@ -19558,7 +19624,9 @@
     "m3-base/roman-pottery-10",
     "m3-base/roman-pottery-11",
     "m3-base/wooden-bowl-01",
-    "m3-base/wooden-bowl-02"
+    "m3-base/wooden-bowl-02",
+    "rgp-asia/bowl",
+    "rgp-asia/bowl-shard"
    ]
   },
   {
@@ -19566,7 +19634,9 @@
    "name": "Drinkware",
    "type": "kind",
    "description": "cup, tankard, glass",
-   "models": []
+   "models": [
+    "m3-base/straw"
+   ]
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-takeaway",
@@ -19702,7 +19772,9 @@
    "type": "kind",
    "description": "chandelier, match, string lights",
    "color": "#f2cb45",
-   "models": []
+   "models": [
+    "m3-base/glowstick"
+   ]
   },
   {
    "id": "obj-furnishing-light-candle",
@@ -19790,23 +19862,31 @@
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
    "models": [
     "fs-town/lamp-wall",
-    "sq-rink/floor-spot",
-    "sq-rink/light-bar",
     "ken-holiday/lights-colored",
-    "ipoly-concert/spotlight-moving",
-    "ipoly-concert/spotlight-ribbed",
-    "ipoly-concert/spotlight",
     "ipoly-concert/led-panel",
-    "ipoly-concert/spotlight-barndoor",
     "lpa-home/wall-light",
     "lpa-construction/work-light-b",
     "lpa-construction/work-light-a",
-    "pm-store/stage-light",
     "3dm-industrial/work-light",
     "3dm-scifi/lamp",
     "m3-base/iron-wall-light",
     "m3-base/outdoor-wall-light",
     "m3-base/outdoor-wall-light-01"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-spot",
+   "name": "Spotlight",
+   "type": "kind",
+   "description": "spotlight, stage light, floor spot, light bar",
+   "models": [
+    "ipoly-concert/spotlight",
+    "ipoly-concert/spotlight-ribbed",
+    "ipoly-concert/spotlight-barndoor",
+    "ipoly-concert/spotlight-moving",
+    "sq-rink/floor-spot",
+    "sq-rink/light-bar",
+    "pm-store/stage-light"
    ]
   },
   {
@@ -19973,7 +20053,6 @@
     "quat-survival/compass",
     "quat-survival/compass-anim",
     "taalei-kit/hourglass",
-    "m3-base/binoculars",
     "m3-base/blister-pack-02",
     "m3-base/blister-pack-03",
     "m3-base/capsule",
@@ -19981,23 +20060,15 @@
     "m3-base/clothing-tag-01",
     "m3-base/clothing-tag-02",
     "m3-base/clothing-tag-05",
-    "m3-base/comb",
     "m3-base/credit-card",
     "m3-base/door-hanger",
-    "m3-base/diamond",
-    "m3-base/glowstick",
     "m3-base/hand-mirror",
-    "m3-base/lighter-01",
     "m3-base/lipstick",
     "m3-base/luggage-tag",
-    "m3-base/magnifying-glass",
     "m3-base/military-dog-tag",
     "m3-base/pill-01",
     "m3-base/pill-02",
-    "m3-base/ticket-stub",
-    "m3-base/nail-file",
-    "m3-base/pacifier-01",
-    "m3-base/pacifier-02"
+    "m3-base/ticket-stub"
    ]
   },
   {
@@ -20031,7 +20102,7 @@
    "id": "obj-equipment-pocketitem-book-closed",
    "name": "Closed",
    "type": "kind",
-   "description": "closed book",
+   "description": "closed book, notebook",
    "models": [
     "quat-rpg/book-1-closed",
     "quat-rpg/book-2-closed",
@@ -20069,7 +20140,8 @@
     "styloo-school/notebook-green",
     "emace-80s/book",
     "emace-80s/books",
-    "m3-base/book-01"
+    "m3-base/book-01",
+    "m3-base/notebook-01"
    ]
   },
   {
@@ -20264,7 +20336,7 @@
    "id": "obj-resource-metal-parts",
    "name": "Parts",
    "type": "kind",
-   "description": "cog, spare part, pipe (stock)",
+   "description": "cog, spare part, pipe (stock), gasket",
    "models": [
     "ken-factory/cog-e",
     "ken-factory/cog-b",
@@ -20292,7 +20364,8 @@
     "m3-base/kitbash-c-22",
     "m3-base/kitbash-f-01",
     "m3-base/360-twist",
-    "m3-base/quad-twist"
+    "m3-base/quad-twist",
+    "m3-base/gasket-01"
    ]
   },
   {
@@ -20327,7 +20400,7 @@
    "id": "obj-resource-textile",
    "name": "Textile",
    "type": "kind",
-   "description": "textile bolt, cloth roll",
+   "description": "textile bolt, cloth roll, cotton reel",
    "models": [
     "kay-resources/textiles-a",
     "kay-resources/textiles-b",
@@ -20335,7 +20408,8 @@
     "kay-resources/textiles-stack-large",
     "kay-resources/textiles-stack-small",
     "rgp-medieval/cloth-roll",
-    "sq-laundry/towel-stacks"
+    "sq-laundry/towel-stacks",
+    "m3-base/cotton-reel"
    ]
   },
   {
@@ -20483,6 +20557,23 @@
    ]
   },
   {
+   "id": "obj-equipment-tool-scale",
+   "name": "Scale",
+   "type": "kind",
+   "description": "Weighing scale: balance scale, hanging scale, kitchen scale.",
+   "models": [
+    "taalei-kit/balance-scale",
+    "taalei-kit/balance-scale-chunky",
+    "taalei-kit/balance-scale-ornate",
+    "taalei-kit/hanging-scale",
+    "taalei-kit/hanging-scale-apothecary",
+    "taalei-kit/hanging-scale-chunky",
+    "taalei-kit/hanging-scale-minimal",
+    "taalei-kit/hanging-scale-wooden",
+    "isa-bakery/scale"
+   ]
+  },
+  {
    "id": "obj-equipment-tool-station",
    "name": "Station",
    "type": "kind",
@@ -20550,7 +20641,7 @@
    "id": "obj-equipment-tool-stationery",
    "name": "Stationery",
    "type": "kind",
-   "description": "Writing and drawing tool: pencil, pen, scissors, drafting compass, ruler.",
+   "description": "Writing, drawing and desk tool: pencil, pen, scissors, drafting compass, ruler, magnifying glass.",
    "models": [
     "kay-tools/drafting-compass",
     "kay-tools/pencil-a-long",
@@ -20562,7 +20653,6 @@
     "sq-cards/display-easel",
     "household/stapler",
     "lpa-construction/clipboard",
-    "lpa-construction/tape-measure",
     "styloo-school/chalk",
     "styloo-school/chalkboard-eraser",
     "styloo-school/drafting-compass",
@@ -20585,13 +20675,9 @@
     "styloo-school/scissors",
     "m3-base/bulldog-clip",
     "m3-base/clipboard",
-    "m3-base/craft-knife",
     "m3-base/crayon",
     "m3-base/letter-rack-01",
     "m3-base/office-folder",
-    "m3-base/paint-tube-01",
-    "m3-base/paint-tube-02",
-    "m3-base/painters-palette-01",
     "m3-base/paper-pad",
     "m3-base/paper-tidy",
     "m3-base/paperclip",
@@ -20604,14 +20690,14 @@
     "m3-base/sticky-note-pad",
     "m3-base/wax-melting-spoon",
     "m3-base/wax-seal-stamp",
-    "m3-base/notebook-01"
+    "m3-base/magnifying-glass"
    ]
   },
   {
    "id": "obj-equipment-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "chisel, trowel, wrench, tongs, brush",
+   "description": "chisel, trowel, wrench, tongs, brush, nail file, tape measure, craft knife, razor blade, magnet",
    "models": [
     "cooking-assets/tongs-open",
     "cooking-assets/tongs",
@@ -20642,14 +20728,6 @@
     "lpa-weapons/sickle",
     "lpa-construction/drill",
     "lpa-construction/level",
-    "taalei-kit/balance-scale",
-    "taalei-kit/balance-scale-chunky",
-    "taalei-kit/balance-scale-ornate",
-    "taalei-kit/hanging-scale",
-    "taalei-kit/hanging-scale-apothecary",
-    "taalei-kit/hanging-scale-chunky",
-    "taalei-kit/hanging-scale-minimal",
-    "taalei-kit/hanging-scale-wooden",
     "m3-base/bolster",
     "m3-base/brick-trowel",
     "m3-base/chisel",
@@ -20667,7 +20745,12 @@
     "m3-base/plunger",
     "m3-base/trowel",
     "m3-base/tweezers",
-    "m3-base/vintage-sickle-scythe"
+    "m3-base/vintage-sickle-scythe",
+    "m3-base/nail-file",
+    "lpa-construction/tape-measure",
+    "m3-base/craft-knife",
+    "m3-base/razor-blade",
+    "m3-base/magnet"
    ]
   },
   {
@@ -20707,7 +20790,7 @@
    "id": "obj-equipment-tool-hand-brush",
    "name": "Brush",
    "type": "kind",
-   "description": "A hand brush with a handle and bristles: paintbrush, makeup brush.",
+   "description": "A hand brush with a handle and bristles, or a comb, and the paint it works with: paintbrush, makeup brush, comb, painter's palette, paint tube.",
    "models": [
     "makeup/brush-angled",
     "makeup/brush-blender",
@@ -20731,7 +20814,11 @@
     "m3-base/paintbrush-01",
     "m3-base/paintbrush-02",
     "m3-base/paintbrush-03",
-    "m3-base/toothbrush"
+    "m3-base/toothbrush",
+    "m3-base/comb",
+    "m3-base/painters-palette-01",
+    "m3-base/paint-tube-01",
+    "m3-base/paint-tube-02"
    ]
   },
   {
@@ -20894,7 +20981,7 @@
    "id": "obj-equipment-tool-supplies",
    "name": "Supplies",
    "type": "kind",
-   "description": "screw, nail, bolt, rope, chain, hook, wire",
+   "description": "screw, nail, bolt, rope, chain, hook, wire, lighter",
    "models": [
     "kay-tools/nail",
     "kay-tools/screw-a",
@@ -20904,19 +20991,15 @@
     "quat-survival/matchbox",
     "quat-survival/match",
     "quat-survival/match-burnt",
-    "3dm-industrial/cable-drum",
     "m3-base/allen-key-screw",
     "m3-base/allen-key-screw-head",
     "m3-base/button",
     "m3-base/cable-clip",
     "m3-base/champagne-cork",
     "m3-base/clothes-peg",
-    "m3-base/cotton-reel",
     "m3-base/door-stop-wedge",
     "m3-base/fencing-pin",
-    "m3-base/magnet",
     "m3-base/pin",
-    "m3-base/razor-blade",
     "m3-base/screw-end",
     "m3-base/screw-head",
     "m3-base/tent-peg-02",
@@ -20924,7 +21007,7 @@
     "m3-base/tapered-cork",
     "m3-base/button-02",
     "m3-base/button-07",
-    "m3-base/gasket-01"
+    "m3-base/lighter-01"
    ]
   },
   {
@@ -20967,7 +21050,7 @@
    "id": "obj-equipment-tool-supplies-rope",
    "name": "Rope",
    "type": "kind",
-   "description": "Rope coil, bundle, hanging rope or net.",
+   "description": "Rope coil, bundle, hanging rope, net or cable drum.",
    "models": [
     "wizp-asia/net",
     "quat-props/rope-1",
@@ -20984,7 +21067,8 @@
     "m3-base/rope-twist-06",
     "m3-base/rope-twist-07",
     "m3-base/rope-twist-08",
-    "m3-base/rope-knot-01"
+    "m3-base/rope-knot-01",
+    "3dm-industrial/cable-drum"
    ]
   },
   {
@@ -20993,11 +21077,7 @@
    "type": "kind",
    "description": "saddle",
    "color": "#5a7a9c",
-   "models": [
-    "m3-base/horse-bit",
-    "m3-base/horse-shoe",
-    "m3-base/wheelchair-01"
-   ]
+   "models": []
   },
   {
    "id": "obj-symbol",
@@ -21054,7 +21134,18 @@
     "m3-base/x",
     "m3-base/fleur-de-lys-01",
     "m3-base/heart-icon-01",
-    "m3-base/lightning-icon"
+    "m3-base/lightning-icon",
+    "m3-base/diamond"
+   ]
+  },
+  {
+   "id": "obj-transport-land-military",
+   "name": "Military vehicle",
+   "type": "kind",
+   "description": "Military vehicle: tank.",
+   "models": [
+    "pm-store/tank",
+    "quat-shoot/tank"
    ]
   },
   {
@@ -21066,11 +21157,13 @@
     "ken-chars/wheelchair",
     "ken-chars/wheelchair-power",
     "ken-proto/wheelchair",
-    "ken-skate/skateboard",
     "ken-space/rover",
     "lpa-west/horseshoe",
     "ken-chars/wheelchair-power-deluxe",
-    "ken-chars/wheelchair-deluxe"
+    "ken-chars/wheelchair-deluxe",
+    "m3-base/horse-bit",
+    "m3-base/horse-shoe",
+    "m3-base/wheelchair-01"
    ]
   },
   {
@@ -21132,37 +21225,45 @@
    "type": "kind",
    "description": "Aircraft: airplane, airliner, hot-air balloon.",
    "models": [
-    "styloo-planes/plane-stylized-anim",
-    "styloo-planes/plane-stylized-amber",
-    "styloo-planes/plane-stylized-amber-anim",
-    "styloo-planes/plane-stylized",
-    "styloo-planes/plane-stylized-sienna",
-    "styloo-planes/plane-stylized-sienna-anim",
-    "styloo-planes/plane-sty-hunter-anim",
-    "styloo-planes/plane-sty-anim",
-    "styloo-planes/plane-sty-b",
-    "styloo-planes/plane-sty-b-anim",
-    "styloo-planes/plane-sty-hunter",
-    "styloo-planes/plane-sty",
-    "styloo-planes/plane-helice",
-    "styloo-planes/plane-helice-b",
-    "styloo-planes/plane-azer-anim",
-    "styloo-planes/plane-azer",
-    "styloo-planes/plane-azer-hunter",
-    "styloo-planes/plane-azer-hunter-anim",
-    "styloo-planes/plane-animal",
-    "styloo-planes/plane-animal-b",
     "taalei-kit/balloon-basket-round",
     "taalei-kit/balloon",
     "taalei-kit/balloon-basket-square",
-    "styloo-planes/airliner",
-    "taalei-kit/jet",
     "taalei-kit/drone",
     "taalei-kit/drone-canopy",
     "taalei-kit/drone-gimbal",
     "taalei-kit/drone-unibody",
-    "taalei-kit/balloon-net",
-    "m3-base/glider"
+    "taalei-kit/balloon-net"
+   ]
+  },
+  {
+   "id": "obj-transport-air-plane",
+   "name": "Airplane",
+   "type": "kind",
+   "description": "airplane, plane, airliner, jet, glider",
+   "models": [
+    "styloo-planes/airliner",
+    "m3-base/glider",
+    "taalei-kit/jet",
+    "styloo-planes/plane-animal",
+    "styloo-planes/plane-animal-b",
+    "styloo-planes/plane-azer",
+    "styloo-planes/plane-azer-anim",
+    "styloo-planes/plane-azer-hunter",
+    "styloo-planes/plane-azer-hunter-anim",
+    "styloo-planes/plane-helice",
+    "styloo-planes/plane-helice-b",
+    "styloo-planes/plane-sty-hunter",
+    "styloo-planes/plane-sty-hunter-anim",
+    "styloo-planes/plane-sty",
+    "styloo-planes/plane-sty-anim",
+    "styloo-planes/plane-sty-b",
+    "styloo-planes/plane-sty-b-anim",
+    "styloo-planes/plane-stylized",
+    "styloo-planes/plane-stylized-anim",
+    "styloo-planes/plane-stylized-amber",
+    "styloo-planes/plane-stylized-amber-anim",
+    "styloo-planes/plane-stylized-sienna",
+    "styloo-planes/plane-stylized-sienna-anim"
    ]
   },
   {
@@ -21492,16 +21593,24 @@
     "ken-car/wheel-tractor-dark-front",
     "ken-car/wheel-tractor-front",
     "ken-car/wheel-truck",
-    "ken-town/wheel",
     "quat-apocalypse/wheel",
     "quat-apocalypse/wheels",
     "quat-shoot/tires",
-    "rgp-medieval/wheel",
+    "m3-base/car-tire-01",
+    "m3-base/car-tire-02"
+   ]
+  },
+  {
+   "id": "obj-transport-part-wheel-wooden",
+   "name": "Wooden wheel",
+   "type": "kind",
+   "description": "wooden wheel, cartwheel",
+   "models": [
+    "ken-town/wheel",
+    "m3-base/cartwheel",
     "rgp-props/wheel-a",
     "lpa-west/wheel-a",
-    "m3-base/car-tire-01",
-    "m3-base/car-tire-02",
-    "m3-base/cartwheel"
+    "rgp-medieval/wheel"
    ]
   },
   {
@@ -22050,7 +22159,6 @@
     "quat-scifi/pistol-b",
     "quat-scifi/pistol-c",
     "styloo-guns/pistol",
-    "styloo-guns/machine-pistol",
     "3dm-guns/flare-gun",
     "3dm-guns/luger",
     "3dm-guns/makarov"
@@ -22081,7 +22189,8 @@
     "zombie-weapons/smg",
     "quat-scifi/smg",
     "3dm-guns/grease-gun",
-    "3dm-guns/suomi-kp"
+    "3dm-guns/suomi-kp",
+    "styloo-guns/machine-pistol"
    ]
   },
   {
@@ -23544,28 +23653,14 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "stage, plinth, pedestal, gallows, mine entrance, fireplace",
+   "description": "stage, plinth, pedestal, mine entrance",
    "color": "#877a63",
    "models": [
     "sq-cinema/screen-stage",
     "sq-pool/starting-block",
     "sq-pool/diving-board",
     "ipoly-concert/concert-stage",
-    "ipoly-torture/pillory-post",
-    "ipoly-torture/pillory",
-    "ipoly-torture/gallows-platform",
-    "ipoly-torture/guillotine",
-    "ipoly-torture/gibbet",
-    "fs-house/fireplace",
-    "fs-house/fireplace-chimney",
-    "lpa-west/gallows",
-    "pm-store/fireplace",
     "quat-interior/column-round",
-    "quat-interior/fireplace",
-    "3dm-medieval/gallows",
-    "3dm-medieval/guillotine",
-    "emace-village/hearth",
-    "m3-base/cast-iron-grate",
     "m3-base/champion-podium",
     "m3-base/plinth",
     "m3-base/statue-base"
@@ -23578,6 +23673,36 @@
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
    "models": [
     "ken-factory/warning-orange"
+   ]
+  },
+  {
+   "id": "str-fixture-fireplace",
+   "name": "Fireplace",
+   "type": "kind",
+   "description": "fireplace, hearth, fire grate",
+   "models": [
+    "fs-house/fireplace",
+    "fs-house/fireplace-chimney",
+    "pm-store/fireplace",
+    "quat-interior/fireplace",
+    "emace-village/hearth",
+    "m3-base/cast-iron-grate"
+   ]
+  },
+  {
+   "id": "str-fixture-punishment",
+   "name": "Punishment",
+   "type": "kind",
+   "description": "Execution or punishment device: gallows, gibbet, guillotine, pillory, stocks.",
+   "models": [
+    "ipoly-torture/pillory-post",
+    "ipoly-torture/pillory",
+    "ipoly-torture/gallows-platform",
+    "ipoly-torture/guillotine",
+    "ipoly-torture/gibbet",
+    "lpa-west/gallows",
+    "3dm-medieval/gallows",
+    "3dm-medieval/guillotine"
    ]
   },
   {
@@ -24759,25 +24884,15 @@
    "id": "str-part-roof",
    "name": "Roof",
    "type": "kind",
-   "description": "roof, roof tile, chimney, gable",
+   "description": "roof, roof tile, gable",
    "models": [
-    "fs-town/chimney-pipe",
-    "fs-town/chimney-pipe-anim",
     "fs-town/roof-accent-rake-concave",
     "fs-town/roof-accent-rake-convex",
     "fs-town/roof-accent-rake-eave",
     "fs-town/roof-accent-rake-straight",
     "fs-town/roof-accent-ridge",
     "fs-town/roof-accent-ridge-end",
-    "ken-town/chimney-base",
-    "ken-town/chimney-top",
-    "ken-town/chimney-top-anim",
-    "ken-town/chimney",
-    "rgp-medieval/forge-chimney",
-    "rgp-medieval/chimney",
     "ken-town/overhang",
-    "fs-town/chimney-stone",
-    "fs-house/chimney",
     "fs-temple/tower-parapet-braced-crowned",
     "fs-temple/tower-parapet-simple-crowned",
     "ken-pirate/tower-roof",
@@ -24801,6 +24916,24 @@
     "m3-base/roll-top-chimney",
     "m3-base/roman-interlocking-tile",
     "m3-base/weathertop-chimney"
+   ]
+  },
+  {
+   "id": "str-part-roof-chimney",
+   "name": "Chimney",
+   "type": "kind",
+   "description": "Chimney set on a roof: chimney, roof chimney.",
+   "models": [
+    "fs-house/chimney",
+    "ken-town/chimney",
+    "ken-town/chimney-base",
+    "rgp-medieval/chimney",
+    "fs-town/chimney-pipe-anim",
+    "fs-town/chimney-pipe",
+    "fs-town/chimney-stone",
+    "ken-town/chimney-top-anim",
+    "ken-town/chimney-top",
+    "rgp-medieval/forge-chimney"
    ]
   },
   {
@@ -25145,7 +25278,34 @@
     "kay-food/wall-window",
     "ken-proto/wall-window-cutout-large",
     "emace-village/wall-timber-windows",
-    "emace-village/wall-log-window"
+    "emace-village/wall-log-window",
+    "fs-town/stucco-window-rounded-narrow-tall",
+    "fs-town/stucco-window-rounded-wide",
+    "fs-town/stucco-window-rounded-narrow",
+    "fs-town/stucco-window-single-narrow-tall",
+    "fs-town/stucco-window-single-wide",
+    "fs-town/stucco-window-single-narrow",
+    "isa-bakery/wall-panelled-window-large",
+    "isa-kitchen/wall-tiles-window-large",
+    "isa-kitchen/wall-tiles-modular-window-large",
+    "kay-dun-2/wall-window-closed-scaffold",
+    "kay-dun-2/wall-window-open",
+    "kay-dun-2/wall-window-open-scaffold",
+    "ken-town/wall-wood-window-round",
+    "ken-town/wall-wood-window-shutters",
+    "kay-dun-2/wall-archedwindow-gated-scaffold",
+    "kay-dun-2/wall-archedwindow-open",
+    "kay-dun-2/wall-broken",
+    "ken-furniture/wall-window-slide",
+    "isa-kitchen/wall-plain-window-small",
+    "ken-proto/wall-window-small",
+    "ken-proto/wall-window-medium",
+    "ken-station/wall-window-banner",
+    "ken-holiday/cabin-window-b",
+    "ken-holiday/cabin-window-c",
+    "fs-town/stucco-window-double-narrow-tall",
+    "fs-town/stucco-window-double-wide",
+    "fs-town/stucco-window-double-wide-tall"
    ]
   },
   {
@@ -25223,41 +25383,6 @@
    ]
   },
   {
-   "id": "str-part-window-unit",
-   "name": "Unit",
-   "type": "kind",
-   "description": "Wall piece with a window, covering one full module of the kit grid.",
-   "models": [
-    "fs-town/stucco-window-rounded-narrow-tall",
-    "fs-town/stucco-window-rounded-wide",
-    "fs-town/stucco-window-rounded-narrow",
-    "fs-town/stucco-window-single-narrow-tall",
-    "fs-town/stucco-window-single-wide",
-    "fs-town/stucco-window-single-narrow",
-    "isa-bakery/wall-panelled-window-large",
-    "isa-kitchen/wall-tiles-window-large",
-    "isa-kitchen/wall-tiles-modular-window-large",
-    "kay-dun-2/wall-window-closed-scaffold",
-    "kay-dun-2/wall-window-open",
-    "kay-dun-2/wall-window-open-scaffold",
-    "ken-town/wall-wood-window-round",
-    "ken-town/wall-wood-window-shutters",
-    "kay-dun-2/wall-archedwindow-gated-scaffold",
-    "kay-dun-2/wall-archedwindow-open",
-    "kay-dun-2/wall-broken",
-    "ken-furniture/wall-window-slide",
-    "isa-kitchen/wall-plain-window-small",
-    "ken-proto/wall-window-small",
-    "ken-proto/wall-window-medium",
-    "ken-station/wall-window-banner",
-    "ken-holiday/cabin-window-b",
-    "ken-holiday/cabin-window-c",
-    "fs-town/stucco-window-double-narrow-tall",
-    "fs-town/stucco-window-double-wide",
-    "fs-town/stucco-window-double-wide-tall"
-   ]
-  },
-  {
    "id": "str-fixture-marker",
    "name": "Marker",
    "type": "kind",
@@ -25284,8 +25409,6 @@
    "models": [
     "isa-homely/mailbox",
     "styloo-farm/mailbox",
-    "taalei-kit/birdhouse",
-    "household/birdhouse",
     "household/mailbox",
     "3dm-city-2/mailbox-post",
     "3dm-city/mailbox-street",
@@ -25366,7 +25489,6 @@
     "m3-base/pavement-sign",
     "m3-base/standing-floor-chalkboard-01",
     "m3-base/standing-floor-chalkboard-02",
-    "m3-base/wet-floor-sign",
     "m3-base/estate-sign-04",
     "m3-base/sign-shelter-01"
    ]
@@ -25949,7 +26071,6 @@
     "rgp-asia/rope-bells",
     "rgp-vintage/gramophone-record",
     "rgp-vintage/gramophone",
-    "rgp-weapons/war-horn",
     "sq-studio/amp-stack",
     "sq-studio/mic-stand",
     "sq-studio/mixing-console",
@@ -25958,11 +26079,8 @@
     "ipoly-concert/mic-stand",
     "western/piano",
     "m3-base/glockenspiel",
-    "m3-base/honk-honk-horn",
-    "m3-base/horn",
     "m3-base/piano",
-    "m3-base/plectrum",
-    "m3-base/vintage-horn"
+    "m3-base/plectrum"
    ]
   },
   {
@@ -25976,6 +26094,18 @@
     "wizp-asia/drum-loose",
     "sq-studio/drum-kit",
     "m3-base/drum-stick"
+   ]
+  },
+  {
+   "id": "obj-leisure-art-instrument-horn",
+   "name": "Horn",
+   "type": "kind",
+   "description": "horn",
+   "models": [
+    "m3-base/horn",
+    "m3-base/honk-honk-horn",
+    "m3-base/vintage-horn",
+    "rgp-weapons/war-horn"
    ]
   },
   {
@@ -26133,7 +26263,7 @@
    "id": "obj-leisure-toy",
    "name": "Toy",
    "type": "kind",
-   "description": "Thing made to play with: frisbee, plushie, puzzle cube.",
+   "description": "Thing made to play with: frisbee, plushie, puzzle cube, pacifier.",
    "models": [
     "isa-picnic/frisbee",
     "kay-holiday/snowball-pile",
@@ -26144,14 +26274,12 @@
     "kay-mixed/puzzle-cube-incomplete",
     "ken-holiday/nutcracker",
     "ken-holiday/reindeer",
-    "quat-shoot/tank",
     "kay-blocks/decorative-block-amber",
     "kay-blocks/decorative-block-azure",
     "kay-holiday/snowball-cannon",
     "household/doll",
     "household/rubber-duck",
     "isa-bathroom/rubber-duck",
-    "pm-store/tank",
     "m3-base/abacus",
     "m3-base/elephant-jigsaw-ornament",
     "m3-base/foam-finger",
@@ -26161,7 +26289,10 @@
     "m3-base/rocket-toy-02",
     "m3-base/skateboard-setup",
     "m3-base/water-pistol",
-    "m3-base/wind-up-key"
+    "m3-base/wind-up-key",
+    "m3-base/pacifier-01",
+    "m3-base/pacifier-02",
+    "ken-skate/skateboard"
    ]
   },
   {
@@ -26576,20 +26707,14 @@
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, satellite dish, wind turbine.",
+   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, wind turbine.",
    "models": [
     "ken-roads/electricity-pole-single",
     "ken-roads/electricity-pole-wide",
     "ken-roads/electricity-pole",
     "ken-roads/electricity-wires-wide",
     "ken-roads/electricity-wires",
-    "ken-space/satellite-dish-detailed",
-    "ken-space/satellite-dish-large",
-    "ken-space/satellite-dish",
     "sq-bank/night-deposit",
-    "ken-racing/radar-equipment",
-    "quat-space/roof-antenna",
-    "quat-space/roof-radar",
     "ken-roads/electricity-side-single",
     "ken-roads/electricity-side-wide",
     "ken-roads/electricity-side",
@@ -26597,6 +26722,21 @@
     "3dm-industrial/electrical-box"
    ],
    "color": "#6e8f86"
+  },
+  {
+   "id": "str-fixture-utility-antenna",
+   "name": "Antenna",
+   "type": "kind",
+   "description": "satellite dish, antenna, radar",
+   "models": [
+    "ken-space/satellite-dish-detailed",
+    "ken-space/satellite-dish-large",
+    "ken-space/satellite-dish",
+    "ken-racing/radar-equipment",
+    "quat-space/roof-antenna",
+    "quat-space/roof-radar",
+    "m3-base/dish-antenna-01"
+   ]
   },
   {
    "id": "str-fixture-utility-turbine",
@@ -27280,7 +27420,8 @@
     "styloo-food/cookie",
     "food-pack-2/cookie",
     "food-pack-2/cookie-chocolate",
-    "food-pack-2/cookie-chips"
+    "food-pack-2/cookie-chips",
+    "isa-bakery/macaron-pink"
    ]
   },
   {
@@ -29235,7 +29376,8 @@
     "m3-base/kitbash-c-20",
     "m3-base/kitbash-c-22",
     "m3-base/kitbash-f-01",
-    "m3-base/u-arrowhead"
+    "m3-base/u-arrowhead",
+    "emace-80s/telescope"
    ]
   },
   {

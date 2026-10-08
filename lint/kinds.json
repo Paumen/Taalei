@@ -18,7 +18,6 @@
     {
      "id": "obj-container",
      "nouns": [
-      "trough",
       "bin"
      ],
      "children": [
@@ -395,6 +394,12 @@
        "nouns": [
         "cage"
        ]
+      },
+      {
+       "id": "obj-container-trough",
+       "nouns": [
+        "trough"
+       ]
       }
      ]
     },
@@ -587,8 +592,7 @@
         "grill",
         "spit",
         "trivet",
-        "pot holder",
-        "kitchen scale"
+        "pot holder"
        ],
        "children": [
         {
@@ -671,8 +675,15 @@
            "longest.max": 0.4,
            "nouns": [
             "wooden spoon",
-            "cooking spoon",
-            "ladle"
+            "cooking spoon"
+           ],
+           "children": [
+            {
+             "id": "obj-kitchenware-cookware-utensil-spoon-ladle",
+             "nouns": [
+              "ladle"
+             ]
+            }
            ]
           },
           {
@@ -707,8 +718,16 @@
            "longest.min": 0.15,
            "longest.max": 0.45,
            "nouns": [
-            "cleaver",
             "knife (kitchen)"
+           ],
+           "children": [
+            {
+             "id": "obj-kitchenware-cookware-utensil-knife-cleaver",
+             "nouns": [
+              "cleaver",
+              "nakiri knife"
+             ]
+            }
            ]
           }
          ]
@@ -1086,10 +1105,22 @@
       {
        "id": "obj-food-sweet",
        "nouns": [
-        "candy",
-        "chocolate"
+        "candy"
        ],
        "children": [
+        {
+         "id": "obj-food-sweet-cane",
+         "nouns": [
+          "candy cane"
+         ]
+        },
+        {
+         "id": "obj-food-sweet-chocolate",
+         "nouns": [
+          "chocolate",
+          "chocolate bar"
+         ]
+        },
         {
          "id": "obj-food-sweet-icecream",
          "longest.min": 0.1,
@@ -1819,7 +1850,8 @@
            "longest.min": 0.1,
            "longest.max": 0.4,
            "nouns": [
-            "closed book"
+            "closed book",
+            "notebook"
            ],
            "scale": {
             "small": 0.5
@@ -1875,7 +1907,12 @@
          "nouns": [
           "chisel",
           "trowel",
-          "tongs"
+          "tongs",
+          "nail file",
+          "tape measure",
+          "craft knife",
+          "razor blade",
+          "magnet"
          ],
          "scale": {
           "small": 0.5
@@ -1888,7 +1925,10 @@
            "nouns": [
             "brush",
             "paintbrush",
-            "makeup brush"
+            "makeup brush",
+            "comb",
+            "painter's palette",
+            "paint tube"
            ]
           },
           {
@@ -2001,7 +2041,8 @@
           "bolt (fastener)",
           "wire",
           "matchbox",
-          "match"
+          "match",
+          "lighter"
          ],
          "children": [
           {
@@ -2029,7 +2070,8 @@
             "rope coil",
             "rope bundle",
             "net",
-            "fishing net"
+            "fishing net",
+            "cable drum"
            ]
           }
          ]
@@ -2087,11 +2129,22 @@
           "ruler",
           "ink bottle",
           "inkwell",
-          "card easel"
+          "card easel",
+          "magnifying glass"
          ],
          "scale": {
           "small": 0.5
          }
+        },
+        {
+         "id": "obj-equipment-tool-scale",
+         "tube.min": 0.006,
+         "nouns": [
+          "scale (weighing)",
+          "balance scale",
+          "hanging scale",
+          "kitchen scale"
+         ]
         }
        ]
       }
@@ -2167,6 +2220,15 @@
          "nouns": [
           "wheel",
           "tire"
+         ],
+         "children": [
+          {
+           "id": "obj-transport-part-wheel-wooden",
+           "nouns": [
+            "wooden wheel",
+            "cartwheel"
+           ]
+          }
          ]
         }
        ]
@@ -2186,14 +2248,21 @@
        "id": "obj-transport-air",
        "tube.min": 0.006,
        "nouns": [
-        "airplane",
-        "plane",
-        "airliner",
         "balloon",
         "hot-air balloon",
         "drone"
        ],
        "children": [
+        {
+         "id": "obj-transport-air-plane",
+         "nouns": [
+          "airplane",
+          "plane",
+          "airliner",
+          "jet",
+          "glider"
+         ]
+        },
         {
          "id": "obj-transport-air-space",
          "nouns": [
@@ -2209,6 +2278,13 @@
       {
        "id": "obj-transport-land",
        "children": [
+        {
+         "id": "obj-transport-land-military",
+         "nouns": [
+          "tank (military)",
+          "military vehicle"
+         ]
+        },
         {
          "id": "obj-transport-land-cart",
          "longest.min": 0.55,
@@ -2318,7 +2394,8 @@
          "nouns": [
           "cog",
           "spare part",
-          "pipe (stock)"
+          "pipe (stock)",
+          "gasket"
          ]
         }
        ]
@@ -2368,7 +2445,9 @@
        "longest.max": 0.85,
        "nouns": [
         "textile bolt",
-        "cloth roll"
+        "cloth roll",
+        "cotton reel",
+        "spool (thread)"
        ]
       },
       {
@@ -2425,9 +2504,7 @@
          "longest.max": 1.1,
          "nouns": [
           "lamp",
-          "wall lamp",
-          "spotlight",
-          "stage light"
+          "wall lamp"
          ],
          "children": [
           {
@@ -2461,6 +2538,15 @@
               "ceiling fan"
              ]
             }
+           ]
+          },
+          {
+           "id": "obj-furnishing-light-lamp-spot",
+           "nouns": [
+            "spotlight",
+            "stage light",
+            "floor spot",
+            "light bar"
            ]
           }
          ]
@@ -2851,7 +2937,8 @@
        "tpu.max": 7000,
        "nouns": [
         "wreath",
-        "garland"
+        "garland",
+        "birdhouse"
        ]
       },
       {
@@ -3040,23 +3127,39 @@
        "nouns": [
         "battery",
         "gramophone",
-        "record",
         "circuit board",
         "microchip",
         "memory module",
         "ssd",
-        "router",
-        "usb stick"
+        "router"
        ],
        "children": [
+        {
+         "id": "obj-device-electronics-media",
+         "nouns": [
+          "cd",
+          "record",
+          "vinyl",
+          "record sleeve",
+          "game cartridge",
+          "usb stick"
+         ]
+        },
         {
          "id": "obj-device-electronics-radio",
          "longest.min": 0.15,
          "longest.max": 0.45,
          "tube.min": 0.006,
          "nouns": [
-          "radio",
-          "walkie-talkie"
+          "radio"
+         ],
+         "children": [
+          {
+           "id": "obj-device-electronics-radio-walkietalkie",
+           "nouns": [
+            "walkie-talkie"
+           ]
+          }
          ]
         },
         {
@@ -3178,6 +3281,18 @@
           "telephone",
           "mobile phone"
          ]
+        },
+        {
+         "id": "obj-device-electronics-installation",
+         "nouns": [
+          "light switch",
+          "plug socket",
+          "fuse box",
+          "circuit breaker",
+          "smoke detector",
+          "fire alarm",
+          "light bulb"
+         ]
         }
        ]
       },
@@ -3209,7 +3324,8 @@
           {
            "id": "obj-device-science-astro-telescope",
            "nouns": [
-            "telescope"
+            "telescope",
+            "binoculars"
            ]
           }
          ]
@@ -3275,6 +3391,12 @@
             "drum",
             "drum kit"
            ]
+          },
+          {
+           "id": "obj-leisure-art-instrument-horn",
+           "nouns": [
+            "horn"
+           ]
           }
          ]
         },
@@ -3299,7 +3421,8 @@
         "toy",
         "frisbee",
         "plushie",
-        "puzzle cube"
+        "puzzle cube",
+        "pacifier"
        ]
       },
       {
@@ -3393,12 +3516,7 @@
    "nouns": [
     "stage",
     "plinth",
-    "pedestal",
-    "gallows",
-    "fireplace",
-    "guillotine",
-    "pillory",
-    "gibbet"
+    "pedestal"
    ],
    "children": [
     {
@@ -3499,7 +3617,6 @@
        "nouns": [
         "roof",
         "roof tile",
-        "chimney",
         "gable"
        ],
        "children": [
@@ -3510,6 +3627,13 @@
          "scale": {
           "big": 2
          }
+        },
+        {
+         "id": "str-part-roof-chimney",
+         "nouns": [
+          "chimney",
+          "roof chimney"
+         ]
         }
        ]
       },
@@ -3518,13 +3642,6 @@
        "nouns": [
         "window",
         "shutter"
-       ],
-       "children": [
-        {
-         "id": "str-part-window-unit",
-         "longest.min": 0.5,
-         "longest.max": 1.4
-        }
        ]
       },
       {
@@ -4250,8 +4367,7 @@
        "nouns": [
         "utility pole",
         "power line",
-        "night deposit",
-        "radar"
+        "night deposit"
        ],
        "children": [
         {
@@ -4367,6 +4483,14 @@
          "scale": {
           "small": 0.5
          }
+        },
+        {
+         "id": "str-fixture-utility-antenna",
+         "nouns": [
+          "satellite dish",
+          "antenna",
+          "radar"
+         ]
         }
        ]
       },
@@ -4448,6 +4572,24 @@
           "start light"
          ]
         }
+       ]
+      },
+      {
+       "id": "str-fixture-punishment",
+       "nouns": [
+        "gallows",
+        "gibbet",
+        "guillotine",
+        "pillory",
+        "stocks"
+       ]
+      },
+      {
+       "id": "str-fixture-fireplace",
+       "nouns": [
+        "fireplace",
+        "hearth",
+        "fire grate"
        ]
       }
      ]
