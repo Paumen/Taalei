@@ -147,8 +147,9 @@ swipe page afterwards.
 - Record suggestions with `picked: ["auto: <option>"]`.
 - Doubtful changes go in `catalog/data/lists/oddsock-applied.json` (applied:
   → keep, ← revert) and `oddsock-open.json` (left: → do it, ← leave), each
-  entry `{ "id", "note" }`. The note says what changed or would change and the
-  trade-off; the swipe card shows it. Open them with
+  entry `{ "id", "note" }`, sorted by category, then kind, then id. The note is
+  at most 10 words: category, then what changed or would change, then the
+  trade-off; the swipe card shows it. `--check` takes the same short text. Open them with
   `catalog/app/swipe.html?list=oddsock-applied`.
 - Log the PO's verdicts with `kind-pick.mjs --check`, and read the
   "autonomous calls" table of `--stats` before deciding what is doubtful.

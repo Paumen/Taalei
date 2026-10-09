@@ -144,7 +144,7 @@ if (has('stats')) {
     for (const cat of cats) {
       const list = checks.filter((c) => c.category === cat);
       console.log(`category ${cat.padEnd(13)} ${tally(list.filter((c) => c.doubt)).padStart(12)}   ${tally(list.filter((c) => !c.doubt)).padStart(16)}`);
-      for (const c of list.filter((x) => x.verdict === 'nok')) console.log(`${''.padEnd(22)}nok ${c.applied ? 'applied' : 'left'}: ${c.id}: ${c.change}`);
+      for (const c of list.filter((x) => x.verdict === 'nok').sort((a, b) => a.id.localeCompare(b.id))) console.log(`${''.padEnd(22)}nok ${c.applied ? 'applied' : 'left'}: ${c.id}: ${c.change}`);
     }
   }
   process.exit(0);
