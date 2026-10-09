@@ -58,9 +58,11 @@ if (!document.body.dataset.source && PARAMS.get('source') === 'lint') {
 }
 const SOURCE = SOURCES[document.body.dataset.source ?? PARAMS.get('source')] ?? SOURCES.catalogus;
 const KIT_PARAM = PARAMS.get('kit')?.trim() || null;
+const IDS_PARAM = (PARAMS.get('ids') ?? '').split(',').map((id) => id.trim()).filter(Boolean);
 const STORAGE_KEY =
   `taaleiland-swipe-v1${SOURCE.key ? `-${SOURCE.key}` : ''}`
-  + `${KIT_PARAM ? `-${KIT_PARAM}` : ''}`;
+  + `${KIT_PARAM ? `-${KIT_PARAM}` : ''}`
+  + `${IDS_PARAM.length ? `-ids-${IDS_PARAM.join(',')}` : ''}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 
 let limitsPerKind = {};
@@ -860,6 +862,10 @@ async function start() {
   for (const model of data.models) hydrate(model, modelPath);
 
   if (SOURCE.onlyLint) data.models = data.models.filter((m) => m.lint?.length);
+  if (IDS_PARAM.length) {
+    const wanted = new Set(IDS_PARAM);
+    data.models = data.models.filter((m) => wanted.has(m.id));
+  }
   limitsPerKind = data.limits ?? {};
   longestKinds = new Set(data.byLongest ?? []);
 
