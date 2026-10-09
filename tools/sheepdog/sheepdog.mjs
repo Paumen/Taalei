@@ -4,7 +4,7 @@ import { join, dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 
-const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 48] [--per-sheet 12] [--jobs 3]
+const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 0] [--per-sheet 12] [--jobs 3]
                   [--kind <id[,id]>] [--dry] [--no-render]
 sheepdog.mjs record --run <dir>
 sheepdog.mjs swipe (--file <export.json> | --ok <id[,id]> --nok <id[,id]>)
@@ -13,11 +13,11 @@ sheepdog.mjs stats
 sheepdog.mjs open
 
 pick    draws --count random catalogue kinds with models from at least --kits
-        kits and at most --max models (0 for no cap), skipping every kind in the
-        log, and starts a run: the log gets one entry per kind with the file
-        hash and tags of every model as they are now, and <out>/<kind>/ gets
-        the kind's dossier, its files under src/ and one pbr sheet per
-        --per-sheet models at locked scale, c01.png, c02.png, ….
+        kits, skipping every kind in the log (--max caps the model count, 0 is
+        no cap), and starts a run: the log gets one entry per kind with the
+        file hash and tags of every model as they are now, and <out>/<kind>/
+        gets the kind's dossier, its files under src/ and one pbr sheet per
+        --per-sheet models, each tile fitted to its model, c01.png, c02.png, ….
         <out> defaults to kits/.cache/sheepdog/<run>. --kind takes those kinds
         instead of random ones. --dry prints the pool and the draw only.
 
@@ -166,7 +166,7 @@ const spawn = (argv) =>
 async function pick() {
   const count = Number(flag('count', '6'));
   const minKits = Number(flag('kits', '2'));
-  const max = Number(flag('max', '48'));
+  const max = Number(flag('max', '0'));
   const perSheet = Number(flag('per-sheet', '12'));
   const jobs = Number(flag('jobs', '3'));
   const catalog = readJson(CATALOG);
@@ -221,7 +221,7 @@ async function pick() {
     for (const [name, src, ids] of sources) {
       const target = join(dir, 'sheets', name);
       if (!has('no-render')) {
-        await spawn([RENDER, src, '--out', target, '--modes', 'pbr', '--views', 'iso', '--sheet', '--sheet-only', '--lock-scale']);
+        await spawn([RENDER, src, '--out', target, '--modes', 'pbr', '--views', 'iso', '--sheet', '--sheet-only']);
         renameSync(join(target, 'sheet.png'), join(dir, `${name}.png`));
         rmSync(target, { recursive: true, force: true });
       }
