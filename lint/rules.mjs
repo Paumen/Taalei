@@ -249,7 +249,8 @@ export function buildPalettes(materials, vars) {
 }
 
 function paletteOf(material, size, palettes) {
-  const rows = palettes.rows.filter((row) => idUnder(material, row.mat));
+  const matching = palettes.rows.filter((row) => idUnder(material, row.mat));
+  const rows = matching.filter((row) => row.mat === matching[0]?.mat);
   const row = rows.find((r) => r.size === size) ?? rows.find((r) => r.size === null);
   if (!row) return null;
   return { bands: row.bands, lanes: row.bands.map((band) => palettes.lanes.get(band)) };

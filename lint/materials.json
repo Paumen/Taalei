@@ -12,6 +12,7 @@
   "hunter": "1,1",
   "moss": "3,1",
   "slate": "6,1",
+  "glass": "3,2",
   "azure": "4,2",
   "ivory": "5,2",
   "basalt": "13,3",
@@ -69,7 +70,16 @@
   { "id": "food" },
   { "id": "wax", "bands": ["ivory"] },
   { "id": "wick", "bands": ["basalt"] },
-  { "id": "glass", "bands": ["transparent"] },
+  {
+   "id": "glass",
+   "bands": ["transparent"],
+   "children": [
+    { "id": "glass-clear", "bands": ["glass"] },
+    { "id": "glass-tinted", "bands": ["basalt", "hunter", "sienna", "amber"] },
+    { "id": "glass-screen", "bands": ["ivory"] },
+    { "id": "glass-mirror", "bands": ["nickel"] }
+   ]
+  },
   { "id": "liquid", "bands": ["sienna", "hunter", "azure", "ivory"] },
   { "id": "emissive", "bands": ["amber"] },
   { "id": "rope", "bands": ["twine"] },
