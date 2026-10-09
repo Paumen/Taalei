@@ -57,8 +57,41 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "ken-nature/corn",
+    "category": "tag",
+    "change": "added material foliage for the moss stalk and leaves, beside vegetation for the amber cobs",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "emace-village/ground-cover-a",
+    "category": "kind",
+    "change": "moved kind from env-flora-plant to env-terrain-ground: a flat moss sheet 6 cm thick, the same thing as emace-village/moss-patches which sits there",
+    "doubt": true,
+    "why": "a kind change; ground cover is a plant by name, but the mesh reads as a ground patch beside corn, fiddleheads and lamp plants",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "emace-village/ground-cover-b",
+    "category": "kind",
+    "change": "moved kind from env-flora-plant to env-terrain-ground, with its variant ground-cover-a",
+    "doubt": true,
+    "why": "a kind change; same reading as ground-cover-a",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "ken-nature/corn: the 0.3% backface warning is leaf-edge slivers seen from 270/20; backface-fix --dry adds nothing (net 0), no red shows in faceorient, left as is",
+   "quat-space/plant-curl: two fiddleheads in one model, open-ended stalk bottoms show only from below the horizon; could carry plural if a two-stem clump counts, left without",
+   "quat-space/tree-light-a/b: amber emissive globes on moss stalks read fine and match each other; no change",
+   "no workfile was changed in this kind; every change is a tag edit"
+  ]
  },
  {
   "kind": "obj-container-barrel-keg",
@@ -94,8 +127,32 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "wizp-mediev/barrel-tapped",
+    "category": "scale",
+    "change": "scaled by 0.58: 1.108 to 0.643 high, barrel body 0.49 wide, beside kay-dun-2/keg (0.615) and the kit's own barrel (0.533 wide)",
+    "doubt": true,
+    "why": "a size change on one model of a kit; the source draws the tapped cask at 1.6x its plain barrel, which may be the artist's intent",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "props/barrel-a",
+    "category": "kind",
+    "change": "kind moved from obj-container-barrel-keg to obj-container-barrel: an upright hooped barrel with an open rim, no tap, bung or stand",
+    "doubt": true,
+    "why": "a kind change",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "kay-dun-2/keg: clean; its stand is chestnut where wizp-mediev/barrel-tapped's is camel; left, the darker stand reads apart from the keg and both are legal wood bands",
+   "props/barrel-a: at 0.721 it still sits 3% over obj-container-barrel's 0.7 max after the kind move; left, as the props kit has no source to read a kit scale from",
+   "wizp-mediev/barrel-tapped: the faceted end disc and small basalt tap, bung and hoop rivets read as modelled; no glitchy triangles, nothing moved",
+   "no backface, hoop or colour work needed: all three carry camel staves and basalt hoops"
+  ]
  },
  {
   "kind": "obj-equipment-weapon-ranged-arrow",
@@ -352,8 +409,92 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "lpa-tools/stone-arrow",
+    "category": "colour",
+    "change": "shaft moved from umber to chestnut and the lashing from chestnut to umber, so the wooden shaft matches its sibling wooden-arrow and the peers and the leather lashing reads as leather",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-weapons/arrow-b",
+    "category": "colour",
+    "change": "steel shaft between the two wraps moved from nickel to chestnut; the head stays nickel",
+    "doubt": true,
+    "why": "the source may have meant a metal shaft; every other medieval arrow in the kind has a wooden one",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-weapons/arrow-b",
+    "category": "tag",
+    "change": "add wood-beam for the chestnut shaft",
+    "doubt": true,
+    "why": "follows the doubted shaft recolour",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/bronze-elliptical-leaf",
+    "category": "placement",
+    "change": "stood upright with the point up and the tang hole at the bottom, like the other m3 arrowheads; was lying flat on its side",
+    "doubt": true,
+    "why": "new lint findings",
+    "lint": [
+     "detail: 64617 triangles/m²: very fine for its size"
+    ],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/bronze-elliptical-leaf",
+    "category": "shape",
+    "change": "blade thickened along its depth from 0.0007 to 0.007, the thickness of the other m3 arrowheads; lens profile kept",
+    "doubt": true,
+    "why": "a tenfold thickening of one axis, well beyond thickening a little",
+    "lint": [
+     "detail: 64617 triangles/m²: very fine for its size"
+    ],
+    "verdict": null
+   },
+   {
+    "id": "kay-adventurers/arrow-crossbow",
+    "category": "tag",
+    "change": "add textile for the hunter fletching, as kay-skeleton/arrow in the same variant group carries it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-adventurers/arrow-crossbow-bundle",
+    "category": "tag",
+    "change": "add textile for the hunter fletching, as its peers carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-rpg/arrow",
+    "category": "tag",
+    "change": "remove liquid; an arrow of wood and steel carries no liquid, the tag only legalised the azure fletching",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "Azure fletching on six models (kay-adventurers/arrow-bow, arrow-bow-bundle, kay-weapons/arrow-b, lpa-tools/stone-arrow, wooden-arrow, quat-rpg/arrow) has no legal textile band; left as the artists made it, so the two kay-adventurers bow arrows still carry no textile tag. Proposal: ivory or hunter for all six, in one pass.",
+   "lpa-weapons/arrow keeps its 0.33% backface warning at 270/50: backface-fix raised it to 0.74% at 45/50, so it was put back.",
+   "m3-base/fire-arrowhead is a twisted cage at nine times the kind's tri budget; it reads as a fire arrow cage and is comp, left.",
+   "m3-base/bronze-elliptical-leaf is named bronze but tagged metal-gold on amber; metal-copper on terracotta is the literal reading, left for the PO.",
+   "zombie-weapons/arrow is a modern bolt with a nickel shaft and sienna vanes; coherent with its tags, left.",
+   "Fletching colours vary across the kind (hunter, ivory, azure, amber, sienna); that variety reads as dyed feathers and was left."
+  ]
  },
  {
   "kind": "obj-food-vegetable-root",
@@ -413,8 +554,50 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "quat-food/turnip",
+    "category": "shape",
+    "change": "bulb grown x1.5 about its base and leaves lifted onto the new cap; bulb now matches the peers' bulbs instead of a knob under long leaves",
+    "doubt": true,
+    "why": "shape edit beyond thickening, longest grows 0.41 to 0.48, and the source artist may have meant the tiny bulb",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "food-pack-2/beetroot",
+    "category": "tag",
+    "change": "foliage material added for the leaves, as the kind's other leafed models carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "food-pack-2/radish-red",
+    "category": "tag",
+    "change": "foliage material added for the leaves, as the kind's other leafed models carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "food-pack-2/radish-white",
+    "category": "tag",
+    "change": "foliage material added for the leaves, as the kind's other leafed models carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "quat-food/turnip keeps scale-big: at 0.48 it is still over the kind's 0.4 longest, carried by its leaves rather than the bulb",
+   "food-pack-2/beetroot has sienna stems under the moss leaves, as a real beetroot does; left",
+   "ken-food/radish bulb is a sienna cone, reads as a radish beside the round ones; left",
+   "ken-nature/turnip is a tall ivory bulb at 0.69 with scale-big; geometry clean; left"
+  ]
  },
  {
   "kind": "obj-kitchenware-cookware-kettle",
@@ -489,8 +672,33 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "m3-base/teapot",
+    "category": "detail",
+    "change": "removed 1809 hidden inner-wall triangles, decimated 4186 to 1195 tris with meshoptimizer keeping UVs and normals, dropped two stray slivers; tpu from 12204 to about 3500",
+    "doubt": true,
+    "why": "a mesh rewrite beyond evening a surface; silhouette and shading read the same beside peers but the smooth look is now coarser up close",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "lpa-home/kettle",
+    "category": "tag",
+    "change": "material metal replaced by metal-iron-steel for the nickel lid and handle",
+    "doubt": true,
+    "why": "every lpa-home appliance carries bare metal, so the kit may mean it; kind peers tag nickel as metal-iron-steel",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "lpa-home/kettle: the ivory body carries no material; plastic does not admit ivory, so it is left untagged for the PO",
+   "isa-kitchen/kettle: basalt rear loop handle is small but reads as a handle; left",
+   "emace-village/kettle: lidless coffee-pot shape with an open top and one sliver backface at the handle join; left",
+   "cooking-assets/kettle: chestnut ring on the spout tip and lid knob match the wooden handle; left as the artist's intent",
+   "the orchestrator's work-in-progress commits swept the teapot workfile along; the pre-run copy is src/m3-base__teapot.glb in the run dir"
+  ]
  },
  {
   "kind": "obj-leisure-game-gamble-table",
@@ -556,7 +764,57 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "sq-cards/play-table",
+    "category": "colour",
+    "change": "playing surface moved slate -> hunter, the felt green every peer uses",
+    "doubt": true,
+    "why": "the source artist drew a navy playmat on purpose; green makes it read as a gamble table like its peers",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "sq-cards/play-table",
+    "category": "colour",
+    "change": "legs moved slate -> basalt, the band the peers use for table legs",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "sq-cards/play-table",
+    "category": "tag",
+    "change": "materials follow the bands: textile for the felt, metal-iron-wrought for the basalt legs and apron; metal-iron-cast and rubber dropped",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "sq-cards/playmat",
+    "category": "colour",
+    "change": "mat moved slate -> hunter to match its play-table variant and the kind's felt",
+    "doubt": true,
+    "why": "the source artist drew a navy playmat on purpose",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "sq-cards/playmat",
+    "category": "tag",
+    "change": "textile added for the hunter mat",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "sq-casino/craps-table: underside of the top is hunter with tan stretcher bars; only seen from below, left as is",
+   "sq-casino/poker-table: 2.4x the kind's triangles, spent on chips and castor feet; reads well, left as is",
+   "lpa-west/table-b: 0.7x the kind's longest, an octagonal card table by design; left as is"
+  ]
  }
 ]
