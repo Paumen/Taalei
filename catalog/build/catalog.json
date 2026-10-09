@@ -1318,27 +1318,74 @@
    }
   },
   {
-   "slug": "kay-builder",
-   "name": "kay-builder",
+   "slug": "kay-strategy",
+   "name": "kay-strategy",
    "url": "https://www.kaylousberg.com",
    "artist": "KayKit",
    "licenseLabel": "CC0",
-   "count": 33,
+   "count": 125,
    "packs": [
-    "KayKit Medieval Builder Pack"
+    "KayKit Medieval Builder Pack",
+    "KayKit Medieval Hexagon Pack"
    ],
    "origins": {
-    "KayKit Medieval Builder Pack": 33
+    "KayKit Medieval Builder Pack": 33,
+    "KayKit Medieval Hexagon Pack": 92
    },
    "scales": {
-    "1.8": 33
+    "1.8": 33,
+    "1.7": 92
    },
    "smooth": {
-    "smooth": 33
+    "smooth": 115,
+    "none": 10
    },
+   "members": [
+    {
+     "slug": "kay-builder",
+     "name": "kay-builder",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 33,
+     "packs": [
+      "KayKit Medieval Builder Pack"
+     ],
+     "origins": {
+      "KayKit Medieval Builder Pack": 33
+     },
+     "scales": {
+      "1.8": 33
+     },
+     "smooth": {
+      "smooth": 33
+     }
+    },
+    {
+     "slug": "kay-hexagon",
+     "name": "kay-hexagon",
+     "url": "https://www.kaylousberg.com",
+     "artist": "KayKit",
+     "licenseLabel": "CC0",
+     "count": 92,
+     "packs": [
+      "KayKit Medieval Hexagon Pack"
+     ],
+     "origins": {
+      "KayKit Medieval Hexagon Pack": 92
+     },
+     "scales": {
+      "1.7": 92
+     },
+     "smooth": {
+      "smooth": 82,
+      "none": 10
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 1.12,
-    "kinds": 5
+    "factor": 1.04,
+    "kinds": 27
    }
   },
   {
@@ -1532,31 +1579,6 @@
    "kitCheck": {
     "factor": 1.1,
     "kinds": 16
-   }
-  },
-  {
-   "slug": "kay-hexagon",
-   "name": "kay-hexagon",
-   "url": "https://www.kaylousberg.com",
-   "artist": "KayKit",
-   "licenseLabel": "CC0",
-   "count": 92,
-   "packs": [
-    "KayKit Medieval Hexagon Pack"
-   ],
-   "origins": {
-    "KayKit Medieval Hexagon Pack": 92
-   },
-   "scales": {
-    "1.7": 92
-   },
-   "smooth": {
-    "smooth": 82,
-    "none": 10
-   },
-   "kitCheck": {
-    "factor": 1.04,
-    "kinds": 25
    }
   },
   {
@@ -3101,22 +3123,25 @@
    "name": "quat-medieval",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 48,
+   "count": 142,
    "packs": [
     "Farm Buildings Bundle",
-    "Medieval Village Pack"
+    "Medieval Village Pack",
+    "Ultimate Fantasy RTS"
    ],
    "origins": {
     "Farm Buildings Bundle": 11,
-    "Medieval Village Pack": 37
+    "Medieval Village Pack": 37,
+    "Ultimate Fantasy RTS": 94
    },
    "scales": {
+    "2": 94,
     "0.35": 11,
     "1.1": 37
    },
    "smooth": {
-    "smooth": 42,
-    "none": 6
+    "smooth": 123,
+    "none": 19
    },
    "members": [
     {
@@ -3158,11 +3183,32 @@
       "smooth": 31,
       "none": 6
      }
+    },
+    {
+     "slug": "quat-town",
+     "name": "quat-town",
+     "note": "Bronzips zonder licentiebestand en zonder maker.",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 94,
+     "packs": [
+      "Ultimate Fantasy RTS"
+     ],
+     "origins": {
+      "Ultimate Fantasy RTS": 94
+     },
+     "scales": {
+      "2": 94
+     },
+     "smooth": {
+      "smooth": 81,
+      "none": 13
+     }
     }
    ],
    "kitCheck": {
-    "factor": 0.81,
-    "kinds": 13
+    "factor": 0.91,
+    "kinds": 18
    }
   },
   {
@@ -3343,25 +3389,68 @@
   {
    "slug": "quat-guns",
    "name": "quat-guns",
-   "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-guns/LICENSE.txt.",
    "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 10,
+   "count": 23,
    "packs": [
-    "Ultimate Guns Pack"
+    "Ultimate Guns Pack",
+    "Sci-Fi Modular Gun Pack"
    ],
    "origins": {
-    "Ultimate Guns Pack": 10
+    "Ultimate Guns Pack": 10,
+    "Sci-Fi Modular Gun Pack": 13
    },
    "scales": {
-    "0.123": 10
+    "0.123": 10,
+    "0.25": 13
    },
    "smooth": {
-    "smooth": 10
+    "smooth": 23
    },
+   "members": [
+    {
+     "slug": "quat-guns",
+     "name": "quat-guns",
+     "note": "Source zip with no licence file and no author named; see kits/workfiles/quat-guns/LICENSE.txt.",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0",
+     "count": 10,
+     "packs": [
+      "Ultimate Guns Pack"
+     ],
+     "origins": {
+      "Ultimate Guns Pack": 10
+     },
+     "scales": {
+      "0.123": 10
+     },
+     "smooth": {
+      "smooth": 10
+     }
+    },
+    {
+     "slug": "quat-scifi",
+     "name": "quat-scifi",
+     "note": "Quaternius; source zip carries no licence file.",
+     "artist": "Quaternius",
+     "licenseLabel": "CC0 1.0",
+     "count": 13,
+     "packs": [
+      "Sci-Fi Modular Gun Pack"
+     ],
+     "origins": {
+      "Sci-Fi Modular Gun Pack": 13
+     },
+     "scales": {
+      "0.25": 13
+     },
+     "smooth": {
+      "smooth": 13
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 1.05,
-    "kinds": 4
+    "factor": 0.95,
+    "kinds": 8
    }
   },
   {
@@ -3492,30 +3581,6 @@
    }
   },
   {
-   "slug": "quat-scifi",
-   "name": "quat-scifi",
-   "note": "Quaternius; source zip carries no licence file.",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0 1.0",
-   "count": 13,
-   "packs": [
-    "Sci-Fi Modular Gun Pack"
-   ],
-   "origins": {
-    "Sci-Fi Modular Gun Pack": 13
-   },
-   "scales": {
-    "0.25": 13
-   },
-   "smooth": {
-    "smooth": 13
-   },
-   "kitCheck": {
-    "factor": 0.82,
-    "kinds": 6
-   }
-  },
-  {
    "slug": "quat-ships",
    "name": "quat-ships",
    "url": "https://quaternius.com/packs/ships.html",
@@ -3634,32 +3699,6 @@
    "kitCheck": {
     "factor": 1.01,
     "kinds": 27
-   }
-  },
-  {
-   "slug": "quat-town",
-   "name": "quat-town",
-   "note": "Bronzips zonder licentiebestand en zonder maker.",
-   "artist": "Quaternius",
-   "licenseLabel": "CC0",
-   "count": 94,
-   "packs": [
-    "Ultimate Fantasy RTS"
-   ],
-   "origins": {
-    "Ultimate Fantasy RTS": 94
-   },
-   "scales": {
-    "2": 94
-   },
-   "smooth": {
-    "smooth": 81,
-    "none": 13
-   },
-   "kitCheck": {
-    "factor": 1.26,
-    "kinds": 5,
-    "level": "warning"
    }
   },
   {
@@ -4362,28 +4401,74 @@
    }
   },
   {
-   "slug": "styloo-guns",
-   "name": "styloo-guns",
+   "slug": "styloo-weapons",
+   "name": "styloo-weapons",
    "url": "https://styloo.itch.io/",
-   "note": "Source zip with no licence file; the pack is published under the name styloo.",
    "artist": "Styloo",
    "licenseLabel": "CC0",
-   "count": 14,
+   "count": 28,
    "packs": [
-    "Guns Asset Pack"
+    "Guns Asset Pack",
+    "Weapons Assets Pack"
    ],
    "origins": {
-    "Guns Asset Pack": 14
+    "Guns Asset Pack": 14,
+    "Weapons Assets Pack": 14
    },
    "scales": {
-    "0.9": 14
+    "0.9": 14,
+    "0.007": 14
    },
    "smooth": {
-    "smooth": 14
+    "smooth": 28
    },
+   "members": [
+    {
+     "slug": "styloo-guns",
+     "name": "styloo-guns",
+     "url": "https://styloo.itch.io/",
+     "note": "Source zip with no licence file; the pack is published under the name styloo.",
+     "artist": "Styloo",
+     "licenseLabel": "CC0",
+     "count": 14,
+     "packs": [
+      "Guns Asset Pack"
+     ],
+     "origins": {
+      "Guns Asset Pack": 14
+     },
+     "scales": {
+      "0.9": 14
+     },
+     "smooth": {
+      "smooth": 14
+     }
+    },
+    {
+     "slug": "styloo-weapons",
+     "name": "styloo-weapons",
+     "url": "https://styloo.itch.io/",
+     "note": "Source zip with no licence file and no read-me; the pack is published under the name styloo.",
+     "artist": "Styloo",
+     "licenseLabel": "CC0",
+     "count": 14,
+     "packs": [
+      "Weapons Assets Pack"
+     ],
+     "origins": {
+      "Weapons Assets Pack": 14
+     },
+     "scales": {
+      "0.007": 14
+     },
+     "smooth": {
+      "smooth": 14
+     }
+    }
+   ],
    "kitCheck": {
-    "factor": 0.86,
-    "kinds": 8
+    "factor": 0.87,
+    "kinds": 13
    }
   },
   {
@@ -4462,31 +4547,6 @@
    "kitCheck": {
     "factor": 1.12,
     "kinds": 34
-   }
-  },
-  {
-   "slug": "styloo-weapons",
-   "name": "styloo-weapons",
-   "url": "https://styloo.itch.io/",
-   "note": "Source zip with no licence file and no read-me; the pack is published under the name styloo.",
-   "artist": "Styloo",
-   "licenseLabel": "CC0",
-   "count": 14,
-   "packs": [
-    "Weapons Assets Pack"
-   ],
-   "origins": {
-    "Weapons Assets Pack": 14
-   },
-   "scales": {
-    "0.007": 14
-   },
-   "smooth": {
-    "smooth": 14
-   },
-   "kitCheck": {
-    "factor": 1.11,
-    "kinds": 5
    }
   },
   {
@@ -117011,6 +117071,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "archery-range",
    "hash": "cf2adc59e0",
    "kind": "str-building-military-barracks",
@@ -117078,6 +117139,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "barracks",
    "hash": "d1464e18d0",
    "kind": "str-building-military-barracks",
@@ -117139,6 +117201,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "bridge-roofed",
    "hash": "d121f7e8aa",
    "kind": "str-access-bridge-long",
@@ -117194,6 +117257,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "bridge",
    "hash": "84612f0398",
    "kind": "str-access-bridge-long",
@@ -117237,6 +117301,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "castle",
    "hash": "cff3eb5493",
    "kind": "str-building-military-castle",
@@ -117304,6 +117369,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "farm-plot",
    "hash": "123693a0aa",
    "kind": "env-terrain-ground",
@@ -117363,6 +117429,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "forest-detail-a",
    "hash": "7b7722202c",
    "kind": "set",
@@ -117418,6 +117485,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "forest-detail-b",
    "hash": "a18f110ef0",
    "kind": "set",
@@ -117473,6 +117541,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "forest",
    "hash": "8255e9ff62",
    "kind": "env-flora-tree-conifer",
@@ -117520,6 +117589,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "house-anim",
    "hash": "e2e1e4a505",
    "kind": "str-building-residential-house",
@@ -117588,6 +117658,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "house",
    "hash": "4a7871ae2e",
    "kind": "str-building-residential-house",
@@ -117650,6 +117721,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "lumbermill",
    "hash": "35e3ecec65",
    "kind": "str-building-work-industrial-workshop",
@@ -117712,6 +117784,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "market",
    "hash": "10e91cd95f",
    "kind": "str-canopy-stall",
@@ -117785,6 +117858,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "mill-anim",
    "hash": "1aacf3c51b",
    "kind": "str-building-work-industrial-mill",
@@ -117857,6 +117931,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "mill",
    "hash": "0b25c59ae1",
    "kind": "str-building-work-industrial-mill",
@@ -117926,6 +118001,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "mine",
    "hash": "fe13e1a4c0",
    "kind": "str-building-work-industrial-mine",
@@ -117998,6 +118074,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "mountain",
    "hash": "1f80711d86",
    "kind": "env-terrain-mountain",
@@ -118039,6 +118116,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "rocks-small",
    "hash": "5b61aa16a7",
    "kind": "env-terrain-rock-cobble",
@@ -118081,6 +118159,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "rocks",
    "hash": "df04377689",
    "kind": "env-terrain-rock-cobble",
@@ -118123,6 +118202,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "tree-a",
    "hash": "e51a8bfd5c",
    "kind": "env-flora-tree",
@@ -118171,6 +118251,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "tree-b",
    "hash": "b122524fa7",
    "kind": "env-flora-tree",
@@ -118219,6 +118300,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "tree-c",
    "hash": "dcc4601b0a",
    "kind": "env-flora-tree",
@@ -118267,6 +118349,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "wall-corner",
    "hash": "3c4734b7e9",
    "kind": "str-part-wall-rampart",
@@ -118309,6 +118392,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "wall-gate-closed",
    "hash": "bd34b9321f",
    "kind": "str-part-gate-gateway",
@@ -118363,6 +118447,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "wall-gate",
    "hash": "dc441ac20b",
    "kind": "str-part-gate-gateway",
@@ -118410,6 +118495,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "wall-hex-corner-a",
    "hash": "dcfe908c09",
    "kind": "str-part-wall-rampart",
@@ -118452,6 +118538,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "wall-hex-corner-b",
    "hash": "9e2d4b69e9",
    "kind": "str-part-wall-rampart",
@@ -118494,6 +118581,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "wall-straight",
    "hash": "5c235d442a",
    "kind": "str-part-wall-rampart",
@@ -118535,6 +118623,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "watchtower",
    "hash": "9eca89c6d1",
    "kind": "str-building-tower",
@@ -118595,6 +118684,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "watermill-anim",
    "hash": "0f495d2b9b",
    "kind": "str-building-work-industrial-mill",
@@ -118656,6 +118746,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "watermill",
    "hash": "ea0ff9583d",
    "kind": "str-building-work-industrial-mill",
@@ -118714,6 +118805,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "well-anim",
    "hash": "2b58eebdab",
    "kind": "str-fixture-utility-well",
@@ -118795,6 +118887,7 @@
   },
   {
    "kit": "kay-builder",
+   "collection": "kay-strategy",
    "name": "well",
    "hash": "b37303f7eb",
    "kind": "str-fixture-utility-well",
@@ -150804,6 +150897,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "archery-range",
    "hash": "176b391c53",
    "kind": "str-building-military-barracks",
@@ -150881,6 +150975,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "barracks",
    "hash": "13f8b5d68f",
    "kind": "str-building-military-barracks",
@@ -150959,6 +151054,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "barrel",
    "hash": "daf3ac2218",
    "kind": "obj-container-barrel",
@@ -151012,6 +151108,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "blacksmith-anim",
    "hash": "74d36f9d48",
    "kind": "str-building-work-industrial-workshop",
@@ -151097,6 +151194,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "blacksmith",
    "hash": "8550b00010",
    "kind": "str-building-work-industrial-workshop",
@@ -151176,6 +151274,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "bridge-a",
    "hash": "c4049126c7",
    "kind": "str-access-bridge-long",
@@ -151217,6 +151316,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "bucket-arrows",
    "hash": "438374f755",
    "kind": "obj-container-bucket",
@@ -151286,6 +151386,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "bucket-water",
    "hash": "b978175bdd",
    "kind": "obj-container-bucket",
@@ -151341,6 +151442,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "bucket",
    "hash": "8069a04d0d",
    "kind": "obj-container-bucket",
@@ -151390,6 +151492,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "building-site-a",
    "hash": "bc2797f310",
    "kind": "str-part-frame",
@@ -151451,6 +151554,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "building-site-b",
    "hash": "4c336d87ab",
    "kind": "str-part-frame",
@@ -151517,6 +151621,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "building-site-c",
    "hash": "be3bf64f3e",
    "kind": "str-part-frame",
@@ -151583,6 +151688,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "castle",
    "hash": "54781464a7",
    "kind": "str-building-military-castle",
@@ -151662,6 +151768,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "catapult-ball",
    "hash": "fa7088b83f",
    "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
@@ -151704,6 +151811,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "catapult",
    "hash": "7435852878",
    "kind": "obj-equipment-weapon-siege",
@@ -151768,6 +151876,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "cattail",
    "hash": "049ce1bcdc",
    "kind": "env-flora-waterplant-cattail",
@@ -151816,6 +151925,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "cattails",
    "hash": "f9fa13d988",
    "kind": "env-flora-waterplant-cattail",
@@ -151864,6 +151974,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "church",
    "hash": "264ce39b4f",
    "kind": "str-building-religious-church",
@@ -151934,6 +152045,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "conifer-stumps",
    "hash": "dc0899b843",
    "kind": "env-remains-deadwood-stump",
@@ -151982,6 +152094,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "conifer",
    "hash": "92347408c4",
    "kind": "env-flora-tree-conifer",
@@ -152029,6 +152142,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "conifers-large",
    "hash": "6dd2ef10e4",
    "kind": "env-flora-tree-conifer",
@@ -152077,6 +152191,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "conifers-medium",
    "hash": "ca62bee6c0",
    "kind": "env-flora-tree-conifer",
@@ -152125,6 +152240,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "conifers-small",
    "hash": "d5ca50c72d",
    "kind": "env-flora-tree-conifer",
@@ -152173,6 +152289,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-b-small",
    "hash": "d02d0a16c1",
    "kind": "obj-container-crate-cube",
@@ -152223,6 +152340,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-b",
    "hash": "773bbdf16c",
    "kind": "obj-container-crate-cube",
@@ -152265,6 +152383,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-long-a",
    "hash": "1d0f7fef5c",
    "kind": "obj-container-crate-produce",
@@ -152318,6 +152437,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-long-b",
    "hash": "fa7582f50e",
    "kind": "obj-container-crate-produce",
@@ -152371,6 +152491,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-long-c",
    "hash": "89a31c762c",
    "kind": "obj-container-crate-produce",
@@ -152425,6 +152546,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-long",
    "hash": "ba88062797",
    "kind": "obj-container-crate-produce",
@@ -152467,6 +152589,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-open",
    "hash": "b23670af4a",
    "kind": "obj-container-crate",
@@ -152520,6 +152643,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate-small",
    "hash": "33e8897363",
    "kind": "obj-container-crate-cube",
@@ -152576,6 +152700,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "crate",
    "hash": "d3df2b3c91",
    "kind": "obj-container-crate-cube",
@@ -152624,6 +152749,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "fence-stone-gate",
    "hash": "eeedb3f4cd",
    "kind": "str-barrier-fence",
@@ -152677,6 +152803,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "fence-stone",
    "hash": "26c5c692d3",
    "kind": "str-barrier-fence-mid",
@@ -152718,6 +152845,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "fence-wood-gate",
    "hash": "f455c0f8e2",
    "kind": "str-barrier-fence-gate",
@@ -152773,6 +152901,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "fence-wood",
    "hash": "22fb3e29a6",
    "kind": "str-part-wall-rampart",
@@ -152820,6 +152949,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "flag-red",
    "hash": "66ad46cffc",
    "kind": "str-fixture-marker-flag",
@@ -152870,6 +153000,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "flag",
    "hash": "7c60f61654",
    "kind": "str-fixture-marker-flag",
@@ -152920,6 +153051,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "house-a-anim",
    "hash": "19574ac35b",
    "kind": "str-building-residential-house",
@@ -152991,6 +153123,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "house-a",
    "hash": "9d4f0d0659",
    "kind": "str-building-residential-house",
@@ -153056,6 +153189,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "house-b-anim",
    "hash": "11ae3da1cc",
    "kind": "str-building-residential-house",
@@ -153128,6 +153262,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "house-b",
    "hash": "b9d00f8e67",
    "kind": "str-building-residential-house",
@@ -153194,6 +153329,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "ladder",
    "hash": "67399f4a77",
    "kind": "str-access-ladder",
@@ -153236,6 +153372,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "lumbermill-anim",
    "hash": "5555290fb7",
    "kind": "str-building-work-industrial-workshop",
@@ -153321,6 +153458,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "lumbermill",
    "hash": "a160493b66",
    "kind": "str-building-work-industrial-workshop",
@@ -153402,6 +153540,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "market",
    "hash": "b288ba7ebd",
    "kind": "str-canopy-stall",
@@ -153482,6 +153621,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "mine",
    "hash": "2f3f74b909",
    "kind": "str-building-work-industrial-mine",
@@ -153572,6 +153712,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "mountain-a",
    "hash": "8d394c20f7",
    "kind": "env-terrain-mountain",
@@ -153614,6 +153755,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "mountain-b",
    "hash": "560033de3c",
    "kind": "env-terrain-mountain",
@@ -153656,6 +153798,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "mountain-c",
    "hash": "673bac436f",
    "kind": "env-terrain-mountain",
@@ -153698,6 +153841,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "pallet",
    "hash": "3c3f25d8c1",
    "kind": "obj-transport-pallet",
@@ -153741,6 +153885,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "rock-a",
    "hash": "18da6a2448",
    "kind": "env-terrain-rock-cobble",
@@ -153784,6 +153929,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "rock-b",
    "hash": "3b3657c3d6",
    "kind": "env-terrain-rock-cobble",
@@ -153826,6 +153972,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "rock-c",
    "hash": "e7cc57072f",
    "kind": "env-terrain-rock-cobble",
@@ -153868,6 +154015,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "rock-d",
    "hash": "5820800f54",
    "kind": "env-terrain-rock-cobble",
@@ -153910,6 +154058,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "rocks",
    "hash": "2fdc9c69ad",
    "kind": "env-terrain-rock-cobble",
@@ -153951,6 +154100,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "ruin",
    "hash": "6441d1f289",
    "kind": "str-building-residential-house",
@@ -154006,6 +154156,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "sack",
    "hash": "837bb2886f",
    "kind": "obj-container-bag-sack",
@@ -154047,6 +154198,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "scaffolding",
    "hash": "945013d5e3",
    "kind": "set",
@@ -154106,6 +154258,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "stone-blocks",
    "hash": "77cea60864",
    "kind": "obj-resource-stone",
@@ -154147,6 +154300,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "stump",
    "hash": "01f7974a34",
    "kind": "env-remains-deadwood-stump",
@@ -154194,6 +154348,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "stumps",
    "hash": "4210efa776",
    "kind": "env-remains-deadwood-stump",
@@ -154242,6 +154397,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "target",
    "hash": "14191d7b93",
    "kind": "obj-equipment-target-bullseye",
@@ -154294,6 +154450,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tavern",
    "hash": "9ba4052a59",
    "kind": "str-building-work-commercial",
@@ -154372,6 +154529,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tent",
    "hash": "901c89df87",
    "kind": "str-canopy-stall",
@@ -154420,6 +154578,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "timber",
    "hash": "28d29d7841",
    "kind": "obj-resource-wood-log",
@@ -154468,6 +154627,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tower-a",
    "hash": "70b83afac1",
    "kind": "str-building-tower",
@@ -154544,6 +154704,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tower-b",
    "hash": "8f2b47a179",
    "kind": "str-building-tower",
@@ -154621,6 +154782,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tower-base",
    "hash": "1a6ea3997a",
    "kind": "str-building-tower",
@@ -154687,6 +154849,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tower-catapult",
    "hash": "da8f4c097f",
    "kind": "str-building-tower",
@@ -154763,6 +154926,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "tree",
    "hash": "a58ee63a9e",
    "kind": "env-flora-tree-conifer",
@@ -154810,6 +154974,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "trees-large",
    "hash": "a1ac931547",
    "kind": "env-flora-tree-conifer",
@@ -154858,6 +155023,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "trees-medium",
    "hash": "f362e861d6",
    "kind": "env-flora-tree-conifer",
@@ -154906,6 +155072,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "trees-small",
    "hash": "d5c1267cfe",
    "kind": "env-flora-tree-conifer",
@@ -154954,6 +155121,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall-corner-a-gate",
    "hash": "47aab7a89a",
    "kind": "str-part-gate-gateway",
@@ -155007,6 +155175,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall-corner-a-inside",
    "hash": "ff678aa7d3",
    "kind": "str-part-wall-rampart",
@@ -155055,6 +155224,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall-corner-a-outside",
    "hash": "8a87868850",
    "kind": "str-part-wall-rampart",
@@ -155103,6 +155273,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall-corner-b-inside",
    "hash": "1d9ce8508c",
    "kind": "str-part-wall-rampart",
@@ -155151,6 +155322,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall-corner-b-outside",
    "hash": "3f9e9b7689",
    "kind": "str-part-wall-rampart",
@@ -155199,6 +155371,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall-gate",
    "hash": "fb9bd14d49",
    "kind": "str-part-gate-gateway",
@@ -155252,6 +155425,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wall",
    "hash": "4b1a12be0c",
    "kind": "str-part-wall-rampart",
@@ -155299,6 +155473,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "waterlily-a",
    "hash": "6ba0adfe53",
    "kind": "env-flora-waterplant-lilypad",
@@ -155342,6 +155517,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "waterlily-b",
    "hash": "dab50de538",
    "kind": "env-flora-waterplant-lilypad",
@@ -155384,6 +155560,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "watermill-anim",
    "hash": "4eb78333b8",
    "kind": "str-building-work-industrial-mill",
@@ -155460,6 +155637,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "watermill",
    "hash": "13e97662fd",
    "kind": "str-building-work-industrial-mill",
@@ -155533,6 +155711,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "waterplant",
    "hash": "83c3d5c9a7",
    "kind": "env-flora-waterplant",
@@ -155574,6 +155753,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "weapon-rack",
    "hash": "bd8979e779",
    "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
@@ -155615,6 +155795,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "well-anim",
    "hash": "447465676a",
    "kind": "set",
@@ -155691,6 +155872,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "well",
    "hash": "3f6602570f",
    "kind": "set",
@@ -155764,6 +155946,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "wheelbarrow",
    "hash": "b4efde5ac1",
    "kind": "obj-transport-land-cart-small-wheelbarrow",
@@ -155817,6 +156000,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "windmill-anim",
    "hash": "b194ed6362",
    "kind": "set",
@@ -155904,6 +156088,7 @@
   },
   {
    "kit": "kay-hexagon",
+   "collection": "kay-strategy",
    "name": "windmill",
    "hash": "0c9a511858",
    "kind": "set",
@@ -350164,6 +350349,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "bayonet",
    "hash": "34bdf07855",
    "kind": "obj-equipment-weapon-melee-dagger",
@@ -350212,6 +350398,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "pistol",
    "hash": "814878940c",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
@@ -350260,6 +350447,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "revolver-ribbed",
    "hash": "3b297400e7",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
@@ -350309,6 +350497,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "revolver-steel",
    "hash": "1ec208e09a",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
@@ -350352,6 +350541,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "revolver",
    "hash": "0c061db523",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
@@ -350401,6 +350591,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "shotgun-pistol-grip",
    "hash": "3f658bb1da",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -350450,6 +350641,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "shotgun-pump",
    "hash": "9f55b60979",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -350499,6 +350691,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "shotgun-sawed-off",
    "hash": "5700810812",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -350554,6 +350747,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "shotgun",
    "hash": "9f6e402b99",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -350609,6 +350803,7 @@
   },
   {
    "kit": "quat-guns",
+   "collection": "quat-guns",
    "name": "sniper-rifle",
    "hash": "2242d16d3d",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
@@ -369408,6 +369603,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "grenade-launcher",
    "hash": "461db3bbfa",
    "kind": "obj-equipment-weapon-ranged-launcher",
@@ -369463,6 +369659,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "grenade",
    "hash": "a31651bd1d",
    "kind": "obj-equipment-weapon-ranged-grenade",
@@ -369517,6 +369714,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "pistol-b",
    "hash": "9bed48bf80",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
@@ -369587,6 +369785,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "pistol-c",
    "hash": "efdcb14735",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
@@ -369642,6 +369841,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "pistol",
    "hash": "27b693da16",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
@@ -369697,6 +369897,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "rifle-ar",
    "hash": "e47ecfc005",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -369753,6 +369954,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "rifle-assault-b",
    "hash": "8b29244c74",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -369809,6 +370011,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "rifle-assault-c",
    "hash": "05fd6c4ff2",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -369865,6 +370068,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "rifle-assault-d",
    "hash": "d6500a6a86",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -369921,6 +370125,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "rifle-assault",
    "hash": "35b9a877d2",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -369977,6 +370182,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "smg",
    "hash": "14d99d40f7",
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
@@ -370032,6 +370238,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "sniper-b",
    "hash": "ba6aa719c6",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
@@ -370095,6 +370302,7 @@
   },
   {
    "kit": "quat-scifi",
+   "collection": "quat-guns",
    "name": "sniper",
    "hash": "8a974c7a47",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
@@ -382611,6 +382819,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "archery-1-a",
    "hash": "6ea4e8f4a8",
    "kind": "str-building-military-barracks",
@@ -382673,6 +382882,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "archery-1-b",
    "hash": "aec4b6bc8f",
    "kind": "str-building-military-barracks",
@@ -382730,6 +382940,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "archery-1-c",
    "hash": "9d8d11c645",
    "kind": "str-building-military-barracks",
@@ -382793,6 +383004,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "archery-2-a",
    "hash": "d1fc491ff5",
    "kind": "str-building-military-barracks",
@@ -382875,6 +383087,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "archery-2-b",
    "hash": "b28e554d99",
    "kind": "str-building-military-barracks",
@@ -382951,6 +383164,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "archery-2-c",
    "hash": "993ac3330f",
    "kind": "str-building-military-barracks",
@@ -383027,6 +383241,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "barracks-1-a",
    "hash": "7ddec1142a",
    "kind": "str-building-military-barracks",
@@ -383109,6 +383324,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "barracks-1-b",
    "hash": "2a32986d66",
    "kind": "str-building-military-barracks",
@@ -383177,6 +383393,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "barracks-1-c",
    "hash": "8a18a85e6b",
    "kind": "str-building-military-barracks",
@@ -383259,6 +383476,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "barracks-2-a",
    "hash": "d9885e21aa",
    "kind": "str-building-military-barracks",
@@ -383332,6 +383550,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "barracks-2-b",
    "hash": "49cdea7f93",
    "kind": "str-building-military-barracks",
@@ -383405,6 +383624,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "barracks-2-c",
    "hash": "29dac2f886",
    "kind": "str-building-military-barracks",
@@ -383478,6 +383698,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "dock-1",
    "hash": "d1bca2b89c",
    "kind": "str-access-platform-dock",
@@ -383527,6 +383748,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "farm-2-a",
    "hash": "fe73b3fad9",
    "kind": "str-building-work-agricultural",
@@ -383602,6 +383824,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "farm-2-b",
    "hash": "d2b3f3c166",
    "kind": "str-building-work-agricultural",
@@ -383677,6 +383900,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "farm-2-c",
    "hash": "60af796aa0",
    "kind": "str-building-work-agricultural",
@@ -383752,6 +383976,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "farm-field-a",
    "hash": "cb88678e98",
    "kind": "env-terrain-ground",
@@ -383794,6 +384019,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "farm-field-b",
    "hash": "208c025c7b",
    "kind": "env-terrain-ground",
@@ -383843,6 +384069,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "farm-field-c",
    "hash": "96f18fbfd5",
    "kind": "env-terrain-ground",
@@ -383903,6 +384130,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-1-a",
    "hash": "fbdbbb7320",
    "kind": "str-building-residential-house",
@@ -383953,6 +384181,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-1-b",
    "hash": "f4a3c72eeb",
    "kind": "str-building-residential-house",
@@ -384003,6 +384232,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-1-c",
    "hash": "01a5367f4d",
    "kind": "str-building-residential-house",
@@ -384053,6 +384283,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-2-a",
    "hash": "92974eac7f",
    "kind": "str-building-residential-house",
@@ -384103,6 +384334,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-2-b",
    "hash": "649294f8f3",
    "kind": "str-building-residential-house",
@@ -384159,6 +384391,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-2-c",
    "hash": "1baaf141e9",
    "kind": "str-building-residential-house",
@@ -384215,6 +384448,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-3-a",
    "hash": "c34454e50c",
    "kind": "str-building-residential-house",
@@ -384264,6 +384498,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-1-3-c",
    "hash": "e290767066",
    "kind": "str-building-residential-house",
@@ -384313,6 +384548,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-1-a",
    "hash": "b15e645eec",
    "kind": "str-building-residential-house",
@@ -384382,6 +384618,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-1-b",
    "hash": "8499c486eb",
    "kind": "str-building-residential-house",
@@ -384445,6 +384682,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-1-c",
    "hash": "757000fc7a",
    "kind": "str-building-residential-house",
@@ -384514,6 +384752,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-2-a",
    "hash": "5601e14ab4",
    "kind": "str-building-residential-house",
@@ -384595,6 +384834,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-2-b",
    "hash": "19220b0e22",
    "kind": "str-building-residential-house",
@@ -384676,6 +384916,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-2-c",
    "hash": "aa75257695",
    "kind": "str-building-residential-house",
@@ -384757,6 +384998,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-3-a",
    "hash": "9f5f404ac5",
    "kind": "str-building-residential-house",
@@ -384833,6 +385075,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-3-b",
    "hash": "c2f0e791c7",
    "kind": "str-building-residential-house",
@@ -384902,6 +385145,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "house-2-3-c",
    "hash": "be9131b630",
    "kind": "str-building-residential-house",
@@ -384983,6 +385227,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "logs",
    "hash": "bf62cd812c",
    "kind": "obj-resource-wood-log",
@@ -385031,6 +385276,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "market-1-a",
    "hash": "87c47fcdb8",
    "kind": "str-canopy-stall",
@@ -385116,6 +385362,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "market-1-b",
    "hash": "e9fa6977fd",
    "kind": "str-canopy-stall",
@@ -385201,6 +385448,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "market-1-c",
    "hash": "73f02b4c41",
    "kind": "str-canopy-stall",
@@ -385286,6 +385534,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "market-2-a",
    "hash": "0fb81c9d92",
    "kind": "str-canopy-stall",
@@ -385377,6 +385626,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "market-2-b",
    "hash": "2c562d558b",
    "kind": "str-canopy-stall",
@@ -385462,6 +385712,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "market-2-c",
    "hash": "29e928a89e",
    "kind": "str-canopy-stall",
@@ -385547,6 +385798,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "mine",
    "hash": "bc5bc4d507",
    "kind": "str-building-work-industrial-mine",
@@ -385622,6 +385874,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "ore-gold-a",
    "hash": "69baa5fc73",
    "kind": "env-terrain-rock",
@@ -385670,6 +385923,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "ore-gold-b",
    "hash": "56eca2f602",
    "kind": "env-terrain-rock",
@@ -385718,6 +385972,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "ore-gold-c",
    "hash": "e1c58750ac",
    "kind": "env-terrain-rock",
@@ -385766,6 +386021,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "pine-trees",
    "hash": "e70c9abfd3",
    "kind": "env-flora-tree-conifer",
@@ -385828,6 +386084,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "port-1-a",
    "hash": "d73cd64825",
    "kind": "str-access-platform-dock",
@@ -385902,6 +386159,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "port-1-b",
    "hash": "2b6fb93a1c",
    "kind": "str-access-platform-dock",
@@ -385976,6 +386234,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "port-1-c",
    "hash": "df0ac7f5b4",
    "kind": "str-access-platform-dock",
@@ -386038,6 +386297,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "port-2-a",
    "hash": "550ceaa72c",
    "kind": "set",
@@ -386130,6 +386390,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "port-2-b",
    "hash": "e47f4cfa9e",
    "kind": "set",
@@ -386226,6 +386487,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "rock-a",
    "hash": "481564a433",
    "kind": "env-terrain-rock-boulder",
@@ -386268,6 +386530,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "rock-b",
    "hash": "f8c43a4d48",
    "kind": "env-terrain-rock-boulder",
@@ -386310,6 +386573,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "rock-c",
    "hash": "c0d40b4758",
    "kind": "env-terrain-rock-boulder",
@@ -386352,6 +386616,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "rock-pebble",
    "hash": "42cdbe47df",
    "kind": "env-terrain-rock-cobble",
@@ -386393,6 +386658,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "storage-1-a",
    "hash": "359cd43ab1",
    "kind": "str-building-work-commercial",
@@ -386450,6 +386716,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "storage-1-b",
    "hash": "33ff48399a",
    "kind": "str-building-work-commercial",
@@ -386507,6 +386774,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "storage-1-c",
    "hash": "08696de556",
    "kind": "str-building-work-commercial",
@@ -386564,6 +386832,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "storage-2-a",
    "hash": "286a6e8987",
    "kind": "str-building-work-commercial",
@@ -386632,6 +386901,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "storage-2-b",
    "hash": "adf6f65602",
    "kind": "str-building-work-commercial",
@@ -386712,6 +386982,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "storage-2-c",
    "hash": "f4dbff2d7b",
    "kind": "str-building-work-commercial",
@@ -386787,6 +387058,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "stumps",
    "hash": "bbaebe0419",
    "kind": "env-remains-deadwood-stump",
@@ -386835,6 +387107,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "tower-house-2",
    "hash": "b5236714e1",
    "kind": "str-building-residential-house",
@@ -386903,6 +387176,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "town-center-1-a",
    "hash": "c784b887ce",
    "kind": "obj-leisure-art-sculpture",
@@ -386952,6 +387226,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "town-center-1-b",
    "hash": "9d0a4a10e0",
    "kind": "obj-leisure-art-sculpture",
@@ -387013,6 +387288,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "town-center-1-c",
    "hash": "3a78b107c8",
    "kind": "obj-leisure-art-sculpture",
@@ -387068,6 +387344,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "town-center-2-a",
    "hash": "d71bc0a390",
    "kind": "set",
@@ -387115,6 +387392,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "town-center-2-c",
    "hash": "1b5d53c338",
    "kind": "set",
@@ -387169,6 +387447,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "trees",
    "hash": "3fdf161b05",
    "kind": "env-flora-tree",
@@ -387217,6 +387496,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-1",
    "hash": "f22c5354d4",
    "kind": "str-part-wall-rampart",
@@ -387266,6 +387546,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-2",
    "hash": "95622d6e55",
    "kind": "str-part-wall-rampart",
@@ -387320,6 +387601,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-towers-1",
    "hash": "5f880ba848",
    "kind": "str-part-wall-rampart",
@@ -387369,6 +387651,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-towers-2",
    "hash": "3761cb5400",
    "kind": "str-part-wall-rampart",
@@ -387431,6 +387714,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-towers-door-1",
    "hash": "856442a747",
    "kind": "str-part-gate-gateway",
@@ -387480,6 +387764,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-towers-door-2",
    "hash": "aa90141f19",
    "kind": "str-part-gate-gateway",
@@ -387542,6 +387827,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-towers-gate-1",
    "hash": "ab8a26b482",
    "kind": "str-part-gate-gateway",
@@ -387591,6 +387877,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wall-towers-gate-2",
    "hash": "68961ccc84",
    "kind": "str-part-gate-gateway",
@@ -387659,6 +387946,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "watchtower-1-a",
    "hash": "dbcc18c4a3",
    "kind": "str-building-tower",
@@ -387715,6 +388003,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "watchtower-1-b",
    "hash": "3463bc305d",
    "kind": "str-building-tower",
@@ -387778,6 +388067,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "watchtower-1-c",
    "hash": "34c248e3a3",
    "kind": "str-building-tower",
@@ -387841,6 +388131,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "watchtower-2-a",
    "hash": "ded33c146b",
    "kind": "str-building-tower",
@@ -387915,6 +388206,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "watchtower-2-b",
    "hash": "c2db833970",
    "kind": "str-building-tower",
@@ -387977,6 +388269,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "watchtower-2-c",
    "hash": "a0c7c61b4b",
    "kind": "str-building-tower",
@@ -388046,6 +388339,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "windmill-1",
    "hash": "29785ebb89",
    "kind": "str-building-work-industrial-mill",
@@ -388114,6 +388408,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "windmill-2",
    "hash": "03c14fe9a7",
    "kind": "str-building-work-industrial-mill",
@@ -388188,6 +388483,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-1-a",
    "hash": "a2ee48dbe3",
    "kind": "str-building-military-castle",
@@ -388239,6 +388535,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-1-b",
    "hash": "15355fe94a",
    "kind": "str-building-military-castle",
@@ -388302,6 +388599,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-1-c",
    "hash": "f3cb526298",
    "kind": "str-building-military-castle",
@@ -388365,6 +388663,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-2-b",
    "hash": "1cf75e455c",
    "kind": "str-building-military-castle",
@@ -388422,6 +388721,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-2-c",
    "hash": "09ceb78c99",
    "kind": "str-building-military-castle",
@@ -388479,6 +388779,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-walls-1",
    "hash": "cf9f663b8c",
    "kind": "str-building-military-castle",
@@ -388542,6 +388843,7 @@
   },
   {
    "kit": "quat-town",
+   "collection": "quat-medieval",
    "name": "wonder-walls-2",
    "hash": "73ff95ca07",
    "kind": "str-building-military-castle",
@@ -430019,6 +430321,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "ammo-box",
    "hash": "c62aa2e50f",
    "kind": "obj-container-crate-ammo",
@@ -430065,6 +430368,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "assault-rifle-short",
    "hash": "3a33a0d773",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -430120,6 +430424,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "assault-rifle",
    "hash": "2df4e53c88",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -430175,6 +430480,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "grenade-incendiary",
    "hash": "4fc3ca767a",
    "kind": "obj-equipment-weapon-ranged-grenade",
@@ -430234,6 +430540,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "grenade-pineapple",
    "hash": "c904bc5829",
    "kind": "obj-equipment-weapon-ranged-grenade",
@@ -430288,6 +430595,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "grenade-smoke",
    "hash": "7b40dc78e2",
    "kind": "obj-equipment-weapon-ranged-grenade",
@@ -430342,6 +430650,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "grenade",
    "hash": "a4271adaeb",
    "kind": "obj-equipment-weapon-ranged-grenade",
@@ -430401,6 +430710,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "machine-pistol",
    "hash": "c47944c8c2",
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
@@ -430453,6 +430763,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "pistol",
    "hash": "b0bb4ccc08",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
@@ -430507,6 +430818,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "rocket-launcher-eyes",
    "hash": "7c4384f4fc",
    "kind": "obj-equipment-weapon-ranged-launcher",
@@ -430572,6 +430884,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "rocket-launcher-quad",
    "hash": "cfba1b73f8",
    "kind": "obj-equipment-weapon-ranged-launcher",
@@ -430630,6 +430943,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "rocket-launcher",
    "hash": "9832d907da",
    "kind": "obj-equipment-weapon-ranged-launcher",
@@ -430696,6 +431010,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "shotgun",
    "hash": "48e203a991",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -430744,6 +431059,7 @@
   },
   {
    "kit": "styloo-guns",
+   "collection": "styloo-weapons",
    "name": "sniper-rifle",
    "hash": "1002e7b49e",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
@@ -440240,6 +440556,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "axe",
    "hash": "f67cce1c14",
    "kind": "obj-equipment-weapon-melee-axe-single",
@@ -440309,6 +440626,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "battleaxe",
    "hash": "838db50aab",
    "kind": "obj-equipment-weapon-melee-axe-double",
@@ -440378,6 +440696,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "bayonet",
    "hash": "992f7a60a3",
    "kind": "obj-equipment-weapon-melee-dagger",
@@ -440447,6 +440766,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "combat-knife",
    "hash": "5662c88a8f",
    "kind": "obj-equipment-weapon-melee-dagger",
@@ -440511,6 +440831,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "katana",
    "hash": "54b221924d",
    "kind": "obj-equipment-weapon-melee-sword",
@@ -440566,6 +440887,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "kunai",
    "hash": "f7a3e93a58",
    "kind": "obj-equipment-weapon-melee-dagger",
@@ -440621,6 +440943,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "longsword",
    "hash": "deb3139a71",
    "kind": "obj-equipment-weapon-melee-sword",
@@ -440694,6 +441017,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "pickaxe",
    "hash": "b75eee5cb1",
    "kind": "obj-equipment-tool-twohand-pickaxe",
@@ -440742,6 +441066,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "shuriken-a",
    "hash": "4d6e6b5767",
    "kind": "obj-equipment-weapon-ranged",
@@ -440792,6 +441117,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "shuriken-b",
    "hash": "e82172f582",
    "kind": "obj-equipment-weapon-ranged",
@@ -440843,6 +441169,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "shuriken-c",
    "hash": "dd43bd76b9",
    "kind": "obj-equipment-weapon-ranged",
@@ -440893,6 +441220,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "shuriken-d",
    "hash": "232a639e71",
    "kind": "obj-equipment-weapon-ranged",
@@ -440943,6 +441271,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "sword-short",
    "hash": "f810c790f9",
    "kind": "obj-equipment-weapon-melee-sword",
@@ -440997,6 +441326,7 @@
   },
   {
    "kit": "styloo-weapons",
+   "collection": "styloo-weapons",
    "name": "sword",
    "hash": "97dee84fde",
    "kind": "obj-equipment-weapon-melee-sword",
