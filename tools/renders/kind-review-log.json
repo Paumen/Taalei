@@ -5574,55 +5574,7 @@
  {
   "kind": "env-fauna-fish-shark",
   "date": "2026-10-09",
-  "suggestions": [
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "styloo-farm/shark"
-    ],
-    "text": "Source eye is dark navy with a white glint; import made all four eye parts ivory (parts 3,4 eye, 2,5 glint).",
-    "options": [
-     "Eye parts 3,4 to slate, keep glint ivory",
-     "Eye parts to basalt",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Eye parts 3,4 to slate, keep glint ivory"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "styloo-farm/shark"
-    ],
-    "text": "Body is taupe brown while the three quat sharks are nickel grey; source is azure, which skin cannot take. Nickel needs the skin tag dropped (quat sharks carry no material).",
-    "options": [
-     "Drop skin tag, body taupe to nickel",
-     "Leave taupe"
-    ],
-    "picked": [
-     "auto: Leave taupe"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "placement",
-    "models": [
-     "quat-fish/shark",
-     "quat-pirate/shark"
-    ],
-    "text": "Lowest point below y 0 (-0.076, -0.278); skinned and animated swimmers.",
-    "options": [
-     "Ground them",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Leave"
-    ]
-   }
-  ],
+  "suggestions": [],
   "checks": [
    {
     "id": "styloo-farm/shark",
@@ -6861,51 +6813,29 @@
   "suggestions": [
    {
     "by": "claude",
-    "category": "look",
+    "category": "colour",
     "models": [
-     "zombie-weapons/crossbow"
+     "3dm-medieval/crossbow"
     ],
-    "text": "Modern dark crossbow with a scope among medieval wood-and-steel ones.",
+    "text": "The source gives the bowstring and limb-tip lashings their own Rope material (#82735D). The import merged them into the chestnut wood band, so the string reads as a wooden rod.",
     "options": [
-     "Leave (kit's look)",
-     "Reject"
+     "Move the rope parts (string, tip lashings) to twine and add material rope",
+     "Move them to taupe and add textile",
+     "Leave"
     ],
     "picked": [
-     "auto: Leave (kit's look)"
+     "auto: Move the rope parts (string, tip lashings) to twine and add material rope"
     ]
-   },
+   }
+  ],
+  "checks": [
    {
-    "by": "claude",
-    "category": "shape",
-    "models": [
-     "kay-skeleton/crossbow"
-    ],
-    "text": "Spiky, heavily faceted limbs, unlike the smooth kay-adventurers and kay-dun-1 crossbows.",
-    "options": [
-     "Leave (source style)",
-     "Reshape"
-    ],
-    "picked": [
-     "auto: Leave (source style)"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "placement",
-    "models": [
-     "kay-dun-1/crossbow-common",
-     "kay-dun-1/crossbow-rare",
-     "kay-dun-1/crossbow-uncommon",
-     "kay-skeleton/crossbow"
-    ],
-    "text": "Off-centre by about 3 cm in z (a lint finding, not visible in renders).",
-    "options": [
-     "Leave to lint flow",
-     "Centre"
-    ],
-    "picked": [
-     "auto: Leave to lint flow"
-    ]
+    "id": "3dm-medieval/crossbow",
+    "category": "colour",
+    "change": "colour: rope parts chestnut to twine, rope material added",
+    "doubt": false,
+    "applied": true,
+    "verdict": null
    }
   ]
  },
@@ -7344,60 +7274,17 @@
   "suggestions": [
    {
     "by": "claude",
-    "category": "colour",
+    "category": "placement",
     "models": [
-     "quat-food/sashimi-salmon",
-     "quat-food/sushi-nigiri-1",
-     "quat-food/sushi-roll-1",
-     "quat-food/sushi-roll-2"
+     "quat-sushi/maki"
     ],
-    "text": "quat-food sushi sit at the dark end of every band (0.79-0.97); every other kit sits mid (0.15-0.75). They read dark and muddy beside the rest.",
+    "text": "quat-sushi maki lies on its side with the cut face to the front; the other maki (quat-food sushi-roll-1/-2, styloo-food maki-tuna) stand cut face up.",
     "options": [
-     "Spread by height, keep kind mid",
-     "Keep as is"
+     "stand it cut face up",
+     "leave"
     ],
     "picked": [
-     "auto: Spread by height, keep kind mid"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "ken-food/sushi-egg",
-     "styloo-food/maki-tuna",
-     "quat-food/sushi-roll-1",
-     "quat-food/sushi-roll-2",
-     "quat-sushi/maki",
-     "quat-sushi/onigiri",
-     "quat-sushi/salmon-nigiri",
-     "quat-sushi/tamago-nigiri"
-    ],
-    "text": "Nori is slate (ken, styloo) in some kits and basalt (quat) in others.",
-    "options": [
-     "Leave (kit's own colour)",
-     "All nori to basalt",
-     "All nori to slate"
-    ],
-    "picked": [
-     "auto: Leave (kit's own colour)"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "look",
-    "models": [
-     "quat-food/sushi-roll-1",
-     "quat-food/sushi-roll-2",
-     "styloo-food/maki-tuna"
-    ],
-    "text": "Octagonal rolls with a thin top inset differ from quat-sushi's chunky maki.",
-    "options": [
-     "Leave",
-     "Reshape"
-    ],
-    "picked": [
-     "auto: Leave"
+     "auto: stand it cut face up"
     ]
    }
   ],
@@ -7441,6 +7328,14 @@
     "doubt": true,
     "applied": false,
     "verdict": "ok"
+   },
+   {
+    "id": "quat-sushi/maki",
+    "category": "placement",
+    "change": "placement: stood cut face up like other maki",
+    "doubt": false,
+    "applied": true,
+    "verdict": null
    }
   ]
  },
@@ -7677,72 +7572,7 @@
  {
   "kind": "obj-food-vegetable",
   "date": "2026-10-09",
-  "suggestions": [
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "food-pack-2/garlic"
-    ],
-    "text": "Garlic taupe at 0.31-0.66 mean 0.51 with the gradient inverted (darker top), reads as a brown onion; source is a light pinkish beige.",
-    "options": [
-     "Taupe light end, light top (mean 0.17)",
-     "To ivory",
-     "Keep as is"
-    ],
-    "picked": [
-     "auto: Taupe light end, light top (mean 0.17)"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "food-pack-2/garlic"
-    ],
-    "text": "Garlic has no noun; obj-food-vegetable-onion is the nearest leaf (allium).",
-    "options": [
-     "Move to onion, add noun garlic",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Leave"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "m3-base/potato-waffle"
-    ],
-    "text": "Potato waffle is a processed fried snack, not a vegetable.",
-    "options": [
-     "Move to a prepared-food kind",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Leave"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "placement",
-    "models": [
-     "food-pack-2/asparagus",
-     "food-pack-2/courgette",
-     "food-pack-2/cucumber",
-     "quat-sushi/cucumber"
-    ],
-    "text": "Long vegetables stand on end; catalogue vegetables stand and lie about evenly.",
-    "options": [
-     "Lay them down",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Leave"
-    ]
-   }
-  ],
+  "suggestions": [],
   "checks": [
    {
     "id": "food-pack-2/garlic",
@@ -8149,47 +7979,18 @@
   "suggestions": [
    {
     "by": "claude",
-    "category": "placement",
+    "category": "shape",
     "models": [
      "m3-base/toasting-fork"
     ],
-    "text": "Lies flat along z; utensils stand on end, forks tines up",
+    "text": "Toasting fork reads wire-thin beside the chunky ken-food and cooking-assets utensils: shaft and tines about 6 mm on their thin side.",
     "options": [
-     "Stand upright, tines up",
-     "Leave lying"
+     "thicken all parts by pushing 3.5 mm along welded normals, height kept",
+     "thicken by 4.5 mm (tines get heavy)",
+     "leave"
     ],
     "picked": [
-     "auto: Stand upright, tines up"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "kind",
-    "models": [
-     "styloo-kitchen/cleaver"
-    ],
-    "text": "A cleaver; kind obj-kitchenware-cookware-utensil-knife-cleaver exists",
-    "options": [
-     "Move to knife-cleaver",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Move to knife-cleaver"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "placement",
-    "models": [
-     "ken-food/cookie-cutter"
-    ],
-    "text": "Source lies flat; import stood it on edge like other utensils",
-    "options": [
-     "Lay flat like source",
-     "Leave standing"
-    ],
-    "picked": [
-     "auto: Leave standing"
+     "auto: thicken all parts by pushing 3.5 mm along welded normals, height kept"
     ]
    }
   ],
@@ -8217,6 +8018,14 @@
     "doubt": true,
     "applied": false,
     "verdict": "ok"
+   },
+   {
+    "id": "m3-base/toasting-fork",
+    "category": "shape",
+    "change": "shape: thickened 3.5 mm; sturdier, still slimmer than ken",
+    "doubt": true,
+    "applied": true,
+    "verdict": null
    }
   ]
  },
@@ -8946,42 +8755,7 @@
  {
   "kind": "str-fixture-chimney",
   "date": "2026-10-09",
-  "suggestions": [
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "ken-industrial/smokestack-basic",
-     "ken-industrial/smokestack-large",
-     "ken-industrial/smokestack-medium"
-    ],
-    "text": "Source has orange stripes and grey caps; the import put both in taupe-dark, so medium's caps and stripes read alike.",
-    "options": [
-     "Stripes to terracotta, caps stay taupe-dark",
-     "Stripes to amber",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Stripes to terracotta, caps stay taupe-dark"
-    ]
-   },
-   {
-    "by": "claude",
-    "category": "colour",
-    "models": [
-     "ken-space/chimney",
-     "ken-space/chimney-detailed"
-    ],
-    "text": "Plain chimney ivory vs detailed nickel; matches source (white vs light grey with a white band).",
-    "options": [
-     "Plain to nickel",
-     "Leave"
-    ],
-    "picked": [
-     "auto: Leave"
-    ]
-   }
-  ],
+  "suggestions": [],
   "checks": [
    {
     "id": "ken-industrial/smokestack-basic",
