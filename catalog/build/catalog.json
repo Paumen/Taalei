@@ -4865,7 +4865,8 @@
     "Stylized Medieval Village": 37
    },
    "scales": {
-    "0.75": 50
+    "0.75": 49,
+    "0.43499999999999994": 1
    },
    "smooth": {
     "smooth": 32,
@@ -4907,7 +4908,8 @@
       "Stylized Medieval Village": 37
      },
      "scales": {
-      "0.75": 37
+      "0.75": 36,
+      "0.43499999999999994": 1
      },
      "smooth": {
       "smooth": 26,
@@ -23362,7 +23364,7 @@
    "name": "Metal",
    "type": "material",
    "description": "Metal with no subtype named: use it only where the reading is metal but neither iron, gold, silver nor copper fits.",
-   "count": 867
+   "count": 866
   },
   {
    "id": "metal-iron",
@@ -23377,7 +23379,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: the worked, edge-holding iron of melee weapons, equipment, tableware and tools. Takes light grey 15,3.",
-   "count": 1240,
+   "count": 1241,
    "parent": "metal-iron"
   },
   {
@@ -23385,7 +23387,7 @@
    "name": "Wrought iron",
    "type": "material",
    "description": "Wrought iron: forge work — hoops, straps, fittings, chain, nails, lantern frames. Takes dark grey 13,3.",
-   "count": 464,
+   "count": 465,
    "parent": "metal-iron"
   },
   {
@@ -23393,7 +23395,7 @@
    "name": "Cast iron",
    "type": "material",
    "description": "Cast iron: poured, heavy and brittle — cannon and shot, gratings, gates, fences, cooking pots. Takes blue-grey 6,1.",
-   "count": 579,
+   "count": 578,
    "parent": "metal-iron"
   },
   {
@@ -23440,7 +23442,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1510,
+   "count": 1511,
    "parent": "wood"
   },
   {
@@ -23526,7 +23528,7 @@
    "name": "Textile",
    "type": "material",
    "description": "Woven cloth: canvas, sails, banners, bedding, sacks, clothing. Cordage is rope; hide is leather.",
-   "count": 787
+   "count": 791
   },
   {
    "id": "leather",
@@ -23540,7 +23542,7 @@
    "name": "Foliage",
    "type": "material",
    "description": "The light-green part of a plant: leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 526
+   "count": 530
   },
   {
    "id": "ceramic",
@@ -23561,7 +23563,7 @@
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 143
+   "count": 142
   },
   {
    "id": "bone",
@@ -23642,7 +23644,7 @@
    "name": "Liquid",
    "type": "material",
    "description": "What a vessel visibly holds, such as the potion in a flask, and snow. Not the vessel itself.",
-   "count": 100
+   "count": 99
   },
   {
    "id": "emissive",
@@ -24064,7 +24066,7 @@
    "name": "Keg",
    "type": "kind",
    "description": "keg, tapped barrel",
-   "count": 3
+   "count": 2
   },
   {
    "id": "obj-container-bottle",
@@ -25883,7 +25885,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 335,
+   "count": 333,
    "color": "#6cb588"
   },
   {
@@ -25919,7 +25921,7 @@
    "name": "Plant",
    "type": "kind",
    "description": "bush, shrub, fern, ivy, vine",
-   "count": 181
+   "count": 179
   },
   {
    "id": "env-flora-plant-cactus",
@@ -26097,7 +26099,7 @@
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
-   "count": 376,
+   "count": 378,
    "color": "#8a5d4b"
   },
   {
@@ -26105,7 +26107,7 @@
    "name": "Ground",
    "type": "kind",
    "description": "ground, dirt path, stone path, sand, snow patch, farm field, crop row",
-   "count": 61
+   "count": 63
   },
   {
    "id": "env-terrain-mountain",
@@ -50275,7 +50277,7 @@
    "collection": "emace",
    "name": "ground-cover-a",
    "hash": "7d135f06f3",
-   "kind": "env-flora-plant",
+   "kind": "env-terrain-ground",
    "size": "m",
    "wdh": [
     0.706,
@@ -50310,14 +50312,14 @@
     "foliage"
    ],
    "variant": "emace-village/ground-cover-a",
-   "thickRel": 0.56
+   "thickRel": 0.82
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "ground-cover-b",
    "hash": "3d5ce578c1",
-   "kind": "env-flora-plant",
+   "kind": "env-terrain-ground",
    "size": "m",
    "wdh": [
     1.393,
@@ -50352,7 +50354,7 @@
     "foliage"
    ],
    "variant": "emace-village/ground-cover-a",
-   "thickRel": 0.73
+   "thickRel": 1.07
   },
   {
    "kit": "emace-village",
@@ -57513,6 +57515,7 @@
     "#893b29"
    ],
    "tags": [
+    "foliage",
     "food"
    ],
    "thickRel": 1
@@ -63249,6 +63252,7 @@
     "#893b29"
    ],
    "tags": [
+    "foliage",
     "food"
    ],
    "variant": "food-pack-2/radish-red",
@@ -63295,6 +63299,7 @@
     "#dad1b9"
    ],
    "tags": [
+    "foliage",
     "food"
    ],
    "variant": "food-pack-2/radish-red",
@@ -114707,6 +114712,7 @@
     "leather",
     "metal-iron-steel",
     "robin-hood",
+    "textile",
     "wood-beam"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
@@ -114763,6 +114769,7 @@
     "kay",
     "metal-iron-steel",
     "robin-hood",
+    "textile",
     "wood-beam"
    ],
    "variant": "kay-skeleton/arrow",
@@ -180339,7 +180346,7 @@
    "kit": "kay-weapons",
    "collection": "kay-rpg",
    "name": "arrow-b",
-   "hash": "13f433fcf0",
+   "hash": "ebe53905f6",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -180350,10 +180357,10 @@
    "tris": 602,
    "tpu": 1755,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
-   "bytes": 27988,
-   "vtx": 712,
+   "bytes": 28244,
+   "vtx": 720,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -180361,8 +180368,8 @@
    "thick": 0.3114,
    "avgTri": 0.00006,
    "anglePct": 1,
-   "vpt": 1.18,
-   "grad": 0.63,
+   "vpt": 1.2,
+   "grad": 0.61,
    "spread": {
     "14,3": [
      0.086,
@@ -180370,6 +180377,10 @@
     ],
     "15,3": [
      0.258,
+     0.539
+    ],
+    "2,0": [
+     0.453,
      0.695
     ],
     "4,2": [
@@ -180380,13 +180391,15 @@
    "colors": [
     "#1367a6",
     "#82868e",
+    "#885734",
     "#8b7561"
    ],
    "tags": [
     "kay",
     "metal-iron-steel",
     "robin-hood",
-    "textile"
+    "textile",
+    "wood-beam"
    ],
    "variant": "kay-weapons/arrow-a",
    "thickRel": 1.13
@@ -223720,6 +223733,7 @@
     "#f2a93c"
    ],
    "tags": [
+    "foliage",
     "ken",
     "vegetation"
    ],
@@ -223730,7 +223744,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.61,
+   "thickRel": 1.57,
    "lint": [
     {
      "level": "warning",
@@ -276910,9 +276924,9 @@
    "tags": [
     "glass-clear",
     "lpa",
-    "metal"
+    "metal-iron-steel"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "lpa-home",
@@ -279357,7 +279371,7 @@
   {
    "kit": "lpa-tools",
    "name": "stone-arrow",
-   "hash": "872832e07b",
+   "hash": "f8ae75cef3",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -279386,11 +279400,11 @@
      0.148,
      0.75
     ],
-    "2,0": [
+    "3,0": [
      0.164,
      0.766
     ],
-    "3,0": [
+    "2,0": [
      0.25,
      0.852
     ],
@@ -292625,27 +292639,27 @@
   {
    "kit": "m3-base",
    "name": "bronze-elliptical-leaf",
-   "hash": "12315d553d",
+   "hash": "47410a2c4d",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
     0.029,
-    0.087,
-    0.001
+    0.007,
+    0.087
    ],
    "tris": 316,
    "tpu": 921,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12880,
+   "bytes": 12876,
    "vtx": 294,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1008,
-   "avgTri": 0.00001,
-   "anglePct": 96,
+   "minEdge": 0.001,
+   "thick": 0.1661,
+   "avgTri": 0.00002,
+   "anglePct": 73,
    "vpt": 0.93,
    "grad": 0.6,
    "spread": {
@@ -323010,28 +323024,28 @@
   {
    "kit": "m3-base",
    "name": "teapot",
-   "hash": "7117d4e42f",
+   "hash": "f10b7c71d7",
    "kind": "obj-kitchenware-cookware-kettle",
    "size": "s",
    "wdh": [
-    0.3,
+    0.299,
     0.176,
     0.221
    ],
-   "tris": 4186,
-   "tpu": 12204,
+   "tris": 1195,
+   "tpu": 3484,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 117608,
-   "vtx": 2844,
+   "bytes": 37576,
+   "vtx": 903,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2126,
-   "avgTri": 0.00007,
-   "anglePct": 9,
-   "vpt": 0.68,
+   "thick": 0.212,
+   "avgTri": 0.00013,
+   "anglePct": 7,
+   "vpt": 0.76,
    "grad": 0.6,
    "spread": {
     "5,0": [
@@ -323046,14 +323060,7 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12204 over max 5000 (obj-kitchenware)"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -339186,7 +339193,7 @@
    "kit": "props",
    "name": "barrel-a",
    "hash": "bbd899fd51",
-   "kind": "obj-container-barrel-keg",
+   "kind": "obj-container-barrel",
    "size": "m",
    "wdh": [
     0.587,
@@ -339231,7 +339238,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.721 over max 0.65 (obj-container-barrel-keg)"
+     "text": "longest 0.721 over max 0.7 (obj-container-barrel)"
     }
    ]
   },
@@ -352023,13 +352030,13 @@
   {
    "kit": "quat-food",
    "name": "turnip",
-   "hash": "8691fa4226",
+   "hash": "cb06c7c9c1",
    "kind": "obj-food-vegetable-root",
    "size": "s",
    "wdh": [
     0.212,
     0.21,
-    0.407
+    0.479
    ],
    "tris": 976,
    "tpu": 2845,
@@ -352041,8 +352048,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.0833,
-   "avgTri": 0.00013,
+   "thick": 0.1225,
+   "avgTri": 0.00015,
    "anglePct": 1,
    "vpt": 1.88,
    "grad": 0.5,
@@ -352071,7 +352078,7 @@
     "qua",
     "scale-big"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.52
   },
   {
    "kit": "quat-food",
@@ -367362,7 +367369,6 @@
     "#885734"
    ],
    "tags": [
-    "liquid",
     "metal-iron-steel",
     "qua",
     "wood-beam"
@@ -377428,7 +377434,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.71
   },
   {
    "kit": "quat-space",
@@ -378672,7 +378678,7 @@
     "space"
    ],
    "variant": "quat-space/tree-light-a",
-   "thickRel": 1.88
+   "thickRel": 1.84
   },
   {
    "kit": "quat-space",
@@ -378721,7 +378727,7 @@
     "space"
    ],
    "variant": "quat-space/tree-light-a",
-   "thickRel": 1.23
+   "thickRel": 1.2
   },
   {
    "kit": "quat-survival",
@@ -414598,7 +414604,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "play-table",
-   "hash": "d7666d3c9b",
+   "hash": "71215be1c7",
    "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
@@ -414631,20 +414637,20 @@
      0.148,
      0.75
     ],
-    "6,1": [
+    "1,1": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#3c3f4d",
+    "#23562c",
     "#5b5550",
     "#885734"
    ],
    "tags": [
-    "metal-iron-cast",
-    "rubber",
+    "metal-iron-wrought",
     "sq",
+    "textile",
     "wood-beam"
    ],
    "variant": "sq-cards/play-table",
@@ -414654,7 +414660,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "playmat",
-   "hash": "e763310e1a",
+   "hash": "b21e49dbb1",
    "kind": "obj-leisure-game-gamble-table",
    "size": "s",
    "wdh": [
@@ -414682,7 +414688,7 @@
      0.148,
      0.742
     ],
-    "6,1": [
+    "1,1": [
      0.148,
      0.742
     ],
@@ -414692,7 +414698,7 @@
     ]
    },
    "colors": [
-    "#3c3f4d",
+    "#23562c",
     "#dad1b9",
     "#f2a93c"
    ],
@@ -414700,7 +414706,8 @@
     "comp",
     "paper",
     "plastic",
-    "sq"
+    "sq",
+    "textile"
    ],
    "variant": "sq-cards/play-table"
   },
@@ -459148,26 +459155,26 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "barrel-tapped",
-   "hash": "484dde3a0b",
+   "hash": "14ee1d2d3c",
    "kind": "obj-container-barrel-keg",
    "size": "m",
    "wdh": [
-    0.84,
-    0.775,
-    1.108
+    0.487,
+    0.449,
+    0.643
    ],
    "tris": 810,
-   "tpu": 1123,
+   "tpu": 2362,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 57664,
+   "bytes": 57684,
    "vtx": 1606,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
+   "minEdge": 0.003,
    "thick": 0.229,
-   "avgTri": 0.00829,
+   "avgTri": 0.00279,
    "anglePct": 39,
    "vpt": 1.98,
    "grad": 0.78,
@@ -459190,14 +459197,7 @@
     "wizp",
     "wood-worked"
    ],
-   "thickRel": 0.89,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.108 over max 0.65 (obj-container-barrel-keg)"
-    }
-   ]
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-mediev",
