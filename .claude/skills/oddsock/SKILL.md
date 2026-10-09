@@ -133,3 +133,36 @@ sheet, each before next to its after, with the source when it was checked:
 
 `<scratch>/cmp` needs `Textures/colormap.png`. Look at all of them, then send
 the side-by-side sheet to the PO with what changed and what was left.
+
+## 7. Autonomous run
+
+When asked to let agents decide instead of the PO, the agents apply what they
+judge right and list what is doubtful; the PO checks the doubtful calls on the
+swipe page afterwards.
+
+- Each agent takes a few kinds and edits only workfiles of those kinds. Tag,
+  kind, material and reject changes go to the lead, who applies them, rebuilds
+  once and runs the lints. A model whose change fails a lint goes back to its
+  version before the run and onto the open list.
+- Record suggestions with `picked: ["auto: <option>"]`.
+- Doubtful changes go in `catalog/data/lists/oddsock-applied.json` (applied:
+  → keep, ← revert) and `oddsock-open.json` (left: → do it, ← leave), each
+  entry `{ "id", "note" }`. The note says what changed or would change and the
+  trade-off; the swipe card shows it. Open them with
+  `catalog/app/swipe.html?list=oddsock-applied`.
+- Log the PO's verdicts with `kind-pick.mjs --check`, and read the
+  "autonomous calls" table of `--stats` before deciding what is doubtful.
+
+What the PO accepted and turned down so far:
+
+- Accepted without trouble: colour spread by height with the mid kept; a
+  second source colour restored where the import merged it; laying, standing
+  or turning a model to match its kind; moving a model to a kind it clearly is
+  (cobweb, lava pit tile, set of several things, trophy head, giant skull);
+  correcting a material tag only.
+- Turned down: moving stands, pedestals, plinths, columns or a flat variant out
+  of the kind they serve; a colour change that moves away from the source or
+  from the kit's own look to match other kits (coconut gradient against the
+  source, worktops, a tower piece, a beam colour, a coloured glass dome made
+  clear); a face fix that changes what the model shows (an open hole filled).
+  Do not apply these; list them as open.

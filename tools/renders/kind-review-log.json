@@ -5535,6 +5535,40 @@
      "auto: Leave (listed as doubt)"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "quat-dun-1/cobweb",
+    "category": "kind",
+    "change": "Kind env → env-remains.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-dun-1/cobweb-2",
+    "category": "kind",
+    "change": "Kind env → env-remains.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "wizp-lava/lava-pit",
+    "category": "kind",
+    "change": "Kind env → env-terrain-ground, like its edge, corner and crater tiles.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-medieval/smoke",
+    "category": "material",
+    "change": "Material textile is wrong for smoke; no fitting material exists. → means add one.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -5590,6 +5624,16 @@
      "auto: Leave as is"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "rgp-asia/bamboo",
+    "category": "shape",
+    "change": "Thicken the stalks (~27 mm, thinner than ken and wizp bamboo). Means reshaping ~1800 tris with leaves.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -5628,6 +5672,16 @@
     "picked": [
      "auto: Flip the inverted face and double-side the open leaf shells"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "household/potted-plant",
+    "category": "artefact",
+    "change": "Leaves and stems made double-sided to hide back faces (+154 tris); colours spread by height.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
    }
   ]
  },
@@ -5702,6 +5756,40 @@
     "picked": [
      "auto: skulls to env-remains-bones-skull with scale-big; leave bones-large"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "kay-skeleton-1/spine-ribs",
+    "category": "placement",
+    "change": "Laid on its back with ribs arching up; was balanced on its tail tip.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-pirate/skulls",
+    "category": "kind",
+    "change": "Kind bones → bones-skull, added scale-big (one 1.7 m skull). Colours spread by height.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-pirate/bones-large",
+    "category": "kind",
+    "change": "Kind bones → bones-ribcage. At 2.54 m it exceeds the ribcage max even with scale-big.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "loaf-bones/bone-pile-10",
+    "category": "placement",
+    "change": "1 m upright tower of bones, odd next to the flat loaf piles. Source is fbx, could not check import.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -5789,6 +5877,16 @@
      "auto: To obj-container-crate (case)"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "makeup/makeup-bag",
+    "category": "kind",
+    "change": "This makeup bag is an open hard plastic case, so it would move from pouches to crates and boxes; it then no longer shows beside the soft pouches.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   }
   ]
  },
  {
@@ -5828,6 +5926,16 @@
      "auto: Keep as source"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "quat-pirate/barrel",
+    "category": "artefact",
+    "change": "The quat-pirate barrel has thin see-through slits and a short stave, as in the source; closing them would need hand edits to the staves, so it was left as is.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -5864,6 +5972,24 @@
     "picked": [
      "auto: Replace metal-iron-wrought with plastic"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "isa-kitchen/extractor-hood",
+    "category": "material",
+    "change": "The knobs keep their colour; only the material tag changes from wrought iron to plastic, which fits appliance knobs better.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-food/extractor-hood",
+    "category": "material",
+    "change": "The knobs keep their colour; only the material tag changes from wrought iron to plastic, which fits appliance knobs better.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
    }
   ]
  },
@@ -5918,6 +6044,24 @@
      "auto: Keep tan (kit style, matches sq trims)"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "ken-furniture/washer-dryer-stacked",
+    "category": "artefact",
+    "change": "Washer door swapped for the clean door of ken-furniture/washer (had back faces); colours spread by height.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-laundry/washer-top",
+    "category": "colour",
+    "change": "Body tan → ivory to match the rest of the kind. Tan is the kit's own accent.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -5970,6 +6114,16 @@
      "auto: To obj-device-electronics-computer"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "m3-base/retro-computer",
+    "category": "kind",
+    "change": "Proposed moving this flat desktop computer case out of the tower kind into the general computer kind, since it lies flat and is not a tower.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   }
   ]
  },
  {
@@ -6008,6 +6162,32 @@
     "picked": [
      "auto: Keep azure"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "kay-platformer/lever-floor",
+    "category": "colour",
+    "change": "Housing azure → nickel to match the grey bases of other levers (also wall-a, wall-b).",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "kay-platformer/lever-wall-a",
+    "category": "colour",
+    "change": "Housing azure → nickel to match the grey bases of other levers.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "kay-platformer/lever-wall-b",
+    "category": "colour",
+    "change": "Housing azure → nickel to match the grey bases of other levers. (Its rods were spread by height, applied.)",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -6100,6 +6280,24 @@
      "auto: Keep nickel"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "zombie-weapons/nunchucks",
+    "category": "material",
+    "change": "The nunchuck caps and chain would turn dark like the source by tagging them plastic, at the cost of calling metal plastic; left nickel for now.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "zombie-weapons/chainsaw-pole",
+    "category": "artefact",
+    "change": "Close the open faces at the blade root and spread colours by height. Tried; the backface lint still saw open faces, so reverted.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -6154,6 +6352,16 @@
      "auto: Keep nickel"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "zombie-weapons/bow",
+    "category": "material",
+    "change": "The bow's grip would turn dark like the source by tagging it plastic, at the cost of calling a metal part plastic; left nickel for now.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -6198,6 +6406,32 @@
     "picked": [
      "auto: Leave as is"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "quat-guns/revolver",
+    "category": "colour",
+    "change": "Lighten steel from ~0.85 to ~0.65 in nickel so all revolvers share one shade (source is dark grey).",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "quat-guns/revolver-ribbed",
+    "category": "colour",
+    "change": "Lighten steel from ~0.85 to ~0.65 in nickel so all revolvers share one shade.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "quat-guns/revolver-steel",
+    "category": "colour",
+    "change": "Lighten steel from ~0.85 to ~0.65 in nickel so all revolvers share one shade.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -6256,6 +6490,56 @@
     "picked": [
      "auto: Leave as is"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "ken-blaster/clip-large",
+    "category": "colour",
+    "change": "Inner groove ivory → nickel, from the source's second colour. Clips are plastic, whose palette has basalt, not nickel.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-blaster/clip-small",
+    "category": "colour",
+    "change": "Inner groove ivory → nickel, from the source's second colour. Clips are plastic, whose palette has basalt, not nickel.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-blaster/scope-large-a",
+    "category": "colour",
+    "change": "Rings and mounts ivory → nickel, from the source's second colour. Other ken-blaster guns still keep that colour in ivory.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-blaster/scope-large-b",
+    "category": "colour",
+    "change": "Rings and mounts ivory → nickel, from the source's second colour. Other ken-blaster guns still keep that colour in ivory.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-blaster/scope-small",
+    "category": "colour",
+    "change": "Rings and mounts ivory → nickel, from the source's second colour. Other ken-blaster guns still keep that colour in ivory.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/9mm-bullet",
+    "category": "detail",
+    "change": "Decimate: 816 tris, 6.8× the kind median, smooth while the kind is faceted.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -6338,6 +6622,24 @@
      "auto: Double-side the open sheets (reversed copy 0.4 mm behind) (reverted for ken-food/burger, quat-food/burger-large: failed backface/measures lint)"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "ken-food/burger",
+    "category": "artefact",
+    "change": "Make the single-sided cheese and lettuce double-sided and spread colours by height. Tried; the backface lint flagged open faces, so reverted.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "quat-food/burger-large",
+    "category": "artefact",
+    "change": "Make the single-sided lettuce double-sided. Tried with a copy 0.4 mm behind; that broke the thin-part rule (G27), so reverted.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -6375,6 +6677,24 @@
     "picked": [
      "auto: Thicken ken x1.5 in height only"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "ken-food/waffle",
+    "category": "colour",
+    "change": "The Kenney waffle is now camel brown and half again as thick, like the other waffles, losing the pale thin look of its source.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "food-pack-2/waffle",
+    "category": "shape",
+    "change": "Making this round waffle thicker was tried and left out, since it hardly showed and made small spikes on its rim stand out.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -6434,6 +6754,16 @@
      "auto: Keep taupe (source husk)"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "food-pack-2/coconut",
+    "category": "colour",
+    "change": "The food-pack-2 coconut shells now shade light at the top and dark at the bottom like the rest of the kind, instead of the source's darker top; coconut-green keeps its source gradient so its crown stays visible.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   }
   ]
  },
  {
@@ -6471,6 +6801,16 @@
     "picked": [
      "auto: Leaves to moss, purple berries to slate"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "styloo-farm/grapes",
+    "category": "colour",
+    "change": "The styloo-farm grapes now show dark slate berries with light green leaves, closer to the source's purple grapes, but the catalogue loses its green grape from this kit; the red variant only got lighter leaves.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
    }
   ]
  },
@@ -6527,6 +6867,16 @@
      "auto: Slate to hunter"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "styloo-kitchen/watermelon",
+    "category": "colour",
+    "change": "The plain dark watermelon now has light green stripes along its segments, like the other watermelons, but straighter than the wavy stripes of its source texture.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   }
   ]
  },
  {
@@ -6565,6 +6915,16 @@
     "picked": [
      "auto: Spread by height, keep mid (0.40-0.65)"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "quat-food/steak",
+    "category": "colour",
+    "change": "The raw quat steak meat is now mid red like the other raw steaks instead of near-black red, at the cost of the darker source shade.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
    }
   ]
  },
@@ -6620,6 +6980,24 @@
      "auto: Leave light"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "quat-food/turnip",
+    "category": "colour",
+    "change": "The turnip's top got its coloured crown back, in dark red because the palette has no purple; it restores the source look but the colour is not exact.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-nature/turnip",
+    "category": "colour",
+    "change": "The ken turnip is lighter than other roots; darkening it to the kind's mid would fit the family but lose the source's near-white body, so it was left.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -6663,6 +7041,16 @@
     "picked": [
      "auto: Spread by height, keep mid (v 0.62 bottom to 0.34 top) on all seven"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "fs-house/counter",
+    "category": "colour",
+    "change": "The dark grey worktops on the three fs-house cabinets are now the same mid grey as the fs-house bar tops, as the source has them, at the cost of less contrast with the wood.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
    }
   ]
  },
@@ -6755,6 +7143,24 @@
      "auto: Spread by height, keep mid"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "ken-arena/weapon-rack",
+    "category": "colour",
+    "change": "Wood camel+tan → chestnut (import had split one wood in two), spread by height; dropped wood-worked tag. Now darker than the source.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-props/weapon-stand",
+    "category": "colour",
+    "change": "Chestnut respread by height to remove light/dark sliver triangles; beams now contrast less.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   }
   ]
  },
  {
@@ -6812,6 +7218,16 @@
     "picked": [
      "auto: Leave, needs a remodel of the cloth (reverted for styloo-school/curtain: failed backface/measures lint)"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "styloo-school/curtain",
+    "category": "artefact",
+    "change": "Curtain lies on its side as in the source. Hanging it upright and fixing the slivers along its pleats needs remodelling (rotation alone failed the backface lint), or reject it.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -6871,6 +7287,24 @@
      "auto: Flip them"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "cooking-assets/wooden-paddle",
+    "category": "artefact",
+    "change": "The magenta patch at the paddle's hanging hole is gone, but the hole now looks filled in instead of open.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "styloo-furniture/turner",
+    "category": "placement",
+    "change": "The metal turner now stands blade up and faces front like the other spatulas, instead of blade down as the source had it.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   }
   ]
  },
  {
@@ -6925,6 +7359,24 @@
     "picked": [
      "auto: Weld the corner cracks shut (backface-fix weld,flip,cap)"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "isa-bakery/pastry-stand-covered",
+    "category": "colour",
+    "change": "The green dome is now clear glass like the source, which changes the look strongly but matches what the artist made.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "styloo-school/cake-stand",
+    "category": "colour",
+    "change": "The cream dome is now clear glass like the source; the stand reads as a cake display instead of a solid block.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
    }
   ]
  },
@@ -7014,6 +7466,136 @@
     ],
     "picked": null
    }
+  ],
+  "checks": [
+   {
+    "id": "rgp-asia/geisha-a",
+    "category": "colour",
+    "change": "Tan spread by height, mid kept. Subtle on a smooth figure.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-asia/dragon-ornament",
+    "category": "colour",
+    "change": "Amber spread by height, mid kept, on a mostly flat wall piece.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-dun-1/pedestal",
+    "category": "kind",
+    "change": "Kind sculpture → str (empty pedestal).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "quat-dun-1/pedestal-2",
+    "category": "kind",
+    "change": "Kind sculpture → str (empty pedestal).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "quat-dun-2/pedestal",
+    "category": "kind",
+    "change": "Kind sculpture → str (empty pedestal). Same model as quat-dun-1/pedestal; ↑ = reject as duplicate.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "quat-dun-2/pedestal-2",
+    "category": "kind",
+    "change": "Kind sculpture → str (empty pedestal). Same model as quat-dun-1/pedestal-2; ↑ = reject as duplicate.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "m3-base/plinth",
+    "category": "kind",
+    "change": "Kind sculpture → str (plinth).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "m3-base/statue-base",
+    "category": "kind",
+    "change": "Kind sculpture → str (empty plinth with plaque).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "quat-interior/column-round",
+    "category": "kind",
+    "change": "Kind sculpture → str-part-pillar.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "quat-town/town-center-1-a",
+    "category": "kind",
+    "change": "Kind sculpture → set (fences, plinth, trees in one model).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-town/town-center-1-b",
+    "category": "kind",
+    "change": "Kind sculpture → set (fences, plinth with antlers, trees, stones).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-town/town-center-1-c",
+    "category": "kind",
+    "change": "Kind sculpture → set (deck, fences, trees, stag statue).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-furniture/bear-head",
+    "category": "kind",
+    "change": "Kind sculpture → obj-furnishing-decor (wall trophy head).",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-dun-2/statue-horse",
+    "category": "artefact",
+    "change": "Back faces left: a flip brought back the source's inverted faces on the pedestal. → means repair by hand.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "wizp-asia/wall-decor-c",
+    "category": "artefact",
+    "change": "14 back faces under brows and fang tips. A plain flip failed the backface lint. → means repair properly.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "wizp-asia/wall-decor-d",
+    "category": "artefact",
+    "change": "14 back faces under brows and fang tips. A plain flip failed the backface lint. → means repair properly.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   }
   ]
  },
  {
@@ -7048,6 +7630,16 @@
      "Keep as is"
     ],
     "picked": null
+   }
+  ],
+  "checks": [
+   {
+    "id": "styloo-farm/hedge",
+    "category": "duplicate",
+    "change": "Reject for style: loose leaf-card hedge unlike the solid rounded hedges, 10927 tris over the 5000 budget.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -7100,6 +7692,24 @@
     "picked": [
      "auto: Leave as is"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "ken-pirate/tower-base-door",
+    "category": "colour",
+    "change": "The door base is now dark like the plain base and the base of the assembled tower, so stacked pieces match; it no longer matches the lighter middle pieces.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "emace-village/watchtower",
+    "category": "artefact",
+    "change": "Small magenta specks under the roof are the backs of thin roof planks; fixing them means adding back faces, so it was left as is.",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
    }
   ]
  },
@@ -7171,6 +7781,24 @@
      "auto: Tan to camel, tag wood-worked"
     ]
    }
+  ],
+  "checks": [
+   {
+    "id": "fs-town/waterwheel-flume-brace-double",
+    "category": "colour",
+    "change": "The double flume brace is now dark brown like the single brace and the pillar; the source had braces in the lighter trough colour, so it moves away from the source to match the beam rule.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-medieval/waterwheel",
+    "category": "colour",
+    "change": "The rgp water wheel's wood is now mid brown like the other wheels instead of pale tan; it fits the kind better but no longer matches the pale planks of the rgp windmill.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "ok"
+   }
   ]
  },
  {
@@ -7224,6 +7852,16 @@
     "picked": [
      "auto: To str-part-frame and wood-log to wood-beam"
     ]
+   }
+  ],
+  "checks": [
+   {
+    "id": "fs-terrain/cave-prop-entrance",
+    "category": "colour",
+    "change": "Dark beams tan → chestnut (import fault), ends stay tan. Kind mine → str-part-frame; material wood-log → wood-beam.",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
    }
   ]
  },
