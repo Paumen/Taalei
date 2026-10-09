@@ -79,7 +79,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
 
-**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it.
+**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it. `glass` carries lighter diagonal streaks: each pane is laid out flat across the cell with `node tools/import/glass-uv.mjs <file.glb>` after it is moved into the band.
 
 | band | lane |
 |---|---|
