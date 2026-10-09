@@ -7,16 +7,20 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, faceNormal, welder 
 const HELP = `glass-uv.mjs [--band <band>] <workfile.glb> [...]
 
 Lays every flat pane in <band> (default glass) of kits/colormap.png out across
-its cell, so the streaks painted in that cell show on the pane: each pane is
-projected onto its own plane, keeps its proportions, fills the cell width (or
-its height when the pane is tall) and starts at the light end of the cell.
-A pane is a run of triangles in the band that share edges and face the same way.`;
+its cell, so the streaks painted in that cell show on it. A pane is a run of
+triangles in the band that share edges meeting at less than 50 degrees, so a
+pipe, dome or canopy is one pane and the sides of a box are separate panes.
+Each pane is projected along the way it faces, at a fixed number of pixels
+per metre (shrunk to fit the cell), so a small pane crosses one streak edge
+and a large one shows several streaks.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const CELL_PX = [32, 128];
 const MARGIN_PX = 2;
-const SAME_FACING = Math.cos((15 * Math.PI) / 180);
+const SAME_PIECE = Math.cos((50 * Math.PI) / 180);
+const PX_PER_M = 40;
+const STREAK_EDGE_PX = [16, 48];
 
 const unit = (v) => {
   const l = Math.hypot(...v) || 1;
@@ -24,6 +28,15 @@ const unit = (v) => {
 };
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+
+function facing(ns) {
+  const mean = ns.reduce((s, n) => s.map((x, k) => x + n[k]), [0, 0, 0]).map((x) => x / ns.length);
+  if (Math.hypot(...mean) > 0.5) return unit(mean);
+  const c = [0, 1, 2].map((i) => [0, 1, 2].map((j) => ns.reduce((s, n) => s + n[i] * n[j], 0)));
+  let v = [0.577, 0.577, 0.577];
+  for (let k = 0; k < 50; k++) v = unit([0, 1, 2].map((i) => dot(c[i], v)));
+  return v;
+}
 
 function planeAxes(n) {
   if (Math.abs(n[1]) > 0.9) return [[1, 0, 0], [0, 0, n[1] > 0 ? 1 : -1]];
@@ -64,7 +77,7 @@ function layout(file, cell) {
     const find = (t) => (parent.get(t) === t ? t : (parent.set(t, find(parent.get(t))), parent.get(t)));
     for (const list of edgeTris.values()) {
       for (let i = 1; i < list.length; i++) {
-        if (dot(normals.get(list[0]), normals.get(list[i])) >= SAME_FACING) parent.set(find(list[i]), find(list[0]));
+        if (dot(normals.get(list[0]), normals.get(list[i])) >= SAME_PIECE) parent.set(find(list[i]), find(list[0]));
       }
     }
     const groups = new Map();
@@ -84,7 +97,7 @@ function layout(file, cell) {
     const adder = vertexAdder(glb, prim);
     const writes = new Map();
     for (const [root, group] of groups) {
-      const n = unit(group.reduce((s, t) => s.map((x, k) => x + normals.get(t)[k]), [0, 0, 0]));
+      const n = facing(group.map((t) => normals.get(t)));
       const [ax, ay] = planeAxes(n);
       const verts = new Set(group.flatMap((t) => [0, 1, 2].map((k) => idx[t * 3 + k])));
       const p = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
@@ -94,11 +107,14 @@ function layout(file, cell) {
       const x0 = Math.min(...xs), y0 = Math.min(...ys);
       const w = Math.max(...xs) - x0 || 1e-6, h = Math.max(...ys) - y0 || 1e-6;
       const room = [CELL_PX[0] - 2 * MARGIN_PX, CELL_PX[1] - 2 * MARGIN_PX];
-      const scale = Math.min(room[0] / w, room[1] / h);
+      const scale = Math.min(room[0] / w, room[1] / h, PX_PER_M);
+      const clampTo = (centre, size, lo, hi) => Math.min(Math.max(centre - size / 2, lo), hi - size);
+      const left = clampTo(STREAK_EDGE_PX[0], w * scale, MARGIN_PX, CELL_PX[0] - MARGIN_PX);
+      const top = clampTo(STREAK_EDGE_PX[1], h * scale, MARGIN_PX, CELL_PX[1] - MARGIN_PX);
       const target = (v) => {
         const [x, y] = coords.get(v);
-        const px = MARGIN_PX + (x - x0) * scale + (room[0] - w * scale) / 2;
-        const py = MARGIN_PX + (y - y0) * scale;
+        const px = left + (x - x0) * scale;
+        const py = top + (y - y0) * scale;
         return [(cell[0] * CELL_PX[0] + px) / (16 * CELL_PX[0]), (cell[1] * CELL_PX[1] + py) / (4 * CELL_PX[1])];
       };
       const key = `g${root}`;
