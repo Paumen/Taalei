@@ -52,7 +52,8 @@ say how bands and tags work. The agents get both as reading.
 
    It applies the agents' tag edits, lints every changed file against its
    before-state and turns a new finding into doubt, stores the changes in the
-   log and writes `catalog/data/lists/sheepdog-open.json`. An agent that
+   log and writes `catalog/data/lists/sheepdog-open.json`, with the
+   before-state glbs in `catalog/data/lists/sheepdog-before`. An agent that
    wrote no `result.json` is reported and skipped; chase it before recording
    if its work is unfinished.
 
@@ -65,7 +66,9 @@ say how bands and tags work. The agents get both as reading.
 
        catalog/app/swipe.html?source=sheepdog&list=sheepdog-open
 
-   Right is OK, left is revert; up and down leave a model open.
+   A model whose file changed shows its before-state beside the current file,
+   turning together. Right is OK, left is revert; up and down leave a model
+   open.
 
 ## 2. Verdict run
 
