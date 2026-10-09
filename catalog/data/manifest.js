@@ -857,7 +857,29 @@ window.KENNEY_KITS = [
   "collection": "quat-medieval",
   "kits": [
    "quat-medieval",
-   "quat-farms"
+   "quat-farms",
+   "quat-town"
+  ]
+ },
+ {
+  "collection": "kay-strategy",
+  "kits": [
+   "kay-hexagon",
+   "kay-builder"
+  ]
+ },
+ {
+  "collection": "quat-guns",
+  "kits": [
+   "quat-guns",
+   "quat-scifi"
+  ]
+ },
+ {
+  "collection": "styloo-weapons",
+  "kits": [
+   "styloo-weapons",
+   "styloo-guns"
   ]
  },
  {
