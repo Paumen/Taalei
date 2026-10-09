@@ -5707,19 +5707,165 @@
  },
  {
   "kind": "env-remains-bones-limb",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-skeleton-1/bone",
+     "kay-skeleton-1/bone-half",
+     "kay-skeleton/bone"
+    ],
+    "text": "Three kay bones stand upright on a knob end; every other limb bone lies on the ground.",
+    "options": [
+     "Lay flat, long axis along x",
+     "Leave upright"
+    ],
+    "picked": [
+     "auto: Lay flat, long axis along x"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-skeleton-1/bone",
+     "kay-skeleton-1/bone-half",
+     "kay-skeleton/bone",
+     "quat-rpg/bone",
+     "kay-hallow/bone-a",
+     "kay-hallow/bone-b",
+     "kay-hallow/bone-c"
+    ],
+    "text": "kay-skeleton-1 bones are one flat ivory (grad 0), quat-rpg nearly flat (0.17) and kay-hallow 0.4, while loaf, m3 and wizp bones run ~0.6 light top to dark base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread only the flat ones",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-container-bag-pouch",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-dun-1/bag-coins",
+     "quat-dun-2/bag-coins",
+     "quat-dun-1/bag-standing",
+     "quat-dun-2/bag-standing",
+     "makeup/makeup-bag"
+    ],
+    "text": "The quat-dun sacks are nearly flat (grad 0.18) and the makeup bag flat (0), while the m3, rpg-mini and quat pouches run 0.4-0.6 light top to dark base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread only the quat-dun sacks",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "makeup/makeup-bag"
+    ],
+    "text": "An open hard plastic case with a tray, not a soft pouch or purse; it reads as a box among the sacks.",
+    "options": [
+     "To obj-container-crate (case)",
+     "Keep in pouch"
+    ],
+    "picked": [
+     "auto: To obj-container-crate (case)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-container-barrel",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "medieval-forge/barrel",
+     "medieval-forge/barrel-2",
+     "lpa-desert/barrel"
+    ],
+    "text": "No gradient: camel and basalt sit at one value each (medieval-forge camel 0.53, basalt 0.28; lpa-desert camel 0.22, basalt 0.47), where kind peers run light top to dark bottom",
+    "options": [
+     "Spread by height, keep mid",
+     "Only medieval-forge",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-pirate/barrel"
+    ],
+    "text": "See-through slits between staves and one short stave leave a hole to the background (faceorient/xray); the source has the same gaps",
+    "options": [
+     "Close the slits by snapping stave edges",
+     "Keep as source"
+    ],
+    "picked": [
+     "auto: Keep as source"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-device-appliance-extractor",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "ken-furniture/hood-large"
+    ],
+    "text": "Normals smoothed across the hood's hard edges, so the faceted hood reads as a soft blob; the Kenney source is flat-shaded like hood-modern",
+    "options": [
+     "Split normals at 30 degrees (flat facets as in the source)",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Split normals at 30 degrees (flat facets as in the source)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "isa-kitchen/extractor-hood",
+     "kay-food/extractor-hood"
+    ],
+    "text": "The basalt control knobs are tagged metal-iron-wrought (blacksmith iron); appliance knobs are plastic, and plastic admits basalt",
+    "options": [
+     "Replace metal-iron-wrought with plastic",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Replace metal-iron-wrought with plastic"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-device-appliance-laundry",
@@ -5776,7 +5922,55 @@
  },
  {
   "kind": "obj-device-electronics-computer-tower",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/computer",
+     "lpa-home/computer"
+    ],
+    "text": "Case body flat at 0.50 (household basalt, lpa nickel), no gradient; styloo towers are spread.",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-school/pc-tower-old"
+    ],
+    "text": "Two front LEDs show magenta: an inward copy of each LED cap lies on the outward one.",
+    "options": [
+     "Flip them",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Flip them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "m3-base/retro-computer"
+    ],
+    "text": "Retro computer is a flat desktop case (0.56 x 0.61 x 0.16 m), not a tower.",
+    "options": [
+     "To obj-device-electronics-computer",
+     "Keep in tower"
+    ],
+    "picked": [
+     "auto: To obj-device-electronics-computer"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-tool-mechanism-lever",
@@ -5858,11 +6052,109 @@
  },
  {
   "kind": "obj-equipment-weapon-melee",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/chainsaw-pole",
+     "zombie-weapons/nunchucks"
+    ],
+    "text": "Both zombie-weapons models are flat: chainsaw-pole nickel, basalt and taupe all at 0.50, nunchucks nickel 0.48-0.53 and tan 0.48-0.50, beside kay and m3 metal at 0.3-0.6 spread (pbr/sheet.png). Spread by height, light on top, band means kept.",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid (reverted for zombie-weapons/chainsaw-pole: failed backface/measures lint)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "zombie-weapons/chainsaw-pole"
+    ],
+    "text": "chainsaw-pole shows magenta at the grip end and blade root (backface lint: open 100%). backface-fix flips 6 normals and caps 3 outlines (+9 triangles); faceorient is clean from iso, 135/20, iso-back, front and top.",
+    "options": [
+     "Flip and cap",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Flip and cap (reverted for zombie-weapons/chainsaw-pole: failed backface/measures lint)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/nunchucks"
+    ],
+    "text": "The nunchuck end caps and chain are dark in the source but nickel like the rest of the metal, so caps and wood read low in contrast. No darker steel band exists (kind sets metal-iron-steel, nickel only).",
+    "options": [
+     "Keep nickel",
+     "Retag caps plastic, basalt"
+    ],
+    "picked": [
+     "auto: Keep nickel"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-weapon-ranged-bow",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-skeleton-1/bow",
+     "lpa-weapons/longbow",
+     "lpa-weapons/recurve-bow",
+     "zombie-weapons/bow"
+    ],
+    "text": "Four bows have flat bands (every vertex at 0.50, taupe 0.30, ivory 0.41), while kay-weapons, rgp and the strung kay-skeleton bow spread 0.3-0.7 (pbr/sheet.png). Spread by height, light at top, band means kept; twine stays a stripe tile.",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-minigame/bow"
+    ],
+    "text": "kay-minigame/bow floats 0.057 m above the ground and sits 0.03 m off-centre in x (glb-lint placement warnings); every other bow stands on y=0, centred. Ground and centre it, orientation unchanged.",
+    "options": [
+     "Ground and centre",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Ground and centre"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "zombie-weapons/bow"
+    ],
+    "text": "The zombie bow riser is near-black in the source but nickel in the workfile, so the bow lost its dark grip. No darker band is legal for metal-iron-steel on a weapon (kind sets mat.metal-iron to steel, nickel only).",
+    "options": [
+     "Keep nickel",
+     "Retag riser plastic, basalt"
+    ],
+    "picked": [
+     "auto: Keep nickel"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
@@ -5969,43 +6261,448 @@
  },
  {
   "kind": "obj-equipment-weapon-siege-ammunition-cannonball",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "lpa-weapons/catapult-boulder",
+     "lpa-weapons/trebuchet-rock"
+    ],
+    "text": "Both lpa rocks are flat taupe at 0.50 (grad 0) while the iron balls run 0.1-0.9.",
+    "options": [
+     "Spread by height, keep mid",
+     "Leave flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "ken-pirate/cannon-ball"
+    ],
+    "text": "Ball floats 12 mm above the ground (lowest point y=0.0117).",
+    "options": [
+     "Ground it",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Ground it"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-baked-bread-sandwich",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "food-pack/burger",
+     "food-pack/burger-sesame",
+     "household/hamburger",
+     "ken-food/burger",
+     "ken-food/burger-cheese"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band, while the other burgers shade lighter to the top",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid (reverted for ken-food/burger: failed backface/measures lint)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-food/burger",
+     "quat-food/burger-large",
+     "ken-food/burger",
+     "ken-food/burger-cheese"
+    ],
+    "text": "Lettuce (quat) and cheese and lettuce sheets (ken) are single-sided open sheets; their backs show magenta from the side and below",
+    "options": [
+     "Double-side the open sheets (reversed copy 0.4 mm behind)",
+     "Flip back faces only",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Double-side the open sheets (reversed copy 0.4 mm behind) (reverted for ken-food/burger, quat-food/burger-large: failed backface/measures lint)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-baked-pastry-waffle",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/waffle"
+    ],
+    "text": "ken-food/waffle is the only tan waffle; the four others are camel, so it reads as raw batter beside them.",
+    "options": [
+     "Move tan to camel, keep gradient",
+     "Leave tan"
+    ],
+    "picked": [
+     "auto: Move tan to camel, keep gradient"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "ken-food/waffle",
+     "food-pack-2/waffle"
+    ],
+    "text": "ken-food (0.026 on 0.208, 8:1) and food-pack-2 (0.031 on 0.297, 10:1) are much thinner than isa (4:1) and quat (7:1).",
+    "options": [
+     "Thicken ken x1.5 in height only",
+     "Thicken both (ken x1.5, food-pack-2 x1.45)",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Thicken ken x1.5 in height only"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-fruit-coconut",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "food-pack-2/coconut",
+     "food-pack-2/coconut-drink",
+     "food-pack-2/coconut-green-drink",
+     "food-pack-2/coconut-half-a",
+     "food-pack-2/coconut-half-b",
+     "food-pack-2/coconut-green"
+    ],
+    "text": "Shell gradient runs dark at top, light at bottom (umber/moss band position rises with height), against the rest of the kind; the source texture does the same",
+    "options": [
+     "Spread by height, keep mid",
+     "Mirror the gradient",
+     "Keep as source"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid; coconut-green kept, its crown would merge into the light top"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/coconut-half"
+    ],
+    "text": "Flesh is taupe (source 'White', a light grey) where every other coconut half has ivory flesh",
+    "options": [
+     "Flesh taupe to ivory",
+     "Keep taupe"
+    ],
+    "picked": [
+     "auto: Flesh taupe to ivory"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "natuur/coconut",
+     "fs-terrain/beach-prop-coconut"
+    ],
+    "text": "Husk in taupe where the other brown coconuts are umber; both sources are a grey-tan husk colour",
+    "options": [
+     "Keep taupe (source husk)",
+     "Recolour to umber"
+    ],
+    "picked": [
+     "auto: Keep taupe (source husk)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-fruit-grapes",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-food/grapes"
+    ],
+    "text": "Two inverted triangles at the stem base show magenta through the leaves (backface warning 0.2%)",
+    "options": [
+     "Flip them",
+     "Keep"
+    ],
+    "picked": [
+     "auto: Flip them"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-farm/grapes",
+     "styloo-farm/grapes-sienna"
+    ],
+    "text": "Import fault: source leaves and stem are light green but landed in hunter; source grape berries are purple but landed in moss",
+    "options": [
+     "Leaves to moss, purple berries to slate",
+     "Leaves to moss only",
+     "Keep"
+    ],
+    "picked": [
+     "auto: Leaves to moss, purple berries to slate"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-fruit-melon",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-food/watermelon"
+    ],
+    "text": "Import fault: the source's two greens (green, greenDark stripes) both landed on moss, so the stripes are gone, and the peach stem patch landed on ivory with the rind.",
+    "options": [
+     "Dark stripes to hunter, stem patch to chestnut",
+     "Dark stripes to hunter only",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Dark stripes to hunter, stem patch to chestnut"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-kitchen/watermelon"
+    ],
+    "text": "The source stripes came from a texture; the import left one hunter band whose gradient smears diagonally, so it reads as a dark lumpy ball instead of a watermelon.",
+    "options": [
+     "Light stripes to moss on every third segment, spread by height, keep mid",
+     "Spread by height only, no stripes",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Light stripes to moss on every third segment, spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "food-pack-2/melon",
+     "food-pack-2/watermelon"
+    ],
+    "text": "A five-triangle cap at the stem base sits in slate (blue-grey), a band that has no place on a melon.",
+    "options": [
+     "Slate to hunter",
+     "Slate to moss",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Slate to hunter"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-meat-steak",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "styloo-food/steak",
+     "styloo-food/steak-b"
+    ],
+    "text": "Cooked steaks are the same mid sienna as styloo steak-raw, so cooked and raw read alike; the source paints cooked dark brown-red",
+    "options": [
+     "Sienna dark end 0.70-0.95 by height",
+     "Chestnut",
+     "Umber",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Sienna dark end 0.70-0.95 by height"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/steak"
+    ],
+    "text": "Raw meat at sienna 0.77-0.97 (dark end), far darker than the other raw steaks around 0.3-0.5",
+    "options": [
+     "Spread by height, keep mid (0.40-0.65)",
+     "Keep dark"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid (0.40-0.65)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-food-vegetable-root",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/turnip",
+     "food-pack-2/beetroot",
+     "food-pack-2/radish-white"
+    ],
+    "text": "quat turnip is flat (both bands at 0.50) and the food-pack-2 beetroot and white radish bodies sit in a narrow 0.4-0.58 slice, while ken roots run ~0.15-0.75.",
+    "options": [
+     "Spread by height, keep mid",
+     "Only the flat turnip",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-food/turnip"
+    ],
+    "text": "Import lost the source's purple crown on the turnip bulb (source has a separate purple top over a grey body; workfile is all ivory). No purple band exists.",
+    "options": [
+     "Crown in sienna",
+     "Leave all ivory"
+    ],
+    "picked": [
+     "auto: Crown in sienna"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-nature/turnip"
+    ],
+    "text": "ken turnip sits at the very light top of its bands (0.03-0.21, mid 0.12) where peers sit near mid.",
+    "options": [
+     "Shift to mid 0.45, keep spread",
+     "Leave light"
+    ],
+    "picked": [
+     "auto: Leave light"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-furnishing-furniture-counter",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-school/display-counter"
+    ],
+    "text": "The curved glass of the display case carries four back-to-back duplicate triangles that z-fight, showing two magenta strips in pbr and red in faceorient.",
+    "options": [
+     "Delete the inward copies",
+     "Flip all shells (backface-fix flip)",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Delete the inward copies"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-house/counter",
+     "fs-house/counter-corner",
+     "fs-house/bathroom-cabinet",
+     "fs-house/bar-half",
+     "fs-house/bar-end",
+     "fs-house/bar-corner-outer",
+     "fs-house/bar-corner-inner"
+    ],
+    "text": "fs-house worktops share one source material (Counters, grey 0.48) but the cabinet tops sit flat at the dark end of nickel (v 0.92-0.96, reading as slate) while the bar tops sit flat at mid (v 0.48).",
+    "options": [
+     "Spread by height, keep mid (v 0.62 bottom to 0.34 top) on all seven",
+     "Move bar tops to the dark end",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid (v 0.62 bottom to 0.34 top) on all seven"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-furnishing-furniture-seating-chair-lounge",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/armchair",
+     "lpa-home/armchair-a",
+     "lpa-home/armchair-b"
+    ],
+    "text": "No gradient: household sienna all at 0.57 and chestnut at 0.20, lpa pair every vertex at 0.50, beside kind median grad 0.6 light top to dark base",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-interior/armchair-b"
+    ],
+    "text": "12 zero-area triangles carrying 11 zero-length normals (glb-lint error), black specks in light",
+    "options": [
+     "Drop the zero-area triangles",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Drop the zero-area triangles"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
@@ -6062,15 +6759,174 @@
  },
  {
   "kind": "obj-furnishing-textile-curtains",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "styloo-school/curtain"
+    ],
+    "text": "The curtain lies on its side as in the source: rod vertical at the left, pleats horizontal, hem on the right.",
+    "options": [
+     "Stand up, rod on top toward the wall",
+     "Stand up, rod on top in front",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Stand up, rod on top toward the wall (reverted for styloo-school/curtain: failed backface/measures lint)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-house/curtains",
+     "fs-house/shower-curtain",
+     "lpa-home/curtains",
+     "styloo-school/curtain",
+     "quat-interior/curtains-double"
+    ],
+    "text": "The sienna cloth is one flat colour (grad 0, quat-interior 0.14) on five curtains, while the isa curtains and blinds run 0.4-0.6.",
+    "options": [
+     "Spread sienna by height, keep mid",
+     "Spread whole model incl. rod",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread sienna by height, keep mid (reverted for styloo-school/curtain: failed backface/measures lint)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "styloo-school/curtain"
+    ],
+    "text": "Thin inverted slivers and light streaks run along the pleats (magenta in pbr); flip and backface-fix make it worse, the thickened sheet crosses itself.",
+    "options": [
+     "Leave, needs a remodel of the cloth",
+     "Flip the slivers",
+     "Reject the model"
+    ],
+    "picked": [
+     "auto: Leave, needs a remodel of the cloth (reverted for styloo-school/curtain: failed backface/measures lint)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-kitchenware-cookware-utensil-spatula",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/spatula",
+     "cooking-assets/turner",
+     "cooking-assets/spatula-rubber",
+     "cooking-assets/wooden-paddle"
+    ],
+    "text": "Four cooking-assets spatulas have no gradient: every vertex sits at one value (nickel 0.51, camel 0.42, ivory/amber/sienna 0.50, chestnut 0.95), so they read flat beside the m3 and styloo ones (pbr/sheet.png). Spread by height, light at top, band means kept; dark chestnut handles stay near 0.95.",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "styloo-furniture/turner",
+     "styloo-furniture/wooden-turner",
+     "styloo-furniture/wooden-spatula"
+    ],
+    "text": "Every spatula stands blade up with its flat side to the front (+z), except styloo-furniture/turner (blade down, flat side to x), wooden-turner (flat side to x) and wooden-spatula (turned 45 deg, seen edge-on in iso). Turn them to stand blade up, flat side front.",
+    "options": [
+     "Stand blade up, face front",
+     "Only flip turner blade up",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Stand blade up, face front"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "cooking-assets/wooden-paddle"
+    ],
+    "text": "The hanging hole of wooden-paddle shows magenta: 14 face-plate triangles across the hole are wound inward (same in the source). Flip them so the hole reads closed and solid; the turner and rubber spatula holes are clean or got worse under backface-fix, so they stay.",
+    "options": [
+     "Flip them",
+     "Remove them (open hole)",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Flip them"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-kitchenware-tableware-serving",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "isa-bakery/pastry-stand-covered",
+     "styloo-school/cake-stand"
+    ],
+    "text": "Glass made opaque at import: the clear cake domes came in as solid hunter green (isa, source light-blue glass) and solid ivory (styloo, source clear glass)",
+    "options": [
+     "Move domes to the glass band and lay out glass streaks, tag glass-clear",
+     "Glass band only, keep tag glass",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Move domes to the glass band and lay out glass streaks, tag glass-clear"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "cooking-assets/cloche",
+     "cooking-assets/platter-oval",
+     "quat-sushi/wooden-board"
+    ],
+    "text": "No gradient: every vertex at one point of its band (nickel 0.36, ivory 0.55, camel 0.50)",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "m3-base/tea-tray-02"
+    ],
+    "text": "Open cracks at the tray corners show back faces as magenta slivers (G28 0.2%); source clean in look but the side panels do not meet",
+    "options": [
+     "Weld the corner cracks shut (backface-fix weld,flip,cap)",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Weld the corner cracks shut (backface-fix weld,flip,cap)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-leisure-art-sculpture",
@@ -6162,15 +7018,160 @@
  },
  {
   "kind": "str-barrier-hedge",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-platformer/hedge",
+     "ken-platformer/hedge-corner"
+    ],
+    "text": "Ken-platformer hedges nearly flat: taupe planter at 0.50, moss 0.35-0.64 with almost no height gradient; ken-town and isa hedges run light top to dark base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "styloo-farm/hedge"
+    ],
+    "text": "Styloo hedge is a cluster of 187 loose leaf cards (3748 tris, tpu 10927 over max 5000) beside solid rounded blobs; source style, no import fault.",
+    "options": [
+     "Reject for style",
+     "Keep as is"
+    ],
+    "picked": null
+   }
+  ]
  },
  {
   "kind": "str-building-tower",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-pirate/tower-base-door"
+    ],
+    "text": "Door base piece is taupe while its sibling tower-base and the assembled tower-complete-small have a taupe-dark base, so the stacked set does not match.",
+    "options": [
+     "Base-door to taupe-dark",
+     "Keep taupe"
+    ],
+    "picked": [
+     "auto: Base-door to taupe-dark"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "taalei-kit/lighthouse"
+    ],
+    "text": "Ivory and sienna stripes flat at 0.45; slate runs dark at the top (corr +0.96) against the kind light-top gradient.",
+    "options": [
+     "Spread by height, keep mid",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "emace-village/watchtower"
+    ],
+    "text": "Magenta specks under the roof: backs of single-sided roof planks seen through gaps; same in the source. A shell flip does not clear them.",
+    "options": [
+     "Flip them",
+     "Double-side roof planks",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Leave as is"
+    ]
+   }
+  ]
  },
  {
   "kind": "str-building-work-industrial-mill",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-medieval/mill"
+    ],
+    "text": "Sail cloths show magenta strips: each sail is one flat sheet with mixed winding plus a stray back shell left from an earlier repair (faceorient red from front and back).",
+    "options": [
+     "Rebuild sails as front sheet + offset back copy",
+     "Flip only",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Rebuild sails as front sheet + offset back copy"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "wizp-asia/waterwheel",
+     "wizp-asia/waterwheel-anim"
+    ],
+    "text": "Axle end is open (magenta disc) and its underside faces point inward; the source is open there too.",
+    "options": [
+     "Cap the end and turn the inward faces",
+     "Cap only",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Cap the end and turn the inward faces"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-town/waterwheel-flume-brace-double"
+    ],
+    "text": "Double brace is camel while the single brace and the pillar of the same flume set are chestnut; the source gives both braces one colour, and wood-beam names braces.",
+    "options": [
+     "Double brace to chestnut, tag wood-beam",
+     "Single brace to camel, tag wood-worked",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Double brace to chestnut, tag wood-beam"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-medieval/waterwheel"
+    ],
+    "text": "Wheel wood is pale tan, much lighter than every other wheel in the kind (camel/chestnut).",
+    "options": [
+     "Tan to camel, tag wood-worked",
+     "Leave tan"
+    ],
+    "picked": [
+     "auto: Tan to camel, tag wood-worked"
+    ]
+   }
+  ]
  },
  {
   "kind": "str-building-work-industrial-mine",
@@ -6228,6 +7229,55 @@
  },
  {
   "kind": "str-fixture-marker",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "taalei-kit/totem-owl",
+     "taalei-kit/totem-raven",
+     "taalei-kit/totem-thunderbird"
+    ],
+    "text": "Painted totems: ivory, amber, sienna and camel paint every vertex at 0.50, while camel wood and the wood variants run full gradients",
+    "options": [
+     "Spread by height, keep mid (0.30-0.70)",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid (0.30-0.70)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-racing/banner-tower-red"
+    ],
+    "text": "Banner cloth flat at sienna 0.45, no gradient",
+    "options": [
+     "Spread by height, keep mid (0.25-0.65)",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid (0.25-0.65)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-racing/banner-tower-red"
+    ],
+    "text": "Magenta backface sliver on one foot and a stray triangle in the lower frame",
+    "options": [
+     "Flip them with backface-fix",
+     "Leave for the backface flow"
+    ],
+    "picked": [
+     "auto: Leave for the backface flow"
+    ]
+   }
+  ]
  }
 ]
