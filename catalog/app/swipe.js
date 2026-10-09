@@ -49,6 +49,12 @@ const SOURCES = {
     onlyLint: true,
     labels: { links: 'Retag', rechts: 'Add tag', omhoog: 'Flag rescale', omlaag: 'TBD' },
   },
+  sheepdog: {
+    file: '../build/catalog.json',
+    title: 'Swipe the sheepdog doubts',
+    key: 'sheepdog',
+    labels: { links: 'Revert', rechts: 'OK', omhoog: 'Leave open', omlaag: 'Leave open' },
+  },
 };
 
 const PARAMS = new URLSearchParams(location.search);
