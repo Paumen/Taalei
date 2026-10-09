@@ -13843,7 +13843,7 @@
    "id": "glass",
    "name": "Glass",
    "type": "material",
-   "description": "Glass: bottles, potions, windows, lantern and lamp panes, lenses.",
+   "description": "Glass vessels: bottles, jars, vials, potions, drinking glasses. Other glass carries a subtype.",
    "models": [
     "styloo-farm/windmill-large",
     "styloo-farm/windmill-large-anim",
@@ -14636,6 +14636,38 @@
     "m3-base/reed-diffuser-01",
     "emace-80s/telescope-stand"
    ]
+  },
+  {
+   "id": "glass-clear",
+   "name": "Clear glass",
+   "type": "material",
+   "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
+   "parent": "glass",
+   "models": []
+  },
+  {
+   "id": "glass-tinted",
+   "name": "Tinted glass",
+   "type": "material",
+   "description": "Dark tinted glass: sunglasses, ski goggles, tinted visors.",
+   "parent": "glass",
+   "models": []
+  },
+  {
+   "id": "glass-screen",
+   "name": "Screen",
+   "type": "material",
+   "description": "Display screens: TV, monitor, phone, laptop, tablet, terminal.",
+   "parent": "glass",
+   "models": []
+  },
+  {
+   "id": "glass-mirror",
+   "name": "Mirror",
+   "type": "material",
+   "description": "Mirror glass.",
+   "parent": "glass",
+   "models": []
   },
   {
    "id": "liquid",
