@@ -6662,7 +6662,7 @@
     "change": "colour: stone head taupe to taupe-dark; brownish, source grey",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "styloo-farm/pickaxe",
@@ -6670,7 +6670,7 @@
     "change": "colour: grip taupe lightened into B40; source grip red",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "styloo-farm/pickaxe-curved",
@@ -6678,7 +6678,7 @@
     "change": "colour: grip taupe lightened into B40; source grip red",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    }
   ]
  },
@@ -7404,11 +7404,19 @@
   "checks": [
    {
     "id": "quat-food/sashimi-salmon",
+    "category": "kind",
+    "change": "kind: drop comp tag; standalone sashimi like styloo's",
+    "doubt": true,
+    "applied": false,
+    "verdict": null
+   },
+   {
+    "id": "quat-food/sashimi-salmon",
     "category": "colour",
     "change": "colour: lifted to kind mid; lighter than dim source",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "quat-food/sushi-nigiri-1",
@@ -7416,7 +7424,7 @@
     "change": "colour: lifted to kind mid; lighter than dim source",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "quat-food/sushi-roll-1",
@@ -7424,7 +7432,7 @@
     "change": "colour: lifted to kind mid; nori greyer than source",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "quat-food/sushi-roll-2",
@@ -7432,15 +7440,7 @@
     "change": "colour: lifted to kind mid; nori greyer than source",
     "doubt": true,
     "applied": true,
-    "verdict": null
-   },
-   {
-    "id": "quat-food/sashimi-salmon",
-    "category": "kind",
-    "change": "kind: drop comp tag; standalone sashimi like styloo's",
-    "doubt": true,
-    "applied": false,
-    "verdict": null
+    "verdict": "nok"
    }
   ]
  },
@@ -8284,28 +8284,28 @@
   ],
   "checks": [
    {
-    "id": "ken-food/knife-cooking",
-    "category": "colour",
-    "change": "colour: spread by height; loses two-tone face shading",
-    "doubt": true,
-    "applied": true,
-    "verdict": null
-   },
-   {
-    "id": "ken-food/knife-chopping",
-    "category": "colour",
-    "change": "colour: spread by height; loses two-tone face shading",
-    "doubt": true,
-    "applied": true,
-    "verdict": null
-   },
-   {
     "id": "ken-food/knife-chopping",
     "category": "kind",
     "change": "kind: to knife-cleaver; square blade reads as cleaver",
     "doubt": false,
     "applied": true,
     "verdict": null
+   },
+   {
+    "id": "ken-food/knife-cooking",
+    "category": "colour",
+    "change": "colour: spread by height; loses two-tone face shading",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
+   },
+   {
+    "id": "ken-food/knife-chopping",
+    "category": "colour",
+    "change": "colour: spread by height; loses two-tone face shading",
+    "doubt": true,
+    "applied": true,
+    "verdict": "nok"
    }
   ]
  },
@@ -8989,7 +8989,7 @@
     "change": "colour: orange stripe restored as terracotta; louder on brick",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "ken-industrial/smokestack-large",
@@ -8997,7 +8997,7 @@
     "change": "colour: orange stripe restored as terracotta; louder on brick",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    },
    {
     "id": "ken-industrial/smokestack-medium",
@@ -9005,7 +9005,7 @@
     "change": "colour: stripes terracotta, caps stay dark; louder on brick",
     "doubt": true,
     "applied": true,
-    "verdict": null
+    "verdict": "nok"
    }
   ]
  },
