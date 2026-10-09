@@ -70,18 +70,18 @@
    {
     "id": "emace-village/ground-cover-a",
     "category": "kind",
-    "change": "moved kind from env-flora-plant to env-terrain-ground: a flat moss sheet 6 cm thick, the same thing as emace-village/moss-patches which sits there",
+    "change": "kind to env-terrain-ground, a flat moss sheet",
     "doubt": true,
-    "why": "a kind change; ground cover is a plant by name, but the mesh reads as a ground patch beside corn, fiddleheads and lamp plants",
+    "why": "kind change",
     "lint": [],
     "verdict": null
    },
    {
     "id": "emace-village/ground-cover-b",
     "category": "kind",
-    "change": "moved kind from env-flora-plant to env-terrain-ground, with its variant ground-cover-a",
+    "change": "kind to env-terrain-ground, with ground-cover-a",
     "doubt": true,
-    "why": "a kind change; same reading as ground-cover-a",
+    "why": "kind change",
     "lint": [],
     "verdict": null
    }
@@ -131,18 +131,18 @@
    {
     "id": "wizp-mediev/barrel-tapped",
     "category": "scale",
-    "change": "scaled by 0.58: 1.108 to 0.643 high, barrel body 0.49 wide, beside kay-dun-2/keg (0.615) and the kit's own barrel (0.533 wide)",
+    "change": "scaled 0.58 to its keg peers' height",
     "doubt": true,
-    "why": "a size change on one model of a kit; the source draws the tapped cask at 1.6x its plain barrel, which may be the artist's intent",
+    "why": "one-model size change; source is 1.6x",
     "lint": [],
     "verdict": null
    },
    {
     "id": "props/barrel-a",
     "category": "kind",
-    "change": "kind moved from obj-container-barrel-keg to obj-container-barrel: an upright hooped barrel with an open rim, no tap, bung or stand",
+    "change": "kind to obj-container-barrel: no tap, bung or stand",
     "doubt": true,
-    "why": "a kind change",
+    "why": "kind change",
     "lint": [],
     "verdict": null
    }
@@ -422,27 +422,27 @@
    {
     "id": "kay-weapons/arrow-b",
     "category": "colour",
-    "change": "steel shaft between the two wraps moved from nickel to chestnut; the head stays nickel",
+    "change": "shaft nickel to chestnut, head stays nickel",
     "doubt": true,
-    "why": "the source may have meant a metal shaft; every other medieval arrow in the kind has a wooden one",
+    "why": "source may mean a metal shaft",
     "lint": [],
     "verdict": null
    },
    {
     "id": "kay-weapons/arrow-b",
     "category": "tag",
-    "change": "add wood-beam for the chestnut shaft",
+    "change": "add wood-beam for the shaft",
     "doubt": true,
-    "why": "follows the doubted shaft recolour",
+    "why": "follows the shaft recolour",
     "lint": [],
     "verdict": null
    },
    {
     "id": "m3-base/bronze-elliptical-leaf",
     "category": "placement",
-    "change": "stood upright with the point up and the tang hole at the bottom, like the other m3 arrowheads; was lying flat on its side",
+    "change": "stood upright, point up, like the m3 arrowheads",
     "doubt": true,
-    "why": "new lint findings",
+    "why": "new lint finding",
     "lint": [
      "detail: 64617 triangles/m²: very fine for its size"
     ],
@@ -451,9 +451,9 @@
    {
     "id": "m3-base/bronze-elliptical-leaf",
     "category": "shape",
-    "change": "blade thickened along its depth from 0.0007 to 0.007, the thickness of the other m3 arrowheads; lens profile kept",
+    "change": "blade thickened 0.7 to 7 mm like the m3 arrowheads",
     "doubt": true,
-    "why": "a tenfold thickening of one axis, well beyond thickening a little",
+    "why": "tenfold on one axis",
     "lint": [
      "detail: 64617 triangles/m²: very fine for its size"
     ],
@@ -558,9 +558,9 @@
    {
     "id": "quat-food/turnip",
     "category": "shape",
-    "change": "bulb grown x1.5 about its base and leaves lifted onto the new cap; bulb now matches the peers' bulbs instead of a knob under long leaves",
+    "change": "bulb grown 1.5x, leaves lifted onto it",
     "doubt": true,
-    "why": "shape edit beyond thickening, longest grows 0.41 to 0.48, and the source artist may have meant the tiny bulb",
+    "why": "source may mean the tiny bulb",
     "lint": [],
     "verdict": null
    },
@@ -676,18 +676,18 @@
    {
     "id": "m3-base/teapot",
     "category": "detail",
-    "change": "removed 1809 hidden inner-wall triangles, decimated 4186 to 1195 tris with meshoptimizer keeping UVs and normals, dropped two stray slivers; tpu from 12204 to about 3500",
+    "change": "decimated 4186 to 1195 tris, inner walls culled",
     "doubt": true,
-    "why": "a mesh rewrite beyond evening a surface; silhouette and shading read the same beside peers but the smooth look is now coarser up close",
+    "why": "mesh rewrite, coarser up close",
     "lint": [],
     "verdict": null
    },
    {
     "id": "lpa-home/kettle",
     "category": "tag",
-    "change": "material metal replaced by metal-iron-steel for the nickel lid and handle",
+    "change": "metal to metal-iron-steel for lid and handle",
     "doubt": true,
-    "why": "every lpa-home appliance carries bare metal, so the kit may mean it; kind peers tag nickel as metal-iron-steel",
+    "why": "every lpa-home appliance carries bare metal",
     "lint": [],
     "verdict": null
    }
@@ -768,9 +768,9 @@
    {
     "id": "sq-cards/play-table",
     "category": "colour",
-    "change": "playing surface moved slate -> hunter, the felt green every peer uses",
+    "change": "surface slate to hunter, the peers' felt",
     "doubt": true,
-    "why": "the source artist drew a navy playmat on purpose; green makes it read as a gamble table like its peers",
+    "why": "source drew navy on purpose",
     "lint": [],
     "verdict": null
    },
@@ -795,9 +795,9 @@
    {
     "id": "sq-cards/playmat",
     "category": "colour",
-    "change": "mat moved slate -> hunter to match its play-table variant and the kind's felt",
+    "change": "mat slate to hunter like its play-table",
     "doubt": true,
-    "why": "the source artist drew a navy playmat on purpose",
+    "why": "source drew navy on purpose",
     "lint": [],
     "verdict": null
    },
