@@ -648,7 +648,7 @@
    ],
    "kitCheck": {
     "factor": 0.97,
-    "kinds": 42
+    "kinds": 43
    }
   },
   {
@@ -1041,7 +1041,7 @@
    ],
    "kitCheck": {
     "factor": 1.14,
-    "kinds": 86
+    "kinds": 87
    }
   },
   {
@@ -1435,7 +1435,7 @@
    },
    "kitCheck": {
     "factor": 0.97,
-    "kinds": 36
+    "kinds": 37
    }
   },
   {
@@ -1528,7 +1528,7 @@
    ],
    "kitCheck": {
     "factor": 1.2,
-    "kinds": 55
+    "kinds": 56
    }
   },
   {
@@ -1950,7 +1950,7 @@
    ],
    "kitCheck": {
     "factor": 0.97,
-    "kinds": 43
+    "kinds": 44
    }
   },
   {
@@ -2307,8 +2307,8 @@
     "none": 14
    },
    "kitCheck": {
-    "factor": 0.99,
-    "kinds": 46
+    "factor": 0.98,
+    "kinds": 47
    }
   },
   {
@@ -2404,8 +2404,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.84,
-    "kinds": 15
+    "factor": 0.89,
+    "kinds": 16
    }
   },
   {
@@ -2559,7 +2559,7 @@
    },
    "kitCheck": {
     "factor": 1.07,
-    "kinds": 27
+    "kinds": 28
    }
   },
   {
@@ -2787,7 +2787,7 @@
    },
    "kitCheck": {
     "factor": 1,
-    "kinds": 26
+    "kinds": 27
    }
   },
   {
@@ -3694,8 +3694,8 @@
     "none": 7
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 27
+    "factor": 0.99,
+    "kinds": 28
    }
   },
   {
@@ -4310,8 +4310,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 40
+    "factor": 0.97,
+    "kinds": 41
    }
   },
   {
@@ -23609,7 +23609,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 506,
+   "count": 507,
    "parent": "glass"
   },
   {
@@ -26334,6 +26334,13 @@
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
    "count": 114
+  },
+  {
+   "id": "str-part-floor-unit-wood",
+   "name": "Wood",
+   "type": "kind",
+   "description": "Floor unit whose walking surface reads as wood: planks, boards, parquet.",
+   "count": 42
   },
   {
    "id": "str-part-frame",
@@ -30630,6 +30637,12 @@
    "longest.max": 1.35,
    "tpu.max": 5000
   },
+  "str-part-floor-unit-wood": {
+   "high.max": 8,
+   "longest.min": 0.7,
+   "longest.max": 1.35,
+   "tpu.max": 5000
+  },
   "str-part-frame": {
    "high.max": 8,
    "longest.min": 0.75,
@@ -31233,6 +31246,18 @@
    "tpu.max": 5000
   },
   "str-part-floor-unit scale-big": {
+   "high.max": 8,
+   "longest.min": 1.4,
+   "longest.max": 2.7,
+   "tpu.max": 5000
+  },
+  "str-part-floor-unit-wood scale-small": {
+   "high.max": 8,
+   "longest.min": 0.35,
+   "longest.max": 0.75,
+   "tpu.max": 5000
+  },
+  "str-part-floor-unit-wood scale-big": {
    "high.max": 8,
    "longest.min": 1.4,
    "longest.max": 2.7,
@@ -32421,7 +32446,7 @@
    "kit": "3dm-city-2",
    "collection": "3dm",
    "name": "road-closed-barrier",
-   "hash": "be000071b3",
+   "hash": "56be3a70eb",
    "kind": "str-barrier-traffic",
    "size": "m",
    "wdh": [
@@ -32429,30 +32454,30 @@
     0.273,
     0.483
    ],
-   "tris": 1648,
-   "tpu": 4805,
+   "tris": 1464,
+   "tpu": 4268,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 73788,
-   "vtx": 1948,
+   "bytes": 89580,
+   "vtx": 2476,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0475,
-   "thick": 0.0743,
-   "avgTri": 0.00048,
-   "anglePct": 62,
-   "vpt": 1.18,
-   "grad": 0.6,
+   "thick": 0.0739,
+   "avgTri": 0.00055,
+   "anglePct": 79,
+   "vpt": 1.69,
+   "grad": 0.51,
    "spread": {
     "5,2": [
      0.148,
      0.75
     ],
     "5,0": [
-     0.148,
-     0.75
+     0.109,
+     0.492
     ]
    },
    "colors": [
@@ -32463,7 +32488,7 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.42
   },
   {
    "kit": "3dm-city-2",
@@ -35809,7 +35834,7 @@
    "kit": "3dm-scifi",
    "collection": "3dm",
    "name": "chamber",
-   "hash": "e2e1fb8855",
+   "hash": "d84bb5c3d9",
    "kind": "obj-device-science",
    "size": "m",
    "wdh": [
@@ -35831,11 +35856,11 @@
    "avgTri": 0.00174,
    "anglePct": 9,
    "vpt": 1.22,
-   "grad": 0.6,
+   "grad": 0.57,
    "spread": {
     "4,2": [
-     0.148,
-     0.75
+     0.445,
+     0.445
     ],
     "15,3": [
      0.148,
@@ -65815,7 +65840,7 @@
    "collection": "fs-buildings",
    "name": "floor",
    "hash": "a1b5df08c7",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "s",
    "wdh": [
     0.45,
@@ -65857,7 +65882,7 @@
     "stone-masonry",
     "wood-planks"
    ],
-   "thickRel": 1.9
+   "thickRel": 1.92
   },
   {
    "kit": "fs-house",
@@ -86357,7 +86382,7 @@
    "collection": "fs-modular",
    "name": "wood-floor-corner",
    "hash": "4b06f08a42",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -86394,7 +86419,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/wood-floor-corner",
-   "thickRel": 1.23,
+   "thickRel": 1.24,
    "mark": [
     "grounded"
    ]
@@ -86404,7 +86429,7 @@
    "collection": "fs-modular",
    "name": "wood-floor-straight-a",
    "hash": "580f1ecfbb",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -86441,7 +86466,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/wood-floor-corner",
-   "thickRel": 1.23,
+   "thickRel": 1.24,
    "mark": [
     "grounded"
    ]
@@ -86451,7 +86476,7 @@
    "collection": "fs-modular",
    "name": "wood-floor-straight-b",
    "hash": "d1aee523b9",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -86488,7 +86513,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/wood-floor-corner",
-   "thickRel": 1.23,
+   "thickRel": 1.24,
    "mark": [
     "grounded"
    ]
@@ -86498,7 +86523,7 @@
    "collection": "fs-modular",
    "name": "wood-floor-straight-c",
    "hash": "bac678d77d",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -86535,7 +86560,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/wood-floor-corner",
-   "thickRel": 1.23,
+   "thickRel": 1.24,
    "mark": [
     "grounded"
    ]
@@ -86545,7 +86570,7 @@
    "collection": "fs-modular",
    "name": "wood-floor-straight-d",
    "hash": "9cc7bb5ab0",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -86582,7 +86607,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/wood-floor-corner",
-   "thickRel": 1.23,
+   "thickRel": 1.24,
    "mark": [
     "grounded"
    ]
@@ -95320,7 +95345,7 @@
    "collection": "isa-tt",
    "name": "floor-connection",
    "hash": "c3125b96be",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.7,
@@ -95362,7 +95387,7 @@
     "scale-small",
     "wood-beam"
    ],
-   "thickRel": 2.1
+   "thickRel": 2.12
   },
   {
    "kit": "isa-bakery",
@@ -95412,7 +95437,7 @@
    "collection": "isa-tt",
    "name": "floor-wood",
    "hash": "e74d64289d",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.7,
@@ -95449,7 +95474,7 @@
     "scale-small",
     "wood-beam"
    ],
-   "thickRel": 2.14,
+   "thickRel": 2.16,
    "lint": [
     {
      "level": "error",
@@ -124633,7 +124658,7 @@
    "kit": "kay-dun-1",
    "name": "floor-decoration-wood-left",
    "hash": "51010343c7",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.76,
@@ -124669,13 +124694,13 @@
     "wood-worked"
    ],
    "variant": "kay-dun-1/floor-decoration-wood",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-wood-right",
    "hash": "201510b767",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.76,
@@ -124711,13 +124736,13 @@
     "wood-worked"
    ],
    "variant": "kay-dun-1/floor-decoration-wood",
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-wood",
    "hash": "ba4ba08db8",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.8,
@@ -124753,7 +124778,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-1/floor-decoration-wood",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-1",
@@ -125549,7 +125574,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-large-green",
-   "hash": "431ee40851",
+   "hash": "94475853d4",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
@@ -125603,7 +125628,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-large-red",
-   "hash": "da72246ad2",
+   "hash": "fc660c9ced",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
@@ -132037,7 +132062,7 @@
    "collection": "kay-interior",
    "name": "floor-wood-large-dark",
    "hash": "220c99b49c",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.2,
@@ -132073,14 +132098,14 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/floor-wood-large",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-wood-large",
    "hash": "ba387463b8",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.2,
@@ -132116,14 +132141,14 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/floor-wood-large",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-wood-small-dark",
    "hash": "ab689497bf",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.6,
@@ -132160,14 +132185,14 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/floor-wood-large",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-wood-small",
    "hash": "9878934f1a",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.6,
@@ -132204,7 +132229,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/floor-wood-large",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
@@ -207389,7 +207414,7 @@
    "kit": "ken-furniture",
    "name": "floor",
    "hash": "f62184ef51",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.782,
@@ -216249,7 +216274,7 @@
    "kit": "ken-holiday",
    "name": "floor-wood-snow",
    "hash": "7f08590770",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -216293,13 +216318,13 @@
     "wood-planks"
    ],
    "variant": "ken-holiday/floor-wood",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "ken-holiday",
    "name": "floor-wood",
    "hash": "5a61697b1c",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.5,
@@ -216337,7 +216362,7 @@
     "wood-planks"
    ],
    "variant": "ken-holiday/floor-wood",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "ken-holiday",
@@ -232635,7 +232660,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "crate",
-   "hash": "bee4879fa3",
+   "hash": "981564a995",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
@@ -232646,29 +232671,34 @@
    "tris": 204,
    "tpu": 595,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 12344,
-   "vtx": 304,
+   "bytes": 12860,
+   "vtx": 320,
    "grounded": true,
    "centered": true,
    "minEdge": 0.032,
    "thick": 0.1453,
    "avgTri": 0.00475,
    "anglePct": 100,
-   "vpt": 1.49,
-   "grad": 0.92,
+   "vpt": 1.57,
+   "grad": 0.88,
    "spread": {
-    "1,0": [
+    "13,3": [
      0.016,
      0.969
     ],
     "15,3": [
      0.016,
+     0.969
+    ],
+    "1,0": [
+     0.305,
      0.875
     ]
    },
    "colors": [
+    "#5b5550",
     "#82868e",
     "#b9845b"
    ],
@@ -240763,7 +240793,7 @@
    "collection": "ken-mini",
    "name": "floor-wood",
    "hash": "ed7a214b83",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.95,
@@ -240798,7 +240828,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.58
   },
   {
    "kit": "ken-skate",
@@ -253740,7 +253770,7 @@
    "kit": "ken-survival",
    "name": "floor-hole",
    "hash": "9f21a6f39b",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.75,
@@ -253777,7 +253807,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 1.01,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
@@ -253834,7 +253864,7 @@
    "kit": "ken-survival",
    "name": "floor",
    "hash": "891ea6ec7b",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.75,
@@ -253872,7 +253902,7 @@
     "wood-planks"
    ],
    "variant": "ken-survival/floor",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "ken-survival",
@@ -257644,7 +257674,7 @@
    "collection": "ken-village",
    "name": "planks-half",
    "hash": "6b5cf5f7bf",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.45,
@@ -257680,7 +257710,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/planks",
-   "thickRel": 1.53,
+   "thickRel": 1.55,
    "mark": [
     "centered"
    ]
@@ -257690,7 +257720,7 @@
    "collection": "ken-village",
    "name": "planks-opening",
    "hash": "93aef6f832",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.9,
@@ -257727,14 +257757,14 @@
     "wood-planks"
    ],
    "variant": "ken-town/planks",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "planks",
    "hash": "65a6874cd7",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.9,
@@ -257771,7 +257801,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/planks",
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "ken-town",
@@ -284890,7 +284920,7 @@
    "kit": "lpa-west",
    "name": "floor-a",
    "hash": "4594c0a541",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.232,
@@ -284928,7 +284958,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/floor-a",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-west",
@@ -285110,7 +285140,7 @@
    "kit": "lpa-west",
    "name": "foundation-a",
    "hash": "22831ee2f0",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.32,
@@ -285153,13 +285183,13 @@
     "wood-planks"
    ],
    "variant": "lpa-west/foundation-a",
-   "thickRel": 1.23
+   "thickRel": 1.25
   },
   {
    "kit": "lpa-west",
    "name": "foundation-b",
    "hash": "e784e11893",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.32,
@@ -285202,13 +285232,13 @@
     "wood-planks"
    ],
    "variant": "lpa-west/foundation-a",
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "lpa-west",
    "name": "foundation-c",
    "hash": "2442cb04bc",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.32,
@@ -285251,13 +285281,13 @@
     "wood-planks"
    ],
    "variant": "lpa-west/foundation-a",
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "lpa-west",
    "name": "foundation-d",
    "hash": "bc7358dc75",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.32,
@@ -285300,13 +285330,13 @@
     "wood-planks"
    ],
    "variant": "lpa-west/foundation-a",
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "lpa-west",
    "name": "foundation-e",
    "hash": "9982c331d4",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.32,
@@ -285349,13 +285379,13 @@
     "wood-planks"
    ],
    "variant": "lpa-west/foundation-a",
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "lpa-west",
    "name": "foundation-f",
    "hash": "944c77a2db",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1.325,
@@ -285398,7 +285428,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/foundation-a",
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "lpa-west",
@@ -287600,7 +287630,7 @@
    "kit": "lpa-west",
    "name": "small-foundation-a",
    "hash": "e79750095d",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.46,
@@ -287642,13 +287672,13 @@
     "wood-planks"
    ],
    "variant": "lpa-west/small-foundation-a",
-   "thickRel": 1.73
+   "thickRel": 1.75
   },
   {
    "kit": "lpa-west",
    "name": "small-foundation-b",
    "hash": "79b4308900",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "l",
    "wdh": [
     1.622,
@@ -287690,7 +287720,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/small-foundation-a",
-   "thickRel": 0.6,
+   "thickRel": 0.61,
    "lint": [
     {
      "level": "warning",
@@ -327860,7 +327890,7 @@
   {
    "kit": "makeup",
    "name": "hand-mirror",
-   "hash": "7f9efb248b",
+   "hash": "1bdf9edf1f",
    "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
@@ -327883,15 +327913,15 @@
    "avgTri": 0.00031,
    "anglePct": 51,
    "vpt": 0.9,
-   "grad": 0.02,
+   "grad": 0.38,
    "spread": {
     "6,0": [
-     0.484,
+     0.094,
      0.484
     ],
     "15,3": [
-     0.484,
-     0.609
+     0.117,
+     0.328
     ]
    },
    "colors": [
@@ -336046,7 +336076,7 @@
   {
    "kit": "pm-store",
    "name": "bell",
-   "hash": "4213c952ed",
+   "hash": "3bfd84623d",
    "kind": "obj-leisure-art-instrument-bell",
    "size": "s",
    "wdh": [
@@ -336069,11 +336099,11 @@
    "avgTri": 0.00199,
    "anglePct": 31,
    "vpt": 1.97,
-   "grad": 0.71,
+   "grad": 0.56,
    "spread": {
     "6,0": [
-     0.016,
-     0.773
+     0.148,
+     0.75
     ],
     "13,3": [
      0.5,
@@ -336148,7 +336178,7 @@
   {
    "kit": "pm-store",
    "name": "candy-cane",
-   "hash": "c8b32892fa",
+   "hash": "cbcd34ac4f",
    "kind": "obj-food-sweet-cane",
    "size": "s",
    "wdh": [
@@ -336156,29 +336186,29 @@
     0.04,
     0.2
    ],
-   "tris": 128,
-   "tpu": 373,
+   "tris": 556,
+   "tpu": 1621,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7796,
-   "vtx": 174,
+   "bytes": 20608,
+   "vtx": 494,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "thick": 0.1461,
-   "avgTri": 0.00024,
+   "minEdge": 0,
+   "thick": 0.1458,
+   "avgTri": 0.00005,
    "anglePct": 0,
-   "vpt": 1.36,
-   "grad": 0.83,
+   "vpt": 0.89,
+   "grad": 0.39,
    "spread": {
     "5,2": [
-     0.016,
-     0.977
+     0.117,
+     0.516
     ],
     "8,0": [
-     0.016,
-     0.578
+     0.117,
+     0.508
     ]
    },
    "colors": [
@@ -336430,7 +336460,7 @@
    "kit": "pm-store",
    "name": "floor-planks",
    "hash": "ce68740f90",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "l",
    "wdh": [
     2,
@@ -336467,7 +336497,7 @@
     "scale-big",
     "wood-planks"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.58
   },
   {
    "kit": "pm-store",
@@ -337294,7 +337324,7 @@
   {
    "kit": "pm-store",
    "name": "snow-globe",
-   "hash": "2fc65d31e7",
+   "hash": "efc8245b95",
    "kind": "obj-furnishing-decor",
    "size": "s",
    "wdh": [
@@ -337326,17 +337356,18 @@
      0.5,
      0.5
     ],
-    "5,2": [
-     0.484,
-     0.578
+    "3,2": [
+     0.336,
+     0.406
     ]
    },
    "colors": [
     "#23562c",
     "#893b29",
-    "#dad1b9"
+    "#b0d1df"
    ],
    "tags": [
+    "glass-clear",
     "liquid",
     "plastic",
     "pm"
@@ -365758,7 +365789,7 @@
   {
    "kit": "quat-props",
    "name": "bottle-1",
-   "hash": "93b191b13a",
+   "hash": "e1e8f4d630",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
@@ -365780,15 +365811,15 @@
    "avgTri": 0.00021,
    "anglePct": 4,
    "vpt": 1.03,
-   "grad": 0.18,
+   "grad": 0.17,
    "spread": {
     "8,0": [
      0.031,
-     0.211
+     0.203
     ],
     "14,3": [
      0.031,
-     0.203
+     0.211
     ]
    },
    "colors": [
@@ -382188,7 +382219,7 @@
    "kit": "quat-sushi",
    "name": "floor-wood-broken",
    "hash": "411695cd10",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.8,
@@ -382231,13 +382262,13 @@
     "wood-worked"
    ],
    "variant": "quat-sushi/floor-wood",
-   "thickRel": 1.5
+   "thickRel": 1.51
   },
   {
    "kit": "quat-sushi",
    "name": "floor-wood",
    "hash": "68b453ada9",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.8,
@@ -382279,7 +382310,7 @@
     "wood-worked"
    ],
    "variant": "quat-sushi/floor-wood",
-   "thickRel": 1.55
+   "thickRel": 1.57
   },
   {
    "kit": "quat-sushi",
@@ -407415,7 +407446,7 @@
    "collection": "rgp",
    "name": "floor-parquet",
    "hash": "d05a45c072",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.858,
@@ -407450,7 +407481,7 @@
     "rgp",
     "wood-planks"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.58
   },
   {
    "kit": "rgp-vintage",
@@ -413587,7 +413618,7 @@
    "collection": "sq-props",
    "name": "lane-approach",
    "hash": "11262b813e",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.525,
@@ -413627,7 +413658,7 @@
     "sq",
     "wood-worked"
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
@@ -413751,7 +413782,7 @@
    "collection": "sq-props",
    "name": "lane-section",
    "hash": "77857a54da",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "l",
    "wdh": [
     0.775,
@@ -422075,7 +422106,7 @@
    "kit": "sq-rink",
    "collection": "sq-props",
    "name": "disco-ball",
-   "hash": "92dc7d22be",
+   "hash": "21aac9c928",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -422086,7 +422117,7 @@
    "tris": 2384,
    "tpu": 6950,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 159068,
    "vtx": 4476,
@@ -422104,6 +422135,10 @@
      0.148,
      0.75
     ],
+    "13,3": [
+     0.148,
+     0.742
+    ],
     "15,3": [
      0.148,
      0.742
@@ -422111,6 +422146,7 @@
    },
    "colors": [
     "#3c3f4d",
+    "#5b5550",
     "#82868e"
    ],
    "tags": [
@@ -422122,14 +422158,7 @@
     "sq",
     "tba"
    ],
-   "thickRel": 3.15,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-wrought wants basalt, has slate nickel"
-    }
-   ]
+   "thickRel": 3.15
   },
   {
    "kit": "sq-rink",
@@ -422271,7 +422300,7 @@
    "kit": "sq-rink",
    "collection": "sq-props",
    "name": "floor-spot",
-   "hash": "7afe62d314",
+   "hash": "1ab8736b92",
    "kind": "obj-furnishing-light-lamp-spot",
    "size": "s",
    "wdh": [
@@ -422282,7 +422311,7 @@
    "tris": 382,
    "tpu": 1114,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 23396,
    "vtx": 612,
@@ -422293,7 +422322,7 @@
    "avgTri": 0.0005,
    "anglePct": 46,
    "vpt": 1.6,
-   "grad": 0.57,
+   "grad": 0.55,
    "spread": {
     "6,1": [
      0.148,
@@ -422303,6 +422332,10 @@
      0.148,
      0.734
     ],
+    "6,0": [
+     0.148,
+     0.555
+    ],
     "8,0": [
      0.148,
      0.555
@@ -422311,7 +422344,8 @@
    "colors": [
     "#3c3f4d",
     "#5b5550",
-    "#893b29"
+    "#893b29",
+    "#f2a93c"
    ],
    "tags": [
     "glass-tinted",
@@ -422561,7 +422595,7 @@
    "collection": "sq-props",
    "name": "rink-center-circle",
    "hash": "3b4cccf283",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1,
@@ -422615,7 +422649,7 @@
    "collection": "sq-props",
    "name": "rink-floor-tile",
    "hash": "53a97a91d7",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1,
@@ -422658,7 +422692,7 @@
     "sq",
     "wood-worked"
    ],
-   "thickRel": 0.57,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "error",
@@ -434809,7 +434843,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-anim",
-   "hash": "84d1a37eac",
+   "hash": "7a71fa84a5",
    "kind": "obj-transport-air-plane",
    "size": "l",
    "wdh": [
@@ -434822,21 +434856,17 @@
    "mat": 1,
    "bands": 4,
    "calls": 2,
-   "bytes": 204852,
-   "vtx": 5654,
+   "bytes": 205908,
+   "vtx": 5687,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.0697,
    "avgTri": 0.00143,
    "anglePct": 16,
-   "vpt": 1.61,
-   "grad": 0.86,
+   "vpt": 1.62,
+   "grad": 0.87,
    "spread": {
-    "15,3": [
-     0.016,
-     0.977
-    ],
     "5,2": [
      0.016,
      0.977
@@ -434844,6 +434874,10 @@
     "3,2": [
      0.328,
      0.414
+    ],
+    "15,3": [
+     0.016,
+     0.977
     ],
     "8,0": [
      0.016,
@@ -435138,7 +435172,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty",
-   "hash": "b457fdd1d5",
+   "hash": "f3bda61a36",
    "kind": "obj-transport-air-plane",
    "size": "l",
    "wdh": [
@@ -435151,21 +435185,17 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 206640,
-   "vtx": 5736,
+   "bytes": 207824,
+   "vtx": 5773,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.0699,
    "avgTri": 0.00138,
    "anglePct": 17,
-   "vpt": 1.59,
+   "vpt": 1.6,
    "grad": 0.85,
    "spread": {
-    "15,3": [
-     0.016,
-     0.977
-    ],
     "5,2": [
      0.016,
      0.977
@@ -435173,6 +435203,10 @@
     "3,2": [
      0.32,
      0.422
+    ],
+    "15,3": [
+     0.016,
+     0.977
     ],
     "8,0": [
      0.016,
@@ -437849,7 +437883,7 @@
    "kit": "styloo-school",
    "name": "floor-wood",
    "hash": "d15a16a5df",
-   "kind": "str-part-floor-unit",
+   "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     1,
@@ -437885,7 +437919,7 @@
     "sty",
     "wood-planks"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.58
   },
   {
    "kit": "styloo-school",
