@@ -7,8 +7,10 @@ description: Review a few random catalogue kinds for style coherence by looking 
 
 Find what makes a kind look like several hands made it, propose fixes, and
 implement only what the PO picks. Size is out of scope: never suggest a scale
-change. Shape stays in: thickness of parts, bevels, facets, proportions within
-a model. Suggestions come from looking at renders,
+change. Back faces are out of scope too: never suggest or fix one, except a
+back face that a change made in this review created; fix that before the
+change counts as done. Shape stays in: thickness of parts, bevels, facets,
+proportions within a model. Suggestions come from looking at renders,
 not from lint findings; lint is worked in another flow. Read the rules only to
 check a suggestion is allowed.
 
@@ -39,7 +41,7 @@ gathered copies in `<kind>/src` (a copy needs `Textures/colormap.png` beside it)
 | to see | render |
 |---|---|
 | facet density, part thickness, bevels | `--modes claywire` |
-| smooth vs flat shading, flipped faces | `--modes normal,faceorient` |
+| smooth vs flat shading, back faces a change made | `--modes normal,faceorient` |
 | band colours without light, smearing | `--modes albedo` |
 | hidden or inner parts | `--modes xray` |
 | parts apart, part by part | `--isolate [--parts n]` |
@@ -133,3 +135,48 @@ sheet, each before next to its after, with the source when it was checked:
 
 `<scratch>/cmp` needs `Textures/colormap.png`. Look at all of them, then send
 the side-by-side sheet to the PO with what changed and what was left.
+
+## 7. Autonomous run
+
+When asked to let agents decide instead of the PO, the agents apply what they
+judge right and list what is doubtful; the PO checks the doubtful calls on the
+swipe page afterwards.
+
+- Each agent takes a few kinds and edits only workfiles of those kinds. Tag,
+  kind, material and reject changes go to the lead, who applies them, rebuilds
+  once and runs the lints. A model whose change fails a lint goes back to its
+  version before the run and onto the open list.
+- Record suggestions with `picked: ["auto: <option>"]`.
+- Doubtful changes go in `catalog/data/lists/oddsock-applied.json` (applied:
+  → keep, ← revert) and `oddsock-open.json` (left: → do it, ← leave), each
+  entry `{ "id", "note" }`, sorted by category, then kind, then id. The note is
+  at most 10 words: category, then what changed or would change, then the
+  trade-off; the swipe card shows it. `--check` takes the same short text. Open them with
+  `catalog/app/swipe.html?list=oddsock-applied`.
+- Log the PO's verdicts with `kind-pick.mjs --check`, and read the
+  "autonomous calls" table of `--stats` before deciding what is doubtful.
+
+Earlier verdicts, counted per independent call (a group of models settled by
+one card counts once). They lean a choice; they are not rules. A pattern with
+fewer than 5 calls is a hint only, and `--stats` has the current numbers.
+
+- Applied and kept: colour spread by height with the mid kept (many); a second
+  source colour restored where the import merged it (1); laying, standing or
+  turning a model to match its kind (2); a kind move to what the model clearly
+  is: cobweb, lava tile, set, trophy head, giant skull, case (5); a material tag
+  fixed with no colour change (1).
+- Applied and reverted: moving stands, pedestals, plinths, a column or a flat
+  variant out of the kind they serve (2, against 0 kept); a face fix that fills
+  an open hole (1).
+- Split, so decide per model: a colour moved away from the source or the
+  kit's own look to match other kits, kept 4 (weapon rack, flume brace, water
+  wheel, raw steak) and reverted 4 (coconut shells, worktops, tower door piece,
+  cave entrance beams); a glass dome made clear like the source, kept on a
+  cream dome, reverted on a green one.
+- Left and rightly so: thickening or decimating (3), a kit's own accent colour
+  (3), reshaping cloth or staves by hand (2), a reject (1), a kind move past a
+  size limit (1).
+- Left but wanted: a model much lighter than its kind, darkened to the kind's
+  mid against the source (1); a dark source part the palette lacks, retagged to
+  a material that has it (1); a plainly wrong material with nothing fitting,
+  made `special` by the PO (1).

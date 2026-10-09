@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 const HELP = `kind-pick.mjs [--count 3] [--min 4] [--max 48] [--kits 2] [--render <dir>] [--dry]
              [--kind <id[,id]>] [--log <file>]
 kind-pick.mjs --record <file.json> [--log <file>]
+kind-pick.mjs --check <file.json> [--log <file>]
 kind-pick.mjs --stats [--log <file>]
 
 Picks --count random catalogue kinds with --min to --max models from at least
@@ -22,7 +23,7 @@ one entry or a list of entries:
   { "kind": "<id>", "suggestions": [ {
       "by": "claude" | "po",
       "category": "colour" | "artefact" | "shape" | "detail" | "scale" |
-                  "placement" | "duplicate" | "kind" | "look",
+                  "placement" | "duplicate" | "kind" | "material" | "look",
       "models": ["kit/name" | "kit/*", …],
       "text": "what was seen",
       "options": ["…", …],
@@ -30,10 +31,21 @@ one entry or a list of entries:
                         declined, null while unanswered
   } ] }
 
---stats prints, per category and per proposer, how many suggestions were made,
-answered and picked, and the options picked most.`;
+--check <file.json> records the PO's verdict on changes an agent decided on its
+own, from a file holding a list of entries:
+  { "kind": "<id>", "id": "kit/name", "category": "<as above>",
+    "change": "what was done, or proposed and left",
+    "doubt": true | false,   whether the agent listed it as doubtful
+    "applied": true | false,
+    "verdict": "ok" | "nok" | null   null while unchecked }
+An entry replaces the check of the same model and change in that kind.
 
-const CATEGORIES = ['colour', 'artefact', 'shape', 'detail', 'scale', 'placement', 'duplicate', 'kind', 'look'];
+--stats prints, per category and per proposer, how many suggestions were made,
+answered and picked, and the options picked most; then, per category, how the
+autonomous calls were judged: doubtful or not, against ok and nok, with the
+changes judged nok.`;
+
+const CATEGORIES = ['colour', 'artefact', 'shape', 'detail', 'scale', 'placement', 'duplicate', 'kind', 'material', 'look'];
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const args = process.argv.slice(2);
@@ -80,6 +92,23 @@ if (flag('record')) {
   process.exit(0);
 }
 
+if (flag('check')) {
+  const input = [JSON.parse(readFileSync(resolve(flag('check')), 'utf8'))].flat();
+  for (const c of input) {
+    const entry = log.find((e) => e.kind === c.kind);
+    if (!entry) throw new Error(`${c.kind} is not in the log; pick it first`);
+    if (!CATEGORIES.includes(c.category)) throw new Error(`${c.id}: category ${c.category} is not one of ${CATEGORIES.join(', ')}`);
+    if (!c.id || !c.change || typeof c.doubt !== 'boolean' || typeof c.applied !== 'boolean') throw new Error(`${c.id}: id, change, doubt and applied are required`);
+    if (![null, 'ok', 'nok'].includes(c.verdict)) throw new Error(`${c.id}: verdict must be ok, nok or null`);
+    const { kind, ...check } = c;
+    entry.checks = (entry.checks ?? []).filter((x) => x.id !== check.id || x.change !== check.change);
+    entry.checks.push(check);
+  }
+  console.log(`${input.length} checks recorded`);
+  save();
+  process.exit(0);
+}
+
 if (has('stats')) {
   const rows = new Map();
   const row = (key) => {
@@ -106,6 +135,17 @@ if (has('stats')) {
     if (!key.startsWith('category')) continue;
     const top = [...r.options].sort((a, b) => b[1] - a[1]).slice(0, 3);
     for (const [o, n] of top) console.log(`${''.padEnd(22)}${n}× ${o}`);
+  }
+  const checks = log.flatMap((e) => e.checks ?? []);
+  if (checks.length) {
+    console.log('\nautonomous calls       doubtful ok/nok/open   not doubtful ok/nok/open');
+    const cats = [...new Set(checks.map((c) => c.category))].sort();
+    const tally = (list) => ['ok', 'nok', null].map((v) => list.filter((c) => c.verdict === v).length).join('/');
+    for (const cat of cats) {
+      const list = checks.filter((c) => c.category === cat);
+      console.log(`category ${cat.padEnd(13)} ${tally(list.filter((c) => c.doubt)).padStart(12)}   ${tally(list.filter((c) => !c.doubt)).padStart(16)}`);
+      for (const c of list.filter((x) => x.verdict === 'nok').sort((a, b) => a.id.localeCompare(b.id))) console.log(`${''.padEnd(22)}nok ${c.applied ? 'applied' : 'left'}: ${c.id}: ${c.change}`);
+    }
   }
   process.exit(0);
 }
