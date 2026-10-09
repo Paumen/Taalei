@@ -23442,7 +23442,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1511,
+   "count": 1510,
    "parent": "wood"
   },
   {
@@ -180346,7 +180346,7 @@
    "kit": "kay-weapons",
    "collection": "kay-rpg",
    "name": "arrow-b",
-   "hash": "ebe53905f6",
+   "hash": "13f433fcf0",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -180357,10 +180357,10 @@
    "tris": 602,
    "tpu": 1755,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
-   "bytes": 28244,
-   "vtx": 720,
+   "bytes": 27988,
+   "vtx": 712,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -180368,8 +180368,8 @@
    "thick": 0.3114,
    "avgTri": 0.00006,
    "anglePct": 1,
-   "vpt": 1.2,
-   "grad": 0.61,
+   "vpt": 1.18,
+   "grad": 0.63,
    "spread": {
     "14,3": [
      0.086,
@@ -180377,10 +180377,6 @@
     ],
     "15,3": [
      0.258,
-     0.539
-    ],
-    "2,0": [
-     0.453,
      0.695
     ],
     "4,2": [
@@ -180391,15 +180387,13 @@
    "colors": [
     "#1367a6",
     "#82868e",
-    "#885734",
     "#8b7561"
    ],
    "tags": [
     "kay",
     "metal-iron-steel",
     "robin-hood",
-    "textile",
-    "wood-beam"
+    "textile"
    ],
    "variant": "kay-weapons/arrow-a",
    "thickRel": 1.13
@@ -276926,7 +276920,7 @@
     "lpa",
     "metal-iron-steel"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "lpa-home",
@@ -323024,28 +323018,28 @@
   {
    "kit": "m3-base",
    "name": "teapot",
-   "hash": "f10b7c71d7",
+   "hash": "7117d4e42f",
    "kind": "obj-kitchenware-cookware-kettle",
    "size": "s",
    "wdh": [
-    0.299,
+    0.3,
     0.176,
     0.221
    ],
-   "tris": 1195,
-   "tpu": 3484,
+   "tris": 4186,
+   "tpu": 12204,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 37576,
-   "vtx": 903,
+   "bytes": 117608,
+   "vtx": 2844,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.212,
-   "avgTri": 0.00013,
-   "anglePct": 7,
-   "vpt": 0.76,
+   "thick": 0.2126,
+   "avgTri": 0.00007,
+   "anglePct": 9,
+   "vpt": 0.68,
    "grad": 0.6,
    "spread": {
     "5,0": [
@@ -323060,7 +323054,14 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 12204 over max 5000 (obj-kitchenware)"
+    }
+   ]
   },
   {
    "kit": "m3-base",
