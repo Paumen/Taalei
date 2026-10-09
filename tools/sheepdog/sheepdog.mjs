@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, renameSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, renameSync, readdirSync } from 'node:fs';
 import { execFileSync, execFile } from 'node:child_process';
 import { join, dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -25,7 +25,9 @@ record  reads <run>/<kind>/result.json for every kind of the run, applies its
         tag edits to catalog/data/tags.json, lints every changed model against
         its file before the run and flags new findings as doubt, stores the
         changes in the log and writes catalog/data/lists/sheepdog-open.json:
-        every doubted model with its changes as the note.
+        every doubted model with its changes as the note, and for a model whose
+        file changed the before-state glb in catalog/data/lists/sheepdog-before
+        for the swipe page to show beside the current file.
 
         result.json:
         { "kind": "<id>",
@@ -54,6 +56,7 @@ const CATEGORIES = ['colour', 'glitch', 'shape', 'detail', 'scale', 'placement',
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const LOG = join(ROOT, 'tools', 'sheepdog', 'log.json');
 const OPEN = join(ROOT, 'catalog', 'data', 'lists', 'sheepdog-open.json');
+const BEFORE = join(ROOT, 'catalog', 'data', 'lists', 'sheepdog-before');
 const TAGS = join(ROOT, 'catalog', 'data', 'tags.json');
 const CATALOG = join(ROOT, 'catalog', 'build', 'catalog.json');
 const KIND_SHEET = join(ROOT, 'tools', 'renders', 'kind-sheet.mjs');
@@ -109,6 +112,21 @@ function writeOpen() {
     }
   }
   const open = [...notes].sort(([a], [b]) => a.localeCompare(b)).map(([id, texts]) => ({ id, note: texts.join(' · ') }));
+  const keep = new Set();
+  for (const entry of open) {
+    const first = log.find((e) => e.changes.some((c) => c.id === entry.id && c.doubt && c.verdict === null));
+    const blob = first?.models.find((m) => m.id === entry.id)?.before;
+    if (!blob || !existsSync(workfile(entry.id)) || blob === blobOf(workfile(entry.id))) continue;
+    const name = `${entry.id.replace('/', '__')}-${blob.slice(0, 10)}.glb`;
+    mkdirSync(join(BEFORE, 'Textures'), { recursive: true });
+    if (!existsSync(join(BEFORE, name))) writeFileSync(join(BEFORE, name), git(['cat-file', 'blob', blob], { encoding: 'buffer' }));
+    entry.before = `sheepdog-before/${name}`;
+    keep.add(name);
+  }
+  if (keep.size) {
+    copyFileSync(COLORMAP, join(BEFORE, 'Textures', 'colormap.png'));
+    for (const f of readdirSync(BEFORE)) if (f.endsWith('.glb') && !keep.has(f)) rmSync(join(BEFORE, f));
+  } else rmSync(BEFORE, { recursive: true, force: true });
   writeJson(OPEN, open);
   return open;
 }

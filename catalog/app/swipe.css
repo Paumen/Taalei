@@ -403,6 +403,26 @@ body:not([data-zes]) .zes-alleen { display: none !important; }
   height: 100%;
 }
 
+.swipe-paar {
+  display: flex;
+  gap: 1px;
+}
+
+.swipe-paneel {
+  position: relative;
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.swipe-paneel-label {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 0.75rem;
+  color: var(--inkt-zacht);
+  pointer-events: none;
+}
+
 .swipe-tekst {
   display: flex;
   flex: 1 1 auto;
