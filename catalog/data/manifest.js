@@ -538,7 +538,8 @@ window.KENNEY_KITS = [
    "ken-roads",
    "ken-car",
    "ken-train",
-   "ken-water"
+   "ken-water",
+   "ken-modular"
   ]
  },
  {
@@ -840,7 +841,23 @@ window.KENNEY_KITS = [
    "ipoly-concert",
    "ipoly-torture",
    "ipoly-signs",
-   "ipoly-electronics"
+   "ipoly-electronics",
+   "ipoly-glasses"
+  ]
+ },
+ {
+  "collection": "aq",
+  "kits": [
+   "aq-mushroom",
+   "aq-pond",
+   "aq-hallow"
+  ]
+ },
+ {
+  "collection": "quat-medieval",
+  "kits": [
+   "quat-medieval",
+   "quat-farms"
   ]
  },
  {
