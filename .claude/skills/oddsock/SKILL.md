@@ -166,3 +166,11 @@ What the PO accepted and turned down so far:
   source, worktops, a tower piece, a beam colour, a coloured glass dome made
   clear); a face fix that changes what the model shows (an open hole filled).
   Do not apply these; list them as open.
+- Rightly left: thickening or decimating a model, recolouring a kit's own
+  accent, reshaping cloth or staves by hand, rejects, kind moves past a kind's
+  size limit.
+- Wrongly left: a model much lighter than its kind (darken it to the kind's
+  mid, even against the source); a dark part the source has but the material's
+  palette lacks (retag the part to a material that has it, such as rubber for a
+  grip); a material tag that is plainly wrong with nothing fitting (ask the PO
+  for `special`).
