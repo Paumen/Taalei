@@ -7,8 +7,10 @@ description: Review a few random catalogue kinds for style coherence by looking 
 
 Find what makes a kind look like several hands made it, propose fixes, and
 implement only what the PO picks. Size is out of scope: never suggest a scale
-change. Shape stays in: thickness of parts, bevels, facets, proportions within
-a model. Suggestions come from looking at renders,
+change. Back faces are out of scope too: never suggest or fix one, except a
+back face that a change made in this review created; fix that before the
+change counts as done. Shape stays in: thickness of parts, bevels, facets,
+proportions within a model. Suggestions come from looking at renders,
 not from lint findings; lint is worked in another flow. Read the rules only to
 check a suggestion is allowed.
 
@@ -39,7 +41,7 @@ gathered copies in `<kind>/src` (a copy needs `Textures/colormap.png` beside it)
 | to see | render |
 |---|---|
 | facet density, part thickness, bevels | `--modes claywire` |
-| smooth vs flat shading, flipped faces | `--modes normal,faceorient` |
+| smooth vs flat shading, back faces a change made | `--modes normal,faceorient` |
 | band colours without light, smearing | `--modes albedo` |
 | hidden or inner parts | `--modes xray` |
 | parts apart, part by part | `--isolate [--parts n]` |
