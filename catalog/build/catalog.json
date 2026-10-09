@@ -23609,7 +23609,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 492,
+   "count": 495,
    "parent": "glass"
   },
   {
@@ -445764,7 +445764,7 @@
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart-deluxe",
-   "hash": "3cca369f4d",
+   "hash": "7415d76509",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -445775,10 +445775,10 @@
    "tris": 3722,
    "tpu": 10851,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 232076,
-   "vtx": 6508,
+   "bytes": 232588,
+   "vtx": 6524,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -445787,7 +445787,7 @@
    "avgTri": 0.00113,
    "anglePct": 87,
    "vpt": 1.75,
-   "grad": 0.6,
+   "grad": 0.61,
    "spread": {
     "5,2": [
      0.148,
@@ -445808,11 +445808,16 @@
     "6,0": [
      0.148,
      0.75
+    ],
+    "3,2": [
+     0.016,
+     0.984
     ]
    },
    "colors": [
     "#3c3f4d",
     "#5b5550",
+    "#b0d1df",
     "#b9845b",
     "#dad1b9",
     "#f2a93c"
@@ -445820,6 +445825,7 @@
    "tags": [
     "emissive",
     "food",
+    "glass-clear",
     "metal",
     "rubber",
     "textile",
@@ -445832,13 +445838,18 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 10851 over max 10000 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 6 wants max 5"
     }
    ]
   },
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart-parasol",
-   "hash": "49d944696e",
+   "hash": "863c65e0f3",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -445849,10 +445860,10 @@
    "tris": 1382,
    "tpu": 3517,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 84624,
-   "vtx": 2339,
+   "bytes": 84752,
+   "vtx": 2343,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -445860,8 +445871,8 @@
    "thick": 0.1084,
    "avgTri": 0.00225,
    "anglePct": 68,
-   "vpt": 1.69,
-   "grad": 0.6,
+   "vpt": 1.7,
+   "grad": 0.59,
    "spread": {
     "5,2": [
      0.148,
@@ -445882,29 +445893,42 @@
     "13,3": [
      0.148,
      0.75
+    ],
+    "3,2": [
+     0.016,
+     0.18
     ]
    },
    "colors": [
     "#23562c",
     "#5b5550",
     "#893b29",
+    "#b0d1df",
     "#b9845b",
     "#dad1b9"
    ],
    "tags": [
     "food",
+    "glass-clear",
     "metal",
     "rubber",
     "textile",
     "wood-worked"
    ],
    "variant": "taalei-kit/ice-cream-cart",
-   "thickRel": 1.04
+   "thickRel": 1.04,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 6 wants max 5"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart",
-   "hash": "9bdd9f2824",
+   "hash": "60199f2f8b",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -445915,10 +445939,10 @@
    "tris": 2144,
    "tpu": 5994,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 124196,
-   "vtx": 3433,
+   "bytes": 124324,
+   "vtx": 3437,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -445948,24 +445972,37 @@
     "13,3": [
      0.148,
      0.75
+    ],
+    "3,2": [
+     0.016,
+     0.18
     ]
    },
    "colors": [
     "#1367a6",
     "#5b5550",
     "#893b29",
+    "#b0d1df",
     "#b9845b",
     "#dad1b9"
    ],
    "tags": [
     "food",
+    "glass-clear",
     "metal",
     "rubber",
     "textile",
     "wood-worked"
    ],
    "variant": "taalei-kit/ice-cream-cart",
-   "thickRel": 1.07
+   "thickRel": 1.07,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 6 wants max 5"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
