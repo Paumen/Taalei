@@ -153,24 +153,27 @@ swipe page afterwards.
 - Log the PO's verdicts with `kind-pick.mjs --check`, and read the
   "autonomous calls" table of `--stats` before deciding what is doubtful.
 
-What the PO accepted and turned down so far:
+Earlier verdicts, counted per independent call (a group of models settled by
+one card counts once). They lean a choice; they are not rules. A pattern with
+fewer than 5 calls is a hint only, and `--stats` has the current numbers.
 
-- Accepted without trouble: colour spread by height with the mid kept; a
-  second source colour restored where the import merged it; laying, standing
-  or turning a model to match its kind; moving a model to a kind it clearly is
-  (cobweb, lava pit tile, set of several things, trophy head, giant skull);
-  correcting a material tag only.
-- Turned down: moving stands, pedestals, plinths, columns or a flat variant out
-  of the kind they serve; a colour change that moves away from the source or
-  from the kit's own look to match other kits (coconut gradient against the
-  source, worktops, a tower piece, a beam colour, a coloured glass dome made
-  clear); a face fix that changes what the model shows (an open hole filled).
-  Do not apply these; list them as open.
-- Rightly left: thickening or decimating a model, recolouring a kit's own
-  accent, reshaping cloth or staves by hand, rejects, kind moves past a kind's
-  size limit.
-- Wrongly left: a model much lighter than its kind (darken it to the kind's
-  mid, even against the source); a dark part the source has but the material's
-  palette lacks (retag the part to a material that has it, such as rubber for a
-  grip); a material tag that is plainly wrong with nothing fitting (ask the PO
-  for `special`).
+- Applied and kept: colour spread by height with the mid kept (many); a second
+  source colour restored where the import merged it (1); laying, standing or
+  turning a model to match its kind (2); a kind move to what the model clearly
+  is: cobweb, lava tile, set, trophy head, giant skull, case (5); a material tag
+  fixed with no colour change (1).
+- Applied and reverted: moving stands, pedestals, plinths, a column or a flat
+  variant out of the kind they serve (2, against 0 kept); a face fix that fills
+  an open hole (1).
+- Split, so decide per model: a colour moved away from the source or the
+  kit's own look to match other kits, kept 4 (weapon rack, flume brace, water
+  wheel, raw steak) and reverted 4 (coconut shells, worktops, tower door piece,
+  cave entrance beams); a glass dome made clear like the source, kept on a
+  cream dome, reverted on a green one.
+- Left and rightly so: thickening or decimating (3), a kit's own accent colour
+  (3), reshaping cloth or staves by hand (2), a reject (1), a kind move past a
+  size limit (1).
+- Left but wanted: a model much lighter than its kind, darkened to the kind's
+  mid against the source (1); a dark source part the palette lacks, retagged to
+  a material that has it (1); a plainly wrong material with nothing fitting,
+  made `special` by the PO (1).
