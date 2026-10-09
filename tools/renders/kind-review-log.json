@@ -5485,50 +5485,653 @@
  },
  {
   "kind": "env",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "wizp-lava/lava-pit"
+    ],
+    "text": "The lava pit centre tile sits on the root env while its edge, corner and crater siblings are env-terrain-ground.",
+    "options": [
+     "To env-terrain-ground",
+     "Keep in env"
+    ],
+    "picked": [
+     "auto: To env-terrain-ground (proposed in central)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-dun-1/cobweb",
+     "quat-dun-1/cobweb-2"
+    ],
+    "text": "Cobwebs sit on the root env, whose nouns are cloud, snow drift, lava, smoke and fog.",
+    "options": [
+     "To env-remains",
+     "To obj-furnishing-decor",
+     "Keep in env, add cobweb noun"
+    ],
+    "picked": [
+     "auto: To env-remains (proposed in central)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "quat-medieval/smoke"
+    ],
+    "text": "Smoke is right on env but carries material textile; no material fits smoke.",
+    "options": [
+     "New vapour material",
+     "Tag liquid",
+     "Leave"
+    ],
+    "picked": [
+     "auto: Leave (listed as doubt)"
+    ]
+   }
+  ]
  },
  {
   "kind": "env-flora-plant-bamboo",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-nature/bamboo-short"
+    ],
+    "text": "bamboo-short is in hunter while its variant bamboo-tall and every other bamboo is moss; the source has one colour for both, and B51 gives flora stems moss.",
+    "options": [
+     "Moss, at bamboo-tall's place in the band",
+     "Moss, keep its place in the band (lighter than tall)",
+     "Keep hunter"
+    ],
+    "picked": [
+     "auto: Moss, at bamboo-tall's place in the band"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "rgp-asia/bamboo",
+     "ken-nature/bamboo-short",
+     "ken-nature/bamboo-tall"
+    ],
+    "text": "rgp bamboo has no gradient (grad 0) and the ken pair only 0.17, while wizp bamboo runs 0.69 light-top to dark-base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread rgp only",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "shape",
+    "models": [
+     "rgp-asia/bamboo"
+    ],
+    "text": "rgp stalks are thin (minTube 0.027) next to the chunky ken and wizp stalks.",
+    "options": [
+     "Thicken stalks to ~0.06",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Leave as is"
+    ]
+   }
+  ]
  },
  {
   "kind": "env-flora-plant-leafy-potted",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "household/potted-plant",
+     "lpa-home/potted-plant"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band (moss, terracotta, umber), the only flat models in the kind",
+    "options": [
+     "Spread by height, keep mid",
+     "Only the household plant",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "household/potted-plant"
+    ],
+    "text": "Magenta back faces at the stem base and top leaves: 1 inverted triangle plus single-sided leaf and stem shells (G28 0.2%, warning)",
+    "options": [
+     "Flip the inverted face and double-side the open leaf shells",
+     "Flip only",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Flip the inverted face and double-side the open leaf shells"
+    ]
+   }
+  ]
  },
  {
   "kind": "env-remains-bones",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/bones",
+     "kay-skeleton-1/spine-ribs",
+     "quat-rpg/pelvis",
+     "quat-pirate/bones-large",
+     "quat-pirate/skulls"
+    ],
+    "text": "Three models are one flat ivory (grad 0) and the quat-pirate pair nearly flat (0.17), while loaf, m3 and wizp bones run ~0.6 light-top to dark-base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread only the flat three",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "placement",
+    "models": [
+     "kay-skeleton-1/spine-ribs"
+    ],
+    "text": "The spine stands upright balanced on its tail tip; as remains it should lie on the ground like loaf-bones/spine.",
+    "options": [
+     "Lay on its back, ribs arching up",
+     "Lay on its side",
+     "Leave upright"
+    ],
+    "picked": [
+     "auto: Lay on its back, ribs arching up"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "kay-hallow/bone-b"
+    ],
+    "text": "A single bone; its variants bone-a and bone-c are in env-remains-bones-limb.",
+    "options": [
+     "To env-remains-bones-limb",
+     "Keep in bones"
+    ],
+    "picked": [
+     "auto: To env-remains-bones-limb"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-pirate/skulls",
+     "quat-pirate/bones-large"
+    ],
+    "text": "skulls is one giant skull and bones-large one giant ribcage, both sitting in the parent kind.",
+    "options": [
+     "skulls to env-remains-bones-skull with scale-big; leave bones-large",
+     "Both to their child kinds",
+     "Keep both in bones"
+    ],
+    "picked": [
+     "auto: skulls to env-remains-bones-skull with scale-big; leave bones-large"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-device-appliance-laundry",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-furniture/washer-dryer-stacked"
+    ],
+    "text": "Washer door shows back faces (magenta) on the front: its two layered shells are each half inside-out",
+    "options": [
+     "Replace door with the clean ken-furniture/washer door, fitted to the old door's bounds",
+     "backface-fix flip",
+     "Delete the inverted layer"
+    ],
+    "picked": [
+     "auto: Replace door with the clean ken-furniture/washer door, fitted to the old door's bounds"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-furniture/washer-dryer-stacked",
+     "lpa-home/washing-machine"
+    ],
+    "text": "No gradient: every vertex at 0.50 of its band",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "sq-laundry/washer-top"
+    ],
+    "text": "Body all tan while every other laundry machine has an ivory body",
+    "options": [
+     "Keep tan (kit style, matches sq trims)",
+     "Body to ivory, keep tan trim"
+    ],
+    "picked": [
+     "auto: Keep tan (kit style, matches sq trims)"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-tool-mechanism-lever",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-platformer/lever-wall-b"
+    ],
+    "text": "No gradient on the nickel rods: every vertex at 0.50 of its band; lever-wall-a rods spread 0.22-0.77 light on top",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "kay-platformer/lever-floor",
+     "kay-platformer/lever-wall-a",
+     "kay-platformer/lever-wall-b"
+    ],
+    "text": "Kay housings are bright azure while the ken and fs levers sit on grey or stone bases; azure is the source's blue colour variant",
+    "options": [
+     "Keep azure",
+     "Housing azure -> nickel",
+     "Housing azure -> basalt"
+    ],
+    "picked": [
+     "auto: Keep azure"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-weapon-explosive",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "m3-base/dynamite-stick-bundle"
+    ],
+    "text": "Stick caps carry 142 inward-wound triangles under the outward ones; they show as magenta flecks on top (faceorient 20/50)",
+    "options": [
+     "Delete the inward cap faces",
+     "Flip them",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Delete the inward cap faces"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-minigame/bomb-red",
+     "zombie-weapons/gas-can-bomb",
+     "zombie-weapons/time-bomb"
+    ],
+    "text": "Flat colour: grad 0.03-0.17, every band at 0.50, beside kind median 0.6",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-guns/revolver",
+     "quat-guns/revolver-ribbed",
+     "quat-guns/revolver-steel",
+     "zombie-weapons/revolver"
+    ],
+    "text": "Little or no gradient: quat-guns 0.79-0.97 (grad 0.18), zombie revolver at 0.50 (grad 0.04), beside quat-shoot 0.75",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "look",
+    "models": [
+     "quat-guns/revolver",
+     "quat-guns/revolver-ribbed",
+     "quat-guns/revolver-steel",
+     "quat-shoot/revolver",
+     "quat-shoot/revolver-short",
+     "zombie-weapons/revolver"
+    ],
+    "text": "Two steel shades: quat-guns nickel mid ~0.85 (dark), quat-shoot ~0.72 and zombie ~0.50 (light); quat-guns source is dark grey",
+    "options": [
+     "Leave as is",
+     "Lift quat-guns mid to ~0.65",
+     "Darken zombie and quat-shoot to ~0.8"
+    ],
+    "picked": [
+     "auto: Leave as is"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-equipment-weapon-ranged-firearm-part",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-blaster/scope-large-a",
+     "ken-blaster/scope-large-b",
+     "ken-blaster/scope-small",
+     "ken-blaster/clip-large",
+     "ken-blaster/clip-small"
+    ],
+    "text": "Import put the source's light body and its darker rings, mounts and clip groove in one band: scopes read as one ivory lump",
+    "options": [
+     "Rings, mounts and groove to nickel",
+     "Rings and mounts nickel, groove basalt",
+     "Scopes only",
+     "Keep ivory"
+    ],
+    "picked": [
+     "auto: Rings, mounts and groove to nickel"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "quat-space/pickup-bullets"
+    ],
+    "text": "Terracotta tip band also covers the case shoulder ring (a stray stripe) while the tip apex is amber; source is one colour",
+    "options": [
+     "Shoulder to amber, apex to terracotta",
+     "Shoulder only",
+     "Keep"
+    ],
+    "picked": [
+     "auto: Shoulder to amber, apex to terracotta"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "detail",
+    "models": [
+     "m3-base/9mm-bullet"
+    ],
+    "text": "816 triangles, smooth, 6.8x the kind median; the ken bullets are 44-triangle faceted",
+    "options": [
+     "Leave as is",
+     "Decimate to ~200 triangles"
+    ],
+    "picked": [
+     "auto: Leave as is"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-dun-1/weapon-rack"
+    ],
+    "text": "No gradient: every vertex at 0.05 of chestnut (source has a top-light gradient)",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread by height, keep light",
+     "Keep flat"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "ken-arena/weapon-rack"
+    ],
+    "text": "One wood in the source, split on import by its gradient into camel (upper) and chestnut (foot slopes), dark faces beside light ones; nickel rings flat at 0.50",
+    "options": [
+     "All wood to chestnut, spread by height (kind colour)",
+     "All wood to camel, spread by height (source tone)",
+     "Keep split"
+    ],
+    "picked": [
+     "auto: All wood to chestnut, spread by height (kind colour)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "quat-props/weapon-stand"
+    ],
+    "text": "Chestnut spread 0.03-0.97 but not tied to height (corr 0): light and dark sliver triangles side by side, a light wedge across the bottom beam",
+    "options": [
+     "Spread by height, keep mid",
+     "Keep as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   }
+  ]
  },
  {
   "kind": "obj-leisure-art-sculpture",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "ken-nature/statue-head",
+     "ken-nature/statue-obelisk",
+     "ken-nature/statue-ring",
+     "rgp-asia/dragon-ornament",
+     "rgp-asia/geisha-a",
+     "rgp-asia/geisha-b"
+    ],
+    "text": "Six models sit on one band position (grad 0) and read flat, while the other stone statues run ~0.6-0.9 light top to dark base.",
+    "options": [
+     "Spread by height, keep mid",
+     "Spread only the three ken-nature stones",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Spread by height, keep mid"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "artefact",
+    "models": [
+     "wizp-asia/wall-decor-c",
+     "wizp-asia/wall-decor-d",
+     "rgp-asia/geisha-b",
+     "quat-dun-2/statue-horse"
+    ],
+    "text": "Back faces show as magenta under the brows and on the fang tips of wall-decor-c/d, and on one hairpin of geisha-b; statue-horse is flagged by the backface lint.",
+    "options": [
+     "Flip them",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Flip geisha-b hairpin (4 faces); wall-decor-c/d flip reverted, it raised backface errors; statue-horse left"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "quat-dun-1/pedestal",
+     "quat-dun-1/pedestal-2",
+     "quat-dun-2/pedestal",
+     "quat-dun-2/pedestal-2",
+     "m3-base/plinth",
+     "m3-base/statue-base",
+     "quat-interior/column-round",
+     "quat-town/town-center-1-a",
+     "quat-town/town-center-1-b",
+     "quat-town/town-center-1-c",
+     "ken-furniture/bear-head"
+    ],
+    "text": "Empty pedestals and plinths are str nouns, the round column is a str-part-pillar, the town-center pieces are sets of fences, plinth and trees, and the bear head is a wall trophy.",
+    "options": [
+     "Move all as named",
+     "Move only pedestals/plinths and column",
+     "Keep in sculpture"
+    ],
+    "picked": [
+     "auto: Move all as named (proposed in central)"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "duplicate",
+    "models": [
+     "quat-dun-1/pedestal",
+     "quat-dun-2/pedestal",
+     "quat-dun-1/pedestal-2",
+     "quat-dun-2/pedestal-2"
+    ],
+    "text": "quat-dun-2 pedestal and pedestal-2 are the same models as the quat-dun-1 ones, from the updated pack.",
+    "options": [
+     "Reject quat-dun-2 copies",
+     "Reject quat-dun-1 copies",
+     "Keep both"
+    ],
+    "picked": null
+   }
+  ]
  },
  {
   "kind": "str-building-work-industrial-mine",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "suggestions": [
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "fs-terrain/cave-prop-entrance"
+    ],
+    "text": "Import fault: source Wood_Dark (218 faces) and Wood_Light (60 end faces) both packed in tan (v 0.68 and 0.02), so the frame reads pale and flat beside the chestnut portal beams of every other mine",
+    "options": [
+     "Dark to chestnut, light ends tan, spread by height",
+     "Dark to camel, light ends tan",
+     "Keep tan, spread by height"
+    ],
+    "picked": [
+     "auto: Dark to chestnut, light ends tan, spread by height"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "colour",
+    "models": [
+     "kay-hexagon/mine"
+    ],
+    "text": "8 bands (G17 max 7): the tunnel back wall alone sits in slate (28 verts) next to the taupe-dark tunnel floor",
+    "options": [
+     "Slate to taupe-dark",
+     "Slate to basalt",
+     "Leave as is"
+    ],
+    "picked": [
+     "auto: Slate to taupe-dark"
+    ]
+   },
+   {
+    "by": "claude",
+    "category": "kind",
+    "models": [
+     "fs-terrain/cave-prop-entrance"
+    ],
+    "text": "A lone square-cut post-and-beam frame (comp), no rock, rails or crates: reads as a frame, not a mine; tagged wood-log though the timbers are sawn beams",
+    "options": [
+     "To str-part-frame and wood-log to wood-beam",
+     "Kind only",
+     "Keep in mine"
+    ],
+    "picked": [
+     "auto: To str-part-frame and wood-log to wood-beam"
+    ]
+   }
+  ]
  }
 ]
