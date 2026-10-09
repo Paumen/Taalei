@@ -25,7 +25,8 @@ record  reads <run>/<kind>/result.json for every kind of the run, applies its
         tag edits to catalog/data/tags.json, lints every changed model against
         its file before the run and flags new findings as doubt, stores the
         changes in the log and writes catalog/data/lists/sheepdog-open.json:
-        every doubted model with its changes as the note, and for a model whose
+        every doubted model with its changes as the note, its kind and tags
+        before and after where they changed, and for a model whose
         file changed the before-state glb in catalog/data/lists/sheepdog-before
         for the swipe page to show beside the current file.
 
@@ -113,8 +114,18 @@ function writeOpen() {
   }
   const open = [...notes].sort(([a], [b]) => a.localeCompare(b)).map(([id, texts]) => ({ id, note: texts.join(' · ') }));
   const keep = new Set();
+  const tags = readJson(TAGS);
+  const kinds = new Set(tags.tags.filter((t) => t.type === 'kind').map((t) => t.id));
   for (const entry of open) {
     const first = log.find((e) => e.changes.some((c) => c.id === entry.id && c.doubt && c.verdict === null));
+    const was = first?.models.find((m) => m.id === entry.id)?.tags ?? [];
+    const now = tagsOf(entry.id, tags);
+    const kindWas = was.find((t) => kinds.has(t));
+    const kindNow = now.find((t) => kinds.has(t));
+    if (kindWas !== kindNow) entry.kind = [kindWas ?? null, kindNow ?? null];
+    const add = now.filter((t) => !kinds.has(t) && !was.includes(t));
+    const remove = was.filter((t) => !kinds.has(t) && !now.includes(t));
+    if (add.length || remove.length) entry.tags = { add, remove };
     const blob = first?.models.find((m) => m.id === entry.id)?.before;
     if (!blob || !existsSync(workfile(entry.id)) || blob === blobOf(workfile(entry.id))) continue;
     const name = `${entry.id.replace('/', '__')}-${blob.slice(0, 10)}.glb`;

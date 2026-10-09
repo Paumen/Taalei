@@ -75,6 +75,7 @@ const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 
 const LIST_NOTES = new Map();
 const LIST_BEFORE = new Map();
+const LIST_TAG_CHANGES = new Map();
 
 let limitsPerKind = {};
 let longestKinds = new Set();
@@ -515,9 +516,15 @@ function makeCard(model, depth) {
 
   const listNote = LIST_NOTES.get(model.id);
   const listNoteRow = listNote ? Object.assign(document.createElement('p'), { className: 'swipe-lijstnoot', textContent: listNote }) : null;
+  const tagChange = LIST_TAG_CHANGES.get(model.id);
+  const tagName = (id) => register.tags.get(id)?.name ?? id;
+  const tagChangeRows = tagChange ? [
+    ...(tagChange.kind ? [`Kind: ${tagChange.kind[0] ? tagName(tagChange.kind[0]) : '—'} → ${tagChange.kind[1] ? tagName(tagChange.kind[1]) : '—'}`] : []),
+    ...(tagChange.tags ? [`Tags: ${[...tagChange.tags.add.map((t) => `+${tagName(t)}`), ...tagChange.tags.remove.map((t) => `−${tagName(t)}`)].join(' ')}`] : []),
+  ].map((line) => Object.assign(document.createElement('p'), { className: 'swipe-voorna', textContent: line })) : [];
 
   text.append(
-    name, origin, ...(listNoteRow ? [listNoteRow] : []), meta, path,
+    name, origin, ...(listNoteRow ? [listNoteRow] : []), ...tagChangeRows, meta, path,
     ...(findings.length ? [lint] : []),
     ...(schaal.childElementCount ? [schaal] : []),
     ...(colours ? [colours] : []),
@@ -921,6 +928,7 @@ async function start() {
       IDS_PARAM.push(id);
       if (entry.note) LIST_NOTES.set(id, entry.note);
       if (entry.before) LIST_BEFORE.set(id, `../data/lists/${entry.before}`);
+      if (entry.kind || entry.tags) LIST_TAG_CHANGES.set(id, { kind: entry.kind, tags: entry.tags });
     }
   }
   if (IDS_PARAM.length) {
