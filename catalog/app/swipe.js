@@ -67,6 +67,8 @@ const STORAGE_KEY =
   + `${LIST_PARAM ? `-list-${LIST_PARAM}` : ''}`;
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 
+const LIST_NOTES = new Map();
+
 let limitsPerKind = {};
 let longestKinds = new Set();
 let drawAtScale = null;
@@ -503,8 +505,11 @@ function makeCard(model, depth) {
   note.className = 'swipe-opmerking';
   renderCommentBox(note, model);
 
+  const listNote = LIST_NOTES.get(model.id);
+  const listNoteRow = listNote ? Object.assign(document.createElement('p'), { className: 'swipe-lijstnoot', textContent: listNote }) : null;
+
   text.append(
-    name, origin, meta, path,
+    name, origin, ...(listNoteRow ? [listNoteRow] : []), meta, path,
     ...(findings.length ? [lint] : []),
     ...(schaal.childElementCount ? [schaal] : []),
     ...(colours ? [colours] : []),
@@ -866,7 +871,11 @@ async function start() {
   if (SOURCE.onlyLint) data.models = data.models.filter((m) => m.lint?.length);
   if (LIST_PARAM) {
     const list = await fetch(`../data/lists/${LIST_PARAM}.json`, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : []));
-    IDS_PARAM.push(...list);
+    for (const entry of list) {
+      const id = typeof entry === 'string' ? entry : entry.id;
+      IDS_PARAM.push(id);
+      if (entry.note) LIST_NOTES.set(id, entry.note);
+    }
   }
   if (IDS_PARAM.length) {
     const wanted = new Set(IDS_PARAM);
