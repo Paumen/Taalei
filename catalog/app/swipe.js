@@ -74,6 +74,8 @@ const STORAGE_KEY =
 const threshold = () => Math.max(48, Math.min(96, innerWidth * 0.2));
 
 const LIST_NOTES = new Map();
+const LIST_BEFORE = new Map();
+const LIST_TAG_CHANGES = new Map();
 
 let limitsPerKind = {};
 let longestKinds = new Set();
@@ -456,6 +458,7 @@ function makeCard(model, depth) {
   viewer.setAttribute('interaction-prompt', 'none');
   viewer.setAttribute('loading', 'eager');
   setLighting(viewer);
+  const before = LIST_BEFORE.has(model.id) ? makeBeforeViewer(viewer, LIST_BEFORE.get(model.id), model.name) : null;
 
   const text = document.createElement('div');
   text.className = 'swipe-tekst';
@@ -513,9 +516,15 @@ function makeCard(model, depth) {
 
   const listNote = LIST_NOTES.get(model.id);
   const listNoteRow = listNote ? Object.assign(document.createElement('p'), { className: 'swipe-lijstnoot', textContent: listNote }) : null;
+  const tagChange = LIST_TAG_CHANGES.get(model.id);
+  const tagName = (id) => register.tags.get(id)?.name ?? id;
+  const tagChangeRows = tagChange ? [
+    ...(tagChange.kind ? [`Kind: ${tagChange.kind[0] ? tagName(tagChange.kind[0]) : '—'} → ${tagChange.kind[1] ? tagName(tagChange.kind[1]) : '—'}`] : []),
+    ...(tagChange.tags ? [`Tags: ${[...tagChange.tags.add.map((t) => `+${tagName(t)}`), ...tagChange.tags.remove.map((t) => `−${tagName(t)}`)].join(' ')}`] : []),
+  ].map((line) => Object.assign(document.createElement('p'), { className: 'swipe-voorna', textContent: line })) : [];
 
   text.append(
-    name, origin, ...(listNoteRow ? [listNoteRow] : []), meta, path,
+    name, origin, ...(listNoteRow ? [listNoteRow] : []), ...tagChangeRows, meta, path,
     ...(findings.length ? [lint] : []),
     ...(schaal.childElementCount ? [schaal] : []),
     ...(colours ? [colours] : []),
@@ -531,6 +540,7 @@ function makeCard(model, depth) {
   rotate.addEventListener('click', () => {
     const on = !viewer.hasAttribute('camera-controls');
     viewer.toggleAttribute('camera-controls', on);
+    before?.viewer.toggleAttribute('camera-controls', on);
     card.toggleAttribute('data-draaien', on);
     rotate.setAttribute('aria-pressed', String(on));
     rotate.textContent = on ? '⟲ Rotating' : '⟲ Rotate';
@@ -539,10 +549,46 @@ function makeCard(model, depth) {
   const stamp = document.createElement('span');
   stamp.className = 'stempel';
 
-  box.append(viewer, rotate);
+  if (before) {
+    box.classList.add('swipe-paar');
+    box.append(before.pane, labelled(viewer, 'After'), rotate);
+  } else box.append(viewer, rotate);
   card.append(box, text, stamp);
   if (depth === 0) makeDraggable(card);
   return card;
+}
+
+function labelled(viewer, label) {
+  const pane = document.createElement('div');
+  pane.className = 'swipe-paneel';
+  pane.append(viewer, Object.assign(document.createElement('span'), { className: 'swipe-paneel-label', textContent: label }));
+  return pane;
+}
+
+function makeBeforeViewer(after, src, name) {
+  const viewer = document.createElement('model-viewer');
+  viewer.src = src;
+  viewer.alt = `3D model ${name} before the sheepdog change`;
+  for (const attr of ['camera-orbit', 'shadow-softness', 'interaction-prompt', 'loading']) viewer.setAttribute(attr, after.getAttribute(attr));
+  setLighting(viewer);
+  const pair = [viewer, after];
+  const follow = (from, to) => {
+    to.cameraOrbit = from.getCameraOrbit().toString();
+    to.cameraTarget = from.getCameraTarget().toString();
+    to.fieldOfView = from.getFieldOfView() + 'deg';
+    to.jumpCameraToGoal();
+  };
+  for (const v of pair) {
+    v.addEventListener('camera-change', (e) => {
+      if (e.detail.source === 'user-interaction') follow(v, pair.find((o) => o !== v));
+    });
+  }
+  Promise.all(pair.map((v) => (v.loaded ? null : new Promise((ok) => v.addEventListener('load', ok, { once: true }))))).then(() => {
+    const size = (v) => { const d = v.getDimensions(); return Math.max(d.x, d.y, d.z); };
+    const [big, small] = size(viewer) >= size(after) ? [viewer, after] : [after, viewer];
+    follow(big, small);
+  });
+  return { viewer, pane: labelled(viewer, 'Before') };
 }
 
 async function drawScaleCard(model, canvas) {
@@ -881,6 +927,8 @@ async function start() {
       const id = typeof entry === 'string' ? entry : entry.id;
       IDS_PARAM.push(id);
       if (entry.note) LIST_NOTES.set(id, entry.note);
+      if (entry.before) LIST_BEFORE.set(id, `../data/lists/${entry.before}`);
+      if (entry.kind || entry.tags) LIST_TAG_CHANGES.set(id, { kind: entry.kind, tags: entry.tags });
     }
   }
   if (IDS_PARAM.length) {
