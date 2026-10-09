@@ -108,12 +108,14 @@ at it; check `--modes faceorient` for new red where a fix touched geometry:
       "changes": [ { "id": "kit/name",
                      "category": "colour" | "glitch" | "shape" | "detail" | "scale" |
                                  "placement" | "material" | "tag" | "kind" | "look",
-                     "change": "what was done, in one line",
+                     "change": "what was done, 60 characters at most",
                      "doubt": true | false,
-                     "why": "what makes it doubtful (only when doubted)" } ],
+                     "why": "what makes it doubtful, 50 at most, only when doubted" } ],
       "tags": { "kit/name": { "add": ["id"], "remove": ["id"] } },
       "notes": [ "what you saw and left, in one line each, for the PO" ] }
 
 Every model whose file you changed and every tag edit gets a change entry.
+`change` and `why` are read on a phone-sized swipe card: a short clause each,
+the numbers and the peers' names left out unless they are the point.
 A model you looked at and left gets none. Then reply in at most ten lines:
 changes made, doubted ones, and what you left and why.

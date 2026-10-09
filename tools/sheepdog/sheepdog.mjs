@@ -32,9 +32,9 @@ record  reads <run>/<kind>/result.json for every kind of the run, applies its
           "changes": [ { "id": "kit/name",
                          "category": "colour" | "glitch" | "shape" | "detail" | "scale" |
                                      "placement" | "material" | "tag" | "kind" | "look",
-                         "change": "what was done",
+                         "change": "what was done, 60 characters at most",
                          "doubt": true | false,
-                         "why": "what makes it doubtful" } ],
+                         "why": "what makes it doubtful, 50 at most" } ],
           "tags": { "kit/name": { "add": ["id"], "remove": ["id"] } },
           "notes": [ "what was seen and left, for the PO" ] }
         A tag edit is also listed under changes with category tag or kind.
@@ -104,7 +104,7 @@ function writeOpen() {
   for (const entry of log) {
     for (const c of entry.changes ?? []) {
       if (!c.doubt || c.verdict !== null) continue;
-      const text = `${c.category}: ${c.change}${c.why ? ` (${c.why})` : ''}${c.lint?.length ? ` [lint: ${c.lint.join('; ')}]` : ''}`;
+      const text = `${c.category}: ${c.change}${c.why ? ` (${c.why})` : ''}${c.lint?.length ? ` [lint: ${c.lint.map((f) => f.split(':')[0]).join(', ')}]` : ''}`;
       notes.set(c.id, [...(notes.get(c.id) ?? []), text]);
     }
   }
@@ -277,6 +277,8 @@ function record() {
       if (!CATEGORIES.includes(c.category)) throw new Error(`${c.id}: category ${c.category} is not one of ${CATEGORIES.join(', ')}`);
       if (!c.change || typeof c.doubt !== 'boolean') throw new Error(`${c.id}: change and doubt are required`);
       if (c.doubt && !c.why) throw new Error(`${c.id}: a doubted change needs a why`);
+      if (c.change.length > 60) throw new Error(`${c.id}: change over 60 characters: ${c.change}`);
+      if ((c.why ?? '').length > 50) throw new Error(`${c.id}: why over 50 characters: ${c.why}`);
       entry.changes = entry.changes.filter((x) => x.id !== c.id || x.change !== c.change);
       entry.changes.push({ id: c.id, category: c.category, change: c.change, doubt: c.doubt, why: c.why ?? null, lint: [], verdict: null });
       total++;
