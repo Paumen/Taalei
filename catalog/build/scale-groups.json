@@ -195,11 +195,11 @@
    {
     "slug": "quat-food",
     "model": "turnip",
-    "hash": "8691fa4226",
+    "hash": "cb06c7c9c1",
     "wdh": [
      0.2,
      0.2,
-     0.4
+     0.5
     ],
     "tags": [
      "foliage",
@@ -2935,6 +2935,7 @@
      0.3
     ],
     "tags": [
+     "foliage",
      "food"
     ],
     "colors": [
@@ -2952,6 +2953,7 @@
      0.2
     ],
     "tags": [
+     "foliage",
      "food"
     ],
     "colors": [
@@ -2969,6 +2971,7 @@
      0.35
     ],
     "tags": [
+     "foliage",
      "food"
     ],
     "colors": [
@@ -5713,20 +5716,20 @@
     "slug": "sq-cards",
     "collection": "sq-props",
     "model": "play-table",
-    "hash": "d7666d3c9b",
+    "hash": "71215be1c7",
     "wdh": [
      0.75,
      0.4,
      0.35
     ],
     "tags": [
-     "metal-iron-cast",
-     "rubber",
+     "metal-iron-wrought",
      "sq",
+     "textile",
      "wood-beam"
     ],
     "colors": [
-     "#3c3f4d",
+     "#23562c",
      "#5b5550",
      "#885734"
     ]
@@ -11092,7 +11095,7 @@
     "tags": [
      "glass-clear",
      "lpa",
-     "metal"
+     "metal-iron-steel"
     ],
     "colors": [
      "#82868e",
@@ -44785,6 +44788,64 @@
   ]
  },
  {
+  "slug": "obj-container-barrel-keg",
+  "name": "Object › Container › Barrel › Keg",
+  "category": "obj-container",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.65,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-dun-2",
+    "collection": "kay-interior",
+    "model": "keg",
+    "hash": "4a062ddc64",
+    "wdh": [
+     0.55,
+     0.6,
+     0.6
+    ],
+    "tags": [
+     "cork",
+     "kay",
+     "metal-iron-wrought",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#885734",
+     "#8b7561",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "barrel-tapped",
+    "hash": "14ee1d2d3c",
+    "wdh": [
+     0.5,
+     0.45,
+     0.65
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "wizp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b9845b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-container-pot-scale-big",
   "name": "Object › Container › Pot · scale-big",
   "category": "obj-container",
@@ -44936,82 +44997,6 @@
     ],
     "colors": [
      "#82868e"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-barrel-keg",
-  "name": "Object › Container › Barrel › Keg",
-  "category": "obj-container",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 0.65,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-dun-2",
-    "collection": "kay-interior",
-    "model": "keg",
-    "hash": "4a062ddc64",
-    "wdh": [
-     0.55,
-     0.6,
-     0.6
-    ],
-    "tags": [
-     "cork",
-     "kay",
-     "metal-iron-wrought",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#885734",
-     "#8b7561",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "barrel-a",
-    "hash": "bbd899fd51",
-    "wdh": [
-     0.6,
-     0.6,
-     0.7
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "barrel-tapped",
-    "hash": "484dde3a0b",
-    "wdh": [
-     0.85,
-     0.8,
-     1.1
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "wizp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b9845b"
     ]
    }
   ]
@@ -53239,6 +53224,24 @@
     "colors": [
      "#5b5550",
      "#dfb789"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "barrel-a",
+    "hash": "bbd899fd51",
+    "wdh": [
+     0.6,
+     0.6,
+     0.7
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b9845b"
     ]
    },
    {
@@ -74375,6 +74378,7 @@
      "leather",
      "metal-iron-steel",
      "robin-hood",
+     "textile",
      "wood-beam"
     ],
     "colors": [
@@ -74398,6 +74402,7 @@
      "kay",
      "metal-iron-steel",
      "robin-hood",
+     "textile",
      "wood-beam"
     ],
     "colors": [
@@ -74498,7 +74503,7 @@
    {
     "slug": "lpa-tools",
     "model": "stone-arrow",
-    "hash": "872832e07b",
+    "hash": "f8ae75cef3",
     "wdh": [
      0.02,
      0.02,
@@ -74587,7 +74592,6 @@
      0.35
     ],
     "tags": [
-     "liquid",
      "metal-iron-steel",
      "qua",
      "wood-beam"
@@ -129304,6 +129308,96 @@
   ]
  },
  {
+  "slug": "env-flora-plant",
+  "name": "Environment › Flora › Plant",
+  "category": "env-flora",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "ken-nature",
+    "model": "corn",
+    "hash": "29efdcbb57",
+    "wdh": [
+     0.55,
+     0.55,
+     1.5
+    ],
+    "tags": [
+     "foliage",
+     "ken",
+     "vegetation"
+    ],
+    "colors": [
+     "#68872d",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "plant-curl",
+    "hash": "bd575c05f1",
+    "wdh": [
+     0.45,
+     0.3,
+     0.65
+    ],
+    "tags": [
+     "foliage",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "tree-light-a",
+    "hash": "2ca371b5c1",
+    "wdh": [
+     0.3,
+     0.35,
+     0.55
+    ],
+    "tags": [
+     "emissive",
+     "foliage",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#68872d",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-space",
+    "model": "tree-light-b",
+    "hash": "ed5aa6a8a1",
+    "wdh": [
+     0.6,
+     0.45,
+     0.85
+    ],
+    "tags": [
+     "emissive",
+     "foliage",
+     "qua",
+     "space"
+    ],
+    "colors": [
+     "#68872d",
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "env-flora-plant-cactus-potted-scale-small",
   "name": "Environment › Flora › Plant › Cactus › Potted · scale-small",
   "category": "env-flora",
@@ -129640,129 +129734,6 @@
     ],
     "colors": [
      "#68872d"
-    ]
-   }
-  ]
- },
- {
-  "slug": "env-flora-plant",
-  "name": "Environment › Flora › Plant",
-  "category": "env-flora",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "ground-cover-a",
-    "hash": "7d135f06f3",
-    "wdh": [
-     0.7,
-     0.65,
-     0.06
-    ],
-    "tags": [
-     "foliage"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "ground-cover-b",
-    "hash": "3d5ce578c1",
-    "wdh": [
-     1.4,
-     1,
-     0.09
-    ],
-    "tags": [
-     "foliage"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "ken-nature",
-    "model": "corn",
-    "hash": "29efdcbb57",
-    "wdh": [
-     0.55,
-     0.55,
-     1.5
-    ],
-    "tags": [
-     "ken",
-     "vegetation"
-    ],
-    "colors": [
-     "#68872d",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "plant-curl",
-    "hash": "bd575c05f1",
-    "wdh": [
-     0.45,
-     0.3,
-     0.65
-    ],
-    "tags": [
-     "foliage",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "tree-light-a",
-    "hash": "2ca371b5c1",
-    "wdh": [
-     0.3,
-     0.35,
-     0.55
-    ],
-    "tags": [
-     "emissive",
-     "foliage",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#68872d",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-space",
-    "model": "tree-light-b",
-    "hash": "ed5aa6a8a1",
-    "wdh": [
-     0.6,
-     0.45,
-     0.85
-    ],
-    "tags": [
-     "emissive",
-     "foliage",
-     "qua",
-     "space"
-    ],
-    "colors": [
-     "#68872d",
-     "#f2a93c"
     ]
    }
   ]
@@ -142124,6 +142095,40 @@
     "colors": [
      "#42362c",
      "#8b7561"
+    ]
+   },
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "ground-cover-a",
+    "hash": "7d135f06f3",
+    "wdh": [
+     0.7,
+     0.65,
+     0.06
+    ],
+    "tags": [
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "ground-cover-b",
+    "hash": "3d5ce578c1",
+    "wdh": [
+     1.4,
+     1,
+     0.09
+    ],
+    "tags": [
+     "foliage"
+    ],
+    "colors": [
+     "#68872d"
     ]
    },
    {
