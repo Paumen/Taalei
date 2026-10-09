@@ -23,7 +23,7 @@ one entry or a list of entries:
   { "kind": "<id>", "suggestions": [ {
       "by": "claude" | "po",
       "category": "colour" | "artefact" | "shape" | "detail" | "scale" |
-                  "placement" | "duplicate" | "kind" | "material" | "look",
+                  "placement" | "duplicate" | "kind" | "material" | "tag" | "look",
       "models": ["kit/name" | "kit/*", …],
       "text": "what was seen",
       "options": ["…", …],
@@ -45,7 +45,7 @@ answered and picked, and the options picked most; then, per category, how the
 autonomous calls were judged: doubtful or not, against ok and nok, with the
 changes judged nok.`;
 
-const CATEGORIES = ['colour', 'artefact', 'shape', 'detail', 'scale', 'placement', 'duplicate', 'kind', 'material', 'look'];
+const CATEGORIES = ['colour', 'artefact', 'shape', 'detail', 'scale', 'placement', 'duplicate', 'kind', 'material', 'tag', 'look'];
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const args = process.argv.slice(2);

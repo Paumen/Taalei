@@ -154,7 +154,11 @@ swipe page afterwards.
 - Each agent takes a few kinds and edits only models of those kinds: workfiles
   and their tag, kind and material entries in `catalog/data/tags.json`. Read
   that file right before each write and change only your own models, since
-  other agents write it too. Reject changes go to the lead.
+  other agents write it too. Never assign a tag marked `po: true` (`hero`,
+  `special`); report it instead. A tag edit must leave `build-catalog.mjs`
+  able to run: no material with its own parent, only ids from
+  `lint/kinds.json` and `lint/materials.json`, a storeys tag on every building.
+  Reject changes go to the lead.
 - The lead rebuilds once and does not rerun lints the agents ran. A change with
   a lint finding stays applied and goes on the doubt list.
 - Record suggestions with `picked: ["auto: <option>"]`.
