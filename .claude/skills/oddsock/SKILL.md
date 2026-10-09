@@ -1,6 +1,6 @@
 ---
 name: oddsock
-description: Review a few random catalogue kinds for style coherence by looking at them — pick 3 kinds, render contact sheets, suggest 2–5 improvements per kind with options, and let the PO choose what gets implemented. Use when asked to review random kinds, suggest style improvements for a kind, or run a kind review or oddsock.
+description: Review a few random catalogue kinds for style coherence by looking at them — pick 3 kinds, render contact sheets, suggest improvements with options, and let the PO choose what gets implemented. Use when asked to review random kinds, suggest style improvements for a kind, or run a kind review or oddsock.
 ---
 
 # Oddsock
@@ -9,10 +9,14 @@ Find what makes a kind look like several hands made it, propose fixes, and
 implement only what the PO picks. Size is out of scope: never suggest a scale
 change. Back faces are out of scope too: never suggest or fix one, except a
 back face that a change made in this review created; fix that before the
-change counts as done. Shape stays in: thickness of parts, bevels, facets,
-proportions within a model. Suggestions come from looking at renders,
-not from lint findings; lint is worked in another flow. Read the rules only to
-check a suggestion is allowed.
+change counts as done. Shape stays in: reshape, thicken, decimate, bevels,
+facets, proportions within a model. Tag, kind and material changes stay in.
+Suggestions come from looking at renders, not from lint findings; lint is
+worked in another flow. Read the rules only to check a suggestion is allowed.
+
+Every change is judged per model by hand. Never make a change a script could
+run over the whole catalogue, such as spreading colour by height or evening
+gradients.
 
 ## 1. Pick and render
 
@@ -69,16 +73,20 @@ raised themselves (`by po`). Keep a category the PO keeps declining to the
 clearest cases, and put options shaped like the ones picked before first.
 Never drop a real fault because its category is picked rarely.
 
-Per kind, 2–5 suggestions, each about making the kind read as one family.
+Suggest only what makes the kind read as one family; a kind may get none.
 Look at:
 
-- colour use: which bands, how many, one band per part, gradient direction;
+- colour use: which bands, how many, one band per part;
+- shading and gradients: ignore the source. Change a model's shading only when
+  it stands out from its peers in the kind, and only as a deliberate fix for
+  that model;
 - colouring artefacts: smearing across faces, light and dark triangles side by
   side, jagged band edges, a part in the wrong band;
 - shape style: thickness of parts and sub-parts, bevels, facet count, smooth
   vs flat, level of detail;
 - proportions within a model;
 - placement: grounded, centred, facing;
+- tags, kind and material: what the model is and is made of;
 - overall look and feel: which kit's style the kind should lean to.
 
 Each suggestion names the models it touches and the render that shows it, and
@@ -118,8 +126,9 @@ suggestion gets an answer later; a record replaces that kind's suggestions.
   position within its band (the gradient), split a vertex shared by triangles
   that get different bands, and drop vertices no triangle uses. Check that no
   triangle ends with vertices in two bands.
-- After the change, rebuild as `CLAUDE.md` says, and compare the error
-  counts of all seven lints with the counts from before.
+- After the change, rebuild as `CLAUDE.md` says.
+- Lints are not a goal. Whoever made the change runs them once; a finding only
+  puts the change on the doubt list.
 
 ## 6. Show before and after
 
@@ -142,10 +151,12 @@ When asked to let agents decide instead of the PO, the agents apply what they
 judge right and list what is doubtful; the PO checks the doubtful calls on the
 swipe page afterwards.
 
-- Each agent takes a few kinds and edits only workfiles of those kinds. Tag,
-  kind, material and reject changes go to the lead, who applies them, rebuilds
-  once and runs the lints. A model whose change fails a lint goes back to its
-  version before the run and onto the open list.
+- Each agent takes a few kinds and edits only models of those kinds: workfiles
+  and their tag, kind and material entries in `catalog/data/tags.json`. Read
+  that file right before each write and change only your own models, since
+  other agents write it too. Reject changes go to the lead.
+- The lead rebuilds once and does not rerun lints the agents ran. A change with
+  a lint finding stays applied and goes on the doubt list.
 - Record suggestions with `picked: ["auto: <option>"]`.
 - Doubtful changes go in `catalog/data/lists/oddsock-applied.json` (applied:
   → keep, ← revert) and `oddsock-open.json` (left: → do it, ← leave), each
@@ -160,22 +171,22 @@ Earlier verdicts, counted per independent call (a group of models settled by
 one card counts once). They lean a choice; they are not rules. A pattern with
 fewer than 5 calls is a hint only, and `--stats` has the current numbers.
 
-- Applied and kept: colour spread by height with the mid kept (many); a second
+- Applied and kept: a second
   source colour restored where the import merged it (1); laying, standing or
   turning a model to match its kind (2); a kind move to what the model clearly
   is: cobweb, lava tile, set, trophy head, giant skull, case (5); a material tag
   fixed with no colour change (1).
 - Applied and reverted: moving stands, pedestals, plinths, a column or a flat
   variant out of the kind they serve (2, against 0 kept); a face fix that fills
-  an open hole (1).
+  an open hole (1); shading spread by height or to the kind mid (sushi, knives,
+  grips, stone pickaxe); a loud source accent restored (smokestack stripes).
 - Split, so decide per model: a colour moved away from the source or the
   kit's own look to match other kits, kept 4 (weapon rack, flume brace, water
   wheel, raw steak) and reverted 4 (coconut shells, worktops, tower door piece,
   cave entrance beams); a glass dome made clear like the source, kept on a
   cream dome, reverted on a green one.
-- Left and rightly so: thickening or decimating (3), a kit's own accent colour
-  (3), reshaping cloth or staves by hand (2), a reject (1), a kind move past a
-  size limit (1).
+- Left and rightly so: a kit's own accent colour (3), a reject (1), a kind move
+  past a size limit (1); open ideas offered only to fill a kind (13 of 13).
 - Left but wanted: a model much lighter than its kind, darkened to the kind's
   mid against the source (1); a dark source part the palette lacks, retagged to
   a material that has it (1); a plainly wrong material with nothing fitting,
