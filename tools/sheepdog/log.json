@@ -1,0 +1,820 @@
+[
+ {
+  "kind": "env-flora-plant",
+  "run": "2026-10-09-2048",
+  "models": [
+   {
+    "id": "emace-village/ground-cover-a",
+    "before": "48d26851c80f59874a2959580abf133e4240bd70",
+    "tags": [
+     "foliage",
+     "env-flora-plant"
+    ]
+   },
+   {
+    "id": "emace-village/ground-cover-b",
+    "before": "eaa7022bb765a7a7b9f5600891ef82a481c6f2aa",
+    "tags": [
+     "foliage",
+     "env-flora-plant"
+    ]
+   },
+   {
+    "id": "ken-nature/corn",
+    "before": "e6e5616edcbaff0a58d07e1f047e6ba00dec809d",
+    "tags": [
+     "vegetation",
+     "env-flora-plant"
+    ]
+   },
+   {
+    "id": "quat-space/plant-curl",
+    "before": "81f27b8205f83e0964615da28ae77479bd636105",
+    "tags": [
+     "foliage",
+     "env-flora-plant",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-space/tree-light-a",
+    "before": "49be65e229c2b1aab22a8d6d3ee61c528a0dc345",
+    "tags": [
+     "foliage",
+     "emissive",
+     "env-flora-plant",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-space/tree-light-b",
+    "before": "0baacab6c86c948fd8ac3dd43e0aa8c6d32ee0ac",
+    "tags": [
+     "foliage",
+     "emissive",
+     "env-flora-plant",
+     "space"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ken-nature/corn",
+    "category": "tag",
+    "change": "added material foliage for the moss stalk and leaves, beside vegetation for the amber cobs",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "emace-village/ground-cover-a",
+    "category": "kind",
+    "change": "kind to env-terrain-ground, a flat moss sheet",
+    "doubt": true,
+    "why": "kind change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "emace-village/ground-cover-b",
+    "category": "kind",
+    "change": "kind to env-terrain-ground, with ground-cover-a",
+    "doubt": true,
+    "why": "kind change",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "ken-nature/corn: the 0.3% backface warning is leaf-edge slivers seen from 270/20; backface-fix --dry adds nothing (net 0), no red shows in faceorient, left as is",
+   "quat-space/plant-curl: two fiddleheads in one model, open-ended stalk bottoms show only from below the horizon; could carry plural if a two-stem clump counts, left without",
+   "quat-space/tree-light-a/b: amber emissive globes on moss stalks read fine and match each other; no change",
+   "no workfile was changed in this kind; every change is a tag edit"
+  ]
+ },
+ {
+  "kind": "obj-container-barrel-keg",
+  "run": "2026-10-09-2048",
+  "models": [
+   {
+    "id": "kay-dun-2/keg",
+    "before": "b07ea03c01fc261d813dfd30696aa309b08a4b89",
+    "tags": [
+     "metal-iron-wrought",
+     "wood-worked",
+     "wood-beam",
+     "cork",
+     "obj-container-barrel-keg"
+    ]
+   },
+   {
+    "id": "props/barrel-a",
+    "before": "d96ec2f5875b22404b231e360164fd7ce3da9d1a",
+    "tags": [
+     "metal-iron-wrought",
+     "wood-worked",
+     "obj-container-barrel-keg"
+    ]
+   },
+   {
+    "id": "wizp-mediev/barrel-tapped",
+    "before": "c2219702f74795b83d52e68d49f3435c9451e976",
+    "tags": [
+     "metal-iron-wrought",
+     "wood-worked",
+     "obj-container-barrel-keg"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "wizp-mediev/barrel-tapped",
+    "category": "scale",
+    "change": "scaled 0.58 to its keg peers' height",
+    "doubt": true,
+    "why": "one-model size change; source is 1.6x",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "props/barrel-a",
+    "category": "kind",
+    "change": "kind to obj-container-barrel: no tap, bung or stand",
+    "doubt": true,
+    "why": "kind change",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "kay-dun-2/keg: clean; its stand is chestnut where wizp-mediev/barrel-tapped's is camel; left, the darker stand reads apart from the keg and both are legal wood bands",
+   "props/barrel-a: at 0.721 it still sits 3% over obj-container-barrel's 0.7 max after the kind move; left, as the props kit has no source to read a kit scale from",
+   "wizp-mediev/barrel-tapped: the faceted end disc and small basalt tap, bung and hoop rivets read as modelled; no glitchy triangles, nothing moved",
+   "no backface, hoop or colour work needed: all three carry camel staves and basalt hoops"
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-ranged-arrow",
+  "run": "2026-10-09-2048",
+  "models": [
+   {
+    "id": "kay-adventurers/arrow-bow",
+    "before": "a949a903930329f214b9415784d32dca7af7aa4c",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-adventurers/arrow-bow-bundle",
+    "before": "93344f5efe8e57455cc9bf6fab59761217428d7f",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "leather",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-adventurers/arrow-crossbow",
+    "before": "bbe76b5c43bfcc557e062180aed5d9f87d259cb1",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-adventurers/arrow-crossbow-bundle",
+    "before": "2248dfc3c99d32d6f5aca1364c055c7dcb5f7603",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "leather",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-dun-1/arrow",
+    "before": "b63ee74dcfca7e5886ed05db540527865c7314d3",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "kay-skeleton/arrow",
+    "before": "51f293d7ad8efb911a697f49f8c99f25a124c8ab",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-skeleton/arrow-broken",
+    "before": "cf37a5171fe7d872a65159b328856495d4fc66b0",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood",
+     "broken"
+    ]
+   },
+   {
+    "id": "kay-skeleton/arrow-broken-half",
+    "before": "6a8278d354012511083ee8e8061671f98b3bce13",
+    "tags": [
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood",
+     "broken"
+    ]
+   },
+   {
+    "id": "kay-skeleton/arrow-half",
+    "before": "0c2008a5238095bfab9141ee57142551232636bf",
+    "tags": [
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood",
+     "broken"
+    ]
+   },
+   {
+    "id": "kay-weapons/arrow-a",
+    "before": "d0597aecd7acfb1bfee43050c4dfc8bd6e9bfc61",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-weapons/arrow-b",
+    "before": "3f7afd440172c0e56523bc4523e3f7b1443cd36c",
+    "tags": [
+     "metal-iron-steel",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "lpa-tools/stone-arrow",
+    "before": "58e6be2bb7cf366d081cbc689bb3f72df9c58fd5",
+    "tags": [
+     "wood-beam",
+     "stone-rock",
+     "leather",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "lpa-tools/wooden-arrow",
+    "before": "624ada5c54f59dee65346498261303e607661a17",
+    "tags": [
+     "wood-worked",
+     "wood-beam",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "lpa-weapons/arrow",
+    "before": "dfb0468b9566ff53dbb152679e87f23fbe045b38",
+    "tags": [
+     "metal-iron-steel",
+     "wood-worked",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "m3-base/arrowhead",
+    "before": "bfcd742b4173438b9d72f1e6c60eae1bb095e119",
+    "tags": [
+     "stone-rock",
+     "obj-equipment-weapon-ranged-arrow",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/barbed-arrowhead",
+    "before": "369840c67ad689c8b79ccb2b661d4ecb3ef7ad72",
+    "tags": [
+     "metal-iron-steel",
+     "obj-equipment-weapon-ranged-arrow",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/bronze-elliptical-leaf",
+    "before": "861e2996fbc0b5e1543a5a6e4cfcdc07d21ff65f",
+    "tags": [
+     "metal-gold",
+     "obj-equipment-weapon-ranged-arrow",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/fire-arrowhead",
+    "before": "b2f65e938de989772cc680a201477ba89f67e410",
+    "tags": [
+     "metal-iron-steel",
+     "obj-equipment-weapon-ranged-arrow",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/u-arrowhead",
+    "before": "2c86a4efd31e7d66041262b64330aea0d179c99e",
+    "tags": [
+     "metal-iron-steel",
+     "obj-equipment-weapon-ranged-arrow",
+     "comp"
+    ]
+   },
+   {
+    "id": "quat-rpg/arrow",
+    "before": "6ea1d37dfd6a9ab57f03fdb18c16776fbeed5b41",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "liquid",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "quat-rpg/arrow-golden",
+    "before": "0681b5c44ed9df1c55dbe8bd0448f307adf8e0ec",
+    "tags": [
+     "metal-gold",
+     "wood-beam",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "rgp-medieval/arrow",
+    "before": "456cdd1d84fcdd4436bffe00544585d9b2b460e3",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "rgp-weapons/arrow-a",
+    "before": "d87454c6bb8db27c3d7cbf7910f24ceec63c6acb",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "rgp-weapons/arrow-b",
+    "before": "37bc8ebd1f85c63a856fdbe3c222cd7770fbfc78",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "textile",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   },
+   {
+    "id": "zombie-weapons/arrow",
+    "before": "10bf0168f7015ea49aae43b2ca099f1eef0979a2",
+    "tags": [
+     "metal-iron-steel",
+     "plastic",
+     "obj-equipment-weapon-ranged-arrow"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "lpa-tools/stone-arrow",
+    "category": "colour",
+    "change": "shaft moved from umber to chestnut and the lashing from chestnut to umber, so the wooden shaft matches its sibling wooden-arrow and the peers and the leather lashing reads as leather",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-weapons/arrow-b",
+    "category": "colour",
+    "change": "shaft nickel to chestnut, head stays nickel",
+    "doubt": true,
+    "why": "source may mean a metal shaft",
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "kay-weapons/arrow-b",
+    "category": "tag",
+    "change": "add wood-beam for the shaft",
+    "doubt": true,
+    "why": "follows the shaft recolour",
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "m3-base/bronze-elliptical-leaf",
+    "category": "placement",
+    "change": "stood upright, point up, like the m3 arrowheads",
+    "doubt": true,
+    "why": "new lint finding",
+    "lint": [
+     "detail: 64617 triangles/m²: very fine for its size"
+    ],
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/bronze-elliptical-leaf",
+    "category": "shape",
+    "change": "blade thickened 0.7 to 7 mm like the m3 arrowheads",
+    "doubt": true,
+    "why": "tenfold on one axis",
+    "lint": [
+     "detail: 64617 triangles/m²: very fine for its size"
+    ],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-adventurers/arrow-crossbow",
+    "category": "tag",
+    "change": "add textile for the hunter fletching, as kay-skeleton/arrow in the same variant group carries it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-adventurers/arrow-crossbow-bundle",
+    "category": "tag",
+    "change": "add textile for the hunter fletching, as its peers carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-rpg/arrow",
+    "category": "tag",
+    "change": "remove liquid; an arrow of wood and steel carries no liquid, the tag only legalised the azure fletching",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "Azure fletching on six models (kay-adventurers/arrow-bow, arrow-bow-bundle, kay-weapons/arrow-b, lpa-tools/stone-arrow, wooden-arrow, quat-rpg/arrow) has no legal textile band; left as the artists made it, so the two kay-adventurers bow arrows still carry no textile tag. Proposal: ivory or hunter for all six, in one pass.",
+   "lpa-weapons/arrow keeps its 0.33% backface warning at 270/50: backface-fix raised it to 0.74% at 45/50, so it was put back.",
+   "m3-base/fire-arrowhead is a twisted cage at nine times the kind's tri budget; it reads as a fire arrow cage and is comp, left.",
+   "m3-base/bronze-elliptical-leaf is named bronze but tagged metal-gold on amber; metal-copper on terracotta is the literal reading, left for the PO.",
+   "zombie-weapons/arrow is a modern bolt with a nickel shaft and sienna vanes; coherent with its tags, left.",
+   "Fletching colours vary across the kind (hunter, ivory, azure, amber, sienna); that variety reads as dyed feathers and was left."
+  ]
+ },
+ {
+  "kind": "obj-food-vegetable-root",
+  "run": "2026-10-09-2048",
+  "models": [
+   {
+    "id": "food-pack-2/beetroot",
+    "before": "25246cbb1ee61ae77d1248b92e16163a45588b7c",
+    "tags": [
+     "food",
+     "obj-food-vegetable-root"
+    ]
+   },
+   {
+    "id": "food-pack-2/radish-red",
+    "before": "45695881e28477e32802fbf6b4aba60e3844caa0",
+    "tags": [
+     "food",
+     "obj-food-vegetable-root"
+    ]
+   },
+   {
+    "id": "food-pack-2/radish-white",
+    "before": "da7c3af8a9f0afe1aba9e6326ef84e4cc0170aeb",
+    "tags": [
+     "food",
+     "obj-food-vegetable-root"
+    ]
+   },
+   {
+    "id": "ken-food/radish",
+    "before": "2976897922a1c3199f75ea5cf60c3b4091f33483",
+    "tags": [
+     "foliage",
+     "food",
+     "obj-food-vegetable-root"
+    ]
+   },
+   {
+    "id": "ken-nature/turnip",
+    "before": "9c32947d901bde98fd4197160036c402ccf236ad",
+    "tags": [
+     "foliage",
+     "food",
+     "obj-food-vegetable-root",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "quat-food/turnip",
+    "before": "222ac67a21646673ea5cb52c992beb1c2f86a455",
+    "tags": [
+     "foliage",
+     "food",
+     "obj-food-vegetable-root",
+     "scale-big"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-food/turnip",
+    "category": "shape",
+    "change": "bulb grown 1.5x, leaves lifted onto it",
+    "doubt": true,
+    "why": "source may mean the tiny bulb",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "food-pack-2/beetroot",
+    "category": "tag",
+    "change": "foliage material added for the leaves, as the kind's other leafed models carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "food-pack-2/radish-red",
+    "category": "tag",
+    "change": "foliage material added for the leaves, as the kind's other leafed models carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "food-pack-2/radish-white",
+    "category": "tag",
+    "change": "foliage material added for the leaves, as the kind's other leafed models carry it",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "quat-food/turnip keeps scale-big: at 0.48 it is still over the kind's 0.4 longest, carried by its leaves rather than the bulb",
+   "food-pack-2/beetroot has sienna stems under the moss leaves, as a real beetroot does; left",
+   "ken-food/radish bulb is a sienna cone, reads as a radish beside the round ones; left",
+   "ken-nature/turnip is a tall ivory bulb at 0.69 with scale-big; geometry clean; left"
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-cookware-kettle",
+  "run": "2026-10-09-2048",
+  "models": [
+   {
+    "id": "cooking-assets/kettle",
+    "before": "f39b7a7c8026ab9d6f94d0d15e408312c695cd90",
+    "tags": [
+     "metal-iron-steel",
+     "wood-beam",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "emace-village/kettle",
+    "before": "71d4204a4d45f5ccab6a6647fe2b00c4a62b47d8",
+    "tags": [
+     "metal-iron-cast",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "isa-kitchen/kettle",
+    "before": "855af8f0f10ba3403b4cdb112a052e66cb86c4b0",
+    "tags": [
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "isa-picnic/teapot",
+    "before": "0b144ac5fa26e80067d8508923803aa4eb5ff0f9",
+    "tags": [
+     "ceramic",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "jb-kitchen/kettle",
+    "before": "6a6890baf5872e52fab0fbcf2c94fd132825f77c",
+    "tags": [
+     "metal-iron-cast",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "lpa-home/kettle",
+    "before": "bb6682696d644630d45c092c631b93fe53136295",
+    "tags": [
+     "metal",
+     "glass-clear",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "m3-base/teapot",
+    "before": "e4eb2811324d56ee857a8710a7cac76ba4b5ee7f",
+    "tags": [
+     "ceramic",
+     "obj-kitchenware-cookware-kettle"
+    ]
+   },
+   {
+    "id": "rgp-asia/teapot",
+    "before": "39cbccb1771c4fc07ae84c046b61e17d00dcbc9d",
+    "tags": [
+     "ceramic",
+     "obj-kitchenware-cookware-kettle",
+     "asia"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/teapot",
+    "category": "detail",
+    "change": "decimated 4186 to 1195 tris, inner walls culled",
+    "doubt": true,
+    "why": "mesh rewrite, coarser up close",
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "lpa-home/kettle",
+    "category": "tag",
+    "change": "metal to metal-iron-steel for lid and handle",
+    "doubt": true,
+    "why": "every lpa-home appliance carries bare metal",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "lpa-home/kettle: the ivory body carries no material; plastic does not admit ivory, so it is left untagged for the PO",
+   "isa-kitchen/kettle: basalt rear loop handle is small but reads as a handle; left",
+   "emace-village/kettle: lidless coffee-pot shape with an open top and one sliver backface at the handle join; left",
+   "cooking-assets/kettle: chestnut ring on the spout tip and lid knob match the wooden handle; left as the artist's intent",
+   "the orchestrator's work-in-progress commits swept the teapot workfile along; the pre-run copy is src/m3-base__teapot.glb in the run dir"
+  ]
+ },
+ {
+  "kind": "obj-leisure-game-gamble-table",
+  "run": "2026-10-09-2048",
+  "models": [
+   {
+    "id": "lpa-west/table-b",
+    "before": "13f2dbb6a62a50e5913f60597f0dc623b0585d74",
+    "tags": [
+     "wood-worked",
+     "textile",
+     "obj-leisure-game-gamble-table"
+    ]
+   },
+   {
+    "id": "sq-cards/play-table",
+    "before": "8a0e28faee4b098f97b40301914d2def50ba87c9",
+    "tags": [
+     "metal-iron-cast",
+     "wood-beam",
+     "rubber",
+     "obj-leisure-game-gamble-table"
+    ]
+   },
+   {
+    "id": "sq-cards/playmat",
+    "before": "cefa3fb2c0d8b1824dc8ed4a75234c08389e9f88",
+    "tags": [
+     "paper",
+     "plastic",
+     "obj-leisure-game-gamble-table",
+     "comp"
+    ]
+   },
+   {
+    "id": "sq-casino/craps-table",
+    "before": "f9af531fbd4d625ecaceb97c72266c741586c148",
+    "tags": [
+     "metal-iron-wrought",
+     "wood-beam",
+     "textile",
+     "obj-leisure-game-gamble-table"
+    ]
+   },
+   {
+    "id": "sq-casino/poker-table",
+    "before": "a8eab1f68dc155765ce4e3207a2416661e67c4ca",
+    "tags": [
+     "wood-beam",
+     "textile",
+     "plastic",
+     "obj-leisure-game-gamble-table"
+    ]
+   },
+   {
+    "id": "sq-casino/roulette-table",
+    "before": "add054f5b0416c480f6350f2d39f9a7b5221259b",
+    "tags": [
+     "metal-iron-wrought",
+     "wood-beam",
+     "textile",
+     "obj-leisure-game-gamble-table"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "sq-cards/play-table",
+    "category": "colour",
+    "change": "surface slate to hunter, the peers' felt",
+    "doubt": true,
+    "why": "source drew navy on purpose",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-cards/play-table",
+    "category": "colour",
+    "change": "legs moved slate -> basalt, the band the peers use for table legs",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-cards/play-table",
+    "category": "tag",
+    "change": "materials follow the bands: textile for the felt, metal-iron-wrought for the basalt legs and apron; metal-iron-cast and rubber dropped",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-cards/playmat",
+    "category": "colour",
+    "change": "mat slate to hunter like its play-table",
+    "doubt": true,
+    "why": "source drew navy on purpose",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-cards/playmat",
+    "category": "tag",
+    "change": "textile added for the hunter mat",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "sq-casino/craps-table: underside of the top is hunter with tan stretcher bars; only seen from below, left as is",
+   "sq-casino/poker-table: 2.4x the kind's triangles, spent on chips and castor feet; reads well, left as is",
+   "lpa-west/table-b: 0.7x the kind's longest, an octagonal card table by design; left as is"
+  ]
+ }
+]
