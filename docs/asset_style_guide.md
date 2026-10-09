@@ -79,7 +79,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `D05` | longest | an object's largest extent |
 | `D06` | TBD | referenced by `G21`; not yet defined |
 
-**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it.
+**Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it. `glass` carries lighter diagonal streaks: each pane is laid out flat across the cell with `node tools/import/glass-uv.mjs <file.glb>` after it is moved into the band.
 
 | band | lane |
 |---|---|
@@ -95,6 +95,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `hunter` | 1,1 |
 | `moss` | 3,1 |
 | `slate` | 6,1 |
+| `glass` | 3,2 |
 | `azure` | 4,2 |
 | `ivory` | 5,2 |
 | `twine` | 14,2 |
@@ -276,7 +277,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 ### 5.1 Material palettes
 
-One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
+One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. Glass carries a subtype — `glass-clear`, `glass-tinted`, `glass-screen`, `glass-mirror` — except vessels, which carry `glass`. Lit lantern and lamp panes are `emissive`, not glass. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
 
 Run `node lint/palette.mjs`.
 
