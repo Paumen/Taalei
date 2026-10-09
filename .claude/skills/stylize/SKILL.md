@@ -55,8 +55,9 @@ model, not per kit.
 | parent | Pieces of another model (pizza slice, apple slice, forked tongue): scale with it |
 | height | Tables, desks and counters: also aim at the kind's median height |
 
-- Peers come only from other kits. Drop kits that skew a kind, such as a
-  weapon-only pack whose swords are real-world size.
+- Peers come only from other kits: name the batch's kits in `kits`. Put kits
+  that skew a kind in `dropKits`, such as a weapon-only pack whose swords are
+  real-world size.
 - A kind's `longest` and `high` limits clamp the result. Put a model in
   `noClamp` when its kind's limits are for something else (a door handle in
   a kind clamped to door height). A tealight under a candle kind's `high.min`
