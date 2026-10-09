@@ -33,11 +33,14 @@ Size, the longest side:
   model is in "noClamp".
 
 batch.json:
-  { "src": dir, "out": dir, "models": { name: kind },
+  { "src": dir, "out": dir, "kits": [kit], "dropKits": [kit], "models": { name: kind },
     "curve": [0.70, 0.511], "blend": 0.75,
     "size": {}, "mixedKinds": [], "heightKinds": [],
     "keep": [], "noStick": [], "noFlat": [], "noClamp": [],
-    "flatRefs": { name: [catalogue names] }, "depth": { name: share } }`;
+    "flatRefs": { name: [catalogue names] }, "depth": { name: share } }
+
+  "kits" names the batch's own kits and "dropKits" kits that skew a kind; neither
+  counts as a peer.`;
 
 const P_SQUEEZE = 0.63;
 
@@ -46,8 +49,10 @@ function args() {
   if (!file || file === '--help') { console.log(HELP); process.exit(file ? 0 : 1); }
   const batch = JSON.parse(readFileSync(file, 'utf8'));
   const set = (k) => new Set(batch[k] ?? []);
+  if (!batch.kits?.length) { console.error('batch.json needs "kits"'); process.exit(1); }
   return {
     ...batch,
+    dropKits: batch.dropKits ?? [],
     curve: batch.curve ?? [0.7, 0.511],
     blend: batch.blend ?? 0.75,
     size: batch.size ?? {},
@@ -65,8 +70,7 @@ const curve = (L) => B.curve[0] * L ** B.curve[1];
 const build = fileURLToPath(new URL('../../catalog/build/', import.meta.url));
 const catalog = JSON.parse(readFileSync(join(build, 'catalog.json'), 'utf8')).models;
 const groups = Object.fromEntries(JSON.parse(readFileSync(join(build, 'scale-groups.json'), 'utf8')).map((g) => [g.slug, g]));
-const kitOf = Object.fromEntries(catalog.map((m) => [m.name, m.kit]));
-const own = new Set(Object.keys(B.models).map((n) => kitOf[n]).filter(Boolean));
+const own = new Set([...B.kits, ...B.dropKits]);
 const others = catalog.filter((m) => !own.has(m.kit));
 const peers = (kind) => (groups[kind]?.items ?? []).filter((i) => !own.has(i.slug));
 
