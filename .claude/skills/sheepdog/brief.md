@@ -16,7 +16,8 @@ Repo root: the current working directory. Run dir: `{{dir}}`.
 
 ## Look
 
-The sheets, pbr from iso at locked scale, so sizes compare:
+The sheets, pbr from iso, every tile fitted to its own model, so read sizes
+from the dossier, not from the tiles:
 
 {{sheets}}
 
@@ -97,7 +98,7 @@ fixes. The PO's verdicts so far, to calibrate on:
 Render every changed model beside two or more peers at locked scale and look
 at it; check `--modes faceorient` for new red where a fix touched geometry:
 
-    node tools/renders/kind-sheet.mjs --models <kit/name>,<kit/peer>,<kit/peer> --out {{dir}}/after --modes pbr --no-glb-lint
+    node tools/renders/kind-sheet.mjs --models <kit/name>,<kit/peer>,<kit/peer> --out {{dir}}/after --modes pbr --free-scale --no-glb-lint
 
 ## Write result.json
 

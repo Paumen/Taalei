@@ -29,9 +29,9 @@ say how bands and tags work. The agents get both as reading.
 
        node tools/sheepdog/sheepdog.mjs brief
 
-3. Pick and render. Six kinds with models from two or more kits and at most
-   48 models by default; `--max 0` admits every size, `--kind` names kinds.
-   Sheets hold at most 12 models each, at locked scale.
+3. Pick and render. Six kinds with models from two or more kits by default,
+   whatever their size; `--kind` names kinds, `--max` caps the model count.
+   Sheets hold at most 12 models each, every tile fitted to its own model.
 
        node tools/sheepdog/sheepdog.mjs pick
 
