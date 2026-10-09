@@ -231,5 +231,6 @@ export const BRONKITS = [
   { map: 'Electronics_Gadgets_Pack_3dmodelscc0', naam: 'Electronics & Gadgets Pack', kit: '3dm-electronics', source: '3dm', formaat: 'fbx', alleMappen: true },
   { map: 'Bones_Asset_loafbrr', naam: 'Bones 3D Asset', kit: 'loaf-bones', formaat: 'fbx' },
   { map: 'Base_Meshes_M3-org', naam: 'Base Meshes', kit: 'm3-base', source: 'm3', formaat: 'glb', alleMappen: true },
+  { map: 'Coffin_and_Flowers_loafbrr', naam: 'Coffin and Flowers', kit: null, formaat: 'glb', splitsPerMesh: true },
   { map: 'Lowbudget_Game_Assets_britdawgmasterfunk', naam: 'Lowbudget Game Assets', kit: 'lowbudget', formaat: 'glb', splitsPerMesh: true },
 ];
