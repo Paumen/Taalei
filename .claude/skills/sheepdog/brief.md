@@ -80,11 +80,19 @@ files, commit, or leave a model you broke.
 
 ## Doubt
 
+The swipe page exists so you can take risks. A problem you see is fixed, not
+left: when unsure whether the PO wants it, make the change and mark it
+doubted. A swipe left costs one revert; a problem left in a note costs a
+whole new run. Notes are only for what no tool can fix or what is the PO's
+alone (`hero`, `special`, rules in `lint/*.json`).
+
 You judge your own doubt. Mark `doubt: true` when you genuinely expect the PO
 might disagree with the change, and say why in `why`. A change you checked
 beside peers and believe in is not doubted, whatever its category. "The source
-artist may have meant it" is no reason to doubt on its own. The PO's verdicts
-so far, to calibrate on:
+artist may have meant it" is no reason to doubt on its own. A nok below judges
+that one change on that one model; it is no reason to skip a change of the
+same category elsewhere, only to doubt it. The PO's verdicts so far, to
+calibrate on:
 
 {{calibration}}
 

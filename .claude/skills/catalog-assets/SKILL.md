@@ -224,8 +224,8 @@ of the committed sheet. A sheet is rebuilt only when its members or their `.glb`
 It rebuilds only the packs whose source zips, workfiles, preview colours,
 rejects, NPC entries or tooling changed; the rest come from `kits/.cache`. `--force`
 rebuilds every pack. `build-catalog.mjs` likewise re-measures only the
-workfiles whose file, colormap or tooling changed; delete
-`kits/.cache/build-catalog.json` to measure all of them. `backfaces.mjs`
+workfiles whose file, colormap or tooling changed, reading the rest from the
+committed `catalog/build/measure-cache.json`; delete it to measure all of them. `backfaces.mjs`
 re-measures only changed workfiles; `--force` measures all of them.
 
 ## 7. Working a lint error
