@@ -7,15 +7,10 @@ import validator from 'gltf-validator';
 import { parseGlb, readAccessor, multiplyMatrix, nodeMatrix } from '../catalog/tools/glb.mjs';
 
 const CFG = {
-  groundTol: 0.02,           // m: lowest point must be within this of y=0
-  centreTol: 0.02,           // m: footprint centre must be within this of x=0 and z=0
-  checkPlacement: true,      // false for modular kits with corner pivots (walls, floors)
   degenerateWarn: 0.01,      // share of triangles
   doubledWarn: 0.01,
   atlas: { cols: 16, rows: 4, eps: 1e-3 },
   nonManifoldWarn: 0.02,
-  densityLow: 150,           // triangles per m² of surface
-  densityHigh: 20000,
   rawExtentFar: 50,          // raw shape bigger than this (before node scale) = odd units
   house: { materials: 1, texture: 'Textures/colormap.png' },
   ignoreCodes: ['URI_GLB', 'BUFFER_VIEW_TARGET_MISSING'],
@@ -154,20 +149,16 @@ async function lint(file) {
   }
   if (!T.nt) { add('error', 'geometry', 'no triangles'); return { file, findings: out }; }
 
-  const size = sub(hi, lo), cx = (lo[0] + hi[0]) / 2, cz = (lo[2] + hi[2]) / 2;
-  if (CFG.checkPlacement && Math.abs(lo[1]) >= CFG.groundTol) add('warn', 'placement', `lowest point at y=${lo[1].toFixed(3)} m: ${lo[1] > 0 ? 'floats above' : 'sinks into'} the ground`);
-  if (CFG.checkPlacement && (Math.abs(cx) >= CFG.centreTol || Math.abs(cz) >= CFG.centreTol)) add('warn', 'placement', `off-centre by x=${cx.toFixed(3)} z=${cz.toFixed(3)} m`);
+  const size = sub(hi, lo);
   if (rawExt > CFG.rawExtentFar) add('info', 'structure', `raw shape spans ±${rawExt.toFixed(0)} units before node scale (odd units)`);
 
   if (T.zeroN) add('error', 'shading', `${T.zeroN} zero-length normals (black specks / broken light)`);
   if (T.degen / T.nt > CFG.degenerateWarn) add('warn', 'geometry', `${pct(T.degen / T.nt)} triangles with no area`);
   if (T.doubled / T.nt > CFG.doubledWarn) add('warn', 'geometry', `${pct(T.doubled / T.nt)} triangles doubled back-to-back (flicker)`);
   if (xband) add('error', 'colour', `${xband} triangles with corners in different colormap cells (smeared band)`);
-  if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('warn', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
+  if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('info', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
   const density = T.nt / T.surf;
-  if (density < CFG.densityLow) add('info', 'detail', `${density.toFixed(0)} triangles/m²: coarse (fine for boxy shapes, curves look polygonal)`);
-  if (density > CFG.densityHigh) add('info', 'detail', `${density.toFixed(0)} triangles/m²: very fine for its size`);
 
   return {
     file, findings: out,

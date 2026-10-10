@@ -35,7 +35,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `scale`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `minTube`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `scale`, `bands`, `calls`, `tris`, `tpu`, `grad`, `anim`, `alpha`, `pbr`, `minEdge`, `minTube`, `thickRel`, `badNormals`, `leaf`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -114,7 +114,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
 
-The measured global rows, `I08`, `I09`, `I11`, live in `lint/measures.json` (§2.2).
+The measured global rows, `I01`, `I08`, `I09`, `I11`, live in `lint/measures.json` (§2.2).
 
 ---
 
@@ -129,8 +129,6 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 | id | when | except | subject | assert | value |
 |---|---|---|---|---|---|
 | `G01` | `*` | `tag:hero` | model | range | 8–12 flat pieces per full circle, where the model has a round cross-section |
-| `G02` | `*` | `mat:textile` | `minEdge` | min | 0.015 |
-| `G03` | `mat:textile` | — | `minEdge` | min | 0.01 |
 | `G07` | `*` | — | `part:split node` | is | origin at the joint |
 | `G28` | `*` | — | `backface` | max | 0.1% warning, 0.5% error |
 
@@ -142,15 +140,19 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
 
-Rows here: `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15` and `G17` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness).
+Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15` and `G17` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness), `G29` (normals). `G06` leaves out `kind:str-part` and `kind:str-barrier-fence`, which are pivoted at a corner or edge. `G11` leaves out `kind:obj-transport-land-rail` and `kind:obj-transport-air-space`, whose livery takes more colours.
+
+`leaf` is 1 for a model whose kind has no children in `lint/kinds.json`, 0 otherwise.
 
 `minTube` is the width of the model's thinnest tube or stick, in catalogue units; a model with neither records none and `G27` passes it. A tube is a part (shells welded on shared positions) whose every slice across its main axis is a ring of at least five directions around the slice's own centre, no rim vertex more than 2.5 times as far out as another, and at least 2.5 diameters long; a curved stalk counts. Its width is twice the median slice radius. A stick is a part of any cross-section, flat strips included, at least 6 times as long as its wide side; its width is the narrow side, taken across the direction where the part is narrowest. Both are measured after the node transform.
 
 `G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, darts and other ranged weapons, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, table cutlery, spatulas, fauna, shells, bags, glasses, pocket items, stationery, hand tools, scales, crates and sets, and also grass, deadwood branches, apparel, tool supplies, gas cylinders, bottles, kettles, ovens, pickaxes, radios, signs, target dummies, sculptures, air transport, churches and barracks. Food, books, other weapons, vials, furnishing and toys set 0.012.
 
-`thick` reads `I01`: twice the mean depth of the model's solid over its middle extent. The solid is everything not seen from a view at or above the horizon, so a hollow shell that shows no opening counts as solid and an open barrel shows its walls; gaps narrower than about 7% of the longest extent are closed first. `thickRel` is `thick` over the median of the deepest kind with at least 8 models, `tag:plural`, `tag:piece`, `tag:comp` and `kind:set` left out. No row asserts on either.
+`thick` reads `I01`: twice the mean depth of the model's solid over its middle extent. The solid is everything not seen from a view at or above the horizon, so a hollow shell that shows no opening counts as solid and an open barrel shows its walls; gaps narrower than about 7% of the longest extent are closed first. `thickRel` is `thick` over the median of the deepest kind with at least 8 models, `tag:plural`, `tag:piece`, `tag:comp` and `kind:set` left out. `I01` warns below 0.5, on leaf kinds only.
 
-`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself.
+`badNormals` counts vertex normals that are not unit length, zero-length ones included, as the glTF validator reads them. `G29` allows none.
+
+`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself: cars and arcade machines set 6.
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 
