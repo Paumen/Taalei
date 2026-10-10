@@ -1203,7 +1203,7 @@
    ],
    "kitCheck": {
     "factor": 1,
-    "kinds": 47
+    "kinds": 48
    }
   },
   {
@@ -3529,7 +3529,7 @@
    },
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 25
+    "kinds": 26
    }
   },
   {
@@ -26279,6 +26279,13 @@
    "count": 27
   },
   {
+   "id": "env-remains-bones-skull-human",
+   "name": "Human skull",
+   "type": "kind",
+   "description": "human skull",
+   "count": 16
+  },
+  {
    "id": "env-terrain-rock",
    "name": "Rock",
    "type": "kind",
@@ -28302,6 +28309,12 @@
    "tpu.max": 5000
   },
   "env-remains-bones-skull": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "env-remains-bones-skull-human": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.5,
@@ -31929,6 +31942,12 @@
    "tpu.max": 10000
   },
   "env-remains-bones-skull scale-big": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2,
+   "tpu.max": 10000
+  },
+  "env-remains-bones-skull-human scale-big": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 2,
@@ -128466,7 +128485,7 @@
    "kit": "kay-dun-1",
    "name": "skull",
    "hash": "6583a2df89",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.231,
@@ -128501,7 +128520,7 @@
     "bone",
     "kay"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.09
   },
   {
    "kit": "kay-dun-1",
@@ -150901,7 +150920,7 @@
    "kit": "kay-hallow",
    "name": "post-skull-skull",
    "hash": "77a1907d42",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.243,
@@ -150952,7 +150971,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.24,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -151401,7 +151420,7 @@
    "kit": "kay-hallow",
    "name": "skull",
    "hash": "633c595b56",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.275,
@@ -151438,7 +151457,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.1
   },
   {
    "kit": "kay-hallow",
@@ -172484,7 +172503,7 @@
    "collection": "kay-rpg",
    "name": "skull",
    "hash": "7fe3e22a25",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.261,
@@ -172520,7 +172539,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.09
   },
   {
    "kit": "kay-skeleton",
@@ -173320,7 +173339,7 @@
    "collection": "kay-undead",
    "name": "skull-broken",
    "hash": "56504d1b2b",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.334,
@@ -173358,14 +173377,14 @@
     "kay"
    ],
    "variant": "kay-skeleton-1/skull",
-   "thickRel": 1.01
+   "thickRel": 0.91
   },
   {
    "kit": "kay-skeleton-1",
    "collection": "kay-undead",
    "name": "skull-claw",
    "hash": "ab9d0cf56c",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.196,
@@ -173401,14 +173420,14 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.82
   },
   {
    "kit": "kay-skeleton-1",
    "collection": "kay-undead",
    "name": "skull",
    "hash": "dfebbee5f7",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.334,
@@ -173445,7 +173464,7 @@
     "kay"
    ],
    "variant": "kay-skeleton-1/skull",
-   "thickRel": 1.09
+   "thickRel": 0.97
   },
   {
    "kit": "kay-skeleton-1",
@@ -268837,7 +268856,7 @@
    "kit": "loaf-bones",
    "name": "skull-jawless",
    "hash": "d976f6bb89",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.204,
@@ -268873,13 +268892,13 @@
     "halloween"
    ],
    "variant": "loaf-bones/skull",
-   "thickRel": 0.35
+   "thickRel": 0.31
   },
   {
    "kit": "loaf-bones",
    "name": "skull",
    "hash": "77781aaa1b",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.211,
@@ -268915,7 +268934,7 @@
     "halloween"
    ],
    "variant": "loaf-bones/skull",
-   "thickRel": 0.39
+   "thickRel": 0.35
   },
   {
    "kit": "loaf-bones",
@@ -319962,7 +319981,7 @@
    "kit": "m3-base",
    "name": "skull-no-teeth",
    "hash": "73fc13ff3c",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.18,
@@ -319997,7 +320016,7 @@
     "bone",
     "m3"
    ],
-   "thickRel": 1.06,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "error",
@@ -345033,7 +345052,7 @@
    "collection": "quat-dun",
    "name": "skull",
    "hash": "790e76a130",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.184,
@@ -345071,7 +345090,7 @@
     "qua"
    ],
    "variant": "quat-dun-1/skull",
-   "thickRel": 1.22
+   "thickRel": 1.1
   },
   {
    "kit": "quat-dun-1",
@@ -345916,7 +345935,7 @@
    "collection": "quat-dun",
    "name": "skull",
    "hash": "b0e021c3f9",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.184,
@@ -345954,7 +345973,7 @@
     "qua"
    ],
    "variant": "quat-dun-1/skull",
-   "thickRel": 1.22
+   "thickRel": 1.1
   },
   {
    "kit": "quat-dun-2",
@@ -364975,7 +364994,7 @@
    "kit": "quat-pirate",
    "name": "skull",
    "hash": "f007b09c4b",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.186,
@@ -365013,7 +365032,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.06
   },
   {
    "kit": "quat-pirate",
@@ -371551,7 +371570,7 @@
    "kit": "quat-rpg",
    "name": "skull-2",
    "hash": "968e2074d3",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.218,
@@ -371590,13 +371609,13 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 0.63
+   "thickRel": 0.56
   },
   {
    "kit": "quat-rpg",
    "name": "skull-3",
    "hash": "ea5fd29c3a",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.217,
@@ -371632,13 +371651,13 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 0.43
+   "thickRel": 0.38
   },
   {
    "kit": "quat-rpg",
    "name": "skull",
    "hash": "a9587a5cdd",
-   "kind": "env-remains-bones-skull",
+   "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
     0.148,
@@ -371677,7 +371696,7 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 1.15
+   "thickRel": 1.03
   },
   {
    "kit": "quat-rpg",

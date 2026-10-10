@@ -29,6 +29,7 @@ const SIZES = {
   'env-remains-bones-limb': 0.3,
   'env-remains-bones-ribcage': 0.6,
   'env-remains-bones-skull': 0.2,
+  'env-remains-bones-skull-human': 0.2,
   'env-remains-deadwood-branch': 1,
   'env-remains-deadwood-stump': 0.8,
   'env-remains-deadwood-tree': 8,
