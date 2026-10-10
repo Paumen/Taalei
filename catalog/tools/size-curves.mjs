@@ -2,8 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readKindTree } from './kinds.mjs';
-import { isBuilding, isExempt, scaleTagOf, SCALE_PREFIX } from '../../lint/rules.mjs';
-import { stampPages } from './stamp.mjs';
+import { isExempt, scaleTagOf, SCALE_PREFIX } from '../../lint/rules.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const VARS = JSON.parse(readFileSync(join(ROOT, 'lint', 'variables.json'), 'utf8'));
@@ -30,6 +29,7 @@ const SIZES = {
   'env-remains-bones-limb': 0.3,
   'env-remains-bones-ribcage': 0.6,
   'env-remains-bones-skull': 0.2,
+  'env-remains-bones-skull-human': 0.2,
   'env-remains-deadwood-branch': 1,
   'env-remains-deadwood-stump': 0.8,
   'env-remains-deadwood-tree': 8,
@@ -47,6 +47,9 @@ const SIZES = {
   'obj-container-barrel-metal': 0.9,
   'obj-container-basket': 0.4,
   'obj-container-bottle': 0.28,
+  'obj-container-bottle-drink': 0.25,
+  'obj-container-bottle-glass': 0.3,
+  'obj-container-bottle-lab': 0.2,
   'obj-container-bottle-vial': 0.18,
   'obj-container-bucket': 0.3,
   'obj-container-bucket-tub': 0.6,
@@ -55,20 +58,24 @@ const SIZES = {
   'obj-container-can-wateringcan': 0.5,
   'obj-container-cargo': 6,
   'obj-container-carton': 0.2,
+  'obj-container-carton-drink': 0.2,
   'obj-container-chest': 0.8,
   'obj-container-coffin': 2,
   'obj-container-crate': 0.6,
   'obj-container-crate-ammo': 0.3,
   'obj-container-crate-cardboard': 0.4,
+  'obj-container-crate-cardboard-takeaway': 0.25,
   'obj-container-crate-cube': 0.6,
   'obj-container-crate-produce': 0.5,
   'obj-container-crate-scifi': 0.6,
   'obj-container-cylinder': 0.8,
+  'obj-container-cylinder-tank': 0.8,
   'obj-container-dumpster': 1.8,
   'obj-container-pot': 0.4,
   'obj-container-pot-jar': 0.15,
   'obj-container-pot-urn': 0.5,
   'obj-container-pot-vase': 0.5,
+  'obj-container-present': 0.3,
   'obj-container-trashcan': 0.9,
   'obj-device-appliance': 1,
   'obj-device-appliance-blender': 0.4,
@@ -107,14 +114,24 @@ const SIZES = {
   'obj-equipment-target-bullseye': 1.2,
   'obj-equipment-target-dummy': 1.8,
   'obj-equipment-tool-hand': 0.3,
+  'obj-equipment-tool-hand-blade': 0.25,
   'obj-equipment-tool-hand-brush': 0.2,
+  'obj-equipment-tool-hand-garden': 0.3,
+  'obj-equipment-tool-hand-gripper': 0.25,
   'obj-equipment-tool-hand-hammer': 0.35,
   'obj-equipment-tool-hand-saw': 0.5,
   'obj-equipment-tool-hand-screwdriver': 0.2,
+  'obj-equipment-tool-hand-shaping': 0.25,
   'obj-equipment-tool-hand-wrench': 0.25,
   'obj-equipment-tool-mechanism': 0.3,
+  'obj-equipment-tool-mechanism-lock': 0.08,
   'obj-equipment-tool-station': 0.8,
+  'obj-equipment-tool-station-anvil': 0.5,
+  'obj-equipment-tool-station-grinder': 0.8,
   'obj-equipment-tool-stationery': 0.15,
+  'obj-equipment-tool-stationery-filing': 0.3,
+  'obj-equipment-tool-stationery-holder': 0.1,
+  'obj-equipment-tool-stationery-writing': 0.15,
   'obj-equipment-tool-twohand': 1.5,
   'obj-equipment-tool-twohand-broom': 1.3,
   'obj-equipment-tool-twohand-pickaxe': 0.9,
@@ -138,7 +155,7 @@ const SIZES = {
   'obj-equipment-weapon-ranged-bow': 1.5,
   'obj-equipment-weapon-ranged-crossbow': 0.8,
   'obj-equipment-weapon-ranged-firearm': 1.2,
-  'obj-equipment-weapon-ranged-firearm-hand': 0.2,
+  'obj-equipment-weapon-ranged-firearm-hand': 0.35,
   'obj-equipment-weapon-ranged-firearm-hand-revolver': 0.3,
   'obj-equipment-weapon-ranged-firearm-rifle': 1.15,
   'obj-equipment-weapon-ranged-firearm-rifle-sniper': 1.2,
@@ -151,9 +168,10 @@ const SIZES = {
   'obj-food-baked-bread': 0.3,
   'obj-food-baked-bread-baguette': 0.6,
   'obj-food-baked-bread-bun': 0.1,
-  'obj-food-baked-bread-sandwich': 0.15,
+  'obj-food-baked-cake': 0.25,
   'obj-food-baked-pastry': 0.25,
   'obj-food-baked-pastry-cookie': 0.08,
+  'obj-food-baked-pastry-cookie-gingerbread': 0.12,
   'obj-food-baked-pastry-croissant': 0.15,
   'obj-food-baked-pastry-cupcake': 0.07,
   'obj-food-baked-pastry-donut': 0.1,
@@ -183,6 +201,8 @@ const SIZES = {
   'obj-food-meat-roast': 0.35,
   'obj-food-meat-sausage': 0.18,
   'obj-food-meat-steak': 0.2,
+  'obj-food-prepared-burger': 0.12,
+  'obj-food-prepared-sandwich': 0.15,
   'obj-food-sweet': 0.12,
   'obj-food-sweet-icecream': 0.12,
   'obj-food-sweet-lollipop': 0.15,
@@ -203,6 +223,7 @@ const SIZES = {
   'obj-furnishing-bathroom-toilet': 0.75,
   'obj-furnishing-bathroom-toiletroll': 0.11,
   'obj-furnishing-bathroom-towelrail': 0.6,
+  'obj-furnishing-decor-mount': 0.6,
   'obj-furnishing-furniture-bed': 2,
   'obj-furnishing-furniture-bed-bunk': 2,
   'obj-furnishing-furniture-bed-double': 2.1,
@@ -227,6 +248,7 @@ const SIZES = {
   'obj-furnishing-furniture-table': 0.75,
   'obj-furnishing-furniture-table-desk': 0.75,
   'obj-furnishing-furniture-table-round': 0.75,
+  'obj-furnishing-furniture-table-side': 0.55,
   'obj-furnishing-furniture-table-square': 0.75,
   'obj-furnishing-light-campfire': 1,
   'obj-furnishing-light-candle': 0.2,
@@ -263,11 +285,13 @@ const SIZES = {
   'obj-kitchenware-tableware-drinkware-tankard': 0.16,
   'obj-kitchenware-tableware-plate': 0.26,
   'obj-kitchenware-tableware-serving': 0.4,
+  'obj-kitchenware-tableware-serving-stand': 0.35,
+  'obj-kitchenware-tableware-serving-tray': 0.4,
   'obj-leisure-art-instrument-string': 1,
   'obj-leisure-art-sculpture-prize': 0.35,
   'obj-leisure-game-ball': 0.22,
   'obj-leisure-toy': 0.3,
-  'obj-resource-haystack': 1.5,
+  'obj-resource-crop-hay': 1.5,
   'obj-resource-metal': 0.2,
   'obj-resource-stone': 0.4,
   'obj-resource-textile': 0.5,
@@ -278,6 +302,8 @@ const SIZES = {
   'obj-transport-land-cart-small': 1.4,
   'obj-transport-land-cart-small-wheelbarrow': 1.5,
   'obj-transport-land-road': 4.5,
+  'obj-transport-land-road-car': 4.5,
+  'obj-transport-land-wheelchair': 1,
   'obj-transport-pallet': 1.2,
   'obj-transport-part-paddle': 1.8,
   'obj-transport-watercraft-boat': 4,
@@ -286,6 +312,10 @@ const SIZES = {
   'str-access-bridge-section': 4,
   'str-access-platform-dock': 6,
   'str-access-stairs': 3,
+  'str-access-stairs-curved': 3,
+  'str-access-stairs-open': 3,
+  'str-access-stairs-ramp': 3,
+  'str-access-stairs-step': 1.5,
   'str-barrier-fence': 1.2,
   'str-barrier-fence-mid': 1.2,
   'str-barrier-fence-gate': 1.2,
@@ -293,7 +323,22 @@ const SIZES = {
   'str-barrier-post': 1.2,
   'str-barrier-railing': 1,
   'str-barrier-traffic': 1.2,
-  'str-barrier-traffic-cone': 0.3,
+  'str-barrier-traffic-cone': 0.7,
+  'str-barrier-traffic-jersey': 2,
+  'str-barrier-traffic-sawhorse': 1.5,
+  'str-building-military-barracks': 9,
+  'str-building-religious-church': 12,
+  'str-building-religious-crypt': 3,
+  'str-building-religious-shrine': 3,
+  'str-building-residential-house': 7.5,
+  'str-building-tower': 12,
+  'str-building-work-agricultural': 7.5,
+  'str-building-work-agricultural-silo': 8,
+  'str-building-work-commercial': 6,
+  'str-building-work-industrial-mill': 10,
+  'str-building-work-industrial-workshop': 6,
+  'str-canopy-gazebo': 3,
+  'str-canopy-shelter': 3,
   'str-canopy-stall': 2.5,
   'str-canopy-tent-camping': 2.5,
   'str-fixture-chimney': 20,
@@ -330,6 +375,7 @@ const SIZES = {
   'str-part-wall-unit-doorway': 3,
   'str-part-wall-unit-window': 3,
   'str-part-window': 1,
+  'str-part-window-unit': 3,
 };
 
 const HIGH = new Set([
@@ -348,6 +394,7 @@ const HIGH = new Set([
   'obj-furnishing-furniture-table',
   'obj-furnishing-furniture-table-desk',
   'obj-furnishing-furniture-table-round',
+  'obj-furnishing-furniture-table-side',
   'obj-furnishing-furniture-table-square',
   'str-barrier-fence',
   'str-barrier-fence-mid',
@@ -367,28 +414,36 @@ const HIGH = new Set([
   'str-part-wall-unit',
   'str-part-wall-unit-doorway',
   'str-part-wall-unit-window',
+  'str-part-window-unit',
 ]);
 
 const DROPPED_KINDS = [
   'env-flora-plant',
   'env-flora-waterplant',
   'env-remains-bones',
+  'env-remains-bones-spine',
   'env-remains-deadwood',
   'env-terrain-rock-formation',
   'env-terrain-ground',
+  'env-terrain-ground-field',
+  'env-terrain-ground-patch',
+  'env-terrain-ground-path',
+  'env-terrain-ground-pit',
   'env-terrain-mountain',
   'obj-leisure-art-instrument',
   'obj-leisure-art-sculpture',
   'obj-leisure-toy',
-  'obj-device-appliance',
   'obj-device-electronics-audio',
   'obj-equipment-pocketitem',
+  'obj-equipment-pocketitem-medicine',
   'obj-equipment-weapon-melee',
   'obj-equipment-weapon-ranged',
+  'obj-equipment-weapon-ranged-throwing',
   'obj-food-grain',
   'obj-food-vegetable',
   'obj-kitchenware-cookware',
   'obj-equipment-tool-supplies',
+  'obj-equipment-tool-supplies-fastener',
   'obj-transport-land-rail',
   'obj-transport-part',
   'str-access-bridge-long',
@@ -402,8 +457,6 @@ const DROPPED_KINDS = [
   'obj-leisure-game-gym',
   'obj-transport-air',
   'str-fixture-utility-machine-crane',
-  'str-fixture-leisure-playground',
-  'obj-food-fruit',
 ];
 
 const SCALE_SIZES = {
@@ -411,15 +464,12 @@ const SCALE_SIZES = {
   'env-flora-plant-leafy': { small: 0.3, big: 1.2 },
   'obj-container-crate': { small: 0.3, big: 1.2 },
   'obj-container-pot': { small: 0.2, big: 0.8 },
-  'obj-container-trashcan': { small: 0.35 },
   'obj-equipment-target-bullseye': { small: 0.5 },
-  'obj-equipment-pocketitem-book-closed': { small: 0.12 },
   'obj-equipment-weapon-explosive': { big: 0.4 },
   'obj-equipment-weapon-siege-ammunition-cannonball': { big: 0.3 },
   'obj-furnishing-furniture-storage-cabinet': { small: 0.7 },
-  'obj-furnishing-textile-rug': { small: 0.5, big: 4 },
+  'obj-furnishing-textile-rug': { small: 0.5 },
   'obj-kitchenware-tableware-condiment': { big: 0.25 },
-  'obj-leisure-game-ball': { big: 0.65 },
   'obj-resource-metal': { small: 0.06 },
   'obj-resource-wood-log': { big: 2 },
   'obj-transport-watercraft-ship': { big: 250 },
@@ -450,25 +500,10 @@ const ROOF_M = 1.5;
 const SHAKY = 0.3;
 const EDGE = 0.002;
 const MAX_UNITS = 10;
-const MAX_REAL_M = 24;
-const MIN_PEERS = 2;
-const SWEEPS = 20;
 
+const isBuilding = (kind) => kind === 'str-building' || kind.startsWith('str-building-');
 const depth = (kind) => kind.split('-').length;
 const round3 = (v) => Math.round(v * 1000) / 1000;
-const median = (arr) => {
-  const s = [...arr].sort((a, b) => a - b);
-  return s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2;
-};
-const groupBy = (items, key) => {
-  const map = new Map();
-  for (const it of items) {
-    const k = key(it);
-    if (!map.has(k)) map.set(k, []);
-    map.get(k).push(it);
-  }
-  return map;
-};
 
 const wmedian = (items) => {
   const sorted = [...items].sort((a, b) => a[0] - b[0]);
@@ -506,7 +541,9 @@ const fit = (pts, weighted) => {
 const realOf = (model) => {
   if (isBuilding(model.kind)) {
     const tag = (model.tags ?? []).find((t) => t in STOREYS);
-    return tag ? { real: STOREYS[tag] * STOREY_M + ROOF_M, high: true } : null;
+    if (tag) return { real: STOREYS[tag] * STOREY_M + ROOF_M, high: true };
+    const flat = SIZES[model.kind];
+    return flat === undefined ? null : { real: flat, high: true };
   }
   const scale = scaleTagOf(model)?.[0]?.slice(SCALE_PREFIX.length);
   const real = scale ? SCALE_SIZES[model.kind]?.[scale] : SIZES[model.kind];
@@ -533,82 +570,54 @@ const gather = () => {
     if (!assumed) continue;
     const u = assumed.high ? model.wdh[2] : Math.max(...model.wdh);
     if (!(u > 0)) continue;
-    const at = assumed.high && !isBuilding(model.kind) ? assumed.real * Math.max(...model.wdh) / model.wdh[2] : assumed.real;
-    if (at > MAX_REAL_M) continue;
     picked.push({
       kit: model.collection ?? model.kit, name: model.collection ? `${model.kit}/${model.name}` : model.name,
       kind: assumed.group ?? model.kind,
       shape: [...model.wdh.slice(0, 2).sort((a, b) => a - b), model.wdh[2]].join(','),
       u, real: assumed.real, high: assumed.high,
-      at,
+      at: assumed.high && !isBuilding(model.kind) ? assumed.real * Math.max(...model.wdh) / model.wdh[2] : assumed.real,
     });
   }
   return picked;
 };
 
 const pointsOf = (models) => {
+  const groups = new Map();
+  for (const m of models) {
+    const key = m.kind;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(m);
+  }
   const pts = [];
-  for (const [kind, members] of groupBy(models, (m) => m.kind)) {
+  for (const [kind, members] of groups) {
+    const ratios = members.map((m) => Math.log2(m.u / m.real)).sort((a, b) => a - b);
+    const reals = members.map((m) => m.at).sort((a, b) => a - b);
+    const mid = (arr) => (arr.length % 2 ? arr[(arr.length - 1) / 2] : (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2);
     pts.push({
       kind, n: members.length, d: new Set(members.map((m) => m.shape)).size,
-      x: round3(Math.log2(median(members.map((m) => m.at)))), y: round3(median(members.map((m) => Math.log2(m.u / m.real)))), members,
+      x: round3(Math.log2(mid(reals))), y: round3(mid(ratios)), members,
     });
   }
   return pts.sort((a, b) => a.kind.localeCompare(b.kind));
 };
 
-const kindLevels = (rows) => {
-  const byKit = groupBy(rows, (r) => r.kit);
-  const byKind = groupBy(rows, (r) => r.kind);
-  const a = new Map([...byKit.keys()].map((k) => [k, 0]));
-  const b = new Map([...byKind.keys()].map((k) => [k, 0]));
-  for (let i = 0; i < SWEEPS; i++) {
-    for (const [k, rs] of byKit) a.set(k, median(rs.map((r) => r.y - b.get(r.kind))));
-    for (const [k, rs] of byKind) b.set(k, median(rs.map((r) => r.y - a.get(r.kit))));
+const build = (models, weighted) => {
+  const byKit = new Map();
+  for (const m of models) {
+    if (!byKit.has(m.kit)) byKit.set(m.kit, []);
+    byKit.get(m.kit).push(m);
   }
-  const levels = new Map();
-  for (const [kind, rs] of byKind) {
-    if (rs.length >= MIN_PEERS) levels.set(kind, { level: b.get(kind), x: median(rs.map((r) => r.x)), d: rs.length });
-  }
-  return levels;
-};
-
-const kitRows = (models) => [...groupBy(models, (m) => m.kit)].flatMap(([kit, members]) => pointsOf(members).map((p) => ({ kit, kind: p.kind, x: p.x, y: p.y })));
-
-const peerLevels = (models) => {
-  const rows = kitRows(models);
-  const kits = new Set(rows.map((r) => r.kit));
-  return new Map([...kits].map((kit) => [kit, kindLevels(rows.filter((r) => r.kit !== kit))]));
-};
-
-const refOf = (models, weighted) => {
-  const levels = [...kindLevels(kitRows(models)).values()].map((l) => ({ x: l.x, y: l.level, d: l.d }));
-  const { slope } = fit(levels, weighted);
-  const pts = pointsOf(models);
-  const icpt = wmedian(pts.map((p) => [p.y - slope * p.x, weighted ? Math.sqrt(p.d) : 1]));
-  return { slope, icpt };
-};
-
-const offsetsFor = (levels, ref) => {
-  const raw = new Map([...levels].map(([kind, l]) => [kind, l.level - (ref.icpt + ref.slope * l.x)]));
-  const centre = raw.size ? median([...raw.values()]) : 0;
-  return new Map([...raw].map(([kind, v]) => [kind, v - centre]));
-};
-
-const build = (models, weighted, peers) => {
-  const ref = refOf(models, weighted);
   const kits = [];
   const all = [];
-  for (const [kit, members] of groupBy(models, (m) => m.kit)) {
-    const off = offsetsFor(peers.get(kit), ref);
-    const pts = pointsOf(members).map((p) => ({ ...p, y: round3(p.y - (off.get(p.kind) ?? 0)) }));
+  for (const [kit, members] of byKit) {
+    const pts = pointsOf(members);
     if (!fittable(pts)) continue;
     const { slope, icpt, mad } = fit(pts, weighted);
     const loo = pts.map((_, i) => pts.filter((__, j) => j !== i)).filter(fittable).map((rest) => fit(rest, weighted).slope);
     const range = loo.length ? [round3(Math.min(...loo)), round3(Math.max(...loo))] : null;
     const scored = members.map((m) => ({
       name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit,
-      res: round3(Math.log2(m.u / m.real) - (off.get(m.kind) ?? 0) - (icpt + slope * Math.log2(m.at))),
+      res: round3(Math.log2(m.u / m.real) - (icpt + slope * Math.log2(m.at))),
     })).sort((a, b) => b.res - a.res);
     const up = scored[0];
     const down = scored.at(-1);
@@ -622,25 +631,23 @@ const build = (models, weighted, peers) => {
       })),
       up: strip(up), down: strip(down),
     });
-    all.push(...members);
+    all.push(...scored);
   }
   kits.sort((a, b) => a.slope - b.slope);
-  const top = all.map((m) => ({
-    name: m.name, kind: m.kind, u: m.u, real: m.real, high: m.high, kit: m.kit,
-    res: round3(Math.log2(m.u / m.real) - (ref.icpt + ref.slope * Math.log2(m.at))),
-  })).sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
+  const refPts = pointsOf(models);
+  const ref = fit(refPts, weighted);
+  const top = all.sort((a, b) => Math.abs(b.res) - Math.abs(a.res)).slice(0, 50);
   return { kits, ref: { slope: round3(ref.slope), icpt: round3(ref.icpt) }, top };
 };
 
 const models = gather();
-const peers = peerLevels(models);
-const payload = { weighted: build(models, true, peers), plain: build(models, false, peers) };
+const payload = { weighted: build(models, true), plain: build(models, false) };
 
 const sizeRows = [...Object.entries(SIZES), ...Object.entries(SCALE_SIZES)
   .flatMap(([kind, by]) => Object.entries(by).map(([scale, real]) => [`${kind} ${SCALE_PREFIX}${scale}`, real]))]
   .filter(([k]) => !DROPPED_KINDS.includes(k))
   .sort(([a], [b]) => a.localeCompare(b))
-  .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind.split(' ')[0]) }));
+  .map(([kind, real]) => ({ kind, real, high: HIGH.has(kind.split(' ')[0]) || isBuilding(kind), storeys: isBuilding(kind) }));
 
 const curveKinds = [...readKindTree().keys()].sort().map((kind) => {
   const building = isBuilding(kind);
@@ -760,7 +767,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 
 <section id="panel-curves" role="tabpanel" aria-labelledby="tab-curves">
   <div class="top">
-    <span><b>Each line is one kit</b>, fitted through its own kinds, each measured against how the other kits size that kind.</span>
+    <span><b>Each line is one kit</b>, fitted through its own kinds against a real-world size table.</span>
     <span>Flat = keeps real proportions.</span>
     <span>Falling = small things enlarged (toy).</span>
     <span>Dotted = unstable: leaving out one kind moves the slope more than ${SHAKY}, or too few kinds to try.</span>
@@ -777,7 +784,7 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
 </section>
 
 <section id="panel-outliers" role="tabpanel" aria-labelledby="tab-outliers" hidden>
-  <div class="top"><span>The 50 models furthest from <b>the whole catalogue's curve</b> (the dashed line), in log2. <b>+</b> drawn larger than the catalogue's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
+  <div class="top"><span>The 50 models furthest from <b>their own kit's line</b>, in log2. <b>+</b> drawn larger than the kit's rule, <b>&minus;</b> smaller. Click a row to see that kit's curve; click a column title to sort.</span></div>
   <div class="wrap"><table id="ot"><thead><tr>
     <th class="n" data-k="rank">#</th><th class="n" data-k="res">off line</th><th data-k="res"></th><th data-k="name">model</th><th data-k="kit">kit</th><th data-k="kind">kind</th>
     <th class="n" data-k="u">measured</th><th class="n" data-k="real">assumed</th><th class="n" data-k="res">factor</th>
@@ -788,13 +795,12 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
   <div class="rules">
     <div class="rule">
       <h3>How a curve is fitted</h3>
-      <p>Per kit and kind, the median model size divided by the kind's assumed real size, less that kind's usual offset from the dashed line in the other kits. So a kit that sizes every kind the way the other kits do lies on the dashed line, whichever kinds it holds, and its slope shows only how it scales them itself. The usual offset comes from a robust fit of kit level plus kind level over every other kit's points. The dashed line's slope is a Theil&ndash;Sen line through the kind levels of all kits, so it does not depend on which kits hold which kinds; its height is the whole catalogue's median. A kind in fewer than ${MIN_PEERS} other kits has none and is measured against the size table alone.</p>
-      <p>A Theil&ndash;Sen line through those points, in log2 on both axes, <span id="wtext"></span>. Scatter is the median absolute residual, under the same weighting. A kit needs 3 kinds spanning at least a factor 2 in real size, or it is dropped.</p>
+      <p>Per kit and kind, the median model size divided by the kind's assumed real size. A Theil&ndash;Sen line through those points, in log2 on both axes, <span id="wtext"></span>. Scatter is the median absolute residual, under the same weighting. A kit needs 3 kinds spanning at least a factor 2 in real size, or it is dropped.</p>
       <p>Range is the lowest and highest slope when the line is refitted with each kind left out in turn. A kit is unstable, and drawn dotted, when that range is wider than ${SHAKY}, or when no kind can be left out without the kit falling below the minimum.</p>
     </div>
     <div class="rule">
       <h3>Buildings</h3>
-      <p>A building's assumed real size is its own height, read from its <code>storeys-N</code> tag: <code>storeys &times; ${STOREY_M} m + ${ROOF_M} m</code> of roof.</p>
+      <p>A building's assumed real size is its own height, read from its <code>storeys-N</code> tag: <code>storeys &times; ${STOREY_M} m + ${ROOF_M} m</code> of roof. Buildings carrying no such tag fall back to the flat height in the table below.</p>
     </div>
     <div class="rule">
       <h3><span class="kw">Excluded</span></h3>
@@ -805,7 +811,6 @@ summary:focus-visible{outline:2px solid var(--lin);outline-offset:2px}
         ${DROPPED_TAGS.map((t) => `<li><code>tag:${t}</code></li>`).join('\n        ')}
         <li>the smallest ${EDGE * 100}% of the whole catalogue by longest side</li>
         <li>models longer than ${MAX_UNITS} units on their longest side</li>
-        <li>models whose assumed real size is over ${MAX_REAL_M} m</li>
       </ul>
     </div>
     <div class="rule">
@@ -861,7 +866,7 @@ const nice = k => k.replace(/^(obj|env|str)-/, '');
 const sign = r => (r > 0 ? '+' : '') + r.toFixed(2);
 
 const lines = new Map(), dots = new Map(), rows = new Map(), shaky = new Set();
-const spanText = d => d.range ? d.range[0].toFixed(1) + ' to ' + d.range[1].toFixed(1) : '—';
+const spanText = d => d.range ? d.range[0].toFixed(2) + ' to ' + d.range[1].toFixed(2) : '—';
 let sel = null;
 const info = document.getElementById('info');
 let REST = '';
@@ -877,7 +882,7 @@ function show(k) {
   const fmt = v => v < 1 ? v.toFixed(2) : v.toFixed(0);
   const line = (o, dir) => o ? \`<br>\${dir}: <b>\${o.name}</b> — \${nice(o.kind)}, \${o.u} u \${o.high ? 'high' : 'long'} against \${o.real} m\${o.high ? ' high' : ''}, <span class="res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</span>\` : '';
   const stab = d.range ? \`one kind left out: \${spanText(d)}\` : 'too few kinds to leave one out';
-  info.innerHTML = \`<b>\${k}</b> · slope \${d.slope.toFixed(1)} · \${(2 ** d.icpt).toFixed(1)} units per m at 1 m · \${d.n} kinds · scatter \${d.mad.toFixed(1)} · covers \${fmt(lo)} – \${fmt(hi)} m\`
+  info.innerHTML = \`<b>\${k}</b> · slope \${d.slope.toFixed(2)} · \${(2 ** d.icpt).toFixed(2)} units per m at 1 m · \${d.n} kinds · scatter \${d.mad.toFixed(2)} · covers \${fmt(lo)} – \${fmt(hi)} m\`
     + \` · <span class="\${d.shaky ? 'shk' : ''}">\${stab}\${d.shaky ? ', unstable' : ''}</span>\`
     + line(d.up, 'too large') + line(d.down, 'too small');
 }
@@ -886,7 +891,7 @@ function drawFit() {
   lines.clear(); dots.clear(); shaky.clear();
   ref = PAYLOAD[mode].ref;
   el('line', { x1: sx(X0), y1: sy(ref.icpt + ref.slope * X0), x2: sx(X1), y2: sy(ref.icpt + ref.slope * X1), class: 'ref' }, gFit);
-  REST = \`Dashed line: the whole catalogue's own curve — slope \${ref.slope.toFixed(1)}. Colour: red toward toy, blue toward linear.\`;
+  REST = \`Dashed line: the whole catalogue's own curve — slope \${ref.slope.toFixed(2)}. Colour: red toward toy, blue toward linear.\`;
   for (const d of DATA) {
     const xs = d.pts.map(p => p.x), lo = Math.min(...xs), hi = Math.max(...xs);
     if (d.shaky) shaky.add(d.kit);
@@ -919,10 +924,10 @@ function render() {
     const tr = document.createElement('tr'); tr.className = 'row'; tr.tabIndex = 0;
     const w = Math.round(Math.min(Math.abs(d.slope), 1.2) * 60);
     const cell = (o) => o ? \`<span class="nm" title="\${o.name} — \${nice(o.kind)}">\${o.name}</span> <span class="res" style="color:\${mix(-o.res / 2)}">\${sign(o.res)}</span>\` : '<span class="muted">—</span>';
-    tr.innerHTML = \`<td>\${d.kit}</td><td class="n">\${d.n}</td><td class="n">\${d.slope.toFixed(1)}</td>\`
+    tr.innerHTML = \`<td>\${d.kit}</td><td class="n">\${d.n}</td><td class="n">\${d.slope.toFixed(2)}</td>\`
       + \`<td><span class="bar" style="width:\${w}px;background:\${mix(d.slope)}"></span></td>\`
       + \`<td class="n\${d.shaky ? ' shk' : ''}">\${spanText(d)}</td>\`
-      + \`<td class="n">\${(2 ** d.icpt).toFixed(1)}</td><td class="n">\${d.mad.toFixed(1)}</td>\`
+      + \`<td class="n">\${(2 ** d.icpt).toFixed(2)}</td><td class="n">\${d.mad.toFixed(2)}</td>\`
       + \`<td>\${cell(d.up)}</td><td>\${cell(d.down)}</td>\`;
     tr.addEventListener('click', () => show(sel === d.kit ? null : d.kit));
     tr.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(sel === d.kit ? null : d.kit); } });
@@ -979,7 +984,7 @@ document.getElementById('hi').innerHTML = HIGH_ROWS.map(k => {
 const sz = document.getElementById('sz');
 for (const r of SIZE_ROWS) {
   const d = document.createElement('div');
-  d.innerHTML = \`<span>\${r.kind}</span> \${r.real} m\${r.high ? ' high' : ''}\`;
+  d.innerHTML = \`<span>\${r.kind}</span> \${r.real} m\${r.high ? ' high' : ''}\${r.storeys ? ' <span class="muted">(no storeys tag)</span>' : ''}\`;
   sz.appendChild(d);
 }
 
@@ -999,7 +1004,12 @@ load('weighted');
 `;
 
 const out = process.argv[2] ?? join(ROOT, 'catalog', 'app', 'size-curves.html');
-writeFileSync(out, page);
-if (!process.argv[2]) stampPages();
+const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
+const meta = (name) => index.match(new RegExp(`<meta name="${name}" content="([^"]*)">`))?.[1] ?? '';
+const version = meta('catalogus-versie');
+writeFileSync(out, page
+  .replace('<meta name="catalogus-versie" content="">', `<meta name="catalogus-versie" content="${version}">`)
+  .replace('<meta name="catalogus-gebouwd" content="">', `<meta name="catalogus-gebouwd" content="${meta('catalogus-gebouwd')}">`)
+  .replace('href="catalog.css"', `href="catalog.css?v=${version}"`));
 const w = payload.weighted;
 console.log(`${models.length} models · ${w.kits.length} kits · ref slope ${w.ref.slope} → ${out}`);
