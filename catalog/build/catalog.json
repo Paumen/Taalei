@@ -1696,8 +1696,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.05,
-    "kinds": 21
+    "factor": 1.03,
+    "kinds": 20
    }
   },
   {
@@ -27255,7 +27255,14 @@
    "name": "Ribcage",
    "type": "kind",
    "description": "ribcage",
-   "count": 11
+   "count": 10
+  },
+  {
+   "id": "env-remains-bones-spine",
+   "name": "Spine",
+   "type": "kind",
+   "description": "spine, vertebrae, backbone",
+   "count": 4
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-rifle",
@@ -28319,6 +28326,12 @@
    "longest.min": 0.1,
    "longest.max": 0.5,
    "tpu.max": 10000
+  },
+  "env-remains-bones-spine": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
   },
   "env-remains-deadwood": {
    "high.max": 8,
@@ -151268,7 +151281,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "kay-hallow",
@@ -171433,7 +171446,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "kay-skeleton",
@@ -173219,7 +173232,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.57
   },
   {
    "kit": "kay-skeleton-1",
@@ -173526,7 +173539,7 @@
    "collection": "kay-undead",
    "name": "spine-ribs",
    "hash": "83223b22e1",
-   "kind": "env-remains-bones-ribcage",
+   "kind": "env-remains-bones-spine",
    "size": "s",
    "wdh": [
     0.134,
@@ -173564,7 +173577,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 1.72
+   "thickRel": 0.87
   },
   {
    "kit": "kay-skeleton-1",
@@ -268843,7 +268856,7 @@
     "bone",
     "halloween"
    ],
-   "thickRel": 0.7,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "error",
@@ -268940,7 +268953,7 @@
    "kit": "loaf-bones",
    "name": "spine",
    "hash": "35e977f351",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-spine",
    "size": "m",
    "wdh": [
     0.13,
@@ -364185,7 +364198,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.05
   },
   {
    "kit": "quat-pirate",
@@ -371121,7 +371134,7 @@
     "bone",
     "qua"
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
@@ -458205,7 +458218,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-a",
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-lava",
@@ -458249,7 +458262,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-b",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-lava",
@@ -458299,7 +458312,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-a",
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-lava",
@@ -458349,7 +458362,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/ribs-b",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-lava",
@@ -459171,7 +459184,7 @@
    "kit": "wizp-lava",
    "name": "spine-charred",
    "hash": "f9f05a6910",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-spine",
    "size": "l",
    "wdh": [
     1.231,
@@ -459219,7 +459232,7 @@
    "kit": "wizp-lava",
    "name": "spine",
    "hash": "12c8e5b361",
-   "kind": "env-remains-bones",
+   "kind": "env-remains-bones-spine",
    "size": "l",
    "wdh": [
     1.231,

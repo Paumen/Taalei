@@ -413,6 +413,7 @@ const DROPPED_KINDS = [
   'env-flora-plant',
   'env-flora-waterplant',
   'env-remains-bones',
+  'env-remains-bones-spine',
   'env-remains-deadwood',
   'env-terrain-rock-formation',
   'env-terrain-ground',
