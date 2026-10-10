@@ -1,11 +1,11 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=02e35ed6e1';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=d249a25050';
 import {
   layoutChips, chipName, keysWithState as keysWith, matchesState as matches,
   buildColorBar, buildChipRow as chipRow, syncSubtypes as syncChipStates, clearStates,
-} from './chiprij.js?v=4df0d30fe4';
+} from './chiprij.js?v=50bdb27530';
 import { colorSwatches, setBands } from './color-edits.js?v=59da1e14dd';
 import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=ed62ec964f';
-import { mountExtractBar, setPageParts } from './extract.js?v=429b81ca33';
+import { mountExtractBar, setPageParts } from './extract.js?v=7cfc9fa2c4';
 import { stamped, withHash } from './stamps.js?v=04e3ee3113';
 import {
   number, unit, readableBytes, dimensions, longest, kindParent, kindChain, rootRank,

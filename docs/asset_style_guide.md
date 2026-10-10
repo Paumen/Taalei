@@ -269,7 +269,6 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 | `M25` | `kind:obj-transport-watercraft` | `mat:wood` | min | 2 |
 | `M28` | `kind:obj-equipment-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron-mid`, `metal-iron-dark`, `metal-steel` |
 | `M32` | `*` sticks, unworked poles | model | is | `bark` |
-| `M33` | `kind:obj-leisure-art-instrument` bells | model | has | `metal-copper`, `metal-gold` |
 | `M35` | `kind:str-part-roof` carrying `sienna` or `terracotta` | model | has | `ceramic:` |
 | `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry-light`, `stone-masonry-mid`, `stone-masonry-dark` |
 
@@ -307,9 +306,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | id | when | subject | assert | value |
 |---|---|---|---|---|
 | `B32` | `kind:obj-food` fish | model | is | `nickel`, `basalt`, `slate`, `azure`, `amber` |
-| `B33` | `kind:obj-food` cheese | model | is | `amber`, `ivory` |
 | `B35` | `kind:obj-food-vegetable & !carrot & !pumpkin` | model | is | `moss` |
-| `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
 | `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-baked` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
 | `B39` | `*` chocolate | model | is | `chestnut`, `bark` |

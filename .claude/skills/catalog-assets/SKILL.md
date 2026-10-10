@@ -88,7 +88,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 `palette.mjs` complains:
 
 - Most materials force the band: `wood-light` is tan, `wood-mid` camel,
-  `wood-dark` chestnut, `metal-steel` and `metal-aluminium` nickel,
+  `wood-dark` chestnut, `metal-steel` nickel,
   `metal-iron-mid` basalt, `metal-iron-dark` slate, `metal-gold` amber,
   `stone-masonry-light` ivory, `-mid` taupe, `-dark` taupe-dark,
   `stone-concrete` basalt, `ceramic-light` ivory, `-mid` terracotta, `-dark`
