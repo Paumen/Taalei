@@ -25933,7 +25933,7 @@
    "id": "obj-equipment-weapon-ranged",
    "name": "Ranged",
    "type": "kind",
-   "description": "sling, throwing knife, javelin",
+   "description": "sling, javelin, dart",
    "count": 182
   },
   {
@@ -27270,6 +27270,13 @@
    "type": "kind",
    "description": "broom",
    "count": 8
+  },
+  {
+   "id": "obj-equipment-weapon-ranged-throwing",
+   "name": "Throwing weapon",
+   "type": "kind",
+   "description": "throwing knife, shuriken, throwing star, boomerang",
+   "count": 9
   },
   {
    "id": "obj-equipment-weapon-ranged-grenade",
@@ -29337,6 +29344,12 @@
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-ranged-throwing": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-equipment-weapon-siege": {
@@ -290171,7 +290184,7 @@
    "kit": "m3-base",
    "name": "3-point-shuriken",
    "hash": "ee4337ad75",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.09,
@@ -290208,7 +290221,7 @@
     "pickup"
    ],
    "variant": "m3-base/4-point-shuriken",
-   "thickRel": 0.25
+   "thickRel": 0.64
   },
   {
    "kit": "m3-base",
@@ -290305,7 +290318,7 @@
    "kit": "m3-base",
    "name": "4-point-shuriken",
    "hash": "33a2bd060d",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.078,
@@ -290342,7 +290355,7 @@
     "pickup"
    ],
    "variant": "m3-base/4-point-shuriken",
-   "thickRel": 0.27
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -292605,7 +292618,7 @@
    "kit": "m3-base",
    "name": "boomerang",
    "hash": "65b389942c",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.2,
@@ -292640,7 +292653,7 @@
     "m3",
     "wood-worked"
    ],
-   "thickRel": 0.63
+   "thickRel": 1.6
   },
   {
    "kit": "m3-base",
@@ -323627,7 +323640,7 @@
    "kit": "m3-base",
    "name": "throwing-knife",
    "hash": "991947d830",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.038,
@@ -323668,7 +323681,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 1.39
+   "thickRel": 3.54
   },
   {
    "kit": "m3-base",
@@ -393825,7 +393838,7 @@
    "kit": "rgp-asia",
    "name": "shuriken",
    "hash": "87179e2988",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.152,
@@ -393867,7 +393880,7 @@
     "metal-iron-wrought",
     "rgp"
    ],
-   "thickRel": 0.41
+   "thickRel": 1.05
   },
   {
    "kit": "rgp-asia",
@@ -443029,7 +443042,7 @@
    "collection": "styloo-weapons",
    "name": "shuriken-a",
    "hash": "4d6e6b5767",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.201,
@@ -443073,14 +443086,14 @@
     "sty"
    ],
    "variant": "styloo-weapons/shuriken-a",
-   "thickRel": 0.32
+   "thickRel": 0.81
   },
   {
    "kit": "styloo-weapons",
    "collection": "styloo-weapons",
    "name": "shuriken-b",
    "hash": "e82172f582",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.199,
@@ -443125,14 +443138,14 @@
     "sty"
    ],
    "variant": "styloo-weapons/shuriken-a",
-   "thickRel": 0.39
+   "thickRel": 1
   },
   {
    "kit": "styloo-weapons",
    "collection": "styloo-weapons",
    "name": "shuriken-c",
    "hash": "dd43bd76b9",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.219,
@@ -443176,14 +443189,14 @@
     "sty"
    ],
    "variant": "styloo-weapons/shuriken-a",
-   "thickRel": 0.33
+   "thickRel": 0.84
   },
   {
    "kit": "styloo-weapons",
    "collection": "styloo-weapons",
    "name": "shuriken-d",
    "hash": "232a639e71",
-   "kind": "obj-equipment-weapon-ranged",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "s",
    "wdh": [
     0.178,
@@ -443227,7 +443240,7 @@
     "sty"
    ],
    "variant": "styloo-weapons/shuriken-a",
-   "thickRel": 0.43
+   "thickRel": 1.08
   },
   {
    "kit": "styloo-weapons",
