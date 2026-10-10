@@ -464,8 +464,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.97,
-    "kinds": 47
+    "factor": 0.99,
+    "kinds": 49
    }
   },
   {
@@ -511,8 +511,8 @@
     "smooth": 164
    },
    "kitCheck": {
-    "factor": 1.42,
-    "kinds": 42,
+    "factor": 1.41,
+    "kinds": 45,
     "level": "error"
    }
   },
@@ -674,8 +674,8 @@
     "smooth": 73
    },
    "kitCheck": {
-    "factor": 1.05,
-    "kinds": 43
+    "factor": 1.06,
+    "kinds": 44
    }
   },
   {
@@ -1043,8 +1043,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.14,
-    "kinds": 87
+    "factor": 1.15,
+    "kinds": 92
    }
   },
   {
@@ -1531,7 +1531,7 @@
    ],
    "kitCheck": {
     "factor": 1.2,
-    "kinds": 57
+    "kinds": 58
    }
   },
   {
@@ -1603,7 +1603,7 @@
     "smooth": 49
    },
    "kitCheck": {
-    "factor": 1.08,
+    "factor": 1.11,
     "kinds": 10
    }
   },
@@ -2182,7 +2182,7 @@
    ],
    "kitCheck": {
     "factor": 1.09,
-    "kinds": 18
+    "kinds": 19
    }
   },
   {
@@ -2286,8 +2286,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.47,
-    "kinds": 64,
+    "factor": 1.48,
+    "kinds": 68,
     "level": "error"
    }
   },
@@ -2409,8 +2409,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 16
+    "factor": 0.95,
+    "kinds": 15
    }
   },
   {
@@ -2670,8 +2670,8 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 1,
-    "kinds": 34
+    "factor": 1.01,
+    "kinds": 35
    }
   },
   {
@@ -2818,7 +2818,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 151
+    "kinds": 156
    }
   },
   {
@@ -2960,8 +2960,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 0.89,
-    "kinds": 14
+    "factor": 0.95,
+    "kinds": 13
    }
   },
   {
@@ -3384,8 +3384,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.3,
-    "kinds": 33,
+    "factor": 1.34,
+    "kinds": 34,
     "level": "warning"
    }
   },
@@ -4376,7 +4376,7 @@
     "smooth": 53
    },
    "kitCheck": {
-    "factor": 1.13,
+    "factor": 1.07,
     "kinds": 18
    }
   },
@@ -4499,7 +4499,7 @@
    },
    "kitCheck": {
     "factor": 1.19,
-    "kinds": 23
+    "kinds": 24
    }
   },
   {
@@ -4551,7 +4551,7 @@
    },
    "kitCheck": {
     "factor": 1.12,
-    "kinds": 34
+    "kinds": 36
    }
   },
   {
@@ -23956,7 +23956,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 673,
+   "count": 670,
    "color": "#dd9f79"
   },
   {
@@ -23977,8 +23977,15 @@
    "id": "obj-container-cylinder",
    "name": "Cylinder",
    "type": "kind",
-   "description": "Pressure or chemical cylinder: gas cylinder, propane tank, fire extinguisher, chemical vat.",
+   "description": "Pressure or chemical cylinder: gas cylinder, fire extinguisher, chemical vat.",
    "count": 13
+  },
+  {
+   "id": "obj-container-cylinder-tank",
+   "name": "Gas tank",
+   "type": "kind",
+   "description": "gas tank, propane tank, gas bottle, gas canister",
+   "count": 7
   },
   {
    "id": "obj-container-dumpster",
@@ -24019,8 +24026,15 @@
    "id": "obj-container-carton",
    "name": "Carton",
    "type": "kind",
-   "description": "carton, milk carton",
-   "count": 11
+   "description": "carton",
+   "count": 8
+  },
+  {
+   "id": "obj-container-carton-drink",
+   "name": "Drink carton",
+   "type": "kind",
+   "description": "milk carton, drink carton, juice carton",
+   "count": 7
   },
   {
    "id": "obj-container-trashcan",
@@ -24093,6 +24107,27 @@
    "count": 68
   },
   {
+   "id": "obj-container-bottle-glass",
+   "name": "Glass bottle",
+   "type": "kind",
+   "description": "glass bottle, wine bottle, whiskey bottle, liquor bottle, decanter, soy sauce bottle",
+   "count": 34
+  },
+  {
+   "id": "obj-container-bottle-lab",
+   "name": "Lab flask",
+   "type": "kind",
+   "description": "lab flask, conical flask, round flask, beaker",
+   "count": 5
+  },
+  {
+   "id": "obj-container-bottle-drink",
+   "name": "Drink bottle",
+   "type": "kind",
+   "description": "water bottle, thermos, hip flask",
+   "count": 6
+  },
+  {
    "id": "obj-container-bucket",
    "name": "Bucket",
    "type": "kind",
@@ -24125,7 +24160,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 131
+   "count": 121
   },
   {
    "id": "obj-container-crate-cube",
@@ -24138,8 +24173,15 @@
    "id": "obj-container-crate-cardboard",
    "name": "Cardboard box",
    "type": "kind",
-   "description": "cardboard box, package, present",
-   "count": 50
+   "description": "cardboard box, package",
+   "count": 40
+  },
+  {
+   "id": "obj-container-crate-cardboard-takeaway",
+   "name": "Takeaway box",
+   "type": "kind",
+   "description": "takeaway box, take-away box, pizza box, egg carton, food box",
+   "count": 8
   },
   {
    "id": "obj-container-crate-ammo",
@@ -24163,18 +24205,25 @@
    "count": 14
   },
   {
+   "id": "obj-container-present",
+   "name": "Present",
+   "type": "kind",
+   "description": "present, gift, gift box",
+   "count": 13
+  },
+  {
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
    "description": "pot, planter, amphora, jug, pitcher, ewer",
-   "count": 91
+   "count": 88
   },
   {
    "id": "obj-container-pot-jar",
    "name": "Jar",
    "type": "kind",
    "description": "jar, canister, tin",
-   "count": 30
+   "count": 27
   },
   {
    "id": "obj-container-pot-vase",
@@ -24202,7 +24251,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1100,
+   "count": 1103,
    "color": "#6b5b95"
   },
   {
@@ -24273,8 +24322,8 @@
    "id": "obj-food-meal",
    "name": "Meal",
    "type": "kind",
-   "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco.",
-   "count": 10
+   "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco, a pizza.",
+   "count": 12
   },
   {
    "id": "obj-food-fruit-coconut",
@@ -24295,7 +24344,7 @@
    "name": "Bread",
    "type": "kind",
    "description": "bread, loaf, roll, baguette",
-   "count": 51
+   "count": 34
   },
   {
    "id": "obj-food-baked-bread-bun",
@@ -24312,11 +24361,25 @@
    "count": 5
   },
   {
-   "id": "obj-food-baked-bread-sandwich",
+   "id": "obj-food-prepared",
+   "name": "Prepared food",
+   "type": "kind",
+   "description": "Food assembled from several ingredients and eaten by hand: burger, sandwich.",
+   "count": 17
+  },
+  {
+   "id": "obj-food-prepared-burger",
+   "name": "Burger",
+   "type": "kind",
+   "description": "burger, hamburger, cheeseburger",
+   "count": 12
+  },
+  {
+   "id": "obj-food-prepared-sandwich",
    "name": "Sandwich",
    "type": "kind",
    "description": "sandwich, sub",
-   "count": 17
+   "count": 5
   },
   {
    "id": "obj-food-baked-pastry",
@@ -24329,8 +24392,15 @@
    "id": "obj-food-baked-pie",
    "name": "Pie",
    "type": "kind",
-   "description": "cake, pie",
-   "count": 33
+   "description": "pie",
+   "count": 12
+  },
+  {
+   "id": "obj-food-baked-cake",
+   "name": "Cake",
+   "type": "kind",
+   "description": "cake, birthday cake, cake slice",
+   "count": 21
   },
   {
    "id": "obj-food-meat",
@@ -24521,6 +24591,13 @@
    "type": "kind",
    "description": "Hung or laid decoration: wreath, garland, birdhouse.",
    "count": 22
+  },
+  {
+   "id": "obj-furnishing-decor-mount",
+   "name": "Mounted head",
+   "type": "kind",
+   "description": "mounted head, hunting trophy, trophy head, antlers (mounted)",
+   "count": 4
   },
   {
    "id": "obj-furnishing-textile",
@@ -25000,6 +25077,20 @@
    "count": 20
   },
   {
+   "id": "obj-kitchenware-tableware-serving-tray",
+   "name": "Serving tray",
+   "type": "kind",
+   "description": "tray, platter, tea tray",
+   "count": 8
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-stand",
+   "name": "Serving stand",
+   "type": "kind",
+   "description": "pastry stand, cake stand, tiered stand",
+   "count": 6
+  },
+  {
    "id": "obj-kitchenware-tableware-bowl",
    "name": "Bowl",
    "type": "kind",
@@ -25222,7 +25313,7 @@
    "id": "obj-resource",
    "name": "Resource",
    "type": "kind",
-   "description": "hide, raw stock",
+   "description": "raw stock",
    "count": 169,
    "color": "#4f7d8c"
   },
@@ -25238,7 +25329,7 @@
    "name": "Parts",
    "type": "kind",
    "description": "cog, spare part, pipe (stock), gasket",
-   "count": 29
+   "count": 32
   },
   {
    "id": "obj-resource-stone",
@@ -25252,7 +25343,14 @@
    "name": "Textile",
    "type": "kind",
    "description": "textile bolt, cloth roll, cotton reel",
-   "count": 7
+   "count": 10
+  },
+  {
+   "id": "obj-resource-leather",
+   "name": "Leather",
+   "type": "kind",
+   "description": "hide, leather, hide roll, pelt",
+   "count": 3
   },
   {
    "id": "obj-resource-wood",
@@ -25276,15 +25374,22 @@
    "count": 27
   },
   {
-   "id": "obj-resource-wheat",
+   "id": "obj-resource-crop",
+   "name": "Crop",
+   "type": "kind",
+   "description": "Harvested field crop kept as stock: wheat, hay.",
+   "count": 11
+  },
+  {
+   "id": "obj-resource-crop-wheat",
    "name": "Wheat",
    "type": "kind",
    "description": "wheat",
    "count": 3
   },
   {
-   "id": "obj-resource-haystack",
-   "name": "Haystack",
+   "id": "obj-resource-crop-hay",
+   "name": "Hay",
    "type": "kind",
    "description": "haystack, hay, hay bale",
    "count": 8
@@ -25301,7 +25406,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 350,
+   "count": 353,
    "color": "#6d738a"
   },
   {
@@ -25337,7 +25442,14 @@
    "name": "Stationery",
    "type": "kind",
    "description": "Writing, drawing and desk tool: pencil, pen, scissors, drafting compass, ruler, magnifying glass.",
-   "count": 48
+   "count": 51
+  },
+  {
+   "id": "obj-equipment-tool-stationery-holder",
+   "name": "Pencil holder",
+   "type": "kind",
+   "description": "pencil cup, pen cup, pencil case, pen holder",
+   "count": 3
   },
   {
    "id": "obj-equipment-tool-hand",
@@ -25519,8 +25631,15 @@
    "id": "obj-transport-land-road",
    "name": "Road vehicle",
    "type": "kind",
-   "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
+   "description": "Motor vehicle driven on roads or fields: truck, tractor, rover, digger.",
    "count": 72
+  },
+  {
+   "id": "obj-transport-land-road-car",
+   "name": "Car",
+   "type": "kind",
+   "description": "car, sedan, hatchback, suv, taxi, police car, sports car, pickup",
+   "count": 30
   },
   {
    "id": "obj-transport-land-road-truck",
@@ -25577,6 +25696,13 @@
    "type": "kind",
    "description": "wheelbarrow",
    "count": 4
+  },
+  {
+   "id": "obj-transport-land-wheelchair",
+   "name": "Wheelchair",
+   "type": "kind",
+   "description": "wheelchair, power wheelchair",
+   "count": 6
   },
   {
    "id": "obj-transport-watercraft-ship",
@@ -26756,7 +26882,7 @@
    "name": "Baked",
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
-   "count": 151
+   "count": 132
   },
   {
    "id": "str-fixture-chimney",
@@ -26946,8 +27072,15 @@
    "id": "obj-food-baked-pastry-cookie",
    "name": "Cookie",
    "type": "kind",
-   "description": "cookie, gingerbread man/woman/house",
+   "description": "cookie, gingerbread house",
    "count": 14
+  },
+  {
+   "id": "obj-food-baked-pastry-cookie-gingerbread",
+   "name": "Gingerbread",
+   "type": "kind",
+   "description": "gingerbread man, gingerbread woman",
+   "count": 4
   },
   {
    "id": "obj-food-baked-pastry-donut",
@@ -27753,7 +27886,6 @@
   "obj-equipment-weapon-siege-cannon",
   "obj-food-baked-bread",
   "obj-food-baked-bread-baguette",
-  "obj-food-baked-bread-sandwich",
   "obj-food-baked-pastry-cookie",
   "obj-food-baked-pastry-croissant",
   "obj-food-baked-pastry-cupcake",
@@ -27781,6 +27913,8 @@
   "obj-food-meat-roast",
   "obj-food-meat-sausage",
   "obj-food-meat-steak",
+  "obj-food-prepared-burger",
+  "obj-food-prepared-sandwich",
   "obj-food-seafood",
   "obj-food-sweet-icecream",
   "obj-food-sweet-lollipop",
@@ -27840,9 +27974,9 @@
   "obj-kitchenware-tableware-serving",
   "obj-leisure-art-frame",
   "obj-leisure-game-ball",
-  "obj-resource-haystack",
+  "obj-resource-crop-hay",
+  "obj-resource-crop-wheat",
   "obj-resource-textile",
-  "obj-resource-wheat",
   "obj-resource-wood-log",
   "obj-resource-wood-plank",
   "obj-transport-land-cart",
@@ -28220,6 +28354,24 @@
    "longest.max": 0.5,
    "tpu.max": 10000
   },
+  "obj-container-bottle-drink": {
+   "high.max": 8,
+   "longest.min": 0.06,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-container-bottle-glass": {
+   "high.max": 8,
+   "longest.min": 0.06,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-container-bottle-lab": {
+   "high.max": 8,
+   "longest.min": 0.06,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
   "obj-container-bottle-vial": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -28274,6 +28426,12 @@
    "longest.max": 0.3,
    "tpu.max": 10000
   },
+  "obj-container-carton-drink": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
+   "tpu.max": 10000
+  },
   "obj-container-chest": {
    "high.min": 0.2,
    "high.max": 0.6,
@@ -28305,6 +28463,12 @@
    "longest.max": 1.05,
    "tpu.max": 10000
   },
+  "obj-container-crate-cardboard-takeaway": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.05,
+   "tpu.max": 10000
+  },
   "obj-container-crate-cube": {
    "high.max": 8,
    "longest.min": 0.25,
@@ -28324,6 +28488,12 @@
    "tpu.max": 10000
   },
   "obj-container-cylinder": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-container-cylinder-tank": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -28357,6 +28527,12 @@
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-container-present": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-container-trashcan": {
@@ -28779,6 +28955,12 @@
    "longest.max": 0.5,
    "tpu.max": 10000
   },
+  "obj-equipment-tool-stationery-holder": {
+   "high.max": 8,
+   "longest.min": 0.08,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
   "obj-equipment-tool-supplies": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -29031,12 +29213,6 @@
    "longest.max": 1.2,
    "tpu.max": 10000
   },
-  "obj-food-baked": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
   "obj-food-baked-bread": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -29055,10 +29231,11 @@
    "longest.max": 0.35,
    "tpu.max": 5000
   },
-  "obj-food-baked-bread-sandwich": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.35,
+  "obj-food-baked-cake": {
+   "high.min": 0.05,
+   "high.max": 0.25,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "obj-food-baked-pastry": {
@@ -29068,6 +29245,12 @@
    "tpu.max": 5000
   },
   "obj-food-baked-pastry-cookie": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.25,
+   "tpu.max": 5000
+  },
+  "obj-food-baked-pastry-cookie-gingerbread": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 0.25,
@@ -29261,6 +29444,18 @@
    "longest.max": 0.35,
    "tpu.max": 5000
   },
+  "obj-food-prepared-burger": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "obj-food-prepared-sandwich": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.35,
+   "tpu.max": 5000
+  },
   "obj-food-seafood": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -29424,6 +29619,12 @@
    "tpu.max": 5000
   },
   "obj-furnishing-decor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 7000
+  },
+  "obj-furnishing-decor-mount": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -29876,6 +30077,18 @@
    "longest.max": 0.5,
    "tpu.max": 5000
   },
+  "obj-kitchenware-tableware-serving-stand": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
+   "tpu.max": 5000
+  },
+  "obj-kitchenware-tableware-serving-tray": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
+   "tpu.max": 5000
+  },
   "obj-leisure": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -29972,16 +30185,22 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "obj-resource": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "obj-resource-haystack": {
+  "obj-resource-crop-hay": {
    "high.max": 8,
    "longest.min": 0.45,
    "longest.max": 1.25,
+   "tpu.max": 5000
+  },
+  "obj-resource-crop-wheat": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.7,
+   "tpu.max": 5000
+  },
+  "obj-resource-leather": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "obj-resource-metal": {
@@ -30006,12 +30225,6 @@
    "high.max": 8,
    "longest.min": 0.35,
    "longest.max": 0.85,
-   "tpu.max": 5000
-  },
-  "obj-resource-wheat": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.7,
    "tpu.max": 5000
   },
   "obj-resource-wood-log": {
@@ -30093,10 +30306,22 @@
    "longest.max": 1.7,
    "tpu.max": 10000
   },
+  "obj-transport-land-road-car": {
+   "high.max": 30,
+   "longest.min": 0.95,
+   "longest.max": 1.7,
+   "tpu.max": 10000
+  },
   "obj-transport-land-road-truck": {
    "high.max": 30,
    "longest.min": 0.95,
    "longest.max": 4.1,
+   "tpu.max": 10000
+  },
+  "obj-transport-land-wheelchair": {
+   "high.max": 30,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-transport-pallet": {
@@ -30795,6 +31020,18 @@
    "longest.max": 2.1,
    "tpu.max": 10000
   },
+  "obj-container-crate-cardboard-takeaway scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.525,
+   "tpu.max": 10000
+  },
+  "obj-container-crate-cardboard-takeaway scale-big": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 2.1,
+   "tpu.max": 10000
+  },
   "obj-container-crate-ammo scale-small": {
    "high.max": 8,
    "longest.min": 0.075,
@@ -31017,12 +31254,6 @@
    "longest.max": 0.175,
    "tpu.max": 5000
   },
-  "obj-food-baked-bread-sandwich scale-small": {
-   "high.max": 8,
-   "longest.min": 0.075,
-   "longest.max": 0.175,
-   "tpu.max": 5000
-  },
   "obj-food-baked-bread-baguette scale-small": {
    "high.max": 8,
    "longest.min": 0.175,
@@ -31108,6 +31339,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-stationery scale-small": {
+   "high.max": 8,
+   "longest.min": 0.04,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-stationery-holder scale-small": {
    "high.max": 8,
    "longest.min": 0.04,
    "longest.max": 0.25,
@@ -34332,7 +34569,7 @@
    "collection": "3dm",
    "name": "gas-bottle",
    "hash": "10da9920d4",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
     0.155,
@@ -38816,7 +39053,7 @@
     "metal-gold",
     "stone-masonry"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.29
   },
   {
    "kit": "aq-hallow",
@@ -40956,7 +41193,7 @@
     "ceramic",
     "liquid"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "aq-pond",
@@ -47795,7 +48032,7 @@
    "collection": "emace",
    "name": "thermos",
    "hash": "d3bb6788a3",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-drink",
    "size": "s",
    "wdh": [
     0.121,
@@ -48133,7 +48370,7 @@
    "collection": "emace",
    "name": "bear-trophy",
    "hash": "6987fcbb88",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-mount",
    "size": "s",
    "wdh": [
     0.35,
@@ -48412,7 +48649,7 @@
    "collection": "emace",
    "name": "bottle-in-jar",
    "hash": "5eb4c4e4b9",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.157,
@@ -48457,7 +48694,7 @@
     "ceramic",
     "cork"
    ],
-   "thickRel": 1.02
+   "thickRel": 0.92
   },
   {
    "kit": "emace-village",
@@ -50451,7 +50688,7 @@
    "collection": "emace",
    "name": "hide-dark",
    "hash": "7986ce65fe",
-   "kind": "obj-resource",
+   "kind": "obj-resource-leather",
    "size": "m",
    "wdh": [
     0.555,
@@ -50498,7 +50735,7 @@
    "collection": "emace",
    "name": "hide-light",
    "hash": "57c14ebd5d",
-   "kind": "obj-resource",
+   "kind": "obj-resource-leather",
    "size": "m",
    "wdh": [
     0.555,
@@ -51680,7 +51917,7 @@
    "tags": [
     "ceramic"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "emace-village",
@@ -53431,7 +53668,7 @@
    "collection": "emace",
    "name": "sheet-stand",
    "hash": "9d43c68c20",
-   "kind": "obj-resource",
+   "kind": "obj-resource-textile",
    "size": "m",
    "wdh": [
     0.87,
@@ -53477,7 +53714,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.87 over max 0.85 (obj-resource-textile)"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -55701,7 +55945,7 @@
    "kit": "food-pack",
    "name": "burger-sesame",
    "hash": "1b268c8b8b",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.25,
@@ -55758,13 +56002,13 @@
     "food"
    ],
    "variant": "food-pack/burger",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "food-pack",
    "name": "burger",
    "hash": "9418685c2a",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.25,
@@ -55816,7 +56060,7 @@
     "food"
    ],
    "variant": "food-pack/burger",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "food-pack",
@@ -57291,7 +57535,7 @@
    "tags": [
     "food"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.08
   },
   {
    "kit": "food-pack-2",
@@ -57779,7 +58023,7 @@
     "food"
    ],
    "variant": "food-pack-2/bread",
-   "thickRel": 0.5,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
@@ -57827,7 +58071,7 @@
     "food"
    ],
    "variant": "food-pack-2/bread",
-   "thickRel": 0.67,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "warning",
@@ -57966,7 +58210,7 @@
     "food"
    ],
    "variant": "food-pack-2/bun",
-   "thickRel": 0.95
+   "thickRel": 0.84
   },
   {
    "kit": "food-pack-2",
@@ -58017,7 +58261,7 @@
    "kit": "food-pack-2",
    "name": "burger-sandwich",
    "hash": "ab096eaaf5",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.209,
@@ -58061,13 +58305,13 @@
    "tags": [
     "food"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "food-pack-2",
    "name": "cake-chocolate-slice",
    "hash": "6c64efde9c",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.138,
@@ -58108,7 +58352,7 @@
    "kit": "food-pack-2",
    "name": "cake-chocolate-sliced",
    "hash": "70395d05c6",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.36,
@@ -58143,13 +58387,13 @@
     "food"
    ],
    "variant": "food-pack-2/cake-chocolate-sliced",
-   "thickRel": 1
+   "thickRel": 0.91
   },
   {
    "kit": "food-pack-2",
    "name": "cake-chocolate",
    "hash": "3fb892c32b",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.36,
@@ -58184,13 +58428,13 @@
     "food"
    ],
    "variant": "food-pack-2/cake-chocolate-sliced",
-   "thickRel": 1.08
+   "thickRel": 0.98
   },
   {
    "kit": "food-pack-2",
    "name": "cake-vanilla-slice",
    "hash": "5dace37cd1",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.138,
@@ -58241,7 +58485,7 @@
    "kit": "food-pack-2",
    "name": "cake-vanilla-sliced",
    "hash": "7c9ebc1211",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.36,
@@ -58286,13 +58530,13 @@
     "food"
    ],
    "variant": "food-pack-2/cake-chocolate-sliced",
-   "thickRel": 1
+   "thickRel": 0.91
   },
   {
    "kit": "food-pack-2",
    "name": "cake-vanilla",
    "hash": "aa9d0a81c1",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.36,
@@ -58332,13 +58576,13 @@
     "food"
    ],
    "variant": "food-pack-2/cake-chocolate-sliced",
-   "thickRel": 1.08
+   "thickRel": 0.98
   },
   {
    "kit": "food-pack-2",
    "name": "cake-velvet-slice",
    "hash": "7b1ccdff30",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.138,
@@ -58384,7 +58628,7 @@
    "kit": "food-pack-2",
    "name": "cake-velvet-sliced",
    "hash": "42190f963e",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.36,
@@ -58424,13 +58668,13 @@
     "food"
    ],
    "variant": "food-pack-2/cake-chocolate-sliced",
-   "thickRel": 1
+   "thickRel": 0.91
   },
   {
    "kit": "food-pack-2",
    "name": "cake-velvet",
    "hash": "7d7d5d1a8f",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.36,
@@ -58470,7 +58714,7 @@
     "food"
    ],
    "variant": "food-pack-2/cake-chocolate-sliced",
-   "thickRel": 1.08
+   "thickRel": 0.98
   },
   {
    "kit": "food-pack-2",
@@ -61413,7 +61657,7 @@
    "kit": "food-pack-2",
    "name": "milk-carton-chocolate",
    "hash": "c9604cb4c3",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.132,
@@ -61453,7 +61697,7 @@
     "paper"
    ],
    "variant": "food-pack-2/milk-carton",
-   "thickRel": 1.18,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -61466,7 +61710,7 @@
    "kit": "food-pack-2",
    "name": "milk-carton",
    "hash": "9bc094f2c8",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.132,
@@ -61506,7 +61750,7 @@
     "paper"
    ],
    "variant": "food-pack-2/milk-carton",
-   "thickRel": 1.18,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -62646,7 +62890,7 @@
     "food"
    ],
    "variant": "food-pack-2/pie-a-red",
-   "thickRel": 0.68
+   "thickRel": 1
   },
   {
    "kit": "food-pack-2",
@@ -62692,7 +62936,7 @@
     "food"
    ],
    "variant": "food-pack-2/pie-a-red",
-   "thickRel": 0.68
+   "thickRel": 1
   },
   {
    "kit": "food-pack-2",
@@ -62743,7 +62987,7 @@
     "food"
    ],
    "variant": "food-pack-2/pie-b-red",
-   "thickRel": 0.66
+   "thickRel": 0.97
   },
   {
    "kit": "food-pack-2",
@@ -62794,7 +63038,7 @@
     "food"
    ],
    "variant": "food-pack-2/pie-b-red",
-   "thickRel": 0.66
+   "thickRel": 0.97
   },
   {
    "kit": "food-pack-2",
@@ -62845,7 +63089,7 @@
     "food"
    ],
    "variant": "food-pack-2/pie-b-red",
-   "thickRel": 0.66
+   "thickRel": 0.97
   },
   {
    "kit": "food-pack-2",
@@ -62904,7 +63148,7 @@
    "kit": "food-pack-2",
    "name": "pizza-b",
    "hash": "b11c468dcb",
-   "kind": "obj-food-baked",
+   "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
     0.446,
@@ -62944,13 +63188,20 @@
     "food"
    ],
    "variant": "food-pack-2/pizza",
-   "thickRel": 0.35
+   "thickRel": 0.65,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.446 over max 0.4 (obj-food-meal)"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
    "name": "pizza",
    "hash": "132ed9c0a8",
-   "kind": "obj-food-baked",
+   "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
     0.446,
@@ -62995,7 +63246,14 @@
     "food"
    ],
    "variant": "food-pack-2/pizza",
-   "thickRel": 0.32
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.446 over max 0.4 (obj-food-meal)"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -63509,7 +63767,7 @@
    "kit": "food-pack-2",
    "name": "sandwich-cheese",
    "hash": "b77082a3fa",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-sandwich",
    "size": "s",
    "wdh": [
     0.2,
@@ -63555,7 +63813,7 @@
    "kit": "food-pack-2",
    "name": "sandwich",
    "hash": "d8bde0c4a9",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-sandwich",
    "size": "s",
    "wdh": [
     0.139,
@@ -63984,7 +64242,7 @@
     "food"
    ],
    "variant": "food-pack-2/toast",
-   "thickRel": 1.45
+   "thickRel": 1.28
   },
   {
    "kit": "food-pack-2",
@@ -87820,7 +88078,7 @@
     "ct",
     "wood-cardboard"
    ],
-   "thickRel": 0.31
+   "thickRel": 0.33
   },
   {
    "kit": "household",
@@ -88992,7 +89250,7 @@
    "kit": "household",
    "name": "hamburger",
    "hash": "51713924a3",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.238,
@@ -89049,7 +89307,7 @@
     "foliage",
     "food"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "household",
@@ -89496,7 +89754,7 @@
    "kit": "household",
    "name": "pencil-cup",
    "hash": "27d460b828",
-   "kind": "obj-container-pot-jar",
+   "kind": "obj-equipment-tool-stationery-holder",
    "size": "s",
    "wdh": [
     0.09,
@@ -89554,14 +89812,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.39,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0077 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.41
   },
   {
    "kit": "household",
@@ -89676,7 +89927,7 @@
    "kit": "household",
    "name": "present",
    "hash": "99822f78e0",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.3,
@@ -89726,7 +89977,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.88,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -89786,7 +90037,7 @@
    "kit": "household",
    "name": "propane-tank",
    "hash": "e21bcb0fff",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
     0.314,
@@ -90141,7 +90392,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.99
+   "thickRel": 1.1
   },
   {
    "kit": "household",
@@ -90507,7 +90758,7 @@
     "paper",
     "scale-small"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.98
   },
   {
    "kit": "household",
@@ -94237,7 +94488,7 @@
     "food",
     "isa"
    ],
-   "thickRel": 1.11
+   "thickRel": 0.98
   },
   {
    "kit": "isa-bakery",
@@ -94520,7 +94771,7 @@
     "isa"
    ],
    "variant": "isa-bakery/cookie-jar",
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "isa-bakery",
@@ -95681,7 +95932,7 @@
    "collection": "isa-tt",
    "name": "milk-carton",
    "hash": "7368eadfd8",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.127,
@@ -95716,7 +95967,7 @@
     "isa",
     "paper"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.82
   },
   {
    "kit": "isa-bakery",
@@ -95894,7 +96145,7 @@
    "collection": "isa-tt",
    "name": "pastry-stand-covered",
    "hash": "63bc3f3afa",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
     0.28,
@@ -96058,7 +96309,7 @@
    "collection": "isa-tt",
    "name": "pastry-stand-tiered",
    "hash": "648f563350",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
     0.28,
@@ -96100,7 +96351,7 @@
    "collection": "isa-tt",
    "name": "pastry-stand",
    "hash": "84d6582ff8",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
     0.28,
@@ -100073,7 +100324,7 @@
     "isa"
    ],
    "variant": "isa-food/baguette-half",
-   "thickRel": 1.42
+   "thickRel": 1.26
   },
   {
    "kit": "isa-food",
@@ -100163,7 +100414,7 @@
     "food",
     "isa"
    ],
-   "thickRel": 1.06
+   "thickRel": 0.94
   },
   {
    "kit": "isa-food",
@@ -100254,14 +100505,14 @@
     "isa"
    ],
    "variant": "isa-food/bread",
-   "thickRel": 1.34
+   "thickRel": 1.19
   },
   {
    "kit": "isa-food",
    "collection": "isa-tt",
    "name": "cake-birthday-cut",
    "hash": "e97a980270",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.427,
@@ -100320,12 +100571,12 @@
     "wax"
    ],
    "variant": "isa-food/cake-chocolate-cut",
-   "thickRel": 1.1,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.281 over max 0.25 (obj-food-baked-pie)"
+     "text": "high 0.281 over max 0.25 (obj-food-baked-cake)"
     }
    ]
   },
@@ -100334,7 +100585,7 @@
    "collection": "isa-tt",
    "name": "cake-birthday-slice",
    "hash": "46a00b9f36",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.163,
@@ -100399,7 +100650,7 @@
    "collection": "isa-tt",
    "name": "cake-birthday",
    "hash": "f992b65e5a",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.427,
@@ -100458,12 +100709,12 @@
     "wax"
    ],
    "variant": "isa-food/cake-chocolate-cut",
-   "thickRel": 1.17,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.281 over max 0.25 (obj-food-baked-pie)"
+     "text": "high 0.281 over max 0.25 (obj-food-baked-cake)"
     }
    ]
   },
@@ -100472,7 +100723,7 @@
    "collection": "isa-tt",
    "name": "cake-chocolate-cut",
    "hash": "6b10a5f212",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.427,
@@ -100514,14 +100765,14 @@
     "isa"
    ],
    "variant": "isa-food/cake-chocolate-cut",
-   "thickRel": 1.11
+   "thickRel": 1.01
   },
   {
    "kit": "isa-food",
    "collection": "isa-tt",
    "name": "cake-chocolate-slice",
    "hash": "7e85d6e327",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.163,
@@ -100569,7 +100820,7 @@
    "collection": "isa-tt",
    "name": "cake-chocolate",
    "hash": "f8af0c05d8",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.427,
@@ -100611,14 +100862,14 @@
     "isa"
    ],
    "variant": "isa-food/cake-chocolate-cut",
-   "thickRel": 1.18
+   "thickRel": 1.07
   },
   {
    "kit": "isa-food",
    "collection": "isa-tt",
    "name": "cake-strawberry-cut",
    "hash": "2f51dbc9ae",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.427,
@@ -100676,14 +100927,14 @@
     "isa"
    ],
    "variant": "isa-food/cake-chocolate-cut",
-   "thickRel": 1.12
+   "thickRel": 1.02
   },
   {
    "kit": "isa-food",
    "collection": "isa-tt",
    "name": "cake-strawberry-slice",
    "hash": "d3dfad8357",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.163,
@@ -100747,7 +100998,7 @@
    "collection": "isa-tt",
    "name": "cake-strawberry",
    "hash": "8f82579194",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.427,
@@ -100805,7 +101056,7 @@
     "isa"
    ],
    "variant": "isa-food/cake-chocolate-cut",
-   "thickRel": 1.18
+   "thickRel": 1.07
   },
   {
    "kit": "isa-food",
@@ -101263,7 +101514,7 @@
     "isa"
    ],
    "variant": "isa-food/pie-cherry-cut",
-   "thickRel": 0.85
+   "thickRel": 1.26
   },
   {
    "kit": "isa-food",
@@ -101354,7 +101605,7 @@
     "isa"
    ],
    "variant": "isa-food/pie-cherry-cut",
-   "thickRel": 0.84
+   "thickRel": 1.24
   },
   {
    "kit": "isa-food",
@@ -101403,7 +101654,7 @@
     "isa"
    ],
    "variant": "isa-food/pie-cherry-cut",
-   "thickRel": 0.83
+   "thickRel": 1.23
   },
   {
    "kit": "isa-food",
@@ -101495,7 +101746,7 @@
     "isa"
    ],
    "variant": "isa-food/pie-cherry-cut",
-   "thickRel": 0.82
+   "thickRel": 1.21
   },
   {
    "kit": "isa-food",
@@ -102762,7 +103013,7 @@
     "rope",
     "wood-cardboard"
    ],
-   "thickRel": 0.96,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "error",
@@ -102961,7 +103212,7 @@
     "isa"
    ],
    "variant": "isa-bakery/cookie-jar",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "isa-kitchen",
@@ -103003,7 +103254,7 @@
     "ceramic",
     "isa"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "isa-kitchen",
@@ -103046,7 +103297,7 @@
     "isa"
    ],
    "variant": "isa-bakery/cookie-jar",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "isa-kitchen",
@@ -108169,7 +108420,7 @@
    "collection": "isa-tt",
    "name": "sandwich",
    "hash": "039b3eab84",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-sandwich",
    "size": "s",
    "wdh": [
     0.218,
@@ -108322,7 +108573,7 @@
    "collection": "isa-tt",
    "name": "thermos",
    "hash": "a46985e42b",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-drink",
    "size": "s",
    "wdh": [
     0.19,
@@ -108370,7 +108621,7 @@
    "collection": "isa-tt",
    "name": "tray-round",
    "hash": "0e5366c302",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.35,
@@ -108413,7 +108664,7 @@
    "collection": "isa-tt",
    "name": "tray-square-handles",
    "hash": "60cd057c98",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.35,
@@ -108456,7 +108707,7 @@
    "collection": "isa-tt",
    "name": "tray-square",
    "hash": "a0d6cecc47",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.35,
@@ -108499,7 +108750,7 @@
    "collection": "isa-tt",
    "name": "wine-bottle",
    "hash": "bca727e3de",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.136,
@@ -108546,7 +108797,7 @@
     "isa",
     "paper"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.13
   },
   {
    "kit": "isa-picnic",
@@ -113644,7 +113895,7 @@
    "kit": "jb-kitchen",
    "name": "bottle-yellow",
    "hash": "f558367bae",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.099,
@@ -113685,13 +113936,13 @@
     "cork"
    ],
    "variant": "jb-kitchen/bottle",
-   "thickRel": 1.14
+   "thickRel": 1.03
   },
   {
    "kit": "jb-kitchen",
    "name": "bottle",
    "hash": "3bdecc9828",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.099,
@@ -113732,7 +113983,7 @@
     "glass"
    ],
    "variant": "jb-kitchen/bottle",
-   "thickRel": 1.14
+   "thickRel": 1.03
   },
   {
    "kit": "jb-kitchen",
@@ -119366,7 +119617,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-city/box-a",
-   "thickRel": 1.08
+   "thickRel": 1.12
   },
   {
    "kit": "kay-city",
@@ -119413,7 +119664,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-city/box-a",
-   "thickRel": 1.05
+   "thickRel": 1.09
   },
   {
    "kit": "kay-city",
@@ -120733,7 +120984,7 @@
    "kit": "kay-city",
    "name": "car-hatchback",
    "hash": "6619daa738",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.612,
@@ -120796,13 +121047,13 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.09
   },
   {
    "kit": "kay-city",
    "name": "car-police",
    "hash": "a5d3d44cff",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.612,
@@ -120871,7 +121122,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.12,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "error",
@@ -120884,7 +121135,7 @@
    "kit": "kay-city",
    "name": "car-sedan",
    "hash": "e029cadc62",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.612,
@@ -120953,7 +121204,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.12,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "error",
@@ -120966,7 +121217,7 @@
    "kit": "kay-city",
    "name": "car-stationwagon",
    "hash": "b54010047d",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.612,
@@ -121034,7 +121285,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.21,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "error",
@@ -121047,7 +121298,7 @@
    "kit": "kay-city",
    "name": "car-taxi",
    "hash": "4c4eec8f93",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.612,
@@ -121116,7 +121367,7 @@
     "plastic"
    ],
    "variant": "kay-city/car-sedan",
-   "thickRel": 1.08,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
@@ -125238,7 +125489,7 @@
     "metal-iron-wrought"
    ],
    "variant": "kay-dun-1/plate-full",
-   "thickRel": 0.73
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-1",
@@ -125287,7 +125538,7 @@
     "metal-iron-wrought"
    ],
    "variant": "kay-dun-1/plate-full",
-   "thickRel": 0.51
+   "thickRel": 0.7
   },
   {
    "kit": "kay-dun-1",
@@ -125417,7 +125668,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-a-decorated",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "kay-dun-1",
@@ -125459,7 +125710,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-a-decorated",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "kay-dun-1",
@@ -129528,7 +129779,7 @@
    "collection": "kay-interior",
    "name": "bottle-a-brown",
    "hash": "b88ac9cdff",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.111,
@@ -129571,14 +129822,14 @@
     "kay"
    ],
    "variant": "kay-dun-2/bottle-a-labeled-brown",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-a-green",
    "hash": "41725db110",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.111,
@@ -129621,14 +129872,14 @@
     "kay"
    ],
    "variant": "kay-dun-2/bottle-a-labeled-brown",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-a-labeled-brown",
    "hash": "be078fcd7c",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.111,
@@ -129677,14 +129928,14 @@
     "paper"
    ],
    "variant": "kay-dun-2/bottle-a-labeled-brown",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-a-labeled-green",
    "hash": "876361be52",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.111,
@@ -129733,14 +129984,14 @@
     "paper"
    ],
    "variant": "kay-dun-2/bottle-a-labeled-brown",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-b-brown",
    "hash": "9cc1269a17",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.166,
@@ -129782,14 +130033,14 @@
     "kay"
    ],
    "variant": "kay-dun-2/bottle-b-brown",
-   "thickRel": 0.93
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-b-green",
    "hash": "65929958d5",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.166,
@@ -129831,14 +130082,14 @@
     "kay"
    ],
    "variant": "kay-dun-2/bottle-b-brown",
-   "thickRel": 0.93
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-c-brown",
    "hash": "4710a5ab29",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.221,
@@ -129880,14 +130131,14 @@
     "kay"
    ],
    "variant": "kay-dun-2/bottle-c-brown",
-   "thickRel": 0.83
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "bottle-c-green",
    "hash": "b8e43f6a43",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.221,
@@ -129929,7 +130180,7 @@
     "kay"
    ],
    "variant": "kay-dun-2/bottle-c-brown",
-   "thickRel": 0.83
+   "thickRel": 0.75
   },
   {
    "kit": "kay-dun-2",
@@ -132666,7 +132917,7 @@
     "kay"
    ],
    "variant": "kay-dun-2/plate-food-a",
-   "thickRel": 1.24
+   "thickRel": 1.71
   },
   {
    "kit": "kay-dun-2",
@@ -132721,7 +132972,7 @@
     "kay"
    ],
    "variant": "kay-dun-2/plate-food-a",
-   "thickRel": 0.61
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
@@ -139480,7 +139731,7 @@
     "food",
     "kay"
    ],
-   "thickRel": 1
+   "thickRel": 1.37
   },
   {
    "kit": "kay-food",
@@ -157526,7 +157777,7 @@
    "kit": "kay-holiday",
    "name": "gingerbread-man",
    "hash": "2682e1f4dd",
-   "kind": "obj-food-baked-pastry-cookie",
+   "kind": "obj-food-baked-pastry-cookie-gingerbread",
    "size": "s",
    "wdh": [
     0.167,
@@ -158254,7 +158505,7 @@
    "kit": "kay-holiday",
    "name": "present-a",
    "hash": "6916840fe6",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.169,
@@ -158296,13 +158547,13 @@
     "textile"
    ],
    "variant": "kay-holiday/present-a",
-   "thickRel": 1.03
+   "thickRel": 1.08
   },
   {
    "kit": "kay-holiday",
    "name": "present-b",
    "hash": "4ceaf3cbe5",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.156,
@@ -158344,13 +158595,13 @@
     "textile"
    ],
    "variant": "kay-holiday/present-a",
-   "thickRel": 1.21
+   "thickRel": 1.27
   },
   {
    "kit": "kay-holiday",
    "name": "present-c",
    "hash": "0f50fe86e7",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.229,
@@ -158392,13 +158643,13 @@
     "textile"
    ],
    "variant": "kay-holiday/present-a",
-   "thickRel": 0.89
+   "thickRel": 0.93
   },
   {
    "kit": "kay-holiday",
    "name": "present-d",
    "hash": "b64c57043f",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.289,
@@ -158440,13 +158691,13 @@
     "textile"
    ],
    "variant": "kay-holiday/present-a",
-   "thickRel": 1.06
+   "thickRel": 1.11
   },
   {
    "kit": "kay-holiday",
    "name": "present-e",
    "hash": "26ecf86efa",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.409,
@@ -158489,13 +158740,13 @@
     "textile"
    ],
    "variant": "kay-holiday/present-a",
-   "thickRel": 1.05
+   "thickRel": 1.11
   },
   {
    "kit": "kay-holiday",
    "name": "present-f",
    "hash": "fe27fa47b7",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "m",
    "wdh": [
     0.649,
@@ -158537,13 +158788,13 @@
     "textile"
    ],
    "variant": "kay-holiday/present-a",
-   "thickRel": 0.76
+   "thickRel": 0.8
   },
   {
    "kit": "kay-holiday",
    "name": "present-sphere-a",
    "hash": "62631c4faa",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.167,
@@ -158585,7 +158836,7 @@
     "textile"
    ],
    "variant": "kay-holiday/present-sphere-a",
-   "thickRel": 1.04,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "error",
@@ -158598,7 +158849,7 @@
    "kit": "kay-holiday",
    "name": "present-sphere-b",
    "hash": "99c69fa814",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.238,
@@ -158641,7 +158892,7 @@
     "textile"
    ],
    "variant": "kay-holiday/present-sphere-a",
-   "thickRel": 1.06,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "error",
@@ -161306,7 +161557,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-mixed/comic-box-closed",
-   "thickRel": 1.06
+   "thickRel": 1.1
   },
   {
    "kit": "kay-mixed",
@@ -161371,7 +161622,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-mixed/comic-box-closed",
-   "thickRel": 0.97
+   "thickRel": 1.01
   },
   {
    "kit": "kay-mixed",
@@ -161414,7 +161665,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-mixed/comic-box-closed",
-   "thickRel": 0.59
+   "thickRel": 0.61
   },
   {
    "kit": "kay-mixed",
@@ -162478,7 +162729,7 @@
     "food",
     "kay"
    ],
-   "thickRel": 2.05
+   "thickRel": 2.82
   },
   {
    "kit": "kay-mixed",
@@ -162592,7 +162843,7 @@
    "kit": "kay-mixed",
    "name": "water-bottle-a",
    "hash": "367c5f361f",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-drink",
    "size": "s",
    "wdh": [
     0.099,
@@ -162635,7 +162886,7 @@
    "kit": "kay-mixed",
    "name": "water-bottle-b",
    "hash": "6f55fd5bc9",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-drink",
    "size": "s",
    "wdh": [
     0.099,
@@ -166155,7 +166406,7 @@
     "kay",
     "paper"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.09
   },
   {
    "kit": "kay-proto",
@@ -166198,7 +166449,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-proto/box-b",
-   "thickRel": 1.28
+   "thickRel": 1.33
   },
   {
    "kit": "kay-proto",
@@ -166241,7 +166492,7 @@
     "wood-cardboard"
    ],
    "variant": "kay-proto/box-b",
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "kay-proto",
@@ -178440,7 +178691,7 @@
     "scribe",
     "walk"
    ],
-   "thickRel": 0.33,
+   "thickRel": 0.36,
    "mark": [
     "centered"
    ]
@@ -179333,7 +179584,7 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.48
+   "thickRel": 1.64
   },
   {
    "kit": "kay-tools",
@@ -179390,7 +179641,7 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.24
+   "thickRel": 1.38
   },
   {
    "kit": "kay-tools",
@@ -179457,7 +179708,7 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.38
+   "thickRel": 1.53
   },
   {
    "kit": "kay-tools",
@@ -179524,7 +179775,7 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.19
+   "thickRel": 1.31
   },
   {
    "kit": "kay-tools",
@@ -179772,7 +180023,7 @@
     "tba",
     "wood-planks"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.41
   },
   {
    "kit": "kay-tools",
@@ -186039,7 +186290,7 @@
     "paper",
     "wood-cardboard"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "ken-car",
@@ -186838,7 +187089,7 @@
    "collection": "ken-city",
    "name": "hatchback-sports",
    "hash": "2a40ed23a4",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.529,
@@ -186905,7 +187156,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.14,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "error",
@@ -186919,7 +187170,7 @@
    "collection": "ken-city",
    "name": "police",
    "hash": "9e9f685632",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -186986,7 +187237,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.04,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -187142,7 +187393,7 @@
    "collection": "ken-city",
    "name": "sedan-sports",
    "hash": "204bd85e43",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.529,
@@ -187205,14 +187456,14 @@
     "plastic"
    ],
    "variant": "ken-car/sedan",
-   "thickRel": 1.1
+   "thickRel": 1.06
   },
   {
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "sedan",
    "hash": "dd5412ab7d",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -187275,14 +187526,14 @@
     "plastic"
    ],
    "variant": "ken-car/sedan",
-   "thickRel": 0.98
+   "thickRel": 0.95
   },
   {
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "suv-luxury",
    "hash": "6b8433d980",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -187345,14 +187596,14 @@
     "plastic"
    ],
    "variant": "ken-car/suv",
-   "thickRel": 1.08
+   "thickRel": 1.04
   },
   {
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "suv",
    "hash": "883b09ad74",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -187420,7 +187671,7 @@
     "plastic"
    ],
    "variant": "ken-car/suv",
-   "thickRel": 1.05,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "error",
@@ -187434,7 +187685,7 @@
    "collection": "ken-city",
    "name": "taxi",
    "hash": "ed277d4d31",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -187496,7 +187747,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.97
   },
   {
    "kit": "ken-car",
@@ -187828,7 +188079,7 @@
    "collection": "ken-city",
    "name": "truck-flat",
    "hash": "c31cef3ceb",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -187891,14 +188142,14 @@
     "plastic"
    ],
    "variant": "ken-car/truck",
-   "thickRel": 0.84
+   "thickRel": 0.81
   },
   {
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "truck",
    "hash": "b53ed35fba",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.61,
@@ -187966,7 +188217,7 @@
     "plastic"
    ],
    "variant": "ken-car/truck",
-   "thickRel": 0.87,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "error",
@@ -190690,7 +190941,7 @@
    "collection": "ken-mini",
    "name": "wheelchair-deluxe",
    "hash": "99c35d8343",
-   "kind": "obj-transport-land",
+   "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
     0.55,
@@ -190739,7 +190990,7 @@
    "collection": "ken-mini",
    "name": "wheelchair-power-deluxe",
    "hash": "a1b7907a0e",
-   "kind": "obj-transport-land",
+   "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
     0.456,
@@ -190789,7 +191040,7 @@
    "collection": "ken-mini",
    "name": "wheelchair-power",
    "hash": "bd62e3a840",
-   "kind": "obj-transport-land",
+   "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
     0.456,
@@ -190832,7 +191083,7 @@
    "collection": "ken-mini",
    "name": "wheelchair",
    "hash": "a3da84a776",
-   "kind": "obj-transport-land",
+   "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
     0.475,
@@ -193473,7 +193724,7 @@
     "ken",
     "wood-cardboard"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.87
   },
   {
    "kit": "ken-factory",
@@ -193521,7 +193772,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-factory/box-long",
-   "thickRel": 1.3
+   "thickRel": 1.35
   },
   {
    "kit": "ken-factory",
@@ -193575,7 +193826,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.05,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "warning",
@@ -193629,7 +193880,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-factory/box-long",
-   "thickRel": 1.17
+   "thickRel": 1.22
   },
   {
    "kit": "ken-factory",
@@ -198921,7 +199172,7 @@
     "food",
     "ken"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.51
   },
   {
    "kit": "ken-food",
@@ -199266,7 +199517,7 @@
    "kit": "ken-food",
    "name": "burger-cheese",
    "hash": "3748bff915",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.246,
@@ -199313,13 +199564,13 @@
     "ken"
    ],
    "variant": "ken-food/burger",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "ken-food",
    "name": "burger",
    "hash": "8a53b11f62",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.263,
@@ -199384,7 +199635,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.01,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -199445,7 +199696,7 @@
    "kit": "ken-food",
    "name": "cake-birthday",
    "hash": "1408f53bf7",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.415,
@@ -199490,7 +199741,7 @@
     "food",
     "ken"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.04
   },
   {
    "kit": "ken-food",
@@ -199792,7 +200043,7 @@
    "kit": "ken-food",
    "name": "carton-small",
    "hash": "febcca609f",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.149,
@@ -199833,13 +200084,13 @@
     "paper"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1
+   "thickRel": 0.89
   },
   {
    "kit": "ken-food",
    "name": "carton",
    "hash": "b0fa033f40",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.149,
@@ -199881,7 +200132,7 @@
     "plastic"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1.16,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
@@ -201190,7 +201441,7 @@
    "kit": "ken-food",
    "name": "gingerbread-man",
    "hash": "cb06511ca7",
-   "kind": "obj-food-baked-pastry-cookie",
+   "kind": "obj-food-baked-pastry-cookie-gingerbread",
    "size": "s",
    "wdh": [
     0.153,
@@ -201935,7 +202186,7 @@
     "ken"
    ],
    "variant": "ken-food/loaf",
-   "thickRel": 0.99,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "error",
@@ -201989,7 +202240,7 @@
     "ken"
    ],
    "variant": "ken-food/loaf",
-   "thickRel": 1.15,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -202993,7 +203244,7 @@
     "ken",
     "metal-iron-steel"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.82
   },
   {
    "kit": "ken-food",
@@ -203519,7 +203770,7 @@
    "kit": "ken-food",
    "name": "sandwich",
    "hash": "abb6d52eb7",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-sandwich",
    "size": "s",
    "wdh": [
     0.281,
@@ -203972,7 +204223,7 @@
    "kit": "ken-food",
    "name": "sub",
    "hash": "f1048ede3a",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-sandwich",
    "size": "s",
    "wdh": [
     0.184,
@@ -204028,7 +204279,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.439 over max 0.35 (obj-food-baked-bread)"
+     "text": "longest 0.439 over max 0.35 (obj-food-prepared-sandwich)"
     }
    ]
   },
@@ -204260,13 +204511,13 @@
     "food",
     "ken"
    ],
-   "thickRel": 1.5
+   "thickRel": 2.06
   },
   {
    "kit": "ken-food",
    "name": "takeaway-box",
    "hash": "ac2eb1e533",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.409,
@@ -204301,14 +204552,7 @@
     "ken",
     "paper"
    ],
-   "thickRel": 0.26,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.409 over max 0.3 (obj-container-carton)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-food",
@@ -205642,7 +205886,7 @@
    "kit": "ken-furniture",
    "name": "bear-head",
    "hash": "54dff19273",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-mount",
    "size": "s",
    "wdh": [
     0.369,
@@ -206544,7 +206788,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-furniture/cardboard-box-open",
-   "thickRel": 1.14
+   "thickRel": 1.18
   },
   {
    "kit": "ken-furniture",
@@ -206586,7 +206830,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-furniture/cardboard-box-open",
-   "thickRel": 0.46
+   "thickRel": 0.47
   },
   {
    "kit": "ken-furniture",
@@ -215218,7 +215462,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/urn-round",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "ken-holiday",
@@ -216481,7 +216725,7 @@
    "kit": "ken-holiday",
    "name": "gingerbread-man",
    "hash": "0ea512d465",
-   "kind": "obj-food-baked-pastry-cookie",
+   "kind": "obj-food-baked-pastry-cookie-gingerbread",
    "size": "s",
    "wdh": [
     0.17,
@@ -216547,7 +216791,7 @@
    "kit": "ken-holiday",
    "name": "gingerbread-woman",
    "hash": "507bec9e75",
-   "kind": "obj-food-baked-pastry-cookie",
+   "kind": "obj-food-baked-pastry-cookie-gingerbread",
    "size": "s",
    "wdh": [
     0.17,
@@ -216941,7 +217185,7 @@
    "kit": "ken-holiday",
    "name": "present-cube",
    "hash": "a5a9c2fe16",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.225,
@@ -216983,13 +217227,13 @@
     "textile"
    ],
    "variant": "ken-holiday/present-cube",
-   "thickRel": 0.89
+   "thickRel": 0.94
   },
   {
    "kit": "ken-holiday",
    "name": "present-rectangle",
    "hash": "aa07ae91f4",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.325,
@@ -217032,13 +217276,13 @@
     "textile"
    ],
    "variant": "ken-holiday/present-cube",
-   "thickRel": 0.95
+   "thickRel": 1
   },
   {
    "kit": "ken-holiday",
    "name": "present-round",
    "hash": "ae06a008cf",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.274,
@@ -217080,7 +217324,7 @@
     "textile"
    ],
    "variant": "ken-holiday/present-cube",
-   "thickRel": 0.8
+   "thickRel": 0.84
   },
   {
    "kit": "ken-holiday",
@@ -227595,7 +227839,7 @@
    "kit": "ken-pirate",
    "name": "bottle-large",
    "hash": "03fb03a9fa",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.14,
@@ -227637,13 +227881,13 @@
     "paper",
     "pirate"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.04
   },
   {
    "kit": "ken-pirate",
    "name": "bottle-red",
    "hash": "663630845b",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.109,
@@ -227687,13 +227931,13 @@
     "sailing"
    ],
    "variant": "ken-pirate/bottle",
-   "thickRel": 1.25
+   "thickRel": 1.13
   },
   {
    "kit": "ken-pirate",
    "name": "bottle",
    "hash": "77cb8eb361",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.109,
@@ -227737,7 +227981,7 @@
     "sailing"
    ],
    "variant": "ken-pirate/bottle",
-   "thickRel": 1.25
+   "thickRel": 1.13
   },
   {
    "kit": "ken-pirate",
@@ -234019,7 +234263,7 @@
    "collection": "ken-mini",
    "name": "vehicle-convertible",
    "hash": "8cbd6f77cf",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.586,
@@ -234077,7 +234321,7 @@
     "plastic"
    ],
    "variant": "ken-proto/vehicle",
-   "thickRel": 0.74,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "warning",
@@ -234091,7 +234335,7 @@
    "collection": "ken-mini",
    "name": "vehicle",
    "hash": "553442e509",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.639,
@@ -234149,7 +234393,7 @@
     "plastic"
    ],
    "variant": "ken-proto/vehicle",
-   "thickRel": 0.94,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "warning",
@@ -234748,7 +234992,7 @@
    "collection": "ken-mini",
    "name": "wheelchair",
    "hash": "74fa5947e7",
-   "kind": "obj-transport-land",
+   "kind": "obj-transport-land-wheelchair",
    "size": "s",
    "wdh": [
     0.29,
@@ -253119,7 +253363,7 @@
    "kit": "ken-survival",
    "name": "bottle-large",
    "hash": "06e9eb4ff1",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.109,
@@ -253168,13 +253412,13 @@
     "pirate",
     "robin-hood"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.89
   },
   {
    "kit": "ken-survival",
    "name": "bottle-red",
    "hash": "f5a687095e",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.079,
@@ -253225,13 +253469,13 @@
     "sailing"
    ],
    "variant": "ken-survival/bottle",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "ken-survival",
    "name": "bottle",
    "hash": "89095d9cfa",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.079,
@@ -253282,7 +253526,7 @@
     "sailing"
    ],
    "variant": "ken-survival/bottle",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "ken-survival",
@@ -253330,7 +253574,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-survival/box-large",
-   "thickRel": 0.54
+   "thickRel": 0.56
   },
   {
    "kit": "ken-survival",
@@ -253377,7 +253621,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-survival/box-large",
-   "thickRel": 1.32
+   "thickRel": 1.37
   },
   {
    "kit": "ken-survival",
@@ -253424,7 +253668,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-survival/box-open",
-   "thickRel": 0.46
+   "thickRel": 0.47
   },
   {
    "kit": "ken-survival",
@@ -253471,7 +253715,7 @@
     "wood-cardboard"
    ],
    "variant": "ken-survival/box-open",
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "ken-survival",
@@ -270851,7 +271095,7 @@
     "paper",
     "wood-worked"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.43
   },
   {
    "kit": "lpa-construction",
@@ -271451,7 +271695,7 @@
    "kit": "lpa-construction",
    "name": "gas-tank-a",
    "hash": "e9e01ef99a",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
     0.273,
@@ -271512,7 +271756,7 @@
    "kit": "lpa-construction",
    "name": "gas-tank-b",
    "hash": "e5dd08dca0",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "m",
    "wdh": [
     0.261,
@@ -273030,7 +273274,7 @@
    "kit": "lpa-construction",
    "name": "spool-a",
    "hash": "0bfe46ec8d",
-   "kind": "obj-resource",
+   "kind": "obj-resource-textile",
    "size": "m",
    "wdh": [
     0.556,
@@ -273078,7 +273322,7 @@
    "kit": "lpa-construction",
    "name": "spool-b",
    "hash": "10d2b3bec7",
-   "kind": "obj-resource",
+   "kind": "obj-resource-textile",
    "size": "m",
    "wdh": [
     0.556,
@@ -283570,7 +283814,7 @@
    "kit": "lpa-west",
    "name": "bottle-a",
    "hash": "1a80fd06d3",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.098,
@@ -283613,13 +283857,13 @@
     "lpa"
    ],
    "variant": "lpa-west/bottle-a",
-   "thickRel": 1.22
+   "thickRel": 1.1
   },
   {
    "kit": "lpa-west",
    "name": "bottle-b",
    "hash": "a983278e35",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.095,
@@ -283661,13 +283905,13 @@
     "lpa"
    ],
    "variant": "lpa-west/bottle-a",
-   "thickRel": 1.13
+   "thickRel": 1.02
   },
   {
    "kit": "lpa-west",
    "name": "bottle-c",
    "hash": "ef080764f0",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.084,
@@ -283714,13 +283958,13 @@
     "lpa"
    ],
    "variant": "lpa-west/bottle-a",
-   "thickRel": 1.2
+   "thickRel": 1.09
   },
   {
    "kit": "lpa-west",
    "name": "bottle-d",
    "hash": "06dc5433e1",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.068,
@@ -283767,7 +284011,7 @@
     "lpa"
    ],
    "variant": "lpa-west/bottle-a",
-   "thickRel": 0.99
+   "thickRel": 0.89
   },
   {
    "kit": "lpa-west",
@@ -289777,7 +290021,7 @@
    "kit": "m3-base",
    "name": "3-tier-cake-stand",
    "hash": "351d298454",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
     0.295,
@@ -292998,7 +293242,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.34
+   "thickRel": 0.37
   },
   {
    "kit": "m3-base",
@@ -293192,7 +293436,7 @@
    "kit": "m3-base",
    "name": "cake-stand",
    "hash": "b8ed451f99",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
     0.308,
@@ -293929,7 +294173,7 @@
     "wood-cardboard"
    ],
    "variant": "m3-base/cardboard-box-01",
-   "thickRel": 0.24
+   "thickRel": 0.25
   },
   {
    "kit": "m3-base",
@@ -293971,7 +294215,7 @@
     "wood-cardboard"
    ],
    "variant": "m3-base/cardboard-box-01",
-   "thickRel": 0.21
+   "thickRel": 0.22
   },
   {
    "kit": "m3-base",
@@ -294585,7 +294829,7 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -294865,7 +295109,7 @@
    "kit": "m3-base",
    "name": "cheeseburger",
    "hash": "01f8bea165",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.15,
@@ -294910,7 +295154,7 @@
     "food",
     "m3"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -295993,7 +296237,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.25
+   "thickRel": 0.28
   },
   {
    "kit": "m3-base",
@@ -297163,7 +297407,7 @@
    "kit": "m3-base",
    "name": "conical-flask",
    "hash": "23c29f00f8",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-lab",
    "size": "s",
    "wdh": [
     0.155,
@@ -297388,7 +297632,7 @@
     "paper",
     "wax"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.47
   },
   {
    "kit": "m3-base",
@@ -298416,7 +298660,7 @@
    "kit": "m3-base",
    "name": "decanter",
    "hash": "4af142cbf5",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.184,
@@ -298451,7 +298695,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.5
   },
   {
    "kit": "m3-base",
@@ -298776,7 +299020,7 @@
    "kit": "m3-base",
    "name": "deer-head",
    "hash": "c7cd59df1a",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-mount",
    "size": "s",
    "wdh": [
     0.313,
@@ -299896,7 +300140,7 @@
    "kit": "m3-base",
    "name": "drink-carton-01",
    "hash": "ded64d230a",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.137,
@@ -299937,7 +300181,7 @@
     "paper",
     "plastic"
    ],
-   "thickRel": 1.08
+   "thickRel": 0.96
   },
   {
    "kit": "m3-base",
@@ -301612,7 +301856,7 @@
    "kit": "m3-base",
    "name": "flat-bottomed-flask",
    "hash": "91a5d675ba",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-lab",
    "size": "s",
    "wdh": [
     0.209,
@@ -303047,7 +303291,7 @@
    "kit": "m3-base",
    "name": "gas-canister",
    "hash": "bf26b39442",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
     0.257,
@@ -304249,7 +304493,7 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -305461,7 +305705,7 @@
    "kit": "m3-base",
    "name": "hip-flask-01",
    "hash": "b7d60afad9",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-drink",
    "size": "s",
    "wdh": [
     0.174,
@@ -307653,7 +307897,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.26
+   "thickRel": 0.29
   },
   {
    "kit": "m3-base",
@@ -308650,7 +308894,7 @@
     "metal-gold",
     "wood-worked"
    ],
-   "thickRel": 0.34
+   "thickRel": 0.37
   },
   {
    "kit": "m3-base",
@@ -308786,7 +309030,7 @@
    "kit": "m3-base",
    "name": "metal-tray",
    "hash": "2edf607540",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.423,
@@ -308870,7 +309114,7 @@
    "kit": "m3-base",
    "name": "metal-twist-02",
    "hash": "1989121bda",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
     0.052,
@@ -308912,7 +309156,7 @@
    "kit": "m3-base",
    "name": "metal-twist-03",
    "hash": "01f1dc580c",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
     0.061,
@@ -308954,7 +309198,7 @@
    "kit": "m3-base",
    "name": "metal-twist-04",
    "hash": "803dc4bbf2",
-   "kind": "obj-resource-metal",
+   "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
     0.053,
@@ -309224,7 +309468,7 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "m3-base",
@@ -310620,7 +310864,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.19
+   "thickRel": 0.21
   },
   {
    "kit": "m3-base",
@@ -312788,7 +313032,7 @@
     "paper",
     "wood-cardboard"
    ],
-   "thickRel": 0.17
+   "thickRel": 0.19
   },
   {
    "kit": "m3-base",
@@ -312829,7 +313073,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.22
+   "thickRel": 0.24
   },
   {
    "kit": "m3-base",
@@ -312871,7 +313115,7 @@
     "metal-iron-steel",
     "pickup"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -313221,7 +313465,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.47
   },
   {
    "kit": "m3-base",
@@ -313263,7 +313507,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.33
+   "thickRel": 0.36
   },
   {
    "kit": "m3-base",
@@ -313321,7 +313565,7 @@
     "plastic",
     "wood-worked"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.61
   },
   {
    "kit": "m3-base",
@@ -313911,7 +314155,7 @@
    "kit": "m3-base",
    "name": "pizza-box",
    "hash": "54333baadd",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.157,
@@ -313946,7 +314190,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.34
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -314045,7 +314289,7 @@
     "m3"
    ],
    "variant": "m3-base/pizza-slice",
-   "thickRel": 0.39
+   "thickRel": 0.54
   },
   {
    "kit": "m3-base",
@@ -314941,7 +315185,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.58
   },
   {
    "kit": "m3-base",
@@ -315074,7 +315318,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 0.69,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "error",
@@ -315557,7 +315801,7 @@
     "wood-planks"
    ],
    "variant": "m3-base/hexagonal-planter",
-   "thickRel": 1.25
+   "thickRel": 1.24
   },
   {
    "kit": "m3-base",
@@ -316025,7 +316269,7 @@
     "paper",
     "plastic"
    ],
-   "thickRel": 0.22
+   "thickRel": 0.24
   },
   {
    "kit": "m3-base",
@@ -316943,7 +317187,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.26
+   "thickRel": 0.25
   },
   {
    "kit": "m3-base",
@@ -320785,7 +321029,7 @@
     "stone-soil",
     "wood-planks"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "m3-base",
@@ -321179,7 +321423,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -321719,7 +321963,7 @@
     "m3",
     "paper"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.61
   },
   {
    "kit": "m3-base",
@@ -322252,7 +322496,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
@@ -322707,7 +322951,7 @@
    "kit": "m3-base",
    "name": "take-away-box-01",
    "hash": "4157011497",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.289,
@@ -322743,13 +322987,13 @@
     "paper"
    ],
    "variant": "m3-base/take-away-box-01",
-   "thickRel": 0.22
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
    "name": "take-away-box-02",
    "hash": "1b836585c3",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.28,
@@ -322785,13 +323029,13 @@
     "wood-cardboard"
    ],
    "variant": "m3-base/take-away-box-01",
-   "thickRel": 0.83
+   "thickRel": 2.54
   },
   {
    "kit": "m3-base",
    "name": "take-away-box-03",
    "hash": "09f7af9765",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.227,
@@ -322827,13 +323071,13 @@
     "wood-cardboard"
    ],
    "variant": "m3-base/take-away-box-01",
-   "thickRel": 0.31
+   "thickRel": 0.94
   },
   {
    "kit": "m3-base",
    "name": "take-away-box-04",
    "hash": "f0b9958140",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.211,
@@ -322869,7 +323113,7 @@
     "wood-cardboard"
    ],
    "variant": "m3-base/take-away-box-01",
-   "thickRel": 0.3
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -322916,7 +323160,7 @@
    "kit": "m3-base",
    "name": "tea-tray-01",
    "hash": "b88fa2e880",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.313,
@@ -322958,7 +323202,7 @@
    "kit": "m3-base",
    "name": "tea-tray-02",
    "hash": "0b28bd0c0c",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.224,
@@ -324381,7 +324625,7 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "m3-base",
@@ -325563,7 +325807,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -325610,7 +325854,7 @@
     "metal-gold",
     "wood-worked"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -325792,7 +326036,7 @@
    "kit": "m3-base",
    "name": "wheelchair-01",
    "hash": "d50ce24f57",
-   "kind": "obj-transport-land",
+   "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
     0.474,
@@ -325858,7 +326102,7 @@
    "kit": "m3-base",
    "name": "whiskey-bottle",
    "hash": "dc9f67f654",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.128,
@@ -325900,7 +326144,7 @@
     "paper",
     "plastic"
    ],
-   "thickRel": 1.09
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -326071,7 +326315,7 @@
    "kit": "m3-base",
    "name": "wine-bottle",
    "hash": "daec6b8e26",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.126,
@@ -326112,7 +326356,7 @@
     "m3",
     "paper"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -329053,7 +329297,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "medieval-forge",
@@ -336922,7 +337166,7 @@
    "kit": "pm-store",
    "name": "present",
    "hash": "c2398caec1",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "size": "s",
    "wdh": [
     0.306,
@@ -336971,7 +337215,7 @@
      "other": 0.1
     }
    },
-   "thickRel": 0.72,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -339303,7 +339547,7 @@
    "kit": "props",
    "name": "bottle-b-red",
    "hash": "09af0985e7",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.075,
@@ -339345,13 +339589,13 @@
     "halloween"
    ],
    "variant": "props/bottle-b",
-   "thickRel": 0.97
+   "thickRel": 0.88
   },
   {
    "kit": "props",
    "name": "bottle-b",
    "hash": "dc8251de67",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.075,
@@ -339393,13 +339637,13 @@
     "halloween"
    ],
    "variant": "props/bottle-b",
-   "thickRel": 0.97
+   "thickRel": 0.88
   },
   {
    "kit": "props",
    "name": "bottle-c-red",
    "hash": "0f25516f04",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.061,
@@ -339441,13 +339685,13 @@
     "halloween"
    ],
    "variant": "props/bottle-c",
-   "thickRel": 1.1
+   "thickRel": 0.99
   },
   {
    "kit": "props",
    "name": "bottle-c",
    "hash": "84a5f2a7e1",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.061,
@@ -339489,7 +339733,7 @@
     "halloween"
    ],
    "variant": "props/bottle-c",
-   "thickRel": 1.1
+   "thickRel": 0.99
   },
   {
    "kit": "props",
@@ -340317,7 +340561,7 @@
     "ceramic"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "props",
@@ -340458,7 +340702,7 @@
     "ceramic"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.32
+   "thickRel": 0.31
   },
   {
    "kit": "props",
@@ -340731,7 +340975,7 @@
     "ceramic",
     "food"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.44
   },
   {
    "kit": "props",
@@ -343232,7 +343476,7 @@
    "kit": "quat-cars",
    "name": "car",
    "hash": "0b59d6cc87",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.609,
@@ -343295,13 +343539,13 @@
     "qua"
    ],
    "variant": "quat-cars/car",
-   "thickRel": 0.99
+   "thickRel": 0.95
   },
   {
    "kit": "quat-cars",
    "name": "hatchback",
    "hash": "a1e6981cdb",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.552,
@@ -343364,13 +343608,13 @@
     "qua"
    ],
    "variant": "quat-cars/suv",
-   "thickRel": 1.01
+   "thickRel": 0.97
   },
   {
    "kit": "quat-cars",
    "name": "police-car",
    "hash": "416876bb79",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.599,
@@ -343437,7 +343681,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.02,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "error",
@@ -343450,7 +343694,7 @@
    "kit": "quat-cars",
    "name": "sports-car-b",
    "hash": "c44dfd8365",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.631,
@@ -343513,13 +343757,13 @@
     "qua"
    ],
    "variant": "quat-cars/sports-car",
-   "thickRel": 0.99
+   "thickRel": 0.95
   },
   {
    "kit": "quat-cars",
    "name": "sports-car",
    "hash": "4d1a832af8",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.608,
@@ -343577,13 +343821,13 @@
     "qua"
    ],
    "variant": "quat-cars/sports-car",
-   "thickRel": 0.98
+   "thickRel": 0.95
   },
   {
    "kit": "quat-cars",
    "name": "suv",
    "hash": "1ebb81e6ad",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.711,
@@ -343647,7 +343891,7 @@
     "qua"
    ],
    "variant": "quat-cars/suv",
-   "thickRel": 1.04,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -343660,7 +343904,7 @@
    "kit": "quat-cars",
    "name": "taxi",
    "hash": "a47a60d9d4",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.609,
@@ -343718,7 +343962,7 @@
     "qua"
    ],
    "variant": "quat-cars/car",
-   "thickRel": 0.99
+   "thickRel": 0.95
   },
   {
    "kit": "quat-dun-1",
@@ -348795,7 +349039,7 @@
    "kit": "quat-food",
    "name": "bottle-1",
    "hash": "983d3bf054",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.077,
@@ -348844,13 +349088,13 @@
     "textile"
    ],
    "variant": "quat-food/bottle-1",
-   "thickRel": 1.26
+   "thickRel": 1.13
   },
   {
    "kit": "quat-food",
    "name": "bottle-2",
    "hash": "53de8159ef",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.077,
@@ -348904,7 +349148,7 @@
     "textile"
    ],
    "variant": "quat-food/bottle-1",
-   "thickRel": 1.26
+   "thickRel": 1.13
   },
   {
    "kit": "quat-food",
@@ -348988,7 +349232,7 @@
     "qua"
    ],
    "variant": "quat-food/bread",
-   "thickRel": 1.27
+   "thickRel": 1.12
   },
   {
    "kit": "quat-food",
@@ -349042,7 +349286,7 @@
    "kit": "quat-food",
    "name": "burger-large",
    "hash": "4a19494547",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.292,
@@ -349106,7 +349350,7 @@
      "open": 1
     }
    },
-   "thickRel": 1,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
@@ -349124,7 +349368,7 @@
    "kit": "quat-food",
    "name": "burger",
    "hash": "ada15e163a",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.281,
@@ -349188,7 +349432,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.91,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "warning",
@@ -349249,7 +349493,7 @@
    "kit": "quat-food",
    "name": "cheeseburger",
    "hash": "a70c92f6c1",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.249,
@@ -349296,7 +349540,7 @@
     "qua"
    ],
    "variant": "quat-food/cheeseburger",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "quat-food",
@@ -350141,7 +350385,7 @@
    "kit": "quat-food",
    "name": "double-cheeseburger",
    "hash": "3039feb02d",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.254,
@@ -350188,7 +350432,7 @@
     "qua"
    ],
    "variant": "quat-food/cheeseburger",
-   "thickRel": 1.06
+   "thickRel": 1.04
   },
   {
    "kit": "quat-food",
@@ -358273,7 +358517,7 @@
     "textile"
    ],
    "variant": "quat-medieval/package-2",
-   "thickRel": 1.06
+   "thickRel": 1.1
   },
   {
    "kit": "quat-medieval",
@@ -358323,7 +358567,7 @@
     "textile"
    ],
    "variant": "quat-medieval/package-2",
-   "thickRel": 1.05
+   "thickRel": 1.09
   },
   {
    "kit": "quat-medieval",
@@ -360444,7 +360688,7 @@
    "kit": "quat-nature",
    "name": "wheat",
    "hash": "715271200c",
-   "kind": "obj-resource-wheat",
+   "kind": "obj-resource-crop-wheat",
    "size": "s",
    "wdh": [
     0.143,
@@ -364973,7 +365217,7 @@
    "kit": "quat-pirate",
    "name": "wheat",
    "hash": "749a8708d7",
-   "kind": "obj-resource-wheat",
+   "kind": "obj-resource-crop-wheat",
    "size": "s",
    "wdh": [
     0.194,
@@ -365732,7 +365976,7 @@
    "kit": "quat-props",
    "name": "bottle-1-green",
    "hash": "4fb7646614",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.096,
@@ -365774,13 +366018,13 @@
     "qua"
    ],
    "variant": "quat-props/bottle-1",
-   "thickRel": 1.16
+   "thickRel": 1.05
   },
   {
    "kit": "quat-props",
    "name": "bottle-1",
    "hash": "e1e8f4d630",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.096,
@@ -365823,7 +366067,7 @@
     "textile"
    ],
    "variant": "quat-props/bottle-1",
-   "thickRel": 1.16
+   "thickRel": 1.05
   },
   {
    "kit": "quat-props",
@@ -372874,7 +373118,7 @@
    "kit": "quat-shoot",
    "name": "car-broken",
    "hash": "1c0e79f8e7",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "l",
    "wdh": [
     0.924,
@@ -372926,7 +373170,7 @@
     "qua",
     "rubber"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.5
   },
   {
    "kit": "quat-shoot",
@@ -373022,7 +373266,7 @@
     "wood-cardboard"
    ],
    "variant": "quat-shoot/cardboard-box",
-   "thickRel": 1.06
+   "thickRel": 1.1
   },
   {
    "kit": "quat-shoot",
@@ -373070,7 +373314,7 @@
     "wood-cardboard"
    ],
    "variant": "quat-shoot/cardboard-box",
-   "thickRel": 1.12
+   "thickRel": 1.16
   },
   {
    "kit": "quat-shoot",
@@ -373544,7 +373788,7 @@
    "kit": "quat-shoot",
    "name": "gas-tank",
    "hash": "a4cba794dd",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
     0.352,
@@ -379990,7 +380234,7 @@
    "kit": "quat-survival",
    "name": "propane-tank",
    "hash": "c6f8de1ac8",
-   "kind": "obj-container-cylinder",
+   "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
     0.32,
@@ -380352,7 +380596,7 @@
    "kit": "quat-survival",
    "name": "water-bottle",
    "hash": "2f8b2e2a1c",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-drink",
    "size": "s",
    "wdh": [
     0.132,
@@ -380785,7 +381029,7 @@
     "qua",
     "scale-small"
    ],
-   "thickRel": 1.11
+   "thickRel": 0.98
   },
   {
    "kit": "quat-sushi",
@@ -383853,7 +384097,7 @@
    "kit": "quat-sushi",
    "name": "soy-bottle",
    "hash": "38a7e2e535",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
     0.062,
@@ -383894,7 +384138,7 @@
     "glass",
     "qua"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.17
   },
   {
    "kit": "quat-sushi",
@@ -394452,7 +394696,7 @@
    "kit": "rgp-cars",
    "name": "hatchback",
    "hash": "c2d3fc9ffe",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.628,
@@ -394521,7 +394765,7 @@
     "rgp"
    ],
    "variant": "rgp-cars/sedan",
-   "thickRel": 1.16,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "error",
@@ -394686,7 +394930,7 @@
    "kit": "rgp-cars",
    "name": "pickup",
    "hash": "937639270d",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.652,
@@ -394749,13 +394993,13 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.97
   },
   {
    "kit": "rgp-cars",
    "name": "police-car",
    "hash": "ddff75a0c1",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.616,
@@ -394823,7 +395067,7 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.09,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "error",
@@ -394836,7 +395080,7 @@
    "kit": "rgp-cars",
    "name": "sedan",
    "hash": "e97c02b225",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.652,
@@ -394905,7 +395149,7 @@
     "rgp"
    ],
    "variant": "rgp-cars/sedan",
-   "thickRel": 1.16,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "error",
@@ -394918,7 +395162,7 @@
    "kit": "rgp-cars",
    "name": "sports-car",
    "hash": "dc79c1eb05",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.672,
@@ -394981,7 +395225,7 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.09
   },
   {
    "kit": "rgp-cars",
@@ -395069,7 +395313,7 @@
    "kit": "rgp-cars",
    "name": "taxi",
    "hash": "f12dd07b0d",
-   "kind": "obj-transport-land-road",
+   "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.652,
@@ -395132,7 +395376,7 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-explosives",
@@ -395175,7 +395419,7 @@
     "rgp",
     "wood-planks"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "rgp-explosives",
@@ -396888,7 +397132,7 @@
     "food",
     "rgp"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.13
   },
   {
    "kit": "rgp-medieval",
@@ -396931,7 +397175,7 @@
     "food",
     "rgp"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.82
   },
   {
    "kit": "rgp-medieval",
@@ -398737,7 +398981,7 @@
    "collection": "rgp",
    "name": "hay-bale",
    "hash": "48740afc45",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "m",
    "wdh": [
     0.601,
@@ -398779,7 +399023,7 @@
    "collection": "rgp",
    "name": "haystack",
    "hash": "fa1a4a5ace",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "m",
    "wdh": [
     0.626,
@@ -398881,7 +399125,7 @@
    "collection": "rgp",
    "name": "hide-roll",
    "hash": "bbe93ddc01",
-   "kind": "obj-resource",
+   "kind": "obj-resource-leather",
    "size": "m",
    "wdh": [
     0.201,
@@ -404760,7 +405004,7 @@
     "vegetation",
     "wood-planks"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "rgp-medieval",
@@ -410841,7 +411085,7 @@
    "tags": [
     "ceramic"
    ],
-   "thickRel": 0.63,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "warning",
@@ -412619,7 +412863,7 @@
     "metal-iron-cast",
     "sq"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "sq-bank",
@@ -414277,7 +414521,7 @@
     "sq",
     "wood-beam"
    ],
-   "thickRel": 0.33
+   "thickRel": 0.36
   },
   {
    "kit": "sq-cards",
@@ -418054,7 +418298,7 @@
    "collection": "sq-props",
    "name": "tray-set",
    "hash": "96e3b50471",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.35,
@@ -420148,7 +420392,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.57
   },
   {
    "kit": "sq-laundry",
@@ -425480,7 +425724,7 @@
    "kit": "styloo-farm",
    "name": "haystack-cube",
    "hash": "2ab6c0e5d7",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "s",
    "wdh": [
     0.285,
@@ -425531,7 +425775,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.4 under min 0.45 (obj-resource-haystack)"
+     "text": "longest 0.4 under min 0.45 (obj-resource-crop-hay)"
     },
     {
      "level": "warning",
@@ -425554,7 +425798,7 @@
    "kit": "styloo-farm",
    "name": "haystack-round",
    "hash": "24850873ab",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "m",
    "wdh": [
     0.876,
@@ -425603,7 +425847,7 @@
    "kit": "styloo-farm",
    "name": "haystack-thick",
    "hash": "6f51cbd7fd",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "s",
    "wdh": [
     0.407,
@@ -425672,7 +425916,7 @@
    "kit": "styloo-farm",
    "name": "haystack-thin",
    "hash": "277b40cd8f",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "s",
    "wdh": [
     0.318,
@@ -425723,7 +425967,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.439 under min 0.45 (obj-resource-haystack)"
+     "text": "longest 0.439 under min 0.45 (obj-resource-crop-hay)"
     },
     {
      "level": "error",
@@ -427855,7 +428099,7 @@
    "kit": "styloo-farm",
    "name": "wheat",
    "hash": "6f540f7ab5",
-   "kind": "obj-resource-wheat",
+   "kind": "obj-resource-crop-wheat",
    "size": "s",
    "wdh": [
     0.176,
@@ -427891,7 +428135,7 @@
     "sty",
     "vegetation"
    ],
-   "thickRel": 0.37,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "error",
@@ -428711,7 +428955,7 @@
    "kit": "styloo-food",
    "name": "burger",
    "hash": "32b183d526",
-   "kind": "obj-food-baked-bread-sandwich",
+   "kind": "obj-food-prepared-burger",
    "size": "s",
    "wdh": [
     0.191,
@@ -428768,13 +429012,13 @@
     "hero",
     "sty"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "styloo-food",
    "name": "cake-chocolate-slice",
    "hash": "1ab006668f",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.181,
@@ -428815,7 +429059,7 @@
    "kit": "styloo-food",
    "name": "cake-slice",
    "hash": "554a979764",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
     0.13,
@@ -430215,7 +430459,7 @@
    "kit": "styloo-food",
    "name": "pizza-box",
    "hash": "6065cfa964",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.292,
@@ -430250,7 +430494,7 @@
     "paper",
     "sty"
    ],
-   "thickRel": 0.26
+   "thickRel": 1
   },
   {
    "kit": "styloo-food",
@@ -431360,7 +431604,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "styloo-furniture",
@@ -433079,7 +433323,7 @@
    "kit": "styloo-kitchen",
    "name": "egg-carton",
    "hash": "48eeaa72de",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
     0.19,
@@ -433119,7 +433363,7 @@
     "paper",
     "sty"
    ],
-   "thickRel": 0.73
+   "thickRel": 2.75
   },
   {
    "kit": "styloo-kitchen",
@@ -433424,7 +433668,7 @@
    "kit": "styloo-kitchen",
    "name": "milk-carton",
    "hash": "f1050fc41b",
-   "kind": "obj-container-carton",
+   "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
     0.104,
@@ -433464,7 +433708,7 @@
     "paper",
     "sty"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.04
   },
   {
    "kit": "styloo-kitchen",
@@ -435557,7 +435801,7 @@
    "kit": "styloo-school",
    "name": "beaker",
    "hash": "d92803c215",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-lab",
    "size": "s",
    "wdh": [
     0.145,
@@ -436298,7 +436542,7 @@
    "kit": "styloo-school",
    "name": "cake-stand",
    "hash": "8fe62c8b73",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
     0.194,
@@ -436764,7 +437008,7 @@
     "stone-masonry",
     "sty"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.52
   },
   {
    "kit": "styloo-school",
@@ -436811,7 +437055,7 @@
     "sty",
     "wood-worked"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.78
   },
   {
    "kit": "styloo-school",
@@ -437474,7 +437718,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.42
   },
   {
    "kit": "styloo-school",
@@ -437633,7 +437877,7 @@
    "kit": "styloo-school",
    "name": "flask-conical",
    "hash": "dbb8e8c0e4",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-lab",
    "size": "s",
    "wdh": [
     0.111,
@@ -437675,7 +437919,7 @@
    "kit": "styloo-school",
    "name": "flask-round",
    "hash": "73a9a91b61",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-lab",
    "size": "s",
    "wdh": [
     0.12,
@@ -438213,7 +438457,7 @@
     "sty"
    ],
    "variant": "styloo-school/marker-black",
-   "thickRel": 1.24
+   "thickRel": 1.38
   },
   {
    "kit": "styloo-school",
@@ -438265,7 +438509,7 @@
     "sty"
    ],
    "variant": "styloo-school/marker-black",
-   "thickRel": 1.22
+   "thickRel": 1.35
   },
   {
    "kit": "styloo-school",
@@ -438312,7 +438556,7 @@
     "sty"
    ],
    "variant": "styloo-school/marker-black",
-   "thickRel": 1.23
+   "thickRel": 1.36
   },
   {
    "kit": "styloo-school",
@@ -439123,13 +439367,13 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.61
+   "thickRel": 1.78
   },
   {
    "kit": "styloo-school",
    "name": "pen-cup",
    "hash": "36e73fff7c",
-   "kind": "obj-container-pot-jar",
+   "kind": "obj-equipment-tool-stationery-holder",
    "size": "s",
    "wdh": [
     0.118,
@@ -439164,7 +439408,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.26,
+   "thickRel": 0.27,
    "lint": [
     {
      "level": "warning",
@@ -439234,7 +439478,7 @@
     "scale-small",
     "sty"
    ],
-   "thickRel": 1.44,
+   "thickRel": 1.59,
    "lint": [
     {
      "level": "error",
@@ -439300,7 +439544,7 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.61
+   "thickRel": 1.78
   },
   {
    "kit": "styloo-school",
@@ -439354,7 +439598,7 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.62
+   "thickRel": 1.8
   },
   {
    "kit": "styloo-school",
@@ -439402,7 +439646,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -439450,13 +439694,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
    "name": "pencil-case",
    "hash": "486978d5d4",
-   "kind": "obj-container-pot-jar",
+   "kind": "obj-equipment-tool-stationery-holder",
    "size": "s",
    "wdh": [
     0.099,
@@ -439504,7 +439748,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -439559,7 +439803,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -439602,7 +439846,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -439650,7 +439894,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -439698,7 +439942,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -439746,7 +439990,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -439794,7 +440038,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.56
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -440453,7 +440697,7 @@
     "scale-small",
     "sty"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.42
   },
   {
    "kit": "styloo-school",
@@ -440775,7 +441019,7 @@
     "paper",
     "sty"
    ],
-   "thickRel": 0.22,
+   "thickRel": 0.25,
    "lint": [
     {
      "level": "error",
@@ -441273,7 +441517,7 @@
    "kit": "styloo-school",
    "name": "tray",
    "hash": "0364f69c34",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.374,
@@ -448166,7 +448410,7 @@
    "kit": "western",
    "name": "bull-head",
    "hash": "8dc7f91833",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-mount",
    "size": "s",
    "wdh": [
     0.152,
@@ -452723,7 +452967,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pot-large",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "wizp-asia",
@@ -452767,7 +453011,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pot-large",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "wizp-asia",
@@ -453988,7 +454232,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1.08,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -454039,7 +454283,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "wizp-asia",
@@ -459189,7 +459433,7 @@
    "collection": "wizp-western",
    "name": "haystack-forked",
    "hash": "2cbaccc1e7",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "m",
    "wdh": [
     0.97,
@@ -459238,7 +459482,7 @@
    "collection": "wizp-western",
    "name": "haystack",
    "hash": "5ae0e8fb75",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "size": "m",
    "wdh": [
     0.948,
@@ -463078,7 +463322,7 @@
     "wizp"
    ],
    "variant": "wizp-village/pot-stone-a",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "wizp-village",
@@ -463121,7 +463365,7 @@
     "wizp"
    ],
    "variant": "wizp-village/pot-stone-a",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "wizp-village",
@@ -463586,7 +463830,7 @@
     "plastic"
    ],
    "variant": "zombie-weapons/ammo-box-rifle",
-   "thickRel": 0.69
+   "thickRel": 0.7
   },
   {
    "kit": "zombie-weapons",

@@ -16338,21 +16338,29 @@
    "id": "obj-container-cylinder",
    "name": "Cylinder",
    "type": "kind",
-   "description": "Pressure or chemical cylinder: gas cylinder, propane tank, fire extinguisher, chemical vat.",
+   "description": "Pressure or chemical cylinder: gas cylinder, fire extinguisher, chemical vat.",
    "models": [
-    "quat-shoot/gas-tank",
-    "quat-survival/propane-tank",
     "sq-lab/gas-cylinder",
     "sq-lab/chemical-vat",
     "sq-lab/fire-extinguisher",
+    "styloo-school/fire-extinguisher",
+    "3dm-industrial-2/fire-extinguisher",
+    "m3-base/co2-cartridge"
+   ]
+  },
+  {
+   "id": "obj-container-cylinder-tank",
+   "name": "Gas tank",
+   "type": "kind",
+   "description": "gas tank, propane tank, gas bottle, gas canister",
+   "models": [
+    "quat-survival/propane-tank",
     "household/propane-tank",
     "lpa-construction/gas-tank-a",
     "lpa-construction/gas-tank-b",
-    "styloo-school/fire-extinguisher",
-    "3dm-industrial-2/fire-extinguisher",
-    "3dm-industrial/gas-bottle",
-    "m3-base/co2-cartridge",
-    "m3-base/gas-canister"
+    "quat-shoot/gas-tank",
+    "m3-base/gas-canister",
+    "3dm-industrial/gas-bottle"
    ]
   },
   {
@@ -16458,19 +16466,24 @@
    "id": "obj-container-carton",
    "name": "Carton",
    "type": "kind",
-   "description": "carton, milk carton",
+   "description": "carton",
    "models": [
+    "sq-laundry/box-brand-b"
+   ]
+  },
+  {
+   "id": "obj-container-carton-drink",
+   "name": "Drink carton",
+   "type": "kind",
+   "description": "milk carton, drink carton, juice carton",
+   "models": [
+    "styloo-kitchen/milk-carton",
     "ken-food/carton",
     "ken-food/carton-small",
-    "isa-bakery/milk-carton",
-    "styloo-kitchen/milk-carton",
+    "m3-base/drink-carton-01",
     "food-pack-2/milk-carton",
     "food-pack-2/milk-carton-chocolate",
-    "sq-laundry/box-brand-b",
-    "styloo-kitchen/egg-carton",
-    "styloo-food/pizza-box",
-    "ken-food/takeaway-box",
-    "m3-base/drink-carton-01"
+    "isa-bakery/milk-carton"
    ]
   },
   {
@@ -16668,40 +16681,10 @@
    "type": "kind",
    "description": "bottle, flask, vial",
    "models": [
-    "kay-dun-2/bottle-a-brown",
-    "kay-dun-2/bottle-a-green",
-    "kay-dun-2/bottle-a-labeled-brown",
-    "kay-dun-2/bottle-a-labeled-green",
-    "kay-dun-2/bottle-b-brown",
-    "kay-dun-2/bottle-b-green",
-    "kay-dun-2/bottle-c-brown",
-    "kay-dun-2/bottle-c-green",
-    "quat-props/bottle-1",
-    "quat-props/bottle-1-green",
-    "quat-food/bottle-1",
-    "quat-food/bottle-2",
-    "ken-pirate/bottle",
-    "ken-pirate/bottle-large",
-    "ken-pirate/bottle-red",
-    "props/bottle-b",
-    "props/bottle-b-red",
-    "props/bottle-c",
-    "props/bottle-c-red",
-    "ken-survival/bottle",
-    "ken-survival/bottle-large",
-    "ken-survival/bottle-red",
-    "kay-mixed/water-bottle-a",
-    "kay-mixed/water-bottle-b",
-    "isa-picnic/wine-bottle",
-    "isa-picnic/thermos",
-    "quat-sushi/soy-bottle",
-    "quat-survival/water-bottle",
     "kay-food/ketchup",
     "kay-food/mustard",
     "ken-food/bottle-mustard",
     "ken-food/bottle-ketchup",
-    "jb-kitchen/bottle",
-    "jb-kitchen/bottle-yellow",
     "sq-laundry/jug-brand-a",
     "quat-food/ketchup-bottle",
     "makeup/nail-polish",
@@ -16719,15 +16702,6 @@
     "isa-bathroom/soap-dispenser-pink",
     "isa-bathroom/soap-dispenser-blue",
     "isa-bathroom/soap-dispenser-yellow",
-    "styloo-school/flask-conical",
-    "styloo-school/flask-round",
-    "lpa-west/bottle-a",
-    "lpa-west/bottle-b",
-    "lpa-west/bottle-c",
-    "lpa-west/bottle-d",
-    "styloo-school/beaker",
-    "emace-80s/thermos",
-    "emace-village/bottle-in-jar",
     "m3-base/adhesive-bottle",
     "m3-base/bleach-bottle-01",
     "m3-base/bleach-bottle-02",
@@ -16736,20 +16710,14 @@
     "m3-base/cleaning-bottle-03",
     "m3-base/cleaning-bottle-04",
     "m3-base/cleaning-spray",
-    "m3-base/conical-flask",
     "m3-base/cosmetic-tube",
-    "m3-base/decanter",
     "m3-base/eye-drop-bottle",
-    "m3-base/flat-bottomed-flask",
     "m3-base/pill-bottle",
     "m3-base/plastic-bottle-01",
     "m3-base/sauce-bottle",
     "m3-base/soap-dispenser",
-    "m3-base/whiskey-bottle",
-    "m3-base/wine-bottle",
     "m3-base/cleaning-bottle-08",
-    "m3-base/glue-bottle-01",
-    "m3-base/hip-flask-01"
+    "m3-base/glue-bottle-01"
    ]
   },
   {
@@ -16826,6 +16794,75 @@
     "potions/potion-9-double-handle-red",
     "m3-base/potion-bottle",
     "m3-base/test-tube"
+   ]
+  },
+  {
+   "id": "obj-container-bottle-glass",
+   "name": "Glass bottle",
+   "type": "kind",
+   "description": "glass bottle, wine bottle, whiskey bottle, liquor bottle, decanter, soy sauce bottle",
+   "models": [
+    "jb-kitchen/bottle",
+    "jb-kitchen/bottle-yellow",
+    "ken-pirate/bottle",
+    "ken-pirate/bottle-red",
+    "ken-pirate/bottle-large",
+    "ken-survival/bottle",
+    "ken-survival/bottle-red",
+    "ken-survival/bottle-large",
+    "quat-food/bottle-1",
+    "quat-food/bottle-2",
+    "quat-props/bottle-1",
+    "quat-props/bottle-1-green",
+    "lpa-west/bottle-a",
+    "lpa-west/bottle-b",
+    "lpa-west/bottle-c",
+    "lpa-west/bottle-d",
+    "kay-dun-2/bottle-a-brown",
+    "kay-dun-2/bottle-a-labeled-brown",
+    "kay-dun-2/bottle-a-green",
+    "kay-dun-2/bottle-a-labeled-green",
+    "kay-dun-2/bottle-b-brown",
+    "kay-dun-2/bottle-b-green",
+    "kay-dun-2/bottle-c-brown",
+    "kay-dun-2/bottle-c-green",
+    "props/bottle-b",
+    "props/bottle-b-red",
+    "props/bottle-c",
+    "props/bottle-c-red",
+    "emace-village/bottle-in-jar",
+    "m3-base/decanter",
+    "m3-base/whiskey-bottle",
+    "isa-picnic/wine-bottle",
+    "m3-base/wine-bottle",
+    "quat-sushi/soy-bottle"
+   ]
+  },
+  {
+   "id": "obj-container-bottle-lab",
+   "name": "Lab flask",
+   "type": "kind",
+   "description": "lab flask, conical flask, round flask, beaker",
+   "models": [
+    "m3-base/conical-flask",
+    "styloo-school/flask-conical",
+    "m3-base/flat-bottomed-flask",
+    "styloo-school/flask-round",
+    "styloo-school/beaker"
+   ]
+  },
+  {
+   "id": "obj-container-bottle-drink",
+   "name": "Drink bottle",
+   "type": "kind",
+   "description": "water bottle, thermos, hip flask",
+   "models": [
+    "emace-80s/thermos",
+    "isa-picnic/thermos",
+    "quat-survival/water-bottle",
+    "kay-mixed/water-bottle-a",
+    "kay-mixed/water-bottle-b",
+    "m3-base/hip-flask-01"
    ]
   },
   {
@@ -16992,27 +17029,16 @@
    "id": "obj-container-crate-cardboard",
    "name": "Cardboard box",
    "type": "kind",
-   "description": "cardboard box, package, present",
+   "description": "cardboard box, package",
    "models": [
     "isa-homely/package",
     "kay-city/box-b",
-    "kay-holiday/present-a",
-    "kay-holiday/present-b",
-    "kay-holiday/present-c",
-    "kay-holiday/present-d",
-    "kay-holiday/present-e",
-    "kay-holiday/present-f",
-    "kay-holiday/present-sphere-a",
-    "kay-holiday/present-sphere-b",
     "kay-proto/box-b",
     "kay-proto/box-c",
     "ken-factory/box-large",
     "ken-factory/box-long",
     "ken-factory/box-wide",
     "ken-furniture/cardboard-box-open",
-    "ken-holiday/present-cube",
-    "ken-holiday/present-rectangle",
-    "ken-holiday/present-round",
     "ken-survival/box-large",
     "ken-survival/box-large-open",
     "ken-survival/box-open",
@@ -17020,12 +17046,10 @@
     "quat-shoot/cardboard-boxes-a",
     "quat-shoot/cardboard-boxes-b",
     "household/cardboard-box-open",
-    "household/present",
     "household/tissue-box",
     "kay-proto/box-a",
     "quat-medieval/package",
     "quat-medieval/package-2",
-    "pm-store/present",
     "kay-city/box-a",
     "ken-car/box",
     "ken-survival/box",
@@ -17037,13 +17061,24 @@
     "kay-mixed/comic-box-filled",
     "m3-base/cardboard-box-01",
     "m3-base/cardboard-box-02",
-    "m3-base/pizza-box",
     "m3-base/product-box",
-    "m3-base/storage-box",
+    "m3-base/storage-box"
+   ]
+  },
+  {
+   "id": "obj-container-crate-cardboard-takeaway",
+   "name": "Takeaway box",
+   "type": "kind",
+   "description": "takeaway box, take-away box, pizza box, egg carton, food box",
+   "models": [
     "m3-base/take-away-box-01",
     "m3-base/take-away-box-02",
     "m3-base/take-away-box-03",
-    "m3-base/take-away-box-04"
+    "m3-base/take-away-box-04",
+    "m3-base/pizza-box",
+    "ken-food/takeaway-box",
+    "styloo-food/pizza-box",
+    "styloo-kitchen/egg-carton"
    ]
   },
   {
@@ -17107,6 +17142,27 @@
     "m3-base/cardboard-produce-tray",
     "m3-base/wine-crate",
     "m3-base/wooden-produce-crate"
+   ]
+  },
+  {
+   "id": "obj-container-present",
+   "name": "Present",
+   "type": "kind",
+   "description": "present, gift, gift box",
+   "models": [
+    "kay-holiday/present-sphere-a",
+    "kay-holiday/present-sphere-b",
+    "ken-holiday/present-cube",
+    "ken-holiday/present-rectangle",
+    "ken-holiday/present-round",
+    "kay-holiday/present-a",
+    "kay-holiday/present-b",
+    "kay-holiday/present-c",
+    "kay-holiday/present-d",
+    "kay-holiday/present-e",
+    "kay-holiday/present-f",
+    "pm-store/present",
+    "household/present"
    ]
   },
   {
@@ -17190,10 +17246,7 @@
     "isa-bathroom/jar-yellow",
     "isa-bathroom/jar-pink",
     "styloo-school/brush-pot",
-    "styloo-school/pencil-case",
-    "styloo-school/pen-cup",
     "quat-space/pickup-jar",
-    "household/pencil-cup",
     "m3-base/beaker",
     "m3-base/glass-jar-01"
    ]
@@ -17453,7 +17506,7 @@
    "id": "obj-food-meal",
    "name": "Meal",
    "type": "kind",
-   "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco.",
+   "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco, a pizza.",
    "models": [
     "kay-dun-1/plate-full",
     "kay-dun-1/plate-half",
@@ -17464,7 +17517,9 @@
     "kay-mixed/taco",
     "ken-food/taco",
     "m3-base/pizza",
-    "m3-base/pizza-slice"
+    "m3-base/pizza-slice",
+    "food-pack-2/pizza",
+    "food-pack-2/pizza-b"
    ]
   },
   {
@@ -17564,28 +17619,43 @@
    ]
   },
   {
-   "id": "obj-food-baked-bread-sandwich",
+   "id": "obj-food-prepared",
+   "name": "Prepared food",
+   "type": "kind",
+   "description": "Food assembled from several ingredients and eaten by hand: burger, sandwich.",
+   "models": []
+  },
+  {
+   "id": "obj-food-prepared-burger",
+   "name": "Burger",
+   "type": "kind",
+   "description": "burger, hamburger, cheeseburger",
+   "models": [
+    "food-pack/burger",
+    "food-pack/burger-sesame",
+    "ken-food/burger",
+    "ken-food/burger-cheese",
+    "quat-food/burger",
+    "quat-food/burger-large",
+    "styloo-food/burger",
+    "food-pack-2/burger-sandwich",
+    "m3-base/cheeseburger",
+    "quat-food/cheeseburger",
+    "quat-food/double-cheeseburger",
+    "household/hamburger"
+   ]
+  },
+  {
+   "id": "obj-food-prepared-sandwich",
    "name": "Sandwich",
    "type": "kind",
    "description": "sandwich, sub",
    "models": [
-    "ken-food/sandwich",
-    "ken-food/sub",
-    "isa-picnic/sandwich",
-    "food-pack/burger-sesame",
-    "food-pack/burger",
-    "ken-food/burger",
-    "ken-food/burger-cheese",
-    "styloo-food/burger",
-    "food-pack-2/sandwich-cheese",
     "food-pack-2/sandwich",
-    "food-pack-2/burger-sandwich",
-    "quat-food/burger-large",
-    "quat-food/burger",
-    "quat-food/cheeseburger",
-    "quat-food/double-cheeseburger",
-    "household/hamburger",
-    "m3-base/cheeseburger"
+    "food-pack-2/sandwich-cheese",
+    "isa-picnic/sandwich",
+    "ken-food/sandwich",
+    "ken-food/sub"
    ]
   },
   {
@@ -17609,41 +17679,49 @@
    "id": "obj-food-baked-pie",
    "name": "Pie",
    "type": "kind",
-   "description": "cake, pie",
+   "description": "pie",
    "models": [
-    "isa-food/cake-birthday-cut",
-    "isa-food/cake-birthday",
-    "isa-food/cake-birthday-slice",
-    "isa-food/cake-chocolate-cut",
-    "isa-food/cake-chocolate",
-    "isa-food/cake-strawberry",
-    "isa-food/cake-strawberry-cut",
-    "isa-food/cake-chocolate-slice",
-    "isa-food/cake-strawberry-slice",
     "isa-food/pie-apple-slice",
     "isa-food/pie-cherry-cut",
     "isa-food/pie-cherry",
     "isa-food/pie-apple-cut",
     "isa-food/pie-apple",
     "isa-food/pie-cherry-slice",
-    "ken-food/cake-birthday",
     "ken-food/pie",
-    "styloo-food/cake-chocolate-slice",
-    "styloo-food/cake-slice",
     "food-pack-2/pie-a-red",
     "food-pack-2/pie-a-blue",
     "food-pack-2/pie-b-red",
     "food-pack-2/pie-b-blue",
-    "food-pack-2/pie-b-orange",
-    "food-pack-2/cake-chocolate",
-    "food-pack-2/cake-chocolate-slice",
+    "food-pack-2/pie-b-orange"
+   ]
+  },
+  {
+   "id": "obj-food-baked-cake",
+   "name": "Cake",
+   "type": "kind",
+   "description": "cake, birthday cake, cake slice",
+   "models": [
+    "isa-food/cake-chocolate-cut",
+    "isa-food/cake-birthday-cut",
+    "isa-food/cake-chocolate",
+    "isa-food/cake-birthday",
+    "isa-food/cake-strawberry",
+    "isa-food/cake-strawberry-cut",
+    "ken-food/cake-birthday",
+    "isa-food/cake-chocolate-slice",
+    "isa-food/cake-birthday-slice",
+    "isa-food/cake-strawberry-slice",
     "food-pack-2/cake-chocolate-sliced",
+    "food-pack-2/cake-chocolate-slice",
+    "food-pack-2/cake-chocolate",
+    "food-pack-2/cake-vanilla",
+    "food-pack-2/cake-vanilla-slice",
+    "food-pack-2/cake-vanilla-sliced",
     "food-pack-2/cake-velvet",
     "food-pack-2/cake-velvet-slice",
     "food-pack-2/cake-velvet-sliced",
-    "food-pack-2/cake-vanilla",
-    "food-pack-2/cake-vanilla-slice",
-    "food-pack-2/cake-vanilla-sliced"
+    "styloo-food/cake-chocolate-slice",
+    "styloo-food/cake-slice"
    ]
   },
   {
@@ -18161,22 +18239,30 @@
     "ken-holiday/wreath-decorated",
     "kay-holiday/mistletoe-a",
     "kay-holiday/mistletoe-b",
-    "western/bull-head",
     "pm-store/frieze",
     "pm-store/string-lights",
     "pm-store/snow-globe",
     "pm-store/star",
-    "emace-village/bear-trophy",
     "m3-base/birdhouse",
     "m3-base/boat-ornament",
     "m3-base/carved-bird-ornament",
-    "m3-base/deer-head",
     "m3-base/mid-century-starburst",
     "m3-base/name-plaque",
     "m3-base/wood-onlay-01",
     "m3-base/reed-diffuser-01",
     "taalei-kit/birdhouse",
-    "household/birdhouse",
+    "household/birdhouse"
+   ]
+  },
+  {
+   "id": "obj-furnishing-decor-mount",
+   "name": "Mounted head",
+   "type": "kind",
+   "description": "mounted head, hunting trophy, trophy head, antlers (mounted)",
+   "models": [
+    "m3-base/deer-head",
+    "western/bull-head",
+    "emace-village/bear-trophy",
     "ken-furniture/bear-head"
    ]
   },
@@ -19628,26 +19714,42 @@
    "type": "kind",
    "description": "Plate or stand that carries food to the table rather than holding one portion.",
    "models": [
+    "cooking-assets/cloche",
+    "isa-bakery/serving-tray",
+    "quat-sushi/wooden-board",
+    "styloo-food/sushi-board",
+    "cooking-assets/platter-oval",
+    "clay-props/platter"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-tray",
+   "name": "Serving tray",
+   "type": "kind",
+   "description": "tray, platter, tea tray",
+   "models": [
+    "styloo-school/tray",
+    "m3-base/tea-tray-01",
+    "m3-base/tea-tray-02",
+    "m3-base/metal-tray",
+    "sq-fastfood/tray-set",
+    "isa-picnic/tray-round",
+    "isa-picnic/tray-square",
+    "isa-picnic/tray-square-handles"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-stand",
+   "name": "Serving stand",
+   "type": "kind",
+   "description": "pastry stand, cake stand, tiered stand",
+   "models": [
     "isa-bakery/pastry-stand-tiered",
     "isa-bakery/pastry-stand",
     "isa-bakery/pastry-stand-covered",
-    "cooking-assets/cloche",
-    "isa-bakery/serving-tray",
-    "isa-picnic/tray-round",
-    "isa-picnic/tray-square",
-    "isa-picnic/tray-square-handles",
-    "quat-sushi/wooden-board",
-    "styloo-food/sushi-board",
-    "sq-fastfood/tray-set",
-    "cooking-assets/platter-oval",
     "styloo-school/cake-stand",
-    "styloo-school/tray",
-    "m3-base/3-tier-cake-stand",
     "m3-base/cake-stand",
-    "m3-base/metal-tray",
-    "m3-base/tea-tray-01",
-    "m3-base/tea-tray-02",
-    "clay-props/platter"
+    "m3-base/3-tier-cake-stand"
    ]
   },
   {
@@ -20340,16 +20442,9 @@
    "id": "obj-resource",
    "name": "Resource",
    "type": "kind",
-   "description": "hide, raw stock",
+   "description": "raw stock",
    "color": "#4f7d8c",
-   "models": [
-    "rgp-medieval/hide-roll",
-    "lpa-construction/spool-a",
-    "lpa-construction/spool-b",
-    "emace-village/hide-light",
-    "emace-village/hide-dark",
-    "emace-village/sheet-stand"
-   ]
+   "models": []
   },
   {
    "id": "obj-resource-metal",
@@ -20387,10 +20482,7 @@
     "quat-rpg/gold-ingots",
     "sq-bank/gold-stack",
     "lpa-west/gold-bar",
-    "m3-base/ingot",
-    "m3-base/metal-twist-02",
-    "m3-base/metal-twist-03",
-    "m3-base/metal-twist-04"
+    "m3-base/ingot"
    ]
   },
   {
@@ -20427,7 +20519,10 @@
     "m3-base/360-twist",
     "m3-base/quad-twist",
     "m3-base/gasket-01",
-    "m3-base/metal-twist-01"
+    "m3-base/metal-twist-01",
+    "m3-base/metal-twist-02",
+    "m3-base/metal-twist-03",
+    "m3-base/metal-twist-04"
    ]
   },
   {
@@ -20470,7 +20565,21 @@
     "kay-resources/textiles-stack-large",
     "kay-resources/textiles-stack-small",
     "rgp-medieval/cloth-roll",
-    "m3-base/cotton-reel"
+    "m3-base/cotton-reel",
+    "lpa-construction/spool-b",
+    "lpa-construction/spool-a",
+    "emace-village/sheet-stand"
+   ]
+  },
+  {
+   "id": "obj-resource-leather",
+   "name": "Leather",
+   "type": "kind",
+   "description": "hide, leather, hide roll, pelt",
+   "models": [
+    "rgp-medieval/hide-roll",
+    "emace-village/hide-light",
+    "emace-village/hide-dark"
    ]
   },
   {
@@ -20559,7 +20668,14 @@
    ]
   },
   {
-   "id": "obj-resource-wheat",
+   "id": "obj-resource-crop",
+   "name": "Crop",
+   "type": "kind",
+   "description": "Harvested field crop kept as stock: wheat, hay.",
+   "models": []
+  },
+  {
+   "id": "obj-resource-crop-wheat",
    "name": "Wheat",
    "type": "kind",
    "description": "wheat",
@@ -20570,8 +20686,8 @@
    ]
   },
   {
-   "id": "obj-resource-haystack",
-   "name": "Haystack",
+   "id": "obj-resource-crop-hay",
+   "name": "Hay",
    "type": "kind",
    "description": "haystack, hay, hay bale",
    "models": [
@@ -20753,6 +20869,17 @@
     "m3-base/wax-melting-spoon",
     "m3-base/wax-seal-stamp",
     "m3-base/magnifying-glass"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-stationery-holder",
+   "name": "Pencil holder",
+   "type": "kind",
+   "description": "pencil cup, pen cup, pencil case, pen holder",
+   "models": [
+    "household/pencil-cup",
+    "styloo-school/pencil-case",
+    "styloo-school/pen-cup"
    ]
   },
   {
@@ -21216,16 +21343,10 @@
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
    "models": [
-    "ken-chars/wheelchair",
-    "ken-chars/wheelchair-power",
-    "ken-proto/wheelchair",
     "ken-space/rover",
     "lpa-west/horseshoe",
-    "ken-chars/wheelchair-power-deluxe",
-    "ken-chars/wheelchair-deluxe",
     "m3-base/horse-bit",
-    "m3-base/horse-shoe",
-    "m3-base/wheelchair-01"
+    "m3-base/horse-shoe"
    ]
   },
   {
@@ -21368,57 +21489,65 @@
    "id": "obj-transport-land-road",
    "name": "Road vehicle",
    "type": "kind",
-   "description": "Motor vehicle driven on roads or fields: car, truck, tractor.",
+   "description": "Motor vehicle driven on roads or fields: truck, tractor, rover, digger.",
    "models": [
-    "kay-city/car-hatchback",
-    "kay-city/car-police",
-    "kay-city/car-sedan",
-    "kay-city/car-stationwagon",
-    "kay-city/car-taxi",
-    "ken-car/hatchback-sports",
-    "ken-car/police",
     "ken-car/race-future",
     "ken-car/race",
-    "ken-car/sedan-sports",
-    "ken-car/sedan",
-    "ken-car/suv-luxury",
-    "ken-car/suv",
-    "ken-car/taxi",
     "ken-car/tractor-police",
     "ken-car/tractor-shovel",
     "ken-car/tractor",
-    "ken-car/truck-flat",
-    "ken-car/truck",
     "ken-car/van",
-    "ken-proto/vehicle-convertible",
-    "ken-proto/vehicle",
     "ken-racing/race-car-green",
     "ken-racing/race-car-red",
-    "quat-shoot/car-broken",
     "quat-sushi/sushi-truck",
     "styloo-farm/tractor",
     "ken-racing/race-car-orange",
     "ken-racing/race-car-white",
-    "quat-cars/car",
-    "quat-cars/hatchback",
-    "quat-cars/police-car",
-    "quat-cars/sports-car",
-    "quat-cars/sports-car-b",
-    "quat-cars/suv",
-    "quat-cars/taxi",
     "rgs-vehicles/limousine",
     "quat-space/rover",
     "quat-space/rover-long",
     "quat-space/rover-round",
-    "rgp-cars/hatchback",
-    "rgp-cars/sedan",
-    "rgp-cars/pickup",
-    "rgp-cars/police-car",
-    "rgp-cars/sports-car",
-    "rgp-cars/taxi",
     "lowbudget/digger-a",
     "lowbudget/digger-b",
     "lowbudget/digger-c"
+   ]
+  },
+  {
+   "id": "obj-transport-land-road-car",
+   "name": "Car",
+   "type": "kind",
+   "description": "car, sedan, hatchback, suv, taxi, police car, sports car, pickup",
+   "models": [
+    "quat-cars/car",
+    "quat-cars/taxi",
+    "kay-city/car-hatchback",
+    "kay-city/car-sedan",
+    "kay-city/car-police",
+    "kay-city/car-taxi",
+    "kay-city/car-stationwagon",
+    "quat-shoot/car-broken",
+    "quat-cars/suv",
+    "quat-cars/hatchback",
+    "rgp-cars/sedan",
+    "rgp-cars/hatchback",
+    "ken-car/hatchback-sports",
+    "rgp-cars/pickup",
+    "ken-car/police",
+    "quat-cars/police-car",
+    "rgp-cars/police-car",
+    "ken-car/sedan",
+    "ken-car/sedan-sports",
+    "quat-cars/sports-car",
+    "quat-cars/sports-car-b",
+    "rgp-cars/sports-car",
+    "ken-car/suv",
+    "ken-car/suv-luxury",
+    "ken-car/taxi",
+    "rgp-cars/taxi",
+    "ken-car/truck",
+    "ken-car/truck-flat",
+    "ken-proto/vehicle",
+    "ken-proto/vehicle-convertible"
    ]
   },
   {
@@ -21609,6 +21738,20 @@
     "lpa-construction/wheelbarrow",
     "rgp-medieval/wheelbarrow",
     "m3-base/wheelbarrow"
+   ]
+  },
+  {
+   "id": "obj-transport-land-wheelchair",
+   "name": "Wheelchair",
+   "type": "kind",
+   "description": "wheelchair, power wheelchair",
+   "models": [
+    "ken-chars/wheelchair",
+    "ken-chars/wheelchair-deluxe",
+    "ken-chars/wheelchair-power",
+    "ken-chars/wheelchair-power-deluxe",
+    "m3-base/wheelchair-01",
+    "ken-proto/wheelchair"
    ]
   },
   {
@@ -26749,10 +26892,7 @@
    "name": "Baked",
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
-   "models": [
-    "food-pack-2/pizza",
-    "food-pack-2/pizza-b"
-   ]
+   "models": []
   },
   {
    "id": "str-fixture-chimney",
@@ -27474,22 +27614,30 @@
    "id": "obj-food-baked-pastry-cookie",
    "name": "Cookie",
    "type": "kind",
-   "description": "cookie, gingerbread man/woman/house",
+   "description": "cookie, gingerbread house",
    "models": [
     "food-pack/cookie",
     "isa-bakery/cookie",
     "isa-food/cookie",
     "kay-holiday/cookie",
     "ken-food/cookie-chocolate",
-    "ken-food/gingerbread-man",
-    "ken-holiday/gingerbread-man",
-    "ken-holiday/gingerbread-woman",
-    "kay-holiday/gingerbread-man",
     "styloo-food/cookie",
     "food-pack-2/cookie",
     "food-pack-2/cookie-chocolate",
     "food-pack-2/cookie-chips",
     "isa-bakery/macaron-pink"
+   ]
+  },
+  {
+   "id": "obj-food-baked-pastry-cookie-gingerbread",
+   "name": "Gingerbread",
+   "type": "kind",
+   "description": "gingerbread man, gingerbread woman",
+   "models": [
+    "ken-holiday/gingerbread-man",
+    "ken-holiday/gingerbread-woman",
+    "ken-food/gingerbread-man",
+    "kay-holiday/gingerbread-man"
    ]
   },
   {

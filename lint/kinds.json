@@ -153,8 +153,19 @@
          "id": "obj-container-crate-cardboard",
          "nouns": [
           "cardboard box",
-          "package",
-          "present"
+          "package"
+         ],
+         "children": [
+          {
+           "id": "obj-container-crate-cardboard-takeaway",
+           "nouns": [
+            "takeaway box",
+            "take-away box",
+            "pizza box",
+            "egg carton",
+            "food box"
+           ]
+          }
          ]
         },
         {
@@ -186,6 +197,14 @@
        ]
       },
       {
+       "id": "obj-container-present",
+       "nouns": [
+        "present",
+        "gift",
+        "gift box"
+       ]
+      },
+      {
        "id": "obj-container-bottle",
        "longest.min": 0.06,
        "longest.max": 0.5,
@@ -213,6 +232,34 @@
          "nouns": [
           "vial",
           "potion"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-glass",
+         "nouns": [
+          "glass bottle",
+          "wine bottle",
+          "whiskey bottle",
+          "liquor bottle",
+          "decanter",
+          "soy sauce bottle"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-lab",
+         "nouns": [
+          "lab flask",
+          "conical flask",
+          "round flask",
+          "beaker"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-drink",
+         "nouns": [
+          "water bottle",
+          "thermos",
+          "hip flask"
          ]
         }
        ]
@@ -333,8 +380,17 @@
        "longest.min": 0.1,
        "longest.max": 0.3,
        "nouns": [
-        "carton",
-        "milk carton"
+        "carton"
+       ],
+       "children": [
+        {
+         "id": "obj-container-carton-drink",
+         "nouns": [
+          "milk carton",
+          "drink carton",
+          "juice carton"
+         ]
+        }
        ]
       },
       {
@@ -382,11 +438,19 @@
        "tube.min": 0.006,
        "nouns": [
         "gas cylinder",
-        "gas tank",
-        "propane tank",
-        "gas bottle",
         "fire extinguisher",
         "vat"
+       ],
+       "children": [
+        {
+         "id": "obj-container-cylinder-tank",
+         "nouns": [
+          "gas tank",
+          "propane tank",
+          "gas bottle",
+          "gas canister"
+         ]
+        }
        ]
       },
       {
@@ -461,10 +525,25 @@
          "longest.min": 0.15,
          "longest.max": 0.5,
          "nouns": [
-          "tray",
-          "platter",
-          "pastry stand",
           "cloche"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-tableware-serving-tray",
+           "nouns": [
+            "tray",
+            "platter",
+            "tea tray"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-serving-stand",
+           "nouns": [
+            "pastry stand",
+            "cake stand",
+            "tiered stand"
+           ]
+          }
          ]
         },
         {
@@ -1161,7 +1240,32 @@
         "plated meal",
         "stew",
         "soup",
-        "taco"
+        "taco",
+        "pizza"
+       ]
+      },
+      {
+       "id": "obj-food-prepared",
+       "children": [
+        {
+         "id": "obj-food-prepared-burger",
+         "longest.min": 0.1,
+         "longest.max": 0.35,
+         "nouns": [
+          "burger",
+          "hamburger",
+          "cheeseburger"
+         ]
+        },
+        {
+         "id": "obj-food-prepared-sandwich",
+         "longest.min": 0.15,
+         "longest.max": 0.35,
+         "nouns": [
+          "sandwich",
+          "sub"
+         ]
+        }
        ]
       },
       {
@@ -1183,14 +1287,6 @@
           "small": 0.5
          },
          "children": [
-          {
-           "id": "obj-food-baked-bread-sandwich",
-           "longest.min": 0.15,
-           "nouns": [
-            "sandwich",
-            "sub"
-           ]
-          },
           {
            "id": "obj-food-baked-bread-baguette",
            "longest.min": 0.35,
@@ -1220,8 +1316,17 @@
          "high.min": 0.05,
          "high.max": 0.25,
          "nouns": [
-          "cake",
           "pie"
+         ]
+        },
+        {
+         "id": "obj-food-baked-cake",
+         "high.min": 0.05,
+         "high.max": 0.25,
+         "nouns": [
+          "cake",
+          "birthday cake",
+          "cake slice"
          ]
         },
         {
@@ -1239,9 +1344,16 @@
            "longest.max": 0.25,
            "nouns": [
             "cookie",
-            "gingerbread man",
-            "gingerbread woman",
             "gingerbread house"
+           ],
+           "children": [
+            {
+             "id": "obj-food-baked-pastry-cookie-gingerbread",
+             "nouns": [
+              "gingerbread man",
+              "gingerbread woman"
+             ]
+            }
            ]
           },
           {
@@ -2134,7 +2246,18 @@
          ],
          "scale": {
           "small": 0.5
-         }
+         },
+         "children": [
+          {
+           "id": "obj-equipment-tool-stationery-holder",
+           "nouns": [
+            "pencil cup",
+            "pen cup",
+            "pencil case",
+            "pen holder"
+           ]
+          }
+         ]
         },
         {
          "id": "obj-equipment-tool-scale",
@@ -2288,7 +2411,7 @@
         {
          "id": "obj-transport-land-cart",
          "longest.min": 0.55,
-         "longest.max": 2.0,
+         "longest.max": 2,
          "nouns": [
           "cart",
           "wagon",
@@ -2319,12 +2442,18 @@
          ]
         },
         {
+         "id": "obj-transport-land-wheelchair",
+         "nouns": [
+          "wheelchair",
+          "power wheelchair"
+         ]
+        },
+        {
          "id": "obj-transport-land-road",
          "longest.min": 0.95,
          "longest.max": 1.7,
          "bands.max": 6,
          "nouns": [
-          "car",
           "tractor",
           "rover",
           "digger",
@@ -2332,6 +2461,19 @@
           "skid steer"
          ],
          "children": [
+          {
+           "id": "obj-transport-land-road-car",
+           "nouns": [
+            "car",
+            "sedan",
+            "hatchback",
+            "suv",
+            "taxi",
+            "police car",
+            "sports car",
+            "pickup"
+           ]
+          },
           {
            "id": "obj-transport-land-road-truck",
            "longest.max": 4.1,
@@ -2373,7 +2515,6 @@
       "tan"
      ],
      "nouns": [
-      "hide",
       "raw stock"
      ],
      "children": [
@@ -2451,24 +2592,38 @@
        ]
       },
       {
-       "id": "obj-resource-wheat",
-       "longest.min": 0.3,
-       "longest.max": 0.7,
+       "id": "obj-resource-leather",
        "nouns": [
-        "wheat"
+        "hide",
+        "leather",
+        "hide roll",
+        "pelt"
        ]
       },
       {
-       "id": "obj-resource-haystack",
-       "longest.min": 0.45,
-       "longest.max": 1.25,
-       "band": [
-        "tan"
-       ],
-       "nouns": [
-        "haystack",
-        "hay",
-        "hay bale"
+       "id": "obj-resource-crop",
+       "children": [
+        {
+         "id": "obj-resource-crop-wheat",
+         "longest.min": 0.3,
+         "longest.max": 0.7,
+         "nouns": [
+          "wheat"
+         ]
+        },
+        {
+         "id": "obj-resource-crop-hay",
+         "longest.min": 0.45,
+         "longest.max": 1.25,
+         "band": [
+          "tan"
+         ],
+         "nouns": [
+          "haystack",
+          "hay",
+          "hay bale"
+         ]
+        }
        ]
       }
      ]
@@ -2939,6 +3094,17 @@
         "wreath",
         "garland",
         "birdhouse"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-decor-mount",
+         "nouns": [
+          "mounted head",
+          "hunting trophy",
+          "trophy head",
+          "antlers (mounted)"
+         ]
+        }
        ]
       },
       {
@@ -3031,7 +3197,7 @@
         {
          "id": "obj-device-appliance-fridge",
          "longest.min": 0.4,
-         "longest.max": 1.0,
+         "longest.max": 1,
          "nouns": [
           "fridge",
           "refrigerator",
@@ -4153,7 +4319,7 @@
         {
          "id": "str-access-bridge-long",
          "longest.min": 1.55,
-         "longest.max": 7.0,
+         "longest.max": 7,
          "scale": {
           "big": 2.5
          },
