@@ -96,10 +96,9 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
   material by the band you want, not the other way round.
 - `azure` is admitted only by `special-liquid`, `gemstone` and `plastic`. A blue
   cloth or a blue roof has no legal home.
-- `str` sets `mat.metal` without `metal-steel` or `metal-iron-mid`, so iron on
-  any structure is `metal-iron-dark` and slate; lamp posts and lanterns fixed in
-  place (`str-fixture-light`) take `metal-iron-mid`, modern street lights and
-  traffic lights (`str-fixture-light-street`, `-traffic`) `metal-steel`.
+- Lamp posts and lanterns fixed in place (`str-fixture-light`) take
+  `metal-iron-mid`, modern street lights and traffic lights
+  (`str-fixture-light-street`, `-traffic`) `metal-steel`.
   `obj-container-*` limits metal to the iron subtypes and `metal-steel`.
 - `leaf-light` is moss, `leaf-dark` hunter; `special-emissive` is amber.
 - A material with no `bands` of its own (`special-food`, `special-organic`,
