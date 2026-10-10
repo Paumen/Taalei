@@ -47,8 +47,7 @@
   },
   {
    "slug": "Dungeon_Asset_Pack",
-   "name": "Dungeon Asset Pack",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Dungeon Asset Pack"
   },
   {
    "slug": "modular_temple_collection",
@@ -82,8 +81,7 @@
   },
   {
    "slug": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin and Flowers",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Coffin and Flowers"
   }
  ],
  "sources": [
@@ -211,10 +209,12 @@
   {
    "slug": "Dungeon_Asset_Pack",
    "name": "Dungeon Asset Pack",
+   "kit": "dungeon",
    "format": "fbx",
    "inSource": 73,
-   "inCatalog": 0,
-   "listed": 42,
+   "inCatalog": 38,
+   "listed": 4,
+   "scale": 0.012,
    "folder": "individuals files"
   },
   {
@@ -223,8 +223,8 @@
    "kit": "fs-temple",
    "format": "obj",
    "inSource": 213,
-   "inCatalog": 158,
-   "listed": 48,
+   "inCatalog": 164,
+   "listed": 42,
    "scale": 0.45,
    "folder": "Modular Temple"
   },
@@ -281,18 +281,20 @@
    "kit": "m3-base",
    "format": "glb",
    "inSource": 1009,
-   "inCatalog": 819,
-   "listed": 25,
+   "inCatalog": 833,
+   "listed": 11,
    "scale": 0.87,
    "folder": "models"
   },
   {
    "slug": "Coffin_and_Flowers_loafbrr",
    "name": "Coffin and Flowers",
+   "kit": "loaf-coffins",
    "format": "glb",
    "inSource": 89,
-   "inCatalog": 0,
-   "listed": 89,
+   "inCatalog": 23,
+   "listed": 66,
+   "scale": 0.4,
    "folder": "glb"
   }
  ],
@@ -316,10 +318,6 @@
   {
    "id": "obj-container-barrel",
    "name": "Barrel"
-  },
-  {
-   "id": "obj-container-barrel-keg",
-   "name": "Keg"
   },
   {
    "id": "obj-container-barrel-metal",
@@ -346,6 +344,10 @@
    "name": "Cardboard"
   },
   {
+   "id": "obj-container-crate-cardboard-takeaway",
+   "name": "Takeaway"
+  },
+  {
    "id": "obj-container-crate-ammo",
    "name": "Ammo"
   },
@@ -358,12 +360,28 @@
    "name": "Produce"
   },
   {
+   "id": "obj-container-present",
+   "name": "Present"
+  },
+  {
    "id": "obj-container-bottle",
    "name": "Bottle"
   },
   {
    "id": "obj-container-bottle-vial",
    "name": "Vial"
+  },
+  {
+   "id": "obj-container-bottle-glass",
+   "name": "Glass"
+  },
+  {
+   "id": "obj-container-bottle-lab",
+   "name": "Lab"
+  },
+  {
+   "id": "obj-container-bottle-drink",
+   "name": "Drink"
   },
   {
    "id": "obj-container-bag",
@@ -414,6 +432,10 @@
    "name": "Carton"
   },
   {
+   "id": "obj-container-carton-drink",
+   "name": "Drink"
+  },
+  {
    "id": "obj-container-trashcan",
    "name": "Trashcan"
   },
@@ -434,12 +456,20 @@
    "name": "Cylinder"
   },
   {
+   "id": "obj-container-cylinder-tank",
+   "name": "Tank"
+  },
+  {
    "id": "obj-container-cage",
    "name": "Cage"
   },
   {
    "id": "obj-container-trough",
    "name": "Trough"
+  },
+  {
+   "id": "obj-container-pallet",
+   "name": "Pallet"
   },
   {
    "id": "obj-kitchenware",
@@ -464,6 +494,14 @@
   {
    "id": "obj-kitchenware-tableware-serving",
    "name": "Serving"
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-tray",
+   "name": "Tray"
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-stand",
+   "name": "Stand"
   },
   {
    "id": "obj-kitchenware-tableware-bowl",
@@ -742,16 +780,20 @@
    "name": "Meal"
   },
   {
+   "id": "obj-food-meal-burger",
+   "name": "Burger"
+  },
+  {
+   "id": "obj-food-meal-sandwich",
+   "name": "Sandwich"
+  },
+  {
    "id": "obj-food-baked",
    "name": "Baked"
   },
   {
    "id": "obj-food-baked-bread",
    "name": "Bread"
-  },
-  {
-   "id": "obj-food-baked-bread-sandwich",
-   "name": "Sandwich"
   },
   {
    "id": "obj-food-baked-bread-baguette",
@@ -766,12 +808,20 @@
    "name": "Pie"
   },
   {
+   "id": "obj-food-baked-cake",
+   "name": "Cake"
+  },
+  {
    "id": "obj-food-baked-pastry",
    "name": "Pastry"
   },
   {
    "id": "obj-food-baked-pastry-cookie",
    "name": "Cookie"
+  },
+  {
+   "id": "obj-food-baked-pastry-cookie-gingerbread",
+   "name": "Gingerbread"
   },
   {
    "id": "obj-food-baked-pastry-donut",
@@ -894,6 +944,10 @@
    "name": "Part"
   },
   {
+   "id": "obj-equipment-weapon-ranged-throwing",
+   "name": "Throwing"
+  },
+  {
    "id": "obj-equipment-weapon-ranged-grenade",
    "name": "Grenade"
   },
@@ -990,6 +1044,10 @@
    "name": "Key"
   },
   {
+   "id": "obj-equipment-pocketitem-medicine",
+   "name": "Medicine"
+  },
+  {
    "id": "obj-equipment-pocketitem-book",
    "name": "Book"
   },
@@ -1038,6 +1096,22 @@
    "name": "Screwdriver"
   },
   {
+   "id": "obj-equipment-tool-hand-blade",
+   "name": "Blade"
+  },
+  {
+   "id": "obj-equipment-tool-hand-shaping",
+   "name": "Shaping"
+  },
+  {
+   "id": "obj-equipment-tool-hand-gripper",
+   "name": "Gripper"
+  },
+  {
+   "id": "obj-equipment-tool-hand-garden",
+   "name": "Garden"
+  },
+  {
    "id": "obj-equipment-tool-twohand",
    "name": "Two-hand"
   },
@@ -1074,6 +1148,10 @@
    "name": "Supplies"
   },
   {
+   "id": "obj-equipment-tool-supplies-fastener",
+   "name": "Fastener"
+  },
+  {
    "id": "obj-equipment-tool-supplies-chain",
    "name": "Chain"
   },
@@ -1090,6 +1168,14 @@
    "name": "Station"
   },
   {
+   "id": "obj-equipment-tool-station-anvil",
+   "name": "Anvil"
+  },
+  {
+   "id": "obj-equipment-tool-station-grinder",
+   "name": "Grinder"
+  },
+  {
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism"
   },
@@ -1098,8 +1184,24 @@
    "name": "Lever"
   },
   {
+   "id": "obj-equipment-tool-mechanism-lock",
+   "name": "Lock"
+  },
+  {
    "id": "obj-equipment-tool-stationery",
    "name": "Stationery"
+  },
+  {
+   "id": "obj-equipment-tool-stationery-holder",
+   "name": "Holder"
+  },
+  {
+   "id": "obj-equipment-tool-stationery-writing",
+   "name": "Writing"
+  },
+  {
+   "id": "obj-equipment-tool-stationery-filing",
+   "name": "Filing"
   },
   {
    "id": "obj-equipment-tool-scale",
@@ -1138,10 +1240,6 @@
    "name": "Wooden"
   },
   {
-   "id": "obj-transport-pallet",
-   "name": "Pallet"
-  },
-  {
    "id": "obj-transport-air",
    "name": "Air"
   },
@@ -1158,10 +1256,6 @@
    "name": "Land"
   },
   {
-   "id": "obj-transport-land-military",
-   "name": "Military"
-  },
-  {
    "id": "obj-transport-land-cart",
    "name": "Cart"
   },
@@ -1174,8 +1268,16 @@
    "name": "Wheelbarrow"
   },
   {
+   "id": "obj-transport-land-wheelchair",
+   "name": "Wheelchair"
+  },
+  {
    "id": "obj-transport-land-road",
    "name": "Road vehicle"
+  },
+  {
+   "id": "obj-transport-land-road-car",
+   "name": "Car"
   },
   {
    "id": "obj-transport-land-road-truck",
@@ -1198,6 +1300,10 @@
    "name": "Parts"
   },
   {
+   "id": "obj-resource-metal-parts-pipe",
+   "name": "Pipe"
+  },
+  {
    "id": "obj-resource-wood",
    "name": "Wood"
   },
@@ -1218,12 +1324,20 @@
    "name": "Textile"
   },
   {
-   "id": "obj-resource-wheat",
+   "id": "obj-resource-leather",
+   "name": "Leather"
+  },
+  {
+   "id": "obj-resource-crop",
+   "name": "Crop"
+  },
+  {
+   "id": "obj-resource-crop-wheat",
    "name": "Wheat"
   },
   {
-   "id": "obj-resource-haystack",
-   "name": "Haystack"
+   "id": "obj-resource-crop-hay",
+   "name": "Hay"
   },
   {
    "id": "obj-furnishing",
@@ -1268,10 +1382,6 @@
   {
    "id": "obj-furnishing-light-candle",
    "name": "Candle"
-  },
-  {
-   "id": "obj-furnishing-light-campfire",
-   "name": "Campfire"
   },
   {
    "id": "obj-furnishing-bathroom",
@@ -1362,6 +1472,10 @@
    "name": "Round"
   },
   {
+   "id": "obj-furnishing-furniture-table-side",
+   "name": "Side"
+  },
+  {
    "id": "obj-furnishing-furniture-table-desk",
    "name": "Desk"
   },
@@ -1398,15 +1512,15 @@
    "name": "Shelf"
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack",
+   "id": "obj-furnishing-furniture-storage-rack",
    "name": "Rack"
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "id": "obj-furnishing-furniture-storage-rack-weapon",
    "name": "Weapon"
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "id": "obj-furnishing-furniture-storage-rack-coat",
    "name": "Coat"
   },
   {
@@ -1424,6 +1538,10 @@
   {
    "id": "obj-furnishing-decor",
    "name": "Decor"
+  },
+  {
+   "id": "obj-furnishing-decor-mount",
+   "name": "Mount"
   },
   {
    "id": "obj-furnishing-textile",
@@ -1518,10 +1636,6 @@
    "name": "Walkietalkie"
   },
   {
-   "id": "obj-device-electronics-arcade",
-   "name": "Arcade"
-  },
-  {
    "id": "obj-device-electronics-screen",
    "name": "Screen"
   },
@@ -1564,10 +1678,6 @@
   {
    "id": "obj-device-electronics-phone",
    "name": "Phone"
-  },
-  {
-   "id": "obj-device-electronics-installation",
-   "name": "Installation"
   },
   {
    "id": "obj-device-science",
@@ -1650,8 +1760,8 @@
    "name": "Table"
   },
   {
-   "id": "obj-symbol",
-   "name": "Symbol"
+   "id": "obj-leisure-game-arcade",
+   "name": "Arcade"
   },
   {
    "id": "str",
@@ -1710,7 +1820,7 @@
    "name": "Unit"
   },
   {
-   "id": "str-part-roof-chimney",
+   "id": "str-part-chimney",
    "name": "Chimney"
   },
   {
@@ -1870,6 +1980,14 @@
    "name": "Cone"
   },
   {
+   "id": "str-barrier-traffic-jersey",
+   "name": "Jersey"
+  },
+  {
+   "id": "str-barrier-traffic-sawhorse",
+   "name": "Sawhorse"
+  },
+  {
    "id": "str-barrier-hedge",
    "name": "Hedge"
   },
@@ -1898,6 +2016,22 @@
    "name": "Stairs"
   },
   {
+   "id": "str-access-stairs-curved",
+   "name": "Curved"
+  },
+  {
+   "id": "str-access-stairs-open",
+   "name": "Open"
+  },
+  {
+   "id": "str-access-stairs-step",
+   "name": "Step"
+  },
+  {
+   "id": "str-access-ramp",
+   "name": "Ramp"
+  },
+  {
    "id": "str-access-ladder",
    "name": "Ladder"
   },
@@ -1918,6 +2052,10 @@
    "name": "Road"
   },
   {
+   "id": "str-access-path",
+   "name": "Path"
+  },
+  {
    "id": "str-access-track",
    "name": "Track"
   },
@@ -1936,6 +2074,14 @@
   {
    "id": "str-canopy-tent-camping",
    "name": "Camping"
+  },
+  {
+   "id": "str-canopy-gazebo",
+   "name": "Gazebo"
+  },
+  {
+   "id": "str-canopy-shelter",
+   "name": "Shelter"
   },
   {
    "id": "str-fixture",
@@ -1978,10 +2124,6 @@
    "name": "Mailbox"
   },
   {
-   "id": "str-fixture-chimney",
-   "name": "Chimney"
-  },
-  {
    "id": "str-fixture-utility",
    "name": "Utility"
   },
@@ -2002,28 +2144,8 @@
    "name": "Solar"
   },
   {
-   "id": "str-fixture-utility-conveyor",
-   "name": "Conveyor"
-  },
-  {
    "id": "str-fixture-utility-pipe",
    "name": "Pipe"
-  },
-  {
-   "id": "str-fixture-utility-machine",
-   "name": "Machine"
-  },
-  {
-   "id": "str-fixture-utility-machine-crane",
-   "name": "Crane"
-  },
-  {
-   "id": "str-fixture-utility-machine-drivethrough",
-   "name": "Drivethrough"
-  },
-  {
-   "id": "str-fixture-utility-hopper",
-   "name": "Hopper"
   },
   {
    "id": "str-fixture-utility-hydrant",
@@ -2036,6 +2158,26 @@
   {
    "id": "str-fixture-utility-antenna",
    "name": "Antenna"
+  },
+  {
+   "id": "str-fixture-machinery",
+   "name": "Machinery"
+  },
+  {
+   "id": "str-fixture-machinery-conveyor",
+   "name": "Conveyor"
+  },
+  {
+   "id": "str-fixture-machinery-hopper",
+   "name": "Hopper"
+  },
+  {
+   "id": "str-fixture-machinery-crane",
+   "name": "Crane"
+  },
+  {
+   "id": "str-fixture-machinery-drivethrough",
+   "name": "Drivethrough"
   },
   {
    "id": "str-fixture-leisure",
@@ -2066,8 +2208,24 @@
    "name": "Punishment"
   },
   {
-   "id": "str-fixture-fireplace",
+   "id": "str-fixture-fire",
+   "name": "Fire"
+  },
+  {
+   "id": "str-fixture-fire-campfire",
+   "name": "Campfire"
+  },
+  {
+   "id": "str-fixture-fire-brazier",
+   "name": "Brazier"
+  },
+  {
+   "id": "str-fixture-fire-fireplace",
    "name": "Fireplace"
+  },
+  {
+   "id": "str-fixture-installation",
+   "name": "Installation"
   },
   {
    "id": "env",
@@ -2122,6 +2280,10 @@
    "name": "Skull"
   },
   {
+   "id": "env-remains-bones-skull-human",
+   "name": "Human"
+  },
+  {
    "id": "env-remains-bones-limb",
    "name": "Limb"
   },
@@ -2132,6 +2294,10 @@
   {
    "id": "env-remains-bones-ribcage",
    "name": "Ribcage"
+  },
+  {
+   "id": "env-remains-bones-spine",
+   "name": "Spine"
   },
   {
    "id": "env-remains-deadwood",
@@ -2184,6 +2350,18 @@
   {
    "id": "env-terrain-ground",
    "name": "Ground"
+  },
+  {
+   "id": "env-terrain-ground-field",
+   "name": "Field"
+  },
+  {
+   "id": "env-terrain-ground-patch",
+   "name": "Patch"
+  },
+  {
+   "id": "env-terrain-ground-pit",
+   "name": "Pit"
   },
   {
    "id": "env-flora",
@@ -2256,19 +2434,15 @@
   {
    "id": "char",
    "name": "Character"
+  },
+  {
+   "id": "sym",
+   "name": "Symbol"
   }
  ],
  "variants": [
   {
    "id": "v001",
-   "main": "Dungeon_Asset_Pack/vase",
-   "members": [
-    "Dungeon_Asset_Pack/vase",
-    "Dungeon_Asset_Pack/vase_001"
-   ]
-  },
-  {
-   "id": "v002",
    "main": "modular_house_collection/Structure_Ceiling_Beam_Angled",
    "members": [
     "modular_house_collection/Structure_Ceiling_Beam_Angled",
@@ -2276,7 +2450,7 @@
    ]
   },
   {
-   "id": "v003",
+   "id": "v002",
    "main": "Fantasy_Medieval_Houses_EmaceArt/Cube.001",
    "members": [
     "Fantasy_Medieval_Houses_EmaceArt/Cube.001",
@@ -2286,7 +2460,7 @@
    ]
   },
   {
-   "id": "v004",
+   "id": "v003",
    "main": "Fantasy_Medieval_Houses_EmaceArt/Cube.002",
    "members": [
     "Fantasy_Medieval_Houses_EmaceArt/Cube.002",
@@ -2294,7 +2468,7 @@
    ]
   },
   {
-   "id": "v005",
+   "id": "v004",
    "main": "Fantasy_Medieval_Houses_EmaceArt/Cube.005",
    "members": [
     "Fantasy_Medieval_Houses_EmaceArt/Cube.005",
@@ -2302,27 +2476,11 @@
    ]
   },
   {
-   "id": "v006",
+   "id": "v005",
    "main": "Fantasy_Medieval_Houses_EmaceArt/Cube.008",
    "members": [
     "Fantasy_Medieval_Houses_EmaceArt/Cube.008",
     "Fantasy_Medieval_Houses_EmaceArt/Cube.009"
-   ]
-  },
-  {
-   "id": "v007",
-   "main": "Coffin_and_Flowers_loafbrr/Coffin_Wood_B_1",
-   "members": [
-    "Coffin_and_Flowers_loafbrr/Coffin_Wood_B_1",
-    "Coffin_and_Flowers_loafbrr/Coffin_Wood_B_2"
-   ]
-  },
-  {
-   "id": "v008",
-   "main": "Coffin_and_Flowers_loafbrr/Coffin_Wood_B_2_Lid",
-   "members": [
-    "Coffin_and_Flowers_loafbrr/Coffin_Wood_B_2_Lid",
-    "Coffin_and_Flowers_loafbrr/Coffin_Wood_B_Lid"
    ]
   }
  ],
@@ -4168,6 +4326,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Taxi",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.5,
@@ -4217,7 +4376,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-long-part-end",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4234,7 +4393,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-long-part-middle",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4251,7 +4410,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-long-sides-part-end",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4268,7 +4427,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-long-sides-part-middle",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4285,7 +4444,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-long-stripe-sides-part-end",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4302,7 +4461,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-long-stripe-sides-part-middle",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4319,7 +4478,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-sides-junction-t",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.5,
     0.2,
@@ -4336,7 +4495,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-sides",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.5,
     0.2,
@@ -4353,7 +4512,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-stripe-part-end",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4370,7 +4529,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-stripe-part-middle",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.3,
     0.2,
@@ -4387,7 +4546,7 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "conveyor-stripe-sides-junction-t",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     0.5,
     0.2,
@@ -4681,7 +4840,6 @@
   {
    "kit": "kenney_racing-kit",
    "name": "roadPitGarage",
-   "kind": "str-access-road",
    "wdh": [
     1.2,
     0.1,
@@ -4698,7 +4856,6 @@
   {
    "kit": "kenney_racing-kit",
    "name": "roadPitStraight",
-   "kind": "str-access-road",
    "wdh": [
     1.2,
     0.1,
@@ -4715,7 +4872,6 @@
   {
    "kit": "kenney_racing-kit",
    "name": "roadPitStraightLong",
-   "kind": "str-access-road",
    "wdh": [
     1.2,
     0.1,
@@ -4998,6 +5154,7 @@
   {
    "kit": "kenney_space-kit",
    "name": "monorail_trackSlope",
+   "kind": "str-access-ramp",
    "wdh": [
     0.3,
     0.8,
@@ -5745,6 +5902,7 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Slope",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -5761,6 +5919,7 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Slope_Half",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -5777,7 +5936,6 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Slope_Half_InnerCorner",
-   "kind": "str-part-wall",
    "wdh": [
     1.2,
     1.2,
@@ -5794,7 +5952,6 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Slope_Half_OuterCorner",
-   "kind": "str-part-wall",
    "wdh": [
     1.2,
     1.2,
@@ -5811,7 +5968,6 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Slope_InnerCorner",
-   "kind": "str-part-wall",
    "wdh": [
     1.2,
     1.2,
@@ -5828,7 +5984,6 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Slope_OuterCorner",
-   "kind": "str-part-wall",
    "wdh": [
     1.2,
     1.2,
@@ -5959,649 +6114,67 @@
   },
   {
    "kit": "Dungeon_Asset_Pack",
-   "name": "barrel",
-   "kind": "obj-container-barrel",
-   "wdh": [
-    20.8,
-    24.7,
-    20.8
-   ],
-   "tris": 1052,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "228d0ba5f7",
-   "bytes": 57284,
-   "file": "barrel.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "beam",
-   "kind": "str-part-pillar",
-   "wdh": [
-    46,
-    116.8,
-    34.6
-   ],
-   "tris": 2912,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "bb43f5d7e4",
-   "bytes": 138040,
-   "file": "beam.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "beam_001",
-   "kind": "str-part-pillar",
-   "wdh": [
-    34.2,
-    77.2,
-    25.8
-   ],
-   "tris": 2189,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "62d2ec95df",
-   "bytes": 104196,
-   "file": "beam_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "beam_002",
-   "kind": "str-part-pillar",
-   "wdh": [
-    34.2,
-    93.6,
-    25.8
-   ],
-   "tris": 2915,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "b6666c598d",
-   "bytes": 138148,
-   "file": "beam_002.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "cage",
-   "kind": "obj-container-cage",
-   "wdh": [
-    104.3,
-    191.8,
-    104.3
-   ],
-   "tris": 3660,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "42c4de29b6",
-   "bytes": 196812,
-   "file": "cage.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "coffin",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    35.3,
-    96.6,
-    14.6
-   ],
-   "tris": 232,
-   "tpu": 0,
-   "mat": 3,
-   "hash": "747af95331",
-   "bytes": 14592,
-   "file": "coffin.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "crank",
-   "wdh": [
-    6.1,
-    23.8,
-    16.2
-   ],
-   "tris": 856,
-   "tpu": 0,
-   "mat": 3,
-   "hash": "e4de47b49a",
-   "bytes": 47736,
-   "file": "crank.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "crank_001",
-   "wdh": [
-    35.9,
-    35.9,
-    23.1
-   ],
-   "tris": 3944,
-   "tpu": 0,
-   "mat": 3,
-   "hash": "d49c3ff8c2",
-   "bytes": 205092,
-   "file": "crank_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "floor",
-   "kind": "str-part-floor",
-   "wdh": [
-    263.3,
-    4.2,
-    258.8
-   ],
-   "tris": 9191,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "2251871465",
-   "bytes": 424168,
-   "file": "floor.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "floor_001",
-   "kind": "str-part-floor",
-   "wdh": [
-    263.4,
-    5.5,
-    258.8
-   ],
-   "tris": 9850,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "995adc80df",
-   "bytes": 412292,
-   "file": "floor_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "floor_003",
-   "kind": "str-part-floor",
-   "wdh": [
-    263.7,
-    3.5,
-    272.7
-   ],
-   "tris": 8506,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "487bb51f22",
-   "bytes": 460436,
-   "file": "floor_003.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "floor_004",
-   "kind": "str-part-floor",
-   "wdh": [
-    95.1,
-    3.5,
-    70.1
-   ],
-   "tris": 940,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "45393e764a",
-   "bytes": 51860,
-   "file": "floor_004.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "floor_005",
-   "kind": "str-part-floor",
-   "wdh": [
-    85.9,
-    3.5,
-    53.3
-   ],
-   "tris": 344,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "9919b8d3c6",
-   "bytes": 19672,
-   "file": "floor_005.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "irondoor",
-   "wdh": [
-    57.2,
-    83.3,
-    2.9
-   ],
-   "tris": 7795,
-   "tpu": 1,
-   "mat": 1,
-   "hash": "171e65cea8",
-   "bytes": 301252,
-   "file": "irondoor.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "ironwalls",
-   "wdh": [
-    120.4,
-    110.3,
-    2.1
-   ],
-   "tris": 4463,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "b2fd63a479",
-   "bytes": 178276,
-   "file": "ironwalls.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "ironwalls_001",
-   "wdh": [
-    120.4,
-    110.3,
-    2.1
-   ],
-   "tris": 6624,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "2d5f516204",
-   "bytes": 271172,
-   "file": "ironwalls_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "shelf",
-   "kind": "obj-furnishing-furniture-storage-shelf",
-   "wdh": [
-    64.5,
-    18.6,
-    40.5
-   ],
-   "tris": 472,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "17bd5978e9",
-   "bytes": 24560,
-   "file": "shelf.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "stair",
-   "wdh": [
-    115.8,
-    127.7,
-    114
-   ],
-   "tris": 6544,
-   "tpu": 0,
-   "mat": 4,
-   "hash": "8ede5df0eb",
-   "bytes": 363088,
-   "file": "stair.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
    "name": "torchholder",
    "wdh": [
-    25.7,
-    25.7,
-    9.3
+    0.3,
+    0.3,
+    0.1
    ],
    "tris": 258,
-   "tpu": 0,
+   "tpu": 752,
    "mat": 1,
-   "hash": "c926e18f30",
-   "bytes": 14800,
+   "hash": "4554544c07",
+   "bytes": 14832,
+   "scaled": true,
    "file": "torchholder.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "trap",
-   "wdh": [
-    35.9,
-    8.3,
-    35.9
-   ],
-   "tris": 1260,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "03a55ca4ae",
-   "bytes": 73060,
-   "file": "trap.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "trap_001",
-   "wdh": [
-    89.9,
-    52.5,
-    11.5
-   ],
-   "tris": 1644,
-   "tpu": 0,
-   "mat": 4,
-   "hash": "f20f6202ef",
-   "bytes": 89056,
-   "file": "trap_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "trap_002",
-   "wdh": [
-    93,
-    111.7,
-    6.1
-   ],
-   "tris": 896,
-   "tpu": 0,
-   "mat": 3,
-   "hash": "2bc1a6d27c",
-   "bytes": 48640,
-   "file": "trap_002.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "vase",
-   "kind": "obj-container-pot-vase",
-   "wdh": [
-    35.3,
-    55,
-    35.3
-   ],
-   "tris": 828,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "304de1b38b",
-   "bytes": 44088,
-   "file": "vase.fbx",
-   "variant": "v001"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "vase_001",
-   "kind": "obj-container-pot-vase",
-   "wdh": [
-    35.3,
-    55,
-    35.3
-   ],
-   "tris": 828,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "850a2251e9",
-   "bytes": 44132,
-   "file": "vase_001.fbx",
-   "variant": "v001"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls",
-   "wdh": [
-    263.9,
-    105.9,
-    20.3
-   ],
-   "tris": 2031,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "ff6f7cfcdb",
-   "bytes": 103468,
-   "file": "walls.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_001",
-   "wdh": [
-    263.9,
-    105.9,
-    21.4
-   ],
-   "tris": 3694,
-   "tpu": 0,
-   "mat": 4,
-   "hash": "f704615770",
-   "bytes": 181336,
-   "file": "walls_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_002",
-   "wdh": [
-    263.9,
-    105.9,
-    21.4
-   ],
-   "tris": 3201,
-   "tpu": 0,
-   "mat": 4,
-   "hash": "95fcee132f",
-   "bytes": 161196,
-   "file": "walls_002.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_003",
-   "wdh": [
-    262.9,
-    105.5,
-    16.6
-   ],
-   "tris": 2579,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "ace842a006",
-   "bytes": 132540,
-   "file": "walls_003.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_004",
-   "wdh": [
-    262.9,
-    105.5,
-    16.6
-   ],
-   "tris": 4152,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "320875b4c6",
-   "bytes": 217932,
-   "file": "walls_004.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_005",
-   "wdh": [
-    262.9,
-    105.5,
-    16.6
-   ],
-   "tris": 3299,
-   "tpu": 0,
-   "mat": 3,
-   "hash": "b5e5cd686d",
-   "bytes": 164724,
-   "file": "walls_005.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_010",
-   "wdh": [
-    262.9,
-    105.5,
-    14.2
-   ],
-   "tris": 1032,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "717d8f6abd",
-   "bytes": 48696,
-   "file": "walls_010.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_011",
-   "wdh": [
-    262.9,
-    105.5,
-    14.2
-   ],
-   "tris": 1032,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "0610b9339f",
-   "bytes": 47904,
-   "file": "walls_011.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "walls_012",
-   "wdh": [
-    306.1,
-    122.8,
-    16.5
-   ],
-   "tris": 644,
-   "tpu": 0,
-   "mat": 1,
-   "hash": "ca659dc7dc",
-   "bytes": 29972,
-   "file": "walls_012.fbx"
   },
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "wallslittle",
    "wdh": [
-    117.7,
-    73.3,
-    12.2
+    1.4,
+    0.9,
+    0.1
    ],
    "tris": 1032,
-   "tpu": 0,
+   "tpu": 1187,
    "mat": 2,
-   "hash": "fae2bd9e05",
-   "bytes": 50220,
+   "hash": "63bec881cd",
+   "bytes": 50252,
+   "scaled": true,
    "file": "wallslittle.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "wallslittle_001",
-   "wdh": [
-    117.7,
-    73.3,
-    19.5
-   ],
-   "tris": 1960,
-   "tpu": 0,
-   "mat": 3,
-   "hash": "972889378c",
-   "bytes": 95192,
-   "file": "wallslittle_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "wallslittle_002",
-   "wdh": [
-    117.7,
-    73.3,
-    12.8
-   ],
-   "tris": 1519,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "e49eeb5d33",
-   "bytes": 79016,
-   "file": "wallslittle_002.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "wallslittle_003",
-   "wdh": [
-    117.7,
-    73.3,
-    12.2
-   ],
-   "tris": 1032,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "332ad9c3f2",
-   "bytes": 50184,
-   "file": "wallslittle_003.fbx"
   },
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "woodbox",
    "wdh": [
-    21.8,
-    21.8,
-    21.8
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 684,
-   "tpu": 0,
+   "tpu": 1994,
    "mat": 2,
-   "hash": "ff66d25739",
-   "bytes": 30724,
+   "hash": "daaf3a9a58",
+   "bytes": 30756,
+   "scaled": true,
    "file": "woodbox.fbx"
   },
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "woodbox_002",
    "wdh": [
-    21.8,
-    21.8,
-    21.8
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 492,
-   "tpu": 0,
+   "tpu": 1434,
    "mat": 2,
-   "hash": "cfff9c10f0",
-   "bytes": 24192,
+   "hash": "4265028580",
+   "bytes": 24224,
+   "scaled": true,
    "file": "woodbox_002.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "woodchair",
-   "wdh": [
-    18.5,
-    36.8,
-    24.5
-   ],
-   "tris": 664,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "a6fbfb4946",
-   "bytes": 33232,
-   "file": "woodchair.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "woodchair_001",
-   "wdh": [
-    18.5,
-    19.2,
-    17.7
-   ],
-   "tris": 480,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "f051046a5f",
-   "bytes": 24508,
-   "file": "woodchair_001.fbx"
-  },
-  {
-   "kit": "Dungeon_Asset_Pack",
-   "name": "woodtable",
-   "wdh": [
-    118.7,
-    28,
-    46.2
-   ],
-   "tris": 480,
-   "tpu": 0,
-   "mat": 2,
-   "hash": "55ff448b5b",
-   "bytes": 24432,
-   "file": "woodtable.fbx"
   },
   {
    "kit": "modular_temple_collection",
@@ -6918,42 +6491,7 @@
   },
   {
    "kit": "modular_temple_collection",
-   "name": "Prop_Flag_Stand_Extension",
-   "kind": "str-fixture-marker-flag",
-   "wdh": [
-    0.1,
-    0.4,
-    0.1
-   ],
-   "tris": 12,
-   "tpu": 35,
-   "mat": 1,
-   "hash": "30c913dbe0",
-   "bytes": 1784,
-   "scaled": true,
-   "file": "Prop_Flag_Stand_Extension.obj"
-  },
-  {
-   "kit": "modular_temple_collection",
-   "name": "Prop_Flag_Stand_Top",
-   "kind": "str-fixture-marker-flag",
-   "wdh": [
-    0.2,
-    0.4,
-    0.1
-   ],
-   "tris": 60,
-   "tpu": 175,
-   "mat": 1,
-   "hash": "f2872b6a0a",
-   "bytes": 3704,
-   "scaled": true,
-   "file": "Prop_Flag_Stand_Top.obj"
-  },
-  {
-   "kit": "modular_temple_collection",
    "name": "Stairs_Coping_Ramp_Curved_Large",
-   "kind": "str-access-stairs",
    "wdh": [
     0.9,
     0.5,
@@ -6970,7 +6508,6 @@
   {
    "kit": "modular_temple_collection",
    "name": "Stairs_Coping_Ramp_Curved_Small",
-   "kind": "str-access-stairs",
    "wdh": [
     0.5,
     0.5,
@@ -6987,7 +6524,6 @@
   {
    "kit": "modular_temple_collection",
    "name": "Stairs_Coping_Ramp_Straight",
-   "kind": "str-access-stairs",
    "wdh": [
     0.1,
     0.5,
@@ -7003,59 +6539,7 @@
   },
   {
    "kit": "modular_temple_collection",
-   "name": "Stairs_Newel_Base",
-   "kind": "str-access-stairs",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 12,
-   "tpu": 35,
-   "mat": 1,
-   "hash": "8ec01fe634",
-   "bytes": 1776,
-   "scaled": true,
-   "file": "Stairs_Newel_Base.obj"
-  },
-  {
-   "kit": "modular_temple_collection",
-   "name": "Stairs_Newel_Middle",
-   "kind": "str-access-stairs",
-   "wdh": [
-    0.1,
-    0.5,
-    0.1
-   ],
-   "tris": 12,
-   "tpu": 35,
-   "mat": 1,
-   "hash": "6bd783b55a",
-   "bytes": 1704,
-   "scaled": true,
-   "file": "Stairs_Newel_Middle.obj"
-  },
-  {
-   "kit": "modular_temple_collection",
-   "name": "Stairs_Newel_Top",
-   "kind": "str-access-stairs",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 40,
-   "tpu": 117,
-   "mat": 2,
-   "hash": "41060cd151",
-   "bytes": 4004,
-   "scaled": true,
-   "file": "Stairs_Newel_Top.obj"
-  },
-  {
-   "kit": "modular_temple_collection",
    "name": "Stairs_Under_Ramp_Curved",
-   "kind": "str-access-stairs",
    "wdh": [
     0.9,
     0.5,
@@ -7072,7 +6556,6 @@
   {
    "kit": "modular_temple_collection",
    "name": "Stairs_Under_Ramp_Straight",
-   "kind": "str-access-stairs",
    "wdh": [
     0.5,
     0.5,
@@ -7377,22 +6860,6 @@
    "file": "Wall_Straight_Top.obj"
   },
   {
-   "kit": "modular_temple_collection",
-   "name": "Wall_Straight_Windows_Tall",
-   "wdh": [
-    0.5,
-    0.9,
-    0.1
-   ],
-   "tris": 132,
-   "tpu": 385,
-   "mat": 2,
-   "hash": "98b451dbee",
-   "bytes": 6932,
-   "scaled": true,
-   "file": "Wall_Straight_Windows_Tall.obj"
-  },
-  {
    "kit": "modular_house_collection",
    "name": "Prop_Dining_Room_Table_Modular_Center",
    "wdh": [
@@ -7556,7 +7023,7 @@
    "bytes": 1712,
    "scaled": true,
    "file": "Structure_Ceiling_Beam_Angled.obj",
-   "variant": "v002"
+   "variant": "v001"
   },
   {
    "kit": "modular_house_collection",
@@ -7573,7 +7040,7 @@
    "bytes": 1720,
    "scaled": true,
    "file": "Structure_Ceiling_Beam_Angled_Offset.obj",
-   "variant": "v002"
+   "variant": "v001"
   },
   {
    "kit": "modular_house_collection",
@@ -7878,7 +7345,7 @@
    "bytes": 13208,
    "scaled": true,
    "file": "Cube.001.glb",
-   "variant": "v003"
+   "variant": "v002"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -7895,7 +7362,7 @@
    "bytes": 13032,
    "scaled": true,
    "file": "Cube.002.glb",
-   "variant": "v004"
+   "variant": "v003"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -7912,7 +7379,7 @@
    "bytes": 13032,
    "scaled": true,
    "file": "Cube.003.glb",
-   "variant": "v004"
+   "variant": "v003"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -7945,7 +7412,7 @@
    "bytes": 20984,
    "scaled": true,
    "file": "Cube.005.glb",
-   "variant": "v005"
+   "variant": "v004"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -7962,7 +7429,7 @@
    "bytes": 13208,
    "scaled": true,
    "file": "Cube.006.glb",
-   "variant": "v003"
+   "variant": "v002"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -7979,7 +7446,7 @@
    "bytes": 13208,
    "scaled": true,
    "file": "Cube.007.glb",
-   "variant": "v003"
+   "variant": "v002"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -7996,7 +7463,7 @@
    "bytes": 7836,
    "scaled": true,
    "file": "Cube.008.glb",
-   "variant": "v006"
+   "variant": "v005"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -8013,7 +7480,7 @@
    "bytes": 7836,
    "scaled": true,
    "file": "Cube.009.glb",
-   "variant": "v006"
+   "variant": "v005"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -8030,7 +7497,7 @@
    "bytes": 13208,
    "scaled": true,
    "file": "Cube.010.glb",
-   "variant": "v003"
+   "variant": "v002"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -8079,7 +7546,7 @@
    "bytes": 20984,
    "scaled": true,
    "file": "Cube.014.glb",
-   "variant": "v005"
+   "variant": "v004"
   },
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
@@ -8096,39 +7563,6 @@
    "bytes": 20976,
    "scaled": true,
    "file": "Cube.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "crown_chimney",
-   "wdh": [
-    0.4,
-    1.1,
-    0.4
-   ],
-   "tris": 2024,
-   "tpu": 5901,
-   "mat": 1,
-   "hash": "a959183fba",
-   "bytes": 53608,
-   "scaled": true,
-   "file": "crown_chimney/crown_chimney.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "gasket_02",
-   "kind": "obj-resource-metal-parts",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 344,
-   "tpu": 1003,
-   "mat": 1,
-   "hash": "4adc24a211",
-   "bytes": 11208,
-   "scaled": true,
-   "file": "gasket_02/gasket_02.glb"
   },
   {
    "kit": "Base_Meshes_M3-org",
@@ -8166,54 +7600,6 @@
   },
   {
    "kit": "Base_Meshes_M3-org",
-   "name": "grind_rail_02",
-   "wdh": [
-    4.6,
-    0.3,
-    0.2
-   ],
-   "tris": 480,
-   "tpu": 525,
-   "mat": 1,
-   "hash": "aeae95331f",
-   "bytes": 13564,
-   "scaled": true,
-   "file": "grind_rail_02/grind_rail_02.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "grind_rail_03",
-   "wdh": [
-    1.3,
-    0.2,
-    0.3
-   ],
-   "tris": 152,
-   "tpu": 443,
-   "mat": 1,
-   "hash": "860adebd3a",
-   "bytes": 6268,
-   "scaled": true,
-   "file": "grind_rail_03/grind_rail_03.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "grind_rail_04",
-   "wdh": [
-    2.6,
-    0.3,
-    0.2
-   ],
-   "tris": 164,
-   "tpu": 344,
-   "mat": 1,
-   "hash": "46c72be059",
-   "bytes": 7316,
-   "scaled": true,
-   "file": "grind_rail_04/grind_rail_04.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
    "name": "kicker_01",
    "wdh": [
     1.1,
@@ -8243,102 +7629,6 @@
    "bytes": 4108,
    "scaled": true,
    "file": "kicker_02/kicker_02.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "kitbash_A_13",
-   "wdh": [
-    0.4,
-    0.2,
-    0.3
-   ],
-   "tris": 100,
-   "tpu": 292,
-   "mat": 1,
-   "hash": "58e3412e44",
-   "bytes": 4948,
-   "scaled": true,
-   "file": "kitbash_A_13/kitbash_A_13.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "kitbash_C_07",
-   "wdh": [
-    0.1,
-    0.1,
-    0.2
-   ],
-   "tris": 316,
-   "tpu": 921,
-   "mat": 1,
-   "hash": "9f6c504fe7",
-   "bytes": 9504,
-   "scaled": true,
-   "file": "kitbash_C_07/kitbash_C_07.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "kitbash_C_12",
-   "wdh": [
-    0.3,
-    0.2,
-    0.3
-   ],
-   "tris": 528,
-   "tpu": 1539,
-   "mat": 1,
-   "hash": "e3bd3e48bc",
-   "bytes": 16396,
-   "scaled": true,
-   "file": "kitbash_C_12/kitbash_C_12.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "kitbash_C_21",
-   "wdh": [
-    0.1,
-    0.1,
-    0.1
-   ],
-   "tris": 66,
-   "tpu": 192,
-   "mat": 1,
-   "hash": "45cd9ba21a",
-   "bytes": 4648,
-   "scaled": true,
-   "file": "kitbash_C_21/kitbash_C_21.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "kitbash_C_24",
-   "wdh": [
-    0.2,
-    0.1,
-    0.2
-   ],
-   "tris": 92,
-   "tpu": 268,
-   "mat": 1,
-   "hash": "6fb2c131b9",
-   "bytes": 5088,
-   "scaled": true,
-   "file": "kitbash_C_24/kitbash_C_24.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "kitbash_F_05",
-   "wdh": [
-    0.1,
-    0.2,
-    0.1
-   ],
-   "tris": 216,
-   "tpu": 630,
-   "mat": 1,
-   "hash": "f216aca943",
-   "bytes": 8548,
-   "scaled": true,
-   "file": "kitbash_F_05/kitbash_F_05.glb"
   },
   {
    "kit": "Base_Meshes_M3-org",
@@ -8458,204 +7748,20 @@
    "file": "skatepark_pyramid_half/skatepark_pyramid_half.glb"
   },
   {
-   "kit": "Base_Meshes_M3-org",
-   "name": "spine_ramp_01",
-   "kind": "str-access-stairs",
-   "wdh": [
-    1.1,
-    0.7,
-    2.4
-   ],
-   "tris": 260,
-   "tpu": 145,
-   "mat": 1,
-   "hash": "55a045e26d",
-   "bytes": 8972,
-   "scaled": true,
-   "file": "spine_ramp_01/spine_ramp_01.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "table_top_01",
-   "kind": "obj-furnishing-furniture-table",
-   "wdh": [
-    6.6,
-    1.4,
-    2.2
-   ],
-   "tris": 78,
-   "tpu": 4,
-   "mat": 1,
-   "hash": "17591964d7",
-   "bytes": 4276,
-   "scaled": true,
-   "file": "table_top_01/table_top_01.glb"
-  },
-  {
-   "kit": "Base_Meshes_M3-org",
-   "name": "wooden_barrier_02",
-   "wdh": [
-    1.7,
-    0.9,
-    0.5
-   ],
-   "tris": 356,
-   "tpu": 320,
-   "mat": 1,
-   "hash": "9d10d12ef9",
-   "bytes": 17964,
-   "scaled": true,
-   "file": "wooden_barrier_02/wooden_barrier_02.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_1",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 704,
-   "tpu": 2052,
-   "mat": 1,
-   "hash": "21f4542582",
-   "bytes": 25920,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_2",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 704,
-   "tpu": 2052,
-   "mat": 1,
-   "hash": "07ff34db01",
-   "bytes": 25920,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_3",
-   "wdh": [
-    0.1,
-    0.3,
-    0.1
-   ],
-   "tris": 736,
-   "tpu": 2146,
-   "mat": 1,
-   "hash": "fa54056331",
-   "bytes": 26108,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_4",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 704,
-   "tpu": 2052,
-   "mat": 1,
-   "hash": "f71ce9012a",
-   "bytes": 25172,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_5",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 640,
-   "tpu": 1866,
-   "mat": 1,
-   "hash": "271464b746",
-   "bytes": 22632,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_6",
-   "wdh": [
-    0.2,
-    0.3,
-    0.2
-   ],
-   "tris": 704,
-   "tpu": 2052,
-   "mat": 1,
-   "hash": "2322b05f7d",
-   "bytes": 25172,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_7",
-   "wdh": [
-    0.2,
-    0.2,
-    0.2
-   ],
-   "tris": 204,
-   "tpu": 595,
-   "mat": 1,
-   "hash": "ab0caecf4c",
-   "bytes": 10024,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_8",
-   "wdh": [
-    0.2,
-    0.2,
-    0.2
-   ],
-   "tris": 252,
-   "tpu": 735,
-   "mat": 1,
-   "hash": "67bfb727ab",
-   "bytes": 18500,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Ceramic_9",
-   "wdh": [
-    0.3,
-    0.1,
-    0.3
-   ],
-   "tris": 316,
-   "tpu": 921,
-   "mat": 1,
-   "hash": "71b2ee90a5",
-   "bytes": 16068,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Coffin_D_1",
    "kind": "obj-container-coffin",
    "wdh": [
-    1,
-    0.9,
-    2.5
+    0.4,
+    0.4,
+    1
    ],
    "tris": 2120,
-   "tpu": 893,
+   "tpu": 4327,
    "mat": 3,
-   "hash": "31cac64e7d",
-   "bytes": 112476,
+   "hash": "c20432c5d1",
+   "bytes": 112500,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -8663,15 +7769,16 @@
    "name": "Coffin_D_2",
    "kind": "obj-container-coffin",
    "wdh": [
-    1,
-    0.6,
-    2.5
+    0.4,
+    0.3,
+    1
    ],
    "tris": 2100,
-   "tpu": 1344,
+   "tpu": 4286,
    "mat": 3,
-   "hash": "50518c2465",
-   "bytes": 110752,
+   "hash": "21a3d94f90",
+   "bytes": 110776,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -8679,461 +7786,256 @@
    "name": "Coffin_D_3",
    "kind": "obj-container-coffin",
    "wdh": [
-    0.8,
-    0.4,
-    2.3
+    0.3,
+    0.2,
+    0.9
    ],
    "tris": 2024,
-   "tpu": 1836,
+   "tpu": 4590,
    "mat": 3,
-   "hash": "aa24bf4365",
-   "bytes": 106908,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_A_1",
-   "wdh": [
-    1,
-    0.9,
-    2.5
-   ],
-   "tris": 98,
-   "tpu": 41,
-   "mat": 1,
-   "hash": "6a5e931149",
-   "bytes": 8224,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_A_2",
-   "wdh": [
-    1,
-    0.9,
-    2.5
-   ],
-   "tris": 78,
-   "tpu": 37,
-   "mat": 1,
-   "hash": "a1aebda8a5",
-   "bytes": 6520,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_A_3",
-   "wdh": [
-    0.8,
-    0.6,
-    2.3
-   ],
-   "tris": 68,
-   "tpu": 62,
-   "mat": 1,
-   "hash": "7b303df26e",
-   "bytes": 5580,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_B_1",
-   "wdh": [
-    1,
-    0.9,
-    2.5
-   ],
-   "tris": 98,
-   "tpu": 41,
-   "mat": 1,
-   "hash": "0c3a0c6b21",
-   "bytes": 8312,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_B_2",
-   "wdh": [
-    1,
-    0.6,
-    2.5
-   ],
-   "tris": 78,
-   "tpu": 50,
-   "mat": 1,
-   "hash": "2941b07c22",
-   "bytes": 6596,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_B_3",
-   "wdh": [
-    0.8,
-    0.4,
-    2.3
-   ],
-   "tris": 68,
-   "tpu": 62,
-   "mat": 1,
-   "hash": "a37eef1c3f",
-   "bytes": 5656,
+   "hash": "dee6e6d69f",
+   "bytes": 106932,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Coffin_Stone_C_1",
    "wdh": [
-    1,
-    0.9,
-    2.5
+    0.4,
+    0.4,
+    1
    ],
    "tris": 102,
-   "tpu": 43,
+   "tpu": 208,
    "mat": 2,
-   "hash": "f4424e840d",
-   "bytes": 9640,
+   "hash": "3e553fe080",
+   "bytes": 9664,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Coffin_Stone_C_2",
    "wdh": [
-    1,
-    0.6,
-    2.5
+    0.4,
+    0.3,
+    1
    ],
    "tris": 82,
-   "tpu": 52,
+   "tpu": 167,
    "mat": 2,
-   "hash": "071f147029",
-   "bytes": 7920,
+   "hash": "55803f45e0",
+   "bytes": 7944,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Coffin_Stone_C_3",
    "wdh": [
-    0.8,
-    0.4,
-    2.3
+    0.3,
+    0.2,
+    0.9
    ],
    "tris": 72,
-   "tpu": 65,
+   "tpu": 163,
    "mat": 2,
-   "hash": "822ffac672",
-   "bytes": 6980,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Stone_Tomb",
-   "wdh": [
-    0.5,
-    0.7,
-    0.1
-   ],
-   "tris": 20,
-   "tpu": 58,
-   "mat": 1,
-   "hash": "a2f69a2fa0",
-   "bytes": 3176,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_A",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.4,
-    2.2
-   ],
-   "tris": 1090,
-   "tpu": 1011,
-   "mat": 1,
-   "hash": "7a91a9ca74",
-   "bytes": 71236,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_B_1",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.4,
-    2.2
-   ],
-   "tris": 1100,
-   "tpu": 1020,
-   "mat": 1,
-   "hash": "1ea0d4a0e5",
-   "bytes": 71828,
-   "file": "CoffinandFlowers.glb",
-   "variant": "v007"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_B_2_Lid",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.1,
-    2.2
-   ],
-   "tris": 28,
-   "tpu": 26,
-   "mat": 1,
-   "hash": "00783156a4",
-   "bytes": 3404,
-   "file": "CoffinandFlowers.glb",
-   "variant": "v008"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_B_2",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.4,
-    2.2
-   ],
-   "tris": 1100,
-   "tpu": 1020,
-   "mat": 1,
-   "hash": "3a6de4a9f1",
-   "bytes": 71828,
-   "file": "CoffinandFlowers.glb",
-   "variant": "v007"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_B_Lid",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.1,
-    2.2
-   ],
-   "tris": 28,
-   "tpu": 26,
-   "mat": 1,
-   "hash": "40c29e3db7",
-   "bytes": 3400,
-   "file": "CoffinandFlowers.glb",
-   "variant": "v008"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_C",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.4,
-    2.2
-   ],
-   "tris": 1106,
-   "tpu": 1026,
-   "mat": 2,
-   "hash": "9c8e923def",
-   "bytes": 73124,
-   "file": "CoffinandFlowers.glb"
-  },
-  {
-   "kit": "Coffin_and_Flowers_loafbrr",
-   "name": "Coffin_Wood_D_4",
-   "kind": "obj-container-coffin",
-   "wdh": [
-    0.8,
-    0.4,
-    2.2
-   ],
-   "tris": 3058,
-   "tpu": 2837,
-   "mat": 3,
-   "hash": "457f6f35c8",
-   "bytes": 173088,
+   "hash": "20aa35f38e",
+   "bytes": 7004,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_1",
    "wdh": [
-    0.3,
-    0.5,
-    0.3
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 2804,
    "tpu": 8175,
    "mat": 2,
-   "hash": "bec43c9ef1",
-   "bytes": 139756,
+   "hash": "941011f68a",
+   "bytes": 139780,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_2",
    "wdh": [
+    0.1,
     0.2,
-    0.4,
-    0.2
+    0.1
    ],
    "tris": 2916,
    "tpu": 8501,
    "mat": 2,
-   "hash": "a1b1b4a94b",
-   "bytes": 148308,
+   "hash": "2000d006ce",
+   "bytes": 148332,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_3",
    "wdh": [
+    0.1,
     0.2,
-    0.5,
-    0.2
+    0.1
    ],
    "tris": 2516,
    "tpu": 7335,
    "mat": 2,
-   "hash": "b01dff66b3",
-   "bytes": 115676,
+   "hash": "81313b0b9a",
+   "bytes": 115700,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_4",
    "wdh": [
-    0.3,
-    0.5,
-    0.3
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 5490,
    "tpu": 16006,
    "mat": 2,
-   "hash": "b7719fca29",
-   "bytes": 301432,
+   "hash": "414a31b340",
+   "bytes": 301456,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_5",
    "wdh": [
-    0.4,
-    0.5,
-    0.4
+    0.1,
+    0.2,
+    0.2
    ],
    "tris": 11152,
    "tpu": 32513,
    "mat": 2,
-   "hash": "5822504547",
-   "bytes": 614980,
+   "hash": "fe4369ee92",
+   "bytes": 615004,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_6",
    "wdh": [
+    0.1,
     0.2,
-    0.5,
-    0.2
+    0.1
    ],
    "tris": 3682,
    "tpu": 10735,
    "mat": 2,
-   "hash": "8476b4a291",
-   "bytes": 199456,
+   "hash": "72cb44d179",
+   "bytes": 199480,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_7",
    "wdh": [
-    0.4,
-    0.3,
-    0.4
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 3204,
    "tpu": 9341,
    "mat": 2,
-   "hash": "fd66ac0ec3",
-   "bytes": 186200,
+   "hash": "ecb0e845a5",
+   "bytes": 186224,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_8",
    "wdh": [
-    0.4,
-    0.8,
-    0.3
+    0.2,
+    0.3,
+    0.1
    ],
    "tris": 4888,
    "tpu": 14251,
    "mat": 2,
-   "hash": "3ea8a90213",
-   "bytes": 291692,
+   "hash": "854807a320",
+   "bytes": 291716,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_9",
    "wdh": [
-    0.3,
-    0.3,
-    0.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 2506,
    "tpu": 7306,
    "mat": 2,
-   "hash": "07f4cc2afb",
-   "bytes": 144700,
+   "hash": "d322eea5de",
+   "bytes": 144724,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_10",
    "wdh": [
-    0.8,
-    0.4,
-    0.7
+    0.3,
+    0.2,
+    0.3
    ],
    "tris": 6866,
-   "tpu": 19959,
+   "tpu": 20017,
    "mat": 2,
-   "hash": "312d5f3871",
-   "bytes": 362880,
+   "hash": "82ce836d3a",
+   "bytes": 362904,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "FA_11",
    "wdh": [
-    0.6,
     0.3,
-    0.6
+    0.1,
+    0.2
    ],
    "tris": 5384,
    "tpu": 15697,
    "mat": 2,
-   "hash": "7f6e3b50e8",
-   "bytes": 303256,
+   "hash": "ab6097341a",
+   "bytes": 303280,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_A_1",
    "wdh": [
-    0.2,
-    0.3,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 276,
    "tpu": 805,
    "mat": 1,
-   "hash": "4584c6a222",
-   "bytes": 15448,
+   "hash": "78569f580c",
+   "bytes": 15472,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9141,14 +8043,15 @@
    "name": "Plant_Flower_A_2",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 372,
    "tpu": 1085,
    "mat": 1,
-   "hash": "edb8e0fb00",
-   "bytes": 20076,
+   "hash": "b6ad507051",
+   "bytes": 20100,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9156,14 +8059,15 @@
    "name": "Plant_Flower_A_3",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 276,
    "tpu": 805,
    "mat": 1,
-   "hash": "2736b09249",
-   "bytes": 15448,
+   "hash": "7c7935119d",
+   "bytes": 15472,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9171,29 +8075,31 @@
    "name": "Plant_Flower_A_4",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 60,
    "tpu": 175,
    "mat": 1,
-   "hash": "5ffdc97ac4",
-   "bytes": 5564,
+   "hash": "83b759db57",
+   "bytes": 5588,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_A_5",
    "wdh": [
-    0.2,
-    0.3,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 94,
    "tpu": 274,
    "mat": 1,
-   "hash": "7306d0c9b1",
-   "bytes": 6384,
+   "hash": "287e837878",
+   "bytes": 6408,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9201,59 +8107,63 @@
    "name": "Plant_Flower_A_6",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 96,
    "tpu": 280,
    "mat": 1,
-   "hash": "edf33ee2f0",
-   "bytes": 6440,
+   "hash": "c16947903e",
+   "bytes": 6464,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_A_7",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 70,
    "tpu": 204,
    "mat": 1,
-   "hash": "e3398b5fd5",
-   "bytes": 5356,
+   "hash": "2f95cef118",
+   "bytes": 5380,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_A_8",
    "wdh": [
-    0.2,
-    0.2,
-    0.2
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 156,
    "tpu": 455,
    "mat": 1,
-   "hash": "fb0af53b50",
-   "bytes": 9928,
+   "hash": "a53bfc0eed",
+   "bytes": 9952,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_A_9",
    "wdh": [
+    0.1,
     0.2,
-    0.4,
-    0.2
+    0.1
    ],
    "tris": 68,
    "tpu": 198,
    "mat": 1,
-   "hash": "dd68c2a582",
-   "bytes": 4860,
+   "hash": "f4ce11fdcb",
+   "bytes": 4884,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9267,8 +8177,9 @@
    "tris": 66,
    "tpu": 192,
    "mat": 1,
-   "hash": "c46eba1ebf",
-   "bytes": 4988,
+   "hash": "24375c3c5e",
+   "bytes": 5012,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9276,14 +8187,15 @@
    "name": "Plant_Flower_A_11",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 1,
-   "hash": "e4f9246833",
-   "bytes": 9244,
+   "hash": "33eb0386a5",
+   "bytes": 9268,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9291,14 +8203,15 @@
    "name": "Plant_Flower_A_12",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 210,
    "tpu": 612,
    "mat": 1,
-   "hash": "58179f5fa4",
-   "bytes": 12720,
+   "hash": "5721edfd21",
+   "bytes": 12744,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9306,14 +8219,15 @@
    "name": "Plant_Flower_A_13",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 276,
    "tpu": 805,
    "mat": 1,
-   "hash": "094f1351e4",
-   "bytes": 16200,
+   "hash": "d642619a5c",
+   "bytes": 16224,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9327,8 +8241,9 @@
    "tris": 92,
    "tpu": 268,
    "mat": 1,
-   "hash": "afb097b78d",
-   "bytes": 6204,
+   "hash": "3463aee398",
+   "bytes": 6228,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9336,14 +8251,15 @@
    "name": "Plant_Flower_A_15",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 196,
    "tpu": 571,
    "mat": 1,
-   "hash": "96c87c8ef3",
-   "bytes": 11672,
+   "hash": "18d68fa0d7",
+   "bytes": 11696,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9351,14 +8267,15 @@
    "name": "Plant_Flower_A_16",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 288,
    "tpu": 840,
    "mat": 1,
-   "hash": "4480b428c0",
-   "bytes": 16360,
+   "hash": "8409dbca86",
+   "bytes": 16384,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9366,14 +8283,15 @@
    "name": "Plant_Flower_A_17",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 380,
    "tpu": 1108,
    "mat": 1,
-   "hash": "53024655d6",
-   "bytes": 21052,
+   "hash": "9b2f16d4e1",
+   "bytes": 21076,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9387,8 +8305,9 @@
    "tris": 74,
    "tpu": 216,
    "mat": 1,
-   "hash": "7ebbc693ac",
-   "bytes": 5740,
+   "hash": "bb27aacc35",
+   "bytes": 5764,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9396,14 +8315,15 @@
    "name": "Plant_Flower_A_19",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 160,
    "tpu": 466,
    "mat": 1,
-   "hash": "94d1c3e1f2",
-   "bytes": 10748,
+   "hash": "a50e578b5f",
+   "bytes": 10772,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9411,14 +8331,15 @@
    "name": "Plant_Flower_A_20",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 234,
    "tpu": 682,
    "mat": 1,
-   "hash": "a2c3afc711",
-   "bytes": 14980,
+   "hash": "a0d6e7faae",
+   "bytes": 15004,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9426,29 +8347,31 @@
    "name": "Plant_Flower_A_21",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 308,
    "tpu": 898,
    "mat": 1,
-   "hash": "aa90592293",
-   "bytes": 19208,
+   "hash": "8f3c0822d0",
+   "bytes": 19232,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_B_1",
    "wdh": [
-    0.2,
     0.1,
-    0.2
+    0.1,
+    0.1
    ],
    "tris": 264,
    "tpu": 770,
    "mat": 1,
-   "hash": "4102b0bcb5",
-   "bytes": 14672,
+   "hash": "39ec8c1533",
+   "bytes": 14696,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9462,8 +8385,9 @@
    "tris": 360,
    "tpu": 1050,
    "mat": 1,
-   "hash": "f5a6bace09",
-   "bytes": 19300,
+   "hash": "98421fa640",
+   "bytes": 19324,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9477,8 +8401,9 @@
    "tris": 264,
    "tpu": 770,
    "mat": 1,
-   "hash": "6c529923e7",
-   "bytes": 14672,
+   "hash": "33acd03fc9",
+   "bytes": 14696,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9492,23 +8417,25 @@
    "tris": 48,
    "tpu": 140,
    "mat": 1,
-   "hash": "f2641ba621",
-   "bytes": 4784,
+   "hash": "f8ec23e272",
+   "bytes": 4808,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_B_5",
    "wdh": [
-    0.2,
     0.1,
-    0.2
+    0.1,
+    0.1
    ],
    "tris": 82,
    "tpu": 239,
    "mat": 1,
-   "hash": "113d304590",
-   "bytes": 5604,
+   "hash": "e634af11f2",
+   "bytes": 5628,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9522,53 +8449,57 @@
    "tris": 84,
    "tpu": 245,
    "mat": 1,
-   "hash": "e5a84a9912",
-   "bytes": 5660,
+   "hash": "f21749c584",
+   "bytes": 5684,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_B_7",
    "wdh": [
-    0.2,
     0.1,
-    0.2
+    0.1,
+    0.1
    ],
    "tris": 58,
    "tpu": 169,
    "mat": 1,
-   "hash": "4c7e5f68bc",
-   "bytes": 4580,
+   "hash": "770036d53f",
+   "bytes": 4604,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_B_8",
    "wdh": [
-    0.2,
     0.1,
-    0.2
+    0.1,
+    0.1
    ],
    "tris": 144,
    "tpu": 420,
    "mat": 1,
-   "hash": "009cf191a6",
-   "bytes": 9156,
+   "hash": "d435c86a54",
+   "bytes": 9180,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
    "kit": "Coffin_and_Flowers_loafbrr",
    "name": "Plant_Flower_B_9",
    "wdh": [
-    0.2,
     0.1,
-    0.2
+    0.1,
+    0.1
    ],
    "tris": 56,
    "tpu": 163,
    "mat": 1,
-   "hash": "9a59d9d5e8",
-   "bytes": 4084,
+   "hash": "261d8cd588",
+   "bytes": 4108,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9582,8 +8513,9 @@
    "tris": 54,
    "tpu": 157,
    "mat": 1,
-   "hash": "7182486eec",
-   "bytes": 4212,
+   "hash": "2364c42f79",
+   "bytes": 4236,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9597,8 +8529,9 @@
    "tris": 80,
    "tpu": 233,
    "mat": 1,
-   "hash": "6f83a70801",
-   "bytes": 5424,
+   "hash": "9c4d43df64",
+   "bytes": 5448,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9612,8 +8545,9 @@
    "tris": 62,
    "tpu": 181,
    "mat": 1,
-   "hash": "3f75729ab6",
-   "bytes": 4964,
+   "hash": "efee5cc0cb",
+   "bytes": 4988,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9627,8 +8561,9 @@
    "tris": 12,
    "tpu": 35,
    "mat": 1,
-   "hash": "e4d1457671",
-   "bytes": 2112,
+   "hash": "ee53855ef8",
+   "bytes": 2136,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9642,8 +8577,9 @@
    "tris": 6,
    "tpu": 17,
    "mat": 1,
-   "hash": "e26904aaa3",
-   "bytes": 1848,
+   "hash": "5b42a05cf3",
+   "bytes": 1872,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9657,8 +8593,9 @@
    "tris": 6,
    "tpu": 17,
    "mat": 1,
-   "hash": "c27cbc1881",
-   "bytes": 1848,
+   "hash": "6e96ad064f",
+   "bytes": 1872,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9666,15 +8603,16 @@
    "name": "Plant_Leaf_1",
    "kind": "str-building-work-industrial",
    "wdh": [
+    0.1,
     0.2,
-    0.4,
     0.1
    ],
    "tris": 12,
    "tpu": 35,
    "mat": 1,
-   "hash": "90cb10c90b",
-   "bytes": 2624,
+   "hash": "a66c3aa59d",
+   "bytes": 2648,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9683,14 +8621,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.2,
+    0.1,
     0.1
    ],
    "tris": 10,
    "tpu": 29,
    "mat": 1,
-   "hash": "5918af3e94",
-   "bytes": 2524,
+   "hash": "04755b1f8d",
+   "bytes": 2548,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9705,8 +8644,9 @@
    "tris": 6,
    "tpu": 17,
    "mat": 1,
-   "hash": "2f49a73a4e",
-   "bytes": 2148,
+   "hash": "256c50d6ea",
+   "bytes": 2172,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9715,14 +8655,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 28,
    "tpu": 82,
    "mat": 1,
-   "hash": "b036eadb6a",
-   "bytes": 3512,
+   "hash": "405469864a",
+   "bytes": 3536,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9731,14 +8672,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.2,
+    0.1,
     0.1
    ],
    "tris": 28,
    "tpu": 82,
    "mat": 1,
-   "hash": "7c9d656f2e",
-   "bytes": 3516,
+   "hash": "9f3cd1d58b",
+   "bytes": 3540,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9753,8 +8695,9 @@
    "tris": 30,
    "tpu": 87,
    "mat": 1,
-   "hash": "7de45d8de3",
-   "bytes": 3656,
+   "hash": "9a3bd38e4a",
+   "bytes": 3680,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9763,14 +8706,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 28,
    "tpu": 82,
    "mat": 1,
-   "hash": "a768de2a86",
-   "bytes": 3516,
+   "hash": "e79477280d",
+   "bytes": 3540,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9779,14 +8723,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.4,
+    0.1,
     0.1
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
-   "hash": "805db73959",
-   "bytes": 7356,
+   "hash": "fc5a57bc46",
+   "bytes": 7380,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9795,14 +8740,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 76,
    "tpu": 222,
    "mat": 1,
-   "hash": "c613d42282",
-   "bytes": 6980,
+   "hash": "ce31849ea7",
+   "bytes": 7004,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9811,14 +8757,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 102,
    "tpu": 297,
    "mat": 1,
-   "hash": "20a12630f7",
-   "bytes": 8760,
+   "hash": "208c96e435",
+   "bytes": 8784,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9827,14 +8774,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 32,
    "tpu": 93,
    "mat": 1,
-   "hash": "5e93ace8b4",
-   "bytes": 3276,
+   "hash": "bdb7e9212a",
+   "bytes": 3300,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9843,14 +8791,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 42,
    "tpu": 122,
    "mat": 1,
-   "hash": "68d36d3479",
-   "bytes": 3776,
+   "hash": "9c8b4b3903",
+   "bytes": 3800,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   },
   {
@@ -9859,14 +8808,15 @@
    "kind": "str-building-work-industrial",
    "wdh": [
     0.1,
-    0.3,
+    0.1,
     0.1
    ],
    "tris": 42,
    "tpu": 122,
    "mat": 1,
-   "hash": "482303f470",
-   "bytes": 3780,
+   "hash": "a33d19e9f2",
+   "bytes": 3804,
+   "scaled": true,
    "file": "CoffinandFlowers.glb"
   }
  ]

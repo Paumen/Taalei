@@ -1090,5 +1090,17 @@ window.KENNEY_KITS = [
   "slug": "m3-base",
   "url": "https://github.com/M3-org/base-meshes",
   "licenseLabel": "CC0 1.0"
+ },
+ {
+  "slug": "dungeon",
+  "url": null,
+  "licenseLabel": "CC0 1.0",
+  "note": "Source zip without a licence file or maker; see kits/workfiles/dungeon/LICENSE.txt."
+ },
+ {
+  "slug": "loaf-coffins",
+  "url": "https://loafbrr.itch.io/coffin-and-flowers",
+  "licenseLabel": "CC0 1.0",
+  "note": "Coffin and Flowers by loafbrr; the pack's itch.io page states CC0, see kits/sources/Coffin_and_Flowers_loafbrr/coffin-and-flowers-itch-page.html."
  }
 ]

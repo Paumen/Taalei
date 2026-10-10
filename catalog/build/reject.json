@@ -517,8 +517,7 @@
   },
   {
    "slug": "Dungeon_Asset_Pack",
-   "name": "Dungeon Asset Pack",
-   "note": "This pack was never imported — nothing from it is in the catalog."
+   "name": "Dungeon Asset Pack"
   },
   {
    "slug": "modular_temple_collection",
@@ -1993,10 +1992,12 @@
   {
    "slug": "Dungeon_Asset_Pack",
    "name": "Dungeon Asset Pack",
+   "kit": "dungeon",
    "format": "fbx",
    "inSource": 73,
-   "inCatalog": 0,
+   "inCatalog": 38,
    "listed": 31,
+   "scale": 0.012,
    "folder": "individuals files"
   },
   {
@@ -2005,7 +2006,7 @@
    "kit": "fs-temple",
    "format": "obj",
    "inSource": 213,
-   "inCatalog": 158,
+   "inCatalog": 164,
    "listed": 7,
    "scale": 0.45,
    "folder": "Modular Temple"
@@ -2225,7 +2226,7 @@
    "kit": "m3-base",
    "format": "glb",
    "inSource": 1009,
-   "inCatalog": 819,
+   "inCatalog": 833,
    "listed": 165,
    "scale": 0.87,
    "folder": "models"
@@ -2263,10 +2264,6 @@
    "name": "Barrel"
   },
   {
-   "id": "obj-container-barrel-keg",
-   "name": "Keg"
-  },
-  {
    "id": "obj-container-barrel-metal",
    "name": "Metal"
   },
@@ -2291,6 +2288,10 @@
    "name": "Cardboard"
   },
   {
+   "id": "obj-container-crate-cardboard-takeaway",
+   "name": "Takeaway"
+  },
+  {
    "id": "obj-container-crate-ammo",
    "name": "Ammo"
   },
@@ -2303,12 +2304,28 @@
    "name": "Produce"
   },
   {
+   "id": "obj-container-present",
+   "name": "Present"
+  },
+  {
    "id": "obj-container-bottle",
    "name": "Bottle"
   },
   {
    "id": "obj-container-bottle-vial",
    "name": "Vial"
+  },
+  {
+   "id": "obj-container-bottle-glass",
+   "name": "Glass"
+  },
+  {
+   "id": "obj-container-bottle-lab",
+   "name": "Lab"
+  },
+  {
+   "id": "obj-container-bottle-drink",
+   "name": "Drink"
   },
   {
    "id": "obj-container-bag",
@@ -2359,6 +2376,10 @@
    "name": "Carton"
   },
   {
+   "id": "obj-container-carton-drink",
+   "name": "Drink"
+  },
+  {
    "id": "obj-container-trashcan",
    "name": "Trashcan"
   },
@@ -2379,12 +2400,20 @@
    "name": "Cylinder"
   },
   {
+   "id": "obj-container-cylinder-tank",
+   "name": "Tank"
+  },
+  {
    "id": "obj-container-cage",
    "name": "Cage"
   },
   {
    "id": "obj-container-trough",
    "name": "Trough"
+  },
+  {
+   "id": "obj-container-pallet",
+   "name": "Pallet"
   },
   {
    "id": "obj-kitchenware",
@@ -2409,6 +2438,14 @@
   {
    "id": "obj-kitchenware-tableware-serving",
    "name": "Serving"
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-tray",
+   "name": "Tray"
+  },
+  {
+   "id": "obj-kitchenware-tableware-serving-stand",
+   "name": "Stand"
   },
   {
    "id": "obj-kitchenware-tableware-bowl",
@@ -2687,16 +2724,20 @@
    "name": "Meal"
   },
   {
+   "id": "obj-food-meal-burger",
+   "name": "Burger"
+  },
+  {
+   "id": "obj-food-meal-sandwich",
+   "name": "Sandwich"
+  },
+  {
    "id": "obj-food-baked",
    "name": "Baked"
   },
   {
    "id": "obj-food-baked-bread",
    "name": "Bread"
-  },
-  {
-   "id": "obj-food-baked-bread-sandwich",
-   "name": "Sandwich"
   },
   {
    "id": "obj-food-baked-bread-baguette",
@@ -2711,12 +2752,20 @@
    "name": "Pie"
   },
   {
+   "id": "obj-food-baked-cake",
+   "name": "Cake"
+  },
+  {
    "id": "obj-food-baked-pastry",
    "name": "Pastry"
   },
   {
    "id": "obj-food-baked-pastry-cookie",
    "name": "Cookie"
+  },
+  {
+   "id": "obj-food-baked-pastry-cookie-gingerbread",
+   "name": "Gingerbread"
   },
   {
    "id": "obj-food-baked-pastry-donut",
@@ -2839,6 +2888,10 @@
    "name": "Part"
   },
   {
+   "id": "obj-equipment-weapon-ranged-throwing",
+   "name": "Throwing"
+  },
+  {
    "id": "obj-equipment-weapon-ranged-grenade",
    "name": "Grenade"
   },
@@ -2935,6 +2988,10 @@
    "name": "Key"
   },
   {
+   "id": "obj-equipment-pocketitem-medicine",
+   "name": "Medicine"
+  },
+  {
    "id": "obj-equipment-pocketitem-book",
    "name": "Book"
   },
@@ -2983,6 +3040,22 @@
    "name": "Screwdriver"
   },
   {
+   "id": "obj-equipment-tool-hand-blade",
+   "name": "Blade"
+  },
+  {
+   "id": "obj-equipment-tool-hand-shaping",
+   "name": "Shaping"
+  },
+  {
+   "id": "obj-equipment-tool-hand-gripper",
+   "name": "Gripper"
+  },
+  {
+   "id": "obj-equipment-tool-hand-garden",
+   "name": "Garden"
+  },
+  {
    "id": "obj-equipment-tool-twohand",
    "name": "Two-hand"
   },
@@ -3019,6 +3092,10 @@
    "name": "Supplies"
   },
   {
+   "id": "obj-equipment-tool-supplies-fastener",
+   "name": "Fastener"
+  },
+  {
    "id": "obj-equipment-tool-supplies-chain",
    "name": "Chain"
   },
@@ -3035,6 +3112,14 @@
    "name": "Station"
   },
   {
+   "id": "obj-equipment-tool-station-anvil",
+   "name": "Anvil"
+  },
+  {
+   "id": "obj-equipment-tool-station-grinder",
+   "name": "Grinder"
+  },
+  {
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism"
   },
@@ -3043,8 +3128,24 @@
    "name": "Lever"
   },
   {
+   "id": "obj-equipment-tool-mechanism-lock",
+   "name": "Lock"
+  },
+  {
    "id": "obj-equipment-tool-stationery",
    "name": "Stationery"
+  },
+  {
+   "id": "obj-equipment-tool-stationery-holder",
+   "name": "Holder"
+  },
+  {
+   "id": "obj-equipment-tool-stationery-writing",
+   "name": "Writing"
+  },
+  {
+   "id": "obj-equipment-tool-stationery-filing",
+   "name": "Filing"
   },
   {
    "id": "obj-equipment-tool-scale",
@@ -3083,10 +3184,6 @@
    "name": "Wooden"
   },
   {
-   "id": "obj-transport-pallet",
-   "name": "Pallet"
-  },
-  {
    "id": "obj-transport-air",
    "name": "Air"
   },
@@ -3103,10 +3200,6 @@
    "name": "Land"
   },
   {
-   "id": "obj-transport-land-military",
-   "name": "Military"
-  },
-  {
    "id": "obj-transport-land-cart",
    "name": "Cart"
   },
@@ -3119,8 +3212,16 @@
    "name": "Wheelbarrow"
   },
   {
+   "id": "obj-transport-land-wheelchair",
+   "name": "Wheelchair"
+  },
+  {
    "id": "obj-transport-land-road",
    "name": "Road vehicle"
+  },
+  {
+   "id": "obj-transport-land-road-car",
+   "name": "Car"
   },
   {
    "id": "obj-transport-land-road-truck",
@@ -3143,6 +3244,10 @@
    "name": "Parts"
   },
   {
+   "id": "obj-resource-metal-parts-pipe",
+   "name": "Pipe"
+  },
+  {
    "id": "obj-resource-wood",
    "name": "Wood"
   },
@@ -3163,12 +3268,20 @@
    "name": "Textile"
   },
   {
-   "id": "obj-resource-wheat",
+   "id": "obj-resource-leather",
+   "name": "Leather"
+  },
+  {
+   "id": "obj-resource-crop",
+   "name": "Crop"
+  },
+  {
+   "id": "obj-resource-crop-wheat",
    "name": "Wheat"
   },
   {
-   "id": "obj-resource-haystack",
-   "name": "Haystack"
+   "id": "obj-resource-crop-hay",
+   "name": "Hay"
   },
   {
    "id": "obj-furnishing",
@@ -3213,10 +3326,6 @@
   {
    "id": "obj-furnishing-light-candle",
    "name": "Candle"
-  },
-  {
-   "id": "obj-furnishing-light-campfire",
-   "name": "Campfire"
   },
   {
    "id": "obj-furnishing-bathroom",
@@ -3307,6 +3416,10 @@
    "name": "Round"
   },
   {
+   "id": "obj-furnishing-furniture-table-side",
+   "name": "Side"
+  },
+  {
    "id": "obj-furnishing-furniture-table-desk",
    "name": "Desk"
   },
@@ -3343,15 +3456,15 @@
    "name": "Shelf"
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack",
+   "id": "obj-furnishing-furniture-storage-rack",
    "name": "Rack"
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "id": "obj-furnishing-furniture-storage-rack-weapon",
    "name": "Weapon"
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "id": "obj-furnishing-furniture-storage-rack-coat",
    "name": "Coat"
   },
   {
@@ -3369,6 +3482,10 @@
   {
    "id": "obj-furnishing-decor",
    "name": "Decor"
+  },
+  {
+   "id": "obj-furnishing-decor-mount",
+   "name": "Mount"
   },
   {
    "id": "obj-furnishing-textile",
@@ -3463,10 +3580,6 @@
    "name": "Walkietalkie"
   },
   {
-   "id": "obj-device-electronics-arcade",
-   "name": "Arcade"
-  },
-  {
    "id": "obj-device-electronics-screen",
    "name": "Screen"
   },
@@ -3509,10 +3622,6 @@
   {
    "id": "obj-device-electronics-phone",
    "name": "Phone"
-  },
-  {
-   "id": "obj-device-electronics-installation",
-   "name": "Installation"
   },
   {
    "id": "obj-device-science",
@@ -3595,8 +3704,8 @@
    "name": "Table"
   },
   {
-   "id": "obj-symbol",
-   "name": "Symbol"
+   "id": "obj-leisure-game-arcade",
+   "name": "Arcade"
   },
   {
    "id": "str",
@@ -3655,7 +3764,7 @@
    "name": "Unit"
   },
   {
-   "id": "str-part-roof-chimney",
+   "id": "str-part-chimney",
    "name": "Chimney"
   },
   {
@@ -3815,6 +3924,14 @@
    "name": "Cone"
   },
   {
+   "id": "str-barrier-traffic-jersey",
+   "name": "Jersey"
+  },
+  {
+   "id": "str-barrier-traffic-sawhorse",
+   "name": "Sawhorse"
+  },
+  {
    "id": "str-barrier-hedge",
    "name": "Hedge"
   },
@@ -3843,6 +3960,22 @@
    "name": "Stairs"
   },
   {
+   "id": "str-access-stairs-curved",
+   "name": "Curved"
+  },
+  {
+   "id": "str-access-stairs-open",
+   "name": "Open"
+  },
+  {
+   "id": "str-access-stairs-step",
+   "name": "Step"
+  },
+  {
+   "id": "str-access-ramp",
+   "name": "Ramp"
+  },
+  {
    "id": "str-access-ladder",
    "name": "Ladder"
   },
@@ -3863,6 +3996,10 @@
    "name": "Road"
   },
   {
+   "id": "str-access-path",
+   "name": "Path"
+  },
+  {
    "id": "str-access-track",
    "name": "Track"
   },
@@ -3881,6 +4018,14 @@
   {
    "id": "str-canopy-tent-camping",
    "name": "Camping"
+  },
+  {
+   "id": "str-canopy-gazebo",
+   "name": "Gazebo"
+  },
+  {
+   "id": "str-canopy-shelter",
+   "name": "Shelter"
   },
   {
    "id": "str-fixture",
@@ -3923,10 +4068,6 @@
    "name": "Mailbox"
   },
   {
-   "id": "str-fixture-chimney",
-   "name": "Chimney"
-  },
-  {
    "id": "str-fixture-utility",
    "name": "Utility"
   },
@@ -3947,28 +4088,8 @@
    "name": "Solar"
   },
   {
-   "id": "str-fixture-utility-conveyor",
-   "name": "Conveyor"
-  },
-  {
    "id": "str-fixture-utility-pipe",
    "name": "Pipe"
-  },
-  {
-   "id": "str-fixture-utility-machine",
-   "name": "Machine"
-  },
-  {
-   "id": "str-fixture-utility-machine-crane",
-   "name": "Crane"
-  },
-  {
-   "id": "str-fixture-utility-machine-drivethrough",
-   "name": "Drivethrough"
-  },
-  {
-   "id": "str-fixture-utility-hopper",
-   "name": "Hopper"
   },
   {
    "id": "str-fixture-utility-hydrant",
@@ -3981,6 +4102,26 @@
   {
    "id": "str-fixture-utility-antenna",
    "name": "Antenna"
+  },
+  {
+   "id": "str-fixture-machinery",
+   "name": "Machinery"
+  },
+  {
+   "id": "str-fixture-machinery-conveyor",
+   "name": "Conveyor"
+  },
+  {
+   "id": "str-fixture-machinery-hopper",
+   "name": "Hopper"
+  },
+  {
+   "id": "str-fixture-machinery-crane",
+   "name": "Crane"
+  },
+  {
+   "id": "str-fixture-machinery-drivethrough",
+   "name": "Drivethrough"
   },
   {
    "id": "str-fixture-leisure",
@@ -4011,8 +4152,24 @@
    "name": "Punishment"
   },
   {
-   "id": "str-fixture-fireplace",
+   "id": "str-fixture-fire",
+   "name": "Fire"
+  },
+  {
+   "id": "str-fixture-fire-campfire",
+   "name": "Campfire"
+  },
+  {
+   "id": "str-fixture-fire-brazier",
+   "name": "Brazier"
+  },
+  {
+   "id": "str-fixture-fire-fireplace",
    "name": "Fireplace"
+  },
+  {
+   "id": "str-fixture-installation",
+   "name": "Installation"
   },
   {
    "id": "env",
@@ -4067,6 +4224,10 @@
    "name": "Skull"
   },
   {
+   "id": "env-remains-bones-skull-human",
+   "name": "Human"
+  },
+  {
    "id": "env-remains-bones-limb",
    "name": "Limb"
   },
@@ -4077,6 +4238,10 @@
   {
    "id": "env-remains-bones-ribcage",
    "name": "Ribcage"
+  },
+  {
+   "id": "env-remains-bones-spine",
+   "name": "Spine"
   },
   {
    "id": "env-remains-deadwood",
@@ -4129,6 +4294,18 @@
   {
    "id": "env-terrain-ground",
    "name": "Ground"
+  },
+  {
+   "id": "env-terrain-ground-field",
+   "name": "Field"
+  },
+  {
+   "id": "env-terrain-ground-patch",
+   "name": "Patch"
+  },
+  {
+   "id": "env-terrain-ground-pit",
+   "name": "Pit"
   },
   {
    "id": "env-flora",
@@ -4201,6 +4378,10 @@
   {
    "id": "char",
    "name": "Character"
+  },
+  {
+   "id": "sym",
+   "name": "Symbol"
   }
  ],
  "variants": [
@@ -9204,7 +9385,6 @@
   {
    "kit": "kenney_survival-kit",
    "name": "campfire-pit",
-   "kind": "obj-furnishing-light-campfire",
    "wdh": [
     0.4,
     0.2,
@@ -9453,7 +9633,7 @@
   {
    "kit": "kenney_pirate-kit",
    "name": "grass-patch",
-   "kind": "env-flora-plant-grass",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.4,
     0.1,
@@ -9923,7 +10103,6 @@
   {
    "kit": "kenney_fantasy-town-kit_2.0",
    "name": "road-edge-slope",
-   "kind": "str-access-road",
    "wdh": [
     0.9,
     0.2,
@@ -9959,7 +10138,6 @@
   {
    "kit": "kenney_fantasy-town-kit_2.0",
    "name": "road-slope",
-   "kind": "str-access-road",
    "wdh": [
     0.9,
     0.2,
@@ -11127,7 +11305,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-large-slope-narrow",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     1,
     0.7,
@@ -11146,7 +11323,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-large-slope-steep-narrow",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     1,
     1.2,
@@ -11165,7 +11341,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-large-slope-steep",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     2,
     1.2,
@@ -11184,7 +11359,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-large-slope",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     2,
     0.7,
@@ -11427,7 +11601,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-overhang-large-slope-narrow",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     1,
     0.9,
@@ -11445,7 +11618,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-overhang-large-slope-steep-narrow",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     1,
     1.3,
@@ -11463,7 +11635,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-overhang-large-slope-steep",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     2,
     1.3,
@@ -11481,7 +11652,6 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-grass-overhang-large-slope",
-   "kind": "env-flora-plant-grass",
    "wdh": [
     2,
     0.9,
@@ -11893,6 +12063,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-large-slope-narrow",
+   "kind": "str-access-ramp",
    "wdh": [
     1,
     0.7,
@@ -11911,6 +12082,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-large-slope-steep-narrow",
+   "kind": "str-access-ramp",
    "wdh": [
     1,
     1.2,
@@ -11929,6 +12101,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-large-slope-steep",
+   "kind": "str-access-ramp",
    "wdh": [
     2,
     1.2,
@@ -11947,6 +12120,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-large-slope",
+   "kind": "str-access-ramp",
    "wdh": [
     2,
     0.7,
@@ -12179,6 +12353,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-overhang-large-slope-narrow",
+   "kind": "str-access-ramp",
    "wdh": [
     1,
     0.7,
@@ -12196,6 +12371,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-overhang-large-slope-steep-narrow",
+   "kind": "str-access-ramp",
    "wdh": [
     1,
     1.2,
@@ -12213,6 +12389,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-overhang-large-slope-steep",
+   "kind": "str-access-ramp",
    "wdh": [
     2,
     1.3,
@@ -12230,6 +12407,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "block-snow-overhang-large-slope",
+   "kind": "str-access-ramp",
    "wdh": [
     2,
     0.9,
@@ -12528,7 +12706,7 @@
   {
    "kit": "kenney_platformer-kit",
    "name": "conveyor-belt",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "wdh": [
     1,
     0.3,
@@ -14274,6 +14452,7 @@
   {
    "kit": "kenney_prototypekit",
    "name": "shape-slope",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -14935,7 +15114,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "fire-basket",
-   "kind": "obj-container-basket",
+   "kind": "str-fixture-fire-brazier",
    "wdh": [
     0.4,
     0.2,
@@ -14953,7 +15132,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "hay-bale-bundled",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "wdh": [
     0.5,
     0.3,
@@ -14971,7 +15150,7 @@
   {
    "kit": "kenney_graveyardkit_5.0",
    "name": "hay-bale",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "wdh": [
     0.5,
     0.3,
@@ -15274,7 +15453,6 @@
   {
    "kit": "kenney_holidaykit",
    "name": "cabin-roof-snow-chimney",
-   "kind": "str-part-roof-chimney",
    "wdh": [
     0.7,
     0.7,
@@ -15571,7 +15749,7 @@
   {
    "kit": "kenney_holidaykit",
    "name": "present-a-cube",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -15589,7 +15767,7 @@
   {
    "kit": "kenney_holidaykit",
    "name": "present-a-rectangle",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.3,
     0.2,
@@ -15607,7 +15785,7 @@
   {
    "kit": "kenney_holidaykit",
    "name": "present-a-round",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.3,
     0.3,
@@ -18035,7 +18213,7 @@
   {
    "kit": "KayKit_ResourceBits_1.0_FREE",
    "name": "Pallet_Wood_Covered_B",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "wdh": [
     0.5,
     0.1,
@@ -18501,6 +18679,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_ingredient_burger_trash",
+   "kind": "obj-food-meal-burger",
    "wdh": [
     0.2,
     0.1,
@@ -18518,6 +18697,7 @@
   {
    "kit": "KayKit_Restaurant_Bits_1.0_FREE",
    "name": "food_ingredient_burger_uncooked",
+   "kind": "obj-food-meal-burger",
    "wdh": [
     0.2,
     0.1,
@@ -19270,7 +19450,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Anvil",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "wdh": [
     0.8,
     0.4,
@@ -19877,7 +20057,6 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Nightstand_Shelf",
-   "kind": "obj-furnishing-furniture-storage-shelf",
    "wdh": [
     0.5,
     0.9,
@@ -19895,7 +20074,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Peg_Rack",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "wdh": [
     0.8,
     0.2,
@@ -20215,7 +20394,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Workbench",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "wdh": [
     1.4,
     0.6,
@@ -20233,7 +20412,7 @@
   {
    "kit": "FantasyProps_glTF_1k",
    "name": "Workbench_Drawers",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "wdh": [
     0.3,
     0.2,
@@ -22632,7 +22811,7 @@
   {
    "kit": "Modular Village",
    "name": "Prop_Hay_1",
-   "kind": "obj-resource-haystack",
+   "kind": "obj-resource-crop-hay",
    "wdh": [
     0.4,
     0.3,
@@ -22907,7 +23086,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Side_Gentle",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.5,
     0.3,
@@ -22925,7 +23104,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Side_Overlap_Side",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.5,
     0.5,
@@ -22943,7 +23122,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Side_Sharp",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.5,
     0.3,
@@ -22961,7 +23140,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Side_Shift_Gentle",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.5,
     0.3,
@@ -22979,7 +23158,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Side_Shift_Sharp",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.5,
     0.3,
@@ -22997,7 +23176,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Transition_Gentle_Sharp_Centered",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.5,
     0.3,
@@ -23015,7 +23194,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Transition_Gentle_Sharp_Flush_Base",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.5,
     0.3,
@@ -23033,7 +23212,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Beach_Terrain_Sand_Transition_Gentle_Sharp_Flush_Crest",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.5,
     0.3,
@@ -26598,6 +26777,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Hilly_Terrain_Water_Slope",
+   "kind": "str-access-ramp",
    "wdh": [
     1,
     0.5,
@@ -32334,7 +32514,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Grinder_A",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "wdh": [
     0.5,
     0.8,
@@ -32353,7 +32533,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Grinder_B",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "wdh": [
     0.5,
     0.8,
@@ -32372,7 +32552,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Grinder_C",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "wdh": [
     0.5,
     0.8,
@@ -32621,7 +32801,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Nail_B",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.1,
@@ -32640,7 +32820,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Nail_C",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.1,
@@ -32659,7 +32839,7 @@
   {
    "kit": "Small_Props_Pack_1",
    "name": "Nail_D",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.1,
@@ -33306,7 +33486,7 @@
   {
    "kit": "tools_mekmeesk",
    "name": "nail_s",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.1,
@@ -33324,7 +33504,7 @@
   {
    "kit": "tools_mekmeesk",
    "name": "nail_l",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.2,
@@ -33396,6 +33576,7 @@
   {
    "kit": "tools_mekmeesk",
    "name": "pliers_sharp",
+   "kind": "obj-equipment-tool-hand-gripper",
    "wdh": [
     0.1,
     0.3,
@@ -33755,7 +33936,6 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "Burger_Bread",
-   "kind": "obj-food-baked-bread",
    "wdh": [
     0.3,
     0.1,
@@ -34038,6 +34218,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "Pizza",
+   "kind": "obj-food-meal",
    "wdh": [
     0.6,
     0.1,
@@ -34055,6 +34236,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "Pizza_Burned",
+   "kind": "obj-food-meal",
    "wdh": [
     0.2,
     0.1,
@@ -34073,6 +34255,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "Pizza_Slice",
+   "kind": "obj-food-meal",
    "wdh": [
     0.2,
     0.1,
@@ -34811,7 +34994,7 @@
   {
    "kit": "Ultimate_RPG_Pack_by_Quaternius_OBJ",
    "name": "Heart_Broken",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -34829,7 +35012,7 @@
   {
    "kit": "Ultimate_RPG_Pack_by_Quaternius_OBJ",
    "name": "Heart_Half",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.1,
     0.2,
@@ -39492,7 +39675,7 @@
   {
    "kit": "Village_Pack",
    "name": "brazier",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "wdh": [
     0.3,
     0.2,
@@ -40314,7 +40497,7 @@
   {
    "kit": "Village_Pack",
    "name": "steps",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "wdh": [
     0.7,
     0.3,
@@ -41069,7 +41252,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "misc_ice_tray",
-   "kind": "obj-kitchenware-tableware-serving",
+   "kind": "obj-kitchenware-tableware-serving-tray",
    "wdh": [
     0.2,
     0.1,
@@ -41191,6 +41374,7 @@
   {
    "kit": "Cooking_Assets",
    "name": "cutensils_pizza_cutter",
+   "kind": "obj-food-meal",
    "wdh": [
     0.2,
     0.3,
@@ -42759,7 +42943,7 @@
   {
    "kit": "AssetPack",
    "name": "anvil",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "wdh": [
     0.6,
     0.4,
@@ -44491,7 +44675,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -44510,7 +44694,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_detail",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -44997,7 +45181,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_transitionA",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.9,
@@ -45016,7 +45200,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_transitionB",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.9,
@@ -45035,7 +45219,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterA",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45054,7 +45238,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterA_detail",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45073,7 +45257,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterA_empty",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.8,
     1.8,
@@ -45092,7 +45276,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterB",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45111,7 +45295,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterB_detail",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45130,7 +45314,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterB_empty",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.8,
     1.8,
@@ -45149,7 +45333,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterC",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45168,7 +45352,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterC_detail",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45187,7 +45371,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterC_empty",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     1.8,
     1.8,
@@ -45206,7 +45390,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterD",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45225,7 +45409,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterD_detail",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -45244,7 +45428,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "hex_sand_waterD_empty",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -46070,7 +46254,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "square_sand",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -46089,7 +46273,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "square_sand_detail",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -46396,7 +46580,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "square_sand_waterStraight",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -46415,7 +46599,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "square_sand_waterStraight_empty",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -46434,7 +46618,7 @@
   {
    "kit": "KayKit_Medieval_Builder_Pack_1.0",
    "name": "square_sand_waterStraight_noSides",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     3.6,
     1.8,
@@ -46693,6 +46877,7 @@
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSlopeLowHigh_graveyard",
+   "kind": "str-access-ramp",
    "wdh": [
     0.7,
     0.7,
@@ -46710,6 +46895,7 @@
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSlopeLowMedium_graveyard",
+   "kind": "str-access-ramp",
    "wdh": [
     0.7,
     0.5,
@@ -46727,6 +46913,7 @@
   {
    "kit": "KayKit_Spooktober_Seasonal_Pack_1.1",
    "name": "tileSlopeMediumHigh_graveyard",
+   "kind": "str-access-ramp",
    "wdh": [
     0.7,
     0.7,
@@ -47331,7 +47518,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamBlue",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -47350,7 +47537,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamRed",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -47369,7 +47556,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamYellow",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -48164,6 +48351,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_desert",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48182,6 +48370,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_forest",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48200,6 +48389,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_teamBlue",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48218,6 +48408,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_teamRed",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48236,6 +48427,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowHigh_teamYellow",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48254,6 +48446,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium._teamRed",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.5,
@@ -48272,6 +48465,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_desert",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.5,
@@ -48290,6 +48484,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_forest",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.5,
@@ -48308,6 +48503,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_teamBlue",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.5,
@@ -48326,6 +48522,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeLowMedium_teamYellow",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.5,
@@ -48344,6 +48541,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_desert",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48362,6 +48560,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_forest",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48380,6 +48579,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_teamBlue",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48398,6 +48598,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_teamRed",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -48416,6 +48617,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "tileSlopeMediumHigh_teamYellow",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -50761,7 +50963,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_A_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -50779,7 +50981,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_A_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -50798,7 +51000,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_A_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -50817,7 +51019,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_A_yellow",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -50836,7 +51038,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_B_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -50854,7 +51056,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_B_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -50873,7 +51075,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_B_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -50892,7 +51094,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_B_yellow",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -50911,7 +51113,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_C_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.1,
@@ -50929,7 +51131,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_C_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.1,
@@ -50948,7 +51150,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_C_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.1,
@@ -50967,7 +51169,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_C_yellow",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.1,
@@ -50986,7 +51188,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_D_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.3,
     0.3,
@@ -51004,7 +51206,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_D_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.3,
     0.3,
@@ -51023,7 +51225,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_D_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.3,
     0.3,
@@ -51042,7 +51244,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_D_yellow",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.3,
     0.3,
@@ -51061,7 +51263,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_E_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.4,
     0.1,
@@ -51079,7 +51281,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_E_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.4,
     0.1,
@@ -51098,7 +51300,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_E_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.4,
     0.1,
@@ -51117,7 +51319,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_E_yellow",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.4,
     0.1,
@@ -51136,7 +51338,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_F_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.6,
     0.1,
@@ -51154,7 +51356,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_F_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.6,
     0.1,
@@ -51173,7 +51375,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_F_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.6,
     0.1,
@@ -51192,7 +51394,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_F_yellow",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.6,
     0.1,
@@ -51211,7 +51413,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_A_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -51230,7 +51432,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_A_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -51249,7 +51451,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_A_red",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -51268,7 +51470,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_A_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.2,
@@ -51287,7 +51489,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_B_blue",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -51306,7 +51508,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_B_green",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -51325,7 +51527,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_B_red",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -51344,7 +51546,7 @@
   {
    "kit": "KayKit_Holiday_Bits_1.0_FREE",
    "name": "present_sphere_B_white",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.2,
     0.3,
@@ -58517,7 +58719,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Cake",
-   "kind": "obj-food-baked-pie",
+   "kind": "obj-food-baked-cake",
    "wdh": [
     0.4,
     0.2,
@@ -58744,7 +58946,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Pizza Box",
-   "kind": "obj-container-crate",
+   "kind": "obj-container-crate-cardboard-takeaway",
    "wdh": [
     0.6,
     0.6,
@@ -58762,6 +58964,7 @@
   {
    "kit": "kenney_food-kit",
    "name": "Pizza",
+   "kind": "obj-food-meal",
    "wdh": [
     0.5,
     0.1,
@@ -59004,6 +59207,7 @@
   {
    "kit": "Food_Asset_Pack",
    "name": "Pizza",
+   "kind": "obj-food-meal",
    "wdh": [
     0.4,
     0.1,
@@ -59021,6 +59225,7 @@
   {
    "kit": "Food_Asset_Pack",
    "name": "Pizza_Slice",
+   "kind": "obj-food-meal",
    "wdh": [
     0.2,
     0.1,
@@ -60386,6 +60591,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Hatchback",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.4,
@@ -60437,6 +60643,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Pickup",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.5,
@@ -60454,6 +60661,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Police SUV",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.5,
@@ -60471,6 +60679,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Police Sedan",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.5,
@@ -60505,6 +60714,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "SUV",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.5,
@@ -60522,6 +60732,7 @@
   {
    "kit": "Free_Low_Poly_Vehicles_Pack_by_Rgsdev",
    "name": "Sedan",
+   "kind": "obj-transport-land-road-car",
    "wdh": [
     0.6,
     0.4,
@@ -61226,7 +61437,7 @@
   {
    "kit": "Free_Pond_Kit_AssetQuest",
    "name": "Long_Grass_Patch_1",
-   "kind": "env-flora-plant-grass",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.2,
     0.2,
@@ -61244,7 +61455,7 @@
   {
    "kit": "Free_Pond_Kit_AssetQuest",
    "name": "Long_Grass_Patch_2",
-   "kind": "env-flora-plant-grass",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.2,
     0.2,
@@ -61924,7 +62135,7 @@
   {
    "kit": "Free_Pond_Kit_AssetQuest",
    "name": "Short_Grass_Patch_1",
-   "kind": "env-flora-plant-grass",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.2,
     0.1,
@@ -61942,7 +62153,7 @@
   {
    "kit": "Free_Pond_Kit_AssetQuest",
    "name": "Short_Grass_Patch_2",
-   "kind": "env-flora-plant-grass",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.1,
     0.1,
@@ -69123,6 +69334,7 @@
   {
    "kit": "Food_Pack",
    "name": "burger_chicken",
+   "kind": "obj-food-meal-burger",
    "wdh": [
     0.2,
     0.1,
@@ -69141,6 +69353,7 @@
   {
    "kit": "Food_Pack",
    "name": "burger_cooked",
+   "kind": "obj-food-meal-burger",
    "wdh": [
     0.2,
     0.1,
@@ -69159,6 +69372,7 @@
   {
    "kit": "Food_Pack",
    "name": "burger_chicken_cooked",
+   "kind": "obj-food-meal-burger",
    "wdh": [
     0.2,
     0.1,
@@ -70045,7 +70259,6 @@
   {
    "kit": "kenney_racing-kit",
    "name": "roadPitEntry",
-   "kind": "str-access-road",
    "wdh": [
     2.4,
     0.1,
@@ -70326,6 +70539,7 @@
   {
    "kit": "kenney_space-kit",
    "name": "crater",
+   "kind": "env-terrain-ground-pit",
    "wdh": [
     0.9,
     0.2,
@@ -70654,7 +70868,7 @@
   {
    "kit": "kenney_space-kit",
    "name": "terrain_ramp",
-   "kind": "str-access-stairs",
+   "kind": "str-access-ramp",
    "wdh": [
     1.3,
     0.7,
@@ -70672,7 +70886,7 @@
   {
    "kit": "kenney_space-kit",
    "name": "terrain_rampLarge",
-   "kind": "str-access-stairs",
+   "kind": "str-access-ramp",
    "wdh": [
     1.3,
     0.7,
@@ -70690,7 +70904,7 @@
   {
    "kit": "kenney_space-kit",
    "name": "terrain_rampLarge_detailed",
-   "kind": "str-access-stairs",
+   "kind": "str-access-ramp",
    "wdh": [
     1.3,
     0.7,
@@ -71157,7 +71371,7 @@
   {
    "kit": "kenney_modular-buildings",
    "name": "building-steps-narrow",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "wdh": [
     1.3,
     1.1,
@@ -71175,7 +71389,7 @@
   {
    "kit": "kenney_modular-buildings",
    "name": "building-steps-wide",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "wdh": [
     1.3,
     1.1,
@@ -72655,6 +72869,7 @@
   {
    "kit": "KayKit_Space_Base_Bits_1.0_FREE",
    "name": "terrain_slope",
+   "kind": "str-access-ramp",
    "wdh": [
     2.2,
     2.2,
@@ -72672,7 +72887,6 @@
   {
    "kit": "KayKit_Space_Base_Bits_1.0_FREE",
    "name": "terrain_slope_inner_corner",
-   "kind": "str-part-wall",
    "wdh": [
     2.2,
     2.2,
@@ -72690,7 +72904,6 @@
   {
    "kit": "KayKit_Space_Base_Bits_1.0_FREE",
    "name": "terrain_slope_outer_corner",
-   "kind": "str-part-wall",
    "wdh": [
     2.2,
     2.2,
@@ -73547,7 +73760,7 @@
   {
    "kit": "KayKit_BlockBits_1.0_FREE",
    "name": "sand_A",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.6,
     0.6,
@@ -73566,7 +73779,7 @@
   {
    "kit": "KayKit_BlockBits_1.0_FREE",
    "name": "sand_B",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.6,
     0.6,
@@ -73602,7 +73815,7 @@
   {
    "kit": "KayKit_BlockBits_1.0_FREE",
    "name": "sand_with_snow",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "wdh": [
     0.6,
     0.6,
@@ -74511,6 +74724,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x2x2_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -74529,6 +74743,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x4x4_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -74547,6 +74762,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x6x4_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -74565,6 +74781,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x2x2_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     0.6,
@@ -74583,6 +74800,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x4x4_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -74601,6 +74819,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x6x4_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -74619,6 +74838,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x2x2_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     0.6,
@@ -74637,6 +74857,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x4x4_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -74655,6 +74876,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x6x4_blue",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -75166,7 +75388,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "heart_green",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -75778,6 +76000,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x2x2_green",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -75796,6 +76019,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x4x4_green",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -75814,6 +76038,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x6x4_green",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -75832,6 +76057,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x2x2_green",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     0.6,
@@ -75850,6 +76076,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x4x4_green",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -75868,6 +76095,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x6x4_green",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -75886,6 +76114,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x2x2_green",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     0.6,
@@ -75904,6 +76133,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x4x4_green",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -75922,6 +76152,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x6x4_green",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -76052,7 +76283,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "star_green",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -76847,7 +77078,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "heart_red",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -77454,6 +77685,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x2x2_red",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -77472,6 +77704,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x4x4_red",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -77490,6 +77723,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x6x4_red",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -77508,6 +77742,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x2x2_red",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     0.6,
@@ -77526,6 +77761,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x4x4_red",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -77544,6 +77780,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x6x4_red",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -77562,6 +77799,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x2x2_red",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     0.6,
@@ -77580,6 +77818,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x4x4_red",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -77598,6 +77837,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x6x4_red",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -77833,7 +78073,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "star_red",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -78345,7 +78585,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "heart_yellow",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -78957,6 +79197,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x2x2_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     0.6,
@@ -78975,6 +79216,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x4x4_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -78993,6 +79235,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_2x6x4_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     0.6,
     1.2,
@@ -79011,6 +79254,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x2x2_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     0.6,
@@ -79029,6 +79273,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x4x4_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -79047,6 +79292,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_4x6x4_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     1.2,
     1.2,
@@ -79065,6 +79311,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x2x2_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     0.6,
@@ -79083,6 +79330,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x4x4_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -79101,6 +79349,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_slope_6x6x4_yellow",
+   "kind": "str-access-ramp",
    "wdh": [
     1.8,
     1.2,
@@ -79342,7 +79591,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "star_yellow",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.3,
     0.3,
@@ -79418,7 +79667,7 @@
   {
    "kit": "Stylized_Medieval_Kingdom",
    "name": "Grinder",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "wdh": [
     0.7,
     0.9,
@@ -80077,7 +80326,7 @@
   {
    "kit": "Sci-Fi_Lab_Medical_Props",
    "name": "flask_beaker",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-lab",
    "wdh": [
     0.3,
     0.2,
@@ -80112,7 +80361,6 @@
   {
    "kit": "One_More_Rep_Gym_Fitness",
    "name": "chalk_bucket",
-   "kind": "obj-container-bucket",
    "wdh": [
     0.2,
     0.2,
@@ -81056,7 +81304,7 @@
   {
    "kit": "Household_Props_001",
    "name": "Coat Rack",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "wdh": [
     0.2,
     0.9,
@@ -81993,7 +82241,7 @@
   {
    "kit": "Low_Poly_Household_Items",
    "name": "Light Switch",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "wdh": [
     0.1,
     0.1,
@@ -82679,15 +82927,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "barrage",
    "wdh": [
-    98.5,
-    70.7,
-    2.6
+    1.2,
+    0.8,
+    0.1
    ],
    "tris": 368,
-   "tpu": 0,
+   "tpu": 524,
    "mat": 2,
-   "hash": "d72ff4e576",
-   "bytes": 18760,
+   "hash": "40b7fcff13",
+   "bytes": 18792,
+   "scaled": true,
    "reason": "style",
    "file": "barrage.fbx"
   },
@@ -82695,15 +82944,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "crest",
    "wdh": [
-    34.2,
-    69.5,
-    4.7
+    0.4,
+    0.8,
+    0.1
    ],
    "tris": 1601,
-   "tpu": 0,
+   "tpu": 4668,
    "mat": 3,
-   "hash": "e44a13c4ca",
-   "bytes": 85832,
+   "hash": "9b22734236",
+   "bytes": 85864,
+   "scaled": true,
    "reason": "style",
    "file": "crest.fbx"
   },
@@ -82712,15 +82962,16 @@
    "name": "floor_002",
    "kind": "str-part-floor",
    "wdh": [
-    263.4,
-    5.5,
-    258.8
+    3.2,
+    0.1,
+    3.1
    ],
    "tris": 9846,
-   "tpu": 0,
+   "tpu": 6471,
    "mat": 2,
-   "hash": "3d6d2346ca",
-   "bytes": 412196,
+   "hash": "f912cfb8bf",
+   "bytes": 412228,
+   "scaled": true,
    "reason": "style",
    "file": "floor_002.fbx"
   },
@@ -82729,15 +82980,16 @@
    "name": "floor_006",
    "kind": "str-part-floor",
    "wdh": [
-    263.3,
-    4.2,
-    258.8
+    3.2,
+    0.1,
+    3.1
    ],
    "tris": 12,
-   "tpu": 0,
+   "tpu": 8,
    "mat": 1,
-   "hash": "b06b8d1da1",
-   "bytes": 1736,
+   "hash": "6e6ab1fb8f",
+   "bytes": 1768,
+   "scaled": true,
    "reason": "style",
    "file": "floor_006.fbx"
   },
@@ -82746,15 +82998,16 @@
    "name": "gems",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    12,
-    23.6,
-    12
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 24,
-   "tpu": 0,
+   "tpu": 70,
    "mat": 1,
-   "hash": "dc065da4b9",
-   "bytes": 2320,
+   "hash": "e4e38f5e81",
+   "bytes": 2352,
+   "scaled": true,
    "reason": "style",
    "file": "gems.fbx"
   },
@@ -82763,15 +83016,16 @@
    "name": "gems_001",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    12,
-    19.7,
-    12
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 12,
-   "tpu": 0,
+   "tpu": 35,
    "mat": 1,
-   "hash": "97f868d181",
-   "bytes": 1900,
+   "hash": "c142474b03",
+   "bytes": 1932,
+   "scaled": true,
    "reason": "style",
    "file": "gems_001.fbx"
   },
@@ -82780,15 +83034,16 @@
    "name": "gems_002",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    8.2,
-    20,
-    8.2
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 8,
-   "tpu": 0,
+   "tpu": 23,
    "mat": 1,
-   "hash": "10662e1b69",
-   "bytes": 1688,
+   "hash": "8f950e5d9b",
+   "bytes": 1720,
+   "scaled": true,
    "reason": "style",
    "file": "gems_002.fbx"
   },
@@ -82797,15 +83052,16 @@
    "name": "gems_003",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    16.2,
-    14.1,
-    16.2
+    0.2,
+    0.2,
+    0.2
    ],
    "tris": 46,
-   "tpu": 0,
+   "tpu": 134,
    "mat": 1,
-   "hash": "88203a0c00",
-   "bytes": 3616,
+   "hash": "ae9640b6a9",
+   "bytes": 3648,
+   "scaled": true,
    "reason": "style",
    "file": "gems_003.fbx"
   },
@@ -82814,15 +83070,16 @@
    "name": "gems_004",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    9.1,
-    15.4,
-    9.1
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 638,
-   "tpu": 1,
+   "tpu": 1860,
    "mat": 1,
-   "hash": "b4eaa0049e",
-   "bytes": 35628,
+   "hash": "77b534a842",
+   "bytes": 35660,
+   "scaled": true,
    "reason": "style",
    "file": "gems_004.fbx"
   },
@@ -82831,15 +83088,16 @@
    "name": "gems_005",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    9.8,
-    11.8,
-    2.3
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 92,
-   "tpu": 0,
+   "tpu": 268,
    "mat": 1,
-   "hash": "b2739c3fb7",
-   "bytes": 6236,
+   "hash": "43f6f70169",
+   "bytes": 6268,
+   "scaled": true,
    "reason": "style",
    "file": "gems_005.fbx"
   },
@@ -82848,15 +83106,16 @@
    "name": "gems_006",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    9.7,
-    16.9,
-    3.5
+    0.1,
+    0.2,
+    0.1
    ],
    "tris": 444,
-   "tpu": 1,
+   "tpu": 1294,
    "mat": 1,
-   "hash": "5cb855e102",
-   "bytes": 23692,
+   "hash": "aa4bad127c",
+   "bytes": 23724,
+   "scaled": true,
    "reason": "style",
    "file": "gems_006.fbx"
   },
@@ -82865,15 +83124,16 @@
    "name": "gems_007",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    13.2,
-    13.2,
-    5.4
+    0.2,
+    0.2,
+    0.1
    ],
    "tris": 256,
-   "tpu": 0,
+   "tpu": 746,
    "mat": 1,
-   "hash": "eb10d24803",
-   "bytes": 16400,
+   "hash": "ad947140a2",
+   "bytes": 16432,
+   "scaled": true,
    "reason": "style",
    "file": "gems_007.fbx"
   },
@@ -82882,15 +83142,16 @@
    "name": "gems_008",
    "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
-    6.5,
-    21.6,
-    6.5
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 24,
-   "tpu": 0,
+   "tpu": 70,
    "mat": 1,
-   "hash": "b13a2d4696",
-   "bytes": 2364,
+   "hash": "6923a59b97",
+   "bytes": 2396,
+   "scaled": true,
    "reason": "style",
    "file": "gems_008.fbx"
   },
@@ -82899,15 +83160,16 @@
    "name": "key",
    "kind": "obj-equipment-pocketitem-key",
    "wdh": [
-    9,
-    2.8,
-    0.6
+    0.1,
+    0.1,
+    0.1
    ],
    "tris": 1152,
-   "tpu": 64,
+   "tpu": 3359,
    "mat": 1,
-   "hash": "ed2326322d",
-   "bytes": 61872,
+   "hash": "758a8595b9",
+   "bytes": 61904,
+   "scaled": true,
    "reason": "style",
    "file": "key.fbx"
   },
@@ -82916,15 +83178,16 @@
    "name": "potion",
    "kind": "obj-container-bottle-vial",
    "wdh": [
-    11.2,
-    23.3,
-    11.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 1272,
-   "tpu": 0,
+   "tpu": 3708,
    "mat": 2,
-   "hash": "7e45dc83cd",
-   "bytes": 67236,
+   "hash": "9ba26d2b22",
+   "bytes": 67268,
+   "scaled": true,
    "reason": "style",
    "file": "potion.fbx",
    "variant": "v474"
@@ -82934,15 +83197,16 @@
    "name": "potion_001",
    "kind": "obj-container-bottle-vial",
    "wdh": [
-    11.2,
-    23.3,
-    11.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 1272,
-   "tpu": 0,
+   "tpu": 3708,
    "mat": 2,
-   "hash": "1fa497c295",
-   "bytes": 67284,
+   "hash": "42a8e592f7",
+   "bytes": 67316,
+   "scaled": true,
    "reason": "style",
    "file": "potion_001.fbx",
    "variant": "v474"
@@ -82952,15 +83216,16 @@
    "name": "potion_002",
    "kind": "obj-container-bottle-vial",
    "wdh": [
-    11.2,
-    23.3,
-    11.2
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 1272,
-   "tpu": 0,
+   "tpu": 3708,
    "mat": 2,
-   "hash": "310fe75ae6",
-   "bytes": 67284,
+   "hash": "86a9f1b931",
+   "bytes": 67316,
+   "scaled": true,
    "reason": "style",
    "file": "potion_002.fbx",
    "variant": "v474"
@@ -82969,15 +83234,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "rampflat",
    "wdh": [
-    12,
-    21.4,
-    16.7
+    0.1,
+    0.3,
+    0.2
    ],
    "tris": 136,
-   "tpu": 0,
+   "tpu": 397,
    "mat": 2,
-   "hash": "514907cd30",
-   "bytes": 9796,
+   "hash": "cc3adedbf7",
+   "bytes": 9828,
+   "scaled": true,
    "reason": "style",
    "file": "rampflat.fbx"
   },
@@ -82985,15 +83251,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "rampflat_001",
    "wdh": [
-    12,
-    21.4,
-    33.5
+    0.1,
+    0.3,
+    0.4
    ],
    "tris": 272,
-   "tpu": 0,
+   "tpu": 793,
    "mat": 2,
-   "hash": "645ef32397",
-   "bytes": 17736,
+   "hash": "860b25e03c",
+   "bytes": 17768,
+   "scaled": true,
    "reason": "style",
    "file": "rampflat_001.fbx"
   },
@@ -83001,15 +83268,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "rampflat_002",
    "wdh": [
-    12,
-    21.4,
-    50.2
+    0.1,
+    0.3,
+    0.6
    ],
    "tris": 408,
-   "tpu": 0,
+   "tpu": 1190,
    "mat": 2,
-   "hash": "687047d5b7",
-   "bytes": 25656,
+   "hash": "84a25caa57",
+   "bytes": 25688,
+   "scaled": true,
    "reason": "style",
    "file": "rampflat_002.fbx"
   },
@@ -83017,15 +83285,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "rampflat_003",
    "wdh": [
-    12,
-    21.4,
-    66.9
+    0.1,
+    0.3,
+    0.8
    ],
    "tris": 544,
-   "tpu": 0,
+   "tpu": 1382,
    "mat": 2,
-   "hash": "f37da815b3",
-   "bytes": 33576,
+   "hash": "9397ee514f",
+   "bytes": 33608,
+   "scaled": true,
    "reason": "style",
    "file": "rampflat_003.fbx"
   },
@@ -83033,15 +83302,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "rampflate",
    "wdh": [
-    12,
-    21.4,
-    267.7
+    0.1,
+    0.3,
+    3.2
    ],
    "tris": 2176,
-   "tpu": 0,
+   "tpu": 1382,
    "mat": 2,
-   "hash": "8827714b2d",
-   "bytes": 128624,
+   "hash": "bd673d15ee",
+   "bytes": 128656,
+   "scaled": true,
    "reason": "style",
    "file": "rampflate.fbx"
   },
@@ -83049,15 +83319,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "stonebed",
    "wdh": [
-    96.4,
-    43.2,
-    52.7
+    1.2,
+    0.5,
+    0.6
    ],
    "tris": 11422,
-   "tpu": 0,
+   "tpu": 27216,
    "mat": 2,
-   "hash": "1b775952d7",
-   "bytes": 619264,
+   "hash": "aa5d3f5d0d",
+   "bytes": 619296,
+   "scaled": true,
    "reason": "style",
    "file": "stonebed.fbx"
   },
@@ -83066,15 +83337,16 @@
    "name": "torch",
    "kind": "obj-furnishing-light-torch",
    "wdh": [
-    8.9,
-    28.5,
-    8.9
+    0.1,
+    0.3,
+    0.1
    ],
    "tris": 2364,
-   "tpu": 1,
+   "tpu": 6892,
    "mat": 3,
-   "hash": "b706c4dcda",
-   "bytes": 129944,
+   "hash": "073ab0c355",
+   "bytes": 129976,
+   "scaled": true,
    "reason": "style",
    "file": "torch.fbx"
   },
@@ -83082,15 +83354,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "torchhold",
    "wdh": [
-    25.7,
-    28.6,
-    10.2
+    0.3,
+    0.3,
+    0.1
    ],
    "tris": 2622,
-   "tpu": 0,
+   "tpu": 7644,
    "mat": 3,
-   "hash": "ad69cabd80",
-   "bytes": 143600,
+   "hash": "983aad7e32",
+   "bytes": 143632,
+   "scaled": true,
    "reason": "style",
    "file": "torchhold.fbx"
   },
@@ -83098,15 +83371,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "walls_006",
    "wdh": [
-    262.9,
-    105.5,
-    16.6
+    3.2,
+    1.3,
+    0.2
    ],
    "tris": 4019,
-   "tpu": 0,
+   "tpu": 1438,
    "mat": 3,
-   "hash": "53f9c56ebd",
-   "bytes": 196116,
+   "hash": "d58ab30d08",
+   "bytes": 196148,
+   "scaled": true,
    "reason": "style",
    "file": "walls_006.fbx"
   },
@@ -83114,15 +83388,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "walls_007",
    "wdh": [
-    262.9,
-    105.5,
-    16.6
+    3.2,
+    1.3,
+    0.2
    ],
    "tris": 5594,
-   "tpu": 0,
+   "tpu": 2002,
    "mat": 4,
-   "hash": "0593b1fb9a",
-   "bytes": 282424,
+   "hash": "4d90d9fe3f",
+   "bytes": 282456,
+   "scaled": true,
    "reason": "style",
    "file": "walls_007.fbx"
   },
@@ -83130,15 +83405,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "walls_008",
    "wdh": [
-    262.9,
-    105.5,
-    16.6
+    3.2,
+    1.3,
+    0.2
    ],
    "tris": 6314,
-   "tpu": 0,
+   "tpu": 2259,
    "mat": 4,
-   "hash": "c27b439e82",
-   "bytes": 313820,
+   "hash": "7dbd5d25c2",
+   "bytes": 313852,
+   "scaled": true,
    "reason": "style",
    "file": "walls_008.fbx"
   },
@@ -83146,15 +83422,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "walls_009",
    "wdh": [
-    262.9,
-    105.5,
-    16.6
+    3.2,
+    1.3,
+    0.2
    ],
    "tris": 7034,
-   "tpu": 0,
+   "tpu": 2517,
    "mat": 4,
-   "hash": "94c213186f",
-   "bytes": 345232,
+   "hash": "284f781114",
+   "bytes": 345264,
+   "scaled": true,
    "reason": "style",
    "file": "walls_009.fbx"
   },
@@ -83162,15 +83439,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "woodbox_001",
    "wdh": [
-    21.8,
-    21.8,
-    21.8
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 540,
-   "tpu": 0,
+   "tpu": 1574,
    "mat": 2,
-   "hash": "1f8473d233",
-   "bytes": 26796,
+   "hash": "0ad173fd2d",
+   "bytes": 26828,
+   "scaled": true,
    "reason": "style",
    "file": "woodbox_001.fbx"
   },
@@ -83178,15 +83456,16 @@
    "kit": "Dungeon_Asset_Pack",
    "name": "woodbox_003",
    "wdh": [
-    21.8,
-    21.8,
-    21.8
+    0.3,
+    0.3,
+    0.3
    ],
    "tris": 562,
-   "tpu": 0,
+   "tpu": 1638,
    "mat": 2,
-   "hash": "3ef19c6a4a",
-   "bytes": 26636,
+   "hash": "62f5c6906e",
+   "bytes": 26668,
+   "scaled": true,
    "reason": "style",
    "file": "woodbox_003.fbx"
   },
@@ -83623,7 +83902,7 @@
   {
    "kit": "Low_Poly_Construction",
    "name": "Nails",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.1,
@@ -84483,6 +84762,7 @@
   {
    "kit": "School_Styloo",
    "name": "chalk_001",
+   "kind": "obj-equipment-tool-stationery-writing",
    "wdh": [
     0.1,
     0.1,
@@ -84501,6 +84781,7 @@
   {
    "kit": "School_Styloo",
    "name": "chalk_002",
+   "kind": "obj-equipment-tool-stationery-writing",
    "wdh": [
     0.1,
     0.1,
@@ -89461,7 +89742,7 @@
   {
    "kit": "LowPolyStore_Polygonal_Mind",
    "name": "PresentOpen01_Art",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.8,
     0.3,
@@ -89479,7 +89760,7 @@
   {
    "kit": "LowPolyStore_Polygonal_Mind",
    "name": "PresentOpen02_Art",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.6,
     0.1,
@@ -89497,7 +89778,7 @@
   {
    "kit": "LowPolyStore_Polygonal_Mind",
    "name": "PresentOpen03_Art",
-   "kind": "obj-container-crate-cardboard",
+   "kind": "obj-container-present",
    "wdh": [
     0.8,
     0.3,
@@ -89652,6 +89933,7 @@
   {
    "kit": "LowPolyStore_Polygonal_Mind",
    "name": "Tank_Art",
+   "kind": "str-fixture-utility-tank",
    "wdh": [
     3,
     1.7,
@@ -90936,7 +91218,7 @@
   {
    "kit": "LowPolyStore_Polygonal_Mind",
    "name": "PoapMachine_Art",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "wdh": [
     0.4,
     0.5,
@@ -98667,7 +98949,7 @@
   {
    "kit": "Lava_Tileset",
    "name": "ramp_middle",
-   "kind": "str-access-stairs",
+   "kind": "str-access-ramp",
    "wdh": [
     2,
     1,
@@ -98685,7 +98967,7 @@
   {
    "kit": "Lava_Tileset",
    "name": "ramp_left",
-   "kind": "str-access-stairs",
+   "kind": "str-access-ramp",
    "wdh": [
     3,
     1,
@@ -98703,7 +98985,7 @@
   {
    "kit": "Lava_Tileset",
    "name": "ramp_right",
-   "kind": "str-access-stairs",
+   "kind": "str-access-ramp",
    "wdh": [
     3,
     1,
@@ -98721,6 +99003,7 @@
   {
    "kit": "Lava_Tileset",
    "name": "soil_clean_A",
+   "kind": "env-terrain-ground-field",
    "wdh": [
     2,
     0.1,
@@ -98822,6 +99105,7 @@
   {
    "kit": "Lava_Tileset",
    "name": "soil_clean_B",
+   "kind": "env-terrain-ground-field",
    "wdh": [
     2,
     0.1,
@@ -98838,6 +99122,7 @@
   {
    "kit": "Lava_Tileset",
    "name": "soil_middle",
+   "kind": "env-terrain-ground-field",
    "wdh": [
     2,
     0.1,
@@ -98854,7 +99139,6 @@
   {
    "kit": "Lava_Tileset",
    "name": "soil_inner_corner",
-   "kind": "str-part-wall",
    "wdh": [
     2,
     0.1,
@@ -98871,7 +99155,6 @@
   {
    "kit": "Lava_Tileset",
    "name": "soil_corner",
-   "kind": "str-part-wall",
    "wdh": [
     2,
     0.1,
@@ -100000,7 +100283,7 @@
   {
    "kit": "Swordtember2022",
    "name": "3-Gears",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-resource-metal-parts",
    "wdh": [
     0.2,
     0.4,
@@ -100156,7 +100439,7 @@
   {
    "kit": "Analog_Memory_80s_Rooms_EmaceArt",
    "name": "EAThe80_Prop_Pallet_01a",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "wdh": [
     0.2,
     0.1,
@@ -100226,7 +100509,6 @@
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
    "name": "EA03_Env_RoadIslandMud_01a",
-   "kind": "str-access-road",
    "wdh": [
     1.6,
     0.2,
@@ -100244,7 +100526,6 @@
   {
    "kit": "Fantasy_Medieval_Houses_EmaceArt",
    "name": "EA03_Env_RoadIslandMud_01b",
-   "kind": "str-access-road",
    "wdh": [
     1.6,
     0.1,
@@ -101382,7 +101663,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "architrave_pencil_round",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "wdh": [
     0.8,
     1.8,
@@ -101597,6 +101878,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "blister_pack_01",
+   "kind": "obj-equipment-pocketitem-medicine",
    "wdh": [
     0.1,
     0.1,
@@ -101614,6 +101896,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "blister_pack_04",
+   "kind": "obj-equipment-pocketitem-medicine",
    "wdh": [
     0.1,
     0.1,
@@ -101631,6 +101914,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "blister_pack_05",
+   "kind": "obj-equipment-pocketitem-medicine",
    "wdh": [
     0.1,
     0.1,
@@ -102212,7 +102496,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "cycle_rack",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "wdh": [
     0.7,
     0.7,
@@ -102441,7 +102725,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "flat_head_screw",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.1,
@@ -102952,6 +103236,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "letter_rack_02",
+   "kind": "obj-equipment-tool-stationery-filing",
    "wdh": [
     0.3,
     0.3,
@@ -102969,7 +103254,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_01",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -102987,7 +103272,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_02",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103005,7 +103290,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_03",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103023,7 +103308,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_04",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103041,7 +103326,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_05",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103058,7 +103343,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_06",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103076,7 +103361,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_07",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103094,7 +103379,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_08",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103112,7 +103397,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "loading_icon_09",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "wdh": [
     0.2,
     0.2,
@@ -103716,7 +104001,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "small_pallet",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "wdh": [
     0.8,
     0.1,
@@ -103993,7 +104278,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "tent_peg_01",
-   "kind": "str-canopy-tent",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "wdh": [
     0.1,
     0.2,
@@ -104517,6 +104802,7 @@
   {
    "kit": "Lowbudget_Game_Assets_britdawgmasterfunk",
    "name": "tank_propane",
+   "kind": "str-fixture-utility-tank",
    "wdh": [
     0.1,
     0.5,
