@@ -365,7 +365,7 @@ function readTags(known) {
 
   const unknownMaterial = [...material].filter((id) => !MATERIAL_TREE.has(id));
   if (unknownMaterial.length) throw new Error(`material not in lint/materials.json: ${unknownMaterial.join(', ')}`);
-  const missingMaterial = [...MATERIAL_TREE].filter((id) => !material.has(id));
+  const missingMaterial = [...MATERIAL_TREE.keys()].filter((id) => !material.has(id));
   if (missingMaterial.length) throw new Error(`lint/materials.json material not in tags.json: ${missingMaterial.join(', ')}`);
 
   const unknownKind = tags.filter((t) => t.type === 'kind' && !KIND_TREE.has(t.id)).map((t) => t.id);

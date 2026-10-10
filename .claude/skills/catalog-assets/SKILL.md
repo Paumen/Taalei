@@ -87,21 +87,25 @@ across the gradient carries over, it is not flattened to one colour;
 Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 `palette.mjs` complains:
 
-- Most materials force the band: `wood-planks` is tan, `wood-beam` chestnut,
-  `metal-iron-steel` nickel, `metal-iron-cast` slate, `metal-gold` amber,
-  `stone-masonry` and `stone-rock` taupe or taupe-dark, `stone-asphalt` basalt. Pick
-  the material by the band you want, not the other way round.
-- `azure` is admitted only by `liquid`, `gemstone` and bare `metal`. A blue
+- Most materials force the band: `wood-light` is tan, `wood-mid` camel,
+  `wood-dark` chestnut, `metal-steel` and `metal-aluminium` nickel,
+  `metal-iron-mid` basalt, `metal-iron-dark` slate, `metal-gold` amber,
+  `stone-masonry-light` ivory, `-mid` taupe, `-dark` taupe-dark,
+  `stone-concrete` basalt, `ceramic-light` ivory, `-mid` terracotta, `-dark`
+  sienna, `textile-cloth-light` ivory, `-mid` taupe, `-dark` sienna. Pick the
+  material by the band you want, not the other way round.
+- `azure` is admitted only by `special-liquid`, `gemstone` and `plastic`. A blue
   cloth or a blue roof has no legal home.
-- `str` sets `mat.metal-iron: metal-iron-cast`, so iron on any structure is
-  cast and slate, never steel; lamp posts and lanterns fixed in
-  place (`str-fixture-light`) take `metal-iron-wrought`, modern street lights
-  and traffic lights (`str-fixture-light-street`, `-traffic`) `metal-iron-steel`. `obj-container-*` sets `mat.metal: metal-iron`,
-  so hoops and bands on a barrel, bucket or crate take an iron subtype rather
-  than bare `metal`.
-- `foliage` is moss or hunter; `emissive` is amber.
-- A material with no `bands` of its own (`food`, `vegetation`, bare `metal`)
-  is unconstrained by §5.1.
+- Lamp posts and lanterns fixed in place (`str-fixture-light`) take
+  `metal-iron-mid`, modern street lights and traffic lights
+  (`str-fixture-light-street`, `-traffic`) `metal-steel`.
+  `obj-container-*` limits metal to the iron subtypes and `metal-steel`.
+- `leaf-light` is moss, `leaf-dark` hunter; `special-emissive` is amber.
+- A material with no `bands` of its own (`special-food`, `special-organic`,
+  `feather`, `hair`) is unconstrained by §5.1.
+- Material subtypes follow the tree in `lint/materials.json`, not the id:
+  `bark` is not under `wood`, `wick` is under `textile`, and the `special-*`
+  materials are not under `special`.
 - The §5.1 check is coverage-based: it passes when at least one of the model's
   bands is in the material's list. That is weak enough to let a wrong band
   through, so do not lean on it as proof.
