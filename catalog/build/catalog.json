@@ -23739,7 +23739,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1782,
+   "count": 1750,
    "parent": "metal"
   },
   {
@@ -23759,14 +23759,6 @@
    "parent": "metal"
   },
   {
-   "id": "metal-aluminium",
-   "name": "Aluminium",
-   "type": "material",
-   "description": "Aluminium: cans, light frames, panels and ladders.",
-   "count": 0,
-   "parent": "metal"
-  },
-  {
    "id": "stone",
    "name": "Stone",
    "type": "material",
@@ -23779,7 +23771,7 @@
    "name": "Masonry light",
    "type": "material",
    "description": "Light stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 163,
+   "count": 166,
    "parent": "stone"
   },
   {
@@ -24058,7 +24050,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 341,
+   "count": 325,
    "parent": "textile-cloth"
   },
   {
@@ -24113,7 +24105,7 @@
    "name": "Feather",
    "type": "material",
    "description": "Feathers: quills, plumes, fletching.",
-   "count": 41,
+   "count": 42,
    "parent": "animal"
   },
   {
@@ -24144,7 +24136,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1190,
+   "count": 1197,
    "parent": "polymer"
   },
   {
@@ -33457,7 +33449,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     },
     {
      "level": "error",
@@ -35094,7 +35086,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon-explosive)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (obj-equipment-weapon-explosive)"
     }
    ]
   },
@@ -35257,7 +35249,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (obj-equipment-weapon)"
     }
    ]
   },
@@ -78410,18 +78402,10 @@
    ],
    "tags": [
     "fs",
-    "metal-steel",
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/tower-parapet-braced-crowned",
-   "thickRel": 1.28,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has taupe azure"
-    }
-   ]
+   "thickRel": 1.28
   },
   {
    "kit": "fs-temple",
@@ -78466,18 +78450,10 @@
    ],
    "tags": [
     "fs",
-    "metal-steel",
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/tower-parapet-braced-crowned",
-   "thickRel": 1.22,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has azure taupe"
-    }
-   ]
+   "thickRel": 1.22
   },
   {
    "kit": "fs-temple",
@@ -118257,17 +118233,10 @@
    ],
    "tags": [
     "isa",
-    "metal-steel"
+    "plastic"
    ],
    "variant": "isa-playground/tire-azure",
-   "thickRel": 1.93,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has azure"
-    }
-   ]
+   "thickRel": 1.93
   },
   {
    "kit": "isa-playground",
@@ -119600,17 +119569,11 @@
     "leather",
     "metal-steel",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
    "thickRel": 0.46,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has hunter nickel chestnut bark"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -119670,18 +119633,10 @@
     "kay",
     "metal-steel",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has hunter nickel chestnut"
-    }
-   ]
+   "thickRel": 0.93
   },
   {
    "kit": "kay-adventurers",
@@ -120837,18 +120792,10 @@
     "kay",
     "leather",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-adventurers/quiver",
    "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has bark hunter chestnut"
-    }
-   ],
    "mark": [
     "grounded"
    ]
@@ -126817,17 +126764,9 @@
     "feather",
     "kay",
     "metal-steel",
-    "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.72,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has nickel chestnut hunter"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "kay-dun-1",
@@ -130960,8 +130899,7 @@
     "feather",
     "kay",
     "leather",
-    "metal-steel",
-    "textile-cloth-dark"
+    "metal-steel"
    ],
    "variant": "kay-dun-1/quiver-full",
    "backface": {
@@ -130973,11 +130911,6 @@
    },
    "thickRel": 0.75,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has bark nickel hunter"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -131034,8 +130967,7 @@
     "feather",
     "kay",
     "leather",
-    "metal-steel",
-    "textile-cloth-dark"
+    "metal-steel"
    ],
    "variant": "kay-dun-1/quiver-full",
    "backface": {
@@ -131047,11 +130979,6 @@
    },
    "thickRel": 0.88,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has bark nickel hunter"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -156807,9 +156734,9 @@
     "#bb8255"
    ],
    "tags": [
+    "feather",
     "kay",
     "metal-iron-mid",
-    "textile-cloth-dark",
     "wood-dark",
     "wood-mid"
    ],
@@ -164987,17 +164914,10 @@
    ],
    "tags": [
     "kay",
-    "metal-steel"
+    "plastic"
    ],
    "variant": "kay-minigame/gate-large",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has azure"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "kay-minigame",
@@ -165037,7 +164957,7 @@
    ],
    "tags": [
     "kay",
-    "metal-steel"
+    "plastic"
    ],
    "variant": "kay-minigame/gate-large",
    "thickRel": 1.08,
@@ -165046,11 +164966,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.6 under min 0.7 (str-part-gate-gateway)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has azure"
     }
    ]
   },
@@ -175660,17 +175575,11 @@
     "feather",
     "kay",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
    "thickRel": 0.3,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut hunter"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -175730,17 +175639,11 @@
     "kay",
     "metal-steel",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
    "thickRel": 0.32,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has nickel chestnut hunter"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -175794,18 +175697,10 @@
     "feather",
     "kay",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.57,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has hunter chestnut"
-    }
-   ]
+   "thickRel": 0.57
   },
   {
    "kit": "kay-skeleton",
@@ -175859,18 +175754,10 @@
     "kay",
     "metal-steel",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has hunter nickel chestnut"
-    }
-   ]
+   "thickRel": 0.93
   },
   {
    "kit": "kay-skeleton",
@@ -176147,7 +176034,6 @@
     "leather",
     "metal-steel",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-adventurers/quiver",
@@ -177966,17 +177852,9 @@
     "kay",
     "leather",
     "robin-hood",
-    "scale-small",
-    "textile-cloth-dark"
+    "scale-small"
    ],
-   "thickRel": 0.7,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has hunter bark"
-    }
-   ]
+   "thickRel": 0.7
   },
   {
    "kit": "kay-skeleton-1",
@@ -185788,18 +185666,10 @@
     "kay",
     "metal-steel",
     "robin-hood",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "kay-weapons/arrow-a",
-   "thickRel": 1.09,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has hunter nickel chestnut"
-    }
-   ]
+   "thickRel": 1.09
   },
   {
    "kit": "kay-weapons",
@@ -190863,7 +190733,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (obj-equipment-weapon)"
     }
    ]
   },
@@ -191075,14 +190945,7 @@
     "ken",
     "metal-iron-mid"
    ],
-   "variant": "ken-blaster/silencer-larger",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "variant": "ken-blaster/silencer-larger"
   },
   {
    "kit": "ken-blaster",
@@ -191130,14 +190993,7 @@
     "ken",
     "metal-iron-mid"
    ],
-   "variant": "ken-blaster/silencer-larger",
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "variant": "ken-blaster/silencer-larger"
   },
   {
    "kit": "ken-blaster",
@@ -204071,7 +203927,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-light-traffic)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-light-traffic)"
     }
    ]
   },
@@ -225522,20 +225378,12 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "scale-small",
     "stone-masonry-mid",
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 1.57,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has taupe taupe-dark"
-    }
-   ]
+   "thickRel": 1.57
   },
   {
    "kit": "ken-industrial",
@@ -225580,19 +225428,11 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "scale-big",
     "stone-masonry-mid",
     "tba"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has taupe taupe-dark"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-industrial",
@@ -225639,19 +225479,11 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "stone-masonry-dark",
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 1.37,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has taupe-dark taupe"
-    }
-   ]
+   "thickRel": 1.37
   },
   {
    "kit": "ken-industrial",
@@ -225696,20 +225528,12 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "scale-small",
     "stone-masonry-mid",
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has taupe-dark taupe"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ken-industrial",
@@ -241552,17 +241376,9 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory sienna"
-    }
-   ]
+   "thickRel": 1.06
   },
   {
    "kit": "ken-racing",
@@ -241714,7 +241530,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     }
    ]
   },
@@ -241781,7 +241597,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     }
    ]
   },
@@ -241846,7 +241662,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     }
    ]
   },
@@ -241913,7 +241729,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     }
    ]
   },
@@ -242001,7 +241817,6 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "thickRel": 0.6,
@@ -242010,11 +241825,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.984 over max 0.85 (str-barrier-fence)"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
     }
    ]
   },
@@ -242083,7 +241893,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     },
     {
      "level": "error",
@@ -242157,7 +241967,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     },
     {
      "level": "warning",
@@ -242662,7 +242472,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-dark (str-fixture-light-traffic)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (str-fixture-light-traffic)"
     },
     {
      "level": "warning",
@@ -242898,7 +242708,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-dark (str-fixture-light-traffic)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (str-fixture-light-traffic)"
     }
    ]
   },
@@ -242964,7 +242774,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-dark (str-fixture-light-traffic)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (str-fixture-light-traffic)"
     }
    ]
   },
@@ -243425,17 +243235,10 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel",
+    "stone-masonry-light",
     "storeys-1"
    ],
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory glass sienna"
-    }
-   ]
+   "thickRel": 0.77
   },
   {
    "kit": "ken-racing",
@@ -243485,18 +243288,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel",
+    "stone-masonry-light",
     "storeys-1-5"
    ],
    "variant": "ken-racing/pits-office",
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory sienna glass"
-    }
-   ]
+   "thickRel": 1.06
   },
   {
    "kit": "ken-racing",
@@ -243546,18 +243342,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel",
+    "stone-masonry-light",
     "storeys-1"
    ],
    "variant": "ken-racing/pits-office",
-   "thickRel": 0.81,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory sienna glass"
-    }
-   ]
+   "thickRel": 0.81
   },
   {
    "kit": "ken-racing",
@@ -244127,18 +243916,10 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 1.12,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    }
-   ]
+   "thickRel": 1.12
   },
   {
    "kit": "ken-racing",
@@ -244177,18 +243958,10 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 0.8,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    }
-   ]
+   "thickRel": 0.8
   },
   {
    "kit": "ken-racing",
@@ -244227,18 +244000,10 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 1.2,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    }
-   ]
+   "thickRel": 1.2
   },
   {
    "kit": "ken-racing",
@@ -244278,7 +244043,6 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent-roof",
@@ -244291,11 +244055,6 @@
    },
    "thickRel": 0.73,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -244340,7 +244099,6 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent-roof",
@@ -244353,11 +244111,6 @@
    },
    "thickRel": 1.12,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -244402,18 +244155,10 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 0.88,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    }
-   ]
+   "thickRel": 0.88
   },
   {
    "kit": "ken-racing",
@@ -247704,7 +247449,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-leisure-playground)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-leisure-playground)"
     }
    ]
   },
@@ -247760,7 +247505,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-leisure-playground)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-leisure-playground)"
     }
    ]
   },
@@ -247816,7 +247561,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-leisure-playground)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-leisure-playground)"
     }
    ]
   },
@@ -248110,7 +247855,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-leisure-playground)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-leisure-playground)"
     }
    ]
   },
@@ -248160,7 +247905,7 @@
    "kit": "ken-skate",
    "collection": "ken-mini",
    "name": "rail-curve",
-   "hash": "942fc6e01e",
+   "hash": "2c90bb0c14",
    "kind": "str-fixture-leisure-playground",
    "size": "m",
    "wdh": [
@@ -248189,33 +247934,26 @@
      0.07,
      0.969
     ],
-    "5,2": [
+    "15,3": [
      0.266,
      0.688
     ]
    },
    "colors": [
-    "#873a27",
-    "#d8cfb7"
+    "#7a8491",
+    "#873a27"
    ],
    "tags": [
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.51,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna ivory"
-    }
-   ]
+   "thickRel": 0.51
   },
   {
    "kit": "ken-skate",
    "collection": "ken-mini",
    "name": "rail-high",
-   "hash": "7162e2032f",
+   "hash": "2b578c34b9",
    "kind": "str-fixture-leisure-playground",
    "size": "m",
    "wdh": [
@@ -248244,34 +247982,27 @@
      0.5,
      0.5
     ],
-    "5,2": [
+    "15,3": [
      0.461,
      0.516
     ]
    },
    "colors": [
-    "#873a27",
-    "#d8cfb7"
+    "#7a8491",
+    "#873a27"
    ],
    "tags": [
     "ken",
     "metal-steel"
    ],
    "variant": "ken-skate/rail-low",
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna ivory"
-    }
-   ]
+   "thickRel": 0.87
   },
   {
    "kit": "ken-skate",
    "collection": "ken-mini",
    "name": "rail-low",
-   "hash": "a0f1ed74c4",
+   "hash": "7f9365a604",
    "kind": "str-fixture-leisure-playground",
    "size": "m",
    "wdh": [
@@ -248300,34 +248031,27 @@
      0.5,
      0.5
     ],
-    "5,2": [
+    "15,3": [
      0.438,
      0.555
     ]
    },
    "colors": [
-    "#873a27",
-    "#d8cfb7"
+    "#7a8491",
+    "#873a27"
    ],
    "tags": [
     "ken",
     "metal-steel"
    ],
    "variant": "ken-skate/rail-low",
-   "thickRel": 1.58,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna ivory"
-    }
-   ]
+   "thickRel": 1.58
   },
   {
    "kit": "ken-skate",
    "collection": "ken-mini",
    "name": "rail-slope",
-   "hash": "30f1b53deb",
+   "hash": "8985e3839a",
    "kind": "str-fixture-leisure-playground",
    "size": "m",
    "wdh": [
@@ -248356,27 +248080,20 @@
      0.133,
      0.867
     ],
-    "5,2": [
+    "15,3": [
      0.266,
      0.68
     ]
    },
    "colors": [
-    "#873a27",
-    "#d8cfb7"
+    "#7a8491",
+    "#873a27"
    ],
    "tags": [
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.82,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna ivory"
-    }
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "ken-skate",
@@ -250211,18 +249928,10 @@
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "plastic",
     "space"
    ],
-   "thickRel": 1.35,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory sienna"
-    }
-   ]
+   "thickRel": 1.35
   },
   {
    "kit": "ken-space",
@@ -307977,7 +307686,6 @@
    ],
    "tags": [
     "m3",
-    "metal-steel",
     "mounted",
     "textile-cloth-light"
    ],
@@ -307990,8 +307698,8 @@
     },
     {
      "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has taupe-dark ivory hunter sienna"
+     "check": "measures",
+     "text": "G11 bands 4 wants max 2"
     },
     {
      "level": "error",
@@ -321223,16 +320931,11 @@
    ],
    "tags": [
     "m3",
-    "metal-steel"
+    "plastic"
    ],
    "variant": "m3-base/outdoor-bin",
    "thickRel": 0.46,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has hunter"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -321277,17 +320980,10 @@
    ],
    "tags": [
     "m3",
-    "metal-steel"
+    "plastic"
    ],
    "variant": "m3-base/outdoor-bin",
-   "thickRel": 1.12,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has hunter"
-    }
-   ]
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -321338,7 +321034,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (str-fixture-marker)"
+     "text": "metal needs metal-steel or metal-iron-dark or metal-gold or metal-copper, has metal-iron-mid (str-fixture-marker)"
     }
    ]
   },
@@ -385520,7 +385216,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-dark (obj-equipment-weapon)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (obj-equipment-weapon)"
     }
    ]
   },
@@ -385634,7 +385330,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (obj-equipment-weapon)"
     }
    ]
   },
@@ -401609,7 +401305,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "watchtower-1-a",
-   "hash": "dbcc18c4a3",
+   "hash": "f32e58b71d",
    "kind": "str-building-tower",
    "size": "l",
    "wdh": [
@@ -401642,13 +401338,13 @@
      0.766,
      0.961
     ],
-    "1,1": [
+    "8,0": [
      0.117,
      0.117
     ]
    },
    "colors": [
-    "#21552a",
+    "#873a27",
     "#89542e",
     "#dbb789"
    ],
@@ -401660,20 +401356,13 @@
     "wood-light"
    ],
    "variant": "quat-town/watchtower-1-b",
-   "thickRel": 0.75,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut tan hunter"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "watchtower-1-b",
-   "hash": "774038018f",
+   "hash": "a201a1fb65",
    "kind": "str-building-tower",
    "size": "l",
    "wdh": [
@@ -401706,13 +401395,13 @@
      0.766,
      0.961
     ],
-    "1,1": [
+    "8,0": [
      0.031,
      0.211
     ]
    },
    "colors": [
-    "#21552a",
+    "#873a27",
     "#89542e",
     "#dbb789"
    ],
@@ -401724,20 +401413,13 @@
     "wood-light"
    ],
    "variant": "quat-town/watchtower-1-b",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut tan hunter"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "watchtower-1-c",
-   "hash": "a571643ee3",
+   "hash": "0312bd34dd",
    "kind": "str-building-tower",
    "size": "l",
    "wdh": [
@@ -401770,13 +401452,13 @@
      0.766,
      0.961
     ],
-    "1,1": [
+    "8,0": [
      0.031,
      0.211
     ]
    },
    "colors": [
-    "#21552a",
+    "#873a27",
     "#89542e",
     "#dbb789"
    ],
@@ -401788,14 +401470,7 @@
     "wood-light"
    ],
    "variant": "quat-town/watchtower-1-b",
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut tan hunter"
-    }
-   ]
+   "thickRel": 0.77
   },
   {
    "kit": "quat-town",
@@ -419894,18 +419569,10 @@
     "feather",
     "metal-steel",
     "rgp",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "variant": "rgp-weapons/arrow-a",
-   "thickRel": 0.72,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut hunter nickel"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "rgp-weapons",
@@ -423251,18 +422918,10 @@
    ],
    "tags": [
     "metal-iron-dark",
-    "metal-steel",
     "plastic",
     "sq"
    ],
-   "thickRel": 1.17,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has slate amber moss azure ivory"
-    }
-   ]
+   "thickRel": 1.17
   },
   {
    "kit": "sq-arcade",
@@ -423375,18 +423034,10 @@
    ],
    "tags": [
     "glass-screen",
-    "metal-steel",
     "plastic",
     "sq"
    ],
-   "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has slate ivory moss azure amber"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "sq-arcade",
@@ -423664,18 +423315,10 @@
     "glass-clear",
     "hero",
     "metal-iron-dark",
-    "metal-steel",
     "plastic",
     "sq"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has slate amber moss azure glass"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "sq-arcade",
@@ -423806,19 +423449,11 @@
    ],
    "tags": [
     "glass-screen",
-    "metal-steel",
     "plastic",
     "sq",
     "textile-cloth-light"
    ],
-   "thickRel": 0.6,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has moss slate amber ivory azure"
-    }
-   ]
+   "thickRel": 0.6
   },
   {
    "kit": "sq-arcade",
@@ -424075,18 +423710,10 @@
    ],
    "tags": [
     "metal-iron-dark",
-    "metal-steel",
     "plastic",
     "sq"
    ],
-   "thickRel": 0.52,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has azure ivory slate amber moss"
-    }
-   ]
+   "thickRel": 0.52
   },
   {
    "kit": "sq-arcade",
@@ -437215,18 +436842,10 @@
     "#873a27"
    ],
    "tags": [
-    "metal-steel",
     "plastic",
     "sty"
    ],
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna azure"
-    }
-   ]
+   "thickRel": 0.93
   },
   {
    "kit": "styloo-farm",
@@ -446836,18 +446455,11 @@
    ],
    "tags": [
     "glass-clear",
-    "metal-steel",
+    "plastic",
     "sty"
    ],
    "variant": "styloo-planes/plane-helice",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has hunter glass ivory"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "styloo-planes",
@@ -446896,18 +446508,11 @@
    ],
    "tags": [
     "glass-clear",
-    "metal-steel",
+    "plastic",
     "sty"
    ],
    "variant": "styloo-planes/plane-helice",
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has hunter glass ivory"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "styloo-planes",
@@ -456192,14 +455797,7 @@
     "tba"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 2.2,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-gold metal-iron-dark (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 2.2
   },
   {
    "kit": "taalei-kit",
@@ -456248,14 +455846,7 @@
     "tba"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 1.17,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-gold metal-iron-dark (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 1.17
   },
   {
    "kit": "taalei-kit",
@@ -456304,14 +455895,7 @@
     "tba"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 1.72,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-gold metal-iron-dark (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 1.72
   },
   {
    "kit": "taalei-kit",
@@ -457666,14 +457250,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-copper metal-gold (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "taalei-kit",
@@ -457722,14 +457299,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-copper metal-iron-dark (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "taalei-kit",
@@ -457888,14 +457458,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-gold metal-iron-dark (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 0.77
   },
   {
    "kit": "taalei-kit",
@@ -460540,7 +460103,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-dark (obj-equipment-weapon)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (obj-equipment-weapon)"
     }
    ]
   },
@@ -476085,14 +475648,7 @@
     "ct",
     "metal-iron-mid"
    ],
-   "thickRel": 0.81,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "thickRel": 0.81
   },
   {
    "kit": "zombie-weapons",
@@ -476632,7 +476188,7 @@
     {
      "level": "error",
      "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (obj-equipment-weapon)"
     }
    ]
   },
@@ -477363,14 +476919,7 @@
     "ct",
     "metal-iron-mid"
    ],
-   "thickRel": 0.7,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "thickRel": 0.7
   },
   {
    "kit": "zombie-weapons",
@@ -477517,7 +477066,6 @@
     "feather",
     "leather",
     "metal-steel",
-    "textile-cloth-dark",
     "wood-dark"
    ],
    "thickRel": 1
@@ -477772,14 +477320,7 @@
     "wood-mid"
    ],
    "variant": "zombie-weapons/shotgun-double",
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "thickRel": 0.93
   },
   {
    "kit": "zombie-weapons",
@@ -477828,14 +477369,7 @@
     "wood-mid"
    ],
    "variant": "zombie-weapons/shotgun-double",
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "thickRel": 0.87
   },
   {
    "kit": "zombie-weapons",
@@ -477992,14 +477526,7 @@
     "ct",
     "metal-iron-mid"
    ],
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper or metal-aluminium, has metal-iron-mid (obj-equipment-weapon)"
-    }
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "zombie-weapons",
