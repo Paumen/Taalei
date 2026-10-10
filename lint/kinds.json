@@ -5205,15 +5205,51 @@
        "id": "env-terrain-ground",
        "nouns": [
         "ground",
-        "ground mesh",
-        "dirt path",
-        "stone path",
-        "cobbled path",
-        "sand",
-        "snow patch",
-        "farm field",
-        "farm plot",
-        "crop row"
+        "ground mesh"
+       ],
+       "children": [
+        {
+         "id": "env-terrain-ground-path",
+         "nouns": [
+          "dirt path",
+          "stone path",
+          "cobbled path",
+          "wooden path",
+          "paving stones"
+         ]
+        },
+        {
+         "id": "env-terrain-ground-field",
+         "nouns": [
+          "farm field",
+          "farm plot",
+          "crop row",
+          "soil",
+          "garden bed"
+         ]
+        },
+        {
+         "id": "env-terrain-ground-patch",
+         "nouns": [
+          "sand",
+          "snow patch",
+          "mud",
+          "moss patch",
+          "ground cover",
+          "grass patch",
+          "ground tile",
+          "flat rock"
+         ]
+        },
+        {
+         "id": "env-terrain-ground-pit",
+         "nouns": [
+          "crater",
+          "pit",
+          "lava pit",
+          "mining pit"
+         ]
+        }
        ]
       }
      ]

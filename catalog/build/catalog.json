@@ -26333,8 +26333,36 @@
    "id": "env-terrain-ground",
    "name": "Ground",
    "type": "kind",
-   "description": "ground, dirt path, stone path, sand, snow patch, farm field, crop row",
+   "description": "ground, ground mesh",
    "count": 64
+  },
+  {
+   "id": "env-terrain-ground-path",
+   "name": "Path",
+   "type": "kind",
+   "description": "dirt path, stone path, cobbled path, wooden path, paving stones",
+   "count": 16
+  },
+  {
+   "id": "env-terrain-ground-field",
+   "name": "Field",
+   "type": "kind",
+   "description": "farm field, farm plot, crop row, soil, garden bed",
+   "count": 9
+  },
+  {
+   "id": "env-terrain-ground-patch",
+   "name": "Ground patch",
+   "type": "kind",
+   "description": "sand, snow patch, mud, moss patch, ground cover, grass patch, ground tile, flat rock",
+   "count": 27
+  },
+  {
+   "id": "env-terrain-ground-pit",
+   "name": "Pit",
+   "type": "kind",
+   "description": "crater, pit, lava pit, mining pit",
+   "count": 9
   },
   {
    "id": "env-terrain-mountain",
@@ -28364,6 +28392,30 @@
    "tpu.max": 5000
   },
   "env-terrain-ground": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 3000
+  },
+  "env-terrain-ground-field": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 3000
+  },
+  "env-terrain-ground-patch": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 3000
+  },
+  "env-terrain-ground-path": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 3000
+  },
+  "env-terrain-ground-pit": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -49810,7 +49862,7 @@
    "collection": "emace",
    "name": "cobble-path-a",
    "hash": "5d97baa7d3",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     1.081,
@@ -49850,14 +49902,14 @@
     "stone-masonry"
    ],
    "variant": "emace-village/cobble-path-a",
-   "thickRel": 3.37
+   "thickRel": 3.46
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-b",
    "hash": "1f6b272812",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.63,
@@ -49892,14 +49944,14 @@
     "stone-masonry"
    ],
    "variant": "emace-village/cobble-path-a",
-   "thickRel": 2.49
+   "thickRel": 2.56
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-corner",
    "hash": "2e56c6eb0a",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.908,
@@ -49939,7 +49991,7 @@
     "stone-masonry"
    ],
    "variant": "emace-village/cobble-path-a",
-   "thickRel": 1.7
+   "thickRel": 1.75
   },
   {
    "kit": "emace-village",
@@ -50762,7 +50814,7 @@
    "collection": "emace",
    "name": "ground-cover-a",
    "hash": "7d135f06f3",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.706,
@@ -50797,14 +50849,14 @@
     "foliage"
    ],
    "variant": "emace-village/ground-cover-a",
-   "thickRel": 0.82
+   "thickRel": 0.77
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "ground-cover-b",
    "hash": "3d5ce578c1",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.393,
@@ -50839,7 +50891,7 @@
     "foliage"
    ],
    "variant": "emace-village/ground-cover-a",
-   "thickRel": 1.07
+   "thickRel": 1.01
   },
   {
    "kit": "emace-village",
@@ -51473,7 +51525,7 @@
    "collection": "emace",
    "name": "moss-patches",
    "hash": "81edf074be",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.753,
@@ -51507,14 +51559,14 @@
    "tags": [
     "foliage"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.9
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "mud-clods",
    "hash": "336e3d22ca",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.105,
@@ -51554,14 +51606,14 @@
     "stone-rock",
     "stone-soil"
    ],
-   "thickRel": 1.07
+   "thickRel": 1
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "mud-flat-a",
    "hash": "f2725d7d6d",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.092,
@@ -51596,14 +51648,14 @@
     "stone-soil"
    ],
    "variant": "emace-village/mud-flat-a",
-   "thickRel": 0.75
+   "thickRel": 0.7
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "mud-flat-b-half",
    "hash": "e5006e8cd7",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.333,
@@ -51638,14 +51690,14 @@
     "stone-soil"
    ],
    "variant": "emace-village/mud-flat-a",
-   "thickRel": 1.71
+   "thickRel": 1.6
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "mud-flat-b",
    "hash": "58968314ce",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.361,
@@ -51680,7 +51732,7 @@
     "stone-soil"
    ],
    "variant": "emace-village/mud-flat-a",
-   "thickRel": 0.98
+   "thickRel": 0.92
   },
   {
    "kit": "emace-village",
@@ -53685,7 +53737,7 @@
    "collection": "emace",
    "name": "sand-flat-a",
    "hash": "7fe148c004",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.998,
@@ -53720,14 +53772,14 @@
     "stone-sand"
    ],
    "variant": "emace-village/sand-flat-a",
-   "thickRel": 0.93
+   "thickRel": 0.87
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "sand-flat-b",
    "hash": "3333b11fb2",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     1.698,
@@ -53762,14 +53814,14 @@
     "stone-sand"
    ],
    "variant": "emace-village/sand-flat-a",
-   "thickRel": 1.03
+   "thickRel": 0.96
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "sand-patch",
    "hash": "ce444d313e",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.407,
@@ -53803,7 +53855,7 @@
    "tags": [
     "stone-sand"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.05
   },
   {
    "kit": "emace-village",
@@ -54522,7 +54574,7 @@
    "collection": "emace",
    "name": "stone-flat-a",
    "hash": "0c4c941e87",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     2.105,
@@ -54557,14 +54609,14 @@
     "stone-rock"
    ],
    "variant": "emace-village/stone-flat-a",
-   "thickRel": 1.07
+   "thickRel": 1.01
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-flat-b",
    "hash": "7e136b92ce",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     1.925,
@@ -54599,7 +54651,7 @@
     "stone-rock"
    ],
    "variant": "emace-village/stone-flat-a",
-   "thickRel": 1.05
+   "thickRel": 0.99
   },
   {
    "kit": "emace-village",
@@ -102619,7 +102671,7 @@
    "collection": "isa-tt",
    "name": "floor-base",
    "hash": "cbf10f0d51",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     3.5,
@@ -102654,7 +102706,7 @@
     "foliage",
     "isa"
    ],
-   "thickRel": 1.03
+   "thickRel": 0.96
   },
   {
    "kit": "isa-homely",
@@ -106466,7 +106518,7 @@
    "collection": "isa-tt",
    "name": "floor-grass-sliced-a",
    "hash": "82da640777",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.7,
@@ -106501,14 +106553,14 @@
     "foliage",
     "isa"
    ],
-   "thickRel": 2.42
+   "thickRel": 2.27
   },
   {
    "kit": "isa-park",
    "collection": "isa-tt",
    "name": "floor-grass-sliced-b",
    "hash": "199238e5ed",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.7,
@@ -106544,14 +106596,14 @@
     "isa"
    ],
    "variant": "isa-park/floor-grass",
-   "thickRel": 2.42
+   "thickRel": 2.27
   },
   {
    "kit": "isa-park",
    "collection": "isa-tt",
    "name": "floor-grass",
    "hash": "65c2d373cf",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.7,
@@ -106587,7 +106639,7 @@
     "isa"
    ],
    "variant": "isa-park/floor-grass",
-   "thickRel": 2.42
+   "thickRel": 2.27
   },
   {
    "kit": "isa-park",
@@ -118157,7 +118209,7 @@
    "collection": "kay-strategy",
    "name": "farm-plot",
    "hash": "123693a0aa",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     2.651,
@@ -150502,7 +150554,7 @@
    "kit": "kay-hallow",
    "name": "path-a",
    "hash": "3a021d900d",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.571,
@@ -150541,13 +150593,13 @@
     "stone-masonry"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "kay-hallow",
    "name": "path-b",
    "hash": "13c2189742",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.566,
@@ -150585,13 +150637,13 @@
     "stone-masonry"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.96
+   "thickRel": 0.98
   },
   {
    "kit": "kay-hallow",
    "name": "path-c",
    "hash": "3a3abbe783",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.555,
@@ -150629,13 +150681,13 @@
     "stone-masonry"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "kay-hallow",
    "name": "path-d",
    "hash": "ced6884815",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.497,
@@ -150674,7 +150726,7 @@
     "stone-masonry"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.88
+   "thickRel": 0.9
   },
   {
    "kit": "kay-hallow",
@@ -176110,7 +176162,7 @@
    "kit": "kay-space",
    "name": "terrain-mining",
    "hash": "88c2c43ff9",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2.2,
@@ -176146,7 +176198,7 @@
     "space",
     "stone-soil"
    ],
-   "thickRel": 3.67
+   "thickRel": 5.83
   },
   {
    "kit": "kay-space",
@@ -178145,7 +178197,7 @@
    "collection": "kay-undead",
    "name": "path-cobbled",
    "hash": "f228c9241b",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.599,
@@ -178182,7 +178234,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "kay-spook",
@@ -205412,7 +205464,7 @@
    "collection": "ken-mini",
    "name": "patch-dirt",
    "hash": "5ea7126176",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.95,
@@ -205447,14 +205499,14 @@
     "ken",
     "stone-soil"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.21
   },
   {
    "kit": "ken-forest-mini",
    "collection": "ken-mini",
    "name": "patch-grass",
    "hash": "dcb5ebc89a",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     0.95,
@@ -205490,7 +205542,7 @@
     "ken"
    ],
    "variant": "ken-pirate/patch-grass-foliage",
-   "thickRel": 0.93
+   "thickRel": 0.87
   },
   {
    "kit": "ken-forest-mini",
@@ -215217,7 +215269,7 @@
    "collection": "ken-village",
    "name": "road",
    "hash": "f86c1154ea",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.717,
@@ -215254,7 +215306,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 0.99
+   "thickRel": 1.02
   },
   {
    "kit": "ken-grave",
@@ -224351,7 +224403,7 @@
    "kit": "ken-nature",
    "name": "crop-row-corner",
    "hash": "a50d6f8bae",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
     1.126,
@@ -224393,7 +224445,7 @@
    "kit": "ken-nature",
    "name": "crop-row-end",
    "hash": "0624662d48",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
     0.72,
@@ -224435,7 +224487,7 @@
    "kit": "ken-nature",
    "name": "crop-row",
    "hash": "8b39c06159",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
     1.2,
@@ -225104,7 +225156,7 @@
    "kit": "ken-nature",
    "name": "patch-sand",
    "hash": "28f1fa2cbd",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.072,
@@ -225140,13 +225192,13 @@
     "stone-sand"
    ],
    "variant": "ken-nature/patch-sand",
-   "thickRel": 1.37
+   "thickRel": 1.29
   },
   {
    "kit": "ken-nature",
    "name": "path-stone-circle",
    "hash": "4e84796257",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     1.119,
@@ -225182,13 +225234,13 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 0.87
+   "thickRel": 0.89
   },
   {
    "kit": "ken-nature",
    "name": "path-stone-corner",
    "hash": "5fbd36bc70",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.886,
@@ -225224,13 +225276,13 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 0.8
+   "thickRel": 0.82
   },
   {
    "kit": "ken-nature",
    "name": "path-stone-end",
    "hash": "4ed1e502a9",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.742,
@@ -225266,13 +225318,13 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "ken-nature",
    "name": "path-stone",
    "hash": "3179945ecf",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     1.2,
@@ -225308,13 +225360,13 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 1.36
+   "thickRel": 1.4
   },
   {
    "kit": "ken-nature",
    "name": "path-wood-corner",
    "hash": "96bb03d694",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.9,
@@ -225350,13 +225402,13 @@
     "wood-planks"
    ],
    "variant": "ken-nature/path-wood",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "ken-nature",
    "name": "path-wood-end",
    "hash": "1516ceb8c6",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     0.738,
@@ -225392,13 +225444,13 @@
     "wood-planks"
    ],
    "variant": "ken-nature/path-wood",
-   "thickRel": 1.07
+   "thickRel": 1.1
   },
   {
    "kit": "ken-nature",
    "name": "path-wood",
    "hash": "ca2b9e2e95",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "size": "m",
    "wdh": [
     1.2,
@@ -225434,13 +225486,13 @@
     "wood-planks"
    ],
    "variant": "ken-nature/path-wood",
-   "thickRel": 1.52
+   "thickRel": 1.57
   },
   {
    "kit": "ken-nature",
    "name": "platform-grass",
    "hash": "a1d945e863",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.072,
@@ -225481,13 +225533,13 @@
     "ken",
     "stone-soil"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.29
   },
   {
    "kit": "ken-nature",
    "name": "platform-stone",
    "hash": "01c1153c6c",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.072,
@@ -225522,7 +225574,7 @@
     "ken",
     "stone-rock"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.29
   },
   {
    "kit": "ken-nature",
@@ -229241,7 +229293,7 @@
    "kit": "ken-pirate",
    "name": "patch-grass-foliage",
    "hash": "0065ec679f",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     1.582,
@@ -229277,13 +229329,13 @@
     "ken"
    ],
    "variant": "ken-pirate/patch-grass-foliage",
-   "thickRel": 1.04
+   "thickRel": 0.98
   },
   {
    "kit": "ken-pirate",
    "name": "patch-grass",
    "hash": "764e1e661f",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     1.582,
@@ -229319,13 +229371,13 @@
     "ken"
    ],
    "variant": "ken-pirate/patch-grass-foliage",
-   "thickRel": 1.02
+   "thickRel": 0.95
   },
   {
    "kit": "ken-pirate",
    "name": "patch-sand-foliage",
    "hash": "bc228f5db1",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     2.321,
@@ -229367,13 +229419,13 @@
     "stone-sand"
    ],
    "variant": "ken-nature/patch-sand",
-   "thickRel": 0.84
+   "thickRel": 0.79
   },
   {
    "kit": "ken-pirate",
    "name": "patch-sand",
    "hash": "1f1fd89685",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     2.321,
@@ -229409,7 +229461,7 @@
     "stone-sand"
    ],
    "variant": "ken-nature/patch-sand",
-   "thickRel": 0.8
+   "thickRel": 0.75
   },
   {
    "kit": "ken-pirate",
@@ -243610,7 +243662,7 @@
    "kit": "ken-space",
    "name": "crater-large",
    "hash": "73465750a3",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.152,
@@ -243646,7 +243698,7 @@
     "space",
     "stone-soil"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.84
   },
   {
    "kit": "ken-space",
@@ -254995,7 +255047,7 @@
    "kit": "ken-survival",
    "name": "rock-flat-grass",
    "hash": "eab5e44d1e",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     2.68,
@@ -255036,7 +255088,7 @@
     "stone-rock"
    ],
    "variant": "ken-survival/rock-flat",
-   "thickRel": 1.38,
+   "thickRel": 1.3,
    "mark": [
     "centered"
    ]
@@ -255045,7 +255097,7 @@
    "kit": "ken-survival",
    "name": "rock-flat",
    "hash": "fd16f62c59",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-patch",
    "size": "l",
    "wdh": [
     2.68,
@@ -255080,7 +255132,7 @@
     "stone-rock"
    ],
    "variant": "ken-survival/rock-flat",
-   "thickRel": 1.37,
+   "thickRel": 1.29,
    "mark": [
     "centered"
    ]
@@ -337077,7 +337129,7 @@
    "kit": "pm-store",
    "name": "ground-garden",
    "hash": "02cc21f30b",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     2.098,
@@ -386283,7 +386335,7 @@
    "collection": "quat-medieval",
    "name": "farm-field-a",
    "hash": "cb88678e98",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     3.578,
@@ -386326,7 +386378,7 @@
    "collection": "quat-medieval",
    "name": "farm-field-b",
    "hash": "208c025c7b",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     3.578,
@@ -386376,7 +386428,7 @@
    "collection": "quat-medieval",
    "name": "farm-field-c",
    "hash": "96f18fbfd5",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     3.258,
@@ -427629,7 +427681,7 @@
    "kit": "styloo-farm",
    "name": "soil",
    "hash": "e8b1afa8bb",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
     1.35,
@@ -457777,7 +457829,7 @@
    "kit": "wizp-lava",
    "name": "crater",
    "hash": "d86d4541ef",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -457819,13 +457871,13 @@
     "stone-rock",
     "wizp"
    ],
-   "thickRel": 0.71
+   "thickRel": 1.13
   },
   {
    "kit": "wizp-lava",
    "name": "lava-pit-corner",
    "hash": "6948119b4f",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -457874,7 +457926,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -457887,7 +457939,7 @@
    "kit": "wizp-lava",
    "name": "lava-pit-edge-a",
    "hash": "fa6959d21d",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -457937,7 +457989,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -457950,7 +458002,7 @@
    "kit": "wizp-lava",
    "name": "lava-pit-edge-b",
    "hash": "208d3b356a",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -458000,7 +458052,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -458013,7 +458065,7 @@
    "kit": "wizp-lava",
    "name": "lava-pit-inner-corner-a",
    "hash": "271c3c42db",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -458063,7 +458115,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -458076,7 +458128,7 @@
    "kit": "wizp-lava",
    "name": "lava-pit-inner-corner-b",
    "hash": "5f09465220",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -458126,7 +458178,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "warning",
@@ -458139,7 +458191,7 @@
    "kit": "wizp-lava",
    "name": "lava-pit",
    "hash": "ec8d511aa2",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-pit",
    "size": "l",
    "wdh": [
     2,
@@ -458174,7 +458226,7 @@
     "emissive",
     "wizp"
    ],
-   "thickRel": 0.63
+   "thickRel": 1
   },
   {
    "kit": "wizp-lava",

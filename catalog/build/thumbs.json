@@ -275,11 +275,39 @@
    "f": "6c863c9ade"
   },
   "env-terrain-ground": {
-   "cols": 8,
-   "rows": 8,
-   "key": "3c93a82c72",
-   "v": "b7e33cc19e",
-   "f": "ee88614d06"
+   "cols": 2,
+   "rows": 2,
+   "key": "7a7c4d8966",
+   "v": "996008c3f5",
+   "f": "9bb8b32c7f"
+  },
+  "env-terrain-ground-field": {
+   "cols": 3,
+   "rows": 3,
+   "key": "1901a135d9",
+   "v": "ef7ef7ac70",
+   "f": "0d7cc8fc6f"
+  },
+  "env-terrain-ground-patch": {
+   "cols": 6,
+   "rows": 5,
+   "key": "81f2954091",
+   "v": "4e63bf3f33",
+   "f": "d1db4532c0"
+  },
+  "env-terrain-ground-path": {
+   "cols": 4,
+   "rows": 4,
+   "key": "17796be852",
+   "v": "b0d5677f33",
+   "f": "d76cf1b807"
+  },
+  "env-terrain-ground-pit": {
+   "cols": 3,
+   "rows": 3,
+   "key": "1e6377b3b4",
+   "v": "a500fa2cc9",
+   "f": "a22a1618c3"
   },
   "env-terrain-mountain": {
    "cols": 4,
@@ -5276,17 +5304,17 @@
   },
   "emace-village/cobble-path-a": {
    "glb": "5d97baa7d3",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "at": 0
   },
   "emace-village/cobble-path-b": {
    "glb": "1f6b272812",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "at": 1
   },
   "emace-village/cobble-path-corner": {
    "glb": "2e56c6eb0a",
-   "kind": "env-terrain-ground",
+   "kind": "env-terrain-ground-path",
    "at": 2
   },
   "emace-village/cobble-stairs": {
@@ -5371,13 +5399,13 @@
   },
   "emace-village/ground-cover-a": {
    "glb": "7d135f06f3",
-   "kind": "env-terrain-ground",
-   "at": 3
+   "kind": "env-terrain-ground-patch",
+   "at": 0
   },
   "emace-village/ground-cover-b": {
    "glb": "3d5ce578c1",
-   "kind": "env-terrain-ground",
-   "at": 4
+   "kind": "env-terrain-ground-patch",
+   "at": 1
   },
   "emace-village/hearth": {
    "glb": "d6c90deb54",
@@ -5436,28 +5464,28 @@
   },
   "emace-village/moss-patches": {
    "glb": "81edf074be",
-   "kind": "env-terrain-ground",
-   "at": 5
+   "kind": "env-terrain-ground-patch",
+   "at": 2
   },
   "emace-village/mud-clods": {
    "glb": "336e3d22ca",
-   "kind": "env-terrain-ground",
-   "at": 6
+   "kind": "env-terrain-ground-patch",
+   "at": 3
   },
   "emace-village/mud-flat-a": {
    "glb": "f2725d7d6d",
-   "kind": "env-terrain-ground",
-   "at": 7
+   "kind": "env-terrain-ground-patch",
+   "at": 4
   },
   "emace-village/mud-flat-b": {
    "glb": "58968314ce",
-   "kind": "env-terrain-ground",
-   "at": 8
+   "kind": "env-terrain-ground-patch",
+   "at": 5
   },
   "emace-village/mud-flat-b-half": {
    "glb": "e5006e8cd7",
-   "kind": "env-terrain-ground",
-   "at": 9
+   "kind": "env-terrain-ground-patch",
+   "at": 6
   },
   "emace-village/outhouse": {
    "glb": "7c68b8386b",
@@ -5661,18 +5689,18 @@
   },
   "emace-village/sand-flat-a": {
    "glb": "7fe148c004",
-   "kind": "env-terrain-ground",
-   "at": 10
+   "kind": "env-terrain-ground-patch",
+   "at": 7
   },
   "emace-village/sand-flat-b": {
    "glb": "3333b11fb2",
-   "kind": "env-terrain-ground",
-   "at": 11
+   "kind": "env-terrain-ground-patch",
+   "at": 8
   },
   "emace-village/sand-patch": {
    "glb": "ce444d313e",
-   "kind": "env-terrain-ground",
-   "at": 12
+   "kind": "env-terrain-ground-patch",
+   "at": 9
   },
   "emace-village/scoop": {
    "glb": "061f5d5ca4",
@@ -5751,13 +5779,13 @@
   },
   "emace-village/stone-flat-a": {
    "glb": "0c4c941e87",
-   "kind": "env-terrain-ground",
-   "at": 13
+   "kind": "env-terrain-ground-patch",
+   "at": 10
   },
   "emace-village/stone-flat-b": {
    "glb": "7e136b92ce",
-   "kind": "env-terrain-ground",
-   "at": 14
+   "kind": "env-terrain-ground-patch",
+   "at": 11
   },
   "emace-village/stone-footing": {
    "glb": "acbe8306b0",
@@ -10646,8 +10674,8 @@
   },
   "isa-homely/floor-base": {
    "glb": "cbf10f0d51",
-   "kind": "env-terrain-ground",
-   "at": 15
+   "kind": "env-terrain-ground-patch",
+   "at": 12
   },
   "isa-homely/foliage-a": {
    "glb": "984de13158",
@@ -11011,18 +11039,18 @@
   },
   "isa-park/floor-grass": {
    "glb": "65c2d373cf",
-   "kind": "env-terrain-ground",
-   "at": 16
+   "kind": "env-terrain-ground-patch",
+   "at": 13
   },
   "isa-park/floor-grass-sliced-a": {
    "glb": "82da640777",
-   "kind": "env-terrain-ground",
-   "at": 17
+   "kind": "env-terrain-ground-patch",
+   "at": 14
   },
   "isa-park/floor-grass-sliced-b": {
    "glb": "199238e5ed",
-   "kind": "env-terrain-ground",
-   "at": 18
+   "kind": "env-terrain-ground-patch",
+   "at": 15
   },
   "isa-park/flower-a": {
    "glb": "6f7f785bdb",
@@ -12101,8 +12129,8 @@
   },
   "kay-builder/farm-plot": {
    "glb": "123693a0aa",
-   "kind": "env-terrain-ground",
-   "at": 19
+   "kind": "env-terrain-ground-field",
+   "at": 0
   },
   "kay-builder/forest": {
    "glb": "8255e9ff62",
@@ -15276,23 +15304,23 @@
   },
   "kay-hallow/path-a": {
    "glb": "3a021d900d",
-   "kind": "env-terrain-ground",
-   "at": 20
+   "kind": "env-terrain-ground-path",
+   "at": 3
   },
   "kay-hallow/path-b": {
    "glb": "13c2189742",
-   "kind": "env-terrain-ground",
-   "at": 21
+   "kind": "env-terrain-ground-path",
+   "at": 4
   },
   "kay-hallow/path-c": {
    "glb": "3a3abbe783",
-   "kind": "env-terrain-ground",
-   "at": 22
+   "kind": "env-terrain-ground-path",
+   "at": 5
   },
   "kay-hallow/path-d": {
    "glb": "ced6884815",
-   "kind": "env-terrain-ground",
-   "at": 23
+   "kind": "env-terrain-ground-path",
+   "at": 6
   },
   "kay-hallow/pillar": {
    "glb": "f4bbd12ebc",
@@ -17641,8 +17669,8 @@
   },
   "kay-space/terrain-mining": {
    "glb": "88c2c43ff9",
-   "kind": "env-terrain-ground",
-   "at": 24
+   "kind": "env-terrain-ground-pit",
+   "at": 0
   },
   "kay-space/tunnel-diagonal-long-a": {
    "glb": "60eb7b64a6",
@@ -17826,8 +17854,8 @@
   },
   "kay-spook/path-cobbled": {
    "glb": "f228c9241b",
-   "kind": "env-terrain-ground",
-   "at": 25
+   "kind": "env-terrain-ground-path",
+   "at": 7
   },
   "kay-spook/pumpkin-large": {
    "glb": "6defaf1238",
@@ -20401,13 +20429,13 @@
   },
   "ken-forest-mini/patch-dirt": {
    "glb": "5ea7126176",
-   "kind": "env-terrain-ground",
-   "at": 26
+   "kind": "env-terrain-ground-patch",
+   "at": 16
   },
   "ken-forest-mini/patch-grass": {
    "glb": "dcb5ebc89a",
-   "kind": "env-terrain-ground",
-   "at": 27
+   "kind": "env-terrain-ground-patch",
+   "at": 17
   },
   "ken-forest-mini/rocks-ramp": {
    "glb": "9a7ded7257",
@@ -21371,8 +21399,8 @@
   },
   "ken-grave/road": {
    "glb": "f86c1154ea",
-   "kind": "env-terrain-ground",
-   "at": 28
+   "kind": "env-terrain-ground-path",
+   "at": 8
   },
   "ken-grave/rocks": {
    "glb": "f6606b1bae",
@@ -22201,18 +22229,18 @@
   },
   "ken-nature/crop-row": {
    "glb": "8b39c06159",
-   "kind": "env-terrain-ground",
-   "at": 29
+   "kind": "env-terrain-ground-field",
+   "at": 1
   },
   "ken-nature/crop-row-corner": {
    "glb": "a50d6f8bae",
-   "kind": "env-terrain-ground",
-   "at": 30
+   "kind": "env-terrain-ground-field",
+   "at": 2
   },
   "ken-nature/crop-row-end": {
    "glb": "0624662d48",
-   "kind": "env-terrain-ground",
-   "at": 31
+   "kind": "env-terrain-ground-field",
+   "at": 3
   },
   "ken-nature/fence-bend": {
    "glb": "94e3c394e2",
@@ -22281,53 +22309,53 @@
   },
   "ken-nature/patch-sand": {
    "glb": "28f1fa2cbd",
-   "kind": "env-terrain-ground",
-   "at": 32
+   "kind": "env-terrain-ground-patch",
+   "at": 18
   },
   "ken-nature/path-stone": {
    "glb": "3179945ecf",
-   "kind": "env-terrain-ground",
-   "at": 33
+   "kind": "env-terrain-ground-path",
+   "at": 9
   },
   "ken-nature/path-stone-circle": {
    "glb": "4e84796257",
-   "kind": "env-terrain-ground",
-   "at": 34
+   "kind": "env-terrain-ground-path",
+   "at": 10
   },
   "ken-nature/path-stone-corner": {
    "glb": "5fbd36bc70",
-   "kind": "env-terrain-ground",
-   "at": 35
+   "kind": "env-terrain-ground-path",
+   "at": 11
   },
   "ken-nature/path-stone-end": {
    "glb": "4ed1e502a9",
-   "kind": "env-terrain-ground",
-   "at": 36
+   "kind": "env-terrain-ground-path",
+   "at": 12
   },
   "ken-nature/path-wood": {
    "glb": "ca2b9e2e95",
-   "kind": "env-terrain-ground",
-   "at": 37
+   "kind": "env-terrain-ground-path",
+   "at": 13
   },
   "ken-nature/path-wood-corner": {
    "glb": "96bb03d694",
-   "kind": "env-terrain-ground",
-   "at": 38
+   "kind": "env-terrain-ground-path",
+   "at": 14
   },
   "ken-nature/path-wood-end": {
    "glb": "1516ceb8c6",
-   "kind": "env-terrain-ground",
-   "at": 39
+   "kind": "env-terrain-ground-path",
+   "at": 15
   },
   "ken-nature/platform-grass": {
    "glb": "a1d945e863",
-   "kind": "env-terrain-ground",
-   "at": 40
+   "kind": "env-terrain-ground-patch",
+   "at": 19
   },
   "ken-nature/platform-stone": {
    "glb": "01c1153c6c",
-   "kind": "env-terrain-ground",
-   "at": 41
+   "kind": "env-terrain-ground-patch",
+   "at": 20
   },
   "ken-nature/sign": {
    "glb": "64be369602",
@@ -22731,23 +22759,23 @@
   },
   "ken-pirate/patch-grass": {
    "glb": "764e1e661f",
-   "kind": "env-terrain-ground",
-   "at": 42
+   "kind": "env-terrain-ground-patch",
+   "at": 21
   },
   "ken-pirate/patch-grass-foliage": {
    "glb": "0065ec679f",
-   "kind": "env-terrain-ground",
-   "at": 43
+   "kind": "env-terrain-ground-patch",
+   "at": 22
   },
   "ken-pirate/patch-sand": {
    "glb": "1f1fd89685",
-   "kind": "env-terrain-ground",
-   "at": 44
+   "kind": "env-terrain-ground-patch",
+   "at": 23
   },
   "ken-pirate/patch-sand-foliage": {
    "glb": "bc228f5db1",
-   "kind": "env-terrain-ground",
-   "at": 45
+   "kind": "env-terrain-ground-patch",
+   "at": 24
   },
   "ken-pirate/platform": {
    "glb": "95fe1154d2",
@@ -23102,7 +23130,7 @@
   "ken-platformer/stones": {
    "glb": "389697d4fb",
    "kind": "env-terrain-ground",
-   "at": 46
+   "at": 0
   },
   "ken-platformer/tree": {
    "glb": "0735411dd7",
@@ -24091,8 +24119,8 @@
   },
   "ken-space/crater-large": {
    "glb": "73465750a3",
-   "kind": "env-terrain-ground",
-   "at": 47
+   "kind": "env-terrain-ground-pit",
+   "at": 1
   },
   "ken-space/desk-chair": {
    "glb": "f707e318cd",
@@ -25101,13 +25129,13 @@
   },
   "ken-survival/rock-flat": {
    "glb": "fd16f62c59",
-   "kind": "env-terrain-ground",
-   "at": 48
+   "kind": "env-terrain-ground-patch",
+   "at": 25
   },
   "ken-survival/rock-flat-grass": {
    "glb": "eab5e44d1e",
-   "kind": "env-terrain-ground",
-   "at": 49
+   "kind": "env-terrain-ground-patch",
+   "at": 26
   },
   "ken-survival/rock-sand-a": {
    "glb": "0481af9944",
@@ -28962,7 +28990,7 @@
   "m3-base/cast-iron-tree-grate-01": {
    "glb": "07f02f9dea",
    "kind": "env-terrain-ground",
-   "at": 50
+   "at": 1
   },
   "m3-base/cd": {
    "glb": "fd4a9cf2bb",
@@ -33476,8 +33504,8 @@
   },
   "pm-store/ground-garden": {
    "glb": "02cc21f30b",
-   "kind": "env-terrain-ground",
-   "at": 51
+   "kind": "env-terrain-ground-field",
+   "at": 4
   },
   "pm-store/lantern-standing": {
    "glb": "94fbfdb86b",
@@ -38151,18 +38179,18 @@
   },
   "quat-town/farm-field-a": {
    "glb": "cb88678e98",
-   "kind": "env-terrain-ground",
-   "at": 52
+   "kind": "env-terrain-ground-field",
+   "at": 5
   },
   "quat-town/farm-field-b": {
    "glb": "208c025c7b",
-   "kind": "env-terrain-ground",
-   "at": 53
+   "kind": "env-terrain-ground-field",
+   "at": 6
   },
   "quat-town/farm-field-c": {
    "glb": "96f18fbfd5",
-   "kind": "env-terrain-ground",
-   "at": 54
+   "kind": "env-terrain-ground-field",
+   "at": 7
   },
   "quat-town/house-1-1-a": {
    "glb": "fbdbbb7320",
@@ -38897,7 +38925,7 @@
   "rgp-asia/tree-bed": {
    "glb": "e63dee8964",
    "kind": "env-terrain-ground",
-   "at": 55
+   "at": 2
   },
   "rgp-asia/vase": {
    "glb": "59d407c1f7",
@@ -41841,8 +41869,8 @@
   },
   "styloo-farm/soil": {
    "glb": "e8b1afa8bb",
-   "kind": "env-terrain-ground",
-   "at": 56
+   "kind": "env-terrain-ground-field",
+   "at": 8
   },
   "styloo-farm/sword": {
    "glb": "ee5a4ef023",
@@ -44726,38 +44754,38 @@
   },
   "wizp-lava/crater": {
    "glb": "d86d4541ef",
-   "kind": "env-terrain-ground",
-   "at": 57
+   "kind": "env-terrain-ground-pit",
+   "at": 2
   },
   "wizp-lava/lava-pit": {
    "glb": "ec8d511aa2",
-   "kind": "env-terrain-ground",
-   "at": 58
+   "kind": "env-terrain-ground-pit",
+   "at": 3
   },
   "wizp-lava/lava-pit-corner": {
    "glb": "6948119b4f",
-   "kind": "env-terrain-ground",
-   "at": 59
+   "kind": "env-terrain-ground-pit",
+   "at": 4
   },
   "wizp-lava/lava-pit-edge-a": {
    "glb": "fa6959d21d",
-   "kind": "env-terrain-ground",
-   "at": 60
+   "kind": "env-terrain-ground-pit",
+   "at": 5
   },
   "wizp-lava/lava-pit-edge-b": {
    "glb": "208d3b356a",
-   "kind": "env-terrain-ground",
-   "at": 61
+   "kind": "env-terrain-ground-pit",
+   "at": 6
   },
   "wizp-lava/lava-pit-inner-corner-a": {
    "glb": "271c3c42db",
-   "kind": "env-terrain-ground",
-   "at": 62
+   "kind": "env-terrain-ground-pit",
+   "at": 7
   },
   "wizp-lava/lava-pit-inner-corner-b": {
    "glb": "5f09465220",
-   "kind": "env-terrain-ground",
-   "at": 63
+   "kind": "env-terrain-ground-pit",
+   "at": 8
   },
   "wizp-lava/ribs-a": {
    "glb": "bda56f8c0a",
