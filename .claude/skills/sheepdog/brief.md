@@ -75,7 +75,8 @@ row in `tags.json`. `hero` and `special` are the PO's: put a proposal in
 `notes` instead.
 
 Never: touch another kind's models, run `build-catalog`, `build-thumbs`,
-`build-lists` or the `lint/*.mjs` suites, commit, or leave a model you broke.
+`build-lists` or the `lint/*.mjs` suites other than `glb-lint.mjs` on your own
+files, commit, or leave a model you broke.
 
 ## Doubt
 
@@ -93,6 +94,17 @@ Render every changed model beside two or more peers at locked scale and look
 at it; check `--modes faceorient` for new red where a fix touched geometry:
 
     node tools/renders/kind-sheet.mjs --models <kit/name>,<kit/peer>,<kit/peer> --out {{dir}}/after --modes pbr --free-scale --no-glb-lint
+
+Lint every file you changed against its state before you touched it. Clear the
+new findings your change caused that matter for the model (zero-area or
+doubled triangles, edges shared by 3+ faces, validator errors); ignore findings
+that were there before or that do not bear on your change:
+
+    mkdir -p {{dir}}/look/Textures && cp kits/colormap.png {{dir}}/look/Textures/
+    git show HEAD:kits/workfiles/<kit>/<name>.glb > {{dir}}/look/<name>.before.glb
+    node lint/glb-lint.mjs {{dir}}/look/<name>.before.glb kits/workfiles/<kit>/<name>.glb --only-problems
+
+A fix you cannot get clean is undone.
 
 ## Write result.json
 
