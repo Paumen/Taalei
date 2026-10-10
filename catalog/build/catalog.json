@@ -25595,8 +25595,15 @@
    "id": "obj-equipment-tool-supplies",
    "name": "Supplies",
    "type": "kind",
-   "description": "screw, nail, bolt, rope, chain, hook, wire, lighter",
+   "description": "rope, chain, hook, wire, lighter",
    "count": 62
+  },
+  {
+   "id": "obj-equipment-tool-supplies-fastener",
+   "name": "Fastener",
+   "type": "kind",
+   "description": "screw, nail, bolt",
+   "count": 9
   },
   {
    "id": "obj-equipment-tool-supplies-chain",
@@ -29053,6 +29060,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-supplies-chain": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-supplies-fastener": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -179597,7 +179610,7 @@
    "collection": "kay-rpg",
    "name": "nail",
    "hash": "b8635b7575",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.048,
@@ -180134,7 +180147,7 @@
    "collection": "kay-rpg",
    "name": "screw-a",
    "hash": "15b668df7e",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.048,
@@ -180177,7 +180190,7 @@
    "collection": "kay-rpg",
    "name": "screw-b",
    "hash": "bd5c274a23",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.048,
@@ -290548,7 +290561,7 @@
    "kit": "m3-base",
    "name": "allen-key-screw-head",
    "hash": "698d745f46",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.011,
@@ -290590,7 +290603,7 @@
    "kit": "m3-base",
    "name": "allen-key-screw",
    "hash": "4d241d448f",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.054,
@@ -318814,7 +318827,7 @@
    "kit": "m3-base",
    "name": "screw-end",
    "hash": "e21d9bb0fc",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.008,
@@ -318857,7 +318870,7 @@
    "kit": "m3-base",
    "name": "screw-head",
    "hash": "79492a7e05",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.009,
@@ -400896,7 +400909,7 @@
    "collection": "rgp",
    "name": "nail",
    "hash": "22d2a51796",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.069,
@@ -406929,7 +406942,7 @@
    "kit": "rgp-props",
    "name": "nail-a",
    "hash": "6d6670662e",
-   "kind": "obj-equipment-tool-supplies",
+   "kind": "obj-equipment-tool-supplies-fastener",
    "size": "s",
    "wdh": [
     0.057,

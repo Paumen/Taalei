@@ -424,6 +424,7 @@ const DROPPED_KINDS = [
   'obj-food-vegetable',
   'obj-kitchenware-cookware',
   'obj-equipment-tool-supplies',
+  'obj-equipment-tool-supplies-fastener',
   'obj-transport-land-rail',
   'obj-transport-part',
   'str-access-bridge-long',
