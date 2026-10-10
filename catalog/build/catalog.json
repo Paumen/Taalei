@@ -24166,7 +24166,7 @@
    "name": "Special",
    "type": "material",
    "description": "A PO-approved joker: exempts one band on the model from one appendix A rule. The band and reason are recorded per model under reasons; a special without one is a finding.",
-   "count": 26
+   "count": 20
   },
   {
    "id": "special-liquid",
@@ -24194,7 +24194,7 @@
    "name": "Organic",
    "type": "material",
    "description": "Plant matter that is neither leaf nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 230
+   "count": 231
   },
   {
    "id": "obj",
@@ -143133,10 +143133,8 @@
    ],
    "tags": [
     "kay",
-    "special",
     "special-food"
    ],
-   "specialBand": "6,0",
    "variant": "kay-food/food-ingredient-cheese",
    "thickRel": 0.96
   },
@@ -263462,11 +263460,9 @@
    ],
    "tags": [
     "ken",
-    "special",
     "special-liquid",
     "stone-masonry-mid"
    ],
-   "specialBand": "4,2",
    "variant": "ken-town/fountain-round",
    "thickRel": 1.04
   },
@@ -263513,11 +263509,9 @@
    ],
    "tags": [
     "ken",
-    "special",
     "special-liquid",
     "stone-masonry-mid"
    ],
-   "specialBand": "4,2",
    "variant": "ken-town/fountain-round",
    "thickRel": 0.98
   },
@@ -263613,11 +263607,9 @@
    ],
    "tags": [
     "ken",
-    "special",
     "special-liquid",
     "stone-masonry-mid"
    ],
-   "specialBand": "4,2",
    "variant": "ken-town/fountain-square",
    "thickRel": 0.98
   },
@@ -375122,9 +375114,8 @@
     "hero",
     "pirate",
     "qua",
-    "special"
+    "special-organic"
    ],
-   "specialBand": "5,0",
    "anim": [
     "Tentacle_Attack",
     "Tentacle_Attack2",
@@ -432904,11 +432895,16 @@
    "tags": [
     "metal-iron-dark",
     "plastic",
-    "special",
     "sq"
    ],
-   "specialBand": "5,2",
-   "thickRel": 2.35
+   "thickRel": 2.35,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure basalt, has slate ivory"
+    }
+   ]
   },
   {
    "kit": "sq-pool",
