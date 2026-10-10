@@ -1,4 +1,4 @@
-import { readStore, writeStore } from './shared.js?v=401e058e54';
+import { readStore, writeStore } from './shared.js?v=06861d7ddb';
 
 const STORAGE_KEY = 'taaleiland-opmerkingen-v1';
 const VIEW_KEY = 'taaleiland-opmerking-zicht-v1';

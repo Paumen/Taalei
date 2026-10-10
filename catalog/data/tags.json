@@ -16020,7 +16020,7 @@
    ]
   },
   {
-   "id": "obj-device-electronics-installation",
+   "id": "str-fixture-installation",
    "name": "House electrics",
    "type": "kind",
    "description": "Fixed household electrics: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb.",
@@ -16227,7 +16227,7 @@
    ]
   },
   {
-   "id": "obj-device-electronics-arcade",
+   "id": "obj-leisure-game-arcade",
    "name": "Arcade machine",
    "type": "kind",
    "description": "Coin-operated game cabinet: arcade machine, pinball, claw machine, slot machine.",
@@ -16603,7 +16603,7 @@
    "id": "obj-container-barrel",
    "name": "Barrel",
    "type": "kind",
-   "description": "barrel, cask",
+   "description": "Barrel or cask, tapped keg included.",
    "models": [
     "lpa-desert/barrel",
     "fs-town/barrel-a",
@@ -16636,7 +16636,9 @@
     "3dm-industrial/water-drum",
     "m3-base/wood-barrel",
     "m3-base/wooden-barrel-basic",
-    "props/barrel-a"
+    "props/barrel-a",
+    "wizp-mediev/barrel-tapped",
+    "kay-dun-2/keg"
    ]
   },
   {
@@ -16663,16 +16665,6 @@
     "3dm-industrial/oil-drum",
     "3dm-scifi/barrel",
     "m3-base/oil-barrel"
-   ]
-  },
-  {
-   "id": "obj-container-barrel-keg",
-   "name": "Keg",
-   "type": "kind",
-   "description": "keg, tapped barrel",
-   "models": [
-    "wizp-mediev/barrel-tapped",
-    "kay-dun-2/keg"
    ]
   },
   {
@@ -17545,7 +17537,7 @@
    "id": "obj-food-grain",
    "name": "Grain",
    "type": "kind",
-   "description": "Unbaked grain: wheat, flour and dough.",
+   "description": "Unbaked grain: flour and dough.",
    "models": [
     "kay-food/food-ingredient-bun",
     "isa-bakery/dough-ball",
@@ -17616,14 +17608,7 @@
    ]
   },
   {
-   "id": "obj-food-prepared",
-   "name": "Prepared food",
-   "type": "kind",
-   "description": "Food assembled from several ingredients and eaten by hand: burger, sandwich.",
-   "models": []
-  },
-  {
-   "id": "obj-food-prepared-burger",
+   "id": "obj-food-meal-burger",
    "name": "Burger",
    "type": "kind",
    "description": "burger, hamburger, cheeseburger",
@@ -17643,7 +17628,7 @@
    ]
   },
   {
-   "id": "obj-food-prepared-sandwich",
+   "id": "obj-food-meal-sandwich",
    "name": "Sandwich",
    "type": "kind",
    "description": "sandwich, sub",
@@ -18956,7 +18941,7 @@
    ]
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack",
+   "id": "obj-furnishing-furniture-storage-rack",
    "name": "Rack",
    "type": "kind",
    "description": "Open rack for showing or holding goods or gear: display rack, spinner rack, slat wall, ball or dumbbell rack.",
@@ -18985,7 +18970,7 @@
    ]
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "id": "obj-furnishing-furniture-storage-rack-weapon",
    "name": "Weapon rack",
    "type": "kind",
    "description": "weapon rack, weapon stand",
@@ -18997,7 +18982,7 @@
    ]
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "id": "obj-furnishing-furniture-storage-rack-coat",
    "name": "Coat rack",
    "type": "kind",
    "description": "Standing or wall coat rack with hooks.",
@@ -19984,7 +19969,7 @@
    ]
   },
   {
-   "id": "obj-furnishing-light-campfire",
+   "id": "str-fixture-fire-campfire",
    "name": "Campfire",
    "type": "kind",
    "description": "Campfire: an open fire built at ground level, for warmth or cooking.",
@@ -19999,6 +19984,28 @@
     "quat-survival/bonfire",
     "rgp-medieval/campfire",
     "m3-base/garden-fire-pit"
+   ]
+  },
+  {
+   "id": "str-fixture-fire",
+   "name": "Fire",
+   "type": "kind",
+   "description": "Fixed place where a fire burns: campfire, brazier, fireplace.",
+   "models": []
+  },
+  {
+   "id": "str-fixture-fire-brazier",
+   "name": "Brazier",
+   "type": "kind",
+   "description": "Standing metal basket or bowl holding a fire.",
+   "models": [
+    "rgp-medieval/brazier",
+    "rgp-props/fireplace-1-1-a",
+    "wizp-asia/brazier",
+    "m3-base/iron-brazier-01",
+    "m3-base/iron-brazier-02",
+    "m3-base/iron-brazier-03",
+    "m3-base/roman-brazier"
    ]
   },
   {
@@ -20185,7 +20192,7 @@
    "id": "obj-furnishing-light-torch",
    "name": "Torch",
    "type": "kind",
-   "description": "torch, brazier",
+   "description": "Torch: a hand-held or mounted stick with a flame.",
    "models": [
     "kay-dun-1/torch-wall",
     "kay-dun-1/torch",
@@ -20196,14 +20203,7 @@
     "kay-tools/torch",
     "lpa-tools/torch",
     "quat-survival/torch",
-    "rgp-medieval/brazier",
-    "rgp-props/fireplace-1-1-a",
-    "wizp-asia/brazier",
-    "m3-base/iron-brazier-01",
-    "m3-base/iron-brazier-02",
-    "m3-base/iron-brazier-03",
-    "m3-base/iron-flambeaux-01",
-    "m3-base/roman-brazier"
+    "m3-base/iron-flambeaux-01"
    ]
   },
   {
@@ -20717,7 +20717,7 @@
    ]
   },
   {
-   "id": "obj-transport-pallet",
+   "id": "obj-container-pallet",
    "name": "Pallet",
    "type": "kind",
    "description": "pallet",
@@ -21363,7 +21363,7 @@
    "models": []
   },
   {
-   "id": "obj-symbol",
+   "id": "sym",
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
@@ -21421,13 +21421,6 @@
     "m3-base/diamond",
     "pm-store/star"
    ]
-  },
-  {
-   "id": "obj-transport-land-military",
-   "name": "Military vehicle",
-   "type": "kind",
-   "description": "Military vehicle: tank.",
-   "models": []
   },
   {
    "id": "obj-transport-land",
@@ -23863,10 +23856,10 @@
    ]
   },
   {
-   "id": "env-terrain-ground-path",
+   "id": "str-access-path",
    "name": "Path",
    "type": "kind",
-   "description": "dirt path, stone path, cobbled path, wooden path, paving stones",
+   "description": "Laid path to walk on: stone path, cobbled path, wooden path, paving stones.",
    "models": [
     "emace-village/cobble-path-a",
     "emace-village/cobble-path-b",
@@ -24004,7 +23997,7 @@
    ]
   },
   {
-   "id": "str-fixture-fireplace",
+   "id": "str-fixture-fire-fireplace",
    "name": "Fireplace",
    "type": "kind",
    "description": "fireplace, hearth, fire grate",
@@ -24298,7 +24291,7 @@
    ]
   },
   {
-   "id": "str-access-stairs-ramp",
+   "id": "str-access-ramp",
    "name": "Ramp",
    "type": "kind",
    "description": "ramp, slope (walkway)",
@@ -25267,10 +25260,10 @@
    ]
   },
   {
-   "id": "str-part-roof-chimney",
+   "id": "str-part-chimney",
    "name": "Chimney",
    "type": "kind",
-   "description": "Chimney set on a roof: chimney, roof chimney.",
+   "description": "Chimney on a roof or standing free: chimney, roof chimney, smokestack.",
    "models": [
     "fs-house/chimney",
     "ken-town/chimney",
@@ -25280,7 +25273,13 @@
     "fs-town/chimney-pipe",
     "fs-town/chimney-stone",
     "ken-town/chimney-top-anim",
-    "ken-town/chimney-top"
+    "ken-town/chimney-top",
+    "ken-space/chimney",
+    "ken-space/chimney-detailed",
+    "ken-industrial/smokestack-large",
+    "ken-industrial/smokestack-medium",
+    "ken-industrial/smokestack-basic",
+    "ken-industrial/smokestack-small"
    ]
   },
   {
@@ -26168,7 +26167,7 @@
    "id": "str-canopy-gazebo",
    "name": "Gazebo",
    "type": "kind",
-   "description": "event tent, party tent, pavilion",
+   "description": "Open-sided roofed shelter: gazebo, event tent, party tent, pavilion.",
    "models": [
     "kay-hexagon/tent",
     "ken-racing/tent",
@@ -26176,7 +26175,8 @@
     "ken-racing/tent-closed-long",
     "ken-racing/tent-long",
     "ken-racing/tent-roof",
-    "ken-racing/tent-roof-double"
+    "ken-racing/tent-roof-double",
+    "rgp-asia/gazebo"
    ]
   },
   {
@@ -27050,24 +27050,10 @@
    "models": []
   },
   {
-   "id": "str-fixture-chimney",
-   "name": "Chimney",
-   "type": "kind",
-   "description": "Free-standing chimney or smokestack.",
-   "models": [
-    "ken-space/chimney",
-    "ken-space/chimney-detailed",
-    "ken-industrial/smokestack-large",
-    "ken-industrial/smokestack-medium",
-    "ken-industrial/smokestack-basic",
-    "ken-industrial/smokestack-small"
-   ]
-  },
-  {
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, wind turbine.",
+   "description": "Standing works that serve a settlement: utility pole, power line, tank, pipe, solar panel, turbine, antenna, hydrant, well, fountain.",
    "models": [
     "ken-roads/electricity-pole-single",
     "ken-roads/electricity-pole-wide",
@@ -27122,7 +27108,7 @@
    ]
   },
   {
-   "id": "str-fixture-utility-hopper",
+   "id": "str-fixture-machinery-hopper",
    "name": "Hopper",
    "type": "kind",
    "description": "Open funnel that feeds bulk goods down into a machine or onto a line.",
@@ -27134,10 +27120,10 @@
    ]
   },
   {
-   "id": "str-fixture-utility-machine",
+   "id": "str-fixture-machinery",
    "name": "Machine",
    "type": "kind",
-   "description": "Standing industrial machinery: presses, pistons and scanners.",
+   "description": "Standing industrial machinery: presses, pistons, scanners, conveyors, hoppers, cranes, car wash.",
    "models": [
     "ken-factory/machine-bed",
     "ken-factory/machine-connection-hole",
@@ -27166,7 +27152,7 @@
    ]
   },
   {
-   "id": "str-fixture-utility-machine-crane",
+   "id": "str-fixture-machinery-crane",
    "name": "Crane",
    "type": "kind",
    "description": "Industrial crane or robot arm that lifts and moves loads.",
@@ -27180,7 +27166,7 @@
    ]
   },
   {
-   "id": "str-fixture-utility-machine-drivethrough",
+   "id": "str-fixture-machinery-drivethrough",
    "name": "Drive-through machine",
    "type": "kind",
    "description": "Machine a vehicle drives through or parks beside: car wash arches, brushes, curtains and vacuum stations.",
@@ -27236,7 +27222,7 @@
    ]
   },
   {
-   "id": "str-fixture-utility-conveyor",
+   "id": "str-fixture-machinery-conveyor",
    "name": "Conveyor",
    "type": "kind",
    "description": "Belt or roller track that carries goods along a line: straight, sloped or fenced sections.",
@@ -27449,7 +27435,13 @@
     "ken-space/hangar-small-b",
     "quat-space/base-large",
     "quat-space/building-l",
-    "quat-space/geodesic-dome"
+    "quat-space/geodesic-dome",
+    "quat-town/storage-1-a",
+    "quat-town/storage-1-b",
+    "quat-town/storage-1-c",
+    "quat-town/storage-2-a",
+    "quat-town/storage-2-b",
+    "quat-town/storage-2-c"
    ]
   },
   {
@@ -27938,7 +27930,6 @@
     "wizp-asia/shrine-large",
     "wizp-asia/altar-a",
     "wizp-asia/altar-b",
-    "rgp-asia/gazebo",
     "wizp-village/shrine",
     "wizp-asia/tower",
     "ken-grave/altar-stone",
@@ -27951,7 +27942,7 @@
    "id": "str-building-work-commercial",
    "name": "Commercial",
    "type": "kind",
-   "description": "inn, tavern, market house, storage, warehouse",
+   "description": "inn, tavern, market house, office, shop",
    "models": [
     "kay-hexagon/tavern",
     "ken-commercial/building-a",
@@ -27975,12 +27966,6 @@
     "ken-racing/pits-office-roof",
     "ken-racing/pits-office",
     "quat-medieval/fantasy-inn",
-    "quat-town/storage-1-a",
-    "quat-town/storage-1-b",
-    "quat-town/storage-1-c",
-    "quat-town/storage-2-a",
-    "quat-town/storage-2-b",
-    "quat-town/storage-2-c",
     "wizp-asia/market-house",
     "wizp-village/shop",
     "pm-store/shop",

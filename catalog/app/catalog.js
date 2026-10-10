@@ -1,11 +1,11 @@
-import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=ea3d5a4505';
+import { renderTagEditor, effectiveKind, onChange as onTagEdit } from './tag-edits.js?v=97d408f4c1';
 import {
   layoutChips, chipName, keysWithState as keysWith, matchesState as matches,
   buildColorBar, buildChipRow as chipRow, syncSubtypes as syncChipStates, clearStates,
 } from './chiprij.js?v=0f98fb02f2';
-import { colorSwatches, setBands } from './color-edits.js?v=7b9619fe4c';
-import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=b702908fd9';
-import { mountExtractBar, setPageParts } from './extract.js?v=e034d4dfc2';
+import { colorSwatches, setBands } from './color-edits.js?v=59da1e14dd';
+import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=ed62ec964f';
+import { mountExtractBar, setPageParts } from './extract.js?v=a409c112bb';
 import { stamped, withHash } from './stamps.js?v=04e3ee3113';
 import {
   number, unit, readableBytes, dimensions, longest, kindParent, kindChain, rootRank,
@@ -13,8 +13,8 @@ import {
   withParents as withParentsIn, collectColors, hydrate, WORKFILES, modelUrl, foldVariants as foldVariantsBy,
   span, glyph, flatMode, setLighting, attachViewer, watchViewers,
   makeSelection, choiceChip as makeChoiceChip, copyPathsOnClick,
-} from './shared.js?v=401e058e54';
-import './bouwstempel.js?v=2d49c008a7';
+} from './shared.js?v=06861d7ddb';
+import './bouwstempel.js?v=964f9eed53';
 
 const KIT_COLORS = {
   'survival-kit': '#6cb588',
