@@ -401,6 +401,7 @@ const DROPPED_KINDS = [
   'obj-device-appliance',
   'obj-device-electronics-audio',
   'obj-equipment-pocketitem',
+  'obj-equipment-pocketitem-medicine',
   'obj-equipment-weapon-melee',
   'obj-equipment-weapon-ranged',
   'obj-food-grain',
