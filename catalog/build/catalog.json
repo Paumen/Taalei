@@ -32215,6 +32215,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0787,
+   "badNormals": 9,
    "thick": 0.197,
    "avgTri": 0.00108,
    "anglePct": 61,
@@ -32244,6 +32245,11 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 9061 over max 5000 (str)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 9 wants max 0"
     }
    ]
   },
@@ -32565,6 +32571,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.2046,
+   "badNormals": 15,
    "thick": 0.1978,
    "avgTri": 0.00046,
    "anglePct": 76,
@@ -32601,6 +32608,11 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 10799 over max 10000 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 15 wants max 0"
     }
    ]
   },
@@ -32934,6 +32946,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "badNormals": 8,
    "thick": 0.2621,
    "avgTri": 0.00125,
    "anglePct": 88,
@@ -32973,7 +32986,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.98,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 8 wants max 0"
+    }
+   ]
   },
   {
    "kit": "3dm-city-2",
@@ -33125,7 +33145,14 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "3dm-city-2",
@@ -33881,7 +33908,14 @@
     "metal-iron-cast",
     "plastic"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "3dm-guns",
@@ -34274,6 +34308,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0173,
+   "badNormals": 62,
    "thick": 0.1435,
    "avgTri": 0.00003,
    "anglePct": 19,
@@ -34317,6 +34352,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.4% of view 225/20 over 0.1%: open 92.0%, inverted 8.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 62 wants max 0"
     }
    ]
   },
@@ -35322,6 +35362,11 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 7499 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.33 wants min 0.5"
     }
    ]
   },
@@ -35641,6 +35686,11 @@
    "thickRel": 0.49,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G11 bands 3 wants max 2"
@@ -35766,6 +35816,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "badNormals": 6,
    "thick": 0.0766,
    "avgTri": 0.00052,
    "anglePct": 2,
@@ -35789,7 +35840,14 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 6 wants max 0"
+    }
+   ]
   },
   {
    "kit": "3dm-medieval",
@@ -36779,6 +36837,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0324,
+   "badNormals": 6,
    "thick": 0.1563,
    "avgTri": 0.00335,
    "anglePct": 77,
@@ -36804,7 +36863,14 @@
     "metal-iron-wrought",
     "space"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 6 wants max 0"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -37395,7 +37461,14 @@
     "metal-iron-cast"
    ],
    "variant": "aq-hallow/cauldron-a",
-   "thickRel": 0.24
+   "thickRel": 0.24,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.24 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -39053,7 +39126,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -39384,6 +39464,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 2.551 over max 2.4 (env-remains-deadwood-tree)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -40766,7 +40851,14 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -40818,7 +40910,14 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -40865,7 +40964,14 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -40907,7 +41013,14 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -41622,7 +41735,14 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "aq-pond",
@@ -44288,7 +44408,14 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -45098,7 +45225,14 @@
     "metal-iron-steel"
    ],
    "variant": "cooking-assets/ladle-a",
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -45181,7 +45315,14 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -48346,7 +48487,14 @@
     "wood-beam"
    ],
    "variant": "emace-80s/telescope-stand",
-   "thickRel": 0.33
+   "thickRel": 0.33,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.33 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-80s",
@@ -49448,7 +49596,14 @@
     "vegetation"
    ],
    "variant": "emace-village/cattail",
-   "thickRel": 0.27
+   "thickRel": 0.27,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.27 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -49497,7 +49652,14 @@
     "vegetation"
    ],
    "variant": "emace-village/cattail",
-   "thickRel": 0.33
+   "thickRel": 0.33,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.33 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -49545,7 +49707,14 @@
     "vegetation"
    ],
    "variant": "emace-village/cattail",
-   "thickRel": 0.19
+   "thickRel": 0.19,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.19 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -49924,6 +50093,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "badNormals": 46,
    "thick": 0.2872,
    "avgTri": 0.00018,
    "anglePct": 6,
@@ -49947,7 +50117,14 @@
     "rope",
     "textile"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.35,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 46 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -50179,7 +50356,14 @@
     "wood-worked"
    ],
    "variant": "emace-village/corner-shelf",
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -50279,6 +50463,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.1% of view 90/20 over 0.1%: inverted 96.0%, other 4.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.26 wants min 0.5"
     }
    ]
   },
@@ -51110,7 +51299,14 @@
     "skin"
    ],
    "variant": "emace-village/hide-light",
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -51157,7 +51353,14 @@
     "skin"
    ],
    "variant": "emace-village/hide-light",
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -51575,6 +51778,7 @@
    "centered": true,
    "minEdge": 0.036,
    "minTube": 0.0485,
+   "badNormals": 18,
    "thick": 0.1061,
    "avgTri": 0.01002,
    "anglePct": 8,
@@ -51610,7 +51814,14 @@
     "wood-worked"
    ],
    "variant": "emace-village/log-wall",
-   "thickRel": 0.6
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 18 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -51867,7 +52078,14 @@
     "storeys-1",
     "wood-beam"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -52542,6 +52760,7 @@
    "centered": true,
    "minEdge": 0.011,
    "minTube": 0.0425,
+   "badNormals": 12,
    "thick": 0.0721,
    "avgTri": 0.02336,
    "anglePct": 60,
@@ -52559,7 +52778,14 @@
    "tags": [
     "wood-beam"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.14,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 12 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -54102,6 +54328,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.87 over max 0.85 (obj-resource-textile)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
     }
    ]
   },
@@ -54152,7 +54383,14 @@
     "wood-worked"
    ],
    "variant": "emace-village/shelf-standing",
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -54899,6 +55137,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0439,
+   "badNormals": 3,
    "thick": 0.081,
    "avgTri": 0.00192,
    "anglePct": 34,
@@ -54952,6 +55191,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.4% of view 135/50 over 0.1%: inverted 89.0%, other 11.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 3 wants max 0"
     }
    ]
   },
@@ -55171,6 +55415,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
+   "badNormals": 3,
    "thick": 0.0837,
    "avgTri": 0.00502,
    "anglePct": 54,
@@ -55194,7 +55439,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.87,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 3 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -55393,6 +55645,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0262,
+   "badNormals": 4,
    "thick": 0.2179,
    "avgTri": 0.0275,
    "anglePct": 41,
@@ -55433,7 +55686,14 @@
     "storeys-2",
     "wood-beam"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.98,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 4 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -55510,6 +55770,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.025,
+   "badNormals": 4,
    "thick": 0.1711,
    "avgTri": 0.00723,
    "anglePct": 42,
@@ -55533,7 +55794,14 @@
     "food",
     "wood-beam"
    ],
-   "thickRel": 1.85
+   "thickRel": 1.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 4 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -55998,6 +56266,7 @@
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.105,
+   "badNormals": 4,
    "thick": 0.114,
    "avgTri": 0.04793,
    "anglePct": 81,
@@ -56022,7 +56291,14 @@
     "wood-beam"
    ],
    "variant": "emace-village/wall-timber",
-   "thickRel": 1.14
+   "thickRel": 1.14,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 4 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -56096,6 +56372,7 @@
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0,
+   "badNormals": 12,
    "thick": 0.1675,
    "avgTri": 0.02202,
    "anglePct": 18,
@@ -56120,7 +56397,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 12 wants max 0"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -61035,7 +61319,14 @@
     "food"
    ],
    "variant": "food-pack-2/egg",
-   "thickRel": 0.19
+   "thickRel": 0.19,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.19 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -61163,7 +61454,14 @@
    "tags": [
     "food"
    ],
-   "thickRel": 0.22
+   "thickRel": 0.22,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.22 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -61205,7 +61503,14 @@
     "food"
    ],
    "variant": "food-pack-2/egg",
-   "thickRel": 0.19
+   "thickRel": 0.19,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.19 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -64779,7 +65084,14 @@
    "tags": [
     "food"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -66733,7 +67045,14 @@
     "mounted",
     "wood-worked"
    ],
-   "thickRel": 0.35
+   "thickRel": 0.35,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-house",
@@ -66883,7 +67202,14 @@
     "wood-worked"
    ],
    "variant": "fs-house/picture-square-large",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-house",
@@ -67026,7 +67352,14 @@
     "wood-worked"
    ],
    "variant": "fs-house/railing",
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-house",
@@ -68429,6 +68762,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.157 under min 0.2 (obj-container-trashcan)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
     }
    ]
   },
@@ -76725,9 +77063,6 @@
     "fs",
     "wood-bark",
     "wood-log"
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -76907,7 +77242,14 @@
     "fs"
    ],
    "variant": "fs-terrain/beach-prop-starfish-a",
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
@@ -76949,7 +77291,14 @@
     "fs"
    ],
    "variant": "fs-terrain/beach-prop-starfish-a",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-terrain",
@@ -77997,13 +78346,15 @@
    "thickRel": 0.44,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0249 wants min 0.026"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -78056,6 +78407,11 @@
    "variant": "fs-terrain/hilly-prop-fence-curve-2x2",
    "thickRel": 0.41,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -78111,10 +78467,7 @@
     "wood-planks"
    ],
    "variant": "fs-terrain/hilly-prop-fence-gate-a",
-   "thickRel": 1.18,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.18
   },
   {
    "kit": "fs-terrain",
@@ -78164,10 +78517,7 @@
     "wood-planks"
    ],
    "variant": "fs-terrain/hilly-prop-fence-gate-a",
-   "thickRel": 1.18,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.18
   },
   {
    "kit": "fs-terrain",
@@ -81557,9 +81907,15 @@
    "alpha": true,
    "variant": "fs-town/chimney-pipe-anim",
    "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ],
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81603,9 +81959,15 @@
    ],
    "variant": "fs-town/chimney-pipe-anim",
    "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ],
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81695,8 +82057,7 @@
    "variant": "fs-town/cobblestone-floor-a",
    "thickRel": 1.23,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81741,8 +82102,7 @@
    "variant": "fs-town/cobblestone-floor-a",
    "thickRel": 1.23,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81787,8 +82147,7 @@
    "variant": "fs-town/cobblestone-floor-a",
    "thickRel": 1.23,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81833,8 +82192,7 @@
    "variant": "fs-town/cobblestone-floor-a",
    "thickRel": 1.23,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81879,8 +82237,7 @@
    "variant": "fs-town/cobblestone-floor-a",
    "thickRel": 1.23,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -81926,7 +82283,14 @@
     "wood-worked"
    ],
    "variant": "fs-town/crate-a",
-   "thickRel": 0.29
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-town",
@@ -82152,8 +82516,7 @@
    ],
    "thickRel": 2,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82206,10 +82569,7 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "thickRel": 1.23,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.23
   },
   {
    "kit": "fs-town",
@@ -82318,6 +82678,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.625 under min 0.65 (str-fixture-light-post)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ],
    "mark": [
@@ -82430,8 +82795,7 @@
    ],
    "variant": "fs-town/roof-accent-rake-concave",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82476,8 +82840,7 @@
    ],
    "variant": "fs-town/roof-accent-rake-concave",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82522,8 +82885,7 @@
    ],
    "variant": "fs-town/roof-accent-rake-concave",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82569,8 +82931,7 @@
    ],
    "variant": "fs-town/roof-accent-rake-concave",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82615,8 +82976,7 @@
    ],
    "variant": "fs-town/roof-accent-rake-concave",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82661,8 +83021,7 @@
    ],
    "variant": "fs-town/roof-accent-rake-concave",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82760,8 +83119,7 @@
    "variant": "fs-town/roof-concave-corner-outer",
    "thickRel": 0.74,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82864,8 +83222,7 @@
    "variant": "fs-town/roof-concave-side",
    "thickRel": 0.9,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82914,8 +83271,7 @@
    "variant": "fs-town/roof-concave-side",
    "thickRel": 1.09,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -82970,8 +83326,7 @@
    "variant": "fs-town/roof-concave-side",
    "thickRel": 1.07,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83117,8 +83472,7 @@
    "variant": "fs-town/roof-convex-corner-outer",
    "thickRel": 0.92,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83221,8 +83575,7 @@
    "variant": "fs-town/roof-convex-side",
    "thickRel": 1.1,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83271,8 +83624,7 @@
    "variant": "fs-town/roof-convex-side",
    "thickRel": 1.33,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83327,8 +83679,7 @@
    "variant": "fs-town/roof-convex-side",
    "thickRel": 1.27,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83474,8 +83825,7 @@
    "variant": "fs-town/roof-straight-corner-outer",
    "thickRel": 0.99,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83578,8 +83928,7 @@
    "variant": "fs-town/roof-straight-side",
    "thickRel": 1.08,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83628,8 +83977,7 @@
    "variant": "fs-town/roof-straight-side",
    "thickRel": 1.09,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -83684,8 +84032,7 @@
    "variant": "fs-town/roof-straight-side",
    "thickRel": 1.21,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -84054,10 +84401,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stone-doorway-narrow-tall-a",
-   "thickRel": 1.73,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.73
   },
   {
    "kit": "fs-town",
@@ -84105,10 +84449,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stone-doorway-narrow-tall-a",
-   "thickRel": 1.87,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.87
   },
   {
    "kit": "fs-town",
@@ -84156,10 +84497,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.28,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.28
   },
   {
    "kit": "fs-town",
@@ -84207,10 +84545,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.38,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "fs-town",
@@ -84480,10 +84815,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.38,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "fs-town",
@@ -84531,10 +84863,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.38,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "fs-town",
@@ -84577,10 +84906,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.49,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -84623,10 +84949,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.49,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -84669,10 +84992,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.49,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -84715,10 +85035,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.49,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -84761,10 +85078,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.49,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -84947,10 +85261,7 @@
     "wood-beam"
    ],
    "variant": "fs-town/stucco-doorway-narrow-tall",
-   "thickRel": 1.73,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.73
   },
   {
    "kit": "fs-town",
@@ -84997,10 +85308,7 @@
     "wood-beam"
    ],
    "variant": "fs-town/stucco-doorway-narrow-tall",
-   "thickRel": 1.25,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.25
   },
   {
    "kit": "fs-town",
@@ -85044,8 +85352,7 @@
    ],
    "variant": "fs-town/stucco-support-angled-large",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -85090,8 +85397,7 @@
    ],
    "variant": "fs-town/stucco-support-angled-large",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -85135,10 +85441,7 @@
     "fs",
     "wood-beam"
    ],
-   "variant": "fs-town/stucco-support-angled-large",
-   "mark": [
-    "centered"
-   ]
+   "variant": "fs-town/stucco-support-angled-large"
   },
   {
    "kit": "fs-town",
@@ -85181,8 +85484,7 @@
    ],
    "variant": "fs-town/stucco-support-beam-a",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -85226,8 +85528,7 @@
    ],
    "variant": "fs-town/stucco-support-beam-a",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -85271,8 +85572,7 @@
    ],
    "variant": "fs-town/stucco-support-beam-a",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -85315,10 +85615,7 @@
     "fs",
     "wood-beam"
    ],
-   "variant": "fs-town/stucco-support-beam-a",
-   "mark": [
-    "centered"
-   ]
+   "variant": "fs-town/stucco-support-beam-a"
   },
   {
    "kit": "fs-town",
@@ -85360,10 +85657,7 @@
     "fs",
     "wood-beam"
    ],
-   "variant": "fs-town/stucco-support-beam-a",
-   "mark": [
-    "centered"
-   ]
+   "variant": "fs-town/stucco-support-beam-a"
   },
   {
    "kit": "fs-town",
@@ -85405,10 +85699,7 @@
     "fs",
     "wood-beam"
    ],
-   "variant": "fs-town/stucco-support-beam-a",
-   "mark": [
-    "centered"
-   ]
+   "variant": "fs-town/stucco-support-beam-a"
   },
   {
    "kit": "fs-town",
@@ -85461,10 +85752,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stucco-window-double-narrow",
-   "thickRel": 2.86,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.86
   },
   {
    "kit": "fs-town",
@@ -85524,9 +85812,6 @@
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -85580,10 +85865,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stucco-window-double-narrow",
-   "thickRel": 1.95,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.95
   },
   {
    "kit": "fs-town",
@@ -85643,9 +85925,6 @@
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -85699,10 +85978,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stucco-window-rounded-wide-tall",
-   "thickRel": 2.88,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.88
   },
   {
    "kit": "fs-town",
@@ -85762,9 +86038,6 @@
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -85818,10 +86091,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stucco-window-rounded-wide-tall",
-   "thickRel": 1.96,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.96
   },
   {
    "kit": "fs-town",
@@ -85881,9 +86151,6 @@
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -85937,10 +86204,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stucco-window-rounded-wide-tall",
-   "thickRel": 2.88,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.88
   },
   {
    "kit": "fs-town",
@@ -86000,9 +86264,6 @@
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -86056,10 +86317,7 @@
     "wood-worked"
    ],
    "variant": "fs-town/stucco-window-rounded-wide-tall",
-   "thickRel": 1.96,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.96
   },
   {
    "kit": "fs-town",
@@ -86119,9 +86377,6 @@
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -86998,10 +87253,7 @@
     "scale-big",
     "wood-beam"
    ],
-   "thickRel": 1.05,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.05
   },
   {
    "kit": "fs-town",
@@ -87044,8 +87296,7 @@
    ],
    "variant": "fs-town/stucco-support-beam-a",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -89830,7 +90081,14 @@
     "ct",
     "plastic"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -90194,7 +90452,14 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -91089,6 +91354,11 @@
    "thickRel": 0.43,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0223 wants min 0.026"
@@ -91276,7 +91546,14 @@
     "metal-iron-steel",
     "rubber"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -94314,7 +94591,14 @@
     "metal-iron-cast",
     "metal-iron-steel"
    ],
-   "thickRel": 0.26
+   "thickRel": 0.26,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.26 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ipoly-torture",
@@ -95896,7 +96180,14 @@
     "isa"
    ],
    "variant": "isa-bakery/dough-rolled-a",
-   "thickRel": 0.24
+   "thickRel": 0.24,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.24 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -95939,7 +96230,14 @@
     "isa"
    ],
    "variant": "isa-bakery/dough-rolled-a",
-   "thickRel": 0.26
+   "thickRel": 0.26,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.26 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -99478,7 +99776,14 @@
     "isa",
     "mounted"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "isa-bathroom",
@@ -115289,7 +115594,14 @@
     "wood-beam"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-adventurers",
@@ -115408,7 +115720,14 @@
     "wood-beam"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-adventurers",
@@ -122501,6 +122820,11 @@
    "thickRel": 0.22,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.22 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G13 bands 6 wants max 5"
@@ -125176,10 +125500,7 @@
     "metal-iron-cast",
     "metal-iron-wrought"
    ],
-   "thickRel": 0.71,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.71
   },
   {
    "kit": "kay-dun-1",
@@ -125229,8 +125550,7 @@
    ],
    "thickRel": 0.79,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -129472,10 +129792,7 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "thickRel": 0.61,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.61
   },
   {
    "kit": "kay-dun-1",
@@ -142941,7 +143258,14 @@
     "metal-iron-steel"
    ],
    "variant": "kay-food/table-sink",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-food",
@@ -149091,10 +149415,7 @@
     "scale-big"
    ],
    "variant": "kay-hallow/arch-gate",
-   "thickRel": 1,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1
   },
   {
    "kit": "kay-hallow",
@@ -149738,10 +150059,7 @@
     "scale-big"
    ],
    "variant": "kay-hallow/fence-gate",
-   "thickRel": 1,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1
   },
   {
    "kit": "kay-hallow",
@@ -149838,10 +150156,7 @@
     "scale-big"
    ],
    "variant": "kay-hallow/fence-gate",
-   "thickRel": 1,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1
   },
   {
    "kit": "kay-hallow",
@@ -153037,7 +153352,14 @@
     "vegetation"
    ],
    "variant": "kay-hexagon/cattails",
-   "thickRel": 0.35
+   "thickRel": 0.35,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-hexagon",
@@ -161790,7 +162112,14 @@
     "textile"
    ],
    "variant": "kay-mixed/comic-book",
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -161838,7 +162167,14 @@
     "textile"
    ],
    "variant": "kay-mixed/comic-book",
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -171106,7 +171442,14 @@
     "wood-beam"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.3
+   "thickRel": 0.3,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.3 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-skeleton",
@@ -171163,7 +171506,14 @@
     "wood-beam"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.32
+   "thickRel": 0.32,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.32 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-skeleton",
@@ -178085,6 +178435,11 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 8257 over max 5000 (obj-food)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.32 wants min 0.5"
     }
    ]
   },
@@ -178130,7 +178485,14 @@
     "vegetation"
    ],
    "variant": "kay-spook/jackolantern-large",
-   "thickRel": 0.3
+   "thickRel": 0.3,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.3 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-spook",
@@ -181941,7 +182303,14 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-weapons",
@@ -182998,7 +183367,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G13 bands 8 wants max 5"
+     "text": "G13 bands 8 wants max 6"
     }
    ]
   },
@@ -183132,11 +183501,6 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
      "text": "G27 minTube 0.0159 wants min 0.026"
     }
    ]
@@ -183265,9 +183629,9 @@
    "thickRel": 0.49,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G13 bands 6 wants max 5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -183386,14 +183750,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.63,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 0.63
   },
   {
    "kit": "ken-arcade",
@@ -189664,7 +190021,14 @@
     "stone-rock"
    ],
    "variant": "ken-castle/rocks-large",
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-castle",
@@ -191365,7 +191729,14 @@
     "textile"
    ],
    "variant": "ken-chars/wheelchair",
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-chars",
@@ -191507,7 +191878,14 @@
     "textile"
    ],
    "variant": "ken-chars/wheelchair",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-commercial",
@@ -193919,7 +194297,14 @@
     "storeys-2"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-commercial",
@@ -196349,7 +196734,14 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-factory",
@@ -200419,7 +200811,14 @@
     "ken",
     "scale-big"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -200709,7 +201108,14 @@
     "ken",
     "vegetation"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -200762,7 +201168,14 @@
     "paper"
    ],
    "variant": "ken-food/chocolate",
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -201152,7 +201565,14 @@
     "food",
     "ken"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -202426,7 +202846,14 @@
     "ken",
     "scale-big"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -202676,7 +203103,14 @@
     "ken",
     "paper"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -205718,6 +206152,13 @@
     "stone-rock"
    ],
    "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -206111,7 +206552,14 @@
     "mounted",
     "wood-worked"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -208295,7 +208743,14 @@
     "mounted"
    ],
    "variant": "ken-furniture/hood-large",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -209876,6 +210331,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.1% of view 135/20 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -212884,7 +213344,14 @@
     "wood-worked"
    ],
    "variant": "ken-grave/coffin",
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-grave",
@@ -214466,10 +214933,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/iron-fence-border-column",
-   "thickRel": 0.83,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.83
   },
   {
    "kit": "ken-grave",
@@ -214570,9 +215034,6 @@
     "ken",
     "metal-iron-cast",
     "stone-masonry"
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -214624,10 +215085,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/iron-fence",
-   "thickRel": 0.74,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "ken-grave",
@@ -214719,10 +215177,7 @@
     "metal-iron-cast"
    ],
    "variant": "ken-grave/iron-fence-border-column",
-   "thickRel": 0.56,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.56
   },
   {
    "kit": "ken-grave",
@@ -214767,10 +215222,7 @@
     "metal-iron-cast"
    ],
    "variant": "ken-grave/iron-fence",
-   "thickRel": 0.57,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.57
   },
   {
    "kit": "ken-grave",
@@ -214945,7 +215397,14 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/lightpost-single",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-grave",
@@ -216643,6 +217102,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.056,
+   "badNormals": 11,
    "thick": 0.1195,
    "avgTri": 0.00933,
    "anglePct": 29,
@@ -216668,6 +217128,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.5 under min 0.65 (str-part-wall-unit)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 11 wants max 0"
     }
    ]
   },
@@ -216964,7 +217429,14 @@
     "food",
     "ken"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -217285,7 +217757,14 @@
     "wax"
    ],
    "variant": "ken-holiday/hanukkah-menorah-candles",
-   "thickRel": 0.29
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-holiday",
@@ -224428,7 +224907,14 @@
     "ken",
     "scale-big"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -224663,7 +225149,14 @@
     "wood-planks"
    ],
    "variant": "ken-nature/fence-bend",
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -224711,7 +225204,14 @@
     "wood-planks"
    ],
    "variant": "ken-nature/fence-bend",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -224759,7 +225259,14 @@
     "wood-planks"
    ],
    "variant": "ken-nature/fence-bend",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -224994,7 +225501,14 @@
     "wood-planks"
    ],
    "variant": "ken-nature/fence-simple-center",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -225043,7 +225557,14 @@
     "wood-planks"
    ],
    "variant": "ken-nature/fence-simple-center",
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -226468,7 +226989,14 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-small-flat-a",
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -226511,7 +227039,14 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-small-flat-a",
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -226553,7 +227088,14 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-small-flat-a",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -228170,7 +228712,14 @@
     "wood-beam"
    ],
    "variant": "ken-pirate/boat-row-large",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-pirate",
@@ -231834,10 +232383,7 @@
     "wood-planks"
    ],
    "variant": "ken-platformer/fence-straight",
-   "thickRel": 1.47,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.47
   },
   {
    "kit": "ken-platformer",
@@ -231986,10 +232532,7 @@
     "wood-log"
    ],
    "variant": "ken-platformer/fence-low-corner",
-   "thickRel": 2.56,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.56
   },
   {
    "kit": "ken-platformer",
@@ -232141,10 +232684,7 @@
     "wood-log"
    ],
    "variant": "ken-platformer/fence-low-corner",
-   "thickRel": 2.63,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.63
   },
   {
    "kit": "ken-platformer",
@@ -232248,10 +232788,7 @@
     "wood-planks"
    ],
    "variant": "ken-platformer/fence-straight",
-   "thickRel": 1.5,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.5
   },
   {
    "kit": "ken-platformer",
@@ -234263,6 +234800,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.083,
+   "badNormals": 6,
    "thick": 0.1238,
    "avgTri": 0.02714,
    "anglePct": 54,
@@ -234282,7 +234820,19 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/shape-hollow-cylinder",
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 6 wants max 0"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -234368,7 +234918,14 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/shape-hollow-hexagon",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -234392,6 +234949,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.068,
+   "badNormals": 3,
    "thick": 0.1371,
    "avgTri": 0.0411,
    "anglePct": 100,
@@ -234411,7 +234969,14 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/shape-hollow-hexagon",
-   "thickRel": 0.53
+   "thickRel": 0.53,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 3 wants max 0"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -234435,6 +235000,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.081,
+   "badNormals": 8,
    "thick": 0.1113,
    "avgTri": 0.02382,
    "anglePct": 100,
@@ -234454,7 +235020,14 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 0.98
+   "thickRel": 0.98,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 8 wants max 0"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -234521,6 +235094,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.081,
+   "badNormals": 16,
    "thick": 0.1883,
    "avgTri": 0.03135,
    "anglePct": 100,
@@ -234540,7 +235114,14 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 1.65
+   "thickRel": 1.65,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 16 wants max 0"
+    }
+   ]
   },
   {
    "kit": "ken-proto",
@@ -235431,7 +236012,14 @@
     "plastic",
     "textile"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -237195,6 +237783,11 @@
    "variant": "ken-racing/pits-garage",
    "thickRel": 0.49,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -240231,7 +240824,14 @@
     "metal"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
@@ -240907,7 +241507,14 @@
     "plastic"
    ],
    "variant": "ken-roads/sign-highway",
-   "thickRel": 0.29
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
@@ -240974,6 +241581,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.1% of view 45/50 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
     }
    ]
   },
@@ -241042,6 +241654,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.1% of view 45/50 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
     }
    ]
   },
@@ -241103,7 +241720,14 @@
     "plastic"
    ],
    "variant": "ken-roads/traffic-light",
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
@@ -242234,6 +242858,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.033,
+   "badNormals": 14,
    "thick": 0.1133,
    "avgTri": 0.00784,
    "anglePct": 98,
@@ -242264,6 +242889,13 @@
     "plastic",
     "plural",
     "space"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 14 wants max 0"
+    }
    ]
   },
   {
@@ -242839,7 +243471,14 @@
     "scale-big",
     "space"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -243246,14 +243885,7 @@
     "space"
    ],
    "variant": "ken-space/craft-cargo-a",
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "ken-space",
@@ -243317,14 +243949,7 @@
     "space"
    ],
    "variant": "ken-space/craft-cargo-a",
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ken-space",
@@ -243387,14 +244012,7 @@
     "metal",
     "space"
    ],
-   "thickRel": 0.75,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "ken-space",
@@ -243457,14 +244075,7 @@
     "metal",
     "space"
    ],
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ken-space",
@@ -243528,14 +244139,7 @@
     "space"
    ],
    "variant": "ken-space/craft-speeder-a",
-   "thickRel": 0.59,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.59
   },
   {
    "kit": "ken-space",
@@ -243599,14 +244203,7 @@
     "space"
    ],
    "variant": "ken-space/craft-speeder-a",
-   "thickRel": 0.59,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.59
   },
   {
    "kit": "ken-space",
@@ -243670,14 +244267,7 @@
     "space"
    ],
    "variant": "ken-space/craft-speeder-a",
-   "thickRel": 0.7,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.7
   },
   {
    "kit": "ken-space",
@@ -243741,14 +244331,7 @@
     "space"
    ],
    "variant": "ken-space/craft-speeder-a",
-   "thickRel": 0.61,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.61
   },
   {
    "kit": "ken-space",
@@ -245159,14 +245742,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "ken-space",
@@ -245300,11 +245876,6 @@
      "level": "error",
      "check": "measures",
      "text": "I11 calls 4 wants max 1"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
     }
    ]
   },
@@ -245370,14 +245941,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-front",
-   "thickRel": 0.95,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "ken-space",
@@ -245430,14 +245994,7 @@
     "metal",
     "space"
    ],
-   "variant": "ken-space/monorail-train-front",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "variant": "ken-space/monorail-train-front"
   },
   {
    "kit": "ken-space",
@@ -245637,14 +246194,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-front",
-   "thickRel": 0.95,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "ken-space",
@@ -253555,7 +254105,14 @@
     "metal-iron-steel"
    ],
    "variant": "ken-survival/barrel",
-   "thickRel": 0.29
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -254320,10 +254877,7 @@
     "ken",
     "wood-worked"
    ],
-   "thickRel": 0.64,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.64
   },
   {
    "kit": "ken-survival",
@@ -254365,10 +254919,7 @@
     "scale-big",
     "wood-planks"
    ],
-   "thickRel": 0.58,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.58
   },
   {
    "kit": "ken-survival",
@@ -254410,10 +254961,7 @@
     "scale-big",
     "wood-worked"
    ],
-   "thickRel": 0.54,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.54
   },
   {
    "kit": "ken-survival",
@@ -255592,10 +256140,7 @@
     "metal-iron-cast",
     "metal-iron-wrought"
    ],
-   "thickRel": 0.69,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.69
   },
   {
    "kit": "ken-survival",
@@ -255741,10 +256286,7 @@
     "metal-iron-wrought",
     "scale-big"
    ],
-   "thickRel": 0.68,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.68
   },
   {
    "kit": "ken-survival",
@@ -255935,7 +256477,14 @@
     "wood-beam"
    ],
    "variant": "ken-survival/tent-canvas-half",
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -255984,7 +256533,14 @@
     "wood-beam"
    ],
    "variant": "ken-survival/tent-canvas-half",
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-survival",
@@ -256924,10 +257480,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/balcony-wall",
-   "thickRel": 0.83,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.83
   },
   {
    "kit": "ken-town",
@@ -256970,10 +257523,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/balcony-wall",
-   "thickRel": 0.82,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "ken-town",
@@ -257390,10 +257940,7 @@
    ],
    "alpha": true,
    "variant": "ken-town/chimney-top-anim",
-   "thickRel": 0.96,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "ken-town",
@@ -257435,10 +257982,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/chimney-top-anim",
-   "thickRel": 0.85,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.85
   },
   {
    "kit": "ken-town",
@@ -257529,10 +258073,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 1.28,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.28
   },
   {
    "kit": "ken-town",
@@ -257588,6 +258129,11 @@
      "level": "warning",
      "check": "size",
      "text": "high 0.342 under min 0.35 (str-barrier-fence)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -257649,9 +258195,6 @@
      "check": "size",
      "text": "high 0.342 under min 0.35 (str-barrier-fence)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -257706,9 +258249,6 @@
      "check": "size",
      "text": "high 0.342 under min 0.35 (str-barrier-fence)"
     }
-   ],
-   "mark": [
-    "centered"
    ]
   },
   {
@@ -257966,7 +258506,14 @@
     "stone-masonry"
    ],
    "variant": "ken-town/hedge",
-   "thickRel": 0.32
+   "thickRel": 0.32,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.32 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-town",
@@ -258319,8 +258866,7 @@
     "wood-worked"
    ],
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -258458,10 +259004,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/planks",
-   "thickRel": 1.55,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.55
   },
   {
    "kit": "ken-town",
@@ -258823,8 +259366,7 @@
    "variant": "ken-town/roof-corner",
    "thickRel": 0.76,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -258873,8 +259415,7 @@
    "variant": "ken-town/roof-corner",
    "thickRel": 0.77,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -259245,8 +259786,7 @@
    "variant": "ken-town/roof-left",
    "thickRel": 0.95,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -259345,8 +259885,7 @@
    "variant": "ken-town/roof-left",
    "thickRel": 0.95,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -259401,8 +259940,7 @@
    "variant": "ken-town/roof",
    "thickRel": 1.02,
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -260356,10 +260894,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.57,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.57
   },
   {
    "kit": "ken-town",
@@ -260413,10 +260948,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.15,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.15
   },
   {
    "kit": "ken-town",
@@ -260562,10 +261094,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.53,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.53
   },
   {
    "kit": "ken-town",
@@ -260613,10 +261142,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.54,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.54
   },
   {
    "kit": "ken-town",
@@ -260861,10 +261387,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.58,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.58
   },
   {
    "kit": "ken-town",
@@ -260912,10 +261435,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.56,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.56
   },
   {
    "kit": "ken-town",
@@ -260963,10 +261483,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.58,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.58
   },
   {
    "kit": "ken-town",
@@ -261063,10 +261580,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood-door",
-   "thickRel": 0.6,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.6
   },
   {
    "kit": "ken-town",
@@ -261113,10 +261627,7 @@
     "ken",
     "wood-beam"
    ],
-   "thickRel": 0.64,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.64
   },
   {
    "kit": "ken-town",
@@ -261232,10 +261743,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood-door",
-   "thickRel": 0.66,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.66
   },
   {
    "kit": "ken-town",
@@ -261283,10 +261791,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 1.07,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "ken-town",
@@ -261334,10 +261839,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.18,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 2.18
   },
   {
    "kit": "ken-town",
@@ -261385,10 +261887,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood-window-glass",
-   "thickRel": 0.55,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -261436,10 +261935,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood-window-glass",
-   "thickRel": 0.55,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -261487,10 +261983,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood-window-glass",
-   "thickRel": 0.55,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -261538,10 +262031,7 @@
     "wood-beam"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.55,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -262468,14 +262958,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-a-train",
-   "thickRel": 1.23,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.23
   },
   {
    "kit": "ken-train",
@@ -262539,14 +263022,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-a-train",
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "ken-train",
@@ -262611,14 +263087,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-b",
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.94
   },
   {
    "kit": "ken-train",
@@ -262672,14 +263141,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "ken-train",
@@ -262733,14 +263195,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "ken-train",
@@ -262805,14 +263260,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 1.37,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.37
   },
   {
    "kit": "ken-train",
@@ -262954,14 +263402,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "ken-train",
@@ -263026,14 +263467,7 @@
     "metal"
    ],
    "variant": "ken-train/diesel-c-train",
-   "thickRel": 1.27,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.27
   },
   {
    "kit": "ken-train",
@@ -263288,14 +263722,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 1.38,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "ken-train",
@@ -263434,11 +263861,6 @@
      "level": "warning",
      "check": "backface",
      "text": "0.3% of view 135/50 over 0.1%: open 99.0%, inverted 1.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
     }
    ]
   },
@@ -263613,6 +264035,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.715 over max 1.7 (str-access-track)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.27 wants min 0.5"
     }
    ]
   },
@@ -263669,6 +264096,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.715 over max 1.7 (str-access-track)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.26 wants min 0.5"
     }
    ]
   },
@@ -263720,7 +264152,14 @@
     "wood-beam"
    ],
    "variant": "ken-train/railroad-corner-small",
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -263776,6 +264215,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 2.42 over max 1.7 (str-access-track)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
     }
    ]
   },
@@ -263827,7 +264271,14 @@
     "wood-beam"
    ],
    "variant": "ken-train/railroad-corner-large",
-   "thickRel": 0.26
+   "thickRel": 0.26,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.26 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -263878,7 +264329,14 @@
     "wood-beam"
    ],
    "variant": "ken-train/railroad-corner-small",
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -263929,7 +264387,14 @@
     "wood-beam"
    ],
    "variant": "ken-train/railroad-curve",
-   "thickRel": 0.35
+   "thickRel": 0.35,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -264747,7 +265212,14 @@
     "wood-beam"
    ],
    "variant": "ken-train/track-detailed",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -264797,7 +265269,14 @@
     "wood-beam"
    ],
    "variant": "ken-train/track-detailed",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-train",
@@ -265241,11 +265720,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 1.524 over max 1.4 (obj-transport-land-rail)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
     }
    ]
   },
@@ -265311,14 +265785,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.73
   },
   {
    "kit": "ken-train",
@@ -265388,11 +265855,6 @@
      "level": "warning",
      "check": "size",
      "text": "high 1.509 over max 1.4 (obj-transport-land-rail)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
     }
    ]
   },
@@ -268953,7 +269415,14 @@
     "bone",
     "halloween"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "loaf-bones",
@@ -269044,7 +269513,14 @@
     "halloween"
    ],
    "variant": "loaf-bones/skull",
-   "thickRel": 0.31
+   "thickRel": 0.31,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.31 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "loaf-bones",
@@ -269086,7 +269562,14 @@
     "halloween"
    ],
    "variant": "loaf-bones/skull",
-   "thickRel": 0.35
+   "thickRel": 0.35,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "loaf-bones",
@@ -270899,7 +271382,14 @@
     "plastic"
    ],
    "variant": "lpa-construction/barrier-c",
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-construction",
@@ -271472,7 +271962,14 @@
     "paper",
     "wood-worked"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-construction",
@@ -271639,6 +272136,11 @@
    ],
    "thickRel": 0.36,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -273693,7 +274195,14 @@
     "wood-planks"
    ],
    "variant": "lpa-construction/spool-b",
-   "thickRel": 0.31
+   "thickRel": 0.31,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.31 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-construction",
@@ -281932,7 +282441,14 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -282926,7 +283442,14 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -286801,7 +287324,14 @@
     "lpa",
     "wood-log"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -287618,6 +288148,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
+   "badNormals": 3,
    "thick": 0.0995,
    "avgTri": 0.005,
    "anglePct": 73,
@@ -287654,7 +288185,14 @@
     "wood-planks"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 1.01
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 3 wants max 0"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -288675,6 +289213,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0197,
+   "badNormals": 20,
    "thick": 0.0721,
    "avgTri": 0.00284,
    "anglePct": 44,
@@ -288712,6 +289251,11 @@
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0197 wants min 0.026"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 20 wants max 0"
     }
    ]
   },
@@ -288737,6 +289281,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0197,
+   "badNormals": 20,
    "thick": 0.0686,
    "avgTri": 0.00212,
    "anglePct": 69,
@@ -288779,6 +289324,11 @@
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0197 wants min 0.026"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 20 wants max 0"
     }
    ]
   },
@@ -289443,6 +289993,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
+   "badNormals": 18,
    "thick": 0.0429,
    "avgTri": 0.00044,
    "anglePct": 6,
@@ -289467,6 +290018,11 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5353 over max 5000 (env)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 18 wants max 0"
     }
    ]
   },
@@ -289819,6 +290375,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "badNormals": 3,
    "thick": 0.0584,
    "avgTri": 0.00528,
    "anglePct": 62,
@@ -289849,7 +290406,14 @@
     "wood-planks"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.59
+   "thickRel": 0.59,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 3 wants max 0"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -290115,6 +290679,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0197,
+   "badNormals": 40,
    "thick": 0.0588,
    "avgTri": 0.0027,
    "anglePct": 46,
@@ -290152,6 +290717,11 @@
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0197 wants min 0.026"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 40 wants max 0"
     }
    ]
   },
@@ -290239,6 +290809,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0197,
+   "badNormals": 40,
    "thick": 0.0536,
    "avgTri": 0.00221,
    "anglePct": 71,
@@ -290281,6 +290852,11 @@
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0197 wants min 0.026"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 40 wants max 0"
     }
    ]
   },
@@ -290655,6 +291231,11 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 14717 over max 10000 (obj)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
     }
    ]
   },
@@ -291548,7 +292129,14 @@
     "metal-iron-wrought",
     "wood-worked"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -291851,7 +292439,14 @@
     "m3",
     "textile"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -292113,7 +292708,14 @@
     "glass-clear",
     "m3"
    ],
-   "thickRel": 0.22
+   "thickRel": 0.22,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.22 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -293218,7 +293820,14 @@
     "metal-iron-steel",
     "rubber"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -293596,6 +294205,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "badNormals": 10,
    "thick": 0.092,
    "avgTri": 0.00002,
    "anglePct": 5,
@@ -293619,7 +294229,14 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 10 wants max 0"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -294001,7 +294618,14 @@
     "wick"
    ],
    "variant": "m3-base/candle-holder-01",
-   "thickRel": 0.31
+   "thickRel": 0.31,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.31 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -295103,7 +295727,14 @@
     "metal",
     "pickup"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -295206,7 +295837,14 @@
     "ceramic",
     "m3"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -295681,7 +296319,14 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -296614,7 +297259,14 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -296734,6 +297386,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0559,
+   "badNormals": 48,
    "thick": 0.0548,
    "avgTri": 0.00062,
    "anglePct": 10,
@@ -296758,7 +297411,14 @@
     "metal-iron-steel",
     "rubber"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.55,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 48 wants max 0"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -297918,6 +298578,11 @@
      "level": "error",
      "check": "size",
      "text": "longest 0.086 under min 0.35 (obj-resource-textile)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -298680,7 +299345,14 @@
     "metal-iron-cast"
    ],
    "variant": "m3-base/cycle-mid-stand",
-   "thickRel": 0.2
+   "thickRel": 0.2,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.2 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -298722,7 +299394,14 @@
     "metal-iron-cast"
    ],
    "variant": "m3-base/cycle-mid-stand",
-   "thickRel": 0.18
+   "thickRel": 0.18,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.18 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -299131,6 +299810,11 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5487 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
     }
    ]
   },
@@ -299737,6 +300421,11 @@
      "level": "error",
      "check": "mat",
      "text": "metal-iron needs metal-iron-cast, has metal-iron-wrought (str)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
     }
    ]
   },
@@ -302149,7 +302838,14 @@
     "m3",
     "metal-iron-wrought"
    ],
-   "thickRel": 0.34
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -305134,6 +305830,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0112,
+   "badNormals": 2,
    "thick": 0.1277,
    "avgTri": 0.00004,
    "anglePct": 16,
@@ -305159,7 +305856,14 @@
     "plastic"
    ],
    "variant": "m3-base/hacksaw-01",
-   "thickRel": 1.03
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 2 wants max 0"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -306033,7 +306737,14 @@
     "wood-worked"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -306171,7 +306882,14 @@
     "wood-worked"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -306604,6 +307322,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.2398,
+   "badNormals": 40,
    "thick": 0.0633,
    "avgTri": 0.00934,
    "anglePct": 55,
@@ -306629,7 +307348,14 @@
     "wood-planks"
    ],
    "variant": "m3-base/industrial-shelving-01",
-   "thickRel": 0.62
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 40 wants max 0"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -307282,7 +308008,14 @@
     "pickup",
     "wood-cardboard"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -308279,7 +309012,14 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.29
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -309406,7 +310146,14 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.3
+   "thickRel": 0.3,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.3 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -311253,7 +312000,14 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.21
+   "thickRel": 0.21,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.21 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -311594,7 +312348,14 @@
     "metal"
    ],
    "variant": "m3-base/outdoor-bin",
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -312251,7 +313012,14 @@
     "plastic",
     "textile"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -312609,6 +313377,11 @@
      "level": "error",
      "check": "mat",
      "text": "wood needs wood-planks, has wood-worked (obj-equipment-tool-hand)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.17 wants min 0.5"
     }
    ]
   },
@@ -313421,7 +314194,14 @@
     "paper",
     "wood-cardboard"
    ],
-   "thickRel": 0.19
+   "thickRel": 0.19,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.19 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -313462,7 +314242,14 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.24
+   "thickRel": 0.24,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.24 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -313724,7 +314511,14 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -313896,7 +314690,14 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -314649,6 +315450,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
+   "badNormals": 8,
    "thick": 0.0465,
    "avgTri": 0.0002,
    "anglePct": 78,
@@ -314678,7 +315480,14 @@
     "m3"
    ],
    "variant": "m3-base/pizza-slice",
-   "thickRel": 0.25
+   "thickRel": 0.25,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 8 wants max 0"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -314768,7 +315577,14 @@
     "plastic"
    ],
    "variant": "m3-base/plasterers-float-01",
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -316140,6 +316956,11 @@
      "level": "error",
      "check": "mat",
      "text": "metal-iron needs metal-iron-steel, has metal-iron-wrought (obj-equipment-tool)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -316286,7 +317107,14 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.35
+   "thickRel": 0.35,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.35 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -316658,7 +317486,14 @@
     "paper",
     "plastic"
    ],
-   "thickRel": 0.24
+   "thickRel": 0.24,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.24 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -319004,7 +319839,14 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.21
+   "thickRel": 0.21,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.21 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -320139,7 +320981,14 @@
     "m3",
     "metal"
    ],
-   "thickRel": 0.27
+   "thickRel": 0.27,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.27 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -320563,7 +321412,14 @@
     "plastic"
    ],
    "variant": "m3-base/snowflake-01",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -323929,6 +324785,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "badNormals": 16,
    "thick": 0.0712,
    "avgTri": 0.00128,
    "anglePct": 15,
@@ -323947,7 +324804,14 @@
     "m3",
     "stone-masonry"
    ],
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 16 wants max 0"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -324381,7 +325245,14 @@
     "mounted"
    ],
    "variant": "m3-base/towel-holder",
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -324657,7 +325528,14 @@
     "m3",
     "metal-iron-cast"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -325333,7 +326211,14 @@
     "m3",
     "metal-gold"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -325447,7 +326332,14 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -325488,7 +326380,14 @@
     "m3",
     "paper"
    ],
-   "thickRel": 0.31
+   "thickRel": 0.31,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.31 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -325534,7 +326433,14 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.31
+   "thickRel": 0.31,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.31 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -325866,7 +326772,14 @@
     "tba",
     "wood-worked"
    ],
-   "thickRel": 0.27
+   "thickRel": 0.27,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.27 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -326479,6 +327392,11 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 10769 over max 10000 (obj)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.33 wants min 0.5"
     },
     {
      "level": "error",
@@ -328491,7 +329409,14 @@
     "plastic"
    ],
    "variant": "makeup/brush-blush",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "makeup",
@@ -335307,7 +336232,14 @@
     "#8b7561"
    ],
    "variant": "natuur/starfish-bleached",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -335345,7 +336277,14 @@
     "#d07b56"
    ],
    "variant": "natuur/starfish-bleached",
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -335427,7 +336366,14 @@
     "stone-rock"
    ],
    "variant": "natuur/stepping-stone-1",
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -335468,7 +336414,14 @@
     "stone-rock"
    ],
    "variant": "natuur/stepping-stone-1",
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -335650,7 +336603,14 @@
     "scale-big",
     "wood-bark"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "natuur",
@@ -337049,6 +338009,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
+   "badNormals": 8,
    "thick": 0.1072,
    "avgTri": 0.00585,
    "anglePct": 57,
@@ -337078,7 +338039,14 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.39,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 8 wants max 0"
+    }
+   ]
   },
   {
    "kit": "pm-store",
@@ -337714,7 +338682,14 @@
     "scale-big",
     "wood-planks"
    ],
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "pm-store",
@@ -341627,7 +342602,14 @@
     "metal-iron-cast",
     "qua"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -343616,7 +344598,14 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -343882,6 +344871,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "badNormals": 6,
    "thick": 0.2159,
    "avgTri": 0.0009,
    "anglePct": 37,
@@ -343928,7 +344918,14 @@
     "qua"
    ],
    "variant": "quat-cars/car",
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 6 wants max 0"
+    }
+   ]
   },
   {
    "kit": "quat-cars",
@@ -344310,6 +345307,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "badNormals": 19,
    "thick": 0.2163,
    "avgTri": 0.00082,
    "anglePct": 36,
@@ -344351,7 +345349,14 @@
     "qua"
    ],
    "variant": "quat-cars/car",
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 19 wants max 0"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -345510,6 +346515,11 @@
    "variant": "quat-dun-1/trapdoor",
    "thickRel": 0.48,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -347250,6 +348260,13 @@
     "Armature|Swim"
    ],
    "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -350018,7 +351035,14 @@
     "food",
     "qua"
    ],
-   "thickRel": 0.34
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-food",
@@ -354350,6 +355374,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "badNormals": 5,
    "thick": 0.1363,
    "avgTri": 0.00277,
    "anglePct": 53,
@@ -354374,6 +355399,11 @@
      "level": "error",
      "check": "palette",
      "text": "leather wants umber, has sienna"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 5 wants max 0"
     }
    ]
   },
@@ -354439,6 +355469,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "badNormals": 24,
    "thick": 0.2287,
    "avgTri": 0.0029,
    "anglePct": 44,
@@ -354464,7 +355495,14 @@
     "wood-beam"
    ],
    "variant": "quat-interior/couch-medium-a",
-   "thickRel": 1.14
+   "thickRel": 1.14,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 24 wants max 0"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -355127,6 +356165,7 @@
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.2883,
+   "badNormals": 16,
    "thick": 0.1286,
    "avgTri": 0.01366,
    "anglePct": 58,
@@ -355145,7 +356184,14 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.66
+   "thickRel": 1.66,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 16 wants max 0"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -355511,7 +356557,14 @@
     "stone-soil"
    ],
    "variant": "quat-interior/houseplant-a",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -360408,7 +361461,14 @@
     "wood-bark"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-nature",
@@ -360456,7 +361516,14 @@
     "wood-bark"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-nature",
@@ -360594,6 +361661,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.888 under min 0.9 (env-remains-deadwood-tree)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -360943,7 +362015,14 @@
     "wood-bark"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-nature",
@@ -361034,7 +362113,14 @@
     "wood-bark"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-nature",
@@ -361082,6 +362168,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.814 under min 0.9 (env-remains-deadwood-tree)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -361889,7 +362980,14 @@
     "qua",
     "scale-big"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-ocean",
@@ -361930,7 +363028,14 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-ocean",
@@ -364317,7 +365422,14 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -366571,6 +367683,11 @@
    "thickRel": 0.22,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.22 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0177 wants min 0.026"
@@ -366625,6 +367742,11 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 10915 over max 10000 (obj)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -369059,6 +370181,11 @@
    "thickRel": 0.38,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0043 wants min 0.026"
@@ -369284,7 +370411,14 @@
     "qua"
    ],
    "variant": "quat-rpg/crown",
-   "thickRel": 0.34
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -370043,7 +371177,14 @@
     "bone",
     "qua"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -371827,7 +372968,14 @@
     "qua"
    ],
    "variant": "quat-rpg/skull",
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -372821,7 +373969,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-ships",
@@ -374075,6 +375230,11 @@
    ],
    "thickRel": 0.46,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -377401,7 +378561,14 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-space",
@@ -377743,7 +378910,14 @@
     "space",
     "stone"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-space",
@@ -378971,7 +380145,14 @@
     "space"
    ],
    "variant": "quat-space/spaceship-a",
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-space",
@@ -383125,7 +384306,14 @@
     "qua",
     "wood-beam"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-sushi",
@@ -386649,7 +387837,14 @@
     "wood-beam"
    ],
    "variant": "quat-town/house-1-1-b",
-   "thickRel": 0.34
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -386700,7 +387895,14 @@
     "wood-beam"
    ],
    "variant": "quat-town/house-1-1-b",
-   "thickRel": 0.38
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -386802,7 +388004,14 @@
     "wood-beam"
    ],
    "variant": "quat-town/house-1-2-b",
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -386966,7 +388175,14 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -391648,7 +392864,14 @@
     "rey",
     "wood-planks"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -391919,7 +393142,14 @@
     "metal-iron-cast",
     "rgp"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -396067,7 +397297,14 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-explosives",
@@ -398413,6 +399650,11 @@
    "thickRel": 0.49,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0217 wants min 0.026"
@@ -399610,7 +400852,14 @@
     "mounted",
     "rgp"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -401295,7 +402544,14 @@
     "wood-beam"
    ],
    "variant": "rgp-medieval/palisade-a",
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -401357,7 +402613,14 @@
     "wood-beam"
    ],
    "variant": "rgp-medieval/palisade-a",
-   "thickRel": 0.41
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -406105,6 +407368,11 @@
    "thickRel": 0.45,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0109 wants min 0.026"
@@ -406676,7 +407944,14 @@
     "wood-log"
    ],
    "variant": "rgp-props/cut-wood-1-a",
-   "thickRel": 0.33
+   "thickRel": 0.33,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.33 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-props",
@@ -407793,7 +409068,14 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-vintage",
@@ -408381,7 +409663,14 @@
     "special"
    ],
    "specialBand": "13,3",
-   "thickRel": 0.31
+   "thickRel": 0.31,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.31 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-vintage",
@@ -408475,6 +409764,11 @@
    ],
    "thickRel": 0.4,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -409423,7 +410717,14 @@
     "wood-bark"
    ],
    "variant": "rgp-weapons/staff-druid-a",
-   "thickRel": 0.47
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-weapons",
@@ -409988,7 +411289,14 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgs-vehicles",
@@ -412195,14 +413503,7 @@
     "sq"
    ],
    "variant": "sq-arcade/arcade-upright-alpha",
-   "thickRel": 1.19,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 1.19
   },
   {
    "kit": "sq-arcade",
@@ -412273,14 +413574,7 @@
     "sq"
    ],
    "variant": "sq-arcade/arcade-upright-alpha",
-   "thickRel": 1.19,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 1.19
   },
   {
    "kit": "sq-arcade",
@@ -412352,14 +413646,7 @@
     "sq"
    ],
    "variant": "sq-arcade/arcade-upright-alpha",
-   "thickRel": 1.21,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 1.21
   },
   {
    "kit": "sq-arcade",
@@ -412506,11 +413793,6 @@
    ],
    "thickRel": 0.65,
    "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -416091,6 +417373,11 @@
    "thickRel": 0.49,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0043 wants min 0.026"
@@ -419422,7 +420709,14 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "sq-gym",
@@ -419532,7 +420826,14 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "sq-gym",
@@ -419587,7 +420888,14 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "sq-gym",
@@ -424416,7 +425724,14 @@
     "sty",
     "wood-planks"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -424618,7 +425933,14 @@
     "food",
     "sty"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -424767,7 +426089,14 @@
     "sty",
     "wood-bark"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -425923,6 +427252,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 1.292 over max 1.12 (obj-equipment-tool-twohand-rod)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -425985,6 +427319,11 @@
      "level": "warning",
      "check": "size",
      "text": "longest 1.292 over max 1.12 (obj-equipment-tool-twohand-rod)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -426082,7 +427421,14 @@
     "sty"
    ],
    "variant": "styloo-farm/grapes",
-   "thickRel": 0.32
+   "thickRel": 0.32,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.32 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -426131,7 +427477,14 @@
     "sty"
    ],
    "variant": "styloo-farm/grapes",
-   "thickRel": 0.32
+   "thickRel": 0.32,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.32 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -428550,6 +429903,11 @@
    ],
    "thickRel": 0.46,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -436249,7 +437607,14 @@
     "glass-clear",
     "sty"
    ],
-   "thickRel": 0.28
+   "thickRel": 0.28,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.28 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -436664,7 +438029,14 @@
     "ceramic",
     "sty"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.36,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.36 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -439832,6 +441204,11 @@
      "level": "warning",
      "check": "tpu",
      "text": "tpu 12023 over max 10000 (obj)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.27 wants min 0.5"
     }
    ]
   },
@@ -442403,6 +443780,11 @@
    "thickRel": 0.41,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0079 wants min 0.012"
@@ -442430,6 +443812,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
+   "badNormals": 20,
    "thick": 0.0434,
    "avgTri": 0.01771,
    "anglePct": 100,
@@ -442455,7 +443838,19 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/wall-doorway",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 20 wants max 0"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -442503,7 +443898,14 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/wall-doorway",
-   "thickRel": 0.44
+   "thickRel": 0.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.44 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -442599,7 +444001,14 @@
     "wood-worked"
    ],
    "variant": "styloo-school/wall-window",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -442647,7 +444056,14 @@
     "wood-worked"
    ],
    "variant": "styloo-school/wall-window",
-   "thickRel": 0.43
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -443767,6 +445183,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.2% of view 270/50 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
     }
    ]
   },
@@ -444067,6 +445488,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0124,
+   "badNormals": 4,
    "thick": 0.1464,
    "avgTri": 0.00007,
    "anglePct": 12,
@@ -444115,6 +445537,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.4% of view 0/20 over 0.1%: inverted 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 4 wants max 0"
     }
    ]
   },
@@ -444206,6 +445633,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0125,
+   "badNormals": 3,
    "thick": 0.162,
    "avgTri": 0.00005,
    "anglePct": 3,
@@ -444235,7 +445663,14 @@
     "metal-iron-steel",
     "textile"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G29 badNormals 3 wants max 0"
+    }
+   ]
   },
   {
    "kit": "swords-tember",
@@ -445723,6 +447158,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.26 wants min 0.5"
     }
    ]
   },
@@ -445790,6 +447230,11 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 15711 over max 10000 (obj)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
     }
    ]
   },
@@ -447338,7 +448783,14 @@
     "rubber"
    ],
    "variant": "taalei-kit/stair-truck",
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -447407,7 +448859,14 @@
     "rubber"
    ],
    "variant": "taalei-kit/stair-truck",
-   "thickRel": 0.22
+   "thickRel": 0.22,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.22 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -447476,7 +448935,14 @@
     "rubber"
    ],
    "variant": "taalei-kit/stair-truck",
-   "thickRel": 0.29
+   "thickRel": 0.29,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.29 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -448897,6 +450363,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.4% of view 180/20 over 0.1%: other 65.0%, inverted 34.0%, open 1.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -452247,6 +453718,11 @@
    "thickRel": 0.46,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.017 wants min 0.026"
@@ -453347,7 +454823,14 @@
     "wood-beam"
    ],
    "variant": "wizp-asia/post-a",
-   "thickRel": 0.49
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -455240,7 +456723,14 @@
     "wood-worked"
    ],
    "variant": "wizp-fish/boat-oars",
-   "thickRel": 0.46
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "wizp-fish",
@@ -456544,7 +458034,14 @@
     "wizp"
    ],
    "variant": "wizp-grave/iron-fence-run",
-   "thickRel": 0.39
+   "thickRel": 0.39,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "wizp-grave",
@@ -463856,6 +465353,11 @@
    "thickRel": 0.46,
    "lint": [
     {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.46 wants min 0.5"
+    },
+    {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.017 wants min 0.026"
@@ -465911,7 +467413,14 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "zombie-weapons",
