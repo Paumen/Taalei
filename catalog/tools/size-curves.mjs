@@ -331,6 +331,8 @@ const SIZES = {
   'str-building-work-commercial': 6,
   'str-building-work-industrial-mill': 10,
   'str-building-work-industrial-workshop': 6,
+  'str-canopy-gazebo': 3,
+  'str-canopy-shelter': 3,
   'str-canopy-stall': 2.5,
   'str-canopy-tent-camping': 2.5,
   'str-fixture-chimney': 20,

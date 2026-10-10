@@ -1386,8 +1386,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.94,
-    "kinds": 26
+    "factor": 0.99,
+    "kinds": 25
    }
   },
   {
@@ -2693,8 +2693,8 @@
     "smooth": 26
    },
    "kitCheck": {
-    "factor": 1.06,
-    "kinds": 8
+    "factor": 1.05,
+    "kinds": 7
    }
   },
   {
@@ -26821,11 +26821,25 @@
    "count": 9
   },
   {
+   "id": "str-canopy-gazebo",
+   "name": "Gazebo",
+   "type": "kind",
+   "description": "event tent, party tent, pavilion",
+   "count": 7
+  },
+  {
+   "id": "str-canopy-shelter",
+   "name": "Shelter",
+   "type": "kind",
+   "description": "shelter, bus shelter, porch, pergola",
+   "count": 8
+  },
+  {
    "id": "str-canopy-stall",
    "name": "Stall",
    "type": "kind",
    "description": "One or more trading pitches: a counter, an awning or a stall on posts.",
-   "count": 22
+   "count": 19
   },
   {
    "id": "set",
@@ -30854,6 +30868,18 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-canopy-gazebo": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-canopy-shelter": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-canopy-stall": {
    "high.max": 8,
    "longest.min": 0.65,
@@ -32681,7 +32707,7 @@
    "collection": "3dm",
    "name": "bus-shelter",
    "hash": "222968c368",
-   "kind": "str-canopy",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     1.145,
@@ -32729,7 +32755,7 @@
     "plastic",
     "wood-beam"
    ],
-   "thickRel": 0.6
+   "thickRel": 1.08
   },
   {
    "kit": "3dm-city-2",
@@ -36076,7 +36102,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 1.31,
+   "thickRel": 1.28,
    "lint": [
     {
      "level": "warning",
@@ -155589,7 +155615,7 @@
    "collection": "kay-strategy",
    "name": "tent",
    "hash": "901c89df87",
-   "kind": "str-canopy-stall",
+   "kind": "str-canopy-gazebo",
    "size": "m",
    "wdh": [
     0.877,
@@ -155631,7 +155657,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1.99
+   "thickRel": 1.47
   },
   {
    "kit": "kay-hexagon",
@@ -237779,7 +237805,7 @@
    "kit": "ken-racing",
    "name": "tent-closed-long",
    "hash": "468e0803fd",
-   "kind": "str-canopy",
+   "kind": "str-canopy-gazebo",
    "size": "l",
    "wdh": [
     2.4,
@@ -237823,7 +237849,7 @@
    "kit": "ken-racing",
    "name": "tent-closed",
    "hash": "337e26c4e1",
-   "kind": "str-canopy",
+   "kind": "str-canopy-gazebo",
    "size": "m",
    "wdh": [
     1.2,
@@ -237867,7 +237893,7 @@
    "kit": "ken-racing",
    "name": "tent-long",
    "hash": "933facb181",
-   "kind": "str-canopy",
+   "kind": "str-canopy-gazebo",
    "size": "l",
    "wdh": [
     2.4,
@@ -237910,7 +237936,7 @@
    "kit": "ken-racing",
    "name": "tent-roof-double",
    "hash": "dc5e9b4765",
-   "kind": "str-canopy",
+   "kind": "str-canopy-gazebo",
    "size": "m",
    "wdh": [
     1.345,
@@ -237973,7 +237999,7 @@
    "kit": "ken-racing",
    "name": "tent-roof",
    "hash": "e9016a89e6",
-   "kind": "str-canopy",
+   "kind": "str-canopy-gazebo",
    "size": "m",
    "wdh": [
     0.673,
@@ -238030,7 +238056,7 @@
    "kit": "ken-racing",
    "name": "tent",
    "hash": "1c8cf87ec1",
-   "kind": "str-canopy",
+   "kind": "str-canopy-gazebo",
    "size": "m",
    "wdh": [
     1.2,
@@ -259877,7 +259903,7 @@
     "wood-worked"
    ],
    "variant": "ken-town/stall-red",
-   "thickRel": 0.81,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "error",
@@ -274103,7 +274129,7 @@
    "kit": "lpa-desert",
    "name": "awning-a",
    "hash": "374cad8dad",
-   "kind": "str-canopy-stall",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     0.645,
@@ -274146,13 +274172,13 @@
     "wood-beam"
    ],
    "variant": "lpa-desert/awning-a",
-   "thickRel": 0.75
+   "thickRel": 1
   },
   {
    "kit": "lpa-desert",
    "name": "awning-b",
    "hash": "6f03553bbb",
-   "kind": "str-canopy-stall",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     0.665,
@@ -274195,7 +274221,7 @@
     "wood-beam"
    ],
    "variant": "lpa-desert/awning-a",
-   "thickRel": 0.98
+   "thickRel": 1.3
   },
   {
    "kit": "lpa-desert",
@@ -358605,7 +358631,7 @@
     "wood-beam"
    ],
    "variant": "quat-medieval/market-stand",
-   "thickRel": 1.02,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -358667,7 +358693,7 @@
     "wood-beam"
    ],
    "variant": "quat-medieval/market-stand",
-   "thickRel": 1.32,
+   "thickRel": 1.29,
    "lint": [
     {
      "level": "error",
@@ -401922,7 +401948,7 @@
    "collection": "rgp",
    "name": "porch-2-a",
    "hash": "e915a04357",
-   "kind": "str-canopy",
+   "kind": "str-canopy-shelter",
    "size": "l",
    "wdh": [
     0.814,
@@ -401965,14 +401991,14 @@
     "wood-planks"
    ],
    "variant": "rgp-medieval/porch-2-a",
-   "thickRel": 0.71
+   "thickRel": 1.27
   },
   {
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "porch-2-b",
    "hash": "2772d7d34b",
-   "kind": "str-canopy",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     0.827,
@@ -402015,14 +402041,14 @@
     "wood-planks"
    ],
    "variant": "rgp-medieval/porch-2-a",
-   "thickRel": 0.56
+   "thickRel": 1
   },
   {
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "porch-5-a",
    "hash": "2a10003eb2",
-   "kind": "str-canopy",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     1.237,
@@ -402066,14 +402092,14 @@
     "wood-beam"
    ],
    "variant": "rgp-medieval/porch-5-a",
-   "thickRel": 0.55
+   "thickRel": 1
   },
   {
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "porch-5-b",
    "hash": "0f144e1d61",
-   "kind": "str-canopy",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     1.237,
@@ -402116,14 +402142,14 @@
     "wood-beam"
    ],
    "variant": "rgp-medieval/porch-5-a",
-   "thickRel": 0.5
+   "thickRel": 0.9
   },
   {
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "porch-6",
    "hash": "688e324db0",
-   "kind": "str-canopy",
+   "kind": "str-canopy-shelter",
    "size": "m",
    "wdh": [
     1.351,
@@ -402171,7 +402197,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.51,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
@@ -404725,7 +404751,7 @@
     "wood-beam"
    ],
    "variant": "rgp-medieval/stall",
-   "thickRel": 1.35
+   "thickRel": 1.32
   },
   {
    "kit": "rgp-medieval",
@@ -404787,7 +404813,7 @@
     "wood-beam"
    ],
    "variant": "rgp-medieval/stall",
-   "thickRel": 0.84
+   "thickRel": 0.82
   },
   {
    "kit": "rgp-medieval",
@@ -452176,7 +452202,7 @@
     "wizp",
     "wood-beam"
    ],
-   "thickRel": 1.78,
+   "thickRel": 1.74,
    "lint": [
     {
      "level": "error",
@@ -460163,7 +460189,7 @@
     "wood-beam"
    ],
    "variant": "wizp-mediev/market-stall-red",
-   "thickRel": 0.91
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-mediev",
@@ -460218,7 +460244,7 @@
     "wood-beam"
    ],
    "variant": "wizp-mediev/market-stall-red",
-   "thickRel": 0.91
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-mediev",
