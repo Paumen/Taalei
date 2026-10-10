@@ -188,7 +188,7 @@ export const BRONKITS = [
   { map: 'Low_Poly_Medieval_Weapons', naam: 'Low Poly Medieval Weapons', kit: 'lpa-weapons', source: 'lpa', formaat: 'fbx', alleMappen: true },
   { map: 'Low_Poly_Household_Items', naam: 'Low Poly Household Items', kit: 'lpa-home', source: 'lpa', formaat: 'fbx', alleMappen: true },
   { map: 'Low_Poly_Western_Objects', naam: 'Low Poly Western Objects', kit: 'western', formaat: 'fbx', splitsPerMesh: true },
-  { map: 'Dungeon_Asset_Pack', naam: 'Dungeon Asset Pack', kit: null, formaat: 'fbx' },
+  { map: 'Dungeon_Asset_Pack', naam: 'Dungeon Asset Pack', kit: 'dungeon', formaat: 'fbx' },
 
   { map: 'modular_temple_collection', naam: 'Modular Temple Collection', kit: 'fs-temple', source: 'fs', formaat: 'obj' },
   { map: 'modular_house_collection', naam: 'Modular House Collection', kit: 'fs-house', source: 'fs', formaat: 'obj' },
@@ -231,6 +231,6 @@ export const BRONKITS = [
   { map: 'Electronics_Gadgets_Pack_3dmodelscc0', naam: 'Electronics & Gadgets Pack', kit: '3dm-electronics', source: '3dm', formaat: 'fbx', alleMappen: true },
   { map: 'Bones_Asset_loafbrr', naam: 'Bones 3D Asset', kit: 'loaf-bones', formaat: 'fbx' },
   { map: 'Base_Meshes_M3-org', naam: 'Base Meshes', kit: 'm3-base', source: 'm3', formaat: 'glb', alleMappen: true },
-  { map: 'Coffin_and_Flowers_loafbrr', naam: 'Coffin and Flowers', kit: null, formaat: 'glb', splitsPerMesh: true },
+  { map: 'Coffin_and_Flowers_loafbrr', naam: 'Coffin and Flowers', kit: 'loaf-coffins', formaat: 'glb', splitsPerMesh: true },
   { map: 'Lowbudget_Game_Assets_britdawgmasterfunk', naam: 'Lowbudget Game Assets', kit: 'lowbudget', formaat: 'glb', splitsPerMesh: true },
 ];
