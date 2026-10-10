@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taaleiland — Kind limits</title>
+<meta name="catalogus-versie" content="b0ced90da7">
+<meta name="catalogus-gebouwd" content="2026-10-10T23:04:49Z">
+<meta name="catalogus-hashes" content="catalog.json:b4cd15ef7e thumbs.json:75aac311b1 scale-groups.json:3825d891a7 size-curves.json:c91bcdda9a tbd.json:f649859e0d reject.json:4341188e61 npc.json:5440c12ec3 packs.json:d6a89beb4b kinds.json:d7288df90f measures.json:cdadf6061e variables.json:b742589ee2">
+<meta name="description" content="Swipe through kinds with at least three models from two kits, shown to scale in a line-up, and pick each kind's size limits: measure, min and max — or skip.">
+<link rel="stylesheet" href="catalog.css?v=f3b8edd1e2">
+<link rel="stylesheet" href="limits.css?v=13f612041c"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏝️</text></svg>">
+</head>
+<body class="limits-page">
+
+<header class="kop">
+  <nav class="paginabalk" aria-label="Pages">
+    <a href="../../index.html">Catalog</a>
+    <a href="scale-obj-gen.html">Scale</a>
+    <a href="overview.html">Info</a>
+    <a href="swipe.html">Swipe</a>
+    <span aria-current="page">Limits</span>
+    <a href="lint.html">Lint</a>
+  </nav>
+  <span class="voortgang-tekst" id="voortgang"></span>
+  <button class="knop" type="button" id="naar-uitslag">Results</button>
+  <span class="bouwstempel" id="bouwstempel"></span>
+</header>
+
+<main id="kaart" hidden>
+  <div class="kind-kop">
+    <h2 id="kind-naam"></h2>
+    <span id="kind-feiten"></span>
+  </div>
+  <div class="maat-keuze" role="group" aria-label="Measure">
+    <button class="knop" type="button" data-maat="longest">Longest <kbd>L</kbd></button>
+    <button class="knop" type="button" data-maat="high">Height <kbd>H</kbd></button>
+    <span id="nu"></span>
+  </div>
+  <div class="doek" id="doek"><canvas width="1800" height="400"></canvas></div>
+  <svg class="strip" id="strip" role="img" aria-label="Model sizes with min and max handles"></svg>
+  <div class="grenzen">
+    <label>Min <input type="number" id="min" step="0.01" min="0" inputmode="decimal"></label>
+    <label>Max <input type="number" id="max" step="0.01" min="0" inputmode="decimal"></label>
+    <button class="knop" type="button" id="alles">Fit all</button>
+    <button class="knop" type="button" id="huidig">Current</button>
+    <span id="buiten"></span>
+  </div>
+  <div class="acties">
+    <button class="knop" type="button" id="terug" title="Undo the last choice (Z)">↺ Undo</button>
+    <button class="knop" type="button" id="sla-over" title="Skip (S or ←)">Skip ←</button>
+    <button class="knop primair" type="button" id="bewaar" title="Save (Enter or →)">Save →</button>
+  </div>
+  <p class="sneltoetsen">Drag the handles or tap a dot to move the nearest handle. Swipe the line-up right to save, left to skip.</p>
+</main>
+
+<section id="uitslag" hidden>
+  <div class="acties">
+    <button class="knop" type="button" id="verder">Keep swiping</button>
+    <button class="knop" type="button" id="download">Download JSON</button>
+    <button class="knop" type="button" id="wis">Clear all</button>
+  </div>
+  <table class="uitslag-tabel"><thead><tr><th>Kind</th><th>Measure</th><th>Min</th><th>Max</th><th>Current</th></tr></thead><tbody id="uitslag-rijen"></tbody></table>
+</section>
+
+<p class="leeg" id="melding" hidden></p>
+
+<script type="importmap">{"imports": {"three": "./vendor/three.module.min.js"}}</script>
+<script src="limits.js?v=383992aa9f" type="module"></script></body>
+</html>
