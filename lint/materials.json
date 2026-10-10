@@ -4,7 +4,7 @@
   "tan": "0,0",
   "camel": "1,0",
   "chestnut": "2,0",
-  "umber": "3,0",
+  "bark": "3,0",
   "loam": "4,0",
   "terracotta": "5,0",
   "amber": "6,0",
@@ -23,70 +23,124 @@
  },
  "materials": [
   {
-   "id": "metal",
+   "id": "mineral",
    "children": [
     {
-     "id": "metal-iron",
+     "id": "metal",
      "children": [
-      { "id": "metal-iron-steel", "bands": ["nickel"] },
-      { "id": "metal-iron-wrought", "bands": ["basalt"] },
-      { "id": "metal-iron-cast", "bands": ["slate"] }
+      { "id": "metal-iron-mid", "bands": ["basalt"] },
+      { "id": "metal-iron-dark", "bands": ["slate"] },
+      { "id": "metal-steel", "bands": ["nickel"] },
+      { "id": "metal-gold", "bands": ["amber"] },
+      { "id": "metal-copper", "bands": ["terracotta"] },
+      { "id": "metal-aluminium", "bands": ["nickel"] }
      ]
     },
-    { "id": "metal-gold", "bands": ["amber"] },
-    { "id": "metal-copper", "bands": ["terracotta"] }
+    {
+     "id": "stone",
+     "children": [
+      { "id": "stone-masonry-light", "bands": ["ivory"] },
+      { "id": "stone-masonry-mid", "bands": ["taupe"] },
+      { "id": "stone-masonry-dark", "bands": ["taupe-dark"] },
+      { "id": "stone-rock", "bands": ["taupe", "taupe-dark"] },
+      { "id": "stone-concrete", "bands": ["basalt"] }
+     ]
+    },
+    { "id": "gemstone", "bands": ["sienna", "hunter", "azure"] },
+    {
+     "id": "earth",
+     "children": [
+      { "id": "earth-soil", "bands": ["loam"] },
+      { "id": "earth-sand", "bands": ["tan"] }
+     ]
+    },
+    {
+     "id": "ceramic",
+     "children": [
+      { "id": "ceramic-light", "bands": ["ivory"] },
+      { "id": "ceramic-mid", "bands": ["terracotta"] },
+      { "id": "ceramic-dark", "bands": ["sienna"] }
+     ]
+    },
+    {
+     "id": "glass",
+     "bands": ["transparent"],
+     "children": [
+      { "id": "glass-clear", "bands": ["glass"] },
+      { "id": "glass-tinted", "bands": ["basalt", "hunter", "sienna", "amber"] },
+      { "id": "glass-screen", "bands": ["ivory"] },
+      { "id": "glass-mirror", "bands": ["nickel"] }
+     ]
+    }
    ]
   },
   {
-   "id": "wood",
+   "id": "plant",
    "children": [
-    { "id": "wood-planks", "bands": ["tan"] },
-    { "id": "wood-worked", "bands": ["camel"] },
-    { "id": "wood-beam", "bands": ["chestnut"] },
-    { "id": "wood-log", "bands": ["tan", "camel", "chestnut"] },
-    { "id": "wood-bark", "bands": ["umber"] },
-    { "id": "wood-cardboard", "bands": ["tan"] }
+    {
+     "id": "wood",
+     "children": [
+      { "id": "wood-light", "bands": ["tan"] },
+      { "id": "wood-mid", "bands": ["camel"] },
+      { "id": "wood-dark", "bands": ["chestnut"] }
+     ]
+    },
+    { "id": "bark", "bands": ["bark"] },
+    {
+     "id": "paper",
+     "children": [
+      { "id": "paper-sheet", "bands": ["ivory"] },
+      { "id": "paper-cardboard", "bands": ["tan"] }
+     ]
+    },
+    { "id": "cork", "bands": ["taupe"] },
+    {
+     "id": "leaf",
+     "children": [
+      { "id": "leaf-light", "bands": ["moss"] },
+      { "id": "leaf-dark", "bands": ["hunter"] }
+     ]
+    },
+    {
+     "id": "textile",
+     "children": [
+      {
+       "id": "textile-cloth",
+       "children": [
+        { "id": "textile-cloth-light", "bands": ["ivory"] },
+        { "id": "textile-cloth-mid", "bands": ["taupe"] },
+        { "id": "textile-cloth-dark", "bands": ["sienna"] }
+       ]
+      },
+      { "id": "textile-rope", "bands": ["twine"] },
+      { "id": "wick", "bands": ["basalt"] }
+     ]
+    }
    ]
   },
   {
-   "id": "stone",
+   "id": "animal",
    "children": [
-    { "id": "stone-masonry", "bands": ["taupe", "taupe-dark", "ivory"] },
-    { "id": "stone-rock", "bands": ["taupe", "taupe-dark"] },
-    { "id": "stone-asphalt", "bands": ["basalt"] },
-    { "id": "stone-soil", "bands": ["loam"] },
-    { "id": "stone-sand", "bands": ["tan"] }
+    { "id": "leather", "bands": ["bark"] },
+    { "id": "bone", "bands": ["ivory"] },
+    { "id": "shell", "bands": ["terracotta", "ivory"] },
+    { "id": "feather" },
+    { "id": "hair" },
+    { "id": "skin", "bands": ["tan", "taupe", "bark"] }
    ]
   },
-  { "id": "paper", "bands": ["ivory"] },
-  { "id": "textile", "bands": ["ivory", "hunter", "taupe", "sienna"] },
-  { "id": "leather", "bands": ["umber"] },
-  { "id": "foliage", "bands": ["moss", "hunter"] },
-  { "id": "ceramic", "bands": ["terracotta", "ivory", "sienna"] },
-  { "id": "plastic", "bands": ["sienna", "terracotta", "amber", "hunter", "moss", "azure", "basalt"] },
-  { "id": "rubber", "bands": ["basalt"] },
-  { "id": "bone", "bands": ["ivory"] },
-  { "id": "shell", "bands": ["terracotta", "ivory"] },
-  { "id": "food" },
-  { "id": "wax", "bands": ["ivory"] },
-  { "id": "wick", "bands": ["basalt"] },
   {
-   "id": "glass",
-   "bands": ["transparent"],
+   "id": "polymer",
    "children": [
-    { "id": "glass-clear", "bands": ["glass"] },
-    { "id": "glass-tinted", "bands": ["basalt", "hunter", "sienna", "amber"] },
-    { "id": "glass-screen", "bands": ["ivory"] },
-    { "id": "glass-mirror", "bands": ["nickel"] }
+    { "id": "plastic", "bands": ["sienna", "terracotta", "amber", "hunter", "moss", "azure", "basalt"] },
+    { "id": "rubber", "bands": ["basalt"] },
+    { "id": "wax", "bands": ["ivory"] }
    ]
   },
-  { "id": "liquid", "bands": ["sienna", "hunter", "azure", "ivory"] },
-  { "id": "emissive", "bands": ["amber"] },
-  { "id": "rope", "bands": ["twine"] },
-  { "id": "cork", "bands": ["taupe"] },
-  { "id": "gemstone", "bands": ["sienna", "hunter", "azure"] },
   { "id": "special" },
-  { "id": "vegetation" },
-  { "id": "skin", "bands": ["tan", "taupe", "umber"] }
+  { "id": "special-liquid", "bands": ["sienna", "hunter", "azure", "ivory"] },
+  { "id": "special-emissive", "bands": ["amber"] },
+  { "id": "special-food" },
+  { "id": "special-organic" }
  ]
 }

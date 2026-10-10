@@ -1,8 +1,8 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=97d408f4c1';
-import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=0f98fb02f2';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=02e35ed6e1';
+import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=4df0d30fe4';
 import { colorSwatches, setBands } from './color-edits.js?v=59da1e14dd';
 import { renderCommentBox } from './comments.js?v=ed62ec964f';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a409c112bb';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=429b81ca33';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import {
   number, readableBytes, dimensions, longest, kindParent, kindChain,

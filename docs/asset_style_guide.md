@@ -87,7 +87,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `tan` | 0,0 |
 | `camel` | 1,0 |
 | `chestnut` | 2,0 |
-| `umber` | 3,0 |
+| `bark` | 3,0 |
 | `loam` | 4,0 |
 | `terracotta` | 5,0 |
 | `amber` | 6,0 |
@@ -181,9 +181,9 @@ Run `node lint/size.mjs` for extents and kit sizes, `node lint/tpu.mjs` for the 
 | `G20` | `kind:obj-container-barrel \| kind:obj-container-bucket` | — | `part:hoop` | max | 3 |
 | `G21` | `kind:obj-container-crate & D06` | — | `part:plank` | range | 3–7 side by side per face |
 | `G23` | `kind:str-fixture-marker-flag \| kind:str-canopy \| kind:obj-transport-part` | — | `part:sail, canopy, canvas` | range | 0.01–0.05 thick |
-| `G24` | `mat:rope` | — | `part:cord` | min | 0.006 thick |
-| `G25` | `mat:rope` | — | `part:rope` | min | 0.025 thick |
-| `G26` | `mat:rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
+| `G24` | `mat:textile-rope` | — | `part:cord` | min | 0.006 thick |
+| `G25` | `mat:textile-rope` | — | `part:rope` | min | 0.025 thick |
+| `G26` | `mat:textile-rope` | — | `part:cord, rope` | is | a closed strand; no flat strip or single-sided shell |
 
 A cord is a thin line that ties, strings or hangs something light: a bowstring, necklace, fishing line. A rope carries load or binds: a guy line, rigging, railing, well rope, bell hanger, lashing, sack tie. Thick is face to face across the strand, in catalogue units.
 
@@ -242,7 +242,7 @@ has: [ «material», [«material», …] ]        a plain entry is required outr
 
 `mat.` only asks a model that already carries the material to carry the right subtype. `has` asks for the material in the first place. Because the deepest row wins, none of these rows carries a `!` term.
 
-`lint/materials.json` says which tags count as under `«material»`. `special` is held out of the check. The same run flags a model carrying a material together with a subtype of it.
+`lint/materials.json` says which tags count as under `«material»`, by its tree, not by the id. The top nodes `mineral`, `plant`, `animal` and `polymer` group materials and are never carried. `special` is held out of the check; `special-liquid`, `special-emissive`, `special-food` and `special-organic` are plain materials, not under `special`. The same run flags a model carrying a material together with a subtype of it.
 
 Run `node lint/mat.mjs`.
 
@@ -252,22 +252,22 @@ Parts, nouns and groups the catalogue does not record. Checked by eye.
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
-| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-iron-steel` one `metal-iron-cast` |
-| `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `rope`, `leather` |
-| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron:` |
+| `M04` | `kind:obj-kitchenware-cookware & mat:metal` | model | is | paired variants, one `metal-steel` one `metal-iron-dark` |
+| `M10` | `kind:obj-container-bag` | `part:fastener, closure` | is | `textile-rope`, `leather` |
+| `M12` | `kind:obj-kitchenware-tableware-drinkware` mug, cup, tankard | `part:hoop, handle` | is | `metal-iron-mid`, `metal-iron-dark`, `metal-steel` |
 | `M13` | `kind:obj-kitchenware-tableware-drinkware` cup, tankard | model | has | `wood:`, `ceramic` |
-| `M15` | `kind:obj-equipment-weapon \| kind:obj-equipment-tool` | `part:handle` | is | `wood:`, `textile` |
-| `M16` | `kind:obj-equipment-weapon` | `part:strap` | is | `textile`, `leather` |
-| `M17` | `kind:obj-equipment-weapon & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-tool & !fastener joining stone, bone, metal-iron-steel to wood \| kind:obj-equipment-armor-shield & !fastener joining stone, bone, metal-iron-steel to wood` | `part:grip, fastener, join` | is | `textile`, `rope`, `leather` |
-| `M18` | `*` fastener joining `stone`, `bone`, `metal-iron-steel` to `wood` | `part:fastener` | is | `leather` |
+| `M15` | `kind:obj-equipment-weapon \| kind:obj-equipment-tool` | `part:handle` | is | `wood:`, `textile-cloth:` |
+| `M16` | `kind:obj-equipment-weapon` | `part:strap` | is | `textile-cloth:`, `leather` |
+| `M17` | `kind:obj-equipment-weapon & !fastener joining stone, bone, metal-steel to wood \| kind:obj-equipment-tool & !fastener joining stone, bone, metal-steel to wood \| kind:obj-equipment-armor-shield & !fastener joining stone, bone, metal-steel to wood` | `part:grip, fastener, join` | is | `textile-cloth:`, `textile-rope`, `leather` |
+| `M18` | `*` fastener joining `stone`, `bone`, `metal-steel` to `wood` | `part:fastener` | is | `leather` |
 | `M21` | `kind:obj-equipment-apparel` belt, shoe, strap | model | has | `leather` |
-| `M24` | `kind:obj-transport-part` | `part:sail` | is | `textile` |
+| `M24` | `kind:obj-transport-part` | `part:sail` | is | `textile-cloth:` |
 | `M25` | `kind:obj-transport-watercraft` | `mat:wood` | min | 2 |
-| `M28` | `kind:obj-equipment-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron:` |
-| `M32` | `*` sticks, unworked poles | model | is | `wood-bark` |
+| `M28` | `kind:obj-equipment-pocketitem-book` | `part:strap, band, binder, corner` | is | `leather`, `metal-iron-mid`, `metal-iron-dark`, `metal-steel` |
+| `M32` | `*` sticks, unworked poles | model | is | `bark` |
 | `M33` | `kind:obj-leisure-art-instrument` bells | model | has | `metal-copper`, `metal-gold` |
-| `M35` | `kind:str-part-roof` carrying `sienna` or `terracotta` | model | has | `ceramic` |
-| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry` |
+| `M35` | `kind:str-part-roof` carrying `sienna` or `terracotta` | model | has | `ceramic:` |
+| `M38` | `kind:str-part-wall \| kind:str-part-floor \| kind:obj-resource-stone` bricks | `mat:stone` | is | `stone-masonry-light`, `stone-masonry-mid`, `stone-masonry-dark` |
 
 ---
 
@@ -279,7 +279,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 ### 5.1 Material palettes
 
-One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. Glass carries a subtype — `glass-clear`, `glass-tinted`, `glass-screen`, `glass-mirror` — except vessels, which carry `glass`. Lit lantern and lamp panes are `emissive`, not glass. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size. Bands a material may also draw from under one kind live under `palette.kindBands`, per material and kind, and add to that material's own palette — not its subtypes' — for models of that kind and its descendants.
+One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. Glass carries a subtype — `glass-clear`, `glass-tinted`, `glass-screen`, `glass-mirror` — except vessels, which carry `glass`. Lit lantern and lamp panes are `special-emissive`, not glass. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size. Bands a material may also draw from under one kind live under `palette.kindBands`, per material and kind, and add to that material's own palette — not its subtypes' — for models of that kind and its descendants.
 
 Run `node lint/palette.mjs`.
 
@@ -308,7 +308,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B36` | `kind:obj-food-vegetable` carrot, pumpkin | model | is | `terracotta` |
 | `B37` | `kind:obj-food-grain & !wheat & !straw \| kind:obj-food-baked` | model | is | `tan`, `camel`, `chestnut` |
 | `B38` | `kind:obj-food-grain` wheat, straw | model | is | `tan` |
-| `B39` | `*` chocolate | model | is | `chestnut`, `umber` |
+| `B39` | `*` chocolate | model | is | `chestnut`, `bark` |
 | `B40` | `kind:obj-equipment-weapon \| kind:obj-equipment-tool` | `part:wrapped grip, binding` | is | `taupe`, within UV 0.02–0.40 of the band |
 | `B42` | `kind:obj-transport-watercraft & !sails` | `mat:textile` | is | `ivory`, `hunter`, `slate` |
 | `B43` | `kind:obj-transport-part` sails \| `kind:str-canopy` canvas | `mat:textile` | is | `ivory`, striped `sienna` and `ivory` |
