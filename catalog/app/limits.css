@@ -1,0 +1,60 @@
+[hidden] { display: none !important; }
+
+.limits-page .kop { flex-wrap: wrap; gap: 6px; padding: 6px 10px; align-items: center; }
+.limits-page .voortgang-tekst { margin-left: auto; font-size: 12px; color: var(--inkt-zacht); }
+
+.limits-page main,
+.limits-page #uitslag { max-width: 980px; margin: 0 auto; padding: 6px 10px 16px; }
+
+.kind-kop { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.kind-kop h2 { margin: 0; font-size: 16px; }
+#kind-feiten, #nu, #buiten { font-size: 12px; color: var(--inkt-zacht); }
+
+.maat-keuze, .grenzen, .acties { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+
+.limits-page .knop {
+  min-height: 34px;
+  padding: 5px 12px;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  background: var(--kaart);
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.limits-page .knop:hover { border-color: var(--accent); }
+.limits-page .knop[aria-pressed="true"],
+.limits-page .knop.primair { background: var(--accent); border-color: var(--accent); color: var(--kaart); }
+.limits-page kbd { font-size: 10px; opacity: .7; }
+
+.doek {
+  max-height: 58vh;
+  overflow: auto;
+  background: var(--papier-diep);
+  border-radius: 4px;
+  touch-action: pan-y;
+}
+.doek canvas { display: block; width: 100%; height: auto; }
+.doek.bezig { opacity: .5; }
+
+.strip { display: block; width: 100%; height: 64px; margin-top: 4px; touch-action: none; user-select: none; }
+.strip .as { stroke: var(--inkt-zacht); stroke-width: 1; }
+.strip .tik { font-size: 10px; fill: var(--inkt-zacht); text-anchor: middle; }
+.strip .bereik { fill: var(--accent-zacht); opacity: .5; }
+.strip .stip { fill: var(--inkt); cursor: pointer; }
+.strip .stip.buiten { fill: var(--lint-fout); }
+.strip .greep { fill: var(--limiet-lijn); cursor: ew-resize; }
+.strip .greep-lijn { stroke: var(--limiet-lijn); stroke-width: 2; }
+
+.grenzen label { display: inline-flex; gap: 4px; align-items: center; font-size: 13px; }
+.grenzen input { width: 76px; padding: 4px 6px; font: inherit; color: inherit; background: var(--kaart); border: 1px solid var(--lijn); border-radius: 6px; }
+
+.acties .primair { margin-left: auto; }
+.sneltoetsen { margin: 4px 0 0; font-size: 11px; color: var(--inkt-zacht); }
+
+.uitslag-tabel { width: 100%; border-collapse: collapse; font-size: 13px; }
+.uitslag-tabel th, .uitslag-tabel td { padding: 4px 6px; text-align: left; border-bottom: 1px solid var(--lijn); }
+.uitslag-tabel tbody tr { cursor: pointer; }
+.uitslag-tabel tbody tr:hover { background: var(--papier-diep); }
+.uitslag-tabel .overgeslagen { color: var(--inkt-zacht); }
