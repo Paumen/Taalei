@@ -3963,7 +3963,6 @@
     "sq-rink/cubby-bench",
     "taalei-kit/plunger",
     "ipoly-torture/gallows-platform",
-    "fs-terrain/cave-prop-pick-small",
     "ipoly-signs/signpost-arrow-3",
     "ipoly-signs/signpost-arrow-1",
     "ipoly-signs/signpost-arrow-2",
@@ -6933,7 +6932,8 @@
     "kay-dun-2/floor-wood-large-dark",
     "kay-dun-2/floor-wood-small-dark",
     "kay-dun-2/wall-window-closed",
-    "kay-tools/screwdriver-b-short"
+    "kay-tools/screwdriver-b-short",
+    "fs-terrain/cave-prop-pick-small"
    ],
    "parent": "wood"
   },
@@ -20877,7 +20877,8 @@
     "m3-base/sticky-note-pad",
     "m3-base/wax-melting-spoon",
     "m3-base/wax-seal-stamp",
-    "m3-base/magnifying-glass"
+    "m3-base/magnifying-glass",
+    "kay-tools/magnifying-glass"
    ]
   },
   {
@@ -20942,59 +20943,20 @@
    "id": "obj-equipment-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "chisel, trowel, wrench, tongs, brush, nail file, tape measure, craft knife, razor blade, magnet",
+   "description": "Hand tool with no own kind: tape measure, magnet, axe, crowbar, drill, level, plunger.",
    "models": [
-    "cooking-assets/tongs-open",
-    "cooking-assets/tongs",
-    "isa-plants/shovel",
-    "isa-playground/shovel-plastic",
-    "isa-playground/shovel",
     "kay-tools/axe",
-    "kay-tools/chisel",
-    "kay-tools/file",
     "kay-tools/handdrill",
-    "kay-tools/handplane",
-    "kay-tools/knife",
-    "kay-tools/magnifying-glass",
-    "kay-tools/tongs",
-    "kay-tools/trowel",
-    "ken-survival/tool-hoe-upgraded",
-    "ken-survival/tool-hoe",
-    "medieval-forge/forceps",
     "quat-survival/axe",
-    "styloo-farm/knife",
-    "styloo-farm/trowel",
     "taalei-kit/plunger",
-    "fs-terrain/cave-prop-pick-small",
-    "makeup/nail-file",
-    "makeup/tweezers",
     "zombie-weapons/crowbar",
-    "rey-studio/carving-knife",
-    "lpa-weapons/sickle",
     "lpa-construction/drill",
     "lpa-construction/level",
-    "m3-base/bolster",
-    "m3-base/brick-trowel",
-    "m3-base/chisel",
-    "m3-base/clamp",
     "m3-base/crowbar",
     "m3-base/fireplace-poker",
     "m3-base/fireplace-shovel",
-    "m3-base/fireplace-tongs",
-    "m3-base/g-clamp",
-    "m3-base/hand-fork",
-    "m3-base/hand-rake",
-    "m3-base/plasterers-float-01",
-    "m3-base/plasterers-float-02",
-    "m3-base/pliers",
     "m3-base/plunger",
-    "m3-base/trowel",
-    "m3-base/tweezers",
-    "m3-base/vintage-sickle-scythe",
-    "m3-base/nail-file",
     "lpa-construction/tape-measure",
-    "m3-base/craft-knife",
-    "m3-base/razor-blade",
     "m3-base/magnet"
    ]
   },
@@ -21011,6 +20973,75 @@
     "kay-tools/screwdriver-b-long",
     "kay-tools/screwdriver-b-short",
     "m3-base/flat-head-screwdriver"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-blade",
+   "name": "Blade",
+   "type": "kind",
+   "description": "knife (tool), carving knife, craft knife, razor blade, sickle",
+   "models": [
+    "rey-studio/carving-knife",
+    "m3-base/craft-knife",
+    "kay-tools/knife",
+    "styloo-farm/knife",
+    "m3-base/razor-blade",
+    "lpa-weapons/sickle",
+    "m3-base/vintage-sickle-scythe"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-shaping",
+   "name": "Shaping tool",
+   "type": "kind",
+   "description": "chisel, bolster (chisel), file, hand plane, trowel, plasterer's float, nail file",
+   "models": [
+    "m3-base/bolster",
+    "kay-tools/chisel",
+    "m3-base/chisel",
+    "kay-tools/file",
+    "kay-tools/handplane",
+    "m3-base/brick-trowel",
+    "kay-tools/trowel",
+    "m3-base/trowel",
+    "styloo-farm/trowel",
+    "m3-base/plasterers-float-01",
+    "m3-base/nail-file",
+    "makeup/nail-file",
+    "m3-base/plasterers-float-02"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-gripper",
+   "name": "Gripper",
+   "type": "kind",
+   "description": "tongs, pliers, tweezers, forceps, clamp, g-clamp",
+   "models": [
+    "kay-tools/tongs",
+    "cooking-assets/tongs",
+    "cooking-assets/tongs-open",
+    "m3-base/fireplace-tongs",
+    "medieval-forge/forceps",
+    "m3-base/pliers",
+    "m3-base/tweezers",
+    "makeup/tweezers",
+    "m3-base/clamp",
+    "m3-base/g-clamp"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-garden",
+   "name": "Garden hand tool",
+   "type": "kind",
+   "description": "hand fork, hand rake, hand shovel, hand hoe",
+   "models": [
+    "m3-base/hand-fork",
+    "m3-base/hand-rake",
+    "isa-plants/shovel",
+    "isa-playground/shovel",
+    "isa-playground/shovel-plastic",
+    "ken-survival/tool-hoe",
+    "ken-survival/tool-hoe-upgraded"
    ]
   },
   {
@@ -21197,7 +21228,8 @@
     "western/pickaxe",
     "lpa-west/pickaxe",
     "emace-village/pickaxe",
-    "m3-base/pick-axe"
+    "m3-base/pick-axe",
+    "fs-terrain/cave-prop-pick-small"
    ]
   },
   {

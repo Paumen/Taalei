@@ -651,7 +651,7 @@
    ],
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 42
+    "kinds": 41
    }
   },
   {
@@ -1202,8 +1202,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.99,
-    "kinds": 44
+    "factor": 1,
+    "kinds": 47
    }
   },
   {
@@ -2818,7 +2818,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 160
+    "kinds": 164
    }
   },
   {
@@ -2842,8 +2842,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.25,
-    "kinds": 5
+    "factor": 1.12,
+    "kinds": 6
    }
   },
   {
@@ -4348,8 +4348,8 @@
     "none": 5
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 39
+    "factor": 1.1,
+    "kinds": 40
    }
   },
   {
@@ -23436,7 +23436,7 @@
    "name": "Planks",
    "type": "material",
    "description": "The surface reads as planks, cut square: signs, staves, boards, plank floors, plank furniture, scaffolding. Takes light brown 0,0.",
-   "count": 666,
+   "count": 665,
    "parent": "wood"
   },
   {
@@ -23452,7 +23452,7 @@
    "name": "Beam",
    "type": "material",
    "description": "Wood doing structural work: posts, beams, pillars, frames, braces, masts, spars, shafts and hafts. Takes dark brown 2,0.",
-   "count": 1514,
+   "count": 1515,
    "parent": "wood"
   },
   {
@@ -25477,7 +25477,7 @@
    "name": "Stationery",
    "type": "kind",
    "description": "Desk tool: scissors, drafting compass, ruler, stapler, magnifying glass.",
-   "count": 51
+   "count": 52
   },
   {
    "id": "obj-equipment-tool-stationery-holder",
@@ -25504,14 +25504,42 @@
    "id": "obj-equipment-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "chisel, trowel, wrench, tongs, brush, nail file, tape measure, craft knife, razor blade, magnet",
-   "count": 120
+   "description": "Hand tool with no own kind: tape measure, magnet, axe, crowbar, drill, level, plunger.",
+   "count": 118
   },
   {
    "id": "obj-equipment-tool-hand-screwdriver",
    "name": "Screwdriver",
    "type": "kind",
    "description": "screwdriver",
+   "count": 7
+  },
+  {
+   "id": "obj-equipment-tool-hand-blade",
+   "name": "Blade",
+   "type": "kind",
+   "description": "knife (tool), carving knife, craft knife, razor blade, sickle",
+   "count": 7
+  },
+  {
+   "id": "obj-equipment-tool-hand-shaping",
+   "name": "Shaping tool",
+   "type": "kind",
+   "description": "chisel, bolster (chisel), file, hand plane, trowel, plasterer's float, nail file",
+   "count": 13
+  },
+  {
+   "id": "obj-equipment-tool-hand-gripper",
+   "name": "Gripper",
+   "type": "kind",
+   "description": "tongs, pliers, tweezers, forceps, clamp, g-clamp",
+   "count": 10
+  },
+  {
+   "id": "obj-equipment-tool-hand-garden",
+   "name": "Garden hand tool",
+   "type": "kind",
+   "description": "hand fork, hand rake, hand shovel, hand hoe",
    "count": 7
   },
   {
@@ -25547,7 +25575,7 @@
    "name": "Two-hand",
    "type": "kind",
    "description": "Tool swung or pushed with both hands on a long shaft.",
-   "count": 68
+   "count": 69
   },
   {
    "id": "obj-equipment-tool-twohand-rake",
@@ -25582,7 +25610,7 @@
    "name": "Pickaxe",
    "type": "kind",
    "description": "Pickaxe: a pointed head across a long haft, for breaking ground or rock.",
-   "count": 15
+   "count": 16
   },
   {
    "id": "obj-equipment-tool-twohand-shovel",
@@ -28957,10 +28985,28 @@
    "longest.max": 0.5,
    "tpu.max": 10000
   },
+  "obj-equipment-tool-hand-blade": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
   "obj-equipment-tool-hand-brush": {
    "high.max": 8,
    "longest.min": 0.08,
    "longest.max": 0.35,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-garden": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-gripper": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
    "tpu.max": 10000
   },
   "obj-equipment-tool-hand-hammer": {
@@ -28976,6 +29022,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-hand-screwdriver": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-shaping": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.5,
@@ -31438,6 +31490,30 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-hand-screwdriver scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-blade scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-shaping scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-gripper scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-garden scale-small": {
    "high.max": 8,
    "longest.min": 0.075,
    "longest.max": 0.25,
@@ -38788,7 +38864,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.45
   },
   {
    "kit": "aq-hallow",
@@ -46804,7 +46880,7 @@
    "kit": "cooking-assets",
    "name": "tongs-open",
    "hash": "51a29a8af6",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.08,
@@ -46846,13 +46922,13 @@
     "wood-planks"
    ],
    "variant": "cooking-assets/tongs",
-   "thickRel": 0.78
+   "thickRel": 1
   },
   {
    "kit": "cooking-assets",
    "name": "tongs",
    "hash": "192ff271a9",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.08,
@@ -46894,7 +46970,7 @@
     "wood-planks"
    ],
    "variant": "cooking-assets/tongs",
-   "thickRel": 0.78
+   "thickRel": 1
   },
   {
    "kit": "cooking-assets",
@@ -76985,8 +77061,8 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "cave-prop-pick-small",
-   "hash": "6807971d3b",
-   "kind": "obj-equipment-tool-hand",
+   "hash": "c57dda8ce7",
+   "kind": "obj-equipment-tool-twohand-pickaxe",
    "size": "s",
    "wdh": [
     0.196,
@@ -77010,7 +77086,7 @@
    "vpt": 1.57,
    "grad": 0.22,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.25,
      0.75
     ],
@@ -77021,14 +77097,14 @@
    },
    "colors": [
     "#82868e",
-    "#dfb789"
+    "#885734"
    ],
    "tags": [
     "fs",
     "metal-iron-steel",
-    "wood-planks"
+    "wood-beam"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.94
   },
   {
    "kit": "fs-terrain",
@@ -89929,7 +90005,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.41
+   "thickRel": 0.43
   },
   {
    "kit": "household",
@@ -90457,7 +90533,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 1.97
+   "thickRel": 1.96
   },
   {
    "kit": "household",
@@ -90509,7 +90585,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "household",
@@ -110484,7 +110560,7 @@
    "collection": "isa-tt",
    "name": "shovel",
    "hash": "8a6a9aedd5",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.119,
@@ -112834,7 +112910,7 @@
    "collection": "isa-tt",
    "name": "shovel-plastic",
    "hash": "664502bc5f",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.122,
@@ -112877,7 +112953,7 @@
    "collection": "isa-tt",
    "name": "shovel",
    "hash": "c3dea49608",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.122,
@@ -178485,7 +178561,7 @@
     "textile",
     "wood-planks"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "kay-tools",
@@ -178628,7 +178704,7 @@
    "collection": "kay-rpg",
    "name": "chisel",
    "hash": "c24bdde506",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.045,
@@ -178670,7 +178746,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 2.41
+   "thickRel": 2.38
   },
   {
    "kit": "kay-tools",
@@ -178808,7 +178884,7 @@
     "scribe",
     "walk"
    ],
-   "thickRel": 0.36,
+   "thickRel": 0.38,
    "mark": [
     "centered"
    ]
@@ -178818,7 +178894,7 @@
    "collection": "kay-rpg",
    "name": "file",
    "hash": "c20b8a96c7",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.045,
@@ -178861,7 +178937,7 @@
     "robin-hood",
     "wood-planks"
    ],
-   "thickRel": 2.31
+   "thickRel": 2.28
   },
   {
    "kit": "kay-tools",
@@ -179054,14 +179130,14 @@
    "anim": [
     "spin"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "handplane",
    "hash": "c108f15257",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.119,
@@ -179109,7 +179185,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "kay-tools",
@@ -179241,7 +179317,7 @@
    "collection": "kay-rpg",
    "name": "knife",
    "hash": "383baeeb34",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.086,
@@ -179283,7 +179359,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.34
   },
   {
    "kit": "kay-tools",
@@ -179360,7 +179436,7 @@
    "collection": "kay-rpg",
    "name": "magnifying-glass",
    "hash": "1316d41440",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-stationery",
    "size": "s",
    "wdh": [
     0.139,
@@ -179409,7 +179485,7 @@
     "robin-hood",
     "wood-planks"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.47
   },
   {
    "kit": "kay-tools",
@@ -180140,7 +180216,7 @@
     "tba",
     "wood-planks"
    ],
-   "thickRel": 0.41
+   "thickRel": 0.42
   },
   {
    "kit": "kay-tools",
@@ -180276,7 +180352,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.24
+   "thickRel": 2.23
   },
   {
    "kit": "kay-tools",
@@ -180326,7 +180402,7 @@
     "wood-planks"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.18
+   "thickRel": 2.16
   },
   {
    "kit": "kay-tools",
@@ -180376,7 +180452,7 @@
     "plastic"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.25
+   "thickRel": 2.24
   },
   {
    "kit": "kay-tools",
@@ -180426,7 +180502,7 @@
     "wood-beam"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.18,
+   "thickRel": 2.17,
    "lint": [
     {
      "level": "error",
@@ -180499,7 +180575,7 @@
    "collection": "kay-rpg",
    "name": "tongs",
    "hash": "74f9c0ea47",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.123,
@@ -180535,7 +180611,7 @@
     "metal-iron-steel",
     "tba"
    ],
-   "thickRel": 0.9
+   "thickRel": 1.16
   },
   {
    "kit": "kay-tools",
@@ -180650,7 +180726,7 @@
    "collection": "kay-rpg",
    "name": "trowel",
    "hash": "d7df41cf51",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.152,
@@ -180692,7 +180768,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "kay-tools",
@@ -255968,7 +256044,7 @@
    "kit": "ken-survival",
    "name": "tool-hoe-upgraded",
    "hash": "8ce83d16eb",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.134,
@@ -256011,13 +256087,13 @@
     "wood-planks"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ken-survival",
    "name": "tool-hoe",
    "hash": "cd14834331",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.127,
@@ -256060,7 +256136,7 @@
     "wood-planks"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-survival",
@@ -271212,7 +271288,7 @@
     "paper",
     "wood-worked"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.44
   },
   {
    "kit": "lpa-construction",
@@ -272281,7 +272357,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 1.74
+   "thickRel": 1.73
   },
   {
    "kit": "lpa-construction",
@@ -273116,7 +273192,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 2.47
+   "thickRel": 2.45
   },
   {
    "kit": "lpa-construction",
@@ -273673,7 +273749,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "lpa-construction",
@@ -280154,7 +280230,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1.43
+   "thickRel": 1.44
   },
   {
    "kit": "lpa-tools",
@@ -280652,7 +280728,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.49
   },
   {
    "kit": "lpa-tools",
@@ -282624,7 +282700,7 @@
    "kit": "lpa-weapons",
    "name": "sickle",
    "hash": "a356f40395",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.021,
@@ -282666,7 +282742,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.36
   },
   {
    "kit": "lpa-weapons",
@@ -287180,7 +287256,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "lpa-west",
@@ -292441,7 +292517,7 @@
    "kit": "m3-base",
    "name": "bolster",
    "hash": "603f2196b6",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.11,
@@ -292476,7 +292552,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "m3-base",
@@ -292964,7 +293040,7 @@
    "kit": "m3-base",
    "name": "brick-trowel",
    "hash": "8c974763b5",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.092,
@@ -293005,7 +293081,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "m3-base",
@@ -293359,7 +293435,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -295427,7 +295503,7 @@
    "kit": "m3-base",
    "name": "chisel",
    "hash": "de221c259d",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.041,
@@ -295469,7 +295545,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 2.33
+   "thickRel": 2.3
   },
   {
    "kit": "m3-base",
@@ -295820,7 +295896,7 @@
    "kit": "m3-base",
    "name": "clamp",
    "hash": "c7702a13dc",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.358,
@@ -295862,7 +295938,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.78
   },
   {
    "kit": "m3-base",
@@ -296354,7 +296430,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.28
+   "thickRel": 0.29
   },
   {
    "kit": "m3-base",
@@ -297665,7 +297741,7 @@
    "kit": "m3-base",
    "name": "craft-knife",
    "hash": "c0a66e2eb9",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.151,
@@ -297707,7 +297783,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 3.02
+   "thickRel": 3
   },
   {
    "kit": "m3-base",
@@ -301657,7 +301733,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 1.38,
+   "thickRel": 1.37,
    "lint": [
     {
      "level": "warning",
@@ -301705,13 +301781,13 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
    "name": "fireplace-tongs",
    "hash": "21a486fec1",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.103,
@@ -301747,7 +301823,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.78
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -302056,7 +302132,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 1.83
+   "thickRel": 1.82
   },
   {
    "kit": "m3-base",
@@ -303097,7 +303173,7 @@
    "kit": "m3-base",
    "name": "g-clamp",
    "hash": "fb5c159821",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.185,
@@ -303133,7 +303209,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.76
   },
   {
    "kit": "m3-base",
@@ -305149,7 +305225,7 @@
    "kit": "m3-base",
    "name": "hand-fork",
    "hash": "b2e725ecad",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.093,
@@ -305190,7 +305266,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "m3-base",
@@ -305243,7 +305319,7 @@
    "kit": "m3-base",
    "name": "hand-rake",
    "hash": "d1f7ad9c5c",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-garden",
    "size": "s",
    "wdh": [
     0.109,
@@ -308014,7 +308090,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.29
+   "thickRel": 0.3
   },
   {
    "kit": "m3-base",
@@ -309011,7 +309087,7 @@
     "metal-gold",
     "wood-worked"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -310202,7 +310278,7 @@
    "kit": "m3-base",
    "name": "nail-file",
    "hash": "e041dd6e28",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.154,
@@ -310239,7 +310315,7 @@
     "metal-iron-steel",
     "pickup"
    ],
-   "thickRel": 2.13
+   "thickRel": 2.11
   },
   {
    "kit": "m3-base",
@@ -310981,7 +311057,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.21
+   "thickRel": 0.22
   },
   {
    "kit": "m3-base",
@@ -313149,7 +313225,7 @@
     "paper",
     "wood-cardboard"
    ],
-   "thickRel": 0.19
+   "thickRel": 0.2
   },
   {
    "kit": "m3-base",
@@ -313190,7 +313266,7 @@
     "m3",
     "wood-cardboard"
    ],
-   "thickRel": 0.24
+   "thickRel": 0.25
   },
   {
    "kit": "m3-base",
@@ -313232,7 +313308,7 @@
     "metal-iron-steel",
     "pickup"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -313624,7 +313700,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.38
   },
   {
    "kit": "m3-base",
@@ -313940,7 +314016,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -314412,7 +314488,7 @@
    "kit": "m3-base",
    "name": "plasterers-float-01",
    "hash": "bae55731ad",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.273,
@@ -314448,13 +314524,13 @@
     "wood-planks"
    ],
    "variant": "m3-base/plasterers-float-01",
-   "thickRel": 0.53
+   "thickRel": 0.52
   },
   {
    "kit": "m3-base",
    "name": "plasterers-float-02",
    "hash": "7a26dc9267",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.266,
@@ -314679,7 +314755,7 @@
    "kit": "m3-base",
    "name": "pliers",
    "hash": "d884240fc0",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.091,
@@ -314721,7 +314797,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.93
   },
   {
    "kit": "m3-base",
@@ -314898,7 +314974,7 @@
     "rubber",
     "wood-planks"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -315435,7 +315511,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 0.76,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -315826,7 +315902,7 @@
    "kit": "m3-base",
    "name": "razor-blade",
    "hash": "e7e6f05796",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.052,
@@ -316386,7 +316462,7 @@
     "paper",
     "plastic"
    ],
-   "thickRel": 0.24
+   "thickRel": 0.25
   },
   {
    "kit": "m3-base",
@@ -321540,7 +321616,7 @@
     "metal-iron-steel",
     "plastic"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.96
   },
   {
    "kit": "m3-base",
@@ -322080,7 +322156,7 @@
     "m3",
     "paper"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.64
   },
   {
    "kit": "m3-base",
@@ -324302,7 +324378,7 @@
    "kit": "m3-base",
    "name": "trowel",
    "hash": "aafb6ea9d4",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.084,
@@ -324343,7 +324419,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -324433,7 +324509,7 @@
    "kit": "m3-base",
    "name": "tweezers",
    "hash": "9fca4da419",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.008,
@@ -324471,7 +324547,7 @@
     "metal-iron-steel",
     "pickup"
    ],
-   "thickRel": 1.81
+   "thickRel": 2.32
   },
   {
    "kit": "m3-base",
@@ -325134,7 +325210,7 @@
    "kit": "m3-base",
    "name": "vintage-sickle-scythe",
    "hash": "4b6e7dfca5",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.275,
@@ -325175,7 +325251,7 @@
     "metal-iron-steel",
     "wood-planks"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -325924,7 +326000,7 @@
     "metal-iron-steel",
     "wood-worked"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.65
   },
   {
    "kit": "m3-base",
@@ -325971,7 +326047,7 @@
     "metal-gold",
     "wood-worked"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.16
   },
   {
    "kit": "m3-base",
@@ -328715,7 +328791,7 @@
    "kit": "makeup",
    "name": "nail-file",
    "hash": "a679ef3738",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.025,
@@ -328757,7 +328833,7 @@
     "paper",
     "rubber"
    ],
-   "thickRel": 1.65,
+   "thickRel": 1.63,
    "lint": [
     {
      "level": "error",
@@ -329140,7 +329216,7 @@
    "kit": "makeup",
    "name": "tweezers",
    "hash": "e07520e7b0",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.041,
@@ -329176,7 +329252,7 @@
     "mab",
     "metal-iron-steel"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.82
   },
   {
    "kit": "medieval-forge",
@@ -329622,7 +329698,7 @@
    "kit": "medieval-forge",
    "name": "forceps",
    "hash": "7e21867923",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-gripper",
    "size": "s",
    "wdh": [
     0.067,
@@ -329656,7 +329732,7 @@
    "tags": [
     "metal-iron-steel"
    ],
-   "thickRel": 0.96
+   "thickRel": 1.23
   },
   {
    "kit": "medieval-forge",
@@ -379088,7 +379164,7 @@
     "qua",
     "wood-planks"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "quat-survival",
@@ -391115,7 +391191,7 @@
    "kit": "rey-studio",
    "name": "carving-knife",
    "hash": "4e07e98a0a",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.063,
@@ -391156,7 +391232,7 @@
     "rey",
     "wood-planks"
    ],
-   "thickRel": 2.12
+   "thickRel": 2.1
   },
   {
    "kit": "rey-studio",
@@ -403617,7 +403693,7 @@
     "rgp",
     "wood-beam"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.57
   },
   {
    "kit": "rgp-medieval",
@@ -411202,7 +411278,7 @@
    "tags": [
     "ceramic"
    ],
-   "thickRel": 0.69,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "warning",
@@ -414638,7 +414714,7 @@
     "sq",
     "wood-beam"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.38
   },
   {
    "kit": "sq-cards",
@@ -426197,7 +426273,7 @@
    "kit": "styloo-farm",
    "name": "knife",
    "hash": "117475fce5",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
     0.158,
@@ -426239,7 +426315,7 @@
     "sty",
     "wood-planks"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "styloo-farm",
@@ -426524,7 +426600,7 @@
     "wood-beam"
    ],
    "variant": "styloo-farm/pickaxe",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "styloo-farm",
@@ -427802,7 +427878,7 @@
    "kit": "styloo-farm",
    "name": "trowel",
    "hash": "a02b540952",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
     0.172,
@@ -427843,7 +427919,7 @@
     "sty",
     "wood-planks"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "styloo-farm",
@@ -437172,7 +437248,7 @@
     "sty",
     "wood-worked"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-school",
@@ -437835,7 +437911,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "styloo-school",
@@ -439525,7 +439601,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.27,
+   "thickRel": 0.29,
    "lint": [
     {
      "level": "warning",
@@ -439865,7 +439941,7 @@
      "open": 1
     }
    },
-   "thickRel": 1,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "warning",
@@ -440814,7 +440890,7 @@
     "scale-small",
     "sty"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "styloo-school",
@@ -441136,7 +441212,7 @@
     "paper",
     "sty"
    ],
-   "thickRel": 0.25,
+   "thickRel": 0.26,
    "lint": [
     {
      "level": "error",
@@ -446594,7 +446670,7 @@
     "plastic",
     "wood-planks"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.3
   },
   {
    "kit": "taalei-kit",
@@ -464475,7 +464551,7 @@
     "ct",
     "metal-iron-steel"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "zombie-weapons",
