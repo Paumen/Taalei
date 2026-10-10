@@ -277,7 +277,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 ### 5.1 Material palettes
 
-One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. Glass carries a subtype — `glass-clear`, `glass-tinted`, `glass-screen`, `glass-mirror` — except vessels, which carry `glass`. Lit lantern and lamp panes are `emissive`, not glass. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size.
+One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. Glass carries a subtype — `glass-clear`, `glass-tinted`, `glass-screen`, `glass-mirror` — except vessels, which carry `glass`. Lit lantern and lamp panes are `emissive`, not glass. A palette that holds only at one size — glass at `size:s` — lives in `lint/variables.json` under `palette.sizeBands`, and wins over the node's own `bands` for a model of that size. Bands a material may also draw from under one kind live under `palette.kindBands`, per material and kind, and add to that material's own palette — not its subtypes' — for models of that kind and its descendants.
 
 Run `node lint/palette.mjs`.
 
