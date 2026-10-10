@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname, resolve, sep } from 'node:path';
+import { join, dirname, resolve, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { createHash } from 'node:crypto';
@@ -110,7 +110,7 @@ const kitSlugs = readdirSync(MODEL_DIR)
   .filter((name) => statSync(join(MODEL_DIR, name)).isDirectory())
   .sort();
 
-const CACHE_FILE = join(KITS_DIR, '.cache', 'build-catalog.json');
+const CACHE_FILE = join(BUILD_DIR, 'measure-cache.json');
 const TOOLING = createHash('sha256')
   .update(['build-catalog.mjs', 'measure.mjs', 'glb.mjs', 'png.mjs'].map((f) => readFileSync(join(CATALOG_DIR, 'tools', f), 'utf8')).join(''))
   .digest('hex')
@@ -253,8 +253,11 @@ for (const slug of kitSlugs) {
 }
 
 mkdirSync(dirname(CACHE_FILE), { recursive: true });
-writeFileSync(CACHE_FILE, JSON.stringify({ tooling: TOOLING, models: newCache }));
-console.log(`${fromCache} of ${Object.keys(newCache).length} workfiles came from the cache in kits/.cache`);
+const cacheLines = Object.keys(newCache)
+  .sort()
+  .map((path) => `${JSON.stringify(path)}:${JSON.stringify(newCache[path])}`);
+writeFileSync(CACHE_FILE, `{"tooling":${JSON.stringify(TOOLING)},"models":{\n${cacheLines.join(',\n')}\n}}\n`);
+console.log(`${fromCache} of ${Object.keys(newCache).length} workfiles came from ${relative(ROOT, CACHE_FILE)}`);
 if (noBackface.length) {
   console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
 }

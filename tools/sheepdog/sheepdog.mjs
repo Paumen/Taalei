@@ -408,7 +408,7 @@ function brief() {
     console.log(`\n${title}`);
     for (const c of l.slice(-30)) console.log(`- ${c.kind} ${c.id} [${c.category}${c.doubt ? ', doubted' : ''}]: ${c.change}${c.why ? ` (${c.why})` : ''}`);
   };
-  show('Judged nok, so not wanted:', judged.filter((c) => c.verdict === 'nok'));
+  show('Judged nok, so not wanted on that model; the same category elsewhere is still made, doubted:',judged.filter((c) => c.verdict === 'nok'));
   show('Doubted but judged ok, so less doubt is due:', judged.filter((c) => c.verdict === 'ok' && c.doubt));
 }
 
