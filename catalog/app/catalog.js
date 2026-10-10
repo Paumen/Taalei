@@ -269,7 +269,7 @@ function makeSection({ id, type, title, count, color, hint, source }) {
     if (!own) return;
     const visible = own.cards.filter((k) => !k.element.hidden);
     const on = !visible.every((k) => chosenPaths.has(k.path));
-    setSelection(visible.map((k) => k.path), on);
+    setSelection(visible.flatMap((k) => k.paths), on);
   });
   head.append(all);
 
