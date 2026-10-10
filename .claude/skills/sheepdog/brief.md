@@ -95,10 +95,8 @@ at it; check `--modes faceorient` for new red where a fix touched geometry:
 
     node tools/renders/kind-sheet.mjs --models <kit/name>,<kit/peer>,<kit/peer> --out {{dir}}/after --modes pbr --free-scale --no-glb-lint
 
-Lint every file you changed against its state before you touched it. Clear the
-new findings your change caused that matter for the model (zero-area or
-doubled triangles, edges shared by 3+ faces, validator errors); ignore findings
-that were there before or that do not bear on your change:
+Run `glb-lint` on every file you changed against its state before you touched
+it, and clear every finding your change added before you write `result.json`:
 
     mkdir -p {{dir}}/look/Textures && cp kits/colormap.png {{dir}}/look/Textures/
     git show HEAD:kits/workfiles/<kit>/<name>.glb > {{dir}}/look/<name>.before.glb
