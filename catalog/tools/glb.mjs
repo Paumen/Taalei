@@ -375,6 +375,7 @@ export function measureScene(glb) {
 }
 
 const SMOOTH_COS = Math.cos((2 * Math.PI) / 180);
+const UNIT_TOLERANCE = 0.00674;
 
 // Share of the surface, by area, on triangles with a vertex normal more than 2° off the face.
 export function smoothShare(glb) {
@@ -405,6 +406,21 @@ export function smoothShare(glb) {
     }
   }
   return area ? smooth / area : 0;
+}
+
+// Vertex normals the glTF validator rejects as not unit length, zero-length ones included.
+export function badNormals(glb) {
+  let bad = 0;
+  for (const mesh of glb.json.meshes ?? []) {
+    for (const prim of mesh.primitives ?? []) {
+      if (prim.attributes.NORMAL === undefined) continue;
+      const nrm = readAccessor(glb, prim.attributes.NORMAL).data;
+      for (let i = 0; i < nrm.length; i += 3) {
+        if (Math.abs(nrm[i] ** 2 + nrm[i + 1] ** 2 + nrm[i + 2] ** 2 - 1) > UNIT_TOLERANCE) bad++;
+      }
+    }
+  }
+  return bad;
 }
 
 export function trianglesPerUnit(triangles, wdh) {

@@ -159,6 +159,11 @@ export function buildKindFields(kinds) {
     .map((f) => [f, { value: kinds.defaults[f], from: 'defaults' }]));
   byKind.set(null, defaults);
   for (const [id, fields] of buildLimits(kinds, KIND_FIELDS)) byKind.set(id, fields);
+  const walk = (node) => {
+    byKind.get(node.id).leaf = { value: node.children?.length ? 0 : 1 };
+    for (const child of node.children ?? []) walk(child);
+  };
+  for (const root of kinds.kinds) walk(root);
   return byKind;
 }
 
