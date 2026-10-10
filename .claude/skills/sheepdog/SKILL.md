@@ -89,6 +89,7 @@ less doubt is due. `stats` gives the counts.
 ## Gotchas
 
 - `pick` refuses a kind with open doubts: swipe those first.
+- Commit nothing until `record`: agents lint and revert against `HEAD`.
 - A model changed by an agent but not listed in its `result.json` is logged
   as a doubted `look` change, so nothing slips past the PO unseen.
 - Rendering runs Chromium: three agents at once is the ceiling on four cores.
