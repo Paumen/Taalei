@@ -30,13 +30,13 @@ not drop.
 ## 1. Is the source pack already in the repo?
 
 `catalog/tools/bronkits.mjs` (`BRONKITS`) lists every pack; the zips sit in
-`kits/sources/<pack>/`. `kits/sources` and `kits/reject` are symlinks into
-Paumen/lp-sources; clone it first:
+`kits/sources/<pack>/`. `kits/sources`, `kits/reject`, `kits/tbd` and `kits/npc` are
+symlinks into Paumen/lp-sources; clone it first:
 
     git clone --depth 1 https://github.com/Paumen/lp-sources ../lp-sources
 
-Zips and rejected models are committed and pushed in that repo; the lists and
-thumbs under `catalog/build` in this one.
+Zips and reject, TBD and NPC models are committed and pushed in that repo; the
+lists and thumbs under `catalog/build` in this one.
 
 ## 2. Add a source pack
 
@@ -206,8 +206,8 @@ Before committing, run every lint (`size`, `tpu`, `measures`, `mat`, `palette`,
 error counts of all seven before the work as well, so "no new errors" is a
 comparison rather than a claim.
 
-`build-lists.mjs` regenerates `kits/tbd/` and `kits/npc/`, so even a small change touches a
-few hundred files. Check that nothing outside the set you meant to touch was written.
+`build-lists.mjs` regenerates `kits/tbd/` and `kits/npc/` in lp-sources, so even a small change
+touches a few hundred files there. Check that nothing outside the set you meant to touch was written.
 
 Each build tool ends with `catalog/tools/stamp.mjs`, which can also run on its own. It
 stamps every script and stylesheet reference with that file's content hash and writes

@@ -25,11 +25,14 @@ jobs:
         with:
           repository: Paumen/lp-sources
           path: lp-sources
-          sparse-checkout: kits/reject
-      - name: Place rejected models
+          sparse-checkout: |
+            kits/reject
+            kits/tbd
+            kits/npc
+      - name: Place reject, TBD and NPC models
         run: |
-          rm kits/sources kits/reject
-          mv lp-sources/kits/reject kits/reject
+          rm kits/sources kits/reject kits/tbd kits/npc
+          mv lp-sources/kits/reject lp-sources/kits/tbd lp-sources/kits/npc kits/
           rm -rf lp-sources
       - name: Setup Pages
         uses: actions/configure-pages@v5
