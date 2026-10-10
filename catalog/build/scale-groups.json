@@ -161,6 +161,59 @@
   ]
  },
  {
+  "slug": "obj-food-vegetable-onion-scale-big",
+  "name": "Object › Food › Vegetable › Onion · scale-big",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.125,
+   "longest.max": 0.625,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack-2",
+    "model": "spring-onion",
+    "hash": "45a2347b44",
+    "wdh": [
+     0.09,
+     0.09,
+     0.4
+    ],
+    "tags": [
+     "food",
+     "scale-big"
+    ],
+    "colors": [
+     "#68872d",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "ken-food",
+    "model": "leek",
+    "hash": "582096219c",
+    "wdh": [
+     0.25,
+     0.25,
+     0.45
+    ],
+    "tags": [
+     "foliage",
+     "food",
+     "ken",
+     "scale-big"
+    ],
+    "colors": [
+     "#23562c",
+     "#68872d",
+     "#dad1b9"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-food-vegetable-root-scale-big",
   "name": "Object › Food › Vegetable › Root · scale-big",
   "category": "obj-gen",
@@ -1070,7 +1123,7 @@
    {
     "slug": "ken-food",
     "model": "pineapple",
-    "hash": "94a61e0389",
+    "hash": "79ee291517",
     "wdh": [
      0.15,
      0.15,
@@ -2108,7 +2161,7 @@
    {
     "slug": "food-pack-2",
     "model": "waffle",
-    "hash": "8ccae2268a",
+    "hash": "d47773dabc",
     "wdh": [
      0.3,
      0.3,
@@ -3611,6 +3664,7 @@
     "tags": [
      "isa",
      "metal-iron-wrought",
+     "mounted",
      "paper",
      "wood-beam"
     ],
@@ -3919,7 +3973,7 @@
     "tags": [
      "glass-clear",
      "lpa",
-     "metal"
+     "metal-iron-steel"
     ],
     "colors": [
      "#82868e",
@@ -7333,9 +7387,9 @@
      0.15
     ],
     "tags": [
-     "ceramic",
      "isa",
-     "paper"
+     "paper",
+     "plastic"
     ],
     "colors": [
      "#1367a6",
@@ -7345,16 +7399,16 @@
    {
     "slug": "ken-food",
     "model": "frappe",
-    "hash": "bc9fc79ebe",
+    "hash": "27dabe8cee",
     "wdh": [
      0.15,
      0.15,
-     0.35
+     0.3
     ],
     "tags": [
      "food",
-     "glass",
-     "ken"
+     "ken",
+     "paper"
     ],
     "colors": [
      "#885734",
@@ -7403,11 +7457,11 @@
    {
     "slug": "quat-food",
     "model": "soda",
-    "hash": "d51bc51312",
+    "hash": "7bc09a5b29",
     "wdh": [
      0.15,
      0.15,
-     0.35
+     0.3
     ],
     "tags": [
      "paper",
@@ -7429,6 +7483,7 @@
      0.2
     ],
     "tags": [
+     "food",
      "paper",
      "sty"
     ],
@@ -13118,9 +13173,9 @@
      0.15
     ],
     "tags": [
+     "foliage",
      "food",
-     "kay",
-     "vegetation"
+     "kay"
     ],
     "colors": [
      "#68872d",
@@ -13155,7 +13210,7 @@
    {
     "slug": "m3-base",
     "model": "pizza",
-    "hash": "26a2c9bfbc",
+    "hash": "7eab131dd9",
     "wdh": [
      0.3,
      0.3,
@@ -13817,7 +13872,7 @@
     "slug": "isa-kitchen",
     "collection": "isa-tt",
     "model": "counter-sink",
-    "hash": "3dd3bc52c9",
+    "hash": "22e6022da4",
     "wdh": [
      0.7,
      0.55,
@@ -13827,10 +13882,12 @@
      "ceramic",
      "isa",
      "metal-iron-steel",
+     "plastic",
      "wood-beam",
      "wood-worked"
     ],
     "colors": [
+     "#1367a6",
      "#82868e",
      "#885734",
      "#893b29",
@@ -13885,7 +13942,7 @@
     "slug": "kay-food",
     "collection": "kay-interior",
     "model": "table-sink-large",
-    "hash": "cf78acebed",
+    "hash": "b55f0aae10",
     "wdh": [
      0.9,
      0.6,
@@ -13920,7 +13977,7 @@
    {
     "slug": "ken-furniture",
     "model": "kitchen-sink",
-    "hash": "82ea2237de",
+    "hash": "5e56befe18",
     "wdh": [
      0.45,
      0.45,
@@ -16241,7 +16298,8 @@
     ],
     "tags": [
      "m3",
-     "metal",
+     "metal-gold",
+     "metal-iron-steel",
      "mounted"
     ],
     "colors": [
@@ -17026,6 +17084,205 @@
     ],
     "colors": [
      "#8b7561"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-food-vegetable",
+  "name": "Object › Food › Vegetable",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "food-pack-2",
+    "model": "asparagus",
+    "hash": "d6e5deb71a",
+    "wdh": [
+     0.02,
+     0.02,
+     0.2
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "food-pack-2",
+    "model": "courgette",
+    "hash": "376e8ff637",
+    "wdh": [
+     0.07,
+     0.07,
+     0.2
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#68872d"
+    ]
+   },
+   {
+    "slug": "food-pack-2",
+    "model": "cucumber",
+    "hash": "6e638ed1b4",
+    "wdh": [
+     0.07,
+     0.07,
+     0.25
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "food-pack-2",
+    "model": "garlic",
+    "hash": "925eb9856c",
+    "wdh": [
+     0.1,
+     0.1,
+     0.09
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#dad1b9"
+    ]
+   },
+   {
+    "slug": "food-pack-2",
+    "model": "potato",
+    "hash": "05b78faba1",
+    "wdh": [
+     0.15,
+     0.1,
+     0.08
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "food-pack-2",
+    "model": "squash",
+    "hash": "8e9fdf1c94",
+    "wdh": [
+     0.25,
+     0.25,
+     0.45
+    ],
+    "tags": [
+     "food"
+    ],
+    "colors": [
+     "#4f3424",
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "collection": "kay-interior",
+    "model": "food-ingredient-potato",
+    "hash": "497b10b941",
+    "wdh": [
+     0.2,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "food",
+     "kay"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "collection": "kay-interior",
+    "model": "food-ingredient-veggie-patty",
+    "hash": "70703b2a2c",
+    "wdh": [
+     0.2,
+     0.2,
+     0.07
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "vegetation"
+    ],
+    "colors": [
+     "#23562c",
+     "#d07b56"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "potato-waffle",
+    "hash": "31a5c07e7a",
+    "wdh": [
+     0.15,
+     0.2,
+     0.02
+    ],
+    "tags": [
+     "food",
+     "m3"
+    ],
+    "colors": [
+     "#f2a93c"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "cucumber",
+    "hash": "e60c44f64d",
+    "wdh": [
+     0.07,
+     0.06,
+     0.35
+    ],
+    "tags": [
+     "food",
+     "qua"
+    ],
+    "colors": [
+     "#23562c"
+    ]
+   },
+   {
+    "slug": "styloo-school",
+    "model": "potato",
+    "hash": "f8d6e44792",
+    "wdh": [
+     0.15,
+     0.09,
+     0.09
+    ],
+    "tags": [
+     "food",
+     "sty"
+    ],
+    "colors": [
+     "#b9845b"
     ]
    }
   ]
@@ -19002,225 +19259,6 @@
     ],
     "colors": [
      "#8b7561"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-food-vegetable",
-  "name": "Object › Food › Vegetable",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "food-pack-2",
-    "model": "asparagus",
-    "hash": "d6e5deb71a",
-    "wdh": [
-     0.02,
-     0.02,
-     0.2
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "courgette",
-    "hash": "376e8ff637",
-    "wdh": [
-     0.07,
-     0.07,
-     0.2
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#68872d"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "cucumber",
-    "hash": "6e638ed1b4",
-    "wdh": [
-     0.07,
-     0.07,
-     0.25
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "garlic",
-    "hash": "7ac5e02428",
-    "wdh": [
-     0.1,
-     0.1,
-     0.09
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "potato",
-    "hash": "05b78faba1",
-    "wdh": [
-     0.15,
-     0.1,
-     0.08
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "food-pack-2",
-    "model": "squash",
-    "hash": "8e9fdf1c94",
-    "wdh": [
-     0.25,
-     0.25,
-     0.45
-    ],
-    "tags": [
-     "food"
-    ],
-    "colors": [
-     "#4f3424",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "collection": "kay-interior",
-    "model": "food-ingredient-potato",
-    "hash": "497b10b941",
-    "wdh": [
-     0.2,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "food",
-     "kay"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "collection": "kay-interior",
-    "model": "food-ingredient-veggie-patty",
-    "hash": "70703b2a2c",
-    "wdh": [
-     0.2,
-     0.2,
-     0.07
-    ],
-    "tags": [
-     "food",
-     "kay",
-     "vegetation"
-    ],
-    "colors": [
-     "#23562c",
-     "#d07b56"
-    ]
-   },
-   {
-    "slug": "ken-food",
-    "model": "leek",
-    "hash": "582096219c",
-    "wdh": [
-     0.25,
-     0.25,
-     0.45
-    ],
-    "tags": [
-     "foliage",
-     "food",
-     "ken"
-    ],
-    "colors": [
-     "#23562c",
-     "#68872d",
-     "#dad1b9"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "potato-waffle",
-    "hash": "31a5c07e7a",
-    "wdh": [
-     0.15,
-     0.2,
-     0.02
-    ],
-    "tags": [
-     "food",
-     "m3"
-    ],
-    "colors": [
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "cucumber",
-    "hash": "e60c44f64d",
-    "wdh": [
-     0.07,
-     0.06,
-     0.35
-    ],
-    "tags": [
-     "food",
-     "qua"
-    ],
-    "colors": [
-     "#23562c"
-    ]
-   },
-   {
-    "slug": "styloo-school",
-    "model": "potato",
-    "hash": "6998ebb043",
-    "wdh": [
-     0.09,
-     0.09,
-     0.15
-    ],
-    "tags": [
-     "food",
-     "sty"
-    ],
-    "colors": [
-     "#b9845b"
     ]
    }
   ]
@@ -46117,6 +46155,153 @@
   ]
  },
  {
+  "slug": "obj-container-crate",
+  "name": "Object › Container › Crate",
+  "category": "obj-container",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 1.05,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "toolbox",
+    "hash": "fd42c00a38",
+    "wdh": [
+     0.2,
+     0.5,
+     0.2
+    ],
+    "tags": [
+     "ct",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "toolbox",
+    "hash": "c37515604b",
+    "wdh": [
+     0.15,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#893b29"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "pallet-box-01",
+    "hash": "3700c49d5f",
+    "wdh": [
+     0.5,
+     0.5,
+     0.35
+    ],
+    "tags": [
+     "m3",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "wine-box",
+    "hash": "4e99bb718f",
+    "wdh": [
+     0.35,
+     0.15,
+     0.15
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-steel",
+     "wood-worked"
+    ],
+    "colors": [
+     "#82868e",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "makeup",
+    "model": "makeup-bag",
+    "hash": "78f42b56e0",
+    "wdh": [
+     0.2,
+     0.2,
+     0.06
+    ],
+    "tags": [
+     "mab",
+     "metal-iron-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#23562c",
+     "#5b5550",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "box",
+    "hash": "06c7311ca9",
+    "wdh": [
+     0.5,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b9845b",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "sq-bank",
+    "collection": "sq-props",
+    "model": "coin-trays",
+    "hash": "9af6006458",
+    "wdh": [
+     0.3,
+     0.2,
+     0.1
+    ],
+    "tags": [
+     "metal-gold",
+     "metal-iron-cast",
+     "sq"
+    ],
+    "colors": [
+     "#3c3f4d",
+     "#f2a93c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-container-pot-urn",
   "name": "Object › Container › Pot › Urn",
   "category": "obj-container",
@@ -46953,11 +47138,11 @@
    {
     "slug": "ken-food",
     "model": "takeaway-box",
-    "hash": "81fcd07403",
+    "hash": "ac2eb1e533",
     "wdh": [
-     0.8,
-     0.5,
-     0.55
+     0.4,
+     0.25,
+     0.25
     ],
     "tags": [
      "ken",
@@ -46990,7 +47175,7 @@
     "slug": "sq-laundry",
     "collection": "sq-props",
     "model": "box-brand-b",
-    "hash": "26610e21f5",
+    "hash": "e17e7ff323",
     "wdh": [
      0.25,
      0.1,
@@ -47045,7 +47230,7 @@
    {
     "slug": "styloo-kitchen",
     "model": "milk-carton",
-    "hash": "89796d3f0e",
+    "hash": "f1050fc41b",
     "wdh": [
      0.1,
      0.1,
@@ -48678,282 +48863,6 @@
     ],
     "colors": [
      "#b9845b"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-crate",
-  "name": "Object › Container › Crate",
-  "category": "obj-container",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 1.05,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "crate-open",
-    "hash": "16d1c9cb08",
-    "wdh": [
-     0.5,
-     0.45,
-     0.4
-    ],
-    "tags": [
-     "wood-beam"
-    ],
-    "colors": [
-     "#885734"
-    ]
-   },
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "crate-planked",
-    "hash": "23149e681b",
-    "wdh": [
-     0.5,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "wood-beam"
-    ],
-    "colors": [
-     "#885734"
-    ]
-   },
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "crate",
-    "hash": "82d4e6c6b1",
-    "wdh": [
-     0.55,
-     0.5,
-     0.45
-    ],
-    "tags": [
-     "wood-beam"
-    ],
-    "colors": [
-     "#885734"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "toolbox",
-    "hash": "fd42c00a38",
-    "wdh": [
-     0.2,
-     0.5,
-     0.2
-    ],
-    "tags": [
-     "ct",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "crate-open",
-    "hash": "b23670af4a",
-    "wdh": [
-     0.55,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "food",
-     "kay",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#885734",
-     "#893b29",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "toolbox",
-    "hash": "c37515604b",
-    "wdh": [
-     0.15,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#893b29"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "pallet-box-01",
-    "hash": "3700c49d5f",
-    "wdh": [
-     0.5,
-     0.5,
-     0.35
-    ],
-    "tags": [
-     "m3",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "wine-box",
-    "hash": "4e99bb718f",
-    "wdh": [
-     0.35,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-steel",
-     "wood-worked"
-    ],
-    "colors": [
-     "#82868e",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "wooden-crate-01",
-    "hash": "5a23718037",
-    "wdh": [
-     0.45,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "m3",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "wooden-crate-02",
-    "hash": "9ecfe89bf5",
-    "wdh": [
-     0.45,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "m3",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "makeup",
-    "model": "makeup-bag",
-    "hash": "78f42b56e0",
-    "wdh": [
-     0.2,
-     0.2,
-     0.06
-    ],
-    "tags": [
-     "mab",
-     "metal-iron-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#23562c",
-     "#5b5550",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "box",
-    "hash": "06c7311ca9",
-    "wdh": [
-     0.5,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b9845b",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "sq-bank",
-    "collection": "sq-props",
-    "model": "coin-trays",
-    "hash": "9af6006458",
-    "wdh": [
-     0.3,
-     0.2,
-     0.1
-    ],
-    "tags": [
-     "metal-gold",
-     "metal-iron-cast",
-     "sq"
-    ],
-    "colors": [
-     "#3c3f4d",
-     "#f2a93c"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "dynamite-crate-open",
-    "hash": "cb06693299",
-    "wdh": [
-     0.45,
-     0.45,
-     0.65
-    ],
-    "tags": [
-     "textile",
-     "wizp",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#893b29",
-     "#b9845b",
-     "#dfb789"
     ]
    }
   ]
@@ -51573,495 +51482,6 @@
   ]
  },
  {
-  "slug": "obj-container-crate-cube",
-  "name": "Object › Container › Crate › Cube",
-  "category": "obj-container",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.25,
-   "longest.max": 0.7,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "fs-town",
-    "collection": "fs-modular",
-    "model": "crate-a-open",
-    "hash": "87f03fe5fb",
-    "wdh": [
-     0.5,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "fs",
-     "sailing",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "fs-town",
-    "collection": "fs-modular",
-    "model": "crate-a",
-    "hash": "daa40a7e24",
-    "wdh": [
-     0.5,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "fs",
-     "sailing",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "crate-dark",
-    "hash": "5fd404b54e",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-wrought",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "crate-b-small",
-    "hash": "d02d0a16c1",
-    "wdh": [
-     0.25,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "crate-b",
-    "hash": "773bbdf16c",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "kay",
-     "wood-beam"
-    ],
-    "colors": [
-     "#885734"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "crate-small",
-    "hash": "33e8897363",
-    "wdh": [
-     0.25,
-     0.25,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#885734",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "crate",
-    "hash": "d3df2b3c91",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "kay",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#885734",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "kay-platformer",
-    "collection": "kay-play",
-    "model": "crate",
-    "hash": "57b680153f",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "kay",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "ken-platformer",
-    "collection": "ken-mini",
-    "model": "crate",
-    "hash": "26da9f0810",
-    "wdh": [
-     0.5,
-     0.5,
-     0.5
-    ],
-    "tags": [
-     "ken",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#885734",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "ken-proto",
-    "collection": "ken-mini",
-    "model": "crate",
-    "hash": "981564a995",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-steel",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "box",
-    "hash": "54c535a7d6",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "lpa",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "crate-slatted",
-    "hash": "90d920cf4c",
-    "wdh": [
-     0.4,
-     0.4,
-     0.4
-    ],
-    "tags": [
-     "lpa",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#885734",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "box-2",
-    "hash": "f8e8fc1eba",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "box-a",
-    "hash": "bf475f2c52",
-    "wdh": [
-     0.55,
-     0.55,
-     0.55
-    ],
-    "tags": [
-     "sailing",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "quat-dun-1",
-    "collection": "quat-dun",
-    "model": "crate",
-    "hash": "eb48083609",
-    "wdh": [
-     0.6,
-     0.55,
-     0.55
-    ],
-    "tags": [
-     "qua",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#885734",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "quat-dun-2",
-    "collection": "quat-dun",
-    "model": "crate",
-    "hash": "b2fb21a4c4",
-    "wdh": [
-     0.6,
-     0.55,
-     0.55
-    ],
-    "tags": [
-     "qua",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "crate",
-    "hash": "4c0e229c02",
-    "wdh": [
-     0.2,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "qua",
-     "sailing",
-     "wood-beam"
-    ],
-    "colors": [
-     "#885734"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "crate-metal",
-    "hash": "eaa93a250c",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-wrought",
-     "qua",
-     "wood-beam",
-     "wood-worked"
-    ],
-    "colors": [
-     "#5b5550",
-     "#885734",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "quat-shoot",
-    "model": "crate",
-    "hash": "01b439c103",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "qua",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "crate-cube",
-    "hash": "f09a4cff7e",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "rgp",
-     "wood-planks"
-    ],
-    "colors": [
-     "#3c3f4d",
-     "#885734",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "crate",
-    "hash": "10eb266161",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "sty",
-     "wood-planks"
-    ],
-    "colors": [
-     "#82868e",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "wizp-grave",
-    "collection": "wizp-grave",
-    "model": "crate",
-    "hash": "844c1f6d06",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "halloween",
-     "wizp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "crate-a",
-    "hash": "1c34a8f8d5",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "wizp",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "crate-b",
-    "hash": "92d7bf3e00",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "wizp",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "dynamite-crate",
-    "hash": "09c2ab706b",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "wizp",
-     "wood-planks",
-     "wood-worked"
-    ],
-    "colors": [
-     "#b9845b",
-     "#dfb789"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-container-pot-jar",
   "name": "Object › Container › Pot › Jar",
   "category": "obj-container",
@@ -53281,6 +52701,624 @@
     "colors": [
      "#5b5550",
      "#b9845b"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-container-crate-cube",
+  "name": "Object › Container › Crate › Cube",
+  "category": "obj-container",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.25,
+   "longest.max": 0.7,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "crate-open",
+    "hash": "16d1c9cb08",
+    "wdh": [
+     0.5,
+     0.45,
+     0.4
+    ],
+    "tags": [
+     "wood-beam"
+    ],
+    "colors": [
+     "#885734"
+    ]
+   },
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "crate-planked",
+    "hash": "23149e681b",
+    "wdh": [
+     0.5,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "wood-beam"
+    ],
+    "colors": [
+     "#885734"
+    ]
+   },
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "crate",
+    "hash": "82d4e6c6b1",
+    "wdh": [
+     0.55,
+     0.5,
+     0.45
+    ],
+    "tags": [
+     "wood-beam"
+    ],
+    "colors": [
+     "#885734"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "collection": "fs-modular",
+    "model": "crate-a-open",
+    "hash": "87f03fe5fb",
+    "wdh": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "fs",
+     "sailing",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "fs-town",
+    "collection": "fs-modular",
+    "model": "crate-a",
+    "hash": "daa40a7e24",
+    "wdh": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "fs",
+     "sailing",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "crate-dark",
+    "hash": "5fd404b54e",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-wrought",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "crate-b-small",
+    "hash": "d02d0a16c1",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "crate-b",
+    "hash": "773bbdf16c",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "kay",
+     "wood-beam"
+    ],
+    "colors": [
+     "#885734"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "crate-open",
+    "hash": "b23670af4a",
+    "wdh": [
+     0.55,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "food",
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#885734",
+     "#893b29",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "crate-small",
+    "hash": "33e8897363",
+    "wdh": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#885734",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "crate",
+    "hash": "d3df2b3c91",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "kay",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#885734",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "kay-platformer",
+    "collection": "kay-play",
+    "model": "crate",
+    "hash": "57b680153f",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "kay",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "ken-platformer",
+    "collection": "ken-mini",
+    "model": "crate",
+    "hash": "26da9f0810",
+    "wdh": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "ken",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#885734",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "ken-proto",
+    "collection": "ken-mini",
+    "model": "crate",
+    "hash": "981564a995",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-steel",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "box",
+    "hash": "54c535a7d6",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "lpa",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "crate-slatted",
+    "hash": "90d920cf4c",
+    "wdh": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "tags": [
+     "lpa",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#885734",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "wooden-crate-01",
+    "hash": "5a23718037",
+    "wdh": [
+     0.45,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "m3",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "wooden-crate-02",
+    "hash": "9ecfe89bf5",
+    "wdh": [
+     0.45,
+     0.5,
+     0.5
+    ],
+    "tags": [
+     "m3",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "box-2",
+    "hash": "f8e8fc1eba",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "box-a",
+    "hash": "bf475f2c52",
+    "wdh": [
+     0.55,
+     0.55,
+     0.55
+    ],
+    "tags": [
+     "sailing",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "quat-dun-1",
+    "collection": "quat-dun",
+    "model": "crate",
+    "hash": "eb48083609",
+    "wdh": [
+     0.6,
+     0.55,
+     0.55
+    ],
+    "tags": [
+     "qua",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#885734",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "quat-dun-2",
+    "collection": "quat-dun",
+    "model": "crate",
+    "hash": "b2fb21a4c4",
+    "wdh": [
+     0.6,
+     0.55,
+     0.55
+    ],
+    "tags": [
+     "qua",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "crate",
+    "hash": "4c0e229c02",
+    "wdh": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "qua",
+     "sailing",
+     "wood-beam"
+    ],
+    "colors": [
+     "#885734"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "crate-metal",
+    "hash": "eaa93a250c",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-wrought",
+     "qua",
+     "wood-beam",
+     "wood-worked"
+    ],
+    "colors": [
+     "#5b5550",
+     "#885734",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "quat-shoot",
+    "model": "crate",
+    "hash": "01b439c103",
+    "wdh": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "tags": [
+     "qua",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "crate-cube",
+    "hash": "f09a4cff7e",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "rgp",
+     "wood-planks"
+    ],
+    "colors": [
+     "#3c3f4d",
+     "#885734",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "crate",
+    "hash": "10eb266161",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "sty",
+     "wood-planks"
+    ],
+    "colors": [
+     "#82868e",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "wizp-grave",
+    "collection": "wizp-grave",
+    "model": "crate",
+    "hash": "844c1f6d06",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "halloween",
+     "wizp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "crate-a",
+    "hash": "1c34a8f8d5",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "wizp",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "crate-b",
+    "hash": "92d7bf3e00",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "wizp",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "dynamite-crate-open",
+    "hash": "cb06693299",
+    "wdh": [
+     0.45,
+     0.45,
+     0.65
+    ],
+    "tags": [
+     "textile",
+     "wizp",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#893b29",
+     "#b9845b",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "dynamite-crate",
+    "hash": "09c2ab706b",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "wizp",
+     "wood-planks",
+     "wood-worked"
+    ],
+    "colors": [
+     "#b9845b",
+     "#dfb789"
     ]
    }
   ]
@@ -58051,7 +58089,7 @@
     ],
     "tags": [
      "metal-iron-cast",
-     "metal-iron-wrought",
+     "rubber",
      "sq",
      "wood-planks"
     ],
@@ -64333,7 +64371,7 @@
     "slug": "rgp-vintage",
     "collection": "rgp",
     "model": "umbrella",
-    "hash": "6790feceb1",
+    "hash": "b0eefac56c",
     "wdh": [
      0.25,
      0.25,
@@ -64341,11 +64379,13 @@
     ],
     "tags": [
      "halloween",
+     "metal-iron-steel",
      "rgp",
      "textile",
      "wood-beam"
     ],
     "colors": [
+     "#82868e",
      "#885734",
      "#893b29"
     ]
@@ -66234,7 +66274,7 @@
     "slug": "3dm-guns",
     "collection": "3dm",
     "model": "grease-gun",
-    "hash": "6981607be5",
+    "hash": "39469a99f9",
     "wdh": [
      0.05,
      0.35,
@@ -66347,6 +66387,7 @@
      0.3
     ],
     "tags": [
+     "metal-iron-cast",
      "metal-iron-steel",
      "metal-iron-wrought",
      "sty"
@@ -70071,269 +70112,6 @@
   ]
  },
  {
-  "slug": "obj-equipment-tool-station",
-  "name": "Object › Equipment › Tool › Station",
-  "category": "obj-equip",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.7,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-tools",
-    "collection": "kay-rpg",
-    "model": "anvil",
-    "hash": "c113576178",
-    "wdh": [
-     0.25,
-     0.5,
-     0.25
-    ],
-    "tags": [
-     "kay",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "kay-tools",
-    "collection": "kay-rpg",
-    "model": "grindstone",
-    "hash": "dbde372eb8",
-    "wdh": [
-     0.6,
-     0.7,
-     0.45
-    ],
-    "tags": [
-     "animation",
-     "hero",
-     "kay",
-     "metal-iron-steel",
-     "metal-iron-wrought",
-     "robin-hood",
-     "stone-rock",
-     "textile",
-     "wood-beam",
-     "wood-planks"
-    ],
-    "colors": [
-     "#5b5550",
-     "#82868e",
-     "#885734",
-     "#8b7561",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "workbench-grind",
-    "hash": "f9c9a86e95",
-    "wdh": [
-     0.4,
-     0.5,
-     0.4
-    ],
-    "tags": [
-     "ken",
-     "stone-rock",
-     "wood-beam"
-    ],
-    "colors": [
-     "#885734",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "anvil",
-    "hash": "716263d58f",
-    "wdh": [
-     0.2,
-     0.45,
-     0.2
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-steel"
-    ],
-    "colors": [
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "bellows",
-    "hash": "4a39251c5e",
-    "wdh": [
-     0.2,
-     0.45,
-     0.08
-    ],
-    "tags": [
-     "leather",
-     "m3",
-     "metal-iron-steel",
-     "tba",
-     "wood-worked"
-    ],
-    "colors": [
-     "#4f3424",
-     "#82868e",
-     "#b9845b"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "saw-horse",
-    "hash": "c511a207a9",
-    "wdh": [
-     0.7,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "m3",
-     "wood-planks"
-    ],
-    "colors": [
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "grinder-anim",
-    "hash": "103dae2c25",
-    "wdh": [
-     0.5,
-     0.6,
-     0.5
-    ],
-    "tags": [
-     "animation",
-     "metal-iron-cast",
-     "metal-iron-steel",
-     "stone-rock",
-     "wood-beam"
-    ],
-    "colors": [
-     "#3c3f4d",
-     "#82868e",
-     "#885734",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "grinder",
-    "hash": "240118b022",
-    "wdh": [
-     0.5,
-     0.6,
-     0.5
-    ],
-    "tags": [
-     "metal-iron-cast",
-     "metal-iron-steel",
-     "stone-rock",
-     "tba",
-     "wood-beam"
-    ],
-    "colors": [
-     "#3c3f4d",
-     "#82868e",
-     "#885734",
-     "#8b7561"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "anvil",
-    "hash": "c610e94bd5",
-    "wdh": [
-     0.3,
-     0.55,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "rgp"
-    ],
-    "colors": [
-     "#3c3f4d",
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "bellows",
-    "hash": "e019cd5d3a",
-    "wdh": [
-     0.45,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "leather",
-     "rgp",
-     "tba",
-     "wood-planks"
-    ],
-    "colors": [
-     "#4f3424",
-     "#dfb789"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "anvil-b",
-    "hash": "e283d4519c",
-    "wdh": [
-     0.25,
-     0.45,
-     0.25
-    ],
-    "tags": [
-     "metal-iron-steel",
-     "rgp"
-    ],
-    "colors": [
-     "#82868e"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "forge",
-    "hash": "28e862417e",
-    "wdh": [
-     0.45,
-     0.45,
-     0.35
-    ],
-    "tags": [
-     "asia",
-     "metal-iron-cast",
-     "metal-iron-steel",
-     "stone-masonry",
-     "wizp"
-    ],
-    "colors": [
-     "#3c3f4d",
-     "#82868e",
-     "#8b7561"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-equipment-weapon-ranged-firearm-shotgun",
   "name": "Object › Equipment › Weapon › Ranged › Firearm › Shotgun",
   "category": "obj-equip",
@@ -70597,6 +70375,287 @@
      "#82868e",
      "#8b7561",
      "#b9845b"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-equipment-tool-station",
+  "name": "Object › Equipment › Tool › Station",
+  "category": "obj-equip",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.7,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-tools",
+    "collection": "kay-rpg",
+    "model": "anvil",
+    "hash": "c113576178",
+    "wdh": [
+     0.25,
+     0.5,
+     0.25
+    ],
+    "tags": [
+     "kay",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "kay-tools",
+    "collection": "kay-rpg",
+    "model": "grindstone",
+    "hash": "dbde372eb8",
+    "wdh": [
+     0.6,
+     0.7,
+     0.45
+    ],
+    "tags": [
+     "animation",
+     "hero",
+     "kay",
+     "metal-iron-steel",
+     "metal-iron-wrought",
+     "robin-hood",
+     "stone-rock",
+     "textile",
+     "wood-beam",
+     "wood-planks"
+    ],
+    "colors": [
+     "#5b5550",
+     "#82868e",
+     "#885734",
+     "#8b7561",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "workbench-grind",
+    "hash": "f9c9a86e95",
+    "wdh": [
+     0.4,
+     0.5,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#885734",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "anvil",
+    "hash": "716263d58f",
+    "wdh": [
+     0.2,
+     0.45,
+     0.2
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-steel"
+    ],
+    "colors": [
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "bellows",
+    "hash": "4a39251c5e",
+    "wdh": [
+     0.2,
+     0.45,
+     0.08
+    ],
+    "tags": [
+     "leather",
+     "m3",
+     "metal-iron-steel",
+     "tba",
+     "wood-worked"
+    ],
+    "colors": [
+     "#4f3424",
+     "#82868e",
+     "#b9845b"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "saw-horse",
+    "hash": "c511a207a9",
+    "wdh": [
+     0.7,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "m3",
+     "wood-planks"
+    ],
+    "colors": [
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "grinder-anim",
+    "hash": "103dae2c25",
+    "wdh": [
+     0.5,
+     0.6,
+     0.5
+    ],
+    "tags": [
+     "animation",
+     "metal-iron-cast",
+     "metal-iron-steel",
+     "stone-rock",
+     "wood-beam"
+    ],
+    "colors": [
+     "#3c3f4d",
+     "#82868e",
+     "#885734",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "grinder",
+    "hash": "240118b022",
+    "wdh": [
+     0.5,
+     0.6,
+     0.5
+    ],
+    "tags": [
+     "metal-iron-cast",
+     "metal-iron-steel",
+     "stone-rock",
+     "tba",
+     "wood-beam"
+    ],
+    "colors": [
+     "#3c3f4d",
+     "#82868e",
+     "#885734",
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "anvil",
+    "hash": "c610e94bd5",
+    "wdh": [
+     0.3,
+     0.55,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "rgp"
+    ],
+    "colors": [
+     "#3c3f4d",
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "bellows",
+    "hash": "e019cd5d3a",
+    "wdh": [
+     0.45,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "leather",
+     "rgp",
+     "tba",
+     "wood-planks"
+    ],
+    "colors": [
+     "#4f3424",
+     "#dfb789"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "forge-chimney",
+    "hash": "3bbebfaf7b",
+    "wdh": [
+     0.55,
+     0.7,
+     1.6
+    ],
+    "tags": [
+     "rgp",
+     "stone-masonry"
+    ],
+    "colors": [
+     "#8b7561"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "anvil-b",
+    "hash": "e283d4519c",
+    "wdh": [
+     0.25,
+     0.45,
+     0.25
+    ],
+    "tags": [
+     "metal-iron-steel",
+     "rgp"
+    ],
+    "colors": [
+     "#82868e"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "forge",
+    "hash": "28e862417e",
+    "wdh": [
+     0.45,
+     0.45,
+     0.35
+    ],
+    "tags": [
+     "asia",
+     "metal-iron-cast",
+     "metal-iron-steel",
+     "stone-masonry",
+     "wizp"
+    ],
+    "colors": [
+     "#3c3f4d",
+     "#82868e",
+     "#8b7561"
     ]
    }
   ]
@@ -83717,18 +83776,20 @@
    {
     "slug": "m3-base",
     "model": "kennel-01",
-    "hash": "76c5dfba02",
+    "hash": "9f803d98d3",
     "wdh": [
      0.5,
      0.65,
      0.6
     ],
     "tags": [
+     "ceramic",
      "m3",
      "storeys-0-5",
      "wood-planks"
     ],
     "colors": [
+     "#893b29",
      "#dfb789"
     ]
    },
@@ -83736,7 +83797,7 @@
     "slug": "quat-medieval",
     "collection": "quat-medieval",
     "model": "gazebo",
-    "hash": "bbbe0a3576",
+    "hash": "42bb9f6aed",
     "wdh": [
      1.2,
      1.45,
@@ -83745,7 +83806,7 @@
     "tags": [
      "ceramic",
      "qua",
-     "storeys-1-5",
+     "storeys-1",
      "wood-beam"
     ],
     "colors": [
@@ -87480,7 +87541,7 @@
     "slug": "wizp-asia",
     "collection": "wizp-eastern",
     "model": "bridge-wood",
-    "hash": "9383d4011d",
+    "hash": "4ac079e12e",
     "wdh": [
      2.45,
      1.8,
@@ -87489,10 +87550,12 @@
     "tags": [
      "asia",
      "wizp",
-     "wood-beam"
+     "wood-beam",
+     "wood-planks"
     ],
     "colors": [
-     "#885734"
+     "#885734",
+     "#dfb789"
     ]
    }
   ]
@@ -91324,7 +91387,7 @@
     "slug": "kay-platformer",
     "collection": "kay-play",
     "model": "cone",
-    "hash": "bcb18826a2",
+    "hash": "1773b7cee6",
     "wdh": [
      0.15,
      0.15,
@@ -91335,7 +91398,8 @@
      "plastic"
     ],
     "colors": [
-     "#d07b56"
+     "#d07b56",
+     "#dad1b9"
     ]
    },
    {
@@ -91479,7 +91543,8 @@
     ],
     "tags": [
      "m3",
-     "plastic"
+     "plastic",
+     "rubber"
     ],
     "colors": [
      "#5b5550",
@@ -91497,7 +91562,8 @@
     ],
     "tags": [
      "m3",
-     "plastic"
+     "plastic",
+     "rubber"
     ],
     "colors": [
      "#5b5550",
@@ -91515,7 +91581,8 @@
     ],
     "tags": [
      "plastic",
-     "qua"
+     "qua",
+     "rubber"
     ],
     "colors": [
      "#5b5550",
@@ -97330,7 +97397,7 @@
    {
     "slug": "ken-nature",
     "model": "sign",
-    "hash": "d76f76c205",
+    "hash": "64be369602",
     "wdh": [
      0.35,
      0.08,
@@ -97447,10 +97514,10 @@
    {
     "slug": "lpa-west",
     "model": "welcome-sign",
-    "hash": "c25d7f189f",
+    "hash": "25ce2c1d08",
     "wdh": [
-     0.05,
      1.2,
+     0.05,
      0.85
     ],
     "tags": [
@@ -97600,7 +97667,7 @@
    {
     "slug": "styloo-farm",
     "model": "sign-board",
-    "hash": "e5c7413e72",
+    "hash": "ee8d7f2cad",
     "wdh": [
      0.35,
      0.15,
@@ -97609,20 +97676,22 @@
     "tags": [
      "leather",
      "sty",
-     "wood-beam"
+     "wood-beam",
+     "wood-planks"
     ],
     "colors": [
      "#4f3424",
-     "#885734"
+     "#885734",
+     "#dfb789"
     ]
    },
    {
     "slug": "western",
     "model": "signpost",
-    "hash": "262ac92513",
+    "hash": "13abc3a2f4",
     "wdh": [
-     0.06,
      0.3,
+     0.06,
      0.55
     ],
     "tags": [
@@ -113869,24 +113938,6 @@
     "colors": [
      "#8b7561"
     ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "forge-chimney",
-    "hash": "3bbebfaf7b",
-    "wdh": [
-     0.55,
-     0.7,
-     1.6
-    ],
-    "tags": [
-     "rgp",
-     "stone-masonry"
-    ],
-    "colors": [
-     "#8b7561"
-    ]
    }
   ]
  },
@@ -114061,7 +114112,7 @@
     "slug": "kay-dun-2",
     "collection": "kay-interior",
     "model": "floor-wood-small-dark",
-    "hash": "ab689497bf",
+    "hash": "0272b9780e",
     "wdh": [
      0.6,
      0.6,
@@ -114070,10 +114121,10 @@
     "tags": [
      "kay",
      "scale-small",
-     "wood-worked"
+     "wood-beam"
     ],
     "colors": [
-     "#b9845b"
+     "#885734"
     ]
    },
    {
@@ -116319,7 +116370,7 @@
     "slug": "kay-dun-2",
     "collection": "kay-interior",
     "model": "floor-wood-large-dark",
-    "hash": "220c99b49c",
+    "hash": "3b04384ece",
     "wdh": [
      1.2,
      1.2,
@@ -116327,10 +116378,10 @@
     ],
     "tags": [
      "kay",
-     "wood-worked"
+     "wood-beam"
     ],
     "colors": [
-     "#b9845b"
+     "#885734"
     ]
    },
    {
@@ -131823,7 +131874,7 @@
     "tags": [
      "foliage",
      "fs",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131844,7 +131895,7 @@
     "tags": [
      "foliage",
      "fs",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131865,7 +131916,7 @@
     "tags": [
      "foliage",
      "fs",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131886,7 +131937,7 @@
      "foliage",
      "ken",
      "pirate",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131906,7 +131957,7 @@
      "foliage",
      "ken",
      "pirate",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131926,7 +131977,7 @@
      "foliage",
      "ken",
      "pirate",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131946,7 +131997,7 @@
      "foliage",
      "ken",
      "pirate",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131964,7 +132015,7 @@
     ],
     "tags": [
      "foliage",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -131983,7 +132034,7 @@
     ],
     "tags": [
      "foliage",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132002,7 +132053,7 @@
     ],
     "tags": [
      "foliage",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132021,7 +132072,7 @@
     ],
     "tags": [
      "foliage",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132040,7 +132091,7 @@
     ],
     "tags": [
      "foliage",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132059,7 +132110,7 @@
     ],
     "tags": [
      "foliage",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132080,7 +132131,7 @@
      "foliage",
      "pirate",
      "qua",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132090,9 +132141,9 @@
    {
     "slug": "quat-pirate",
     "model": "tree-palm-2",
-    "hash": "662bba74eb",
+    "hash": "f8b1fb6d07",
     "wdh": [
-     1,
+     1.05,
      1,
      1.05
     ],
@@ -132100,7 +132151,7 @@
      "foliage",
      "pirate",
      "qua",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
@@ -132120,7 +132171,7 @@
      "foliage",
      "pirate",
      "qua",
-     "wood-planks"
+     "wood-log"
     ],
     "colors": [
      "#68872d",
