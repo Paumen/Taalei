@@ -108,7 +108,7 @@ from, and ask which group is meant. This costs two minutes and settles in one
 round what guessing does not settle in three.
 
 Do not ask at all when the bible already decides — `B40` gives a wrapped grip
-taupe, `M33` gives bells copper.
+taupe, `lint/kinds.json` gives bells copper or gold.
 
 ## 6. Small batches, then verdicts
 
