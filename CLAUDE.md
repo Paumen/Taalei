@@ -1,16 +1,16 @@
 ## Claude contract:
-* Never look at any previous commits or prs and related files.
+* Don't look at any previous commits or prs and related files.
 * If you doubt, you ask clarification.
 * never write assumptions, comments, requirements, statements, rules or similar in code files.
-** All new code is written in English.
+* All new code is written in English.
 * never record historical notes and comments on which changes were made or why, not in code not in docs, information just represents latest state and ways.
 * Keep docs tersely, and in plain English..
 * import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport
-* After any catalogue change, always rebuild: every step in .claude/skills/catalog-assets/SKILL.md §6 except build-lists. Run build-lists only when source zips, rejects, NPC or TBD models change.
 * `merge`, `Merge`, `erge`, `.erge`, `merg`, and similar all mean: merge the PR(s).
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
+* lint/golden.mjs holds the golden rules, the most critical repo rules, checked on every PR by .github/workflows/golden.yml: `node lint/golden.mjs`. A broken rule fails the PR check. Rules: R01, no catalogue model's longest side under 0.05.
 * lint/glb-lint.mjs checks glb files for glTF validity, geometry, shading and house rules: `node lint/glb-lint.mjs kits/workfiles [--only-problems] [--json out.json]`. Needs `npm install` first (gltf-validator, pinned in package.json).
 * tools/renders/render.mjs can be used to render glbs in various ways. If you make copies of glbs and want to render them, make sure you add the shared color map such they can find it. Most render modes will show backfaces in mangenta, if those are pre-existing and irrelevant for the task at hand, ignore them.
 * A workfile in kits/workfiles is the asset itself.
