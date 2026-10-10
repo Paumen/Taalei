@@ -50,7 +50,6 @@ const SHORT_NAME = {
   'metal-gold': 'Gold',
   'metal-iron-mid': 'Iron M',
   'metal-iron-dark': 'Iron D',
-  'metal-aluminium': 'Alumin',
   'stone-masonry-light': 'Mason L',
   'stone-masonry-mid': 'Mason M',
   'stone-masonry-dark': 'Mason D',
