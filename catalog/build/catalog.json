@@ -583,7 +583,7 @@
    ],
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 37
+    "kinds": 38
    }
   },
   {
@@ -675,7 +675,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 44
+    "kinds": 45
    }
   },
   {
@@ -3479,7 +3479,7 @@
    },
    "kitCheck": {
     "factor": 1.01,
-    "kinds": 30
+    "kinds": 31
    }
   },
   {
@@ -4550,8 +4550,8 @@
     "none": 7
    },
    "kitCheck": {
-    "factor": 1.12,
-    "kinds": 36
+    "factor": 1.11,
+    "kinds": 37
    }
   },
   {
@@ -24866,6 +24866,13 @@
    "count": 15
   },
   {
+   "id": "obj-furnishing-furniture-table-side",
+   "name": "Side table",
+   "type": "kind",
+   "description": "side table, nightstand, bedside table, end table",
+   "count": 7
+  },
+  {
    "id": "obj-furnishing-furniture-table-desk",
    "name": "Desk",
    "type": "kind",
@@ -29786,6 +29793,13 @@
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-table-round": {
+   "high.min": 0.2,
+   "high.max": 0.6,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-table-side": {
    "high.min": 0.2,
    "high.max": 0.6,
    "longest.min": 0.05,
@@ -67662,7 +67676,7 @@
    "collection": "fs-buildings",
    "name": "table-side",
    "hash": "3318bc5465",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.315,
@@ -88807,7 +88821,7 @@
    "kit": "household",
    "name": "end-table",
    "hash": "4c1d9058cf",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.472,
@@ -206499,7 +206513,7 @@
    "kit": "ken-furniture",
    "name": "cabinet-bed-drawer-table",
    "hash": "86bc696080",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.35,
@@ -206548,7 +206562,7 @@
     {
      "level": "error",
      "check": "size",
-     "text": "scale-small not on obj-furnishing-furniture-table (kind sets no scale)"
+     "text": "scale-small not on obj-furnishing-furniture-table-side (kind sets no scale)"
     }
    ]
   },
@@ -355285,7 +355299,7 @@
    "kit": "quat-interior",
    "name": "nightstand-a",
    "hash": "75156c2bb6",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.238,
@@ -355335,7 +355349,7 @@
    "kit": "quat-interior",
    "name": "nightstand-b",
    "hash": "09771611e4",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.238,
@@ -355384,7 +355398,7 @@
    "kit": "quat-interior",
    "name": "nightstand-c",
    "hash": "2ebc3b2fa1",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.238,
@@ -440751,7 +440765,7 @@
    "kit": "styloo-school",
    "name": "side-table",
    "hash": "2a581fb723",
-   "kind": "obj-furnishing-furniture-table",
+   "kind": "obj-furnishing-furniture-table-side",
    "size": "s",
    "wdh": [
     0.375,
