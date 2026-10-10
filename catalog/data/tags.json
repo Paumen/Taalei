@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model. type is material (what it is made of, closed, parented \u2014 a model carries the subtype it is, never the parent on top), kind (what it is \u2014 the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), artist (a maker whose kits have no source in bronkits.mjs) or tag (anything else worth finding, such as flags). size, animation and the bronkits.mjs artists are derived at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/app/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog/build/catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model. type is material (what it is made of, closed, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), theme (a theme set a model belongs to), attribute (a property read off the model in steps, such as storeys), artist (a maker whose kits have no source in bronkits.mjs) or tag (anything else worth finding, such as flags). size, animation and the bronkits.mjs artists are derived at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/app/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog/build/catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "mineral",
@@ -587,7 +587,6 @@
     "m3-base/iron-flambeaux-01",
     "m3-base/iron-wall-light",
     "m3-base/lamp-post-01",
-    "m3-base/magnet",
     "m3-base/metal-twist-01",
     "m3-base/metal-twist-02",
     "m3-base/metal-twist-03",
@@ -630,7 +629,8 @@
     "quat-props/bed-twin-2",
     "quat-props/chandelier",
     "quat-props/drawers",
-    "western/cart-covered"
+    "western/cart-covered",
+    "rgp-cars/taxi"
    ]
   },
   {
@@ -981,7 +981,6 @@
     "quat-props/book-group-small-1",
     "quat-props/book-group-small-2",
     "quat-props/book-group-small-3",
-    "quat-props/book-5",
     "quat-props/book-stack-2",
     "quat-rpg/book-3-closed",
     "quat-rpg/book-3-open",
@@ -1383,7 +1382,16 @@
     "quat-props/stall",
     "quat-props/stall-cart",
     "m3-base/rose-arch",
-    "styloo-furniture/faucet"
+    "styloo-furniture/faucet",
+    "ken-station/chair",
+    "ken-station/chair-armrest",
+    "ken-station/chair-armrest-headrest",
+    "ken-station/chair-cushion",
+    "ken-station/chair-cushion-headrest",
+    "ken-station/chair-headrest",
+    "quat-cars/sports-car",
+    "quat-cars/taxi",
+    "rgp-cars/hatchback"
    ]
   },
   {
@@ -2277,7 +2285,6 @@
     "quat-shoot/street-light",
     "kay-minigame/hoop",
     "ken-furniture/bathroom-cabinet-drawer",
-    "ken-furniture/bathroom-mirror",
     "ken-furniture/bathroom-sink-square",
     "ken-furniture/bathtub",
     "ken-furniture/bed-double",
@@ -3142,7 +3149,13 @@
     "quat-props/anvil",
     "quat-props/anvil-log",
     "quat-props/whetstone",
-    "kay-space/containers-c"
+    "kay-space/containers-c",
+    "m3-base/magnet",
+    "ken-furniture/bathroom-sink",
+    "sq-pool/pace-clock",
+    "lpa-home/office-chair",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single"
    ]
   },
   {
@@ -3204,17 +3217,11 @@
     "ken-station/wall-door-wide-banner",
     "ken-station/wall-door-wide",
     "household/propane-tank",
-    "ken-station/stairs-handrail",
-    "ken-station/stairs-handrail-single",
     "lpa-construction/crane",
     "quat-space/spaceship-d",
     "quat-interior/ceiling-light-cube",
-    "quat-cars/sports-car",
-    "quat-cars/taxi",
     "rgs-vehicles/truck-with-trailer",
     "rgp-cars/bus",
-    "rgp-cars/hatchback",
-    "rgp-cars/taxi",
     "3dm-industrial-2/cement-mixer",
     "3dm-industrial/pallet-jack",
     "3dm-industrial/work-light",
@@ -3587,7 +3594,6 @@
     "quat-town/port-2-a",
     "kay-builder/mill",
     "kay-builder/mill-anim",
-    "styloo-farm/barn-large",
     "wizp-village/tower",
     "ken-industrial/factory-a",
     "ken-industrial/factory-b",
@@ -4632,7 +4638,8 @@
     "loaf-coffins/coffin-stone-b-1",
     "loaf-coffins/coffin-stone-b-2",
     "loaf-coffins/coffin-stone-b-3",
-    "loaf-coffins/coffin-stone-tomb"
+    "loaf-coffins/coffin-stone-tomb",
+    "styloo-farm/barn-large"
    ]
   },
   {
@@ -5202,10 +5209,8 @@
     "quat-rpg/ring-7",
     "quat-pirate/red-x",
     "wizp-asia/ore-jade",
-    "kay-mixed/instant-camera-a",
     "quat-rpg/crown-2",
     "rpg-mini/purse-gems",
-    "kay-mixed/instant-camera-green",
     "rgp-weapons/war-horn",
     "kay-platformer/diamond",
     "kay-dun-1/chest-common-closed",
@@ -5528,7 +5533,6 @@
     "kay-holiday/plate-small-ivory",
     "kay-holiday/lantern-decorated",
     "kay-holiday/plate-cocoa",
-    "styloo-farm/barn-large",
     "styloo-farm/pond",
     "styloo-farm/pond-scene",
     "styloo-farm/watering-can-flower-slate",
@@ -5717,7 +5721,8 @@
     "loaf-coffins/ceramic-4",
     "loaf-coffins/ceramic-7",
     "loaf-coffins/ceramic-8",
-    "loaf-coffins/ceramic-9"
+    "loaf-coffins/ceramic-9",
+    "ken-furniture/bathroom-mirror"
    ]
   },
   {
@@ -5948,7 +5953,6 @@
     "ken-forest-mini/building-roof",
     "quat-dun-1/vase",
     "quat-dun-2/vase",
-    "kay-mixed/instant-camera-a",
     "wizp-mediev/silo",
     "wizp-mediev/house-a",
     "wizp-mediev/house-a-anim",
@@ -6067,7 +6071,8 @@
     "m3-base/engineering-brick-01",
     "m3-base/kennel-01",
     "m3-base/crown-chimney",
-    "loaf-coffins/ceramic-5"
+    "loaf-coffins/ceramic-5",
+    "styloo-farm/barn-large"
    ]
   },
   {
@@ -6787,7 +6792,8 @@
     "sq-rink/floor-spot",
     "pm-store/stage-light",
     "sq-rink/light-bar",
-    "ken-food/wine-red"
+    "ken-food/wine-red",
+    "lpa-home/alarm-clock"
    ]
   },
   {
@@ -7665,7 +7671,11 @@
     "natuur/tree-palm-6",
     "quat-pirate/tree-palm-1",
     "quat-pirate/tree-palm-2",
-    "quat-pirate/tree-palm-3"
+    "quat-pirate/tree-palm-3",
+    "styloo-farm/barn",
+    "styloo-farm/barn-large",
+    "styloo-farm/barn-small",
+    "emace-village/barn"
    ]
   },
   {
@@ -8284,7 +8294,6 @@
     "ken-furniture/speaker-small",
     "ken-furniture/stairs",
     "ken-furniture/stairs-corner",
-    "ken-furniture/stairs-open",
     "ken-furniture/stairs-open-single",
     "ken-furniture/stool-bar",
     "ken-furniture/stool-bar-square",
@@ -8464,7 +8473,6 @@
     "household/desk",
     "household/dresser",
     "household/end-table",
-    "household/grandfather-clock",
     "household/painting",
     "household/rocking-chair",
     "household/table-round",
@@ -8883,7 +8891,8 @@
     "swords-tember/wooden",
     "ken-holiday/cabin-wall",
     "emace-village/brushwood-bundle",
-    "m3-base/firewood-01"
+    "m3-base/firewood-01",
+    "architecture/barn"
    ]
   },
   {
@@ -8924,7 +8933,6 @@
     "isa-kitchen/utensil-crock",
     "cooking-assets/bread-knife",
     "cooking-assets/chef-knife",
-    "cooking-assets/chopsticks",
     "cooking-assets/cleaver",
     "cooking-assets/cooking-spoon",
     "cooking-assets/kettle",
@@ -10433,7 +10441,6 @@
     "quat-props/stool",
     "quat-props/drawers",
     "western/cart-covered",
-    "fs-terrain/beach-prop-docks-corner-supports",
     "quat-medieval/sawmill-saw",
     "quat-pirate/sawmill",
     "rgp-props/skin-hang-a",
@@ -10446,7 +10453,8 @@
     "taalei-kit/tipi-e",
     "taalei-kit/raft",
     "emace-village/split-logs",
-    "quat-props/anvil-log"
+    "quat-props/anvil-log",
+    "household/grandfather-clock"
    ]
   },
   {
@@ -10569,8 +10577,6 @@
     "natuur/tree-pine-2",
     "lpa-tools/wooden-club",
     "props/firewood-a",
-    "quat-food/coconut",
-    "quat-food/coconut-half",
     "quat-nature/log",
     "quat-nature/tree-birch-dead-1",
     "quat-nature/tree-birch-dead-1-bark",
@@ -10774,7 +10780,8 @@
     "m3-base/stick-03",
     "m3-base/stick-04",
     "ken-food/pear",
-    "ken-food/pear-half"
+    "ken-food/pear-half",
+    "fs-terrain/beach-prop-docks-corner-supports"
    ]
   },
   {
@@ -11724,7 +11731,8 @@
     "kay-furniture/cactus-potted-small-b",
     "kay-furniture/cactus-potted-medium-b",
     "ken-food/pizza",
-    "ken-food/styrofoam-dinner"
+    "ken-food/styrofoam-dinner",
+    "styloo-school/cactus-pot"
    ]
   },
   {
@@ -12127,7 +12135,12 @@
     "quat-props/stall-cart",
     "quat-props/stall",
     "western/cart-covered",
-    "makeup/cotton-swab"
+    "makeup/cotton-swab",
+    "m3-base/oven-glove",
+    "kay-platformer/railing-padded",
+    "kay-platformer/railing-padded-hunter",
+    "kay-platformer/railing-corner-padded",
+    "kay-platformer/railing-corner-padded-hunter"
    ]
   },
   {
@@ -12154,8 +12167,6 @@
     "kay-resources/textiles-b",
     "kay-resources/textiles-stack-small",
     "kay-skeleton/crossbow",
-    "kay-skeleton-1/shield-round-arrows",
-    "kay-skeleton/shield-small-b",
     "kay-skeleton/skeleton-warrior",
     "kay-tools/axe",
     "kay-tools/grindstone",
@@ -12684,7 +12695,12 @@
     "loaf-coffins/coffin-wood-c",
     "loaf-coffins/coffin-wood-d-4",
     "isa-bakery/table-round-c",
-    "ken-forest-mini/character-archer"
+    "ken-forest-mini/character-archer",
+    "kay-dun-1/book-c",
+    "styloo-school/book-red",
+    "styloo-school/book-red-small",
+    "household/books",
+    "lpa-home/office-chair"
    ]
   },
   {
@@ -12876,7 +12892,8 @@
     "kay-hexagon/catapult",
     "lpa-weapons/trebuchet",
     "rgp-asia/rope",
-    "rgp-props/rope-1-a"
+    "rgp-props/rope-1-a",
+    "lpa-weapons/broom"
    ]
   },
   {
@@ -13355,7 +13372,9 @@
     "aq-pond/bird-c",
     "quat-ocean/penguin",
     "quat-rpg/dart",
-    "kay-hexagon/bucket-arrows"
+    "kay-hexagon/bucket-arrows",
+    "kay-skeleton-1/shield-round-arrows",
+    "kay-skeleton/shield-small-b"
    ]
   },
   {
@@ -14661,7 +14680,10 @@
     "m3-base/outdoor-bin",
     "m3-base/outdoor-bin-04",
     "styloo-planes/plane-helice",
-    "styloo-planes/plane-helice-b"
+    "styloo-planes/plane-helice-b",
+    "kay-mixed/instant-camera-a",
+    "kay-minigame/blaster-amber",
+    "kay-minigame/blaster-azure"
    ],
    "parent": "polymer"
   },
@@ -14903,26 +14925,26 @@
     "quat-medieval/smoke"
    ],
    "reasons": {
-    "quat-pirate/house-3": "clear glass \u2014 N4: five bands and the clear glass of its windows; the PO kept all six.",
+    "quat-pirate/house-3": "clear glass — N4: five bands and the clear glass of its windows; the PO kept all six.",
     "quat-pirate/pirate-captain": "M20: its boot is leather and the model takes no bark band; N4 leaves no room for a seventh and the joker is spent on M20.",
-    "kay-food/crate-cheese": "yellow 6,0 \u2014 C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
-    "kay-tools/compass-base": "clear glass \u2014 N4: five bands and the clear glass of its lid; the PO kept all six.",
-    "kay-tools/pencil-a-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-a-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-long": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/pencil-b-short": "yellow 6,0 \u2014 C5: a pencil is yellow by the convention of the thing itself.",
-    "kay-tools/torch-burnt": "blue-grey 6,1 \u2014 C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
-    "fs-town/stucco-arch-half": "render \u2014 appendix A gives stucco no material and no band.",
-    "fs-town/stucco-block": "render \u2014 appendix A gives stucco no material and no band.",
-    "taalei-kit/graduation-cap": "basalt 13,3 \u2014 5.1: the black mortarboard; textile has no black, and a cap in another colour no longer reads as a graduation cap. The PO kept it.",
-    "ken-pirate/mast": "slate 6,1 \u2014 5.1: the furled sail on the mast top; textile has no slate, and B42 gives a ship its slate cloth. The PO kept it.",
-    "quat-sushi/panda": "basalt 13,3 \u2014 5.1: the black fur of a panda; skin has no black, and a panda without it no longer reads as one. The PO kept it.",
-    "quat-sushi/rabbit": "ivory 5,2 \u2014 5.1: the white fur of a rabbit; skin has no white. The PO kept it.",
-    "rgp-vintage/record": "basalt 13,3 \u2014 5.1: the black vinyl of a record; plastic has no black, and a record in another colour no longer reads as one. The PO kept it.",
-    "taalei-kit/totem-raven": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "taalei-kit/totem-owl": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "taalei-kit/totem-thunderbird": "azure 4,2 \u2014 G11 and \u00a75.1: blue paint on a carved wood totem; painted wood has no material of its own.",
-    "quat-medieval/smoke": "ivory 5,2 \u2014 appendix A gives smoke no material and no band. The PO kept it."
+    "kay-food/crate-cheese": "yellow 6,0 — C5: cheese is yellow because cheese is yellow; food is none of precious metal, emissive or fire.",
+    "kay-tools/compass-base": "clear glass — N4: five bands and the clear glass of its lid; the PO kept all six.",
+    "kay-tools/pencil-a-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-a-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-long": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/pencil-b-short": "yellow 6,0 — C5: a pencil is yellow by the convention of the thing itself.",
+    "kay-tools/torch-burnt": "blue-grey 6,1 — C2: the burnt cloth of its head; C2 gives that band to neither timber nor textile.",
+    "fs-town/stucco-arch-half": "render — appendix A gives stucco no material and no band.",
+    "fs-town/stucco-block": "render — appendix A gives stucco no material and no band.",
+    "taalei-kit/graduation-cap": "basalt 13,3 — 5.1: the black mortarboard; textile has no black, and a cap in another colour no longer reads as a graduation cap. The PO kept it.",
+    "ken-pirate/mast": "slate 6,1 — 5.1: the furled sail on the mast top; textile has no slate, and B42 gives a ship its slate cloth. The PO kept it.",
+    "quat-sushi/panda": "basalt 13,3 — 5.1: the black fur of a panda; skin has no black, and a panda without it no longer reads as one. The PO kept it.",
+    "quat-sushi/rabbit": "ivory 5,2 — 5.1: the white fur of a rabbit; skin has no white. The PO kept it.",
+    "rgp-vintage/record": "basalt 13,3 — 5.1: the black vinyl of a record; plastic has no black, and a record in another colour no longer reads as one. The PO kept it.",
+    "taalei-kit/totem-raven": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "taalei-kit/totem-owl": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "taalei-kit/totem-thunderbird": "azure 4,2 — G11 and §5.1: blue paint on a carved wood totem; painted wood has no material of its own.",
+    "quat-medieval/smoke": "ivory 5,2 — appendix A gives smoke no material and no band. The PO kept it."
    },
    "po": true
   },
@@ -15908,7 +15930,11 @@
     "ken-food/chinese",
     "ken-food/candy-bar-wrapper",
     "ken-food/styrofoam-dinner",
-    "ken-food/pizza"
+    "ken-food/pizza",
+    "natuur/coconut",
+    "fs-terrain/beach-prop-coconut",
+    "quat-food/coconut",
+    "quat-food/coconut-half"
    ]
   },
   {
@@ -15920,7 +15946,6 @@
     "rgp-asia/reeds",
     "lpa-desert/awning-a",
     "lpa-desert/awning-b",
-    "fs-terrain/beach-prop-coconut",
     "fs-terrain/hilly-prop-cattail-a",
     "fs-terrain/hilly-prop-cattail-b",
     "fs-terrain/hilly-prop-flower-daisy",
@@ -15943,7 +15968,6 @@
     "natuur/cattail-3",
     "natuur/cattail-4",
     "natuur/cattail-5",
-    "natuur/coconut",
     "natuur/flower-balloon-1",
     "natuur/flower-balloon-2",
     "natuur/flower-balloon-3",
@@ -16116,7 +16140,6 @@
     "taalei-kit/scarecrow-pumpkin",
     "taalei-kit/scarecrow-tattered",
     "lpa-weapons/broom",
-    "styloo-school/cactus-pot",
     "lpa-west/tumbleweed",
     "quat-interior/cactus",
     "quat-interior/cactus-small",
@@ -16147,7 +16170,10 @@
     "m3-base/mushroom-03",
     "m3-base/mushroom-04",
     "loaf-coffins/coffin-wood-d-4",
-    "quat-pirate/tentacle"
+    "quat-pirate/tentacle",
+    "quat-food/mushroom",
+    "quat-food/mushroom-sliced",
+    "lpa-home/broom"
    ]
   },
   {
@@ -18005,7 +18031,6 @@
    "type": "kind",
    "description": "Unbaked grain: flour and dough.",
    "models": [
-    "kay-food/food-ingredient-bun",
     "isa-bakery/dough-ball",
     "isa-bakery/flour-sack",
     "isa-bakery/flour-sack-open",
@@ -18057,7 +18082,8 @@
     "kay-food/food-ingredient-bun-top",
     "isa-food/bread-roll",
     "food-pack-2/bun-half",
-    "rgp-medieval/bread-round"
+    "rgp-medieval/bread-round",
+    "kay-food/food-ingredient-bun"
    ]
   },
   {
@@ -24046,8 +24072,6 @@
     "quat-town/ore-gold-c",
     "rocks/debris-a",
     "rocks/debris-b",
-    "rocks/rockwall-corner",
-    "rocks/rockwall-straight",
     "wizp-asia/ore-gold",
     "wizp-asia/ore-jade"
    ]
@@ -24349,7 +24373,9 @@
     "quat-space/rock-large-b",
     "quat-space/rock-large-c",
     "emace-village/rock-spire",
-    "emace-village/rock-outcrop"
+    "emace-village/rock-outcrop",
+    "rocks/rockwall-corner",
+    "rocks/rockwall-straight"
    ]
   },
   {
@@ -24878,7 +24904,6 @@
     "lpa-west/stairs-c",
     "lpa-west/stairs-d",
     "lpa-west/corner-stairs",
-    "lpa-west/small-stairs",
     "m3-base/industrial-staircase-01",
     "quat-fishing/dock-stairs",
     "taalei-kit/boarding-stairs-wooden",
@@ -24914,7 +24939,8 @@
     "ken-station/stairs-small-edge-handrail",
     "ken-station/stairs-small-edges-handrail",
     "ken-station/stairs-small-corner",
-    "ken-station/stairs-small-corner-inner"
+    "ken-station/stairs-small-corner-inner",
+    "lpa-west/small-stairs"
    ]
   },
   {
@@ -29713,7 +29739,8 @@
     "kay-weapons/bow-b-with-string",
     "quat-rpg/bow-golden",
     "quat-rpg/bow-wooden",
-    "ken-forest-mini/character-archer"
+    "ken-forest-mini/character-archer",
+    "natuur/mushroom-brown"
    ]
   },
   {
@@ -30725,7 +30752,11 @@
     "quat-nature/wheat",
     "fs-town/boat-oars-a",
     "fs-town/boat-oars-b",
-    "kay-space/containers-c"
+    "kay-space/containers-c",
+    "styloo-food/chopsticks",
+    "kay-dun-1/bricks",
+    "kay-resources/stone-chunks-large",
+    "kay-resources/stone-chunks-small"
    ]
   },
   {
@@ -31501,7 +31532,8 @@
     "dungeon/trap-002",
     "fs-terrain/cave-prop-hanging-lamp",
     "quat-props/chandelier",
-    "styloo-furniture/faucet"
+    "styloo-furniture/faucet",
+    "taalei-kit/punching-bag"
    ]
   },
   {
@@ -33078,7 +33110,6 @@
     "isa-bakery/floor-connection",
     "isa-bakery/floor-tiled",
     "isa-bakery/floor-wood",
-    "isa-plants/cacti-potted-large",
     "isa-plants/cacti-potted-small",
     "isa-plants/cactus-a",
     "isa-plants/cactus-b",
@@ -33088,7 +33119,6 @@
     "isa-plants/succulent-b",
     "isa-plants/succulent-c",
     "isa-plants/succulent-d",
-    "isa-plants/succulents-potted-large",
     "isa-plants/succulents-potted-small",
     "kay-dun-1/floor-decoration-tiles-small",
     "kay-dun-2/floor-dirt-small-a",
@@ -33122,7 +33152,6 @@
     "ken-forest-mini/ladder",
     "ken-furniture/cabinet-bed",
     "ken-furniture/cabinet-bed-drawer",
-    "ken-furniture/cabinet-bed-drawer-table",
     "ken-holiday/cabin-fence",
     "ken-holiday/floor-stone",
     "ken-holiday/floor-wood",
@@ -33272,7 +33301,8 @@
     "styloo-school/book-blue-small",
     "styloo-school/book-red-small",
     "kay-holiday/carpet-round-small",
-    "kay-furniture/cactus-potted-small-b"
+    "kay-furniture/cactus-potted-small-b",
+    "kay-furniture/cactus-potted-medium-b"
    ]
   },
   {
