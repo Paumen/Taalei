@@ -206,7 +206,7 @@
    ],
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 42
+    "kinds": 43
    }
   },
   {
@@ -464,8 +464,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.99,
-    "kinds": 49
+    "factor": 1,
+    "kinds": 50
    }
   },
   {
@@ -583,7 +583,7 @@
    ],
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 38
+    "kinds": 40
    }
   },
   {
@@ -651,7 +651,7 @@
    ],
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 41
+    "kinds": 42
    }
   },
   {
@@ -1315,8 +1315,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 30
+    "factor": 1.05,
+    "kinds": 29
    }
   },
   {
@@ -1953,7 +1953,7 @@
    ],
    "kitCheck": {
     "factor": 0.97,
-    "kinds": 44
+    "kinds": 45
    }
   },
   {
@@ -2182,7 +2182,7 @@
    ],
    "kitCheck": {
     "factor": 1.09,
-    "kinds": 19
+    "kinds": 20
    }
   },
   {
@@ -2312,8 +2312,8 @@
     "none": 15
    },
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 47
+    "factor": 0.99,
+    "kinds": 48
    }
   },
   {
@@ -2385,7 +2385,7 @@
    ],
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 34
+    "kinds": 37
    }
   },
   {
@@ -2486,8 +2486,8 @@
     "none": 5
    },
    "kitCheck": {
-    "factor": 0.76,
-    "kinds": 12,
+    "factor": 0.74,
+    "kinds": 13,
     "level": "warning"
    }
   },
@@ -2537,8 +2537,8 @@
     "smooth": 68
    },
    "kitCheck": {
-    "factor": 1.13,
-    "kinds": 15
+    "factor": 1.03,
+    "kinds": 17
    }
   },
   {
@@ -2670,8 +2670,8 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 35
+    "factor": 1.02,
+    "kinds": 36
    }
   },
   {
@@ -2792,8 +2792,8 @@
     "none": 14
    },
    "kitCheck": {
-    "factor": 1,
-    "kinds": 27
+    "factor": 1.01,
+    "kinds": 28
    }
   },
   {
@@ -3027,8 +3027,8 @@
     "smooth": 39
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 18
+    "factor": 0.99,
+    "kinds": 20
    }
   },
   {
@@ -3651,8 +3651,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.9,
-    "kinds": 8
+    "factor": 0.83,
+    "kinds": 9
    }
   },
   {
@@ -3885,8 +3885,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.09,
-    "kinds": 73
+    "factor": 1.1,
+    "kinds": 74
    }
   },
   {
@@ -26384,7 +26384,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 499
+   "count": 503
   },
   {
    "id": "str-fixture-fireplace",
@@ -26405,7 +26405,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 274,
+   "count": 273,
    "color": "#c98a5a"
   },
   {
@@ -26468,15 +26468,43 @@
    "id": "str-access-stairs",
    "name": "Stairs",
    "type": "kind",
-   "description": "stairs, steps, ramp",
-   "count": 92
+   "description": "stairs",
+   "count": 91
+  },
+  {
+   "id": "str-access-stairs-ramp",
+   "name": "Ramp",
+   "type": "kind",
+   "description": "ramp, slope (walkway)",
+   "count": 6
+  },
+  {
+   "id": "str-access-stairs-curved",
+   "name": "Curved stairs",
+   "type": "kind",
+   "description": "spiral stairs, curved stairs, winding stairs",
+   "count": 5
+  },
+  {
+   "id": "str-access-stairs-open",
+   "name": "Open stairs",
+   "type": "kind",
+   "description": "open stairs, stair flight (open), dock stairs, boarding stairs, catwalk stairs",
+   "count": 23
+  },
+  {
+   "id": "str-access-stairs-step",
+   "name": "Steps",
+   "type": "kind",
+   "description": "steps, step, step block",
+   "count": 19
   },
   {
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
    "description": "wall (low, garden), barricade",
-   "count": 329,
+   "count": 326,
    "color": "#b08968"
   },
   {
@@ -26491,14 +26519,14 @@
    "name": "Traffic",
    "type": "kind",
    "description": "Barrier that guides road traffic: traffic barrier, traffic drum.",
-   "count": 36
+   "count": 29
   },
   {
    "id": "str-barrier-fence",
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 176
+   "count": 177
   },
   {
    "id": "str-barrier-post",
@@ -26703,7 +26731,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone, totem",
-   "count": 206,
+   "count": 210,
    "color": "#ffb349"
   },
   {
@@ -26725,14 +26753,14 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 105
+   "count": 109
   },
   {
    "id": "str-fixture-marker-sign-road",
    "name": "Road sign",
    "type": "kind",
    "description": "Road, highway or chevron sign.",
-   "count": 13
+   "count": 17
   },
   {
    "id": "str-fixture-marker-sign-lettering",
@@ -27164,7 +27192,7 @@
    "name": "Railing",
    "type": "kind",
    "description": "railing, balustrade, baluster, handrail, banister",
-   "count": 42
+   "count": 45
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -27445,6 +27473,20 @@
    "type": "kind",
    "description": "traffic cone, pylon",
    "count": 13
+  },
+  {
+   "id": "str-barrier-traffic-jersey",
+   "name": "Jersey barrier",
+   "type": "kind",
+   "description": "jersey barrier, water-filled barrier, concrete barrier, plastic barrier",
+   "count": 8
+  },
+  {
+   "id": "str-barrier-traffic-sawhorse",
+   "name": "Sawhorse barricade",
+   "type": "kind",
+   "description": "sawhorse barricade, road-closed barrier, striped barricade",
+   "count": 5
   },
   {
    "id": "pirate",
@@ -30693,6 +30735,30 @@
    "longest.max": 2.5,
    "tpu.max": 5000
   },
+  "str-access-stairs-curved": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 2.5,
+   "tpu.max": 5000
+  },
+  "str-access-stairs-open": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 2.5,
+   "tpu.max": 5000
+  },
+  "str-access-stairs-ramp": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 2.5,
+   "tpu.max": 5000
+  },
+  "str-access-stairs-step": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 2.5,
+   "tpu.max": 5000
+  },
   "str-access-track": {
    "high.max": 8,
    "longest.min": 0.4,
@@ -30756,6 +30822,20 @@
   "str-barrier-traffic-cone": {
    "high.min": 0.15,
    "high.max": 0.8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-traffic-jersey": {
+   "high.min": 0.15,
+   "high.max": 1.2,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-traffic-sawhorse": {
+   "high.min": 0.15,
+   "high.max": 1.2,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
@@ -32353,7 +32433,7 @@
    "collection": "3dm",
    "name": "jersey-barrier",
    "hash": "a47a8613c6",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "m",
    "wdh": [
     0.65,
@@ -32388,7 +32468,7 @@
     "3dm",
     "stone-masonry"
    ],
-   "thickRel": 1.14
+   "thickRel": 0.98
   },
   {
    "kit": "3dm-city",
@@ -32484,7 +32564,7 @@
     "3dm",
     "metal"
    ],
-   "thickRel": 2.61
+   "thickRel": 2.59
   },
   {
    "kit": "3dm-city",
@@ -32854,7 +32934,7 @@
     "tba",
     "wood-worked"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "3dm-city-2",
@@ -33028,7 +33108,7 @@
    "collection": "3dm",
    "name": "road-closed-barrier",
    "hash": "56be3a70eb",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-sawhorse",
    "size": "m",
    "wdh": [
     0.644,
@@ -33069,7 +33149,7 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.44
   },
   {
    "kit": "3dm-city-2",
@@ -50990,7 +51070,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "warning",
@@ -54552,7 +54632,7 @@
    "collection": "emace",
    "name": "step",
    "hash": "3e10418ecb",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.696,
@@ -54593,7 +54673,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 2.32
+   "thickRel": 1.52
   },
   {
    "kit": "emace-village",
@@ -66425,7 +66505,7 @@
     "stone-masonry",
     "wood-log"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "fs-house",
@@ -67201,7 +67281,7 @@
     "wood-worked"
    ],
    "variant": "fs-house/railing",
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "fs-house",
@@ -67724,7 +67804,7 @@
    "collection": "fs-buildings",
    "name": "stairs-curved",
    "hash": "167af00ba3",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-curved",
    "size": "m",
    "wdh": [
     0.949,
@@ -69538,7 +69618,7 @@
    "collection": "fs-buildings",
    "name": "floor-bridge-ramp",
    "hash": "0623e8d73a",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-ramp",
    "size": "m",
    "wdh": [
     1.35,
@@ -74315,7 +74395,7 @@
    "collection": "fs-buildings",
    "name": "stairs-steps-curved",
    "hash": "72168d7d4e",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-curved",
    "size": "m",
    "wdh": [
     0.855,
@@ -74399,7 +74479,7 @@
    "collection": "fs-buildings",
    "name": "tower-bottom",
    "hash": "fa6109bec9",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-curved",
    "size": "m",
    "wdh": [
     1.35,
@@ -74540,7 +74620,7 @@
    "collection": "fs-buildings",
    "name": "tower-steps",
    "hash": "873c766eec",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-curved",
    "size": "m",
    "wdh": [
     0.955,
@@ -76569,7 +76649,7 @@
    "collection": "fs-modular",
    "name": "beach-prop-docks-steps",
    "hash": "f9e88642ab",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.5,
@@ -76611,7 +76691,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.96
   },
   {
    "kit": "fs-terrain",
@@ -83721,7 +83801,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.92,
+   "thickRel": 0.81,
    "mark": [
     "grounded",
     "centered"
@@ -84241,7 +84321,7 @@
    "collection": "fs-modular",
    "name": "stone-steps-side-a",
    "hash": "ee1a180387",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.506,
@@ -84278,14 +84358,14 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-steps",
-   "thickRel": 2.2
+   "thickRel": 1.45
   },
   {
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-steps-side-b",
    "hash": "1e4de0ec6c",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.506,
@@ -84322,14 +84402,14 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-steps",
-   "thickRel": 2.2
+   "thickRel": 1.45
   },
   {
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-steps",
    "hash": "7f4cd05f23",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.5,
@@ -84366,7 +84446,7 @@
     "stone-masonry"
    ],
    "variant": "fs-town/stone-steps",
-   "thickRel": 2.2
+   "thickRel": 1.44
   },
   {
    "kit": "fs-town",
@@ -87348,7 +87428,7 @@
     "wood-beam"
    ],
    "variant": "fs-town/wood-railing-corner",
-   "thickRel": 0.79,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "error",
@@ -87454,7 +87534,7 @@
     "wood-beam"
    ],
    "variant": "fs-town/wood-railing-straight",
-   "thickRel": 1.24,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "error",
@@ -87513,7 +87593,7 @@
     "wood-beam"
    ],
    "variant": "fs-town/wood-railing-corner",
-   "thickRel": 0.87,
+   "thickRel": 0.86,
    "mark": [
     "grounded",
     "centered"
@@ -87617,7 +87697,7 @@
     "wood-beam"
    ],
    "variant": "fs-town/wood-railing-straight",
-   "thickRel": 1.36,
+   "thickRel": 1.34,
    "mark": [
     "grounded",
     "centered"
@@ -87628,7 +87708,7 @@
    "collection": "fs-modular",
    "name": "wood-steps-stucco",
    "hash": "f3452a9c90",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.5,
@@ -87670,14 +87750,14 @@
     "wood-planks"
    ],
    "variant": "fs-town/wood-steps",
-   "thickRel": 2.29
+   "thickRel": 1.5
   },
   {
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-steps",
    "hash": "8240e32b38",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.5,
@@ -87714,7 +87794,7 @@
     "wood-planks"
    ],
    "variant": "fs-town/wood-steps",
-   "thickRel": 1.08
+   "thickRel": 0.71
   },
   {
    "kit": "household",
@@ -88747,7 +88827,7 @@
     "plastic",
     "wood-beam"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.6
   },
   {
    "kit": "household",
@@ -91493,7 +91573,7 @@
     "ipoly",
     "metal-iron-cast"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "ipoly-concert",
@@ -93491,7 +93571,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-board",
-   "thickRel": 0.87
+   "thickRel": 0.77
   },
   {
    "kit": "ipoly-signs",
@@ -93547,7 +93627,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-board",
-   "thickRel": 0.77
+   "thickRel": 0.68
   },
   {
    "kit": "ipoly-signs",
@@ -93609,7 +93689,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-hanging-frame",
-   "thickRel": 0.78
+   "thickRel": 0.69
   },
   {
    "kit": "ipoly-signs",
@@ -93671,7 +93751,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-hanging-frame",
-   "thickRel": 0.81
+   "thickRel": 0.72
   },
   {
    "kit": "ipoly-signs",
@@ -93733,7 +93813,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.64
+   "thickRel": 0.57
   },
   {
    "kit": "ipoly-signs",
@@ -93795,7 +93875,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.67
+   "thickRel": 0.59
   },
   {
    "kit": "ipoly-signs",
@@ -93857,7 +93937,7 @@
     "wood-planks"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.66
+   "thickRel": 0.59
   },
   {
    "kit": "ipoly-signs",
@@ -98407,7 +98487,7 @@
     "wood-beam"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 1.05
+   "thickRel": 0.93
   },
   {
    "kit": "isa-bakery",
@@ -98456,7 +98536,7 @@
     "wood-beam"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 1
+   "thickRel": 0.89
   },
   {
    "kit": "isa-bakery",
@@ -128376,7 +128456,7 @@
    "kit": "kay-dun-1",
    "name": "scaffold-stairs",
    "hash": "cfe929e4f9",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.8,
@@ -128418,7 +128498,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.58
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-1",
@@ -165471,7 +165551,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-double",
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "kay-platformer",
@@ -165521,7 +165601,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-double",
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "kay-platformer",
@@ -165576,7 +165656,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-padded",
-   "thickRel": 1.22
+   "thickRel": 1.19
   },
   {
    "kit": "kay-platformer",
@@ -165631,7 +165711,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-padded",
-   "thickRel": 1.22
+   "thickRel": 1.19
   },
   {
    "kit": "kay-platformer",
@@ -165681,7 +165761,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-double",
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "kay-platformer",
@@ -165731,7 +165811,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-double",
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "kay-platformer",
@@ -165781,7 +165861,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-double",
-   "thickRel": 1.07
+   "thickRel": 1.05
   },
   {
    "kit": "kay-platformer",
@@ -165831,7 +165911,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-double",
-   "thickRel": 1.07
+   "thickRel": 1.05
   },
   {
    "kit": "kay-platformer",
@@ -165886,7 +165966,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-padded",
-   "thickRel": 1.99
+   "thickRel": 1.96
   },
   {
    "kit": "kay-platformer",
@@ -165941,7 +166021,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-padded",
-   "thickRel": 1.99
+   "thickRel": 1.96
   },
   {
    "kit": "kay-platformer",
@@ -165991,7 +166071,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-double",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
@@ -166041,7 +166121,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-double",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
@@ -166100,7 +166180,7 @@
     "metal-iron-cast",
     "plastic"
    ],
-   "thickRel": 1.27
+   "thickRel": 0.82
   },
   {
    "kit": "kay-platformer",
@@ -166155,7 +166235,7 @@
    "collection": "kay-play",
    "name": "sign-arrows-left-azure",
    "hash": "dc1e8acb34",
-   "kind": "str-barrier-traffic",
+   "kind": "str-fixture-marker-sign-road",
    "size": "l",
    "wdh": [
     1.62,
@@ -166202,14 +166282,14 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "sign-arrows-left",
    "hash": "29fd8dcbca",
-   "kind": "str-barrier-traffic",
+   "kind": "str-fixture-marker-sign-road",
    "size": "l",
    "wdh": [
     1.62,
@@ -166256,14 +166336,14 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "sign-arrows-right-azure",
    "hash": "83ca9e5363",
-   "kind": "str-barrier-traffic",
+   "kind": "str-fixture-marker-sign-road",
    "size": "l",
    "wdh": [
     1.62,
@@ -166310,14 +166390,14 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
    "collection": "kay-play",
    "name": "sign-arrows-right",
    "hash": "a0e6caa554",
-   "kind": "str-barrier-traffic",
+   "kind": "str-fixture-marker-sign-road",
    "size": "l",
    "wdh": [
     1.62,
@@ -166364,7 +166444,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
@@ -184152,7 +184232,7 @@
    "collection": "ken-mini",
    "name": "stairs-corner-inner",
    "hash": "debe89a20f",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.95,
@@ -184188,14 +184268,14 @@
     "stone-masonry"
    ],
    "variant": "ken-arena/stairs",
-   "thickRel": 1.46
+   "thickRel": 0.95
   },
   {
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "stairs-corner",
    "hash": "b8a1aaada9",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.95,
@@ -184231,14 +184311,14 @@
     "stone-masonry"
    ],
    "variant": "ken-arena/stairs",
-   "thickRel": 1.16
+   "thickRel": 0.76
   },
   {
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "stairs",
    "hash": "7cece309ba",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.95,
@@ -184274,7 +184354,7 @@
     "stone-masonry"
    ],
    "variant": "ken-arena/stairs",
-   "thickRel": 1.34
+   "thickRel": 0.88
   },
   {
    "kit": "ken-arena",
@@ -194445,7 +194525,7 @@
    "kit": "ken-factory",
    "name": "catwalk-stairs-loop",
    "hash": "6b3370eb23",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.628,
@@ -194488,13 +194568,13 @@
     "plastic"
    ],
    "variant": "ken-factory/catwalk-stairs",
-   "thickRel": 0.67
+   "thickRel": 1.17
   },
   {
    "kit": "ken-factory",
    "name": "catwalk-stairs",
    "hash": "b731b8e910",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.628,
@@ -194537,7 +194617,7 @@
     "plastic"
    ],
    "variant": "ken-factory/catwalk-stairs",
-   "thickRel": 0.66
+   "thickRel": 1.14
   },
   {
    "kit": "ken-factory",
@@ -199172,7 +199252,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 2.3
+   "thickRel": 2.29
   },
   {
    "kit": "ken-factory",
@@ -210818,7 +210898,7 @@
    "kit": "ken-furniture",
    "name": "stairs-open-single",
    "hash": "542f7aa4fd",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.618,
@@ -210861,13 +210941,13 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/stairs-open",
-   "thickRel": 0.63
+   "thickRel": 1.1
   },
   {
    "kit": "ken-furniture",
    "name": "stairs-open",
    "hash": "017b382760",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.618,
@@ -210911,7 +210991,7 @@
     "wood-worked"
    ],
    "variant": "ken-furniture/stairs-open",
-   "thickRel": 0.57,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -212515,7 +212595,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/brick-wall",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "ken-grave",
@@ -212566,7 +212646,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/brick-wall",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "ken-grave",
@@ -212617,7 +212697,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/brick-wall",
-   "thickRel": 1.37
+   "thickRel": 1.38
   },
   {
    "kit": "ken-grave",
@@ -212669,7 +212749,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/brick-wall",
-   "thickRel": 1.51
+   "thickRel": 1.52
   },
   {
    "kit": "ken-grave",
@@ -215518,7 +215598,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/stone-wall",
-   "thickRel": 1.04,
+   "thickRel": 1.05,
    "mark": [
     "centered"
    ]
@@ -215571,7 +215651,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/stone-wall",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "ken-grave",
@@ -215621,7 +215701,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/stone-wall",
-   "thickRel": 1.08,
+   "thickRel": 1.09,
    "mark": [
     "centered"
    ]
@@ -215673,7 +215753,7 @@
     "stone-masonry"
    ],
    "variant": "ken-grave/stone-wall",
-   "thickRel": 1.12,
+   "thickRel": 1.13,
    "mark": [
     "centered"
    ]
@@ -219998,7 +220078,7 @@
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 3.43
+   "thickRel": 3.41
   },
   {
    "kit": "ken-industrial",
@@ -220048,7 +220128,7 @@
     "stone-masonry",
     "tba"
    ],
-   "thickRel": 2.19
+   "thickRel": 2.18
   },
   {
    "kit": "ken-industrial",
@@ -220100,7 +220180,7 @@
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 3
+   "thickRel": 2.98
   },
   {
    "kit": "ken-industrial",
@@ -220151,7 +220231,7 @@
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 2.41
+   "thickRel": 2.4
   },
   {
    "kit": "ken-industrial",
@@ -221083,7 +221163,7 @@
     "ken",
     "metal-iron-cast"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.9
   },
   {
    "kit": "ken-market",
@@ -235413,13 +235493,13 @@
     "metal",
     "textile"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "ken-racing",
    "name": "barrier-red",
    "hash": "1083c94fa0",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "s",
    "wdh": [
     0.3,
@@ -235454,7 +235534,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 1.53
+   "thickRel": 1.32
   },
   {
    "kit": "ken-racing",
@@ -235501,7 +235581,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 2.38
+   "thickRel": 2.46
   },
   {
    "kit": "ken-racing",
@@ -235560,7 +235640,7 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.51
+   "thickRel": 0.46
   },
   {
    "kit": "ken-racing",
@@ -235619,7 +235699,7 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.7
+   "thickRel": 0.63
   },
   {
    "kit": "ken-racing",
@@ -235677,7 +235757,7 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 1.28
+   "thickRel": 1.13
   },
   {
    "kit": "ken-racing",
@@ -235736,7 +235816,7 @@
     "wood-planks"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.48
+   "thickRel": 0.43
   },
   {
    "kit": "ken-racing",
@@ -237620,7 +237700,7 @@
    "kit": "ken-racing",
    "name": "rail-double",
    "hash": "103708822c",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     1.2,
@@ -237657,13 +237737,13 @@
     "metal"
    ],
    "variant": "ken-racing/rail",
-   "thickRel": 0.73
+   "thickRel": 1.22
   },
   {
    "kit": "ken-racing",
    "name": "rail",
    "hash": "75dcc7cc35",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     1.2,
@@ -237700,13 +237780,13 @@
     "metal"
    ],
    "variant": "ken-racing/rail",
-   "thickRel": 1.25
+   "thickRel": 2.09
   },
   {
    "kit": "ken-racing",
    "name": "ramp",
    "hash": "dc647d8407",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-ramp",
    "size": "m",
    "wdh": [
     0.66,
@@ -238244,7 +238324,7 @@
    "collection": "ken-city",
    "name": "construction-barrier",
    "hash": "42fe0c0de9",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "s",
    "wdh": [
     0.298,
@@ -238279,7 +238359,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.28
   },
   {
    "kit": "ken-roads",
@@ -238369,7 +238449,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "ken-roads",
@@ -238427,7 +238507,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.37
   },
   {
    "kit": "ken-roads",
@@ -240165,7 +240245,7 @@
     "metal"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 0.68
+   "thickRel": 0.44
   },
   {
    "kit": "ken-roads",
@@ -240209,7 +240289,7 @@
     "metal"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 3.98
+   "thickRel": 2.58
   },
   {
    "kit": "ken-roads",
@@ -240424,7 +240504,7 @@
     "plastic"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 1.74
+   "thickRel": 1.13
   },
   {
    "kit": "ken-roads",
@@ -240474,7 +240554,7 @@
     "plastic"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 1
+   "thickRel": 0.65
   },
   {
    "kit": "ken-roads",
@@ -240529,7 +240609,7 @@
     "plastic"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 1.63
+   "thickRel": 1.06
   },
   {
    "kit": "ken-roads",
@@ -240841,7 +240921,7 @@
     "plastic"
    ],
    "variant": "ken-roads/sign-highway",
-   "thickRel": 0.45
+   "thickRel": 0.29
   },
   {
    "kit": "ken-roads",
@@ -240902,7 +240982,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.52,
+   "thickRel": 0.34,
    "lint": [
     {
      "level": "warning",
@@ -240970,7 +241050,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.52,
+   "thickRel": 0.34,
    "lint": [
     {
      "level": "warning",
@@ -242018,7 +242098,7 @@
    "collection": "ken-mini",
    "name": "steps",
    "hash": "75343b8ddb",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.95,
@@ -242059,7 +242139,7 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "thickRel": 1.17
+   "thickRel": 0.76
   },
   {
    "kit": "ken-skate",
@@ -242296,7 +242376,7 @@
     "tba"
    ],
    "variant": "ken-space/chimney",
-   "thickRel": 3.51
+   "thickRel": 3.48
   },
   {
    "kit": "ken-space",
@@ -242346,7 +242426,7 @@
     "tba"
    ],
    "variant": "ken-space/chimney",
-   "thickRel": 3.26
+   "thickRel": 3.24
   },
   {
    "kit": "ken-space",
@@ -246803,7 +246883,7 @@
    "kit": "ken-space",
    "name": "stairs-corner",
    "hash": "48aab84b02",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.78,
@@ -246850,13 +246930,13 @@
     "metal",
     "space"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.85
   },
   {
    "kit": "ken-space",
    "name": "stairs-short",
    "hash": "1507e248ef",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.39,
@@ -246905,13 +246985,13 @@
     "space"
    ],
    "variant": "ken-space/stairs",
-   "thickRel": 0.73
+   "thickRel": 1.27
   },
   {
    "kit": "ken-space",
    "name": "stairs",
    "hash": "3a0d29fe88",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.39,
@@ -246960,7 +247040,7 @@
     "space"
    ],
    "variant": "ken-space/stairs",
-   "thickRel": 0.66
+   "thickRel": 1.14
   },
   {
    "kit": "ken-space",
@@ -249802,7 +249882,7 @@
    "kit": "ken-station",
    "name": "stairs-handrail",
    "hash": "ccabd043cb",
-   "kind": "str-access-stairs",
+   "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
     1,
@@ -249858,7 +249938,7 @@
    "kit": "ken-station",
    "name": "stairs-ramp",
    "hash": "e1e0ac280a",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-ramp",
    "size": "m",
    "wdh": [
     1,
@@ -249907,7 +249987,7 @@
    "kit": "ken-station",
    "name": "stairs-small-corner-inner",
    "hash": "cd33369094",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "s",
    "wdh": [
     0.3,
@@ -249955,7 +250035,7 @@
    "kit": "ken-station",
    "name": "stairs-small-corner",
    "hash": "51d81a9045",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "s",
    "wdh": [
     0.3,
@@ -250003,7 +250083,7 @@
    "kit": "ken-station",
    "name": "stairs-small-edge-handrail",
    "hash": "68d5ddf113",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     1,
@@ -250047,13 +250127,13 @@
     "space"
    ],
    "variant": "ken-station/stairs-small-edges-handrail",
-   "thickRel": 1.08
+   "thickRel": 0.71
   },
   {
    "kit": "ken-station",
    "name": "stairs-small-edges-handrail",
    "hash": "99d5e19a35",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     1,
@@ -250102,13 +250182,13 @@
     "space"
    ],
    "variant": "ken-station/stairs-small-edges-handrail",
-   "thickRel": 1.05
+   "thickRel": 0.69
   },
   {
    "kit": "ken-station",
    "name": "stairs-small-edges",
    "hash": "63fa240199",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     1,
@@ -250151,7 +250231,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-small-edges-handrail",
-   "thickRel": 1.96
+   "thickRel": 1.28
   },
   {
    "kit": "ken-station",
@@ -259403,7 +259483,7 @@
    "collection": "ken-village",
    "name": "stairs-full-corner-inner",
    "hash": "90bf4de68d",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.9,
@@ -259439,14 +259519,14 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-full-corner-outer",
-   "thickRel": 1.72
+   "thickRel": 1.13
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "stairs-full-corner-outer",
    "hash": "488dfa196d",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.918,
@@ -259482,14 +259562,14 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-full-corner-outer",
-   "thickRel": 1.42
+   "thickRel": 0.93
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "stairs-full",
    "hash": "4ed532149e",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.9,
@@ -259525,7 +259605,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-full-corner-outer",
-   "thickRel": 1.59
+   "thickRel": 1.05
   },
   {
    "kit": "ken-town",
@@ -259575,7 +259655,7 @@
    "collection": "ken-village",
    "name": "stairs-stone-round",
    "hash": "498fc3e109",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-curved",
    "size": "m",
    "wdh": [
     0.776,
@@ -259620,7 +259700,7 @@
    "collection": "ken-village",
    "name": "stairs-wide-wood-handrail",
    "hash": "0c1061b961",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.9,
@@ -259662,14 +259742,14 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wide-wood",
-   "thickRel": 0.65
+   "thickRel": 1.12
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "stairs-wide-wood",
    "hash": "0f625aa6dd",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.9,
@@ -259711,14 +259791,14 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wide-wood",
-   "thickRel": 0.51
+   "thickRel": 0.89
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "stairs-wood-handrail",
    "hash": "be9f9a0ece",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.45,
@@ -259761,14 +259841,14 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wood-handrail",
-   "thickRel": 0.62
+   "thickRel": 1.08
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "stairs-wood",
    "hash": "a87c6dfe2c",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.45,
@@ -259811,7 +259891,7 @@
     "wood-planks"
    ],
    "variant": "ken-town/stairs-wood-handrail",
-   "thickRel": 0.54
+   "thickRel": 0.93
   },
   {
    "kit": "ken-town",
@@ -267346,7 +267426,7 @@
     "tba"
    ],
    "variant": "ken-water/buoy",
-   "thickRel": 1.35
+   "thickRel": 1.34
   },
   {
    "kit": "ken-water",
@@ -267452,7 +267532,7 @@
    "collection": "ken-city",
    "name": "ramp-wide",
    "hash": "f8cedcc595",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-ramp",
    "size": "l",
    "wdh": [
     3.112,
@@ -267497,7 +267577,7 @@
    "collection": "ken-city",
    "name": "ramp",
    "hash": "9096fd1c17",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-ramp",
    "size": "l",
    "wdh": [
     1.651,
@@ -270689,7 +270769,7 @@
    "kit": "lpa-construction",
    "name": "barrier-b",
    "hash": "c00ed48df1",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "m",
    "wdh": [
     0.228,
@@ -270724,13 +270804,13 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.05
   },
   {
    "kit": "lpa-construction",
    "name": "barrier-c",
    "hash": "cea0b5428e",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-sawhorse",
    "size": "m",
    "wdh": [
     0.351,
@@ -270784,13 +270864,13 @@
     "plastic"
    ],
    "variant": "lpa-construction/barrier-c",
-   "thickRel": 0.61
+   "thickRel": 0.63
   },
   {
    "kit": "lpa-construction",
    "name": "barrier-d",
    "hash": "d93514c825",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-sawhorse",
    "size": "m",
    "wdh": [
     0.132,
@@ -270838,7 +270918,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/barrier-c",
-   "thickRel": 0.47
+   "thickRel": 0.48
   },
   {
    "kit": "lpa-construction",
@@ -284933,7 +285013,7 @@
    "kit": "lpa-west",
    "name": "corner-stairs",
    "hash": "404e6f7546",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "l",
    "wdh": [
     1.143,
@@ -284975,7 +285055,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.54,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "error",
@@ -288042,7 +288122,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 2.04
+   "thickRel": 1.81
   },
   {
    "kit": "lpa-west",
@@ -288093,7 +288173,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.32
+   "thickRel": 1.17
   },
   {
    "kit": "lpa-west",
@@ -288144,7 +288224,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.39
+   "thickRel": 1.23
   },
   {
    "kit": "lpa-west",
@@ -288193,7 +288273,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.61
   },
   {
    "kit": "lpa-west",
@@ -288446,13 +288526,13 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.66
   },
   {
    "kit": "lpa-west",
    "name": "small-stairs",
    "hash": "156e9f7e17",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "s",
    "wdh": [
     0.275,
@@ -288494,7 +288574,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.11,
+   "thickRel": 1.92,
    "lint": [
     {
      "level": "warning",
@@ -288870,7 +288950,7 @@
    "kit": "lpa-west",
    "name": "stairs-a",
    "hash": "117a867d98",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.4,
@@ -288912,7 +288992,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.7,
    "lint": [
     {
      "level": "error",
@@ -288925,7 +289005,7 @@
    "kit": "lpa-west",
    "name": "stairs-b",
    "hash": "24a0ae282e",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     1.301,
@@ -288968,7 +289048,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/stairs-d",
-   "thickRel": 0.62,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -288981,7 +289061,7 @@
    "kit": "lpa-west",
    "name": "stairs-c",
    "hash": "7ed5120806",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     1.301,
@@ -289024,7 +289104,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/stairs-d",
-   "thickRel": 0.62,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -289037,7 +289117,7 @@
    "kit": "lpa-west",
    "name": "stairs-d",
    "hash": "2608b49649",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "l",
    "wdh": [
     1.691,
@@ -289080,7 +289160,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/stairs-d",
-   "thickRel": 0.4,
+   "thickRel": 0.7,
    "lint": [
     {
      "level": "error",
@@ -297183,7 +297263,7 @@
    "kit": "m3-base",
    "name": "colorado-barrier",
    "hash": "50402f18b6",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "m",
    "wdh": [
     0.73,
@@ -297224,7 +297304,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -298168,7 +298248,7 @@
    "kit": "m3-base",
    "name": "crowd-control-barrier",
    "hash": "92ff924f7b",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-fence",
    "size": "m",
    "wdh": [
     0.66,
@@ -298211,8 +298291,13 @@
      "open": 1
     }
    },
-   "thickRel": 0.47,
+   "thickRel": 0.86,
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.333 under min 0.35 (str-barrier-fence)"
+    },
     {
      "level": "warning",
      "check": "backface",
@@ -298314,7 +298399,7 @@
     "m3",
     "wood-worked"
    ],
-   "thickRel": 1.93
+   "thickRel": 1.9
   },
   {
    "kit": "m3-base",
@@ -301131,7 +301216,7 @@
     "wood-worked"
    ],
    "variant": "m3-base/estate-sign-01",
-   "thickRel": 0.88
+   "thickRel": 0.78
   },
   {
    "kit": "m3-base",
@@ -301179,7 +301264,7 @@
     "wood-worked"
    ],
    "variant": "m3-base/estate-sign-01",
-   "thickRel": 0.73
+   "thickRel": 0.65
   },
   {
    "kit": "m3-base",
@@ -301236,7 +301321,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.78,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "warning",
@@ -306569,7 +306654,7 @@
    "kit": "m3-base",
    "name": "industrial-staircase-01",
    "hash": "6f174c125b",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.427,
@@ -306605,7 +306690,7 @@
     "m3",
     "metal-iron-cast"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -306695,7 +306780,7 @@
     "paper",
     "wood-beam"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -307139,7 +307224,7 @@
    "kit": "m3-base",
    "name": "jersey-barrier",
    "hash": "da261c53a2",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "m",
    "wdh": [
     0.226,
@@ -307174,7 +307259,7 @@
     "m3",
     "stone-masonry"
    ],
-   "thickRel": 1.06
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -309299,7 +309384,7 @@
     "metal-iron-cast",
     "paper"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -310808,7 +310893,7 @@
     "mounted",
     "wood-worked"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.53
   },
   {
    "kit": "m3-base",
@@ -311609,7 +311694,7 @@
     "m3",
     "metal"
    ],
-   "thickRel": 2.71
+   "thickRel": 2.7
   },
   {
    "kit": "m3-base",
@@ -311699,7 +311784,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -313569,7 +313654,7 @@
     "metal-iron-cast",
     "wood-worked"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.79
   },
   {
    "kit": "m3-base",
@@ -313693,7 +313778,7 @@
     "m3",
     "metal-iron-cast"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -319786,7 +319871,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.59
   },
   {
    "kit": "m3-base",
@@ -321594,7 +321679,7 @@
     "m3",
     "stone-masonry"
    ],
-   "thickRel": 1.74
+   "thickRel": 1.72
   },
   {
    "kit": "m3-base",
@@ -321642,7 +321727,7 @@
     "wood-worked"
    ],
    "variant": "m3-base/standing-floor-chalkboard-01",
-   "thickRel": 1.22
+   "thickRel": 1.08
   },
   {
    "kit": "m3-base",
@@ -321691,7 +321776,7 @@
     "wood-worked"
    ],
    "variant": "m3-base/standing-floor-chalkboard-01",
-   "thickRel": 1.2
+   "thickRel": 1.07
   },
   {
    "kit": "m3-base",
@@ -323209,7 +323294,7 @@
     "metal-iron-cast",
     "stone-masonry"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "m3-base",
@@ -325942,7 +326027,7 @@
    "kit": "m3-base",
    "name": "water-filled-barrier-01",
    "hash": "6df735e85d",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "s",
    "wdh": [
     0.456,
@@ -325977,7 +326062,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -327851,7 +327936,7 @@
     "rope",
     "wood-worked"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -336946,7 +337031,7 @@
      "other": 0.1
     }
    },
-   "thickRel": 0.77,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -337005,7 +337090,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "pm-store",
@@ -337308,7 +337393,7 @@
      "other": 0.1
     }
    },
-   "thickRel": 0.67,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -342562,7 +342647,7 @@
    "kit": "quat-apocalypse",
    "name": "plastic-barrier",
    "hash": "297323ed4c",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-jersey",
    "size": "m",
    "wdh": [
     0.532,
@@ -342604,7 +342689,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.18,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -343279,7 +343364,7 @@
    "kit": "quat-apocalypse",
    "name": "traffic-barrier-triple",
    "hash": "30be040267",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-sawhorse",
    "size": "m",
    "wdh": [
     0.646,
@@ -343327,13 +343412,13 @@
     "qua"
    ],
    "variant": "quat-apocalypse/traffic-barrier",
-   "thickRel": 0.5
+   "thickRel": 0.52
   },
   {
    "kit": "quat-apocalypse",
    "name": "traffic-barrier",
    "hash": "fe68970708",
-   "kind": "str-barrier-traffic",
+   "kind": "str-barrier-traffic-sawhorse",
    "size": "m",
    "wdh": [
     0.646,
@@ -343381,7 +343466,7 @@
     "qua"
    ],
    "variant": "quat-apocalypse/traffic-barrier",
-   "thickRel": 0.58
+   "thickRel": 0.6
   },
   {
    "kit": "quat-apocalypse",
@@ -343484,7 +343569,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "quat-apocalypse",
@@ -347678,7 +347763,7 @@
    "collection": "quat-sea",
    "name": "dock-stairs",
    "hash": "f9ff663856",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.87,
@@ -347721,7 +347806,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -355072,7 +355157,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "quat-interior",
@@ -373203,7 +373288,7 @@
      "other": 0.44
     }
    },
-   "thickRel": 0.79,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -373287,7 +373372,7 @@
      "other": 0.01
     }
    },
-   "thickRel": 0.58,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "warning",
@@ -373356,7 +373441,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 2.85
+   "thickRel": 2.88
   },
   {
    "kit": "quat-shoot",
@@ -373421,7 +373506,7 @@
     "wood-worked"
    ],
    "variant": "quat-shoot/barrier",
-   "thickRel": 0.58,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -377947,7 +378032,7 @@
    "kit": "quat-space",
    "name": "ramp",
    "hash": "125b7a247f",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-ramp",
    "size": "m",
    "wdh": [
     0.412,
@@ -393074,7 +393159,7 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.65
   },
   {
    "kit": "rgp-asia",
@@ -404505,7 +404590,7 @@
    "collection": "rgp",
    "name": "stairs-wood",
    "hash": "1c5867706b",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "l",
    "wdh": [
     0.801,
@@ -404559,7 +404644,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.62,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -404688,7 +404773,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.54,
+   "thickRel": 0.55,
    "lint": [
     {
      "level": "warning",
@@ -413515,7 +413600,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.83
   },
   {
    "kit": "sq-bank",
@@ -413773,7 +413858,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.27,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "error",
@@ -415297,7 +415382,7 @@
     "sq",
     "wood-beam"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.34
   },
   {
    "kit": "sq-cards",
@@ -415930,7 +416015,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.86
+   "thickRel": 1.65
   },
   {
    "kit": "sq-carwash",
@@ -418274,7 +418359,7 @@
     "sq",
     "wood-worked"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.18
   },
   {
    "kit": "sq-fastfood",
@@ -422034,7 +422119,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 4.71,
+   "thickRel": 4.75,
    "lint": [
     {
      "level": "error",
@@ -426541,7 +426626,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.09,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "warning",
@@ -437422,7 +437507,7 @@
     "wood-worked"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 1.35
+   "thickRel": 1.2
   },
   {
    "kit": "styloo-school",
@@ -437471,7 +437556,7 @@
     "wood-worked"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 0.67
+   "thickRel": 0.59
   },
   {
    "kit": "styloo-school",
@@ -444868,7 +444953,7 @@
    "kit": "taalei-kit",
    "name": "boarding-stairs-wooden",
    "hash": "752b5ab176",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-open",
    "size": "l",
    "wdh": [
     1.547,
@@ -444933,7 +445018,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.75
   },
   {
    "kit": "taalei-kit",
@@ -447771,7 +447856,7 @@
     "wood-worked"
    ],
    "variant": "taalei-kit/totem-owl",
-   "thickRel": 2.93,
+   "thickRel": 2.91,
    "lint": [
     {
      "level": "error",
@@ -447842,7 +447927,7 @@
    ],
    "specialBand": "4,2",
    "variant": "taalei-kit/totem-owl",
-   "thickRel": 2.93,
+   "thickRel": 2.91,
    "lint": [
     {
      "level": "error",
@@ -447901,7 +447986,7 @@
     "wood-worked"
    ],
    "variant": "taalei-kit/totem-raven",
-   "thickRel": 1.03,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
@@ -447972,7 +448057,7 @@
    ],
    "specialBand": "4,2",
    "variant": "taalei-kit/totem-raven",
-   "thickRel": 1.03,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
@@ -448047,7 +448132,7 @@
     "wood-worked"
    ],
    "specialBand": "4,2",
-   "thickRel": 1,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "error",
@@ -448105,7 +448190,7 @@
    "tags": [
     "wood-worked"
    ],
-   "thickRel": 1.16,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "error",
@@ -451112,7 +451197,7 @@
     "wood-beam"
    ],
    "variant": "wizp-asia/garden-wall-b",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "wizp-asia",
@@ -451212,7 +451297,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/garden-wall-b",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "wizp-asia",
@@ -451255,7 +451340,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 1.7
+   "thickRel": 1.71
   },
   {
    "kit": "wizp-asia",
@@ -454198,7 +454283,7 @@
    "collection": "wizp-eastern",
    "name": "steps-stone",
    "hash": "5a8a48585d",
-   "kind": "str-access-stairs",
+   "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
     0.718,
@@ -463933,7 +464018,7 @@
     "stone-masonry",
     "wizp"
    ],
-   "thickRel": 1.7
+   "thickRel": 1.71
   },
   {
    "kit": "zombie-weapons",
