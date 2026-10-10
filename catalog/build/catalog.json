@@ -1203,7 +1203,7 @@
    ],
    "kitCheck": {
     "factor": 0.98,
-    "kinds": 42
+    "kinds": 43
    }
   },
   {
@@ -2818,7 +2818,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 156
+    "kinds": 157
    }
   },
   {
@@ -3886,7 +3886,7 @@
    ],
    "kitCheck": {
     "factor": 1.09,
-    "kinds": 72
+    "kinds": 73
    }
   },
   {
@@ -25434,14 +25434,28 @@
    "id": "obj-equipment-tool-station",
    "name": "Station",
    "type": "kind",
-   "description": "Tool too heavy to carry, worked at where it stands: anvil, grindstone, bellows, forge hearth.",
+   "description": "Tool too heavy to carry, worked at where it stands: bellows, forge hearth.",
    "count": 13
+  },
+  {
+   "id": "obj-equipment-tool-station-anvil",
+   "name": "Anvil",
+   "type": "kind",
+   "description": "anvil",
+   "count": 4
+  },
+  {
+   "id": "obj-equipment-tool-station-grinder",
+   "name": "Grinder",
+   "type": "kind",
+   "description": "grinder, grindstone, workbench (grinding)",
+   "count": 4
   },
   {
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism",
    "type": "kind",
-   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap, lock.",
+   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap.",
    "count": 28
   },
   {
@@ -25450,6 +25464,13 @@
    "type": "kind",
    "description": "Lever pulled or pushed by hand, standing on the floor or fixed to a wall.",
    "count": 7
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-lock",
+   "name": "Lock",
+   "type": "kind",
+   "description": "lock, padlock",
+   "count": 3
   },
   {
    "id": "obj-equipment-tool-stationery",
@@ -28957,6 +28978,12 @@
    "longest.max": 1.15,
    "tpu.max": 10000
   },
+  "obj-equipment-tool-mechanism-lock": {
+   "high.max": 8,
+   "longest.min": 0.13,
+   "longest.max": 1.15,
+   "tpu.max": 10000
+  },
   "obj-equipment-tool-scale": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -28964,6 +28991,18 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-station": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.7,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-station-anvil": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.7,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-station-grinder": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.7,
@@ -178304,7 +178343,7 @@
    "collection": "kay-rpg",
    "name": "anvil",
    "hash": "c113576178",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "size": "s",
    "wdh": [
     0.225,
@@ -178778,7 +178817,7 @@
    "collection": "kay-rpg",
    "name": "grindstone",
    "hash": "dbde372eb8",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "size": "m",
    "wdh": [
     0.581,
@@ -232308,7 +232347,7 @@
    "collection": "ken-mini",
    "name": "lock",
    "hash": "2e76c2633c",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lock",
    "size": "s",
    "wdh": [
     0.326,
@@ -256431,7 +256470,7 @@
    "kit": "ken-survival",
    "name": "workbench-grind",
    "hash": "f9c9a86e95",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "size": "s",
    "wdh": [
     0.391,
@@ -290686,7 +290725,7 @@
    "kit": "m3-base",
    "name": "anvil",
    "hash": "716263d58f",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "size": "s",
    "wdh": [
     0.213,
@@ -311696,7 +311735,7 @@
    "kit": "m3-base",
    "name": "padlock",
    "hash": "894e7d009b",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lock",
    "size": "s",
    "wdh": [
     0.052,
@@ -329633,7 +329672,7 @@
    "kit": "medieval-forge",
    "name": "grinder-anim",
    "hash": "103dae2c25",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "size": "m",
    "wdh": [
     0.522,
@@ -329697,7 +329736,7 @@
    "kit": "medieval-forge",
    "name": "grinder",
    "hash": "240118b022",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-grinder",
    "size": "m",
    "wdh": [
     0.522,
@@ -369549,7 +369588,7 @@
    "kit": "quat-rpg",
    "name": "padlock",
    "hash": "4ff1090630",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-lock",
    "size": "s",
    "wdh": [
     0.156,
@@ -396453,7 +396492,7 @@
    "collection": "rgp",
    "name": "anvil",
    "hash": "c610e94bd5",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "size": "m",
    "wdh": [
     0.299,
@@ -405800,7 +405839,7 @@
    "kit": "rgp-props",
    "name": "anvil-b",
    "hash": "e283d4519c",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "size": "s",
    "wdh": [
     0.256,

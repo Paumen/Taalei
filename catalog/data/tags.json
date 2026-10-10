@@ -20770,36 +20770,50 @@
    "id": "obj-equipment-tool-station",
    "name": "Station",
    "type": "kind",
-   "description": "Tool too heavy to carry, worked at where it stands: anvil, grindstone, bellows, forge hearth.",
+   "description": "Tool too heavy to carry, worked at where it stands: bellows, forge hearth.",
    "models": [
-    "kay-tools/anvil",
-    "kay-tools/grindstone",
-    "ken-survival/workbench-grind",
-    "medieval-forge/grinder-anim",
-    "medieval-forge/grinder",
-    "rgp-medieval/anvil",
     "rgp-medieval/bellows",
-    "rgp-props/anvil-b",
     "wizp-asia/forge",
-    "m3-base/anvil",
     "m3-base/bellows",
     "m3-base/saw-horse",
     "rgp-medieval/forge-chimney"
    ]
   },
   {
+   "id": "obj-equipment-tool-station-anvil",
+   "name": "Anvil",
+   "type": "kind",
+   "description": "anvil",
+   "models": [
+    "rgp-medieval/anvil",
+    "rgp-props/anvil-b",
+    "m3-base/anvil",
+    "kay-tools/anvil"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-station-grinder",
+   "name": "Grinder",
+   "type": "kind",
+   "description": "grinder, grindstone, workbench (grinding)",
+   "models": [
+    "kay-tools/grindstone",
+    "medieval-forge/grinder-anim",
+    "medieval-forge/grinder",
+    "ken-survival/workbench-grind"
+   ]
+  },
+  {
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism",
    "type": "kind",
-   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap, lock.",
+   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap.",
    "models": [
     "kay-platformer/spring",
     "ken-factory/button-floor-round-small",
     "ken-factory/button-floor-round",
-    "ken-platformer/lock",
     "ken-platformer/spring-anim",
     "ken-platformer/spring",
-    "quat-rpg/padlock",
     "quat-survival/bear-trap-anim",
     "quat-survival/bear-trap",
     "taalei-kit/magnet",
@@ -20811,7 +20825,6 @@
     "fs-temple/puzzle-sliding-mirror",
     "3dm-industrial/car-jack",
     "m3-base/drawer-key-hole",
-    "m3-base/padlock",
     "m3-base/spring",
     "m3-base/toggle-latch"
    ]
@@ -20829,6 +20842,17 @@
     "kay-platformer/lever-wall-a",
     "kay-platformer/lever-wall-b",
     "ken-factory/lever-single"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-lock",
+   "name": "Lock",
+   "type": "kind",
+   "description": "lock, padlock",
+   "models": [
+    "ken-platformer/lock",
+    "quat-rpg/padlock",
+    "m3-base/padlock"
    ]
   },
   {

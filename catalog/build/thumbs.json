@@ -1060,10 +1060,10 @@
   },
   "obj-equipment-tool-mechanism": {
    "cols": 5,
-   "rows": 5,
-   "key": "2469d01193",
-   "v": "fe3acd053e",
-   "f": "92b5813dcd"
+   "rows": 4,
+   "key": "ad1f561b81",
+   "v": "8516b2bbad",
+   "f": "8f669446bb"
   },
   "obj-equipment-tool-mechanism-lever": {
    "cols": 3,
@@ -1071,6 +1071,13 @@
    "key": "4dc505250e",
    "v": "e0515d49a6",
    "f": "a37d81efdd"
+  },
+  "obj-equipment-tool-mechanism-lock": {
+   "cols": 2,
+   "rows": 2,
+   "key": "e9ade0a342",
+   "v": "f277007bdd",
+   "f": "47da3a0edb"
   },
   "obj-equipment-tool-scale": {
    "cols": 3,
@@ -1080,11 +1087,25 @@
    "f": "792f889215"
   },
   "obj-equipment-tool-station": {
-   "cols": 4,
-   "rows": 4,
-   "key": "b5310630de",
-   "v": "2c6d0fc51a",
-   "f": "99a377331b"
+   "cols": 3,
+   "rows": 2,
+   "key": "424b0fc27e",
+   "v": "1229a6541e",
+   "f": "0d6e50f0cb"
+  },
+  "obj-equipment-tool-station-anvil": {
+   "cols": 2,
+   "rows": 2,
+   "key": "566b993705",
+   "v": "a6137bab99",
+   "f": "a82ffa7131"
+  },
+  "obj-equipment-tool-station-grinder": {
+   "cols": 2,
+   "rows": 2,
+   "key": "7df611ed68",
+   "v": "f5f85daf83",
+   "f": "88fb75ca54"
   },
   "obj-equipment-tool-stationery": {
    "cols": 7,
@@ -17775,7 +17796,7 @@
   },
   "kay-tools/anvil": {
    "glb": "c113576178",
-   "kind": "obj-equipment-tool-station",
+   "kind": "obj-equipment-tool-station-anvil",
    "at": 0
   },
   "kay-tools/axe": {
@@ -17820,8 +17841,8 @@
   },
   "kay-tools/grindstone": {
    "glb": "dbde372eb8",
-   "kind": "obj-equipment-tool-station",
-   "at": 1
+   "kind": "obj-equipment-tool-station-grinder",
+   "at": 0
   },
   "kay-tools/hammer": {
    "glb": "84c0cfe6da",
@@ -22960,8 +22981,8 @@
   },
   "ken-platformer/lock": {
    "glb": "2e76c2633c",
-   "kind": "obj-equipment-tool-mechanism",
-   "at": 10
+   "kind": "obj-equipment-tool-mechanism-lock",
+   "at": 0
   },
   "ken-platformer/platform": {
    "glb": "7881627a95",
@@ -22996,12 +23017,12 @@
   "ken-platformer/spring": {
    "glb": "09906faade",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 11
+   "at": 10
   },
   "ken-platformer/spring-anim": {
    "glb": "4cb79ed707",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 12
+   "at": 11
   },
   "ken-platformer/star": {
    "glb": "8782280e84",
@@ -25185,8 +25206,8 @@
   },
   "ken-survival/workbench-grind": {
    "glb": "f9c9a86e95",
-   "kind": "obj-equipment-tool-station",
-   "at": 2
+   "kind": "obj-equipment-tool-station-grinder",
+   "at": 1
   },
   "ken-town/balcony-wall": {
    "glb": "07a5c9146f",
@@ -28435,8 +28456,8 @@
   },
   "m3-base/anvil": {
    "glb": "716263d58f",
-   "kind": "obj-equipment-tool-station",
-   "at": 3
+   "kind": "obj-equipment-tool-station-anvil",
+   "at": 1
   },
   "m3-base/apple": {
    "glb": "7f79d06681",
@@ -28566,7 +28587,7 @@
   "m3-base/bellows": {
    "glb": "4a39251c5e",
    "kind": "obj-equipment-tool-station",
-   "at": 4
+   "at": 0
   },
   "m3-base/bevelled-speech-bubble": {
    "glb": "9d4b6b52c5",
@@ -29461,7 +29482,7 @@
   "m3-base/drawer-key-hole": {
    "glb": "368dd4421a",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 13
+   "at": 12
   },
   "m3-base/drink-carton-01": {
    "glb": "ded64d230a",
@@ -30695,8 +30716,8 @@
   },
   "m3-base/padlock": {
    "glb": "894e7d009b",
-   "kind": "obj-equipment-tool-mechanism",
-   "at": 14
+   "kind": "obj-equipment-tool-mechanism-lock",
+   "at": 1
   },
   "m3-base/pagoda-arch": {
    "glb": "d649aa0076",
@@ -31446,7 +31467,7 @@
   "m3-base/saw-horse": {
    "glb": "c511a207a9",
    "kind": "obj-equipment-tool-station",
-   "at": 5
+   "at": 1
   },
   "m3-base/screw-end": {
    "glb": "e21d9bb0fc",
@@ -31696,7 +31717,7 @@
   "m3-base/spring": {
    "glb": "9643c8ed20",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 15
+   "at": 13
   },
   "m3-base/square-planter": {
    "glb": "fa3a647416",
@@ -32001,7 +32022,7 @@
   "m3-base/toggle-latch": {
    "glb": "10c5d2d539",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 16
+   "at": 14
   },
   "m3-base/toilet-roll": {
    "glb": "2311437ac5",
@@ -32630,13 +32651,13 @@
   },
   "medieval-forge/grinder": {
    "glb": "240118b022",
-   "kind": "obj-equipment-tool-station",
-   "at": 6
+   "kind": "obj-equipment-tool-station-grinder",
+   "at": 2
   },
   "medieval-forge/grinder-anim": {
    "glb": "103dae2c25",
-   "kind": "obj-equipment-tool-station",
-   "at": 7
+   "kind": "obj-equipment-tool-station-grinder",
+   "at": 3
   },
   "medieval-forge/shield": {
    "glb": "9c0673b922",
@@ -36515,8 +36536,8 @@
   },
   "quat-rpg/padlock": {
    "glb": "4ff1090630",
-   "kind": "obj-equipment-tool-mechanism",
-   "at": 17
+   "kind": "obj-equipment-tool-mechanism-lock",
+   "at": 2
   },
   "quat-rpg/parchment": {
    "glb": "86ccfb2d77",
@@ -37426,12 +37447,12 @@
   "quat-survival/bear-trap": {
    "glb": "0e4fe011b8",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 18
+   "at": 15
   },
   "quat-survival/bear-trap-anim": {
    "glb": "52c3ecdd82",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 19
+   "at": 16
   },
   "quat-survival/bonfire": {
    "glb": "e4b7cdd604",
@@ -38970,8 +38991,8 @@
   },
   "rgp-medieval/anvil": {
    "glb": "c610e94bd5",
-   "kind": "obj-equipment-tool-station",
-   "at": 8
+   "kind": "obj-equipment-tool-station-anvil",
+   "at": 2
   },
   "rgp-medieval/apple": {
    "glb": "08baed63e1",
@@ -39016,7 +39037,7 @@
   "rgp-medieval/bellows": {
    "glb": "e019cd5d3a",
    "kind": "obj-equipment-tool-station",
-   "at": 9
+   "at": 2
   },
   "rgp-medieval/bench": {
    "glb": "33237e8472",
@@ -39196,7 +39217,7 @@
   "rgp-medieval/forge-chimney": {
    "glb": "3bbebfaf7b",
    "kind": "obj-equipment-tool-station",
-   "at": 10
+   "at": 3
   },
   "rgp-medieval/grass": {
    "glb": "61eebc2c1b",
@@ -39840,8 +39861,8 @@
   },
   "rgp-props/anvil-b": {
    "glb": "e283d4519c",
-   "kind": "obj-equipment-tool-station",
-   "at": 11
+   "kind": "obj-equipment-tool-station-anvil",
+   "at": 3
   },
   "rgp-props/bag-1-c": {
    "glb": "dacaedf16c",
@@ -43551,7 +43572,7 @@
   "taalei-kit/magnet": {
    "glb": "6d763b34d7",
    "kind": "obj-equipment-tool-mechanism",
-   "at": 20
+   "at": 17
   },
   "taalei-kit/ornament": {
    "glb": "2eea96ce40",
@@ -43926,7 +43947,7 @@
   "wizp-asia/forge": {
    "glb": "28e862417e",
    "kind": "obj-equipment-tool-station",
-   "at": 12
+   "at": 4
   },
   "wizp-asia/frame-wood": {
    "glb": "661babeac0",

@@ -2202,11 +2202,23 @@
          "longest.min": 0.3,
          "longest.max": 0.7,
          "nouns": [
-          "anvil",
-          "grinder",
-          "grindstone",
-          "workbench (grinding)",
           "forge (hearth)"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-tool-station-anvil",
+           "nouns": [
+            "anvil"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-station-grinder",
+           "nouns": [
+            "grinder",
+            "grindstone",
+            "workbench (grinding)"
+           ]
+          }
          ]
         },
         {
@@ -2218,9 +2230,7 @@
           "gear",
           "pulley",
           "button (floor)",
-          "bear trap",
-          "lock",
-          "padlock"
+          "bear trap"
          ],
          "children": [
           {
@@ -2229,6 +2239,13 @@
             "lever",
             "control lever",
             "switch lever"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-mechanism-lock",
+           "nouns": [
+            "lock",
+            "padlock"
            ]
           }
          ]
