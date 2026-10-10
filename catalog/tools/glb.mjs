@@ -612,30 +612,117 @@ function narrowestTurn(points, center, u, w) {
   return [[0, 1, 2].map((k) => u[k] * cs + w[k] * sn), [0, 1, 2].map((k) => -u[k] * sn + w[k] * cs)];
 }
 
+function stickShape(points) {
+  if (points.length < 6) return null;
+  const center = [0, 1, 2].map((k) => points.reduce((s, p) => s + p[k], 0) / points.length);
+  const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  for (const p of points) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) cov[i][j] += (p[i] - center[i]) * (p[j] - center[j]);
+  const [{ vector: axis }, { vector: u0 }, { vector: w0 }] = symmetricEigen(cov);
+  const [u, w] = narrowestTurn(points, center, u0, w0);
+  const extent = (dir) => {
+    let lo = Infinity, hi = -Infinity;
+    for (const p of points) { const t = dot3([p[0] - center[0], p[1] - center[1], p[2] - center[2]], dir); if (t < lo) lo = t; if (t > hi) hi = t; }
+    return hi - lo;
+  };
+  const length = extent(axis), narrow = extent(u), wide = extent(w);
+  if (!(wide > 0) || length < STICK_RATIO * wide) return null;
+  return { width: narrow, wide, length, frame: { center, axis, u, w } };
+}
+
 export function measureSticks(glb) {
   const sticks = [];
   for (const part of weldedParts(glb)) {
-    const points = part.points;
-    if (points.length < 6) continue;
-    const center = [0, 1, 2].map((k) => points.reduce((s, p) => s + p[k], 0) / points.length);
-    const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-    for (const p of points) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) cov[i][j] += (p[i] - center[i]) * (p[j] - center[j]);
-    const [{ vector: axis }, { vector: u0 }, { vector: w0 }] = symmetricEigen(cov);
-    const [u, w] = narrowestTurn(points, center, u0, w0);
-    const extent = (dir) => {
-      let lo = Infinity, hi = -Infinity;
-      for (const p of points) { const t = dot3([p[0] - center[0], p[1] - center[1], p[2] - center[2]], dir); if (t < lo) lo = t; if (t > hi) hi = t; }
-      return hi - lo;
-    };
-    const length = extent(axis), narrow = extent(u), wide = extent(w);
-    if (!(wide > 0) || length < STICK_RATIO * wide) continue;
-    sticks.push({ prim: part.prim, shells: part.shells, vertices: part.vertices, width: narrow, wide, length, linear: part.linear, frame: { center, axis, u, w } });
+    const shape = stickShape(part.points);
+    if (shape) sticks.push({ prim: part.prim, shells: part.shells, vertices: part.vertices, linear: part.linear, ...shape });
   }
   return sticks;
 }
 
+const PLANE_TOLERANCE = 0.003;
+
+export function measureStrips(glb) {
+  const strips = [];
+  const indicesOf = new Map();
+  for (const part of weldedParts(glb)) {
+    if (part.points.length < 12) continue;
+    const prim = part.prim;
+    if (!indicesOf.has(prim)) {
+      const count = glb.json.accessors[prim.attributes.POSITION].count;
+      indicesOf.set(prim, prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: count }, (_, i) => i));
+    }
+    const idx = indicesOf.get(prim);
+    const pos = readAccessor(glb, prim.attributes.POSITION);
+    const l = part.linear;
+    const at = (i) => {
+      const x = pos.data[i * 3], y = pos.data[i * 3 + 1], z = pos.data[i * 3 + 2];
+      return [l[0] * x + l[3] * y + l[6] * z, l[1] * x + l[4] * y + l[7] * z, l[2] * x + l[5] * y + l[8] * z];
+    };
+    const own = new Set(part.vertices);
+    const tris = [];
+    for (let t = 0; t + 2 < idx.length; t += 3) {
+      if (!own.has(idx[t])) continue;
+      const vs = [idx[t], idx[t + 1], idx[t + 2]];
+      const p = vs.map(at);
+      const e1 = [p[1][0] - p[0][0], p[1][1] - p[0][1], p[1][2] - p[0][2]];
+      const e2 = [p[2][0] - p[0][0], p[2][1] - p[0][1], p[2][2] - p[0][2]];
+      const n = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+      const len = Math.hypot(...n);
+      if (len < 1e-12) continue;
+      tris.push({ vs, p, normal: n.map((v) => v / len) });
+    }
+    const planes = [];
+    for (const tri of tris) {
+      let plane = planes.find((q) => Math.abs(dot3(q.normal, tri.normal)) > 0.9986);
+      if (!plane) planes.push(plane = { normal: tri.normal, offsets: [] });
+      plane.offsets.push(tri.p.reduce((s, q) => s + dot3(plane.normal, q), 0) / 3);
+    }
+    for (const { normal, offsets } of planes) {
+      const levels = [];
+      for (const o of offsets.sort((a, b) => a - b)) if (!levels.length || o - levels[levels.length - 1] > PLANE_TOLERANCE) levels.push(o);
+      for (let i = 0; i + 1 < levels.length; i++) {
+        const lo = levels[i] - PLANE_TOLERANCE, hi = levels[i + 1] + PLANE_TOLERANCE;
+        const points = new Map();
+        const sides = [[], []];
+        const inside = [];
+        for (const tri of tris) {
+          const o = tri.p.map((q) => dot3(normal, q));
+          if (!o.every((v) => v >= lo && v <= hi)) continue;
+          inside.push(tri);
+          tri.vs.forEach((v, k) => points.set(v, tri.p[k]));
+          const facing = dot3(normal, tri.normal);
+          if (Math.abs(facing) > 0.9986) {
+            const mean = (o[0] + o[1] + o[2]) / 3;
+            if (facing < 0 && Math.abs(mean - levels[i]) <= PLANE_TOLERANCE) sides[0].push(...tri.p);
+            if (facing > 0 && Math.abs(mean - levels[i + 1]) <= PLANE_TOLERANCE) sides[1].push(...tri.p);
+          }
+        }
+        if (!sides[0].length || !sides[1].length || points.size >= own.size) continue;
+        const shape = stickShape([...points.values()]);
+        if (!shape) continue;
+        const axis = shape.frame.axis;
+        const span = (ps) => { const t = ps.map((q) => dot3(q, axis)); return Math.max(...t) - Math.min(...t); };
+        if (!sides.every((ps) => span(ps) >= 0.8 * shape.length)) continue;
+        const cross = [normal[1] * axis[2] - normal[2] * axis[1], normal[2] * axis[0] - normal[0] * axis[2], normal[0] * axis[1] - normal[1] * axis[0]];
+        const across = cross.map((v) => v / (Math.hypot(...cross) || 1));
+        const reach = [...points.values()].map((q) => dot3(across, q));
+        const top = Math.max(...reach), bottom = Math.min(...reach);
+        const closed = [[], []];
+        for (const tri of inside) {
+          const facing = dot3(across, tri.normal);
+          if (Math.abs(facing) < 0.95) continue;
+          const mean = tri.p.reduce((a, q) => a + dot3(across, q), 0) / 3;
+          if (facing > 0 && top - mean <= PLANE_TOLERANCE) closed[0].push(...tri.p);
+          if (facing < 0 && mean - bottom <= PLANE_TOLERANCE) closed[1].push(...tri.p);
+        }
+        if (closed.some((ps) => ps.length && span(ps) >= 0.8 * shape.length)) strips.push({ prim, vertices: [...points.keys()], linear: part.linear, ...shape });
+      }
+    }
+  }
+  return strips;
+}
+
 export function thinnestPart(glb) {
-  const widths = [...measureTubes(glb).map((t) => t.diameter), ...measureSticks(glb).map((s) => s.width)];
+  const widths = [...measureTubes(glb).map((t) => t.diameter), ...measureSticks(glb).map((s) => s.width), ...measureStrips(glb).map((s) => s.width)];
   return widths.length ? Math.min(...widths) : null;
 }
 
