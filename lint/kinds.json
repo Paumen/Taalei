@@ -26,11 +26,16 @@
        "high.min": 0.2,
        "high.max": 0.6,
        "mat.metal": [
-        "metal-iron",
+        "metal-steel",
+        "metal-iron-mid",
+        "metal-iron-dark",
         "metal-gold"
        ],
        "has": [
-        "wood"
+        [
+         "wood",
+         "bark"
+        ]
        ],
        "scale": {
         "small": 0.5
@@ -55,10 +60,15 @@
        "id": "obj-container-barrel",
        "longest.min": 0.3,
        "longest.max": 0.7,
-       "mat.metal": "metal-iron",
+       "mat.metal": [
+        "metal-steel",
+        "metal-iron-mid",
+        "metal-iron-dark"
+       ],
        "has": [
         [
          "wood",
+         "bark",
          "metal",
          "plastic"
         ]
@@ -85,10 +95,15 @@
        "id": "obj-container-bucket",
        "longest.min": 0.22,
        "longest.max": 0.6,
-       "mat.metal": "metal-iron",
+       "mat.metal": [
+        "metal-steel",
+        "metal-iron-mid",
+        "metal-iron-dark"
+       ],
        "has": [
         [
          "wood",
+         "bark",
          "metal"
         ]
        ],
@@ -111,10 +126,15 @@
        "longest.min": 0.15,
        "longest.max": 1.05,
        "tube.min": 0.006,
-       "mat.metal": "metal-iron",
+       "mat.metal": [
+        "metal-steel",
+        "metal-iron-mid",
+        "metal-iron-dark"
+       ],
        "has": [
         [
          "wood",
+         "bark",
          "paper",
          "plastic",
          "metal"
@@ -260,7 +280,7 @@
       {
        "id": "obj-container-bag",
        "tube.min": 0.006,
-       "band.textile": [
+       "band.textile-cloth": [
         "taupe",
         "ivory"
        ],
@@ -465,7 +485,7 @@
        "scale": {
         "big": 2
        },
-       "band.wood-worked": [
+       "band.wood-mid": [
         "camel",
         "chestnut"
        ],
@@ -485,7 +505,12 @@
      "children": [
       {
        "id": "obj-kitchenware-tableware",
-       "mat.metal-iron": "metal-iron-steel",
+       "mat.metal": [
+        "metal-steel",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
        "children": [
         {
          "id": "obj-kitchenware-tableware-cutlery",
@@ -515,8 +540,11 @@
          "has": [
           [
            "ceramic",
-           "metal-iron",
-           "wood"
+           "metal-iron-mid",
+           "metal-iron-dark",
+           "metal-steel",
+           "wood",
+           "bark"
           ]
          ],
          "scale": {
@@ -561,8 +589,11 @@
          "has": [
           [
            "ceramic",
-           "metal-iron",
-           "wood"
+           "metal-iron-mid",
+           "metal-iron-dark",
+           "metal-steel",
+           "wood",
+           "bark"
           ]
          ],
          "nouns": [
@@ -585,6 +616,7 @@
            "has": [
             [
              "wood",
+             "bark",
              "ceramic"
             ]
            ],
@@ -612,6 +644,7 @@
            "has": [
             [
              "wood",
+             "bark",
              "metal"
             ]
            ],
@@ -1412,7 +1445,12 @@
      "children": [
       {
        "id": "obj-equipment-armor",
-       "mat.metal-iron": "metal-iron-steel",
+       "mat.metal": [
+        "metal-steel",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
        "nouns": [
         "helmet",
         "chestplate",
@@ -1435,11 +1473,16 @@
       {
        "id": "obj-equipment-weapon",
        "tube.min": 0.012,
-       "mat.metal-iron": "metal-iron-steel",
+       "mat.metal": [
+        "metal-steel",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
        "children": [
         {
          "id": "obj-equipment-weapon-melee",
-         "band.textile": [
+         "band.textile-cloth": [
           "taupe"
          ],
          "nouns": [
@@ -1554,7 +1597,7 @@
            "tube.min": 0.006,
            "longest.min": 0.4,
            "longest.max": 0.9,
-           "band.textile": [
+           "band.textile-cloth": [
             "taupe"
            ],
            "nouns": [
@@ -1686,9 +1729,12 @@
         },
         {
          "id": "obj-equipment-weapon-explosive",
-         "mat.metal-iron": [
-          "metal-iron-cast",
-          "metal-iron-steel"
+         "mat.metal": [
+          "metal-steel",
+          "metal-iron-dark",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
          ],
          "longest.min": 0.06,
          "longest.max": 0.3,
@@ -1710,12 +1756,12 @@
         {
          "id": "obj-equipment-weapon-magic",
          "band.paper": [
-          "umber",
+          "bark",
           "sienna",
           "hunter",
           "slate"
          ],
-         "band.textile": [
+         "band.textile-cloth": [
           "taupe"
          ],
          "nouns": [
@@ -1737,7 +1783,12 @@
         },
         {
          "id": "obj-equipment-weapon-siege",
-         "mat.metal-iron": "metal-iron-cast",
+         "mat.metal": [
+          "metal-iron-dark",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
+         ],
          "children": [
           {
            "id": "obj-equipment-weapon-siege-cannon",
@@ -1808,8 +1859,13 @@
       {
        "id": "obj-equipment-apparel",
        "tube.min": 0.006,
-       "mat.metal-iron": "metal-iron-steel",
-       "band.textile": [
+       "mat.metal": [
+        "metal-steel",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
+       "band.textile-cloth": [
         "ivory",
         "hunter",
         "sienna"
@@ -1918,7 +1974,7 @@
       {
        "id": "obj-equipment-pocketitem",
        "tube.min": 0.006,
-       "band.textile": [
+       "band.textile-cloth": [
         "ivory"
        ],
        "nouns": [
@@ -1941,7 +1997,9 @@
          "id": "obj-equipment-pocketitem-key",
          "has": [
           [
-           "metal-iron",
+           "metal-iron-mid",
+           "metal-iron-dark",
+           "metal-steel",
            "metal-gold"
           ]
          ],
@@ -1964,7 +2022,7 @@
          "longest.min": 0.15,
          "longest.max": 0.45,
          "band": [
-          "umber",
+          "bark",
           "sienna",
           "hunter",
           "slate"
@@ -2026,15 +2084,16 @@
       },
       {
        "id": "obj-equipment-tool",
-       "mat.metal": "metal-iron",
-       "mat.metal-iron": "metal-iron-steel",
+       "mat.metal": [
+        "metal-steel"
+       ],
        "children": [
         {
          "id": "obj-equipment-tool-hand",
          "longest.min": 0.15,
          "longest.max": 0.5,
          "tube.min": 0.006,
-         "mat.wood": "wood-planks",
+         "mat.wood": "wood-light",
          "scale": {
           "small": 0.5
          },
@@ -2134,7 +2193,7 @@
          "id": "obj-equipment-tool-twohand",
          "longest.min": 0.45,
          "longest.max": 0.95,
-         "mat.wood": "wood-beam",
+         "mat.wood": "wood-dark",
          "children": [
           {
            "id": "obj-equipment-tool-twohand-pitchfork",
@@ -2201,7 +2260,9 @@
         {
          "id": "obj-equipment-tool-supplies",
          "tube.min": 0.006,
-         "mat.metal-iron": "metal-iron-wrought",
+         "mat.metal": [
+          "metal-iron-mid"
+         ],
          "nouns": [
           "wire",
           "matchbox",
@@ -2308,7 +2369,7 @@
          "longest.min": 0.08,
          "longest.max": 0.5,
          "mat.metal": [
-          "metal-iron",
+          "metal-steel",
           "metal-gold"
          ],
          "scale": {
@@ -2376,7 +2437,7 @@
      "defaults": {
       "high.max": 30
      },
-     "band.wood-worked": [
+     "band.wood-mid": [
       "camel",
       "chestnut"
      ],
@@ -2592,7 +2653,7 @@
     {
      "id": "obj-resource",
      "tpu.max": 5000,
-     "band.vegetation": [
+     "band.special-organic": [
       "tan"
      ],
      "nouns": [
@@ -2639,8 +2700,11 @@
          "longest.min": 0.3,
          "longest.max": 1.2,
          "has": [
-          "wood-log",
-          "wood-bark"
+          [
+           "wood",
+           "bark"
+          ],
+          "bark"
          ],
          "scale": {
           "big": 2
@@ -2822,7 +2886,7 @@
       },
       {
        "id": "obj-furnishing-bathroom",
-       "band.textile": [
+       "band.textile-cloth": [
         "sienna"
        ],
        "nouns": [
@@ -2896,7 +2960,7 @@
       },
       {
        "id": "obj-furnishing-furniture",
-       "band.textile": [
+       "band.textile-cloth": [
         "sienna"
        ],
        "children": [
@@ -3198,7 +3262,7 @@
       },
       {
        "id": "obj-furnishing-textile",
-       "band.textile": [
+       "band.textile-cloth": [
         "sienna"
        ],
        "children": [
@@ -3745,7 +3809,6 @@
   {
    "id": "str",
    "tpu.max": 5000,
-   "mat.metal-iron": "metal-iron-cast",
    "nouns": [
     "stage",
     "plinth",
@@ -4012,7 +4075,7 @@
      "children": [
       {
        "id": "str-building-residential",
-       "band.foliage": [
+       "band.leaf": [
         "moss"
        ],
        "nouns": [
@@ -4261,6 +4324,7 @@
        "has": [
         [
          "wood",
+         "bark",
          "metal",
          "stone"
         ]
@@ -4413,7 +4477,12 @@
        "id": "str-access-ladder",
        "longest.min": 0.65,
        "longest.max": 1.4,
-       "mat.metal-iron": "metal-iron-steel",
+       "mat.metal": [
+        "metal-steel",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
        "scale": {
         "small": {
          "longest.min": 0.5,
@@ -4501,7 +4570,7 @@
     },
     {
      "id": "str-canopy",
-     "band.textile": [
+     "band.textile-cloth": [
       "ivory"
      ],
      "nouns": [
@@ -4562,9 +4631,12 @@
      "children": [
       {
        "id": "str-fixture-marker",
-       "mat.metal-iron": [
-        "metal-iron-cast",
-        "metal-iron-steel"
+       "mat.metal": [
+        "metal-steel",
+        "metal-iron-dark",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
        ],
        "nouns": [
         "milestone",
@@ -4629,6 +4701,7 @@
           "textile",
           [
            "wood",
+           "bark",
            "metal"
           ]
          ],
@@ -4645,9 +4718,12 @@
          "id": "str-fixture-marker-grave",
          "longest.min": 0.35,
          "longest.max": 1.2,
-         "mat.metal-iron": [
-          "metal-iron-cast",
-          "metal-iron-wrought"
+         "mat.metal": [
+          "metal-iron-mid",
+          "metal-iron-dark",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
          ],
          "nouns": [
           "grave",
@@ -4829,7 +4905,12 @@
          "id": "str-fixture-leisure-playground",
          "longest.min": 0.08,
          "longest.max": 3,
-         "mat.metal-iron": "metal-iron-steel",
+         "mat.metal": [
+          "metal-steel",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
+         ],
          "nouns": [
           "slide",
           "swing",
@@ -4846,7 +4927,12 @@
       {
        "id": "str-fixture-light",
        "tube.min": 0.006,
-       "mat.metal-iron": "metal-iron-wrought",
+       "mat.metal": [
+        "metal-iron-mid",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
        "nouns": [
         "stone lantern"
        ],
@@ -4865,7 +4951,12 @@
          "id": "str-fixture-light-street",
          "longest.min": 0.9,
          "longest.max": 2.06,
-         "mat.metal-iron": "metal-iron-steel",
+         "mat.metal": [
+          "metal-steel",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
+         ],
          "nouns": [
           "street light",
           "street lantern"
@@ -4873,7 +4964,12 @@
         },
         {
          "id": "str-fixture-light-traffic",
-         "mat.metal-iron": "metal-iron-steel",
+         "mat.metal": [
+          "metal-steel",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
+         ],
          "band": [
           [
            "sienna"
@@ -4915,7 +5011,12 @@
          "band.ceramic": [
           "ivory"
          ],
-         "mat.metal-iron": "metal-iron-wrought",
+         "mat.metal": [
+          "metal-iron-mid",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
+         ],
          "nouns": [
           "campfire",
           "bonfire",
@@ -4930,9 +5031,12 @@
          "band.ceramic": [
           "ivory"
          ],
-         "mat.metal-iron": [
-          "metal-iron-wrought",
-          "metal-iron-cast"
+         "mat.metal": [
+          "metal-iron-mid",
+          "metal-iron-dark",
+          "metal-gold",
+          "metal-copper",
+          "metal-aluminium"
          ],
          "nouns": [
           "brazier",
@@ -4951,7 +5055,12 @@
       },
       {
        "id": "str-fixture-installation",
-       "mat.metal-iron": "metal-iron-steel",
+       "mat.metal": [
+        "metal-steel",
+        "metal-gold",
+        "metal-copper",
+        "metal-aluminium"
+       ],
        "nouns": [
         "light switch",
         "plug socket",
@@ -5344,7 +5453,7 @@
       {
        "id": "env-flora-plant",
        "tpu.max": 10000,
-       "band.foliage": [
+       "band.leaf": [
         "moss"
        ],
        "nouns": [
@@ -5497,7 +5606,7 @@
       {
        "id": "env-flora-waterplant",
        "tube.min": 0.006,
-       "band.foliage": [
+       "band.leaf": [
         "moss"
        ],
        "nouns": [
@@ -5542,8 +5651,13 @@
    "longest.min": 0.45,
    "longest.max": 1.05,
    "tpu.max": 30000,
-   "mat.metal-iron": "metal-iron-steel",
-   "band.textile": [
+   "mat.metal": [
+    "metal-steel",
+    "metal-gold",
+    "metal-copper",
+    "metal-aluminium"
+   ],
+   "band.textile-cloth": [
     "ivory",
     "hunter",
     "taupe",

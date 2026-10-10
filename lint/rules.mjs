@@ -8,6 +8,11 @@ const BAND = 'band';
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 export const isBuilding = (kind) => idUnder(kind, 'str-building');
 
+export function matUnder(materialIds, id, ancestor) {
+  for (let at = id; at; at = materialIds.get(at)) if (at === ancestor) return true;
+  return false;
+}
+
 const SIZE_MEASURES = ['high', 'longest'];
 const measureOf = (field) => field.split('.')[0];
 
@@ -221,17 +226,17 @@ export function materialFindingsFor(model, rules, materialIds, vars) {
   const out = [];
   const mats = materialsOf(model, materialIds, vars);
   for (const parent of mats) {
-    const under = mats.filter((m) => m !== parent && idUnder(m, parent));
+    const under = mats.filter((m) => m !== parent && matUnder(materialIds, m, parent));
     if (under.length) out.push({ family: parent, required: 'no parent tag', from: 'tags', present: [parent, ...under].join(' ') });
   }
   for (const [family, { required, from }] of rules?.subtype ?? []) {
-    const present = mats.filter((m) => idUnder(m, family));
+    const present = mats.filter((m) => matUnder(materialIds, m, family));
     const allowed = [required].flat();
-    if (!present.length || present.some((m) => allowed.some((id) => idUnder(m, id)))) continue;
+    if (!present.length || present.some((m) => allowed.some((id) => matUnder(materialIds, m, id)))) continue;
     out.push({ family, required: allowed.join(' or '), from, present: present.join(' ') });
   }
   for (const { any, from } of rules?.has ?? []) {
-    if (mats.some((m) => any.some((id) => idUnder(m, id)))) continue;
+    if (mats.some((m) => any.some((id) => matUnder(materialIds, m, id)))) continue;
     out.push({ family: '—', required: any.join(' or '), from, present: mats.join(' ') || '—' });
   }
   return out;
@@ -240,6 +245,8 @@ export function materialFindingsFor(model, rules, materialIds, vars) {
 export function buildPalettes(materials, vars) {
   const lanes = new Map(Object.entries(materials.bands));
   const names = new Map([...lanes].map(([band, lane]) => [lane, band]));
+  const parent = materialIdsOf(materials);
+  const depth = (id) => { let d = 0; for (let at = parent.get(id); at; at = parent.get(at)) d++; return d; };
   const rows = [];
   const walk = (node) => {
     if (node.bands) rows.push({ mat: node.id, size: null, bands: node.bands });
@@ -249,14 +256,14 @@ export function buildPalettes(materials, vars) {
   for (const [mat, bySize] of Object.entries(vars.palette.sizeBands ?? {})) {
     for (const [size, bands] of Object.entries(bySize)) rows.push({ mat, size, bands });
   }
-  rows.sort((a, b) => b.mat.length - a.mat.length);
+  rows.sort((a, b) => depth(b.mat) - depth(a.mat));
   const kindBands = Object.entries(vars.palette.kindBands ?? {})
     .flatMap(([mat, byKind]) => Object.entries(byKind).map(([kind, bands]) => ({ mat, kind, bands })));
-  return { lanes, names, rows, kindBands };
+  return { lanes, names, rows, kindBands, parent };
 }
 
 function paletteOf(material, size, kind, palettes) {
-  const matching = palettes.rows.filter((row) => idUnder(material, row.mat));
+  const matching = palettes.rows.filter((row) => matUnder(palettes.parent, material, row.mat));
   const rows = matching.filter((row) => row.mat === matching[0]?.mat);
   const row = rows.find((r) => r.size === size) ?? rows.find((r) => r.size === null);
   if (!row) return null;
@@ -314,7 +321,7 @@ export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
   const used = Object.keys(model.spread ?? {});
   const mats = materialsOf(model, materialIds, vars);
   for (const [mat, row] of rules ?? []) {
-    const present = mat === null ? [] : mats.filter((m) => idUnder(m, mat));
+    const present = mat === null ? [] : mats.filter((m) => matUnder(materialIds, m, mat));
     if (mat !== null && !present.length) continue;
     const groups = Array.isArray(row.bands[0]) ? row.bands : [row.bands];
     for (const group of groups) {
@@ -365,7 +372,7 @@ function matchTerm(term, model, materialIds, vars) {
     case 'kind': return idUnder(model.kind, value);
     case 'mat': {
       const mats = materialsOf(model, materialIds, vars);
-      return op === ':' ? mats.some((m) => idUnder(m, value)) : mats.includes(value);
+      return op === ':' ? mats.some((m) => matUnder(materialIds, m, value)) : mats.includes(value);
     }
     case 'tag': return (model.tags ?? []).includes(value);
     case 'attr': return (model.tags ?? []).includes(value);
@@ -442,14 +449,14 @@ const CHECK_TEXT = {
 export const findingText = (check, row) => CHECK_TEXT[check](row);
 
 export function materialIdsOf(materials) {
-  const ids = new Set();
-  const collect = (nodes) => {
+  const ids = new Map();
+  const collect = (nodes, parent) => {
     for (const node of nodes) {
-      ids.add(node.id);
-      collect(node.children ?? []);
+      ids.set(node.id, parent);
+      collect(node.children ?? [], node.id);
     }
   };
-  collect(materials.materials);
+  collect(materials.materials, null);
   return ids;
 }
 

@@ -1,4 +1,4 @@
-import { buildLimits, KIND_FIELDS, idUnder } from '../../lint/rules.mjs?v=457aa30996';
+import { buildLimits, KIND_FIELDS, idUnder } from '../../lint/rules.mjs?v=49d307b618';
 import { stamped } from './stamps.js?v=04e3ee3113';
 
 const load = (path) => fetch(stamped(path)).then((r) => (r.ok ? r.json() : null)).catch(() => null);

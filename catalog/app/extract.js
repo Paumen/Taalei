@@ -1,4 +1,4 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=97d408f4c1';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=02e35ed6e1';
 import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=59da1e14dd';
 import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=ed62ec964f';
 import { meta, saveFile } from './shared.js?v=06861d7ddb';

@@ -125,7 +125,7 @@ After a tag edit, run the lints and let them name what no longer fits:
     node lint/mat.mjs            # a kind that demands a subtype
 
 A tag an extract adds can leave a finding with no geometry to satisfy it — a
-`rope` tag on a bag with no tie is a modelling request. Report it rather than
+`textile-rope` tag on a bag with no tie is a modelling request. Report it rather than
 bending the tag.
 
 Widening a palette in `lint/materials.json` is catalogue-wide. Count what else
