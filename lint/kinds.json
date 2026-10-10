@@ -153,8 +153,19 @@
          "id": "obj-container-crate-cardboard",
          "nouns": [
           "cardboard box",
-          "package",
-          "present"
+          "package"
+         ],
+         "children": [
+          {
+           "id": "obj-container-crate-cardboard-takeaway",
+           "nouns": [
+            "takeaway box",
+            "take-away box",
+            "pizza box",
+            "egg carton",
+            "food box"
+           ]
+          }
          ]
         },
         {
@@ -186,6 +197,14 @@
        ]
       },
       {
+       "id": "obj-container-present",
+       "nouns": [
+        "present",
+        "gift",
+        "gift box"
+       ]
+      },
+      {
        "id": "obj-container-bottle",
        "longest.min": 0.06,
        "longest.max": 0.5,
@@ -213,6 +232,34 @@
          "nouns": [
           "vial",
           "potion"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-glass",
+         "nouns": [
+          "glass bottle",
+          "wine bottle",
+          "whiskey bottle",
+          "liquor bottle",
+          "decanter",
+          "soy sauce bottle"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-lab",
+         "nouns": [
+          "lab flask",
+          "conical flask",
+          "round flask",
+          "beaker"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-drink",
+         "nouns": [
+          "water bottle",
+          "thermos",
+          "hip flask"
          ]
         }
        ]
@@ -333,8 +380,17 @@
        "longest.min": 0.1,
        "longest.max": 0.3,
        "nouns": [
-        "carton",
-        "milk carton"
+        "carton"
+       ],
+       "children": [
+        {
+         "id": "obj-container-carton-drink",
+         "nouns": [
+          "milk carton",
+          "drink carton",
+          "juice carton"
+         ]
+        }
        ]
       },
       {
@@ -382,11 +438,19 @@
        "tube.min": 0.006,
        "nouns": [
         "gas cylinder",
-        "gas tank",
-        "propane tank",
-        "gas bottle",
         "fire extinguisher",
         "vat"
+       ],
+       "children": [
+        {
+         "id": "obj-container-cylinder-tank",
+         "nouns": [
+          "gas tank",
+          "propane tank",
+          "gas bottle",
+          "gas canister"
+         ]
+        }
        ]
       },
       {
@@ -461,10 +525,25 @@
          "longest.min": 0.15,
          "longest.max": 0.5,
          "nouns": [
-          "tray",
-          "platter",
-          "pastry stand",
           "cloche"
+         ],
+         "children": [
+          {
+           "id": "obj-kitchenware-tableware-serving-tray",
+           "nouns": [
+            "tray",
+            "platter",
+            "tea tray"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-serving-stand",
+           "nouns": [
+            "pastry stand",
+            "cake stand",
+            "tiered stand"
+           ]
+          }
          ]
         },
         {
@@ -1161,7 +1240,32 @@
         "plated meal",
         "stew",
         "soup",
-        "taco"
+        "taco",
+        "pizza"
+       ]
+      },
+      {
+       "id": "obj-food-prepared",
+       "children": [
+        {
+         "id": "obj-food-prepared-burger",
+         "longest.min": 0.1,
+         "longest.max": 0.35,
+         "nouns": [
+          "burger",
+          "hamburger",
+          "cheeseburger"
+         ]
+        },
+        {
+         "id": "obj-food-prepared-sandwich",
+         "longest.min": 0.15,
+         "longest.max": 0.35,
+         "nouns": [
+          "sandwich",
+          "sub"
+         ]
+        }
        ]
       },
       {
@@ -1183,14 +1287,6 @@
           "small": 0.5
          },
          "children": [
-          {
-           "id": "obj-food-baked-bread-sandwich",
-           "longest.min": 0.15,
-           "nouns": [
-            "sandwich",
-            "sub"
-           ]
-          },
           {
            "id": "obj-food-baked-bread-baguette",
            "longest.min": 0.35,
@@ -1220,8 +1316,17 @@
          "high.min": 0.05,
          "high.max": 0.25,
          "nouns": [
-          "cake",
           "pie"
+         ]
+        },
+        {
+         "id": "obj-food-baked-cake",
+         "high.min": 0.05,
+         "high.max": 0.25,
+         "nouns": [
+          "cake",
+          "birthday cake",
+          "cake slice"
          ]
         },
         {
@@ -1239,9 +1344,16 @@
            "longest.max": 0.25,
            "nouns": [
             "cookie",
-            "gingerbread man",
-            "gingerbread woman",
             "gingerbread house"
+           ],
+           "children": [
+            {
+             "id": "obj-food-baked-pastry-cookie-gingerbread",
+             "nouns": [
+              "gingerbread man",
+              "gingerbread woman"
+             ]
+            }
            ]
           },
           {
@@ -1429,9 +1541,7 @@
          "tube.min": 0.006,
          "nouns": [
           "sling",
-          "throwing knife",
           "javelin",
-          "shuriken",
           "dart"
          ],
          "children": [
@@ -1538,6 +1648,15 @@
               "gun attachment"
              ]
             }
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-ranged-throwing",
+           "nouns": [
+            "throwing knife",
+            "shuriken",
+            "throwing star",
+            "boomerang"
            ]
           },
           {
@@ -1828,6 +1947,15 @@
          ]
         },
         {
+         "id": "obj-equipment-pocketitem-medicine",
+         "nouns": [
+          "pill",
+          "capsule",
+          "tablet",
+          "blister pack"
+         ]
+        },
+        {
          "id": "obj-equipment-pocketitem-book",
          "tube.min": 0.012,
          "longest.min": 0.15,
@@ -1905,13 +2033,7 @@
          "tube.min": 0.006,
          "mat.wood": "wood-planks",
          "nouns": [
-          "chisel",
-          "trowel",
-          "tongs",
-          "nail file",
           "tape measure",
-          "craft knife",
-          "razor blade",
           "magnet"
          ],
          "scale": {
@@ -1959,6 +2081,48 @@
            "id": "obj-equipment-tool-hand-screwdriver",
            "nouns": [
             "screwdriver"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-hand-blade",
+           "nouns": [
+            "knife (tool)",
+            "carving knife",
+            "craft knife",
+            "razor blade",
+            "sickle"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-hand-shaping",
+           "nouns": [
+            "chisel",
+            "bolster (chisel)",
+            "file",
+            "hand plane",
+            "trowel",
+            "plasterer's float",
+            "nail file"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-hand-gripper",
+           "nouns": [
+            "tongs",
+            "pliers",
+            "tweezers",
+            "forceps",
+            "clamp",
+            "g-clamp"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-hand-garden",
+           "nouns": [
+            "hand fork",
+            "hand rake",
+            "hand shovel",
+            "hand hoe"
            ]
           }
          ]
@@ -2036,15 +2200,22 @@
          "tube.min": 0.006,
          "mat.metal-iron": "metal-iron-wrought",
          "nouns": [
-          "screw",
-          "nail",
-          "bolt (fastener)",
           "wire",
           "matchbox",
           "match",
           "lighter"
          ],
          "children": [
+          {
+           "id": "obj-equipment-tool-supplies-fastener",
+           "nouns": [
+            "screw",
+            "nail",
+            "bolt (fastener)",
+            "pin",
+            "tent peg"
+           ]
+          },
           {
            "id": "obj-equipment-tool-supplies-chain",
            "nouns": [
@@ -2081,11 +2252,23 @@
          "longest.min": 0.3,
          "longest.max": 0.7,
          "nouns": [
-          "anvil",
-          "grinder",
-          "grindstone",
-          "workbench (grinding)",
           "forge (hearth)"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-tool-station-anvil",
+           "nouns": [
+            "anvil"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-station-grinder",
+           "nouns": [
+            "grinder",
+            "grindstone",
+            "workbench (grinding)"
+           ]
+          }
          ]
         },
         {
@@ -2097,9 +2280,7 @@
           "gear",
           "pulley",
           "button (floor)",
-          "bear trap",
-          "lock",
-          "padlock"
+          "bear trap"
          ],
          "children": [
           {
@@ -2108,6 +2289,13 @@
             "lever",
             "control lever",
             "switch lever"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-mechanism-lock",
+           "nouns": [
+            "lock",
+            "padlock"
            ]
           }
          ]
@@ -2122,8 +2310,6 @@
           "metal-gold"
          ],
          "nouns": [
-          "pencil",
-          "pen",
           "scissors",
           "drafting compass",
           "ruler",
@@ -2134,7 +2320,40 @@
          ],
          "scale": {
           "small": 0.5
-         }
+         },
+         "children": [
+          {
+           "id": "obj-equipment-tool-stationery-holder",
+           "nouns": [
+            "pencil cup",
+            "pen cup",
+            "pencil case",
+            "pen holder",
+            "pen tidy"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-stationery-writing",
+           "nouns": [
+            "pencil",
+            "pen",
+            "marker",
+            "chalk",
+            "crayon"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-stationery-filing",
+           "nouns": [
+            "clipboard",
+            "folder",
+            "ring binder",
+            "paper pad",
+            "paper tidy",
+            "letter rack"
+           ]
+          }
+         ]
         },
         {
          "id": "obj-equipment-tool-scale",
@@ -2288,7 +2507,7 @@
         {
          "id": "obj-transport-land-cart",
          "longest.min": 0.55,
-         "longest.max": 2.0,
+         "longest.max": 2,
          "nouns": [
           "cart",
           "wagon",
@@ -2319,12 +2538,18 @@
          ]
         },
         {
+         "id": "obj-transport-land-wheelchair",
+         "nouns": [
+          "wheelchair",
+          "power wheelchair"
+         ]
+        },
+        {
          "id": "obj-transport-land-road",
          "longest.min": 0.95,
          "longest.max": 1.7,
          "bands.max": 6,
          "nouns": [
-          "car",
           "tractor",
           "rover",
           "digger",
@@ -2332,6 +2557,19 @@
           "skid steer"
          ],
          "children": [
+          {
+           "id": "obj-transport-land-road-car",
+           "nouns": [
+            "car",
+            "sedan",
+            "hatchback",
+            "suv",
+            "taxi",
+            "police car",
+            "sports car",
+            "pickup"
+           ]
+          },
           {
            "id": "obj-transport-land-road-truck",
            "longest.max": 4.1,
@@ -2373,7 +2611,6 @@
       "tan"
      ],
      "nouns": [
-      "hide",
       "raw stock"
      ],
      "children": [
@@ -2451,24 +2688,38 @@
        ]
       },
       {
-       "id": "obj-resource-wheat",
-       "longest.min": 0.3,
-       "longest.max": 0.7,
+       "id": "obj-resource-leather",
        "nouns": [
-        "wheat"
+        "hide",
+        "leather",
+        "hide roll",
+        "pelt"
        ]
       },
       {
-       "id": "obj-resource-haystack",
-       "longest.min": 0.45,
-       "longest.max": 1.25,
-       "band": [
-        "tan"
-       ],
-       "nouns": [
-        "haystack",
-        "hay",
-        "hay bale"
+       "id": "obj-resource-crop",
+       "children": [
+        {
+         "id": "obj-resource-crop-wheat",
+         "longest.min": 0.3,
+         "longest.max": 0.7,
+         "nouns": [
+          "wheat"
+         ]
+        },
+        {
+         "id": "obj-resource-crop-hay",
+         "longest.min": 0.45,
+         "longest.max": 1.25,
+         "band": [
+          "tan"
+         ],
+         "nouns": [
+          "haystack",
+          "hay",
+          "hay bale"
+         ]
+        }
        ]
       }
      ]
@@ -2773,6 +3024,15 @@
            ]
           },
           {
+           "id": "obj-furnishing-furniture-table-side",
+           "nouns": [
+            "side table",
+            "nightstand",
+            "bedside table",
+            "end table"
+           ]
+          },
+          {
            "id": "obj-furnishing-furniture-table-desk",
            "nouns": [
             "desk",
@@ -2939,6 +3199,17 @@
         "wreath",
         "garland",
         "birdhouse"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-decor-mount",
+         "nouns": [
+          "mounted head",
+          "hunting trophy",
+          "trophy head",
+          "antlers (mounted)"
+         ]
+        }
        ]
       },
       {
@@ -3031,7 +3302,7 @@
         {
          "id": "obj-device-appliance-fridge",
          "longest.min": 0.4,
-         "longest.max": 1.0,
+         "longest.max": 1,
          "nouns": [
           "fridge",
           "refrigerator",
@@ -4046,6 +4317,23 @@
           "traffic cone",
           "pylon"
          ]
+        },
+        {
+         "id": "str-barrier-traffic-jersey",
+         "nouns": [
+          "jersey barrier",
+          "water-filled barrier",
+          "concrete barrier",
+          "plastic barrier"
+         ]
+        },
+        {
+         "id": "str-barrier-traffic-sawhorse",
+         "nouns": [
+          "sawhorse barricade",
+          "road-closed barrier",
+          "striped barricade"
+         ]
         }
        ]
       },
@@ -4105,9 +4393,42 @@
        "longest.min": 0.5,
        "longest.max": 2.5,
        "nouns": [
-        "stairs",
-        "steps",
-        "ramp"
+        "stairs"
+       ],
+       "children": [
+        {
+         "id": "str-access-stairs-ramp",
+         "nouns": [
+          "ramp",
+          "slope (walkway)"
+         ]
+        },
+        {
+         "id": "str-access-stairs-curved",
+         "nouns": [
+          "spiral stairs",
+          "curved stairs",
+          "winding stairs"
+         ]
+        },
+        {
+         "id": "str-access-stairs-open",
+         "nouns": [
+          "open stairs",
+          "stair flight (open)",
+          "dock stairs",
+          "boarding stairs",
+          "catwalk stairs"
+         ]
+        },
+        {
+         "id": "str-access-stairs-step",
+         "nouns": [
+          "steps",
+          "step",
+          "step block"
+         ]
+        }
        ]
       },
       {
@@ -4153,7 +4474,7 @@
         {
          "id": "str-access-bridge-long",
          "longest.min": 1.55,
-         "longest.max": 7.0,
+         "longest.max": 7,
          "scale": {
           "big": 2.5
          },
@@ -4226,6 +4547,23 @@
           "camping tent"
          ]
         }
+       ]
+      },
+      {
+       "id": "str-canopy-gazebo",
+       "nouns": [
+        "event tent",
+        "party tent",
+        "pavilion"
+       ]
+      },
+      {
+       "id": "str-canopy-shelter",
+       "nouns": [
+        "shelter",
+        "bus shelter",
+        "porch",
+        "pergola"
        ]
       }
      ]
@@ -4748,7 +5086,16 @@
          ],
          "scale": {
           "big": 4
-         }
+         },
+         "children": [
+          {
+           "id": "env-remains-bones-skull-human",
+           "nouns": [
+            "human skull",
+            "skull (human)"
+           ]
+          }
+         ]
         },
         {
          "id": "env-remains-bones-limb",
@@ -4783,6 +5130,14 @@
          "scale": {
           "big": 3
          }
+        },
+        {
+         "id": "env-remains-bones-spine",
+         "nouns": [
+          "spine",
+          "vertebrae",
+          "backbone"
+         ]
         }
        ]
       },
@@ -4917,15 +5272,51 @@
        "id": "env-terrain-ground",
        "nouns": [
         "ground",
-        "ground mesh",
-        "dirt path",
-        "stone path",
-        "cobbled path",
-        "sand",
-        "snow patch",
-        "farm field",
-        "farm plot",
-        "crop row"
+        "ground mesh"
+       ],
+       "children": [
+        {
+         "id": "env-terrain-ground-path",
+         "nouns": [
+          "dirt path",
+          "stone path",
+          "cobbled path",
+          "wooden path",
+          "paving stones"
+         ]
+        },
+        {
+         "id": "env-terrain-ground-field",
+         "nouns": [
+          "farm field",
+          "farm plot",
+          "crop row",
+          "soil",
+          "garden bed"
+         ]
+        },
+        {
+         "id": "env-terrain-ground-patch",
+         "nouns": [
+          "sand",
+          "snow patch",
+          "mud",
+          "moss patch",
+          "ground cover",
+          "grass patch",
+          "ground tile",
+          "flat rock"
+         ]
+        },
+        {
+         "id": "env-terrain-ground-pit",
+         "nouns": [
+          "crater",
+          "pit",
+          "lava pit",
+          "mining pit"
+         ]
+        }
        ]
       }
      ]
