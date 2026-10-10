@@ -583,7 +583,7 @@
    ],
    "kitCheck": {
     "factor": 0.93,
-    "kinds": 40
+    "kinds": 41
    }
   },
   {
@@ -650,8 +650,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 42
+    "factor": 0.97,
+    "kinds": 43
    }
   },
   {
@@ -1531,7 +1531,7 @@
    ],
    "kitCheck": {
     "factor": 1.2,
-    "kinds": 58
+    "kinds": 57
    }
   },
   {
@@ -2181,7 +2181,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.09,
+    "factor": 1.1,
     "kinds": 20
    }
   },
@@ -2385,7 +2385,7 @@
    ],
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 37
+    "kinds": 38
    }
   },
   {
@@ -2818,7 +2818,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 164
+    "kinds": 165
    }
   },
   {
@@ -3885,8 +3885,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.1,
-    "kinds": 74
+    "factor": 1.09,
+    "kinds": 75
    }
   },
   {
@@ -4928,8 +4928,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.17,
-    "kinds": 11
+    "factor": 1.13,
+    "kinds": 10
    }
   },
   {
@@ -23710,7 +23710,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4581,
+   "count": 4505,
    "color": "#c07c8a"
   },
   {
@@ -23718,14 +23718,14 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 285
+   "count": 257
   },
   {
    "id": "obj-leisure",
    "name": "Leisure",
    "type": "kind",
    "description": "Thing for play, games, sport or art.",
-   "count": 203
+   "count": 224
   },
   {
    "id": "obj-device-appliance",
@@ -23802,7 +23802,7 @@
    "name": "Game",
    "type": "kind",
    "description": "Game or sport gear: trading cards, card binders and slabs, bowling pins, air hockey gear, pool floats.",
-   "count": 53
+   "count": 74
   },
   {
    "id": "obj-leisure-game-gym",
@@ -23837,10 +23837,10 @@
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
-   "count": 158
+   "count": 130
   },
   {
-   "id": "obj-device-electronics-installation",
+   "id": "str-fixture-installation",
    "name": "House electrics",
    "type": "kind",
    "description": "Fixed household electrics: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb.",
@@ -23924,7 +23924,7 @@
    "count": 9
   },
   {
-   "id": "obj-device-electronics-arcade",
+   "id": "obj-leisure-game-arcade",
    "name": "Arcade machine",
    "type": "kind",
    "description": "Coin-operated game cabinet: arcade machine, pinball, claw machine, slot machine.",
@@ -23956,7 +23956,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 670,
+   "count": 683,
    "color": "#dd9f79"
   },
   {
@@ -24075,7 +24075,7 @@
    "id": "obj-container-barrel",
    "name": "Barrel",
    "type": "kind",
-   "description": "barrel, cask",
+   "description": "Barrel or cask, tapped keg included.",
    "count": 52
   },
   {
@@ -24084,13 +24084,6 @@
    "type": "kind",
    "description": "metal barrel, oil drum, fuel barrel, chemical drum",
    "count": 18
-  },
-  {
-   "id": "obj-container-barrel-keg",
-   "name": "Keg",
-   "type": "kind",
-   "description": "keg, tapped barrel",
-   "count": 2
   },
   {
    "id": "obj-container-bottle",
@@ -24323,7 +24316,7 @@
    "name": "Meal",
    "type": "kind",
    "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco, a pizza.",
-   "count": 12
+   "count": 29
   },
   {
    "id": "obj-food-fruit-coconut",
@@ -24336,7 +24329,7 @@
    "id": "obj-food-grain",
    "name": "Grain",
    "type": "kind",
-   "description": "Unbaked grain: wheat, flour and dough.",
+   "description": "Unbaked grain: flour and dough.",
    "count": 8
   },
   {
@@ -24361,21 +24354,14 @@
    "count": 5
   },
   {
-   "id": "obj-food-prepared",
-   "name": "Prepared food",
-   "type": "kind",
-   "description": "Food assembled from several ingredients and eaten by hand: burger, sandwich.",
-   "count": 17
-  },
-  {
-   "id": "obj-food-prepared-burger",
+   "id": "obj-food-meal-burger",
    "name": "Burger",
    "type": "kind",
    "description": "burger, hamburger, cheeseburger",
    "count": 12
   },
   {
-   "id": "obj-food-prepared-sandwich",
+   "id": "obj-food-meal-sandwich",
    "name": "Sandwich",
    "type": "kind",
    "description": "sandwich, sub",
@@ -24554,7 +24540,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 806,
+   "count": 789,
    "color": "#c07c8a"
   },
   {
@@ -24821,24 +24807,24 @@
    "name": "Shelf",
    "type": "kind",
    "description": "Boards carried on brackets or a frame, open on the front.",
-   "count": 66
+   "count": 33
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack",
+   "id": "obj-furnishing-furniture-storage-rack",
    "name": "Rack",
    "type": "kind",
    "description": "Open rack for showing or holding goods or gear: display rack, spinner rack, slat wall, ball or dumbbell rack.",
    "count": 33
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "id": "obj-furnishing-furniture-storage-rack-weapon",
    "name": "Weapon rack",
    "type": "kind",
    "description": "weapon rack, weapon stand",
    "count": 4
   },
   {
-   "id": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "id": "obj-furnishing-furniture-storage-rack-coat",
    "name": "Coat rack",
    "type": "kind",
    "description": "Standing or wall coat rack with hooks.",
@@ -25158,7 +25144,7 @@
    "name": "Light",
    "type": "kind",
    "description": "chandelier, match, string lights",
-   "count": 137,
+   "count": 120,
    "color": "#f2cb45"
   },
   {
@@ -25169,11 +25155,25 @@
    "count": 28
   },
   {
-   "id": "obj-furnishing-light-campfire",
+   "id": "str-fixture-fire-campfire",
    "name": "Campfire",
    "type": "kind",
    "description": "Campfire: an open fire built at ground level, for warmth or cooking.",
    "count": 10
+  },
+  {
+   "id": "str-fixture-fire",
+   "name": "Fire",
+   "type": "kind",
+   "description": "Fixed place where a fire burns: campfire, brazier, fireplace.",
+   "count": 23
+  },
+  {
+   "id": "str-fixture-fire-brazier",
+   "name": "Brazier",
+   "type": "kind",
+   "description": "Standing metal basket or bowl holding a fire.",
+   "count": 7
   },
   {
    "id": "obj-furnishing-light-lantern",
@@ -25242,8 +25242,8 @@
    "id": "obj-furnishing-light-torch",
    "name": "Torch",
    "type": "kind",
-   "description": "torch, brazier",
-   "count": 17
+   "description": "Torch: a hand-held or mounted stick with a flame.",
+   "count": 10
   },
   {
    "id": "obj-equipment-pocketitem",
@@ -25409,7 +25409,7 @@
    "count": 9
   },
   {
-   "id": "obj-transport-pallet",
+   "id": "obj-container-pallet",
    "name": "Pallet",
    "type": "kind",
    "description": "pallet",
@@ -25659,22 +25659,15 @@
    "name": "Transport",
    "type": "kind",
    "description": "saddle",
-   "count": 344,
+   "count": 331,
    "color": "#5a7a9c"
   },
   {
-   "id": "obj-symbol",
+   "id": "sym",
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
    "count": 52
-  },
-  {
-   "id": "obj-transport-land-military",
-   "name": "Military vehicle",
-   "type": "kind",
-   "description": "Military vehicle: tank.",
-   "count": 0
   },
   {
    "id": "obj-transport-land",
@@ -26040,7 +26033,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 1051,
+   "count": 1035,
    "color": "#6cb588"
   },
   {
@@ -26326,7 +26319,7 @@
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
-   "count": 378,
+   "count": 362,
    "color": "#8a5d4b"
   },
   {
@@ -26334,13 +26327,13 @@
    "name": "Ground",
    "type": "kind",
    "description": "ground, ground mesh",
-   "count": 64
+   "count": 48
   },
   {
-   "id": "env-terrain-ground-path",
+   "id": "str-access-path",
    "name": "Path",
    "type": "kind",
-   "description": "dirt path, stone path, cobbled path, wooden path, paving stones",
+   "description": "Laid path to walk on: stone path, cobbled path, wooden path, paving stones.",
    "count": 16
   },
   {
@@ -26376,7 +26369,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, mine entrance",
-   "count": 2547,
+   "count": 2587,
    "color": "#877a63"
   },
   {
@@ -26384,10 +26377,10 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 503
+   "count": 521
   },
   {
-   "id": "str-fixture-fireplace",
+   "id": "str-fixture-fire-fireplace",
    "name": "Fireplace",
    "type": "kind",
    "description": "fireplace, hearth, fire grate",
@@ -26405,7 +26398,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 273,
+   "count": 289,
    "color": "#c98a5a"
   },
   {
@@ -26469,10 +26462,10 @@
    "name": "Stairs",
    "type": "kind",
    "description": "stairs",
-   "count": 91
+   "count": 85
   },
   {
-   "id": "str-access-stairs-ramp",
+   "id": "str-access-ramp",
    "name": "Ramp",
    "type": "kind",
    "description": "ramp, slope (walkway)",
@@ -26540,7 +26533,7 @@
    "name": "Building",
    "type": "kind",
    "description": "gazebo, well",
-   "count": 392,
+   "count": 391,
    "color": "#7d4f3a"
   },
   {
@@ -26555,7 +26548,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 980,
+   "count": 986,
    "color": "#a8762a"
   },
   {
@@ -26668,14 +26661,14 @@
    "name": "Roof",
    "type": "kind",
    "description": "roof, roof tile, gable",
-   "count": 89
+   "count": 80
   },
   {
-   "id": "str-part-roof-chimney",
+   "id": "str-part-chimney",
    "name": "Chimney",
    "type": "kind",
-   "description": "Chimney set on a roof: chimney, roof chimney.",
-   "count": 9
+   "description": "Chimney on a roof or standing free: chimney, roof chimney, smokestack.",
+   "count": 15
   },
   {
    "id": "str-part-roof-unit",
@@ -26831,7 +26824,7 @@
    "name": "Canopy",
    "type": "kind",
    "description": "Sheltered pitch under cloth or board: stall, market stand, awning, tent.",
-   "count": 62,
+   "count": 63,
    "color": "#d8a05a"
   },
   {
@@ -26852,8 +26845,8 @@
    "id": "str-canopy-gazebo",
    "name": "Gazebo",
    "type": "kind",
-   "description": "event tent, party tent, pavilion",
-   "count": 7
+   "description": "Open-sided roofed shelter: gazebo, event tent, party tent, pavilion.",
+   "count": 8
   },
   {
    "id": "str-canopy-shelter",
@@ -27015,7 +27008,7 @@
    "name": "Religious",
    "type": "kind",
    "description": "Building or standing structure for worship.",
-   "count": 23
+   "count": 22
   },
   {
    "id": "str-building-religious-church",
@@ -27046,18 +27039,11 @@
    "count": 132
   },
   {
-   "id": "str-fixture-chimney",
-   "name": "Chimney",
-   "type": "kind",
-   "description": "Free-standing chimney or smokestack.",
-   "count": 6
-  },
-  {
    "id": "str-fixture-utility",
    "name": "Utility",
    "type": "kind",
-   "description": "Standing works that serve a settlement: hydrant, utility pole, generator, wind turbine.",
-   "count": 172,
+   "description": "Standing works that serve a settlement: utility pole, power line, tank, pipe, solar panel, turbine, antenna, hydrant, well, fountain.",
+   "count": 104,
    "color": "#6e8f86"
   },
   {
@@ -27082,28 +27068,28 @@
    "count": 3
   },
   {
-   "id": "str-fixture-utility-hopper",
+   "id": "str-fixture-machinery-hopper",
    "name": "Hopper",
    "type": "kind",
    "description": "Open funnel that feeds bulk goods down into a machine or onto a line.",
    "count": 4
   },
   {
-   "id": "str-fixture-utility-machine",
+   "id": "str-fixture-machinery",
    "name": "Machine",
    "type": "kind",
-   "description": "Standing industrial machinery: presses, pistons and scanners.",
-   "count": 36
+   "description": "Standing industrial machinery: presses, pistons, scanners, conveyors, hoppers, cranes, car wash.",
+   "count": 68
   },
   {
-   "id": "str-fixture-utility-machine-crane",
+   "id": "str-fixture-machinery-crane",
    "name": "Crane",
    "type": "kind",
    "description": "Industrial crane or robot arm that lifts and moves loads.",
    "count": 6
   },
   {
-   "id": "str-fixture-utility-machine-drivethrough",
+   "id": "str-fixture-machinery-drivethrough",
    "name": "Drive-through machine",
    "type": "kind",
    "description": "Machine a vehicle drives through or parks beside: car wash arches, brushes, curtains and vacuum stations.",
@@ -27117,7 +27103,7 @@
    "count": 34
   },
   {
-   "id": "str-fixture-utility-conveyor",
+   "id": "str-fixture-machinery-conveyor",
    "name": "Conveyor",
    "type": "kind",
    "description": "Belt or roller track that carries goods along a line: straight, sloped or fenced sections.",
@@ -27164,7 +27150,7 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 95
+   "count": 101
   },
   {
    "id": "str-building-work-industrial-mine",
@@ -27297,14 +27283,14 @@
    "name": "Shrine",
    "type": "kind",
    "description": "shrine, gazebo, altar",
-   "count": 11
+   "count": 10
   },
   {
    "id": "str-building-work-commercial",
    "name": "Commercial",
    "type": "kind",
-   "description": "inn, tavern, market house, storage, warehouse",
-   "count": 33
+   "description": "inn, tavern, market house, office, shop",
+   "count": 27
   },
   {
    "id": "str-building-tower-skyscraper",
@@ -27698,6 +27684,7 @@
     "obj-device-appliance-stove",
     "obj-leisure-art-instrument",
     "str-part-floor-unit",
+    "str-part-chimney",
     "str-part-wall-unit",
     "str-part-pillar",
     "str-barrier-fence-mid",
@@ -27706,7 +27693,6 @@
     "str-barrier-hedge",
     "str-access-ladder",
     "str-fixture-marker-flag",
-    "str-fixture-chimney",
     "str-fixture-utility-turbine",
     "env-remains-deadwood-tree",
     "env-flora-plant-leafy",
@@ -27725,6 +27711,7 @@
     "obj-container-crate-cube",
     "obj-container-bottle-vial",
     "obj-container-pot",
+    "obj-container-pallet",
     "obj-kitchenware-tableware-drinkware-goblet",
     "obj-kitchenware-tableware-condiment",
     "obj-kitchenware-cookware-pan",
@@ -27735,7 +27722,6 @@
     "obj-equipment-weapon-siege-ammunition",
     "obj-equipment-weapon-siege-ammunition-cannonball",
     "obj-transport-watercraft-ship",
-    "obj-transport-pallet",
     "obj-transport-land-cart",
     "obj-resource-wood-log",
     "obj-furnishing-light-candle",
@@ -27746,6 +27732,7 @@
     "str-part-door-trapdoor",
     "str-part-floor-unit",
     "str-part-roof-unit",
+    "str-part-chimney",
     "str-part-pillar",
     "str-barrier-fence-mid",
     "str-barrier-fence-gate",
@@ -27756,7 +27743,6 @@
     "str-fixture-marker-sign",
     "str-fixture-marker-flag",
     "str-fixture-marker-banner",
-    "str-fixture-chimney",
     "str-fixture-utility-well",
     "env-fauna-fish",
     "env-fauna-starfish",
@@ -27996,7 +27982,6 @@
   "obj-container-bag-pouch",
   "obj-container-bag-sack",
   "obj-container-barrel",
-  "obj-container-barrel-keg",
   "obj-container-basket",
   "obj-container-bottle",
   "obj-container-bottle-vial",
@@ -28008,6 +27993,7 @@
   "obj-container-coffin",
   "obj-container-crate",
   "obj-container-crate-cube",
+  "obj-container-pallet",
   "obj-container-pot-jar",
   "obj-container-pot-urn",
   "obj-container-pot-vase",
@@ -28019,7 +28005,6 @@
   "obj-device-appliance-oven",
   "obj-device-appliance-stove",
   "obj-device-appliance-toaster",
-  "obj-device-electronics-arcade",
   "obj-device-electronics-radio",
   "obj-device-electronics-register",
   "obj-device-electronics-screen",
@@ -28097,13 +28082,13 @@
   "obj-food-fruit-pear",
   "obj-food-fruit-pineapple",
   "obj-food-meal",
+  "obj-food-meal-burger",
+  "obj-food-meal-sandwich",
   "obj-food-meat-ham",
   "obj-food-meat-patty",
   "obj-food-meat-roast",
   "obj-food-meat-sausage",
   "obj-food-meat-steak",
-  "obj-food-prepared-burger",
-  "obj-food-prepared-sandwich",
   "obj-food-seafood",
   "obj-food-sweet-icecream",
   "obj-food-sweet-lollipop",
@@ -28130,10 +28115,10 @@
   "obj-furnishing-furniture-seating-stool",
   "obj-furnishing-furniture-storage-cabinet",
   "obj-furnishing-furniture-storage-dresser",
+  "obj-furnishing-furniture-storage-rack",
+  "obj-furnishing-furniture-storage-rack-coat",
+  "obj-furnishing-furniture-storage-rack-weapon",
   "obj-furnishing-furniture-storage-shelf",
-  "obj-furnishing-furniture-storage-shelf-rack-coat",
-  "obj-furnishing-furniture-storage-shelf-rack-weapon",
-  "obj-furnishing-light-campfire",
   "obj-furnishing-light-lamp",
   "obj-furnishing-light-lamp-ceiling",
   "obj-furnishing-light-lamp-ceiling-fan",
@@ -28162,6 +28147,7 @@
   "obj-kitchenware-tableware-drinkware-tankard",
   "obj-kitchenware-tableware-serving",
   "obj-leisure-art-frame",
+  "obj-leisure-game-arcade",
   "obj-leisure-game-ball",
   "obj-resource-crop-hay",
   "obj-resource-crop-wheat",
@@ -28172,7 +28158,6 @@
   "obj-transport-land-cart-small",
   "obj-transport-land-road",
   "obj-transport-land-road-truck",
-  "obj-transport-pallet",
   "obj-transport-part-paddle",
   "obj-transport-part-wheel",
   "obj-transport-watercraft-boat",
@@ -28182,24 +28167,27 @@
   "str-access-ladder",
   "str-access-platform-catwalk",
   "str-access-platform-dock",
+  "str-access-ramp",
   "str-access-road",
   "str-access-stairs",
   "str-access-track",
   "str-canopy-stall",
   "str-canopy-tent-camping",
+  "str-fixture-fire-brazier",
+  "str-fixture-fire-campfire",
   "str-fixture-leisure",
   "str-fixture-leisure-playground",
   "str-fixture-light-post",
   "str-fixture-light-street",
+  "str-fixture-machinery",
+  "str-fixture-machinery-conveyor",
+  "str-fixture-machinery-hopper",
   "str-fixture-marker-banner",
   "str-fixture-marker-flag",
   "str-fixture-marker-grave",
   "str-fixture-marker-sign",
   "str-fixture-marker-sign-road",
   "str-fixture-marker-sign-signpost",
-  "str-fixture-utility-conveyor",
-  "str-fixture-utility-hopper",
-  "str-fixture-utility-machine",
   "str-fixture-utility-pipe",
   "str-fixture-utility-solar",
   "str-fixture-utility-tank",
@@ -28465,12 +28453,6 @@
    "longest.max": 30,
    "tpu.max": 3000
   },
-  "env-terrain-ground-path": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 3000
-  },
   "env-terrain-ground-pit": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -28553,12 +28535,6 @@
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.7,
-   "tpu.max": 10000
-  },
-  "obj-container-barrel-keg": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 0.65,
    "tpu.max": 10000
   },
   "obj-container-barrel-metal": {
@@ -28730,6 +28706,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-container-pallet": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
   "obj-container-pot": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -28856,12 +28838,6 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "obj-device-electronics-arcade": {
-   "high.max": 8,
-   "longest.min": 0.45,
-   "longest.max": 1.35,
-   "tpu.max": 10000
-  },
   "obj-device-electronics-audio": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -28887,12 +28863,6 @@
    "tpu.max": 10000
   },
   "obj-device-electronics-computer-tower": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "obj-device-electronics-installation": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -29705,6 +29675,18 @@
    "longest.max": 0.4,
    "tpu.max": 5000
   },
+  "obj-food-meal-burger": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.35,
+   "tpu.max": 5000
+  },
+  "obj-food-meal-sandwich": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.35,
+   "tpu.max": 5000
+  },
   "obj-food-meat": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -29736,18 +29718,6 @@
    "tpu.max": 5000
   },
   "obj-food-meat-steak": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.35,
-   "tpu.max": 5000
-  },
-  "obj-food-prepared-burger": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.35,
-   "tpu.max": 5000
-  },
-  "obj-food-prepared-sandwich": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.35,
@@ -30044,28 +30014,28 @@
    "longest.max": 1.2,
    "tpu.max": 5000
   },
-  "obj-furnishing-furniture-storage-shelf": {
+  "obj-furnishing-furniture-storage-rack": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 0.95,
    "tpu.max": 5000
   },
-  "obj-furnishing-furniture-storage-shelf-rack": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.95,
-   "tpu.max": 5000
-  },
-  "obj-furnishing-furniture-storage-shelf-rack-coat": {
+  "obj-furnishing-furniture-storage-rack-coat": {
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 1,
    "tpu.max": 5000
   },
-  "obj-furnishing-furniture-storage-shelf-rack-weapon": {
+  "obj-furnishing-furniture-storage-rack-weapon": {
    "high.max": 8,
    "longest.min": 0.3,
    "longest.max": 1.1,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-furniture-storage-shelf": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.95,
    "tpu.max": 5000
   },
   "obj-furnishing-furniture-table": {
@@ -30107,12 +30077,6 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "obj-furnishing-light-campfire": {
-   "high.max": 8,
-   "longest.min": 0.35,
-   "longest.max": 0.85,
    "tpu.max": 5000
   },
   "obj-furnishing-light-candle": {
@@ -30459,6 +30423,12 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-leisure-game-arcade": {
+   "high.max": 8,
+   "longest.min": 0.45,
+   "longest.max": 1.35,
+   "tpu.max": 10000
+  },
   "obj-leisure-game-ball": {
    "high.max": 8,
    "longest.min": 0.15,
@@ -30543,12 +30513,6 @@
    "longest.max": 1.25,
    "tpu.max": 5000
   },
-  "obj-symbol": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
   "obj-transport-air": {
    "high.max": 30,
    "longest.min": 0.05,
@@ -30622,12 +30586,6 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "obj-transport-pallet": {
-   "high.max": 30,
-   "longest.min": 0.3,
-   "longest.max": 0.8,
-   "tpu.max": 10000
-  },
   "obj-transport-part": {
    "high.max": 30,
    "longest.min": 0.05,
@@ -30693,6 +30651,12 @@
    "longest.max": 1.4,
    "tpu.max": 5000
   },
+  "str-access-path": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 3000
+  },
   "str-access-platform": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -30717,6 +30681,12 @@
    "longest.max": 4,
    "tpu.max": 5000
   },
+  "str-access-ramp": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 2.5,
+   "tpu.max": 5000
+  },
   "str-access-road": {
    "high.max": 8,
    "longest.min": 0.7,
@@ -30736,12 +30706,6 @@
    "tpu.max": 5000
   },
   "str-access-stairs-open": {
-   "high.max": 8,
-   "longest.min": 0.5,
-   "longest.max": 2.5,
-   "tpu.max": 5000
-  },
-  "str-access-stairs-ramp": {
    "high.max": 8,
    "longest.min": 0.5,
    "longest.max": 2.5,
@@ -30978,14 +30942,25 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "str-fixture-chimney": {
-   "high.min": 1.2,
-   "high.max": 4.5,
+  "str-fixture-fire-brazier": {
+   "high.max": 8,
+   "longest.min": 0.25,
+   "longest.max": 0.65,
+   "tpu.max": 5000
+  },
+  "str-fixture-fire-campfire": {
+   "high.max": 8,
+   "longest.min": 0.35,
+   "longest.max": 0.85,
+   "tpu.max": 5000
+  },
+  "str-fixture-fire-fireplace": {
+   "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "str-fixture-fireplace": {
+  "str-fixture-installation": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -31025,6 +31000,36 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-fixture-machinery": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-machinery-conveyor": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-machinery-crane": {
+   "high.max": 13,
+   "longest.min": 0.4,
+   "longest.max": 13,
+   "tpu.max": 5000
+  },
+  "str-fixture-machinery-drivethrough": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 2.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-machinery-hopper": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 1,
    "tpu.max": 5000
   },
   "str-fixture-marker": {
@@ -31099,12 +31104,6 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "str-fixture-utility-conveyor": {
-   "high.max": 8,
-   "longest.min": 0.4,
-   "longest.max": 1.2,
-   "tpu.max": 5000
-  },
   "str-fixture-utility-fountain": {
    "high.min": 0.2,
    "high.max": 1.8,
@@ -31112,34 +31111,10 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "str-fixture-utility-hopper": {
-   "high.max": 8,
-   "longest.min": 0.4,
-   "longest.max": 1,
-   "tpu.max": 5000
-  },
   "str-fixture-utility-hydrant": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "str-fixture-utility-machine": {
-   "high.max": 8,
-   "longest.min": 0.4,
-   "longest.max": 2.2,
-   "tpu.max": 5000
-  },
-  "str-fixture-utility-machine-crane": {
-   "high.max": 13,
-   "longest.min": 0.4,
-   "longest.max": 13,
-   "tpu.max": 5000
-  },
-  "str-fixture-utility-machine-drivethrough": {
-   "high.max": 8,
-   "longest.min": 0.4,
-   "longest.max": 2.2,
    "tpu.max": 5000
   },
   "str-fixture-utility-pipe": {
@@ -31174,6 +31149,13 @@
   },
   "str-part": {
    "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-chimney": {
+   "high.min": 0.4,
+   "high.max": 4.5,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
@@ -31279,12 +31261,6 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
-  "str-part-roof-chimney": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
   "str-part-roof-unit": {
    "high.max": 8,
    "longest.min": 0.4,
@@ -31330,6 +31306,12 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
+  },
+  "sym": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
   },
   "obj-container-chest scale-small": {
    "high.min": 0.1,
@@ -31480,6 +31462,12 @@
    "high.max": 8,
    "longest.min": 0.675,
    "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-container-pallet scale-big": {
+   "high.max": 8,
+   "longest.min": 0.6,
+   "longest.max": 1.6,
    "tpu.max": 10000
   },
   "obj-kitchenware-tableware-plate scale-small": {
@@ -31740,12 +31728,6 @@
    "longest.max": 69,
    "tpu.max": 10000
   },
-  "obj-transport-pallet scale-big": {
-   "high.max": 30,
-   "longest.min": 0.6,
-   "longest.max": 1.6,
-   "tpu.max": 10000
-  },
   "obj-transport-land-cart scale-big": {
    "high.max": 30,
    "longest.min": 1.1,
@@ -31903,6 +31885,20 @@
    "longest.max": 2.4,
    "tpu.max": 5000
   },
+  "str-part-chimney scale-small": {
+   "high.min": 0.2,
+   "high.max": 2.25,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-chimney scale-big": {
+   "high.min": 0.8,
+   "high.max": 9,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-part-wall-unit scale-small": {
    "high.min": 0.325,
    "high.max": 0.6,
@@ -32048,20 +32044,6 @@
    "high.max": 8,
    "longest.min": 1,
    "longest.max": 2.2,
-   "tpu.max": 5000
-  },
-  "str-fixture-chimney scale-small": {
-   "high.min": 0.6,
-   "high.max": 2.25,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "str-fixture-chimney scale-big": {
-   "high.min": 2.4,
-   "high.max": 9,
-   "longest.min": 0.05,
-   "longest.max": 30,
    "tpu.max": 5000
   },
   "str-fixture-utility-well scale-big": {
@@ -32256,7 +32238,7 @@
     "3dm",
     "metal"
    ],
-   "thickRel": 1.78,
+   "thickRel": 2.23,
    "lint": [
     {
      "level": "error",
@@ -32613,7 +32595,7 @@
     "metal-iron-wrought",
     "plastic"
    ],
-   "thickRel": 1.13,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -34952,7 +34934,7 @@
     "plastic",
     "stone-masonry"
    ],
-   "thickRel": 1.91
+   "thickRel": 2.4
   },
   {
    "kit": "3dm-industrial",
@@ -35397,7 +35379,7 @@
    "collection": "3dm",
    "name": "cement-mixer",
    "hash": "31dfc689d7",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.571,
@@ -35567,7 +35549,7 @@
    "collection": "3dm",
    "name": "pallet",
    "hash": "0436ff2304",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.45,
@@ -35760,7 +35742,7 @@
     "3dm",
     "metal-iron-steel"
    ],
-   "thickRel": 2.72
+   "thickRel": 2.14
   },
   {
    "kit": "3dm-industrial-2",
@@ -36654,7 +36636,7 @@
    "collection": "3dm",
    "name": "generator",
    "hash": "547753d2a8",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.963,
@@ -42944,7 +42926,7 @@
     "storeys-4",
     "wood-worked"
    ],
-   "thickRel": 1.09,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -48248,7 +48230,7 @@
    "tags": [
     "wood-beam"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.75
   },
   {
    "kit": "emace-80s",
@@ -49972,7 +49954,7 @@
    "collection": "emace",
    "name": "cobble-path-a",
    "hash": "5d97baa7d3",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     1.081,
@@ -50019,7 +50001,7 @@
    "collection": "emace",
    "name": "cobble-path-b",
    "hash": "1f6b272812",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.63,
@@ -50061,7 +50043,7 @@
    "collection": "emace",
    "name": "cobble-path-corner",
    "hash": "2e56c6eb0a",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.908,
@@ -50154,7 +50136,7 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "emace-village",
@@ -50197,7 +50179,7 @@
     "wood-worked"
    ],
    "variant": "emace-village/corner-shelf",
-   "thickRel": 0.57
+   "thickRel": 0.45
   },
   {
    "kit": "emace-village",
@@ -50240,7 +50222,7 @@
     "wood-worked"
    ],
    "variant": "emace-village/corner-shelf",
-   "thickRel": 0.71
+   "thickRel": 0.56
   },
   {
    "kit": "emace-village",
@@ -51008,7 +50990,7 @@
    "collection": "emace",
    "name": "hearth",
    "hash": "d6c90deb54",
-   "kind": "str-fixture-fireplace",
+   "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
     0.798,
@@ -51074,7 +51056,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.95,
+   "thickRel": 1.32,
    "lint": [
     {
      "level": "warning",
@@ -52723,7 +52705,7 @@
      "other": 0.57
     }
    },
-   "thickRel": 0.73,
+   "thickRel": 0.57,
    "lint": [
     {
      "level": "warning",
@@ -54061,7 +54043,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.69
   },
   {
    "kit": "emace-village",
@@ -54170,7 +54152,7 @@
     "wood-worked"
    ],
    "variant": "emace-village/shelf-standing",
-   "thickRel": 0.5
+   "thickRel": 0.4
   },
   {
    "kit": "emace-village",
@@ -54219,7 +54201,7 @@
     "wood-worked"
    ],
    "variant": "emace-village/shelf-standing",
-   "thickRel": 0.72
+   "thickRel": 0.57
   },
   {
    "kit": "emace-village",
@@ -54629,7 +54611,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.45
   },
   {
    "kit": "emace-village",
@@ -55451,7 +55433,7 @@
     "storeys-2",
     "wood-beam"
    ],
-   "thickRel": 1.03
+   "thickRel": 0.98
   },
   {
    "kit": "emace-village",
@@ -55886,7 +55868,7 @@
      "other": 0.07
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -56233,7 +56215,7 @@
     "stone-masonry",
     "storeys-0-5"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.51
   },
   {
    "kit": "emace-village",
@@ -56345,7 +56327,7 @@
    "kit": "food-pack",
    "name": "burger-sesame",
    "hash": "1b268c8b8b",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.25,
@@ -56408,7 +56390,7 @@
    "kit": "food-pack",
    "name": "burger",
    "hash": "9418685c2a",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.25,
@@ -58661,7 +58643,7 @@
    "kit": "food-pack-2",
    "name": "burger-sandwich",
    "hash": "ab096eaaf5",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.209,
@@ -63588,7 +63570,7 @@
     "food"
    ],
    "variant": "food-pack-2/pizza",
-   "thickRel": 0.65,
+   "thickRel": 0.3,
    "lint": [
     {
      "level": "warning",
@@ -63646,7 +63628,7 @@
     "food"
    ],
    "variant": "food-pack-2/pizza",
-   "thickRel": 0.6,
+   "thickRel": 0.27,
    "lint": [
     {
      "level": "warning",
@@ -64167,7 +64149,7 @@
    "kit": "food-pack-2",
    "name": "sandwich-cheese",
    "hash": "b77082a3fa",
-   "kind": "obj-food-prepared-sandwich",
+   "kind": "obj-food-meal-sandwich",
    "size": "s",
    "wdh": [
     0.2,
@@ -64207,13 +64189,13 @@
     "food"
    ],
    "variant": "food-pack-2/sandwich",
-   "thickRel": 0.59
+   "thickRel": 0.66
   },
   {
    "kit": "food-pack-2",
    "name": "sandwich",
    "hash": "d8bde0c4a9",
-   "kind": "obj-food-prepared-sandwich",
+   "kind": "obj-food-meal-sandwich",
    "size": "s",
    "wdh": [
     0.139,
@@ -64258,7 +64240,7 @@
     "food"
    ],
    "variant": "food-pack-2/sandwich",
-   "thickRel": 0.88
+   "thickRel": 0.98
   },
   {
    "kit": "food-pack-2",
@@ -65769,7 +65751,7 @@
    "collection": "fs-buildings",
    "name": "chimney",
    "hash": "ab4a3ff4bd",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "s",
    "wdh": [
     0.45,
@@ -65805,7 +65787,7 @@
     "mounted",
     "stone-masonry"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.54
   },
   {
    "kit": "fs-house",
@@ -66414,7 +66396,7 @@
    "collection": "fs-buildings",
    "name": "fireplace-chimney",
    "hash": "fc74cad60d",
-   "kind": "str-fixture-fireplace",
+   "kind": "str-fixture-fire-fireplace",
    "size": "s",
    "wdh": [
     0.405,
@@ -66456,7 +66438,7 @@
    "collection": "fs-buildings",
    "name": "fireplace",
    "hash": "33bd5d3afb",
-   "kind": "str-fixture-fireplace",
+   "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
     0.765,
@@ -66509,7 +66491,7 @@
     "stone-masonry",
     "wood-log"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.57
   },
   {
    "kit": "fs-house",
@@ -67522,7 +67504,7 @@
     "mounted",
     "wood-planks"
    ],
-   "thickRel": 1.15
+   "thickRel": 0.9
   },
   {
    "kit": "fs-house",
@@ -67850,7 +67832,7 @@
     "wood-worked"
    ],
    "variant": "fs-house/stairs",
-   "thickRel": 1.48
+   "thickRel": 1.44
   },
   {
    "kit": "fs-house",
@@ -67899,7 +67881,7 @@
     "wood-worked"
    ],
    "variant": "fs-house/stairs",
-   "thickRel": 1.54
+   "thickRel": 1.51
   },
   {
    "kit": "fs-house",
@@ -69622,7 +69604,7 @@
    "collection": "fs-buildings",
    "name": "floor-bridge-ramp",
    "hash": "0623e8d73a",
-   "kind": "str-access-stairs-ramp",
+   "kind": "str-access-ramp",
    "size": "m",
    "wdh": [
     1.35,
@@ -69657,7 +69639,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 1.89
+   "thickRel": 2.4
   },
   {
    "kit": "fs-temple",
@@ -71894,7 +71876,7 @@
     "gemstone",
     "stone-masonry"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.87
   },
   {
    "kit": "fs-temple",
@@ -74434,7 +74416,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.5
   },
   {
    "kit": "fs-temple",
@@ -74476,7 +74458,7 @@
     "fs",
     "stone-masonry"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "fs-temple",
@@ -74519,7 +74501,7 @@
     "stone-masonry"
    ],
    "variant": "fs-temple/tower-bottom",
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "fs-temple",
@@ -74568,7 +74550,7 @@
     "stone-masonry"
    ],
    "variant": "fs-temple/tower-parapet-braced-crowned",
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "fs-temple",
@@ -74617,7 +74599,7 @@
     "stone-masonry"
    ],
    "variant": "fs-temple/tower-parapet-braced-crowned",
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "fs-temple",
@@ -74660,7 +74642,7 @@
     "stone-masonry"
    ],
    "variant": "fs-temple/tower-bottom",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "fs-temple",
@@ -77670,7 +77652,7 @@
    "collection": "fs-modular",
    "name": "hilly-prop-camp-campfire",
    "hash": "1adc8b751d",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.714,
@@ -81533,7 +81515,7 @@
    "collection": "fs-modular",
    "name": "chimney-pipe-anim",
    "hash": "674c7d3b4f",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.383,
@@ -81574,7 +81556,7 @@
    ],
    "alpha": true,
    "variant": "fs-town/chimney-pipe-anim",
-   "thickRel": 0.59,
+   "thickRel": 0.49,
    "mark": [
     "grounded",
     "centered"
@@ -81585,7 +81567,7 @@
    "collection": "fs-modular",
    "name": "chimney-pipe",
    "hash": "b62bc3058d",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.383,
@@ -81620,7 +81602,7 @@
     "mounted"
    ],
    "variant": "fs-town/chimney-pipe-anim",
-   "thickRel": 0.59,
+   "thickRel": 0.49,
    "mark": [
     "grounded",
     "centered"
@@ -81631,7 +81613,7 @@
    "collection": "fs-modular",
    "name": "chimney-stone",
    "hash": "d027a3b4f3",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.25,
@@ -81669,7 +81651,7 @@
     "stone-masonry",
     "tba"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.02
   },
   {
    "kit": "fs-town",
@@ -89650,7 +89632,7 @@
    "kit": "household",
    "name": "hamburger",
    "hash": "51713924a3",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.238,
@@ -92127,7 +92109,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.38
   },
   {
    "kit": "ipoly-electronics",
@@ -94386,7 +94368,7 @@
     "metal-iron-steel",
     "wood-beam"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "ipoly-torture",
@@ -94962,7 +94944,7 @@
     "ka_ching"
    ],
    "variant": "isa-bakery/cash-register-anim",
-   "thickRel": 1.11,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "error",
@@ -95021,7 +95003,7 @@
     "tba"
    ],
    "variant": "isa-bakery/cash-register-anim",
-   "thickRel": 1.11,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "error",
@@ -98307,7 +98289,7 @@
     "wood-planks"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 1.29
+   "thickRel": 1.02
   },
   {
    "kit": "isa-bakery",
@@ -98358,7 +98340,7 @@
     "mounted"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 1.19
+   "thickRel": 0.94
   },
   {
    "kit": "isa-bakery",
@@ -98403,7 +98385,7 @@
     "mounted"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 0.91
+   "thickRel": 0.72
   },
   {
    "kit": "isa-bakery",
@@ -100294,7 +100276,7 @@
     "wood-worked"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.19
+   "thickRel": 1.73
   },
   {
    "kit": "isa-bathroom",
@@ -105613,7 +105595,7 @@
     "wood-planks"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 0.82
+   "thickRel": 0.65
   },
   {
    "kit": "isa-kitchen",
@@ -105733,7 +105715,7 @@
     "wood-planks"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.15
+   "thickRel": 1.7
   },
   {
    "kit": "isa-kitchen",
@@ -105784,7 +105766,7 @@
     "wood-planks"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 1.99
+   "thickRel": 1.57
   },
   {
    "kit": "isa-kitchen",
@@ -108825,7 +108807,7 @@
    "collection": "isa-tt",
    "name": "sandwich",
    "hash": "039b3eab84",
-   "kind": "obj-food-prepared-sandwich",
+   "kind": "obj-food-meal-sandwich",
    "size": "s",
    "wdh": [
     0.218,
@@ -108881,7 +108863,7 @@
     "isa",
     "vegetation"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.91
   },
   {
    "kit": "isa-picnic",
@@ -119022,7 +119004,7 @@
     "wood-bark",
     "wood-beam"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "kay-builder",
@@ -121872,7 +121854,7 @@
     "kay",
     "metal"
    ],
-   "thickRel": 2.07
+   "thickRel": 2.6
   },
   {
    "kit": "kay-city",
@@ -125894,7 +125876,7 @@
     "metal-iron-wrought"
    ],
    "variant": "kay-dun-1/plate-full",
-   "thickRel": 1
+   "thickRel": 0.46
   },
   {
    "kit": "kay-dun-1",
@@ -125943,7 +125925,7 @@
     "metal-iron-wrought"
    ],
    "variant": "kay-dun-1/plate-full",
-   "thickRel": 0.7
+   "thickRel": 0.32
   },
   {
    "kit": "kay-dun-1",
@@ -129390,7 +129372,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/torch-mounted",
-   "thickRel": 0.93,
+   "thickRel": 0.62,
    "mark": [
     "centered"
    ]
@@ -129442,7 +129424,7 @@
     "metal-iron-wrought",
     "wood-beam"
    ],
-   "thickRel": 1.12
+   "thickRel": 0.76
   },
   {
    "kit": "kay-dun-1",
@@ -129499,7 +129481,7 @@
    "kit": "kay-dun-1",
    "name": "weapon-rack",
    "hash": "5a5d7e477a",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "s",
    "wdh": [
     0.462,
@@ -133022,7 +133004,7 @@
    "collection": "kay-interior",
    "name": "keg",
    "hash": "4a062ddc64",
-   "kind": "obj-container-barrel-keg",
+   "kind": "obj-container-barrel",
    "size": "m",
    "wdh": [
     0.54,
@@ -133322,7 +133304,7 @@
     "kay"
    ],
    "variant": "kay-dun-2/plate-food-a",
-   "thickRel": 1.71
+   "thickRel": 0.78
   },
   {
    "kit": "kay-dun-2",
@@ -133377,7 +133359,7 @@
     "kay"
    ],
    "variant": "kay-dun-2/plate-food-a",
-   "thickRel": 0.84
+   "thickRel": 0.38
   },
   {
    "kit": "kay-dun-2",
@@ -133556,7 +133538,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/shelf-large",
-   "thickRel": 2.55
+   "thickRel": 2.01
   },
   {
    "kit": "kay-dun-2",
@@ -133654,7 +133636,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/shelf-large",
-   "thickRel": 1.91
+   "thickRel": 1.5
   },
   {
    "kit": "kay-dun-2",
@@ -133743,7 +133725,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.72,
+   "thickRel": 1.68,
    "mark": [
     "centered"
    ]
@@ -133794,7 +133776,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.64,
+   "thickRel": 1.6,
    "mark": [
     "centered"
    ]
@@ -133846,7 +133828,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs-wall-left",
-   "thickRel": 1.33
+   "thickRel": 1.3
   },
   {
    "kit": "kay-dun-2",
@@ -133895,7 +133877,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs-wall-left",
-   "thickRel": 1.33
+   "thickRel": 1.3
   },
   {
    "kit": "kay-dun-2",
@@ -133942,7 +133924,7 @@
     "kay",
     "stone-masonry"
    ],
-   "thickRel": 1.61,
+   "thickRel": 1.57,
    "mark": [
     "centered"
    ]
@@ -133993,7 +133975,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.51,
+   "thickRel": 1.47,
    "mark": [
     "centered"
    ]
@@ -134101,7 +134083,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1,
+   "thickRel": 0.97,
    "mark": [
     "centered"
    ]
@@ -134152,7 +134134,7 @@
     "stone-masonry"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.37,
+   "thickRel": 1.34,
    "mark": [
     "centered"
    ]
@@ -135197,7 +135179,7 @@
     "wood-planks"
    ],
    "variant": "kay-dun-2/torch",
-   "thickRel": 1.28
+   "thickRel": 0.87
   },
   {
    "kit": "kay-dun-2",
@@ -135253,7 +135235,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/torch-mounted",
-   "thickRel": 0.91
+   "thickRel": 0.62
   },
   {
    "kit": "kay-dun-2",
@@ -135303,7 +135285,7 @@
     "wood-worked"
    ],
    "variant": "kay-dun-2/torch",
-   "thickRel": 1
+   "thickRel": 0.67
   },
   {
    "kit": "kay-dun-2",
@@ -140136,7 +140118,7 @@
     "food",
     "kay"
    ],
-   "thickRel": 1.37
+   "thickRel": 0.63
   },
   {
    "kit": "kay-food",
@@ -140903,7 +140885,7 @@
     "metal-iron-cast",
     "paper"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "kay-food",
@@ -148583,7 +148565,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/shelf-a-big",
-   "thickRel": 2.49
+   "thickRel": 1.96
   },
   {
    "kit": "kay-furniture",
@@ -148627,7 +148609,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/shelf-a-big",
-   "thickRel": 1.98
+   "thickRel": 1.56
   },
   {
    "kit": "kay-furniture",
@@ -148730,7 +148712,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/shelf-b-large",
-   "thickRel": 2.46
+   "thickRel": 1.94
   },
   {
    "kit": "kay-furniture",
@@ -148839,7 +148821,7 @@
     "wood-worked"
    ],
    "variant": "kay-furniture/shelf-b-large",
-   "thickRel": 1.97
+   "thickRel": 1.55
   },
   {
    "kit": "kay-furniture",
@@ -149659,7 +149641,7 @@
     "storeys-0-5",
     "wood-beam"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "kay-hallow",
@@ -150669,7 +150651,7 @@
    "kit": "kay-hallow",
    "name": "path-a",
    "hash": "3a021d900d",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.571,
@@ -150714,7 +150696,7 @@
    "kit": "kay-hallow",
    "name": "path-b",
    "hash": "13c2189742",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.566,
@@ -150758,7 +150740,7 @@
    "kit": "kay-hallow",
    "name": "path-c",
    "hash": "3a3abbe783",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.555,
@@ -150802,7 +150784,7 @@
    "kit": "kay-hallow",
    "name": "path-d",
    "hash": "ced6884815",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.497,
@@ -153181,7 +153163,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.16
   },
   {
    "kit": "kay-hexagon",
@@ -154867,7 +154849,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "kay-hexagon",
@@ -155003,7 +154985,7 @@
    "collection": "kay-strategy",
    "name": "pallet",
    "hash": "3c3f25d8c1",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "m",
    "wdh": [
     0.51,
@@ -155690,7 +155672,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 0.75,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "error",
@@ -155746,7 +155728,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.19
   },
   {
    "kit": "kay-hexagon",
@@ -156926,7 +156908,7 @@
    "collection": "kay-strategy",
    "name": "weapon-rack",
    "hash": "e56186d58f",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "s",
    "wdh": [
     0.34,
@@ -157432,7 +157414,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.42
   },
   {
    "kit": "kay-holiday",
@@ -158027,7 +158009,7 @@
     "kay",
     "textile"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.41
   },
   {
    "kit": "kay-holiday",
@@ -160161,7 +160143,7 @@
     "plastic",
     "scale-big"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.41
   },
   {
    "kit": "kay-minigame",
@@ -160775,7 +160757,7 @@
    "collection": "kay-play",
    "name": "lightning",
    "hash": "955fb143f6",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.241,
@@ -161097,7 +161079,7 @@
    "collection": "kay-play",
    "name": "star",
    "hash": "44de898244",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.37,
@@ -162118,7 +162100,7 @@
     "kay",
     "metal-iron-cast"
    ],
-   "thickRel": 1.94
+   "thickRel": 2.43
   },
   {
    "kit": "kay-mixed",
@@ -163134,7 +163116,7 @@
     "food",
     "kay"
    ],
-   "thickRel": 2.82
+   "thickRel": 1.29
   },
   {
    "kit": "kay-mixed",
@@ -163589,7 +163571,7 @@
     "scale-big"
    ],
    "variant": "kay-platformer/ball",
-   "thickRel": 1.46
+   "thickRel": 1.42
   },
   {
    "kit": "kay-platformer",
@@ -163643,7 +163625,7 @@
     "scale-big"
    ],
    "variant": "kay-platformer/ball",
-   "thickRel": 1.46
+   "thickRel": 1.42
   },
   {
    "kit": "kay-platformer",
@@ -164041,7 +164023,7 @@
    "collection": "kay-play",
    "name": "diamond",
    "hash": "8ccdc129c4",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.323,
@@ -164485,7 +164467,7 @@
    "collection": "kay-play",
    "name": "heart",
    "hash": "1cacee5578",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.324,
@@ -164797,7 +164779,7 @@
    "collection": "kay-play",
    "name": "lightning",
    "hash": "91632d4fcb",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.267,
@@ -166505,7 +166487,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.59
   },
   {
    "kit": "kay-platformer",
@@ -166602,7 +166584,7 @@
    "collection": "kay-play",
    "name": "star",
    "hash": "18276b3550",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.35,
@@ -167400,7 +167382,7 @@
    "collection": "kay-play",
    "name": "pallet-large",
    "hash": "8954ecb5c9",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "m",
    "wdh": [
     1.2,
@@ -167560,7 +167542,7 @@
    "collection": "kay-play",
    "name": "pallet-small",
    "hash": "81c8b27c42",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "m",
    "wdh": [
     0.6,
@@ -169900,7 +169882,7 @@
    "collection": "kay-rpg",
    "name": "pallet-wood",
    "hash": "e429421c86",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.45,
@@ -174031,7 +174013,7 @@
     "storeys-1"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.11,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "error",
@@ -174097,7 +174079,7 @@
     "storeys-1"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.17,
+   "thickRel": 1.18,
    "lint": [
     {
      "level": "error",
@@ -174163,7 +174145,7 @@
     "storeys-1"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.17,
+   "thickRel": 1.18,
    "lint": [
     {
      "level": "error",
@@ -174229,7 +174211,7 @@
     "storeys-1"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.13,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "error",
@@ -174294,7 +174276,7 @@
     "space",
     "storeys-1-5"
    ],
-   "thickRel": 1.31,
+   "thickRel": 1.32,
    "lint": [
     {
      "level": "error",
@@ -174365,7 +174347,7 @@
     "space",
     "storeys-1"
    ],
-   "thickRel": 1.21,
+   "thickRel": 1.22,
    "lint": [
     {
      "level": "error",
@@ -176722,7 +176704,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.84
   },
   {
    "kit": "kay-space",
@@ -176782,7 +176764,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.81
+   "thickRel": 1.01
   },
   {
    "kit": "kay-spook",
@@ -178312,7 +178294,7 @@
    "collection": "kay-undead",
    "name": "path-cobbled",
    "hash": "f228c9241b",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.599,
@@ -180875,7 +180857,7 @@
    ],
    "specialBand": "6,1",
    "variant": "kay-tools/torch",
-   "thickRel": 3.1
+   "thickRel": 2.09
   },
   {
    "kit": "kay-tools",
@@ -180931,7 +180913,7 @@
     "wood-beam"
    ],
    "variant": "kay-tools/torch",
-   "thickRel": 3.1
+   "thickRel": 2.09
   },
   {
    "kit": "kay-tools",
@@ -182792,7 +182774,7 @@
    "collection": "ken-mini",
    "name": "air-hockey",
    "hash": "ddbdc0721d",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.665,
@@ -182876,7 +182858,7 @@
    "collection": "ken-mini",
    "name": "arcade-machine",
    "hash": "8dc3bcc02a",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.38,
@@ -182940,7 +182922,7 @@
    "collection": "ken-mini",
    "name": "basketball-game",
    "hash": "73bc66345f",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.618,
@@ -183016,11 +182998,6 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G12 bands 8 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
      "text": "G13 bands 8 wants max 5"
     }
    ]
@@ -183088,7 +183065,7 @@
    "collection": "ken-mini",
    "name": "claw-machine",
    "hash": "a6443aeda7",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.62,
@@ -183222,7 +183199,7 @@
    "collection": "ken-mini",
    "name": "dance-machine",
    "hash": "45660be4ff",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.687,
@@ -183346,7 +183323,7 @@
    "collection": "ken-mini",
    "name": "pinball",
    "hash": "646b49359a",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.427,
@@ -183546,7 +183523,7 @@
    "collection": "ken-mini",
    "name": "slot-machine",
    "hash": "235398d5e3",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.498,
@@ -183611,7 +183588,7 @@
    "collection": "ken-mini",
    "name": "ticket-machine",
    "hash": "b1fbe015ed",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.38,
@@ -184664,7 +184641,7 @@
    "collection": "ken-mini",
    "name": "weapon-rack",
    "hash": "6809155e36",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "m",
    "wdh": [
     0.684,
@@ -190292,7 +190269,7 @@
     "stone-masonry"
    ],
    "variant": "ken-castle/stairs-stone",
-   "thickRel": 1.31
+   "thickRel": 1.28
   },
   {
    "kit": "ken-castle",
@@ -190334,7 +190311,7 @@
     "stone-masonry"
    ],
    "variant": "ken-castle/stairs-stone",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "ken-castle",
@@ -191712,7 +191689,7 @@
     "storeys-3"
    ],
    "variant": "ken-commercial/building-b",
-   "thickRel": 1.22
+   "thickRel": 1.16
   },
   {
    "kit": "ken-commercial",
@@ -191778,7 +191755,7 @@
     "storeys-3"
    ],
    "variant": "ken-commercial/building-b",
-   "thickRel": 1.09
+   "thickRel": 1.04
   },
   {
    "kit": "ken-commercial",
@@ -191857,7 +191834,7 @@
     "storeys-2"
    ],
    "variant": "ken-commercial/building-b",
-   "thickRel": 1.12
+   "thickRel": 1.07
   },
   {
    "kit": "ken-commercial",
@@ -191934,7 +191911,7 @@
     "stone-soil",
     "storeys-3"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.08
   },
   {
    "kit": "ken-commercial",
@@ -192005,7 +191982,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 1.02
+   "thickRel": 0.97
   },
   {
    "kit": "ken-commercial",
@@ -192082,7 +192059,7 @@
     "storeys-4"
    ],
    "variant": "ken-commercial/building-f",
-   "thickRel": 1.2
+   "thickRel": 1.14
   },
   {
    "kit": "ken-commercial",
@@ -192154,7 +192131,7 @@
     "storeys-4"
    ],
    "variant": "ken-commercial/building-f",
-   "thickRel": 1.24
+   "thickRel": 1.18
   },
   {
    "kit": "ken-commercial",
@@ -192226,7 +192203,7 @@
     "storeys-3"
    ],
    "variant": "ken-commercial/building-h",
-   "thickRel": 1.13
+   "thickRel": 1.07
   },
   {
    "kit": "ken-commercial",
@@ -192297,7 +192274,7 @@
     "storeys-4"
    ],
    "variant": "ken-commercial/building-h",
-   "thickRel": 1.27
+   "thickRel": 1.21
   },
   {
    "kit": "ken-commercial",
@@ -192375,7 +192352,7 @@
     "stone-soil",
     "storeys-4"
    ],
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "ken-commercial",
@@ -192446,7 +192423,7 @@
     "stone-masonry",
     "storeys-3"
    ],
-   "thickRel": 1
+   "thickRel": 0.95
   },
   {
    "kit": "ken-commercial",
@@ -192517,7 +192494,7 @@
     "stone-masonry",
     "storeys-5"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.22
   },
   {
    "kit": "ken-commercial",
@@ -192587,7 +192564,7 @@
     "stone-masonry",
     "storeys-6"
    ],
-   "thickRel": 1.58
+   "thickRel": 1.5
   },
   {
    "kit": "ken-commercial",
@@ -192658,7 +192635,7 @@
     "stone-masonry",
     "storeys-6"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.88
   },
   {
    "kit": "ken-commercial",
@@ -194003,7 +193980,7 @@
    "kit": "ken-factory",
    "name": "arrow-basic-rounded",
    "hash": "2b38752112",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.247,
@@ -194046,7 +194023,7 @@
    "kit": "ken-factory",
    "name": "arrow-rounded",
    "hash": "97ca729cfa",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.381,
@@ -194941,7 +194918,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-fence-slope",
    "hash": "73a3414079",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.503,
@@ -194990,7 +194967,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-fence",
    "hash": "1cc6a473f4",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.503,
@@ -195039,7 +195016,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-high-slope",
    "hash": "edaf8b82fb",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195083,7 +195060,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-high",
    "hash": "bbbaf227f4",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195127,7 +195104,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-sides",
    "hash": "31d5e6c2b0",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195177,7 +195154,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-stripe-fence-slope",
    "hash": "4f0a64b4c8",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.503,
@@ -195226,7 +195203,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-stripe-fence",
    "hash": "8c499230d5",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.503,
@@ -195275,7 +195252,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-stripe-high-slope",
    "hash": "5707c8d85c",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195319,7 +195296,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-stripe-high",
    "hash": "a3703883e8",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195363,7 +195340,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-stripe-side",
    "hash": "0da6472ce0",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195413,7 +195390,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars-stripe",
    "hash": "83d3331c5f",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195462,7 +195439,7 @@
    "kit": "ken-factory",
    "name": "conveyor-bars",
    "hash": "aa1855e3b2",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195511,7 +195488,7 @@
    "kit": "ken-factory",
    "name": "conveyor-corner",
    "hash": "f1c64decf4",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195560,7 +195537,7 @@
    "kit": "ken-factory",
    "name": "conveyor-cross",
    "hash": "dda690c590",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195603,7 +195580,7 @@
    "kit": "ken-factory",
    "name": "conveyor-junction-t",
    "hash": "a7cb6be5d1",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195652,7 +195629,7 @@
    "kit": "ken-factory",
    "name": "conveyor-long-sides",
    "hash": "99614d9c6b",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     1,
@@ -195702,7 +195679,7 @@
    "kit": "ken-factory",
    "name": "conveyor-long-stripe-sides",
    "hash": "1d181b9ba2",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     1,
@@ -195752,7 +195729,7 @@
    "kit": "ken-factory",
    "name": "conveyor-long-stripe",
    "hash": "496158d548",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     1,
@@ -195800,7 +195777,7 @@
    "kit": "ken-factory",
    "name": "conveyor-long",
    "hash": "a34cf5c9f4",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     1,
@@ -195849,7 +195826,7 @@
    "kit": "ken-factory",
    "name": "conveyor-sides-cross",
    "hash": "8fdf309d1b",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195892,7 +195869,7 @@
    "kit": "ken-factory",
    "name": "conveyor-stripe-corner",
    "hash": "fa7c829866",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195941,7 +195918,7 @@
    "kit": "ken-factory",
    "name": "conveyor-stripe-cross",
    "hash": "42be8d077a",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -195984,7 +195961,7 @@
    "kit": "ken-factory",
    "name": "conveyor-stripe-junction-t",
    "hash": "bc1d4875fe",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -196027,7 +196004,7 @@
    "kit": "ken-factory",
    "name": "conveyor-stripe-sides-cross",
    "hash": "8503533356",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -196070,7 +196047,7 @@
    "kit": "ken-factory",
    "name": "conveyor-stripe-sides",
    "hash": "b74facbe1c",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -196120,7 +196097,7 @@
    "kit": "ken-factory",
    "name": "conveyor-stripe",
    "hash": "d1fb88c54c",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -196169,7 +196146,7 @@
    "kit": "ken-factory",
    "name": "conveyor",
    "hash": "4ea35b779d",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.5,
@@ -196218,7 +196195,7 @@
    "kit": "ken-factory",
    "name": "crane-lift",
    "hash": "5e7e51514a",
-   "kind": "str-fixture-utility-machine-crane",
+   "kind": "str-fixture-machinery-crane",
    "size": "m",
    "wdh": [
     0.358,
@@ -196273,7 +196250,7 @@
    "kit": "ken-factory",
    "name": "crane-magnet",
    "hash": "217dc595e6",
-   "kind": "str-fixture-utility-machine-crane",
+   "kind": "str-fixture-machinery-crane",
    "size": "s",
    "wdh": [
     0.358,
@@ -196322,7 +196299,7 @@
    "kit": "ken-factory",
    "name": "crane",
    "hash": "9c3a76c9e9",
-   "kind": "str-fixture-utility-machine-crane",
+   "kind": "str-fixture-machinery-crane",
    "size": "l",
    "wdh": [
     0.963,
@@ -196473,7 +196450,7 @@
    "kit": "ken-factory",
    "name": "hopper-high-round",
    "hash": "37fde3d368",
-   "kind": "str-fixture-utility-hopper",
+   "kind": "str-fixture-machinery-hopper",
    "size": "m",
    "wdh": [
     0.559,
@@ -196513,13 +196490,13 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.64
   },
   {
    "kit": "ken-factory",
    "name": "hopper-high-square",
    "hash": "9872c076a2",
-   "kind": "str-fixture-utility-hopper",
+   "kind": "str-fixture-machinery-hopper",
    "size": "m",
    "wdh": [
     0.559,
@@ -196559,13 +196536,13 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.67
   },
   {
    "kit": "ken-factory",
    "name": "hopper-round",
    "hash": "8f52352ed1",
-   "kind": "str-fixture-utility-hopper",
+   "kind": "str-fixture-machinery-hopper",
    "size": "m",
    "wdh": [
     0.559,
@@ -196605,13 +196582,13 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.58
   },
   {
    "kit": "ken-factory",
    "name": "hopper-square",
    "hash": "e24415a40f",
-   "kind": "str-fixture-utility-hopper",
+   "kind": "str-fixture-machinery-hopper",
    "size": "m",
    "wdh": [
     0.559,
@@ -196651,7 +196628,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.6
   },
   {
    "kit": "ken-factory",
@@ -196753,7 +196730,7 @@
    "kit": "ken-factory",
    "name": "machine-bed",
    "hash": "9223b411fb",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     1.175,
@@ -196806,7 +196783,7 @@
    "kit": "ken-factory",
    "name": "machine-connection-hole",
    "hash": "1664f25e48",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.6,
@@ -196859,7 +196836,7 @@
    "kit": "ken-factory",
    "name": "machine-connection-pipe",
    "hash": "555a688005",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.6,
@@ -196912,7 +196889,7 @@
    "kit": "ken-factory",
    "name": "machine-fortified",
    "hash": "3dfb5a1db6",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.6,
@@ -196965,7 +196942,7 @@
    "kit": "ken-factory",
    "name": "machine-window-bar",
    "hash": "7fe8332fe0",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.6,
@@ -197024,7 +197001,7 @@
    "kit": "ken-factory",
    "name": "machine-window",
    "hash": "a01040e73e",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.6,
@@ -197083,7 +197060,7 @@
    "kit": "ken-factory",
    "name": "machine",
    "hash": "fa943663c6",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.6,
@@ -198000,7 +197977,7 @@
    "kit": "ken-factory",
    "name": "piston-round",
    "hash": "fd4349e16d",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.5,
@@ -198048,7 +198025,7 @@
    "kit": "ken-factory",
    "name": "piston-square",
    "hash": "d8351465f8",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.5,
@@ -198096,7 +198073,7 @@
    "kit": "ken-factory",
    "name": "piston-thin-round",
    "hash": "4821a0c7fe",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.25,
@@ -198145,7 +198122,7 @@
    "kit": "ken-factory",
    "name": "piston-thin-square",
    "hash": "e956ccf3f0",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.25,
@@ -198193,7 +198170,7 @@
    "kit": "ken-factory",
    "name": "robot-arm-a",
    "hash": "097214751e",
-   "kind": "str-fixture-utility-machine-crane",
+   "kind": "str-fixture-machinery-crane",
    "size": "l",
    "wdh": [
     0.5,
@@ -198238,7 +198215,7 @@
    "kit": "ken-factory",
    "name": "robot-arm-b",
    "hash": "9269281c26",
-   "kind": "str-fixture-utility-machine-crane",
+   "kind": "str-fixture-machinery-crane",
    "size": "l",
    "wdh": [
     0.5,
@@ -198288,7 +198265,7 @@
    "kit": "ken-factory",
    "name": "scanner-high",
    "hash": "ce54a23f86",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.242,
@@ -198335,7 +198312,7 @@
    "kit": "ken-factory",
    "name": "scanner-low",
    "hash": "837b0f8e8b",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.35,
@@ -199261,7 +199238,7 @@
     "ken",
     "metal"
    ],
-   "thickRel": 2.29
+   "thickRel": 2.32
   },
   {
    "kit": "ken-factory",
@@ -199922,7 +199899,7 @@
    "kit": "ken-food",
    "name": "burger-cheese",
    "hash": "3748bff915",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.246,
@@ -199975,7 +199952,7 @@
    "kit": "ken-food",
    "name": "burger",
    "hash": "8a53b11f62",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.263,
@@ -204175,7 +204152,7 @@
    "kit": "ken-food",
    "name": "sandwich",
    "hash": "abb6d52eb7",
-   "kind": "obj-food-prepared-sandwich",
+   "kind": "obj-food-meal-sandwich",
    "size": "s",
    "wdh": [
     0.281,
@@ -204226,7 +204203,7 @@
     "food",
     "ken"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.7
   },
   {
    "kit": "ken-food",
@@ -204628,7 +204605,7 @@
    "kit": "ken-food",
    "name": "sub",
    "hash": "f1048ede3a",
-   "kind": "obj-food-prepared-sandwich",
+   "kind": "obj-food-meal-sandwich",
    "size": "s",
    "wdh": [
     0.184,
@@ -204679,12 +204656,12 @@
     "food",
     "ken"
    ],
-   "thickRel": 1.35,
+   "thickRel": 1.52,
    "lint": [
     {
      "level": "error",
      "check": "size",
-     "text": "longest 0.439 over max 0.35 (obj-food-prepared-sandwich)"
+     "text": "longest 0.439 over max 0.35 (obj-food-meal-sandwich)"
     }
    ]
   },
@@ -204916,7 +204893,7 @@
     "food",
     "ken"
    ],
-   "thickRel": 2.06
+   "thickRel": 0.94
   },
   {
    "kit": "ken-food",
@@ -207672,7 +207649,7 @@
    "kit": "ken-furniture",
    "name": "coat-rack-standing",
    "hash": "ac5dc05b6d",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.2,
@@ -207714,7 +207691,7 @@
    "kit": "ken-furniture",
    "name": "coat-rack",
    "hash": "9e2aae0821",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "s",
    "wdh": [
     0.427,
@@ -210901,7 +210878,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.63
   },
   {
    "kit": "ken-furniture",
@@ -211054,7 +211031,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.66
   },
   {
    "kit": "ken-furniture",
@@ -212396,7 +212373,7 @@
     "storeys-0-5"
    ],
    "variant": "ken-grave/altar-stone",
-   "thickRel": 2
+   "thickRel": 1.99
   },
   {
    "kit": "ken-grave",
@@ -213355,7 +213332,7 @@
     "storeys-0-5"
    ],
    "variant": "ken-grave/crypt-large",
-   "thickRel": 1.1
+   "thickRel": 1.08
   },
   {
    "kit": "ken-grave",
@@ -213455,7 +213432,7 @@
     "stone-masonry",
     "storeys-0-5"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.08
   },
   {
    "kit": "ken-grave",
@@ -215384,7 +215361,7 @@
    "collection": "ken-village",
    "name": "road",
    "hash": "f86c1154ea",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.717,
@@ -218523,7 +218500,7 @@
     "stone-masonry",
     "storeys-3"
    ],
-   "thickRel": 1.59
+   "thickRel": 1.6
   },
   {
    "kit": "ken-industrial",
@@ -218594,7 +218571,7 @@
     "stone-masonry",
     "storeys-4"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.37
   },
   {
    "kit": "ken-industrial",
@@ -218736,7 +218713,7 @@
     "stone-masonry",
     "storeys-3"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "ken-industrial",
@@ -218934,7 +218911,7 @@
     "stone-masonry",
     "storeys-3"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "ken-industrial",
@@ -219014,7 +218991,7 @@
      "open": 0.03
     }
    },
-   "thickRel": 1.07,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "warning",
@@ -219099,7 +219076,7 @@
     "storeys-2"
    ],
    "variant": "ken-industrial/factory-h",
-   "thickRel": 1.35
+   "thickRel": 1.36
   },
   {
    "kit": "ken-industrial",
@@ -219176,7 +219153,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "ken-industrial",
@@ -219247,7 +219224,7 @@
     "stone-masonry",
     "storeys-1"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.43
   },
   {
    "kit": "ken-industrial",
@@ -219389,7 +219366,7 @@
     "stone-masonry",
     "storeys-5"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "ken-industrial",
@@ -219460,7 +219437,7 @@
     "stone-masonry",
     "storeys-5"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "ken-industrial",
@@ -219526,7 +219503,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.65
   },
   {
    "kit": "ken-industrial",
@@ -219603,7 +219580,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.37
   },
   {
    "kit": "ken-industrial",
@@ -219669,7 +219646,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "ken-industrial",
@@ -219740,7 +219717,7 @@
     "stone-masonry",
     "storeys-3"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "ken-industrial",
@@ -219811,7 +219788,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 1.76
+   "thickRel": 1.78
   },
   {
    "kit": "ken-industrial",
@@ -219888,7 +219865,7 @@
     "stone-masonry",
     "storeys-3"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "ken-industrial",
@@ -220042,7 +220019,7 @@
    "collection": "ken-city",
    "name": "smokestack-basic",
    "hash": "65b72e696d",
-   "kind": "str-fixture-chimney",
+   "kind": "str-part-chimney",
    "size": "l",
    "wdh": [
     0.44,
@@ -220087,14 +220064,14 @@
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 3.41
+   "thickRel": 1.57
   },
   {
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-large",
    "hash": "50e7be99f6",
-   "kind": "str-fixture-chimney",
+   "kind": "str-part-chimney",
    "size": "l",
    "wdh": [
     2.376,
@@ -220137,14 +220114,14 @@
     "stone-masonry",
     "tba"
    ],
-   "thickRel": 2.18
+   "thickRel": 1
   },
   {
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-medium",
    "hash": "bb418bf486",
-   "kind": "str-fixture-chimney",
+   "kind": "str-part-chimney",
    "size": "l",
    "wdh": [
     0.99,
@@ -220189,14 +220166,14 @@
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 2.98
+   "thickRel": 1.37
   },
   {
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "smokestack-small",
    "hash": "614db25cef",
-   "kind": "str-fixture-chimney",
+   "kind": "str-part-chimney",
    "size": "l",
    "wdh": [
     0.66,
@@ -220240,7 +220217,7 @@
     "tba"
    ],
    "variant": "ken-industrial/smokestack-medium",
-   "thickRel": 2.4
+   "thickRel": 1.1
   },
   {
    "kit": "ken-industrial",
@@ -220773,7 +220750,7 @@
     "tba"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 0.81
+   "thickRel": 1.01
   },
   {
    "kit": "ken-industrial",
@@ -220831,7 +220808,7 @@
     "tba"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 0.92
+   "thickRel": 1.16
   },
   {
    "kit": "ken-market",
@@ -222125,7 +222102,7 @@
     "ken",
     "stone-masonry"
    ],
-   "thickRel": 1.73
+   "thickRel": 1.69
   },
   {
    "kit": "ken-mini-dun",
@@ -224554,7 +224531,7 @@
     "stone-soil"
    ],
    "variant": "ken-nature/crop-row",
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "ken-nature",
@@ -224596,7 +224573,7 @@
     "stone-soil"
    ],
    "variant": "ken-nature/crop-row",
-   "thickRel": 1.35
+   "thickRel": 1.32
   },
   {
    "kit": "ken-nature",
@@ -224638,7 +224615,7 @@
     "stone-soil"
    ],
    "variant": "ken-nature/crop-row",
-   "thickRel": 0.93
+   "thickRel": 0.91
   },
   {
    "kit": "ken-nature",
@@ -225313,7 +225290,7 @@
    "kit": "ken-nature",
    "name": "path-stone-circle",
    "hash": "4e84796257",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     1.119,
@@ -225355,7 +225332,7 @@
    "kit": "ken-nature",
    "name": "path-stone-corner",
    "hash": "5fbd36bc70",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.886,
@@ -225397,7 +225374,7 @@
    "kit": "ken-nature",
    "name": "path-stone-end",
    "hash": "4ed1e502a9",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.742,
@@ -225439,7 +225416,7 @@
    "kit": "ken-nature",
    "name": "path-stone",
    "hash": "3179945ecf",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     1.2,
@@ -225481,7 +225458,7 @@
    "kit": "ken-nature",
    "name": "path-wood-corner",
    "hash": "96bb03d694",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.9,
@@ -225523,7 +225500,7 @@
    "kit": "ken-nature",
    "name": "path-wood-end",
    "hash": "1516ceb8c6",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     0.738,
@@ -225565,7 +225542,7 @@
    "kit": "ken-nature",
    "name": "path-wood",
    "hash": "ca2b9e2e95",
-   "kind": "env-terrain-ground-path",
+   "kind": "str-access-path",
    "size": "m",
    "wdh": [
     1.2,
@@ -232330,7 +232307,7 @@
    "collection": "ken-mini",
    "name": "heart",
    "hash": "c90ec70082",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.391,
@@ -233141,7 +233118,7 @@
    "collection": "ken-mini",
    "name": "star",
    "hash": "8782280e84",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.346,
@@ -234477,7 +234454,7 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "ken-proto",
@@ -234520,7 +234497,7 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 1.14
+   "thickRel": 1.11
   },
   {
    "kit": "ken-proto",
@@ -234563,7 +234540,7 @@
     "stone-masonry"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 1.69
+   "thickRel": 1.65
   },
   {
    "kit": "ken-proto",
@@ -237105,7 +237082,7 @@
     "storeys-1"
    ],
    "variant": "ken-racing/pits-garage",
-   "thickRel": 1.08
+   "thickRel": 1.03
   },
   {
    "kit": "ken-racing",
@@ -237163,7 +237140,7 @@
     "metal",
     "storeys-1"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.04
   },
   {
    "kit": "ken-racing",
@@ -237216,7 +237193,7 @@
     "storeys-1"
    ],
    "variant": "ken-racing/pits-garage",
-   "thickRel": 0.52,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "error",
@@ -237277,7 +237254,7 @@
     "metal",
     "storeys-1"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "ken-racing",
@@ -237331,7 +237308,7 @@
     "storeys-1-5"
    ],
    "variant": "ken-racing/pits-office",
-   "thickRel": 1.11
+   "thickRel": 1.06
   },
   {
    "kit": "ken-racing",
@@ -237385,7 +237362,7 @@
     "storeys-1"
    ],
    "variant": "ken-racing/pits-office",
-   "thickRel": 0.85
+   "thickRel": 0.81
   },
   {
    "kit": "ken-racing",
@@ -237703,7 +237680,7 @@
     "metal",
     "tba"
    ],
-   "thickRel": 0.98
+   "thickRel": 1.23
   },
   {
    "kit": "ken-racing",
@@ -237795,7 +237772,7 @@
    "kit": "ken-racing",
    "name": "ramp",
    "hash": "dc647d8407",
-   "kind": "str-access-stairs-ramp",
+   "kind": "str-access-ramp",
    "size": "m",
    "wdh": [
     0.66,
@@ -237835,7 +237812,7 @@
     "ken",
     "wood-planks"
    ],
-   "thickRel": 0.99
+   "thickRel": 1.25
   },
   {
    "kit": "ken-racing",
@@ -237932,7 +237909,7 @@
     "textile"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 1.39
+   "thickRel": 1.12
   },
   {
    "kit": "ken-racing",
@@ -237976,7 +237953,7 @@
     "textile"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 0.99
+   "thickRel": 0.8
   },
   {
    "kit": "ken-racing",
@@ -238019,7 +237996,7 @@
     "textile"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 1.48
+   "thickRel": 1.2
   },
   {
    "kit": "ken-racing",
@@ -238070,7 +238047,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.91,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -238132,7 +238109,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.39,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -238182,7 +238159,7 @@
     "textile"
    ],
    "variant": "ken-racing/tent",
-   "thickRel": 1.09
+   "thickRel": 0.88
   },
   {
    "kit": "ken-racing",
@@ -238574,7 +238551,7 @@
     "metal",
     "plastic"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "ken-roads",
@@ -238640,7 +238617,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 1.1
+   "thickRel": 1.38
   },
   {
    "kit": "ken-roads",
@@ -238711,7 +238688,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 0.69
+   "thickRel": 0.87
   },
   {
    "kit": "ken-roads",
@@ -238777,7 +238754,7 @@
     "wood-log"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 0.46
+   "thickRel": 0.58
   },
   {
    "kit": "ken-roads",
@@ -238832,7 +238809,7 @@
     "stone-masonry"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.53
+   "thickRel": 0.67
   },
   {
    "kit": "ken-roads",
@@ -238887,7 +238864,7 @@
     "stone-masonry"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.66
+   "thickRel": 0.83
   },
   {
    "kit": "ken-roads",
@@ -238942,7 +238919,7 @@
     "stone-masonry"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.43
+   "thickRel": 0.55
   },
   {
    "kit": "ken-roads",
@@ -241807,7 +241784,7 @@
    "collection": "ken-mini",
    "name": "pallet",
    "hash": "aa811f74ce",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.402,
@@ -242335,7 +242312,7 @@
    "kit": "ken-space",
    "name": "chimney-detailed",
    "hash": "684fbe4881",
-   "kind": "str-fixture-chimney",
+   "kind": "str-part-chimney",
    "size": "l",
    "wdh": [
     0.52,
@@ -242385,13 +242362,13 @@
     "tba"
    ],
    "variant": "ken-space/chimney",
-   "thickRel": 3.48
+   "thickRel": 1.6
   },
   {
    "kit": "ken-space",
    "name": "chimney",
    "hash": "527fc9fbff",
-   "kind": "str-fixture-chimney",
+   "kind": "str-part-chimney",
    "size": "l",
    "wdh": [
     0.52,
@@ -242435,7 +242412,7 @@
     "tba"
    ],
    "variant": "ken-space/chimney",
-   "thickRel": 3.24
+   "thickRel": 1.49
   },
   {
    "kit": "ken-space",
@@ -244288,7 +244265,7 @@
     "storeys-1"
    ],
    "variant": "ken-space/hangar-large-a",
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "ken-space",
@@ -244354,7 +244331,7 @@
     "storeys-1"
    ],
    "variant": "ken-space/hangar-large-a",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "ken-space",
@@ -244414,7 +244391,7 @@
     "storeys-1"
    ],
    "variant": "ken-space/hangar-round-a",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "ken-space",
@@ -244474,7 +244451,7 @@
     "storeys-1"
    ],
    "variant": "ken-space/hangar-round-a",
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "ken-space",
@@ -244600,7 +244577,7 @@
     "storeys-1"
    ],
    "variant": "ken-space/hangar-small-a",
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "ken-space",
@@ -244780,7 +244757,7 @@
    "kit": "ken-space",
    "name": "machine-generator-large",
    "hash": "639384a177",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "l",
    "wdh": [
     1.3,
@@ -244839,7 +244816,7 @@
    "kit": "ken-space",
    "name": "machine-generator",
    "hash": "ca449b1083",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.91,
@@ -244903,7 +244880,7 @@
    "kit": "ken-space",
    "name": "machine-wireless-cable",
    "hash": "fa807b1dd4",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.975,
@@ -244962,7 +244939,7 @@
    "kit": "ken-space",
    "name": "machine-wireless",
    "hash": "f8d280ff66",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.975,
@@ -246761,7 +246738,7 @@
     "tba"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.58
+   "thickRel": 0.73
   },
   {
    "kit": "ken-space",
@@ -246816,7 +246793,7 @@
     "tba"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.81
+   "thickRel": 1.02
   },
   {
    "kit": "ken-space",
@@ -246881,7 +246858,7 @@
     "tba"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.69
+   "thickRel": 0.87
   },
   {
    "kit": "ken-space",
@@ -249771,7 +249748,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-corner",
-   "thickRel": 1.07
+   "thickRel": 1.05
   },
   {
    "kit": "ken-station",
@@ -249826,7 +249803,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-corner",
-   "thickRel": 0.81
+   "thickRel": 0.79
   },
   {
    "kit": "ken-station",
@@ -249942,7 +249919,7 @@
    "kit": "ken-station",
    "name": "stairs-ramp",
    "hash": "e1e0ac280a",
-   "kind": "str-access-stairs-ramp",
+   "kind": "str-access-ramp",
    "size": "m",
    "wdh": [
     1,
@@ -249985,7 +249962,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 0.93
+   "thickRel": 1.18
   },
   {
    "kit": "ken-station",
@@ -250284,7 +250261,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 0.99
+   "thickRel": 0.96
   },
   {
    "kit": "ken-station",
@@ -254175,7 +254152,7 @@
    "kit": "ken-survival",
    "name": "campfire-fishing-stand",
    "hash": "d239e7d3ee",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.592,
@@ -254218,7 +254195,7 @@
    "kit": "ken-survival",
    "name": "campfire-stand",
    "hash": "b549fa1e9c",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.615,
@@ -257329,7 +257306,7 @@
    "collection": "ken-village",
    "name": "chimney-base",
    "hash": "3844c02522",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.468,
@@ -257365,14 +257342,14 @@
     "stone-masonry"
    ],
    "variant": "ken-town/chimney",
-   "thickRel": 1
+   "thickRel": 0.82
   },
   {
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "chimney-top-anim",
    "hash": "40ceb53577",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.233,
@@ -257413,7 +257390,7 @@
    ],
    "alpha": true,
    "variant": "ken-town/chimney-top-anim",
-   "thickRel": 1.17,
+   "thickRel": 0.96,
    "mark": [
     "centered"
    ]
@@ -257423,7 +257400,7 @@
    "collection": "ken-village",
    "name": "chimney-top",
    "hash": "bf8183363d",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.227,
@@ -257458,7 +257435,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/chimney-top-anim",
-   "thickRel": 1.04,
+   "thickRel": 0.85,
    "mark": [
     "centered"
    ]
@@ -257468,7 +257445,7 @@
    "collection": "ken-village",
    "name": "chimney",
    "hash": "f6e88b921e",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.306,
@@ -257504,7 +257481,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/chimney",
-   "thickRel": 1.39
+   "thickRel": 1.13
   },
   {
    "kit": "ken-town",
@@ -259652,7 +259629,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-stone-round",
-   "thickRel": 1.56
+   "thickRel": 1.52
   },
   {
    "kit": "ken-town",
@@ -259694,7 +259671,7 @@
     "stone-masonry"
    ],
    "variant": "ken-town/stairs-stone-round",
-   "thickRel": 0.56,
+   "thickRel": 0.55,
    "mark": [
     "centered"
    ]
@@ -265424,7 +265401,7 @@
    "collection": "ken-city",
    "name": "arrow-standing",
    "hash": "eb9098b0a7",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "l",
    "wdh": [
     0.363,
@@ -265473,7 +265450,7 @@
    "collection": "ken-city",
    "name": "arrow",
    "hash": "b2445895d6",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "l",
    "wdh": [
     1.21,
@@ -267536,7 +267513,7 @@
    "collection": "ken-city",
    "name": "ramp-wide",
    "hash": "f8cedcc595",
-   "kind": "str-access-stairs-ramp",
+   "kind": "str-access-ramp",
    "size": "l",
    "wdh": [
     3.112,
@@ -267581,7 +267558,7 @@
    "collection": "ken-city",
    "name": "ramp",
    "hash": "9096fd1c17",
-   "kind": "str-access-stairs-ramp",
+   "kind": "str-access-ramp",
    "size": "l",
    "wdh": [
     1.651,
@@ -269256,7 +269233,7 @@
     "storeys-5"
    ],
    "variant": "loaf-gothic/church-a",
-   "thickRel": 1.03
+   "thickRel": 1.01
   },
   {
    "kit": "loaf-gothic",
@@ -269315,7 +269292,7 @@
     "storeys-4"
    ],
    "variant": "loaf-gothic/church-a",
-   "thickRel": 1.12
+   "thickRel": 1.1
   },
   {
    "kit": "loaf-gothic",
@@ -269374,7 +269351,7 @@
     "storeys-6"
    ],
    "variant": "loaf-gothic/church-a",
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "loaf-gothic",
@@ -269772,7 +269749,7 @@
     "stone-masonry",
     "storeys-2"
    ],
-   "thickRel": 0.98,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "error",
@@ -271353,7 +271330,7 @@
    "kit": "lpa-construction",
    "name": "cement-mixer",
    "hash": "b9a7cdc05a",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.374,
@@ -271601,7 +271578,7 @@
    "kit": "lpa-construction",
    "name": "crane",
    "hash": "886b2b7123",
-   "kind": "str-fixture-utility-machine-crane",
+   "kind": "str-fixture-machinery-crane",
    "size": "l",
    "wdh": [
     12.738,
@@ -272669,7 +272646,7 @@
    "kit": "lpa-construction",
    "name": "pallet",
    "hash": "74581b5b66",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.475,
@@ -278719,7 +278696,7 @@
     "metal-iron-wrought"
    ],
    "variant": "lpa-home/safe-a",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "lpa-home",
@@ -279952,7 +279929,7 @@
     "wood-beam"
    ],
    "variant": "lpa-home/wall-shelf-a",
-   "thickRel": 1.79
+   "thickRel": 1.41
   },
   {
    "kit": "lpa-home",
@@ -279996,7 +279973,7 @@
     "wood-beam"
    ],
    "variant": "lpa-home/wall-shelf-a",
-   "thickRel": 1.27
+   "thickRel": 1
   },
   {
    "kit": "lpa-home",
@@ -280636,7 +280613,7 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 3.15
+   "thickRel": 2.12
   },
   {
    "kit": "lpa-tools",
@@ -284208,7 +284185,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -284962,7 +284939,7 @@
     "wood-beam"
    ],
    "variant": "lpa-west/corner-staircase-b",
-   "thickRel": 1.31
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-west",
@@ -285011,7 +284988,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/corner-staircase-b",
-   "thickRel": 1.3
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-west",
@@ -288899,7 +288876,7 @@
     "wood-beam"
    ],
    "variant": "lpa-west/staircase-b",
-   "thickRel": 1.43
+   "thickRel": 1.4
   },
   {
    "kit": "lpa-west",
@@ -288948,7 +288925,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/staircase-b",
-   "thickRel": 1.26
+   "thickRel": 1.23
   },
   {
    "kit": "lpa-west",
@@ -289442,7 +289419,7 @@
     "wood-planks"
    ],
    "variant": "lpa-west/trough-b",
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "lpa-west",
@@ -291295,7 +291272,7 @@
    "kit": "m3-base",
    "name": "arcade-machine-01",
    "hash": "6af3545f59",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.497,
@@ -291358,7 +291335,7 @@
    "kit": "m3-base",
    "name": "arrow",
    "hash": "eb22449b8b",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.736,
@@ -291880,7 +291857,7 @@
    "kit": "m3-base",
    "name": "banner-ui-01",
    "hash": "5189ed38c2",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.45,
@@ -291922,7 +291899,7 @@
    "kit": "m3-base",
    "name": "banner-ui-02",
    "hash": "0062d5cc9b",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.45,
@@ -292300,7 +292277,7 @@
    "kit": "m3-base",
    "name": "bevelled-speech-bubble",
    "hash": "9d4b6b52c5",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.504,
@@ -293067,7 +293044,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.69
+   "thickRel": 1.63
   },
   {
    "kit": "m3-base",
@@ -294880,7 +294857,7 @@
    "kit": "m3-base",
    "name": "cast-iron-grate",
    "hash": "55581cbbca",
-   "kind": "str-fixture-fireplace",
+   "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
     0.6,
@@ -294916,7 +294893,7 @@
     "m3",
     "metal-iron-cast"
    ],
-   "thickRel": 0.54,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "error",
@@ -295072,7 +295049,7 @@
     "m3",
     "metal-iron-cast"
    ],
-   "thickRel": 0.78,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "error",
@@ -295395,13 +295372,13 @@
     "m3",
     "wood-planks"
    ],
-   "thickRel": 2.51
+   "thickRel": 2.52
   },
   {
    "kit": "m3-base",
    "name": "changing-room-bench",
    "hash": "291a83ffbf",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.624,
@@ -295468,7 +295445,7 @@
    "kit": "m3-base",
    "name": "checkmark",
    "hash": "b12c8d6ee5",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.434,
@@ -295509,7 +295486,7 @@
    "kit": "m3-base",
    "name": "cheeseburger",
    "hash": "01f8bea165",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.15,
@@ -295627,7 +295604,7 @@
    "kit": "m3-base",
    "name": "chevron",
    "hash": "0843d000da",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.615,
@@ -296008,7 +295985,7 @@
    "kit": "m3-base",
    "name": "circuit-breaker",
    "hash": "23ceb87ec8",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.04,
@@ -296055,7 +296032,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.67
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -296739,7 +296716,7 @@
    "kit": "m3-base",
    "name": "clothes-rail",
    "hash": "6c296fb64d",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.815,
@@ -296957,7 +296934,7 @@
    "kit": "m3-base",
    "name": "coat-stand-01",
    "hash": "e77b546941",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.233,
@@ -297007,7 +296984,7 @@
    "kit": "m3-base",
    "name": "coat-stand-02",
    "hash": "7570294d1e",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.3,
@@ -297766,7 +297743,7 @@
    "kit": "m3-base",
    "name": "conical-arrow",
    "hash": "4978e2ed4f",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.215,
@@ -298080,7 +298057,7 @@
    "kit": "m3-base",
    "name": "crescent-moon",
    "hash": "8b4d6dc943",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.285,
@@ -298205,7 +298182,7 @@
     "m3",
     "wood-worked"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.56
   },
   {
    "kit": "m3-base",
@@ -299521,7 +299498,7 @@
    "kit": "m3-base",
    "name": "diamond",
    "hash": "85b8a3b312",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.054,
@@ -299754,7 +299731,7 @@
     "metal-iron-wrought",
     "plastic"
    ],
-   "thickRel": 0.34,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "error",
@@ -300341,7 +300318,7 @@
    "kit": "m3-base",
    "name": "double-coat-hook-01",
    "hash": "66263bcc0f",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "s",
    "wdh": [
     0.048,
@@ -300888,7 +300865,7 @@
    "kit": "m3-base",
    "name": "eighth-note",
    "hash": "eb57dfc45e",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.252,
@@ -301385,7 +301362,7 @@
    "kit": "m3-base",
    "name": "exclamation-mark",
    "hash": "0166b5ddb9",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.117,
@@ -301770,7 +301747,7 @@
    "kit": "m3-base",
    "name": "fire-alarm-system",
    "hash": "51c311117b",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.202,
@@ -301816,7 +301793,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.84
+   "thickRel": 1.39
   },
   {
    "kit": "m3-base",
@@ -302392,7 +302369,7 @@
    "kit": "m3-base",
    "name": "fleur-de-lys-01",
    "hash": "bbb58dab9d",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.29,
@@ -303318,7 +303295,7 @@
    "kit": "m3-base",
    "name": "fuse-box",
    "hash": "7213d262ae",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.4,
@@ -303367,12 +303344,12 @@
      "inverted": 0.32
     }
    },
-   "thickRel": 1.03,
+   "thickRel": 1.71,
    "lint": [
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 24612 over max 10000 (obj)"
+     "text": "tpu 24612 over max 5000 (str)"
     },
     {
      "level": "warning",
@@ -303559,7 +303536,7 @@
    "kit": "m3-base",
    "name": "garden-fire-pit",
    "hash": "6bcb9f7b18",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.489,
@@ -303600,7 +303577,7 @@
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 5569 over max 5000 (obj-furnishing)"
+     "text": "tpu 5569 over max 5000 (str)"
     }
    ]
   },
@@ -304249,7 +304226,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 2.9
+   "thickRel": 2.58
   },
   {
    "kit": "m3-base",
@@ -304631,7 +304608,7 @@
     "pickup",
     "wood-worked"
    ],
-   "thickRel": 1.32,
+   "thickRel": 1.28,
    "lint": [
     {
      "level": "error",
@@ -304951,7 +304928,7 @@
    "kit": "m3-base",
    "name": "guitar-stand",
    "hash": "839075eb7a",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.403,
@@ -304998,7 +304975,7 @@
    "kit": "m3-base",
    "name": "guitar-wall-hanger-01",
    "hash": "cdb47bd00c",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "s",
    "wdh": [
     0.19,
@@ -305047,7 +305024,7 @@
    "kit": "m3-base",
    "name": "guitar-wall-hanger-02",
    "hash": "889e27f2bf",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "s",
    "wdh": [
     0.182,
@@ -305236,7 +305213,7 @@
    "kit": "m3-base",
    "name": "half-note",
    "hash": "fe13fc99cc",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.147,
@@ -305842,7 +305819,7 @@
    "kit": "m3-base",
    "name": "health",
    "hash": "0308394244",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.637,
@@ -305888,7 +305865,7 @@
    "kit": "m3-base",
    "name": "heart-icon-01",
    "hash": "0b5f2b8d4d",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.448,
@@ -306056,7 +306033,7 @@
     "wood-worked"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.6
+   "thickRel": 0.47
   },
   {
    "kit": "m3-base",
@@ -306194,7 +306171,7 @@
     "wood-worked"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.46
+   "thickRel": 0.36
   },
   {
    "kit": "m3-base",
@@ -306546,7 +306523,7 @@
    "kit": "m3-base",
    "name": "industrial-shelving-01",
    "hash": "e05c468c4a",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.95,
@@ -306609,7 +306586,7 @@
    "kit": "m3-base",
    "name": "industrial-shelving-02",
    "hash": "9ffd81f0f0",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.95,
@@ -306790,7 +306767,7 @@
    "kit": "m3-base",
    "name": "iron-brazier-01",
    "hash": "9616775b99",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.39,
@@ -306827,13 +306804,13 @@
     "metal-iron-wrought"
    ],
    "variant": "m3-base/iron-brazier-01",
-   "thickRel": 0.47
+   "thickRel": 0.64
   },
   {
    "kit": "m3-base",
    "name": "iron-brazier-02",
    "hash": "3b822182ed",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.27,
@@ -306878,12 +306855,12 @@
      "inverted": 0.41
     }
    },
-   "thickRel": 0.58,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 5988 over max 5000 (obj-furnishing)"
+     "text": "tpu 5988 over max 5000 (str)"
     },
     {
      "level": "warning",
@@ -306896,7 +306873,7 @@
    "kit": "m3-base",
    "name": "iron-brazier-03",
    "hash": "f131556133",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.209,
@@ -306933,7 +306910,7 @@
     "metal-iron-wrought"
    ],
    "variant": "m3-base/iron-brazier-01",
-   "thickRel": 0.71
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -307048,7 +307025,7 @@
     "m3",
     "metal-iron-wrought"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.13
   },
   {
    "kit": "m3-base",
@@ -308183,7 +308160,7 @@
    "kit": "m3-base",
    "name": "large-pallet",
    "hash": "cc7e99d859",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "m",
    "wdh": [
     0.587,
@@ -308356,7 +308333,7 @@
    "kit": "m3-base",
    "name": "light-switch",
    "hash": "c03f960cb6",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.186,
@@ -308404,7 +308381,7 @@
    "kit": "m3-base",
    "name": "lightbulb",
    "hash": "a9def706b9",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.103,
@@ -308444,7 +308421,7 @@
     "m3",
     "metal-iron-steel"
    ],
-   "thickRel": 1.49
+   "thickRel": 2.47
   },
   {
    "kit": "m3-base",
@@ -308505,7 +308482,7 @@
    "kit": "m3-base",
    "name": "lightning-bolt",
    "hash": "dc76caa377",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.194,
@@ -308547,7 +308524,7 @@
    "kit": "m3-base",
    "name": "lightning-icon",
    "hash": "bacbf56bea",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.104,
@@ -308762,7 +308739,7 @@
    "kit": "m3-base",
    "name": "location-marker",
    "hash": "3b3ae3f6e8",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.377,
@@ -313319,7 +313296,7 @@
    "kit": "m3-base",
    "name": "pallet",
    "hash": "29605773a9",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.455,
@@ -313712,7 +313689,7 @@
    "kit": "m3-base",
    "name": "peace-sign",
    "hash": "bcf997e347",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.201,
@@ -314436,7 +314413,7 @@
    "kit": "m3-base",
    "name": "pinball-flipper",
    "hash": "de128c8c53",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "s",
    "wdh": [
     0.076,
@@ -314701,7 +314678,7 @@
     "m3"
    ],
    "variant": "m3-base/pizza-slice",
-   "thickRel": 0.54
+   "thickRel": 0.25
   },
   {
    "kit": "m3-base",
@@ -315057,13 +315034,13 @@
     "m3",
     "stone-masonry"
    ],
-   "thickRel": 2.16
+   "thickRel": 2.17
   },
   {
    "kit": "m3-base",
    "name": "plug-socket",
    "hash": "f28cf8f124",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.247,
@@ -315520,7 +315497,7 @@
    "kit": "m3-base",
    "name": "power-icon",
    "hash": "8c169bbbcb",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.423,
@@ -315833,7 +315810,7 @@
    "kit": "m3-base",
    "name": "quarter-note",
    "hash": "a28d486820",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.147,
@@ -315939,7 +315916,7 @@
    "kit": "m3-base",
    "name": "question-mark",
    "hash": "b422061b4b",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.295,
@@ -315980,7 +315957,7 @@
    "kit": "m3-base",
    "name": "radioactive-symbol",
    "hash": "77c508c740",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.45,
@@ -316274,7 +316251,7 @@
    "kit": "m3-base",
    "name": "reticle-01",
    "hash": "31c540fd31",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.458,
@@ -317220,7 +317197,7 @@
    "kit": "m3-base",
    "name": "roman-brazier",
    "hash": "aad0b32d7a",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.195,
@@ -317256,12 +317233,12 @@
     "m3",
     "metal-copper"
    ],
-   "thickRel": 0.81,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 5557 over max 5000 (obj-furnishing)"
+     "text": "tpu 5557 over max 5000 (str)"
     }
    ]
   },
@@ -318410,7 +318387,7 @@
    "kit": "m3-base",
    "name": "rounded-speech-bubble",
    "hash": "310bf7e1ea",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.509,
@@ -319428,7 +319405,7 @@
    "kit": "m3-base",
    "name": "settings-icon",
    "hash": "42d428cf2b",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.45,
@@ -320467,7 +320444,7 @@
    "kit": "m3-base",
    "name": "smoke-detector",
    "hash": "79e3ebdf7a",
-   "kind": "obj-device-electronics-installation",
+   "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
     0.218,
@@ -320503,7 +320480,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -320550,7 +320527,7 @@
    "kit": "m3-base",
    "name": "snowflake-01",
    "hash": "4829c048a7",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.177,
@@ -320592,7 +320569,7 @@
    "kit": "m3-base",
    "name": "snowflake-02",
    "hash": "38b9d68d35",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.181,
@@ -321841,7 +321818,7 @@
    "kit": "m3-base",
    "name": "star-01",
    "hash": "4a9274390d",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.637,
@@ -321884,7 +321861,7 @@
    "kit": "m3-base",
    "name": "star-02",
    "hash": "ad41b0687c",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "m",
    "wdh": [
     0.637,
@@ -322950,7 +322927,7 @@
     "m3",
     "wood-worked"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.57
   },
   {
    "kit": "m3-base",
@@ -323357,7 +323334,7 @@
     "rubber",
     "wood-worked"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.48
   },
   {
    "kit": "m3-base",
@@ -325656,7 +325633,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.43
   },
   {
    "kit": "m3-base",
@@ -325942,7 +325919,7 @@
    "kit": "m3-base",
    "name": "water-drip",
    "hash": "ed77b13365",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.095,
@@ -326389,7 +326366,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -326603,7 +326580,7 @@
    "kit": "m3-base",
    "name": "whole-note",
    "hash": "cf2b5b0f1c",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.288,
@@ -326645,7 +326622,7 @@
    "kit": "m3-base",
    "name": "wifi-symbol",
    "hash": "a82615d6ca",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.449,
@@ -326989,7 +326966,7 @@
    "kit": "m3-base",
    "name": "wine-rack-01",
    "hash": "700e58a571",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.632,
@@ -327038,7 +327015,7 @@
    "kit": "m3-base",
    "name": "wine-rack-02",
    "hash": "4d798a9657",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.482,
@@ -328209,7 +328186,7 @@
    "kit": "m3-base",
    "name": "x",
    "hash": "8c2e3b98c3",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.493,
@@ -328997,7 +328974,7 @@
    "tags": [
     "mab"
    ],
-   "thickRel": 2.02,
+   "thickRel": 1.59,
    "lint": [
     {
      "level": "error",
@@ -330271,7 +330248,7 @@
    "tags": [
     "stone-masonry"
    ],
-   "thickRel": 1.41,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -332834,7 +332811,7 @@
    "kit": "natuur",
    "name": "campfire-star",
    "hash": "79928a8045",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.648,
@@ -332882,7 +332859,7 @@
    "kit": "natuur",
    "name": "campfire-teepee",
    "hash": "c8cbc88ae2",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.495,
@@ -337055,7 +337032,7 @@
    "kit": "pm-store",
    "name": "fireplace",
    "hash": "f92f872e4f",
-   "kind": "str-fixture-fireplace",
+   "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
     0.857,
@@ -337101,7 +337078,7 @@
     "wood-beam",
     "wood-worked"
    ],
-   "thickRel": 1
+   "thickRel": 1.39
   },
   {
    "kit": "pm-store",
@@ -337292,7 +337269,7 @@
     "pm",
     "stone-soil"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.61
   },
   {
    "kit": "pm-store",
@@ -337966,7 +337943,7 @@
     "storeys-1",
     "wood-beam"
    ],
-   "thickRel": 1
+   "thickRel": 0.95
   },
   {
    "kit": "pm-store",
@@ -338118,13 +338095,13 @@
     "stone-masonry",
     "wood-beam"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.41
   },
   {
    "kit": "pm-store",
    "name": "star",
    "hash": "cfb77d8d2b",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.301,
@@ -340784,7 +340761,7 @@
    "kit": "props",
    "name": "fire-a",
    "hash": "e478de3da1",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "s",
    "wdh": [
     0.329,
@@ -340830,7 +340807,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.329 under min 0.35 (obj-furnishing-light-campfire)"
+     "text": "longest 0.329 under min 0.35 (str-fixture-fire-campfire)"
     }
    ]
   },
@@ -341387,7 +341364,7 @@
     "ceramic",
     "food"
    ],
-   "thickRel": 1.44
+   "thickRel": 0.66
   },
   {
    "kit": "props",
@@ -342290,7 +342267,7 @@
     "metal",
     "qua"
    ],
-   "thickRel": 1.61
+   "thickRel": 2.02
   },
   {
    "kit": "quat-apocalypse",
@@ -342430,7 +342407,7 @@
    "kit": "quat-apocalypse",
    "name": "pallet-broken",
    "hash": "30b6e12ee1",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.358,
@@ -342481,7 +342458,7 @@
    "kit": "quat-apocalypse",
    "name": "pallet",
    "hash": "fefdd13b01",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "s",
    "wdh": [
     0.349,
@@ -345187,7 +345164,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/pedestal",
-   "thickRel": 1.95
+   "thickRel": 1.96
   },
   {
    "kit": "quat-dun-1",
@@ -345232,7 +345209,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/pedestal",
-   "thickRel": 1.88
+   "thickRel": 1.89
   },
   {
    "kit": "quat-dun-1",
@@ -345321,7 +345298,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "quat-dun-1",
@@ -345365,7 +345342,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "quat-dun-1",
@@ -345409,7 +345386,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "quat-dun-1",
@@ -346070,7 +346047,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/pedestal",
-   "thickRel": 1.95
+   "thickRel": 1.96
   },
   {
    "kit": "quat-dun-2",
@@ -346115,7 +346092,7 @@
     "stone-masonry"
    ],
    "variant": "quat-dun-1/pedestal",
-   "thickRel": 1.88
+   "thickRel": 1.89
   },
   {
    "kit": "quat-dun-2",
@@ -349698,7 +349675,7 @@
    "kit": "quat-food",
    "name": "burger-large",
    "hash": "4a19494547",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.292,
@@ -349780,7 +349757,7 @@
    "kit": "quat-food",
    "name": "burger",
    "hash": "ada15e163a",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.281,
@@ -349905,7 +349882,7 @@
    "kit": "quat-food",
    "name": "cheeseburger",
    "hash": "a70c92f6c1",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.249,
@@ -350797,7 +350774,7 @@
    "kit": "quat-food",
    "name": "double-cheeseburger",
    "hash": "3039feb02d",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.254,
@@ -355132,7 +355109,7 @@
    "kit": "quat-interior",
    "name": "fireplace",
    "hash": "cb126b4949",
-   "kind": "str-fixture-fireplace",
+   "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
     0.901,
@@ -355168,7 +355145,7 @@
     "qua",
     "stone-masonry"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.66
   },
   {
    "kit": "quat-interior",
@@ -356076,7 +356053,7 @@
     "wood"
    ],
    "variant": "quat-interior/shelf-small-a",
-   "thickRel": 2.05
+   "thickRel": 1.61
   },
   {
    "kit": "quat-interior",
@@ -356119,7 +356096,7 @@
     "wood"
    ],
    "variant": "quat-interior/shelf-small-a",
-   "thickRel": 1.39
+   "thickRel": 1.09
   },
   {
    "kit": "quat-interior",
@@ -357590,7 +357567,7 @@
    "collection": "quat-medieval",
    "name": "bonfire",
    "hash": "6cdf2a5fc8",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "s",
    "wdh": [
     0.447,
@@ -358369,7 +358346,7 @@
     "storeys-3",
     "wood-beam"
    ],
-   "thickRel": 0.73,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -359134,7 +359111,7 @@
     "special"
    ],
    "specialBand": "5,2",
-   "thickRel": 1.22
+   "thickRel": 1.2
   },
   {
    "kit": "quat-medieval",
@@ -364304,7 +364281,7 @@
    "kit": "quat-pirate",
    "name": "red-x",
    "hash": "b629dc0a11",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.421,
@@ -367630,7 +367607,7 @@
    "kit": "quat-props",
    "name": "weapon-stand",
    "hash": "7945d49a92",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-weapon",
+   "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "m",
    "wdh": [
     0.557,
@@ -369561,7 +369538,7 @@
    "kit": "quat-rpg",
    "name": "heart",
    "hash": "1f88b4e3f9",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.203,
@@ -371901,7 +371878,7 @@
    "kit": "quat-rpg",
    "name": "star",
    "hash": "8b487281e9",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.236,
@@ -374617,7 +374594,7 @@
    "kit": "quat-shoot",
    "name": "pallet-broken",
    "hash": "f1b0d458f6",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "m",
    "wdh": [
     0.513,
@@ -374674,7 +374651,7 @@
    "kit": "quat-shoot",
    "name": "pallet",
    "hash": "f123782488",
-   "kind": "obj-transport-pallet",
+   "kind": "obj-container-pallet",
    "size": "m",
    "wdh": [
     0.51,
@@ -375351,7 +375328,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.55
   },
   {
    "kit": "quat-shoot",
@@ -376485,7 +376462,7 @@
     "space",
     "storeys-1"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "quat-space",
@@ -376538,7 +376515,7 @@
     "space",
     "storeys-1"
    ],
-   "thickRel": 1.06,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
@@ -376709,7 +376686,7 @@
     "space",
     "storeys-1-5"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "quat-space",
@@ -377335,7 +377312,7 @@
    "kit": "quat-space",
    "name": "pickup-sphere",
    "hash": "86044a1369",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.195,
@@ -377385,7 +377362,7 @@
    "kit": "quat-space",
    "name": "pickup-thunder",
    "hash": "a0357bbb0a",
-   "kind": "obj-symbol",
+   "kind": "sym",
    "size": "s",
    "wdh": [
     0.214,
@@ -378055,7 +378032,7 @@
    "kit": "quat-space",
    "name": "ramp",
    "hash": "125b7a247f",
-   "kind": "str-access-stairs-ramp",
+   "kind": "str-access-ramp",
    "size": "m",
    "wdh": [
     0.412,
@@ -378104,7 +378081,7 @@
     "space"
    ],
    "variant": "quat-space/ramp",
-   "thickRel": 0.64
+   "thickRel": 0.81
   },
   {
    "kit": "quat-space",
@@ -378454,7 +378431,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.77
+   "thickRel": 2.22
   },
   {
    "kit": "quat-space",
@@ -378504,7 +378481,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.7
   },
   {
    "kit": "quat-space",
@@ -379237,7 +379214,7 @@
      "inverted": 0.1
     }
    },
-   "thickRel": 0.7,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -379561,7 +379538,7 @@
     "qua"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.56
+   "thickRel": 1.57
   },
   {
    "kit": "quat-survival",
@@ -379676,7 +379653,7 @@
    "kit": "quat-survival",
    "name": "bonfire",
    "hash": "e4b7cdd604",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.561,
@@ -381014,7 +380991,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 2.64
+   "thickRel": 1.78
   },
   {
    "kit": "quat-survival",
@@ -381507,7 +381484,7 @@
    "kit": "quat-sushi",
    "name": "cabinet-shelves-plain",
    "hash": "fd79ecf88f",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.8,
@@ -381549,7 +381526,7 @@
    "kit": "quat-sushi",
    "name": "cabinet-shelves",
    "hash": "802fe5f5c1",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.8,
@@ -386510,7 +386487,7 @@
     "qua",
     "stone-soil"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.76
   },
   {
    "kit": "quat-town",
@@ -388358,7 +388335,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 1.05,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "error",
@@ -389156,7 +389133,7 @@
    "collection": "quat-medieval",
    "name": "storage-1-a",
    "hash": "1a4569fefe",
-   "kind": "str-building-work-commercial",
+   "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     2.821,
@@ -389200,7 +389177,7 @@
     "wood-planks"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 0.49,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "error",
@@ -389214,7 +389191,7 @@
    "collection": "quat-medieval",
    "name": "storage-1-b",
    "hash": "d4782946c0",
-   "kind": "str-building-work-commercial",
+   "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     2.821,
@@ -389258,7 +389235,7 @@
     "wood-planks"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 0.62,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "error",
@@ -389272,7 +389249,7 @@
    "collection": "quat-medieval",
    "name": "storage-1-c",
    "hash": "fc233ce2d2",
-   "kind": "str-building-work-commercial",
+   "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.585,
@@ -389316,7 +389293,7 @@
     "wood-planks"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 0.74,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "error",
@@ -389330,7 +389307,7 @@
    "collection": "quat-medieval",
    "name": "storage-2-a",
    "hash": "286a6e8987",
-   "kind": "str-building-work-commercial",
+   "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.446,
@@ -389385,7 +389362,7 @@
     "wood-beam"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 0.64,
+   "thickRel": 0.86,
    "lint": [
     {
      "level": "error",
@@ -389399,7 +389376,7 @@
    "collection": "quat-medieval",
    "name": "storage-2-b",
    "hash": "adf6f65602",
-   "kind": "str-building-work-commercial",
+   "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.299,
@@ -389461,7 +389438,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.94,
+   "thickRel": 1.24,
    "lint": [
     {
      "level": "warning",
@@ -389480,7 +389457,7 @@
    "collection": "quat-medieval",
    "name": "storage-2-c",
    "hash": "f4dbff2d7b",
-   "kind": "str-building-work-commercial",
+   "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.624,
@@ -389542,7 +389519,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.83,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "warning",
@@ -392530,7 +392507,7 @@
    "kit": "rgp-asia",
    "name": "gazebo",
    "hash": "b5bca88327",
-   "kind": "str-building-religious-shrine",
+   "kind": "str-canopy-gazebo",
    "size": "l",
    "wdh": [
     2.96,
@@ -392580,7 +392557,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.61
   },
   {
    "kit": "rgp-asia",
@@ -394152,7 +394129,7 @@
     "wood-beam",
     "wood-planks"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.47
   },
   {
    "kit": "rgp-asia",
@@ -394878,7 +394855,7 @@
     "rgp",
     "stone-masonry"
    ],
-   "thickRel": 1.61
+   "thickRel": 1.57
   },
   {
    "kit": "rgp-asia",
@@ -397476,7 +397453,7 @@
    "collection": "rgp",
    "name": "brazier",
    "hash": "839ed01674",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.35,
@@ -397519,7 +397496,7 @@
     "wood-log"
    ],
    "variant": "rgp-medieval/brazier",
-   "thickRel": 0.54
+   "thickRel": 0.73
   },
   {
    "kit": "rgp-medieval",
@@ -397819,7 +397796,7 @@
    "collection": "rgp",
    "name": "campfire",
    "hash": "b0175ee65a",
-   "kind": "obj-furnishing-light-campfire",
+   "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
     0.6,
@@ -398002,7 +397979,7 @@
    "collection": "rgp",
    "name": "chimney",
    "hash": "5d5981e354",
-   "kind": "str-part-roof-chimney",
+   "kind": "str-part-chimney",
    "size": "m",
    "wdh": [
     0.403,
@@ -398038,7 +398015,7 @@
     "stone-masonry",
     "tba"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.66
   },
   {
    "kit": "rgp-medieval",
@@ -404611,7 +404588,7 @@
     "rgp",
     "stone-masonry"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.49
   },
   {
    "kit": "rgp-medieval",
@@ -405433,7 +405410,7 @@
     "vegetation",
     "wood-planks"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "rgp-medieval",
@@ -406768,7 +406745,7 @@
    "kit": "rgp-props",
    "name": "fireplace-1-1-a",
    "hash": "3744887c1f",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.322,
@@ -406804,12 +406781,12 @@
     "rgp"
    ],
    "variant": "rgp-medieval/brazier",
-   "thickRel": 0.59,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 5207 over max 5000 (obj-furnishing)"
+     "text": "tpu 5207 over max 5000 (str)"
     }
    ]
   },
@@ -407998,7 +407975,7 @@
    "collection": "rgp",
    "name": "coat-rack",
    "hash": "57d3bb6015",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack-coat",
+   "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.461,
@@ -411957,7 +411934,7 @@
    "collection": "sq-props",
    "name": "air-hockey-table",
    "hash": "d62818da31",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.96,
@@ -412081,7 +412058,7 @@
    "collection": "sq-props",
    "name": "arcade-cocktail",
    "hash": "9ce7c701cd",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.535,
@@ -412153,7 +412130,7 @@
    "collection": "sq-props",
    "name": "arcade-upright-alpha",
    "hash": "41291ce2c6",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.403,
@@ -412232,7 +412209,7 @@
    "collection": "sq-props",
    "name": "arcade-upright-beta",
    "hash": "f860f42c35",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.541,
@@ -412310,7 +412287,7 @@
    "collection": "sq-props",
    "name": "arcade-upright-gamma",
    "hash": "6638a71b69",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.379,
@@ -412389,7 +412366,7 @@
    "collection": "sq-props",
    "name": "claw-machine",
    "hash": "3c869d6da3",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.454,
@@ -412463,7 +412440,7 @@
    "collection": "sq-props",
    "name": "dance-stage",
    "hash": "f1b49e087d",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.634,
@@ -412546,7 +412523,7 @@
    "collection": "sq-props",
    "name": "driving-cab",
    "hash": "1f984a515d",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.442,
@@ -412618,7 +412595,7 @@
    "collection": "sq-props",
    "name": "pinball",
    "hash": "b4041ce7ca",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.413,
@@ -412749,7 +412726,7 @@
    "collection": "sq-props",
    "name": "prize-wall",
    "hash": "57e5c5e81a",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.451,
@@ -412814,7 +412791,7 @@
    "collection": "sq-props",
    "name": "skee-ball",
    "hash": "34fb6ab802",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.302,
@@ -413509,7 +413486,7 @@
     "mounted",
     "sq"
    ],
-   "thickRel": 1.9
+   "thickRel": 2.39
   },
   {
    "kit": "sq-bank",
@@ -413778,7 +413755,7 @@
    "collection": "sq-props",
    "name": "vault-shelving",
    "hash": "cab5c9c437",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.489,
@@ -413900,7 +413877,7 @@
    "collection": "sq-props",
    "name": "ball-rack",
    "hash": "b24d6e21b9",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.632,
@@ -413964,7 +413941,7 @@
    "collection": "sq-props",
    "name": "ball-return",
    "hash": "8bafd48b3c",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.416,
@@ -414126,14 +414103,14 @@
     "sq"
    ],
    "variant": "sq-bowling/bowling-pin",
-   "thickRel": 1.73
+   "thickRel": 1.67
   },
   {
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "cubby-wall",
    "hash": "af98efc3e7",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.611,
@@ -414644,7 +414621,7 @@
    "collection": "sq-props",
    "name": "pinsetter",
    "hash": "d51c26290f",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.626,
@@ -414964,7 +414941,7 @@
    "collection": "sq-props",
    "name": "display-tower",
    "hash": "2bc03f6d3f",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.31,
@@ -415424,7 +415401,7 @@
    "collection": "sq-props",
    "name": "slat-wall",
    "hash": "30003062a9",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.531,
@@ -415490,7 +415467,7 @@
    "collection": "sq-props",
    "name": "spinner-rack",
    "hash": "30c1b71c3f",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.175,
@@ -415615,7 +415592,7 @@
    "collection": "sq-props",
    "name": "blower-arch",
    "hash": "f083d7eee2",
-   "kind": "str-fixture-utility-machine-drivethrough",
+   "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
     0.876,
@@ -415670,7 +415647,7 @@
    "collection": "sq-props",
    "name": "brush-arch",
    "hash": "8375d96cf5",
-   "kind": "str-fixture-utility-machine-drivethrough",
+   "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
     0.876,
@@ -415748,7 +415725,7 @@
    "collection": "sq-props",
    "name": "conveyor-track",
    "hash": "f89fc626e1",
-   "kind": "str-fixture-utility-conveyor",
+   "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.172,
@@ -415809,7 +415786,7 @@
    "collection": "sq-props",
    "name": "foam-unit",
    "hash": "5f2886f10d",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.269,
@@ -415873,7 +415850,7 @@
    "collection": "sq-props",
    "name": "mitter-curtain",
    "hash": "a1a3fa65e0",
-   "kind": "str-fixture-utility-machine-drivethrough",
+   "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
     0.87,
@@ -416057,7 +416034,7 @@
    "collection": "sq-props",
    "name": "rinse-arch",
    "hash": "29405b0b10",
-   "kind": "str-fixture-utility-machine-drivethrough",
+   "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
     0.825,
@@ -416125,7 +416102,7 @@
    "collection": "sq-props",
    "name": "side-brushes",
    "hash": "a955e2800c",
-   "kind": "str-fixture-utility-machine-drivethrough",
+   "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
     0.87,
@@ -416190,7 +416167,7 @@
    "collection": "sq-props",
    "name": "vacuum-station",
    "hash": "857530e470",
-   "kind": "str-fixture-utility-machine-drivethrough",
+   "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
     0.225,
@@ -416255,7 +416232,7 @@
    "collection": "sq-props",
    "name": "wand-bay",
    "hash": "2cd4c0a859",
-   "kind": "str-fixture-utility-machine",
+   "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
     0.575,
@@ -417097,7 +417074,7 @@
    "collection": "sq-props",
    "name": "slot-cabinet",
    "hash": "86ebb37682",
-   "kind": "obj-device-electronics-arcade",
+   "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
     0.556,
@@ -418037,7 +418014,7 @@
     "sq",
     "wood-planks"
    ],
-   "thickRel": 1.58,
+   "thickRel": 1.54,
    "lint": [
     {
      "level": "error",
@@ -418401,7 +418378,7 @@
    "collection": "sq-props",
    "name": "pass-shelf",
    "hash": "e1d46b755b",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.542,
@@ -418669,7 +418646,7 @@
    "collection": "sq-props",
    "name": "tray-rack",
    "hash": "31181b1cfc",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.334,
@@ -418953,7 +418930,7 @@
    "collection": "sq-props",
    "name": "dumbbell-rack",
    "hash": "977da60d6a",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.533,
@@ -420183,7 +420160,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.52
   },
   {
    "kit": "sq-lab",
@@ -422038,7 +422015,7 @@
     "sq"
    ],
    "specialBand": "5,2",
-   "thickRel": 2.35
+   "thickRel": 2.36
   },
   {
    "kit": "sq-pool",
@@ -422522,7 +422499,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 2.32
+   "thickRel": 2.33
   },
   {
    "kit": "sq-pool",
@@ -427862,7 +427839,7 @@
     "stone-soil",
     "sty"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "styloo-farm",
@@ -429391,7 +429368,7 @@
    "kit": "styloo-food",
    "name": "burger",
    "hash": "32b183d526",
-   "kind": "obj-food-prepared-burger",
+   "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
     0.191,
@@ -432178,7 +432155,7 @@
     "sty",
     "wood-worked"
    ],
-   "thickRel": 1.17
+   "thickRel": 0.92
   },
   {
    "kit": "styloo-furniture",
@@ -438066,7 +438043,7 @@
    "kit": "styloo-school",
    "name": "display-rack",
    "hash": "f92ebfe255",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.704,
@@ -441144,7 +441121,7 @@
    "kit": "styloo-school",
    "name": "shelf-cart",
    "hash": "25558412ec",
-   "kind": "obj-furnishing-furniture-storage-shelf-rack",
+   "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.51,
@@ -441275,7 +441252,7 @@
     "wax"
    ],
    "variant": "styloo-school/soap-bar-red",
-   "thickRel": 1.89,
+   "thickRel": 1.88,
    "lint": [
     {
      "level": "error",
@@ -441324,7 +441301,7 @@
     "wax"
    ],
    "variant": "styloo-school/soap-bar-red",
-   "thickRel": 1.89,
+   "thickRel": 1.88,
    "lint": [
     {
      "level": "error",
@@ -441372,7 +441349,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.73
   },
   {
    "kit": "styloo-school",
@@ -441527,7 +441504,7 @@
     "sty",
     "textile"
    ],
-   "thickRel": 0.34
+   "thickRel": 0.33
   },
   {
    "kit": "styloo-school",
@@ -449525,7 +449502,7 @@
     "textile",
     "wood-beam"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "western",
@@ -450376,7 +450353,7 @@
    "collection": "wizp-eastern",
    "name": "brazier",
    "hash": "3e0b2f5b26",
-   "kind": "obj-furnishing-light-torch",
+   "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.32,
@@ -450418,7 +450395,7 @@
     "metal-iron-wrought",
     "wizp"
    ],
-   "thickRel": 1.82
+   "thickRel": 2.47
   },
   {
    "kit": "wizp-asia",
@@ -452267,7 +452244,7 @@
     "wood-planks",
     "wood-worked"
    ],
-   "thickRel": 0.48,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "error",
@@ -459594,7 +459571,7 @@
    "collection": "wizp-western",
    "name": "barrel-tapped",
    "hash": "14ee1d2d3c",
-   "kind": "obj-container-barrel-keg",
+   "kind": "obj-container-barrel",
    "size": "m",
    "wdh": [
     0.487,
@@ -463876,7 +463853,7 @@
     "wizp",
     "wood-beam"
    ],
-   "thickRel": 0.48,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "error",
@@ -465002,7 +464979,7 @@
     "metal-iron-wrought",
     "rubber"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.22
   },
   {
    "kit": "zombie-weapons",
@@ -465150,7 +465127,7 @@
     "textile",
     "wood-worked"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.79
   },
   {
    "kit": "zombie-weapons",

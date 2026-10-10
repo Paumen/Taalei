@@ -39,7 +39,7 @@ const SCALE_TABS = [
   {
     id: 'obj-gen', name: 'Obj gen', file: 'scale-obj-gen.html',
     branches: ['obj', 'obj-kitchenware', 'obj-furnishing', 'obj-food',
-      'obj-furnishing-light', 'obj-resource'],
+      'obj-furnishing-light', 'obj-resource', 'sym'],
   },
   { id: 'obj-container', name: 'Obj container', file: 'scale-obj-container.html', branches: ['obj-container'] },
   { id: 'obj-transport', name: 'Obj transport', file: 'scale-obj-transport.html', branches: ['obj-transport'] },

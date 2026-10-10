@@ -195,7 +195,7 @@ What a model *is*, before any material or colour question.
 
 | tier | role | word form | test |
 |---|---|---|---|
-| root | domain | abbreviation | `obj` `str` `env` `set` `char` |
+| root | domain | abbreviation | `obj` `str` `env` `set` `char` `sym` |
 | root+1 | category | collective noun | "container", "flora" — you cannot hold one |
 | root+2 | sub-category or kind | collective or singular | either |
 | kind | is-a | singular noun | "a chest" |
@@ -209,7 +209,7 @@ What a model *is*, before any material or colour question.
 | `T04` | `tag:plural` | — | model | is | several instances of one thing in one model |
 | `T05` | `mat:special` | — | `specialWhy` | not | empty |
 | `T07` | `kind:str-building` | — | `storeys` | is | the storeys read from the model — door height, wall bands, floor lines — in steps of 0.5; a room in the roof is half a step; where they do not read, its height against the kit's own storeyed buildings; mandatory on every building except `comp`, `plural`, `pickup`, `broken` and `piece`, and the only size a building is held to |
-| `T08` | `*` | — | `kind` | is | a node holding at least 4 models, unless the split it makes is significant and clear |
+| `T08` | `*` | — | `kind` | is | a node holding at least 3 models, preferably from 2 artists and 3 kits; fewer only where folding them into the parent would make them outliers or a poor fit there |
 | `T09` | a variant split on shape | — | the parent | is | empty: the split is exhaustive. A split on kind may leave the parent holding the rest |
 | `T10` | a word two kinds both answer to | — | the specialised `kind` | is | the qualified form (`warhammer`, `cookpot`); the generic one stays plain |
 | `T11` | a model reading as two or more kinds from different nodes | — | `kind` | is | `set` |
@@ -388,4 +388,5 @@ Main:
 Other:
 `char` = living or acting entity, incl. any obj it may equip, wear or carry
 `set` = a mix of different things from different kinds
+`sym` = abstract symbol or icon, not a thing in the world
 

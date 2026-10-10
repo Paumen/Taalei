@@ -25,7 +25,7 @@ export const kindChain = (id) => {
   return chain;
 };
 
-const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'set'];
+const ROOT_ORDER = ['obj', 'char', 'env', 'str', 'sym', 'set'];
 export const rootRank = (id) => ROOT_ORDER.indexOf(id.split('-')[0]);
 
 export const SIZE_CLASSES = [
