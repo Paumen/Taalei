@@ -74,8 +74,8 @@ export function readPng(path) {
 
   const channels = CHANNELS[colorType];
   if (!channels) throw new Error(`unknown PNG colour type ${colorType}: ${path}`);
-  if (![1, 2, 4, 8].includes(bitDepth)) {
-    throw new Error(`at most 8 bits per channel: ${path} has ${bitDepth}`);
+  if (![1, 2, 4, 8, 16].includes(bitDepth)) {
+    throw new Error(`unknown PNG bit depth: ${path} has ${bitDepth}`);
   }
   if (bitDepth < 8 && channels !== 1) {
     throw new Error(`${path}: ${bitDepth} bits only works for grey or palette`);
@@ -91,7 +91,10 @@ export function readPng(path) {
   );
 
   let plane = unfiltered;
-  if (bitDepth < 8) {
+  if (bitDepth === 16) {
+    plane = Buffer.alloc(unfiltered.length >> 1);
+    for (let i = 0; i < plane.length; i++) plane[i] = unfiltered[i * 2];
+  } else if (bitDepth < 8) {
     const scale = colorType === 0 ? 255 / ((1 << bitDepth) - 1) : 1;
     plane = Buffer.alloc(width * height);
     for (let y = 0; y < height; y++) {
