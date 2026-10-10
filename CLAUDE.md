@@ -10,6 +10,7 @@
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
+* lint/golden.mjs holds the golden rules, the most critical repo rules, checked on every PR by .github/workflows/golden.yml: `node lint/golden.mjs`. A broken rule fails the PR check. Rules: R01, no catalogue model's longest side under 0.05.
 * lint/glb-lint.mjs checks glb files for glTF validity, geometry, shading and house rules: `node lint/glb-lint.mjs kits/workfiles [--only-problems] [--json out.json]`. Needs `npm install` first (gltf-validator, pinned in package.json).
 * tools/renders/render.mjs can be used to render glbs in various ways. If you make copies of glbs and want to render them, make sure you add the shared color map such they can find it. Most render modes will show backfaces in mangenta, if those are pre-existing and irrelevant for the task at hand, ignore them.
 * A workfile in kits/workfiles is the asset itself.

@@ -31,6 +31,7 @@ const REASONS = {
     tally: (count) => (count === 1 ? 'as a duplicate' : 'as duplicates'),
     long: 'the catalog already has this shape',
   },
+  size: { label: 'size', tally: () => 'for size', long: 'it is too small for the island' },
 };
 
 const reasonOf = (model) => REASONS[model.reason] ?? null;
