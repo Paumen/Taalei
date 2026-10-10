@@ -37404,12 +37404,12 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "broom",
-   "hash": "d0b388f412",
+   "hash": "eb77cc5a6c",
    "kind": "obj-equipment-tool-twohand-broom",
    "size": "m",
    "wdh": [
-    0.175,
-    0.181,
+    0.171,
+    0.18,
     0.79
    ],
    "tris": 1078,
@@ -37422,9 +37422,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.026,
-   "thick": 0.2471,
-   "avgTri": 0.00047,
+   "minTube": 0.0134,
+   "thick": 0.2353,
+   "avgTri": 0.00032,
    "anglePct": 1,
    "vpt": 0.84,
    "grad": 0.53,
@@ -37454,7 +37454,14 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.29,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0134 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -183380,7 +183387,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "journal-open",
-   "hash": "cfbc3384fd",
+   "hash": "91e12af03f",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
    "wdh": [
@@ -183398,10 +183405,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.012,
-   "thick": 0.1025,
-   "avgTri": 0.00032,
-   "anglePct": 39,
+   "minTube": 0.0064,
+   "thick": 0.1018,
+   "avgTri": 0.00031,
+   "anglePct": 38,
    "vpt": 2.98,
    "grad": 0.43,
    "spread": {
@@ -183433,19 +183440,12 @@
     "leather",
     "paper-sheet"
    ],
-   "backface": {
-    "share": 0.0024,
-    "view": "225/20",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 0.86,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 225/20 over 0.1%: open 100.0%"
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0064 wants min 0.012"
     }
    ]
   },
@@ -186505,12 +186505,12 @@
    "kit": "kay-weapons",
    "collection": "kay-rpg",
    "name": "sword-c",
-   "hash": "4b8e7000b7",
+   "hash": "c414b09e2e",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
     0.08,
-    0.051,
+    0.046,
     0.639
    ],
    "tris": 358,
@@ -186518,15 +186518,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19420,
+   "bytes": 19416,
    "vtx": 493,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.012,
-   "thick": 0.2935,
-   "avgTri": 0.00018,
-   "anglePct": 37,
+   "minEdge": 0.002,
+   "minTube": 0.0058,
+   "thick": 0.2876,
+   "avgTri": 0.00016,
+   "anglePct": 39,
    "vpt": 1.38,
    "grad": 0.78,
    "spread": {
@@ -186549,7 +186549,14 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/sword-c",
-   "thickRel": 1.99
+   "thickRel": 1.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0058 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "kay-weapons",
@@ -301207,13 +301214,13 @@
   {
    "kit": "m3-base",
    "name": "button",
-   "hash": "cd4ad4d12b",
+   "hash": "479a41d002",
    "kind": "obj-equipment-tool-supplies",
    "size": "s",
    "wdh": [
     0.019,
     0.019,
-    0.007
+    0.005
    ],
    "tris": 632,
    "tpu": 1843,
@@ -301226,9 +301233,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.0752,
+   "minTube": 0.0032,
+   "thick": 0.0686,
    "avgTri": 0,
-   "anglePct": 46,
+   "anglePct": 51,
    "vpt": 1.33,
    "grad": 0.58,
    "spread": {
@@ -301252,7 +301260,14 @@
     "textile-cloth-dark"
    ],
    "variant": "m3-base/button",
-   "thickRel": 0.5
+   "thickRel": 0.46,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0032 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -328714,12 +328729,12 @@
   {
    "kit": "m3-base",
    "name": "small-banner",
-   "hash": "19a5f33ddb",
+   "hash": "a326dedbd1",
    "kind": "str-fixture-marker-banner",
    "size": "s",
    "wdh": [
     0.204,
-    0.033,
+    0.018,
     0.353
    ],
    "tris": 996,
@@ -328727,15 +328742,15 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 34480,
+   "bytes": 34484,
    "vtx": 843,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.026,
-   "thick": 0.0686,
-   "avgTri": 0.0001,
-   "anglePct": 46,
+   "minTube": 0.0123,
+   "thick": 0.0608,
+   "avgTri": 0.00009,
+   "anglePct": 51,
    "vpt": 0.85,
    "grad": 0.59,
    "spread": {
@@ -328764,12 +328779,17 @@
     "textile-rope",
     "wood-mid"
    ],
-   "thickRel": 1.03,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
      "check": "size",
      "text": "longest 0.353 under min 0.5 (str-fixture-marker-banner)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0123 wants min 0.026"
     }
    ]
   },
