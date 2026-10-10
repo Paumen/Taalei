@@ -1202,8 +1202,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 43
+    "factor": 0.99,
+    "kinds": 44
    }
   },
   {
@@ -2818,7 +2818,7 @@
    },
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 157
+    "kinds": 160
    }
   },
   {
@@ -4551,7 +4551,7 @@
    },
    "kitCheck": {
     "factor": 1.11,
-    "kinds": 37
+    "kinds": 38
    }
   },
   {
@@ -25476,15 +25476,29 @@
    "id": "obj-equipment-tool-stationery",
    "name": "Stationery",
    "type": "kind",
-   "description": "Writing, drawing and desk tool: pencil, pen, scissors, drafting compass, ruler, magnifying glass.",
+   "description": "Desk tool: scissors, drafting compass, ruler, stapler, magnifying glass.",
    "count": 51
   },
   {
    "id": "obj-equipment-tool-stationery-holder",
    "name": "Pencil holder",
    "type": "kind",
-   "description": "pencil cup, pen cup, pencil case, pen holder",
-   "count": 3
+   "description": "pencil cup, pen cup, pencil case, pen holder, pen tidy",
+   "count": 4
+  },
+  {
+   "id": "obj-equipment-tool-stationery-writing",
+   "name": "Writing tool",
+   "type": "kind",
+   "description": "pencil, pen, marker, chalk, crayon",
+   "count": 23
+  },
+  {
+   "id": "obj-equipment-tool-stationery-filing",
+   "name": "Filing",
+   "type": "kind",
+   "description": "clipboard, folder, ring binder, paper pad, paper tidy, letter rack",
+   "count": 7
   },
   {
    "id": "obj-equipment-tool-hand",
@@ -29014,7 +29028,19 @@
    "longest.max": 0.5,
    "tpu.max": 10000
   },
+  "obj-equipment-tool-stationery-filing": {
+   "high.max": 8,
+   "longest.min": 0.08,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
   "obj-equipment-tool-stationery-holder": {
+   "high.max": 8,
+   "longest.min": 0.08,
+   "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-stationery-writing": {
    "high.max": 8,
    "longest.min": 0.08,
    "longest.max": 0.5,
@@ -31411,6 +31437,18 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-stationery-holder scale-small": {
+   "high.max": 8,
+   "longest.min": 0.04,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-stationery-writing scale-small": {
+   "high.max": 8,
+   "longest.min": 0.04,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-stationery-filing scale-small": {
    "high.max": 8,
    "longest.min": 0.04,
    "longest.max": 0.25,
@@ -179601,7 +179639,7 @@
    "collection": "kay-rpg",
    "name": "pencil-a-long",
    "hash": "052e499c51",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.026,
@@ -179650,14 +179688,14 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.64
+   "thickRel": 1
   },
   {
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-a-short",
    "hash": "55a5ac4614",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.026,
@@ -179707,14 +179745,14 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.38
+   "thickRel": 0.84
   },
   {
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-b-long",
    "hash": "04dae806b0",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.034,
@@ -179774,14 +179812,14 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.53
+   "thickRel": 0.93
   },
   {
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-b-short",
    "hash": "99945085f6",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.034,
@@ -179841,7 +179879,7 @@
    ],
    "specialBand": "6,0",
    "variant": "kay-tools/pencil-a-long",
-   "thickRel": 1.31
+   "thickRel": 0.8
   },
   {
    "kit": "kay-tools",
@@ -271114,7 +271152,7 @@
    "kit": "lpa-construction",
    "name": "clipboard",
    "hash": "1e85c622f4",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.294,
@@ -296262,7 +296300,7 @@
    "kit": "m3-base",
    "name": "clipboard",
    "hash": "09a76d5b9a",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.179,
@@ -297662,7 +297700,7 @@
    "kit": "m3-base",
    "name": "crayon",
    "hash": "d83e13cb0a",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.036,
@@ -297698,7 +297736,7 @@
     "paper",
     "wax"
    ],
-   "thickRel": 1.47
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
@@ -307928,7 +307966,7 @@
    "kit": "m3-base",
    "name": "letter-rack-01",
    "hash": "a73fe484d8",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.225,
@@ -310895,7 +310933,7 @@
    "kit": "m3-base",
    "name": "office-folder",
    "hash": "8113d06cdb",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.164,
@@ -313057,7 +313095,7 @@
    "kit": "m3-base",
    "name": "paper-pad",
    "hash": "89609764cb",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.141,
@@ -313104,7 +313142,7 @@
    "kit": "m3-base",
    "name": "paper-tidy",
    "hash": "2084906cac",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.071,
@@ -313490,7 +313528,7 @@
    "kit": "m3-base",
    "name": "pen-01",
    "hash": "73fa8843b8",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.01,
@@ -313531,13 +313569,13 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.47
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
    "name": "pen-tidy",
    "hash": "889862b7bb",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-holder",
    "size": "s",
    "wdh": [
     0.093,
@@ -313579,7 +313617,7 @@
    "kit": "m3-base",
    "name": "pencil",
    "hash": "401694877e",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.023,
@@ -313631,7 +313669,7 @@
     "plastic",
     "wood-worked"
    ],
-   "thickRel": 1.61
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -316288,7 +316326,7 @@
    "kit": "m3-base",
    "name": "ring-binder",
    "hash": "cdd65dc875",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.06,
@@ -437037,7 +437075,7 @@
    "kit": "styloo-school",
    "name": "chalk",
    "hash": "c3d83e96ab",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.034,
@@ -437074,7 +437112,7 @@
     "stone-masonry",
     "sty"
    ],
-   "thickRel": 1.52
+   "thickRel": 0.92
   },
   {
    "kit": "styloo-school",
@@ -438482,7 +438520,7 @@
    "kit": "styloo-school",
    "name": "marker-black",
    "hash": "f7322b0760",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.041,
@@ -438523,13 +438561,13 @@
     "sty"
    ],
    "variant": "styloo-school/marker-black",
-   "thickRel": 1.38
+   "thickRel": 0.84
   },
   {
    "kit": "styloo-school",
    "name": "marker-green",
    "hash": "50c8b2c437",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.041,
@@ -438575,13 +438613,13 @@
     "sty"
    ],
    "variant": "styloo-school/marker-black",
-   "thickRel": 1.35
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-school",
    "name": "marker-red",
    "hash": "33ce42e094",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.041,
@@ -438622,7 +438660,7 @@
     "sty"
    ],
    "variant": "styloo-school/marker-black",
-   "thickRel": 1.36
+   "thickRel": 0.83
   },
   {
    "kit": "styloo-school",
@@ -439385,7 +439423,7 @@
    "kit": "styloo-school",
    "name": "pen-blue",
    "hash": "d453571119",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.022,
@@ -439433,7 +439471,7 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.78
+   "thickRel": 1.08
   },
   {
    "kit": "styloo-school",
@@ -439487,7 +439525,7 @@
    "kit": "styloo-school",
    "name": "pen-four-colour",
    "hash": "cbded637ad",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.024,
@@ -439544,7 +439582,7 @@
     "scale-small",
     "sty"
    ],
-   "thickRel": 1.59,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "error",
@@ -439562,7 +439600,7 @@
    "kit": "styloo-school",
    "name": "pen-green",
    "hash": "2ea89f97c2",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.022,
@@ -439610,13 +439648,13 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.78
+   "thickRel": 1.08
   },
   {
    "kit": "styloo-school",
    "name": "pen-red",
    "hash": "488ad9cb2c",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.022,
@@ -439664,13 +439702,13 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.8
+   "thickRel": 1.09
   },
   {
    "kit": "styloo-school",
    "name": "pencil-black",
    "hash": "22821132ae",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -439712,13 +439750,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
    "name": "pencil-blue",
    "hash": "bb650e445d",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -439760,7 +439798,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
@@ -439827,7 +439865,7 @@
    "kit": "styloo-school",
    "name": "pencil-green",
    "hash": "e73e11edc5",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -439869,13 +439907,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
    "name": "pencil-natural",
    "hash": "8e36b86355",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -439912,13 +439950,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
    "name": "pencil-pink",
    "hash": "3036f7824e",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -439960,13 +439998,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
    "name": "pencil-red",
    "hash": "4869c6c793",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -440008,13 +440046,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
    "name": "pencil-white",
    "hash": "d0a367fb40",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -440056,13 +440094,13 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
    "name": "pencil-yellow",
    "hash": "e2a839843b",
-   "kind": "obj-equipment-tool-stationery",
+   "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.025,
@@ -440104,7 +440142,7 @@
     "wood-planks"
    ],
    "variant": "styloo-school/pencil-red",
-   "thickRel": 1.73
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-school",
