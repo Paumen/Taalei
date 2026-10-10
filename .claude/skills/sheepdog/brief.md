@@ -79,17 +79,20 @@ Never: touch another kind's models, run `build-catalog`, `build-thumbs`,
 
 ## Doubt
 
-Mark `doubt: true` when:
+Doubt is the exception. Mark `doubt: true` only when:
 
-- the model's size changes, or its kind;
-- a shape edit goes beyond evening a surface or thickening a part a little;
-- a colour move where the source artist may have meant it, or where you
-  could not see the part clearly;
+- the model's size changes;
+- a shape edit reshapes the object, beyond evening a surface or thickening a
+  part;
+- a colour move changes what the part reads as, not just which band it uses,
+  or you could not see the part clearly;
 - you could not check the result beside peers.
 
-Leave `doubt: false` for evened glitchy triangles, flipped back faces, a band
-moved to the one the peers use for that part, an upright turn, and plain tag
-fixes. The PO's verdicts so far, to calibrate on:
+Leave `doubt: false` for everything else: kind moves, glitch and back-face
+fixes, upright turns, a band moved to the one the peers use for that part, a
+colour that matches the real object, and tag fixes. "The source artist may
+have meant it" is no reason to doubt on its own. The PO's verdicts so far, to
+calibrate on:
 
 {{calibration}}
 
