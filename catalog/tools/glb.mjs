@@ -721,9 +721,85 @@ export function measureStrips(glb) {
   return strips;
 }
 
+const LAYER_WIDTH = 0.026;
+const LAYER_GAP = 0.002;
+const LAYER_SHARE = 0.8;
+const LAYER_SAMPLES = 24;
+
+function sceneTriangles(glb) {
+  const { json } = glb;
+  const world = worldMatrices(json);
+  const seen = new Set();
+  const tris = [];
+  (json.nodes ?? []).forEach((node, n) => {
+    if (node.mesh === undefined || !world[n]) return;
+    for (const prim of json.meshes[node.mesh].primitives ?? []) {
+      if (seen.has(prim) || prim.attributes?.POSITION === undefined || (prim.mode ?? 4) !== 4) continue;
+      seen.add(prim);
+      const m = world[n];
+      const pos = readAccessor(glb, prim.attributes.POSITION);
+      const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : Array.from({ length: pos.count }, (_, i) => i);
+      for (let t = 0; t + 2 < idx.length; t += 3) {
+        const vs = [idx[t], idx[t + 1], idx[t + 2]];
+        tris.push({ prim, vs, p: vs.map((v) => multiplyPoint(m, pos.data[v * 3], pos.data[v * 3 + 1], pos.data[v * 3 + 2])) });
+      }
+    }
+  });
+  return tris;
+}
+
+function rayDistance(o, d, [a, b, c]) {
+  const e1 = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+  const e2 = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+  const h = [d[1] * e2[2] - d[2] * e2[1], d[2] * e2[0] - d[0] * e2[2], d[0] * e2[1] - d[1] * e2[0]];
+  const det = dot3(e1, h);
+  if (Math.abs(det) < 1e-14) return null;
+  const s = [o[0] - a[0], o[1] - a[1], o[2] - a[2]];
+  const u = dot3(s, h) / det;
+  if (u < -1e-6 || u > 1 + 1e-6) return null;
+  const q = [s[1] * e1[2] - s[2] * e1[1], s[2] * e1[0] - s[0] * e1[2], s[0] * e1[1] - s[1] * e1[0]];
+  const v = dot3(d, q) / det;
+  if (v < -1e-6 || u + v > 1 + 1e-6) return null;
+  return dot3(e2, q) / det;
+}
+
+function liesOnSurface(piece, tris) {
+  const u = piece.frame.u.map((x) => x / Math.hypot(...piece.frame.u));
+  const own = new Set(piece.vertices);
+  const inPiece = (t) => t.prim === piece.prim && t.vs.every((v) => own.has(v));
+  const broad = tris.filter((t) => {
+    if (!inPiece(t)) return false;
+    const e1 = [t.p[1][0] - t.p[0][0], t.p[1][1] - t.p[0][1], t.p[1][2] - t.p[0][2]];
+    const e2 = [t.p[2][0] - t.p[0][0], t.p[2][1] - t.p[0][1], t.p[2][2] - t.p[0][2]];
+    const n = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    const l = Math.hypot(...n);
+    return l > 0 && Math.abs(dot3(n, u)) / l > 0.9;
+  });
+  if (!broad.length) return false;
+  const others = tris.filter((t) => !inPiece(t));
+  const step = Math.max(1, Math.floor(broad.length / LAYER_SAMPLES));
+  const samples = broad.filter((_, i) => i % step === 0).map((t) => [0, 1, 2].map((k) => (t.p[0][k] + t.p[1][k] + t.p[2][k]) / 3));
+  const reach = piece.width + LAYER_GAP;
+  const backed = samples.filter((c) => [u, u.map((x) => -x)].some((d) => others.some((t) => {
+    const r = rayDistance(c, d, t.p);
+    return r !== null && r > -1e-5 && r < reach;
+  }))).length;
+  return backed >= LAYER_SHARE * samples.length;
+}
+
 export function thinnestPart(glb) {
-  const widths = [...measureTubes(glb).map((t) => t.diameter), ...measureSticks(glb).map((s) => s.width), ...measureStrips(glb).map((s) => s.width)];
-  return widths.length ? Math.min(...widths) : null;
+  const pieces = [
+    ...measureTubes(glb).map((t) => ({ ...t, width: t.diameter })),
+    ...measureSticks(glb),
+    ...measureStrips(glb),
+  ].sort((a, b) => a.width - b.width);
+  let tris = null;
+  for (const piece of pieces) {
+    if (piece.width >= LAYER_WIDTH) return piece.width;
+    tris ??= sceneTriangles(glb);
+    if (!liesOnSurface(piece, tris)) return piece.width;
+  }
+  return null;
 }
 
 const THICK_CELLS = 60;
