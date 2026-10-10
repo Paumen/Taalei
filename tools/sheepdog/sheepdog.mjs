@@ -325,7 +325,9 @@ function record() {
     const after = lintFindings(changedFiles.map(([, m]) => [m.id.replace('/', '__'), workfile(m.id)]));
     for (const [kind, m] of changedFiles) {
       const name = m.id.replace('/', '__');
-      const fresh = (after.get(name) ?? []).filter((f) => !(before.get(name) ?? []).includes(f));
+      const shape = (f) => f.replace(/[\d.,]+/g, '#');
+      const had = new Set((before.get(name) ?? []).map(shape));
+      const fresh = (after.get(name) ?? []).filter((f) => !had.has(shape(f)));
       const entry = log.find((e) => e.kind === kind && e.run === runFile.run);
       const own = entry.changes.filter((c) => c.id === m.id);
       if (!own.length) {
