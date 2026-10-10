@@ -245,15 +245,21 @@ export function buildPalettes(materials, vars) {
     for (const [size, bands] of Object.entries(bySize)) rows.push({ mat, size, bands });
   }
   rows.sort((a, b) => b.mat.length - a.mat.length);
-  return { lanes, names, rows };
+  const kindBands = Object.entries(vars.palette.kindBands ?? {})
+    .flatMap(([mat, byKind]) => Object.entries(byKind).map(([kind, bands]) => ({ mat, kind, bands })));
+  return { lanes, names, rows, kindBands };
 }
 
-function paletteOf(material, size, palettes) {
+function paletteOf(material, size, kind, palettes) {
   const matching = palettes.rows.filter((row) => idUnder(material, row.mat));
   const rows = matching.filter((row) => row.mat === matching[0]?.mat);
   const row = rows.find((r) => r.size === size) ?? rows.find((r) => r.size === null);
   if (!row) return null;
-  return { bands: row.bands, lanes: row.bands.map((band) => palettes.lanes.get(band)) };
+  const extra = palettes.kindBands
+    .filter((k) => k.mat === material && kind && idUnder(kind, k.kind))
+    .flatMap((k) => k.bands);
+  const bands = [...new Set([...row.bands, ...extra])];
+  return { bands, lanes: bands.map((band) => palettes.lanes.get(band)) };
 }
 
 export function paletteFindingsFor(model, palettes, materialIds, vars) {
@@ -261,7 +267,7 @@ export function paletteFindingsFor(model, palettes, materialIds, vars) {
   const used = Object.keys(model.spread ?? {});
   const special = model.specialBand && used.includes(model.specialBand);
   for (const material of materialsOf(model, materialIds, vars)) {
-    const palette = paletteOf(material, model.size, palettes);
+    const palette = paletteOf(material, model.size, model.kind, palettes);
     if (!palette) continue;
     if (special || palette.lanes.some((lane) => lane === null || used.includes(lane))) continue;
     out.push({
