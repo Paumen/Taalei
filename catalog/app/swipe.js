@@ -1,15 +1,15 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=ea3d5a4505';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=97d408f4c1';
 import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=0f98fb02f2';
-import { colorSwatches, setBands } from './color-edits.js?v=7b9619fe4c';
-import { renderCommentBox } from './comments.js?v=b702908fd9';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=e034d4dfc2';
+import { colorSwatches, setBands } from './color-edits.js?v=59da1e14dd';
+import { renderCommentBox } from './comments.js?v=ed62ec964f';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=a409c112bb';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import {
   number, readableBytes, dimensions, longest, kindParent, kindChain,
   SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText,
   withParents, collectColors, hydrate, WORKFILES, modelUrl, flatMode, setLighting, copyWithFeedback, saveFile,
-} from './shared.js?v=401e058e54';
-import './bouwstempel.js?v=2d49c008a7';
+} from './shared.js?v=06861d7ddb';
+import './bouwstempel.js?v=964f9eed53';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -592,7 +592,7 @@ function makeBeforeViewer(after, src, name) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=1464439712'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=1a4089f5a1'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];
