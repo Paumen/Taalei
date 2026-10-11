@@ -48576,7 +48576,21 @@
     "Die"
    ],
    "variant": "dragon/dragon-chestnut",
-   "thickRel": 0.56
+   "backface": {
+    "share": 0.0021,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.56,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "dragon",
@@ -48653,8 +48667,20 @@
     "Die"
    ],
    "variant": "dragon/dragon-chestnut",
+   "backface": {
+    "share": 0.0021,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.56,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -48733,7 +48759,21 @@
     "Die"
    ],
    "variant": "dragon/dragon-chestnut",
-   "thickRel": 0.56
+   "backface": {
+    "share": 0.0021,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.56,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "dragon",
@@ -48811,7 +48851,21 @@
     "Die"
    ],
    "variant": "dragon/dragon-chestnut",
-   "thickRel": 0.56
+   "backface": {
+    "share": 0.0021,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.56,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -48903,12 +48957,27 @@
     "stone-masonry-light"
    ],
    "variant": "dungeon/beam",
+   "backface": {
+    "share": 0.0416,
+    "view": "135/20",
+    "causes": {
+     "inverted": 0.88,
+     "inside-out": 0.03,
+     "open": 0.09,
+     "other": 0
+    }
+   },
    "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5291 over max 5000 (str)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "4.2% of view 135/20 over 0.5%: inverted 88.0%, open 9.0%, inside-out 3.0%"
     }
    ]
   },
@@ -48956,12 +49025,26 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
+   "backface": {
+    "share": 0.0449,
+    "view": "135/20",
+    "causes": {
+     "inverted": 0.78,
+     "inside-out": 0.03,
+     "open": 0.19
+    }
+   },
    "thickRel": 0.92,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5868 over max 5000 (str)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "4.5% of view 135/20 over 0.5%: inverted 78.0%, open 19.0%, inside-out 3.0%"
     }
    ]
   },
@@ -49009,7 +49092,23 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.88
+   "backface": {
+    "share": 0.0485,
+    "view": "135/20",
+    "causes": {
+     "inverted": 0.72,
+     "open": 0.25,
+     "inside-out": 0.03
+    }
+   },
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "4.9% of view 135/20 over 0.5%: inverted 72.0%, open 25.0%, inside-out 3.0%"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -49157,7 +49256,24 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.49
+   "backface": {
+    "share": 0.0824,
+    "view": "135/50",
+    "causes": {
+     "inside-out": 0.59,
+     "inverted": 0.27,
+     "open": 0.15,
+     "other": 0
+    }
+   },
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "8.2% of view 135/50 over 0.5%: inside-out 59.0%, inverted 27.0%, open 15.0%"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -49258,12 +49374,24 @@
     "stone-masonry-light"
    ],
    "variant": "dungeon/floor",
+   "backface": {
+    "share": 0.0013,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
      "check": "size",
      "text": "longest 2.53 over max 1.35 (str-part-floor-unit)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -49446,12 +49574,25 @@
     "stone-masonry-light"
    ],
    "variant": "dungeon/floor",
+   "backface": {
+    "share": 0.001,
+    "view": "45/20",
+    "causes": {
+     "open": 0.87,
+     "inverted": 0.13
+    }
+   },
    "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
      "check": "size",
      "text": "longest 2.528 over max 1.35 (str-part-floor-unit)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 87.0%, inverted 13.0%"
     }
    ]
   },
@@ -49795,7 +49936,21 @@
     "metal-steel",
     "mounted"
    ],
-   "thickRel": 0.33
+   "backface": {
+    "share": 0.0231,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.33,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.3% of view 90/50 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -49890,12 +50045,25 @@
     "ceramic-light"
    ],
    "variant": "dungeon/vase",
+   "backface": {
+    "share": 0.1145,
+    "view": "135/50",
+    "causes": {
+     "inverted": 0.65,
+     "other": 0.35
+    }
+   },
    "thickRel": 1,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.528 over max 0.5 (obj-container-pot-vase)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "11.5% of view 135/50 over 0.5%: inverted 65.0%, other 35.0%"
     }
    ]
   },
@@ -49938,12 +50106,25 @@
     "ceramic-mid"
    ],
    "variant": "dungeon/vase",
+   "backface": {
+    "share": 0.1145,
+    "view": "90/50",
+    "causes": {
+     "inverted": 0.65,
+     "other": 0.35
+    }
+   },
    "thickRel": 1,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.528 over max 0.5 (obj-container-pot-vase)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "11.5% of view 90/50 over 0.5%: inverted 65.0%, other 35.0%"
     }
    ]
   },
@@ -60347,7 +60528,22 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
-   "thickRel": 0.9
+   "backface": {
+    "share": 0.0012,
+    "view": "90/50",
+    "causes": {
+     "inside-out": 0.74,
+     "open": 0.26
+    }
+   },
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: inside-out 74.0%, open 26.0%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -60400,7 +60596,22 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
-   "thickRel": 0.9
+   "backface": {
+    "share": 0.0012,
+    "view": "90/50",
+    "causes": {
+     "inside-out": 0.74,
+     "open": 0.26
+    }
+   },
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: inside-out 74.0%, open 26.0%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -67375,7 +67586,21 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.93
+   "backface": {
+    "share": 0.0035,
+    "view": "315/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 315/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -67604,7 +67829,22 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 1.01
+   "backface": {
+    "share": 0.004,
+    "view": "315/20",
+    "causes": {
+     "open": 0.98,
+     "inverted": 0.02
+    }
+   },
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 315/20 over 0.1%: open 98.0%, inverted 2.0%"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -186643,12 +186883,24 @@
     "metal-iron-dark",
     "plastic"
    ],
+   "backface": {
+    "share": 0.0016,
+    "view": "45/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.52,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 1.197 over max 1.1 (obj-leisure-game-arcade)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -188245,7 +188497,21 @@
     "ken",
     "leaf-dark"
    ],
-   "thickRel": 1.38
+   "backface": {
+    "share": 0.0011,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-arena",
@@ -194679,8 +194945,20 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
+   "backface": {
+    "share": 0.0012,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.95,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -194728,7 +195006,21 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
-   "thickRel": 1
+   "backface": {
+    "share": 0.0013,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-cave",
@@ -203330,7 +203622,21 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-food/bag",
-   "thickRel": 0.91
+   "backface": {
+    "share": 0.0045,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -203822,7 +204128,21 @@
     "special-food"
    ],
    "variant": "ken-food/burger",
-   "thickRel": 1
+   "backface": {
+    "share": 0.0012,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -204165,7 +204485,21 @@
     "paper-sheet",
     "special-food"
    ],
-   "thickRel": 0.96
+   "backface": {
+    "share": 0.0167,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.7% of view 90/20 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -205842,7 +206176,21 @@
     "ken",
     "special-food"
    ],
-   "thickRel": 0.95
+   "backface": {
+    "share": 0.0324,
+    "view": "270/50",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "3.2% of view 270/50 over 0.5%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -207302,6 +207650,20 @@
     "ken",
     "plural",
     "special-food"
+   ],
+   "backface": {
+    "share": 0.0028,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -207650,12 +208012,25 @@
     "leaf-light",
     "special-food"
    ],
+   "backface": {
+    "share": 0.0022,
+    "view": "315/50",
+    "causes": {
+     "inverted": 0.95,
+     "other": 0.05
+    }
+   },
    "thickRel": 0.86,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.212 under min 0.25 (obj-food-fruit-pineapple)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/50 over 0.1%: inverted 95.0%, other 5.0%"
     }
    ]
   },
@@ -207746,7 +208121,21 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.73
+   "backface": {
+    "share": 0.001,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.73,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -209346,7 +209735,22 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.96
+   "backface": {
+    "share": 0.011,
+    "view": "45/50",
+    "causes": {
+     "inverted": 0.96,
+     "other": 0.04
+    }
+   },
+   "thickRel": 1.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.1% of view 45/50 over 0.5%: inverted 96.0%, other 4.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -209621,12 +210025,24 @@
     "skin",
     "textile-cloth-dark"
    ],
+   "backface": {
+    "share": 0.002,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.983 over max 0.9 (char)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -226227,7 +226643,21 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 1.14
+   "backface": {
+    "share": 0.003,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.14,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-mini-dun",
@@ -250790,8 +251220,20 @@
     "space"
    ],
    "variant": "ken-space/rail",
+   "backface": {
+    "share": 0.001,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.44,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -339997,7 +340439,21 @@
    ],
    "alpha": true,
    "variant": "nature-assets/house-anim",
-   "thickRel": 1.1
+   "backface": {
+    "share": 0.0032,
+    "view": "270/50",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/50 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "nature-assets",
@@ -340051,7 +340507,21 @@
     "wood-dark"
    ],
    "variant": "nature-assets/house-anim",
-   "thickRel": 1.1
+   "backface": {
+    "share": 0.0027,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "nature-assets",
@@ -340149,7 +340619,21 @@
     "special-organic"
    ],
    "variant": "nature-assets/mushroom-a",
-   "thickRel": 1.04
+   "backface": {
+    "share": 0.0046,
+    "view": "180/20",
+    "causes": {
+     "other": 1
+    }
+   },
+   "thickRel": 1.04,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 180/20 over 0.1%: other 100.0%"
+    }
+   ]
   },
   {
    "kit": "nature-assets",
@@ -350015,7 +350499,21 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 1.44
+   "backface": {
+    "share": 0.0033,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -350117,7 +350615,21 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.38
+   "backface": {
+    "share": 0.0029,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -350177,7 +350689,21 @@
     "textile-rope",
     "wood-mid"
    ],
-   "thickRel": 0.84
+   "backface": {
+    "share": 0.003,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -350552,7 +351078,21 @@
     "skin",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.86
+   "backface": {
+    "share": 0.0043,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -350612,7 +351152,22 @@
     "skin",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.76
+   "backface": {
+    "share": 0.003,
+    "view": "180/20",
+    "causes": {
+     "open": 0.93,
+     "inverted": 0.07
+    }
+   },
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 180/20 over 0.1%: open 93.0%, inverted 7.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -350726,7 +351281,21 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.84
+   "backface": {
+    "share": 0.0014,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -350920,6 +351489,20 @@
     "metal-steel",
     "plural",
     "qua"
+   ],
+   "backface": {
+    "share": 0.001,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -351021,7 +351604,21 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.02
+   "backface": {
+    "share": 0.0017,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -351195,7 +351792,21 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.8
+   "backface": {
+    "share": 0.0018,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -351255,7 +351866,21 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 1.44
+   "backface": {
+    "share": 0.0019,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.44,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -351304,7 +351929,21 @@
     "special-emissive"
    ],
    "variant": "quat-apocalypse/street-light",
-   "thickRel": 0.96
+   "backface": {
+    "share": 0.0015,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -351375,7 +352014,21 @@
     "skin",
     "textile-cloth-mid"
    ],
-   "thickRel": 0.57
+   "backface": {
+    "share": 0.0012,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.57,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -351593,7 +352246,21 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.76
+   "backface": {
+    "share": 0.0032,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 315/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -355452,7 +356119,21 @@
     "Armature|Swim"
    ],
    "variant": "quat-fish/fish-1",
+   "backface": {
+    "share": 0.0124,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.74,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.2% of view 180/50 over 0.5%: open 100.0%"
+    }
+   ],
    "mark": [
     "grounded",
     "centered"
@@ -377259,7 +377940,21 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.9
+   "backface": {
+    "share": 0.0033,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-rpg",
@@ -393331,7 +394026,21 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 0.68
+   "backface": {
+    "share": 0.0022,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-sushi",
@@ -396855,30 +397564,30 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-a",
-   "hash": "debb3178e0",
+   "hash": "80b69f8154",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
-    3.242,
+    3.238,
     2.436,
     1.103
    ],
-   "tris": 2934,
-   "tpu": 337,
+   "tris": 1691,
+   "tpu": 194,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 198368,
-   "vtx": 5605,
+   "bytes": 111856,
+   "vtx": 3134,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.053,
-   "avgTri": 0.00488,
-   "anglePct": 44,
-   "vpt": 1.91,
-   "grad": 0.27,
+   "thick": 0.0519,
+   "avgTri": 0.00706,
+   "anglePct": 45,
+   "vpt": 1.85,
+   "grad": 0.26,
    "spread": {
     "5,2": [
      0.781,
@@ -396918,7 +397627,7 @@
    ],
    "variant": "quat-town/market-1-b",
    "backface": {
-    "share": 0.0019,
+    "share": 0.0015,
     "view": "225/20",
     "causes": {
      "open": 1
@@ -396928,7 +397637,7 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.2% of view 225/20 over 0.1%: open 100.0%"
+     "text": "0.1% of view 225/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -396936,29 +397645,29 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-b",
-   "hash": "d259b12955",
+   "hash": "25b81231da",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
-    3.799,
+    3.796,
     3.733,
-    1.105
+    1.103
    ],
-   "tris": 4131,
-   "tpu": 264,
+   "tris": 2927,
+   "tpu": 187,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 276892,
-   "vtx": 7834,
+   "bytes": 193140,
+   "vtx": 5442,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.0407,
-   "avgTri": 0.00747,
-   "anglePct": 44,
-   "vpt": 1.9,
+   "thick": 0.0403,
+   "avgTri": 0.00978,
+   "anglePct": 45,
+   "vpt": 1.86,
    "grad": 0.26,
    "spread": {
     "5,2": [
@@ -396999,7 +397708,7 @@
    ],
    "variant": "quat-town/market-1-b",
    "backface": {
-    "share": 0.0017,
+    "share": 0.0018,
     "view": "45/20",
     "causes": {
      "open": 1
@@ -397017,7 +397726,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-c",
-   "hash": "17b2b22ce3",
+   "hash": "e5884f7fa3",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -397025,22 +397734,22 @@
     4.217,
     1.105
    ],
-   "tris": 4439,
-   "tpu": 252,
+   "tris": 2376,
+   "tpu": 135,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 306540,
-   "vtx": 8703,
+   "bytes": 154988,
+   "vtx": 4354,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.0458,
-   "avgTri": 0.0089,
-   "anglePct": 54,
-   "vpt": 1.96,
-   "grad": 0.26,
+   "thick": 0.044,
+   "avgTri": 0.0148,
+   "anglePct": 57,
+   "vpt": 1.83,
+   "grad": 0.25,
    "spread": {
     "5,2": [
      0.781,
@@ -397080,7 +397789,7 @@
    ],
    "variant": "quat-town/market-1-b",
    "backface": {
-    "share": 0.0022,
+    "share": 0.0023,
     "view": "135/20",
     "causes": {
      "open": 1
@@ -397098,7 +397807,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-a",
-   "hash": "23fe38b9f7",
+   "hash": "a5d6df7b79",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -397106,22 +397815,22 @@
     2.464,
     1.184
    ],
-   "tris": 4389,
-   "tpu": 393,
+   "tris": 3181,
+   "tpu": 285,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 304680,
-   "vtx": 8654,
+   "bytes": 216168,
+   "vtx": 6114,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.026,
-   "thick": 0.0699,
-   "avgTri": 0.00751,
-   "anglePct": 70,
-   "vpt": 1.97,
-   "grad": 0.26,
+   "thick": 0.0689,
+   "avgTri": 0.00958,
+   "anglePct": 74,
+   "vpt": 1.92,
+   "grad": 0.25,
    "spread": {
     "0,0": [
      0.766,
@@ -397167,7 +397876,7 @@
    ],
    "variant": "quat-town/market-2-b",
    "backface": {
-    "share": 0.0039,
+    "share": 0.0041,
     "view": "135/20",
     "causes": {
      "open": 1
@@ -397185,7 +397894,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-b",
-   "hash": "c51b1d707d",
+   "hash": "3555d7ff8b",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -397193,26 +397902,30 @@
     4.028,
     1.314
    ],
-   "tris": 6279,
-   "tpu": 310,
+   "tris": 4304,
+   "tpu": 212,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 425544,
-   "vtx": 12076,
+   "bytes": 286808,
+   "vtx": 8111,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.026,
-   "thick": 0.0498,
-   "avgTri": 0.00896,
-   "anglePct": 71,
-   "vpt": 1.92,
-   "grad": 0.37,
+   "thick": 0.0484,
+   "avgTri": 0.01201,
+   "anglePct": 76,
+   "vpt": 1.88,
+   "grad": 0.33,
    "spread": {
     "2,0": [
      0.031,
      0.406
+    ],
+    "0,0": [
+     0.867,
+     0.867
     ],
     "5,2": [
      0.781,
@@ -397236,6 +397949,7 @@
     "#88735f",
     "#89542e",
     "#d8cfb7",
+    "#dbb789",
     "#f1a63b"
    ],
    "tags": [
@@ -397248,7 +397962,7 @@
    ],
    "variant": "quat-town/market-2-b",
    "backface": {
-    "share": 0.004,
+    "share": 0.0042,
     "view": "45/20",
     "causes": {
      "open": 1
@@ -397266,7 +397980,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-c",
-   "hash": "e795c77aaf",
+   "hash": "ad08440856",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -397274,26 +397988,30 @@
     3.971,
     1.314
    ],
-   "tris": 10822,
-   "tpu": 536,
+   "tris": 7899,
+   "tpu": 392,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 729828,
-   "vtx": 20733,
+   "bytes": 526468,
+   "vtx": 14926,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.026,
-   "thick": 0.0502,
-   "avgTri": 0.00945,
-   "anglePct": 72,
-   "vpt": 1.92,
-   "grad": 0.33,
+   "thick": 0.0488,
+   "avgTri": 0.01211,
+   "anglePct": 76,
+   "vpt": 1.89,
+   "grad": 0.26,
    "spread": {
     "2,0": [
      0.031,
      0.406
+    ],
+    "0,0": [
+     0.867,
+     0.867
     ],
     "5,2": [
      0.781,
@@ -397317,6 +398035,7 @@
     "#88735f",
     "#89542e",
     "#d8cfb7",
+    "#dbb789",
     "#f1a63b"
    ],
    "tags": [
@@ -397329,7 +398048,7 @@
    ],
    "variant": "quat-town/market-2-b",
    "backface": {
-    "share": 0.0041,
+    "share": 0.0042,
     "view": "135/20",
     "causes": {
      "open": 1
@@ -398191,7 +398910,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-a",
-   "hash": "e8e302071e",
+   "hash": "60986753e3",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -398199,21 +398918,21 @@
     2.932,
     1.523
    ],
-   "tris": 2719,
-   "tpu": 216,
+   "tris": 1416,
+   "tpu": 112,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 192628,
-   "vtx": 5466,
+   "bytes": 100580,
+   "vtx": 2834,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.103,
-   "avgTri": 0.01656,
-   "anglePct": 69,
-   "vpt": 2.01,
+   "thick": 0.1029,
+   "avgTri": 0.03036,
+   "anglePct": 72,
+   "vpt": 2,
    "grad": 0.28,
    "spread": {
     "2,0": [
@@ -398242,7 +398961,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-b",
-   "hash": "161f0d90f7",
+   "hash": "a88d4bd4f9",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -398250,21 +398969,21 @@
     2.932,
     1.523
    ],
-   "tris": 3615,
-   "tpu": 287,
+   "tris": 2275,
+   "tpu": 181,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 256184,
-   "vtx": 7284,
+   "bytes": 161808,
+   "vtx": 4586,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0111,
-   "thick": 0.1302,
-   "avgTri": 0.01668,
-   "anglePct": 65,
-   "vpt": 2.01,
+   "thick": 0.131,
+   "avgTri": 0.02561,
+   "anglePct": 66,
+   "vpt": 2.02,
    "grad": 0.28,
    "spread": {
     "2,0": [
@@ -398300,30 +399019,30 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-c",
-   "hash": "4bd2e42854",
+   "hash": "fc2354425a",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
-    3.585,
+    3.565,
     3.23,
     1.523
    ],
-   "tris": 5722,
-   "tpu": 324,
+   "tris": 2556,
+   "tpu": 146,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 391708,
-   "vtx": 11124,
+   "bytes": 171492,
+   "vtx": 4836,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0135,
-   "thick": 0.1571,
-   "avgTri": 0.01422,
-   "anglePct": 61,
-   "vpt": 1.94,
-   "grad": 0.28,
+   "thick": 0.1588,
+   "avgTri": 0.02946,
+   "anglePct": 63,
+   "vpt": 1.89,
+   "grad": 0.29,
    "spread": {
     "2,0": [
      0.031,
@@ -398345,7 +399064,7 @@
     "wood-light"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -398358,53 +399077,58 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-a",
-   "hash": "5ebb19770c",
+   "hash": "17296317dc",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.446,
-    2.759,
+    2.623,
     1.003
    ],
-   "tris": 17750,
-   "tpu": 1861,
+   "tris": 11094,
+   "tpu": 1224,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 1175924,
-   "vtx": 33375,
+   "bytes": 740484,
+   "vtx": 21015,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0035,
-   "thick": 0.1362,
-   "avgTri": 0.0043,
-   "anglePct": 65,
-   "vpt": 1.88,
-   "grad": 0.73,
+   "minTube": 0.006,
+   "thick": 0.1443,
+   "avgTri": 0.00598,
+   "anglePct": 72,
+   "vpt": 1.89,
+   "grad": 0.33,
    "spread": {
     "13,3": [
-     0.086,
+     0.313,
      0.961
+    ],
+    "2,0": [
+     0.117,
+     0.406
     ],
     "14,3": [
      0.031,
      0.961
     ],
+    "0,0": [
+     0.758,
+     0.953
+    ],
     "8,0": [
      0.031,
      0.18
-    ],
-    "2,0": [
-     0.117,
-     0.117
     ]
    },
    "colors": [
     "#59534e",
     "#873a27",
     "#88735f",
-    "#89542e"
+    "#89542e",
+    "#dbb789"
    ],
    "tags": [
     "ceramic-dark",
@@ -398414,12 +399138,12 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 0.86,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0035 wants min 0.026"
+     "text": "G27 minTube 0.006 wants min 0.026"
     }
    ]
   },
@@ -398427,34 +399151,38 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-b",
-   "hash": "fa7fd4e559",
+   "hash": "7b6313ba68",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
-    3.299,
+    2.955,
     2.498,
     1.782
    ],
-   "tris": 8669,
-   "tpu": 590,
+   "tris": 6178,
+   "tpu": 470,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 552084,
-   "vtx": 15583,
+   "bytes": 380972,
+   "vtx": 10703,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.1977,
-   "avgTri": 0.00763,
-   "anglePct": 72,
-   "vpt": 1.8,
-   "grad": 0.35,
+   "thick": 0.1939,
+   "avgTri": 0.00956,
+   "anglePct": 78,
+   "vpt": 1.73,
+   "grad": 0.3,
    "spread": {
     "2,0": [
      0.031,
      0.406
+    ],
+    "0,0": [
+     0.867,
+     0.867
     ],
     "8,0": [
      0.031,
@@ -398473,7 +399201,8 @@
     "#59534e",
     "#873a27",
     "#88735f",
-    "#89542e"
+    "#89542e",
+    "#dbb789"
    ],
    "tags": [
     "ceramic-dark",
@@ -398484,18 +399213,19 @@
    ],
    "variant": "quat-town/storage-2-c",
    "backface": {
-    "share": 0.0039,
+    "share": 0.0052,
     "view": "225/20",
     "causes": {
-     "open": 1
+     "open": 0.99,
+     "inverted": 0.01
     }
    },
-   "thickRel": 1.24,
+   "thickRel": 1.22,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.4% of view 225/20 over 0.1%: open 100.0%"
+     "text": "0.5% of view 225/20 over 0.5%: open 99.0%, inverted 1.0%"
     }
    ]
   },
@@ -398503,7 +399233,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-c",
-   "hash": "f4dbff2d7b",
+   "hash": "511adae7f3",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -398511,26 +399241,30 @@
     2.869,
     1.798
    ],
-   "tris": 8873,
-   "tpu": 475,
+   "tris": 7003,
+   "tpu": 375,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 545696,
-   "vtx": 15345,
+   "bytes": 420940,
+   "vtx": 11797,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0,
-   "thick": 0.1756,
-   "avgTri": 0.01218,
-   "anglePct": 78,
-   "vpt": 1.73,
-   "grad": 0.34,
+   "thick": 0.1776,
+   "avgTri": 0.01392,
+   "anglePct": 83,
+   "vpt": 1.68,
+   "grad": 0.3,
    "spread": {
     "2,0": [
      0.031,
      0.406
+    ],
+    "0,0": [
+     0.867,
+     0.867
     ],
     "8,0": [
      0.031,
@@ -398549,7 +399283,8 @@
     "#59534e",
     "#873a27",
     "#88735f",
-    "#89542e"
+    "#89542e",
+    "#dbb789"
    ],
    "tags": [
     "ceramic-dark",
@@ -398560,13 +399295,13 @@
    ],
    "variant": "quat-town/storage-2-c",
    "backface": {
-    "share": 0.004,
+    "share": 0.0043,
     "view": "45/20",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.1,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -403799,12 +404534,24 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0013,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.9,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.727 under min 0.8 (str-part-gate-gateway)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -454157,7 +454904,22 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 2.42
+   "backface": {
+    "share": 0.0013,
+    "view": "270/20",
+    "causes": {
+     "inverted": 0.99,
+     "other": 0.01
+    }
+   },
+   "thickRel": 2.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: inverted 99.0%, other 1.0%"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -459989,7 +460751,21 @@
     "wizp"
    ],
    "variant": "wizp-asia/door-left",
-   "thickRel": 2.25
+   "backface": {
+    "share": 0.0014,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.25,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -460034,7 +460810,21 @@
     "wizp"
    ],
    "variant": "wizp-asia/door-left",
-   "thickRel": 2.25
+   "backface": {
+    "share": 0.0014,
+    "view": "315/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.25,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -460397,7 +461187,21 @@
     "stone-masonry-mid",
     "wizp"
    ],
-   "thickRel": 1
+   "backface": {
+    "share": 0.0022,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -461398,7 +462202,21 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/house-a",
-   "thickRel": 0.7
+   "backface": {
+    "share": 0.0014,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -472617,7 +473435,21 @@
     "wood-mid"
    ],
    "variant": "wizp-village/house-a",
-   "thickRel": 0.69
+   "backface": {
+    "share": 0.0012,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
