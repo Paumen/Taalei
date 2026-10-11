@@ -4,6 +4,8 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseGlb, readAccessor, measureScene } from '../../catalog/tools/glb.mjs';
 import { readAtlas, COLUMNS, ROWS } from '../../catalog/tools/measure.mjs';
+import { buildLimits, buildScales, limitsForModel } from '../../lint/rules.mjs';
+import { read, VARS } from '../../lint/report.mjs';
 
 const HELP = `review.mjs build <list.json> --out <dir> [--base <ref>] [--size 360]
 review.mjs apply <verdicts.json> [--base <ref>]
@@ -167,7 +169,7 @@ function diff(model, base, tagsBefore, tagsAfter) {
       }
     }
   }
-  return { types: [...types], facts: out };
+  return { types: [...types], facts: out, wdh: { before: before?.wdh.map(round), after: after?.wdh.map(round) } };
 }
 
 function maxMove(a, b) {
@@ -182,6 +184,31 @@ function maxMove(a, b) {
   }
   return most;
 }
+
+function kindLimits(model) {
+  const kinds = read(VARS.kinds);
+  const m = read(VARS.models).models.find((x) => `${x.kit}/${x.name}` === model);
+  if (!m?.kind) return null;
+  const { limits } = limitsForModel(m, buildLimits(kinds).get(m.kind), buildScales(kinds));
+  if (!limits) return null;
+  const pick = (measure) => {
+    const min = limits[`${measure}.min`];
+    const max = limits[`${measure}.max`];
+    const own = (l) => (l && l.from !== 'defaults' ? l.value : null);
+    return own(min) !== null || own(max) !== null ? { measure, min: own(min), max: own(max) } : null;
+  };
+  return pick('longest') ?? pick('high') ?? { measure: 'longest', min: null, max: null };
+}
+
+function frontView(dir, out, size) {
+  execFileSync('node', [join(ROOT, 'tools/renders/render.mjs'), dir, '--out', out, '--views', 'front', '--ortho',
+    '--width', String(size * 2), '--height', String(size * 2), '--bg', 'transparent'], { cwd: ROOT, stdio: 'ignore' });
+}
+
+const trimmed = (png) => {
+  if (!existsSync(png)) return null;
+  return `data:image/webp;base64,${execFileSync('convert', [png, '-trim', '+repage', '-resize', '480x480>', '-quality', '82', 'webp:-']).toString('base64')}`;
+};
 
 function render(dir, out, size) {
   execFileSync('node', [join(ROOT, 'tools/renders/render.mjs'), dir, '--out', out, '--views', 'iso,iso-back',
@@ -242,6 +269,19 @@ function build() {
     if (existsSync(join(ROOT, path))) copyFileSync(join(ROOT, path), join(out, 'after', `${key(item.model)}.glb`));
   }
   for (const side of ['before', 'after']) render(join(out, side), join(out, `r-${side}`), size);
+  const sized = list.items.filter((item) => diff(item.model, base, tagsBefore, tagsAfter).types.includes('size'));
+  for (const side of ['before', 'after']) {
+    if (!sized.length) break;
+    const dir = join(out, `s-${side}`);
+    mkdirSync(join(dir, 'Textures'), { recursive: true });
+    copyFileSync(COLORMAP, join(dir, 'colormap.png'));
+    copyFileSync(COLORMAP, join(dir, 'Textures', 'colormap.png'));
+    for (const item of sized) {
+      const src = join(out, side, `${key(item.model)}.glb`);
+      if (existsSync(src)) copyFileSync(src, join(dir, `${key(item.model)}.glb`));
+    }
+    frontView(dir, join(out, `f-${side}`), size);
+  }
 
   const items = list.items.map((item) => {
     const d = diff(item.model, base, tagsBefore, tagsAfter);
@@ -261,6 +301,11 @@ function build() {
       facts: d.facts,
       pixels,
       visual,
+      scale: d.types.includes('size') ? {
+        ...kindLimits(item.model),
+        before: { wdh: d.wdh.before, img: trimmed(join(out, 'f-before', key(item.model), 'pbr_front.png')) },
+        after: { wdh: d.wdh.after, img: trimmed(join(out, 'f-after', key(item.model), 'pbr_front.png')) },
+      } : null,
       boxes: { front: d1.boxes, back: d2.boxes },
       img: visual
         ? { b1: img('before', 'iso'), a1: img('after', 'iso'), b2: img('before', 'iso-back'), a2: img('after', 'iso-back') }

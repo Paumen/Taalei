@@ -32,14 +32,16 @@ already given a verdict.
 
     node tools/review/review.mjs build <list.json> --out <scratchpad>/review
 
-It renders each model from two angles and diffs it. Before (left) and after
-(right) show only where colour changed or the render changed; boxes on the after
-image mark where. A model with only tag or invisible changes shows one image.
-Each change type has a bold icon (size, tags, colour, shape, mesh). Rows give
-kind and tags as catalogue chips (removed struck through in red, added filled),
-colours as catalogue swatches (removed slashed, added ticked), size with its
-factor, triangles with the change in percent, and a three-step bar for how
-large each change is. Publish `<out>/review.html` as an artifact,
+It renders each model from two angles and diffs it. A card has two columns,
+before left and after right; boxes on the after image mark what changed. A
+model with only tag or invisible changes shows one image. A size change shows
+both at true scale in the scale page's style: grid, red and white ruler sticks,
+and the kind's limits as lines. The Slider switch wipes between before and
+after. Each change type is a white glyph in a coloured circle (size, tags,
+colour, shape, mesh); a fact row puts the old value left, the new value right,
+and the glyph with the delta centred between them. Tags are catalogue chips
+(removed struck through in red, added filled), colours catalogue swatches
+(removed slashed, added ticked). Publish `<out>/review.html` as an artifact,
 renamed `_v2`, `_v3`, … on each new round, and link it in the PR.
 
 ## 3. Verdicts
