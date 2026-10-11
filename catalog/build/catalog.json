@@ -2065,7 +2065,8 @@
     "0.407": 41,
     "2.2": 157,
     "1.3": 20,
-    "0.605": 116
+    "0.605": 114,
+    "0.3999": 2
    },
    "smooth": {
     "smooth": 308,
@@ -2228,7 +2229,8 @@
       "Kenney Watercraft Pack": 46
      },
      "scales": {
-      "0.605": 46
+      "0.3999": 2,
+      "0.605": 44
      },
      "smooth": {
       "smooth": 44,
@@ -2911,7 +2913,7 @@
    },
    "kitCheck": {
     "factor": 1.03,
-    "kinds": 186
+    "kinds": 185
    }
   },
   {
@@ -3208,8 +3210,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 14
+    "factor": 1.03,
+    "kinds": 13
    }
   },
   {
@@ -3652,8 +3654,8 @@
     "smooth": 54
    },
    "kitCheck": {
-    "factor": 0.93,
-    "kinds": 27
+    "factor": 0.91,
+    "kinds": 26
    }
   },
   {
@@ -3680,8 +3682,8 @@
     "smooth": 86
    },
    "kitCheck": {
-    "factor": 0.92,
-    "kinds": 19
+    "factor": 0.99,
+    "kinds": 18
    }
   },
   {
@@ -4006,7 +4008,7 @@
    ],
    "kitCheck": {
     "factor": 1.06,
-    "kinds": 81
+    "kinds": 80
    }
   },
   {
@@ -23775,7 +23777,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 589,
+   "count": 588,
    "parent": "metal"
   },
   {
@@ -23783,7 +23785,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 761,
+   "count": 760,
    "parent": "metal"
   },
   {
@@ -23791,7 +23793,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1813,
+   "count": 1814,
    "parent": "metal"
   },
   {
@@ -23982,7 +23984,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 756,
+   "count": 757,
    "parent": "wood"
   },
   {
@@ -23998,7 +24000,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1554,
+   "count": 1553,
    "parent": "wood"
   },
   {
@@ -24173,7 +24175,7 @@
    "name": "Skin",
    "type": "material",
    "description": "Bare skin of a human figure: face, hands, arms.",
-   "count": 42,
+   "count": 43,
    "parent": "animal"
   },
   {
@@ -24188,7 +24190,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1238,
+   "count": 1240,
    "parent": "polymer"
   },
   {
@@ -24212,7 +24214,7 @@
    "name": "Special",
    "type": "material",
    "description": "A PO-approved joker: exempts one band on the model from one appendix A rule. The band and reason are recorded per model under reasons; a special without one is a finding.",
-   "count": 24
+   "count": 27
   },
   {
    "id": "special-liquid",
@@ -24493,7 +24495,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 717,
+   "count": 699,
    "color": "#dd9f79"
   },
   {
@@ -24584,15 +24586,8 @@
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
-   "description": "bag, backpack, satchel",
-   "count": 50
-  },
-  {
-   "id": "obj-container-bag-pouch",
-   "name": "Pouch",
-   "type": "kind",
-   "description": "pouch, purse, coin bag",
-   "count": 14
+   "description": "bag, satchel",
+   "count": 32
   },
   {
    "id": "obj-container-bag-kit",
@@ -24781,7 +24776,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1116,
+   "count": 1134,
    "color": "#6b5b95"
   },
   {
@@ -24796,7 +24791,14 @@
    "name": "Apparel",
    "type": "kind",
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
-   "count": 100
+   "count": 118
+  },
+  {
+   "id": "obj-equipment-apparel-bag",
+   "name": "Bag",
+   "type": "kind",
+   "description": "backpack, pouch, purse, coin bag, paper bag",
+   "count": 18
   },
   {
    "id": "obj-equipment-apparel-umbrella",
@@ -24930,7 +24932,7 @@
    "name": "Meat",
    "type": "kind",
    "description": "meat, sausage, roast, leg",
-   "count": 36
+   "count": 35
   },
   {
    "id": "obj-food-meat-roast",
@@ -24951,7 +24953,7 @@
    "name": "Sausage",
    "type": "kind",
    "description": "Sausage, on its own or in a bun: sausage, hot dog.",
-   "count": 8
+   "count": 7
   },
   {
    "id": "obj-food-meat-ham",
@@ -27588,7 +27590,7 @@
    "name": "Baked",
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
-   "count": 133
+   "count": 134
   },
   {
    "id": "str-fixture-utility",
@@ -28101,7 +28103,7 @@
    "name": "TBA",
    "type": "tag",
    "description": "Needs an animation made for it and keeps the moving parts as separate draw calls, so it is exempt from I11; the model itself carries none yet.",
-   "count": 245
+   "count": 247
   },
   {
    "id": "asia",
@@ -28320,7 +28322,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3441,
+   "count": 3443,
    "derived": true
   },
   {
@@ -28328,7 +28330,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1144,
+   "count": 1142,
    "derived": true
   },
   {
@@ -28539,7 +28541,6 @@
   "env-terrain-rock-pebble",
   "obj-container",
   "obj-container-bag-kit",
-  "obj-container-bag-pouch",
   "obj-container-bag-sack",
   "obj-container-barrel",
   "obj-container-basket",
@@ -29154,12 +29155,6 @@
    "longest.max": 0.5,
    "tpu.max": 10000
   },
-  "obj-container-bag-pouch": {
-   "high.max": 8,
-   "longest.min": 0.1,
-   "longest.max": 0.3,
-   "tpu.max": 10000
-  },
   "obj-container-bag-sack": {
    "high.max": 8,
    "longest.min": 0.15,
@@ -29588,6 +29583,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-apparel": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-equipment-apparel-bag": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -30116,6 +30117,12 @@
    "tpu.max": 10000
   },
   "obj-food": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "obj-food-baked": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -33055,7 +33062,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "3dm-city",
@@ -48619,7 +48626,8 @@
    ],
    "tags": [
     "animation",
-    "bone"
+    "bone",
+    "skin"
    ],
    "anim": [
     "Idle",
@@ -48644,11 +48652,6 @@
      "level": "warning",
      "check": "backface",
      "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 6 wants max 3"
     }
    ]
   },
@@ -52652,7 +52655,7 @@
     "textile-cloth-mid",
     "textile-rope"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.31
   },
   {
    "kit": "emace-village",
@@ -64646,7 +64649,7 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "food-pack-2",
@@ -93370,7 +93373,7 @@
     "ceramic-mid",
     "ct"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "household",
@@ -93824,7 +93827,7 @@
     "metal-iron-dark",
     "metal-iron-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "household",
@@ -94528,7 +94531,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 2.68
+   "thickRel": 2.37
   },
   {
    "kit": "household",
@@ -102858,7 +102861,7 @@
     "isa",
     "textile-cloth-light"
    ],
-   "thickRel": 1.05
+   "thickRel": 0.93
   },
   {
    "kit": "isa-bathroom",
@@ -107608,7 +107611,7 @@
     "isa",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.98
+   "thickRel": 1.75
   },
   {
    "kit": "isa-kitchen",
@@ -123685,7 +123688,7 @@
   {
    "kit": "kay-city",
    "name": "building-e-no-base",
-   "hash": "800f7c80cf",
+   "hash": "70f411e089",
    "kind": "str-building-residential",
    "size": "l",
    "wdh": [
@@ -123696,7 +123699,7 @@
    "tris": 1014,
    "tpu": 50,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 65072,
    "vtx": 1792,
@@ -123733,16 +123736,11 @@
     "12,3": [
      0.148,
      0.75
-    ],
-    "8,0": [
-     0.188,
-     0.445
     ]
    },
    "colors": [
     "#41352b",
     "#7a8491",
-    "#873a27",
     "#b5d5e3",
     "#ce7954",
     "#d8cfb7",
@@ -123756,14 +123754,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-city/building-e",
-   "thickRel": 1.16,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.16
   },
   {
    "kit": "kay-city",
@@ -124796,7 +124787,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "kay-city",
@@ -124835,16 +124826,11 @@
    ],
    "tags": [
     "kay",
-    "metal-steel"
+    "metal-steel",
+    "special"
    ],
-   "thickRel": 2.58,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna"
-    }
-   ]
+   "specialBand": "8,0",
+   "thickRel": 2.58
   },
   {
    "kit": "kay-city",
@@ -142444,7 +142430,7 @@
     "kay",
     "special-food"
    ],
-   "thickRel": 1.57
+   "thickRel": 1.58
   },
   {
    "kit": "kay-food",
@@ -163782,7 +163768,7 @@
     "pickup"
    ],
    "variant": "kay-platformer/lightning",
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "kay-minigame",
@@ -164098,7 +164084,7 @@
     "pickup"
    ],
    "variant": "kay-platformer/star",
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "kay-minigame",
@@ -165900,7 +165886,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/rollerskate-a",
-   "thickRel": 2.27
+   "thickRel": 2.01
   },
   {
    "kit": "kay-mixed",
@@ -165953,7 +165939,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/rollerskate-a",
-   "thickRel": 1.51
+   "thickRel": 1.33
   },
   {
    "kit": "kay-mixed",
@@ -166164,7 +166150,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/umbrella-c",
-   "thickRel": 1.9
+   "thickRel": 1.68
   },
   {
    "kit": "kay-mixed",
@@ -166218,7 +166204,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/umbrella-c",
-   "thickRel": 1.9
+   "thickRel": 1.68
   },
   {
    "kit": "kay-mixed",
@@ -167053,7 +167039,7 @@
     "kay",
     "pickup"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.48
   },
   {
    "kit": "kay-platformer",
@@ -167497,7 +167483,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.53
   },
   {
    "kit": "kay-platformer",
@@ -167810,7 +167796,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/lightning",
-   "thickRel": 1.2
+   "thickRel": 1.21
   },
   {
    "kit": "kay-platformer",
@@ -176448,7 +176434,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-skeleton-1/mage-cloak",
-   "thickRel": 1.1
+   "thickRel": 0.97
   },
   {
    "kit": "kay-skeleton-1",
@@ -183835,7 +183821,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "screwdriver-b-short",
-   "hash": "0fd70d80e2",
+   "hash": "7db9d56cdf",
    "kind": "obj-equipment-tool-hand-screwdriver",
    "size": "s",
    "wdh": [
@@ -183860,7 +183846,7 @@
    "vpt": 2.95,
    "grad": 0.56,
    "spread": {
-    "2,0": [
+    "0,0": [
      0.563,
      0.992
     ],
@@ -183871,22 +183857,15 @@
    },
    "colors": [
     "#7a8491",
-    "#89542e"
+    "#dbb789"
    ],
    "tags": [
     "kay",
     "metal-steel",
-    "wood-dark"
+    "wood-light"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.15,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "wood needs wood-light, has wood-dark (obj-equipment-tool-hand)"
-    }
-   ]
+   "thickRel": 2.15
   },
   {
    "kit": "kay-tools",
@@ -197192,7 +197171,7 @@
     "plastic"
    ],
    "variant": "ken-factory/arrow-rounded",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "ken-factory",
@@ -204410,7 +204389,7 @@
    "kit": "ken-food",
    "name": "corn-dog",
    "hash": "42d9be5dc7",
-   "kind": "obj-food-meat-sausage",
+   "kind": "obj-food-baked",
    "size": "s",
    "wdh": [
     0.271,
@@ -204452,13 +204431,8 @@
     "special-food",
     "wood-mid"
    ],
-   "thickRel": 2.19,
+   "thickRel": 2.46,
    "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "— wants sienna, has camel chestnut (obj-food-meat)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -205501,7 +205475,7 @@
     "ken",
     "special-food"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.64
   },
   {
    "kit": "ken-food",
@@ -221819,7 +221793,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 2.67
+   "thickRel": 2.36
   },
   {
    "kit": "ken-holiday",
@@ -236095,7 +236069,7 @@
     "ken",
     "pickup"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "ken-platformer",
@@ -236913,7 +236887,7 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "ken-platformer",
@@ -245908,18 +245882,11 @@
    ],
    "tags": [
     "ken",
-    "metal-iron-mid",
+    "metal-steel",
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.92,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-leisure-playground)"
-    }
-   ]
+   "thickRel": 0.92
   },
   {
    "kit": "ken-skate",
@@ -249359,17 +249326,11 @@
     "glass-clear",
     "ken",
     "metal-gold",
-    "space"
+    "space",
+    "tba"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 1.45,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 4 wants max 1"
-    }
-   ]
+   "thickRel": 1.45
   },
   {
    "kit": "ken-space",
@@ -249554,17 +249515,11 @@
     "ken",
     "metal-iron-dark",
     "plastic",
-    "space"
+    "space",
+    "tba"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 1.32,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "I11 calls 4 wants max 1"
-    }
-   ]
+   "thickRel": 1.32
   },
   {
    "kit": "ken-space",
@@ -269877,26 +269832,26 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "arrow-standing",
-   "hash": "eb9098b0a7",
+   "hash": "92bd1b687a",
    "kind": "sym",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.363,
-    1.815,
-    1.21
+    0.24,
+    1.2,
+    0.8
    ],
    "tris": 40,
-   "tpu": 50,
+   "tpu": 102,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3500,
+   "bytes": 3496,
    "vtx": 58,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.086,
-   "thick": 0.149,
-   "avgTri": 0.1117,
+   "minEdge": 0.057,
+   "thick": 0.1416,
+   "avgTri": 0.0488,
    "anglePct": 100,
    "vpt": 1.45,
    "grad": 0.51,
@@ -269920,39 +269875,32 @@
     "sailing"
    ],
    "variant": "ken-water/arrow",
-   "thickRel": 1.05,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.815 over max 1.2 (sym)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "arrow",
-   "hash": "b2445895d6",
+   "hash": "c5186e845a",
    "kind": "sym",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    1.21,
-    1.815,
-    0.363
+    0.8,
+    1.2,
+    0.24
    ],
    "tris": 62,
-   "tpu": 40,
+   "tpu": 92,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4768,
+   "bytes": 4764,
    "vtx": 94,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.086,
-   "thick": 0.1486,
-   "avgTri": 0.07206,
+   "minEdge": 0.057,
+   "thick": 0.1415,
+   "avgTri": 0.03149,
    "anglePct": 100,
    "vpt": 1.52,
    "grad": 0.25,
@@ -269976,14 +269924,7 @@
     "sailing"
    ],
    "variant": "ken-water/arrow",
-   "thickRel": 1.05,
-   "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 1.815 over max 1.2 (sym)"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-water",
@@ -279249,7 +279190,7 @@
     "lpa",
     "metal-copper"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.57
   },
   {
    "kit": "lpa-construction",
@@ -295049,14 +294990,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.61,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-mid wants taupe, has camel hunter"
-    }
-   ]
+   "thickRel": 0.61
   },
   {
    "kit": "lpa-west",
@@ -295202,7 +295136,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/trough-b",
-   "thickRel": 1.31
+   "thickRel": 1.3
   },
   {
    "kit": "lpa-west",
@@ -297323,7 +297257,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -297904,7 +297838,7 @@
     "m3",
     "textile-cloth-light"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.81
   },
   {
    "kit": "m3-base",
@@ -297945,12 +297879,12 @@
     "m3",
     "textile-cloth-light"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -298037,7 +297971,7 @@
     "plastic"
    ],
    "variant": "m3-base/banner-ui-01",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -298415,7 +298349,7 @@
     "paper-sheet"
    ],
    "variant": "m3-base/rounded-speech-bubble",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "m3-base",
@@ -299324,7 +299258,7 @@
     "m3",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.74
+   "thickRel": 1.54
   },
   {
    "kit": "m3-base",
@@ -300375,7 +300309,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 1.86
+   "thickRel": 1.64
   },
   {
    "kit": "m3-base",
@@ -301806,7 +301740,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "m3-base",
@@ -302051,7 +301985,7 @@
      "open": 1
     }
    },
-   "thickRel": 2.1,
+   "thickRel": 1.85,
    "lint": [
     {
      "level": "warning",
@@ -303593,7 +303527,7 @@
    "kit": "m3-base",
    "name": "compass-pouch",
    "hash": "70b52a9ff8",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.239,
@@ -303955,7 +303889,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.39
   },
   {
    "kit": "m3-base",
@@ -305185,16 +305119,12 @@
    ],
    "tags": [
     "m3",
+    "metal-steel",
     "mounted",
     "textile-cloth-light"
    ],
    "thickRel": 0.66,
    "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -305755,7 +305685,7 @@
     "m3",
     "pickup"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.48
   },
   {
    "kit": "m3-base",
@@ -307128,7 +307058,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "m3-base",
@@ -307608,7 +307538,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 2.31
+   "thickRel": 2.33
   },
   {
    "kit": "m3-base",
@@ -310355,16 +310285,9 @@
    "tags": [
     "glass-clear",
     "m3",
-    "metal-steel"
+    "plastic"
    ],
-   "thickRel": 1.21,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory glass"
-    }
-   ]
+   "thickRel": 1.21
   },
   {
    "kit": "m3-base",
@@ -311669,7 +311592,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "m3-base",
@@ -312283,7 +312206,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "m3-base",
@@ -312324,7 +312247,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "m3-base",
@@ -316996,7 +316919,7 @@
     "plastic"
    ],
    "variant": "m3-base/lightning-bolt",
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -317038,7 +316961,7 @@
     "plastic"
    ],
    "variant": "m3-base/lightning-bolt",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
@@ -318265,7 +318188,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 1.07
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -320405,7 +320328,7 @@
     "textile-cloth-dark",
     "textile-cloth-light"
    ],
-   "thickRel": 1.53
+   "thickRel": 1.35
   },
   {
    "kit": "m3-base",
@@ -321842,7 +321765,7 @@
    "kit": "m3-base",
    "name": "paper-bag",
    "hash": "3b27995eae",
-   "kind": "obj-container-bag",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.175,
@@ -321877,7 +321800,14 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -323934,7 +323864,7 @@
    "kit": "m3-base",
    "name": "pouch-01",
    "hash": "0254dc8b72",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.198,
@@ -323976,7 +323906,7 @@
    "kit": "m3-base",
    "name": "pouch-02",
    "hash": "4d083dc52f",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.171,
@@ -324352,7 +324282,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "m3-base",
@@ -324497,7 +324427,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "m3-base",
@@ -326948,14 +326878,7 @@
     "plastic"
    ],
    "variant": "m3-base/rounded-speech-bubble",
-   "thickRel": 1.16,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure basalt, has ivory"
-    }
-   ]
+   "thickRel": 1.17
   },
   {
    "kit": "m3-base",
@@ -327978,7 +327901,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -328025,7 +327948,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 1.1
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -329225,12 +329148,12 @@
     "plastic"
    ],
    "variant": "m3-base/snowflake-01",
-   "thickRel": 0.48,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     },
     {
      "level": "error",
@@ -330630,7 +330553,7 @@
     "plastic"
    ],
    "variant": "m3-base/star-01",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -331812,7 +331735,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.41
   },
   {
    "kit": "m3-base",
@@ -334055,7 +333978,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 1.79
+   "thickRel": 1.77
   },
   {
    "kit": "m3-base",
@@ -334708,7 +334631,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -334749,7 +334672,7 @@
     "m3",
     "special-liquid"
    ],
-   "thickRel": 1.92
+   "thickRel": 1.94
   },
   {
    "kit": "m3-base",
@@ -335106,7 +335029,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -335392,7 +335315,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "m3-base",
@@ -335839,7 +335762,7 @@
   {
    "kit": "m3-base",
    "name": "wood-barrel",
-   "hash": "3f09eb138e",
+   "hash": "6bf34cda99",
    "kind": "obj-container-barrel",
    "size": "s",
    "wdh": [
@@ -335847,20 +335770,20 @@
     0.293,
     0.379
    ],
-   "tris": 2172,
-   "tpu": 6332,
+   "tris": 1398,
+   "tpu": 4076,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 78044,
-   "vtx": 1983,
+   "bytes": 72316,
+   "vtx": 1687,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.005,
    "thick": 0.2801,
-   "avgTri": 0.00038,
-   "anglePct": 10,
-   "vpt": 0.91,
+   "avgTri": 0.00044,
+   "anglePct": 27,
+   "vpt": 1.21,
    "grad": 0.6,
    "spread": {
     "0,0": [
@@ -335881,14 +335804,7 @@
     "metal-iron-mid",
     "wood-light"
    ],
-   "thickRel": 1.09,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G19 tris 2172 wants range 100–1500"
-    }
-   ]
+   "thickRel": 1.09
   },
   {
    "kit": "m3-base",
@@ -337048,7 +336964,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "makeup",
@@ -347097,7 +347013,7 @@
     "metal-gold",
     "pm"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "pm-store",
@@ -350355,7 +350271,7 @@
     "bone",
     "special-food"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "props",
@@ -353444,7 +353360,7 @@
    "collection": "quat-dun",
    "name": "bag-coins",
    "hash": "30acf44fae",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.186,
@@ -353493,7 +353409,7 @@
    "collection": "quat-dun",
    "name": "bag-standing",
    "hash": "2320bb74b9",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.091,
@@ -354643,7 +354559,7 @@
    "collection": "quat-dun",
    "name": "bag-coins",
    "hash": "f8e3178419",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.186,
@@ -354692,7 +354608,7 @@
    "collection": "quat-dun",
    "name": "bag-standing",
    "hash": "7da6185866",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.091,
@@ -358884,7 +358800,7 @@
     "special-food"
    ],
    "variant": "quat-food/chicken-leg",
-   "thickRel": 1.62
+   "thickRel": 1.63
   },
   {
    "kit": "quat-food",
@@ -360172,7 +360088,7 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "quat-food",
@@ -366107,7 +366023,7 @@
     "special-food",
     "textile-cloth-mid"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "quat-medieval",
@@ -376264,7 +376180,7 @@
    "kit": "quat-props",
    "name": "pouch-large",
    "hash": "3b48bd6d92",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.2,
@@ -377650,7 +377566,7 @@
    "kit": "quat-rpg",
    "name": "backpack",
    "hash": "885dcae146",
-   "kind": "obj-container-bag",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.276,
@@ -377694,13 +377610,13 @@
     "qua",
     "robin-hood"
    ],
-   "thickRel": 0.98
+   "thickRel": 1.1
   },
   {
    "kit": "quat-rpg",
    "name": "bag",
    "hash": "54e9a7aa87",
-   "kind": "obj-container-bag",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.207,
@@ -377744,7 +377660,7 @@
     "qua",
     "robin-hood"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.18
   },
   {
    "kit": "quat-rpg",
@@ -378983,7 +378899,7 @@
     "leather",
     "qua"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.3
   },
   {
    "kit": "quat-rpg",
@@ -379125,7 +379041,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.47
   },
   {
    "kit": "quat-rpg",
@@ -380774,7 +380690,7 @@
    "kit": "quat-rpg",
    "name": "pouch",
    "hash": "c63fd5feac",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.122,
@@ -381416,7 +381332,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "quat-rpg",
@@ -382715,16 +382631,10 @@
    ],
    "tags": [
     "metal-steel",
+    "plastic",
     "qua"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "quat-shoot",
@@ -383927,7 +383837,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.95
   },
   {
    "kit": "quat-shoot",
@@ -386678,7 +386588,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.79
   },
   {
    "kit": "quat-space",
@@ -388864,7 +388774,7 @@
    "kit": "quat-survival",
    "name": "backpack",
    "hash": "f29d9646ca",
-   "kind": "obj-container-bag",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.351,
@@ -388911,19 +388821,7 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.79,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has bark hunter amber"
-    },
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "textile-cloth-dark wants taupe ivory, has bark hunter amber (obj-container-bag)"
-    }
-   ]
+   "thickRel": 0.89
   },
   {
    "kit": "quat-survival",
@@ -389503,7 +389401,7 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.02
+   "thickRel": 0.99
   },
   {
    "kit": "quat-survival",
@@ -389555,7 +389453,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.01
   },
   {
    "kit": "quat-survival",
@@ -401396,7 +401294,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 0.88
   },
   {
    "kit": "rgp-asia",
@@ -402488,7 +402386,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.72
   },
   {
    "kit": "rgp-asia",
@@ -411631,7 +411529,7 @@
    "collection": "rgp",
    "name": "pouch",
    "hash": "b924acbe3a",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.136,
@@ -413087,7 +412985,7 @@
     "special-food"
    ],
    "variant": "rgp-medieval/sausage",
-   "thickRel": 1.86
+   "thickRel": 1.87
   },
   {
    "kit": "rgp-medieval",
@@ -416821,7 +416719,7 @@
     "wood-light"
    ],
    "variant": "rgp-props/trough-1-a",
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "rgp-props",
@@ -416882,7 +416780,7 @@
     "wood-light"
    ],
    "variant": "rgp-props/trough-1-a",
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "rgp-props",
@@ -417763,7 +417661,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 2.24
+   "thickRel": 1.98
   },
   {
    "kit": "rgp-vintage",
@@ -417809,16 +417707,13 @@
    ],
    "tags": [
     "rgp",
+    "special",
     "textile-cloth-dark",
     "wood-dark"
    ],
+   "specialBand": "1,1",
    "thickRel": 0.45,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut hunter"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -420752,7 +420647,7 @@
    "kit": "rpg-mini",
    "name": "purse-a",
    "hash": "1b3ebfbad5",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.207,
@@ -420799,7 +420694,7 @@
    "kit": "rpg-mini",
    "name": "purse-b",
    "hash": "dc64b78f8d",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.19,
@@ -420846,7 +420741,7 @@
    "kit": "rpg-mini",
    "name": "purse-full",
    "hash": "8190fb47b5",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.207,
@@ -420899,7 +420794,7 @@
    "kit": "rpg-mini",
    "name": "purse-gems",
    "hash": "b79f32e0d5",
-   "kind": "obj-container-bag-pouch",
+   "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.207,
@@ -422142,14 +422037,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "sq-arcade",
@@ -424328,14 +424216,7 @@
     "wood-dark"
    ],
    "variant": "sq-cards/play-table",
-   "thickRel": 1.04,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "textile-cloth-dark wants sienna, has chestnut basalt hunter"
-    }
-   ]
+   "thickRel": 1.04
   },
   {
    "kit": "sq-cards",
@@ -429008,7 +428889,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.89
   },
   {
    "kit": "sq-lab",
@@ -430991,16 +430872,11 @@
    "tags": [
     "metal-iron-dark",
     "plastic",
+    "special",
     "sq"
    ],
-   "thickRel": 2.35,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure basalt, has slate ivory"
-    }
-   ]
+   "specialBand": "5,2",
+   "thickRel": 2.35
   },
   {
    "kit": "sq-pool",
@@ -456232,7 +456108,7 @@
   {
    "kit": "taalei-kit",
    "name": "scarecrow-pumpkin",
-   "hash": "f5ce635998",
+   "hash": "d7d52895ca",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
    "wdh": [
@@ -456243,7 +456119,7 @@
    "tris": 2430,
    "tpu": 5787,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 123936,
    "vtx": 3373,
@@ -456281,10 +456157,6 @@
      0.031,
      0.219
     ],
-    "2,0": [
-     0.5,
-     0.5
-    ],
     "13,3": [
      0.5,
      0.5
@@ -456295,7 +456167,6 @@
     "#59534e",
     "#873a27",
     "#88735f",
-    "#89542e",
     "#907a66",
     "#ce7954",
     "#f1a63b"
@@ -456309,19 +456180,12 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/scarecrow",
-   "thickRel": 0.72,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "taalei-kit",
    "name": "scarecrow-tattered",
-   "hash": "32ddcb5d51",
+   "hash": "d232a054a5",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
    "wdh": [
@@ -456332,7 +456196,7 @@
    "tris": 3672,
    "tpu": 8714,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 202528,
    "vtx": 5598,
@@ -456344,7 +456208,7 @@
    "avgTri": 0.00027,
    "anglePct": 8,
    "vpt": 1.52,
-   "grad": 0.6,
+   "grad": 0.61,
    "spread": {
     "5,2": [
      0.453,
@@ -456370,10 +456234,6 @@
      0.031,
      0.195
     ],
-    "2,0": [
-     0.5,
-     0.5
-    ],
     "6,0": [
      0.5,
      0.5
@@ -456384,7 +456244,6 @@
     "#59534e",
     "#873a27",
     "#88735f",
-    "#89542e",
     "#907a66",
     "#d8cfb7",
     "#f1a63b"
@@ -456398,14 +456257,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/scarecrow",
-   "thickRel": 0.82,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "taalei-kit",
@@ -457894,18 +457746,10 @@
    ],
    "tags": [
     "gemstone",
-    "leather",
-    "metal-iron-dark"
+    "leather"
    ],
    "variant": "weapon-pack/sword-1",
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (obj-equipment-weapon)"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "western",

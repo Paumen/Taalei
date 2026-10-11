@@ -161,7 +161,7 @@ Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors
 
 `badNormals` counts vertex normals that are not unit length, zero-length ones included, as the glTF validator reads them. `G29` allows none.
 
-`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself: road vehicles set 7, arcade machines and carts 6.
+`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself: road vehicles set 7, arcade machines, carts and vending machines 6, target dummies 7.
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 

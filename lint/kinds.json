@@ -292,8 +292,7 @@
         "ivory"
        ],
        "nouns": [
-        "bag",
-        "backpack"
+        "bag"
        ],
        "children": [
         {
@@ -304,15 +303,6 @@
           "sack",
           "loot sack",
           "trash bag"
-         ]
-        },
-        {
-         "id": "obj-container-bag-pouch",
-         "longest.max": 0.3,
-         "nouns": [
-          "pouch",
-          "purse",
-          "coin bag"
          ]
         },
         {
@@ -1995,6 +1985,28 @@
            ]
           }
          ]
+        },
+        {
+         "id": "obj-equipment-apparel-bag",
+         "mat.metal": [
+          "metal-steel",
+          "metal-gold",
+          "metal-copper",
+          "metal-iron-mid"
+         ],
+         "band.textile-cloth": [
+          "taupe",
+          "ivory",
+          "hunter",
+          "sienna"
+         ],
+         "nouns": [
+          "backpack",
+          "pouch",
+          "purse",
+          "coin bag",
+          "paper bag"
+         ]
         }
        ]
       },
@@ -3610,6 +3622,7 @@
         },
         {
          "id": "obj-device-electronics-vending",
+         "bands.max": 6,
          "longest.min": 0.4,
          "longest.max": 1,
          "nouns": [

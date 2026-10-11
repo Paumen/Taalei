@@ -610,8 +610,7 @@
     "m3-base/lighter-01",
     "ken-factory/warning-traffic",
     "quat-shoot/grenade",
-    "zombie-weapons/fire-poker",
-    "ken-skate/obstacle-middle"
+    "zombie-weapons/fire-poker"
    ]
   },
   {
@@ -1380,8 +1379,7 @@
     "ken-industrial/solar-panel-flat",
     "ken-industrial/solar-panel-landscape",
     "ken-industrial/solar-panel-portrait",
-    "ken-space/satellite-dish-large",
-    "weapon-pack/sword-2"
+    "ken-space/satellite-dish-large"
    ]
   },
   {
@@ -1853,7 +1851,6 @@
     "m3-base/blister-pack-03",
     "m3-base/cd",
     "m3-base/gas-canister",
-    "m3-base/glider",
     "m3-base/soda-can",
     "m3-base/wheelbarrow",
     "m3-base/blister-pack-05",
@@ -3203,7 +3200,9 @@
     "rgp-cars/hatchback",
     "ken-racing/light-colored",
     "ken-racing/light-red",
-    "ken-racing/light-red-double"
+    "ken-racing/light-red-double",
+    "ken-skate/obstacle-middle",
+    "m3-base/dart-board"
    ]
   },
   {
@@ -7708,7 +7707,8 @@
     "emace-village/basket-handled",
     "emace-village/basket-kindling",
     "ken-town/wall-wood-doorway-square",
-    "m3-base/painters-palette-01"
+    "m3-base/painters-palette-01",
+    "kay-tools/screwdriver-b-short"
    ]
   },
   {
@@ -10488,8 +10488,7 @@
     "quat-props/anvil-log",
     "household/grandfather-clock",
     "rgp-medieval/crate-cube",
-    "rgp-explosives/grenade-stick",
-    "kay-tools/screwdriver-b-short"
+    "rgp-explosives/grenade-stick"
    ]
   },
   {
@@ -13507,7 +13506,8 @@
     "emace-village/bench-draped",
     "emace-village/bear-trophy",
     "m3-base/deer-head",
-    "ken-forest-mini/character-archer"
+    "ken-forest-mini/character-archer",
+    "dragon/dragon-hunter"
    ]
   },
   {
@@ -14760,7 +14760,9 @@
     "ken-station/wall-window-banner",
     "ken-racing/overhead-round-colored",
     "m3-base/rounded-speech-bubble",
-    "makeup/makeup-organizer"
+    "makeup/makeup-organizer",
+    "m3-base/glider",
+    "quat-shoot/barrel"
    ],
    "parent": "polymer"
   },
@@ -15003,7 +15005,10 @@
     "ken-pirate/ship-ghost",
     "kay-hexagon/blacksmith",
     "kay-hexagon/blacksmith-anim",
-    "wizp-mediev/mine-entrance"
+    "wizp-mediev/mine-entrance",
+    "rgp-vintage/wall-panelled",
+    "kay-city/fire-hydrant",
+    "sq-pool/diving-board"
    ],
    "reasons": {
     "quat-pirate/house-3": "clear glass — N4: five bands and the clear glass of its windows; the PO kept all six.",
@@ -15029,7 +15034,10 @@
     "ken-pirate/ship-ghost": "hunter 1,1 — G09 and §5.1: the green ghost paint over the whole ship; wood and cloth have no green. The PO kept it.",
     "kay-hexagon/blacksmith": "clear glass 3,2 — G17: two buildings in one, the house and the forge; the PO allowed an eighth band.",
     "kay-hexagon/blacksmith-anim": "clear glass 3,2 — G17: two buildings in one, the house and the forge; the PO allowed an eighth band.",
-    "wizp-mediev/mine-entrance": "ivory 5,2 — G17: two buildings in one, the mine and its shed; the PO allowed an eighth band."
+    "wizp-mediev/mine-entrance": "ivory 5,2 — G17: two buildings in one, the mine and its shed; the PO allowed an eighth band.",
+    "rgp-vintage/wall-panelled": "hunter 1,1 — 5.1: the green cloth panel; the PO kept it.",
+    "kay-city/fire-hydrant": "sienna 8,0 — 5.1: a hydrant is painted red; the PO kept it.",
+    "sq-pool/diving-board": "ivory 5,2 — 5.1: the white board; the PO kept it."
    },
    "po": true
   },
@@ -17057,36 +17065,10 @@
    "id": "obj-container-bag",
    "name": "Bag",
    "type": "kind",
-   "description": "bag, backpack, satchel",
+   "description": "bag, satchel",
    "models": [
     "quat-medieval/bag-open",
-    "quat-rpg/backpack",
-    "quat-rpg/bag",
-    "quat-survival/backpack",
-    "emace-village/cloth-bale",
-    "m3-base/paper-bag"
-   ]
-  },
-  {
-   "id": "obj-container-bag-pouch",
-   "name": "Pouch",
-   "type": "kind",
-   "description": "pouch, purse, coin bag",
-   "models": [
-    "quat-dun-2/bag-coins",
-    "quat-dun-1/bag-coins",
-    "quat-props/pouch-large",
-    "quat-rpg/pouch",
-    "quat-dun-2/bag-standing",
-    "quat-dun-1/bag-standing",
-    "rpg-mini/purse-gems",
-    "rpg-mini/purse-full",
-    "rpg-mini/purse-a",
-    "rpg-mini/purse-b",
-    "rgp-medieval/pouch",
-    "m3-base/compass-pouch",
-    "m3-base/pouch-01",
-    "m3-base/pouch-02"
+    "emace-village/cloth-bale"
    ]
   },
   {
@@ -17906,6 +17888,32 @@
    ]
   },
   {
+   "id": "obj-equipment-apparel-bag",
+   "name": "Bag",
+   "type": "kind",
+   "description": "backpack, pouch, purse, coin bag, paper bag",
+   "models": [
+    "quat-dun-2/bag-coins",
+    "quat-dun-1/bag-coins",
+    "quat-dun-2/bag-standing",
+    "quat-dun-1/bag-standing",
+    "m3-base/compass-pouch",
+    "quat-rpg/pouch",
+    "rgp-medieval/pouch",
+    "m3-base/pouch-01",
+    "m3-base/pouch-02",
+    "quat-props/pouch-large",
+    "rpg-mini/purse-a",
+    "rpg-mini/purse-b",
+    "rpg-mini/purse-full",
+    "rpg-mini/purse-gems",
+    "m3-base/paper-bag",
+    "quat-rpg/bag",
+    "quat-survival/backpack",
+    "quat-rpg/backpack"
+   ]
+  },
+  {
    "id": "obj-equipment-apparel-umbrella",
    "name": "Umbrella",
    "type": "kind",
@@ -18331,8 +18339,7 @@
     "food-pack-2/sausage",
     "rgp-medieval/sausage",
     "rgp-medieval/sausage-string",
-    "quat-food/corndog",
-    "ken-food/corn-dog"
+    "quat-food/corndog"
    ]
   },
   {
@@ -27794,7 +27801,9 @@
    "name": "Baked",
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
-   "models": []
+   "models": [
+    "ken-food/corn-dog"
+   ]
   },
   {
    "id": "str-fixture-utility",
@@ -31990,7 +31999,9 @@
     "ken-pirate/ship-pirate-large",
     "ken-pirate/ship-pirate-medium",
     "ken-pirate/ship-pirate-small",
-    "ken-pirate/ship-small"
+    "ken-pirate/ship-small",
+    "ken-space/monorail-train-commuter",
+    "ken-space/monorail-train-freight"
    ]
   },
   {

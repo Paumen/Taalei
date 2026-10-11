@@ -40,7 +40,6 @@ const SIZES = {
 
   'obj-container-bag': 0.5,
   'obj-container-bag-kit': 0.3,
-  'obj-container-bag-pouch': 0.2,
   'obj-container-bag-sack': 0.45,
   'obj-container-barrel': 0.9,
   'obj-container-barrel-metal': 0.9,
@@ -98,6 +97,7 @@ const SIZES = {
   'obj-device-electronics-vending': 1.8,
   'obj-device-science-astro-telescope': 1.2,
   'obj-equipment-apparel': 0.7,
+  'obj-equipment-apparel-bag': 0.3,
   'obj-equipment-apparel-footwear': 0.28,
   'obj-equipment-apparel-glasses': 0.15,
   'obj-equipment-apparel-headgear': 0.3,
