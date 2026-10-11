@@ -124808,7 +124808,7 @@
   {
    "kit": "kay-city",
    "name": "fire-hydrant",
-   "hash": "7a05893030",
+   "hash": "225cca4968",
    "kind": "str-fixture-utility-hydrant",
    "size": "s",
    "wdh": [
@@ -124819,7 +124819,7 @@
    "tris": 186,
    "tpu": 542,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 8904,
    "vtx": 195,
@@ -124835,21 +124835,23 @@
     "8,0": [
      0.148,
      0.75
-    ],
-    "15,3": [
-     0.148,
-     0.75
     ]
    },
    "colors": [
-    "#7a8491",
     "#873a27"
    ],
    "tags": [
     "kay",
     "metal-steel"
    ],
-   "thickRel": 2.58
+   "thickRel": 2.58,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "metal-steel wants nickel, has sienna"
+    }
+   ]
   },
   {
    "kit": "kay-city",
