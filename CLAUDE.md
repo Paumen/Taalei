@@ -10,6 +10,14 @@
 * `merge`, `Merge`, `erge`, `.erge`, `merg`, and similar all mean: merge the PR(s).
 * 
 
+## Working with me
+* I often type on my phone: short, with typos.
+* Reply in plain English and keep it short. No jargon.
+* Simpler beats more. Aim to remove lines.
+* Keep the first brief. When iterating, never drop the initial request or requirements, except if unambiguously changed by me.
+* Show visual work as a render or screenshot or artefact.
+* No PR check-ins or timers. I'll say merge.
+
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
 * lint/golden.mjs holds the golden rules, the most critical repo rules, checked on every PR by .github/workflows/golden.yml: `node lint/golden.mjs`. A broken rule fails the PR check. Rules: R01, no catalogue model's longest side under 0.05; R02, no zero-length normals; R03, no triangle across colormap cells; R04, no scale on a root node; R05, every model has triangles; R06, the only texture is Textures/colormap.png.
