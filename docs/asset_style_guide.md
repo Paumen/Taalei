@@ -111,6 +111,11 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 **Golden rules** — the hardest rules, checked on every PR by `node lint/golden.mjs` straight from the workfiles. A broken rule fails the PR check. Values in `golden` in `lint/variables.json`.
 
 - **`R01`** — No catalogue model's longest side is under 0.05. A smaller model is scaled up to 0.05 or rejected for `size`.
+- **`R02`** — No zero-length vertex normals.
+- **`R03`** — No triangle with corners in different colormap cells.
+- **`R04`** — No scale on a root node: the size belongs in the geometry.
+- **`R05`** — Every model has triangles.
+- **`R06`** — The only texture is `Textures/colormap.png`.
 
 - **`I01`** — Chunky, caricatured; not thin, not primitive.
 - **`I02`** — Clean facets, chamfered edges, rounded-soft.
