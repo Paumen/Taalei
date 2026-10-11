@@ -126,8 +126,8 @@ function factRows(it){
   const r=[];
   for(const f of it.facts){
     if(f.f==='kind')r.push(row('tag',`<span class="chip out">${esc(f.from||'none')}</span>`,'kind',`<span class="chip in">${esc(f.to||'none')}</span>`,f.s));
-    if(f.f==='tags')r.push(row('tag',f.remove.map(t=>`<span class="chip out" title="${esc(t.type)}">${esc(t.id)}</span>`).join(''),`${sign(f.add.length)}/${'−'+f.remove.length}`,f.add.map(t=>`<span class="chip in" title="${esc(t.type)}">${esc(t.id)}</span>`).join(''),f.s));
-    if(f.f==='size')r.push(row('size',`<span class="num">${f.from} m</span>`,`×${f.factor}`,`<span class="num now">${f.to} m</span>`,f.s));
+    if(f.f==='tags')r.push(row('tag',f.remove.map(t=>`<span class="chip out" title="${esc(t.type)}">${esc(t.id)}</span>`).join(''),'',f.add.map(t=>`<span class="chip in" title="${esc(t.type)}">${esc(t.id)}</span>`).join(''),f.s));
+    if(f.f==='size')r.push(row('size',`<span class="num">${fmt(f.from)}</span>`,`×${(+f.factor).toFixed(1)}`,`<span class="num now">${fmt(f.to)}</span>`,f.s));
     if(f.f==='tris')r.push(row('geometry',`<span class="num">${f.from.toLocaleString('en')}</span>`,`${sign(f.pct)}%`,`<span class="num now">${f.to.toLocaleString('en')}</span>`,f.s));
     if(f.f==='colour'){
       const was=new Map(f.from.map(b=>[b.name,b])),now=new Map(f.to.map(b=>[b.name,b]));
@@ -140,7 +140,7 @@ function factRows(it){
   return r.length?`<div class="rows">${r.join('')}</div>`:'';
 }
 function niceStep(L){const raw=L/6,p=10**Math.floor(Math.log10(raw));return [1,2,5,10].map(m=>m*p).find(s=>s>=raw)}
-const fmt=v=>v>=1?(+v.toFixed(2))+' m':(+(v*100).toFixed(1))+' cm';
+const fmt=v=>(+v.toFixed(v>0.2?1:2))+' m';
 function scalePanel(it){
   const S=it.scale,B=S.before.wdh,A=S.after.wdh;
   const content=Math.max(B[2],A[2]);
