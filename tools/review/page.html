@@ -147,8 +147,8 @@ function scalePanel(it){
   const lim=[];
   if(S.min!=null)lim.push(['min',S.min]);if(S.max!=null)lim.push(['max',S.max]);
   const shown=lim.filter(([,v])=>v>0&&v<=Math.max(content,Math.max(...B,...A))*1.6);
-  const step=niceStep(Math.max(content,...shown.map(l=>l[1]))*1.15);
-  const top=Math.ceil((Math.max(content,...shown.map(l=>l[1]))*1.08)/step)*step;
+  const step=0.2;
+  const top=Math.max(1,Math.ceil((Math.max(content,...shown.map(l=>l[1]))*1.05)/step-1e-9)*step);
   const widest=Math.max(B[0],A[0]);
   const span=Math.max(widest*1.25,top*0.9);
   const W=200,stick=7,pad=14,pxm=(W-2*pad-2*stick)/span,H=top*pxm,gy=H+8,VH=gy+6;
@@ -156,7 +156,7 @@ function scalePanel(it){
   const side=(m,label)=>{
     let g=`<svg viewBox="0 0 ${W} ${VH}" role="img" aria-label="${label} at scale"><rect width="${W}" height="${VH}" fill="var(--scale-paper)"/>`;
     const y=h=>gy-h*pxm;
-    for(let h=step/2,i=1;h<=top+1e-9;h+=step/2,i++){const major=i%2===0,heavy=major&&Math.round(h/step)%5===0;
+    for(let i=1;i*0.1<=top+1e-9;i++){const h=i*0.1,major=i%2===0,heavy=i%10===0;
       g+=`<line x1="${left}" x2="${right}" y1="${y(h)}" y2="${y(h)}" stroke="var(${heavy?'--grid-heavy':'--grid-fine'})" stroke-width="${heavy?1:.6}" ${major?'':'stroke-dasharray="2 2"'}/>`}
     const cx=(left+right)/2;
     for(let x=0;x<=span/2+1e-9;x+=step){const heavy=Math.round(x/step)%5===0&&x>0;for(const sx of x?[cx-x*pxm,cx+x*pxm]:[cx])if(sx>=left-.1&&sx<=right+.1)
@@ -167,7 +167,6 @@ function scalePanel(it){
     if(m.img)g+=`<image href="${m.img}" x="${cx-w/2}" y="${gy-h}" width="${w}" height="${h}" preserveAspectRatio="none"/>`;
     for(const sx of [pad,W-pad-stick])for(let k=0;k*step<top-1e-9;k++)g+=`<rect x="${sx}" y="${y((k+1)*step)}" width="${stick}" height="${step*pxm}" fill="${k%2?'#cc3333':'#f0ece3'}" stroke="rgba(0,0,0,.25)" stroke-width=".4"/>`;
     g+=`<line x1="${pad}" x2="${W-pad}" y1="${gy}" y2="${gy}" stroke="var(--grid-heavy)" stroke-width="1.2"/>`;
-    g+=`<text x="${pad}" y="${VH-0.5}" font-size="7.5" fill="var(--ink-soft)">grid ${fmt(step)}</text>`;
     return g+`</svg>`};
   return `<div class="scale">${side(S.before,'before')}${side(S.after,'after')}</div>`;
 }
@@ -213,7 +212,10 @@ document.addEventListener('click',e=>{
   if(e.target.closest('[data-more]')){a.querySelector('.more').classList.toggle('open');a.querySelector('textarea').classList.add('open');return}
   const b=e.target.closest('[data-v]');if(!b)return;
   const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
-  s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c)delete st[it.model];save();redraw(a);
+  s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c)delete st[it.model];save();
+  const i=+a.dataset.i;redraw(a);
+  if(s.v==='keep'||s.v==='revert'){let n=document.querySelector(`article[data-i="${i}"]`).nextElementSibling;while(n&&(n.tagName!=='ARTICLE'||n.hidden))n=n.nextElementSibling;
+    if(n){const y=n.getBoundingClientRect().top+scrollY-document.getElementById('top').offsetHeight-6;scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}
   if(NEED[s.v]&&!s.c)document.getElementById('c'+a.dataset.i).focus();
 });
 document.addEventListener('input',e=>{const a=e.target.closest('article');if(!a)return;const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
