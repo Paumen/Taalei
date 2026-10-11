@@ -2873,22 +2873,24 @@
    "url": "https://github.com/M3-org/base-meshes",
    "artist": "M3",
    "licenseLabel": "CC0 1.0",
-   "count": 845,
+   "count": 891,
    "packs": [
-    "Base Meshes"
+    "Base Meshes",
+    "The Base Mesh Kitbash"
    ],
    "origins": {
-    "Base Meshes": 845
+    "Base Meshes": 845,
+    "The Base Mesh Kitbash": 46
    },
    "scales": {
-    "0.87": 842,
+    "0.87": 888,
     "0.6525": 1,
     "1.637": 1,
     "0.435": 1
    },
    "smooth": {
-    "smooth": 824,
-    "none": 21
+    "smooth": 867,
+    "none": 24
    },
    "kitCheck": {
     "factor": 1.03,
@@ -23767,7 +23769,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1762,
+   "count": 1806,
    "parent": "metal"
   },
   {
@@ -24172,7 +24174,7 @@
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 146,
+   "count": 148,
    "parent": "polymer"
   },
   {
@@ -24223,7 +24225,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4614,
+   "count": 4660,
    "color": "#c07c8a"
   },
   {
@@ -25841,7 +25843,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "raw stock",
-   "count": 177,
+   "count": 223,
    "color": "#4f7d8c"
   },
   {
@@ -25849,14 +25851,14 @@
    "name": "Metal",
    "type": "kind",
    "description": "ingot, bar, nugget, ore lump",
-   "count": 71
+   "count": 117
   },
   {
    "id": "obj-resource-metal-parts",
    "name": "Parts",
    "type": "kind",
    "description": "cog, spare part, gasket",
-   "count": 40
+   "count": 86
   },
   {
    "id": "obj-resource-metal-parts-pipe",
@@ -28027,7 +28029,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 440
+   "count": 486
   },
   {
    "id": "plural",
@@ -28280,7 +28282,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3990,
+   "count": 4025,
    "derived": true
   },
   {
@@ -28288,7 +28290,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3429,
+   "count": 3438,
    "derived": true
   },
   {
@@ -28296,7 +28298,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1146,
+   "count": 1148,
    "derived": true
   },
   {
@@ -28456,7 +28458,7 @@
    "name": "M3",
    "type": "artist",
    "description": "Kits from M3 (m3-org on GitHub). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 845,
+   "count": 891,
    "derived": true
   },
   {
@@ -311287,6 +311289,88 @@
   },
   {
    "kit": "m3-base",
+   "name": "gasket-03",
+   "hash": "cc36add380",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.067,
+    0.08,
+    0.002
+   ],
+   "tris": 736,
+   "tpu": 2146,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 26056,
+   "vtx": 628,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0399,
+   "avgTri": 0.00001,
+   "anglePct": 94,
+   "vpt": 0.85,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "rubber"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "gasket-04",
+   "hash": "5cfec4ef4d",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.07,
+    0.07,
+    0.002
+   ],
+   "tris": 1680,
+   "tpu": 4898,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 57292,
+   "vtx": 1428,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.0333,
+   "avgTri": 0,
+   "anglePct": 81,
+   "vpt": 0.85,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "rubber"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "gear-01",
    "hash": "0bb1b39d41",
    "kind": "obj-resource-metal-parts",
@@ -315233,6 +315317,129 @@
   },
   {
    "kit": "m3-base",
+   "name": "kitbash-a-01",
+   "hash": "8b09774460",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.408,
+    0.411,
+    0.12
+   ],
+   "tris": 808,
+   "tpu": 2356,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25344,
+   "vtx": 592,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.0427,
+   "avgTri": 0.00039,
+   "anglePct": 4,
+   "vpt": 0.73,
+   "grad": 0.57,
+   "spread": {
+    "15,3": [
+     0.18,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-02",
+   "hash": "7f3e4732b5",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.445,
+    0.445,
+    0.206
+   ],
+   "tris": 1008,
+   "tpu": 2939,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 29064,
+   "vtx": 672,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.0447,
+   "avgTri": 0.00054,
+   "anglePct": 3,
+   "vpt": 0.67,
+   "grad": 0.57,
+   "spread": {
+    "15,3": [
+     0.18,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-03",
+   "hash": "7190a32ec7",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.445,
+    0.443,
+    0.206
+   ],
+   "tris": 1044,
+   "tpu": 3044,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 30472,
+   "vtx": 708,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.0453,
+   "avgTri": 0.00052,
+   "anglePct": 3,
+   "vpt": 0.68,
+   "grad": 0.57,
+   "spread": {
+    "15,3": [
+     0.18,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "kitbash-a-04",
    "hash": "84b659eb2b",
    "kind": "obj-resource-metal-parts",
@@ -315276,6 +315483,334 @@
   },
   {
    "kit": "m3-base",
+   "name": "kitbash-a-05",
+   "hash": "71f768712c",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.411,
+    0.411,
+    0.106
+   ],
+   "tris": 408,
+   "tpu": 1190,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13812,
+   "vtx": 308,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.1082,
+   "avgTri": 0.00083,
+   "anglePct": 53,
+   "vpt": 0.75,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-06",
+   "hash": "987bb9dd65",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.411,
+    0.411,
+    0.106
+   ],
+   "tris": 328,
+   "tpu": 956,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12064,
+   "vtx": 268,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1153,
+   "avgTri": 0.00106,
+   "anglePct": 58,
+   "vpt": 0.82,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-07",
+   "hash": "2651879f66",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.397,
+    0.397,
+    0.168
+   ],
+   "tris": 680,
+   "tpu": 1983,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25196,
+   "vtx": 614,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "thick": 0.1227,
+   "avgTri": 0.00058,
+   "anglePct": 38,
+   "vpt": 0.9,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-08",
+   "hash": "c3a57dda24",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.414,
+    0.231,
+    0.097
+   ],
+   "tris": 360,
+   "tpu": 1050,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12648,
+   "vtx": 282,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "thick": 0.1491,
+   "avgTri": 0.00076,
+   "anglePct": 56,
+   "vpt": 0.78,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-09",
+   "hash": "c942168263",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.443,
+    0.219,
+    0.118
+   ],
+   "tris": 432,
+   "tpu": 1259,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14660,
+   "vtx": 330,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "thick": 0.1922,
+   "avgTri": 0.00064,
+   "anglePct": 58,
+   "vpt": 0.76,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-10",
+   "hash": "4a1d2ade4b",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.51,
+    0.181,
+    0.124
+   ],
+   "tris": 284,
+   "tpu": 828,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12020,
+   "vtx": 276,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "thick": 0.2158,
+   "avgTri": 0.00117,
+   "anglePct": 59,
+   "vpt": 0.97,
+   "grad": 0.59,
+   "spread": {
+    "15,3": [
+     0.164,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-11",
+   "hash": "17076d9b5b",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.174,
+    0.371,
+    0.196
+   ],
+   "tris": 100,
+   "tpu": 292,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5980,
+   "vtx": 120,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.2014,
+   "avgTri": 0.00357,
+   "anglePct": 87,
+   "vpt": 1.2,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-a-12",
+   "hash": "dda24737d7",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.129,
+    0.429,
+    0.126
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4896,
+   "vtx": 92,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "thick": 0.2986,
+   "avgTri": 0.00284,
+   "anglePct": 91,
+   "vpt": 1.21,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "kitbash-a-13",
    "hash": "a50c0191fc",
    "kind": "obj-resource-metal-parts",
@@ -315299,6 +315834,252 @@
    "avgTri": 0.00543,
    "anglePct": 99,
    "vpt": 1.3,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-b-01",
+   "hash": "24f72ddb40",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.375,
+    0.375,
+    0.075
+   ],
+   "tris": 844,
+   "tpu": 2461,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 29792,
+   "vtx": 725,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0993,
+   "avgTri": 0.00048,
+   "anglePct": 64,
+   "vpt": 0.86,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-b-02",
+   "hash": "c1a329c500",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.394,
+    0.442,
+    0.064
+   ],
+   "tris": 544,
+   "tpu": 1586,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 19960,
+   "vtx": 474,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.0748,
+   "avgTri": 0.00073,
+   "anglePct": 87,
+   "vpt": 0.87,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-b-03",
+   "hash": "77497fce16",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.38,
+    0.441,
+    0.064
+   ],
+   "tris": 468,
+   "tpu": 1364,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16656,
+   "vtx": 385,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "thick": 0.0799,
+   "avgTri": 0.00078,
+   "anglePct": 80,
+   "vpt": 0.82,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-b-04",
+   "hash": "782958f9c4",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.531,
+    0.341,
+    0.042
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 13160,
+   "vtx": 291,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.0752,
+   "avgTri": 0.00094,
+   "anglePct": 86,
+   "vpt": 0.76,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-b-05",
+   "hash": "a527f4a290",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.368,
+    0.372,
+    0.019
+   ],
+   "tris": 296,
+   "tpu": 863,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9828,
+   "vtx": 206,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "thick": 0.0493,
+   "avgTri": 0.00093,
+   "anglePct": 94,
+   "vpt": 0.7,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-01",
+   "hash": "e9381b260a",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.392,
+    0.392,
+    0.083
+   ],
+   "tris": 1040,
+   "tpu": 3032,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 34476,
+   "vtx": 834,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.0575,
+   "avgTri": 0.0002,
+   "anglePct": 67,
+   "vpt": 0.8,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -315359,6 +316140,170 @@
   },
   {
    "kit": "m3-base",
+   "name": "kitbash-c-03",
+   "hash": "162e8ebdd7",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.179,
+    0.27,
+    0.108
+   ],
+   "tris": 208,
+   "tpu": 606,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9448,
+   "vtx": 208,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "thick": 0.0798,
+   "avgTri": 0.00081,
+   "anglePct": 27,
+   "vpt": 1,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-04",
+   "hash": "f1b64e859a",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.148,
+    0.23,
+    0.108
+   ],
+   "tris": 200,
+   "tpu": 583,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8356,
+   "vtx": 176,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "thick": 0.0747,
+   "avgTri": 0.00081,
+   "anglePct": 71,
+   "vpt": 0.88,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-05",
+   "hash": "50cafeaed2",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.204,
+    0.099,
+    0.053
+   ],
+   "tris": 720,
+   "tpu": 2099,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 24608,
+   "vtx": 586,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1834,
+   "avgTri": 0.00007,
+   "anglePct": 51,
+   "vpt": 0.81,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-06",
+   "hash": "2827727c63",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.099,
+    0.053
+   ],
+   "tris": 576,
+   "tpu": 1679,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 19880,
+   "vtx": 466,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1673,
+   "avgTri": 0.00007,
+   "anglePct": 56,
+   "vpt": 0.81,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "kitbash-c-07",
    "hash": "f7b9c78455",
    "kind": "obj-resource-metal-parts",
@@ -315382,6 +316327,129 @@
    "avgTri": 0.00059,
    "anglePct": 86,
    "vpt": 0.97,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-08",
+   "hash": "e3110ff149",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.335,
+    0.041,
+    0.091
+   ],
+   "tris": 212,
+   "tpu": 618,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10244,
+   "vtx": 232,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "thick": 0.1412,
+   "avgTri": 0.00025,
+   "anglePct": 67,
+   "vpt": 1.09,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-09",
+   "hash": "60be7eca5e",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.385,
+    0.083,
+    0.031
+   ],
+   "tris": 268,
+   "tpu": 781,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11604,
+   "vtx": 264,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.2348,
+   "avgTri": 0.00032,
+   "anglePct": 83,
+   "vpt": 0.99,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-10",
+   "hash": "fc88c9c26d",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.094,
+    0.083,
+    0.031
+   ],
+   "tris": 136,
+   "tpu": 397,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6844,
+   "vtx": 140,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.1134,
+   "avgTri": 0.00017,
+   "anglePct": 56,
+   "vpt": 1.03,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -315483,6 +316551,171 @@
   },
   {
    "kit": "m3-base",
+   "name": "kitbash-c-13",
+   "hash": "04c03bac44",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.179,
+    0.219,
+    0.087
+   ],
+   "tris": 412,
+   "tpu": 1201,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14948,
+   "vtx": 344,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1427,
+   "avgTri": 0.00025,
+   "anglePct": 63,
+   "vpt": 0.83,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-14",
+   "hash": "87f8296409",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.177,
+    0.083,
+    0.13
+   ],
+   "tris": 60,
+   "tpu": 175,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4264,
+   "vtx": 74,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0473,
+   "avgTri": 0.00118,
+   "anglePct": 100,
+   "vpt": 1.23,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-15",
+   "hash": "21a2e17aaa",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.325,
+    0.305,
+    0.284
+   ],
+   "tris": 212,
+   "tpu": 618,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9980,
+   "vtx": 224,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0475,
+   "avgTri": 0.00172,
+   "anglePct": 75,
+   "vpt": 1.06,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-16",
+   "hash": "50dac4dca2",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.496,
+    0.496,
+    0.065
+   ],
+   "tris": 428,
+   "tpu": 1248,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 18644,
+   "vtx": 454,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.0341,
+   "avgTri": 0.00026,
+   "anglePct": 20,
+   "vpt": 1.06,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "kitbash-c-17",
    "hash": "224fe4ef81",
    "kind": "obj-resource-metal-parts",
@@ -315522,6 +316755,89 @@
     "metal-steel"
    ],
    "variant": "m3-base/kitbash-a-04"
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-18",
+   "hash": "97e6d970e0",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.064,
+    0.064,
+    0.027
+   ],
+   "tris": 848,
+   "tpu": 2472,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 31496,
+   "vtx": 778,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1332,
+   "avgTri": 0.00001,
+   "anglePct": 55,
+   "vpt": 0.92,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-c-19",
+   "hash": "62ff2f11aa",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.091,
+    0.233,
+    0.03
+   ],
+   "tris": 136,
+   "tpu": 397,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7736,
+   "vtx": 168,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.051,
+   "thick": 0.1693,
+   "avgTri": 0.00034,
+   "anglePct": 85,
+   "vpt": 1.24,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
   },
   {
    "kit": "m3-base",
@@ -315651,6 +316967,47 @@
   },
   {
    "kit": "m3-base",
+   "name": "kitbash-c-23",
+   "hash": "d6ba5e0b98",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.179,
+    0.178,
+    0.062
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5564,
+   "vtx": 112,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "thick": 0.12,
+   "avgTri": 0.00072,
+   "anglePct": 86,
+   "vpt": 1.47,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "kitbash-c-24",
    "hash": "35f81017eb",
    "kind": "obj-resource-metal-parts",
@@ -315675,6 +317032,388 @@
    "avgTri": 0.0016,
    "anglePct": 94,
    "vpt": 1.57,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-d-01",
+   "hash": "04a3bcdb50",
+   "kind": "obj-resource-metal-parts",
+   "size": "l",
+   "wdh": [
+    1.579,
+    0.044,
+    0.259
+   ],
+   "tris": 104,
+   "tpu": 303,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7032,
+   "vtx": 152,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.022,
+   "minTube": 0.0215,
+   "thick": 0.2044,
+   "avgTri": 0.00655,
+   "anglePct": 100,
+   "vpt": 1.46,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0215 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-d-02",
+   "hash": "4bcff21f94",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.864,
+    0.579
+   ],
+   "tris": 592,
+   "tpu": 1726,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25020,
+   "vtx": 624,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0368,
+   "thick": 0.0654,
+   "avgTri": 0.00109,
+   "anglePct": 3,
+   "vpt": 1.05,
+   "grad": 0.59,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-d-03",
+   "hash": "3086a11250",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.944,
+    0.352,
+    0.342
+   ],
+   "tris": 624,
+   "tpu": 1819,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 25768,
+   "vtx": 640,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "minTube": 0.0381,
+   "thick": 0.112,
+   "avgTri": 0.00079,
+   "anglePct": 1,
+   "vpt": 1.03,
+   "grad": 0.56,
+   "spread": {
+    "15,3": [
+     0.164,
+     0.727
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-d-04",
+   "hash": "af024979ea",
+   "kind": "obj-resource-metal-parts",
+   "size": "l",
+   "wdh": [
+    1.613,
+    0.035,
+    0.941
+   ],
+   "tris": 248,
+   "tpu": 538,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11672,
+   "vtx": 272,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.03,
+   "minTube": 0.0304,
+   "thick": 0.0572,
+   "avgTri": 0.00292,
+   "anglePct": 93,
+   "vpt": 1.1,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-e-01",
+   "hash": "b5fc988988",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.557,
+    0.557,
+    0.582
+   ],
+   "tris": 892,
+   "tpu": 2601,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 28064,
+   "vtx": 664,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.1105,
+   "avgTri": 0.00197,
+   "anglePct": 81,
+   "vpt": 0.74,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-e-02",
+   "hash": "49d9eb9981",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.576,
+    0.649,
+    0.442
+   ],
+   "tris": 1012,
+   "tpu": 2950,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 33956,
+   "vtx": 825,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.0718,
+   "avgTri": 0.0016,
+   "anglePct": 7,
+   "vpt": 0.82,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-e-03",
+   "hash": "5a4f7599ab",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.255,
+    0.255,
+    0.405
+   ],
+   "tris": 448,
+   "tpu": 1306,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16548,
+   "vtx": 386,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "thick": 0.1251,
+   "avgTri": 0.00096,
+   "anglePct": 9,
+   "vpt": 0.86,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-e-04",
+   "hash": "63baa1b201",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.203,
+    0.206,
+    0.66
+   ],
+   "tris": 720,
+   "tpu": 2099,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 23564,
+   "vtx": 553,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1825,
+   "avgTri": 0.00048,
+   "anglePct": 3,
+   "vpt": 0.77,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-e-05",
+   "hash": "f0ace960ce",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.057,
+    0.057,
+    0.297
+   ],
+   "tris": 864,
+   "tpu": 2519,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 27512,
+   "vtx": 650,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0416,
+   "thick": 0.3053,
+   "avgTri": 0.00005,
+   "anglePct": 7,
+   "vpt": 0.75,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -315735,6 +317474,130 @@
   },
   {
    "kit": "m3-base",
+   "name": "kitbash-f-02",
+   "hash": "524ef900ec",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.058,
+    0.058,
+    0.2
+   ],
+   "tris": 364,
+   "tpu": 1061,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15304,
+   "vtx": 362,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.2357,
+   "avgTri": 0.00009,
+   "anglePct": 59,
+   "vpt": 0.99,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-f-03",
+   "hash": "ccbbd2b8f2",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    0.195,
+    0.195,
+    0.806
+   ],
+   "tris": 192,
+   "tpu": 486,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8844,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.0786,
+   "thick": 0.2111,
+   "avgTri": 0.00133,
+   "anglePct": 14,
+   "vpt": 1.01,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-f-04",
+   "hash": "a5b7871e73",
+   "kind": "obj-resource-metal-parts",
+   "size": "s",
+   "wdh": [
+    0.089,
+    0.089,
+    0.104
+   ],
+   "tris": 192,
+   "tpu": 560,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8844,
+   "vtx": 194,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.23,
+   "avgTri": 0.00018,
+   "anglePct": 35,
+   "vpt": 1.01,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
    "name": "kitbash-f-05",
    "hash": "cd055f2c79",
    "kind": "obj-resource-metal-parts",
@@ -315758,6 +317621,47 @@
    "avgTri": 0.00039,
    "anglePct": 86,
    "vpt": 1.19,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "m3",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kitbash-g-01",
+   "hash": "b8c15985f3",
+   "kind": "obj-resource-metal-parts",
+   "size": "m",
+   "wdh": [
+    1.119,
+    1.285,
+    0.218
+   ],
+   "tris": 1720,
+   "tpu": 1709,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 69944,
+   "vtx": 1816,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.1056,
+   "avgTri": 0.00199,
+   "anglePct": 65,
+   "vpt": 1.06,
    "grad": 0.6,
    "spread": {
     "15,3": [
