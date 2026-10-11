@@ -173,12 +173,6 @@ function makeCard(model, kits, variants = []) {
     path: model.path,
     paths: familyPaths,
     family,
-    colors: [...new Set(family.flatMap((m) => m.colors ?? []))],
-    tags: withParents(family.flatMap((m) => m.tags ?? [])),
-    kinds: [...new Set(family.flatMap((m) => (m.kind ? kindChain(m.kind) : [WITHOUT])))],
-    sizes: [...new Set(family.map((m) => m.size))],
-    lint: [...new Set(family.flatMap(lintLevels))],
-    checks: [...new Set(family.flatMap(lintChecks))],
   };
   cards.push(item);
 
@@ -484,7 +478,7 @@ function buildPanel() {
   const rank = subtypeRank();
   const order = rank ? (a, b) => rank(a) - rank(b) || chosen(a, b) : chosen;
 
-  for (const part of sectionsFor(catalog.models)) {
+  for (const part of sectionsFor(catalog.models.filter(modelFilter()))) {
     const sorted = [...part.models].sort(order);
     const { section, grid, countEl } = makeSection({
       id: `${groupingType()}-${part.id}`,
@@ -655,9 +649,10 @@ function showDetail(model) {
     ),
   );
 
+  const hit = modelFilter();
   const members = (register.variants.get(model.variant) ?? [])
     .map((id) => register.models.get(id))
-    .filter(Boolean);
+    .filter((v) => v && (v.id === model.id || hit(v)));
   detailVariant.hidden = members.length < 2;
   detailVariantChoice.replaceChildren(
     ...members.map((v) =>
@@ -885,18 +880,14 @@ function buildTagBar(tags) {
 }
 
 function refresh() {
-  buildPanel();
-
   const counts = new Map();
   const bump = (key) => counts.set(key, (counts.get(key) ?? 0) + 1);
-  for (const card of cards) {
-    for (const model of card.family) {
-      bump(`sizes|${model.size}`);
-      for (const id of (model.kind ? kindChain(model.kind) : [WITHOUT])) bump(`kinds|${id}`);
-      for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
-      for (const id of lintLevels(model)) bump(`lint|${id}`);
-      for (const id of lintChecks(model)) bump(`checks|${id}`);
-    }
+  for (const model of catalog.models) {
+    bump(`sizes|${model.size}`);
+    for (const id of (model.kind ? kindChain(model.kind) : [WITHOUT])) bump(`kinds|${id}`);
+    for (const id of withParents(model.tags ?? [])) bump(`tags|${id}`);
+    for (const id of lintLevels(model)) bump(`lint|${id}`);
+    for (const id of lintChecks(model)) bump(`checks|${id}`);
   }
   syncSubtypes(counts);
   syncSubtypes();
@@ -917,42 +908,35 @@ function onClear() {
   filter();
 }
 
-function filter() {
-  document.querySelector('#alles-wis').hidden = filtersOff();
-  let visible = 0;
-
+function modelFilter() {
   const onlyKinds = keysWith(kindState, 'only');
   const deepest = onlyKinds.filter((k) => !onlyKinds.some((o) => o !== k && o.startsWith(`${k}-`)));
   const notKinds = keysWith(kindState, 'not');
   const kindHit = (own) =>
     (!deepest.length || own.some((k) => deepest.includes(k))) && !own.some((k) => notKinds.includes(k));
-  const shown = new Set();
-  for (const card of cards) {
-    const hit =
-      matches(card.colors, colorState, { any: colorKeys }) &&
-      kindHit(card.kinds) &&
-      matches(card.tags, tagState) &&
-      matches(card.sizes, sizeState, { any: SIZE_CLASSES.map((k) => k.id) }) &&
-      matches(card.lint, lintState, { any: LINT_LEVELS.map((k) => k.id) }) &&
-      matches(card.checks, checkState, { any: LINT_CHECKS.map((k) => k.id) });
-    card.element.hidden = !hit;
-    if (hit) {
-      visible++;
-      for (const model of card.family) shown.add(model.id);
-    }
-  }
+  return (model) =>
+    matches(model.colors ?? [], colorState, { any: colorKeys }) &&
+    kindHit(model.kind ? kindChain(model.kind) : [WITHOUT]) &&
+    matches(withParents(model.tags ?? []), tagState) &&
+    matches([model.size], sizeState, { any: SIZE_CLASSES.map((k) => k.id) }) &&
+    matches(lintLevels(model), lintState, { any: LINT_LEVELS.map((k) => k.id) }) &&
+    matches(lintChecks(model), checkState, { any: LINT_CHECKS.map((k) => k.id) });
+}
 
+function filter() {
+  document.querySelector('#alles-wis').hidden = filtersOff();
+  buildPanel();
+
+  const shown = cards.reduce((sum, card) => sum + card.family.length, 0);
   summary.textContent =
-    `${number.format(shown.size)} / ${number.format(totals.models)} models · ${totals.kits} kits`;
+    `${number.format(shown)} / ${number.format(totals.models)} models · ${totals.kits} kits`;
 
   for (const section of sections) {
-    const count = section.cards.filter((k) => !k.element.hidden).length;
-
-    section.element.hidden = count === 0;
-    section.countEl.textContent = number.format(count);
+    section.element.hidden = section.cards.length === 0;
+    section.countEl.textContent = number.format(section.cards.length);
   }
 
-  emptyMessage.hidden = visible > 0;
+  emptyMessage.hidden = cards.length > 0;
 }
 
 async function loadThumbs() {
