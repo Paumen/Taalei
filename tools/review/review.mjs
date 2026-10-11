@@ -191,22 +191,29 @@ function render(dir, out, size) {
 const webp = (png) =>
   existsSync(png) ? `data:image/webp;base64,${execFileSync('convert', [png, '-quality', '78', 'webp:-']).toString('base64')}` : null;
 
-function pixelDiff(before, after, out) {
-  if (!existsSync(before) || !existsSync(after)) return { img: null, share: null };
+function pixelDiff(before, after, mask) {
+  if (!existsSync(before) || !existsSync(after)) return { share: null, boxes: [] };
   let changed = 0;
   try {
-    execFileSync('compare', ['-fuzz', '6%', '-metric', 'AE', '-highlight-color', '#00b4ff', '-lowlight-color', '#ffffff',
-      before, after, out], { stdio: ['ignore', 'ignore', 'pipe'] });
+    execFileSync('compare', ['-fuzz', '6%', '-metric', 'AE', '-highlight-color', 'white', '-lowlight-color', 'black',
+      '-compose', 'src', before, after, mask], { stdio: ['ignore', 'ignore', 'pipe'] });
   } catch (e) {
     changed = Number(String(e.stderr).trim().split(/\s/)[0]) || 0;
   }
-  if (!existsSync(out)) return { img: null, share: null };
-  const shown = join(dirname(out), `shown-${basenameOf(out)}`);
-  execFileSync('convert', [after, '-colorspace', 'Gray', '-fill', 'white', '-colorize', '35%', '-colorspace', 'sRGB', out, '-fuzz', '10%',
-    '-transparent', 'white', '-composite', shown]);
+  if (!existsSync(mask) || !changed) return { share: 0, boxes: [] };
+  const [w, h] = execFileSync('identify', ['-format', '%w %h', mask]).toString().split(' ').map(Number);
+  const report = execFileSync('convert', [mask, '-morphology', 'Open', 'Disk:1.5', '-morphology', 'Dilate', 'Disk:6', '-define', 'connected-components:verbose=true',
+    '-define', 'connected-components:area-threshold=60', '-connected-components', '8', 'null:']).toString();
+  const boxes = report.split('\n')
+    .map((l) => l.match(/^\s*\d+: (\d+)x(\d+)\+(\d+)\+(\d+) \S+ (\d+) gray\(255\)/))
+    .filter(Boolean)
+    .map((m) => ({ bw: +m[1], bh: +m[2], x: +m[3], y: +m[4], area: +m[5] }))
+    .sort((p, q) => q.area - p.area)
+    .slice(0, 4)
+    .map(({ bw, bh, x, y }) => [x / w, y / h, bw / w, bh / h].map((v) => Math.round(v * 1000) / 1000));
   const covered = Number(execFileSync('convert', [after, '-fuzz', '4%', '-fill', 'black', '+opaque', '#f2f2f0',
     '-fill', 'white', '-opaque', '#f2f2f0', '-negate', '-format', '%[fx:mean*w*h]', 'info:']).toString()) || 1;
-  return { img: webp(shown), share: Math.round((changed / covered) * 1000) / 10 };
+  return { share: Math.round((changed / covered) * 1000) / 10, boxes };
 }
 const basenameOf = (p) => p.split('/').pop();
 
@@ -243,6 +250,7 @@ function build() {
     const d1 = pixelDiff(png('before', 'iso'), png('after', 'iso'), join(out, 'diff', `${key(item.model)}-iso.png`));
     const d2 = pixelDiff(png('before', 'iso-back'), png('after', 'iso-back'), join(out, 'diff', `${key(item.model)}-back.png`));
     const pixels = Math.max(d1.share ?? 0, d2.share ?? 0);
+    const visual = (item.types ?? d.types).includes('recolour') || d1.boxes.length + d2.boxes.length > 0;
     return {
       model: item.model,
       group: item.group ?? '',
@@ -252,8 +260,11 @@ function build() {
       types: item.types ?? d.types,
       facts: d.facts,
       pixels,
-      img: { b1: img('before', 'iso'), a1: img('after', 'iso'), b2: img('before', 'iso-back'), a2: img('after', 'iso-back'),
-        d1: d1.img, d2: d2.img },
+      visual,
+      boxes: { front: d1.boxes, back: d2.boxes },
+      img: visual
+        ? { b1: img('before', 'iso'), a1: img('after', 'iso'), b2: img('before', 'iso-back'), a2: img('after', 'iso-back') }
+        : { a1: img('after', 'iso'), a2: img('after', 'iso-back') },
     };
   });
   const data = JSON.stringify({ title: list.title, base, items }).replace(/</g, '\\u003c');

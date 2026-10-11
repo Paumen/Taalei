@@ -32,14 +32,14 @@ already given a verdict.
 
     node tools/review/review.mjs build <list.json> --out <scratchpad>/review
 
-It renders before and after from two angles and diffs each model into type
-badges (⤢ size, # tag, ◐ recolour, ◇ shape, △ geometry) with one to three pips
-for how large the change is, and rows: kind and tags old → new (removed struck
-through, added green), size with its factor, triangles with the change in
-percent, colour as before and after band bars with real swatches and the share
-of surface recoloured, how far vertices moved, and the share of pixels changed.
-Strength colours run grey, amber, red. The Diff switch shows the changed
-pixels in cyan on a grey copy, for changes too small to see. Publish `<out>/review.html` as an artifact,
+It renders each model from two angles and diffs it. Before (left) and after
+(right) show only where colour changed or the render changed; boxes on the after
+image mark where. A model with only tag or invisible changes shows one image.
+Each change type has a bold icon (size, tags, colour, shape, mesh). Rows give
+kind and tags as catalogue chips (removed struck through in red, added filled),
+colours as catalogue swatches (removed slashed, added ticked), size with its
+factor, triangles with the change in percent, and a three-step bar for how
+large each change is. Publish `<out>/review.html` as an artifact,
 renamed `_v2`, `_v3`, … on each new round, and link it in the PR.
 
 ## 3. Verdicts
