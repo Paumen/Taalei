@@ -23775,7 +23775,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 585,
+   "count": 589,
    "parent": "metal"
   },
   {
@@ -23783,7 +23783,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 763,
+   "count": 761,
    "parent": "metal"
   },
   {
@@ -23791,7 +23791,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1818,
+   "count": 1813,
    "parent": "metal"
   },
   {
@@ -23911,7 +23911,7 @@
    "name": "Ceramic mid",
    "type": "material",
    "description": "Terracotta: flower pots, jugs, roof tiles.",
-   "count": 125,
+   "count": 124,
    "parent": "ceramic"
   },
   {
@@ -23990,7 +23990,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1208,
+   "count": 1209,
    "parent": "wood"
   },
   {
@@ -23998,7 +23998,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1553,
+   "count": 1554,
    "parent": "wood"
   },
   {
@@ -24022,7 +24022,7 @@
    "name": "Paper sheet",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, labels.",
-   "count": 328,
+   "count": 326,
    "parent": "paper"
   },
   {
@@ -24094,7 +24094,7 @@
    "name": "Cloth mid",
    "type": "material",
    "description": "Mid cloth: sacks, hessian, grips, wraps.",
-   "count": 216,
+   "count": 215,
    "parent": "textile-cloth"
   },
   {
@@ -24188,7 +24188,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1237,
+   "count": 1238,
    "parent": "polymer"
   },
   {
@@ -24212,7 +24212,7 @@
    "name": "Special",
    "type": "material",
    "description": "A PO-approved joker: exempts one band on the model from one appendix A rule. The band and reason are recorded per model under reasons; a special without one is a finding.",
-   "count": 20
+   "count": 21
   },
   {
    "id": "special-liquid",
@@ -26211,7 +26211,7 @@
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
-   "count": 50
+   "count": 52
   },
   {
    "id": "obj-transport-land",
@@ -26913,7 +26913,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, mine entrance",
-   "count": 2640,
+   "count": 2638,
    "color": "#877a63"
   },
   {
@@ -26921,7 +26921,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 544
+   "count": 542
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -27267,8 +27267,16 @@
    "id": "str-fixture-marker",
    "name": "Marker",
    "type": "kind",
-   "description": "milestone, waystone, totem",
-   "count": 227,
+   "description": "milestone, waystone",
+   "count": 225,
+   "color": "#ffb349"
+  },
+  {
+   "id": "str-fixture-marker-totem",
+   "name": "Totem",
+   "type": "kind",
+   "description": "totem, totem pole",
+   "count": 6,
    "color": "#ffb349"
   },
   {
@@ -27290,7 +27298,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 121
+   "count": 119
   },
   {
    "id": "str-fixture-marker-sign-road",
@@ -27311,7 +27319,7 @@
    "name": "Signpost",
    "type": "kind",
    "description": "Post carrying pointing arrows or a board.",
-   "count": 24
+   "count": 22
   },
   {
    "id": "str-fixture-marker-grave",
@@ -31724,6 +31732,12 @@
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 2,
+   "tpu.max": 5000
+  },
+  "str-fixture-marker-totem": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "str-fixture-punishment": {
@@ -40958,7 +40972,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "bird-a",
-   "hash": "48e60538a0",
+   "hash": "036892bd13",
    "kind": "env-fauna-bird",
    "size": "s",
    "wdh": [
@@ -40969,7 +40983,7 @@
    "tris": 206,
    "tpu": 601,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 8512,
    "vtx": 180,
@@ -40993,10 +41007,15 @@
     "5,2": [
      0.148,
      0.523
+    ],
+    "13,3": [
+     0.156,
+     0.578
     ]
    },
    "colors": [
     "#3a3e4b",
+    "#59534e",
     "#d8cfb7",
     "#dbb789"
    ],
@@ -41011,7 +41030,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "bird-b",
-   "hash": "7f84f04d59",
+   "hash": "1306db08ab",
    "kind": "env-fauna-bird",
    "size": "s",
    "wdh": [
@@ -41022,7 +41041,7 @@
    "tris": 206,
    "tpu": 601,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 8676,
    "vtx": 185,
@@ -41033,11 +41052,15 @@
    "avgTri": 0.00005,
    "anglePct": 0,
    "vpt": 0.9,
-   "grad": 0.55,
+   "grad": 0.48,
    "spread": {
-    "3,0": [
+    "1,0": [
      0.148,
      0.742
+    ],
+    "3,0": [
+     0.148,
+     0.516
     ],
     "0,0": [
      0.383,
@@ -41051,6 +41074,7 @@
    "colors": [
     "#513120",
     "#59534e",
+    "#bb8255",
     "#dbb789"
    ],
    "tags": [
@@ -41064,7 +41088,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "bird-c",
-   "hash": "3b30d52ff7",
+   "hash": "993c744d1e",
    "kind": "env-fauna-bird",
    "size": "s",
    "wdh": [
@@ -41075,7 +41099,7 @@
    "tris": 206,
    "tpu": 601,
    "mat": 1,
-   "bands": 3,
+   "bands": 5,
    "calls": 1,
    "bytes": 8688,
    "vtx": 186,
@@ -41086,15 +41110,23 @@
    "avgTri": 0.00013,
    "anglePct": 2,
    "vpt": 0.9,
-   "grad": 0.56,
+   "grad": 0.48,
    "spread": {
+    "0,0": [
+     0.359,
+     0.742
+    ],
     "1,0": [
      0.148,
-     0.742
+     0.641
     ],
     "5,0": [
      0.148,
      0.734
+    ],
+    "3,0": [
+     0.148,
+     0.625
     ],
     "13,3": [
      0.148,
@@ -41102,9 +41134,11 @@
     ]
    },
    "colors": [
+    "#513120",
     "#59534e",
     "#bb8255",
-    "#ce7954"
+    "#ce7954",
+    "#dbb789"
    ],
    "tags": [
     "aq",
@@ -86867,7 +86901,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.74,
+   "thickRel": 0.75,
    "mark": [
     "grounded",
     "centered"
@@ -91912,7 +91946,7 @@
     "plastic",
     "wood-dark"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "household",
@@ -96638,7 +96672,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-board",
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "ipoly-signs",
@@ -96694,7 +96728,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-board",
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "ipoly-signs",
@@ -96756,7 +96790,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-frame",
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "ipoly-signs",
@@ -96818,7 +96852,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-frame",
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "ipoly-signs",
@@ -96880,7 +96914,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.51
+   "thickRel": 0.52
   },
   {
    "kit": "ipoly-signs",
@@ -97004,7 +97038,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "ipoly-signs",
@@ -97291,7 +97325,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/signpost-board",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "ipoly-signs",
@@ -97347,7 +97381,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/signpost-board",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "ipoly-torture",
@@ -101595,7 +101629,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "isa-bakery",
@@ -101644,7 +101678,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "isa-bakery",
@@ -106295,7 +106329,7 @@
    "kit": "isa-homely",
    "collection": "isa-tt",
    "name": "letter",
-   "hash": "7c3bc26261",
+   "hash": "1845c92233",
    "kind": "obj-equipment-pocketitem-scroll",
    "size": "s",
    "wdh": [
@@ -106306,7 +106340,7 @@
    "tris": 102,
    "tpu": 297,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 7444,
    "vtx": 166,
@@ -106317,18 +106351,23 @@
    "avgTri": 0.00077,
    "anglePct": 71,
    "vpt": 1.63,
-   "grad": 0.68,
+   "grad": 0.41,
    "spread": {
     "5,2": [
      0.148,
      0.75
     ],
+    "6,1": [
+     0.844,
+     0.945
+    ],
     "8,0": [
      0.195,
-     0.945
+     0.695
     ]
    },
    "colors": [
+    "#3a3e4b",
     "#873a27",
     "#d8cfb7"
    ],
@@ -106336,7 +106375,14 @@
     "isa",
     "paper-sheet"
    ],
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    }
+   ]
   },
   {
    "kit": "isa-homely",
@@ -123710,7 +123756,6 @@
     "#f1a63b"
    ],
    "tags": [
-    "ceramic-mid",
     "glass-clear",
     "kay",
     "stone-masonry-light",
@@ -123718,7 +123763,14 @@
     "textile-cloth-light"
    ],
    "variant": "kay-city/building-e",
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 7 wants max 6"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -124405,7 +124457,7 @@
   {
    "kit": "kay-city",
    "name": "car-police",
-   "hash": "76b1e5d9ad",
+   "hash": "cb81d83051",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -124416,7 +124468,7 @@
    "tris": 1258,
    "tpu": 2143,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 61512,
    "vtx": 1638,
@@ -124428,11 +124480,15 @@
    "avgTri": 0.00458,
    "anglePct": 65,
    "vpt": 1.3,
-   "grad": 0.59,
+   "grad": 0.58,
    "spread": {
     "6,1": [
      0.148,
      0.75
+    ],
+    "13,3": [
+     0.148,
+     0.445
     ],
     "15,3": [
      0.148,
@@ -124457,6 +124513,7 @@
    },
    "colors": [
     "#3a3e4b",
+    "#59534e",
     "#7a8491",
     "#873a27",
     "#b5d5e3",
@@ -124475,7 +124532,7 @@
   {
    "kit": "kay-city",
    "name": "car-sedan",
-   "hash": "4b50bf970d",
+   "hash": "e029cadc62",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -124486,7 +124543,7 @@
    "tris": 1236,
    "tpu": 2106,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 70464,
    "vtx": 1922,
@@ -124498,11 +124555,15 @@
    "avgTri": 0.00457,
    "anglePct": 65,
    "vpt": 1.56,
-   "grad": 0.55,
+   "grad": 0.54,
    "spread": {
     "6,1": [
      0.148,
      0.75
+    ],
+    "13,3": [
+     0.148,
+     0.656
     ],
     "15,3": [
      0.148,
@@ -124528,6 +124589,7 @@
    "colors": [
     "#1564a4",
     "#3a3e4b",
+    "#59534e",
     "#7a8491",
     "#873a27",
     "#b5d5e3",
@@ -124545,7 +124607,7 @@
   {
    "kit": "kay-city",
    "name": "car-stationwagon",
-   "hash": "c00221fb5f",
+   "hash": "b54010047d",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -124556,7 +124618,7 @@
    "tris": 1248,
    "tpu": 2126,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 62048,
    "vtx": 1656,
@@ -124568,11 +124630,15 @@
    "avgTri": 0.0046,
    "anglePct": 67,
    "vpt": 1.33,
-   "grad": 0.57,
+   "grad": 0.55,
    "spread": {
     "6,1": [
      0.148,
      0.75
+    ],
+    "13,3": [
+     0.148,
+     0.445
     ],
     "15,3": [
      0.148,
@@ -124598,6 +124664,7 @@
    "colors": [
     "#21552a",
     "#3a3e4b",
+    "#59534e",
     "#7a8491",
     "#873a27",
     "#b5d5e3",
@@ -124614,7 +124681,7 @@
   {
    "kit": "kay-city",
    "name": "car-taxi",
-   "hash": "b37c48076e",
+   "hash": "4c4eec8f93",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -124625,7 +124692,7 @@
    "tris": 1270,
    "tpu": 2164,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 69448,
    "vtx": 1884,
@@ -124640,6 +124707,10 @@
    "grad": 0.57,
    "spread": {
     "6,1": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
      0.148,
      0.75
     ],
@@ -124666,6 +124737,7 @@
    },
    "colors": [
     "#3a3e4b",
+    "#59534e",
     "#873a27",
     "#b5d5e3",
     "#bb8255",
@@ -124736,7 +124808,7 @@
   {
    "kit": "kay-city",
    "name": "fire-hydrant",
-   "hash": "225cca4968",
+   "hash": "7a05893030",
    "kind": "str-fixture-utility-hydrant",
    "size": "s",
    "wdh": [
@@ -124747,7 +124819,7 @@
    "tris": 186,
    "tpu": 542,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
    "bytes": 8904,
    "vtx": 195,
@@ -124763,23 +124835,21 @@
     "8,0": [
      0.148,
      0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
     ]
    },
    "colors": [
+    "#7a8491",
     "#873a27"
    ],
    "tags": [
     "kay",
     "metal-steel"
    ],
-   "thickRel": 2.58,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna"
-    }
-   ]
+   "thickRel": 2.58
   },
   {
    "kit": "kay-city",
@@ -155160,7 +155230,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "blacksmith-anim",
-   "hash": "fd593222fd",
+   "hash": "a4130d45f3",
    "kind": "str-building-work-industrial-workshop",
    "size": "l",
    "wdh": [
@@ -155171,7 +155241,7 @@
    "tris": 3968,
    "tpu": 257,
    "mat": 2,
-   "bands": 7,
+   "bands": 8,
    "calls": 2,
    "bytes": 487756,
    "vtx": 7990,
@@ -155183,7 +155253,7 @@
    "avgTri": 0.00662,
    "anglePct": 56,
    "vpt": 2.01,
-   "grad": 0.81,
+   "grad": 0.8,
    "spread": {
     "2,0": [
      0.117,
@@ -155205,9 +155275,13 @@
      0.25,
      0.867
     ],
+    "15,3": [
+     0.117,
+     0.898
+    ],
     "6,1": [
      0.109,
-     0.898
+     0.852
     ],
     "6,0": [
      0.078,
@@ -155216,6 +155290,7 @@
    },
    "colors": [
     "#3a3e4b",
+    "#7a8491",
     "#873a27",
     "#88735f",
     "#89542e",
@@ -155241,13 +155316,20 @@
    ],
    "alpha": true,
    "variant": "kay-hexagon/blacksmith-anim",
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "blacksmith",
-   "hash": "9cddf9d558",
+   "hash": "3f63007d58",
    "kind": "str-building-work-industrial-workshop",
    "size": "l",
    "wdh": [
@@ -155258,7 +155340,7 @@
    "tris": 2342,
    "tpu": 253,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
    "bytes": 123124,
    "vtx": 3364,
@@ -155270,7 +155352,7 @@
    "avgTri": 0.00986,
    "anglePct": 63,
    "vpt": 1.44,
-   "grad": 0.81,
+   "grad": 0.8,
    "spread": {
     "2,0": [
      0.117,
@@ -155292,9 +155374,13 @@
      0.25,
      0.867
     ],
+    "15,3": [
+     0.117,
+     0.898
+    ],
     "6,1": [
      0.109,
-     0.898
+     0.852
     ],
     "6,0": [
      0.078,
@@ -155303,6 +155389,7 @@
    },
    "colors": [
     "#3a3e4b",
+    "#7a8491",
     "#873a27",
     "#88735f",
     "#89542e",
@@ -155322,7 +155409,14 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/blacksmith-anim",
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "kay-hexagon",
@@ -162101,7 +162195,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-sphere-a",
-   "hash": "2f4f20706c",
+   "hash": "62631c4faa",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
@@ -162125,7 +162219,7 @@
    "vpt": 0.95,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "6,0": [
      0.148,
      0.805
     ],
@@ -162136,7 +162230,7 @@
    },
    "colors": [
     "#873a27",
-    "#d8cfb7"
+    "#f1a63b"
    ],
    "tags": [
     "kay",
@@ -162149,7 +162243,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-sphere-b",
-   "hash": "fda117108e",
+   "hash": "99c69fa814",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
@@ -162174,7 +162268,7 @@
    "vpt": 0.95,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "6,0": [
      0.148,
      0.805
     ],
@@ -162185,7 +162279,7 @@
    },
    "colors": [
     "#873a27",
-    "#d8cfb7"
+    "#f1a63b"
    ],
    "tags": [
     "kay",
@@ -163703,7 +163797,7 @@
     "pickup"
    ],
    "variant": "kay-platformer/lightning",
-   "thickRel": 1.09
+   "thickRel": 1.06
   },
   {
    "kit": "kay-minigame",
@@ -164019,7 +164113,7 @@
     "pickup"
    ],
    "variant": "kay-platformer/star",
-   "thickRel": 0.8
+   "thickRel": 0.78
   },
   {
    "kit": "kay-minigame",
@@ -166974,7 +167068,7 @@
     "kay",
     "pickup"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.46
   },
   {
    "kit": "kay-platformer",
@@ -167418,7 +167512,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 1.56
+   "thickRel": 1.52
   },
   {
    "kit": "kay-platformer",
@@ -167731,7 +167825,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/lightning",
-   "thickRel": 1.23
+   "thickRel": 1.2
   },
   {
    "kit": "kay-platformer",
@@ -169495,7 +169589,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/star",
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "kay-platformer",
@@ -183775,7 +183869,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "screwdriver-b-short",
-   "hash": "4fb4a96044",
+   "hash": "0fd70d80e2",
    "kind": "obj-equipment-tool-hand-screwdriver",
    "size": "s",
    "wdh": [
@@ -183800,7 +183894,7 @@
    "vpt": 2.95,
    "grad": 0.56,
    "spread": {
-    "5,0": [
+    "2,0": [
      0.563,
      0.992
     ],
@@ -183811,15 +183905,22 @@
    },
    "colors": [
     "#7a8491",
-    "#ce7954"
+    "#89542e"
    ],
    "tags": [
     "kay",
     "metal-steel",
-    "plastic"
+    "wood-dark"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.15
+   "thickRel": 2.15,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "wood needs wood-light, has wood-dark (obj-equipment-tool-hand)"
+    }
+   ]
   },
   {
    "kit": "kay-tools",
@@ -189727,14 +189828,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "ken-car",
@@ -190413,14 +190507,7 @@
     "plastic"
    ],
    "variant": "ken-car/delivery",
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ken-car",
@@ -190495,14 +190582,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.15,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.15
   },
   {
    "kit": "ken-car",
@@ -190582,11 +190662,6 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
      "text": "G27 minTube 0.0193 wants min 0.026"
     }
    ]
@@ -190663,14 +190738,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ken-car",
@@ -190745,14 +190813,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-car",
@@ -191187,14 +191248,7 @@
     "plastic"
    ],
    "variant": "ken-car/suv",
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "ken-car",
@@ -191720,14 +191774,7 @@
     "plastic"
    ],
    "variant": "ken-car/truck",
-   "thickRel": 0.84,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 0.84
   },
   {
    "kit": "ken-car",
@@ -191801,14 +191848,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.12,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.12
   },
   {
    "kit": "ken-car",
@@ -197186,7 +197226,7 @@
     "plastic"
    ],
    "variant": "ken-factory/arrow-rounded",
-   "thickRel": 1.16
+   "thickRel": 1.13
   },
   {
    "kit": "ken-factory",
@@ -197228,7 +197268,7 @@
     "plastic"
    ],
    "variant": "ken-factory/arrow-rounded",
-   "thickRel": 1.07
+   "thickRel": 1.05
   },
   {
    "kit": "ken-factory",
@@ -202385,12 +202425,12 @@
     "metal-steel",
     "special-emissive"
    ],
-   "thickRel": 2.28
+   "thickRel": 2.29
   },
   {
    "kit": "ken-factory",
    "name": "warning-traffic",
-   "hash": "b919e0d05e",
+   "hash": "c67b70ec26",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -202416,7 +202456,7 @@
    "vpt": 1.09,
    "grad": 0.6,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.313,
      0.977
     ],
@@ -202435,13 +202475,13 @@
    },
    "colors": [
     "#21552a",
-    "#7a8491",
+    "#59534e",
     "#873a27",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
+    "metal-iron-mid",
     "plastic"
    ],
    "thickRel": 1.15
@@ -228943,7 +228983,7 @@
   {
    "kit": "ken-nature",
    "name": "log",
-   "hash": "bf98ad7a80",
+   "hash": "b516723924",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
    "wdh": [
@@ -228951,21 +228991,21 @@
     0.853,
     0.209
    ],
-   "tris": 132,
-   "tpu": 385,
+   "tris": 200,
+   "tpu": 583,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10996,
+   "bytes": 11408,
    "vtx": 275,
    "grounded": true,
    "centered": true,
    "minEdge": 0.028,
    "minTube": 0.2403,
-   "thick": 0.2864,
-   "avgTri": 0.00577,
-   "anglePct": 94,
-   "vpt": 2.08,
+   "thick": 0.2859,
+   "avgTri": 0.00717,
+   "anglePct": 96,
+   "vpt": 1.38,
    "grad": 0.5,
    "spread": {
     "0,0": [
@@ -228990,15 +229030,16 @@
     "share": 0.0036,
     "view": "0/20",
     "causes": {
-     "open": 1
+     "inverted": 0.76,
+     "open": 0.24
     }
    },
-   "thickRel": 2.42,
+   "thickRel": 2.41,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 0/20 over 0.1%: open 100.0%"
+     "text": "0.4% of view 0/20 over 0.1%: inverted 76.0%, open 24.0%"
     }
    ]
   },
@@ -229472,7 +229513,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "ken-nature",
@@ -233735,8 +233776,10 @@
     "hero",
     "ken",
     "pirate",
+    "special",
     "tba"
    ],
+   "specialBand": "1,1",
    "variant": "ken-pirate/ship-ghost",
    "backface": {
     "share": 0.0017,
@@ -233751,11 +233794,6 @@
      "level": "warning",
      "check": "backface",
      "text": "0.2% of view 0/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
     }
    ]
   },
@@ -235184,7 +235222,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "ken-platformer",
@@ -235233,7 +235271,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "ken-platformer",
@@ -236091,7 +236129,7 @@
     "ken",
     "pickup"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.99
   },
   {
    "kit": "ken-platformer",
@@ -236909,7 +236947,7 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.89
   },
   {
    "kit": "ken-platformer",
@@ -239737,7 +239775,7 @@
     "wood-light"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.41
+   "thickRel": 0.42
   },
   {
    "kit": "ken-racing",
@@ -239855,7 +239893,7 @@
     "wood-light"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "ken-racing",
@@ -240567,7 +240605,7 @@
   {
    "kit": "ken-racing",
    "name": "light-colored",
-   "hash": "0e938470ee",
+   "hash": "58abf407fd",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -240591,7 +240629,7 @@
    "vpt": 1.52,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -240615,13 +240653,12 @@
    "colors": [
     "#21552a",
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-iron-dark",
     "metal-steel",
     "special-emissive"
    ],
@@ -240807,7 +240844,7 @@
   {
    "kit": "ken-racing",
    "name": "light-red-double",
-   "hash": "8a60b23720",
+   "hash": "1fc834db29",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -240831,7 +240868,7 @@
    "vpt": 1.45,
    "grad": 0.59,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -240850,13 +240887,12 @@
    },
    "colors": [
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-iron-dark",
     "metal-steel",
     "special-emissive"
    ],
@@ -240866,7 +240902,7 @@
   {
    "kit": "ken-racing",
    "name": "light-red",
-   "hash": "22b44a7a11",
+   "hash": "4b501e9349",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -240891,7 +240927,7 @@
    "vpt": 1.49,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -240910,13 +240946,12 @@
    },
    "colors": [
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-iron-dark",
     "metal-steel",
     "special-emissive"
    ],
@@ -241127,14 +241162,7 @@
     "metal-steel"
    ],
    "variant": "ken-racing/overhead",
-   "thickRel": 1.33,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory"
-    }
-   ]
+   "thickRel": 1.33
   },
   {
    "kit": "ken-racing",
@@ -241801,7 +241829,7 @@
   {
    "kit": "ken-racing",
    "name": "rail-double",
-   "hash": "c7337f8d1b",
+   "hash": "c3cf65419b",
    "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
@@ -241826,13 +241854,13 @@
    "vpt": 1.57,
    "grad": 0.6,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#7a8491"
+    "#d8cfb7"
    ],
    "tags": [
     "ken",
@@ -241844,7 +241872,7 @@
   {
    "kit": "ken-racing",
    "name": "rail",
-   "hash": "e082e2dbe7",
+   "hash": "865f81f2ce",
    "kind": "str-barrier-railing",
    "size": "m",
    "wdh": [
@@ -241869,13 +241897,13 @@
    "vpt": 1.65,
    "grad": 0.6,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#7a8491"
+    "#d8cfb7"
    ],
    "tags": [
     "ken",
@@ -245864,7 +245892,7 @@
    "kit": "ken-skate",
    "collection": "ken-mini",
    "name": "obstacle-middle",
-   "hash": "73ae85ab70",
+   "hash": "1efade3f32",
    "kind": "str-fixture-leisure-playground",
    "size": "m",
    "wdh": [
@@ -245901,24 +245929,31 @@
      0.063,
      0.969
     ],
-    "15,3": [
+    "5,2": [
      0.273,
      0.672
     ]
    },
    "colors": [
     "#59534e",
-    "#7a8491",
     "#873a27",
-    "#bb8255"
+    "#bb8255",
+    "#d8cfb7"
    ],
    "tags": [
     "ken",
-    "metal-steel",
+    "metal-iron-mid",
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.92,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-mid (str-fixture-leisure-playground)"
+    }
+   ]
   },
   {
    "kit": "ken-skate",
@@ -249302,7 +249337,7 @@
   {
    "kit": "ken-space",
    "name": "monorail-train-commuter",
-   "hash": "8d21ea739d",
+   "hash": "9b50a460c3",
    "kind": "obj-transport-land-rail",
    "size": "l",
    "wdh": [
@@ -249314,14 +249349,13 @@
    "tpu": 138,
    "mat": 1,
    "bands": 5,
-   "calls": 1,
-   "bytes": 46256,
+   "calls": 4,
+   "bytes": 38176,
    "vtx": 1255,
    "grounded": true,
    "centered": true,
    "minEdge": 0.035,
-   "minTube": 0.8434,
-   "thick": 0.3261,
+   "thick": 0.3285,
    "avgTri": 0.03731,
    "anglePct": 83,
    "vpt": 1.7,
@@ -249362,7 +249396,14 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 1.43
+   "thickRel": 1.45,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "I11 calls 4 wants max 1"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -249484,7 +249525,7 @@
   {
    "kit": "ken-space",
    "name": "monorail-train-freight",
-   "hash": "02395f7b28",
+   "hash": "b7ada0a63d",
    "kind": "obj-transport-land-rail",
    "size": "l",
    "wdh": [
@@ -249496,18 +249537,18 @@
    "tpu": 378,
    "mat": 1,
    "bands": 6,
-   "calls": 1,
-   "bytes": 96884,
+   "calls": 4,
+   "bytes": 63476,
    "vtx": 2595,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.104,
-   "thick": 0.2981,
+   "minTube": 0.1035,
+   "thick": 0.301,
    "avgTri": 0.01503,
    "anglePct": 78,
    "vpt": 1.28,
-   "grad": 0.58,
+   "grad": 0.57,
    "spread": {
     "6,0": [
      0.148,
@@ -249550,7 +249591,14 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 1.31
+   "thickRel": 1.32,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "I11 calls 4 wants max 1"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -259440,7 +259488,7 @@
     "wood-light"
    ],
    "variant": "ken-survival/signpost",
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "ken-survival",
@@ -269864,7 +269912,7 @@
    "collection": "ken-city",
    "name": "arrow-standing",
    "hash": "eb9098b0a7",
-   "kind": "str-fixture-marker-sign-signpost",
+   "kind": "sym",
    "size": "l",
    "wdh": [
     0.363,
@@ -269906,14 +269954,21 @@
     "sailing"
    ],
    "variant": "ken-water/arrow",
-   "thickRel": 1.89
+   "thickRel": 1.05,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.815 over max 1.2 (sym)"
+    }
+   ]
   },
   {
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "arrow",
    "hash": "b2445895d6",
-   "kind": "str-fixture-marker-sign-signpost",
+   "kind": "sym",
    "size": "l",
    "wdh": [
     1.21,
@@ -269955,7 +270010,14 @@
     "sailing"
    ],
    "variant": "ken-water/arrow",
-   "thickRel": 1.88
+   "thickRel": 1.05,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.815 over max 1.2 (sym)"
+    }
+   ]
   },
   {
    "kit": "ken-water",
@@ -270270,7 +270332,7 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "boat-house-c",
-   "hash": "bec5b3bec5",
+   "hash": "5b5f5e12bd",
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
@@ -270281,7 +270343,7 @@
    "tris": 447,
    "tpu": 49,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 23872,
    "vtx": 618,
@@ -270293,7 +270355,7 @@
    "avgTri": 0.05852,
    "anglePct": 50,
    "vpt": 1.38,
-   "grad": 0.37,
+   "grad": 0.36,
    "spread": {
     "4,2": [
      0.438,
@@ -270302,6 +270364,10 @@
     "5,2": [
      0.492,
      0.492
+    ],
+    "15,3": [
+     0.5,
+     0.5
     ],
     "6,1": [
      0.336,
@@ -270324,6 +270390,7 @@
     "#1564a4",
     "#3a3e4b",
     "#59534e",
+    "#7a8491",
     "#873a27",
     "#b5d5e3",
     "#d8cfb7"
@@ -270336,7 +270403,14 @@
     "sailing"
    ],
    "variant": "ken-water/boat-house-a",
-   "thickRel": 1.21
+   "thickRel": 1.21,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G15 bands 7 wants max 6"
+    }
+   ]
   },
   {
    "kit": "ken-water",
@@ -293869,7 +293943,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.65
+   "thickRel": 1.67
   },
   {
    "kit": "lpa-west",
@@ -293920,7 +293994,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.06
+   "thickRel": 1.08
   },
   {
    "kit": "lpa-west",
@@ -293971,7 +294045,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.12
+   "thickRel": 1.14
   },
   {
    "kit": "lpa-west",
@@ -294020,7 +294094,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "lpa-west",
@@ -297283,7 +297357,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -297955,7 +298029,7 @@
     "plastic"
    ],
    "variant": "m3-base/banner-ui-01",
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -297997,7 +298071,7 @@
     "plastic"
    ],
    "variant": "m3-base/banner-ui-01",
-   "thickRel": 1.14
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -298375,7 +298449,7 @@
     "paper-sheet"
    ],
    "variant": "m3-base/rounded-speech-bubble",
-   "thickRel": 1.19
+   "thickRel": 1.16
   },
   {
    "kit": "m3-base",
@@ -301612,7 +301686,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -301766,7 +301840,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.08
   },
   {
    "kit": "m3-base",
@@ -303915,7 +303989,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.38
   },
   {
    "kit": "m3-base",
@@ -304222,7 +304296,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "m3-base",
@@ -305146,11 +305220,15 @@
    "tags": [
     "m3",
     "mounted",
-    "textile-cloth-dark",
     "textile-cloth-light"
    ],
    "thickRel": 0.66,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 4 wants max 2"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -305711,7 +305789,7 @@
     "m3",
     "pickup"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.47
   },
   {
    "kit": "m3-base",
@@ -307084,7 +307162,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 0.89
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -307364,7 +307442,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/estate-sign-01",
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -307412,7 +307490,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/estate-sign-01",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "m3-base",
@@ -307469,7 +307547,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.62,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "warning",
@@ -307564,7 +307642,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 2.37
+   "thickRel": 2.31
   },
   {
    "kit": "m3-base",
@@ -307791,7 +307869,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/finger-post-sign-01",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -308569,7 +308647,7 @@
     "m3",
     "metal-gold"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.53
   },
   {
    "kit": "m3-base",
@@ -311625,7 +311703,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.29
+   "thickRel": 1.26
   },
   {
    "kit": "m3-base",
@@ -312239,7 +312317,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -312280,7 +312358,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.17
   },
   {
    "kit": "m3-base",
@@ -313168,7 +313246,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -316952,7 +317030,7 @@
     "plastic"
    ],
    "variant": "m3-base/lightning-bolt",
-   "thickRel": 1.06
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -316994,7 +317072,7 @@
     "plastic"
    ],
    "variant": "m3-base/lightning-bolt",
-   "thickRel": 1.16
+   "thickRel": 1.13
   },
   {
    "kit": "m3-base",
@@ -317208,7 +317286,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.09
   },
   {
    "kit": "m3-base",
@@ -317770,7 +317848,7 @@
     "metal-iron-dark",
     "paper-sheet"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "m3-base",
@@ -319273,7 +319351,7 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.49
   },
   {
    "kit": "m3-base",
@@ -320194,7 +320272,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -322117,7 +322195,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -322199,12 +322277,12 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -324017,7 +324095,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.6
   },
   {
    "kit": "m3-base",
@@ -324315,7 +324393,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.53
+   "thickRel": 1.49
   },
   {
    "kit": "m3-base",
@@ -324419,7 +324497,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.94
   },
   {
    "kit": "m3-base",
@@ -324460,7 +324538,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -326908,10 +326986,17 @@
    ],
    "tags": [
     "m3",
-    "paper-sheet"
+    "plastic"
    ],
    "variant": "m3-base/rounded-speech-bubble",
-   "thickRel": 1.19
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure basalt, has ivory"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -327934,7 +328019,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -328353,7 +328438,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "m3-base",
@@ -329181,8 +329266,13 @@
     "plastic"
    ],
    "variant": "m3-base/snowflake-01",
-   "thickRel": 0.5,
+   "thickRel": 0.48,
    "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -329231,7 +329321,7 @@
     "plastic"
    ],
    "variant": "m3-base/snowflake-01",
-   "thickRel": 0.52,
+   "thickRel": 0.51,
    "lint": [
     {
      "level": "error",
@@ -330399,7 +330489,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/standing-floor-chalkboard-01",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -330448,7 +330538,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/standing-floor-chalkboard-01",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -330539,7 +330629,7 @@
     "plastic"
    ],
    "variant": "m3-base/star-01",
-   "thickRel": 0.8
+   "thickRel": 0.78
   },
   {
    "kit": "m3-base",
@@ -330581,7 +330671,7 @@
     "plastic"
    ],
    "variant": "m3-base/star-01",
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -334700,7 +334790,7 @@
     "m3",
     "special-liquid"
    ],
-   "thickRel": 1.97
+   "thickRel": 1.92
   },
   {
    "kit": "m3-base",
@@ -335343,7 +335433,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.12
+   "thickRel": 1.09
   },
   {
    "kit": "m3-base",
@@ -335384,7 +335474,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.59
   },
   {
    "kit": "m3-base",
@@ -336999,7 +337089,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "makeup",
@@ -337822,16 +337912,10 @@
     "#d8cfb7"
    ],
    "tags": [
-    "mab"
+    "mab",
+    "plastic"
    ],
-   "thickRel": 1.76,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G09 nmat 0 wants min 1"
-    }
-   ]
+   "thickRel": 1.76
   },
   {
    "kit": "makeup",
@@ -345933,7 +346017,7 @@
      "open": 0.01
     }
    },
-   "thickRel": 0.62,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "warning",
@@ -346294,7 +346378,7 @@
      "other": 0.1
     }
    },
-   "thickRel": 0.54,
+   "thickRel": 0.55,
    "lint": [
     {
      "level": "warning",
@@ -347054,7 +347138,7 @@
     "metal-gold",
     "pm"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.86
   },
   {
    "kit": "pm-store",
@@ -351136,7 +351220,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "fire-hydrant",
-   "hash": "c8f16e4baf",
+   "hash": "cc128da379",
    "kind": "str-fixture-utility-hydrant",
    "size": "s",
    "wdh": [
@@ -351147,39 +351231,37 @@
    "tris": 822,
    "tpu": 2397,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 34012,
-   "vtx": 863,
+   "bytes": 35004,
+   "vtx": 894,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "thick": 0.1784,
    "avgTri": 0.00039,
    "anglePct": 24,
-   "vpt": 1.05,
-   "grad": 0.7,
+   "vpt": 1.09,
+   "grad": 0.69,
    "spread": {
     "8,0": [
      0.055,
      0.75
+    ],
+    "15,3": [
+     0.055,
+     0.742
     ]
    },
    "colors": [
+    "#7a8491",
     "#873a27"
    ],
    "tags": [
     "metal-steel",
     "qua"
    ],
-   "thickRel": 2.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna"
-    }
-   ]
+   "thickRel": 2.01
   },
   {
    "kit": "quat-apocalypse",
@@ -352964,14 +353046,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "quat-cars",
@@ -365916,11 +365991,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory glass"
-    },
-    {
-     "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0217 wants min 0.026"
     }
@@ -365977,11 +366047,6 @@
    "lint": [
     {
      "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory glass"
-    },
-    {
-     "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0242 wants min 0.026"
     }
@@ -366035,14 +366100,7 @@
     "qua"
    ],
    "variant": "quat-interior/window-large",
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has ivory glass"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "quat-medieval",
@@ -373104,12 +373162,12 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 0.43,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     }
    ]
   },
@@ -379108,7 +379166,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.46
   },
   {
    "kit": "quat-rpg",
@@ -381399,7 +381457,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.96
   },
   {
    "kit": "quat-rpg",
@@ -382698,10 +382756,16 @@
    ],
    "tags": [
     "metal-steel",
-    "paper-sheet",
     "qua"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -383801,7 +383865,7 @@
   {
    "kit": "quat-shoot",
    "name": "grenade",
-   "hash": "97667abd0b",
+   "hash": "0650ffca6b",
    "kind": "obj-equipment-weapon-ranged-grenade",
    "size": "s",
    "wdh": [
@@ -383829,7 +383893,7 @@
      0.375,
      0.711
     ],
-    "15,3": [
+    "13,3": [
      0.25,
      0.75
     ],
@@ -383840,11 +383904,11 @@
    },
    "colors": [
     "#21552a",
-    "#7a8491",
+    "#59534e",
     "#d8cfb7"
    ],
    "tags": [
-    "metal-steel",
+    "metal-iron-mid",
     "plastic",
     "qua"
    ],
@@ -385918,7 +385982,7 @@
   {
    "kit": "quat-space",
    "name": "building-l",
-   "hash": "1fa9fffbbb",
+   "hash": "709fc73317",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -385929,7 +385993,7 @@
    "tris": 2298,
    "tpu": 823,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 74592,
    "vtx": 1852,
@@ -385950,9 +386014,14 @@
     "15,3": [
      0.148,
      0.75
+    ],
+    "13,3": [
+     0.445,
+     0.445
     ]
    },
    "colors": [
+    "#59534e",
     "#7a8491",
     "#d8cfb7"
    ],
@@ -385964,6 +386033,11 @@
    ],
    "thickRel": 1.07,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -386231,7 +386305,7 @@
   {
    "kit": "quat-space",
    "name": "house-long",
-   "hash": "8fe418b777",
+   "hash": "b8d3a15042",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -386242,7 +386316,7 @@
    "tris": 1734,
    "tpu": 1215,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 57740,
    "vtx": 1431,
@@ -386263,9 +386337,14 @@
     "15,3": [
      0.148,
      0.75
+    ],
+    "13,3": [
+     0.445,
+     0.445
     ]
    },
    "colors": [
+    "#59534e",
     "#7a8491",
     "#d8cfb7"
    ],
@@ -386277,6 +386356,11 @@
    ],
    "thickRel": 1.64,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -386396,7 +386480,7 @@
   {
    "kit": "quat-space",
    "name": "house-single",
-   "hash": "0a69113e36",
+   "hash": "dffc50667c",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -386407,7 +386491,7 @@
    "tris": 978,
    "tpu": 1511,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
    "bytes": 27668,
    "vtx": 633,
@@ -386418,7 +386502,7 @@
    "avgTri": 0.00266,
    "anglePct": 10,
    "vpt": 0.65,
-   "grad": 0.59,
+   "grad": 0.58,
    "spread": {
     "5,2": [
      0.148,
@@ -386427,9 +386511,14 @@
     "15,3": [
      0.164,
      0.727
+    ],
+    "13,3": [
+     0.445,
+     0.445
     ]
    },
    "colors": [
+    "#59534e",
     "#7a8491",
     "#d8cfb7"
    ],
@@ -386440,7 +386529,14 @@
     "storeys-1"
    ],
    "variant": "quat-space/house-single",
-   "thickRel": 1.4
+   "thickRel": 1.4,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 3 wants max 2"
+    }
+   ]
   },
   {
    "kit": "quat-space",
@@ -386794,7 +386890,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "quat-space",
@@ -386839,12 +386935,12 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.45,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
+     "text": "I01 thickRel 0.44 wants min 0.5"
     }
    ]
   },
@@ -386899,7 +386995,7 @@
   {
    "kit": "quat-space",
    "name": "planet-crater",
-   "hash": "5112986b52",
+   "hash": "7f4577fdc5",
    "kind": "obj-device-science-astro-globe",
    "size": "m",
    "wdh": [
@@ -386923,18 +387019,18 @@
    "vpt": 0.68,
    "grad": 0.59,
    "spread": {
-    "14,3": [
+    "15,3": [
      0.148,
      0.742
     ],
-    "12,3": [
+    "6,1": [
      0.148,
      0.742
     ]
    },
    "colors": [
-    "#41352b",
-    "#88735f"
+    "#3a3e4b",
+    "#7a8491"
    ],
    "tags": [
     "qua",
@@ -388825,7 +388921,7 @@
   {
    "kit": "quat-survival",
    "name": "backpack",
-   "hash": "db2e47885b",
+   "hash": "f29d9646ca",
    "kind": "obj-container-bag",
    "size": "s",
    "wdh": [
@@ -388853,7 +388949,7 @@
      0.148,
      0.742
     ],
-    "14,3": [
+    "1,1": [
      0.148,
      0.75
     ],
@@ -388863,17 +388959,29 @@
     ]
    },
    "colors": [
+    "#21552a",
     "#513120",
-    "#88735f",
     "#f1a63b"
    ],
    "tags": [
     "leather",
     "metal-gold",
     "qua",
-    "textile-cloth-mid"
+    "textile-cloth-dark"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-dark wants sienna, has bark hunter amber"
+    },
+    {
+     "level": "error",
+     "check": "bands",
+     "text": "textile-cloth-dark wants taupe ivory, has bark hunter amber (obj-container-bag)"
+    }
+   ]
   },
   {
    "kit": "quat-survival",
@@ -392735,7 +392843,7 @@
   {
    "kit": "quat-sushi",
    "name": "octopus-nigiri",
-   "hash": "87c6068c44",
+   "hash": "4824d08460",
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
@@ -392746,7 +392854,7 @@
    "tris": 768,
    "tpu": 2239,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 26092,
    "vtx": 621,
@@ -392757,7 +392865,7 @@
    "avgTri": 0.00005,
    "anglePct": 3,
    "vpt": 0.81,
-   "grad": 0.59,
+   "grad": 0.57,
    "spread": {
     "5,2": [
      0.148,
@@ -392770,12 +392878,17 @@
     "8,0": [
      0.148,
      0.742
+    ],
+    "6,0": [
+     0.188,
+     0.281
     ]
    },
    "colors": [
     "#59534e",
     "#873a27",
-    "#d8cfb7"
+    "#d8cfb7",
+    "#f1a63b"
    ],
    "tags": [
     "qua",
@@ -394099,7 +394212,7 @@
   {
    "kit": "quat-sushi",
    "name": "sushi-truck",
-   "hash": "7e83aaf321",
+   "hash": "f1b81e1379",
    "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
@@ -394110,7 +394223,7 @@
    "tris": 5813,
    "tpu": 2168,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 249912,
    "vtx": 6671,
@@ -394122,7 +394235,7 @@
    "avgTri": 0.00321,
    "anglePct": 67,
    "vpt": 1.15,
-   "grad": 0.6,
+   "grad": 0.59,
    "spread": {
     "13,3": [
      0.148,
@@ -394140,6 +394253,10 @@
      0.148,
      0.75
     ],
+    "8,0": [
+     0.148,
+     0.742
+    ],
     "5,0": [
      0.148,
      0.75
@@ -394152,6 +394269,7 @@
    "colors": [
     "#59534e",
     "#7a8491",
+    "#873a27",
     "#b5d5e3",
     "#ce7954",
     "#d8cfb7",
@@ -402379,7 +402497,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "rgp-asia",
@@ -404500,14 +404618,7 @@
     "rgp"
    ],
    "variant": "rgp-cars/ice-cream-truck-ivory",
-   "thickRel": 0.59,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 0.59
   },
   {
    "kit": "rgp-cars",
@@ -404730,11 +404841,6 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G13 bands 7 wants max 6"
-    },
-    {
-     "level": "error",
-     "check": "measures",
      "text": "G27 minTube 0.0209 wants min 0.026"
     }
    ]
@@ -404881,7 +404987,7 @@
   {
    "kit": "rgp-cars",
    "name": "swat-truck",
-   "hash": "6d001fe801",
+   "hash": "351f8fe744",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -404892,7 +404998,7 @@
    "tris": 1660,
    "tpu": 1876,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 85264,
    "vtx": 2305,
@@ -404923,6 +405029,10 @@
      0.148,
      0.75
     ],
+    "13,3": [
+     0.156,
+     0.75
+    ],
     "4,2": [
      0.148,
      0.75
@@ -404935,6 +405045,7 @@
    "colors": [
     "#1564a4",
     "#3a3e4b",
+    "#59534e",
     "#7a8491",
     "#873a27",
     "#b5d5e3",
@@ -413539,7 +413650,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/signpost-1",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-medieval",
@@ -413601,7 +413712,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/signpost-1",
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "rgp-medieval",
@@ -418979,7 +419090,7 @@
   {
    "kit": "rgs-vehicles",
    "name": "firetruck",
-   "hash": "cc563e2de6",
+   "hash": "320d760204",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -418990,7 +419101,7 @@
    "tris": 3195,
    "tpu": 3144,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 199044,
    "vtx": 5573,
@@ -419027,6 +419138,10 @@
     "4,2": [
      0.148,
      0.398
+    ],
+    "6,0": [
+     0.148,
+     0.75
     ]
    },
    "colors": [
@@ -419035,7 +419150,8 @@
     "#7a8491",
     "#873a27",
     "#b5d5e3",
-    "#d8cfb7"
+    "#d8cfb7",
+    "#f1a63b"
    ],
    "tags": [
     "glass-clear",
@@ -421767,7 +421883,7 @@
    "kit": "sq-arcade",
    "collection": "sq-props",
    "name": "play-sign",
-   "hash": "b5e97d3a00",
+   "hash": "42f2f8ebff",
    "kind": "str-fixture-marker-sign-lettering",
    "size": "m",
    "wdh": [
@@ -421778,7 +421894,7 @@
    "tris": 731,
    "tpu": 2131,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 51168,
    "vtx": 1414,
@@ -421790,7 +421906,7 @@
    "avgTri": 0.00062,
    "anglePct": 80,
    "vpt": 1.93,
-   "grad": 0.6,
+   "grad": 0.59,
    "spread": {
     "6,1": [
      0.148,
@@ -421803,11 +421919,16 @@
     "6,0": [
      0.148,
      0.75
+    ],
+    "3,1": [
+     0.172,
+     0.727
     ]
    },
    "colors": [
     "#1564a4",
     "#3a3e4b",
+    "#66852a",
     "#f1a63b"
    ],
    "tags": [
@@ -422022,7 +422143,7 @@
    "kit": "sq-arcade",
    "collection": "sq-props",
    "name": "token-changer",
-   "hash": "ac7c1d2b5a",
+   "hash": "fdd2cfc85a",
    "kind": "obj-device-electronics-vending",
    "size": "m",
    "wdh": [
@@ -422033,7 +422154,7 @@
    "tris": 810,
    "tpu": 2274,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
    "bytes": 38072,
    "vtx": 990,
@@ -422066,12 +422187,17 @@
     "4,2": [
      0.195,
      0.75
+    ],
+    "3,1": [
+     0.195,
+     0.75
     ]
    },
    "colors": [
     "#1564a4",
     "#21552a",
     "#3a3e4b",
+    "#66852a",
     "#d8cfb7",
     "#f1a63b"
    ],
@@ -422081,7 +422207,14 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 6 wants max 5"
+    }
+   ]
   },
   {
    "kit": "sq-arcade",
@@ -422682,7 +422815,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "sq-bank",
@@ -422927,7 +423060,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.48
   },
   {
    "kit": "sq-bowling",
@@ -424389,7 +424522,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "sq-cards",
@@ -424996,7 +425129,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.52
   },
   {
    "kit": "sq-carwash",
@@ -427281,7 +427414,7 @@
     "sq",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.09
   },
   {
    "kit": "sq-fastfood",
@@ -446728,7 +446861,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "styloo-school",
@@ -446778,7 +446911,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 0.54
+   "thickRel": 0.55
   },
   {
    "kit": "styloo-school",
@@ -449113,11 +449246,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.155 over max 0.15 (obj-equipment-tool-stationery-writing scale-small)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G12 bands 5 wants max 3"
     }
    ]
   },
@@ -455477,11 +455605,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.759 under min 0.8 (obj-transport-land-cart)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
     }
    ]
   },
@@ -455555,14 +455678,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/ice-cream-cart",
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 1.06
   },
   {
    "kit": "taalei-kit",
@@ -455634,14 +455750,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/ice-cream-cart",
-   "thickRel": 1.08,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 6 wants max 5"
-    }
-   ]
+   "thickRel": 1.08
   },
   {
    "kit": "taalei-kit",
@@ -456975,7 +457084,7 @@
    "kit": "taalei-kit",
    "name": "totem-owl-wood",
    "hash": "d6398c2e73",
-   "kind": "str-fixture-marker",
+   "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
     0.37,
@@ -457022,7 +457131,7 @@
    "kit": "taalei-kit",
    "name": "totem-owl",
    "hash": "68456004c1",
-   "kind": "str-fixture-marker",
+   "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
     0.37,
@@ -457080,20 +457189,13 @@
    ],
    "specialBand": "4,2",
    "variant": "taalei-kit/totem-owl",
-   "thickRel": 2.84,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    }
-   ]
+   "thickRel": 2.84
   },
   {
    "kit": "taalei-kit",
    "name": "totem-raven-wood",
    "hash": "2d2d2e4a13",
-   "kind": "str-fixture-marker",
+   "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
     1.187,
@@ -457140,7 +457242,7 @@
    "kit": "taalei-kit",
    "name": "totem-raven",
    "hash": "194a4be5db",
-   "kind": "str-fixture-marker",
+   "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
     1.187,
@@ -457198,20 +457300,13 @@
    ],
    "specialBand": "4,2",
    "variant": "taalei-kit/totem-raven",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "taalei-kit",
    "name": "totem-thunderbird",
    "hash": "4753cb5dbb",
-   "kind": "str-fixture-marker",
+   "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
     1.254,
@@ -457269,20 +457364,13 @@
     "wood-mid"
    ],
    "specialBand": "4,2",
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 4 wants max 2"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "taalei-kit",
    "name": "totem-wood",
    "hash": "61ce3ed5e5",
-   "kind": "str-fixture-marker",
+   "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
     0.933,
@@ -457826,7 +457914,7 @@
   {
    "kit": "weapon-pack",
    "name": "sword-2",
-   "hash": "b6a1187f19",
+   "hash": "cf14f0a9db",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -457855,7 +457943,7 @@
      0.016,
      0.977
     ],
-    "15,3": [
+    "6,1": [
      0.016,
      0.969
     ],
@@ -457865,17 +457953,24 @@
     ]
    },
    "colors": [
+    "#3a3e4b",
     "#513120",
-    "#7a8491",
     "#873a27"
    ],
    "tags": [
     "gemstone",
     "leather",
-    "metal-steel"
+    "metal-iron-dark"
    ],
    "variant": "weapon-pack/sword-1",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (obj-equipment-weapon)"
+    }
+   ]
   },
   {
    "kit": "western",
@@ -469433,7 +469528,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "mine-entrance",
-   "hash": "e12d35b778",
+   "hash": "6dc3aec2bf",
    "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
@@ -469444,7 +469539,7 @@
    "tris": 4541,
    "tpu": 278,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
    "bytes": 299092,
    "vtx": 8451,
@@ -469456,13 +469551,13 @@
    "avgTri": 0.00782,
    "anglePct": 30,
    "vpt": 1.86,
-   "grad": 0.88,
+   "grad": 0.86,
    "spread": {
     "0,0": [
      0.047,
      0.945
     ],
-    "2,0": [
+    "1,0": [
      0.047,
      0.945
     ],
@@ -469482,6 +469577,10 @@
      0.117,
      0.875
     ],
+    "2,0": [
+     0.125,
+     0.891
+    ],
     "6,0": [
      0.109,
      0.992
@@ -469492,6 +469591,7 @@
     "#873a27",
     "#88735f",
     "#89542e",
+    "#bb8255",
     "#d8cfb7",
     "#dbb789",
     "#f1a63b"
@@ -469505,9 +469605,17 @@
     "textile-cloth-mid",
     "wizp",
     "wood-dark",
-    "wood-light"
+    "wood-light",
+    "wood-mid"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.81,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "wizp-mediev",
@@ -473852,7 +473960,7 @@
   {
    "kit": "zombie-weapons",
    "name": "fire-poker",
-   "hash": "f4aac04587",
+   "hash": "99e871c6ae",
    "kind": "obj-equipment-weapon-melee-club",
    "size": "m",
    "wdh": [
@@ -473877,17 +473985,17 @@
    "vpt": 2.06,
    "grad": 0.5,
    "spread": {
-    "15,3": [
+    "13,3": [
      0.25,
      0.75
     ]
    },
    "colors": [
-    "#7a8491"
+    "#59534e"
    ],
    "tags": [
     "ct",
-    "metal-steel"
+    "metal-iron-mid"
    ],
    "thickRel": 1
   },
