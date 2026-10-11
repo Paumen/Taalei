@@ -28254,7 +28254,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3991,
+   "count": 3992,
    "derived": true
   },
   {
@@ -28262,7 +28262,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3431,
+   "count": 3430,
    "derived": true
   },
   {
@@ -328165,28 +328165,28 @@
   {
    "kit": "m3-base",
    "name": "short-sword",
-   "hash": "a230170e7c",
+   "hash": "3102b5a5b7",
    "kind": "obj-equipment-weapon-melee-sword",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.168,
-    0.064,
-    0.55
+    0.096,
+    0.034,
+    0.386
    ],
    "tris": 528,
    "tpu": 1539,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17540,
+   "bytes": 17548,
    "vtx": 401,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0417,
-   "thick": 0.1657,
-   "avgTri": 0.00023,
-   "anglePct": 17,
+   "minEdge": 0.001,
+   "minTube": 0.0206,
+   "thick": 0.1714,
+   "avgTri": 0.00008,
+   "anglePct": 22,
    "vpt": 0.76,
    "grad": 0.54,
    "spread": {
@@ -328208,7 +328208,14 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.386 under min 0.4 (obj-equipment-weapon-melee-sword)"
+    }
+   ]
   },
   {
    "kit": "m3-base",
