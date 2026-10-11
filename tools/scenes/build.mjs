@@ -3,9 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { readGlb, writeGlb, worldMatrices } from '../catalog/tools/glb.mjs';
+import { readGlb, writeGlb, worldMatrices } from '../../catalog/tools/glb.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WORKFILES = path.join(ROOT, 'kits/workfiles');
 const SIDES = {
   north: { normal: [0, 0, -1], rot: 0 },
@@ -17,7 +17,7 @@ const CORNERS = [['north', 'east'], ['south', 'east'], ['south', 'west'], ['nort
 
 const layoutPath = path.resolve(process.argv[2] ?? '');
 if (!process.argv[2] || !fs.existsSync(layoutPath)) {
-  console.error('usage: node scenes/build.mjs <scene>/layout.json');
+  console.error('usage: node tools/scenes/build.mjs scenes/<name>/layout.json');
   process.exit(2);
 }
 const sceneDir = path.dirname(layoutPath);
@@ -25,7 +25,7 @@ const sceneName = path.basename(sceneDir);
 const layout = JSON.parse(fs.readFileSync(layoutPath, 'utf8'));
 
 const out = {
-  asset: { version: '2.0', generator: 'taalei scenes/build.mjs' },
+  asset: { version: '2.0', generator: 'taalei tools/scenes/build.mjs' },
   scene: 0,
   scenes: [{ name: sceneName, nodes: [] }],
   nodes: [], meshes: [], accessors: [], bufferViews: [],

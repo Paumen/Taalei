@@ -29,10 +29,13 @@ jobs:
             kits/reject
             kits/tbd
             kits/npc
-      - name: Place reject, TBD and NPC models
+            scenes
+      - name: Place reject, TBD and NPC models and scenes
         run: |
           rm kits/sources kits/reject kits/tbd kits/npc
           mv lp-sources/kits/reject lp-sources/kits/tbd lp-sources/kits/npc kits/
+          rm scenes
+          mv lp-sources/scenes scenes
           rm -rf lp-sources
       - name: Setup Pages
         uses: actions/configure-pages@v5
