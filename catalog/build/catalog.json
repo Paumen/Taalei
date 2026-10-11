@@ -419,8 +419,8 @@
     "0.012": 38
    },
    "smooth": {
-    "smooth": 37,
-    "none": 1
+    "smooth": 36,
+    "none": 2
    },
    "kitCheck": {
     "factor": 1.4,
@@ -2869,8 +2869,8 @@
     "1.169053609136704": 1
    },
    "smooth": {
-    "smooth": 827,
-    "none": 19
+    "smooth": 825,
+    "none": 21
    },
    "kitCheck": {
     "factor": 1.1,
@@ -4611,8 +4611,8 @@
     "0.25": 8
    },
    "smooth": {
-    "smooth": 124,
-    "none": 7
+    "smooth": 123,
+    "none": 8
    },
    "kitCheck": {
     "factor": 1.11,
@@ -34859,7 +34859,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "makarov",
-   "hash": "bd040d5c58",
+   "hash": "0db4cfdace",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
@@ -34867,20 +34867,21 @@
     0.3,
     0.156
    ],
-   "tris": 4062,
-   "tpu": 11843,
+   "tris": 1464,
+   "tpu": 4268,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 192456,
-   "vtx": 5204,
+   "bytes": 77244,
+   "vtx": 2094,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.0422,
    "thick": 0.1255,
-   "avgTri": 0.00007,
-   "anglePct": 21,
-   "vpt": 1.28,
+   "avgTri": 0.00009,
+   "anglePct": 30,
+   "vpt": 1.43,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -34908,25 +34909,19 @@
     "wood-dark"
    ],
    "backface": {
-    "share": 0.0031,
+    "share": 0.0032,
     "view": "135/20",
     "causes": {
-     "inverted": 0.95,
-     "open": 0.04,
-     "other": 0.01
+     "inverted": 0.74,
+     "open": 0.26
     }
    },
    "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 11843 over max 10000 (obj)"
-    },
-    {
-     "level": "warning",
      "check": "backface",
-     "text": "0.3% of view 135/20 over 0.1%: inverted 95.0%, open 4.0%, other 1.0%"
+     "text": "0.3% of view 135/20 over 0.1%: inverted 74.0%, open 26.0%"
     }
    ]
   },
@@ -35806,7 +35801,7 @@
    "kit": "3dm-industrial",
    "collection": "3dm",
    "name": "work-light-tripod",
-   "hash": "75dc964aa2",
+   "hash": "a53133376f",
    "kind": "obj-furnishing-light-lamp-floor",
    "size": "m",
    "wdh": [
@@ -35814,21 +35809,21 @@
     0.453,
     0.75
    ],
-   "tris": 2334,
-   "tpu": 6351,
+   "tris": 1650,
+   "tpu": 4490,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 132628,
-   "vtx": 3659,
+   "bytes": 80928,
+   "vtx": 2174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "minTube": 0.0127,
    "thick": 0.0617,
-   "avgTri": 0.00017,
-   "anglePct": 29,
-   "vpt": 1.57,
+   "avgTri": 0.00024,
+   "anglePct": 30,
+   "vpt": 1.32,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -35851,11 +35846,6 @@
    ],
    "thickRel": 0.33,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6351 over max 5000 (obj-furnishing)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -37178,7 +37168,7 @@
    "kit": "3dm-scifi",
    "collection": "3dm",
    "name": "generator",
-   "hash": "784794eee9",
+   "hash": "03d933e2a3",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -37186,30 +37176,30 @@
     0.489,
     0.474
    ],
-   "tris": 3150,
-   "tpu": 9184,
+   "tris": 1588,
+   "tpu": 4630,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 151252,
-   "vtx": 4088,
+   "bytes": 103656,
+   "vtx": 2896,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.004,
    "minTube": 0.034,
    "thick": 0.2345,
-   "avgTri": 0.00116,
-   "anglePct": 39,
-   "vpt": 1.3,
-   "grad": 0.6,
+   "avgTri": 0.00222,
+   "anglePct": 70,
+   "vpt": 1.82,
+   "grad": 0.59,
    "spread": {
     "5,2": [
      0.148,
      0.75
     ],
     "6,0": [
-     0.148,
-     0.742
+     0.234,
+     0.539
     ],
     "13,3": [
      0.148,
@@ -37233,14 +37223,7 @@
     "space",
     "special-emissive"
    ],
-   "thickRel": 1.83,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 9184 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 1.83
   },
   {
    "kit": "3dm-scifi",
@@ -38824,7 +38807,7 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "jackolantern-c",
-   "hash": "b549152bc8",
+   "hash": "04aa1d34d2",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
@@ -38832,26 +38815,26 @@
     0.235,
     0.321
    ],
-   "tris": 1832,
-   "tpu": 5341,
+   "tris": 1578,
+   "tpu": 4601,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 44664,
-   "vtx": 1004,
+   "bytes": 38972,
+   "vtx": 876,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "thick": 0.1446,
-   "avgTri": 0.0002,
+   "avgTri": 0.00022,
    "anglePct": 4,
-   "vpt": 0.55,
+   "vpt": 0.56,
    "grad": 0.59,
    "spread": {
     "6,0": [
      0.148,
-     0.742
+     0.734
     ],
     "5,0": [
      0.148,
@@ -38875,14 +38858,7 @@
     "special-organic"
    ],
    "variant": "aq-hallow/jackolantern-a",
-   "thickRel": 0.69,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5341 over max 5000 (obj-food)"
-    }
-   ]
+   "thickRel": 0.69
   },
   {
    "kit": "aq-hallow",
@@ -49480,7 +49456,7 @@
   {
    "kit": "dungeon",
    "name": "ironwalls-001",
-   "hash": "fb0d28c399",
+   "hash": "98bec434d1",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -49488,21 +49464,21 @@
     0.026,
     1.324
    ],
-   "tris": 6624,
-   "tpu": 10210,
+   "tris": 960,
+   "tpu": 1480,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 266064,
-   "vtx": 7024,
+   "bytes": 77100,
+   "vtx": 2184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "minTube": 0.0256,
-   "thick": 0.0364,
-   "avgTri": 0.00031,
-   "anglePct": 97,
-   "vpt": 1.06,
+   "minEdge": 0.009,
+   "minTube": 0.026,
+   "thick": 0.0381,
+   "avgTri": 0.00234,
+   "anglePct": 98,
+   "vpt": 2.28,
    "grad": 0.6,
    "spread": {
     "6,1": [
@@ -49516,29 +49492,19 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.37,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.324 over max 1.2 (str-part-wall-unit)"
-    },
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 10210 over max 5000 (str)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0256 wants min 0.026"
     }
    ]
   },
   {
    "kit": "dungeon",
    "name": "ironwalls",
-   "hash": "510aa16722",
+   "hash": "1a70b53fe3",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
@@ -49546,21 +49512,21 @@
     0.026,
     1.324
    ],
-   "tris": 4463,
-   "tpu": 6879,
+   "tris": 768,
+   "tpu": 1184,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 182592,
-   "vtx": 4821,
+   "bytes": 61344,
+   "vtx": 1728,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0256,
-   "thick": 0.0364,
-   "avgTri": 0.0003,
+   "minEdge": 0.009,
+   "minTube": 0.026,
+   "thick": 0.0381,
+   "avgTri": 0.00195,
    "anglePct": 97,
-   "vpt": 1.08,
+   "vpt": 2.25,
    "grad": 0.6,
    "spread": {
     "6,1": [
@@ -49574,7 +49540,7 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.37,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
@@ -49582,19 +49548,9 @@
      "text": "high 1.324 over max 1.2 (str-part-wall-unit)"
     },
     {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6879 over max 5000 (str)"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.37 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0256 wants min 0.026"
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -52181,7 +52137,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "brushwood-bundle",
-   "hash": "ab83643343",
+   "hash": "3607488487",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
@@ -52189,30 +52145,30 @@
     0.221,
     0.21
    ],
-   "tris": 2828,
-   "tpu": 8245,
+   "tris": 1528,
+   "tpu": 4455,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 141204,
-   "vtx": 3833,
+   "bytes": 83956,
+   "vtx": 2291,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0278,
-   "thick": 0.2306,
-   "avgTri": 0.00061,
-   "anglePct": 10,
-   "vpt": 1.36,
-   "grad": 0.6,
+   "minEdge": 0.01,
+   "minTube": 0.028,
+   "thick": 0.2249,
+   "avgTri": 0.00091,
+   "anglePct": 16,
+   "vpt": 1.5,
+   "grad": 0.56,
    "spread": {
     "3,0": [
      0.148,
      0.75
     ],
     "1,0": [
-     0.148,
-     0.742
+     0.438,
+     0.438
     ]
    },
    "colors": [
@@ -52223,14 +52179,7 @@
     "bark",
     "wood-mid"
    ],
-   "thickRel": 0.89,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 8245 over max 5000 (obj-resource)"
-    }
-   ]
+   "thickRel": 0.87
   },
   {
    "kit": "emace-village",
@@ -57738,7 +57687,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-footing",
-   "hash": "acbe8306b0",
+   "hash": "a9a6500107",
    "kind": "str-part-floor",
    "size": "l",
    "wdh": [
@@ -57746,21 +57695,21 @@
     0.642,
     0.37
    ],
-   "tris": 5888,
-   "tpu": 5790,
+   "tris": 4548,
+   "tpu": 4472,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 396276,
-   "vtx": 11230,
+   "bytes": 304644,
+   "vtx": 8621,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0821,
-   "thick": 0.1712,
-   "avgTri": 0.00268,
+   "minTube": 0.1002,
+   "thick": 0.1708,
+   "avgTri": 0.00324,
    "anglePct": 20,
-   "vpt": 1.91,
+   "vpt": 1.9,
    "grad": 0.6,
    "spread": {
     "14,3": [
@@ -57784,21 +57733,16 @@
     "share": 0.0036,
     "view": "180/20",
     "causes": {
-     "inverted": 0.82,
-     "inside-out": 0.15,
+     "inverted": 0.81,
+     "inside-out": 0.16,
      "other": 0.03
     }
    },
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5790 over max 5000 (str)"
-    },
-    {
-     "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 180/20 over 0.1%: inverted 82.0%, inside-out 15.0%, other 3.0%"
+     "text": "0.4% of view 180/20 over 0.1%: inverted 81.0%, inside-out 16.0%, other 3.0%"
     }
    ]
   },
@@ -57869,7 +57813,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-gateway",
-   "hash": "8052d8e1aa",
+   "hash": "2689147cc1",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
@@ -57877,23 +57821,23 @@
     0.417,
     0.989
    ],
-   "tris": 2752,
-   "tpu": 5679,
+   "tris": 2332,
+   "tpu": 4812,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 186620,
-   "vtx": 5267,
+   "bytes": 153416,
+   "vtx": 4311,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0439,
    "badNormals": 3,
    "thick": 0.081,
-   "avgTri": 0.00192,
-   "anglePct": 34,
-   "vpt": 1.91,
-   "grad": 0.59,
+   "avgTri": 0.00218,
+   "anglePct": 38,
+   "vpt": 1.85,
+   "grad": 0.6,
    "spread": {
     "14,3": [
      0.148,
@@ -57933,11 +57877,6 @@
    },
    "thickRel": 0.99,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5679 over max 5000 (str)"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -68452,7 +68391,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "bed-bunk",
-   "hash": "6cb4b83cc2",
+   "hash": "de4ba7e745",
    "kind": "obj-furnishing-furniture-bed-bunk",
    "size": "m",
    "wdh": [
@@ -68460,22 +68399,22 @@
     1.208,
     0.99
    ],
-   "tris": 4936,
-   "tpu": 6479,
+   "tris": 3704,
+   "tpu": 4862,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 169060,
-   "vtx": 4313,
+   "bytes": 138376,
+   "vtx": 3585,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0238,
-   "thick": 0.1183,
-   "avgTri": 0.00221,
+   "thick": 0.1184,
+   "avgTri": 0.00295,
    "anglePct": 92,
-   "vpt": 0.87,
-   "grad": 0.09,
+   "vpt": 0.97,
+   "grad": 0.1,
    "spread": {
     "8,0": [
      0.016,
@@ -68506,14 +68445,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.84,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6479 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.84
   },
   {
    "kit": "fs-house",
@@ -68643,7 +68575,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-fan-a",
-   "hash": "85f7365921",
+   "hash": "ed50db1266",
    "kind": "obj-furnishing-light-lamp-ceiling-fan",
    "size": "m",
    "wdh": [
@@ -68651,31 +68583,31 @@
     0.765,
     0.197
    ],
-   "tris": 2060,
-   "tpu": 5270,
+   "tris": 1788,
+   "tpu": 4574,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 72704,
-   "vtx": 1841,
+   "bytes": 67072,
+   "vtx": 1716,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.043,
-   "avgTri": 0.0002,
+   "thick": 0.0428,
+   "avgTri": 0.00023,
    "anglePct": 10,
-   "vpt": 0.89,
-   "grad": 0.31,
+   "vpt": 0.96,
+   "grad": 0.33,
    "spread": {
     "5,2": [
      0.352,
      0.719
     ],
-    "6,0": [
+    "15,3": [
      0.5,
      0.5
     ],
-    "15,3": [
+    "6,0": [
      0.5,
      0.5
     ]
@@ -68692,14 +68624,7 @@
     "special-emissive"
    ],
    "variant": "fs-house/ceiling-fan-a",
-   "thickRel": 0.53,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5270 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.53
   },
   {
    "kit": "fs-house",
@@ -92306,7 +92231,7 @@
   {
    "kit": "household",
    "name": "chandelier",
-   "hash": "7050326c5b",
+   "hash": "b4ed73c43a",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -92314,21 +92239,21 @@
     0.412,
     0.36
    ],
-   "tris": 1848,
-   "tpu": 5388,
+   "tris": 1592,
+   "tpu": 4641,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 43724,
-   "vtx": 974,
+   "bytes": 40592,
+   "vtx": 926,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0214,
-   "thick": 0.051,
-   "avgTri": 0.00018,
+   "minTube": 0.0213,
+   "thick": 0.0505,
+   "avgTri": 0.0002,
    "anglePct": 3,
-   "vpt": 0.53,
+   "vpt": 0.58,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -92344,14 +92269,7 @@
     "metal-iron-mid",
     "mounted"
    ],
-   "thickRel": 0.63,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5388 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.63
   },
   {
    "kit": "household",
@@ -108153,7 +108071,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "isa-kitchen",
@@ -119985,7 +119903,7 @@
     "metal-copper",
     "metal-steel"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "kay-adventurers",
@@ -128935,7 +128853,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/dagger-uncommon",
-   "thickRel": 1.54
+   "thickRel": 1.55
   },
   {
    "kit": "kay-dun-1",
@@ -166741,7 +166659,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-mixed/plushie-chicken-a",
-   "thickRel": 1.26
+   "thickRel": 1.25
   },
   {
    "kit": "kay-mixed",
@@ -182336,7 +182254,7 @@
    "kit": "kay-spook",
    "collection": "kay-undead",
    "name": "jackolantern-large",
-   "hash": "7f7e67c983",
+   "hash": "eb3d5b23e8",
    "kind": "obj-food-vegetable-pumpkin",
    "size": "s",
    "wdh": [
@@ -182344,20 +182262,20 @@
     0.455,
     0.374
    ],
-   "tris": 2832,
-   "tpu": 8257,
+   "tris": 1510,
+   "tpu": 4402,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 96212,
-   "vtx": 2431,
+   "bytes": 55800,
+   "vtx": 1416,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "thick": 0.0666,
-   "avgTri": 0.00081,
+   "avgTri": 0.00083,
    "anglePct": 3,
-   "vpt": 0.86,
+   "vpt": 0.94,
    "grad": 0.54,
    "spread": {
     "5,0": [
@@ -182376,11 +182294,6 @@
    "variant": "kay-spook/jackolantern-large",
    "thickRel": 0.32,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 8257 over max 5000 (obj-food)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -222608,7 +222521,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "ken-holiday",
@@ -263748,7 +263661,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/hedge",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "ken-town",
@@ -275398,29 +275311,29 @@
   {
    "kit": "loaf-bones",
    "name": "ribcage",
-   "hash": "f298b41607",
+   "hash": "664a16de77",
    "kind": "env-remains-bones-ribcage",
    "size": "s",
    "wdh": [
     0.339,
-    0.332,
+    0.331,
     0.163
    ],
-   "tris": 2444,
-   "tpu": 7125,
+   "tris": 1556,
+   "tpu": 4536,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 114284,
-   "vtx": 3066,
+   "bytes": 100364,
+   "vtx": 2800,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0672,
-   "thick": 0.0533,
-   "avgTri": 0.00018,
-   "anglePct": 2,
-   "vpt": 1.25,
+   "thick": 0.0488,
+   "avgTri": 0.00023,
+   "anglePct": 3,
+   "vpt": 1.8,
    "grad": 0.6,
    "spread": {
     "5,2": [
@@ -275435,14 +275348,7 @@
     "bone",
     "halloween"
    ],
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7125 over max 5000 (env)"
-    }
-   ]
+   "thickRel": 0.67
   },
   {
    "kit": "loaf-bones",
@@ -285275,7 +285181,7 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "lpa-home",
@@ -288503,7 +288409,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 2.08
+   "thickRel": 2.09
   },
   {
    "kit": "lpa-tools",
@@ -293925,7 +293831,7 @@
   {
    "kit": "lpa-west",
    "name": "general-sign-b",
-   "hash": "f4a95ef3ab",
+   "hash": "63e12a7839",
    "kind": "str-fixture-marker-sign-lettering",
    "size": "m",
    "wdh": [
@@ -293933,21 +293839,21 @@
     1.15,
     0.398
    ],
-   "tris": 1878,
-   "tpu": 5475,
+   "tris": 1591,
+   "tpu": 4638,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 113928,
-   "vtx": 3159,
+   "bytes": 101900,
+   "vtx": 2840,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0334,
    "thick": 0.1267,
-   "avgTri": 0.00106,
+   "avgTri": 0.00118,
    "anglePct": 38,
-   "vpt": 1.68,
+   "vpt": 1.79,
    "grad": 0.59,
    "spread": {
     "0,0": [
@@ -293977,19 +293883,12 @@
     "wood-mid"
    ],
    "variant": "lpa-west/general-sign-a",
-   "thickRel": 0.81,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5475 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 0.81
   },
   {
    "kit": "lpa-west",
    "name": "general-sign-c",
-   "hash": "634ae81d72",
+   "hash": "ab1cb21e70",
    "kind": "str-fixture-marker-sign-lettering",
    "size": "m",
    "wdh": [
@@ -293997,21 +293896,21 @@
     1.15,
     0.398
    ],
-   "tris": 1878,
-   "tpu": 5475,
+   "tris": 1591,
+   "tpu": 4638,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 113928,
-   "vtx": 3159,
+   "bytes": 101900,
+   "vtx": 2840,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0334,
    "thick": 0.1267,
-   "avgTri": 0.00106,
+   "avgTri": 0.00118,
    "anglePct": 38,
-   "vpt": 1.68,
+   "vpt": 1.79,
    "grad": 0.59,
    "spread": {
     "0,0": [
@@ -294041,14 +293940,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/general-sign-a",
-   "thickRel": 0.81,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5475 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 0.81
   },
   {
    "kit": "lpa-west",
@@ -297149,7 +297041,7 @@
   {
    "kit": "lpa-west",
    "name": "tumbleweed",
-   "hash": "57d0cf0f57",
+   "hash": "87e68c9d24",
    "kind": "env-remains-deadwood",
    "size": "s",
    "wdh": [
@@ -297157,23 +297049,23 @@
     0.491,
     0.474
    ],
-   "tris": 1836,
-   "tpu": 5353,
+   "tris": 1540,
+   "tpu": 4490,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 115668,
-   "vtx": 3222,
+   "bytes": 101344,
+   "vtx": 2833,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.01,
    "badNormals": 18,
-   "thick": 0.0429,
-   "avgTri": 0.00044,
+   "thick": 0.0422,
+   "avgTri": 0.00041,
    "anglePct": 6,
-   "vpt": 1.75,
+   "vpt": 1.84,
    "grad": 0.6,
    "spread": {
     "0,0": [
@@ -297188,13 +297080,8 @@
     "lpa",
     "special-organic"
    ],
-   "thickRel": 0.38,
+   "thickRel": 0.37,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5353 over max 5000 (env)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -298465,7 +298352,7 @@
   {
    "kit": "m3-base",
    "name": "abacus",
-   "hash": "d5f8ed1b3e",
+   "hash": "d7a76fc55d",
    "kind": "obj-leisure-toy",
    "size": "s",
    "wdh": [
@@ -298473,22 +298360,22 @@
     0.085,
     0.326
    ],
-   "tris": 4384,
-   "tpu": 12781,
+   "tris": 2768,
+   "tpu": 8070,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 123764,
-   "vtx": 2999,
+   "bytes": 188428,
+   "vtx": 5324,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.005,
    "minTube": 0.0251,
-   "thick": 0.0555,
-   "avgTri": 0.0001,
-   "anglePct": 23,
-   "vpt": 0.68,
-   "grad": 0.58,
+   "thick": 0.0554,
+   "avgTri": 0.00015,
+   "anglePct": 38,
+   "vpt": 1.92,
+   "grad": 0.55,
    "spread": {
     "15,3": [
      0.148,
@@ -298498,13 +298385,17 @@
      0.148,
      0.75
     ],
+    "5,0": [
+     0.18,
+     0.719
+    ],
     "8,0": [
      0.148,
-     0.75
+     0.719
     ],
-    "5,0": [
-     0.148,
-     0.75
+    "6,0": [
+     0.18,
+     0.719
     ],
     "4,2": [
      0.18,
@@ -298513,10 +298404,6 @@
     "1,1": [
      0.18,
      0.719
-    ],
-    "6,0": [
-     0.148,
-     0.75
     ]
    },
    "colors": [
@@ -298536,11 +298423,6 @@
    ],
    "thickRel": 0.35,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12781 over max 10000 (obj)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -298598,7 +298480,7 @@
   {
    "kit": "m3-base",
    "name": "acoustic-guitar",
-   "hash": "695ea73bc8",
+   "hash": "d117ae5026",
    "kind": "obj-leisure-art-instrument-string",
    "size": "m",
    "wdh": [
@@ -298606,21 +298488,21 @@
     0.095,
     0.583
    ],
-   "tris": 1726,
-   "tpu": 5032,
+   "tris": 1558,
+   "tpu": 4542,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 86484,
-   "vtx": 2330,
+   "bytes": 80544,
+   "vtx": 2179,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0065,
-   "thick": 0.1605,
-   "avgTri": 0.00027,
-   "anglePct": 44,
-   "vpt": 1.35,
+   "thick": 0.1603,
+   "avgTri": 0.00031,
+   "anglePct": 48,
+   "vpt": 1.4,
    "grad": 0.57,
    "spread": {
     "2,0": [
@@ -298652,14 +298534,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.08,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5032 over max 5000 (obj-leisure-art-instrument)"
-    }
-   ]
+   "thickRel": 1.08
   },
   {
    "kit": "m3-base",
@@ -303030,7 +302905,7 @@
   {
    "kit": "m3-base",
    "name": "cast-iron-grate",
-   "hash": "4130952e6a",
+   "hash": "656c2eb884",
    "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
@@ -303038,21 +302913,21 @@
     0.422,
     0.647
    ],
-   "tris": 2586,
-   "tpu": 7539,
+   "tris": 1636,
+   "tpu": 4770,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 134280,
-   "vtx": 3663,
+   "bytes": 84148,
+   "vtx": 2277,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0242,
-   "thick": 0.058,
-   "avgTri": 0.00085,
-   "anglePct": 51,
-   "vpt": 1.42,
+   "minTube": 0.0245,
+   "thick": 0.0587,
+   "avgTri": 0.00127,
+   "anglePct": 63,
+   "vpt": 1.39,
    "grad": 0.6,
    "spread": {
     "6,1": [
@@ -303067,17 +302942,12 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.75,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "error",
-     "check": "tpu",
-     "text": "tpu 7539 over max 5000 (str)"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0242 wants min 0.026"
+     "text": "G27 minTube 0.0245 wants min 0.026"
     }
    ]
   },
@@ -303172,7 +303042,7 @@
   {
    "kit": "m3-base",
    "name": "cast-iron-tree-grate-01",
-   "hash": "07f02f9dea",
+   "hash": "77733a889a",
    "kind": "env-terrain-ground",
    "size": "m",
    "wdh": [
@@ -303180,20 +303050,20 @@
     0.652,
     0.032
    ],
-   "tris": 1384,
-   "tpu": 4035,
+   "tris": 912,
+   "tpu": 2659,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 60048,
-   "vtx": 1568,
+   "bytes": 94524,
+   "vtx": 2736,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "thick": 0.0412,
-   "avgTri": 0.00075,
-   "anglePct": 26,
-   "vpt": 1.13,
+   "minEdge": 0.013,
+   "thick": 0.0406,
+   "avgTri": 0.00109,
+   "anglePct": 78,
+   "vpt": 3,
    "grad": 0.6,
    "spread": {
     "6,1": [
@@ -303208,14 +303078,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.76,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 4035 over max 3000 (env-terrain)"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -303550,7 +303413,7 @@
   {
    "kit": "m3-base",
    "name": "changing-room-bench",
-   "hash": "291a83ffbf",
+   "hash": "965b3b673d",
    "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
@@ -303558,21 +303421,21 @@
     0.299,
     0.74
    ],
-   "tris": 3446,
-   "tpu": 9504,
+   "tris": 1674,
+   "tpu": 4617,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 130208,
-   "vtx": 3374,
+   "bytes": 94856,
+   "vtx": 2604,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0463,
    "thick": 0.0651,
-   "avgTri": 0.00061,
+   "avgTri": 0.00123,
    "anglePct": 27,
-   "vpt": 0.98,
+   "vpt": 1.56,
    "grad": 0.6,
    "spread": {
     "1,0": [
@@ -303594,7 +303457,7 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0014,
+    "share": 0.0012,
     "view": "270/20",
     "causes": {
      "open": 1
@@ -303602,11 +303465,6 @@
    },
    "thickRel": 0.61,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 9504 over max 5000 (obj-furnishing)"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -304637,7 +304495,7 @@
   {
    "kit": "m3-base",
    "name": "cleaning-trolley",
-   "hash": "84f8230f6f",
+   "hash": "e5e102e8f3",
    "kind": "obj-transport-land-cart-small",
    "size": "m",
    "wdh": [
@@ -304645,21 +304503,21 @@
     0.626,
     0.479
    ],
-   "tris": 5436,
-   "tpu": 15848,
+   "tris": 3950,
+   "tpu": 11516,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 323808,
-   "vtx": 9051,
+   "bytes": 189772,
+   "vtx": 5143,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0176,
-   "thick": 0.0589,
-   "avgTri": 0.00035,
-   "anglePct": 51,
-   "vpt": 1.67,
+   "minTube": 0.019,
+   "thick": 0.0593,
+   "avgTri": 0.00044,
+   "anglePct": 60,
+   "vpt": 1.3,
    "grad": 0.6,
    "spread": {
     "6,0": [
@@ -304671,8 +304529,8 @@
      0.75
     ],
     "15,3": [
-     0.148,
-     0.75
+     0.172,
+     0.742
     ]
    },
    "colors": [
@@ -304689,14 +304547,14 @@
    "thickRel": 0.57,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "tpu",
-     "text": "tpu 15848 over max 10000 (obj)"
+     "text": "tpu 11516 over max 10000 (obj)"
     },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0176 wants min 0.026"
+     "text": "G27 minTube 0.019 wants min 0.026"
     }
    ]
   },
@@ -305118,29 +304976,30 @@
   {
    "kit": "m3-base",
    "name": "coat-stand-01",
-   "hash": "bb6600a197",
+   "hash": "2d53471cb5",
    "kind": "obj-furnishing-furniture-storage-rack-coat",
    "size": "m",
    "wdh": [
     0.233,
-    0.227,
+    0.233,
     0.777
    ],
-   "tris": 2364,
-   "tpu": 6209,
+   "tris": 1828,
+   "tpu": 4801,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 97016,
-   "vtx": 2541,
+   "bytes": 89260,
+   "vtx": 2401,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.024,
-   "thick": 0.1499,
-   "avgTri": 0.00014,
-   "anglePct": 11,
-   "vpt": 1.07,
+   "thick": 0.1464,
+   "avgTri": 0.00016,
+   "anglePct": 20,
+   "vpt": 1.31,
    "grad": 0.6,
    "spread": {
     "1,0": [
@@ -305156,14 +305015,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/coat-stand-01",
-   "thickRel": 1.42,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 6209 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "m3-base",
@@ -306636,7 +306488,7 @@
   {
    "kit": "m3-base",
    "name": "cupcake-baking-tray",
-   "hash": "ca28be76e4",
+   "hash": "c749615029",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
@@ -306644,20 +306496,20 @@
     0.384,
     0.028
    ],
-   "tris": 1760,
-   "tpu": 5131,
+   "tris": 1636,
+   "tpu": 4770,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 69540,
-   "vtx": 1794,
+   "bytes": 68604,
+   "vtx": 1790,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.0475,
-   "avgTri": 0.00018,
-   "anglePct": 39,
-   "vpt": 1.02,
+   "minEdge": 0.003,
+   "thick": 0.0476,
+   "avgTri": 0.0002,
+   "anglePct": 40,
+   "vpt": 1.09,
    "grad": 0.59,
    "spread": {
     "15,3": [
@@ -306672,14 +306524,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.55,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5131 over max 5000 (obj-kitchenware)"
-    }
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -307126,7 +306971,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.74,
+   "thickRel": 0.75,
    "lint": [
     {
      "level": "warning",
@@ -309190,29 +309035,29 @@
   {
    "kit": "m3-base",
    "name": "electric-guitar",
-   "hash": "7d6329e415",
+   "hash": "ea35411c2b",
    "kind": "obj-leisure-art-instrument-string",
    "size": "m",
    "wdh": [
     0.208,
-    0.052,
+    0.051,
     0.605
    ],
-   "tris": 8438,
-   "tpu": 24601,
+   "tris": 1620,
+   "tpu": 4723,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 615344,
-   "vtx": 17598,
+   "bytes": 85012,
+   "vtx": 2307,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0065,
-   "thick": 0.1388,
-   "avgTri": 0.00004,
-   "anglePct": 44,
-   "vpt": 2.09,
+   "minTube": 0.0272,
+   "thick": 0.1363,
+   "avgTri": 0.00016,
+   "anglePct": 65,
+   "vpt": 1.42,
    "grad": 0.6,
    "spread": {
     "8,0": [
@@ -309246,24 +309091,19 @@
    ],
    "variant": "m3-base/electric-guitar",
    "backface": {
-    "share": 0.004,
+    "share": 0.0038,
     "view": "0/50",
     "causes": {
-     "open": 0.96,
-     "inverted": 0.04
+     "open": 0.99,
+     "inverted": 0.01
     }
    },
-   "thickRel": 0.93,
+   "thickRel": 0.92,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 24601 over max 5000 (obj-leisure-art-instrument)"
-    },
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 0/50 over 0.1%: open 96.0%, inverted 4.0%"
+     "text": "0.4% of view 0/50 over 0.1%: open 99.0%, inverted 1.0%"
     }
    ]
   },
@@ -311785,30 +311625,30 @@
   {
    "kit": "m3-base",
    "name": "garden-fire-pit",
-   "hash": "6bcb9f7b18",
+   "hash": "5f9d086b92",
    "kind": "str-fixture-fire-campfire",
    "size": "m",
    "wdh": [
-    0.489,
-    0.489,
+    0.494,
+    0.494,
     0.6
    ],
-   "tris": 1910,
-   "tpu": 5569,
+   "tris": 1472,
+   "tpu": 4292,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 82452,
-   "vtx": 2170,
+   "bytes": 72572,
+   "vtx": 1946,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.002,
    "minTube": 0.0248,
-   "thick": 0.0583,
-   "avgTri": 0.00085,
-   "anglePct": 24,
-   "vpt": 1.14,
+   "thick": 0.0536,
+   "avgTri": 0.00094,
+   "anglePct": 44,
+   "vpt": 1.32,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -311823,14 +311663,7 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 0.79,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5569 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 0.73
   },
   {
    "kit": "m3-base",
@@ -312430,7 +312263,7 @@
   {
    "kit": "m3-base",
    "name": "glockenspiel",
-   "hash": "911cd10773",
+   "hash": "cbab88d54f",
    "kind": "obj-leisure-art-instrument",
    "size": "m",
    "wdh": [
@@ -312438,21 +312271,21 @@
     0.152,
     0.046
    ],
-   "tris": 2302,
-   "tpu": 6711,
+   "tris": 1520,
+   "tpu": 4431,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 94196,
-   "vtx": 2464,
+   "bytes": 81188,
+   "vtx": 2206,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.003,
    "minTube": 0.0161,
-   "thick": 0.1799,
-   "avgTri": 0.00012,
+   "thick": 0.18,
+   "avgTri": 0.00018,
    "anglePct": 65,
-   "vpt": 1.07,
+   "vpt": 1.45,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -312473,14 +312306,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.21,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6711 over max 5000 (obj-leisure-art-instrument)"
-    }
-   ]
+   "thickRel": 1.21
   },
   {
    "kit": "m3-base",
@@ -312954,7 +312780,7 @@
   {
    "kit": "m3-base",
    "name": "greek-column-02",
-   "hash": "89331e529e",
+   "hash": "c9d9a7d52f",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -312962,21 +312788,21 @@
     0.411,
     1.157
    ],
-   "tris": 4056,
-   "tpu": 7154,
+   "tris": 1732,
+   "tpu": 3055,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 202380,
-   "vtx": 5516,
+   "bytes": 91604,
+   "vtx": 2492,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.2944,
-   "thick": 0.2784,
-   "avgTri": 0.0005,
-   "anglePct": 50,
-   "vpt": 1.36,
+   "minEdge": 0.004,
+   "minTube": 0.2716,
+   "thick": 0.2785,
+   "avgTri": 0.00125,
+   "anglePct": 52,
+   "vpt": 1.44,
    "grad": 0.6,
    "spread": {
     "5,2": [
@@ -312992,14 +312818,7 @@
     "stone-masonry-light"
    ],
    "variant": "m3-base/greek-column-01",
-   "thickRel": 1.11,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7154 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -315393,7 +315212,7 @@
   {
    "kit": "m3-base",
    "name": "iron-chandelier",
-   "hash": "8ec88d284d",
+   "hash": "dd187636ee",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -315401,34 +315220,34 @@
     0.43,
     0.426
    ],
-   "tris": 6630,
-   "tpu": 19329,
+   "tris": 1634,
+   "tpu": 4764,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 492400,
-   "vtx": 14095,
+   "bytes": 97880,
+   "vtx": 2706,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0159,
-   "thick": 0.0498,
-   "avgTri": 0.00009,
-   "anglePct": 37,
-   "vpt": 2.13,
-   "grad": 0.58,
+   "minEdge": 0.004,
+   "minTube": 0.0121,
+   "thick": 0.0505,
+   "avgTri": 0.00034,
+   "anglePct": 53,
+   "vpt": 1.66,
+   "grad": 0.48,
    "spread": {
     "13,3": [
      0.148,
      0.75
     ],
-    "5,2": [
-     0.445,
-     0.445
-    ],
     "6,0": [
      0.313,
      0.313
+    ],
+    "5,2": [
+     0.445,
+     0.445
     ]
    },
    "colors": [
@@ -315443,14 +315262,7 @@
     "special-emissive",
     "wax"
    ],
-   "thickRel": 0.62,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 19329 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -315497,7 +315309,7 @@
   {
    "kit": "m3-base",
    "name": "iron-wall-light",
-   "hash": "757127b909",
+   "hash": "44d2c7c25e",
    "kind": "obj-furnishing-light-lamp",
    "size": "s",
    "wdh": [
@@ -315505,33 +315317,33 @@
     0.21,
     0.493
    ],
-   "tris": 2267,
-   "tpu": 6609,
+   "tris": 1500,
+   "tpu": 4373,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 104244,
-   "vtx": 2784,
+   "bytes": 76516,
+   "vtx": 2064,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1552,
-   "avgTri": 0.00012,
-   "anglePct": 1,
-   "vpt": 1.23,
-   "grad": 0.58,
+   "minEdge": 0.004,
+   "thick": 0.1629,
+   "avgTri": 0.00018,
+   "anglePct": 8,
+   "vpt": 1.38,
+   "grad": 0.54,
    "spread": {
     "13,3": [
      0.148,
      0.742
     ],
     "6,0": [
-     0.156,
-     0.742
+     0.453,
+     0.453
     ],
     "5,2": [
      0.156,
-     0.531
+     0.156
     ]
    },
    "colors": [
@@ -315547,31 +315359,25 @@
     "wax"
    ],
    "backface": {
-    "share": 0.0039,
-    "view": "135/20",
+    "share": 0.001,
+    "view": "225/20",
     "causes": {
-     "inverted": 0.74,
-     "other": 0.26
+     "inverted": 1
     }
    },
-   "thickRel": 1.22,
+   "thickRel": 1.28,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6609 over max 5000 (obj-furnishing)"
-    },
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 135/20 over 0.1%: inverted 74.0%, other 26.0%"
+     "text": "0.1% of view 225/20 over 0.1%: inverted 100.0%"
     }
    ]
   },
   {
    "kit": "m3-base",
    "name": "japanese-stone-lantern-01",
-   "hash": "75d344072c",
+   "hash": "04d8c02a7b",
    "kind": "str-fixture-light",
    "size": "m",
    "wdh": [
@@ -315579,20 +315385,20 @@
     0.184,
     0.575
    ],
-   "tris": 1946,
-   "tpu": 5673,
+   "tris": 1047,
+   "tpu": 3052,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 76284,
-   "vtx": 1970,
+   "bytes": 57680,
+   "vtx": 1559,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2686,
-   "avgTri": 0.00041,
-   "anglePct": 16,
-   "vpt": 1.01,
+   "thick": 0.2697,
+   "avgTri": 0.00074,
+   "anglePct": 21,
+   "vpt": 1.49,
    "grad": 0.6,
    "spread": {
     "14,3": [
@@ -315609,12 +315415,20 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/japanese-stone-lantern-01",
-   "thickRel": 1.73,
+   "backface": {
+    "share": 0.0023,
+    "view": "180/20",
+    "causes": {
+     "inverted": 0.82,
+     "open": 0.18
+    }
+   },
+   "thickRel": 1.74,
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5673 over max 5000 (str)"
+     "check": "backface",
+     "text": "0.2% of view 180/20 over 0.1%: inverted 82.0%, open 18.0%"
     }
    ]
   },
@@ -316023,7 +315837,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "m3-base",
@@ -316278,7 +316092,7 @@
   {
    "kit": "m3-base",
    "name": "kitbash-c-17",
-   "hash": "e450268c34",
+   "hash": "224fe4ef81",
    "kind": "obj-resource-metal-parts",
    "size": "s",
    "wdh": [
@@ -316286,20 +316100,20 @@
     0.48,
     0.005
    ],
-   "tris": 1920,
-   "tpu": 5598,
+   "tris": 1280,
+   "tpu": 3732,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 74524,
-   "vtx": 1920,
+   "bytes": 91060,
+   "vtx": 2560,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "thick": 0.0333,
-   "avgTri": 0.00014,
-   "anglePct": 81,
-   "vpt": 1,
+   "avgTri": 0.00021,
+   "anglePct": 84,
+   "vpt": 2,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -316315,14 +316129,7 @@
     "m3",
     "metal-steel"
    ],
-   "variant": "m3-base/kitbash-a-04",
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5598 over max 5000 (obj-resource)"
-    }
-   ]
+   "variant": "m3-base/kitbash-a-04"
   },
   {
    "kit": "m3-base",
@@ -317495,7 +317302,7 @@
   {
    "kit": "m3-base",
    "name": "locker",
-   "hash": "0dc10c3548",
+   "hash": "31bffd202e",
    "kind": "obj-furnishing-furniture-storage-cabinet-locker",
    "size": "m",
    "wdh": [
@@ -317503,20 +317310,20 @@
     0.273,
     0.85
    ],
-   "tris": 2162,
-   "tpu": 5191,
+   "tris": 1678,
+   "tpu": 4029,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 95688,
-   "vtx": 2537,
+   "bytes": 79340,
+   "vtx": 2120,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.3469,
-   "avgTri": 0.00069,
-   "anglePct": 70,
-   "vpt": 1.17,
+   "thick": 0.3467,
+   "avgTri": 0.00089,
+   "anglePct": 71,
+   "vpt": 1.26,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -317531,14 +317338,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.52,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5191 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 1.52
   },
   {
    "kit": "m3-base",
@@ -318632,7 +318432,7 @@
   {
    "kit": "m3-base",
    "name": "mop-bucket",
-   "hash": "80fa1dd88d",
+   "hash": "89fb18ea9c",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -318640,31 +318440,31 @@
     0.206,
     0.266
    ],
-   "tris": 3832,
-   "tpu": 11172,
+   "tris": 3250,
+   "tpu": 9475,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 172896,
-   "vtx": 4636,
+   "bytes": 150444,
+   "vtx": 4046,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0785,
-   "avgTri": 0.00011,
-   "anglePct": 23,
-   "vpt": 1.21,
+   "thick": 0.0769,
+   "avgTri": 0.00013,
+   "anglePct": 26,
+   "vpt": 1.24,
    "grad": 0.6,
    "spread": {
     "6,0": [
      0.148,
      0.75
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.75
     ],
-    "13,3": [
+    "15,3": [
      0.148,
      0.75
     ]
@@ -318679,14 +318479,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 11172 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -319717,36 +319510,36 @@
   {
    "kit": "m3-base",
    "name": "office-chair",
-   "hash": "bc1722631f",
+   "hash": "78d0e2372b",
    "kind": "obj-furnishing-furniture-seating-chair-desk",
    "size": "m",
    "wdh": [
-    0.426,
+    0.429,
     0.437,
     0.55
    ],
-   "tris": 3828,
-   "tpu": 11160,
+   "tris": 1580,
+   "tpu": 4606,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 160880,
-   "vtx": 4261,
+   "bytes": 71960,
+   "vtx": 1907,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "minTube": 0.0299,
-   "thick": 0.0948,
-   "avgTri": 0.00024,
-   "anglePct": 8,
-   "vpt": 1.11,
+   "thick": 0.0949,
+   "avgTri": 0.00055,
+   "anglePct": 25,
+   "vpt": 1.21,
    "grad": 0.6,
    "spread": {
-    "13,3": [
+    "15,3": [
      0.148,
      0.75
     ],
-    "15,3": [
+    "13,3": [
      0.148,
      0.75
     ],
@@ -319766,14 +319559,7 @@
     "plastic",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 11160 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.77
   },
   {
    "kit": "m3-base",
@@ -320011,7 +319797,7 @@
   {
    "kit": "m3-base",
    "name": "organizer-drawers-01",
-   "hash": "3b66d50745",
+   "hash": "e07747d443",
    "kind": "obj-furnishing-furniture-storage",
    "size": "s",
    "wdh": [
@@ -320019,20 +319805,20 @@
     0.347,
     0.425
    ],
-   "tris": 2044,
-   "tpu": 5959,
+   "tris": 844,
+   "tpu": 2461,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 83964,
-   "vtx": 2191,
+   "bytes": 35828,
+   "vtx": 915,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.2261,
-   "avgTri": 0.00112,
-   "anglePct": 58,
-   "vpt": 1.07,
+   "avgTri": 0.00125,
+   "anglePct": 50,
+   "vpt": 1.08,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -320053,14 +319839,7 @@
     "plastic"
    ],
    "variant": "m3-base/organizer-drawers-01",
-   "thickRel": 1.66,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5959 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 1.66
   },
   {
    "kit": "m3-base",
@@ -320602,7 +320381,7 @@
   {
    "kit": "m3-base",
    "name": "outdoor-wall-light",
-   "hash": "a093d5ace3",
+   "hash": "021e147892",
    "kind": "obj-furnishing-light-lamp",
    "size": "s",
    "wdh": [
@@ -320610,29 +320389,29 @@
     0.096,
     0.393
    ],
-   "tris": 2074,
-   "tpu": 6047,
+   "tris": 1580,
+   "tpu": 4606,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 80852,
-   "vtx": 2089,
+   "bytes": 65520,
+   "vtx": 1705,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "thick": 0.1095,
-   "avgTri": 0.00027,
-   "anglePct": 55,
-   "vpt": 1.01,
-   "grad": 0.6,
+   "avgTri": 0.00036,
+   "anglePct": 57,
+   "vpt": 1.08,
+   "grad": 0.56,
    "spread": {
     "13,3": [
      0.148,
      0.75
     ],
     "6,0": [
-     0.156,
-     0.734
+     0.344,
+     0.531
     ]
    },
    "colors": [
@@ -320655,11 +320434,6 @@
    },
    "thickRel": 0.86,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 6047 over max 5000 (obj-furnishing)"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -322657,7 +322431,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.85
+   "thickRel": 1.84
   },
   {
    "kit": "m3-base",
@@ -322947,7 +322721,7 @@
   {
    "kit": "m3-base",
    "name": "piano",
-   "hash": "74df611c7c",
+   "hash": "6e0e5a10d2",
    "kind": "obj-leisure-art-instrument",
    "size": "m",
    "wdh": [
@@ -322955,22 +322729,22 @@
     0.277,
     0.492
    ],
-   "tris": 2930,
-   "tpu": 8542,
+   "tris": 1088,
+   "tpu": 3172,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 158196,
-   "vtx": 4347,
+   "bytes": 68556,
+   "vtx": 1893,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.003,
    "minTube": 0,
-   "thick": 0.1661,
-   "avgTri": 0.00113,
-   "anglePct": 62,
-   "vpt": 1.48,
-   "grad": 0.55,
+   "thick": 0.1664,
+   "avgTri": 0.00285,
+   "anglePct": 72,
+   "vpt": 1.74,
+   "grad": 0.6,
    "spread": {
     "2,0": [
      0.148,
@@ -322978,15 +322752,15 @@
     ],
     "13,3": [
      0.148,
-     0.484
+     0.75
     ],
     "6,0": [
      0.148,
      0.742
     ],
     "5,2": [
-     0.148,
-     0.75
+     0.188,
+     0.719
     ]
    },
    "colors": [
@@ -323011,11 +322785,6 @@
    },
    "thickRel": 1.12,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 8542 over max 5000 (obj-leisure-art-instrument)"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -324094,29 +323863,29 @@
   {
    "kit": "m3-base",
    "name": "pool-ladder-02",
-   "hash": "0eb882be6d",
+   "hash": "538d9b6040",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.302,
+    0.3,
     0.258,
     0.762
    ],
-   "tris": 2272,
-   "tpu": 6085,
+   "tris": 1528,
+   "tpu": 4092,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 79624,
-   "vtx": 2014,
+   "bytes": 52168,
+   "vtx": 1298,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0266,
-   "thick": 0.0963,
-   "avgTri": 0.00016,
-   "anglePct": 33,
-   "vpt": 0.89,
+   "minEdge": 0.003,
+   "minTube": 0.0261,
+   "thick": 0.0962,
+   "avgTri": 0.00024,
+   "anglePct": 22,
+   "vpt": 0.85,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -324132,14 +323901,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/pool-ladder-01",
-   "thickRel": 0.86,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 6085 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -324624,7 +324386,7 @@
   {
    "kit": "m3-base",
    "name": "quad-twist",
-   "hash": "006f53155c",
+   "hash": "806be57682",
    "kind": "obj-resource-metal-parts",
    "size": "m",
    "wdh": [
@@ -324632,20 +324394,20 @@
     0.151,
     0.598
    ],
-   "tris": 2112,
-   "tpu": 6157,
+   "tris": 1536,
+   "tpu": 4478,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 125820,
-   "vtx": 3488,
+   "bytes": 37540,
+   "vtx": 840,
    "grounded": true,
    "centered": true,
    "minEdge": 0.018,
-   "thick": 0.3255,
-   "avgTri": 0.00026,
+   "thick": 0.3277,
+   "avgTri": 0.00036,
    "anglePct": 4,
-   "vpt": 1.65,
+   "vpt": 0.55,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -324660,14 +324422,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.46,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 6157 over max 5000 (obj-resource)"
-    }
-   ]
+   "thickRel": 1.47
   },
   {
    "kit": "m3-base",
@@ -325935,7 +325690,7 @@
     "plastic"
    ],
    "variant": "m3-base/rocket-toy-01",
-   "thickRel": 1.44
+   "thickRel": 1.43
   },
   {
    "kit": "m3-base",
@@ -326613,29 +326368,29 @@
   {
    "kit": "m3-base",
    "name": "rope-knot-01",
-   "hash": "d6c787c2b1",
+   "hash": "117a56000c",
    "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
-    0.422,
+    0.423,
     0.07,
     0.051
    ],
-   "tris": 3558,
-   "tpu": 10373,
+   "tris": 2940,
+   "tpu": 8571,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 81344,
-   "vtx": 1826,
+   "bytes": 67696,
+   "vtx": 1518,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0426,
-   "thick": 0.255,
-   "avgTri": 0.00003,
+   "minEdge": 0.003,
+   "minTube": 0.0403,
+   "thick": 0.2522,
+   "avgTri": 0.00004,
    "anglePct": 2,
-   "vpt": 0.51,
+   "vpt": 0.52,
    "grad": 0.53,
    "spread": {
     "14,2": [
@@ -326650,14 +326405,7 @@
     "m3",
     "textile-rope"
    ],
-   "thickRel": 3.44,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10373 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 3.4
   },
   {
    "kit": "m3-base",
@@ -327592,7 +327340,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.7
   },
   {
    "kit": "m3-base",
@@ -328526,7 +328274,7 @@
   {
    "kit": "m3-base",
    "name": "ship-wheel",
-   "hash": "ec16cf0ab9",
+   "hash": "689d803a7e",
    "kind": "obj-transport-part",
    "size": "m",
    "wdh": [
@@ -328534,22 +328282,22 @@
     0.043,
     0.653
    ],
-   "tris": 4320,
-   "tpu": 12595,
+   "tris": 3072,
+   "tpu": 8956,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 209096,
-   "vtx": 5677,
+   "bytes": 150348,
+   "vtx": 4077,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0315,
-   "thick": 0.044,
-   "avgTri": 0.00013,
-   "anglePct": 29,
-   "vpt": 1.31,
-   "grad": 0.59,
+   "minEdge": 0.004,
+   "minTube": 0.034,
+   "thick": 0.0439,
+   "avgTri": 0.00018,
+   "anglePct": 27,
+   "vpt": 1.33,
+   "grad": 0.58,
    "spread": {
     "1,0": [
      0.148,
@@ -328569,14 +328317,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.48,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12595 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 0.48
   },
   {
    "kit": "m3-base",
@@ -328951,7 +328692,7 @@
   {
    "kit": "m3-base",
    "name": "skateboard-setup",
-   "hash": "d3107e79f6",
+   "hash": "a371af0a6a",
    "kind": "obj-leisure-toy",
    "size": "m",
    "wdh": [
@@ -328959,21 +328700,21 @@
     0.157,
     0.088
    ],
-   "tris": 4818,
-   "tpu": 14047,
+   "tris": 2780,
+   "tpu": 8105,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 375112,
-   "vtx": 10770,
+   "bytes": 176608,
+   "vtx": 4951,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1521,
-   "avgTri": 0.00005,
-   "anglePct": 13,
-   "vpt": 2.24,
-   "grad": 0.6,
+   "thick": 0.1528,
+   "avgTri": 0.00009,
+   "anglePct": 17,
+   "vpt": 1.78,
+   "grad": 0.56,
    "spread": {
     "1,0": [
      0.148,
@@ -328984,8 +328725,8 @@
      0.75
     ],
     "6,0": [
-     0.148,
-     0.75
+     0.445,
+     0.445
     ]
    },
    "colors": [
@@ -328999,14 +328740,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 14047 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -329189,7 +328923,7 @@
   {
    "kit": "m3-base",
    "name": "skull-no-teeth",
-   "hash": "2112c6dc0b",
+   "hash": "7e18994816",
    "kind": "env-remains-bones-skull-human",
    "size": "s",
    "wdh": [
@@ -329197,20 +328931,20 @@
     0.231,
     0.25
    ],
-   "tris": 3972,
-   "tpu": 11580,
+   "tris": 3535,
+   "tpu": 10306,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 129692,
-   "vtx": 3261,
+   "bytes": 117512,
+   "vtx": 2964,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "thick": 0.1964,
    "avgTri": 0.00005,
    "anglePct": 3,
-   "vpt": 0.82,
+   "vpt": 0.84,
    "grad": 0.59,
    "spread": {
     "5,2": [
@@ -329230,7 +328964,7 @@
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 11580 over max 10000 (env-remains-bones-skull)"
+     "text": "tpu 10306 over max 10000 (env-remains-bones-skull)"
     }
    ]
   },
@@ -331116,7 +330850,7 @@
   {
    "kit": "m3-base",
    "name": "steel-ladder",
-   "hash": "f113258023",
+   "hash": "44c5dc4c01",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
@@ -331124,21 +330858,21 @@
     0.027,
     1.091
    ],
-   "tris": 4080,
-   "tpu": 7632,
+   "tris": 912,
+   "tpu": 1706,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 154916,
-   "vtx": 4028,
+   "bytes": 56360,
+   "vtx": 1544,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0061,
+   "minEdge": 0.002,
+   "minTube": 0.0091,
    "thick": 0.3165,
-   "avgTri": 0.00006,
-   "anglePct": 56,
-   "vpt": 0.99,
+   "avgTri": 0.00024,
+   "anglePct": 82,
+   "vpt": 1.69,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -331160,29 +330894,12 @@
     "rubber"
    ],
    "variant": "m3-base/steel-ladder",
-   "backface": {
-    "share": 0.0024,
-    "view": "90/50",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 2.84,
    "lint": [
     {
      "level": "error",
-     "check": "tpu",
-     "text": "tpu 7632 over max 5000 (str)"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 90/50 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0061 wants min 0.026"
+     "text": "G27 minTube 0.0091 wants min 0.026"
     }
    ]
   },
@@ -331880,29 +331597,29 @@
   {
    "kit": "m3-base",
    "name": "stool-01",
-   "hash": "9787fa4019",
+   "hash": "820a0d5eae",
    "kind": "obj-furnishing-furniture-seating-stool-bar",
    "size": "s",
    "wdh": [
-    0.171,
-    0.171,
+    0.172,
+    0.173,
     0.375
    ],
-   "tris": 2414,
-   "tpu": 7038,
+   "tris": 1614,
+   "tpu": 4706,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 118536,
-   "vtx": 3204,
+   "bytes": 40816,
+   "vtx": 928,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0201,
-   "thick": 0.1068,
-   "avgTri": 0.00008,
-   "anglePct": 21,
-   "vpt": 1.33,
+   "thick": 0.1051,
+   "avgTri": 0.00011,
+   "anglePct": 22,
+   "vpt": 0.57,
    "grad": 0.6,
    "spread": {
     "1,0": [
@@ -331917,14 +331634,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7038 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -332898,28 +332608,28 @@
   {
    "kit": "m3-base",
    "name": "teapot",
-   "hash": "7117d4e42f",
+   "hash": "d80fa68d07",
    "kind": "obj-kitchenware-cookware-kettle",
    "size": "s",
    "wdh": [
     0.3,
-    0.176,
+    0.179,
     0.221
    ],
-   "tris": 4186,
-   "tpu": 12204,
+   "tris": 1500,
+   "tpu": 4373,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 117608,
-   "vtx": 2844,
+   "bytes": 42012,
+   "vtx": 987,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2126,
-   "avgTri": 0.00007,
-   "anglePct": 9,
-   "vpt": 0.68,
+   "thick": 0.2132,
+   "avgTri": 0.00012,
+   "anglePct": 17,
+   "vpt": 0.66,
    "grad": 0.6,
    "spread": {
     "5,0": [
@@ -332934,14 +332644,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12204 over max 5000 (obj-kitchenware)"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -334360,7 +334063,7 @@
   {
    "kit": "m3-base",
    "name": "vent-cover-01",
-   "hash": "91eff36f3c",
+   "hash": "ef052e9c49",
    "kind": "str-part-wall",
    "size": "s",
    "wdh": [
@@ -334368,18 +334071,18 @@
     0.019,
     0.367
    ],
-   "tris": 1768,
-   "tpu": 5155,
+   "tris": 1680,
+   "tpu": 4898,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 66824,
-   "vtx": 1708,
+   "bytes": 63916,
+   "vtx": 1636,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.0447,
-   "avgTri": 0.00031,
+   "avgTri": 0.00032,
    "anglePct": 81,
    "vpt": 0.97,
    "grad": 0.6,
@@ -334406,11 +334109,6 @@
     }
    },
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5155 over max 5000 (str)"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -334558,29 +334256,29 @@
   {
    "kit": "m3-base",
    "name": "vintage-phone",
-   "hash": "072af3c791",
+   "hash": "0b4a2b8e8b",
    "kind": "obj-device-electronics-phone",
    "size": "s",
    "wdh": [
     0.23,
     0.128,
-    0.18
+    0.179
    ],
-   "tris": 3766,
-   "tpu": 10980,
+   "tris": 3280,
+   "tpu": 9563,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 170788,
-   "vtx": 4582,
+   "bytes": 138424,
+   "vtx": 3665,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0048,
-   "thick": 0.1441,
+   "thick": 0.1448,
    "avgTri": 0.00004,
    "anglePct": 40,
-   "vpt": 1.22,
+   "vpt": 1.12,
    "grad": 0.68,
    "spread": {
     "1,0": [
@@ -334610,11 +334308,6 @@
    ],
    "thickRel": 0.83,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10980 over max 10000 (obj)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -335660,29 +335353,29 @@
   {
    "kit": "m3-base",
    "name": "wheelchair-01",
-   "hash": "2e1109e39e",
+   "hash": "f7b679e9ac",
    "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
-    0.474,
+    0.478,
     0.614,
     0.705
    ],
-   "tris": 3720,
-   "tpu": 10769,
+   "tris": 3288,
+   "tpu": 9518,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 208024,
-   "vtx": 5755,
+   "bytes": 177704,
+   "vtx": 4891,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.025,
-   "thick": 0.0646,
-   "avgTri": 0.0008,
-   "anglePct": 21,
-   "vpt": 1.55,
+   "thick": 0.0648,
+   "avgTri": 0.00079,
+   "anglePct": 23,
+   "vpt": 1.49,
    "grad": 0.6,
    "spread": {
     "15,3": [
@@ -335711,11 +335404,6 @@
    ],
    "thickRel": 0.31,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10769 over max 10000 (obj)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -351844,7 +351532,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "quat-apocalypse",
@@ -359049,7 +358737,7 @@
   {
    "kit": "quat-food",
    "name": "burger-large",
-   "hash": "4a19494547",
+   "hash": "ea9563ead6",
    "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
@@ -359057,21 +358745,21 @@
     0.284,
     0.246
    ],
-   "tris": 1748,
-   "tpu": 5096,
+   "tris": 1658,
+   "tpu": 4834,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 137024,
-   "vtx": 3910,
+   "bytes": 130724,
+   "vtx": 3730,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.2109,
-   "avgTri": 0.00057,
+   "avgTri": 0.0006,
    "anglePct": 15,
-   "vpt": 2.24,
-   "grad": 0.08,
+   "vpt": 2.25,
+   "grad": 0.06,
    "spread": {
     "3,1": [
      0.5,
@@ -359118,11 +358806,6 @@
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5096 over max 5000 (obj-food)"
-    },
-    {
-     "level": "warning",
      "check": "backface",
      "text": "0.4% of view 45/20 over 0.1%: open 100.0%"
     }
@@ -359131,7 +358814,7 @@
   {
    "kit": "quat-food",
    "name": "burger",
-   "hash": "ada15e163a",
+   "hash": "b62d22c55a",
    "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
@@ -359139,21 +358822,21 @@
     0.29,
     0.181
    ],
-   "tris": 1160,
-   "tpu": 3382,
+   "tris": 1070,
+   "tpu": 3120,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 93296,
-   "vtx": 2654,
+   "bytes": 86996,
+   "vtx": 2474,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.1921,
-   "avgTri": 0.00057,
+   "avgTri": 0.00062,
    "anglePct": 14,
-   "vpt": 2.29,
-   "grad": 0.12,
+   "vpt": 2.31,
+   "grad": 0.09,
    "spread": {
     "1,0": [
      0.266,
@@ -372624,7 +372307,7 @@
     "qua",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.55
   },
   {
    "kit": "quat-pirate",
@@ -375050,7 +374733,7 @@
   {
    "kit": "quat-props",
    "name": "anvil-log",
-   "hash": "4ffe020f68",
+   "hash": "9e6fde1371",
    "kind": "obj-equipment-tool-station-anvil",
    "size": "s",
    "wdh": [
@@ -375058,22 +374741,22 @@
     0.364,
     0.474
    ],
-   "tris": 3808,
-   "tpu": 11102,
+   "tris": 2507,
+   "tpu": 7309,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 143528,
-   "vtx": 3723,
+   "bytes": 99592,
+   "vtx": 2597,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0275,
+   "minEdge": 0.001,
+   "minTube": 0.0276,
    "thick": 0.1843,
-   "avgTri": 0.00021,
+   "avgTri": 0.0003,
    "anglePct": 26,
-   "vpt": 0.98,
-   "grad": 0.6,
+   "vpt": 1.04,
+   "grad": 0.59,
    "spread": {
     "2,0": [
      0.148,
@@ -375084,8 +374767,8 @@
      0.75
     ],
     "13,3": [
-     0.148,
-     0.742
+     0.211,
+     0.516
     ]
    },
    "colors": [
@@ -375100,14 +374783,7 @@
     "wood-dark"
    ],
    "variant": "quat-props/anvil",
-   "thickRel": 1.25,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 11102 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 1.25
   },
   {
    "kit": "quat-props",
@@ -376338,28 +376014,28 @@
   {
    "kit": "quat-props",
    "name": "chain-coil",
-   "hash": "50ae2b72bb",
+   "hash": "814c7fa8f2",
    "kind": "obj-equipment-tool-supplies-chain",
    "size": "m",
    "wdh": [
-    0.749,
-    0.635,
+    0.751,
+    0.634,
     0.061
    ],
-   "tris": 3744,
-   "tpu": 10915,
+   "tris": 3072,
+   "tpu": 8956,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 150844,
-   "vtx": 3968,
+   "bytes": 124156,
+   "vtx": 3260,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.0305,
-   "thick": 0.0442,
-   "avgTri": 0.00013,
-   "anglePct": 21,
+   "thick": 0.0441,
+   "avgTri": 0.00015,
+   "anglePct": 26,
    "vpt": 1.06,
    "grad": 0.18,
    "spread": {
@@ -376379,11 +376055,6 @@
    ],
    "thickRel": 0.45,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10915 over max 10000 (obj)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -376435,7 +376106,7 @@
   {
    "kit": "quat-props",
    "name": "chandelier",
-   "hash": "dddd50a5ad",
+   "hash": "0fa9ac543d",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -376443,22 +376114,22 @@
     0.374,
     0.421
    ],
-   "tris": 3948,
-   "tpu": 11510,
+   "tris": 1578,
+   "tpu": 4601,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 249060,
-   "vtx": 6995,
+   "bytes": 117160,
+   "vtx": 3320,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.003,
    "minTube": 0.0102,
-   "thick": 0.0572,
-   "avgTri": 0.0001,
-   "anglePct": 27,
-   "vpt": 1.77,
-   "grad": 0.55,
+   "thick": 0.0561,
+   "avgTri": 0.00023,
+   "anglePct": 45,
+   "vpt": 2.1,
+   "grad": 0.56,
    "spread": {
     "13,3": [
      0.148,
@@ -376468,13 +376139,13 @@
      0.148,
      0.75
     ],
-    "5,2": [
-     0.156,
-     0.508
-    ],
     "6,0": [
      0.148,
-     0.469
+     0.461
+    ],
+    "5,2": [
+     0.156,
+     0.477
     ]
    },
    "colors": [
@@ -376491,14 +376162,7 @@
     "wax",
     "wood-dark"
    ],
-   "thickRel": 0.71,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 11510 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.69
   },
   {
    "kit": "quat-props",
@@ -377183,35 +376847,31 @@
   {
    "kit": "quat-props",
    "name": "stall-cart",
-   "hash": "b7b33b5330",
+   "hash": "aa8dafb32f",
    "kind": "str-canopy-stall",
    "size": "m",
    "wdh": [
-    1.138,
+    1.136,
     0.415,
     1.001
    ],
-   "tris": 3862,
-   "tpu": 7874,
+   "tris": 2168,
+   "tpu": 4420,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 168388,
-   "vtx": 4490,
+   "bytes": 129748,
+   "vtx": 3602,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.002,
    "minTube": 0.012,
-   "thick": 0.0717,
-   "avgTri": 0.0015,
-   "anglePct": 43,
-   "vpt": 1.16,
+   "thick": 0.0716,
+   "avgTri": 0.00252,
+   "anglePct": 45,
+   "vpt": 1.66,
    "grad": 0.59,
    "spread": {
-    "6,1": [
-     0.148,
-     0.75
-    ],
     "2,0": [
      0.148,
      0.75
@@ -377219,6 +376879,10 @@
     "5,2": [
      0.148,
      0.641
+    ],
+    "6,1": [
+     0.148,
+     0.742
     ]
    },
    "colors": [
@@ -377233,14 +376897,7 @@
     "wood-dark"
    ],
    "variant": "quat-props/stall",
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7874 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "quat-props",
@@ -377700,7 +377357,7 @@
   {
    "kit": "quat-props",
    "name": "weapon-stand",
-   "hash": "f791bd4364",
+   "hash": "786f583550",
    "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "m",
    "wdh": [
@@ -377708,22 +377365,22 @@
     0.385,
     0.448
    ],
-   "tris": 1764,
-   "tpu": 5143,
+   "tris": 1204,
+   "tpu": 3510,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 109864,
-   "vtx": 3056,
+   "bytes": 76340,
+   "vtx": 2116,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0259,
    "thick": 0.0696,
-   "avgTri": 0.00068,
+   "avgTri": 0.00096,
    "anglePct": 19,
-   "vpt": 1.73,
-   "grad": 0.85,
+   "vpt": 1.76,
+   "grad": 0.82,
    "spread": {
     "2,0": [
      0.195,
@@ -377743,14 +377400,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.68,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5143 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.68
   },
   {
    "kit": "quat-props",
@@ -383408,37 +383058,33 @@
   {
    "kit": "quat-shoot",
    "name": "barricade-junk",
-   "hash": "3c65268157",
+   "hash": "c01ce5faec",
    "kind": "str-barrier",
    "size": "l",
    "wdh": [
-    1.571,
+    1.572,
     0.458,
     0.878
    ],
-   "tris": 4071,
-   "tpu": 6444,
+   "tris": 2997,
+   "tpu": 4741,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 182000,
-   "vtx": 4879,
+   "bytes": 218660,
+   "vtx": 6226,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.006,
-   "thick": 0.0908,
-   "avgTri": 0.00143,
-   "anglePct": 46,
-   "vpt": 1.2,
-   "grad": 0.36,
+   "thick": 0.0903,
+   "avgTri": 0.00192,
+   "anglePct": 49,
+   "vpt": 2.08,
+   "grad": 0.31,
    "spread": {
     "1,0": [
      0.25,
-     0.742
-    ],
-    "14,3": [
-     0.602,
      0.742
     ],
     "13,3": [
@@ -383452,6 +383098,10 @@
     "8,0": [
      0.25,
      0.5
+    ],
+    "14,3": [
+     0.602,
+     0.742
     ]
    },
    "colors": [
@@ -383469,24 +383119,19 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0034,
+    "share": 0.0035,
     "view": "45/20",
     "causes": {
-     "inverted": 0.56,
-     "other": 0.44
+     "inverted": 0.54,
+     "other": 0.46
     }
    },
-   "thickRel": 0.82,
+   "thickRel": 0.81,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6444 over max 5000 (str)"
-    },
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.3% of view 45/20 over 0.1%: inverted 56.0%, other 44.0%"
+     "text": "0.4% of view 45/20 over 0.1%: inverted 54.0%, other 46.0%"
     },
     {
      "level": "error",
@@ -384708,7 +384353,7 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/knife-bowie",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "quat-shoot",
@@ -384751,7 +384396,7 @@
     "qua"
    ],
    "variant": "quat-shoot/knife-bowie",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "quat-shoot",
@@ -409599,7 +409244,7 @@
     "rgp",
     "special-organic"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "rgp-medieval",
@@ -409647,7 +409292,7 @@
     "special-organic",
     "textile-rope"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-medieval",
@@ -416840,7 +416485,7 @@
   {
    "kit": "rgp-props",
    "name": "fireplace-1-1-a",
-   "hash": "3744887c1f",
+   "hash": "904b3f2472",
    "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
@@ -416848,20 +416493,20 @@
     0.322,
     0.375
    ],
-   "tris": 1786,
-   "tpu": 5207,
+   "tris": 1586,
+   "tpu": 4624,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 145492,
-   "vtx": 4165,
+   "bytes": 106608,
+   "vtx": 2989,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "thick": 0.0614,
-   "avgTri": 0.00032,
+   "avgTri": 0.00035,
    "anglePct": 34,
-   "vpt": 2.33,
+   "vpt": 1.88,
    "grad": 0.93,
    "spread": {
     "6,1": [
@@ -416877,14 +416522,7 @@
     "rgp"
    ],
    "variant": "rgp-medieval/brazier",
-   "thickRel": 0.79,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5207 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 0.79
   },
   {
    "kit": "rgp-props",
@@ -424197,7 +423835,7 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "cubby-wall",
-   "hash": "af98efc3e7",
+   "hash": "a5c9a4c9ff",
    "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
@@ -424205,20 +423843,20 @@
     0.161,
     0.682
    ],
-   "tris": 1783,
-   "tpu": 5198,
+   "tris": 1600,
+   "tpu": 4665,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 133864,
-   "vtx": 3801,
+   "bytes": 119856,
+   "vtx": 3400,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.1218,
-   "thick": 0.0783,
-   "avgTri": 0.00192,
-   "anglePct": 81,
+   "thick": 0.0776,
+   "avgTri": 0.0021,
+   "anglePct": 82,
    "vpt": 2.13,
    "grad": 0.58,
    "spread": {
@@ -424255,14 +423893,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5198 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 0.76
   },
   {
    "kit": "sq-bowling",
@@ -425548,7 +425179,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "spinner-rack",
-   "hash": "30c1b71c3f",
+   "hash": "b9f903b4a9",
    "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
@@ -425556,20 +425187,20 @@
     0.175,
     0.667
    ],
-   "tris": 2057,
-   "tpu": 5997,
+   "tris": 1577,
+   "tpu": 4598,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 161484,
-   "vtx": 4613,
+   "bytes": 123728,
+   "vtx": 3525,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0161,
-   "thick": 0.2924,
-   "avgTri": 0.0006,
-   "anglePct": 26,
+   "thick": 0.2929,
+   "avgTri": 0.0008,
+   "anglePct": 28,
    "vpt": 2.24,
    "grad": 0.6,
    "spread": {
@@ -425607,14 +425238,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 2.87,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5997 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 2.87
   },
   {
    "kit": "sq-cards",
@@ -425728,7 +425352,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "brush-arch",
-   "hash": "732de01753",
+   "hash": "5a1f080b94",
    "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
@@ -425736,21 +425360,21 @@
     0.235,
     0.803
    ],
-   "tris": 3487,
-   "tpu": 8862,
+   "tris": 1694,
+   "tpu": 4305,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 204280,
-   "vtx": 5682,
+   "bytes": 141564,
+   "vtx": 4061,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "minTube": 0.026,
-   "thick": 0.0875,
-   "avgTri": 0.00109,
-   "anglePct": 53,
-   "vpt": 1.63,
+   "minEdge": 0.012,
+   "minTube": 0.0646,
+   "thick": 0.0872,
+   "avgTri": 0.0016,
+   "anglePct": 68,
+   "vpt": 2.4,
    "grad": 0.6,
    "spread": {
     "6,1": [
@@ -425788,14 +425412,7 @@
     "tba"
    ],
    "variant": "sq-carwash/brush-arch",
-   "thickRel": 0.68,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 8862 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 0.68
   },
   {
    "kit": "sq-carwash",
@@ -428072,7 +427689,7 @@
     "sq",
     "wood-light"
    ],
-   "thickRel": 1.54,
+   "thickRel": 1.55,
    "lint": [
     {
      "level": "error",
@@ -436186,7 +435803,7 @@
   {
    "kit": "styloo-farm",
    "name": "haystack-cube",
-   "hash": "2ab6c0e5d7",
+   "hash": "f0066a7c51",
    "kind": "obj-resource-crop-hay",
    "size": "s",
    "wdh": [
@@ -436194,21 +435811,21 @@
     0.303,
     0.4
    ],
-   "tris": 1788,
-   "tpu": 5213,
+   "tris": 1532,
+   "tpu": 4466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 121140,
-   "vtx": 3406,
+   "bytes": 102896,
+   "vtx": 2884,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0092,
-   "thick": 0.1384,
-   "avgTri": 0.00023,
-   "anglePct": 25,
-   "vpt": 1.9,
+   "thick": 0.1371,
+   "avgTri": 0.00024,
+   "anglePct": 27,
+   "vpt": 1.88,
    "grad": 0.89,
    "spread": {
     "0,0": [
@@ -436225,12 +435842,12 @@
    ],
    "variant": "styloo-farm/haystack-thick",
    "backface": {
-    "share": 0.0043,
-    "view": "315/20",
+    "share": 0.0035,
+    "view": "180/50",
     "causes": {
-     "inverted": 0.93,
-     "other": 0.03,
-     "inside-out": 0.03
+     "inverted": 0.94,
+     "other": 0.04,
+     "inside-out": 0.02
     }
    },
    "thickRel": 0.75,
@@ -436242,13 +435859,8 @@
     },
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5213 over max 5000 (obj-resource)"
-    },
-    {
-     "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 315/20 over 0.1%: inverted 93.0%, other 3.0%, inside-out 3.0%"
+     "text": "0.4% of view 180/50 over 0.1%: inverted 94.0%, other 4.0%, inside-out 2.0%"
     }
    ]
   },
@@ -436292,12 +435904,12 @@
     "special-organic",
     "sty"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "styloo-farm",
    "name": "haystack-thick",
-   "hash": "6f51cbd7fd",
+   "hash": "6bd85bb285",
    "kind": "obj-resource-crop-hay",
    "size": "s",
    "wdh": [
@@ -436305,21 +435917,20 @@
     0.428,
     0.492
    ],
-   "tris": 3990,
-   "tpu": 11633,
+   "tris": 1536,
+   "tpu": 4478,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 257536,
-   "vtx": 7256,
+   "bytes": 140280,
+   "vtx": 4052,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0093,
-   "thick": 0.1905,
-   "avgTri": 0.0003,
-   "anglePct": 30,
-   "vpt": 1.82,
+   "thick": 0.1889,
+   "avgTri": 0.00064,
+   "anglePct": 37,
+   "vpt": 2.64,
    "grad": 0.9,
    "spread": {
     "0,0": [
@@ -436335,33 +435946,12 @@
     "sty"
    ],
    "variant": "styloo-farm/haystack-thick",
-   "backface": {
-    "share": 0.0038,
-    "view": "135/20",
-    "causes": {
-     "inverted": 0.72,
-     "inside-out": 0.23,
-     "other": 0.05
-    }
-   },
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 11633 over max 5000 (obj-resource)"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 135/20 over 0.1%: inverted 72.0%, inside-out 23.0%, other 5.0%"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "styloo-farm",
    "name": "haystack-thin",
-   "hash": "f4c84e0091",
+   "hash": "a93c0f6fdc",
    "kind": "obj-resource-crop-hay",
    "size": "s",
    "wdh": [
@@ -436369,21 +435959,21 @@
     0.294,
     0.439
    ],
-   "tris": 2446,
-   "tpu": 7131,
+   "tris": 1540,
+   "tpu": 4490,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 230368,
-   "vtx": 6696,
+   "bytes": 137956,
+   "vtx": 3978,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0072,
-   "thick": 0.1848,
-   "avgTri": 0.00027,
-   "anglePct": 29,
-   "vpt": 2.74,
+   "thick": 0.183,
+   "avgTri": 0.00037,
+   "anglePct": 33,
+   "vpt": 2.58,
    "grad": 0.88,
    "spread": {
     "0,0": [
@@ -436405,11 +435995,6 @@
      "level": "warning",
      "check": "size",
      "text": "longest 0.439 under min 0.45 (obj-resource-crop-hay)"
-    },
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7131 over max 5000 (obj-resource)"
     }
    ]
   },
@@ -436457,7 +436042,7 @@
   {
    "kit": "styloo-farm",
    "name": "hedge",
-   "hash": "d0013545dc",
+   "hash": "c1438ad90c",
    "kind": "str-barrier-hedge",
    "size": "m",
    "wdh": [
@@ -436465,21 +436050,21 @@
     0.38,
     0.362
    ],
-   "tris": 3748,
-   "tpu": 10927,
+   "tris": 1532,
+   "tpu": 4466,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 239584,
-   "vtx": 6740,
+   "bytes": 154220,
+   "vtx": 4488,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.2957,
-   "thick": 0.2838,
-   "avgTri": 0.00088,
-   "anglePct": 27,
-   "vpt": 1.8,
+   "thick": 0.285,
+   "avgTri": 0.00196,
+   "anglePct": 29,
+   "vpt": 2.93,
    "grad": 0.32,
    "spread": {
     "3,1": [
@@ -436494,14 +436079,7 @@
     "leaf-light",
     "sty"
    ],
-   "thickRel": 1.13,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 10927 over max 5000 (str)"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "styloo-farm",
@@ -449741,7 +449319,7 @@
   {
    "kit": "styloo-school",
    "name": "notebook-red",
-   "hash": "e48183b47d",
+   "hash": "cd369dd588",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
    "wdh": [
@@ -449749,21 +449327,21 @@
     0.224,
     0.057
    ],
-   "tris": 3522,
-   "tpu": 10268,
+   "tris": 1590,
+   "tpu": 4636,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 153520,
-   "vtx": 4090,
+   "bytes": 78772,
+   "vtx": 2119,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1092,
-   "avgTri": 0.00005,
-   "anglePct": 79,
-   "vpt": 1.16,
-   "grad": 0.48,
+   "thick": 0.1093,
+   "avgTri": 0.00011,
+   "anglePct": 75,
+   "vpt": 1.33,
+   "grad": 0.49,
    "spread": {
     "8,0": [
      0.266,
@@ -449789,14 +449367,7 @@
     "sty"
    ],
    "variant": "styloo-school/notebook-red",
-   "thickRel": 0.67,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10268 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 0.67
   },
   {
    "kit": "styloo-school",
@@ -450271,7 +449842,7 @@
   {
    "kit": "styloo-school",
    "name": "pen-cup",
-   "hash": "36e73fff7c",
+   "hash": "e5fc8ba457",
    "kind": "obj-equipment-tool-stationery-holder",
    "size": "s",
    "wdh": [
@@ -450279,20 +449850,20 @@
     0.102,
     0.15
    ],
-   "tris": 4124,
-   "tpu": 12023,
+   "tris": 960,
+   "tpu": 2799,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 159576,
-   "vtx": 4167,
+   "bytes": 99340,
+   "vtx": 2880,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.0676,
-   "avgTri": 0.00002,
-   "anglePct": 20,
-   "vpt": 1.01,
+   "minEdge": 0.002,
+   "thick": 0.0648,
+   "avgTri": 0.0001,
+   "anglePct": 25,
+   "vpt": 3,
    "grad": 0.5,
    "spread": {
     "13,3": [
@@ -450307,17 +449878,12 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.29,
+   "thickRel": 0.27,
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 12023 over max 10000 (obj)"
-    },
-    {
-     "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.29 wants min 0.5"
+     "text": "I01 thickRel 0.27 wants min 0.5"
     }
    ]
   },
@@ -451341,7 +450907,7 @@
   {
    "kit": "styloo-school",
    "name": "school-bus",
-   "hash": "7597c8a72c",
+   "hash": "ee26ab9267",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -451349,22 +450915,22 @@
     1.608,
     0.467
    ],
-   "tris": 7808,
-   "tpu": 15659,
+   "tris": 6256,
+   "tpu": 12546,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 404544,
-   "vtx": 9668,
+   "bytes": 311100,
+   "vtx": 8504,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0265,
-   "thick": 0.3291,
-   "avgTri": 0.00059,
-   "anglePct": 63,
-   "vpt": 1.24,
-   "grad": 0.76,
+   "thick": 0.329,
+   "avgTri": 0.00073,
+   "anglePct": 65,
+   "vpt": 1.36,
+   "grad": 0.74,
    "spread": {
     "13,3": [
      0.141,
@@ -451381,12 +450947,17 @@
     "5,0": [
      0.508,
      0.516
+    ],
+    "0,0": [
+     0,
+     0
     ]
    },
    "colors": [
     "#59534e",
     "#b5d5e3",
     "#ce7954",
+    "#dbb789",
     "#f1a63b"
    ],
    "tags": [
@@ -451395,12 +450966,12 @@
     "rubber",
     "sty"
    ],
-   "thickRel": 1.38,
+   "thickRel": 1.37,
    "lint": [
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 15659 over max 10000 (obj)"
+     "text": "tpu 12546 over max 10000 (obj)"
     }
    ]
   },
@@ -453404,7 +452975,7 @@
    "kit": "styloo-weapons",
    "collection": "styloo-weapons",
    "name": "bayonet",
-   "hash": "ec4337f280",
+   "hash": "099dd1dd90",
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
@@ -453412,21 +452983,21 @@
     0.037,
     0.356
    ],
-   "tris": 3989,
-   "tpu": 11630,
+   "tris": 2967,
+   "tpu": 8650,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 138412,
-   "vtx": 3530,
+   "bytes": 141588,
+   "vtx": 3824,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.027,
-   "thick": 0.1825,
-   "avgTri": 0.00003,
-   "anglePct": 35,
-   "vpt": 0.88,
+   "minTube": 0.0287,
+   "thick": 0.181,
+   "avgTri": 0.00004,
+   "anglePct": 36,
+   "vpt": 1.29,
    "grad": 0.48,
    "spread": {
     "13,3": [
@@ -453450,23 +453021,19 @@
    "variant": "styloo-weapons/combat-knife",
    "backface": {
     "share": 0.0014,
-    "view": "180/20",
+    "view": "270/50",
     "causes": {
-     "open": 0.93,
-     "inverted": 0.07
+     "inverted": 0.33,
+     "open": 0.58,
+     "other": 0.08
     }
    },
    "thickRel": 1,
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 11630 over max 10000 (obj)"
-    },
-    {
-     "level": "warning",
      "check": "backface",
-     "text": "0.1% of view 180/20 over 0.1%: open 93.0%, inverted 7.0%"
+     "text": "0.1% of view 270/50 over 0.1%: open 58.0%, inverted 33.0%, other 8.0%"
     }
    ]
   },
@@ -453526,7 +453093,7 @@
      "open": 0.43
     }
    },
-   "thickRel": 1.48,
+   "thickRel": 1.49,
    "lint": [
     {
      "level": "warning",
@@ -455823,7 +455390,7 @@
   {
    "kit": "taalei-kit",
    "name": "diving-helmet",
-   "hash": "a206b9ecf6",
+   "hash": "943360e33f",
    "kind": "obj-equipment-apparel-headgear",
    "size": "s",
    "wdh": [
@@ -455831,22 +455398,22 @@
     0.378,
     0.403
    ],
-   "tris": 3772,
-   "tpu": 10997,
+   "tris": 3328,
+   "tpu": 9703,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 167476,
-   "vtx": 4482,
+   "bytes": 139820,
+   "vtx": 3701,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.006,
-   "thick": 0.1625,
-   "avgTri": 0.00031,
-   "anglePct": 26,
-   "vpt": 1.19,
-   "grad": 0.58,
+   "thick": 0.1631,
+   "avgTri": 0.00034,
+   "anglePct": 27,
+   "vpt": 1.11,
+   "grad": 0.56,
    "spread": {
     "5,0": [
      0.5,
@@ -455871,14 +455438,7 @@
     "metal-copper",
     "metal-gold"
    ],
-   "thickRel": 1.39,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10997 over max 10000 (obj)"
-    }
-   ]
+   "thickRel": 1.4
   },
   {
    "kit": "taalei-kit",
@@ -456244,32 +455804,36 @@
   {
    "kit": "taalei-kit",
    "name": "fishing-rod",
-   "hash": "fad53658c9",
+   "hash": "e74a802ace",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
    "wdh": [
     0.574,
-    0.147,
+    0.15,
     0.982
    ],
-   "tris": 7560,
-   "tpu": 15711,
+   "tris": 4446,
+   "tpu": 9240,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 415264,
-   "vtx": 11515,
+   "bytes": 275180,
+   "vtx": 7721,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0067,
-   "thick": 0.068,
-   "avgTri": 0.00003,
+   "thick": 0.0683,
+   "avgTri": 0.00005,
    "anglePct": 3,
-   "vpt": 1.52,
+   "vpt": 1.74,
    "grad": 0.96,
    "spread": {
     "15,3": [
+     0.016,
+     0.977
+    ],
+    "2,0": [
      0.016,
      0.977
     ],
@@ -456278,10 +455842,6 @@
      0.977
     ],
     "14,2": [
-     0.016,
-     0.977
-    ],
-    "2,0": [
      0.016,
      0.977
     ]
@@ -456301,11 +455861,6 @@
    "variant": "taalei-kit/fishing-rod",
    "thickRel": 0.29,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 15711 over max 10000 (obj)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -456740,7 +456295,7 @@
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart-deluxe",
-   "hash": "f7e91e305e",
+   "hash": "2b235300c7",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -456748,21 +456303,21 @@
     0.399,
     0.69
    ],
-   "tris": 3722,
-   "tpu": 10851,
+   "tris": 3164,
+   "tpu": 9224,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 232588,
-   "vtx": 6524,
+   "bytes": 188440,
+   "vtx": 5249,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0264,
-   "thick": 0.108,
-   "avgTri": 0.00113,
-   "anglePct": 87,
-   "vpt": 1.75,
+   "thick": 0.1068,
+   "avgTri": 0.00132,
+   "anglePct": 88,
+   "vpt": 1.66,
    "grad": 0.59,
    "spread": {
     "5,2": [
@@ -456808,13 +456363,8 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/ice-cream-cart",
-   "thickRel": 1.05,
+   "thickRel": 1.04,
    "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 10851 over max 10000 (obj)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -458442,7 +457992,7 @@
   {
    "kit": "taalei-kit",
    "name": "totem-raven-wood",
-   "hash": "0ce47b316d",
+   "hash": "7a25e55b1b",
    "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
@@ -458450,21 +458000,21 @@
     0.49,
     1.444
    ],
-   "tris": 5600,
-   "tpu": 7335,
+   "tris": 4170,
+   "tpu": 5462,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 210312,
-   "vtx": 5478,
+   "bytes": 178980,
+   "vtx": 4767,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0265,
    "thick": 0.1057,
-   "avgTri": 0.00071,
-   "anglePct": 29,
-   "vpt": 0.98,
+   "avgTri": 0.00095,
+   "anglePct": 28,
+   "vpt": 1.14,
    "grad": 0.92,
    "spread": {
     "1,0": [
@@ -458487,16 +458037,16 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "tpu",
-     "text": "tpu 7335 over max 5000 (str)"
+     "text": "tpu 5462 over max 5000 (str)"
     }
    ]
   },
   {
    "kit": "taalei-kit",
    "name": "totem-raven",
-   "hash": "8d737e4d5c",
+   "hash": "2a17d06a7c",
    "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
@@ -458504,21 +458054,21 @@
     0.49,
     1.444
    ],
-   "tris": 5600,
-   "tpu": 7335,
+   "tris": 4170,
+   "tpu": 5462,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 210916,
-   "vtx": 5497,
+   "bytes": 179584,
+   "vtx": 4786,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0265,
    "thick": 0.1057,
-   "avgTri": 0.00071,
+   "avgTri": 0.00095,
    "anglePct": 28,
-   "vpt": 0.98,
+   "vpt": 1.15,
    "grad": 0.53,
    "spread": {
     "4,2": [
@@ -458558,9 +458108,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "tpu",
-     "text": "tpu 7335 over max 5000 (str)"
+     "text": "tpu 5462 over max 5000 (str)"
     },
     {
      "level": "error",
@@ -458572,7 +458122,7 @@
   {
    "kit": "taalei-kit",
    "name": "totem-thunderbird",
-   "hash": "fcb624c558",
+   "hash": "f171bfe3b3",
    "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
@@ -458580,22 +458130,22 @@
     0.446,
     1.446
    ],
-   "tris": 5530,
-   "tpu": 7522,
+   "tris": 4654,
+   "tpu": 6330,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 218512,
-   "vtx": 5747,
+   "bytes": 199848,
+   "vtx": 5328,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0265,
-   "thick": 0.1027,
-   "avgTri": 0.0008,
-   "anglePct": 27,
-   "vpt": 1.04,
-   "grad": 0.44,
+   "thick": 0.1028,
+   "avgTri": 0.00095,
+   "anglePct": 28,
+   "vpt": 1.14,
+   "grad": 0.43,
    "spread": {
     "4,2": [
      0.477,
@@ -458635,7 +458185,7 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 7522 over max 5000 (str)"
+     "text": "tpu 6330 over max 5000 (str)"
     },
     {
      "level": "error",
@@ -458647,7 +458197,7 @@
   {
    "kit": "taalei-kit",
    "name": "totem-wood",
-   "hash": "55be7f106a",
+   "hash": "b5586903fb",
    "kind": "str-fixture-marker",
    "size": "m",
    "wdh": [
@@ -458655,22 +458205,22 @@
     0.346,
     1.441
    ],
-   "tris": 7370,
-   "tpu": 10438,
+   "tris": 5484,
+   "tpu": 7767,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 258880,
-   "vtx": 6664,
+   "bytes": 216332,
+   "vtx": 5688,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.2433,
    "thick": 0.1186,
-   "avgTri": 0.00039,
-   "anglePct": 29,
-   "vpt": 0.9,
-   "grad": 0.94,
+   "avgTri": 0.00052,
+   "anglePct": 28,
+   "vpt": 1.04,
+   "grad": 0.93,
    "spread": {
     "1,0": [
      0.016,
@@ -458693,7 +458243,7 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 10438 over max 5000 (str)"
+     "text": "tpu 7767 over max 5000 (str)"
     }
    ]
   },
@@ -470417,7 +469967,7 @@
     "wizp"
    ],
    "variant": "wizp-mediev/haystack",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "wizp-mediev",
@@ -472735,7 +472285,7 @@
    "kit": "wizp-tree",
    "collection": "wizp-grave",
    "name": "dead-tree-spiked-b",
-   "hash": "6b190b5dc6",
+   "hash": "07c4b593e8",
    "kind": "env-remains-deadwood-tree",
    "size": "m",
    "wdh": [
@@ -472743,21 +472293,21 @@
     0.495,
     1.104
    ],
-   "tris": 3098,
-   "tpu": 5727,
+   "tris": 2506,
+   "tpu": 4633,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 203708,
-   "vtx": 5741,
+   "bytes": 170172,
+   "vtx": 4804,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1228,
-   "avgTri": 0.00032,
-   "anglePct": 5,
-   "vpt": 1.85,
-   "grad": 0.87,
+   "thick": 0.1231,
+   "avgTri": 0.00036,
+   "anglePct": 6,
+   "vpt": 1.92,
+   "grad": 0.88,
    "spread": {
     "3,0": [
      0.039,
@@ -472779,14 +472329,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-spiked-a",
-   "thickRel": 1.14,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5727 over max 5000 (env)"
-    }
-   ]
+   "thickRel": 1.15
   },
   {
    "kit": "wizp-tree",
