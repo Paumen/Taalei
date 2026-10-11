@@ -36,7 +36,7 @@ export function scaleGlb(glb, to, by) {
       if (node.translation) node.translation = node.translation.map((v) => v * r);
       node.scale = (node.scale ?? [1, 1, 1]).map((v) => v * r);
     }
-    record.schaal = to;
+    record.schaal = Number(to.toPrecision(4));
   }
 
   const nodeFactor = new Map();
