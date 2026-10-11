@@ -74,79 +74,113 @@ function facts(buf) {
   const glb = parseGlb(buf);
   const scene = measureScene(glb);
   const atlas = readAtlas(COLORMAP);
-  const bands = new Set();
+  const area = new Map();
   const positions = [];
   for (const mesh of glb.json.meshes ?? []) {
     for (const prim of mesh.primitives ?? []) {
-      positions.push(readAccessor(glb, prim.attributes.POSITION).data);
+      const pos = readAccessor(glb, prim.attributes.POSITION).data;
+      positions.push(pos);
       if (prim.attributes.TEXCOORD_0 === undefined) continue;
-      const uv = readAccessor(glb, prim.attributes.TEXCOORD_0);
-      for (let i = 0; i < uv.count; i++) {
-        const x = Math.min(Math.max(Math.floor(uv.data[i * 2] * atlas.width), 0), atlas.width - 1);
-        const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.height), 0), atlas.height - 1);
-        const cell = `${Math.floor(x / (atlas.width / COLUMNS))},${Math.floor(y / (atlas.height / ROWS))}`;
-        bands.add(BAND_NAMES[cell] ?? cell);
+      const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
+      const idx = prim.indices === undefined
+        ? Array.from({ length: pos.length / 3 }, (_, i) => i)
+        : Array.from(readAccessor(glb, prim.indices).data);
+      for (let t = 0; t < idx.length; t += 3) {
+        const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
+        const e1 = [0, 1, 2].map((k) => pos[b * 3 + k] - pos[a * 3 + k]);
+        const e2 = [0, 1, 2].map((k) => pos[c * 3 + k] - pos[a * 3 + k]);
+        const cr = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+        const u = (uv[a * 2] + uv[b * 2] + uv[c * 2]) / 3;
+        const v = (uv[a * 2 + 1] + uv[b * 2 + 1] + uv[c * 2 + 1]) / 3;
+        const cell = `${Math.min(COLUMNS - 1, Math.max(0, Math.floor(u * COLUMNS)))},${Math.min(ROWS - 1, Math.max(0, Math.floor(v * ROWS)))}`;
+        area.set(cell, (area.get(cell) ?? 0) + Math.hypot(...cr) / 2);
       }
     }
   }
+  const total = [...area.values()].reduce((s, a) => s + a, 0) || 1;
+  const bands = new Map([...area].map(([cell, a]) => [cell, a / total]));
   return { tris: scene.triangles, wdh: scene.wdh, bands, positions };
+}
+
+function bandInfo(cell) {
+  const atlas = readAtlas(COLORMAP);
+  const [col, row] = cell.split(',').map(Number);
+  const x = Math.floor((col + 0.5) * atlas.width / COLUMNS);
+  const y = Math.floor((row + 0.5) * atlas.height / ROWS);
+  const i = (y * atlas.width + x) * 4;
+  const hex = '#' + [0, 1, 2].map((k) => atlas.pixels[i + k].toString(16).padStart(2, '0')).join('');
+  return { name: BAND_NAMES[cell] ?? cell, hex };
 }
 
 const round = (v) => Math.round(v * 1000) / 1000;
 const longest = (wdh) => Math.max(...wdh);
+const strength = (value, mid, high) => (value >= high ? 'strong' : value >= mid ? 'mid' : 'low');
 
 function diff(model, base, tagsBefore, tagsAfter) {
   const path = `${WORK}/${model}.glb`;
   const before = facts(atRef(base, path));
   const after = facts(existsSync(join(ROOT, path)) ? readFileSync(join(ROOT, path)) : null);
   const types = new Set();
-  const lines = [];
+  const out = [];
 
   const tb = tagsOf(tagsBefore, model);
   const ta = tagsOf(tagsAfter, model);
-  const kindB = Object.keys(tb).find((t) => tb[t] === 'kind');
-  const kindA = Object.keys(ta).find((t) => ta[t] === 'kind');
-  if (kindB !== kindA) lines.push(`kind ${kindB ?? '—'} → ${kindA ?? '—'}`);
-  const added = Object.keys(ta).filter((t) => !(t in tb) && ta[t] !== 'kind');
-  const removed = Object.keys(tb).filter((t) => !(t in ta) && tb[t] !== 'kind');
-  if (added.length || removed.length) lines.push([...added.map((t) => `+${t}`), ...removed.map((t) => `−${t}`)].join(' '));
-  if (kindB !== kindA || added.length || removed.length) types.add('tag');
+  const kindB = Object.keys(tb).find((t) => tb[t] === 'kind') ?? null;
+  const kindA = Object.keys(ta).find((t) => ta[t] === 'kind') ?? null;
+  if (kindB !== kindA) out.push({ f: 'kind', from: kindB, to: kindA, s: 'strong' });
+  const add = Object.keys(ta).filter((t) => !(t in tb) && ta[t] !== 'kind').map((id) => ({ id, type: ta[id] }));
+  const remove = Object.keys(tb).filter((t) => !(t in ta) && tb[t] !== 'kind').map((id) => ({ id, type: tb[id] }));
+  if (add.length || remove.length) {
+    out.push({ f: 'tags', add, remove, s: [...add, ...remove].some((t) => t.type === 'material') ? 'mid' : 'low' });
+  }
+  if (kindB !== kindA || add.length || remove.length) types.add('tag');
 
   if (before && after) {
     const lb = longest(before.wdh);
     const la = longest(after.wdh);
     if (Math.abs(la / lb - 1) > 0.01) {
       types.add('size');
-      lines.push(`longest ${round(lb)} → ${round(la)} m`);
+      out.push({ f: 'size', from: round(lb), to: round(la), factor: Math.round((la / lb) * 100) / 100,
+        s: strength(Math.abs(Math.log(la / lb)), 0.15, 0.4) });
     }
     if (before.tris !== after.tris) {
       types.add('geometry');
-      lines.push(`tris ${before.tris} → ${after.tris}`);
+      const pct = Math.round(((after.tris - before.tris) / before.tris) * 100);
+      out.push({ f: 'tris', from: before.tris, to: after.tris, pct, s: strength(Math.abs(pct), 10, 40) });
     }
-    const gone = [...before.bands].filter((b) => !after.bands.has(b));
-    const come = [...after.bands].filter((b) => !before.bands.has(b));
-    if (gone.length || come.length) {
+    const cells = new Set([...before.bands.keys(), ...after.bands.keys()]);
+    const shift = [...cells].reduce((s, c) => s + Math.abs((after.bands.get(c) ?? 0) - (before.bands.get(c) ?? 0)), 0) / 2;
+    const row = (bands) => [...bands].filter(([, share]) => share >= 0.005).sort((a, b) => b[1] - a[1])
+      .map(([cell, share]) => ({ ...bandInfo(cell), share: Math.round(share * 100) }));
+    const gone = [...before.bands.keys()].filter((c) => !after.bands.has(c));
+    const come = [...after.bands.keys()].filter((c) => !before.bands.has(c));
+    if (gone.length || come.length || shift >= 0.02) {
       types.add('recolour');
-      lines.push(`bands ${[...gone.map((b) => `−${b}`), ...come.map((b) => `+${b}`)].join(' ')}`);
+      out.push({ f: 'colour', from: row(before.bands), to: row(after.bands), changed: Math.round(shift * 100),
+        s: strength(shift, 0.1, 0.35) });
     }
-    if (!types.has('size') && !types.has('geometry') && moved(before, after)) {
-      types.add('shape');
-      lines.push('vertices moved');
+    if (!types.has('size') && !types.has('geometry')) {
+      const move = maxMove(before, after);
+      if (move > 1e-3) {
+        types.add('shape');
+        out.push({ f: 'shape', move: Math.round(move * 1000) / 10, s: strength(move, 0.01, 0.05) });
+      }
     }
   }
-  return { types: [...types], facts: lines, changedFile: Boolean(before && after) };
+  return { types: [...types], facts: out };
 }
 
-function moved(a, b) {
-  if (a.positions.length !== b.positions.length) return true;
+function maxMove(a, b) {
+  if (a.positions.length !== b.positions.length) return 1;
   const scale = longest(a.wdh) || 1;
+  let most = 0;
   for (let p = 0; p < a.positions.length; p++) {
     const x = a.positions[p];
     const y = b.positions[p];
-    if (x.length !== y.length) return true;
-    for (let i = 0; i < x.length; i++) if (Math.abs(x[i] - y[i]) > scale * 1e-3) return true;
+    if (x.length !== y.length) return 1;
+    for (let i = 0; i < x.length; i++) most = Math.max(most, Math.abs(x[i] - y[i]) / scale);
   }
-  return false;
+  return most;
 }
 
 function render(dir, out, size) {
@@ -156,6 +190,25 @@ function render(dir, out, size) {
 
 const webp = (png) =>
   existsSync(png) ? `data:image/webp;base64,${execFileSync('convert', [png, '-quality', '78', 'webp:-']).toString('base64')}` : null;
+
+function pixelDiff(before, after, out) {
+  if (!existsSync(before) || !existsSync(after)) return { img: null, share: null };
+  let changed = 0;
+  try {
+    execFileSync('compare', ['-fuzz', '6%', '-metric', 'AE', '-highlight-color', '#00b4ff', '-lowlight-color', '#ffffff',
+      before, after, out], { stdio: ['ignore', 'ignore', 'pipe'] });
+  } catch (e) {
+    changed = Number(String(e.stderr).trim().split(/\s/)[0]) || 0;
+  }
+  if (!existsSync(out)) return { img: null, share: null };
+  const shown = join(dirname(out), `shown-${basenameOf(out)}`);
+  execFileSync('convert', [after, '-colorspace', 'Gray', '-fill', 'white', '-colorize', '35%', '-colorspace', 'sRGB', out, '-fuzz', '10%',
+    '-transparent', 'white', '-composite', shown]);
+  const covered = Number(execFileSync('convert', [after, '-fuzz', '4%', '-fill', 'black', '+opaque', '#f2f2f0',
+    '-fill', 'white', '-opaque', '#f2f2f0', '-negate', '-format', '%[fx:mean*w*h]', 'info:']).toString()) || 1;
+  return { img: webp(shown), share: Math.round((changed / covered) * 1000) / 10 };
+}
+const basenameOf = (p) => p.split('/').pop();
 
 function build() {
   const listPath = args[1];
@@ -173,6 +226,7 @@ function build() {
     copyFileSync(COLORMAP, join(out, side, 'colormap.png'));
     copyFileSync(COLORMAP, join(out, side, 'Textures', 'colormap.png'));
   }
+  mkdirSync(join(out, 'diff'), { recursive: true });
   const key = (model) => model.replace('/', '__');
   for (const item of list.items) {
     const path = `${WORK}/${item.model}.glb`;
@@ -184,7 +238,11 @@ function build() {
 
   const items = list.items.map((item) => {
     const d = diff(item.model, base, tagsBefore, tagsAfter);
-    const img = (side, view) => webp(join(out, `r-${side}`, key(item.model), `pbr_${view}.png`));
+    const png = (side, view) => join(out, `r-${side}`, key(item.model), `pbr_${view}.png`);
+    const img = (side, view) => webp(png(side, view));
+    const d1 = pixelDiff(png('before', 'iso'), png('after', 'iso'), join(out, 'diff', `${key(item.model)}-iso.png`));
+    const d2 = pixelDiff(png('before', 'iso-back'), png('after', 'iso-back'), join(out, 'diff', `${key(item.model)}-back.png`));
+    const pixels = Math.max(d1.share ?? 0, d2.share ?? 0);
     return {
       model: item.model,
       group: item.group ?? '',
@@ -193,7 +251,9 @@ function build() {
       doubt: item.doubt ?? 'low',
       types: item.types ?? d.types,
       facts: d.facts,
-      img: { b1: img('before', 'iso'), a1: img('after', 'iso'), b2: img('before', 'iso-back'), a2: img('after', 'iso-back') },
+      pixels,
+      img: { b1: img('before', 'iso'), a1: img('after', 'iso'), b2: img('before', 'iso-back'), a2: img('after', 'iso-back'),
+        d1: d1.img, d2: d2.img },
     };
   });
   const data = JSON.stringify({ title: list.title, base, items }).replace(/</g, '\\u003c');

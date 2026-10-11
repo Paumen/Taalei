@@ -32,9 +32,14 @@ already given a verdict.
 
     node tools/review/review.mjs build <list.json> --out <scratchpad>/review
 
-It renders before and after from two angles and diffs tags, size, triangles,
-bands and vertices into the facts line and type symbols (⤢ size, # tag,
-◐ recolour, ◇ shape, △ geometry). Publish `<out>/review.html` as an artifact,
+It renders before and after from two angles and diffs each model into type
+badges (⤢ size, # tag, ◐ recolour, ◇ shape, △ geometry) with one to three pips
+for how large the change is, and rows: kind and tags old → new (removed struck
+through, added green), size with its factor, triangles with the change in
+percent, colour as before and after band bars with real swatches and the share
+of surface recoloured, how far vertices moved, and the share of pixels changed.
+Strength colours run grey, amber, red. The Diff switch shows the changed
+pixels in cyan on a grey copy, for changes too small to see. Publish `<out>/review.html` as an artifact,
 renamed `_v2`, `_v3`, … on each new round, and link it in the PR.
 
 ## 3. Verdicts

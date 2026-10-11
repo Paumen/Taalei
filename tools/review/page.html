@@ -2,13 +2,14 @@
 <style>
 :root{--bg:#f7f8f6;--card:#fff;--fg:#1f2421;--mut:#646b66;--line:#dfe3df;--acc:#2f6a55;--img:#eceeea;
 --t-size:#2d62a8;--t-tag:#7a4fb0;--t-recolour:#c0532b;--t-shape:#a07a12;--t-geometry:#3b8a5a;
---v-keep:#2f7d4a;--v-keepbut:#5f8f3a;--v-revert:#b4462f;--v-retry:#c26a1c;--v-relax:#2d62a8;--v-other:#7a4fb0;--v-later:#6b716c}
+--v-keep:#2f7d4a;--v-keepbut:#5f8f3a;--v-revert:#b4462f;--v-retry:#c26a1c;--v-relax:#2d62a8;--v-other:#7a4fb0;--v-later:#6b716c;
+--s-low:#7d9a86;--s-mid:#d08f0f;--s-strong:#cc3b2b;--add:#e3f3e7;--add-fg:#1f6b37;--del:#fbe6e3;--del-fg:#a3301f}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#181b19;--card:#212522;--fg:#e6ebe7;--mut:#9aa39d;--line:#353b37;--acc:#7fc4a8;--img:#2a2f2b;
 --t-size:#7fa8e6;--t-tag:#b896e6;--t-recolour:#ec8f6b;--t-shape:#dcbc5c;--t-geometry:#7cc79a;
---v-keep:#6cc28a;--v-keepbut:#a3cf6f;--v-revert:#e58a74;--v-retry:#eba45f;--v-relax:#7fa8e6;--v-other:#b896e6;--v-later:#9aa39d;color-scheme:dark}}
+--v-keep:#6cc28a;--v-keepbut:#a3cf6f;--v-revert:#e58a74;--v-retry:#eba45f;--v-relax:#7fa8e6;--v-other:#b896e6;--v-later:#9aa39d;--s-low:#7fa38a;--s-mid:#e6a93a;--s-strong:#ee6a58;--add:#1f3a28;--add-fg:#8fdba6;--del:#43221d;--del-fg:#f29a8c;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#181b19;--card:#212522;--fg:#e6ebe7;--mut:#9aa39d;--line:#353b37;--acc:#7fc4a8;--img:#2a2f2b;
 --t-size:#7fa8e6;--t-tag:#b896e6;--t-recolour:#ec8f6b;--t-shape:#dcbc5c;--t-geometry:#7cc79a;
---v-keep:#6cc28a;--v-keepbut:#a3cf6f;--v-revert:#e58a74;--v-retry:#eba45f;--v-relax:#7fa8e6;--v-other:#b896e6;--v-later:#9aa39d;color-scheme:dark}
+--v-keep:#6cc28a;--v-keepbut:#a3cf6f;--v-revert:#e58a74;--v-retry:#eba45f;--v-relax:#7fa8e6;--v-other:#b896e6;--v-later:#9aa39d;--s-low:#7fa38a;--s-mid:#e6a93a;--s-strong:#ee6a58;--add:#1f3a28;--add-fg:#8fdba6;--del:#43221d;--del-fg:#f29a8c;color-scheme:dark}
 body{background:var(--bg);color:var(--fg);font:13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
 main{max-width:520px;margin:0 auto;padding-inline:10px;padding-block:6px 70px}
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:2;background:var(--bg);padding-block:6px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;border-bottom:1px solid var(--line)}
@@ -24,7 +25,7 @@ article.high{border-left:3px solid var(--v-retry)}
 .ims{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:4px 0}
 figure{margin:0;position:relative}figure img{display:block;width:100%;aspect-ratio:1;background:var(--img);border-radius:4px}
 figcaption{position:absolute;left:4px;top:3px;font-size:10px;color:var(--mut)}
-.back{display:none}body.two .back{display:block}
+.back{display:none}body.two .back{display:block}body.diff .back.plain,body:not(.diff) .back.diffimg,body:not(.two) .back{display:none!important}
 .facts{font:11px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--fg);margin:0 0 2px;overflow-wrap:anywhere}
 .ch{margin:0}.nt{margin:0 0 4px;color:var(--mut)}
 .v{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
@@ -35,6 +36,26 @@ figcaption{position:absolute;left:4px;top:3px;font-size:10px;color:var(--mut)}
 .v button.on[data-v=revert]{background:var(--v-revert)}.v button.on[data-v=retry]{background:var(--v-retry)}
 .v button.on[data-v=relax]{background:var(--v-relax)}.v button.on[data-v=other]{background:var(--v-other)}
 .v button.on[data-v=later]{background:var(--v-later)}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 7px 2px 6px;border-radius:10px;color:#fff}
+.badge.t-size{background:var(--t-size)}.badge.t-tag{background:var(--t-tag)}.badge.t-recolour{background:var(--t-recolour)}.badge.t-shape{background:var(--t-shape)}.badge.t-geometry{background:var(--t-geometry)}
+.pips{display:inline-flex;gap:2px}.pips i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35)}.pips i.on{background:#fff}
+article.s-low{border-left:4px solid var(--s-low)}article.s-mid{border-left:4px solid var(--s-mid)}article.s-strong{border-left:4px solid var(--s-strong)}
+.rows{display:grid;grid-template-columns:auto 1fr;gap:3px 8px;align-items:center;margin:2px 0 4px;font-size:12px}
+.rows>dt{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.rows>dd{margin:0;display:flex;flex-wrap:wrap;gap:3px 5px;align-items:center;min-width:0;font-variant-numeric:tabular-nums}
+.tg{font-size:11px;padding:0 5px;border-radius:3px;white-space:nowrap}
+.tg.add{background:var(--add);color:var(--add-fg)}.tg.del{background:var(--del);color:var(--del-fg);text-decoration:line-through}
+.tg small{opacity:.7}
+.arr{color:var(--mut)}
+.pill{font-size:11px;font-weight:700;padding:0 6px;border-radius:9px;color:#fff}
+.pill.low{background:var(--s-low)}.pill.mid{background:var(--s-mid)}.pill.strong{background:var(--s-strong)}
+.lenbar{display:grid;gap:2px;width:100%;max-width:220px}.lenbar span{display:block;height:5px;border-radius:2px;background:var(--mut)}.lenbar span.n{background:var(--t-size)}
+.stack{display:flex;height:14px;width:100%;border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.stack span{display:block;height:100%}
+.leg{display:flex;flex-wrap:wrap;gap:2px 8px;font-size:11px}.leg b{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;border:1px solid var(--line)}
+.leg .gone{text-decoration:line-through;color:var(--del-fg)}.leg .new{color:var(--add-fg);font-weight:600}
+.cw{display:grid;grid-template-columns:auto 1fr;gap:3px 6px;align-items:center;width:100%}.cw .pill{justify-self:start}.cw small{color:var(--mut);font-size:10px}.cw>.leg,.cw>.pill{grid-column:1/-1}
+.diffimg{display:none}body.diff .diffimg{display:block}body.diff .plain{display:none}
 textarea{display:block;width:100%;box-sizing:border-box;margin-top:4px;font:inherit;font-size:12px;padding:4px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg);resize:vertical;min-height:30px}
 textarea.need{border-color:var(--v-retry)}
 .bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap}
@@ -58,23 +79,47 @@ const NEED={keepbut:'Keep, and then what?',retry:'Revert and try how?',relax:'Wh
 const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
-const shown=new Set(Object.keys(TYPES));let two=false,openOnly=false;
+const shown=new Set(Object.keys(TYPES));let two=false,openOnly=false,diffMode=false;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const chip=t=>`<span class="chip t-${t}" title="${TYPES[t][1]}">${TYPES[t][0]} ${TYPES[t][1]}</span>`;
+const LEVEL={low:1,mid:2,strong:3};
+const FACT_TYPE={kind:'tag',tags:'tag',size:'size',tris:'geometry',colour:'recolour',shape:'shape'};
+const levelOf=(it,t)=>Math.max(0,...it.facts.filter(f=>FACT_TYPE[f.f]===t).map(f=>LEVEL[f.s]||1));
+const badge=(it,t)=>{const l=levelOf(it,t);return `<span class="badge t-${t}" title="${TYPES[t][1]}, ${['','small','medium','large'][l]} change">${TYPES[t][0]} ${TYPES[t][1]}<span class="pips">${[1,2,3].map(n=>`<i class="${n<=l?'on':''}"></i>`).join('')}</span></span>`};
+const pill=(txt,s)=>`<span class="pill ${s}">${esc(txt)}</span>`;
+const tg=(t,cls)=>`<span class="tg ${cls}">${cls==='add'?'+':'−'}${esc(t.id)}${t.type?` <small>${esc(t.type)}</small>`:''}</span>`;
+const sign=n=>n>0?'+'+n:String(n);
+function stack(row){return `<div class="stack">${row.map(b=>`<span style="width:${Math.max(b.share,1)}%;background:${b.hex}" title="${esc(b.name)} ${b.share}%"></span>`).join('')}</div>`}
+function factRows(it){
+  const r=[];
+  for(const f of it.facts){
+    if(f.f==='kind')r.push(['kind',`<span class="tg del">${esc(f.from||'none')}</span><span class="arr">→</span><span class="tg add" style="text-decoration:none">${esc(f.to||'none')}</span>`]);
+    if(f.f==='tags')r.push(['tags',[...f.remove.map(t=>tg(t,'del')),...f.add.map(t=>tg(t,'add'))].join('')]);
+    if(f.f==='size'){const mx=Math.max(f.from,f.to);r.push(['size',`<span>${f.from} m</span><span class="arr">→</span><b>${f.to} m</b>${pill('×'+f.factor,f.s)}<div class="lenbar"><span style="width:${f.from/mx*100}%"></span><span class="n" style="width:${f.to/mx*100}%"></span></div>`])}
+    if(f.f==='tris')r.push(['tris',`<span>${f.from}</span><span class="arr">→</span><b>${f.to}</b>${pill(sign(f.pct)+'%',f.s)}`]);
+    if(f.f==='colour'){const was=new Set(f.from.map(b=>b.name)),now=new Set(f.to.map(b=>b.name));
+      const leg=[...f.from.filter(b=>!now.has(b.name)).map(b=>`<span class="gone"><b style="background:${b.hex}"></b>${esc(b.name)} ${b.share}%</span>`),
+        ...f.to.map(b=>`<span class="${was.has(b.name)?'':'new'}"><b style="background:${b.hex}"></b>${esc(b.name)} ${b.share}%</span>`)].join('');
+      r.push(['colour',`<div class="cw">${pill(f.changed+'% of surface recoloured',f.s)}<small>before</small>${stack(f.from)}<small>after</small>${stack(f.to)}<div class="leg">${leg}</div></div>`])}
+    if(f.f==='shape')r.push(['shape',`<span>vertices moved up to</span><b>${f.move}%</b><span>of size</span>${pill(f.s==='strong'?'large':f.s==='mid'?'medium':'small',f.s)}`]);
+  }
+  if(it.pixels!=null)r.push(['look',`${pill(it.pixels+'% of pixels',it.pixels>=20?'strong':it.pixels>=5?'mid':'low')}<span class="arr">changed in the render; Diff shows where${it.facts.some(f=>f.f==='size')?'. Renders are fitted to the frame, so size shows only above':''}</span>`]);
+  return r.length?`<dl class="rows">${r.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`:'';
+}
+const maxLevel=it=>Math.max(0,...it.facts.map(f=>LEVEL[f.s]||1));
 const fig=(src,cap,cls='')=>src?`<figure class="${cls}"><img src="${src}" alt="${cap}" loading="lazy"><figcaption>${cap}</figcaption></figure>`:`<figure class="${cls}"><figcaption>${cap}: none</figcaption></figure>`;
 function drawTop(){
   const el=document.getElementById('top');
   el.innerHTML=Object.keys(TYPES).map(t=>`<button type="button" class="chip t-${t}" data-t="${t}" aria-pressed="${shown.has(t)}">${TYPES[t][0]} ${TYPES[t][1]}</button>`).join('')+
-  `<button type="button" class="sw" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="sw" id="open" aria-pressed="${openOnly}">Unmarked</button>`;
+  `<button type="button" class="sw" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="sw" id="diff" aria-pressed="${diffMode}">Diff</button><button type="button" class="sw" id="open" aria-pressed="${openOnly}">Unmarked</button>`;
 }
 function drawList(){
   let html='',g=null;
   D.items.forEach((it,i)=>{
     if(it.group!==g){g=it.group;html+=g?`<h2>${esc(g)}</h2>`:''}
     const s=st[it.model]||{};
-    html+=`<article data-i="${i}" class="${it.doubt==='high'?'high':''}"><div class="hd"><b>${esc(it.model)}</b>${it.types.map(chip).join('')}</div>
-<div class="ims">${fig(it.img.b1,'before')}${fig(it.img.a1,'after')}${fig(it.img.b2,'before, back','back')}${fig(it.img.a2,'after, back','back')}</div>
-${it.facts.length?`<p class="facts">${it.facts.map(esc).join(' · ')}</p>`:''}${it.change?`<p class="ch">${esc(it.change)}</p>`:''}${it.note?`<p class="nt">${esc(it.note)}</p>`:''}
+    html+=`<article data-i="${i}" class="s-${['low','low','mid','strong'][maxLevel(it)]}"><div class="hd"><b>${esc(it.model)}</b>${it.types.map(t=>badge(it,t)).join('')}</div>
+<div class="ims">${fig(it.img.b1,'before')}${fig(it.img.a1,'after','plain')}${fig(it.img.d1,'changed pixels','diffimg')}${fig(it.img.b2,'before, back','back')}${fig(it.img.a2,'after, back','back plain')}${fig(it.img.d2,'changed pixels, back','back diffimg')}</div>
+${factRows(it)}${it.change?`<p class="ch">${esc(it.change)}</p>`:''}${it.note?`<p class="nt">${esc(it.note)}</p>`:''}
 <div class="v" role="group" aria-label="verdict">${VERDICTS.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}" aria-pressed="${s.v===v}">${l}</button>`).join('')}</div>
 <textarea id="c${i}" rows="1" placeholder="${esc(NEED[s.v]||'Comment')}" class="${NEED[s.v]&&!s.c?'need':''}">${esc(s.c||'')}</textarea></article>`;
   });
@@ -89,6 +134,7 @@ function count(){const m=Object.values(st).filter(s=>s.v).length;document.getEle
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-t]');if(t){shown.has(t.dataset.t)?shown.delete(t.dataset.t):shown.add(t.dataset.t);drawTop();filter();return}
   if(e.target.id==='two'){two=!two;document.body.classList.toggle("two",two);drawTop();return}
+  if(e.target.id==='diff'){diffMode=!diffMode;document.body.classList.toggle("diff",diffMode);drawTop();return}
   if(e.target.id==='open'){openOnly=!openOnly;drawTop();filter();return}
   const b=e.target.closest('.v button');if(!b)return;
   const a=b.closest('article'),it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
