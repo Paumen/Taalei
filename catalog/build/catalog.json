@@ -123688,7 +123688,7 @@
   {
    "kit": "kay-city",
    "name": "building-e-no-base",
-   "hash": "70f411e089",
+   "hash": "800f7c80cf",
    "kind": "str-building-residential",
    "size": "l",
    "wdh": [
@@ -123699,7 +123699,7 @@
    "tris": 1014,
    "tpu": 50,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
    "bytes": 65072,
    "vtx": 1792,
@@ -123736,11 +123736,16 @@
     "12,3": [
      0.148,
      0.75
+    ],
+    "8,0": [
+     0.188,
+     0.445
     ]
    },
    "colors": [
     "#41352b",
     "#7a8491",
+    "#873a27",
     "#b5d5e3",
     "#ce7954",
     "#d8cfb7",
@@ -123754,7 +123759,14 @@
     "textile-cloth-light"
    ],
    "variant": "kay-city/building-e",
-   "thickRel": 1.16
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 7 wants max 6"
+    }
+   ]
   },
   {
    "kit": "kay-city",
