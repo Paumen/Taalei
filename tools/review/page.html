@@ -173,11 +173,11 @@ function scalePanel(it){
 }
 const boxes=list=>(list||[]).map(([x,y,w,h])=>`<i class="bx" style="left:${x*100}%;top:${y*100}%;width:${w*100}%;height:${h*100}%"></i>`).join('');
 const pic=(src,cap,cls,bx)=>`<figure class="pic ${cls||''}">${src?`<img src="${src}" alt="${esc(cap)}" loading="lazy">`:''}${cap?`<figcaption>${esc(cap)}</figcaption>`:''}${bx||''}</figure>`;
-const wipe=(b,a,cls)=>`<div class="wipe ${cls||''}"><img src="${b}" alt="before"><img class="a" src="${a}" alt="after"><div class="h"></div><figcaption class="lb">before</figcaption><figcaption class="rb">after</figcaption></div>`;
+const wipe=(b,a,cls)=>`<div class="wipe ${cls||''}"><img src="${b}" alt="before"><img class="a" src="${a}" alt="after"><div class="h"></div></div>`;
 function pics(it){
   if(it.scale)return scalePanel(it);
-  if(!it.visual)return `<div class="pics">${pic(it.img.a1,'model')}${pic(it.img.a2,'model, back')}</div>`;
-  return `<div class="pics vis">${pic(it.img.b1,'')}${pic(it.img.a1,'','',boxes(it.boxes.front))}${pic(it.img.b2,'back','back')}${pic(it.img.a2,'back','back',boxes(it.boxes.back))}</div>${wipe(it.img.b1,it.img.a1)}${wipe(it.img.b2,it.img.a2,'back')}`;
+  if(!it.visual)return `<div class="pics">${pic(it.img.a1,'')}${pic(it.img.a2,'')}</div>`;
+  return `<div class="pics vis">${pic(it.img.b1,'')}${pic(it.img.a1,'','',boxes(it.boxes.front))}${pic(it.img.b2,'','back')}${pic(it.img.a2,'','back',boxes(it.boxes.back))}</div>${wipe(it.img.b1,it.img.a1)}${wipe(it.img.b2,it.img.a2,'back')}`;
 }
 function drawTop(){
   document.getElementById('top').innerHTML=`<span class="title">${esc(D.title)}</span>`+
@@ -186,8 +186,8 @@ function drawTop(){
 }
 function card(it,i){
   const s=st[it.model]||{},more=MORE.some(m=>m[0]===s.v);
-  return `<article data-i="${i}"><div class="head"><span class="name">${esc(it.model)}</span><span class="hdots">${it.types.map(t=>dot(t)).join('')}</span></div>
-${it.visual||it.scale?`<div class="colhead"><span>Before</span><span>After</span></div>`:''}${pics(it)}${factRows(it)}${it.change||it.note?`<p class="note">${esc([it.change,it.note].filter(Boolean).join(' '))}</p>`:''}
+  return `<article data-i="${i}"><div class="head"><span class="name">${esc(it.model)}</span></div>
+${pics(it)}${factRows(it)}${it.change||it.note?`<p class="note">${esc([it.change,it.note].filter(Boolean).join(' '))}</p>`:''}
 <div class="verdict"><button type="button" class="revert ${s.v==='revert'?'on':''}" data-v="revert">Revert</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="moreb ${more?'on':''}" data-more>More</button></div>
 <div class="more ${more?'open':''}">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}</div>
 <textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${more||s.c?'open':''} ${NEED[s.v]&&!s.c?'need':''}">${esc(s.c||'')}</textarea></article>`;
