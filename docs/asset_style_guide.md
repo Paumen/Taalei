@@ -149,7 +149,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
 
-Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15` and `G17` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness), `G29` (normals). `G06` leaves out `kind:str-part` and `kind:str-barrier-fence`, which are pivoted at a corner or edge. `G11` leaves out `kind:obj-transport-land-rail` and `kind:obj-transport-air-space`, whose livery takes more colours.
+Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15` and `G17` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness), `G29` (normals). `G06` leaves out `kind:str-part` and `kind:str-barrier-fence`, which are pivoted at a corner or edge. `G11` leaves out `kind:obj-transport-land-rail` and `kind:obj-transport-air-space`, whose livery takes more colours, `kind:str-fixture-light-traffic`, whose three lamps are one material, and `kind:str-fixture-marker-totem`, whose paint has no material. `G12` leaves out birds, sushi, lettering signs and writing tools, which stay under `G13`. `G15` leaves out `kind:obj-transport-land-road`, which `G13` caps at every size.
 
 `leaf` is 1 for a model whose kind has no children in `lint/kinds.json`, 0 otherwise.
 
@@ -161,7 +161,7 @@ Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors
 
 `badNormals` counts vertex normals that are not unit length, zero-length ones included, as the glTF validator reads them. `G29` allows none.
 
-`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself: cars and arcade machines set 6.
+`G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself: road vehicles set 7, arcade machines and carts 6.
 
 Run `node lint/measures.mjs`, or `node lint/measures.mjs G11 G12` for some rows.
 

@@ -114,7 +114,7 @@ Read `lint/materials.json` and `lint/kinds.json` before choosing, not after
 
 `lint/measures.json` caps bands at `nmat × 2` (G11; `nmat × 3` for food, fauna
 and plastic, G12), at the kind's `bands.max` (5 unless the kind in
-`lint/kinds.json` raises it) for most models, 6 for `size:l` (G13, G15) and 7 for `size:l` buildings (G17), and size is measured on the longest extent against
+`lint/kinds.json` raises it) for most models, 6 for `size:l` except road vehicles (G13, G15) and 7 for `size:l` buildings (G17), and size is measured on the longest extent against
 `lint/variables.json` (`s` ≤ 0.5, `m` ≤ 1.5, `l` above). `tag:plural` and
 `kind:set` are exempt. A model over its budget is worked as §7 says.
 

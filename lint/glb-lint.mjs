@@ -94,7 +94,11 @@ async function lint(file) {
     add(v.sev === 0 ? 'error' : v.sev === 1 ? 'warn' : 'info', 'validator', `${code} ×${v.n} — ${v.msg}`);
 
   const meta = j.asset?.extras?.taaleiland;
-  if ((j.materials || []).length !== CFG.house.materials) add('warn', 'house', `${(j.materials || []).length} materials (expected ${CFG.house.materials})`);
+  const animated = new Set((j.animations || []).flatMap(a => a.channels.map(c => c.target.node)));
+  const matNodes = new Map();
+  (j.nodes || []).forEach((n, i) => { if ('mesh' in n) for (const p of j.meshes[n.mesh].primitives) if ('material' in p) (matNodes.get(p.material) || matNodes.set(p.material, []).get(p.material)).push(i); });
+  const houseMats = (j.materials || []).filter((m, i) => m.alphaMode !== 'BLEND' && !(matNodes.get(i) || []).every(n => animated.has(n)));
+  if (Math.max(houseMats.length, Math.min(1, (j.materials || []).length)) !== CFG.house.materials) add('warn', 'house', `${(j.materials || []).length} materials (expected ${CFG.house.materials})`);
   for (const im of j.images || []) if (im.uri !== CFG.house.texture) add('warn', 'house', `texture "${im.uri || 'embedded'}" (expected ${CFG.house.texture})`);
   if (meta && !meta.bronmodel) add('info', 'meta', 'no bronmodel in metadata');
 
@@ -104,7 +108,7 @@ async function lint(file) {
   if (nodes.some((n, i) => n.children && !('mesh' in n) && parent[i] === undefined && n.children.length === 1)) add('info', 'structure', 'wrapper node around the mesh (box inside a box)');
   if (nodes.some(n => n.rotation && Math.abs(n.rotation[3]) < 0.9999)) add('info', 'structure', 'rotation stored on the node, not in the shape');
   if ((j.scenes?.[j.scene ?? 0]?.nodes || []).some(i => nodes[i].scale)) add('error', 'house', 'scale on a root node: the size belongs in the geometry (tools/import/scale.mjs)');
-  if (nodes.some(n => n.scale && (Math.abs(n.scale[0] - n.scale[1]) > 1e-6 || Math.abs(n.scale[0] - n.scale[2]) > 1e-6))) add('warn', 'structure', 'non-uniform scale on a node');
+  if (nodes.some((n, i) => !animated.has(i) && n.scale && (Math.abs(n.scale[0] - n.scale[1]) > 1e-6 || Math.abs(n.scale[0] - n.scale[2]) > 1e-6))) add('warn', 'structure', 'non-uniform scale on a node');
   if ((j.animations || []).length) add('info', 'structure', `${j.animations.length} animation(s): ${j.animations.map(a => a.name).join(', ')}`);
 
   let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity], rawExt = 0;
