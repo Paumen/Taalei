@@ -17,6 +17,7 @@
    "children": [
     {
      "id": "obj-container",
+     "longest.min": 0.1,
      "nouns": [
       "bin"
      ],
@@ -49,8 +50,8 @@
       },
       {
        "id": "obj-container-coffin",
-       "longest.min": 0.55,
-       "longest.max": 1.05,
+       "longest.min": 0.6,
+       "longest.max": 1,
        "nouns": [
         "coffin",
         "sarcophagus"
@@ -58,8 +59,8 @@
       },
       {
        "id": "obj-container-barrel",
-       "longest.min": 0.3,
-       "longest.max": 0.7,
+       "longest.min": 0.2,
+       "longest.max": 0.8,
        "mat.metal": [
         "metal-steel",
         "metal-iron-mid",
@@ -93,7 +94,7 @@
       },
       {
        "id": "obj-container-bucket",
-       "longest.min": 0.22,
+       "longest.min": 0.2,
        "longest.max": 0.6,
        "mat.metal": [
         "metal-steel",
@@ -115,6 +116,7 @@
        "children": [
         {
          "id": "obj-container-bucket-tub",
+         "longest.max": 0.8,
          "nouns": [
           "tub"
          ]
@@ -123,8 +125,8 @@
       },
       {
        "id": "obj-container-crate",
-       "longest.min": 0.15,
-       "longest.max": 1.05,
+       "longest.min": 0.2,
+       "longest.max": 1,
        "tube.min": 0.006,
        "mat.metal": [
         "metal-steel",
@@ -164,6 +166,7 @@
         },
         {
          "id": "obj-container-crate-cardboard",
+         "longest.min": 0.15,
          "nouns": [
           "cardboard box",
           "package"
@@ -171,6 +174,7 @@
          "children": [
           {
            "id": "obj-container-crate-cardboard-takeaway",
+           "longest.max": 0.5,
            "nouns": [
             "takeaway box",
             "take-away box",
@@ -191,6 +195,8 @@
         },
         {
          "id": "obj-container-crate-scifi",
+         "longest.min": 0.15,
+         "longest.max": 0.9,
          "nouns": [
           "cargo pod",
           "supply crate",
@@ -200,6 +206,8 @@
         },
         {
          "id": "obj-container-crate-produce",
+         "longest.min": 0.15,
+         "longest.max": 0.9,
          "nouns": [
           "produce crate",
           "fruit crate",
@@ -211,6 +219,7 @@
       },
       {
        "id": "obj-container-present",
+       "longest.max": 0.7,
        "nouns": [
         "present",
         "gift",
@@ -219,7 +228,6 @@
       },
       {
        "id": "obj-container-bottle",
-       "longest.min": 0.06,
        "longest.max": 0.5,
        "tube.min": 0.006,
        "has": [
@@ -236,9 +244,8 @@
        "children": [
         {
          "id": "obj-container-bottle-vial",
+         "longest.max": 0.4,
          "tube.min": 0.012,
-         "longest.min": 0.1,
-         "longest.max": 0.35,
          "scale": {
           "big": 1.5
          },
@@ -301,7 +308,6 @@
         },
         {
          "id": "obj-container-bag-pouch",
-         "longest.min": 0.1,
          "longest.max": 0.3,
          "nouns": [
           "pouch",
@@ -311,6 +317,7 @@
         },
         {
          "id": "obj-container-bag-kit",
+         "longest.max": 0.5,
          "nouns": [
           "first-aid kit",
           "health kit",
@@ -321,6 +328,7 @@
       },
       {
        "id": "obj-container-pot",
+       "longest.max": 0.8,
        "scale": {
         "small": 0.5,
         "big": 2
@@ -344,7 +352,6 @@
         },
         {
          "id": "obj-container-pot-jar",
-         "longest.min": 0.1,
          "longest.max": 0.3,
          "nouns": [
           "jar",
@@ -354,8 +361,8 @@
         },
         {
          "id": "obj-container-pot-urn",
-         "longest.min": 0.25,
-         "longest.max": 0.55,
+         "longest.min": 0.2,
+         "longest.max": 0.5,
          "nouns": [
           "urn"
          ]
@@ -364,6 +371,7 @@
       },
       {
        "id": "obj-container-can",
+       "longest.max": 0.4,
        "nouns": [
         "can"
        ],
@@ -398,6 +406,7 @@
        "children": [
         {
          "id": "obj-container-carton-drink",
+         "longest.min": 0.15,
          "nouns": [
           "milk carton",
           "drink carton",
@@ -409,7 +418,7 @@
       {
        "id": "obj-container-trashcan",
        "longest.min": 0.2,
-       "longest.max": 0.65,
+       "longest.max": 0.6,
        "scale": {
         "small": 0.5
        },
@@ -421,8 +430,8 @@
       },
       {
        "id": "obj-container-cargo",
-       "longest.min": 1.35,
-       "longest.max": 2,
+       "longest.min": 1.4,
+       "longest.max": 2.2,
        "scale": {
         "small": 0.5
        },
@@ -434,13 +443,15 @@
       {
        "id": "obj-container-basket",
        "longest.min": 0.2,
-       "longest.max": 0.55,
+       "longest.max": 0.6,
        "nouns": [
         "basket"
        ]
       },
       {
        "id": "obj-container-dumpster",
+       "longest.min": 0.5,
+       "longest.max": 2,
        "nouns": [
         "dumpster",
         "skip"
@@ -448,6 +459,8 @@
       },
       {
        "id": "obj-container-cylinder",
+       "longest.min": 0.15,
+       "longest.max": 0.9,
        "tube.min": 0.006,
        "nouns": [
         "gas cylinder",
@@ -468,12 +481,16 @@
       },
       {
        "id": "obj-container-cage",
+       "longest.min": 0.3,
+       "longest.max": 2,
        "nouns": [
         "cage"
        ]
       },
       {
        "id": "obj-container-trough",
+       "longest.min": 0.4,
+       "longest.max": 1.2,
        "nouns": [
         "trough"
        ]
@@ -513,9 +530,9 @@
        "children": [
         {
          "id": "obj-kitchenware-tableware-cutlery",
-         "tube.min": 0.006,
          "longest.min": 0.15,
          "longest.max": 0.35,
+         "tube.min": 0.006,
          "nouns": [
           "knife (table)",
           "fork",
@@ -534,7 +551,7 @@
         },
         {
          "id": "obj-kitchenware-tableware-plate",
-         "longest.min": 0.15,
+         "longest.min": 0.2,
          "longest.max": 0.35,
          "has": [
           [
@@ -557,7 +574,7 @@
         },
         {
          "id": "obj-kitchenware-tableware-serving",
-         "longest.min": 0.15,
+         "longest.min": 0.25,
          "longest.max": 0.5,
          "nouns": [
           "cloche"
@@ -573,6 +590,7 @@
           },
           {
            "id": "obj-kitchenware-tableware-serving-stand",
+           "longest.min": 0.2,
            "nouns": [
             "pastry stand",
             "cake stand",
@@ -610,8 +628,6 @@
          "children": [
           {
            "id": "obj-kitchenware-tableware-drinkware-mug",
-           "longest.min": 0.1,
-           "longest.max": 0.3,
            "has": [
             [
              "wood",
@@ -625,8 +641,6 @@
           },
           {
            "id": "obj-kitchenware-tableware-drinkware-goblet",
-           "longest.min": 0.1,
-           "longest.max": 0.3,
            "scale": {
             "big": 2
            },
@@ -638,8 +652,6 @@
           },
           {
            "id": "obj-kitchenware-tableware-drinkware-tankard",
-           "longest.min": 0.1,
-           "longest.max": 0.3,
            "has": [
             [
              "wood",
@@ -664,7 +676,6 @@
           },
           {
            "id": "obj-kitchenware-tableware-drinkware-glass",
-           "longest.min": 0.05,
            "nouns": [
             "glass",
             "drinking glass",
@@ -727,7 +738,7 @@
          "children": [
           {
            "id": "obj-kitchenware-cookware-pan-frying",
-           "longest.min": 0.15,
+           "longest.min": 0.3,
            "longest.max": 0.55,
            "nouns": [
             "frying pan",
@@ -738,7 +749,7 @@
         },
         {
          "id": "obj-kitchenware-cookware-cookpot",
-         "longest.min": 0.15,
+         "longest.min": 0.2,
          "longest.max": 0.45,
          "band.ceramic": [
           "terracotta"
@@ -751,8 +762,8 @@
          "children": [
           {
            "id": "obj-kitchenware-cookware-cookpot-cauldron",
-           "longest.min": 0.25,
-           "longest.max": 0.55,
+           "longest.min": 0.3,
+           "longest.max": 0.5,
            "nouns": [
             "cauldron"
            ]
@@ -761,7 +772,7 @@
         },
         {
          "id": "obj-kitchenware-cookware-kettle",
-         "longest.min": 0.1,
+         "longest.min": 0.2,
          "longest.max": 0.4,
          "tube.min": 0.006,
          "nouns": [
@@ -781,8 +792,8 @@
         },
         {
          "id": "obj-kitchenware-cookware-utensil",
-         "longest.min": 0.1,
-         "longest.max": 0.35,
+         "longest.min": 0.15,
+         "longest.max": 0.4,
          "nouns": [
           "rice paddle",
           "wooden paddle"
@@ -790,8 +801,8 @@
          "children": [
           {
            "id": "obj-kitchenware-cookware-utensil-spoon",
+           "longest.min": 0.2,
            "tube.min": 0.006,
-           "longest.max": 0.4,
            "nouns": [
             "wooden spoon",
             "cooking spoon"
@@ -807,9 +818,9 @@
           },
           {
            "id": "obj-kitchenware-cookware-utensil-spatula",
-           "tube.min": 0.006,
-           "longest.min": 0.15,
+           "longest.min": 0.25,
            "longest.max": 0.45,
+           "tube.min": 0.006,
            "nouns": [
             "spatula",
             "turner"
@@ -817,25 +828,25 @@
           },
           {
            "id": "obj-kitchenware-cookware-utensil-whisk",
+           "longest.min": 0.2,
            "tube.min": 0.006,
-           "longest.max": 0.4,
            "nouns": [
             "whisk"
            ]
           },
           {
            "id": "obj-kitchenware-cookware-utensil-rollingpin",
-           "longest.min": 0.15,
-           "longest.max": 0.55,
+           "longest.min": 0.2,
+           "longest.max": 0.5,
            "nouns": [
             "rolling pin"
            ]
           },
           {
            "id": "obj-kitchenware-cookware-utensil-knife",
-           "tube.min": 0.006,
-           "longest.min": 0.15,
+           "longest.min": 0.2,
            "longest.max": 0.45,
+           "tube.min": 0.006,
            "nouns": [
             "knife (kitchen)"
            ],
@@ -855,6 +866,8 @@
       },
       {
        "id": "obj-kitchenware-papertowel",
+       "longest.min": 0.2,
+       "longest.max": 0.4,
        "nouns": [
         "paper towel",
         "kitchen roll",
@@ -893,8 +906,8 @@
         },
         {
          "id": "obj-food-meat-roast",
-         "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.min": 0.2,
+         "longest.max": 0.6,
          "nouns": [
           "roast",
           "roast chicken",
@@ -916,15 +929,15 @@
         {
          "id": "obj-food-meat-steak",
          "longest.min": 0.15,
-         "longest.max": 0.35,
+         "longest.max": 0.4,
          "nouns": [
           "steak"
          ]
         },
         {
          "id": "obj-food-meat-sausage",
-         "longest.min": 0.1,
-         "longest.max": 0.3,
+         "longest.min": 0.15,
+         "longest.max": 0.35,
          "nouns": [
           "sausage",
           "hot dog",
@@ -945,8 +958,8 @@
        "children": [
         {
          "id": "obj-food-vegetable-pumpkin",
-         "longest.min": 0.15,
-         "longest.max": 0.5,
+         "longest.min": 0.2,
+         "longest.max": 0.45,
          "band": [
           "terracotta"
          ],
@@ -957,8 +970,8 @@
         },
         {
          "id": "obj-food-vegetable-tomato",
-         "longest.min": 0.05,
-         "longest.max": 0.25,
+         "longest.min": 0.1,
+         "longest.max": 0.2,
          "band": [
           "sienna"
          ],
@@ -986,7 +999,7 @@
         },
         {
          "id": "obj-food-vegetable-onion",
-         "longest.min": 0.05,
+         "longest.min": 0.1,
          "longest.max": 0.25,
          "nouns": [
           "onion"
@@ -994,7 +1007,7 @@
         },
         {
          "id": "obj-food-vegetable-pepper",
-         "longest.min": 0.05,
+         "longest.min": 0.1,
          "longest.max": 0.25,
          "nouns": [
           "pepper",
@@ -1021,7 +1034,7 @@
         },
         {
          "id": "obj-food-vegetable-root",
-         "longest.min": 0.05,
+         "longest.min": 0.15,
          "longest.max": 0.4,
          "nouns": [
           "turnip",
@@ -1031,6 +1044,7 @@
          "children": [
           {
            "id": "obj-food-vegetable-root-carrot",
+           "longest.min": 0.1,
            "longest.max": 0.3,
            "band": [
             "terracotta"
@@ -1065,7 +1079,7 @@
         {
          "id": "obj-food-fish-sushi",
          "longest.min": 0.05,
-         "longest.max": 0.25,
+         "longest.max": 0.15,
          "nouns": [
           "sushi",
           "sashimi"
@@ -1093,23 +1107,23 @@
        "children": [
         {
          "id": "obj-food-fruit-apple",
-         "longest.min": 0.05,
-         "longest.max": 0.25,
+         "longest.min": 0.1,
+         "longest.max": 0.2,
          "nouns": [
           "apple"
          ]
         },
         {
          "id": "obj-food-fruit-coconut",
-         "longest.min": 0.135,
-         "longest.max": 0.35,
+         "longest.min": 0.15,
+         "longest.max": 0.3,
          "nouns": [
           "coconut"
          ]
         },
         {
          "id": "obj-food-fruit-banana",
-         "longest.min": 0.1,
+         "longest.min": 0.15,
          "longest.max": 0.3,
          "nouns": [
           "banana"
@@ -1125,7 +1139,7 @@
         },
         {
          "id": "obj-food-fruit-lemon",
-         "longest.min": 0.05,
+         "longest.min": 0.1,
          "longest.max": 0.15,
          "band": [
           "amber"
@@ -1136,7 +1150,7 @@
         },
         {
          "id": "obj-food-fruit-mango",
-         "longest.min": 0.08,
+         "longest.min": 0.1,
          "longest.max": 0.2,
          "nouns": [
           "mango"
@@ -1144,7 +1158,7 @@
         },
         {
          "id": "obj-food-fruit-orange",
-         "longest.min": 0.05,
+         "longest.min": 0.1,
          "longest.max": 0.2,
          "nouns": [
           "orange"
@@ -1152,7 +1166,7 @@
         },
         {
          "id": "obj-food-fruit-pineapple",
-         "longest.min": 0.2,
+         "longest.min": 0.25,
          "longest.max": 0.4,
          "nouns": [
           "pineapple"
@@ -1160,7 +1174,7 @@
         },
         {
          "id": "obj-food-fruit-pear",
-         "longest.min": 0.08,
+         "longest.min": 0.1,
          "longest.max": 0.2,
          "nouns": [
           "pear"
@@ -1168,7 +1182,7 @@
         },
         {
          "id": "obj-food-fruit-melon",
-         "longest.min": 0.15,
+         "longest.min": 0.2,
          "longest.max": 0.45,
          "nouns": [
           "melon",
@@ -1177,7 +1191,6 @@
         },
         {
          "id": "obj-food-fruit-cherry",
-         "longest.min": 0.02,
          "longest.max": 0.15,
          "nouns": [
           "cherry",
@@ -1186,7 +1199,7 @@
         },
         {
          "id": "obj-food-fruit-avocado",
-         "longest.min": 0.05,
+         "longest.min": 0.1,
          "longest.max": 0.2,
          "nouns": [
           "avocado"
@@ -1196,8 +1209,8 @@
       },
       {
        "id": "obj-food-dairy",
-       "longest.min": 0.05,
-       "longest.max": 0.17,
+       "longest.min": 0.08,
+       "longest.max": 0.2,
        "nouns": [
         "yogurt",
         "yoghurt",
@@ -1206,8 +1219,8 @@
        "children": [
         {
          "id": "obj-food-dairy-cheese",
-         "high.min": 0.05,
-         "high.max": 0.25,
+         "high.min": 0.07,
+         "high.max": 0.2,
          "band": [
           "amber",
           "ivory"
@@ -1222,18 +1235,21 @@
       },
       {
        "id": "obj-food-sweet",
+       "longest.min": 0.07,
        "nouns": [
         "candy"
        ],
        "children": [
         {
          "id": "obj-food-sweet-cane",
+         "longest.min": 0.1,
          "nouns": [
           "candy cane"
          ]
         },
         {
          "id": "obj-food-sweet-chocolate",
+         "longest.min": 0.1,
          "nouns": [
           "chocolate",
           "chocolate bar"
@@ -1241,7 +1257,7 @@
         },
         {
          "id": "obj-food-sweet-icecream",
-         "longest.min": 0.1,
+         "longest.min": 0.15,
          "longest.max": 0.3,
          "nouns": [
           "ice cream",
@@ -1250,9 +1266,9 @@
         },
         {
          "id": "obj-food-sweet-lollipop",
-         "tube.min": 0.006,
          "longest.min": 0.1,
-         "longest.max": 0.3,
+         "longest.max": 0.25,
+         "tube.min": 0.006,
          "nouns": [
           "lollipop",
           "lollypop"
@@ -1262,8 +1278,8 @@
       },
       {
        "id": "obj-food-egg",
-       "longest.min": 0.05,
-       "longest.max": 0.25,
+       "longest.min": 0.07,
+       "longest.max": 0.2,
        "scale": {
         "big": 2
        },
@@ -1273,7 +1289,7 @@
       },
       {
        "id": "obj-food-meal",
-       "longest.min": 0.14,
+       "longest.min": 0.15,
        "longest.max": 0.4,
        "nouns": [
         "meal",
@@ -1287,7 +1303,7 @@
         {
          "id": "obj-food-meal-burger",
          "longest.min": 0.1,
-         "longest.max": 0.35,
+         "longest.max": 0.25,
          "nouns": [
           "burger",
           "hamburger",
@@ -1296,7 +1312,6 @@
         },
         {
          "id": "obj-food-meal-sandwich",
-         "longest.min": 0.15,
          "longest.max": 0.35,
          "nouns": [
           "sandwich",
@@ -1326,8 +1341,8 @@
          "children": [
           {
            "id": "obj-food-baked-bread-baguette",
-           "longest.min": 0.35,
-           "longest.max": 0.8,
+           "longest.min": 0.25,
+           "longest.max": 0.6,
            "nouns": [
             "baguette",
             "french bread"
@@ -1335,6 +1350,7 @@
           },
           {
            "id": "obj-food-baked-bread-bun",
+           "longest.max": 0.2,
            "band": [
             "tan",
             "camel"
@@ -1351,15 +1367,15 @@
         {
          "id": "obj-food-baked-pie",
          "high.min": 0.05,
-         "high.max": 0.25,
+         "high.max": 0.2,
          "nouns": [
           "pie"
          ]
         },
         {
          "id": "obj-food-baked-cake",
-         "high.min": 0.05,
-         "high.max": 0.25,
+         "high.min": 0.1,
+         "high.max": 0.3,
          "nouns": [
           "cake",
           "birthday cake",
@@ -1377,8 +1393,8 @@
          "children": [
           {
            "id": "obj-food-baked-pastry-cookie",
-           "longest.min": 0.05,
-           "longest.max": 0.25,
+           "longest.min": 0.07,
+           "longest.max": 0.2,
            "nouns": [
             "cookie",
             "gingerbread house"
@@ -1386,6 +1402,8 @@
            "children": [
             {
              "id": "obj-food-baked-pastry-cookie-gingerbread",
+             "longest.min": 0.1,
+             "longest.max": 0.25,
              "nouns": [
               "gingerbread man",
               "gingerbread woman"
@@ -1395,8 +1413,8 @@
           },
           {
            "id": "obj-food-baked-pastry-donut",
-           "longest.min": 0.05,
-           "longest.max": 0.25,
+           "longest.min": 0.07,
+           "longest.max": 0.2,
            "band": [
             "tan",
             "camel"
@@ -1408,7 +1426,7 @@
           {
            "id": "obj-food-baked-pastry-waffle",
            "longest.min": 0.1,
-           "longest.max": 0.3,
+           "longest.max": 0.2,
            "nouns": [
             "waffle"
            ]
@@ -1416,15 +1434,15 @@
           {
            "id": "obj-food-baked-pastry-croissant",
            "longest.min": 0.1,
-           "longest.max": 0.3,
+           "longest.max": 0.25,
            "nouns": [
             "croissant"
            ]
           },
           {
            "id": "obj-food-baked-pastry-cupcake",
-           "longest.min": 0.05,
-           "longest.max": 0.25,
+           "longest.min": 0.07,
+           "longest.max": 0.2,
            "band": [
             "tan",
             "camel"
@@ -1445,6 +1463,8 @@
      "children": [
       {
        "id": "obj-equipment-armor",
+       "longest.min": 0.2,
+       "longest.max": 0.7,
        "mat.metal": [
         "metal-steel",
         "metal-gold",
@@ -1460,8 +1480,7 @@
        "children": [
         {
          "id": "obj-equipment-armor-shield",
-         "longest.min": 0.2,
-         "longest.max": 0.7,
+         "longest.min": 0.25,
          "nouns": [
           "shield",
           "buckler"
@@ -1492,7 +1511,7 @@
          "children": [
           {
            "id": "obj-equipment-weapon-melee-sword",
-           "longest.min": 0.3,
+           "longest.min": 0.4,
            "longest.max": 0.8,
            "nouns": [
             "sword",
@@ -1503,7 +1522,6 @@
            "children": [
             {
              "id": "obj-equipment-weapon-melee-sword-broad",
-             "longest.min": 0.25,
              "longest.max": 0.65,
              "nouns": [
               "broadsword",
@@ -1516,7 +1534,7 @@
           },
           {
            "id": "obj-equipment-weapon-melee-dagger",
-           "longest.min": 0.15,
+           "longest.min": 0.2,
            "longest.max": 0.55,
            "nouns": [
             "dagger",
@@ -1530,7 +1548,6 @@
            "children": [
             {
              "id": "obj-equipment-weapon-melee-axe-single",
-             "longest.min": 0.2,
              "longest.max": 0.65,
              "nouns": [
               "axe",
@@ -1540,7 +1557,7 @@
             {
              "id": "obj-equipment-weapon-melee-axe-double",
              "longest.min": 0.35,
-             "longest.max": 0.85,
+             "longest.max": 0.8,
              "nouns": [
               "battleaxe",
               "double axe"
@@ -1560,8 +1577,8 @@
           },
           {
            "id": "obj-equipment-weapon-melee-spear",
-           "longest.min": 0.55,
-           "longest.max": 1.05,
+           "longest.min": 0.6,
+           "longest.max": 1.1,
            "nouns": [
             "spear",
             "pike",
@@ -1592,9 +1609,9 @@
          "children": [
           {
            "id": "obj-equipment-weapon-ranged-bow",
+           "longest.min": 0.45,
+           "longest.max": 0.75,
            "tube.min": 0.006,
-           "longest.min": 0.4,
-           "longest.max": 0.9,
            "band.textile-cloth": [
             "taupe"
            ],
@@ -1605,9 +1622,9 @@
           },
           {
            "id": "obj-equipment-weapon-ranged-crossbow",
-           "tube.min": 0.006,
-           "longest.min": 0.25,
+           "longest.min": 0.3,
            "longest.max": 0.65,
+           "tube.min": 0.006,
            "nouns": [
             "crossbow"
            ]
@@ -1638,7 +1655,7 @@
             {
              "id": "obj-equipment-weapon-ranged-firearm-hand",
              "longest.min": 0.1,
-             "longest.max": 0.5,
+             "longest.max": 0.4,
              "nouns": [
               "pistol"
              ],
@@ -1664,7 +1681,7 @@
             },
             {
              "id": "obj-equipment-weapon-ranged-firearm-shotgun",
-             "longest.min": 0.3,
+             "longest.min": 0.35,
              "longest.max": 0.7,
              "nouns": [
               "shotgun"
@@ -1673,15 +1690,15 @@
             {
              "id": "obj-equipment-weapon-ranged-firearm-rifle",
              "longest.min": 0.35,
-             "longest.max": 0.85,
+             "longest.max": 0.7,
              "nouns": [
               "rifle"
              ],
              "children": [
               {
                "id": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
-               "longest.min": 0.55,
-               "longest.max": 0.95,
+               "longest.min": 0.5,
+               "longest.max": 0.8,
                "nouns": [
                 "sniper rifle",
                 "sniper"
@@ -1703,6 +1720,7 @@
           },
           {
            "id": "obj-equipment-weapon-ranged-throwing",
+           "longest.max": 0.4,
            "nouns": [
             "throwing knife",
             "shuriken",
@@ -1712,16 +1730,16 @@
           },
           {
            "id": "obj-equipment-weapon-ranged-grenade",
-           "longest.min": 0.06,
-           "longest.max": 0.3,
+           "longest.min": 0.08,
+           "longest.max": 0.2,
            "nouns": [
             "grenade"
            ]
           },
           {
            "id": "obj-equipment-weapon-ranged-launcher",
-           "longest.min": 0.3,
-           "longest.max": 1,
+           "longest.min": 0.45,
+           "longest.max": 0.8,
            "nouns": [
             "launcher",
             "grenade launcher",
@@ -1733,14 +1751,14 @@
         },
         {
          "id": "obj-equipment-weapon-explosive",
+         "longest.min": 0.1,
+         "longest.max": 0.4,
          "mat.metal": [
           "metal-steel",
           "metal-iron-dark",
           "metal-gold",
           "metal-copper"
          ],
-         "longest.min": 0.06,
-         "longest.max": 0.3,
          "scale": {
           "big": 2
          },
@@ -1770,7 +1788,7 @@
           {
            "id": "obj-equipment-weapon-magic-staff",
            "longest.min": 0.45,
-           "longest.max": 0.95,
+           "longest.max": 0.9,
            "nouns": [
             "staff",
             "wizard staff"
@@ -1789,7 +1807,7 @@
           {
            "id": "obj-equipment-weapon-siege-cannon",
            "longest.min": 0.45,
-           "longest.max": 1.2,
+           "longest.max": 1.1,
            "nouns": [
             "cannon"
            ]
@@ -1804,7 +1822,6 @@
            "children": [
             {
              "id": "obj-equipment-weapon-siege-ammunition-cannonball",
-             "longest.max": 0.35,
              "scale": {
               "big": 2
              },
@@ -1824,8 +1841,8 @@
        "children": [
         {
          "id": "obj-equipment-target-dummy",
-         "longest.min": 0.45,
-         "longest.max": 0.95,
+         "longest.min": 0.5,
+         "longest.max": 0.9,
          "tube.min": 0.006,
          "nouns": [
           "training dummy",
@@ -1875,7 +1892,7 @@
        "children": [
         {
          "id": "obj-equipment-apparel-umbrella",
-         "longest.min": 0.3,
+         "longest.min": 0.4,
          "longest.max": 0.8,
          "nouns": [
           "umbrella",
@@ -1885,7 +1902,7 @@
         {
          "id": "obj-equipment-apparel-quiver",
          "longest.min": 0.25,
-         "longest.max": 0.65,
+         "longest.max": 0.45,
          "scale": {
           "small": 0.5
          },
@@ -1908,7 +1925,7 @@
         {
          "id": "obj-equipment-apparel-glove",
          "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.max": 0.35,
          "nouns": [
           "glove",
           "mitt",
@@ -1930,6 +1947,8 @@
         },
         {
          "id": "obj-equipment-apparel-glasses",
+         "longest.min": 0.1,
+         "longest.max": 0.4,
          "nouns": [
           "glasses",
           "sunglasses",
@@ -1968,6 +1987,7 @@
       },
       {
        "id": "obj-equipment-pocketitem",
+       "longest.max": 0.35,
        "tube.min": 0.006,
        "band.textile-cloth": [
         "ivory"
@@ -2032,7 +2052,7 @@
           {
            "id": "obj-equipment-pocketitem-book-closed",
            "longest.min": 0.1,
-           "longest.max": 0.4,
+           "longest.max": 0.35,
            "scale": {
             "small": 0.5
            },
@@ -2044,7 +2064,6 @@
           {
            "id": "obj-equipment-pocketitem-book-open",
            "longest.min": 0.2,
-           "longest.max": 0.5,
            "nouns": [
             "open book"
            ]
@@ -2099,7 +2118,7 @@
          "children": [
           {
            "id": "obj-equipment-tool-hand-brush",
-           "longest.min": 0.08,
+           "longest.min": 0.1,
            "longest.max": 0.35,
            "nouns": [
             "brush",
@@ -2120,7 +2139,7 @@
           },
           {
            "id": "obj-equipment-tool-hand-saw",
-           "longest.min": 0.2,
+           "longest.min": 0.25,
            "longest.max": 0.6,
            "nouns": [
             "saw"
@@ -2128,6 +2147,7 @@
           },
           {
            "id": "obj-equipment-tool-hand-wrench",
+           "longest.max": 0.35,
            "nouns": [
             "wrench",
             "spanner",
@@ -2136,6 +2156,7 @@
           },
           {
            "id": "obj-equipment-tool-hand-screwdriver",
+           "longest.max": 0.3,
            "nouns": [
             "screwdriver"
            ]
@@ -2186,14 +2207,14 @@
         },
         {
          "id": "obj-equipment-tool-twohand",
-         "longest.min": 0.45,
+         "longest.min": 0.4,
          "longest.max": 0.95,
          "mat.wood": "wood-dark",
          "children": [
           {
            "id": "obj-equipment-tool-twohand-pitchfork",
            "longest.min": 0.5,
-           "longest.max": 1,
+           "longest.max": 0.9,
            "nouns": [
             "pitchfork",
             "hayfork"
@@ -2202,7 +2223,7 @@
           {
            "id": "obj-equipment-tool-twohand-scythe",
            "longest.min": 0.55,
-           "longest.max": 1.1,
+           "longest.max": 0.9,
            "nouns": [
             "scythe (tool)"
            ]
@@ -2210,7 +2231,7 @@
           {
            "id": "obj-equipment-tool-twohand-pickaxe",
            "longest.min": 0.25,
-           "longest.max": 0.75,
+           "longest.max": 0.6,
            "tube.min": 0.006,
            "nouns": [
             "pickaxe",
@@ -2219,8 +2240,7 @@
           },
           {
            "id": "obj-equipment-tool-twohand-shovel",
-           "longest.min": 0.35,
-           "longest.max": 0.85,
+           "longest.max": 0.8,
            "nouns": [
             "shovel",
             "spade"
@@ -2228,7 +2248,6 @@
           },
           {
            "id": "obj-equipment-tool-twohand-broom",
-           "longest.min": 0.4,
            "longest.max": 0.9,
            "nouns": [
             "broom"
@@ -2236,15 +2255,17 @@
           },
           {
            "id": "obj-equipment-tool-twohand-rod",
+           "longest.min": 0.65,
+           "longest.max": 1.1,
            "tube.min": 0.006,
-           "longest.min": 0.6,
-           "longest.max": 1.12,
            "nouns": [
             "fishing rod"
            ]
           },
           {
            "id": "obj-equipment-tool-twohand-rake",
+           "longest.min": 0.45,
+           "longest.max": 0.9,
            "nouns": [
             "rake",
             "hoe"
@@ -2286,6 +2307,8 @@
           },
           {
            "id": "obj-equipment-tool-supplies-hook",
+           "longest.min": 0.07,
+           "longest.max": 1,
            "nouns": [
             "hook",
             "meat hook",
@@ -2295,6 +2318,7 @@
           },
           {
            "id": "obj-equipment-tool-supplies-rope",
+           "longest.min": 0.2,
            "nouns": [
             "rope",
             "rope coil",
@@ -2309,19 +2333,23 @@
         {
          "id": "obj-equipment-tool-station",
          "longest.min": 0.3,
-         "longest.max": 0.7,
+         "longest.max": 1.2,
          "nouns": [
           "forge (hearth)"
          ],
          "children": [
           {
            "id": "obj-equipment-tool-station-anvil",
+           "longest.min": 0.4,
+           "longest.max": 0.7,
            "nouns": [
             "anvil"
            ]
           },
           {
            "id": "obj-equipment-tool-station-grinder",
+           "longest.min": 0.4,
+           "longest.max": 0.7,
            "nouns": [
             "grinder",
             "grindstone",
@@ -2332,8 +2360,8 @@
         },
         {
          "id": "obj-equipment-tool-mechanism",
-         "longest.min": 0.13,
-         "longest.max": 1.15,
+         "longest.min": 0.1,
+         "longest.max": 1.2,
          "nouns": [
           "spring",
           "pulley",
@@ -2343,6 +2371,8 @@
          "children": [
           {
            "id": "obj-equipment-tool-mechanism-lever",
+           "longest.min": 0.15,
+           "longest.max": 1,
            "nouns": [
             "lever",
             "control lever",
@@ -2360,9 +2390,9 @@
         },
         {
          "id": "obj-equipment-tool-stationery",
+         "longest.min": 0.07,
+         "longest.max": 0.45,
          "tube.min": 0.006,
-         "longest.min": 0.08,
-         "longest.max": 0.5,
          "mat.metal": [
           "metal-steel",
           "metal-gold"
@@ -2382,6 +2412,8 @@
          "children": [
           {
            "id": "obj-equipment-tool-stationery-holder",
+           "longest.min": 0.08,
+           "longest.max": 0.3,
            "nouns": [
             "pencil cup",
             "pen cup",
@@ -2392,6 +2424,8 @@
           },
           {
            "id": "obj-equipment-tool-stationery-writing",
+           "longest.min": 0.08,
+           "longest.max": 0.3,
            "nouns": [
             "pencil",
             "pen",
@@ -2402,6 +2436,8 @@
           },
           {
            "id": "obj-equipment-tool-stationery-filing",
+           "longest.min": 0.08,
+           "longest.max": 0.5,
            "nouns": [
             "clipboard",
             "folder",
@@ -2415,6 +2451,8 @@
         },
         {
          "id": "obj-equipment-tool-scale",
+         "longest.min": 0.2,
+         "longest.max": 0.7,
          "tube.min": 0.006,
          "mat.metal": [
           "metal-steel",
@@ -2451,8 +2489,8 @@
        "children": [
         {
          "id": "obj-transport-watercraft-ship",
-         "longest.min": 2.45,
-         "longest.max": 23,
+         "longest.min": 3.1,
+         "longest.max": 18,
          "scale": {
           "big": 3
          },
@@ -2466,7 +2504,7 @@
         {
          "id": "obj-transport-watercraft-boat",
          "longest.min": 0.9,
-         "longest.max": 3.55,
+         "longest.max": 3.6,
          "nouns": [
           "boat",
           "rowboat",
@@ -2498,8 +2536,8 @@
         },
         {
          "id": "obj-transport-part-wheel",
-         "longest.min": 0.29,
-         "longest.max": 0.75,
+         "longest.min": 0.25,
+         "longest.max": 0.5,
          "nouns": [
           "wheel",
           "tire"
@@ -2552,8 +2590,8 @@
        "children": [
         {
          "id": "obj-transport-land-cart",
-         "longest.min": 0.55,
-         "longest.max": 2,
+         "longest.min": 0.8,
+         "longest.max": 1.4,
          "scale": {
           "big": 2
          },
@@ -2566,7 +2604,7 @@
           {
            "id": "obj-transport-land-cart-small",
            "longest.min": 0.4,
-           "longest.max": 0.95,
+           "longest.max": 0.85,
            "nouns": [
             "sled",
             "minecart",
@@ -2575,6 +2613,8 @@
            "children": [
             {
              "id": "obj-transport-land-cart-small-wheelbarrow",
+             "longest.min": 0.5,
+             "longest.max": 0.95,
              "nouns": [
               "wheelbarrow"
              ]
@@ -2585,6 +2625,8 @@
         },
         {
          "id": "obj-transport-land-wheelchair",
+         "high.min": 0.4,
+         "high.max": 0.6,
          "nouns": [
           "wheelchair",
           "power wheelchair"
@@ -2592,8 +2634,8 @@
         },
         {
          "id": "obj-transport-land-road",
-         "longest.min": 0.95,
-         "longest.max": 1.7,
+         "longest.min": 0.8,
+         "longest.max": 2,
          "bands.max": 6,
          "nouns": [
           "tractor",
@@ -2605,6 +2647,8 @@
          "children": [
           {
            "id": "obj-transport-land-road-car",
+           "longest.min": 1,
+           "longest.max": 1.4,
            "bands.max": 6,
            "nouns": [
             "car",
@@ -2619,7 +2663,8 @@
           },
           {
            "id": "obj-transport-land-road-truck",
-           "longest.max": 4.1,
+           "longest.min": 1.2,
+           "longest.max": 3.4,
            "nouns": [
             "truck",
             "bus",
@@ -2634,7 +2679,7 @@
         {
          "id": "obj-transport-land-rail",
          "high.min": 0.6,
-         "high.max": 1.4,
+         "high.max": 1.3,
          "band": [
           "nickel",
           "slate"
@@ -2675,6 +2720,7 @@
        "children": [
         {
          "id": "obj-resource-metal-parts",
+         "longest.min": 0.08,
          "nouns": [
           "cog",
           "spare part",
@@ -2699,7 +2745,7 @@
         {
          "id": "obj-resource-wood-log",
          "longest.min": 0.3,
-         "longest.max": 1.2,
+         "longest.max": 0.7,
          "has": [
           [
            "wood",
@@ -2719,8 +2765,8 @@
         },
         {
          "id": "obj-resource-wood-plank",
-         "longest.min": 0.45,
-         "longest.max": 1.25,
+         "longest.min": 0.4,
+         "longest.max": 0.9,
          "nouns": [
           "plank (stock)",
           "board (loose)"
@@ -2730,6 +2776,7 @@
       },
       {
        "id": "obj-resource-stone",
+       "longest.min": 0.15,
        "nouns": [
         "brick (loose)",
         "cut block"
@@ -2738,7 +2785,7 @@
       {
        "id": "obj-resource-textile",
        "longest.min": 0.35,
-       "longest.max": 0.85,
+       "longest.max": 0.9,
        "nouns": [
         "textile bolt",
         "cloth roll",
@@ -2770,9 +2817,9 @@
         },
         {
          "id": "obj-resource-crop-hay",
-         "tube.min": 0.006,
-         "longest.min": 0.45,
+         "longest.min": 0.3,
          "longest.max": 1.25,
+         "tube.min": 0.006,
          "band": [
           "tan"
          ],
@@ -2799,9 +2846,9 @@
        "children": [
         {
          "id": "obj-furnishing-light-lantern",
-         "tube.min": 0.006,
          "longest.min": 0.15,
          "longest.max": 0.5,
+         "tube.min": 0.006,
          "nouns": [
           "lantern",
           "hand lantern",
@@ -2812,9 +2859,9 @@
         },
         {
          "id": "obj-furnishing-light-lamp",
+         "longest.min": 0.2,
+         "longest.max": 0.6,
          "tube.min": 0.006,
-         "longest.min": 0.14,
-         "longest.max": 1.1,
          "nouns": [
           "lamp",
           "wall lamp"
@@ -2822,6 +2869,7 @@
          "children": [
           {
            "id": "obj-furnishing-light-lamp-table",
+           "longest.max": 0.4,
            "nouns": [
             "table lamp",
             "desk lamp"
@@ -2829,6 +2877,8 @@
           },
           {
            "id": "obj-furnishing-light-lamp-floor",
+           "longest.min": 0.4,
+           "longest.max": 1,
            "nouns": [
             "floor lamp",
             "standing lamp"
@@ -2836,7 +2886,8 @@
           },
           {
            "id": "obj-furnishing-light-lamp-ceiling",
-           "longest.max": 1.3,
+           "longest.min": 0.15,
+           "longest.max": 0.7,
            "nouns": [
             "ceiling lamp",
             "chandelier",
@@ -2846,7 +2897,8 @@
            "children": [
             {
              "id": "obj-furnishing-light-lamp-ceiling-fan",
-             "longest.min": 0.35,
+             "longest.min": 0.4,
+             "longest.max": 0.9,
              "nouns": [
               "ceiling fan"
              ]
@@ -2855,6 +2907,7 @@
           },
           {
            "id": "obj-furnishing-light-lamp-spot",
+           "longest.max": 0.8,
            "nouns": [
             "spotlight",
             "stage light",
@@ -2866,7 +2919,7 @@
         },
         {
          "id": "obj-furnishing-light-torch",
-         "longest.min": 0.25,
+         "longest.min": 0.3,
          "longest.max": 0.65,
          "nouns": [
           "torch"
@@ -2898,8 +2951,8 @@
        "children": [
         {
          "id": "obj-furnishing-bathroom-bath",
-         "longest.min": 0.55,
-         "longest.max": 1.35,
+         "longest.min": 0.6,
+         "longest.max": 1.1,
          "nouns": [
           "bath",
           "bathtub"
@@ -2907,8 +2960,8 @@
         },
         {
          "id": "obj-furnishing-bathroom-toilet",
-         "longest.min": 0.23,
-         "longest.max": 1.35,
+         "longest.min": 0.3,
+         "longest.max": 0.7,
          "nouns": [
           "toilet",
           "urinal"
@@ -2916,16 +2969,16 @@
         },
         {
          "id": "obj-furnishing-bathroom-mirror",
-         "longest.min": 0.23,
-         "longest.max": 1.35,
+         "longest.min": 0.2,
+         "longest.max": 0.8,
          "nouns": [
           "bathroom mirror"
          ]
         },
         {
          "id": "obj-furnishing-bathroom-sink",
-         "longest.min": 0.23,
-         "longest.max": 1.35,
+         "longest.min": 0.3,
+         "longest.max": 0.6,
          "nouns": [
           "bathroom sink",
           "bathroom cabinet"
@@ -2933,8 +2986,8 @@
         },
         {
          "id": "obj-furnishing-bathroom-shower",
-         "longest.min": 0.23,
-         "longest.max": 1.35,
+         "longest.min": 0.7,
+         "longest.max": 1,
          "nouns": [
           "shower",
           "portable toilet"
@@ -2942,16 +2995,16 @@
         },
         {
          "id": "obj-furnishing-bathroom-towelrail",
-         "longest.min": 0.23,
-         "longest.max": 1.35,
+         "longest.min": 0.2,
+         "longest.max": 0.5,
          "nouns": [
           "towel rail"
          ]
         },
         {
          "id": "obj-furnishing-bathroom-toiletroll",
-         "longest.min": 0.05,
-         "longest.max": 0.15,
+         "longest.min": 0.1,
+         "longest.max": 0.2,
          "nouns": [
           "toilet roll",
           "toilet paper",
@@ -2983,7 +3036,8 @@
            "children": [
             {
              "id": "obj-furnishing-furniture-seating-bench-backrest",
-             "high.max": 0.75,
+             "high.min": 0.35,
+             "high.max": 0.6,
              "nouns": [
               "backed bench"
              ]
@@ -2991,7 +3045,7 @@
             {
              "id": "obj-furnishing-furniture-seating-bench-nobackrest",
              "high.min": 0.15,
-             "high.max": 0.55,
+             "high.max": 0.5,
              "nouns": [
               "backless bench"
              ]
@@ -3000,7 +3054,8 @@
           },
           {
            "id": "obj-furnishing-furniture-seating-chair",
-           "longest.max": 0.8,
+           "longest.min": 0.35,
+           "longest.max": 0.6,
            "nouns": [
             "chair",
             "throne"
@@ -3008,6 +3063,7 @@
            "children": [
             {
              "id": "obj-furnishing-furniture-seating-chair-desk",
+             "longest.max": 0.8,
              "nouns": [
               "desk chair",
               "office chair"
@@ -3015,6 +3071,8 @@
             },
             {
              "id": "obj-furnishing-furniture-seating-chair-lounge",
+             "longest.min": 0.4,
+             "longest.max": 0.8,
              "nouns": [
               "armchair",
               "lounge chair"
@@ -3025,7 +3083,7 @@
           {
            "id": "obj-furnishing-furniture-seating-stool",
            "longest.min": 0.2,
-           "longest.max": 0.6,
+           "longest.max": 0.5,
            "nouns": [
             "stool",
             "footstool"
@@ -3033,6 +3091,8 @@
            "children": [
             {
              "id": "obj-furnishing-furniture-seating-stool-bar",
+             "longest.min": 0.35,
+             "longest.max": 0.6,
              "nouns": [
               "bar stool",
               "lab stool",
@@ -3044,8 +3104,8 @@
           },
           {
            "id": "obj-furnishing-furniture-seating-sofa",
-           "high.min": 0.25,
-           "high.max": 0.75,
+           "high.min": 0.35,
+           "high.max": 0.5,
            "nouns": [
             "couch",
             "sofa"
@@ -3063,12 +3123,15 @@
          "children": [
           {
            "id": "obj-furnishing-furniture-table-square",
+           "high.min": 0.3,
+           "high.max": 0.45,
            "nouns": [
             "square table"
            ]
           },
           {
            "id": "obj-furnishing-furniture-table-round",
+           "high.min": 0.3,
            "nouns": [
             "round table",
             "oval table"
@@ -3076,6 +3139,8 @@
           },
           {
            "id": "obj-furnishing-furniture-table-side",
+           "high.min": 0.25,
+           "high.max": 0.45,
            "nouns": [
             "side table",
             "nightstand",
@@ -3085,6 +3150,7 @@
           },
           {
            "id": "obj-furnishing-furniture-table-desk",
+           "high.min": 0.35,
            "nouns": [
             "desk",
             "office desk",
@@ -3096,7 +3162,7 @@
         },
         {
          "id": "obj-furnishing-furniture-bed",
-         "longest.min": 0.55,
+         "longest.min": 0.7,
          "longest.max": 1.1,
          "nouns": [
           "bed",
@@ -3113,8 +3179,6 @@
           },
           {
            "id": "obj-furnishing-furniture-bed-bunk",
-           "longest.min": 0.8,
-           "longest.max": 1.35,
            "nouns": [
             "bunk bed",
             "bunk"
@@ -3131,7 +3195,7 @@
           {
            "id": "obj-furnishing-furniture-storage-dresser",
            "longest.min": 0.4,
-           "longest.max": 1.2,
+           "longest.max": 1.1,
            "nouns": [
             "dresser",
             "chest of drawers",
@@ -3155,6 +3219,7 @@
            "children": [
             {
              "id": "obj-furnishing-furniture-storage-cabinet-locker",
+             "longest.min": 0.5,
              "nouns": [
               "locker",
               "locker bank",
@@ -3189,7 +3254,8 @@
            "children": [
             {
              "id": "obj-furnishing-furniture-storage-rack-weapon",
-             "longest.max": 1.1,
+             "longest.min": 0.4,
+             "longest.max": 0.9,
              "nouns": [
               "weapon rack",
               "weapon stand"
@@ -3198,7 +3264,7 @@
             {
              "id": "obj-furnishing-furniture-storage-rack-coat",
              "longest.min": 0.2,
-             "longest.max": 1,
+             "longest.max": 0.9,
              "nouns": [
               "coat rack",
               "coat stand",
@@ -3210,6 +3276,8 @@
           },
           {
            "id": "obj-furnishing-furniture-storage-bookcase",
+           "longest.min": 0.4,
+           "longest.max": 1.2,
            "nouns": [
             "bookcase",
             "bookshelf",
@@ -3221,6 +3289,7 @@
         },
         {
          "id": "obj-furnishing-furniture-counter",
+         "longest.min": 0.4,
          "nouns": [
           "counter",
           "kitchen counter",
@@ -3254,6 +3323,8 @@
        "children": [
         {
          "id": "obj-furnishing-decor-mount",
+         "longest.min": 0.2,
+         "longest.max": 0.6,
          "nouns": [
           "mounted head",
           "hunting trophy",
@@ -3271,7 +3342,7 @@
        "children": [
         {
          "id": "obj-furnishing-textile-pillow",
-         "longest.min": 0.2,
+         "longest.min": 0.25,
          "longest.max": 0.6,
          "nouns": [
           "pillow",
@@ -3303,8 +3374,8 @@
         },
         {
          "id": "obj-furnishing-textile-curtains",
-         "longest.min": 0.4,
-         "longest.max": 2,
+         "longest.min": 0.6,
+         "longest.max": 1.2,
          "nouns": [
           "curtain",
           "curtains",
@@ -3316,6 +3387,8 @@
       },
       {
        "id": "obj-furnishing-clock",
+       "longest.min": 0.15,
+       "longest.max": 0.9,
        "nouns": [
         "clock",
         "alarm clock",
@@ -3335,7 +3408,7 @@
         {
          "id": "obj-device-appliance-blender",
          "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.max": 0.4,
          "nouns": [
           "blender",
           "food processor"
@@ -3353,7 +3426,7 @@
         },
         {
          "id": "obj-device-appliance-fridge",
-         "longest.min": 0.4,
+         "longest.min": 0.5,
          "longest.max": 1,
          "nouns": [
           "fridge",
@@ -3375,8 +3448,8 @@
         },
         {
          "id": "obj-device-appliance-stove",
-         "longest.min": 0.25,
-         "longest.max": 0.7,
+         "longest.min": 0.3,
+         "longest.max": 0.8,
          "scale": {
           "small": {
            "high.max": 0.4
@@ -3391,7 +3464,7 @@
         },
         {
          "id": "obj-device-appliance-toaster",
-         "longest.min": 0.15,
+         "longest.min": 0.2,
          "longest.max": 0.45,
          "nouns": [
           "toaster"
@@ -3399,6 +3472,8 @@
         },
         {
          "id": "obj-device-appliance-laundry",
+         "longest.min": 0.4,
+         "longest.max": 0.6,
          "nouns": [
           "washing machine",
           "washer",
@@ -3421,12 +3496,15 @@
          "children": [
           {
            "id": "obj-device-appliance-kitchen-microwave",
+           "longest.min": 0.2,
+           "longest.max": 0.6,
            "nouns": [
             "microwave"
            ]
           },
           {
            "id": "obj-device-appliance-kitchen-coffeemaker",
+           "longest.max": 0.6,
            "nouns": [
             "coffee machine",
             "coffee maker"
@@ -3459,6 +3537,7 @@
        "children": [
         {
          "id": "obj-device-electronics-media",
+         "longest.min": 0.07,
          "nouns": [
           "cd",
           "record",
@@ -3470,8 +3549,8 @@
         },
         {
          "id": "obj-device-electronics-radio",
-         "longest.min": 0.15,
-         "longest.max": 0.45,
+         "longest.min": 0.2,
+         "longest.max": 0.5,
          "tube.min": 0.006,
          "nouns": [
           "radio"
@@ -3479,6 +3558,8 @@
          "children": [
           {
            "id": "obj-device-electronics-radio-walkietalkie",
+           "longest.min": 0.15,
+           "longest.max": 0.4,
            "nouns": [
             "walkie-talkie"
            ]
@@ -3487,8 +3568,8 @@
         },
         {
          "id": "obj-device-electronics-screen",
-         "longest.min": 0.15,
-         "longest.max": 1.3,
+         "longest.min": 0.2,
+         "longest.max": 0.9,
          "nouns": [
           "screen",
           "display"
@@ -3496,6 +3577,8 @@
          "children": [
           {
            "id": "obj-device-electronics-screen-tv",
+           "longest.min": 0.3,
+           "longest.max": 1.1,
            "nouns": [
             "television",
             "tv antenna",
@@ -3504,6 +3587,7 @@
           },
           {
            "id": "obj-device-electronics-screen-monitor",
+           "longest.max": 0.8,
            "nouns": [
             "monitor",
             "computer screen"
@@ -3514,7 +3598,7 @@
         {
          "id": "obj-device-electronics-vending",
          "longest.min": 0.4,
-         "longest.max": 1.1,
+         "longest.max": 1,
          "nouns": [
           "vending machine",
           "atm",
@@ -3527,7 +3611,7 @@
         {
          "id": "obj-device-electronics-register",
          "longest.min": 0.2,
-         "longest.max": 1,
+         "longest.max": 0.6,
          "nouns": [
           "cash register",
           "register",
@@ -3537,6 +3621,8 @@
         },
         {
          "id": "obj-device-electronics-computer",
+         "longest.min": 0.2,
+         "longest.max": 1.2,
          "nouns": [
           "computer",
           "laptop",
@@ -3549,6 +3635,7 @@
          "children": [
           {
            "id": "obj-device-electronics-computer-tower",
+           "longest.max": 0.45,
            "nouns": [
             "pc tower",
             "computer tower"
@@ -3556,6 +3643,8 @@
           },
           {
            "id": "obj-device-electronics-computer-keyboard",
+           "longest.min": 0.1,
+           "longest.max": 0.5,
            "nouns": [
             "keyboard (computer)",
             "mouse (computer)"
@@ -3565,6 +3654,7 @@
         },
         {
          "id": "obj-device-electronics-audio",
+         "longest.min": 0.15,
          "nouns": [
           "speaker",
           "loudspeaker",
@@ -3575,6 +3665,7 @@
         },
         {
          "id": "obj-device-electronics-camera",
+         "longest.min": 0.1,
          "nouns": [
           "camera",
           "security camera",
@@ -3584,6 +3675,8 @@
         },
         {
          "id": "obj-device-electronics-phone",
+         "longest.min": 0.1,
+         "longest.max": 0.8,
          "nouns": [
           "phone",
           "telephone",
@@ -3613,12 +3706,16 @@
          "children": [
           {
            "id": "obj-device-science-astro-globe",
+           "longest.min": 0.2,
+           "longest.max": 0.8,
            "nouns": [
             "globe"
            ]
           },
           {
            "id": "obj-device-science-astro-telescope",
+           "longest.min": 0.2,
+           "longest.max": 0.8,
            "nouns": [
             "telescope",
             "binoculars"
@@ -3649,6 +3746,7 @@
          "children": [
           {
            "id": "obj-leisure-art-sculpture-prize",
+           "longest.max": 0.45,
            "nouns": [
             "trophy",
             "prize cup"
@@ -3670,6 +3768,8 @@
          "children": [
           {
            "id": "obj-leisure-art-instrument-bell",
+           "longest.min": 0.15,
+           "longest.max": 0.8,
            "has": [
             [
              "metal-copper",
@@ -3682,6 +3782,8 @@
           },
           {
            "id": "obj-leisure-art-instrument-string",
+           "longest.min": 0.4,
+           "longest.max": 0.8,
            "nouns": [
             "lute",
             "guitar",
@@ -3705,7 +3807,7 @@
         },
         {
          "id": "obj-leisure-art-frame",
-         "longest.min": 0.06,
+         "longest.min": 0.15,
          "longest.max": 0.9,
          "nouns": [
           "picture frame",
@@ -3718,6 +3820,7 @@
       },
       {
        "id": "obj-leisure-toy",
+       "longest.min": 0.08,
        "tube.min": 0.012,
        "bands.max": 7,
        "nouns": [
@@ -3738,8 +3841,8 @@
        "children": [
         {
          "id": "obj-leisure-game-ball",
-         "longest.min": 0.15,
-         "longest.max": 0.6,
+         "longest.min": 0.2,
+         "longest.max": 0.4,
          "scale": {
           "big": 3
          },
@@ -3795,9 +3898,9 @@
         },
         {
          "id": "obj-leisure-game-arcade",
+         "longest.min": 0.6,
+         "longest.max": 1.1,
          "bands.max": 6,
-         "longest.min": 0.45,
-         "longest.max": 1.35,
          "tube.min": 0.026,
          "nouns": [
           "arcade machine",
@@ -3857,13 +3960,13 @@
         },
         {
          "id": "str-part-door-single",
-         "high.min": 0.6,
+         "high.min": 0.7,
          "high.max": 1.1
         },
         {
          "id": "str-part-door-doorway",
-         "high.min": 0.75,
-         "high.max": 1.25,
+         "high.min": 0.9,
+         "high.max": 1.2,
          "nouns": [
           "doorway"
          ]
@@ -3879,13 +3982,13 @@
        "children": [
         {
          "id": "str-part-gate-single",
-         "high.min": 0.75,
+         "high.min": 0.9,
          "high.max": 1.6
         },
         {
          "id": "str-part-gate-gateway",
-         "high.min": 0.7,
-         "high.max": 2.45,
+         "high.min": 0.8,
+         "high.max": 2.4,
          "nouns": [
           "gateway",
           "torii"
@@ -3937,7 +4040,7 @@
        "children": [
         {
          "id": "str-part-roof-unit",
-         "longest.min": 0.4,
+         "longest.min": 0.5,
          "longest.max": 1.2,
          "scale": {
           "big": 2
@@ -3966,6 +4069,8 @@
       },
       {
        "id": "str-part-window",
+       "longest.min": 0.4,
+       "longest.max": 1.1,
        "nouns": [
         "window",
         "shutter"
@@ -3982,7 +4087,7 @@
        "children": [
         {
          "id": "str-part-wall-unit",
-         "high.min": 0.65,
+         "high.min": 0.8,
          "high.max": 1.2,
          "scale": {
           "small": 0.5
@@ -3990,6 +4095,7 @@
          "children": [
           {
            "id": "str-part-wall-unit-doorway",
+           "high.min": 0.7,
            "nouns": [
             "wall with doorway",
             "door wall"
@@ -3997,6 +4103,7 @@
           },
           {
            "id": "str-part-wall-unit-window",
+           "high.min": 0.7,
            "nouns": [
             "wall with window",
             "window wall"
@@ -4006,7 +4113,7 @@
         },
         {
          "id": "str-part-wall-rampart",
-         "high.min": 0.55,
+         "high.min": 0.8,
          "high.max": 3.5,
          "nouns": [
           "rampart",
@@ -4020,7 +4127,7 @@
       },
       {
        "id": "str-part-pillar",
-       "longest.min": 0.5,
+       "longest.min": 0.6,
        "longest.max": 2,
        "scale": {
         "small": 0.5,
@@ -4287,6 +4394,7 @@
        "children": [
         {
          "id": "str-barrier-fence-mid",
+         "high.max": 0.8,
          "tube.min": 0.012,
          "scale": {
           "small": {
@@ -4332,7 +4440,7 @@
       {
        "id": "str-barrier-post",
        "high.min": 0.35,
-       "high.max": 0.9,
+       "high.max": 0.8,
        "has": [
         [
          "wood",
@@ -4361,7 +4469,7 @@
        "children": [
         {
          "id": "str-barrier-traffic-cone",
-         "high.max": 0.8,
+         "high.max": 0.4,
          "band": [
           "terracotta"
          ],
@@ -4372,6 +4480,8 @@
         },
         {
          "id": "str-barrier-traffic-jersey",
+         "high.min": 0.2,
+         "high.max": 0.5,
          "nouns": [
           "jersey barrier",
           "water-filled barrier",
@@ -4381,6 +4491,8 @@
         },
         {
          "id": "str-barrier-traffic-sawhorse",
+         "high.min": 0.3,
+         "high.max": 0.6,
          "nouns": [
           "sawhorse barricade",
           "road-closed barrier",
@@ -4392,7 +4504,7 @@
       {
        "id": "str-barrier-hedge",
        "high.min": 0.35,
-       "high.max": 0.8,
+       "high.max": 0.6,
        "band": [
         "moss"
        ],
@@ -4468,6 +4580,7 @@
         },
         {
          "id": "str-access-stairs-step",
+         "longest.max": 1.8,
          "nouns": [
           "steps",
           "step",
@@ -4591,9 +4704,9 @@
      "children": [
       {
        "id": "str-canopy-stall",
-       "tube.min": 0.006,
        "longest.min": 0.65,
-       "longest.max": 1.67,
+       "longest.max": 1.6,
+       "tube.min": 0.006,
        "nouns": [
         "stall",
         "market stand",
@@ -4611,8 +4724,8 @@
        "children": [
         {
          "id": "str-canopy-tent-camping",
-         "longest.min": 0.75,
-         "longest.max": 1.76,
+         "longest.min": 0.8,
+         "longest.max": 1.7,
          "nouns": [
           "camping tent"
          ]
@@ -4675,7 +4788,7 @@
           {
            "id": "str-fixture-marker-sign-signpost",
            "longest.min": 0.4,
-           "longest.max": 2.26,
+           "longest.max": 2,
            "nouns": [
             "signpost",
             "direction sign",
@@ -4685,6 +4798,8 @@
           },
           {
            "id": "str-fixture-marker-sign-lettering",
+           "longest.min": 0.4,
+           "longest.max": 1,
            "nouns": [
             "lettering",
             "letter sign",
@@ -4694,7 +4809,7 @@
           },
           {
            "id": "str-fixture-marker-sign-road",
-           "longest.min": 0.25,
+           "longest.min": 0.4,
            "longest.max": 3,
            "nouns": [
             "road sign",
@@ -4751,7 +4866,7 @@
         {
          "id": "str-fixture-marker-banner",
          "longest.min": 0.5,
-         "longest.max": 1.1,
+         "longest.max": 0.8,
          "scale": {
           "big": 2
          },
@@ -4779,8 +4894,8 @@
        "children": [
         {
          "id": "str-fixture-utility-well",
-         "longest.min": 0.5,
-         "longest.max": 1.4,
+         "longest.min": 0.8,
+         "longest.max": 1.2,
          "scale": {
           "big": 2
          },
@@ -4826,6 +4941,7 @@
         },
         {
          "id": "str-fixture-utility-hydrant",
+         "longest.min": 0.3,
          "nouns": [
           "fire hydrant",
           "hydrant"
@@ -4833,6 +4949,7 @@
         },
         {
          "id": "str-fixture-utility-turbine",
+         "longest.min": 2,
          "scale": {
           "small": 0.5
          },
@@ -4842,6 +4959,7 @@
         },
         {
          "id": "str-fixture-utility-antenna",
+         "longest.min": 0.5,
          "nouns": [
           "satellite dish",
           "antenna",
@@ -4864,7 +4982,6 @@
        "children": [
         {
          "id": "str-fixture-machinery-conveyor",
-         "longest.min": 0.4,
          "longest.max": 1.2,
          "nouns": [
           "conveyor",
@@ -4882,7 +4999,6 @@
         },
         {
          "id": "str-fixture-machinery-crane",
-         "high.max": 13,
          "longest.max": 13,
          "nouns": [
           "robot arm",
@@ -4903,9 +5019,9 @@
       },
       {
        "id": "str-fixture-leisure",
-       "tube.min": 0.012,
        "longest.min": 0.8,
        "longest.max": 9.11,
+       "tube.min": 0.012,
        "nouns": [
         "ferris wheel",
         "grandstand",
@@ -4949,8 +5065,8 @@
        "children": [
         {
          "id": "str-fixture-light-post",
-         "longest.min": 0.65,
-         "longest.max": 1.3,
+         "longest.min": 0.8,
+         "longest.max": 1.2,
          "nouns": [
           "lamp post",
           "street lamp",
@@ -4959,8 +5075,8 @@
         },
         {
          "id": "str-fixture-light-street",
-         "longest.min": 0.9,
-         "longest.max": 2.06,
+         "longest.min": 1.1,
+         "longest.max": 1.8,
          "mat.metal": [
           "metal-steel",
           "metal-gold",
@@ -4973,6 +5089,8 @@
         },
         {
          "id": "str-fixture-light-traffic",
+         "longest.min": 0.8,
+         "longest.max": 1.6,
          "mat.metal": [
           "metal-steel",
           "metal-gold",
@@ -5087,7 +5205,7 @@
    "children": [
     {
      "id": "env-fungi",
-     "longest.min": 0.05,
+     "longest.min": 0.07,
      "longest.max": 0.3,
      "band": [
       "ivory"
@@ -5117,7 +5235,7 @@
       {
        "id": "env-fauna-fish",
        "longest.min": 0.1,
-       "longest.max": 0.6,
+       "longest.max": 0.7,
        "scale": {
         "big": 2
        },
@@ -5129,7 +5247,7 @@
         {
          "id": "env-fauna-fish-shark",
          "longest.min": 1,
-         "longest.max": 2.2,
+         "longest.max": 2,
          "nouns": [
           "shark",
           "hammerhead"
@@ -5149,11 +5267,11 @@
       },
       {
        "id": "env-fauna-starfish",
+       "longest.min": 0.1,
+       "longest.max": 0.3,
        "scale": {
         "big": 2
        },
-       "longest.min": 0.05,
-       "longest.max": 0.3,
        "nouns": [
         "starfish",
         "sea star"
@@ -5182,6 +5300,7 @@
       },
       {
        "id": "env-fauna-mammal",
+       "longest.min": 0.3,
        "nouns": [
         "mammal",
         "dog",
@@ -5197,6 +5316,7 @@
     },
     {
      "id": "env-remains",
+     "longest.min": 0.1,
      "tube.min": 0.006,
      "nouns": [
       "egg (wild)",
@@ -5213,8 +5333,7 @@
        "children": [
         {
          "id": "env-remains-bones-skull",
-         "longest.min": 0.1,
-         "longest.max": 0.5,
+         "longest.max": 0.6,
          "tpu.max": 10000,
          "scale": {
           "big": 4
@@ -5225,6 +5344,8 @@
          "children": [
           {
            "id": "env-remains-bones-skull-human",
+           "longest.min": 0.15,
+           "longest.max": 0.4,
            "nouns": [
             "human skull",
             "skull (human)"
@@ -5246,9 +5367,9 @@
         },
         {
          "id": "env-remains-bones-fishbone",
+         "longest.min": 0.2,
+         "longest.max": 0.6,
          "tube.min": 0.006,
-         "longest.min": 0.15,
-         "longest.max": 0.5,
          "nouns": [
           "fish bones",
           "fish carcass",
@@ -5285,8 +5406,8 @@
        "children": [
         {
          "id": "env-remains-deadwood-tree",
-         "longest.min": 0.9,
-         "longest.max": 2.4,
+         "longest.min": 0.7,
+         "longest.max": 2.6,
          "scale": {
           "small": 0.5
          },
@@ -5298,7 +5419,7 @@
         {
          "id": "env-remains-deadwood-stump",
          "longest.min": 0.21,
-         "longest.max": 0.65,
+         "longest.max": 0.5,
          "scale": {
           "big": 2
          },
@@ -5322,9 +5443,9 @@
       },
       {
        "id": "env-remains-shell",
-       "tube.min": 0.006,
-       "longest.min": 0.03,
+       "longest.min": 0.07,
        "longest.max": 0.3,
+       "tube.min": 0.006,
        "nouns": [
         "shell",
         "seashell"
@@ -5352,6 +5473,8 @@
        "children": [
         {
          "id": "env-terrain-rock-formation",
+         "longest.min": 0.5,
+         "longest.max": 12,
          "nouns": [
           "arch (rock)",
           "monolith",
@@ -5364,7 +5487,7 @@
         {
          "id": "env-terrain-rock-boulder",
          "longest.min": 0.35,
-         "longest.max": 2.5,
+         "longest.max": 2,
          "nouns": [
           "boulder",
           "rock (large)"
@@ -5383,7 +5506,7 @@
         },
         {
          "id": "env-terrain-rock-pebble",
-         "longest.min": 0.05,
+         "longest.min": 0.1,
          "longest.max": 0.4,
          "nouns": [
           "pebble",
@@ -5395,7 +5518,7 @@
       },
       {
        "id": "env-terrain-mountain",
-       "high.max": 30,
+       "high.min": 1.5,
        "nouns": [
         "mountain",
         "hill",
@@ -5423,6 +5546,7 @@
         },
         {
          "id": "env-terrain-ground-patch",
+         "longest.min": 0.5,
          "nouns": [
           "sand",
           "snow patch",
@@ -5436,6 +5560,7 @@
         },
         {
          "id": "env-terrain-ground-pit",
+         "longest.min": 0.5,
          "nouns": [
           "crater",
           "pit",
@@ -5452,6 +5577,8 @@
      "children": [
       {
        "id": "env-flora-plant",
+       "longest.min": 0.1,
+       "longest.max": 1,
        "tpu.max": 10000,
        "band.leaf": [
         "moss"
@@ -5482,9 +5609,9 @@
         },
         {
          "id": "env-flora-plant-leafy",
+         "longest.min": 0.3,
+         "longest.max": 0.9,
          "tube.min": 0.006,
-         "longest.min": 0.25,
-         "longest.max": 0.75,
          "scale": {
           "small": 0.5,
           "big": 2
@@ -5508,6 +5635,8 @@
         },
         {
          "id": "env-flora-plant-cactus",
+         "longest.min": 0.2,
+         "longest.max": 0.9,
          "scale": {
           "small": {
            "longest.min": 0.1,
@@ -5534,9 +5663,9 @@
         },
         {
          "id": "env-flora-plant-flower",
-         "tube.min": 0.006,
          "longest.min": 0.15,
-         "longest.max": 0.75,
+         "longest.max": 0.5,
+         "tube.min": 0.006,
          "nouns": [
           "flower",
           "tulip",
@@ -5549,7 +5678,6 @@
         },
         {
          "id": "env-flora-plant-grass",
-         "longest.min": 0.15,
          "longest.max": 0.5,
          "tube.min": 0.006,
          "band": [
@@ -5564,8 +5692,8 @@
       },
       {
        "id": "env-flora-tree",
-       "longest.min": 1.05,
-       "longest.max": 3.05,
+       "longest.min": 1,
+       "longest.max": 2.8,
        "band": [
         "hunter"
        ],
@@ -5582,8 +5710,7 @@
        "children": [
         {
          "id": "env-flora-tree-conifer",
-         "longest.min": 0.9,
-         "longest.max": 3.4,
+         "longest.min": 0.8,
          "nouns": [
           "conifer",
           "pine",
@@ -5593,7 +5720,7 @@
         },
         {
          "id": "env-flora-tree-palm",
-         "longest.max": 2.8,
+         "longest.max": 2.2,
          "band": [
           "moss"
          ],
@@ -5605,6 +5732,7 @@
       },
       {
        "id": "env-flora-waterplant",
+       "longest.min": 0.1,
        "tube.min": 0.006,
        "band.leaf": [
         "moss"
@@ -5616,7 +5744,7 @@
         {
          "id": "env-flora-waterplant-cattail",
          "longest.min": 0.3,
-         "longest.max": 1,
+         "longest.max": 0.7,
          "nouns": [
           "cattail",
           "reed",
@@ -5625,7 +5753,7 @@
         },
         {
          "id": "env-flora-waterplant-lilypad",
-         "longest.min": 0.05,
+         "longest.min": 0.07,
          "longest.max": 0.55,
          "nouns": [
           "water lily",
@@ -5648,8 +5776,8 @@
   },
   {
    "id": "char",
-   "longest.min": 0.45,
-   "longest.max": 1.05,
+   "high.min": 0.45,
+   "high.max": 0.9,
    "tpu.max": 30000,
    "mat.metal": [
     "metal-steel",
@@ -5671,6 +5799,8 @@
   },
   {
    "id": "sym",
+   "longest.min": 0.2,
+   "longest.max": 1.2,
    "tpu.max": 10000,
    "nouns": [
     "symbol",
