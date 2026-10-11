@@ -1,11 +1,16 @@
 import { readdirSync } from 'node:fs';
 import { join, relative, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readGlb, measureScene } from '../catalog/tools/glb.mjs';
+import { readGlb, readAccessor, measureScene } from '../catalog/tools/glb.mjs';
 import { VARS } from './report.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const { workfiles, minLongest } = VARS.golden;
+const { workfiles, minLongest, texture, atlas } = VARS.golden;
+
+const triangles = (glb) => (glb.json.meshes ?? []).flatMap((m) => m.primitives).filter((p) => (p.mode ?? 4) === 4);
+const indices = (glb, p) => (p.indices !== undefined
+  ? readAccessor(glb, p.indices).data
+  : Array.from({ length: glb.json.accessors[p.attributes.POSITION].count }, (_, k) => k));
 
 const RULES = [
   {
@@ -13,6 +18,57 @@ const RULES = [
     check: (glb) => {
       const longest = Math.max(...measureScene(glb).wdhExact);
       return longest < minLongest ? `longest side ${longest.toFixed(4)} under ${minLongest}` : null;
+    },
+  },
+  {
+    id: 'R02',
+    check: (glb) => {
+      let zero = 0;
+      for (const p of triangles(glb)) {
+        if (p.attributes.NORMAL === undefined) continue;
+        const n = readAccessor(glb, p.attributes.NORMAL).data;
+        for (let i = 0; i < n.length; i += 3) if (Math.hypot(n[i], n[i + 1], n[i + 2]) < 0.5) zero++;
+      }
+      return zero ? `${zero} zero-length normals` : null;
+    },
+  },
+  {
+    id: 'R03',
+    check: (glb) => {
+      let mixed = 0;
+      for (const p of triangles(glb)) {
+        const mat = glb.json.materials?.[p.material];
+        if (!mat?.pbrMetallicRoughness?.baseColorTexture || p.attributes.TEXCOORD_0 === undefined) continue;
+        const uv = readAccessor(glb, p.attributes.TEXCOORD_0).data, I = indices(glb, p);
+        for (let t = 0; t + 2 < I.length; t += 3) {
+          const corners = [I[t], I[t + 1], I[t + 2]];
+          const cu = Math.floor(corners.reduce((s, v) => s + uv[2 * v], 0) / 3 * atlas.cols);
+          const cv = Math.floor(corners.reduce((s, v) => s + uv[2 * v + 1], 0) / 3 * atlas.rows);
+          if (corners.some((v) => {
+            const u = uv[2 * v] * atlas.cols, w = uv[2 * v + 1] * atlas.rows;
+            return u < cu - atlas.eps || u > cu + 1 + atlas.eps || w < cv - atlas.eps || w > cv + 1 + atlas.eps;
+          })) mixed++;
+        }
+      }
+      return mixed ? `${mixed} triangles with corners in different colormap cells` : null;
+    },
+  },
+  {
+    id: 'R04',
+    check: (glb) => {
+      const roots = glb.json.scenes?.[glb.json.scene ?? 0]?.nodes ?? [];
+      return roots.some((i) => glb.json.nodes[i].scale) ? 'scale on a root node' : null;
+    },
+  },
+  {
+    id: 'R05',
+    check: (glb) => (triangles(glb).some((p) => indices(glb, p).length >= 3) ? null : 'no triangles'),
+  },
+  {
+    id: 'R06',
+    check: (glb) => {
+      const other = (glb.json.images ?? []).map((im) => im.uri ?? 'embedded').filter((uri) => uri !== texture);
+      return other.length ? `texture ${other.join(', ')}, not ${texture}` : null;
     },
   },
 ];
