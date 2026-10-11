@@ -46,7 +46,7 @@ render.mjs <file.glb|dir> [...] [flags]
                         silhouette,depth,uv,matcap,xray|all>
   --views <front,back,left,right,top,bottom,iso,iso-back,hero | az/el[o|p], e.g. 35/20, 0/0o>
                      (--ladder also uses auto-sil: direction from the bbox)
-  --ladder <1..8>   nested default view set; implies --annotate --lock-scale --sheet
+  --ladder <1..8>   nested default view set; implies --annotate --sheet
   --annotate         burn caption + axis gizmo into every tile
   --lock-scale       one camera distance from the bounding sphere, shared by every view
                      and, when a run names several models, by every model, so sizes are
@@ -258,9 +258,7 @@ if (opts.ladder) {
   if (untouched('width')) opts.width = opts.sheetTile;
   if (untouched('height')) opts.height = opts.sheetTile;
   if (untouched('ss')) opts.ss = 2;                 // wireframe/silhouette edges are the point here
-  // lock-scale is not optional here: without it the underside and footprint tiles
-  // zoom to fill and stop being comparable with the rest of the ladder.
-  opts.annotate = true; opts.sheet = true; opts.lockScale = true;
+  opts.annotate = true; opts.sheet = true;
   opts.modes = [...new Set(ladderJobs.map(j => j.mode))].join(',');
   const expand = (v) => AUTO[v] || [v];
   opts.views = [...new Set(ladderJobs.flatMap(j => expand(j.view)))].join(',');
