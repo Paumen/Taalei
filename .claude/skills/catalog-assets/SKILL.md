@@ -218,8 +218,11 @@ unchanged file keeps its URL, so browsers keep it cached. `vendor/` is not stamp
 `build-thumbs.mjs` renders 128×128 tiles into `kits/.cache/thumbs` and packs them into
 one sprite sheet per kind, `catalog/build/thumbs/<kind>.webp` and `<kind>.flat.webp`;
 `thumbs.json` gives each sheet's grid and hashes and each model's kind and place. It
-renders only models whose `.glb` changed; a tile missing from the cache is cut back out
-of the committed sheet. A sheet is rebuilt only when its members or their `.glb` changed.
+renders only the soft tiles of models whose `.glb` changed; a tile missing from the cache is
+cut back out of the committed sheet. A sheet is rebuilt only when its members or their `.glb`
+changed. Flat tiles are rendered only with `--flat`, which `.github/workflows/flat-thumbs.yml`
+runs daily and commits to main; in between, a changed model keeps its old flat tile and a new
+one shows blank. After a colormap change, run with `--force` for the soft tiles.
 
 It rebuilds only the packs whose source zips, workfiles, preview colours,
 rejects, NPC entries or tooling changed; the rest come from `kits/.cache`. `--force`

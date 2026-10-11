@@ -23,15 +23,18 @@ const value = (name, fallback) => {
   return i === -1 ? fallback : args[i + 1];
 };
 if (flag('--help') || flag('-h')) {
-  console.log(`build-thumbs.mjs [--kit slug] [--force] [--jobs n] [--limit n] [--no-prune]
+  console.log(`build-thumbs.mjs [--flat] [--kit slug] [--force] [--jobs n] [--limit n] [--no-prune]
+  --flat       render the flat tiles of every model; without it only soft tiles are rendered
+               and flat tiles stay as they are, blank for new models
   --kit slug   only render models of this kit
-  --force      re-render even when the .glb is unchanged
+  --force      re-render soft tiles even when the .glb is unchanged
   --jobs n     browser pages rendering in parallel (default 2)
   --limit n    stop after n renders (for a trial run)
   --no-prune   keep sheets of kinds that left the catalog`);
   process.exit(0);
 }
 const onlyKit = value('--kit', null);
+const flatRun = flag('--flat');
 const force = flag('--force');
 const jobs = Math.max(1, Number(value('--jobs', 2)) || 1);
 const limit = Number(value('--limit', 0)) || 0;
@@ -44,7 +47,6 @@ if (!sameSize && read.size) console.log(`thumbnail size or layout changed (${rea
 const old = sameSize ? read : { size: SIZE, sheets: {}, models: {} };
 
 const tiles = (id) => ({ soft: join(TILE_DIR, `${id}.png`), flat: join(TILE_DIR, `${id}.flat.png`) });
-const hasTiles = (id) => existsSync(tiles(id).soft) && existsSync(tiles(id).flat);
 const sheetFile = (kind, flat) => join(THUMB_DIR, `${kind}${flat ? '.flat' : ''}.webp`);
 const sheetUrl = (kind, flat) => `/catalog/build/thumbs/${encodeURIComponent(kind)}${flat ? '.flat' : ''}.webp`;
 
@@ -62,15 +64,17 @@ for (const m of catalog.models) {
 
   const was = old.models[id];
   const current = was?.glb === model.glb;
-  if (current && !force && hasTiles(id)) continue;
-  if (current && !force && was.at !== undefined
-    && existsSync(sheetFile(was.kind, false)) && existsSync(sheetFile(was.kind, true))) {
+  const t = tiles(id);
+  const inSheet = was?.at !== undefined && old.sheets[was.kind]
+    && existsSync(sheetFile(was.kind, false)) && existsSync(sheetFile(was.kind, true));
+  if (inSheet && !(existsSync(t.soft) && existsSync(t.flat))) {
     if (!toCut.has(was.kind)) toCut.set(was.kind, []);
     toCut.get(was.kind).push({ id, at: was.at, cols: old.sheets[was.kind].cols });
-    continue;
   }
+  const soft = (force && !flatRun) || !current || !(existsSync(t.soft) || inSheet);
+  if (!soft && !flatRun) continue;
   if (onlyKit && m.kit !== onlyKit) continue;
-  toRender.push(model);
+  toRender.push({ ...model, views: [...(soft ? ['soft'] : []), ...(flatRun ? ['flat'] : [])] });
 }
 for (const list of perKind.values()) list.sort((a, b) => a.id.localeCompare(b.id));
 const queue = limit ? toRender.slice(0, limit) : toRender;
@@ -94,7 +98,6 @@ const PAGE = `<!doctype html><meta charset="utf-8">
   interaction-prompt="none" disable-zoom loading="eager"></model-viewer>
 <script type="module" src="/catalog/app/vendor/model-viewer.min.js"></script>
 <script type="module">
-const viewers = [document.querySelector('#soft'), document.querySelector('#flat')];
 const once = (el, type, timeout) => new Promise((ok, fail) => {
   const t = setTimeout(() => fail(new Error(type + ' timed out')), timeout);
   el.addEventListener(type, () => { clearTimeout(t); ok(); }, { once: true });
@@ -109,7 +112,8 @@ const image = (src) => new Promise((ok, fail) => {
 const canvas = (w, h) => Object.assign(document.createElement('canvas'), { width: w, height: h });
 const base64 = (c, type, quality) => c.toDataURL(type, quality).split(',')[1];
 await customElements.whenDefined('model-viewer');
-window.render = async (src, timeout) => {
+window.render = async (src, timeout, views) => {
+  const viewers = views.map((id) => document.getElementById(id));
   const loads = viewers.map((v) => once(v, 'load', timeout));
   for (const v of viewers) v.src = src;
   await Promise.all(loads);
@@ -180,7 +184,7 @@ let done = 0;
 let failed = 0;
 const total = queue.length;
 const started = Date.now();
-const renderedIds = new Set();
+const rendered = { soft: new Set(), flat: new Set() };
 
 async function worker() {
   const page = await openPage();
@@ -189,10 +193,11 @@ async function worker() {
     if (!item) break;
     const src = `/kits/workfiles/${encodeURIComponent(item.kit)}/${encodeURIComponent(item.name)}.glb`;
     try {
-      const [soft, flat] = await page.evaluate(([s, t]) => window.render(s, t), [src, LOAD_TIMEOUT]);
-      writeTile(tiles(item.id).soft, soft);
-      writeTile(tiles(item.id).flat, flat);
-      renderedIds.add(item.id);
+      const pngs = await page.evaluate(([s, t, v]) => window.render(s, t, v), [src, LOAD_TIMEOUT, item.views]);
+      item.views.forEach((view, i) => {
+        writeTile(tiles(item.id)[view], pngs[i]);
+        rendered[view].add(item.id);
+      });
       done++;
       if (done % 25 === 0 || done + failed === total) {
         const s = (Date.now() - started) / 1000;
@@ -200,8 +205,7 @@ async function worker() {
       }
     } catch (e) {
       failed++;
-      rmSync(tiles(item.id).soft, { force: true });
-      rmSync(tiles(item.id).flat, { force: true });
+      for (const view of item.views) rmSync(tiles(item.id)[view], { force: true });
       console.error(`  x ${item.id}: ${e.message.split('\n')[0]}`);
       await page.reload();
       await page.waitForFunction(() => window.ready === true, null, { timeout: LOAD_TIMEOUT });
@@ -215,26 +219,25 @@ const manifest = { size: SIZE, sheets: {}, models: {} };
 let composed = 0;
 mkdirSync(THUMB_DIR, { recursive: true });
 for (const kind of [...perKind.keys()].sort()) {
-  const members = perKind.get(kind).filter((m) => hasTiles(m.id));
+  const members = perKind.get(kind).filter((m) => existsSync(tiles(m.id).soft));
   if (!members.length) continue;
   const cols = Math.ceil(Math.sqrt(members.length));
   const rows = Math.ceil(members.length / cols);
   const key = hashOf(`${SIZE} ${QUALITY} ${members.map((m) => `${m.id}:${m.glb}`).join(' ')}`);
   const was = old.sheets[kind];
-  let sheet = was;
-  const rendered = members.some((m) => renderedIds.has(m.id));
-  if (force || rendered || was?.key !== key || !existsSync(sheetFile(kind, false)) || !existsSync(sheetFile(kind, true))) {
-    const hashes = [];
-    for (const flat of [false, true]) {
-      const pngs = members.map((m) => readFileSync(flat ? tiles(m.id).flat : tiles(m.id).soft).toString('base64'));
-      const webp = Buffer.from(await helper.evaluate(([p, c, r, z, q]) => window.compose(p, c, r, z, q),
-        [pngs, cols, rows, SIZE, QUALITY]), 'base64');
-      writeFileSync(sheetFile(kind, flat), webp);
-      hashes.push(hashOf(webp));
-    }
-    sheet = { cols, rows, key, v: hashes[0], f: hashes[1] };
-    composed++;
+  const sheet = { cols, rows, key, v: was?.v, f: was?.f };
+  let changed = false;
+  for (const [view, hashField] of [['soft', 'v'], ['flat', 'f']]) {
+    const flat = view === 'flat';
+    if (was?.key === key && existsSync(sheetFile(kind, flat)) && !members.some((m) => rendered[view].has(m.id))) continue;
+    const pngs = members.map((m) => (existsSync(tiles(m.id)[view]) ? readFileSync(tiles(m.id)[view]).toString('base64') : null));
+    const webp = Buffer.from(await helper.evaluate(([p, c, r, z, q]) => window.compose(p, c, r, z, q),
+      [pngs, cols, rows, SIZE, QUALITY]), 'base64');
+    writeFileSync(sheetFile(kind, flat), webp);
+    sheet[hashField] = hashOf(webp);
+    changed = true;
   }
+  if (changed) composed++;
   manifest.sheets[kind] = sheet;
   members.forEach((m, at) => { manifest.models[m.id] = { glb: m.glb, kind, at }; });
 }
