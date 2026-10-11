@@ -3907,9 +3907,8 @@
     "Medieval Weapons Small Low Poly Pack": 19
    },
    "scales": {
-    "0.55": 224,
+    "0.55": 225,
     "0.4675": 1,
-    "0.407": 1,
     "0.5308": 1,
     "0.5775": 1,
     "0.88": 1
@@ -3954,8 +3953,7 @@
       "Stylized Medieval Kingdom": 180
      },
      "scales": {
-      "0.55": 176,
-      "0.407": 1,
+      "0.55": 177,
       "0.5308": 1,
       "0.5775": 1,
       "0.88": 1
@@ -23793,7 +23791,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1816,
+   "count": 1815,
    "parent": "metal"
   },
   {
@@ -24032,7 +24030,7 @@
    "name": "Cardboard",
    "type": "material",
    "description": "Corrugated board: shipping boxes, parcels, cartons.",
-   "count": 51,
+   "count": 50,
    "parent": "paper"
   },
   {
@@ -24104,7 +24102,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 333,
+   "count": 334,
    "parent": "textile-cloth"
   },
   {
@@ -24932,7 +24930,7 @@
    "name": "Meat",
    "type": "kind",
    "description": "meat, sausage, roast, leg",
-   "count": 35
+   "count": 36
   },
   {
    "id": "obj-food-meat-roast",
@@ -24953,7 +24951,7 @@
    "name": "Sausage",
    "type": "kind",
    "description": "Sausage, on its own or in a bun: sausage, hot dog.",
-   "count": 7
+   "count": 8
   },
   {
    "id": "obj-food-meat-ham",
@@ -27582,7 +27580,7 @@
    "name": "Baked",
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
-   "count": 134
+   "count": 133
   },
   {
    "id": "str-fixture-utility",
@@ -28314,7 +28312,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3442,
+   "count": 3441,
    "derived": true
   },
   {
@@ -28322,7 +28320,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1143,
+   "count": 1144,
    "derived": true
   },
   {
@@ -30110,12 +30108,6 @@
    "tpu.max": 10000
   },
   "obj-food": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "obj-food-baked": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -64659,7 +64651,7 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "food-pack-2",
@@ -119966,7 +119958,7 @@
    "kit": "kay-adventurers",
    "collection": "kay-rpg",
    "name": "rogue-hooded",
-   "hash": "4768a5a492",
+   "hash": "32cf88b109",
    "kind": "char",
    "size": "m",
    "wdh": [
@@ -119995,7 +119987,7 @@
      0.047,
      0.945
     ],
-    "8,0": [
+    "1,1": [
      0.047,
      0.945
     ],
@@ -120013,10 +120005,10 @@
     ]
    },
    "colors": [
+    "#21552a",
     "#3a3e4b",
     "#513120",
     "#7a8491",
-    "#873a27",
     "#dbb789"
    ],
    "tags": [
@@ -120164,7 +120156,14 @@
     "Working_C"
    ],
    "variant": "kay-adventurers/rogue-hooded",
-   "thickRel": 1.08
+   "thickRel": 1.08,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-dark wants sienna, has bark hunter nickel tan slate"
+    }
+   ]
   },
   {
    "kit": "kay-adventurers",
@@ -142541,7 +142540,7 @@
     "kay",
     "special-food"
    ],
-   "thickRel": 1.58
+   "thickRel": 1.57
   },
   {
    "kit": "kay-food",
@@ -162323,7 +162322,7 @@
   {
    "kit": "kay-holiday",
    "name": "present-sphere-a",
-   "hash": "2f4f20706c",
+   "hash": "62631c4faa",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
@@ -162347,7 +162346,7 @@
    "vpt": 0.95,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "6,0": [
      0.148,
      0.805
     ],
@@ -162358,7 +162357,7 @@
    },
    "colors": [
     "#873a27",
-    "#d8cfb7"
+    "#f1a63b"
    ],
    "tags": [
     "kay",
@@ -162366,12 +162365,19 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-holiday/present-sphere-a",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper-sheet wants ivory, has amber sienna"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
    "name": "present-sphere-b",
-   "hash": "fda117108e",
+   "hash": "99c69fa814",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
@@ -162396,7 +162402,7 @@
    "vpt": 0.95,
    "grad": 0.79,
    "spread": {
-    "5,2": [
+    "6,0": [
      0.148,
      0.805
     ],
@@ -162407,7 +162413,7 @@
    },
    "colors": [
     "#873a27",
-    "#d8cfb7"
+    "#f1a63b"
    ],
    "tags": [
     "kay",
@@ -162415,7 +162421,14 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-holiday/present-sphere-a",
-   "thickRel": 1.11
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper-sheet wants ivory, has amber sienna"
+    }
+   ]
   },
   {
    "kit": "kay-holiday",
@@ -176507,7 +176520,7 @@
    "kit": "kay-skeleton-1",
    "collection": "kay-undead",
    "name": "hood",
-   "hash": "8b05eb219d",
+   "hash": "e7c807cecd",
    "kind": "obj-equipment-apparel-headgear",
    "size": "s",
    "wdh": [
@@ -176531,13 +176544,13 @@
    "vpt": 0.61,
    "grad": 0.7,
    "spread": {
-    "8,0": [
+    "1,1": [
      0.219,
      0.914
     ]
    },
    "colors": [
-    "#873a27"
+    "#21552a"
    ],
    "tags": [
     "grave",
@@ -176546,13 +176559,20 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-skeleton-1/hood",
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-dark wants sienna, has hunter"
+    }
+   ]
   },
   {
    "kit": "kay-skeleton-1",
    "collection": "kay-undead",
    "name": "mage-cloak",
-   "hash": "b2da6fb669",
+   "hash": "6b19fdd264",
    "kind": "obj-equipment-apparel",
    "size": "s",
    "wdh": [
@@ -176576,13 +176596,13 @@
    "vpt": 0.78,
    "grad": 0.7,
    "spread": {
-    "8,0": [
+    "1,1": [
      0.219,
      0.914
     ]
    },
    "colors": [
-    "#873a27"
+    "#21552a"
    ],
    "tags": [
     "grave",
@@ -176591,7 +176611,14 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-skeleton-1/mage-cloak",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-dark wants sienna, has hunter"
+    }
+   ]
   },
   {
    "kit": "kay-skeleton-1",
@@ -204684,7 +204711,7 @@
    "kit": "ken-food",
    "name": "corn-dog",
    "hash": "42d9be5dc7",
-   "kind": "obj-food-baked",
+   "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
     0.271,
@@ -204726,8 +204753,13 @@
     "special-food",
     "wood-mid"
    ],
-   "thickRel": 2.46,
+   "thickRel": 2.19,
    "lint": [
+    {
+     "level": "error",
+     "check": "bands",
+     "text": "— wants sienna, has camel chestnut (obj-food-meat)"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -205770,7 +205802,7 @@
     "ken",
     "special-food"
    ],
-   "thickRel": 1.64
+   "thickRel": 1.63
   },
   {
    "kit": "ken-food",
@@ -240916,7 +240948,7 @@
   {
    "kit": "ken-racing",
    "name": "light-colored",
-   "hash": "0e938470ee",
+   "hash": "58abf407fd",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -240940,7 +240972,7 @@
    "vpt": 1.52,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -240964,14 +240996,13 @@
    "colors": [
     "#21552a",
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
     "metal-iron-dark",
-    "metal-steel",
     "special-emissive"
    ],
    "variant": "ken-racing/light-red",
@@ -240986,9 +241017,19 @@
    "thickRel": 1.33,
    "lint": [
     {
+     "level": "error",
+     "check": "mat",
+     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (str-fixture-light-traffic)"
+    },
+    {
      "level": "warning",
      "check": "backface",
      "text": "0.4% of view 0/50 over 0.1%: inverted 64.0%, inside-out 36.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 5 wants max 4"
     }
    ]
   },
@@ -295433,7 +295474,7 @@
   {
    "kit": "lpa-west",
    "name": "table-b",
-   "hash": "a4914a75d4",
+   "hash": "c1a3cba9ea",
    "kind": "obj-leisure-game-gamble-table",
    "size": "s",
    "wdh": [
@@ -295462,13 +295503,13 @@
      0.148,
      0.75
     ],
-    "14,3": [
+    "1,1": [
      0.148,
      0.445
     ]
    },
    "colors": [
-    "#88735f",
+    "#21552a",
     "#bb8255"
    ],
    "tags": [
@@ -295476,7 +295517,14 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.61,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-mid wants taupe, has camel hunter"
+    }
+   ]
   },
   {
    "kit": "lpa-west",
@@ -350789,7 +350837,7 @@
     "bone",
     "special-food"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "props",
@@ -359325,7 +359373,7 @@
     "special-food"
    ],
    "variant": "quat-food/chicken-leg",
-   "thickRel": 1.63
+   "thickRel": 1.62
   },
   {
    "kit": "quat-food",
@@ -360613,7 +360661,7 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.27
   },
   {
    "kit": "quat-food",
@@ -387395,7 +387443,7 @@
   {
    "kit": "quat-space",
    "name": "planet-crater",
-   "hash": "5112986b52",
+   "hash": "7f4577fdc5",
    "kind": "obj-device-science-astro-globe",
    "size": "m",
    "wdh": [
@@ -387419,18 +387467,18 @@
    "vpt": 0.68,
    "grad": 0.59,
    "spread": {
-    "14,3": [
+    "15,3": [
      0.148,
      0.742
     ],
-    "12,3": [
+    "6,1": [
      0.148,
      0.742
     ]
    },
    "colors": [
-    "#41352b",
-    "#88735f"
+    "#3a3e4b",
+    "#7a8491"
    ],
    "tags": [
     "qua",
@@ -387438,7 +387486,14 @@
     "stone-rock"
    ],
    "variant": "quat-space/planet-lava",
-   "thickRel": 1.13
+   "thickRel": 1.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-rock wants taupe taupe-dark, has nickel slate"
+    }
+   ]
   },
   {
    "kit": "quat-space",
@@ -409038,16 +409093,16 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "forge-chimney",
-   "hash": "28c761704b",
+   "hash": "1b0195d330",
    "kind": "obj-equipment-tool-station",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.403,
-    0.506,
-    1.172
+    0.545,
+    0.683,
+    1.583
    ],
    "tris": 205,
-   "tpu": 357,
+   "tpu": 264,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -409055,10 +409110,10 @@
    "vtx": 260,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.017,
-   "minTube": 0.1981,
+   "minEdge": 0.022,
+   "minTube": 0.2677,
    "thick": 0.1413,
-   "avgTri": 0.00951,
+   "avgTri": 0.01737,
    "anglePct": 53,
    "vpt": 1.27,
    "grad": 0.52,
@@ -409079,16 +409134,22 @@
     "share": 0.0038,
     "view": "0/20",
     "causes": {
-     "inverted": 0.63,
-     "other": 0.37
+     "inverted": 0.64,
+     "other": 0.33,
+     "open": 0.03
     }
    },
    "thickRel": 0.96,
    "lint": [
     {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.583 over max 1.2 (obj-equipment-tool-station)"
+    },
+    {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 0/20 over 0.1%: inverted 63.0%, other 37.0%"
+     "text": "0.4% of view 0/20 over 0.1%: inverted 64.0%, other 33.0%, open 3.0%"
     }
    ]
   },
@@ -413633,7 +413694,7 @@
     "special-food"
    ],
    "variant": "rgp-medieval/sausage",
-   "thickRel": 1.87
+   "thickRel": 1.86
   },
   {
    "kit": "rgp-medieval",
@@ -424880,7 +424941,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "play-table",
-   "hash": "f2544548e8",
+   "hash": "71215be1c7",
    "kind": "obj-leisure-game-gamble-table",
    "size": "m",
    "wdh": [
@@ -424913,14 +424974,14 @@
      0.148,
      0.75
     ],
-    "8,0": [
+    "1,1": [
      0.148,
      0.75
     ]
    },
    "colors": [
+    "#21552a",
     "#59534e",
-    "#873a27",
     "#89542e"
    ],
    "tags": [
@@ -424930,7 +424991,14 @@
     "wood-dark"
    ],
    "variant": "sq-cards/play-table",
-   "thickRel": 1.04
+   "thickRel": 1.04,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-dark wants sienna, has chestnut basalt hunter"
+    }
+   ]
   },
   {
    "kit": "sq-cards",
@@ -455715,11 +455783,18 @@
     "#f1a63b"
    ],
    "tags": [
-    "paper-cardboard",
-    "special"
+    "special",
+    "textile-cloth-dark"
    ],
    "specialBand": "13,3",
-   "thickRel": 1.02
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "bands",
+     "text": "textile-cloth-dark wants ivory hunter sienna, has basalt amber (obj-equipment-apparel)"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",

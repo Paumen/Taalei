@@ -1,0 +1,108 @@
+<title>%%TITLE%%</title>
+<style>
+:root{--bg:#f7f8f6;--card:#fff;--fg:#1f2421;--mut:#646b66;--line:#dfe3df;--acc:#2f6a55;--img:#eceeea;
+--t-size:#2d62a8;--t-tag:#7a4fb0;--t-recolour:#c0532b;--t-shape:#a07a12;--t-geometry:#3b8a5a;
+--v-keep:#2f7d4a;--v-keepbut:#5f8f3a;--v-revert:#b4462f;--v-retry:#c26a1c;--v-relax:#2d62a8;--v-other:#7a4fb0;--v-later:#6b716c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#181b19;--card:#212522;--fg:#e6ebe7;--mut:#9aa39d;--line:#353b37;--acc:#7fc4a8;--img:#2a2f2b;
+--t-size:#7fa8e6;--t-tag:#b896e6;--t-recolour:#ec8f6b;--t-shape:#dcbc5c;--t-geometry:#7cc79a;
+--v-keep:#6cc28a;--v-keepbut:#a3cf6f;--v-revert:#e58a74;--v-retry:#eba45f;--v-relax:#7fa8e6;--v-other:#b896e6;--v-later:#9aa39d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#181b19;--card:#212522;--fg:#e6ebe7;--mut:#9aa39d;--line:#353b37;--acc:#7fc4a8;--img:#2a2f2b;
+--t-size:#7fa8e6;--t-tag:#b896e6;--t-recolour:#ec8f6b;--t-shape:#dcbc5c;--t-geometry:#7cc79a;
+--v-keep:#6cc28a;--v-keepbut:#a3cf6f;--v-revert:#e58a74;--v-retry:#eba45f;--v-relax:#7fa8e6;--v-other:#b896e6;--v-later:#9aa39d;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:520px;margin:0 auto;padding-inline:10px;padding-block:6px 70px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:2;background:var(--bg);padding-block:6px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;border-bottom:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:1px 6px;border-radius:9px;border:1px solid currentColor;background:transparent;cursor:pointer;font-family:inherit}
+.chip[aria-pressed=false]{opacity:.35}
+.chip.t-size{color:var(--t-size)}.chip.t-tag{color:var(--t-tag)}.chip.t-recolour{color:var(--t-recolour)}.chip.t-shape{color:var(--t-shape)}.chip.t-geometry{color:var(--t-geometry)}
+.sw{font-size:11px;padding:1px 6px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;font-family:inherit}
+.sw[aria-pressed=true]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+h2{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:10px 0 4px}
+article{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px;margin-bottom:6px}
+article.high{border-left:3px solid var(--v-retry)}
+.hd{display:flex;flex-wrap:wrap;gap:3px 6px;align-items:center}.hd b{font-size:12px;margin-right:auto}
+.ims{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:4px 0}
+figure{margin:0;position:relative}figure img{display:block;width:100%;aspect-ratio:1;background:var(--img);border-radius:4px}
+figcaption{position:absolute;left:4px;top:3px;font-size:10px;color:var(--mut)}
+.back{display:none}body.two .back{display:block}
+.facts{font:11px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--fg);margin:0 0 2px;overflow-wrap:anywhere}
+.ch{margin:0}.nt{margin:0 0 4px;color:var(--mut)}
+.v{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.v button{font:inherit;font-size:12px;padding:3px 2px;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:4px;cursor:pointer}
+.v button:focus-visible,.chip:focus-visible,.sw:focus-visible,textarea:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.v button.on{color:var(--card);border-color:transparent}
+.v button.on[data-v=keep]{background:var(--v-keep)}.v button.on[data-v=keepbut]{background:var(--v-keepbut)}
+.v button.on[data-v=revert]{background:var(--v-revert)}.v button.on[data-v=retry]{background:var(--v-retry)}
+.v button.on[data-v=relax]{background:var(--v-relax)}.v button.on[data-v=other]{background:var(--v-other)}
+.v button.on[data-v=later]{background:var(--v-later)}
+textarea{display:block;width:100%;box-sizing:border-box;margin-top:4px;font:inherit;font-size:12px;padding:4px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg);resize:vertical;min-height:30px}
+textarea.need{border-color:var(--v-retry)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap}
+.bar button{font:inherit;padding:4px 10px;border:1px solid var(--acc);background:var(--acc);color:var(--card);border-radius:4px;cursor:pointer}
+#n{color:var(--mut);font-variant-numeric:tabular-nums}
+#ta{position:absolute;left:-9999px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<main>
+<div class="top" id="top"></div>
+<div id="list"></div>
+</main>
+<div class="bar"><span id="n"></span><button id="cp" type="button">Copy verdicts</button></div>
+<textarea id="ta" aria-hidden="true" tabindex="-1"></textarea>
+<script id="data" type="application/json">%%DATA%%</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const TYPES={size:['⤢','size'],tag:['#','tag'],recolour:['◐','recolour'],shape:['◇','shape'],geometry:['△','geometry']};
+const VERDICTS=[['keep','Keep'],['keepbut','Keep but…'],['revert','Revert'],['retry','Retry'],['relax','Relax rule'],['other','Other'],['later','Later']];
+const NEED={keepbut:'Keep, and then what?',retry:'Revert and try how?',relax:'Which rule, and how?',other:'What should happen?'};
+const K='review:'+D.title+':'+D.base;
+let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
+const shown=new Set(Object.keys(TYPES));let two=false,openOnly=false;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const chip=t=>`<span class="chip t-${t}" title="${TYPES[t][1]}">${TYPES[t][0]} ${TYPES[t][1]}</span>`;
+const fig=(src,cap,cls='')=>src?`<figure class="${cls}"><img src="${src}" alt="${cap}" loading="lazy"><figcaption>${cap}</figcaption></figure>`:`<figure class="${cls}"><figcaption>${cap}: none</figcaption></figure>`;
+function drawTop(){
+  const el=document.getElementById('top');
+  el.innerHTML=Object.keys(TYPES).map(t=>`<button type="button" class="chip t-${t}" data-t="${t}" aria-pressed="${shown.has(t)}">${TYPES[t][0]} ${TYPES[t][1]}</button>`).join('')+
+  `<button type="button" class="sw" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="sw" id="open" aria-pressed="${openOnly}">Unmarked</button>`;
+}
+function drawList(){
+  let html='',g=null;
+  D.items.forEach((it,i)=>{
+    if(it.group!==g){g=it.group;html+=g?`<h2>${esc(g)}</h2>`:''}
+    const s=st[it.model]||{};
+    html+=`<article data-i="${i}" class="${it.doubt==='high'?'high':''}"><div class="hd"><b>${esc(it.model)}</b>${it.types.map(chip).join('')}</div>
+<div class="ims">${fig(it.img.b1,'before')}${fig(it.img.a1,'after')}${fig(it.img.b2,'before, back','back')}${fig(it.img.a2,'after, back','back')}</div>
+${it.facts.length?`<p class="facts">${it.facts.map(esc).join(' · ')}</p>`:''}${it.change?`<p class="ch">${esc(it.change)}</p>`:''}${it.note?`<p class="nt">${esc(it.note)}</p>`:''}
+<div class="v" role="group" aria-label="verdict">${VERDICTS.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}" aria-pressed="${s.v===v}">${l}</button>`).join('')}</div>
+<textarea id="c${i}" rows="1" placeholder="${esc(NEED[s.v]||'Comment')}" class="${NEED[s.v]&&!s.c?'need':''}">${esc(s.c||'')}</textarea></article>`;
+  });
+  document.getElementById('list').innerHTML=html;filter();count();
+}
+function filter(){
+  document.querySelectorAll('article').forEach(a=>{const it=D.items[a.dataset.i];
+    const typeOk=it.types.length===0||it.types.some(t=>shown.has(t));const open=!openOnly||!(st[it.model]&&st[it.model].v);a.hidden=!(typeOk&&open)});
+  document.querySelectorAll('h2').forEach(h=>{let n=h.nextElementSibling,any=false;while(n&&n.tagName==='ARTICLE'){if(!n.hidden)any=true;n=n.nextElementSibling}h.hidden=!any});
+}
+function count(){const m=Object.values(st).filter(s=>s.v).length;document.getElementById('n').textContent=`${m} of ${D.items.length} marked`}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-t]');if(t){shown.has(t.dataset.t)?shown.delete(t.dataset.t):shown.add(t.dataset.t);drawTop();filter();return}
+  if(e.target.id==='two'){two=!two;document.body.classList.toggle("two",two);drawTop();return}
+  if(e.target.id==='open'){openOnly=!openOnly;drawTop();filter();return}
+  const b=e.target.closest('.v button');if(!b)return;
+  const a=b.closest('article'),it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
+  s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c)delete st[it.model];save();
+  a.querySelectorAll('.v button').forEach(x=>{const on=x.dataset.v===s.v;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
+  const ta=a.querySelector('textarea');ta.placeholder=NEED[s.v]||'Comment';ta.classList.toggle('need',Boolean(NEED[s.v]&&!s.c));if(NEED[s.v]&&!s.c)ta.focus();count();
+});
+document.addEventListener('input',e=>{const a=e.target.closest('article');if(!a)return;const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
+  s.c=e.target.value;if(!s.c&&!s.v)delete st[it.model];save();e.target.classList.toggle('need',Boolean(NEED[s.v]&&!s.c))});
+document.getElementById('cp').onclick=async()=>{
+  const out={review:D.title,base:D.base,items:D.items.filter(it=>st[it.model]&&(st[it.model].v||st[it.model].c)).map(it=>({model:it.model,verdict:st[it.model].v||'other',comment:st[it.model].c||'',types:it.types,doubt:it.doubt}))};
+  const txt=JSON.stringify(out,null,1),btn=document.getElementById('cp');
+  try{await navigator.clipboard.writeText(txt);btn.textContent='Copied'}catch(e){const ta=document.getElementById('ta');ta.value=txt;ta.select();btn.textContent='Selected, press copy'}
+  setTimeout(()=>btn.textContent='Copy verdicts',1600);
+};
+drawTop();drawList();
+</script>
