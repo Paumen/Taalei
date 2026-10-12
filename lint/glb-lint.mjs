@@ -11,6 +11,7 @@ const CFG = {
   doubledWarn: 0.01,
   atlas: { cols: 16, rows: 4, eps: 1e-3 },
   nonManifoldWarn: 0.02,
+  zfight: { cos: 0.9995, gap: 2e-4, share: 0.05 }, // gap: × largest size; share: of the smaller triangle
   rawExtentFar: 50,          // raw shape bigger than this (before node scale) = odd units
   house: { materials: 1, texture: 'Textures/colormap.png' },
   ignoreCodes: ['URI_GLB', 'BUFFER_VIEW_TARGET_MISSING'],
@@ -78,6 +79,53 @@ function analysePrim(P, N, I) {
   return { nt, nv, uniq: keys.size, zeroN, degen, flat, surf, doubled, nonMan, edges: edges.size, parts: used.size };
 }
 
+// ---------- z-fighting: same-facing triangles on one plane that overlap ----------
+function triOverlap2D(A, B) {
+  let poly = A;
+  for (let k = 0; k < 3 && poly.length; k++) {
+    const p = B[k], q = B[(k + 1) % 3], side = s => (q[0] - p[0]) * (s[1] - p[1]) - (q[1] - p[1]) * (s[0] - p[0]);
+    const next = [];
+    for (let i = 0; i < poly.length; i++) {
+      const s = poly[i], e = poly[(i + 1) % poly.length], ds = side(s), de = side(e);
+      if (ds >= 0) next.push(s);
+      if ((ds >= 0) !== (de >= 0)) { const t = ds / (ds - de); next.push([s[0] + t * (e[0] - s[0]), s[1] + t * (e[1] - s[1])]); }
+    }
+    poly = next;
+  }
+  let a = 0; for (let i = 0; i < poly.length; i++) { const s = poly[i], e = poly[(i + 1) % poly.length]; a += s[0] * e[1] - e[0] * s[1]; }
+  return Math.abs(a) / 2;
+}
+
+function zFight(tris, ext) {
+  const nt = tris.length, gap = ext * CFG.zfight.gap, cell = ext / 32;
+  const grid = new Map(), hit = new Uint8Array(nt);
+  tris.forEach((t, i) => {
+    const lo = [0, 1, 2].map(c => Math.floor(Math.min(t.p[0][c], t.p[1][c], t.p[2][c]) / cell));
+    const hi = [0, 1, 2].map(c => Math.floor(Math.max(t.p[0][c], t.p[1][c], t.p[2][c]) / cell));
+    for (let x = lo[0]; x <= hi[0]; x++) for (let y = lo[1]; y <= hi[1]; y++) for (let z = lo[2]; z <= hi[2]; z++) {
+      const k = `${x},${y},${z}`; (grid.get(k) || grid.set(k, []).get(k)).push(i);
+    }
+  });
+  const seen = new Set();
+  for (const L of grid.values()) for (let a = 0; a < L.length; a++) for (let b = a + 1; b < L.length; b++) {
+    const i = L[a], j = L[b], key = i * nt + j;
+    if (seen.has(key)) continue; seen.add(key);
+    const A = tris[i], B = tris[j];
+    if (dot(A.n, B.n) < CFG.zfight.cos) continue;
+    if (B.p.some(v => Math.abs(dot(A.n, sub(v, A.p[0]))) > gap)) continue;
+    const ax = A.n.map(Math.abs), drop = ax[0] > ax[1] ? (ax[0] > ax[2] ? 0 : 2) : (ax[1] > ax[2] ? 1 : 2);
+    const flat = t => {
+      const q = t.p.map(v => v.filter((_, c) => c !== drop));
+      return (q[1][0] - q[0][0]) * (q[2][1] - q[0][1]) - (q[1][1] - q[0][1]) * (q[2][0] - q[0][0]) < 0 ? q.reverse() : q;
+    };
+    if (triOverlap2D(flat(A), flat(B)) > CFG.zfight.share * Math.min(A.area, B.area) * ax[drop]) {
+      const v = A.colour === B.colour ? 1 : 2;
+      hit[i] = Math.max(hit[i], v); hit[j] = Math.max(hit[j], v);
+    }
+  }
+  return { seen: hit.filter(h => h === 2).length, hidden: hit.filter(h => h === 1).length };
+}
+
 // ---------- per file ----------
 async function lint(file) {
   const buf = fs.readFileSync(file), g = parseGlb(buf, file), j = g.json, out = [];
@@ -113,7 +161,7 @@ async function lint(file) {
 
   let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity], rawExt = 0;
   const T = { nt: 0, nv: 0, uniq: 0, zeroN: 0, degen: 0, flat: 0, surf: 0, doubled: 0, nonMan: 0, edges: 0, parts: 0 };
-  let xband = 0;
+  let xband = 0; const tris = [];
   for (let ni = 0; ni < nodes.length; ni++) {
     if (!('mesh' in nodes[ni])) continue;
     const W = world(ni), NM = normalMat(W);
@@ -134,18 +182,24 @@ async function lint(file) {
           for (let c = 0; c < 3; c++) N[3 * v + c] = t[c] / l * l0;
         }
       }
-      const mat = (j.materials || [])[pr.material];
+      const mat = (j.materials || [])[pr.material], cell = [];
       if (mat?.pbrMetallicRoughness?.baseColorTexture && pr.attributes.TEXCOORD_0 !== undefined) {
         const Uv = readAccessor(g, pr.attributes.TEXCOORD_0).data;
         for (let t = 0; t + 2 < I.length; t += 3) {
           const cu = Math.floor((Uv[2 * I[t]] + Uv[2 * I[t + 1]] + Uv[2 * I[t + 2]]) / 3 * CFG.atlas.cols);
           const cv = Math.floor((Uv[2 * I[t] + 1] + Uv[2 * I[t + 1] + 1] + Uv[2 * I[t + 2] + 1]) / 3 * CFG.atlas.rows);
+          cell[t / 3] = `${pr.material},${cu},${cv}`;
           const outside = [I[t], I[t + 1], I[t + 2]].some(v => {
             const u = Uv[2 * v] * CFG.atlas.cols, w = Uv[2 * v + 1] * CFG.atlas.rows;
             return u < cu - CFG.atlas.eps || u > cu + 1 + CFG.atlas.eps || w < cv - CFG.atlas.eps || w > cv + 1 + CFG.atlas.eps;
           });
           if (outside) xband++;
         }
+      }
+      for (let f = 0; f + 2 < I.length; f += 3) {
+        const p = [I[f], I[f + 1], I[f + 2]].map(v => [P[3 * v], P[3 * v + 1], P[3 * v + 2]]);
+        const n = cross(sub(p[1], p[0]), sub(p[2], p[0])), l = len(n);
+        if (l > 1e-12) tris.push({ p, n: n.map(x => x / l), area: l / 2, colour: cell[f / 3] ?? String(pr.material) });
       }
       const r = analysePrim(P, N, I);
       for (const k in T) T[k] += r[k];
@@ -160,6 +214,9 @@ async function lint(file) {
   if (T.degen / T.nt > CFG.degenerateWarn) add('warn', 'geometry', `${pct(T.degen / T.nt)} triangles with no area`);
   if (T.doubled / T.nt > CFG.doubledWarn) add('warn', 'geometry', `${pct(T.doubled / T.nt)} triangles doubled back-to-back (flicker)`);
   if (xband) add('error', 'colour', `${xband} triangles with corners in different colormap cells (smeared band)`);
+  const zf = zFight(tris, Math.max(...size));
+  if (zf.seen) add('error', 'zfight', `${zf.seen} triangles overlap a different colour on the same plane (z-fighting flicker)`);
+  if (zf.hidden) add('info', 'zfight', `${zf.hidden} triangles overlap the same colour on the same plane`);
   if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('info', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
   const density = T.nt / T.surf;
