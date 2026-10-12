@@ -199,6 +199,8 @@ export const BRONKITS = [
   { map: 'Low_Poly_Dragon', naam: 'Low-Poly Dragon (Blend Swap)', kit: 'dragon', formaat: 'glb' },
   { map: 'Victorian_Style_House', naam: 'Victorian Style House (Blend Swap)', kit: null, formaat: 'glb' },
   { map: 'Avramania_Food_Market', naam: 'Avramania Food & Market', kit: null, formaat: 'glb' },
+  { map: 'Avramania_Nature_Terrain', naam: 'Avramania Nature & Terrain', kit: null, formaat: 'glb' },
+  { map: 'Avramania_Weapons_Shields', naam: 'Avramania Weapons & Shields', kit: null, formaat: 'glb' },
   { map: 'School_Styloo', naam: 'School (Styloo)', kit: 'styloo-school', source: 'sty', formaat: 'glb', alleMappen: true },
   { map: 'Guns_Asset_Pack_Styloo', naam: 'Guns Asset Pack', kit: 'styloo-guns', source: 'sty', formaat: 'glb' },
 
