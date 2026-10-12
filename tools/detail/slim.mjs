@@ -22,7 +22,8 @@ A part is a shell: triangles welded on shared positions.
                                                       up: world direction the u side follows (round parts)
                                                       a new shape per part, fitted to its box, then
                                                       scaled (axis first) and moved in metres
-      replace and add fit the shape to the part's PCA box, in its biggest-area uv colour.
+      replace and add fit the shape to the part's PCA box, in its biggest-area uv colour,
+      keeping that colour's gradient across the part.
       After edits the model is re-grounded and re-centred in world space if it was before.
   Prints tris before/after.`;
 
@@ -115,6 +116,36 @@ function mainUV(tris) {
   return [...area].sort((x, y) => y[1] - x[1])[0][0].split(',').map(Number);
 }
 
+function solve(M, y) {
+  const n = y.length, a = M.map((r, i) => [...r, y[i]]);
+  for (let c = 0; c < n; c++) {
+    const p = a.reduce((b, r, i) => (i >= c && Math.abs(r[c]) > Math.abs(a[b][c]) ? i : b), c);
+    if (Math.abs(a[p][c]) < 1e-12) return null;
+    [a[c], a[p]] = [a[p], a[c]];
+    for (let i = 0; i < n; i++) if (i !== c) { const f = a[i][c] / a[c][c]; for (let k = c; k <= n; k++) a[i][k] -= f * a[c][k]; }
+  }
+  return a.map((r, i) => r[n] / r[i]);
+}
+
+function uvFit(tris) {
+  const m = mainUV(tris), cell = (u, v) => `${Math.floor(u * 16)},${Math.floor(v * 4)}`, mc = cell(m[0], m[1]);
+  const vs = [...new Set(tris.flatMap((t) => [I[t * 3], I[t * 3 + 1], I[t * 3 + 2]]))].filter((v) => cell(UV[v * 2], UV[v * 2 + 1]) === mc);
+  const flat = () => m;
+  if (vs.length < 4) return flat;
+  const M = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], yu = [0, 0, 0, 0], yv = [0, 0, 0, 0];
+  const lo = [Infinity, Infinity], hi = [-Infinity, -Infinity];
+  for (const v of vs) {
+    const x = [...vtx(v), 1], u = UV[v * 2], w = UV[v * 2 + 1];
+    for (let i = 0; i < 4; i++) { for (let j = 0; j < 4; j++) M[i][j] += x[i] * x[j]; yu[i] += x[i] * u; yv[i] += x[i] * w; }
+    lo[0] = Math.min(lo[0], u); hi[0] = Math.max(hi[0], u); lo[1] = Math.min(lo[1], w); hi[1] = Math.max(hi[1], w);
+  }
+  if (hi[0] - lo[0] < 1e-4 && hi[1] - lo[1] < 1e-4) return flat;
+  const cu = solve(M, yu), cv = solve(M, yv);
+  if (!cu || !cv) return flat;
+  const ev = (c, p) => c[0] * p[0] + c[1] * p[1] + c[2] * p[2] + c[3];
+  return (p) => [Math.min(hi[0], Math.max(lo[0], ev(cu, p))), Math.min(hi[1], Math.max(lo[1], ev(cv, p)))];
+}
+
 const r3 = (a) => a.map((x) => +x.toFixed(3));
 
 if (cmd === 'parts') {
@@ -128,7 +159,7 @@ if (cmd === 'parts') {
     if (!all && shown++ >= 40) { console.log('… (--all for the rest)'); break; }
     const r = g[0];
     const ids = g.map((x) => x.id);
-    console.log(`${String(g.length * r.tris).padStart(6)} tris  ${g.length > 1 ? `${g.length}× ${r.tris}` : r.tris}  ids ${ids.length > 12 ? `${ids.slice(0, 12).join(',')},…(${ids.length})` : ids.join(',')}  size ${r.size.join('x')}  at ${r.centre.join(',')}  uv ${r.uv.join(',')}`);
+    console.log(`${String(g.length * r.tris).padStart(6)} tris  ${g.length > 1 ? `${g.length}× ${r.tris}` : r.tris}  ids ${ids.length > 12 && !all ? `${ids.slice(0, 12).join(',')},…(${ids.length})` : ids.join(',')}  size ${r.size.join('x')}  at ${r.centre.join(',')}  uv ${r.uv.join(',')}`);
   }
   process.exit(0);
 }
@@ -171,7 +202,7 @@ function faceN(a, b, c) {
 
 function shape(tris, o) {
   const f = frame(tris);
-  const uv = o.uv ?? mainUV(tris);
+  const uvAt = o.uv ? () => o.uv : uvFit(tris);
   let order = [0, 1, 2].sort((a, b) => f.size[b] - f.size[a]);
   let ax = order[0];
   if (o.axis === 'short') ax = order[2];
@@ -193,7 +224,7 @@ function shape(tris, o) {
   const tri = (a, b, c) => {
     const fn = cross(sub(a.p, b.p), sub(a.p, c.p));
     const ok = dot(fn, a.n) >= 0;
-    const vs = [a, b, c].map((q) => addV(q.p, q.n, uv));
+    const vs = [a, b, c].map((q) => addV(q.p, q.n, uvAt(q.p)));
     res.push(ok ? vs : [vs[0], vs[2], vs[1]]);
   };
   const segs = o.segs ?? 8;

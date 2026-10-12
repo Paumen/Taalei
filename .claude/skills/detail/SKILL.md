@@ -63,6 +63,14 @@ next to its original and its peers, and lean on the PO's past verdicts (§6).
 - Nets, baskets and grilles keep a regular pattern; bigger holes are fine.
 - A swapped part keeps its colour, size and placement; small colour accents
   (steel hubs, amber bulbs) must survive, or `palette` fails.
+- A swapped part keeps its shading: many parts run a light-to-dark gradient
+  across their colour cell, and a part in one flat tone looks wrong next to
+  its shaded neighbours. Compare in `pbr`, not only in clay.
+- Small hardware goes freely: rivets, bolts, screws, pins and feet under a
+  model. Turned legs, knobs and collars may become plain shapes. A handle or
+  pull keeps what makes it graspable; a flat plate is not a pull.
+- A swapped part never goes thinner than the original's thinnest tube, or
+  `G27` fails.
 
 ## 4. Tool
 
@@ -70,10 +78,11 @@ next to its original and its peers, and lean on the PO's past verdicts (§6).
 workfile by parts, a part being a shell of welded triangles:
 
 - `parts <glb>` lists the parts with ids, triangles, size, centre and colour,
-  grouping identical ones.
+  grouping identical ones; `--all` lists every group and every id.
 - `edit <glb> '<ops>' --out <glb>` applies `keep`, `drop`, `replace`
   (`cyl`, `cone`, `sphere`, `box`), `add` and `net`, then re-grounds and
-  re-centres the model in world space if it was before.
+  re-centres the model in world space if it was before. `replace` and `add`
+  carry the part's colour gradient over to the new shape.
 
 To see what a part is, `keep` it into a scratch file and render that.
 Swapped shapes fit the part's oriented box: check the axis (`axis`, `flip`,
