@@ -339,6 +339,97 @@
    }
   },
   {
+   "slug": "avra",
+   "name": "avra",
+   "url": "https://www.avramania.com/",
+   "licenseLabel": "CC0 1.0",
+   "count": 62,
+   "packs": [
+    "Avramania Food & Market",
+    "Avramania Nature & Terrain",
+    "Avramania Weapons & Shields"
+   ],
+   "origins": {
+    "Avramania Food & Market": 16,
+    "Avramania Nature & Terrain": 28,
+    "Avramania Weapons & Shields": 18
+   },
+   "scales": {
+    "1.24": 16,
+    "0.39": 28,
+    "0.55": 18
+   },
+   "smooth": {
+    "smooth": 60,
+    "none": 2
+   },
+   "members": [
+    {
+     "slug": "avra-food",
+     "name": "avra-food",
+     "url": "https://www.avramania.com/",
+     "licenseLabel": "CC0 1.0",
+     "count": 16,
+     "packs": [
+      "Avramania Food & Market"
+     ],
+     "origins": {
+      "Avramania Food & Market": 16
+     },
+     "scales": {
+      "1.24": 16
+     },
+     "smooth": {
+      "smooth": 15,
+      "none": 1
+     }
+    },
+    {
+     "slug": "avra-nature",
+     "name": "avra-nature",
+     "url": "https://www.avramania.com/",
+     "licenseLabel": "CC0 1.0",
+     "count": 28,
+     "packs": [
+      "Avramania Nature & Terrain"
+     ],
+     "origins": {
+      "Avramania Nature & Terrain": 28
+     },
+     "scales": {
+      "0.39": 28
+     },
+     "smooth": {
+      "smooth": 27,
+      "none": 1
+     }
+    },
+    {
+     "slug": "avra-weapons",
+     "name": "avra-weapons",
+     "url": "https://www.avramania.com/",
+     "licenseLabel": "CC0 1.0",
+     "count": 18,
+     "packs": [
+      "Avramania Weapons & Shields"
+     ],
+     "origins": {
+      "Avramania Weapons & Shields": 18
+     },
+     "scales": {
+      "0.55": 18
+     },
+     "smooth": {
+      "smooth": 18
+     }
+    }
+   ],
+   "kitCheck": {
+    "factor": 0.98,
+    "kinds": 39
+   }
+  },
+  {
    "slug": "clay-props",
    "name": "clay-props",
    "url": "https://og-shmiggy.itch.io/clay-items",
@@ -23847,6 +23938,24 @@
     "loaf-bones/bone-pile-2",
     "loaf-bones/bone-pile-10"
    ]
+  },
+  {
+   "id": "avra-nature/pine",
+   "type": "maatvariant",
+   "main": "avra-nature/pine",
+   "members": [
+    "avra-nature/pine",
+    "avra-nature/pine-sapling"
+   ]
+  },
+  {
+   "id": "avra-nature/cliff-a",
+   "type": "detail-variant",
+   "main": "avra-nature/cliff-a",
+   "members": [
+    "avra-nature/cliff-a",
+    "avra-nature/cliff-b"
+   ]
   }
  ],
  "bands": [
@@ -23944,7 +24053,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 596,
+   "count": 602,
    "parent": "metal"
   },
   {
@@ -23952,7 +24061,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 760,
+   "count": 765,
    "parent": "metal"
   },
   {
@@ -23960,7 +24069,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1826,
+   "count": 1841,
    "parent": "metal"
   },
   {
@@ -23968,7 +24077,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 352,
+   "count": 355,
    "parent": "metal"
   },
   {
@@ -24000,7 +24109,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 875,
+   "count": 877,
    "parent": "stone"
   },
   {
@@ -24008,7 +24117,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 85,
+   "count": 87,
    "parent": "stone"
   },
   {
@@ -24016,7 +24125,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains, planets.",
-   "count": 369,
+   "count": 383,
    "parent": "stone"
   },
   {
@@ -24032,7 +24141,7 @@
    "name": "Gemstone",
    "type": "material",
    "description": "A cut stone set in jewellery or a hilt.",
-   "count": 92,
+   "count": 94,
    "parent": "mineral"
   },
   {
@@ -24048,7 +24157,7 @@
    "name": "Soil",
    "type": "material",
    "description": "Loose dirt: dirt patches, dirt floors and tiles, farm fields, the soil in a plant pot.",
-   "count": 87,
+   "count": 92,
    "parent": "earth"
   },
   {
@@ -24104,7 +24213,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 522,
+   "count": 523,
    "parent": "glass"
   },
   {
@@ -24151,7 +24260,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 758,
+   "count": 770,
    "parent": "wood"
   },
   {
@@ -24159,7 +24268,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1205,
+   "count": 1220,
    "parent": "wood"
   },
   {
@@ -24167,7 +24276,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1557,
+   "count": 1574,
    "parent": "wood"
   },
   {
@@ -24175,7 +24284,7 @@
    "name": "Bark",
    "type": "material",
    "description": "The outside of a trunk, branch or root: trees, stumps, roots, logs.",
-   "count": 318,
+   "count": 324,
    "parent": "plant"
   },
   {
@@ -24191,7 +24300,7 @@
    "name": "Paper sheet",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, labels.",
-   "count": 326,
+   "count": 327,
    "parent": "paper"
   },
   {
@@ -24207,7 +24316,7 @@
    "name": "Cork",
    "type": "material",
    "description": "A cork stopper in a bottle or flask, or anything cut from cork.",
-   "count": 103,
+   "count": 104,
    "parent": "plant"
   },
   {
@@ -24223,7 +24332,7 @@
    "name": "Leaf light",
    "type": "material",
    "description": "Light-green leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 423,
+   "count": 436,
    "parent": "leaf"
   },
   {
@@ -24231,7 +24340,7 @@
    "name": "Leaf dark",
    "type": "material",
    "description": "Dark-green leaves and needles: tree crowns, hedges, conifers.",
-   "count": 120,
+   "count": 125,
    "parent": "leaf"
   },
   {
@@ -24255,7 +24364,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 255,
+   "count": 256,
    "parent": "textile-cloth"
   },
   {
@@ -24271,7 +24380,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 334,
+   "count": 336,
    "parent": "textile-cloth"
   },
   {
@@ -24279,7 +24388,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 187,
+   "count": 192,
    "parent": "textile"
   },
   {
@@ -24302,7 +24411,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers.",
-   "count": 175,
+   "count": 187,
    "parent": "animal"
   },
   {
@@ -24326,7 +24435,7 @@
    "name": "Feather",
    "type": "material",
    "description": "Feathers: quills, plumes, fletching.",
-   "count": 45,
+   "count": 48,
    "parent": "animal"
   },
   {
@@ -24388,7 +24497,7 @@
    "name": "Liquid",
    "type": "material",
    "description": "What a vessel visibly holds, such as the potion in a flask, and snow. Not the vessel itself.",
-   "count": 102
+   "count": 104
   },
   {
    "id": "special-emissive",
@@ -24402,21 +24511,21 @@
    "name": "Food",
    "type": "material",
    "description": "Edible matter: bread, cheese, fish, meat, dishes and set plates. Meat additionally carries meat.",
-   "count": 685
+   "count": 692
   },
   {
    "id": "special-organic",
    "name": "Organic",
    "type": "material",
    "description": "Plant matter that is neither leaf nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 230
+   "count": 233
   },
   {
    "id": "obj",
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4652,
+   "count": 4686,
    "color": "#c07c8a"
   },
   {
@@ -24662,7 +24771,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 697,
+   "count": 700,
    "color": "#dd9f79"
   },
   {
@@ -24775,7 +24884,7 @@
    "name": "Barrel",
    "type": "kind",
    "description": "Barrel or cask, tapped keg included.",
-   "count": 53
+   "count": 54
   },
   {
    "id": "obj-container-barrel-metal",
@@ -24789,14 +24898,14 @@
    "name": "Bottle",
    "type": "kind",
    "description": "bottle, flask, vial",
-   "count": 152
+   "count": 153
   },
   {
    "id": "obj-container-bottle-vial",
    "name": "Vial",
    "type": "kind",
    "description": "Small stoppered bottle for a dose: potion, phial, sample.",
-   "count": 68
+   "count": 69
   },
   {
    "id": "obj-container-bottle-glass",
@@ -24852,7 +24961,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 128
+   "count": 129
   },
   {
    "id": "obj-container-crate-cube",
@@ -24894,7 +25003,7 @@
    "name": "Produce crate",
    "type": "kind",
    "description": "Shallow open crate for fruit, vegetables or bottles, and its lid.",
-   "count": 15
+   "count": 16
   },
   {
    "id": "obj-container-present",
@@ -24943,7 +25052,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1134,
+   "count": 1152,
    "color": "#6b5b95"
   },
   {
@@ -24951,14 +25060,14 @@
    "name": "Armor",
    "type": "kind",
    "description": "helmet, chestplate, pauldron, greaves, gauntlet",
-   "count": 48
+   "count": 50
   },
   {
    "id": "obj-equipment-apparel",
    "name": "Apparel",
    "type": "kind",
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
-   "count": 118
+   "count": 120
   },
   {
    "id": "obj-equipment-apparel-bag",
@@ -25000,14 +25109,14 @@
    "name": "Shield",
    "type": "kind",
    "description": "shield, buckler",
-   "count": 38
+   "count": 40
   },
   {
    "id": "obj-food",
    "name": "Food",
    "type": "kind",
    "description": "honey",
-   "count": 554,
+   "count": 562,
    "color": "#c25b4e"
   },
   {
@@ -25043,14 +25152,14 @@
    "name": "Bread",
    "type": "kind",
    "description": "bread, loaf, roll, baguette",
-   "count": 35
+   "count": 36
   },
   {
    "id": "obj-food-baked-bread-bun",
    "name": "Bun",
    "type": "kind",
    "description": "Bun or bread roll, whole or as burger top and bottom.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-food-baked-bread-baguette",
@@ -25141,7 +25250,7 @@
    "name": "Vegetable",
    "type": "kind",
    "description": "cabbage, onion, potato, tomato",
-   "count": 104
+   "count": 106
   },
   {
    "id": "obj-food-vegetable-pumpkin",
@@ -25162,7 +25271,7 @@
    "name": "Prepared fish",
    "type": "kind",
    "description": "fish fillet, cured fish",
-   "count": 27
+   "count": 28
   },
   {
    "id": "obj-food-fish-sushi",
@@ -25183,28 +25292,28 @@
    "name": "Fruit",
    "type": "kind",
    "description": "Fruit, whole or cut.",
-   "count": 102
+   "count": 104
   },
   {
    "id": "obj-food-dairy",
    "name": "Dairy",
    "type": "kind",
    "description": "Dairy food: yogurt, and cheese in its own leaf.",
-   "count": 35
+   "count": 36
   },
   {
    "id": "obj-food-fruit-apple",
    "name": "Apple",
    "type": "kind",
    "description": "apple",
-   "count": 20
+   "count": 21
   },
   {
    "id": "obj-food-dairy-cheese",
    "name": "Cheese",
    "type": "kind",
    "description": "Cheese, whole or portioned.",
-   "count": 28
+   "count": 29
   },
   {
    "id": "obj-food-sweet",
@@ -25246,7 +25355,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 801,
+   "count": 802,
    "color": "#c07c8a"
   },
   {
@@ -25261,7 +25370,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 525
+   "count": 526
   },
   {
    "id": "obj-furnishing-furniture-counter",
@@ -25478,7 +25587,7 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser, coat rack, weapon rack",
-   "count": 146
+   "count": 147
   },
   {
    "id": "obj-furnishing-furniture-storage-bookcase",
@@ -25520,14 +25629,14 @@
    "name": "Rack",
    "type": "kind",
    "description": "Open rack for showing or holding goods or gear: display rack, spinner rack, slat wall, ball or dumbbell rack.",
-   "count": 28
+   "count": 29
   },
   {
    "id": "obj-furnishing-furniture-storage-rack-weapon",
    "name": "Weapon rack",
    "type": "kind",
    "description": "weapon rack, weapon stand",
-   "count": 4
+   "count": 5
   },
   {
    "id": "obj-furnishing-furniture-storage-rack-coat",
@@ -25576,7 +25685,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 409,
+   "count": 413,
    "color": "#9c3f2e"
   },
   {
@@ -25738,7 +25847,7 @@
    "name": "Tableware",
    "type": "kind",
    "description": "and any tableware with no leaf that fits",
-   "count": 216
+   "count": 220
   },
   {
    "id": "obj-kitchenware-tableware-condiment",
@@ -25752,7 +25861,7 @@
    "name": "Cutlery",
    "type": "kind",
    "description": "knife (table), fork, spoon",
-   "count": 32
+   "count": 33
   },
   {
    "id": "obj-kitchenware-tableware-cutlery-chopsticks",
@@ -25766,7 +25875,7 @@
    "name": "Plate",
    "type": "kind",
    "description": "plate, dish, saucer",
-   "count": 45
+   "count": 46
   },
   {
    "id": "obj-kitchenware-tableware-serving",
@@ -25794,14 +25903,14 @@
    "name": "Bowl",
    "type": "kind",
    "description": "bowl",
-   "count": 32
+   "count": 33
   },
   {
    "id": "obj-kitchenware-tableware-drinkware",
    "name": "Drinkware",
    "type": "kind",
    "description": "cup, tankard, glass",
-   "count": 82
+   "count": 83
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-takeaway",
@@ -25843,7 +25952,7 @@
    "name": "Tankard",
    "type": "kind",
    "description": "Ale vessel of staves or metal with a handle, lidded or open.",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-furnishing-light",
@@ -26133,7 +26242,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 362,
+   "count": 364,
    "color": "#6d738a"
   },
   {
@@ -26141,7 +26250,7 @@
    "name": "Scale",
    "type": "kind",
    "description": "Weighing scale: balance scale, hanging scale, kitchen scale.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-tool-station",
@@ -26218,7 +26327,7 @@
    "name": "Hand",
    "type": "kind",
    "description": "Hand tool with no own kind: tape measure, magnet, axe, crowbar, drill, level, plunger.",
-   "count": 117
+   "count": 118
   },
   {
    "id": "obj-equipment-tool-hand-screwdriver",
@@ -26232,7 +26341,7 @@
    "name": "Blade",
    "type": "kind",
    "description": "knife (tool), carving knife, craft knife, razor blade, sickle",
-   "count": 7
+   "count": 8
   },
   {
    "id": "obj-equipment-tool-hand-shaping",
@@ -26576,7 +26685,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 429,
+   "count": 441,
    "color": "#4c5468"
   },
   {
@@ -26584,35 +26693,35 @@
    "name": "Magic",
    "type": "kind",
    "description": "wand, orb, focus (magic)",
-   "count": 13
+   "count": 14
   },
   {
    "id": "obj-equipment-weapon-magic-staff",
    "name": "Staff",
    "type": "kind",
    "description": "staff, wizard staff",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-equipment-weapon-melee",
    "name": "Melee",
    "type": "kind",
    "description": "scythe (weapon), knuckles, claws, gauntlet blade",
-   "count": 178
+   "count": 185
   },
   {
    "id": "obj-equipment-weapon-melee-axe",
    "name": "Axe",
    "type": "kind",
    "description": "Axe with no leaf that fits.",
-   "count": 39
+   "count": 40
   },
   {
    "id": "obj-equipment-weapon-melee-axe-single",
    "name": "Single axe",
    "type": "kind",
    "description": "Axe with one blade.",
-   "count": 23
+   "count": 24
   },
   {
    "id": "obj-equipment-weapon-melee-axe-double",
@@ -26626,14 +26735,14 @@
    "name": "Dagger",
    "type": "kind",
    "description": "dagger, knife (combat)",
-   "count": 27
+   "count": 28
   },
   {
    "id": "obj-equipment-weapon-melee-warhammer",
    "name": "Warhammer",
    "type": "kind",
    "description": "Melee weapon that strikes with a head, not an edge: warhammer, mace, flail.",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-equipment-weapon-melee-club",
@@ -26647,7 +26756,7 @@
    "name": "Sword",
    "type": "kind",
    "description": "sword, rapier, scimitar, katana",
-   "count": 60
+   "count": 63
   },
   {
    "id": "obj-equipment-weapon-melee-sword-broad",
@@ -26668,42 +26777,42 @@
    "name": "Spear",
    "type": "kind",
    "description": "Pole weapon with a head on a long shaft.",
-   "count": 17
+   "count": 18
   },
   {
    "id": "obj-equipment-weapon-ranged",
    "name": "Ranged",
    "type": "kind",
    "description": "sling, javelin, dart",
-   "count": 165
+   "count": 169
   },
   {
    "id": "obj-equipment-apparel-quiver",
    "name": "Quiver",
    "type": "kind",
    "description": "Quiver: the case that carries arrows or bolts.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-weapon-ranged-arrow",
    "name": "Arrow",
    "type": "kind",
    "description": "Shaft shot from a bow or crossbow, and the dart thrown by hand.",
-   "count": 27
+   "count": 29
   },
   {
    "id": "obj-equipment-weapon-ranged-bow",
    "name": "Bow",
    "type": "kind",
    "description": "bow, longbow",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-equipment-weapon-ranged-crossbow",
    "name": "Crossbow",
    "type": "kind",
    "description": "crossbow",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm",
@@ -26781,7 +26890,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 1037,
+   "count": 1060,
    "color": "#6cb588"
   },
   {
@@ -26846,7 +26955,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 335,
+   "count": 341,
    "color": "#6cb588"
   },
   {
@@ -26854,35 +26963,35 @@
    "name": "Deadwood",
    "type": "kind",
    "description": "dead tree, fallen tree, root",
-   "count": 96
+   "count": 99
   },
   {
    "id": "env-remains-deadwood-branch",
    "name": "Branch",
    "type": "kind",
    "description": "branch, twig, log, driftwood",
-   "count": 23
+   "count": 24
   },
   {
    "id": "env-remains-deadwood-stump",
    "name": "Stump",
    "type": "kind",
    "description": "stump",
-   "count": 11
+   "count": 12
   },
   {
    "id": "env-remains-deadwood-tree",
    "name": "Dead tree",
    "type": "kind",
    "description": "Tree that died standing: bare trunk and branches, no leaves.",
-   "count": 55
+   "count": 56
   },
   {
    "id": "env-flora-plant",
    "name": "Plant",
    "type": "kind",
    "description": "bush, shrub, fern, ivy, vine",
-   "count": 181
+   "count": 184
   },
   {
    "id": "env-flora-plant-cactus",
@@ -26903,21 +27012,21 @@
    "name": "Flower",
    "type": "kind",
    "description": "flower, tulip, rose, sunflower, bellflower, daisy, violet",
-   "count": 31
+   "count": 32
   },
   {
    "id": "env-flora-plant-grass",
    "name": "Grass",
    "type": "kind",
    "description": "grass, grass tuft",
-   "count": 36
+   "count": 37
   },
   {
    "id": "env-flora-waterplant",
    "name": "Water plant",
    "type": "kind",
    "description": "Plant that grows in or on water.",
-   "count": 40
+   "count": 41
   },
   {
    "id": "env-flora-waterplant-cattail",
@@ -26931,7 +27040,7 @@
    "name": "Lily pad",
    "type": "kind",
    "description": "Lily pads floating on the surface, with or without a flower.",
-   "count": 15
+   "count": 16
   },
   {
    "id": "env-flora-plant-bamboo",
@@ -26966,14 +27075,14 @@
    "name": "Tree",
    "type": "kind",
    "description": "tree, oak, birch, willow, bush (tree-sized)",
-   "count": 114
+   "count": 116
   },
   {
    "id": "env-flora-tree-conifer",
    "name": "Conifer",
    "type": "kind",
    "description": "conifer, pine, spruce, fir",
-   "count": 57
+   "count": 59
   },
   {
    "id": "env-flora-tree-palm",
@@ -26987,7 +27096,7 @@
    "name": "Fungi",
    "type": "kind",
    "description": "mushroom, toadstool, fungus, lichen",
-   "count": 44,
+   "count": 45,
    "color": "#e08fb0"
   },
   {
@@ -26995,7 +27104,7 @@
    "name": "Remains",
    "type": "kind",
    "description": "egg (wild), nest, feather",
-   "count": 208,
+   "count": 211,
    "color": "#cfc6ad"
   },
   {
@@ -27031,7 +27140,7 @@
    "name": "Rock",
    "type": "kind",
    "description": "crystal, ore (in rock), stalagmite",
-   "count": 303,
+   "count": 313,
    "color": "#9da4c4"
   },
   {
@@ -27039,35 +27148,35 @@
    "name": "Boulder",
    "type": "kind",
    "description": "boulder, rock (large)",
-   "count": 123
+   "count": 126
   },
   {
    "id": "env-terrain-rock-cobble",
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose), stepping stone",
-   "count": 112
+   "count": 113
   },
   {
    "id": "env-terrain-rock-formation",
    "name": "Formation",
    "type": "kind",
    "description": "arch (rock), monolith, spire, cliff, outcrop",
-   "count": 43
+   "count": 48
   },
   {
    "id": "env-terrain-rock-pebble",
    "name": "Pebble",
    "type": "kind",
    "description": "pebble, stone (small), gravel",
-   "count": 17
+   "count": 18
   },
   {
    "id": "env-terrain",
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor, riverbed",
-   "count": 362,
+   "count": 375,
    "color": "#8a5d4b"
   },
   {
@@ -27075,14 +27184,14 @@
    "name": "Ground",
    "type": "kind",
    "description": "ground, ground mesh",
-   "count": 48
+   "count": 50
   },
   {
    "id": "str-access-path",
    "name": "Path",
    "type": "kind",
    "description": "Laid path to walk on: stone path, cobbled path, wooden path, paving stones.",
-   "count": 16
+   "count": 19
   },
   {
    "id": "env-terrain-ground-field",
@@ -27096,7 +27205,7 @@
    "name": "Ground patch",
    "type": "kind",
    "description": "sand, snow patch, mud, moss patch, ground cover, grass patch, ground tile, flat rock",
-   "count": 27
+   "count": 28
   },
   {
    "id": "env-terrain-ground-pit",
@@ -27117,7 +27226,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, mine entrance",
-   "count": 2645,
+   "count": 2650,
    "color": "#877a63"
   },
   {
@@ -27146,7 +27255,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 290,
+   "count": 295,
    "color": "#c98a5a"
   },
   {
@@ -27182,7 +27291,7 @@
    "name": "Bridge",
    "type": "kind",
    "description": "bridge, plank (crossing), rope bridge",
-   "count": 37
+   "count": 38
   },
   {
    "id": "str-access-bridge-section",
@@ -27196,7 +27305,7 @@
    "name": "Long",
    "type": "kind",
    "description": "Whole crossing in one model, bank to bank.",
-   "count": 11
+   "count": 12
   },
   {
    "id": "str-access-ladder",
@@ -27210,7 +27319,7 @@
    "name": "Stairs",
    "type": "kind",
    "description": "stairs",
-   "count": 86
+   "count": 87
   },
   {
    "id": "str-access-ramp",
@@ -27238,7 +27347,7 @@
    "name": "Steps",
    "type": "kind",
    "description": "steps, step, step block",
-   "count": 20
+   "count": 21
   },
   {
    "id": "str-barrier",
@@ -27799,7 +27908,7 @@
    "name": "Baked",
    "type": "kind",
    "description": "Food baked from dough: bread, pie and pastry.",
-   "count": 134
+   "count": 135
   },
   {
    "id": "str-fixture-utility",
@@ -27962,14 +28071,14 @@
    "name": "Leafy vegetable",
    "type": "kind",
    "description": "lettuce, cauliflower, cabbage",
-   "count": 6
+   "count": 7
   },
   {
    "id": "obj-food-vegetable-onion",
    "name": "Onion",
    "type": "kind",
    "description": "onion",
-   "count": 13
+   "count": 14
   },
   {
    "id": "obj-food-vegetable-pepper",
@@ -28032,7 +28141,7 @@
    "name": "Grapes",
    "type": "kind",
    "description": "grapes",
-   "count": 5
+   "count": 6
   },
   {
    "id": "obj-equipment-apparel-headgear",
@@ -28270,7 +28379,7 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 313
+   "count": 318
   },
   {
    "id": "pickup",
@@ -28298,7 +28407,7 @@
    "name": "Mounted",
    "type": "tag",
    "description": "Not meant to stand on the ground in a scene: hung from a ceiling, beam or post, fixed to a wall, or set high on a building.",
-   "count": 373
+   "count": 375
   },
   {
    "id": "tba",
@@ -28420,7 +28529,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 206,
+   "count": 207,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -28518,7 +28627,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4028,
+   "count": 4063,
    "derived": true
   },
   {
@@ -28526,7 +28635,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3440,
+   "count": 3459,
    "derived": true
   },
   {
@@ -28534,7 +28643,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1143,
+   "count": 1151,
    "derived": true
   },
   {
@@ -29271,6 +29380,12 @@
    "longest.min": 0.07,
    "longest.max": 0.3,
    "tpu.max": 5000
+  },
+  "env-terrain": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 3000
   },
   "env-terrain-ground": {
    "high.max": 8,
@@ -30305,6 +30420,12 @@
    "longest.min": 0.45,
    "longest.max": 1.1,
    "tpu.max": 10000
+  },
+  "obj-food": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
   },
   "obj-food-baked": {
    "high.max": 8,
@@ -36185,7 +36306,7 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "3dm-industrial",
@@ -36826,7 +36947,7 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "3dm-medieval",
@@ -37241,7 +37362,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "3dm-scifi",
@@ -40142,7 +40263,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "aq-hallow",
@@ -40188,7 +40309,7 @@
     "halloween"
    ],
    "variant": "aq-hallow/tree-dead-a",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "aq-hallow",
@@ -40234,7 +40355,7 @@
     "halloween"
    ],
    "variant": "aq-hallow/tree-dead-a",
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "aq-hallow",
@@ -40280,12 +40401,12 @@
     "halloween"
    ],
    "variant": "aq-hallow/tree-dead-a",
-   "thickRel": 0.48,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -41440,7 +41561,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 0.84,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
@@ -41495,7 +41616,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 1.1
+   "thickRel": 1.01
   },
   {
    "kit": "aq-pond",
@@ -41539,7 +41660,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 1.09
+   "thickRel": 1
   },
   {
    "kit": "aq-pond",
@@ -41583,7 +41704,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 0.64,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -41646,7 +41767,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 0.86,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -42279,7 +42400,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/lily-pad-a",
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "aq-pond",
@@ -43106,7 +43227,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 1.1
+   "thickRel": 1.01
   },
   {
    "kit": "aq-pond",
@@ -43162,7 +43283,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 0.86,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -43218,7 +43339,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 0.64,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -43274,7 +43395,7 @@
     "bark"
    ],
    "variant": "aq-pond/branch",
-   "thickRel": 0.64,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -43737,7 +43858,7 @@
     "stone-concrete",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.74,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "error",
@@ -44250,6 +44371,3602 @@
      "level": "warning",
      "check": "backface",
      "text": "0.3% of view 90/20 over 0.1%: open 85.0%, inverted 15.0%"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "ale-mug",
+   "hash": "81c69564f2",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
+   "size": "s",
+   "wdh": [
+    0.176,
+    0.122,
+    0.148
+   ],
+   "tris": 388,
+   "tpu": 1131,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 22872,
+   "vtx": 596,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "thick": 0.1967,
+   "avgTri": 0.00056,
+   "anglePct": 49,
+   "vpt": 1.54,
+   "grad": 0.6,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491",
+    "#804f2a",
+    "#ac764c",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "special-liquid",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "thickRel": 2.14
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "apple",
+   "hash": "c9548fae46",
+   "kind": "obj-food-fruit-apple",
+   "size": "s",
+   "wdh": [
+    0.106,
+    0.104,
+    0.104
+   ],
+   "tris": 418,
+   "tpu": 1219,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 21028,
+   "vtx": 533,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0056,
+   "thick": 0.2331,
+   "avgTri": 0.00009,
+   "anglePct": 12,
+   "vpt": 1.28,
+   "grad": 0.59,
+   "spread": {
+    "8,0": [
+     0.148,
+     0.742
+    ],
+    "3,0": [
+     0.18,
+     0.742
+    ],
+    "1,1": [
+     0.164,
+     0.742
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#4f2e1b",
+    "#873a27"
+   ],
+   "tags": [
+    "leaf-dark",
+    "special-food"
+   ],
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0056 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "bowl",
+   "hash": "7a22275580",
+   "kind": "obj-kitchenware-tableware-bowl",
+   "size": "s",
+   "wdh": [
+    0.303,
+    0.179,
+    0.084
+   ],
+   "tris": 388,
+   "tpu": 1131,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22604,
+   "vtx": 588,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "thick": 0.1485,
+   "avgTri": 0.00053,
+   "anglePct": 62,
+   "vpt": 1.52,
+   "grad": 0.6,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#804f2a",
+    "#ac764c"
+   ],
+   "tags": [
+    "wood-dark",
+    "wood-mid"
+   ],
+   "thickRel": 2.02
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "cabbage",
+   "hash": "c577124910",
+   "kind": "obj-food-vegetable-leafy",
+   "size": "s",
+   "wdh": [
+    0.213,
+    0.205,
+    0.164
+   ],
+   "tris": 1448,
+   "tpu": 4222,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 58292,
+   "vtx": 1504,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0037,
+   "thick": 0.2126,
+   "avgTri": 0.00016,
+   "anglePct": 5,
+   "vpt": 1.04,
+   "grad": 0.6,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#66852a"
+   ],
+   "tags": [
+    "special-food"
+   ],
+   "backface": {
+    "share": 0.0031,
+    "view": "180/20",
+    "causes": {
+     "other": 0.46,
+     "inverted": 0.54
+    }
+   },
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 180/20 over 0.1%: inverted 54.0%, other 46.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0037 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "cask",
+   "hash": "fd4bbc7b5e",
+   "kind": "obj-container-barrel",
+   "size": "m",
+   "wdh": [
+    0.428,
+    0.498,
+    0.528
+   ],
+   "tris": 1300,
+   "tpu": 3790,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 54804,
+   "vtx": 1423,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0173,
+   "thick": 0.229,
+   "avgTri": 0.00154,
+   "anglePct": 23,
+   "vpt": 1.09,
+   "grad": 0.58,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.164,
+     0.727
+    ],
+    "1,0": [
+     0.172,
+     0.727
+    ]
+   },
+   "colors": [
+    "#804f2a",
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "wood-dark",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0173 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "cheese-wheel",
+   "hash": "49c9f0a3df",
+   "kind": "obj-food-dairy-cheese",
+   "size": "s",
+   "wdh": [
+    0.362,
+    0.372,
+    0.139
+   ],
+   "tris": 1270,
+   "tpu": 3703,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 44276,
+   "vtx": 1099,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1562,
+   "avgTri": 0.00029,
+   "anglePct": 46,
+   "vpt": 0.87,
+   "grad": 0.52,
+   "spread": {
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.445
+    ],
+    "1,0": [
+     0.211,
+     0.688
+    ]
+   },
+   "colors": [
+    "#ac764c",
+    "#cca571",
+    "#f1a63b"
+   ],
+   "tags": [
+    "special-food"
+   ],
+   "thickRel": 0.85
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "cutlery",
+   "hash": "35d1df2551",
+   "kind": "obj-kitchenware-tableware-cutlery",
+   "size": "s",
+   "wdh": [
+    0.345,
+    0.191,
+    0.039
+   ],
+   "tris": 1004,
+   "tpu": 2927,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 46412,
+   "vtx": 1216,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0053,
+   "thick": 0.0739,
+   "avgTri": 0.00018,
+   "anglePct": 79,
+   "vpt": 1.21,
+   "grad": 0.6,
+   "spread": {
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491",
+    "#804f2a",
+    "#873a27",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "textile-cloth-dark",
+    "textile-cloth-light",
+    "wood-dark"
+   ],
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0053 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "fish",
+   "hash": "ff0468e435",
+   "kind": "obj-food-fish",
+   "size": "s",
+   "wdh": [
+    0.462,
+    0.151,
+    0.07
+   ],
+   "tris": 600,
+   "tpu": 1749,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 28420,
+   "vtx": 730,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1851,
+   "avgTri": 0.00025,
+   "anglePct": 19,
+   "vpt": 1.22,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "special-food"
+   ],
+   "thickRel": 0.81
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "grapes",
+   "hash": "a45b612de8",
+   "kind": "obj-food-fruit-grapes",
+   "size": "s",
+   "wdh": [
+    0.104,
+    0.113,
+    0.222
+   ],
+   "tris": 708,
+   "tpu": 2064,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 68636,
+   "vtx": 1966,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0108,
+   "thick": 0.1753,
+   "avgTri": 0.00013,
+   "anglePct": 0,
+   "vpt": 2.78,
+   "grad": 0.56,
+   "spread": {
+    "6,1": [
+     0.164,
+     0.727
+    ],
+    "2,0": [
+     0.156,
+     0.742
+    ],
+    "3,1": [
+     0.164,
+     0.742
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#66852a",
+    "#804f2a"
+   ],
+   "tags": [
+    "leaf-light",
+    "special-food"
+   ],
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0108 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "herb-bundle",
+   "hash": "0721c07665",
+   "kind": "obj-food",
+   "size": "s",
+   "wdh": [
+    0.425,
+    0.427,
+    0.353
+   ],
+   "tris": 666,
+   "tpu": 1942,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 33876,
+   "vtx": 885,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0068,
+   "thick": 0.04,
+   "avgTri": 0.00029,
+   "anglePct": 13,
+   "vpt": 1.33,
+   "grad": 0.58,
+   "spread": {
+    "14,2": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.156,
+     0.734
+    ],
+    "1,1": [
+     0.188,
+     0.719
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#66852a",
+    "#907a66"
+   ],
+   "tags": [
+    "leaf-dark",
+    "leaf-light",
+    "mounted",
+    "textile-rope"
+   ],
+   "thickRel": 0.19,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0068 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "onion",
+   "hash": "00854b6284",
+   "kind": "obj-food-vegetable-onion",
+   "size": "s",
+   "wdh": [
+    0.095,
+    0.094,
+    0.126
+   ],
+   "tris": 386,
+   "tpu": 1125,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 24320,
+   "vtx": 642,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0097,
+   "thick": 0.242,
+   "avgTri": 0.00008,
+   "anglePct": 3,
+   "vpt": 1.66,
+   "grad": 0.55,
+   "spread": {
+    "0,0": [
+     0.188,
+     0.734
+    ],
+    "14,3": [
+     0.188,
+     0.727
+    ],
+    "5,2": [
+     0.18,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f",
+    "#cca571",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "special-food"
+   ],
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0097 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "plate",
+   "hash": "927239c08c",
+   "kind": "obj-kitchenware-tableware-plate",
+   "size": "s",
+   "wdh": [
+    0.298,
+    0.298,
+    0.042
+   ],
+   "tris": 376,
+   "tpu": 1096,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15592,
+   "vtx": 371,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.0093,
+   "thick": 0.0607,
+   "avgTri": 0.00082,
+   "anglePct": 61,
+   "vpt": 0.99,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel"
+   ],
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0093 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "potion",
+   "hash": "b3c06fc219",
+   "kind": "obj-container-bottle-vial",
+   "size": "s",
+   "wdh": [
+    0.094,
+    0.093,
+    0.141
+   ],
+   "tris": 494,
+   "tpu": 1440,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 23792,
+   "vtx": 605,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2476,
+   "avgTri": 0.00008,
+   "anglePct": 15,
+   "vpt": 1.22,
+   "grad": 0.49,
+   "spread": {
+    "8,0": [
+     0.391,
+     0.75
+    ],
+    "3,2": [
+     0.148,
+     0.578
+    ],
+    "14,2": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.164,
+     0.734
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#873a27",
+    "#88735f",
+    "#907a66",
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "cork",
+    "glass-clear",
+    "paper-sheet",
+    "special-liquid",
+    "textile-rope"
+   ],
+   "thickRel": 1.07
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "produce-crate",
+   "hash": "3276ab6982",
+   "kind": "obj-container-crate-produce",
+   "size": "m",
+   "wdh": [
+    0.66,
+    0.436,
+    0.15
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 17772,
+   "vtx": 464,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "minTube": 0.0123,
+   "thick": 0.0578,
+   "avgTri": 0.00503,
+   "anglePct": 100,
+   "vpt": 1.93,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#804f2a",
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "wood-dark",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 0.62
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "roll",
+   "hash": "3cd1843076",
+   "kind": "obj-food-baked-bread-bun",
+   "size": "s",
+   "wdh": [
+    0.114,
+    0.107,
+    0.07
+   ],
+   "tris": 190,
+   "tpu": 554,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 10596,
+   "vtx": 250,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "thick": 0.1709,
+   "avgTri": 0.00017,
+   "anglePct": 24,
+   "vpt": 1.32,
+   "grad": 0.42,
+   "spread": {
+    "1,0": [
+     0.164,
+     0.422
+    ],
+    "0,0": [
+     0.156,
+     0.75
+    ]
+   },
+   "colors": [
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "special-food"
+   ],
+   "thickRel": 0.72
+  },
+  {
+   "kit": "avra-food",
+   "collection": "avra",
+   "name": "scales",
+   "hash": "c99d5b573e",
+   "kind": "obj-equipment-tool-scale",
+   "size": "m",
+   "wdh": [
+    0.65,
+    0.248,
+    0.698
+   ],
+   "tris": 686,
+   "tpu": 2000,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 41744,
+   "vtx": 1130,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "minTube": 0.0062,
+   "thick": 0.0484,
+   "avgTri": 0.00077,
+   "anglePct": 50,
+   "vpt": 1.65,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "14,2": [
+     0.172,
+     0.727
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#804f2a",
+    "#907a66",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-dark",
+    "textile-rope",
+    "wood-dark"
+   ],
+   "thickRel": 0.76
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "boulder",
+   "hash": "8bc130d595",
+   "kind": "env-terrain-rock-boulder",
+   "size": "m",
+   "wdh": [
+    0.599,
+    0.524,
+    0.3
+   ],
+   "tris": 64,
+   "tpu": 187,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5128,
+   "vtx": 100,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.021,
+   "thick": 0.2062,
+   "avgTri": 0.01201,
+   "anglePct": 29,
+   "vpt": 1.56,
+   "grad": 0.6,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "stone-rock"
+   ],
+   "thickRel": 0.96
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "bridge-plank",
+   "hash": "72593d4d05",
+   "kind": "str-access-bridge-long",
+   "size": "l",
+   "wdh": [
+    1.77,
+    0.643,
+    0.558
+   ],
+   "tris": 584,
+   "tpu": 733,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 35264,
+   "vtx": 946,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.035,
+   "thick": 0.1468,
+   "avgTri": 0.00734,
+   "anglePct": 27,
+   "vpt": 1.62,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#804f2a",
+    "#88735f",
+    "#ac764c"
+   ],
+   "tags": [
+    "stone-rock",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "thickRel": 1.05
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "cave",
+   "hash": "06f0d2b4cd",
+   "kind": "env-terrain-rock-formation",
+   "size": "l",
+   "wdh": [
+    1.56,
+    0.488,
+    1.174
+   ],
+   "tris": 2610,
+   "tpu": 2920,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 116592,
+   "vtx": 3109,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1298,
+   "avgTri": 0.00223,
+   "anglePct": 57,
+   "vpt": 1.19,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.445
+    ],
+    "12,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a",
+    "#88735f"
+   ],
+   "tags": [
+    "leaf-light",
+    "stone-rock"
+   ],
+   "thickRel": 0.67
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "cliff-a",
+   "hash": "c55cb65ccc",
+   "kind": "env-terrain-rock-formation",
+   "size": "l",
+   "wdh": [
+    1.56,
+    0.488,
+    1.174
+   ],
+   "tris": 2710,
+   "tpu": 3032,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 120592,
+   "vtx": 3215,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1394,
+   "avgTri": 0.00221,
+   "anglePct": 58,
+   "vpt": 1.19,
+   "grad": 0.57,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.719
+    ],
+    "14,3": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.375
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a",
+    "#88735f"
+   ],
+   "tags": [
+    "leaf-light",
+    "stone-rock"
+   ],
+   "variant": "avra-nature/cliff-a",
+   "thickRel": 0.72
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "cliff-b",
+   "hash": "8a56d4d689",
+   "kind": "env-terrain-rock-formation",
+   "size": "l",
+   "wdh": [
+    1.56,
+    0.488,
+    1.174
+   ],
+   "tris": 2460,
+   "tpu": 2752,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 109008,
+   "vtx": 2900,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.136,
+   "avgTri": 0.0024,
+   "anglePct": 59,
+   "vpt": 1.18,
+   "grad": 0.59,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.43
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a",
+    "#88735f"
+   ],
+   "tags": [
+    "leaf-light",
+    "stone-rock"
+   ],
+   "variant": "avra-nature/cliff-a",
+   "thickRel": 0.7
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "cliff-corner",
+   "hash": "19f814b1db",
+   "kind": "env-terrain-rock-formation",
+   "size": "l",
+   "wdh": [
+    1.56,
+    1.556,
+    1.17
+   ],
+   "tris": 2768,
+   "tpu": 975,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 151996,
+   "vtx": 4184,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2002,
+   "avgTri": 0.00315,
+   "anglePct": 22,
+   "vpt": 1.51,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ],
+    "12,3": [
+     0.164,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.664
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a",
+    "#88735f"
+   ],
+   "tags": [
+    "leaf-light",
+    "stone-rock"
+   ],
+   "backface": {
+    "share": 0.01,
+    "view": "315/50",
+    "causes": {
+     "inverted": 0.43,
+     "open": 0.57
+    }
+   },
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.0% of view 315/50 over 0.5%: open 57.0%, inverted 43.0%"
+    }
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "cliff-low",
+   "hash": "fa30aa8310",
+   "kind": "env-terrain-rock-formation",
+   "size": "l",
+   "wdh": [
+    1.56,
+    0.488,
+    0.691
+   ],
+   "tris": 2512,
+   "tpu": 4714,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 111440,
+   "vtx": 2966,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2311,
+   "avgTri": 0.0016,
+   "anglePct": 67,
+   "vpt": 1.18,
+   "grad": 0.58,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.445
+    ],
+    "14,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a",
+    "#88735f"
+   ],
+   "tags": [
+    "leaf-light",
+    "stone-rock"
+   ],
+   "thickRel": 1.19
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "cobble",
+   "hash": "02b75a6286",
+   "kind": "str-access-path",
+   "size": "s",
+   "wdh": [
+    0.39,
+    0.304,
+    0.035
+   ],
+   "tris": 362,
+   "tpu": 1055,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 27180,
+   "vtx": 735,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.0755,
+   "avgTri": 0.00108,
+   "anglePct": 86,
+   "vpt": 2.03,
+   "grad": 0.36,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.148,
+     0.445
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "earth-soil",
+    "stone-masonry-dark",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 1.41
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "dead-tree",
+   "hash": "87e6dde250",
+   "kind": "env-remains-deadwood-tree",
+   "size": "l",
+   "wdh": [
+    1.091,
+    1.729,
+    1.902
+   ],
+   "tris": 1486,
+   "tpu": 414,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 89744,
+   "vtx": 2477,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.0643,
+   "avgTri": 0.00265,
+   "anglePct": 12,
+   "vpt": 1.67,
+   "grad": 0.59,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#4f2e1b"
+   ],
+   "tags": [
+    "bark"
+   ],
+   "thickRel": 0.61
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "flowers",
+   "hash": "f69fb6911f",
+   "kind": "env-flora-plant-flower",
+   "size": "s",
+   "wdh": [
+    0.173,
+    0.177,
+    0.142
+   ],
+   "tris": 644,
+   "tpu": 1878,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 47280,
+   "vtx": 1308,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.004,
+   "thick": 0.044,
+   "avgTri": 0.00008,
+   "anglePct": 5,
+   "vpt": 2.03,
+   "grad": 0.6,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.75
+    ],
+    "5,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#1564a4",
+    "#66852a",
+    "#873a27",
+    "#ce7954",
+    "#f1a63b"
+   ],
+   "tags": [
+    "leaf-light",
+    "plural",
+    "special-organic"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.004 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "grass",
+   "hash": "fae49c9875",
+   "kind": "env-flora-plant-grass",
+   "size": "s",
+   "wdh": [
+    0.116,
+    0.1,
+    0.116
+   ],
+   "tris": 330,
+   "tpu": 962,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 17924,
+   "vtx": 450,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "thick": 0.0503,
+   "avgTri": 0.00011,
+   "anglePct": 2,
+   "vpt": 1.36,
+   "grad": 0.48,
+   "spread": {
+    "3,1": [
+     0.266,
+     0.75
+    ]
+   },
+   "colors": [
+    "#66852a"
+   ],
+   "tags": [
+    "leaf-light"
+   ],
+   "thickRel": 0.76
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "ivy",
+   "hash": "0ffe2ae509",
+   "kind": "env-flora-plant",
+   "size": "m",
+   "wdh": [
+    0.78,
+    0.055,
+    0.879
+   ],
+   "tris": 1352,
+   "tpu": 3139,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 75756,
+   "vtx": 2068,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0046,
+   "thick": 0.0395,
+   "avgTri": 0.00016,
+   "anglePct": 11,
+   "vpt": 1.53,
+   "grad": 0.35,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.742
+    ],
+    "3,1": [
+     0.281,
+     0.609
+    ],
+    "1,1": [
+     0.305,
+     0.586
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#4f2e1b",
+    "#66852a"
+   ],
+   "tags": [
+    "bark",
+    "leaf-dark",
+    "leaf-light",
+    "mounted"
+   ],
+   "backface": {
+    "share": 0.6661,
+    "view": "180/20",
+    "causes": {
+     "open": 0.97,
+     "inverted": 0.03
+    }
+   },
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "66.6% of view 180/20 over 0.5%: open 97.0%, inverted 3.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0046 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "lilypad",
+   "hash": "f9789164b4",
+   "kind": "env-flora-waterplant-lilypad",
+   "size": "s",
+   "wdh": [
+    0.206,
+    0.315,
+    0.036
+   ],
+   "tris": 284,
+   "tpu": 828,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 17200,
+   "vtx": 437,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "thick": 0.0596,
+   "avgTri": 0.0003,
+   "anglePct": 78,
+   "vpt": 1.54,
+   "grad": 0.58,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.18,
+     0.734
+    ]
+   },
+   "colors": [
+    "#66852a",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "leaf-light",
+    "special-organic"
+   ],
+   "thickRel": 1.14
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "log",
+   "hash": "4e2feacfe7",
+   "kind": "env-remains-deadwood-branch",
+   "size": "m",
+   "wdh": [
+    0.595,
+    1.013,
+    0.582
+   ],
+   "tris": 946,
+   "tpu": 2242,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 47740,
+   "vtx": 1266,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.205,
+   "avgTri": 0.00163,
+   "anglePct": 8,
+   "vpt": 1.34,
+   "grad": 0.59,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#4f2e1b"
+   ],
+   "tags": [
+    "bark"
+   ],
+   "thickRel": 1.59
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "mushrooms",
+   "hash": "7512e24d13",
+   "kind": "env-fungi",
+   "size": "s",
+   "wdh": [
+    0.152,
+    0.188,
+    0.177
+   ],
+   "tris": 746,
+   "tpu": 2175,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 46844,
+   "vtx": 1275,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1019,
+   "avgTri": 0.00012,
+   "anglePct": 9,
+   "vpt": 1.71,
+   "grad": 0.59,
+   "spread": {
+    "8,0": [
+     0.148,
+     0.742
+    ],
+    "5,2": [
+     0.156,
+     0.742
+    ]
+   },
+   "colors": [
+    "#873a27",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "plural",
+    "special-organic"
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "paving",
+   "hash": "8ca72e9b4c",
+   "kind": "str-access-path",
+   "size": "s",
+   "wdh": [
+    0.39,
+    0.39,
+    0.035
+   ],
+   "tris": 316,
+   "tpu": 921,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21012,
+   "vtx": 552,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0209,
+   "thick": 0.0633,
+   "avgTri": 0.00207,
+   "anglePct": 100,
+   "vpt": 1.75,
+   "grad": 0.6,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "earth-soil",
+    "stone-masonry-dark",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0209 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "pebbles",
+   "hash": "fa835db06c",
+   "kind": "env-terrain-rock-pebble",
+   "size": "s",
+   "wdh": [
+    0.41,
+    0.33,
+    0.066
+   ],
+   "tris": 364,
+   "tpu": 1061,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21972,
+   "vtx": 570,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0789,
+   "avgTri": 0.00053,
+   "anglePct": 17,
+   "vpt": 1.57,
+   "grad": 0.6,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.75
+    ],
+    "12,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "plural",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "pine-sapling",
+   "hash": "5ef426e7cc",
+   "kind": "env-flora-tree-conifer",
+   "size": "m",
+   "wdh": [
+    0.234,
+    0.234,
+    0.565
+   ],
+   "tris": 720,
+   "tpu": 2099,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 38284,
+   "vtx": 1012,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2132,
+   "avgTri": 0.00039,
+   "anglePct": 6,
+   "vpt": 1.41,
+   "grad": 0.59,
+   "spread": {
+    "1,1": [
+     0.148,
+     0.742
+    ],
+    "3,0": [
+     0.18,
+     0.742
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#4f2e1b"
+   ],
+   "tags": [
+    "bark",
+    "leaf-dark",
+    "scale-small"
+   ],
+   "variant": "avra-nature/pine",
+   "thickRel": 1.09
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "pine",
+   "hash": "3f781e0224",
+   "kind": "env-flora-tree-conifer",
+   "size": "l",
+   "wdh": [
+    1.455,
+    1.415,
+    2.75
+   ],
+   "tris": 3032,
+   "tpu": 536,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 165932,
+   "vtx": 4569,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1751,
+   "avgTri": 0.00487,
+   "anglePct": 4,
+   "vpt": 1.51,
+   "grad": 0.58,
+   "spread": {
+    "3,0": [
+     0.25,
+     0.75
+    ],
+    "1,1": [
+     0.156,
+     0.75
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#4f2e1b"
+   ],
+   "tags": [
+    "bark",
+    "leaf-dark"
+   ],
+   "variant": "avra-nature/pine",
+   "thickRel": 0.89
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "riverbed",
+   "hash": "2304c8ff42",
+   "kind": "env-terrain",
+   "size": "m",
+   "wdh": [
+    0.78,
+    0.78,
+    0.064
+   ],
+   "tris": 292,
+   "tpu": 686,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20704,
+   "vtx": 548,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.049,
+   "avgTri": 0.00494,
+   "anglePct": 93,
+   "vpt": 1.88,
+   "grad": 0.6,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "earth-soil",
+    "stone-rock"
+   ],
+   "thickRel": 0.25
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "rocks",
+   "hash": "30d7de440e",
+   "kind": "env-terrain-rock-boulder",
+   "size": "s",
+   "wdh": [
+    0.44,
+    0.405,
+    0.347
+   ],
+   "tris": 236,
+   "tpu": 688,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 13452,
+   "vtx": 328,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1735,
+   "avgTri": 0.00217,
+   "anglePct": 14,
+   "vpt": 1.39,
+   "grad": 0.6,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.75
+    ],
+    "12,3": [
+     0.164,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "plural",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "slab",
+   "hash": "fc5b88df18",
+   "kind": "env-terrain-ground-patch",
+   "size": "m",
+   "wdh": [
+    0.626,
+    0.512,
+    0.07
+   ],
+   "tris": 266,
+   "tpu": 776,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14080,
+   "vtx": 342,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0795,
+   "avgTri": 0.00223,
+   "anglePct": 76,
+   "vpt": 1.29,
+   "grad": 0.6,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "14,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "stone-rock"
+   ],
+   "thickRel": 1.4
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "stepping-stones",
+   "hash": "dbb7f09f7f",
+   "kind": "env-terrain-rock-cobble",
+   "size": "m",
+   "wdh": [
+    1.2,
+    0.316,
+    0.074
+   ],
+   "tris": 244,
+   "tpu": 711,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14296,
+   "vtx": 352,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1683,
+   "avgTri": 0.00229,
+   "anglePct": 48,
+   "vpt": 1.44,
+   "grad": 0.6,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.75
+    ],
+    "12,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "plural",
+    "stone-rock"
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "steps-dirt",
+   "hash": "216c6f9f25",
+   "kind": "str-access-stairs-step",
+   "size": "m",
+   "wdh": [
+    0.832,
+    0.762,
+    0.402
+   ],
+   "tris": 1426,
+   "tpu": 3213,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 74392,
+   "vtx": 2011,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0033,
+   "thick": 0.1242,
+   "avgTri": 0.00164,
+   "anglePct": 32,
+   "vpt": 1.41,
+   "grad": 0.6,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a",
+    "#804f2a"
+   ],
+   "tags": [
+    "earth-soil",
+    "leaf-light",
+    "stone-rock",
+    "wood-dark"
+   ],
+   "thickRel": 0.78,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0033 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "stream-rock",
+   "hash": "4c14fc0b81",
+   "kind": "env-terrain-rock-boulder",
+   "size": "m",
+   "wdh": [
+    0.569,
+    0.477,
+    0.16
+   ],
+   "tris": 182,
+   "tpu": 531,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10424,
+   "vtx": 243,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1507,
+   "avgTri": 0.00302,
+   "anglePct": 52,
+   "vpt": 1.34,
+   "grad": 0.6,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "stone-rock"
+   ],
+   "thickRel": 0.7
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "stump",
+   "hash": "6933516112",
+   "kind": "env-remains-deadwood-stump",
+   "size": "m",
+   "wdh": [
+    0.607,
+    0.613,
+    0.261
+   ],
+   "tris": 1146,
+   "tpu": 3341,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 51240,
+   "vtx": 1338,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1363,
+   "avgTri": 0.0007,
+   "anglePct": 41,
+   "vpt": 1.17,
+   "grad": 0.61,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.797
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#cca571"
+   ],
+   "tags": [
+    "bark",
+    "wood-light"
+   ],
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.613 over max 0.5 (env-remains-deadwood-stump)"
+    }
+   ]
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "walkway",
+   "hash": "35ad82bc06",
+   "kind": "str-access-path",
+   "size": "m",
+   "wdh": [
+    0.78,
+    0.508,
+    0.068
+   ],
+   "tris": 120,
+   "tpu": 350,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 9856,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.02,
+   "minTube": 0.0467,
+   "thick": 0.0759,
+   "avgTri": 0.01034,
+   "anglePct": 100,
+   "vpt": 2,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#804f2a",
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "wood-dark",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 1.42
+  },
+  {
+   "kit": "avra-nature",
+   "collection": "avra",
+   "name": "worn-ground",
+   "hash": "529946930b",
+   "kind": "env-terrain-ground",
+   "size": "s",
+   "wdh": [
+    0.323,
+    0.214,
+    0.059
+   ],
+   "tris": 304,
+   "tpu": 886,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15664,
+   "vtx": 384,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0039,
+   "thick": 0.0509,
+   "avgTri": 0.00015,
+   "anglePct": 36,
+   "vpt": 1.26,
+   "grad": 0.36,
+   "spread": {
+    "12,3": [
+     0.148,
+     0.297
+    ],
+    "3,1": [
+     0.32,
+     0.75
+    ]
+   },
+   "colors": [
+    "#57493d",
+    "#66852a"
+   ],
+   "tags": [
+    "earth-soil",
+    "leaf-light"
+   ],
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0039 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "arming-sword",
+   "hash": "341e23667f",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "size": "m",
+   "wdh": [
+    0.119,
+    0.037,
+    0.553
+   ],
+   "tris": 708,
+   "tpu": 2064,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 37848,
+   "vtx": 1002,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0052,
+   "thick": 0.1631,
+   "avgTri": 0.00006,
+   "anglePct": 43,
+   "vpt": 1.42,
+   "grad": 0.53,
+   "spread": {
+    "15,3": [
+     0.43,
+     0.445
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.164,
+     0.727
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#59534e",
+    "#7a8491",
+    "#873a27"
+   ],
+   "tags": [
+    "gemstone",
+    "leather",
+    "metal-iron-mid",
+    "metal-steel"
+   ],
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0052 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "arrow",
+   "hash": "a4bb64ecd0",
+   "kind": "obj-equipment-weapon-ranged-arrow",
+   "size": "s",
+   "wdh": [
+    0.019,
+    0.018,
+    0.427
+   ],
+   "tris": 172,
+   "tpu": 501,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 10520,
+   "vtx": 248,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0042,
+   "thick": 0.7353,
+   "avgTri": 0.00005,
+   "anglePct": 65,
+   "vpt": 1.44,
+   "grad": 0.28,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.422,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.445,
+     0.445
+    ],
+    "8,0": [
+     0.445,
+     0.445
+    ]
+   },
+   "colors": [
+    "#7a8491",
+    "#873a27",
+    "#ac764c",
+    "#cca571",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "feather",
+    "metal-steel",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 2.67,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0042 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "bolt",
+   "hash": "2e12afe5d1",
+   "kind": "obj-equipment-weapon-ranged-arrow",
+   "size": "s",
+   "wdh": [
+    0.022,
+    0.011,
+    0.195
+   ],
+   "tris": 154,
+   "tpu": 449,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 9724,
+   "vtx": 228,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0057,
+   "thick": 0.3166,
+   "avgTri": 0.00004,
+   "anglePct": 57,
+   "vpt": 1.48,
+   "grad": 0.31,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.375,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.445,
+     0.445
+    ],
+    "8,0": [
+     0.445,
+     0.445
+    ]
+   },
+   "colors": [
+    "#7a8491",
+    "#804f2a",
+    "#873a27",
+    "#ac764c",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "feather",
+    "metal-steel",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0051,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.195 under min 0.2 (obj-equipment-weapon-ranged-arrow)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.5% of view 90/50 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0057 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "crossbow",
+   "hash": "e98a46e0d2",
+   "kind": "obj-equipment-weapon-ranged-crossbow",
+   "size": "s",
+   "wdh": [
+    0.352,
+    0.054,
+    0.455
+   ],
+   "tris": 588,
+   "tpu": 1714,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 34764,
+   "vtx": 928,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0043,
+   "thick": 0.0546,
+   "avgTri": 0.00016,
+   "anglePct": 56,
+   "vpt": 1.58,
+   "grad": 0.54,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ],
+    "14,2": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.242,
+     0.648
+    ]
+   },
+   "colors": [
+    "#7a8491",
+    "#804f2a",
+    "#907a66",
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "metal-steel",
+    "textile-rope",
+    "wood-dark",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0043 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "dagger",
+   "hash": "ebb0b9cbbc",
+   "kind": "obj-equipment-weapon-melee-dagger",
+   "size": "s",
+   "wdh": [
+    0.06,
+    0.021,
+    0.225
+   ],
+   "tris": 484,
+   "tpu": 1411,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 24856,
+   "vtx": 638,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0046,
+   "thick": 0.1564,
+   "avgTri": 0.00003,
+   "anglePct": 21,
+   "vpt": 1.32,
+   "grad": 0.56,
+   "spread": {
+    "15,3": [
+     0.422,
+     0.445
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-mid",
+    "metal-steel"
+   ],
+   "thickRel": 0.87,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0046 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "handaxe",
+   "hash": "09e8082125",
+   "kind": "obj-equipment-weapon-melee-axe-single",
+   "size": "s",
+   "wdh": [
+    0.092,
+    0.023,
+    0.281
+   ],
+   "tris": 510,
+   "tpu": 1487,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 28208,
+   "vtx": 738,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0158,
+   "thick": 0.1331,
+   "avgTri": 0.00006,
+   "anglePct": 19,
+   "vpt": 1.45,
+   "grad": 0.6,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#59534e",
+    "#7a8491",
+    "#ac764c"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-mid",
+    "metal-steel",
+    "wood-mid"
+   ],
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.281 under min 0.3 (obj-equipment-weapon-melee-axe)"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "knife",
+   "hash": "2b2e439150",
+   "kind": "obj-equipment-tool-hand-blade",
+   "size": "s",
+   "wdh": [
+    0.017,
+    0.019,
+    0.155
+   ],
+   "tris": 320,
+   "tpu": 933,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 18448,
+   "vtx": 468,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.3509,
+   "avgTri": 0.00004,
+   "anglePct": 84,
+   "vpt": 1.46,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#7a8491",
+    "#cca571"
+   ],
+   "tags": [
+    "metal-steel",
+    "wood-light"
+   ],
+   "thickRel": 1.91
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "mace",
+   "hash": "62ec7e2c9c",
+   "kind": "obj-equipment-weapon-melee-warhammer",
+   "size": "s",
+   "wdh": [
+    0.064,
+    0.064,
+    0.385
+   ],
+   "tris": 846,
+   "tpu": 2466,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 39632,
+   "vtx": 1032,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0142,
+   "thick": 0.2742,
+   "avgTri": 0.00006,
+   "anglePct": 6,
+   "vpt": 1.22,
+   "grad": 0.42,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.406,
+     0.484
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.289,
+     0.531
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#4f2e1b",
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-dark",
+    "metal-iron-mid",
+    "metal-steel"
+   ],
+   "backface": {
+    "share": 0.001,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.74,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/50 over 0.1%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "quiver",
+   "hash": "d0c947b745",
+   "kind": "obj-equipment-apparel-quiver",
+   "size": "s",
+   "wdh": [
+    0.075,
+    0.069,
+    0.427
+   ],
+   "tris": 1064,
+   "tpu": 3102,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 57436,
+   "vtx": 1549,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0033,
+   "thick": 0.34,
+   "avgTri": 0.00015,
+   "anglePct": 32,
+   "vpt": 1.46,
+   "grad": 0.52,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.742
+    ],
+    "1,0": [
+     0.148,
+     0.742
+    ],
+    "0,0": [
+     0.148,
+     0.742
+    ],
+    "8,0": [
+     0.438,
+     0.453
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#873a27",
+    "#ac764c",
+    "#cca571",
+    "#f1a63b"
+   ],
+   "tags": [
+    "feather",
+    "leather",
+    "metal-gold",
+    "wood-light",
+    "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0039,
+    "view": "45/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.55,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 45/50 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0033 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "scabbard",
+   "hash": "f9c9f896d5",
+   "kind": "obj-equipment-apparel",
+   "size": "s",
+   "wdh": [
+    0.052,
+    0.018,
+    0.464
+   ],
+   "tris": 430,
+   "tpu": 1254,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 30636,
+   "vtx": 828,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0043,
+   "thick": 0.3278,
+   "avgTri": 0.00014,
+   "anglePct": 96,
+   "vpt": 1.93,
+   "grad": 0.6,
+   "spread": {
+    "3,0": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#873a27",
+    "#f1a63b"
+   ],
+   "tags": [
+    "leather",
+    "metal-gold",
+    "textile-cloth-dark"
+   ],
+   "thickRel": 3.54,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0043 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "shield-round",
+   "hash": "3d70516814",
+   "kind": "obj-equipment-armor-shield",
+   "size": "s",
+   "wdh": [
+    0.357,
+    0.06,
+    0.359
+   ],
+   "tris": 1164,
+   "tpu": 3394,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 62808,
+   "vtx": 1696,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0436,
+   "avgTri": 0.00027,
+   "anglePct": 30,
+   "vpt": 1.46,
+   "grad": 0.6,
+   "spread": {
+    "0,0": [
+     0.148,
+     0.742
+    ],
+    "2,0": [
+     0.148,
+     0.742
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.742
+    ],
+    "3,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#4f2e1b",
+    "#7a8491",
+    "#804f2a",
+    "#cca571"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-dark",
+    "metal-steel",
+    "wood-dark",
+    "wood-light"
+   ],
+   "thickRel": 0.6
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "shield-wooden",
+   "hash": "1a6652af58",
+   "kind": "obj-equipment-armor-shield",
+   "size": "s",
+   "wdh": [
+    0.303,
+    0.052,
+    0.305
+   ],
+   "tris": 464,
+   "tpu": 1353,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 23536,
+   "vtx": 600,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0461,
+   "avgTri": 0.00046,
+   "anglePct": 36,
+   "vpt": 1.29,
+   "grad": 0.52,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.742
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.742
+    ],
+    "3,0": [
+     0.43,
+     0.484
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#804f2a",
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "leather",
+    "wood-dark",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 0.63
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "shortbow",
+   "hash": "ad07fac650",
+   "kind": "obj-equipment-weapon-ranged-bow",
+   "size": "m",
+   "wdh": [
+    0.032,
+    0.127,
+    0.571
+   ],
+   "tris": 366,
+   "tpu": 1067,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 18068,
+   "vtx": 448,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0018,
+   "thick": 0.165,
+   "avgTri": 0.00015,
+   "anglePct": 56,
+   "vpt": 1.22,
+   "grad": 0.43,
+   "spread": {
+    "2,0": [
+     0.164,
+     0.727
+    ],
+    "14,2": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.43,
+     0.484
+    ],
+    "0,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#804f2a",
+    "#907a66",
+    "#cca571"
+   ],
+   "tags": [
+    "leather",
+    "textile-rope",
+    "wood-dark",
+    "wood-light"
+   ],
+   "thickRel": 1.23,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0018 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "shortsword",
+   "hash": "8d7762ad8c",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "size": "s",
+   "wdh": [
+    0.079,
+    0.024,
+    0.399
+   ],
+   "tris": 556,
+   "tpu": 1621,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 28860,
+   "vtx": 750,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0054,
+   "thick": 0.1819,
+   "avgTri": 0.00006,
+   "anglePct": 31,
+   "vpt": 1.35,
+   "grad": 0.56,
+   "spread": {
+    "15,3": [
+     0.422,
+     0.445
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-mid",
+    "metal-steel"
+   ],
+   "thickRel": 1.22,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.399 under min 0.4 (obj-equipment-weapon-melee-sword)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0054 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "spear",
+   "hash": "6e1f03d625",
+   "kind": "obj-equipment-weapon-melee-spear",
+   "size": "m",
+   "wdh": [
+    0.035,
+    0.032,
+    1.194
+   ],
+   "tris": 620,
+   "tpu": 1060,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 30252,
+   "vtx": 782,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0032,
+   "thick": 1.1222,
+   "avgTri": 0.00016,
+   "anglePct": 18,
+   "vpt": 1.26,
+   "grad": 0.37,
+   "spread": {
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.398,
+     0.492
+    ],
+    "15,3": [
+     0.414,
+     0.453
+    ]
+   },
+   "colors": [
+    "#4f2e1b",
+    "#59534e",
+    "#7a8491",
+    "#ac764c"
+   ],
+   "tags": [
+    "leather",
+    "metal-iron-mid",
+    "metal-steel",
+    "wood-mid"
+   ],
+   "thickRel": 4.53,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.194 over max 1.1 (obj-equipment-weapon-melee-spear)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0032 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "staff",
+   "hash": "4d76d01e4c",
+   "kind": "obj-equipment-weapon-magic-staff",
+   "size": "m",
+   "wdh": [
+    0.076,
+    0.075,
+    1.122
+   ],
+   "tris": 721,
+   "tpu": 1311,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 37100,
+   "vtx": 977,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.006,
+   "thick": 0.5,
+   "avgTri": 0.00014,
+   "anglePct": 12,
+   "vpt": 1.36,
+   "grad": 0.41,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "3,0": [
+     0.383,
+     0.508
+    ],
+    "4,2": [
+     0.336,
+     0.648
+    ]
+   },
+   "colors": [
+    "#1564a4",
+    "#4f2e1b",
+    "#7a8491",
+    "#804f2a"
+   ],
+   "tags": [
+    "gemstone",
+    "leather",
+    "metal-steel",
+    "wood-dark"
+   ],
+   "backface": {
+    "share": 0.0103,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.54,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.122 over max 0.9 (obj-equipment-weapon-magic-staff)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.0% of view 90/50 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "sword-wooden",
+   "hash": "1fa4cc3a30",
+   "kind": "obj-equipment-weapon-melee-sword",
+   "size": "s",
+   "wdh": [
+    0.077,
+    0.025,
+    0.444
+   ],
+   "tris": 544,
+   "tpu": 1586,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 31680,
+   "vtx": 840,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0104,
+   "thick": 0.2054,
+   "avgTri": 0.00007,
+   "anglePct": 62,
+   "vpt": 1.54,
+   "grad": 0.56,
+   "spread": {
+    "1,0": [
+     0.328,
+     0.445
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "0,0": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#804f2a",
+    "#ac764c",
+    "#cca571"
+   ],
+   "tags": [
+    "wood-dark",
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0104 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "avra-weapons",
+   "collection": "avra",
+   "name": "weapon-rack",
+   "hash": "4537e88af3",
+   "kind": "obj-furnishing-furniture-storage-rack-weapon",
+   "size": "m",
+   "wdh": [
+    0.686,
+    0.231,
+    0.848
+   ],
+   "tris": 436,
+   "tpu": 1049,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 29436,
+   "vtx": 792,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "minTube": 0.0219,
+   "thick": 0.0587,
+   "avgTri": 0.00264,
+   "anglePct": 96,
+   "vpt": 1.82,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#804f2a",
+    "#ac764c"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0011,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.56,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -44904,7 +48621,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.39
   },
   {
    "kit": "cooking-assets",
@@ -45756,7 +49473,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.27
   },
   {
    "kit": "cooking-assets",
@@ -47802,7 +51519,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.89
   },
   {
    "kit": "cooking-assets",
@@ -47849,7 +51566,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.32
   },
   {
    "kit": "cooking-assets",
@@ -49790,7 +53507,7 @@
    "tags": [
     "stone-masonry-mid"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.5
   },
   {
    "kit": "dungeon",
@@ -52922,7 +56639,7 @@
     "stone-masonry-mid"
    ],
    "variant": "emace-village/cobble-path-a",
-   "thickRel": 3.46
+   "thickRel": 3.34
   },
   {
    "kit": "emace-village",
@@ -52964,7 +56681,7 @@
     "stone-masonry-mid"
    ],
    "variant": "emace-village/cobble-path-a",
-   "thickRel": 2.56
+   "thickRel": 2.47
   },
   {
    "kit": "emace-village",
@@ -53011,7 +56728,7 @@
     "stone-masonry-mid"
    ],
    "variant": "emace-village/cobble-path-a",
-   "thickRel": 1.75
+   "thickRel": 1.68
   },
   {
    "kit": "emace-village",
@@ -53064,7 +56781,7 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "emace-village",
@@ -53751,7 +57468,7 @@
     "leaf-light"
    ],
    "variant": "emace-village/grass-a",
-   "thickRel": 0.81
+   "thickRel": 0.84
   },
   {
    "kit": "emace-village",
@@ -53794,7 +57511,7 @@
     "leaf-light"
    ],
    "variant": "emace-village/grass-a",
-   "thickRel": 1.43
+   "thickRel": 1.48
   },
   {
    "kit": "emace-village",
@@ -58133,7 +61850,7 @@
     "metal-copper"
    ],
    "variant": "emace-village/tankard-metal",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "emace-village",
@@ -58175,7 +61892,7 @@
     "metal-steel"
    ],
    "variant": "emace-village/tankard-metal",
-   "thickRel": 0.84
+   "thickRel": 0.82
   },
   {
    "kit": "emace-village",
@@ -58431,7 +62148,7 @@
     "special-food",
     "wood-dark"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.85
   },
   {
    "kit": "emace-village",
@@ -59227,7 +62944,7 @@
     "bark",
     "special-food"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "food-pack",
@@ -59515,7 +63232,7 @@
     "special-food"
    ],
    "variant": "food-pack/cheese-wheel",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "food-pack",
@@ -60267,7 +63984,7 @@
      "open": 0.26
     }
    },
-   "thickRel": 0.9,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
@@ -60335,7 +64052,7 @@
      "open": 0.26
     }
    },
-   "thickRel": 0.9,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
@@ -60394,7 +64111,7 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "food-pack-2",
@@ -60446,7 +64163,7 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "food-pack-2",
@@ -60814,7 +64531,7 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "food-pack-2",
@@ -62246,7 +65963,7 @@
     "special-food"
    ],
    "variant": "food-pack-2/cheese-block",
-   "thickRel": 1.82
+   "thickRel": 1.83
   },
   {
    "kit": "food-pack-2",
@@ -70791,7 +74508,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/stairs",
-   "thickRel": 1.41,
+   "thickRel": 1.39,
    "lint": [
     {
      "level": "error",
@@ -70847,7 +74564,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/stairs",
-   "thickRel": 1.47
+   "thickRel": 1.45
   },
   {
    "kit": "fs-house",
@@ -72597,7 +76314,7 @@
     "fs",
     "stone-masonry-mid"
    ],
-   "thickRel": 2.44
+   "thickRel": 2.45
   },
   {
    "kit": "fs-temple",
@@ -74937,7 +78654,7 @@
     "gemstone",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "fs-temple",
@@ -77721,7 +81438,7 @@
     "fs",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "fs-temple",
@@ -77764,7 +81481,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/tower-bottom",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "fs-temple",
@@ -77903,7 +81620,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/tower-bottom",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "fs-temple",
@@ -80754,7 +84471,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-branch-a",
-   "thickRel": 0.79
+   "thickRel": 0.73
   },
   {
    "kit": "fs-terrain",
@@ -80797,7 +84514,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-branch-a",
-   "thickRel": 0.91
+   "thickRel": 0.84
   },
   {
    "kit": "fs-terrain",
@@ -80841,7 +84558,7 @@
     "fs"
    ],
    "variant": "fs-terrain/hilly-prop-branch-a",
-   "thickRel": 2.31
+   "thickRel": 2.12
   },
   {
    "kit": "fs-terrain",
@@ -81891,7 +85608,7 @@
     "leaf-light"
    ],
    "variant": "fs-terrain/hilly-prop-grass-clump-a",
-   "thickRel": 0.74
+   "thickRel": 0.76
   },
   {
    "kit": "fs-terrain",
@@ -81934,7 +85651,7 @@
     "leaf-light"
    ],
    "variant": "fs-terrain/hilly-prop-grass-clump-a",
-   "thickRel": 0.63
+   "thickRel": 0.65
   },
   {
    "kit": "fs-terrain",
@@ -81977,7 +85694,7 @@
     "leaf-light"
    ],
    "variant": "fs-terrain/hilly-prop-grass-clump-a",
-   "thickRel": 0.65
+   "thickRel": 0.67
   },
   {
    "kit": "fs-terrain",
@@ -82021,7 +85738,7 @@
     "leaf-light"
    ],
    "variant": "fs-terrain/hilly-prop-grass-clump-a",
-   "thickRel": 0.64
+   "thickRel": 0.66
   },
   {
    "kit": "fs-terrain",
@@ -82248,7 +85965,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/hilly-prop-rock-a",
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "fs-terrain",
@@ -82904,7 +86621,7 @@
     "fs",
     "wood-light"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.23
   },
   {
    "kit": "fs-terrain",
@@ -83650,7 +87367,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/shared-prop-boulder-a",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "fs-terrain",
@@ -83737,7 +87454,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/shared-prop-boulder-a",
-   "thickRel": 1.57
+   "thickRel": 1.58
   },
   {
    "kit": "fs-terrain",
@@ -83780,7 +87497,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/shared-prop-boulder-a",
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "fs-town",
@@ -83888,7 +87605,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/barrel-a",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "fs-town",
@@ -94112,7 +97829,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.94
+   "thickRel": 1.91
   },
   {
    "kit": "household",
@@ -94768,7 +98485,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 2.37
+   "thickRel": 2.29
   },
   {
    "kit": "household",
@@ -96850,7 +100567,7 @@
     "leaf-light",
     "stone-rock"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "ipoly-signs",
@@ -100504,7 +104221,7 @@
     "isa",
     "metal-steel"
    ],
-   "thickRel": 2.43
+   "thickRel": 2.45
   },
   {
    "kit": "isa-bakery",
@@ -102268,7 +105985,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.19,
+   "thickRel": 1.2,
    "lint": [
     {
      "level": "warning",
@@ -102331,7 +106048,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.19,
+   "thickRel": 1.2,
    "lint": [
     {
      "level": "warning",
@@ -102394,7 +106111,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.19,
+   "thickRel": 1.2,
    "lint": [
     {
      "level": "warning",
@@ -102457,7 +106174,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.05,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -102520,7 +106237,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.05,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -102583,7 +106300,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.05,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -103105,7 +106822,7 @@
     "isa",
     "textile-cloth-light"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.9
   },
   {
    "kit": "isa-bathroom",
@@ -103153,7 +106870,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "isa-bathroom",
@@ -103201,7 +106918,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "isa-bathroom",
@@ -103249,7 +106966,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "isa-bathroom",
@@ -107853,7 +111570,7 @@
     "isa",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.75
+   "thickRel": 1.7
   },
   {
    "kit": "isa-kitchen",
@@ -110214,7 +113931,7 @@
     "leaf-light"
    ],
    "variant": "isa-park/grass-a",
-   "thickRel": 1.33
+   "thickRel": 1.37
   },
   {
    "kit": "isa-park",
@@ -110257,7 +113974,7 @@
     "leaf-light"
    ],
    "variant": "isa-park/grass-a",
-   "thickRel": 1.41
+   "thickRel": 1.46
   },
   {
    "kit": "isa-park",
@@ -110642,7 +114359,7 @@
     "special-organic"
    ],
    "variant": "isa-picnic/apple",
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "isa-picnic",
@@ -110744,7 +114461,7 @@
     "special-organic"
    ],
    "variant": "isa-picnic/apple",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "isa-picnic",
@@ -110892,7 +114609,7 @@
     "isa"
    ],
    "variant": "isa-picnic/bowl",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "isa-picnic",
@@ -111119,7 +114836,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1
+   "thickRel": 1.02
   },
   {
    "kit": "isa-picnic",
@@ -111363,7 +115080,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.26
   },
   {
    "kit": "isa-picnic",
@@ -112188,7 +115905,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.8
   },
   {
    "kit": "isa-picnic",
@@ -114070,7 +117787,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "isa-plants",
@@ -118309,7 +122026,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.98
   },
   {
    "kit": "jb-kitchen",
@@ -118566,12 +122283,12 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
-   "thickRel": 0.49,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -118630,7 +122347,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 1.15
+   "thickRel": 1.07
   },
   {
    "kit": "kay-adventurers",
@@ -118693,12 +122410,12 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
-   "thickRel": 0.49,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -118757,7 +122474,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 1
+   "thickRel": 0.93
   },
   {
    "kit": "kay-adventurers",
@@ -119244,7 +122961,7 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/crossbow-two-handed",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "kay-adventurers",
@@ -119300,7 +123017,7 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/crossbow-two-handed",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "kay-adventurers",
@@ -119805,7 +123522,7 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/mug-empty",
-   "thickRel": 1.08
+   "thickRel": 1.05
   },
   {
    "kit": "kay-adventurers",
@@ -119861,7 +123578,7 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/mug-empty",
-   "thickRel": 2.2
+   "thickRel": 2.14
   },
   {
    "kit": "kay-adventurers",
@@ -119916,7 +123633,7 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/quiver",
-   "thickRel": 1.02,
+   "thickRel": 1.01,
    "mark": [
     "grounded"
    ]
@@ -120597,7 +124314,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "kay-adventurers",
@@ -120646,7 +124363,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "kay-adventurers",
@@ -120694,7 +124411,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "kay-adventurers",
@@ -120743,7 +124460,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "kay-adventurers",
@@ -120967,7 +124684,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.02
   },
   {
    "kit": "kay-adventurers",
@@ -121016,7 +124733,7 @@
     "metal-copper",
     "metal-steel"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "kay-adventurers",
@@ -121072,7 +124789,7 @@
     "scale-big"
    ],
    "variant": "kay-adventurers/sword-two-handed",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "kay-adventurers",
@@ -121122,7 +124839,7 @@
     "scale-big"
    ],
    "variant": "kay-adventurers/sword-two-handed",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "kay-adventurers",
@@ -121172,7 +124889,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.39
   },
   {
    "kit": "kay-blocks",
@@ -121454,7 +125171,7 @@
     "wood-dark"
    ],
    "variant": "kay-builder/bridge",
-   "thickRel": 0.89
+   "thickRel": 0.85
   },
   {
    "kit": "kay-builder",
@@ -121498,7 +125215,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-builder/bridge",
-   "thickRel": 1.68
+   "thickRel": 1.59
   },
   {
    "kit": "kay-builder",
@@ -125819,7 +129536,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.72
   },
   {
    "kit": "kay-dun-1",
@@ -128082,7 +131799,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -128138,7 +131855,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 1.01,
+   "thickRel": 1.03,
    "mark": [
     "centered"
    ]
@@ -128188,7 +131905,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.99,
+   "thickRel": 1,
    "mark": [
     "centered"
    ]
@@ -128746,7 +132463,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-1/hammer-uncommon",
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "kay-dun-1",
@@ -128801,7 +132518,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/hammer-uncommon",
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-1",
@@ -128850,7 +132567,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-1/hammer-uncommon",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "kay-dun-1",
@@ -128993,7 +132710,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.06
   },
   {
    "kit": "kay-dun-1",
@@ -129652,7 +133369,7 @@
     "special-liquid"
    ],
    "variant": "kay-dun-1/potion-medium-red",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-1",
@@ -129708,7 +133425,7 @@
     "special-liquid"
    ],
    "variant": "kay-dun-1/potion-medium-red",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-1",
@@ -129908,7 +133625,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/quiver-full",
-   "thickRel": 1.04,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "warning",
@@ -129976,7 +133693,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.75,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -130044,7 +133761,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.88,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
@@ -131808,7 +135525,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "kay-dun-1",
@@ -132002,7 +135719,7 @@
     "kay",
     "wood-dark"
    ],
-   "thickRel": 1.41,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -132061,7 +135778,7 @@
     "kay",
     "metal-gold"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.51
   },
   {
    "kit": "kay-dun-1",
@@ -132109,7 +135826,7 @@
     "kay",
     "wood-dark"
    ],
-   "thickRel": 1.43,
+   "thickRel": 1.4,
    "lint": [
     {
      "level": "warning",
@@ -132215,7 +135932,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/sword-rare",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-dun-1",
@@ -132270,7 +135987,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/sword-rare",
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "kay-dun-1",
@@ -132319,7 +136036,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-1/sword-rare",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "kay-dun-1",
@@ -132728,7 +136445,7 @@
     "kay",
     "wood-dark"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "kay-dun-2",
@@ -136261,7 +139978,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "kay-dun-2",
@@ -136923,7 +140640,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.64,
+   "thickRel": 1.62,
    "mark": [
     "centered"
    ]
@@ -136974,7 +140691,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.56,
+   "thickRel": 1.55,
    "mark": [
     "centered"
    ]
@@ -137026,7 +140743,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/stairs-wall-left",
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "kay-dun-2",
@@ -137075,7 +140792,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/stairs-wall-left",
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "kay-dun-2",
@@ -137122,7 +140839,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.53,
+   "thickRel": 1.52,
    "mark": [
     "centered"
    ]
@@ -137173,7 +140890,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.44,
+   "thickRel": 1.42,
    "mark": [
     "centered"
    ]
@@ -137281,7 +140998,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.95,
+   "thickRel": 0.94,
    "mark": [
     "centered"
    ]
@@ -137332,7 +141049,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/stairs",
-   "thickRel": 1.31,
+   "thickRel": 1.29,
    "mark": [
     "centered"
    ]
@@ -141345,7 +145062,7 @@
     "wood-mid"
    ],
    "variant": "kay-food/crate",
-   "thickRel": 1.73
+   "thickRel": 2.15
   },
   {
    "kit": "kay-food",
@@ -141732,7 +145449,7 @@
     "wood-mid"
    ],
    "variant": "kay-food/crate",
-   "thickRel": 0.66
+   "thickRel": 0.82
   },
   {
    "kit": "kay-food",
@@ -142614,7 +146331,7 @@
     "special-food"
    ],
    "variant": "kay-food/food-ingredient-cheese",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "kay-food",
@@ -142882,7 +146599,7 @@
     "kay",
     "special-food"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "kay-food",
@@ -143822,7 +147539,7 @@
     "plastic"
    ],
    "variant": "kay-food/ketchup",
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "kay-food",
@@ -144091,7 +147808,7 @@
     "plastic"
    ],
    "variant": "kay-food/ketchup",
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "kay-food",
@@ -146726,7 +150443,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-1-a",
-   "thickRel": 1.21
+   "thickRel": 1.25
   },
   {
    "kit": "kay-forest",
@@ -146768,7 +150485,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-1-a",
-   "thickRel": 1.91
+   "thickRel": 1.97
   },
   {
    "kit": "kay-forest",
@@ -146810,7 +150527,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-1-b",
-   "thickRel": 0.66
+   "thickRel": 0.69
   },
   {
    "kit": "kay-forest",
@@ -146852,7 +150569,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-1-b",
-   "thickRel": 1.14
+   "thickRel": 1.18
   },
   {
    "kit": "kay-forest",
@@ -146894,7 +150611,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-1-c",
-   "thickRel": 0.61
+   "thickRel": 0.63
   },
   {
    "kit": "kay-forest",
@@ -146936,7 +150653,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-1-c",
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "kay-forest",
@@ -147063,7 +150780,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-2-a-singlesided",
-   "thickRel": 2.03
+   "thickRel": 2.09
   },
   {
    "kit": "kay-forest",
@@ -147106,7 +150823,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-2-a-singlesided",
-   "thickRel": 2.07
+   "thickRel": 2.13
   },
   {
    "kit": "kay-forest",
@@ -147149,7 +150866,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-2-b",
-   "thickRel": 1.25
+   "thickRel": 1.29
   },
   {
    "kit": "kay-forest",
@@ -147192,7 +150909,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-2-b",
-   "thickRel": 1.39
+   "thickRel": 1.43
   },
   {
    "kit": "kay-forest",
@@ -147235,7 +150952,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-2-c",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "kay-forest",
@@ -147278,7 +150995,7 @@
     "leaf-light"
    ],
    "variant": "kay-forest/grass-2-c",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "kay-forest",
@@ -147658,7 +151375,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-a",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "kay-forest",
@@ -147700,7 +151417,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-a",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "kay-forest",
@@ -147742,7 +151459,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-a",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "kay-forest",
@@ -147826,7 +151543,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-j",
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "kay-forest",
@@ -147910,7 +151627,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-j",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "kay-forest",
@@ -148078,7 +151795,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-n",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "kay-forest",
@@ -148373,7 +152090,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-2-e",
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "kay-forest",
@@ -148711,7 +152428,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-3-g",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "kay-forest",
@@ -149470,7 +153187,7 @@
     "scale-small"
    ],
    "variant": "kay-forest/tree-bare-1-c",
-   "thickRel": 2.04
+   "thickRel": 2.06
   },
   {
    "kit": "kay-forest",
@@ -149514,7 +153231,7 @@
     "kay"
    ],
    "variant": "kay-forest/tree-bare-1-c",
-   "thickRel": 1.24
+   "thickRel": 1.26
   },
   {
    "kit": "kay-forest",
@@ -149559,7 +153276,7 @@
     "kay"
    ],
    "variant": "kay-forest/tree-bare-1-c",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "kay-forest",
@@ -149604,7 +153321,7 @@
     "kay"
    ],
    "variant": "kay-forest/tree-bare-1-c",
-   "thickRel": 1.35
+   "thickRel": 1.37
   },
   {
    "kit": "kay-forest",
@@ -149649,7 +153366,7 @@
     "kay"
    ],
    "variant": "kay-forest/tree-bare-1-c",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "kay-forest",
@@ -149694,7 +153411,7 @@
     "kay"
    ],
    "variant": "kay-forest/tree-bare-1-c",
-   "thickRel": 1.6
+   "thickRel": 1.62
   },
   {
    "kit": "kay-furniture",
@@ -153917,7 +157634,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.93
+   "thickRel": 0.89
   },
   {
    "kit": "kay-hallow",
@@ -153961,7 +157678,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.98
+   "thickRel": 0.95
   },
   {
    "kit": "kay-hallow",
@@ -154005,7 +157722,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "kay-hallow",
@@ -154050,7 +157767,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-hallow/path-a",
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "kay-hallow",
@@ -154957,7 +158674,7 @@
     "kay"
    ],
    "variant": "kay-hallow/tree-dead-medium",
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "kay-hallow",
@@ -155002,7 +158719,7 @@
     "kay"
    ],
    "variant": "kay-hallow/tree-dead-medium",
-   "thickRel": 0.97
+   "thickRel": 0.99
   },
   {
    "kit": "kay-hallow",
@@ -155047,7 +158764,7 @@
     "kay"
    ],
    "variant": "kay-hallow/tree-dead-medium",
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "kay-hallow",
@@ -155634,7 +159351,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1
+   "thickRel": 0.95
   },
   {
    "kit": "kay-hexagon",
@@ -156759,7 +160476,7 @@
     "wood-dark"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.92
+   "thickRel": 2.38
   },
   {
    "kit": "kay-hexagon",
@@ -156813,7 +160530,7 @@
     "wood-dark"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.92
+   "thickRel": 2.38
   },
   {
    "kit": "kay-hexagon",
@@ -156868,7 +160585,7 @@
     "wood-dark"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.89
+   "thickRel": 2.34
   },
   {
    "kit": "kay-hexagon",
@@ -156911,7 +160628,7 @@
     "wood-dark"
    ],
    "variant": "kay-hexagon/crate-long-a",
-   "thickRel": 1.19
+   "thickRel": 1.48
   },
   {
    "kit": "kay-hexagon",
@@ -156965,7 +160682,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.78
+   "thickRel": 2.2
   },
   {
    "kit": "kay-hexagon",
@@ -158665,7 +162382,7 @@
     "kay",
     "wood-light"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.36
   },
   {
    "kit": "kay-hexagon",
@@ -159887,7 +163604,7 @@
     "leaf-light"
    ],
    "variant": "kay-hexagon/waterlily-a",
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "kay-hexagon",
@@ -160126,7 +163843,7 @@
     "kay",
     "wood-dark"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "kay-hexagon",
@@ -164522,7 +168239,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "kay-minigame",
@@ -166091,7 +169808,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/rollerskate-a",
-   "thickRel": 2.01
+   "thickRel": 1.94
   },
   {
    "kit": "kay-mixed",
@@ -166144,7 +169861,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/rollerskate-a",
-   "thickRel": 1.33
+   "thickRel": 1.29
   },
   {
    "kit": "kay-mixed",
@@ -166355,7 +170072,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/umbrella-c",
-   "thickRel": 1.68
+   "thickRel": 1.62
   },
   {
    "kit": "kay-mixed",
@@ -166409,7 +170126,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/umbrella-c",
-   "thickRel": 1.68
+   "thickRel": 1.62
   },
   {
    "kit": "kay-mixed",
@@ -166452,7 +170169,7 @@
     "kay"
    ],
    "variant": "kay-mixed/water-bottle-a",
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "kay-mixed",
@@ -166495,7 +170212,7 @@
     "kay"
    ],
    "variant": "kay-mixed/water-bottle-a",
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "kay-mixed",
@@ -174487,12 +178204,12 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.32,
+   "thickRel": 0.3,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.32 wants min 0.5"
+     "text": "I01 thickRel 0.3 wants min 0.5"
     }
    ]
   },
@@ -174551,12 +178268,12 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.34,
+   "thickRel": 0.32,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.34 wants min 0.5"
+     "text": "I01 thickRel 0.32 wants min 0.5"
     }
    ]
   },
@@ -174609,7 +178326,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.61
+   "thickRel": 0.57
   },
   {
    "kit": "kay-skeleton",
@@ -174666,7 +178383,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 1
+   "thickRel": 0.93
   },
   {
    "kit": "kay-skeleton",
@@ -174776,7 +178493,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "kay-skeleton",
@@ -174881,7 +178598,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.12,
+   "thickRel": 1.13,
    "mark": [
     "centered"
    ]
@@ -174946,7 +178663,7 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/quiver",
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "kay-skeleton",
@@ -175048,7 +178765,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-large-a",
-   "thickRel": 1.53
+   "thickRel": 1.54
   },
   {
    "kit": "kay-skeleton",
@@ -175099,7 +178816,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-large-a",
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "kay-skeleton",
@@ -175212,7 +178929,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-small-a",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "kay-skeleton",
@@ -176159,7 +179876,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.72
   },
   {
    "kit": "kay-skeleton-1",
@@ -176316,7 +180033,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton-1/bow-with-string",
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "kay-skeleton-1",
@@ -176430,7 +180147,7 @@
     "metal-steel"
    ],
    "variant": "kay-skeleton-1/helmet-horned",
-   "thickRel": 1.6
+   "thickRel": 1.62
   },
   {
    "kit": "kay-skeleton-1",
@@ -176486,7 +180203,7 @@
     "metal-steel"
    ],
    "variant": "kay-skeleton-1/helmet-horned",
-   "thickRel": 2.19
+   "thickRel": 2.2
   },
   {
    "kit": "kay-skeleton-1",
@@ -176636,7 +180353,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-skeleton-1/mage-cloak",
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "kay-skeleton-1",
@@ -176897,7 +180614,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton-1/shield-round",
-   "thickRel": 0.81,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "warning",
@@ -177195,7 +180912,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-skeleton-1/staff-gem-broken",
-   "thickRel": 0.89
+   "thickRel": 0.87
   },
   {
    "kit": "kay-skeleton-1",
@@ -177258,7 +180975,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-skeleton-1/staff-gem-broken",
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "kay-skeleton-1",
@@ -177364,7 +181081,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton-1/sword-broken-half",
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "kay-space",
@@ -181701,7 +185418,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.74
   },
   {
    "kit": "kay-spook",
@@ -181898,7 +185615,7 @@
     "kay"
    ],
    "variant": "kay-spook/tree-dead-a",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "kay-spook",
@@ -181944,7 +185661,7 @@
     "kay"
    ],
    "variant": "kay-spook/tree-dead-a",
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "kay-spook",
@@ -181989,7 +185706,7 @@
     "kay"
    ],
    "variant": "kay-spook/tree-dead-a",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "kay-spook",
@@ -182034,7 +185751,7 @@
     "kay"
    ],
    "variant": "kay-spook/tree-dead-a",
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "kay-tools",
@@ -182132,7 +185849,7 @@
     "textile-cloth-mid",
     "wood-light"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "kay-tools",
@@ -182701,7 +186418,7 @@
    "anim": [
     "spin"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.79
   },
   {
    "kit": "kay-tools",
@@ -182930,7 +186647,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.23
   },
   {
    "kit": "kay-tools",
@@ -183917,7 +187634,7 @@
     "wood-light"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.21
+   "thickRel": 2.18
   },
   {
    "kit": "kay-tools",
@@ -183967,7 +187684,7 @@
     "wood-light"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.14
+   "thickRel": 2.11
   },
   {
    "kit": "kay-tools",
@@ -184017,7 +187734,7 @@
     "plastic"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.21
+   "thickRel": 2.18
   },
   {
    "kit": "kay-tools",
@@ -184067,7 +187784,7 @@
     "wood-light"
    ],
    "variant": "kay-tools/screwdriver-a-long",
-   "thickRel": 2.14
+   "thickRel": 2.12
   },
   {
    "kit": "kay-tools",
@@ -184475,7 +188192,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/arrow-a",
-   "thickRel": 1.17
+   "thickRel": 1.09
   },
   {
    "kit": "kay-weapons",
@@ -184532,7 +188249,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/arrow-a",
-   "thickRel": 1.21
+   "thickRel": 1.13
   },
   {
    "kit": "kay-weapons",
@@ -184711,7 +188428,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "kay-weapons",
@@ -184768,7 +188485,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/bow-a-with-string",
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "kay-weapons",
@@ -184824,7 +188541,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/bow-a-with-string",
-   "thickRel": 1.36
+   "thickRel": 1.35
   },
   {
    "kit": "kay-weapons",
@@ -184895,7 +188612,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/bow-b-with-string",
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "kay-weapons",
@@ -185058,7 +188775,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/dagger-a",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "kay-weapons",
@@ -185159,7 +188876,7 @@
     "metal-steel"
    ],
    "variant": "kay-weapons/fistweapon-a-stacked",
-   "thickRel": 0.92
+   "thickRel": 0.9
   },
   {
    "kit": "kay-weapons",
@@ -185257,7 +188974,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/fistweapon-b-stacked",
-   "thickRel": 0.63
+   "thickRel": 0.62
   },
   {
    "kit": "kay-weapons",
@@ -185317,12 +189034,12 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 0.41,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.41 wants min 0.5"
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -185379,7 +189096,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-weapons",
@@ -185428,7 +189145,7 @@
     "metal-steel",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.21
   },
   {
    "kit": "kay-weapons",
@@ -185647,7 +189364,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "kay-weapons",
@@ -185707,7 +189424,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.84
+   "thickRel": 1.71
   },
   {
    "kit": "kay-weapons",
@@ -185757,7 +189474,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/staff-a",
-   "thickRel": 3.42
+   "thickRel": 3.34
   },
   {
    "kit": "kay-weapons",
@@ -185819,7 +189536,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/staff-a",
-   "thickRel": 0.9
+   "thickRel": 0.88
   },
   {
    "kit": "kay-weapons",
@@ -185869,7 +189586,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/sword-a",
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "kay-weapons",
@@ -185919,7 +189636,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/sword-a",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "kay-weapons",
@@ -186025,7 +189742,7 @@
     "metal-steel"
    ],
    "variant": "kay-weapons/sword-c",
-   "thickRel": 0.96,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "error",
@@ -186089,7 +189806,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/sword-c",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "kay-weapons",
@@ -186151,7 +189868,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.37
   },
   {
    "kit": "ken-arcade",
@@ -188053,7 +191770,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "ken-arena",
@@ -188101,7 +191818,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "ken-blaster",
@@ -192991,12 +196708,12 @@
     "stone-rock"
    ],
    "variant": "ken-castle/rocks-large",
-   "thickRel": 0.46,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -193610,7 +197327,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-castle/stairs-stone",
-   "thickRel": 1.25
+   "thickRel": 1.23
   },
   {
    "kit": "ken-castle",
@@ -193652,7 +197369,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-castle/stairs-stone",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "ken-castle",
@@ -202731,7 +206448,7 @@
     "special-organic"
    ],
    "variant": "ken-food/apple",
-   "thickRel": 0.98,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -202890,7 +206607,7 @@
     "ken",
     "special-food"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.55
   },
   {
    "kit": "ken-food",
@@ -202984,7 +206701,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "ken-food",
@@ -203027,7 +206744,7 @@
     "plastic"
    ],
    "variant": "ken-food/bottle-ketchup",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "ken-food",
@@ -203070,7 +206787,7 @@
     "plastic"
    ],
    "variant": "ken-food/bottle-ketchup",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "ken-food",
@@ -203128,7 +206845,7 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 2.01
+   "thickRel": 2
   },
   {
    "kit": "ken-food",
@@ -204321,7 +208038,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 4.15
+   "thickRel": 4.24
   },
   {
    "kit": "ken-food",
@@ -204627,7 +208344,7 @@
     "special-food",
     "wood-mid"
    ],
-   "thickRel": 2.46,
+   "thickRel": 2.44,
    "lint": [
     {
      "level": "error",
@@ -205281,7 +208998,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1
+   "thickRel": 1.02
   },
   {
    "kit": "ken-food",
@@ -205901,7 +209618,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.32
   },
   {
    "kit": "ken-food",
@@ -205956,12 +209673,12 @@
     "scale-big",
     "special-food"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.44 wants min 0.5"
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -206105,7 +209822,7 @@
     "special-food"
    ],
    "variant": "ken-food/loaf",
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "ken-food",
@@ -206152,7 +209869,7 @@
     "special-food"
    ],
    "variant": "ken-food/loaf",
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "ken-food",
@@ -206392,7 +210109,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "ken-food",
@@ -208186,7 +211903,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.68
   },
   {
    "kit": "ken-food",
@@ -214763,7 +218480,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.58
   },
   {
    "kit": "ken-furniture",
@@ -214908,7 +218625,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.61
   },
   {
    "kit": "ken-furniture",
@@ -219258,7 +222975,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.02
+   "thickRel": 0.98
   },
   {
    "kit": "ken-grave",
@@ -221951,7 +225668,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 2.36
+   "thickRel": 2.28
   },
   {
    "kit": "ken-holiday",
@@ -225840,7 +229557,7 @@
     "wood-mid"
    ],
    "variant": "ken-mini-dun/shield-round",
-   "thickRel": 1.48
+   "thickRel": 1.49
   },
   {
    "kit": "ken-mini-dun",
@@ -225889,7 +229606,7 @@
     "wood-mid"
    ],
    "variant": "ken-mini-dun/shield-round",
-   "thickRel": 1.43
+   "thickRel": 1.44
   },
   {
    "kit": "ken-mini-dun",
@@ -225931,7 +229648,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.61
   },
   {
    "kit": "ken-mini-dun",
@@ -228342,7 +232059,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.49,
+   "thickRel": 1.51,
    "lint": [
     {
      "level": "warning",
@@ -229130,7 +232847,7 @@
      "open": 1
     }
    },
-   "thickRel": 2.42,
+   "thickRel": 2.23,
    "lint": [
     {
      "level": "warning",
@@ -229221,7 +232938,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 0.89
+   "thickRel": 0.86
   },
   {
    "kit": "ken-nature",
@@ -229263,7 +232980,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 0.82
+   "thickRel": 0.79
   },
   {
    "kit": "ken-nature",
@@ -229305,7 +233022,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 1.04
+   "thickRel": 1
   },
   {
    "kit": "ken-nature",
@@ -229347,7 +233064,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/path-stone",
-   "thickRel": 1.4
+   "thickRel": 1.35
   },
   {
    "kit": "ken-nature",
@@ -229389,7 +233106,7 @@
     "wood-light"
    ],
    "variant": "ken-nature/path-wood",
-   "thickRel": 0.91
+   "thickRel": 0.88
   },
   {
    "kit": "ken-nature",
@@ -229431,7 +233148,7 @@
     "wood-light"
    ],
    "variant": "ken-nature/path-wood",
-   "thickRel": 1.1
+   "thickRel": 1.06
   },
   {
    "kit": "ken-nature",
@@ -229473,7 +233190,7 @@
     "wood-light"
    ],
    "variant": "ken-nature/path-wood",
-   "thickRel": 1.57
+   "thickRel": 1.51
   },
   {
    "kit": "ken-nature",
@@ -229986,7 +233703,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-large-d",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "ken-nature",
@@ -230512,7 +234229,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-small-f",
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "ken-nature",
@@ -232775,7 +236492,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.81
+   "thickRel": 1
   },
   {
    "kit": "ken-pirate",
@@ -233787,7 +237504,7 @@
     "stone-rock"
    ],
    "variant": "ken-pirate/rocks-sand-a",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-pirate",
@@ -233829,7 +237546,7 @@
     "stone-rock"
    ],
    "variant": "ken-pirate/rocks-sand-a",
-   "thickRel": 0.61
+   "thickRel": 0.62
   },
   {
    "kit": "ken-pirate",
@@ -236847,7 +240564,7 @@
     "ken",
     "stone-rock"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "ken-platformer",
@@ -238775,7 +242492,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "ken-proto",
@@ -238818,7 +242535,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "ken-proto",
@@ -238861,7 +242578,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/stairs-diagonal",
-   "thickRel": 1.63
+   "thickRel": 1.61
   },
   {
    "kit": "ken-proto",
@@ -242052,7 +245769,7 @@
     "ken",
     "wood-light"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "ken-racing",
@@ -253941,7 +257658,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-corner",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-station",
@@ -253996,7 +257713,7 @@
     "space"
    ],
    "variant": "ken-station/stairs-corner",
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "ken-station",
@@ -254155,7 +257872,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 1.2
+   "thickRel": 1.21
   },
   {
    "kit": "ken-station",
@@ -254454,7 +258171,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "ken-station",
@@ -260432,7 +264149,7 @@
     "wood-light"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "ken-survival",
@@ -260481,7 +264198,7 @@
     "wood-light"
    ],
    "variant": "ken-survival/tool-hoe",
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "ken-survival",
@@ -263816,7 +267533,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/stairs-stone-round",
-   "thickRel": 1.48
+   "thickRel": 1.47
   },
   {
    "kit": "ken-town",
@@ -263858,7 +267575,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/stairs-stone-round",
-   "thickRel": 0.54,
+   "thickRel": 0.53,
    "mark": [
     "centered"
    ]
@@ -277636,7 +281353,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "lpa-construction",
@@ -278442,7 +282159,7 @@
     "plastic",
     "special-liquid"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.69
   },
   {
    "kit": "lpa-construction",
@@ -279270,7 +282987,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 2.43
+   "thickRel": 2.4
   },
   {
    "kit": "lpa-construction",
@@ -279855,7 +283572,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.13
   },
   {
    "kit": "lpa-construction",
@@ -280251,7 +283968,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "lpa-desert",
@@ -286014,7 +289731,7 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/bow",
-   "thickRel": 1.61
+   "thickRel": 1.6
   },
   {
    "kit": "lpa-tools",
@@ -286075,7 +289792,7 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.67
+   "thickRel": 1.55
   },
   {
    "kit": "lpa-tools",
@@ -286294,7 +290011,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "lpa-tools",
@@ -286396,7 +290113,7 @@
     "lpa",
     "stone-rock"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.61
   },
   {
    "kit": "lpa-tools",
@@ -286500,7 +290217,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 2.77
+   "thickRel": 2.57
   },
   {
    "kit": "lpa-tools",
@@ -286602,7 +290319,7 @@
     "wood-mid"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.79
+   "thickRel": 1.67
   },
   {
    "kit": "lpa-tools",
@@ -286906,7 +290623,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.33
   },
   {
    "kit": "lpa-tools",
@@ -287008,7 +290725,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.16
   },
   {
    "kit": "lpa-weapons",
@@ -287071,7 +290788,7 @@
      "other": 0.06
     }
    },
-   "thickRel": 1.15,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "warning",
@@ -287291,7 +291008,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1
+   "thickRel": 0.93
   },
   {
    "kit": "lpa-weapons",
@@ -287717,7 +291434,7 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "lpa-weapons",
@@ -287766,7 +291483,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/flail",
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "lpa-weapons",
@@ -287816,7 +291533,7 @@
     "scale-big"
    ],
    "variant": "lpa-weapons/greatsword",
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "lpa-weapons",
@@ -287864,12 +291581,12 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.47,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.44 wants min 0.5"
     }
    ]
   },
@@ -287967,7 +291684,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 3.78
+   "thickRel": 3.77
   },
   {
    "kit": "lpa-weapons",
@@ -288015,7 +291732,7 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.9
   },
   {
    "kit": "lpa-weapons",
@@ -288064,7 +291781,7 @@
     "wood-mid"
    ],
    "variant": "lpa-tools/bow",
-   "thickRel": 1.73
+   "thickRel": 1.72
   },
   {
    "kit": "lpa-weapons",
@@ -288112,7 +291829,7 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "lpa-weapons",
@@ -288267,7 +291984,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.58
   },
   {
    "kit": "lpa-weapons",
@@ -288377,7 +292094,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/quiver-arrows",
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "lpa-weapons",
@@ -288433,7 +292150,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/quiver-arrows",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "lpa-weapons",
@@ -288487,7 +292204,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "lpa-weapons",
@@ -288752,7 +292469,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-d",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "lpa-weapons",
@@ -288807,7 +292524,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-d",
-   "thickRel": 1.1,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "error",
@@ -288862,12 +292579,12 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.36,
+   "thickRel": 0.33,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.36 wants min 0.5"
+     "text": "I01 thickRel 0.33 wants min 0.5"
     }
    ]
   },
@@ -288977,7 +292694,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.18
   },
   {
    "kit": "lpa-weapons",
@@ -289183,7 +292900,7 @@
     "metal-steel"
    ],
    "variant": "lpa-weapons/flail",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "lpa-weapons",
@@ -289232,7 +292949,7 @@
     "metal-steel"
    ],
    "variant": "lpa-weapons/greatsword",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "lpa-weapons",
@@ -289279,7 +292996,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-weapons",
@@ -289479,7 +293196,7 @@
     "metal-steel",
     "scale-big"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "lpa-west",
@@ -290130,7 +293847,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.17
   },
   {
    "kit": "lpa-west",
@@ -290870,7 +294587,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/corner-staircase-b",
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "lpa-west",
@@ -290919,7 +294636,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/corner-staircase-b",
-   "thickRel": 1.24
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -291009,7 +294726,7 @@
     "lpa",
     "wood-light"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.88
   },
   {
    "kit": "lpa-west",
@@ -294864,7 +298581,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/staircase-b",
-   "thickRel": 1.37
+   "thickRel": 1.35
   },
   {
    "kit": "lpa-west",
@@ -294913,7 +298630,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/staircase-b",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "lpa-west",
@@ -297364,7 +301081,7 @@
     "special-food"
    ],
    "variant": "m3-base/apple",
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "m3-base",
@@ -298700,7 +302417,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -298747,7 +302464,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "m3-base",
@@ -299466,7 +303183,7 @@
     "m3",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.49
   },
   {
    "kit": "m3-base",
@@ -299509,7 +303226,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/breastplate-armour-01",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "m3-base",
@@ -299551,7 +303268,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/breastplate-armour-01",
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "m3-base",
@@ -300517,7 +304234,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 1.64
+   "thickRel": 1.59
   },
   {
    "kit": "m3-base",
@@ -300965,7 +304682,7 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.64
   },
   {
    "kit": "m3-base",
@@ -302193,7 +305910,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.85,
+   "thickRel": 1.8,
    "lint": [
     {
      "level": "warning",
@@ -302538,7 +306255,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "m3-base",
@@ -302585,7 +306302,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "m3-base",
@@ -302632,7 +306349,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "m3-base",
@@ -302680,7 +306397,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "m3-base",
@@ -302727,7 +306444,7 @@
     "plastic"
    ],
    "variant": "m3-base/bleach-bottle-01",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "m3-base",
@@ -302773,7 +306490,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -302981,7 +306698,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.6
   },
   {
    "kit": "m3-base",
@@ -304138,7 +307855,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "m3-base",
@@ -304286,7 +308003,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 2.96
+   "thickRel": 2.75
   },
   {
    "kit": "m3-base",
@@ -304542,7 +308259,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -305393,7 +309110,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.57
   },
   {
    "kit": "m3-base",
@@ -308281,7 +311998,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.1
   },
   {
    "kit": "m3-base",
@@ -308322,7 +312039,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "m3-base",
@@ -308680,7 +312397,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.77
   },
   {
    "kit": "m3-base",
@@ -309355,7 +313072,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.22
   },
   {
    "kit": "m3-base",
@@ -309571,7 +313288,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
@@ -310328,7 +314045,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/gladius-01",
-   "thickRel": 1.28
+   "thickRel": 1.26
   },
   {
    "kit": "m3-base",
@@ -310377,7 +314094,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/gladius-01",
-   "thickRel": 1.47
+   "thickRel": 1.46
   },
   {
    "kit": "m3-base",
@@ -311538,7 +315255,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "m3-base",
@@ -311636,7 +315353,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/guitar-wall-hanger-01",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -311776,7 +315493,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.07
   },
   {
    "kit": "m3-base",
@@ -312024,7 +315741,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -312119,7 +315836,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "m3-base",
@@ -312708,7 +316425,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.51
   },
   {
    "kit": "m3-base",
@@ -316694,7 +320411,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.74
+   "thickRel": 1.78
   },
   {
    "kit": "m3-base",
@@ -316736,7 +320453,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.53
   },
   {
    "kit": "m3-base",
@@ -317280,7 +320997,7 @@
     "m3"
    ],
    "variant": "m3-base/lily-pad-01",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -317823,7 +321540,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.39
   },
   {
    "kit": "m3-base",
@@ -318465,7 +322182,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -319248,7 +322965,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -319965,7 +323682,7 @@
     "plastic"
    ],
    "variant": "m3-base/organizer-drawers-01",
-   "thickRel": 1.68
+   "thickRel": 1.72
   },
   {
    "kit": "m3-base",
@@ -320012,7 +323729,7 @@
     "plastic"
    ],
    "variant": "m3-base/organizer-drawers-01",
-   "thickRel": 1.92
+   "thickRel": 1.97
   },
   {
    "kit": "m3-base",
@@ -320605,7 +324322,7 @@
     "textile-cloth-dark",
     "textile-cloth-light"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.31
   },
   {
    "kit": "m3-base",
@@ -323062,7 +326779,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "m3-base",
@@ -323533,7 +327250,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -323889,7 +327606,7 @@
     "rubber",
     "wood-light"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "m3-base",
@@ -324825,12 +328542,12 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
     }
    ]
   },
@@ -325221,7 +328938,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "m3-base",
@@ -327690,7 +331407,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "m3-base",
@@ -328214,7 +331931,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "m3-base",
@@ -328436,7 +332153,7 @@
     "metal-steel",
     "scale-small"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "m3-base",
@@ -330155,7 +333872,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -331069,7 +334786,7 @@
     "m3"
    ],
    "variant": "m3-base/stick-01",
-   "thickRel": 1.41
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -331111,7 +334828,7 @@
     "m3"
    ],
    "variant": "m3-base/stick-01",
-   "thickRel": 1.74
+   "thickRel": 1.6
   },
   {
    "kit": "m3-base",
@@ -331153,7 +334870,7 @@
     "m3"
    ],
    "variant": "m3-base/stick-01",
-   "thickRel": 1.49
+   "thickRel": 1.37
   },
   {
    "kit": "m3-base",
@@ -331195,7 +334912,7 @@
     "m3"
    ],
    "variant": "m3-base/stick-01",
-   "thickRel": 1.45
+   "thickRel": 1.34
   },
   {
    "kit": "m3-base",
@@ -331975,7 +335692,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.37
   },
   {
    "kit": "m3-base",
@@ -332146,7 +335863,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -334218,7 +337935,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 1.77
+   "thickRel": 1.75
   },
   {
    "kit": "m3-base",
@@ -334375,12 +338092,12 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.39,
+   "thickRel": 0.36,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.39 wants min 0.5"
+     "text": "I01 thickRel 0.36 wants min 0.5"
     }
    ]
   },
@@ -334871,7 +338588,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -335269,7 +338986,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.79
   },
   {
    "kit": "m3-base",
@@ -335773,7 +339490,7 @@
     "m3",
     "wood-light"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -335997,7 +339714,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/wine-rack-01",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "m3-base",
@@ -336349,7 +340066,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/wooden-bowl-01",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -336782,14 +340499,7 @@
     "m3",
     "wood-light"
    ],
-   "thickRel": 0.44,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.44 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -337805,7 +341515,7 @@
     "metal-steel"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "makeup",
@@ -337853,7 +341563,7 @@
     "metal-steel"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "makeup",
@@ -337949,7 +341659,7 @@
     "plastic"
    ],
    "variant": "makeup/lotion-tube-azure",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "makeup",
@@ -338399,7 +342109,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.56
   },
   {
    "kit": "makeup",
@@ -338645,7 +342355,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/barrel",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "medieval-forge",
@@ -338743,7 +342453,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "medieval-forge",
@@ -339314,7 +343024,7 @@
    "tags": [
     "stone-masonry-mid"
    ],
-   "thickRel": 1.35,
+   "thickRel": 1.33,
    "lint": [
     {
      "level": "warning",
@@ -339366,7 +343076,7 @@
     "stone-masonry-mid"
    ],
    "variant": "medieval-forge/stone-bridge",
-   "thickRel": 1.91,
+   "thickRel": 1.82,
    "mark": [
     "grounded"
    ]
@@ -339410,7 +343120,7 @@
     "stone-masonry-mid"
    ],
    "variant": "medieval-forge/stone-bridge",
-   "thickRel": 2.24,
+   "thickRel": 2.13,
    "mark": [
     "grounded",
     "centered"
@@ -339779,7 +343489,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "mek-tools",
@@ -340739,7 +344449,7 @@
     "bark",
     "wood-dark"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.58
   },
   {
    "kit": "nature-assets",
@@ -341747,7 +345457,7 @@
     "robin-hood"
    ],
    "variant": "natuur/branch-2",
-   "thickRel": 2.09
+   "thickRel": 1.92
   },
   {
    "kit": "natuur",
@@ -341789,7 +345499,7 @@
     "robin-hood"
    ],
    "variant": "natuur/branch-2",
-   "thickRel": 1.15
+   "thickRel": 1.06
   },
   {
    "kit": "natuur",
@@ -341832,7 +345542,7 @@
     "robin-hood"
    ],
    "variant": "natuur/branch-2",
-   "thickRel": 0.77
+   "thickRel": 0.71
   },
   {
    "kit": "natuur",
@@ -343079,7 +346789,7 @@
     "leaf-light"
    ],
    "variant": "natuur/grass-clump-4",
-   "thickRel": 0.73
+   "thickRel": 0.76
   },
   {
    "kit": "natuur",
@@ -343121,7 +346831,7 @@
     "leaf-light"
    ],
    "variant": "natuur/grass-clump-4",
-   "thickRel": 1.16
+   "thickRel": 1.2
   },
   {
    "kit": "natuur",
@@ -343164,7 +346874,7 @@
     "leaf-light"
    ],
    "variant": "natuur/grass-clump-4",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "natuur",
@@ -343641,7 +347351,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "natuur",
@@ -343682,7 +347392,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "natuur",
@@ -343723,7 +347433,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "natuur",
@@ -343805,7 +347515,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "natuur",
@@ -343929,7 +347639,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "natuur",
@@ -344674,7 +348384,7 @@
     "robin-hood"
    ],
    "variant": "natuur/stump-1",
-   "thickRel": 0.93
+   "thickRel": 0.96
   },
   {
    "kit": "natuur",
@@ -344721,7 +348431,7 @@
     "robin-hood"
    ],
    "variant": "natuur/stump-1",
-   "thickRel": 1.14
+   "thickRel": 1.19
   },
   {
    "kit": "natuur",
@@ -344768,14 +348478,7 @@
     "robin-hood",
     "scale-big"
    ],
-   "thickRel": 0.48,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "natuur",
@@ -345145,7 +348848,7 @@
     "bark"
    ],
    "variant": "natuur/tree-bare-3",
-   "thickRel": 1.37
+   "thickRel": 1.39
   },
   {
    "kit": "natuur",
@@ -345186,7 +348889,7 @@
     "bark"
    ],
    "variant": "natuur/tree-bare-3",
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "natuur",
@@ -345227,7 +348930,7 @@
     "bark"
    ],
    "variant": "natuur/tree-bare-3",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "natuur",
@@ -345268,7 +348971,7 @@
     "bark"
    ],
    "variant": "natuur/tree-bare-3",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "natuur",
@@ -345309,7 +349012,7 @@
     "bark"
    ],
    "variant": "natuur/tree-bare-3",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "natuur",
@@ -345350,7 +349053,7 @@
     "bark"
    ],
    "variant": "natuur/tree-bare-3",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "natuur",
@@ -347821,7 +351524,7 @@
     "special-liquid"
    ],
    "variant": "potions/potion-1-red",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "potions",
@@ -348959,7 +352662,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "props",
@@ -349791,7 +353494,7 @@
     "wood-dark"
    ],
    "variant": "props/cup-a",
-   "thickRel": 0.78
+   "thickRel": 0.76
   },
   {
    "kit": "props",
@@ -349838,7 +353541,7 @@
     "wood-dark"
    ],
    "variant": "props/cup-a",
-   "thickRel": 1.88
+   "thickRel": 1.83
   },
   {
    "kit": "props",
@@ -352043,7 +355746,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.44,
+   "thickRel": 1.34,
    "lint": [
     {
      "level": "warning",
@@ -354376,7 +358079,7 @@
     "stone-masonry-dark"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "quat-dun-1",
@@ -354420,7 +358123,7 @@
     "stone-masonry-dark"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "quat-dun-1",
@@ -354464,7 +358167,7 @@
     "stone-masonry-dark"
    ],
    "variant": "quat-dun-1/stairs-modular",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "quat-dun-1",
@@ -358200,7 +361903,7 @@
     "special-food"
    ],
    "variant": "quat-food/apple",
-   "thickRel": 0.96
+   "thickRel": 0.94
   },
   {
    "kit": "quat-food",
@@ -358255,7 +361958,7 @@
     "special-food"
    ],
    "variant": "quat-food/apple",
-   "thickRel": 0.96
+   "thickRel": 0.94
   },
   {
    "kit": "quat-food",
@@ -360120,7 +363823,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.13
   },
   {
    "kit": "quat-food",
@@ -360663,7 +364366,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "quat-food",
@@ -360705,7 +364408,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.44
   },
   {
    "kit": "quat-food",
@@ -361342,7 +365045,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 2.5
+   "thickRel": 2.49
   },
   {
    "kit": "quat-food",
@@ -361431,7 +365134,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.59
   },
   {
    "kit": "quat-food",
@@ -366395,7 +370098,7 @@
     "sailing",
     "wood-mid"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "quat-medieval",
@@ -368731,7 +372434,7 @@
     "leaf-light",
     "qua"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "quat-nature",
@@ -368784,7 +372487,7 @@
     "qua",
     "special-organic"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "quat-nature",
@@ -369120,7 +372823,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "quat-nature",
@@ -369168,7 +372871,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "quat-nature",
@@ -369210,7 +372913,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "quat-nature",
@@ -369258,7 +372961,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "quat-nature",
@@ -369300,7 +373003,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 1.36
+   "thickRel": 1.37
   },
   {
    "kit": "quat-nature",
@@ -369348,7 +373051,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 1.35
+   "thickRel": 1.36
   },
   {
    "kit": "quat-nature",
@@ -369494,7 +373197,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 1.34
+   "thickRel": 1.36
   },
   {
    "kit": "quat-nature",
@@ -369542,7 +373245,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-birch-dead-1-bark",
-   "thickRel": 1.35
+   "thickRel": 1.37
   },
   {
    "kit": "quat-nature",
@@ -369633,7 +373336,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.56
+   "thickRel": 0.57
   },
   {
    "kit": "quat-nature",
@@ -369675,7 +373378,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 1.29
+   "thickRel": 1.31
   },
   {
    "kit": "quat-nature",
@@ -369717,7 +373420,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "quat-nature",
@@ -369897,7 +373600,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "quat-nature",
@@ -369939,12 +373642,12 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.43,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
+     "text": "I01 thickRel 0.44 wants min 0.5"
     }
    ]
   },
@@ -369988,7 +373691,7 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.56
+   "thickRel": 0.57
   },
   {
    "kit": "quat-nature",
@@ -370030,12 +373733,12 @@
     "qua"
    ],
    "variant": "quat-nature/tree-common-dead-1",
-   "thickRel": 0.44,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.44 wants min 0.5"
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -374265,7 +377968,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.31
   },
   {
    "kit": "quat-pirate",
@@ -374320,7 +378023,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.16
   },
   {
    "kit": "quat-pirate",
@@ -376297,7 +380000,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.25
   },
   {
    "kit": "quat-props",
@@ -376398,7 +380101,7 @@
     "textile-cloth-dark"
    ],
    "variant": "quat-props/potion-2",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "quat-props",
@@ -376924,7 +380627,7 @@
     "metal-gold",
     "qua"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.07
   },
   {
    "kit": "quat-props",
@@ -376965,7 +380668,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.68
   },
   {
    "kit": "quat-props",
@@ -377006,7 +380709,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.94
   },
   {
    "kit": "quat-props",
@@ -377088,7 +380791,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "quat-props",
@@ -377282,7 +380985,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "quat-props",
@@ -377379,7 +381082,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-horned",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "quat-rpg",
@@ -377429,7 +381132,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-horned",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "quat-rpg",
@@ -377471,7 +381174,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "quat-rpg",
@@ -377514,7 +381217,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-metal",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "quat-rpg",
@@ -377607,7 +381310,7 @@
     "wood-dark"
    ],
    "variant": "quat-rpg/arrow",
-   "thickRel": 1.34
+   "thickRel": 1.24
   },
   {
    "kit": "quat-rpg",
@@ -377662,7 +381365,7 @@
     "wood-dark"
    ],
    "variant": "quat-rpg/arrow",
-   "thickRel": 1.34
+   "thickRel": 1.24
   },
   {
    "kit": "quat-rpg",
@@ -378480,7 +382183,7 @@
     "textile-rope"
    ],
    "variant": "quat-rpg/bow-wooden",
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "quat-rpg",
@@ -378536,7 +382239,7 @@
     "wood-dark"
    ],
    "variant": "quat-rpg/bow-wooden",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "quat-rpg",
@@ -379075,7 +382778,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.67,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "warning",
@@ -379123,7 +382826,7 @@
     "leather",
     "qua"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.26
   },
   {
    "kit": "quat-rpg",
@@ -379223,7 +382926,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "quat-rpg",
@@ -380060,7 +383763,7 @@
     "special-liquid"
    ],
    "variant": "quat-rpg/potion-10-filled",
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "quat-rpg",
@@ -381602,7 +385305,7 @@
     "textile-cloth-mid"
    ],
    "variant": "quat-rpg/sword",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "quat-rpg",
@@ -381650,7 +385353,7 @@
     "textile-cloth-mid"
    ],
    "variant": "quat-rpg/sword",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "quat-scifi",
@@ -386314,7 +390017,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.87
   },
   {
    "kit": "quat-space",
@@ -387623,7 +391326,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.69
   },
   {
    "kit": "quat-space",
@@ -387678,7 +391381,7 @@
     "space"
    ],
    "variant": "quat-space/ramp",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "quat-space",
@@ -387764,7 +391467,7 @@
     "stone-rock"
    ],
    "variant": "quat-space/rock-a",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "quat-space",
@@ -388809,7 +392512,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.67,
+   "thickRel": 0.66,
    "lint": [
     {
      "level": "warning",
@@ -388865,7 +392568,7 @@
     "special-emissive"
    ],
    "variant": "quat-space/tree-light-a",
-   "thickRel": 1.75
+   "thickRel": 1.77
   },
   {
    "kit": "quat-space",
@@ -388914,7 +392617,7 @@
     "special-emissive"
    ],
    "variant": "quat-space/tree-light-a",
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "quat-survival",
@@ -388967,7 +392670,7 @@
     "qua",
     "wood-light"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.67
   },
   {
    "kit": "quat-survival",
@@ -390599,7 +394302,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "quat-survival",
@@ -390980,7 +394683,7 @@
     "scale-small",
     "special-food"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "quat-sushi",
@@ -398431,7 +402134,7 @@
     "stone-rock"
    ],
    "variant": "quat-town/rock-a",
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "quat-town",
@@ -400787,7 +404490,7 @@
     "rey",
     "wood-light"
    ],
-   "thickRel": 2.08
+   "thickRel": 1.93
   },
   {
    "kit": "rey-studio",
@@ -401492,7 +405195,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.86
   },
   {
    "kit": "rgp-asia",
@@ -402486,7 +406189,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.51
   },
   {
    "kit": "rgp-asia",
@@ -402584,7 +406287,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.7
   },
   {
    "kit": "rgp-asia",
@@ -402919,7 +406622,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.28
   },
   {
    "kit": "rgp-asia",
@@ -403047,7 +406750,7 @@
     "rgp",
     "stone-rock"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "rgp-asia",
@@ -403090,7 +406793,7 @@
     "stone-rock"
    ],
    "variant": "rgp-asia/rock-tall-b",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "rgp-asia",
@@ -404360,7 +408063,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.71
   },
   {
    "kit": "rgp-cars",
@@ -405201,7 +408904,7 @@
     "rgp",
     "wood-light"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "rgp-explosives",
@@ -405254,7 +408957,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "rgp-explosives",
@@ -406330,7 +410033,7 @@
     "rgp",
     "special-food"
    ],
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "rgp-medieval",
@@ -406508,7 +410211,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.08
   },
   {
    "kit": "rgp-medieval",
@@ -406563,7 +410266,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "rgp-medieval",
@@ -406992,7 +410695,7 @@
     "rgp",
     "special-food"
    ],
-   "thickRel": 0.83,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "warning",
@@ -407042,7 +410745,7 @@
     "rgp",
     "wood-light"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "rgp-medieval",
@@ -407097,7 +410800,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.76
   },
   {
    "kit": "rgp-medieval",
@@ -407339,7 +411042,7 @@
     "special-food"
    ],
    "variant": "rgp-medieval/cheese-wheel",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "rgp-medieval",
@@ -407647,7 +411350,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.77
   },
   {
    "kit": "rgp-medieval",
@@ -408090,7 +411793,7 @@
     "broken",
     "rgp"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.43
   },
   {
    "kit": "rgp-medieval",
@@ -410802,7 +414505,7 @@
     "broken",
     "rgp"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "rgp-medieval",
@@ -412376,7 +416079,7 @@
     "rgp",
     "stone-rock"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "rgp-medieval",
@@ -412504,7 +416207,7 @@
     "stone-rock"
    ],
    "variant": "rgp-medieval/rock-barrier-1",
-   "thickRel": 1.37
+   "thickRel": 1.38
   },
   {
    "kit": "rgp-medieval",
@@ -412547,7 +416250,7 @@
     "stone-rock"
    ],
    "variant": "rgp-medieval/rock-barrier-1",
-   "thickRel": 1.24
+   "thickRel": 1.25
   },
   {
    "kit": "rgp-medieval",
@@ -414457,7 +418160,7 @@
     "rgp",
     "wood-light"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "rgp-medieval",
@@ -414560,7 +418263,7 @@
     "rgp",
     "wood-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "rgp-medieval",
@@ -417856,7 +421559,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1.98
+   "thickRel": 1.91
   },
   {
    "kit": "rgp-vintage",
@@ -417970,7 +421673,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/arrow-a",
-   "thickRel": 0.77
+   "thickRel": 0.72
   },
   {
    "kit": "rgp-weapons",
@@ -418027,7 +421730,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/arrow-a",
-   "thickRel": 0.75
+   "thickRel": 0.7
   },
   {
    "kit": "rgp-weapons",
@@ -418255,7 +421958,7 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "rgp-weapons",
@@ -418520,7 +422223,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-a",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "rgp-weapons",
@@ -418581,7 +422284,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "rgp-weapons",
@@ -418637,7 +422340,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "rgp-weapons",
@@ -418687,7 +422390,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "rgp-weapons",
@@ -418745,12 +422448,12 @@
     "tba"
    ],
    "variant": "rgp-weapons/staff-druid-a",
-   "thickRel": 0.47,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -418814,7 +422517,7 @@
     "wood-mid"
    ],
    "variant": "rgp-weapons/staff-druid-a",
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "rgp-weapons",
@@ -418870,7 +422573,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/sword-a",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "rgp-weapons",
@@ -418920,7 +422623,7 @@
     "textile-cloth-mid"
    ],
    "variant": "rgp-weapons/sword-a",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "rgp-weapons",
@@ -419866,7 +423569,7 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "rocks",
@@ -420152,7 +423855,7 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "rocks",
@@ -420317,7 +424020,7 @@
     "stone-rock"
    ],
    "variant": "rocks/rockform-wall-short-a",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "rocks",
@@ -420447,7 +424150,7 @@
     "stone-rock"
    ],
    "variant": "rocks/rockwall-corner",
-   "thickRel": 1.38
+   "thickRel": 1.39
   },
   {
    "kit": "rpg-mini",
@@ -422026,7 +425729,7 @@
     "sq"
    ],
    "variant": "sq-cards/display-tower",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "sq-arcade",
@@ -422497,7 +426200,7 @@
     "metal-iron-dark",
     "sq"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "sq-bank",
@@ -423142,7 +426845,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "sq-bowling",
@@ -424176,7 +427879,7 @@
     "sq"
    ],
    "variant": "sq-cards/display-tower",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "sq-cards",
@@ -424599,7 +428302,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "sq-cards",
@@ -424664,7 +428367,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 2.79
+   "thickRel": 2.81
   },
   {
    "kit": "sq-cards",
@@ -430096,7 +433799,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "sq-laundry",
@@ -432912,7 +436615,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.06,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "warning",
@@ -432980,7 +436683,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.07,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -433728,7 +437431,7 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "styloo-farm",
@@ -435500,7 +439203,7 @@
     "sty",
     "wood-light"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.77
   },
   {
    "kit": "styloo-farm",
@@ -436801,7 +440504,7 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/sword",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-farm",
@@ -436855,7 +440558,7 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/sword",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "styloo-farm",
@@ -438474,7 +442177,7 @@
     "wood-mid"
    ],
    "variant": "styloo-food/chopsticks",
-   "thickRel": 4.08
+   "thickRel": 4.17
   },
   {
    "kit": "styloo-food",
@@ -440137,7 +443840,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/bowl",
-   "thickRel": 0.66
+   "thickRel": 0.65
   },
   {
    "kit": "styloo-food",
@@ -441072,7 +444775,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "styloo-furniture",
@@ -441394,7 +445097,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.63
   },
   {
    "kit": "styloo-furniture",
@@ -442652,7 +446355,7 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.09
   },
   {
    "kit": "styloo-kitchen",
@@ -442793,7 +446496,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/bowl",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "styloo-kitchen",
@@ -443140,7 +446843,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.94
   },
   {
    "kit": "styloo-kitchen",
@@ -443272,7 +446975,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 1.6
+   "thickRel": 1.64
   },
   {
    "kit": "styloo-kitchen",
@@ -443657,7 +447360,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/spoon",
-   "thickRel": 1.04
+   "thickRel": 1.06
   },
   {
    "kit": "styloo-kitchen",
@@ -443699,7 +447402,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/spoon",
-   "thickRel": 0.65
+   "thickRel": 0.67
   },
   {
    "kit": "styloo-kitchen",
@@ -445535,12 +449238,12 @@
     "glass-clear",
     "sty"
    ],
-   "thickRel": 0.28,
+   "thickRel": 0.29,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.28 wants min 0.5"
+     "text": "I01 thickRel 0.29 wants min 0.5"
     }
    ]
   },
@@ -447424,7 +451127,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.94
+   "thickRel": 1.96
   },
   {
    "kit": "styloo-school",
@@ -449893,7 +453596,7 @@
     "special-organic",
     "sty"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "styloo-school",
@@ -450503,7 +454206,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "styloo-school",
@@ -452863,7 +456566,7 @@
     "textile-cloth-mid"
    ],
    "variant": "styloo-weapons/sword",
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "styloo-weapons",
@@ -452919,7 +456622,7 @@
     "wood-dark"
    ],
    "variant": "styloo-weapons/sword",
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "swords-tember",
@@ -453200,7 +456903,7 @@
      "other": 0.06
     }
    },
-   "thickRel": 0.82,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -453331,7 +457034,7 @@
     "gemstone",
     "metal-gold"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "swords-tember",
@@ -453397,7 +457100,7 @@
      "inside-out": 0.02
     }
    },
-   "thickRel": 1.13,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -453469,7 +457172,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 0.99,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -453535,7 +457238,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "swords-tember",
@@ -453651,7 +457354,7 @@
     "metal-steel",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.62,
+   "thickRel": 1.6,
    "lint": [
     {
      "level": "warning",
@@ -453704,7 +457407,7 @@
     "leaf-light",
     "wood-mid"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.26
   },
   {
    "kit": "swords-tember",
@@ -453745,7 +457448,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "taalei-kit",
@@ -453794,7 +457497,7 @@
     "tba"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 2.21
+   "thickRel": 2.24
   },
   {
    "kit": "taalei-kit",
@@ -453843,7 +457546,7 @@
     "tba"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "taalei-kit",
@@ -453892,7 +457595,7 @@
     "tba"
    ],
    "variant": "taalei-kit/balance-scale",
-   "thickRel": 1.72
+   "thickRel": 1.74
   },
   {
    "kit": "taalei-kit",
@@ -455213,7 +458916,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "taalei-kit",
@@ -455262,7 +458965,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "taalei-kit",
@@ -455311,7 +459014,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "taalei-kit",
@@ -455372,7 +459075,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "taalei-kit",
@@ -455421,7 +459124,7 @@
     "tba"
    ],
    "variant": "taalei-kit/hanging-scale",
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "taalei-kit",
@@ -456169,7 +459872,7 @@
     "plastic",
     "wood-light"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.28
   },
   {
    "kit": "taalei-kit",
@@ -457441,7 +461144,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/trident",
-   "thickRel": 0.69
+   "thickRel": 0.64
   },
   {
    "kit": "taalei-kit",
@@ -457489,7 +461192,14 @@
     "wood-light"
    ],
    "variant": "taalei-kit/trident",
-   "thickRel": 0.51
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -457543,7 +461253,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/trident",
-   "thickRel": 0.61
+   "thickRel": 0.57
   },
   {
    "kit": "taalei-kit",
@@ -457880,7 +461590,7 @@
     "metal-steel"
    ],
    "variant": "weapon-pack/sword-1",
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "weapon-pack",
@@ -457933,7 +461643,7 @@
     "leather"
    ],
    "variant": "weapon-pack/sword-1",
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "western",
@@ -458342,7 +462052,7 @@
     "bark",
     "scale-small"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "western",
@@ -458966,7 +462676,7 @@
     "wizp"
    ],
    "variant": "wizp-arena/grass-tufts",
-   "thickRel": 0.88
+   "thickRel": 0.9
   },
   {
    "kit": "wizp-arena",
@@ -459447,7 +463157,7 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/barrel-a",
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "wizp-asia",
@@ -459690,7 +463400,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.52
   },
   {
    "kit": "wizp-asia",
@@ -461139,7 +464849,7 @@
     "special-food",
     "wizp"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "wizp-asia",
@@ -461637,7 +465347,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/ore-gold",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-asia",
@@ -461681,7 +465391,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/ore-gold",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-asia",
@@ -462676,7 +466386,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-block-a",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "wizp-asia",
@@ -462940,7 +466650,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-medium-a",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-asia",
@@ -463116,7 +466826,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-small-a",
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "wizp-asia",
@@ -463160,7 +466870,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-small-a",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "wizp-asia",
@@ -463291,7 +467001,7 @@
     "stone-rock",
     "wizp"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "wizp-asia",
@@ -466917,7 +470627,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-a",
-   "thickRel": 1.29
+   "thickRel": 1.3
   },
   {
    "kit": "wizp-lava",
@@ -466966,7 +470676,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-a",
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "wizp-lava",
@@ -467015,7 +470725,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-a",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "wizp-lava",
@@ -468807,7 +472517,7 @@
     "wood-mid"
    ],
    "variant": "wizp-mediev/barrel",
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "wizp-mediev",
@@ -471264,7 +474974,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-a",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "wizp-tree",
@@ -471308,7 +475018,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-a",
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "wizp-tree",
@@ -471352,7 +475062,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-a",
-   "thickRel": 1.28
+   "thickRel": 1.3
   },
   {
    "kit": "wizp-tree",
@@ -471396,7 +475106,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-spiked-a",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "wizp-tree",
@@ -471446,7 +475156,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/dead-tree-spiked-a",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "wizp-tree",
@@ -471533,7 +475243,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/grass",
-   "thickRel": 0.88
+   "thickRel": 0.9
   },
   {
    "kit": "wizp-tree",
@@ -471617,7 +475327,7 @@
     "leaf-light",
     "wizp"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "wizp-tree",
@@ -471659,7 +475369,7 @@
     "bark",
     "wizp"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.66
   },
   {
    "kit": "wizp-tree",
@@ -471702,7 +475412,7 @@
     "bark",
     "wizp"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.49
   },
   {
    "kit": "wizp-tree",
@@ -471943,7 +475653,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/stump-a",
-   "thickRel": 0.91
+   "thickRel": 0.95
   },
   {
    "kit": "wizp-tree",
@@ -471986,7 +475696,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/stump-a",
-   "thickRel": 0.96
+   "thickRel": 1
   },
   {
    "kit": "wizp-tree",
@@ -472133,7 +475843,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/waterlily-white",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "wizp-tree",
@@ -472182,7 +475892,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/waterlily-white",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "wizp-village",
@@ -473394,7 +477104,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 2.01
+   "thickRel": 1.87
   },
   {
    "kit": "zombie-weapons",
@@ -473725,7 +477435,7 @@
      "open": 1
     }
    },
-   "thickRel": 2.05,
+   "thickRel": 2.01,
    "lint": [
     {
      "level": "error",
@@ -473832,7 +477542,7 @@
     "plastic",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "zombie-weapons",
@@ -473873,7 +477583,7 @@
     "ct",
     "metal-steel"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "zombie-weapons",
@@ -474465,7 +478175,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.82
+   "thickRel": 1.8
   },
   {
    "kit": "zombie-weapons",
@@ -474566,7 +478276,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.99
   },
   {
    "kit": "zombie-weapons",
@@ -474846,7 +478556,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "zombie-weapons",
@@ -474947,7 +478657,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.25,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
