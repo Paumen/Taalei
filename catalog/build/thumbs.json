@@ -344,13 +344,6 @@
    "v": "c8a181210c",
    "f": "1182aa8a16"
   },
-  "obj": {
-   "cols": 3,
-   "rows": 3,
-   "key": "7965b87bf6",
-   "v": "aa3fb8e864",
-   "f": "30354ebd02"
-  },
   "obj-container": {
    "cols": 3,
    "rows": 2,
@@ -1332,11 +1325,11 @@
    "f": "ebfe4e4f93"
   },
   "obj-equipment-weapon-melee-sword": {
-   "cols": 8,
+   "cols": 7,
    "rows": 7,
-   "key": "17ec579f18",
-   "v": "37b741480a",
-   "f": "b2a0fb7261"
+   "key": "704ac51fc7",
+   "v": "3c583d4d03",
+   "f": "83fb29768e"
   },
   "obj-equipment-weapon-melee-sword-broad": {
    "cols": 3,
@@ -1344,6 +1337,13 @@
    "key": "ff06221f45",
    "v": "bb16c9251c",
    "f": "4c7dffbc59"
+  },
+  "obj-equipment-weapon-melee-sword-curved": {
+   "cols": 3,
+   "rows": 3,
+   "key": "d75cd37b55",
+   "v": "9448680015",
+   "f": "ea5b7c6e21"
   },
   "obj-equipment-weapon-melee-warhammer": {
    "cols": 4,
@@ -3315,9 +3315,16 @@
   "str-fixture-marker-sign": {
    "cols": 7,
    "rows": 6,
-   "key": "5102e0aa02",
-   "v": "6dd1134d5a",
-   "f": "394464a338"
+   "key": "b137503d16",
+   "v": "aeed6cd2ca",
+   "f": "c581547785"
+  },
+  "str-fixture-marker-sign-floor": {
+   "cols": 3,
+   "rows": 2,
+   "key": "c409fc9e2b",
+   "v": "630e5ec104",
+   "f": "134e262944"
   },
   "str-fixture-marker-sign-lettering": {
    "cols": 7,
@@ -3873,7 +3880,7 @@
   },
   "3dm-industrial-2/wet-floor-sign": {
    "glb": "dc13b8c397",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign-floor",
    "at": 0
   },
   "3dm-industrial/cable-drum": {
@@ -10398,8 +10405,8 @@
   },
   "isa-bakery/pricing-card": {
    "glb": "e96d14be45",
-   "kind": "obj",
-   "at": 1
+   "kind": "str-fixture-marker-sign",
+   "at": 9
   },
   "isa-bakery/rolling-pin": {
    "glb": "6256f726f8",
@@ -10539,12 +10546,12 @@
   "isa-bakery/wall-sign-large": {
    "glb": "c25b9d0e42",
    "kind": "str-fixture-marker-sign",
-   "at": 9
+   "at": 10
   },
   "isa-bakery/wall-sign-small": {
    "glb": "c622f0c670",
    "kind": "str-fixture-marker-sign",
-   "at": 10
+   "at": 11
   },
   "isa-bakery/whisk": {
    "glb": "2326a14a98",
@@ -14568,8 +14575,8 @@
   },
   "kay-food/menu": {
    "glb": "161cf51e2f",
-   "kind": "obj",
-   "at": 2
+   "kind": "str-fixture-marker-sign",
+   "at": 12
   },
   "kay-food/mustard": {
    "glb": "df5ddf2fe0",
@@ -17078,8 +17085,8 @@
   },
   "kay-platformer/sign-caution": {
    "glb": "639b2fcab5",
-   "kind": "obj",
-   "at": 3
+   "kind": "str-fixture-marker-sign-floor",
+   "at": 1
   },
   "kay-platformer/spring": {
    "glb": "0e52e62a6b",
@@ -18578,18 +18585,18 @@
   },
   "kay-weapons/sword-c": {
    "glb": "6ddb877cc9",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 12
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 0
   },
   "kay-weapons/sword-d": {
    "glb": "737ba750f8",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 13
+   "at": 12
   },
   "kay-weapons/sword-e": {
    "glb": "5e9162c0cd",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 14
+   "at": 13
   },
   "kay-weapons/wand-a": {
    "glb": "1f6d347dde",
@@ -18769,7 +18776,7 @@
   "ken-arena/weapon-sword": {
    "glb": "8b2a44f4d4",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 15
+   "at": 14
   },
   "ken-blaster/blaster-a": {
    "glb": "e4bc636889",
@@ -23789,22 +23796,22 @@
   "ken-racing/billboard": {
    "glb": "23dcc1095d",
    "kind": "str-fixture-marker-sign",
-   "at": 11
+   "at": 13
   },
   "ken-racing/billboard-double-exclusive": {
    "glb": "2f94a32103",
    "kind": "str-fixture-marker-sign",
-   "at": 12
+   "at": 14
   },
   "ken-racing/billboard-low": {
    "glb": "6455e0bbed",
    "kind": "str-fixture-marker-sign",
-   "at": 13
+   "at": 15
   },
   "ken-racing/billboard-lower": {
    "glb": "07bfab7dd8",
    "kind": "str-fixture-marker-sign",
-   "at": 14
+   "at": 16
   },
   "ken-racing/camera-exclusive": {
    "glb": "c91366d1b2",
@@ -28224,7 +28231,7 @@
   "lpa-weapons/claymore": {
    "glb": "2763223094",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 16
+   "at": 15
   },
   "lpa-weapons/dagger": {
    "glb": "91284bfb0e",
@@ -28244,7 +28251,7 @@
   "lpa-weapons/greatsword": {
    "glb": "78fe3f7ba9",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 17
+   "at": 16
   },
   "lpa-weapons/halberd": {
    "glb": "74064f38f1",
@@ -28379,7 +28386,7 @@
   "lpa-weapons/sword": {
    "glb": "2b672e3c08",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 18
+   "at": 17
   },
   "lpa-weapons/tankard": {
    "glb": "e28ab28de5",
@@ -28404,7 +28411,7 @@
   "lpa-weapons/two-handed-sword": {
    "glb": "46692aaa09",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 19
+   "at": 18
   },
   "lpa-west/balcony-a": {
    "glb": "9adfbdcf3e",
@@ -28854,22 +28861,22 @@
   "lpa-west/sign-a": {
    "glb": "d616543ed7",
    "kind": "str-fixture-marker-sign",
-   "at": 15
+   "at": 17
   },
   "lpa-west/sign-b": {
    "glb": "289eb1f7ac",
    "kind": "str-fixture-marker-sign",
-   "at": 16
+   "at": 18
   },
   "lpa-west/sign-c": {
    "glb": "2bbe3d7a73",
    "kind": "str-fixture-marker-sign",
-   "at": 17
+   "at": 19
   },
   "lpa-west/sign-f": {
    "glb": "4e8a51a684",
    "kind": "str-fixture-marker-sign",
-   "at": 18
+   "at": 20
   },
   "lpa-west/small-door-a": {
    "glb": "6b31c4f833",
@@ -28894,7 +28901,7 @@
   "lpa-west/small-sign": {
    "glb": "305a07225d",
    "kind": "str-fixture-marker-sign",
-   "at": 19
+   "at": 21
   },
   "lpa-west/small-stairs": {
    "glb": "156e9f7e17",
@@ -30279,17 +30286,17 @@
   "m3-base/estate-sign-01": {
    "glb": "9d3fae54b0",
    "kind": "str-fixture-marker-sign",
-   "at": 20
+   "at": 22
   },
   "m3-base/estate-sign-02": {
    "glb": "cff8e6841c",
    "kind": "str-fixture-marker-sign",
-   "at": 21
+   "at": 23
   },
   "m3-base/estate-sign-04": {
    "glb": "4368704906",
    "kind": "str-fixture-marker-sign",
-   "at": 22
+   "at": 24
   },
   "m3-base/euro-gap": {
    "glb": "1a2791f8f2",
@@ -30584,12 +30591,12 @@
   "m3-base/gladius-01": {
    "glb": "6862016891",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 20
+   "at": 19
   },
   "m3-base/gladius-02": {
    "glb": "266319864b",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 21
+   "at": 20
   },
   "m3-base/glass-jar-01": {
    "glb": "54b86d1aa6",
@@ -30914,7 +30921,7 @@
   "m3-base/interpretation-panel-01": {
    "glb": "e9fd69bef4",
    "kind": "str-fixture-marker-sign",
-   "at": 23
+   "at": 25
   },
   "m3-base/iron-brazier-01": {
    "glb": "d6bc16e949",
@@ -31439,7 +31446,7 @@
   "m3-base/menu-stand": {
    "glb": "b269dccbac",
    "kind": "str-fixture-marker-sign",
-   "at": 24
+   "at": 26
   },
   "m3-base/mesh-bin": {
    "glb": "cb67ca26fd",
@@ -31604,7 +31611,7 @@
   "m3-base/noticeboard": {
    "glb": "d3a93af356",
    "kind": "str-fixture-marker-sign",
-   "at": 25
+   "at": 27
   },
   "m3-base/obelisk-01": {
    "glb": "519340c7c2",
@@ -31704,7 +31711,7 @@
   "m3-base/outdoor-sign": {
    "glb": "e7a1ee9abb",
    "kind": "str-fixture-marker-sign",
-   "at": 26
+   "at": 28
   },
   "m3-base/outdoor-wall-light": {
    "glb": "021e147892",
@@ -31894,7 +31901,7 @@
   "m3-base/pavement-sign": {
    "glb": "4f76f0b1cc",
    "kind": "str-fixture-marker-sign",
-   "at": 27
+   "at": 29
   },
   "m3-base/paving-circle": {
    "glb": "8d4fdf4461",
@@ -32433,8 +32440,8 @@
   },
   "m3-base/saber-01": {
    "glb": "763b3faa39",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 22
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 1
   },
   "m3-base/sack-truck": {
    "glb": "0ff981e351",
@@ -32559,7 +32566,7 @@
   "m3-base/short-sword": {
    "glb": "3102b5a5b7",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 23
+   "at": 21
   },
   "m3-base/shovel-01": {
    "glb": "6134cdc33b",
@@ -32574,7 +32581,7 @@
   "m3-base/sign-shelter-01": {
    "glb": "e2bf2ae485",
    "kind": "str-fixture-marker-sign",
-   "at": 28
+   "at": 30
   },
   "m3-base/signet-ring-01": {
    "glb": "78b9435ba7",
@@ -32799,12 +32806,12 @@
   "m3-base/standing-floor-chalkboard-01": {
    "glb": "c1a9fd3d76",
    "kind": "str-fixture-marker-sign",
-   "at": 29
+   "at": 31
   },
   "m3-base/standing-floor-chalkboard-02": {
    "glb": "89a5886234",
    "kind": "str-fixture-marker-sign",
-   "at": 30
+   "at": 32
   },
   "m3-base/stapler": {
    "glb": "ab9595e0d3",
@@ -32974,7 +32981,7 @@
   "m3-base/sword": {
    "glb": "b6743ec875",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 24
+   "at": 22
   },
   "m3-base/t-wall": {
    "glb": "9fe2d5b73f",
@@ -33318,8 +33325,8 @@
   },
   "m3-base/wet-floor-sign": {
    "glb": "588f7ce351",
-   "kind": "obj",
-   "at": 4
+   "kind": "str-fixture-marker-sign-floor",
+   "at": 2
   },
   "m3-base/wheelbarrow": {
    "glb": "b6bc96827a",
@@ -33804,7 +33811,7 @@
   "mek-tools/sword": {
    "glb": "f8da661821",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 25
+   "at": 23
   },
   "nature-assets/barrel-dark": {
    "glb": "b9c9477d18",
@@ -34449,7 +34456,7 @@
   "pm-store/emblem-tiger": {
    "glb": "f87159659f",
    "kind": "str-fixture-marker-sign",
-   "at": 31
+   "at": 33
   },
   "pm-store/fireplace": {
    "glb": "666b945810",
@@ -34484,7 +34491,7 @@
   "pm-store/notice-board": {
    "glb": "651e489d0d",
    "kind": "str-fixture-marker-sign",
-   "at": 32
+   "at": 34
   },
   "pm-store/picture-frame": {
    "glb": "5ebd3dc031",
@@ -37144,7 +37151,7 @@
   "quat-pirate/sword-1": {
    "glb": "924c3995f7",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 26
+   "at": 24
   },
   "quat-pirate/sword-2": {
    "glb": "3c6f63662a",
@@ -37404,7 +37411,7 @@
   "quat-props/sword-bronze": {
    "glb": "0282707bec",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 27
+   "at": 25
   },
   "quat-props/table-fork": {
    "glb": "85224152ba",
@@ -37874,12 +37881,12 @@
   "quat-rpg/sword": {
    "glb": "4803ec8120",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 28
+   "at": 26
   },
   "quat-rpg/sword-big": {
    "glb": "eb9acd9171",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 29
+   "at": 27
   },
   "quat-scifi/grenade": {
    "glb": "bd7c49b324",
@@ -38183,8 +38190,8 @@
   },
   "quat-shoot/sign-floor": {
    "glb": "d52ffda318",
-   "kind": "obj",
-   "at": 5
+   "kind": "str-fixture-marker-sign-floor",
+   "at": 3
   },
   "quat-shoot/smg": {
    "glb": "1b8ed73435",
@@ -39748,8 +39755,8 @@
   },
   "rgp-asia/katana": {
    "glb": "c1a9aff304",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 30
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 2
   },
   "rgp-asia/kunai": {
    "glb": "add317c973",
@@ -39784,7 +39791,7 @@
   "rgp-asia/notice-board": {
    "glb": "cfe48f9846",
    "kind": "str-fixture-marker-sign",
-   "at": 33
+   "at": 35
   },
   "rgp-asia/parasol": {
    "glb": "bc5f5255c6",
@@ -41314,12 +41321,12 @@
   "rgp-weapons/sword-a": {
    "glb": "1763e2eb75",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 31
+   "at": 28
   },
   "rgp-weapons/sword-b": {
    "glb": "40103a9048",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 32
+   "at": 29
   },
   "rgp-weapons/war-horn": {
    "glb": "f9238b2d20",
@@ -41694,7 +41701,7 @@
   "sq-bank/rate-board": {
    "glb": "4e7da2c9b8",
    "kind": "str-fixture-marker-sign",
-   "at": 34
+   "at": 36
   },
   "sq-bank/teller-window": {
    "glb": "3a49710d19",
@@ -41839,7 +41846,7 @@
   "sq-cards/shop-sign": {
    "glb": "d9d2e1640b",
    "kind": "str-fixture-marker-sign",
-   "at": 35
+   "at": 37
   },
   "sq-cards/slat-wall": {
    "glb": "30003062a9",
@@ -41889,7 +41896,7 @@
   "sq-carwash/price-totem": {
    "glb": "760bf343e2",
    "kind": "str-fixture-marker-sign",
-   "at": 36
+   "at": 38
   },
   "sq-carwash/rinse-arch": {
    "glb": "79dfb02f46",
@@ -42074,7 +42081,7 @@
   "sq-fastfood/menu-board": {
    "glb": "58f4d0d368",
    "kind": "str-fixture-marker-sign",
-   "at": 37
+   "at": 39
   },
   "sq-fastfood/pass-shelf": {
    "glb": "1db59daeb2",
@@ -42233,8 +42240,8 @@
   },
   "sq-lab/hazard-sign": {
    "glb": "a22238963a",
-   "kind": "obj",
-   "at": 6
+   "kind": "str-fixture-marker-sign-floor",
+   "at": 4
   },
   "sq-lab/hot-plate": {
    "glb": "c9e564f117",
@@ -42919,12 +42926,12 @@
   "styloo-farm/sword": {
    "glb": "57944a9170",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 33
+   "at": 30
   },
   "styloo-farm/sword-taupe": {
    "glb": "f88a9995dc",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 34
+   "at": 31
   },
   "styloo-farm/tomato": {
    "glb": "f88de238c9",
@@ -43904,7 +43911,7 @@
   "styloo-school/chalkboard": {
    "glb": "6eaf0297fd",
    "kind": "str-fixture-marker-sign",
-   "at": 38
+   "at": 40
   },
   "styloo-school/chalkboard-eraser": {
    "glb": "271c068118",
@@ -43914,7 +43921,7 @@
   "styloo-school/chalkboard-large": {
    "glb": "d10f341eed",
    "kind": "str-fixture-marker-sign",
-   "at": 39
+   "at": 41
   },
   "styloo-school/chemical-drum": {
    "glb": "79957be4f2",
@@ -44448,8 +44455,8 @@
   },
   "styloo-weapons/katana": {
    "glb": "8d442743cb",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 35
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 3
   },
   "styloo-weapons/kunai": {
    "glb": "788a524612",
@@ -44459,7 +44466,7 @@
   "styloo-weapons/longsword": {
    "glb": "a736842ff4",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 36
+   "at": 32
   },
   "styloo-weapons/pickaxe": {
    "glb": "58c9f2a28e",
@@ -44489,22 +44496,22 @@
   "styloo-weapons/sword": {
    "glb": "c8c90b411d",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 37
+   "at": 33
   },
   "styloo-weapons/sword-short": {
    "glb": "7759900bc0",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 38
+   "at": 34
   },
   "swords-tember/antler": {
    "glb": "32d325329f",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 39
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 4
   },
   "swords-tember/cephalopod": {
    "glb": "20696053ae",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 40
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 5
   },
   "swords-tember/chain": {
    "glb": "0da80d5de9",
@@ -44514,52 +44521,52 @@
   "swords-tember/coral": {
    "glb": "3b52e9016b",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 41
+   "at": 35
   },
   "swords-tember/crown": {
    "glb": "008c7cdefb",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 42
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 6
   },
   "swords-tember/crystal": {
    "glb": "32d019f569",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 43
+   "at": 36
   },
   "swords-tember/floral": {
    "glb": "02fa1d6b5d",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 44
+   "at": 37
   },
   "swords-tember/heirloom": {
    "glb": "9f06e84b40",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 45
+   "at": 38
   },
   "swords-tember/pattern": {
    "glb": "b71c3f5bdf",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 46
+   "at": 39
   },
   "swords-tember/skull": {
    "glb": "425d21a14f",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 47
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 7
   },
   "swords-tember/snake": {
    "glb": "a13d281a1c",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 48
+   "at": 40
   },
   "swords-tember/wooden": {
    "glb": "131a80e26b",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 49
+   "at": 41
   },
   "swords-tember/woven": {
    "glb": "790b12fcad",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 50
+   "at": 42
   },
   "taalei-kit/balance-scale": {
    "glb": "c3292edcc8",
@@ -44904,12 +44911,12 @@
   "weapon-pack/sword-1": {
    "glb": "ba0a46d6f5",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 51
+   "at": 43
   },
   "weapon-pack/sword-2": {
    "glb": "cf14f0a9db",
    "kind": "obj-equipment-weapon-melee-sword",
-   "at": 52
+   "at": 44
   },
   "western/bed": {
    "glb": "9be765c800",
@@ -46533,8 +46540,8 @@
   },
   "zombie-weapons/katana": {
    "glb": "495845853e",
-   "kind": "obj-equipment-weapon-melee-sword",
-   "at": 53
+   "kind": "obj-equipment-weapon-melee-sword-curved",
+   "at": 8
   },
   "zombie-weapons/lead-pipe": {
    "glb": "1d9dd3f8fb",

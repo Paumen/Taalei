@@ -11,8 +11,7 @@
    "id": "obj",
    "tpu.max": 10000,
    "nouns": [
-    "barrel stand",
-    "signboard (freestanding)"
+    "barrel stand"
    ],
    "children": [
     {
@@ -1505,10 +1504,12 @@
            "longest.max": 0.8,
            "nouns": [
             "sword",
-            "rapier",
-            "scimitar",
-            "katana"
+            "rapier"
            ],
+           "scale": {
+            "small": 0.75,
+            "big": 1.25
+           },
            "children": [
             {
              "id": "obj-equipment-weapon-melee-sword-broad",
@@ -1518,6 +1519,14 @@
               "blade",
               "cutlass",
               "machete"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-melee-sword-curved",
+             "nouns": [
+              "katana",
+              "saber",
+              "scimitar"
              ]
             }
            ]
@@ -2799,7 +2808,7 @@
       },
       {
        "id": "obj-resource-textile",
-       "longest.min": 0.35,
+       "longest.min": 0.12,
        "longest.max": 0.9,
        "nouns": [
         "textile bolt",
@@ -4831,6 +4840,15 @@
             "stop sign",
             "highway sign",
             "chevron sign"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-floor",
+           "nouns": [
+            "floor sign",
+            "wet floor sign",
+            "caution sign",
+            "signboard (freestanding)"
            ]
           }
          ]

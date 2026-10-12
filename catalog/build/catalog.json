@@ -209,8 +209,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 48
+    "factor": 1.01,
+    "kinds": 49
    }
   },
   {
@@ -1255,7 +1255,7 @@
    ],
    "kitCheck": {
     "factor": 1.02,
-    "kinds": 48
+    "kinds": 49
    }
   },
   {
@@ -1367,8 +1367,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 30
+    "factor": 1.01,
+    "kinds": 31
    }
   },
   {
@@ -1588,8 +1588,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.08,
-    "kinds": 60
+    "factor": 1.07,
+    "kinds": 61
    }
   },
   {
@@ -2875,7 +2875,7 @@
     "none": 14
    },
    "kitCheck": {
-    "factor": 0.98,
+    "factor": 0.92,
     "kinds": 25
    }
   },
@@ -2933,8 +2933,8 @@
     "none": 24
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 185
+    "factor": 1.04,
+    "kinds": 187
    }
   },
   {
@@ -3004,7 +3004,7 @@
     "smooth": 8
    },
    "kitCheck": {
-    "factor": 1.24,
+    "factor": 1.11,
     "kinds": 8
    }
   },
@@ -3708,7 +3708,7 @@
     "smooth": 86
    },
    "kitCheck": {
-    "factor": 0.99,
+    "factor": 0.92,
     "kinds": 18
    }
   },
@@ -3754,8 +3754,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.07,
-    "kinds": 24
+    "factor": 1.05,
+    "kinds": 25
    }
   },
   {
@@ -4473,8 +4473,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.97,
-    "kinds": 48
+    "factor": 0.95,
+    "kinds": 49
    }
   },
   {
@@ -4629,8 +4629,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1,
-    "kinds": 13
+    "factor": 1.09,
+    "kinds": 14
    }
   },
   {
@@ -4727,6 +4727,10 @@
    },
    "smooth": {
     "smooth": 13
+   },
+   "kitCheck": {
+    "factor": 0.96,
+    "kinds": 3
    }
   },
   {
@@ -24412,7 +24416,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4659,
+   "count": 4652,
    "color": "#c07c8a"
   },
   {
@@ -26625,6 +26629,13 @@
    "count": 6
   },
   {
+   "id": "obj-equipment-weapon-melee-sword-curved",
+   "name": "Curved",
+   "type": "kind",
+   "description": "Sword with a curved blade: katana, saber, scimitar.",
+   "count": 9
+  },
+  {
    "id": "obj-equipment-weapon-melee-spear",
    "name": "Spear",
    "type": "kind",
@@ -27078,7 +27089,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "stage, plinth, pedestal, mine entrance",
-   "count": 2638,
+   "count": 2645,
    "color": "#877a63"
   },
   {
@@ -27086,7 +27097,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 543
+   "count": 550
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -27433,7 +27444,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone",
-   "count": 225,
+   "count": 232,
    "color": "#ffb349"
   },
   {
@@ -27463,7 +27474,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, notice board, direction arrow",
-   "count": 119
+   "count": 126
   },
   {
    "id": "str-fixture-marker-sign-road",
@@ -27471,6 +27482,13 @@
    "type": "kind",
    "description": "Road, highway or chevron sign.",
    "count": 17
+  },
+  {
+   "id": "str-fixture-marker-sign-floor",
+   "name": "Floor sign",
+   "type": "kind",
+   "description": "Freestanding sign on the floor: wet floor sign, caution sign, A-frame board.",
+   "count": 5
   },
   {
    "id": "str-fixture-marker-sign-lettering",
@@ -28374,7 +28392,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 202,
+   "count": 206,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -28383,6 +28401,7 @@
     "obj-container-cargo",
     "obj-kitchenware-tableware-plate",
     "obj-food-baked-bread",
+    "obj-equipment-weapon-melee-sword",
     "obj-equipment-target-bullseye",
     "obj-equipment-apparel-quiver",
     "obj-equipment-pocketitem-book-closed",
@@ -28415,7 +28434,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 173,
+   "count": 181,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -28428,6 +28447,7 @@
     "obj-food-vegetable",
     "obj-food-fish",
     "obj-food-egg",
+    "obj-equipment-weapon-melee-sword",
     "obj-equipment-weapon-explosive",
     "obj-equipment-weapon-siege-ammunition",
     "obj-equipment-weapon-siege-ammunition-cannonball",
@@ -29286,12 +29306,6 @@
    "longest.max": 0.4,
    "tpu.max": 5000
   },
-  "obj": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
   "obj-container": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -30143,6 +30157,12 @@
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 0.65,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-sword-curved": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 0.8,
    "tpu.max": 10000
   },
   "obj-equipment-weapon-melee-warhammer": {
@@ -31288,7 +31308,7 @@
   },
   "obj-resource-textile": {
    "high.max": 8,
-   "longest.min": 0.35,
+   "longest.min": 0.12,
    "longest.max": 0.9,
    "tpu.max": 5000
   },
@@ -31860,6 +31880,12 @@
    "longest.max": 1.6,
    "tpu.max": 5000
   },
+  "str-fixture-marker-sign-floor": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.6,
+   "tpu.max": 5000
+  },
   "str-fixture-marker-sign-lettering": {
    "high.max": 8,
    "longest.min": 0.4,
@@ -32400,6 +32426,42 @@
    "longest.max": 0.1,
    "tpu.max": 5000
   },
+  "obj-equipment-weapon-melee-sword scale-small": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.6,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-sword scale-big": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-sword-broad scale-small": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.4875,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-sword-broad scale-big": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 0.8125,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-sword-curved scale-small": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.6,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-sword-curved scale-big": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1,
+   "tpu.max": 10000
+  },
   "obj-equipment-weapon-explosive scale-big": {
    "high.max": 8,
    "longest.min": 0.16,
@@ -32830,6 +32892,12 @@
    "high.max": 8,
    "longest.min": 0.8,
    "longest.max": 6,
+   "tpu.max": 5000
+  },
+  "str-fixture-marker-sign-floor scale-big": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 3.2,
    "tpu.max": 5000
   },
   "str-fixture-marker-flag scale-small": {
@@ -33337,7 +33405,7 @@
     "3dm",
     "metal-iron-dark"
    ],
-   "thickRel": 2.53
+   "thickRel": 2.55
   },
   {
    "kit": "3dm-city",
@@ -33707,7 +33775,7 @@
     "tba",
     "wood-mid"
    ],
-   "thickRel": 0.83,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "error",
@@ -36562,7 +36630,7 @@
    "collection": "3dm",
    "name": "wet-floor-sign",
    "hash": "dc13b8c397",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign-floor",
    "size": "s",
    "wdh": [
     0.187,
@@ -36602,7 +36670,7 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.71
   },
   {
    "kit": "3dm-medieval",
@@ -87023,7 +87091,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.75,
+   "thickRel": 0.77,
    "mark": [
     "grounded",
     "centered"
@@ -92068,7 +92136,7 @@
     "plastic",
     "wood-dark"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.58
   },
   {
    "kit": "household",
@@ -93244,7 +93312,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "household",
@@ -96799,7 +96867,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-board",
-   "thickRel": 0.71
+   "thickRel": 0.74
   },
   {
    "kit": "ipoly-signs",
@@ -96855,7 +96923,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-board",
-   "thickRel": 0.63
+   "thickRel": 0.65
   },
   {
    "kit": "ipoly-signs",
@@ -96917,7 +96985,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-frame",
-   "thickRel": 0.64
+   "thickRel": 0.66
   },
   {
    "kit": "ipoly-signs",
@@ -96979,7 +97047,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-frame",
-   "thickRel": 0.66
+   "thickRel": 0.68
   },
   {
    "kit": "ipoly-signs",
@@ -97041,7 +97109,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.52
+   "thickRel": 0.54
   },
   {
    "kit": "ipoly-signs",
@@ -97103,7 +97171,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.54
+   "thickRel": 0.56
   },
   {
    "kit": "ipoly-signs",
@@ -97165,7 +97233,7 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
-   "thickRel": 0.54
+   "thickRel": 0.56
   },
   {
    "kit": "ipoly-signs",
@@ -100200,7 +100268,7 @@
    "collection": "isa-tt",
    "name": "pricing-card",
    "hash": "e96d14be45",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign",
    "size": "s",
    "wdh": [
     0.072,
@@ -100240,7 +100308,14 @@
     "isa",
     "paper-sheet"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.81,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.085 under min 0.2 (str-fixture-marker-sign)"
+    }
+   ]
   },
   {
    "kit": "isa-bakery",
@@ -101756,7 +101831,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 0.86
+   "thickRel": 0.89
   },
   {
    "kit": "isa-bakery",
@@ -101805,7 +101880,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 0.82
+   "thickRel": 0.85
   },
   {
    "kit": "isa-bakery",
@@ -106568,7 +106643,7 @@
     "tba",
     "wood-light"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.4
   },
   {
    "kit": "isa-homely",
@@ -120948,7 +121023,8 @@
     "kay",
     "metal-copper",
     "metal-gold",
-    "metal-steel"
+    "metal-steel",
+    "scale-big"
    ],
    "variant": "kay-adventurers/sword-two-handed",
    "thickRel": 0.78
@@ -120997,7 +121073,8 @@
    "tags": [
     "kay",
     "metal-copper",
-    "metal-steel"
+    "metal-steel",
+    "scale-big"
    ],
    "variant": "kay-adventurers/sword-two-handed",
    "thickRel": 0.78
@@ -143884,7 +143961,7 @@
    "collection": "kay-interior",
    "name": "menu",
    "hash": "161cf51e2f",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign",
    "size": "s",
    "wdh": [
     0.15,
@@ -143926,14 +144003,7 @@
     "metal-iron-dark",
     "paper-sheet"
    ],
-   "thickRel": 0.81,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0253 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.2
   },
   {
    "kit": "kay-food",
@@ -169471,7 +169541,7 @@
    "collection": "kay-play",
    "name": "sign-caution",
    "hash": "639b2fcab5",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign-floor",
    "size": "s",
    "wdh": [
     0.23,
@@ -169516,7 +169586,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.88
   },
   {
    "kit": "kay-platformer",
@@ -173690,14 +173760,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-resources/textiles-b",
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.288 under min 0.35 (obj-resource-textile)"
-    }
-   ]
+   "thickRel": 0.93
   },
   {
    "kit": "kay-resources",
@@ -185818,7 +185881,7 @@
    "collection": "kay-rpg",
    "name": "sword-c",
    "hash": "6ddb877cc9",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.08,
@@ -185861,7 +185924,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/sword-c",
-   "thickRel": 1.96,
+   "thickRel": 1.73,
    "lint": [
     {
      "level": "error",
@@ -185977,17 +186040,11 @@
     "kay",
     "leather",
     "metal-steel",
+    "scale-big",
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/sword-c",
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.985 over max 0.8 (obj-equipment-weapon-melee-sword)"
-    }
-   ]
+   "thickRel": 0.9
   },
   {
    "kit": "kay-weapons",
@@ -202464,7 +202521,7 @@
     "metal-steel",
     "special-emissive"
    ],
-   "thickRel": 2.28
+   "thickRel": 2.31
   },
   {
    "kit": "ken-factory",
@@ -239769,7 +239826,7 @@
     "wood-light"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.42
+   "thickRel": 0.43
   },
   {
    "kit": "ken-racing",
@@ -239829,7 +239886,7 @@
     "wood-light"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.57
+   "thickRel": 0.59
   },
   {
    "kit": "ken-racing",
@@ -239887,7 +239944,7 @@
     "wood-light"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "ken-racing",
@@ -239947,7 +240004,7 @@
     "wood-light"
    ],
    "variant": "ken-racing/billboard",
-   "thickRel": 0.39
+   "thickRel": 0.4
   },
   {
    "kit": "ken-racing",
@@ -271943,7 +272000,7 @@
     "tba"
    ],
    "variant": "ken-water/buoy",
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "ken-water",
@@ -272096,7 +272153,7 @@
     "sailing"
    ],
    "variant": "ken-water/gate",
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "ken-water",
@@ -272145,7 +272202,7 @@
     "sailing"
    ],
    "variant": "ken-water/gate",
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "ken-water",
@@ -287495,7 +287552,8 @@
    "tags": [
     "leather",
     "lpa",
-    "metal-steel"
+    "metal-steel",
+    "scale-big"
    ],
    "backface": {
     "share": 0.0012,
@@ -287709,7 +287767,8 @@
    "tags": [
     "leather",
     "lpa",
-    "metal-steel"
+    "metal-steel",
+    "scale-big"
    ],
    "variant": "lpa-weapons/greatsword",
    "thickRel": 0.85
@@ -289372,7 +289431,8 @@
    "tags": [
     "leather",
     "lpa",
-    "metal-steel"
+    "metal-steel",
+    "scale-big"
    ],
    "thickRel": 0.87
   },
@@ -293960,7 +294020,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.67
+   "thickRel": 1.73
   },
   {
    "kit": "lpa-west",
@@ -294011,7 +294071,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.08
+   "thickRel": 1.12
   },
   {
    "kit": "lpa-west",
@@ -294062,7 +294122,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.14
+   "thickRel": 1.18
   },
   {
    "kit": "lpa-west",
@@ -294111,7 +294171,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "lpa-west",
@@ -294382,7 +294442,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.63
   },
   {
    "kit": "lpa-west",
@@ -302242,7 +302302,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "m3-base",
@@ -304128,11 +304188,6 @@
    ],
    "thickRel": 0.4,
    "lint": [
-    {
-     "level": "error",
-     "check": "size",
-     "text": "longest 0.137 under min 0.35 (obj-resource-textile)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -307459,7 +307514,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/estate-sign-01",
-   "thickRel": 0.72
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -307507,7 +307562,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/estate-sign-01",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -307564,7 +307619,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "warning",
@@ -308051,7 +308106,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.39
   },
   {
    "kit": "m3-base",
@@ -309568,7 +309623,7 @@
      "inside-out": 0.31
     }
    },
-   "thickRel": 1.7,
+   "thickRel": 1.72,
    "lint": [
     {
      "level": "warning",
@@ -310224,6 +310279,7 @@
    "tags": [
     "m3",
     "metal-steel",
+    "scale-small",
     "wood-mid"
    ],
    "variant": "m3-base/gladius-01",
@@ -310272,6 +310328,7 @@
    "tags": [
     "m3",
     "metal-steel",
+    "scale-small",
     "wood-mid"
    ],
    "variant": "m3-base/gladius-01",
@@ -313260,7 +313317,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -317004,7 +317061,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 2.43
+   "thickRel": 2.45
   },
   {
    "kit": "m3-base",
@@ -317912,7 +317969,7 @@
     "metal-iron-dark",
     "paper-sheet"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -319415,7 +319472,7 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.51
   },
   {
    "kit": "m3-base",
@@ -320239,7 +320296,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 2.64
+   "thickRel": 2.65
   },
   {
    "kit": "m3-base",
@@ -320329,7 +320386,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -322252,7 +322309,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -327150,7 +327207,7 @@
    "kit": "m3-base",
    "name": "saber-01",
    "hash": "763b3faa39",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "s",
    "wdh": [
     0.086,
@@ -327198,7 +327255,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.29
   },
   {
    "kit": "m3-base",
@@ -328338,16 +328395,10 @@
    "tags": [
     "leather",
     "m3",
-    "metal-steel"
+    "metal-steel",
+    "scale-small"
    ],
-   "thickRel": 1.16,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.386 under min 0.4 (obj-equipment-weapon-melee-sword)"
-    }
-   ]
+   "thickRel": 1.16
   },
   {
    "kit": "m3-base",
@@ -328491,7 +328542,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.56
   },
   {
    "kit": "m3-base",
@@ -329235,7 +329286,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -330480,7 +330531,7 @@
     "m3",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.69
   },
   {
    "kit": "m3-base",
@@ -330529,7 +330580,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/standing-floor-chalkboard-01",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -330578,7 +330629,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/standing-floor-chalkboard-01",
-   "thickRel": 0.98
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -335193,7 +335244,7 @@
    "kit": "m3-base",
    "name": "wet-floor-sign",
    "hash": "588f7ce351",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign-floor",
    "size": "m",
    "wdh": [
     0.32,
@@ -335228,7 +335279,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -339943,6 +339994,7 @@
    ],
    "tags": [
     "metal-steel",
+    "scale-big",
     "wood-dark"
    ],
    "thickRel": 0.64
@@ -346059,7 +346111,7 @@
      "open": 0.01
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "warning",
@@ -346420,7 +346472,7 @@
      "other": 0.1
     }
    },
-   "thickRel": 0.55,
+   "thickRel": 0.57,
    "lint": [
     {
      "level": "warning",
@@ -381522,6 +381574,7 @@
     "hero",
     "metal-steel",
     "qua",
+    "scale-big",
     "textile-cloth-mid"
    ],
    "variant": "quat-rpg/sword",
@@ -384795,7 +384848,7 @@
    "kit": "quat-shoot",
    "name": "sign-floor",
    "hash": "d52ffda318",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign-floor",
    "size": "s",
    "wdh": [
     0.207,
@@ -384835,7 +384888,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.83
   },
   {
    "kit": "quat-shoot",
@@ -402051,7 +402104,7 @@
    "kit": "rgp-asia",
    "name": "katana",
    "hash": "c1a9aff304",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.075,
@@ -402112,7 +402165,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 1.77
+   "thickRel": 1.56
   },
   {
    "kit": "rgp-asia",
@@ -402458,7 +402511,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "rgp-asia",
@@ -422756,7 +422809,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.79
   },
   {
    "kit": "sq-bank",
@@ -424456,7 +424509,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.27
   },
   {
    "kit": "sq-cards",
@@ -425063,7 +425116,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.57
   },
   {
    "kit": "sq-carwash",
@@ -427349,7 +427402,7 @@
     "sq",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "sq-fastfood",
@@ -429111,7 +429164,7 @@
    "collection": "sq-props",
    "name": "hazard-sign",
    "hash": "a22238963a",
-   "kind": "obj",
+   "kind": "str-fixture-marker-sign-floor",
    "size": "s",
    "wdh": [
     0.232,
@@ -429154,7 +429207,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.77
   },
   {
    "kit": "sq-lab",
@@ -446792,7 +446845,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "styloo-school",
@@ -446842,7 +446895,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "styloo-school",
@@ -452297,7 +452350,7 @@
    "collection": "styloo-weapons",
    "name": "katana",
    "hash": "8d442743cb",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.143,
@@ -452346,7 +452399,7 @@
     "sty",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.12
   },
   {
    "kit": "styloo-weapons",
@@ -452781,6 +452834,7 @@
    "tags": [
     "metal-iron-mid",
     "metal-steel",
+    "scale-small",
     "sty",
     "textile-cloth-mid"
    ],
@@ -452847,7 +452901,7 @@
    "kit": "swords-tember",
    "name": "antler",
    "hash": "32d325329f",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.139,
@@ -452899,7 +452953,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.08,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "warning",
@@ -452912,7 +452966,7 @@
    "kit": "swords-tember",
    "name": "cephalopod",
    "hash": "20696053ae",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.152,
@@ -452978,7 +453032,7 @@
      "other": 0.34
     }
    },
-   "thickRel": 1.14,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -453135,7 +453189,7 @@
    "kit": "swords-tember",
    "name": "crown",
    "hash": "008c7cdefb",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "s",
    "wdh": [
     0.178,
@@ -453200,7 +453254,7 @@
      "other": 0.02
     }
    },
-   "thickRel": 0.73,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "warning",
@@ -453463,7 +453517,7 @@
    "kit": "swords-tember",
    "name": "skull",
    "hash": "425d21a14f",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.147,
@@ -453510,7 +453564,7 @@
     "metal-steel",
     "textile-cloth-light"
    ],
-   "thickRel": 1.1
+   "thickRel": 0.97
   },
   {
    "kit": "swords-tember",
@@ -457018,7 +457072,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/totem-owl",
-   "thickRel": 2.84
+   "thickRel": 2.86
   },
   {
    "kit": "taalei-kit",
@@ -457082,7 +457136,7 @@
    ],
    "specialBand": "4,2",
    "variant": "taalei-kit/totem-owl",
-   "thickRel": 2.84
+   "thickRel": 2.86
   },
   {
    "kit": "taalei-kit",
@@ -457129,7 +457183,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/totem-raven",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "taalei-kit",
@@ -457193,7 +457247,7 @@
    ],
    "specialBand": "4,2",
    "variant": "taalei-kit/totem-raven",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "taalei-kit",
@@ -457257,7 +457311,7 @@
     "wood-mid"
    ],
    "specialBand": "4,2",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "taalei-kit",
@@ -457303,7 +457357,7 @@
    "tags": [
     "wood-mid"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "taalei-kit",
@@ -474192,7 +474246,7 @@
    "kit": "zombie-weapons",
    "name": "katana",
    "hash": "495845853e",
-   "kind": "obj-equipment-weapon-melee-sword",
+   "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
     0.123,
@@ -474246,7 +474300,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 0.88
   },
   {
    "kit": "zombie-weapons",

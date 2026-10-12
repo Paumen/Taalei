@@ -16343,15 +16343,7 @@
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
    "color": "#c07c8a",
-   "models": [
-    "isa-bakery/pricing-card",
-    "kay-food/menu",
-    "kay-platformer/sign-caution",
-    "quat-shoot/sign-floor",
-    "sq-lab/hazard-sign",
-    "3dm-industrial-2/wet-floor-sign",
-    "m3-base/wet-floor-sign"
-   ]
+   "models": []
   },
   {
    "id": "obj-device",
@@ -22924,7 +22916,6 @@
    "type": "kind",
    "description": "sword, rapier, scimitar, katana",
    "models": [
-    "rgp-asia/katana",
     "kay-adventurers/sword-one-handed",
     "kay-adventurers/sword-two-handed",
     "kay-adventurers/sword-two-handed-colored",
@@ -22935,7 +22926,6 @@
     "kay-skeleton-1/sword-broken-half",
     "kay-weapons/sword-a",
     "kay-weapons/sword-b",
-    "kay-weapons/sword-c",
     "kay-weapons/sword-d",
     "kay-weapons/sword-e",
     "mek-tools/sword",
@@ -22946,14 +22936,12 @@
     "styloo-farm/sword",
     "styloo-farm/sword-taupe",
     "aq-hallow/sword",
-    "styloo-weapons/katana",
     "styloo-weapons/longsword",
     "styloo-weapons/sword",
     "styloo-weapons/sword-short",
     "ken-arena/weapon-sword",
     "rgp-weapons/sword-a",
     "rgp-weapons/sword-b",
-    "zombie-weapons/katana",
     "lpa-weapons/claymore",
     "lpa-weapons/greatsword",
     "lpa-weapons/sword",
@@ -22964,19 +22952,14 @@
     "swords-tember/snake",
     "swords-tember/woven",
     "swords-tember/heirloom",
-    "swords-tember/antler",
     "swords-tember/coral",
     "swords-tember/wooden",
     "swords-tember/pattern",
-    "swords-tember/crown",
-    "swords-tember/skull",
-    "swords-tember/cephalopod",
     "swords-tember/floral",
     "m3-base/gladius-01",
     "m3-base/gladius-02",
     "m3-base/short-sword",
     "m3-base/sword",
-    "m3-base/saber-01",
     "quat-props/sword-bronze"
    ]
   },
@@ -22992,6 +22975,23 @@
     "kay-skeleton/blade",
     "zombie-weapons/machete",
     "lpa-weapons/falchion"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-melee-sword-curved",
+   "name": "Curved",
+   "type": "kind",
+   "description": "Sword with a curved blade: katana, saber, scimitar.",
+   "models": [
+    "rgp-asia/katana",
+    "styloo-weapons/katana",
+    "zombie-weapons/katana",
+    "m3-base/saber-01",
+    "kay-weapons/sword-c",
+    "swords-tember/antler",
+    "swords-tember/cephalopod",
+    "swords-tember/crown",
+    "swords-tember/skull"
    ]
   },
   {
@@ -26633,7 +26633,9 @@
     "m3-base/standing-floor-chalkboard-01",
     "m3-base/standing-floor-chalkboard-02",
     "m3-base/estate-sign-04",
-    "m3-base/sign-shelter-01"
+    "m3-base/sign-shelter-01",
+    "kay-food/menu",
+    "isa-bakery/pricing-card"
    ]
   },
   {
@@ -26659,6 +26661,19 @@
     "kay-platformer/sign-arrows-left-azure",
     "kay-platformer/sign-arrows-right",
     "kay-platformer/sign-arrows-right-azure"
+   ]
+  },
+  {
+   "id": "str-fixture-marker-sign-floor",
+   "name": "Floor sign",
+   "type": "kind",
+   "description": "Freestanding sign on the floor: wet floor sign, caution sign, A-frame board.",
+   "models": [
+    "sq-lab/hazard-sign",
+    "kay-platformer/sign-caution",
+    "quat-shoot/sign-floor",
+    "3dm-industrial-2/wet-floor-sign",
+    "m3-base/wet-floor-sign"
    ]
   },
   {
@@ -33598,7 +33613,11 @@
     "kay-holiday/carpet-round-small",
     "kay-furniture/cactus-potted-small-b",
     "kay-furniture/cactus-potted-medium-b",
-    "ken-holiday/cabin-wall"
+    "ken-holiday/cabin-wall",
+    "m3-base/gladius-01",
+    "m3-base/gladius-02",
+    "m3-base/short-sword",
+    "styloo-weapons/sword-short"
    ]
   },
   {
@@ -33779,7 +33798,15 @@
     "kay-proto/cube-prototype-large-b",
     "ken-arena/banner",
     "3dm-guns/nuclear-bomb",
-    "ken-town/poles-horizontal"
+    "ken-town/poles-horizontal",
+    "lpa-weapons/claymore",
+    "lpa-weapons/greatsword",
+    "lpa-weapons/two-handed-sword",
+    "kay-adventurers/sword-two-handed",
+    "kay-adventurers/sword-two-handed-colored",
+    "kay-weapons/sword-e",
+    "mek-tools/sword",
+    "quat-rpg/sword-big"
    ]
   }
  ]
