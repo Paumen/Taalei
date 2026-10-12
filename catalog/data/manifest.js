@@ -1102,5 +1102,28 @@ window.KENNEY_KITS = [
   "url": "https://loafbrr.itch.io/coffin-and-flowers",
   "licenseLabel": "CC0 1.0",
   "note": "Coffin and Flowers by loafbrr; the pack's itch.io page states CC0, see kits/sources/Coffin_and_Flowers_loafbrr/coffin-and-flowers-itch-page.html."
+ },
+ {
+  "slug": "avra-food",
+  "url": "https://www.avramania.com/",
+  "licenseLabel": "CC0 1.0"
+ },
+ {
+  "slug": "avra-weapons",
+  "url": "https://www.avramania.com/",
+  "licenseLabel": "CC0 1.0"
+ },
+ {
+  "slug": "avra-nature",
+  "url": "https://www.avramania.com/",
+  "licenseLabel": "CC0 1.0"
+ },
+ {
+  "collection": "avra",
+  "kits": [
+   "avra-food",
+   "avra-weapons",
+   "avra-nature"
+  ]
  }
 ]
