@@ -215,7 +215,7 @@ async function lint(file) {
   if (T.doubled / T.nt > CFG.doubledWarn) add('warn', 'geometry', `${pct(T.doubled / T.nt)} triangles doubled back-to-back (flicker)`);
   if (xband) add('error', 'colour', `${xband} triangles with corners in different colormap cells (smeared band)`);
   const zf = zFight(tris, Math.max(...size));
-  if (zf.seen) add('warn', 'zfight', `${zf.seen} triangles overlap a different colour on the same plane (z-fighting flicker)`);
+  if (zf.seen) add('error', 'zfight', `${zf.seen} triangles overlap a different colour on the same plane (z-fighting flicker)`);
   if (zf.hidden) add('info', 'zfight', `${zf.hidden} triangles overlap the same colour on the same plane`);
   if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('info', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
