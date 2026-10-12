@@ -9,7 +9,7 @@ import { read, VARS } from '../../lint/report.mjs';
 
 const HELP = `review.mjs build <list.json> --out <dir> [--base <ref>] [--size 360]
 review.mjs apply <verdicts.json> [--base <ref>]
-review.mjs brief
+review.mjs brief [--review <text>]
 
 build   renders every listed model before (at --base, default the list's
         base) and after (working tree) from two angles, diffs tags, size,
@@ -31,13 +31,17 @@ apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
         Every verdict is logged in tools/review/log.json with the model's
         kind and change types.
 
-brief   prints how often each change type, doubt level and kind branch was
+brief   with --review, only the reviews whose title holds that text, and
+        every one of their verdicts with its change and comment.
+        prints how often each change type, doubt level and kind branch was
         kept or undone across all reviews, and advises what to send: every
         change of a type undone 30% or more, only high-doubt ones of a type
         undone 10% or less (5 verdicts at least), and a follow-up round for
         changes like the ones undone in the last review.
 
-verdicts: keep, keepbut, revert, retry, relax, other, later.`;
+verdicts: keep, keepbut, revert, retry, relax, other, later.
+marks:    great (spot on, beyond expectations) or bad (opposite of the goal,
+          high impact), next to the verdict; brief lists the latest of each.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WORK = 'kits/workfiles';
@@ -336,10 +340,10 @@ function apply() {
   const reverted = [];
   const log = existsSync(LOG) ? JSON.parse(readFileSync(LOG, 'utf8')) : [];
   const at = new Date().toISOString().slice(0, 10);
-  for (const { model, verdict, comment, types, doubt } of verdicts.items) {
+  for (const { model, verdict, mark, comment, change, types, doubt } of verdicts.items) {
     const kind = Object.entries(tagsOf(tags, model)).find(([, type]) => type === 'kind')?.[0] ?? null;
     log.push({ at, review: verdicts.review ?? null, model, kind, types: types ?? diff(model, base, baseTags, tags).types,
-      doubt: doubt ?? null, verdict, comment: comment ?? '' });
+      doubt: doubt ?? null, verdict, ...(mark ? { mark } : {}), ...(change ? { change } : {}), comment: comment ?? '' });
     if (REVERTS.has(verdict)) {
       reverted.push(model);
       const path = `${WORK}/${model}.glb`;
@@ -361,7 +365,9 @@ function apply() {
 }
 
 function brief() {
-  const log = existsSync(LOG) ? JSON.parse(readFileSync(LOG, 'utf8')) : [];
+  const only = flag('--review', null)?.toLowerCase();
+  const all = existsSync(LOG) ? JSON.parse(readFileSync(LOG, 'utf8')) : [];
+  const log = only ? all.filter((e) => e.review?.toLowerCase().includes(only)) : all;
   const decided = log.filter((e) => e.verdict !== 'later');
   const tally = (rows) => {
     const n = rows.length;
@@ -392,6 +398,16 @@ function brief() {
   if (undone.length) {
     advice.push(`follow up "${last}": put the not yet reviewed changes like these in a next round: ` +
       undone.map((e) => `${e.model} (${e.types.join('+') || 'tag'})`).join(', '));
+  }
+  for (const [mark, label] of [['great', 'spot on, copy this'], ['bad', 'big no, never again']]) {
+    const rows = log.filter((e) => e.mark === mark);
+    if (!rows.length) continue;
+    console.log(`\nmarked ${label} (${rows.length})`);
+    for (const e of rows.slice(-12)) console.log(`  ${e.model} [${e.types.join('+') || 'tag'}] ${e.change ?? ''}${e.comment ? `  — ${e.comment}` : ''}`);
+  }
+  if (only) {
+    console.log(`\nverdicts of reviews matching "${only}"`);
+    for (const e of log) console.log(`  ${e.verdict.padEnd(7)} ${e.mark === 'great' ? '★ ' : e.mark === 'bad' ? '✕✕ ' : ''}${e.model}: ${e.change ?? ''}${e.comment ? `  — ${e.comment}` : ''}`);
   }
   console.log(`\nadvice\n${advice.length ? advice.map((a) => `- ${a}`).join('\n') : '- none yet'}`);
 }

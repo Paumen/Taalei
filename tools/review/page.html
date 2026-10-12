@@ -80,6 +80,12 @@ body.slide .wipe:not(.back){display:block}body.slide .pics.vis{display:none}
 .verdict .keep{border-color:var(--keep);color:var(--keep)}.verdict .revert{border-color:var(--revert);color:var(--revert)}
 .verdict .keep.on{background:var(--keep);color:#fff}.verdict .revert.on{background:var(--revert);color:#fff}
 .verdict .moreb.on{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.marks{display:inline-flex;gap:6px}
+.mark{display:inline-grid;place-items:center;width:30px;height:30px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);font:700 15px system-ui,sans-serif;cursor:pointer}
+.mark.great.on{background:var(--m2);border-color:var(--m2);color:#fff}
+.mark.bad.on{background:var(--revert);border-color:var(--revert);color:#fff}
+article.m-great{border-color:var(--m2);box-shadow:0 0 0 1px var(--m2)}
+article.m-bad{border-color:var(--revert);box-shadow:0 0 0 1px var(--revert)}
 .more{display:none;flex-wrap:wrap;gap:6px;margin-top:8px}.more.open{display:flex}
 .more button{font-size:13px;font-weight:500;padding:6px 11px;border-radius:999px}
 .more button.on{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:600}
@@ -112,6 +118,7 @@ const ICON={
 const NAME={size:'Size',tag:'Tags',recolour:'Colour',shape:'Shape',geometry:'Mesh'};
 const MORE=[['keepbut','Keep but…','Keep, and then what?'],['retry','Retry','Revert and try how?'],['relax','Relax rule','Which rule, and how?'],['other','Other','What should happen?'],['later','Later','']];
 const NEED=Object.fromEntries(MORE.filter(m=>m[2]).map(m=>[m[0],m[2]]));
+const MARK={great:['★','Spot on: excellent, beyond expectations'],bad:['✕✕','Big no: opposite of the goal, high impact']};
 const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
@@ -185,7 +192,8 @@ function drawTop(){
 }
 function card(it,i){
   const s=st[it.model]||{},more=MORE.some(m=>m[0]===s.v);
-  return `<article data-i="${i}"><div class="head"><span class="name">${esc(it.model)}</span></div>
+  const marks=Object.entries(MARK).map(([m,[g,t]])=>`<button type="button" class="mark ${m} ${s.m===m?'on':''}" data-m="${m}" title="${t}" aria-label="${t}" aria-pressed="${s.m===m}">${g}</button>`).join('');
+  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''}"><div class="head"><span class="name">${esc(it.model)}</span><span class="marks">${marks}</span></div>
 ${pics(it)}${factRows(it)}${it.change||it.note?`<p class="note">${esc([it.change,it.note].filter(Boolean).join(' '))}</p>`:''}
 <div class="verdict"><button type="button" class="revert ${s.v==='revert'?'on':''}" data-v="revert">Revert</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="moreb ${more?'on':''}" data-more>More</button></div>
 <div class="more ${more?'open':''}">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}</div>
@@ -201,7 +209,7 @@ function filter(){
     a.hidden=!((it.types.length===0||it.types.some(t=>shown.has(t)))&&(!openOnly||!(st[it.model]&&st[it.model].v)))});
   document.querySelectorAll('h2').forEach(h=>{let n=h.nextElementSibling,any=false;while(n&&n.tagName==='ARTICLE'){if(!n.hidden)any=true;n=n.nextElementSibling}h.hidden=!any});
 }
-function count(){document.getElementById('n').textContent=`${Object.values(st).filter(s=>s.v).length} of ${D.items.length} judged`}
+function count(){document.getElementById('n').textContent=`${Object.values(st).filter(s=>s.v||s.m).length} of ${D.items.length} judged`}
 function redraw(a){const i=a.dataset.i;const box=document.createElement('div');box.innerHTML=card(D.items[i],i);a.replaceWith(box.firstElementChild);count()}
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-t]');if(t){shown.has(t.dataset.t)?shown.delete(t.dataset.t):shown.add(t.dataset.t);drawTop();filter();return}
@@ -209,19 +217,21 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#slide')){slide=!slide;document.body.classList.toggle('slide',slide);drawTop();return}
   if(e.target.closest('#open')){openOnly=!openOnly;drawTop();filter();return}
   const a=e.target.closest('article');if(!a)return;
+  const mk=e.target.closest('[data-m]');if(mk){const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
+    s.m=s.m===mk.dataset.m?undefined:mk.dataset.m;if(!s.v&&!s.c&&!s.m)delete st[it.model];save();redraw(a);return}
   if(e.target.closest('[data-more]')){a.querySelector('.more').classList.toggle('open');a.querySelector('textarea').classList.add('open');return}
   const b=e.target.closest('[data-v]');if(!b)return;
   const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
-  s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c)delete st[it.model];save();
+  s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c&&!s.m)delete st[it.model];save();
   const i=+a.dataset.i;redraw(a);
   if(s.v==='keep'||s.v==='revert'){let n=document.querySelector(`article[data-i="${i}"]`).nextElementSibling;while(n&&(n.tagName!=='ARTICLE'||n.hidden))n=n.nextElementSibling;
     if(n){const y=n.getBoundingClientRect().top+scrollY-document.getElementById('top').offsetHeight-6;scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}
   if(NEED[s.v]&&!s.c)document.getElementById('c'+a.dataset.i).focus();
 });
 document.addEventListener('input',e=>{const a=e.target.closest('article');if(!a)return;const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
-  s.c=e.target.value;if(!s.c&&!s.v)delete st[it.model];save();e.target.classList.toggle('need',Boolean(NEED[s.v]&&!s.c))});
+  s.c=e.target.value;if(!s.c&&!s.v&&!s.m)delete st[it.model];save();e.target.classList.toggle('need',Boolean(NEED[s.v]&&!s.c))});
 document.getElementById('cp').onclick=async()=>{
-  const out={review:D.title,base:D.base,items:D.items.filter(it=>st[it.model]&&(st[it.model].v||st[it.model].c)).map(it=>({model:it.model,verdict:st[it.model].v||'other',comment:st[it.model].c||'',types:it.types,doubt:it.doubt}))};
+  const out={review:D.title,base:D.base,items:D.items.filter(it=>st[it.model]&&(st[it.model].v||st[it.model].c||st[it.model].m)).map(it=>({model:it.model,verdict:st[it.model].v||(st[it.model].m==='great'?'keep':st[it.model].m==='bad'?'revert':'other'),mark:st[it.model].m||'',comment:st[it.model].c||'',change:it.change||'',types:it.types,doubt:it.doubt}))};
   const txt=JSON.stringify(out,null,1),btn=document.getElementById('cp');
   try{await navigator.clipboard.writeText(txt);btn.textContent='Copied'}catch(e){const ta=document.getElementById('ta');ta.value=txt;ta.select();btn.textContent='Selected, press copy'}
   setTimeout(()=>btn.textContent='Copy verdicts',1600);
