@@ -11,8 +11,7 @@
    "id": "obj",
    "tpu.max": 10000,
    "nouns": [
-    "barrel stand",
-    "signboard (freestanding)"
+    "barrel stand"
    ],
    "children": [
     {
@@ -1505,10 +1504,12 @@
            "longest.max": 0.8,
            "nouns": [
             "sword",
-            "rapier",
-            "scimitar",
-            "katana"
+            "rapier"
            ],
+           "scale": {
+            "small": 0.75,
+            "big": 1.25
+           },
            "children": [
             {
              "id": "obj-equipment-weapon-melee-sword-broad",
@@ -1518,6 +1519,14 @@
               "blade",
               "cutlass",
               "machete"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-melee-sword-curved",
+             "nouns": [
+              "katana",
+              "saber",
+              "scimitar"
              ]
             }
            ]
@@ -1725,20 +1734,6 @@
            ]
           },
           {
-           "id": "obj-equipment-weapon-ranged-grenade",
-           "longest.min": 0.08,
-           "longest.max": 0.2,
-           "nouns": [
-            "grenade"
-           ],
-           "mat.metal": [
-            "metal-steel",
-            "metal-iron-mid",
-            "metal-gold",
-            "metal-copper"
-           ]
-          },
-          {
            "id": "obj-equipment-weapon-ranged-launcher",
            "longest.min": 0.45,
            "longest.max": 0.8,
@@ -1753,11 +1748,12 @@
         },
         {
          "id": "obj-equipment-weapon-explosive",
-         "longest.min": 0.1,
+         "longest.min": 0.08,
          "longest.max": 0.4,
          "mat.metal": [
           "metal-steel",
           "metal-iron-dark",
+          "metal-iron-mid",
           "metal-gold",
           "metal-copper"
          ],
@@ -1766,6 +1762,8 @@
          },
          "nouns": [
           "explosive",
+          "grenade",
+          "molotov cocktail",
           "dynamite",
           "bomb",
           "fuse bomb",
@@ -2810,7 +2808,7 @@
       },
       {
        "id": "obj-resource-textile",
-       "longest.min": 0.35,
+       "longest.min": 0.12,
        "longest.max": 0.9,
        "nouns": [
         "textile bolt",
@@ -4843,6 +4841,15 @@
             "highway sign",
             "chevron sign"
            ]
+          },
+          {
+           "id": "str-fixture-marker-sign-floor",
+           "nouns": [
+            "floor sign",
+            "wet floor sign",
+            "caution sign",
+            "signboard (freestanding)"
+           ]
           }
          ]
         },
@@ -5838,10 +5845,44 @@
    "tpu.max": 10000,
    "nouns": [
     "symbol",
-    "icon",
-    "heart (icon)",
-    "star (icon)",
-    "lightning bolt"
+    "icon"
+   ],
+   "children": [
+    {
+     "id": "sym-pickup",
+     "nouns": [
+      "collectible",
+      "power-up",
+      "gem (pickup)"
+     ]
+    },
+    {
+     "id": "sym-pointer",
+     "nouns": [
+      "arrow (sign)",
+      "chevron",
+      "map marker"
+     ]
+    },
+    {
+     "id": "sym-icon",
+     "nouns": [
+      "heart (icon)",
+      "star (icon)",
+      "lightning bolt",
+      "speech bubble",
+      "checkmark"
+     ]
+    },
+    {
+     "id": "sym-emblem",
+     "nouns": [
+      "emblem",
+      "music note",
+      "snowflake",
+      "peace sign"
+     ]
+    }
    ]
   }
  ]
