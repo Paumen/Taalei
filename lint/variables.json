@@ -1,6 +1,6 @@
 {
  "models": "catalog/build/catalog.json",
- "golden": { "workfiles": "kits/workfiles", "minLongest": 0.05, "texture": "Textures/colormap.png", "atlas": { "cols": 16, "rows": 4, "eps": 0.001 } },
+ "golden": { "workfiles": "kits/workfiles", "minLongest": 0.05, "texture": "Textures/colormap.png", "atlas": { "cols": 16, "rows": 4, "eps": 0.001 }, "maxCalls": 1, "except": { "R07": ["glass", "animation"], "R08": ["glass"], "R09": ["glass", "animation", "tba"] } },
  "kinds": "lint/kinds.json",
  "materials": "lint/materials.json",
  "measures": "lint/measures.json",

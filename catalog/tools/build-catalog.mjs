@@ -323,7 +323,7 @@ const DERIVED = [
     id: 'animation',
     name: 'Animation',
     description:
-      'Carries an animation clip in the .glb: things that open, flip or turn. Exempt from I08 and I11, so its moving parts may be transparent and draw separately.',
+      'Carries an animation clip in the .glb: things that open, flip or turn. Exempt from R07 and R09, so its moving parts may be transparent and draw separately.',
     belongs: (m) => Boolean(m.animations?.length),
   },
 ];
