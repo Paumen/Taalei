@@ -24061,7 +24061,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 602,
+   "count": 604,
    "parent": "metal"
   },
   {
@@ -24069,7 +24069,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 763,
+   "count": 758,
    "parent": "metal"
   },
   {
@@ -24077,7 +24077,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1843,
+   "count": 1846,
    "parent": "metal"
   },
   {
@@ -24221,7 +24221,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 523,
+   "count": 521,
    "parent": "glass"
   },
   {
@@ -24229,7 +24229,7 @@
    "name": "Tinted glass",
    "type": "material",
    "description": "Tinted glass: sunglasses, ski goggles, tinted visors. Dark basalt, or hunter, sienna or amber for lens-colour variants.",
-   "count": 36,
+   "count": 38,
    "parent": "glass"
   },
   {
@@ -24268,7 +24268,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 770,
+   "count": 766,
    "parent": "wood"
   },
   {
@@ -24276,7 +24276,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1220,
+   "count": 1224,
    "parent": "wood"
   },
   {
@@ -24284,7 +24284,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1574,
+   "count": 1573,
    "parent": "wood"
   },
   {
@@ -24396,7 +24396,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 192,
+   "count": 193,
    "parent": "textile"
   },
   {
@@ -24419,7 +24419,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers.",
-   "count": 187,
+   "count": 186,
    "parent": "animal"
   },
   {
@@ -33906,7 +33906,7 @@
    ],
    "tags": [
     "3dm",
-    "metal-iron-dark",
+    "metal-iron-mid",
     "stone-concrete",
     "wood-mid"
    ],
@@ -37297,7 +37297,7 @@
    ],
    "tags": [
     "3dm",
-    "metal-iron-dark",
+    "metal-steel",
     "wood-dark"
    ],
    "thickRel": 0.98,
@@ -101669,7 +101669,7 @@
    ],
    "tags": [
     "ipoly",
-    "metal-iron-dark",
+    "metal-steel",
     "wood-dark"
    ],
    "thickRel": 0.71
@@ -296223,8 +296223,7 @@
    ],
    "tags": [
     "lpa",
-    "wood-dark",
-    "wood-light"
+    "wood-mid"
    ],
    "thickRel": 0.72
   },
@@ -300058,9 +300057,9 @@
    ],
    "tags": [
     "lpa",
-    "metal-iron-dark",
+    "metal-iron-mid",
     "wood-dark",
-    "wood-light"
+    "wood-mid"
    ],
    "thickRel": 1.08
   },
@@ -309364,7 +309363,7 @@
   {
    "kit": "m3-base",
    "name": "dart-board",
-   "hash": "dfea403dff",
+   "hash": "60903e3fc2",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
@@ -309375,7 +309374,7 @@
    "tris": 2496,
    "tpu": 7277,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
    "bytes": 189484,
    "vtx": 5406,
@@ -309387,7 +309386,7 @@
    "avgTri": 0.00025,
    "anglePct": 60,
    "vpt": 2.17,
-   "grad": 0.52,
+   "grad": 0.51,
    "spread": {
     "12,3": [
      0.148,
@@ -309404,11 +309403,16 @@
     "5,2": [
      0.148,
      0.727
+    ],
+    "15,3": [
+     0.172,
+     0.719
     ]
    },
    "colors": [
     "#21552a",
     "#57493d",
+    "#7a8491",
     "#873a27",
     "#d8cfb7"
    ],
@@ -309420,6 +309424,11 @@
    ],
    "thickRel": 0.66,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 5 wants max 4"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -317988,7 +317997,7 @@
     "ceramic-dark",
     "m3",
     "storeys-0-5",
-    "wood-light"
+    "wood-mid"
    ],
    "thickRel": 0.88
   },
@@ -339054,7 +339063,7 @@
     "comp",
     "m3",
     "metal-gold",
-    "metal-iron-dark",
+    "metal-steel",
     "mounted"
    ]
   },
@@ -390127,7 +390136,7 @@
     "#d8cfb7"
    ],
    "tags": [
-    "glass-clear",
+    "glass-tinted",
     "metal-steel",
     "qua",
     "space",
@@ -390352,7 +390361,7 @@
     "#d8cfb7"
    ],
    "tags": [
-    "glass-clear",
+    "glass-tinted",
     "metal-steel",
     "qua",
     "space",
@@ -417666,7 +417675,7 @@
     "metal-iron-dark",
     "mounted",
     "rgp",
-    "wood-light"
+    "wood-mid"
    ],
    "backface": {
     "share": 0.0017,
@@ -440584,8 +440593,8 @@
     "#cca571"
    ],
    "tags": [
-    "leather",
     "sty",
+    "textile-rope",
     "wood-dark",
     "wood-light"
    ],
@@ -460461,7 +460470,7 @@
   {
    "kit": "taalei-kit",
    "name": "scarecrow-pumpkin",
-   "hash": "d7d52895ca",
+   "hash": "2a5c3f4a7f",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
    "wdh": [
@@ -460472,10 +460481,10 @@
    "tris": 2430,
    "tpu": 5787,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
-   "bytes": 123936,
-   "vtx": 3373,
+   "bytes": 124288,
+   "vtx": 3384,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -460484,7 +460493,7 @@
    "avgTri": 0.00057,
    "anglePct": 31,
    "vpt": 1.39,
-   "grad": 0.51,
+   "grad": 0.5,
    "spread": {
     "5,0": [
      0.258,
@@ -460502,6 +460511,10 @@
      0.016,
      0.977
     ],
+    "2,0": [
+     0.438,
+     0.5
+    ],
     "1,1": [
      0.195,
      0.813
@@ -460518,6 +460531,7 @@
    "colors": [
     "#21552a",
     "#59534e",
+    "#804f2a",
     "#873a27",
     "#88735f",
     "#907a66",
@@ -460533,12 +460547,19 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/scarecrow",
-   "thickRel": 0.72
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
    "name": "scarecrow-tattered",
-   "hash": "d232a054a5",
+   "hash": "f123f71ea1",
    "kind": "obj-equipment-target-dummy",
    "size": "m",
    "wdh": [
@@ -460549,10 +460570,10 @@
    "tris": 3672,
    "tpu": 8714,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
-   "bytes": 202528,
-   "vtx": 5598,
+   "bytes": 204128,
+   "vtx": 5648,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -460560,7 +460581,7 @@
    "thick": 0.0785,
    "avgTri": 0.00027,
    "anglePct": 8,
-   "vpt": 1.52,
+   "vpt": 1.54,
    "grad": 0.61,
    "spread": {
     "5,2": [
@@ -460583,6 +460604,10 @@
      0.438,
      0.977
     ],
+    "2,0": [
+     0.438,
+     0.977
+    ],
     "14,2": [
      0.031,
      0.195
@@ -460595,6 +460620,7 @@
    "colors": [
     "#21552a",
     "#59534e",
+    "#804f2a",
     "#873a27",
     "#88735f",
     "#907a66",
@@ -460610,7 +460636,14 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/scarecrow",
-   "thickRel": 0.82
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
