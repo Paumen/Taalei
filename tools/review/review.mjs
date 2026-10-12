@@ -37,7 +37,9 @@ brief   prints how often each change type, doubt level and kind branch was
         undone 10% or less (5 verdicts at least), and a follow-up round for
         changes like the ones undone in the last review.
 
-verdicts: keep, keepbut, revert, retry, relax, other, later.`;
+verdicts: keep, keepbut, revert, retry, relax, other, later.
+marks:    great (spot on, beyond expectations) or bad (opposite of the goal,
+          high impact), next to the verdict; brief lists the latest of each.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WORK = 'kits/workfiles';
@@ -336,10 +338,10 @@ function apply() {
   const reverted = [];
   const log = existsSync(LOG) ? JSON.parse(readFileSync(LOG, 'utf8')) : [];
   const at = new Date().toISOString().slice(0, 10);
-  for (const { model, verdict, comment, types, doubt } of verdicts.items) {
+  for (const { model, verdict, mark, comment, change, types, doubt } of verdicts.items) {
     const kind = Object.entries(tagsOf(tags, model)).find(([, type]) => type === 'kind')?.[0] ?? null;
     log.push({ at, review: verdicts.review ?? null, model, kind, types: types ?? diff(model, base, baseTags, tags).types,
-      doubt: doubt ?? null, verdict, comment: comment ?? '' });
+      doubt: doubt ?? null, verdict, ...(mark ? { mark, change: change ?? '' } : {}), comment: comment ?? '' });
     if (REVERTS.has(verdict)) {
       reverted.push(model);
       const path = `${WORK}/${model}.glb`;
@@ -392,6 +394,12 @@ function brief() {
   if (undone.length) {
     advice.push(`follow up "${last}": put the not yet reviewed changes like these in a next round: ` +
       undone.map((e) => `${e.model} (${e.types.join('+') || 'tag'})`).join(', '));
+  }
+  for (const [mark, label] of [['great', 'spot on, copy this'], ['bad', 'big no, never again']]) {
+    const rows = log.filter((e) => e.mark === mark);
+    if (!rows.length) continue;
+    console.log(`\nmarked ${label} (${rows.length})`);
+    for (const e of rows.slice(-12)) console.log(`  ${e.model} [${e.types.join('+') || 'tag'}] ${e.change ?? ''}${e.comment ? `  — ${e.comment}` : ''}`);
   }
   console.log(`\nadvice\n${advice.length ? advice.map((a) => `- ${a}`).join('\n') : '- none yet'}`);
 }

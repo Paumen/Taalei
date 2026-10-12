@@ -56,7 +56,11 @@ scratchpad and run
 Reverts are done by the tool, file and tags. Then do the work it prints:
 keep but (the follow-up in the comment), retry (another fix, the comment says
 how), relax (loosen or except the rule in `lint/*.json`, as the comment says),
-other. Later stays open for the next round. A later fix on a reverted file,
+other. Later stays open for the next round. Next to the verdict a card can carry a
+mark: ★ great (spot on, beyond expectations) or ✕✕ bad (opposite of the goal,
+high impact); a mark without a verdict counts as keep or revert. `brief` lists
+the latest marked changes: copy the great ones in later work, and never repeat
+the bad ones. A later fix on a reverted file,
 such as a glb-lint repair, is applied again on top. Rebuild, lint, and
 put the retried models in the next round.
 
