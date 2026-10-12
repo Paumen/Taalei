@@ -2807,6 +2807,10 @@
    "name": "Broad"
   },
   {
+   "id": "obj-equipment-weapon-melee-sword-curved",
+   "name": "Curved"
+  },
+  {
    "id": "obj-equipment-weapon-melee-dagger",
    "name": "Dagger"
   },
@@ -2885,10 +2889,6 @@
   {
    "id": "obj-equipment-weapon-ranged-throwing",
    "name": "Throwing"
-  },
-  {
-   "id": "obj-equipment-weapon-ranged-grenade",
-   "name": "Grenade"
   },
   {
    "id": "obj-equipment-weapon-ranged-launcher",
@@ -4051,6 +4051,10 @@
    "name": "Road"
   },
   {
+   "id": "str-fixture-marker-sign-floor",
+   "name": "Floor"
+  },
+  {
    "id": "str-fixture-marker-flag",
    "name": "Flag"
   },
@@ -4385,6 +4389,22 @@
   {
    "id": "sym",
    "name": "Symbol"
+  },
+  {
+   "id": "sym-pickup",
+   "name": "Pickup"
+  },
+  {
+   "id": "sym-pointer",
+   "name": "Pointer"
+  },
+  {
+   "id": "sym-icon",
+   "name": "Icon"
+  },
+  {
+   "id": "sym-emblem",
+   "name": "Emblem"
   }
  ],
  "variants": [
@@ -9827,7 +9847,6 @@
   {
    "kit": "kenney_mini-forest_1.0",
    "name": "weapon-arrow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.1,
@@ -13689,7 +13708,6 @@
   {
    "kit": "kenney_prototypekit",
    "name": "indicator-special-arrow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.8,
     0.1,
@@ -15637,6 +15655,7 @@
   {
    "kit": "kenney_holidaykit",
    "name": "snowflake-a",
+   "kind": "sym-emblem",
    "wdh": [
     0.2,
     0.2,
@@ -15654,6 +15673,7 @@
   {
    "kit": "kenney_holidaykit",
    "name": "snowflake-b",
+   "kind": "sym-emblem",
    "wdh": [
     0.2,
     0.2,
@@ -15671,6 +15691,7 @@
   {
    "kit": "kenney_holidaykit",
    "name": "snowflake-c",
+   "kind": "sym-emblem",
    "wdh": [
     0.2,
     0.2,
@@ -28893,7 +28914,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_green",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.3,
@@ -28912,7 +28932,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_green_broken",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.2,
@@ -28931,7 +28950,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_green_broken_half",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.2,
@@ -28950,7 +28968,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_green_half",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.2,
@@ -28969,7 +28986,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_purple",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.3,
@@ -28988,7 +29004,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_purple_broken",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.2,
@@ -29007,7 +29022,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_purple_broken_half",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.2,
@@ -29026,7 +29040,6 @@
   {
    "kit": "KayKit_Skeletons_1.0",
    "name": "arrow_purple_half",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.2,
@@ -33860,7 +33873,6 @@
   {
    "kit": "Pirate_Kit_by_Quaternius_glTF_OBJ",
    "name": "UI_Gem_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.3,
@@ -33878,7 +33890,6 @@
   {
    "kit": "Pirate_Kit_by_Quaternius_glTF_OBJ",
    "name": "UI_Gem_Green",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.2,
     0.2,
@@ -33896,7 +33907,6 @@
   {
    "kit": "Pirate_Kit_by_Quaternius_glTF_OBJ",
    "name": "UI_Gem_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.2,
     0.3,
@@ -34244,7 +34254,7 @@
   {
    "kit": "Ultimate_RPG_Pack_by_Quaternius_OBJ",
    "name": "Heart_Broken",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.2,
     0.2,
@@ -34262,7 +34272,7 @@
   {
    "kit": "Ultimate_RPG_Pack_by_Quaternius_OBJ",
    "name": "Heart_Half",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.1,
     0.2,
@@ -46126,7 +46136,6 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "arrow_teamBlue",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.4,
@@ -46145,7 +46154,6 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "arrow_teamRed",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.4,
@@ -46164,7 +46172,6 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "arrow_teamYellow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.4,
@@ -46696,7 +46703,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamBlue",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -46715,7 +46722,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamRed",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -46734,7 +46741,7 @@
   {
    "kit": "KayKit_Mini-Game_Variety_Pack_1.2",
    "name": "heart_teamYellow",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -58163,7 +58170,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Marquise_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58182,7 +58188,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Marquise_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58201,7 +58206,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Marquise_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58220,7 +58224,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Marquise_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58239,7 +58242,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Marquise_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58276,7 +58278,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Marquise_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58421,7 +58422,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Flat_Bottom_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58440,7 +58440,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Flat_Bottom_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58459,7 +58458,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Flat_Bottom_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58478,7 +58476,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Flat_Bottom_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58497,7 +58494,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Flat_Bottom_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58534,7 +58530,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Flat_Bottom_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58553,7 +58548,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Sharp_Bottom_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58572,7 +58566,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Sharp_Bottom_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58591,7 +58584,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Sharp_Bottom_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58610,7 +58602,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Sharp_Bottom_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58629,7 +58620,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Sharp_Bottom_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58666,7 +58656,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_Sharp_Bottom_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58685,7 +58674,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_V2_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58704,7 +58692,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_V2_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58723,7 +58710,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_V2_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58742,7 +58728,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_V2_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58779,7 +58764,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_V2_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58798,7 +58782,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Round_V2__Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58817,7 +58800,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Flat_Bottom_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58836,7 +58818,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Flat_Bottom_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58855,7 +58836,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Flat_Bottom_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58874,7 +58854,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Flat_Bottom_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58893,7 +58872,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Flat_Bottom_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58930,7 +58908,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Flat_Bottom_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58949,7 +58926,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Sharp_Bottom_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58968,7 +58944,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Sharp_Bottom_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -58987,7 +58962,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Sharp_Bottom_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59006,7 +58980,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Sharp_Bottom_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59025,7 +58998,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Sharp_Bottom_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59062,7 +59034,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_Sharp_Bottom_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59081,7 +59052,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_V2_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59100,7 +59070,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_V2_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59119,7 +59088,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_V2_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59138,7 +59106,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_V2_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59157,7 +59124,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_V2_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59194,7 +59160,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Square_V2_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59213,7 +59178,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_2_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59232,7 +59196,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_2_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59251,7 +59214,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_2_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59270,7 +59232,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_2_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59289,7 +59250,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_2_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59326,7 +59286,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_2_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59345,7 +59304,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_Blue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59364,7 +59322,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_Lightblue",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59383,7 +59340,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_Pink",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59402,7 +59358,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_Red",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59421,7 +59376,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_Turqoiuse ",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -59458,7 +59412,6 @@
   {
    "kit": "RPG-Mini-Asset-Package",
    "name": "Gem_Triangle_Yellow",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -66558,7 +66511,6 @@
   {
    "kit": "RG_Poly_Medieval_Weapons",
    "name": "Arrow_1_B",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.6,
@@ -66576,7 +66528,6 @@
   {
    "kit": "RG_Poly_Medieval_Weapons",
    "name": "Arrow_2_B",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.1,
     0.6,
@@ -67816,7 +67767,6 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "arrow-basic",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.3,
     0.1,
@@ -67834,7 +67784,6 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "arrow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.5,
     0.1,
@@ -67995,7 +67944,6 @@
   {
    "kit": "kenney_factory-kit_3.0",
    "name": "indicator-special-arrow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.6,
     0.1,
@@ -73479,7 +73427,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "heart_green",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -74002,7 +73950,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_arrow_2x2x1_green",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.6,
     0.3,
@@ -74021,7 +73968,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_arrow_4x4x1_green",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.2,
     0.3,
@@ -74280,7 +74226,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrow_stand_green",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.3,
     0.6,
@@ -74317,7 +74262,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrows_left_green",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.6,
     0.5,
@@ -74336,7 +74280,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrows_right_green",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.6,
     0.5,
@@ -74374,7 +74317,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "star_green",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -75169,7 +75112,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "heart_red",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -75688,7 +75631,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_arrow_2x2x1_red",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.6,
     0.3,
@@ -75706,7 +75648,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_arrow_4x4x1_red",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.2,
     0.3,
@@ -76075,7 +76016,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrow_stand_red",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.3,
     0.6,
@@ -76110,7 +76050,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrows_left_red",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.6,
     0.5,
@@ -76128,7 +76067,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrows_right_red",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.6,
     0.5,
@@ -76164,7 +76102,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "star_red",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -76676,7 +76614,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "heart_yellow",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -77199,7 +77137,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_arrow_2x2x1_yellow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.6,
     0.3,
@@ -77218,7 +77155,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "platform_arrow_4x4x1_yellow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.2,
     0.3,
@@ -77588,7 +77524,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrow_stand_yellow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     0.3,
     0.6,
@@ -77625,7 +77560,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrows_left_yellow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.6,
     0.5,
@@ -77644,7 +77578,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "signage_arrows_right_yellow",
-   "kind": "obj-equipment-weapon-ranged-arrow",
    "wdh": [
     1.6,
     0.5,
@@ -77682,7 +77615,7 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "star_yellow",
-   "kind": "sym",
+   "kind": "sym-icon",
    "wdh": [
     0.3,
     0.3,
@@ -81089,7 +81022,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.2,
@@ -81107,7 +81039,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_001",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.2,
@@ -81125,7 +81056,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_002",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.2,
@@ -81143,7 +81073,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_003",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.2,
     0.1,
@@ -81161,7 +81090,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_004",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -81179,7 +81107,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_005",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -81197,7 +81124,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_006",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.2,
@@ -81215,7 +81141,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_007",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,
@@ -81233,7 +81158,6 @@
   {
    "kit": "Dungeon_Asset_Pack",
    "name": "gems_008",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.2,
@@ -100818,7 +100742,6 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "gem",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.2,
@@ -101707,7 +101630,6 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "round_gem",
-   "kind": "obj-equipment-pocketitem-coin",
    "wdh": [
     0.1,
     0.1,

@@ -72,6 +72,11 @@
    "note": "This pack was never imported — nothing from it is in the catalog."
   },
   {
+   "slug": "Avramania_Food_Market",
+   "name": "Avramania Food & Market",
+   "note": "This pack was never imported — nothing from it is in the catalog."
+  },
+  {
    "slug": "School_Styloo",
    "name": "School (Styloo)"
   },
@@ -268,6 +273,15 @@
    "inSource": 1,
    "inCatalog": 0,
    "listed": 1
+  },
+  {
+   "slug": "Avramania_Food_Market",
+   "name": "Avramania Food & Market",
+   "format": "glb",
+   "inSource": 22,
+   "inCatalog": 0,
+   "listed": 22,
+   "folder": "Food_Market/glTF"
   },
   {
    "slug": "School_Styloo",
@@ -879,6 +893,10 @@
    "name": "Broad"
   },
   {
+   "id": "obj-equipment-weapon-melee-sword-curved",
+   "name": "Curved"
+  },
+  {
    "id": "obj-equipment-weapon-melee-dagger",
    "name": "Dagger"
   },
@@ -957,10 +975,6 @@
   {
    "id": "obj-equipment-weapon-ranged-throwing",
    "name": "Throwing"
-  },
-  {
-   "id": "obj-equipment-weapon-ranged-grenade",
-   "name": "Grenade"
   },
   {
    "id": "obj-equipment-weapon-ranged-launcher",
@@ -2123,6 +2137,10 @@
    "name": "Road"
   },
   {
+   "id": "str-fixture-marker-sign-floor",
+   "name": "Floor"
+  },
+  {
    "id": "str-fixture-marker-flag",
    "name": "Flag"
   },
@@ -2457,6 +2475,22 @@
   {
    "id": "sym",
    "name": "Symbol"
+  },
+  {
+   "id": "sym-pickup",
+   "name": "Pickup"
+  },
+  {
+   "id": "sym-pointer",
+   "name": "Pointer"
+  },
+  {
+   "id": "sym-icon",
+   "name": "Icon"
+  },
+  {
+   "id": "sym-emblem",
+   "name": "Emblem"
   }
  ],
  "variants": [
@@ -7252,6 +7286,356 @@
    "hash": "376a87e545",
    "bytes": 39108248,
    "file": "victorian_house.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_ale_mug_01",
+   "kind": "obj-kitchenware-tableware-drinkware-tankard",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 388,
+   "tpu": 1131,
+   "mat": 1,
+   "hash": "6f492f113e",
+   "bytes": 25340,
+   "file": "mdvl_food_ale_mug_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_apple_01",
+   "kind": "obj-food-fruit-apple",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 418,
+   "tpu": 1219,
+   "mat": 1,
+   "hash": "0d2478e26d",
+   "bytes": 31728,
+   "file": "mdvl_food_apple_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_bowl_01",
+   "kind": "obj-kitchenware-tableware-bowl",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 388,
+   "tpu": 1131,
+   "mat": 1,
+   "hash": "e96b7c2ceb",
+   "bytes": 24564,
+   "file": "mdvl_food_bowl_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_cabbage_01",
+   "kind": "obj-food-vegetable-leafy",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 1448,
+   "tpu": 4222,
+   "mat": 1,
+   "hash": "db6b81015f",
+   "bytes": 112732,
+   "file": "mdvl_food_cabbage_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_carrot_01",
+   "kind": "obj-food-vegetable-root-carrot",
+   "wdh": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "tris": 370,
+   "tpu": 1079,
+   "mat": 1,
+   "hash": "82e136fa01",
+   "bytes": 27660,
+   "file": "mdvl_food_carrot_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_cask_01",
+   "kind": "obj-container-barrel",
+   "wdh": [
+    0.3,
+    0.4,
+    0.4
+   ],
+   "tris": 1300,
+   "tpu": 3790,
+   "mat": 1,
+   "hash": "8e2aa3235b",
+   "bytes": 89948,
+   "file": "mdvl_food_cask_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_cheese_wheel_01",
+   "kind": "obj-food-dairy-cheese",
+   "wdh": [
+    0.3,
+    0.1,
+    0.3
+   ],
+   "tris": 1270,
+   "tpu": 3703,
+   "mat": 1,
+   "hash": "6d3f8c80a5",
+   "bytes": 67320,
+   "file": "mdvl_food_cheese_wheel_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_coin_01",
+   "kind": "obj-equipment-pocketitem-coin",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 148,
+   "tpu": 431,
+   "mat": 1,
+   "hash": "1b75c985f3",
+   "bytes": 10520,
+   "file": "mdvl_food_coin_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_coin_stack_01",
+   "kind": "obj-equipment-pocketitem-coin",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 396,
+   "tpu": 1155,
+   "mat": 1,
+   "hash": "de6be5f879",
+   "bytes": 24884,
+   "file": "mdvl_food_coin_stack_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_cutlery_01",
+   "wdh": [
+    0.3,
+    0.1,
+    0.2
+   ],
+   "tris": 1004,
+   "tpu": 2927,
+   "mat": 1,
+   "hash": "1446b74c00",
+   "bytes": 68148,
+   "file": "mdvl_food_cutlery_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_fish_01",
+   "kind": "env-fauna-fish",
+   "wdh": [
+    0.4,
+    0.1,
+    0.1
+   ],
+   "tris": 600,
+   "tpu": 1749,
+   "mat": 1,
+   "hash": "74cc14dffe",
+   "bytes": 41908,
+   "file": "mdvl_food_fish_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_grain_sack_01",
+   "kind": "obj-container-bag-sack",
+   "wdh": [
+    0.4,
+    0.5,
+    0.3
+   ],
+   "tris": 938,
+   "tpu": 2735,
+   "mat": 1,
+   "hash": "cf53cbff56",
+   "bytes": 67468,
+   "file": "mdvl_food_grain_sack_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_grapes_01",
+   "kind": "obj-food-fruit-grapes",
+   "wdh": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "tris": 708,
+   "tpu": 2064,
+   "mat": 1,
+   "hash": "6529968bf0",
+   "bytes": 70332,
+   "file": "mdvl_food_grapes_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_ham_01",
+   "kind": "obj-food-meat-ham",
+   "wdh": [
+    0.4,
+    0.1,
+    0.2
+   ],
+   "tris": 750,
+   "tpu": 2187,
+   "mat": 1,
+   "hash": "c241de68d0",
+   "bytes": 52216,
+   "file": "mdvl_food_ham_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_herb_bundle_01",
+   "wdh": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "tris": 666,
+   "tpu": 1942,
+   "mat": 1,
+   "hash": "94b86ef3a1",
+   "bytes": 48400,
+   "file": "mdvl_food_herb_bundle_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_loaf_01",
+   "kind": "obj-food-baked-bread",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 350,
+   "tpu": 1020,
+   "mat": 1,
+   "hash": "02121f67c5",
+   "bytes": 26000,
+   "file": "mdvl_food_loaf_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_onion_01",
+   "kind": "obj-food-vegetable-onion",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 386,
+   "tpu": 1125,
+   "mat": 1,
+   "hash": "3f27f01789",
+   "bytes": 29676,
+   "file": "mdvl_food_onion_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_plate_01",
+   "kind": "obj-kitchenware-tableware-plate",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 376,
+   "tpu": 1096,
+   "mat": 1,
+   "hash": "b41aa261eb",
+   "bytes": 23312,
+   "file": "mdvl_food_plate_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_potion_01",
+   "kind": "obj-container-bottle-vial",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 494,
+   "tpu": 1440,
+   "mat": 1,
+   "hash": "d4d33bebc1",
+   "bytes": 34392,
+   "file": "mdvl_food_potion_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_produce_crate_01",
+   "kind": "obj-container-crate-produce",
+   "wdh": [
+    0.5,
+    0.1,
+    0.4
+   ],
+   "tris": 240,
+   "tpu": 700,
+   "mat": 1,
+   "hash": "77d0b0588a",
+   "bytes": 17680,
+   "file": "mdvl_food_produce_crate_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_roll_01",
+   "kind": "obj-food-baked-bread-bun",
+   "wdh": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "tris": 190,
+   "tpu": 554,
+   "mat": 1,
+   "hash": "1f398079c3",
+   "bytes": 14796,
+   "file": "mdvl_food_roll_01.glb"
+  },
+  {
+   "kit": "Avramania_Food_Market",
+   "name": "mdvl_food_scales_01",
+   "kind": "obj-equipment-tool-scale",
+   "wdh": [
+    0.5,
+    0.6,
+    0.2
+   ],
+   "tris": 686,
+   "tpu": 2000,
+   "mat": 1,
+   "hash": "bef6ed2d46",
+   "bytes": 44924,
+   "file": "mdvl_food_scales_01.glb"
   },
   {
    "kit": "School_Styloo",
