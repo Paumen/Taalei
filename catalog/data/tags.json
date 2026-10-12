@@ -16763,14 +16763,21 @@
    "id": "obj-device-electronics",
    "name": "Electronics",
    "type": "kind",
-   "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
+   "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
+   "models": []
+  },
+  {
+   "id": "obj-device-electronics-component",
+   "name": "Component",
+   "type": "kind",
+   "description": "Loose electronic part: battery, circuit board, microchip, memory module, ssd.",
    "models": [
-    "quat-survival/battery-slim",
-    "quat-survival/battery",
     "ipoly-electronics/circuit-board",
     "ipoly-electronics/microchip",
+    "ipoly-electronics/ram",
     "ipoly-electronics/ssd",
-    "ipoly-electronics/ram"
+    "quat-survival/battery",
+    "quat-survival/battery-slim"
    ]
   },
   {
@@ -17066,9 +17073,6 @@
    "color": "#dd9f79",
    "models": [
     "household/piggy-bank",
-    "household/safe",
-    "lpa-home/safe-a",
-    "lpa-home/safe-b",
     "styloo-school/cork",
     "m3-base/ash-tray"
    ]
@@ -18085,6 +18089,17 @@
    ]
   },
   {
+   "id": "obj-container-safe",
+   "name": "Safe",
+   "type": "kind",
+   "description": "Metal box with a locked door for valuables.",
+   "models": [
+    "household/safe",
+    "lpa-home/safe-a",
+    "lpa-home/safe-b"
+   ]
+  },
+  {
    "id": "obj-equipment",
    "name": "Equipment",
    "type": "kind",
@@ -19066,7 +19081,7 @@
    "id": "obj-furnishing-decor",
    "name": "Decor",
    "type": "kind",
-   "description": "Hung or laid decoration: wreath, garland, birdhouse, stocking.",
+   "description": "Hung or laid decoration: wreath, garland, stocking.",
    "models": [
     "ken-holiday/wreath",
     "kay-holiday/wreath",
@@ -19075,13 +19090,10 @@
     "kay-holiday/mistletoe-b",
     "pm-store/frieze",
     "pm-store/snow-globe",
-    "m3-base/birdhouse",
     "m3-base/mid-century-starburst",
     "m3-base/name-plaque",
     "m3-base/wood-onlay-01",
     "m3-base/reed-diffuser-01",
-    "taalei-kit/birdhouse",
-    "household/birdhouse",
     "ken-holiday/stocking",
     "ken-holiday/stocking-cane"
    ]
@@ -19099,6 +19111,17 @@
     "kay-dun-2/sword-shield",
     "kay-dun-2/sword-shield-gold",
     "kay-dun-2/sword-shield-broken"
+   ]
+  },
+  {
+   "id": "obj-furnishing-decor-birdhouse",
+   "name": "Birdhouse",
+   "type": "kind",
+   "description": "Small house for birds, hung or on a post.",
+   "models": [
+    "household/birdhouse",
+    "m3-base/birdhouse",
+    "taalei-kit/birdhouse"
    ]
   },
   {
@@ -21099,29 +21122,13 @@
    "id": "obj-equipment-pocketitem",
    "name": "Pocket item",
    "type": "kind",
-   "description": "compass, hourglass, mirror (hand)",
+   "description": "compass, hourglass, cigarette packet",
    "color": "#f1976c",
    "models": [
-    "rgp-asia/token",
-    "rgp-asia/token-hanging",
-    "makeup/palette-open-large",
-    "makeup/palette-open-medium",
-    "makeup/palette-open-small",
-    "makeup/powder-compact",
-    "makeup/hand-mirror",
     "kay-tools/compass-base",
     "quat-survival/compass",
     "quat-survival/compass-anim",
-    "m3-base/cigarette-packet",
-    "m3-base/clothing-tag-01",
-    "m3-base/clothing-tag-02",
-    "m3-base/clothing-tag-05",
-    "m3-base/credit-card",
-    "m3-base/door-hanger",
-    "m3-base/hand-mirror",
-    "m3-base/lipstick",
-    "m3-base/luggage-tag",
-    "m3-base/ticket-stub"
+    "m3-base/cigarette-packet"
    ]
   },
   {
@@ -21316,6 +21323,38 @@
     "lpa-weapons/scroll",
     "3dm-medieval/scroll",
     "m3-base/scroll-04"
+   ]
+  },
+  {
+   "id": "obj-equipment-pocketitem-tag",
+   "name": "Tag",
+   "type": "kind",
+   "description": "Flat card or tag: label, ticket, credit card, door hanger, token.",
+   "models": [
+    "m3-base/clothing-tag-01",
+    "m3-base/clothing-tag-02",
+    "m3-base/clothing-tag-05",
+    "m3-base/luggage-tag",
+    "m3-base/door-hanger",
+    "m3-base/ticket-stub",
+    "m3-base/credit-card",
+    "rgp-asia/token",
+    "rgp-asia/token-hanging"
+   ]
+  },
+  {
+   "id": "obj-equipment-pocketitem-cosmetic",
+   "name": "Cosmetic",
+   "type": "kind",
+   "description": "Makeup and grooming item: lipstick, makeup palette, powder compact, hand mirror.",
+   "models": [
+    "m3-base/lipstick",
+    "makeup/palette-open-large",
+    "makeup/palette-open-medium",
+    "makeup/palette-open-small",
+    "makeup/powder-compact",
+    "m3-base/hand-mirror",
+    "makeup/hand-mirror"
    ]
   },
   {
@@ -21790,16 +21829,11 @@
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism",
    "type": "kind",
-   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap.",
+   "description": "Mechanism worked by hand or foot: spring, gear, pulley, crank, jack, trap.",
    "models": [
     "kay-platformer/spring",
-    "ken-factory/button-floor-round-small",
-    "ken-factory/button-floor-round",
-    "ken-platformer/spring-anim",
-    "ken-platformer/spring",
     "quat-survival/bear-trap-anim",
     "quat-survival/bear-trap",
-    "kay-platformer/button-base",
     "3dm-industrial/car-jack",
     "m3-base/spring",
     "dungeon/crank-001",
@@ -21835,6 +21869,19 @@
     "m3-base/padlock",
     "m3-base/drawer-key-hole",
     "m3-base/toggle-latch"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-button",
+   "name": "Floor button",
+   "type": "kind",
+   "description": "Button pressed by foot or by stepping on it: floor button, pressure plate, jump pad.",
+   "models": [
+    "kay-platformer/button-base",
+    "ken-factory/button-floor-round-small",
+    "ken-factory/button-floor-round",
+    "ken-platformer/spring-anim",
+    "ken-platformer/spring"
    ]
   },
   {
@@ -21931,20 +21978,17 @@
    "id": "obj-equipment-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "Hand tool with no own kind: tape measure, magnet, crowbar, drill, level, plunger.",
+   "description": "Hand tool with no own kind: tape measure, magnet, drill, level, plunger, fireplace tool.",
    "models": [
     "kay-tools/handdrill",
     "taalei-kit/plunger",
-    "zombie-weapons/crowbar",
     "lpa-construction/drill",
     "lpa-construction/level",
-    "m3-base/crowbar",
     "m3-base/fireplace-poker",
     "m3-base/fireplace-shovel",
     "m3-base/plunger",
     "lpa-construction/tape-measure",
     "m3-base/magnet",
-    "mek-tools/crowbar",
     "taalei-kit/magnet"
    ]
   },
@@ -22124,6 +22168,17 @@
     "m3-base/hacksaw-01",
     "m3-base/hacksaw-02",
     "m3-base/saw"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-hand-crowbar",
+   "name": "Crowbar",
+   "type": "kind",
+   "description": "Bar with a bent claw end for prying.",
+   "models": [
+    "m3-base/crowbar",
+    "mek-tools/crowbar",
+    "zombie-weapons/crowbar"
    ]
   },
   {
@@ -23037,15 +23092,10 @@
    "id": "obj-equipment-weapon-melee",
    "name": "Melee",
    "type": "kind",
-   "description": "scythe (weapon), knuckles, claws, gauntlet blade",
+   "description": "scythe (weapon), nunchucks, chainsaw pole",
    "models": [
-    "kay-weapons/fistweapon-a",
-    "kay-weapons/fistweapon-a-stacked",
-    "kay-weapons/fistweapon-b",
-    "kay-weapons/fistweapon-b-stacked",
     "zombie-weapons/chainsaw-pole",
-    "zombie-weapons/nunchucks",
-    "m3-base/knuckle-duster"
+    "zombie-weapons/nunchucks"
    ]
   },
   {
@@ -23305,6 +23355,19 @@
     "m3-base/greek-spear-head-02",
     "m3-base/halberd",
     "avra-weapons/spear"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-melee-fist",
+   "name": "Fist weapon",
+   "type": "kind",
+   "description": "Weapon worn on the hand: knuckles, claws, gauntlet blade.",
+   "models": [
+    "kay-weapons/fistweapon-a-stacked",
+    "kay-weapons/fistweapon-a",
+    "kay-weapons/fistweapon-b-stacked",
+    "kay-weapons/fistweapon-b",
+    "m3-base/knuckle-duster"
    ]
   },
   {
@@ -25627,12 +25690,6 @@
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
    "models": [
-    "ken-proto/door-sliding-double-wide",
-    "ken-proto/door-sliding-double",
-    "ken-station/door-double-closed",
-    "ken-station/door-double-half",
-    "ken-station/door-double",
-    "quat-interior/door-double",
     "m3-base/door-handle",
     "m3-base/door-knob"
    ]
@@ -25728,6 +25785,20 @@
     "quat-dun-1/trapdoor",
     "quat-dun-1/trapdoor-open",
     "kay-dun-1/trapdoor"
+   ]
+  },
+  {
+   "id": "str-part-door-double",
+   "name": "Double",
+   "type": "kind",
+   "description": "Door with two leaves, hinged or sliding.",
+   "models": [
+    "ken-station/door-double",
+    "ken-station/door-double-closed",
+    "ken-station/door-double-half",
+    "quat-interior/door-double",
+    "ken-proto/door-sliding-double",
+    "ken-proto/door-sliding-double-wide"
    ]
   },
   {
@@ -26441,22 +26512,10 @@
    "id": "str-part-wall",
    "name": "Wall",
    "type": "kind",
-   "description": "wall, wall segment, arch (building), corner",
+   "description": "wall, wall segment, corner",
    "models": [
-    "fs-town/stone-arch",
-    "fs-town/stucco-arch-half",
-    "fs-town/stucco-arch-half-outer",
-    "wizp-grave/arch-stone",
     "wizp-asia/arch-beam",
-    "fs-temple/wall-arch-corner-inner",
-    "fs-temple/wall-arch-corner-outer",
-    "fs-temple/wall-arch-straight",
-    "fs-temple/wall-straight-arch-top",
     "m3-base/office-cubicle-wall",
-    "m3-base/stone-archway-01",
-    "m3-base/stone-archway-02",
-    "m3-base/stone-archway-03",
-    "m3-base/stone-archway-04",
     "m3-base/wood-wall-panel"
    ]
   },
@@ -26796,6 +26855,26 @@
     "ken-pirate/castle-window",
     "emace-village/log-wall",
     "emace-village/log-wall-short"
+   ]
+  },
+  {
+   "id": "str-part-wall-arch",
+   "name": "Arch",
+   "type": "kind",
+   "description": "Wall piece shaped as an arch, whole or half.",
+   "models": [
+    "wizp-grave/arch-stone",
+    "fs-town/stone-arch",
+    "m3-base/stone-archway-01",
+    "m3-base/stone-archway-02",
+    "m3-base/stone-archway-03",
+    "m3-base/stone-archway-04",
+    "fs-town/stucco-arch-half-outer",
+    "fs-town/stucco-arch-half",
+    "fs-temple/wall-arch-corner-inner",
+    "fs-temple/wall-arch-corner-outer",
+    "fs-temple/wall-arch-straight",
+    "fs-temple/wall-straight-arch-top"
    ]
   },
   {

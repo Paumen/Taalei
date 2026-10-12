@@ -24,9 +24,9 @@
   },
   {
    "kit": "ken-station",
-   "n": 16,
-   "slope": -0.839,
-   "scatter": 0.094,
+   "n": 15,
+   "slope": -0.875,
+   "scatter": 0.047,
    "range": [
     -0.875,
     -0.684
@@ -53,6 +53,17 @@
    "shaky": false
   },
   {
+   "kit": "ken-factory",
+   "n": 8,
+   "slope": -0.745,
+   "scatter": 0.074,
+   "range": [
+    -0.781,
+    -0.696
+   ],
+   "shaky": false
+  },
+  {
    "kit": "ken-nature",
    "n": 14,
    "slope": -0.703,
@@ -60,17 +71,6 @@
    "range": [
     -0.74,
     -0.689
-   ],
-   "shaky": false
-  },
-  {
-   "kit": "ken-factory",
-   "n": 9,
-   "slope": -0.696,
-   "scatter": 0.099,
-   "range": [
-    -0.745,
-    -0.651
    ],
    "shaky": false
   },
@@ -116,17 +116,6 @@
    "shaky": true
   },
   {
-   "kit": "mek-tools",
-   "n": 8,
-   "slope": -0.641,
-   "scatter": 0.091,
-   "range": [
-    -0.71,
-    -0.622
-   ],
-   "shaky": false
-  },
-  {
    "kit": "ken-holiday",
    "n": 12,
    "slope": -0.638,
@@ -138,13 +127,13 @@
    "shaky": false
   },
   {
-   "kit": "ken-mini",
-   "n": 51,
-   "slope": -0.586,
-   "scatter": 0.256,
+   "kit": "mek-tools",
+   "n": 7,
+   "slope": -0.622,
+   "scatter": 0.107,
    "range": [
-    -0.612,
-    -0.557
+    -0.682,
+    -0.554
    ],
    "shaky": false
   },
@@ -167,6 +156,17 @@
    "range": [
     -0.587,
     -0.519
+   ],
+   "shaky": false
+  },
+  {
+   "kit": "ken-mini",
+   "n": 49,
+   "slope": -0.557,
+   "scatter": 0.211,
+   "range": [
+    -0.586,
+    -0.525
    ],
    "shaky": false
   },
@@ -401,8 +401,8 @@
   {
    "kit": "m3-base",
    "n": 176,
-   "slope": -0.454,
-   "scatter": 0.209,
+   "slope": -0.453,
+   "scatter": 0.21,
    "range": [
     -0.462,
     -0.448
@@ -472,17 +472,6 @@
    "range": [
     -0.445,
     -0.413
-   ],
-   "shaky": false
-  },
-  {
-   "kit": "zombie-weapons",
-   "n": 25,
-   "slope": -0.426,
-   "scatter": 0.217,
-   "range": [
-    -0.494,
-    -0.371
    ],
    "shaky": false
   },
@@ -696,6 +685,17 @@
    "shaky": false
   },
   {
+   "kit": "zombie-weapons",
+   "n": 24,
+   "slope": -0.371,
+   "scatter": 0.228,
+   "range": [
+    -0.465,
+    -0.35
+   ],
+   "shaky": false
+  },
+  {
    "kit": "architecture",
    "n": 4,
    "slope": -0.366,
@@ -753,11 +753,11 @@
   {
    "kit": "kay-play",
    "n": 35,
-   "slope": -0.357,
-   "scatter": 0.238,
+   "slope": -0.354,
+   "scatter": 0.235,
    "range": [
-    -0.383,
-    -0.335
+    -0.382,
+    -0.327
    ],
    "shaky": false
   },
@@ -968,17 +968,6 @@
    "shaky": true
   },
   {
-   "kit": "quat-interior",
-   "n": 30,
-   "slope": -0.241,
-   "scatter": 0.139,
-   "range": [
-    -0.268,
-    -0.221
-   ],
-   "shaky": false
-  },
-  {
    "kit": "props",
    "n": 24,
    "slope": -0.238,
@@ -986,6 +975,17 @@
    "range": [
     -0.252,
     -0.212
+   ],
+   "shaky": false
+  },
+  {
+   "kit": "quat-interior",
+   "n": 29,
+   "slope": -0.231,
+   "scatter": 0.14,
+   "range": [
+    -0.263,
+    -0.206
    ],
    "shaky": false
   },
@@ -1520,6 +1520,11 @@
    "curve": true
   },
   {
+   "kind": "obj-container-safe",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "obj-container-trashcan",
    "real": 0.9,
    "high": true,
@@ -1614,6 +1619,11 @@
    "kind": "obj-device-electronics-camera",
    "curve": false,
    "reason": "dropped"
+  },
+  {
+   "kind": "obj-device-electronics-component",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-device-electronics-computer",
@@ -1786,6 +1796,11 @@
    "reason": "no real size"
   },
   {
+   "kind": "obj-equipment-pocketitem-cosmetic",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "obj-equipment-pocketitem-key",
    "real": 0.08,
    "curve": true
@@ -1804,6 +1819,11 @@
    "kind": "obj-equipment-pocketitem-scroll-rolled",
    "real": 0.3,
    "curve": true
+  },
+  {
+   "kind": "obj-equipment-pocketitem-tag",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-equipment-target",
@@ -1844,6 +1864,11 @@
    "curve": true
   },
   {
+   "kind": "obj-equipment-tool-hand-crowbar",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "obj-equipment-tool-hand-garden",
    "real": 0.3,
    "curve": true
@@ -1882,6 +1907,11 @@
    "kind": "obj-equipment-tool-mechanism",
    "real": 0.3,
    "curve": true
+  },
+  {
+   "kind": "obj-equipment-tool-mechanism-button",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-equipment-tool-mechanism-lever",
@@ -2050,6 +2080,11 @@
    "kind": "obj-equipment-weapon-melee-dagger",
    "real": 0.35,
    "curve": true
+  },
+  {
+   "kind": "obj-equipment-weapon-melee-fist",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "obj-equipment-weapon-melee-spear",
@@ -2520,6 +2555,11 @@
   },
   {
    "kind": "obj-furnishing-decor",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
+   "kind": "obj-furnishing-decor-birdhouse",
    "curve": false,
    "reason": "no real size"
   },
@@ -3766,6 +3806,11 @@
    "curve": true
   },
   {
+   "kind": "str-part-door-double",
+   "curve": false,
+   "reason": "no real size"
+  },
+  {
    "kind": "str-part-door-single",
    "real": 2.1,
    "high": true,
@@ -3859,6 +3904,11 @@
    "kind": "str-part-wall",
    "real": 3,
    "curve": true
+  },
+  {
+   "kind": "str-part-wall-arch",
+   "curve": false,
+   "reason": "no real size"
   },
   {
    "kind": "str-part-wall-rampart",

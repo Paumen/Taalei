@@ -1455,8 +1455,8 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 32
+    "factor": 1.04,
+    "kinds": 33
    }
   },
   {
@@ -3022,7 +3022,7 @@
    },
    "kitCheck": {
     "factor": 1.04,
-    "kinds": 189
+    "kinds": 190
    }
   },
   {
@@ -24659,8 +24659,15 @@
    "id": "obj-device-electronics",
    "name": "Electronics",
    "type": "kind",
-   "description": "Electronic device: television, computer, speaker, camera, battery, cash register, console.",
+   "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
    "count": 130
+  },
+  {
+   "id": "obj-device-electronics-component",
+   "name": "Component",
+   "type": "kind",
+   "description": "Loose electronic part: battery, circuit board, microchip, memory module, ssd.",
+   "count": 6
   },
   {
    "id": "str-fixture-installation",
@@ -25056,6 +25063,13 @@
    "count": 9
   },
   {
+   "id": "obj-container-safe",
+   "name": "Safe",
+   "type": "kind",
+   "description": "Metal box with a locked door for valuables.",
+   "count": 3
+  },
+  {
    "id": "obj-equipment",
    "name": "Equipment",
    "type": "kind",
@@ -25398,7 +25412,7 @@
    "id": "obj-furnishing-decor",
    "name": "Decor",
    "type": "kind",
-   "description": "Hung or laid decoration: wreath, garland, birdhouse, stocking.",
+   "description": "Hung or laid decoration: wreath, garland, stocking.",
    "count": 23
   },
   {
@@ -25407,6 +25421,13 @@
    "type": "kind",
    "description": "mounted head, hunting trophy, trophy head, antlers (mounted), shield with crossed swords",
    "count": 7
+  },
+  {
+   "id": "obj-furnishing-decor-birdhouse",
+   "name": "Birdhouse",
+   "type": "kind",
+   "description": "Small house for birds, hung or on a post.",
+   "count": 3
   },
   {
    "id": "obj-furnishing-textile",
@@ -26072,7 +26093,7 @@
    "id": "obj-equipment-pocketitem",
    "name": "Pocket item",
    "type": "kind",
-   "description": "compass, hourglass, mirror (hand)",
+   "description": "compass, hourglass, cigarette packet",
    "count": 151,
    "color": "#f1976c"
   },
@@ -26130,6 +26151,20 @@
    "name": "Rolled",
    "type": "kind",
    "description": "map (rolled), rolled scroll",
+   "count": 7
+  },
+  {
+   "id": "obj-equipment-pocketitem-tag",
+   "name": "Tag",
+   "type": "kind",
+   "description": "Flat card or tag: label, ticket, credit card, door hanger, token.",
+   "count": 9
+  },
+  {
+   "id": "obj-equipment-pocketitem-cosmetic",
+   "name": "Cosmetic",
+   "type": "kind",
+   "description": "Makeup and grooming item: lipstick, makeup palette, powder compact, hand mirror.",
    "count": 7
   },
   {
@@ -26285,7 +26320,7 @@
    "id": "obj-equipment-tool-mechanism",
    "name": "Mechanism",
    "type": "kind",
-   "description": "Mechanism worked by hand or foot: spring, gear, pulley, floor button, bear trap.",
+   "description": "Mechanism worked by hand or foot: spring, gear, pulley, crank, jack, trap.",
    "count": 27
   },
   {
@@ -26300,6 +26335,13 @@
    "name": "Lock",
    "type": "kind",
    "description": "lock, padlock, latch",
+   "count": 5
+  },
+  {
+   "id": "obj-equipment-tool-mechanism-button",
+   "name": "Floor button",
+   "type": "kind",
+   "description": "Button pressed by foot or by stepping on it: floor button, pressure plate, jump pad.",
    "count": 5
   },
   {
@@ -26334,7 +26376,7 @@
    "id": "obj-equipment-tool-hand",
    "name": "Hand",
    "type": "kind",
-   "description": "Hand tool with no own kind: tape measure, magnet, crowbar, drill, level, plunger.",
+   "description": "Hand tool with no own kind: tape measure, magnet, drill, level, plunger, fireplace tool.",
    "count": 119
   },
   {
@@ -26399,6 +26441,13 @@
    "type": "kind",
    "description": "Saw: a toothed blade for cutting.",
    "count": 8
+  },
+  {
+   "id": "obj-equipment-tool-hand-crowbar",
+   "name": "Crowbar",
+   "type": "kind",
+   "description": "Bar with a bent claw end for prying.",
+   "count": 3
   },
   {
    "id": "obj-equipment-tool-twohand",
@@ -26714,7 +26763,7 @@
    "id": "obj-equipment-weapon-melee",
    "name": "Melee",
    "type": "kind",
-   "description": "scythe (weapon), knuckles, claws, gauntlet blade",
+   "description": "scythe (weapon), nunchucks, chainsaw pole",
    "count": 187
   },
   {
@@ -26786,6 +26835,13 @@
    "type": "kind",
    "description": "Pole weapon with a head on a long shaft.",
    "count": 18
+  },
+  {
+   "id": "obj-equipment-weapon-melee-fist",
+   "name": "Fist weapon",
+   "type": "kind",
+   "description": "Weapon worn on the hand: knuckles, claws, gauntlet blade.",
+   "count": 5
   },
   {
    "id": "obj-equipment-weapon-ranged",
@@ -27445,6 +27501,13 @@
    "count": 3
   },
   {
+   "id": "str-part-door-double",
+   "name": "Double",
+   "type": "kind",
+   "description": "Door with two leaves, hinged or sliding.",
+   "count": 6
+  },
+  {
    "id": "str-part-gate",
    "name": "Gate",
    "type": "kind",
@@ -27560,7 +27623,7 @@
    "id": "str-part-wall",
    "name": "Wall",
    "type": "kind",
-   "description": "wall, wall segment, arch (building), corner",
+   "description": "wall, wall segment, corner",
    "count": 321
   },
   {
@@ -27590,6 +27653,13 @@
    "type": "kind",
    "description": "A segment or corner of a free-standing wall that encloses ground: rampart, curtain wall, garden wall. A wall that carries a building stays on the parent.",
    "count": 27
+  },
+  {
+   "id": "str-part-wall-arch",
+   "name": "Arch",
+   "type": "kind",
+   "description": "Wall piece shaped as an arch, whole or half.",
+   "count": 12
   },
   {
    "id": "str-part-window",
@@ -29707,6 +29777,12 @@
    "longest.max": 0.7,
    "tpu.max": 10000
   },
+  "obj-container-safe": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-container-trashcan": {
    "high.max": 8,
    "longest.min": 0.2,
@@ -29797,12 +29873,6 @@
    "longest.max": 0.45,
    "tpu.max": 10000
   },
-  "obj-device-electronics": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
   "obj-device-electronics-audio": {
    "high.max": 8,
    "longest.min": 0.15,
@@ -29812,6 +29882,12 @@
   "obj-device-electronics-camera": {
    "high.max": 8,
    "longest.min": 0.1,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-device-electronics-component": {
+   "high.max": 8,
+   "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
   },
@@ -30007,6 +30083,12 @@
    "longest.max": 0.35,
    "tpu.max": 10000
   },
+  "obj-equipment-pocketitem-cosmetic": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.35,
+   "tpu.max": 10000
+  },
   "obj-equipment-pocketitem-key": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -30029,6 +30111,12 @@
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 0.5,
+   "tpu.max": 10000
+  },
+  "obj-equipment-pocketitem-tag": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.35,
    "tpu.max": 10000
   },
   "obj-equipment-target": {
@@ -30065,6 +30153,12 @@
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.35,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-crowbar": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.5,
    "tpu.max": 10000
   },
   "obj-equipment-tool-hand-garden": {
@@ -30110,6 +30204,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-mechanism": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-mechanism-button": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 1.2,
@@ -30299,6 +30399,12 @@
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 0.55,
+   "tpu.max": 10000
+  },
+  "obj-equipment-weapon-melee-fist": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-equipment-weapon-melee-spear": {
@@ -30839,6 +30945,12 @@
    "tpu.max": 5000
   },
   "obj-furnishing-decor": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 7000
+  },
+  "obj-furnishing-decor-birdhouse": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -32134,6 +32246,13 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "str-part-door-double": {
+   "high.min": 0.65,
+   "high.max": 1.15,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "str-part-door-single": {
    "high.min": 0.7,
    "high.max": 1.1,
@@ -32234,6 +32353,12 @@
    "tpu.max": 5000
   },
   "str-part-wall": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-wall-arch": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -32725,6 +32850,12 @@
    "tpu.max": 10000
   },
   "obj-equipment-tool-hand-garden scale-small": {
+   "high.max": 8,
+   "longest.min": 0.075,
+   "longest.max": 0.25,
+   "tpu.max": 10000
+  },
+  "obj-equipment-tool-hand-crowbar scale-small": {
    "high.max": 8,
    "longest.min": 0.075,
    "longest.max": 0.25,
@@ -81925,7 +82056,7 @@
    "collection": "fs-buildings",
    "name": "wall-arch-corner-inner",
    "hash": "befc6aacc8",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.495,
@@ -81968,7 +82099,7 @@
    "collection": "fs-buildings",
    "name": "wall-arch-corner-outer",
    "hash": "ce740c3e53",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.9,
@@ -82010,7 +82141,7 @@
    "collection": "fs-buildings",
    "name": "wall-arch-straight",
    "hash": "342905bbcd",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.45,
@@ -82670,7 +82801,7 @@
    "collection": "fs-buildings",
    "name": "wall-straight-arch-top",
    "hash": "5bf7df5739",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.45,
@@ -90772,7 +90903,7 @@
    "collection": "fs-modular",
    "name": "stone-arch",
    "hash": "ca5b5615c7",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     1.06,
@@ -91706,7 +91837,7 @@
    "collection": "fs-modular",
    "name": "stucco-arch-half-outer",
    "hash": "7be3c8a5d9",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.583,
@@ -91754,7 +91885,7 @@
    "collection": "fs-modular",
    "name": "stucco-arch-half",
    "hash": "050d7a01ea",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.53,
@@ -95015,7 +95146,7 @@
    "kit": "household",
    "name": "birdhouse",
    "hash": "8df1a241e2",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-birdhouse",
    "size": "s",
    "wdh": [
     0.134,
@@ -97648,7 +97779,7 @@
    "kit": "household",
    "name": "safe",
    "hash": "b4b50aa1ea",
-   "kind": "obj-container",
+   "kind": "obj-container-safe",
    "size": "s",
    "wdh": [
     0.276,
@@ -99079,7 +99210,7 @@
    "collection": "ipoly",
    "name": "circuit-board",
    "hash": "22616e7273",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.066,
@@ -99132,14 +99263,21 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ipoly-electronics",
    "collection": "ipoly",
    "name": "microchip",
    "hash": "31c0e95cec",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.071,
@@ -99187,7 +99325,7 @@
    "collection": "ipoly",
    "name": "ram",
    "hash": "950e2f11c4",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.158,
@@ -99241,7 +99379,7 @@
    "collection": "ipoly",
    "name": "ssd",
    "hash": "5a0a338c4d",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.133,
@@ -99288,7 +99426,14 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ipoly-glasses",
@@ -170873,7 +171018,7 @@
    "collection": "kay-play",
    "name": "button-base",
    "hash": "4e4043d5d4",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-button",
    "size": "m",
    "wdh": [
     0.525,
@@ -188878,7 +189023,7 @@
    "collection": "kay-rpg",
    "name": "fistweapon-a-stacked",
    "hash": "30469c70d9",
-   "kind": "obj-equipment-weapon-melee",
+   "kind": "obj-equipment-weapon-melee-fist",
    "size": "s",
    "wdh": [
     0.13,
@@ -188936,7 +189081,7 @@
    "collection": "kay-rpg",
    "name": "fistweapon-a",
    "hash": "fc50326065",
-   "kind": "obj-equipment-weapon-melee",
+   "kind": "obj-equipment-weapon-melee-fist",
    "size": "s",
    "wdh": [
     0.067,
@@ -188979,7 +189124,7 @@
    "collection": "kay-rpg",
    "name": "fistweapon-b-stacked",
    "hash": "51de0cd03b",
-   "kind": "obj-equipment-weapon-melee",
+   "kind": "obj-equipment-weapon-melee-fist",
    "size": "s",
    "wdh": [
     0.208,
@@ -189028,7 +189173,7 @@
    "collection": "kay-rpg",
    "name": "fistweapon-b",
    "hash": "111b3344ba",
-   "kind": "obj-equipment-weapon-melee",
+   "kind": "obj-equipment-weapon-melee-fist",
    "size": "s",
    "wdh": [
     0.158,
@@ -201430,7 +201575,7 @@
    "kit": "ken-factory",
    "name": "button-floor-round-small",
    "hash": "165478936a",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-button",
    "size": "s",
    "wdh": [
     0.174,
@@ -201479,7 +201624,7 @@
    "kit": "ken-factory",
    "name": "button-floor-round",
    "hash": "933d4e6602",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-button",
    "size": "s",
    "wdh": [
     0.29,
@@ -240757,7 +240902,7 @@
    "collection": "ken-mini",
    "name": "spring-anim",
    "hash": "cb2b78198f",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-button",
    "size": "m",
    "wdh": [
     0.897,
@@ -240811,7 +240956,7 @@
    "collection": "ken-mini",
    "name": "spring",
    "hash": "3811b733f4",
-   "kind": "obj-equipment-tool-mechanism",
+   "kind": "obj-equipment-tool-mechanism-button",
    "size": "m",
    "wdh": [
     0.897,
@@ -241251,7 +241396,7 @@
    "collection": "ken-mini",
    "name": "door-sliding-double-wide",
    "hash": "742c2000ca",
-   "kind": "str-part-door",
+   "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
     1.138,
@@ -241294,7 +241439,7 @@
    "collection": "ken-mini",
    "name": "door-sliding-double",
    "hash": "fe4f06c26a",
-   "kind": "str-part-door",
+   "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
     0.731,
@@ -257237,7 +257382,7 @@
    "kit": "ken-station",
    "name": "door-double-closed",
    "hash": "f36e4df22c",
-   "kind": "str-part-door",
+   "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
     0.6,
@@ -257291,7 +257436,7 @@
    "kit": "ken-station",
    "name": "door-double-half",
    "hash": "3ea4bd21a3",
-   "kind": "str-part-door",
+   "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
     0.6,
@@ -257345,7 +257490,7 @@
    "kit": "ken-station",
    "name": "door-double",
    "hash": "44f9432708",
-   "kind": "str-part-door",
+   "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
     0.6,
@@ -288412,7 +288557,7 @@
    "kit": "lpa-home",
    "name": "safe-a",
    "hash": "af16f9c0df",
-   "kind": "obj-container",
+   "kind": "obj-container-safe",
    "size": "s",
    "wdh": [
     0.338,
@@ -288460,7 +288605,7 @@
    "kit": "lpa-home",
    "name": "safe-b",
    "hash": "75c7ff94d8",
-   "kind": "obj-container",
+   "kind": "obj-container-safe",
    "size": "s",
    "wdh": [
     0.265,
@@ -302512,7 +302657,7 @@
    "kit": "m3-base",
    "name": "birdhouse",
    "hash": "a65c77fb04",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-birdhouse",
    "size": "s",
    "wdh": [
     0.318,
@@ -306991,7 +307136,7 @@
    "kit": "m3-base",
    "name": "clothing-tag-01",
    "hash": "75bb9dd9af",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.105,
@@ -307028,13 +307173,13 @@
     "pickup"
    ],
    "variant": "m3-base/clothing-tag-01",
-   "thickRel": 1.27
+   "thickRel": 1.5
   },
   {
    "kit": "m3-base",
    "name": "clothing-tag-02",
    "hash": "98881a11a8",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.105,
@@ -307071,13 +307216,13 @@
     "pickup"
    ],
    "variant": "m3-base/clothing-tag-01",
-   "thickRel": 1.27
+   "thickRel": 1.51
   },
   {
    "kit": "m3-base",
    "name": "clothing-tag-05",
    "hash": "8d4af8517b",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.093,
@@ -307114,7 +307259,7 @@
     "pickup"
    ],
    "variant": "m3-base/clothing-tag-01",
-   "thickRel": 0.85
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -308235,7 +308380,7 @@
    "kit": "m3-base",
    "name": "credit-card",
    "hash": "1b1ca3a7eb",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.127,
@@ -308271,7 +308416,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -308408,7 +308553,7 @@
    "kit": "m3-base",
    "name": "crowbar",
    "hash": "032dcc82d7",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-crowbar",
    "size": "s",
    "wdh": [
     0.053,
@@ -308443,7 +308588,14 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -310451,7 +310603,7 @@
    "kit": "m3-base",
    "name": "door-hanger",
    "hash": "872cd4a007",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.138,
@@ -310486,7 +310638,7 @@
     "m3",
     "paper-sheet"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.57
   },
   {
    "kit": "m3-base",
@@ -315931,7 +316083,7 @@
    "kit": "m3-base",
    "name": "hand-mirror",
    "hash": "b2897ac8ba",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.157,
@@ -320601,7 +320753,7 @@
    "kit": "m3-base",
    "name": "knuckle-duster",
    "hash": "980946bf7f",
-   "kind": "obj-equipment-weapon-melee",
+   "kind": "obj-equipment-weapon-melee-fist",
    "size": "s",
    "wdh": [
     0.146,
@@ -321229,7 +321381,7 @@
    "kit": "m3-base",
    "name": "lipstick",
    "hash": "3e71aee3ec",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.057,
@@ -321641,7 +321793,7 @@
    "kit": "m3-base",
    "name": "luggage-tag",
    "hash": "eb2c3d9ebc",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.062,
@@ -321677,7 +321829,7 @@
     "paper-sheet",
     "pickup"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -335195,7 +335347,7 @@
    "kit": "m3-base",
    "name": "stone-archway-01",
    "hash": "7d4b7a1d52",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.766,
@@ -335237,7 +335389,7 @@
    "kit": "m3-base",
    "name": "stone-archway-02",
    "hash": "a4e9d5b8f2",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.726,
@@ -335279,7 +335431,7 @@
    "kit": "m3-base",
    "name": "stone-archway-03",
    "hash": "a147388b5c",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.806,
@@ -335321,7 +335473,7 @@
    "kit": "m3-base",
    "name": "stone-archway-04",
    "hash": "3208e51b8e",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
     0.717,
@@ -336722,7 +336874,7 @@
    "kit": "m3-base",
    "name": "ticket-stub",
    "hash": "66a8a28ee1",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.122,
@@ -336758,7 +336910,7 @@
     "paper-sheet",
     "pickup"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -341583,7 +341735,7 @@
    "kit": "makeup",
    "name": "hand-mirror",
    "hash": "1bdf9edf1f",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.115,
@@ -342079,7 +342231,7 @@
    "kit": "makeup",
    "name": "palette-open-large",
    "hash": "6cae852a2b",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.409,
@@ -342149,7 +342301,7 @@
    "kit": "makeup",
    "name": "palette-open-medium",
    "hash": "e736d53efd",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.409,
@@ -342220,7 +342372,7 @@
    "kit": "makeup",
    "name": "palette-open-small",
    "hash": "40922d5013",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.215,
@@ -342277,7 +342429,14 @@
     "plastic"
    ],
    "variant": "makeup/palette-open-large",
-   "thickRel": 0.4
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "makeup",
@@ -342331,7 +342490,7 @@
    "kit": "makeup",
    "name": "powder-compact",
    "hash": "b3495ce5bd",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
     0.148,
@@ -343666,7 +343825,7 @@
    "kit": "mek-tools",
    "name": "crowbar",
    "hash": "28a10ce6d3",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-crowbar",
    "size": "s",
    "wdh": [
     0.027,
@@ -367647,7 +367806,7 @@
    "kit": "quat-interior",
    "name": "door-double",
    "hash": "626f265db7",
-   "kind": "str-part-door",
+   "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
     0.71,
@@ -392922,7 +393081,7 @@
    "kit": "quat-survival",
    "name": "battery-slim",
    "hash": "dcd3f99768",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.085,
@@ -392975,7 +393134,7 @@
    "kit": "quat-survival",
    "name": "battery",
    "hash": "62ffe3ac66",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.115,
@@ -407944,7 +408103,7 @@
    "kit": "rgp-asia",
    "name": "token-hanging",
    "hash": "71153e140b",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.018,
@@ -407989,13 +408148,13 @@
     "wood-mid"
    ],
    "variant": "rgp-asia/token",
-   "thickRel": 1.12
+   "thickRel": 1.32
   },
   {
    "kit": "rgp-asia",
    "name": "token",
    "hash": "3f04ecd8a9",
-   "kind": "obj-equipment-pocketitem",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.167,
@@ -408032,7 +408191,7 @@
     "wood-mid"
    ],
    "variant": "rgp-asia/token",
-   "thickRel": 1.33
+   "thickRel": 1.57
   },
   {
    "kit": "rgp-asia",
@@ -458217,7 +458376,7 @@
    "kit": "taalei-kit",
    "name": "birdhouse",
    "hash": "05069eb2ba",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-birdhouse",
    "size": "s",
    "wdh": [
     0.243,
@@ -468984,7 +469143,7 @@
    "collection": "wizp-grave",
    "name": "arch-stone",
    "hash": "c3ddda8fc2",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-arch",
    "size": "l",
    "wdh": [
     1.656,
@@ -477860,7 +478019,7 @@
    "kit": "zombie-weapons",
    "name": "crowbar",
    "hash": "c2cc8e91ad",
-   "kind": "obj-equipment-tool-hand",
+   "kind": "obj-equipment-tool-hand-crowbar",
    "size": "s",
    "wdh": [
     0.141,
