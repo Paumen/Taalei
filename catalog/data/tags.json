@@ -16513,9 +16513,7 @@
    "name": "Leisure",
    "type": "kind",
    "description": "Thing for play, games, sport or art.",
-   "models": [
-    "sq-cinema/ticket-booth"
-   ]
+   "models": []
   },
   {
    "id": "obj-device-appliance",
@@ -16682,7 +16680,9 @@
     "m3-base/bowling-pin",
     "m3-base/cricket-wicket",
     "m3-base/golf-tee",
-    "m3-base/table-tennis-paddle"
+    "m3-base/table-tennis-paddle",
+    "sq-bowling/ball-return",
+    "sq-bowling/pinsetter"
    ]
   },
   {
@@ -16771,7 +16771,6 @@
     "ipoly-electronics/microchip",
     "ipoly-electronics/ssd",
     "ipoly-electronics/ram",
-    "lpa-home/tablet",
     "styloo-school/router",
     "3dm-electronics/router"
    ]
@@ -16782,6 +16781,9 @@
    "type": "kind",
    "description": "Fixed household electrics: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb.",
    "models": [
+    "3dm-industrial/electrical-box",
+    "lpa-home/radiator-a",
+    "lpa-home/radiator-b",
     "m3-base/circuit-breaker",
     "m3-base/fire-alarm-system",
     "m3-base/fuse-box",
@@ -16927,7 +16929,8 @@
     "sq-cinema/popcorn-machine",
     "3dm-city-2/parking-meter",
     "3dm-city/atm",
-    "sq-cards/gacha-machine"
+    "sq-cards/gacha-machine",
+    "sq-cinema/ticket-booth"
    ]
   },
   {
@@ -17049,7 +17052,8 @@
     "quat-survival/phone",
     "styloo-school/telephone",
     "3dm-city/payphone",
-    "m3-base/vintage-phone"
+    "m3-base/vintage-phone",
+    "lpa-home/tablet"
    ]
   },
   {
@@ -18072,9 +18076,7 @@
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
    "color": "#6b5b95",
-   "models": [
-    "m3-base/vintage-crutch"
-   ]
+   "models": []
   },
   {
    "id": "obj-equipment-armor",
@@ -18101,13 +18103,13 @@
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
    "models": [
     "kay-skeleton-1/mage-cloak",
-    "ken-holiday/stocking",
     "rgp-asia/fan",
     "m3-base/bowtie",
     "m3-base/cane",
     "m3-base/watch-strap",
     "m3-base/military-dog-tag",
-    "avra-weapons/scabbard"
+    "avra-weapons/scabbard",
+    "m3-base/vintage-crutch"
    ]
   },
   {
@@ -18947,11 +18949,7 @@
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
    "color": "#c07c8a",
-   "models": [
-    "lpa-home/radiator-a",
-    "lpa-home/radiator-b",
-    "styloo-school/soap-bar-red"
-   ]
+   "models": []
   },
   {
    "id": "obj-furnishing-clock",
@@ -19073,7 +19071,9 @@
     "taalei-kit/birdhouse",
     "household/birdhouse",
     "kay-dun-2/sword-shield",
-    "kay-dun-2/sword-shield-gold"
+    "kay-dun-2/sword-shield-gold",
+    "ken-holiday/stocking",
+    "ken-holiday/lights-colored"
    ]
   },
   {
@@ -19184,6 +19184,7 @@
    "models": [
     "sq-pool/changing-stall",
     "styloo-school/soap-bar-pink",
+    "styloo-school/soap-bar-red",
     "styloo-school/soap-dish"
    ]
   },
@@ -19604,7 +19605,8 @@
     "m3-base/stepstool",
     "m3-base/folding-camping-stool",
     "dungeon/woodchair-001",
-    "quat-props/stool"
+    "quat-props/stool",
+    "lpa-construction/ladder-b"
    ]
   },
   {
@@ -19633,9 +19635,7 @@
    "description": "chest of drawers, dresser, coat rack, weapon rack",
    "models": [
     "m3-base/clothes-hanger-01",
-    "m3-base/office-drawer-handle",
-    "m3-base/organizer-drawers-01",
-    "m3-base/organizer-drawers-02"
+    "m3-base/office-drawer-handle"
    ]
   },
   {
@@ -20031,7 +20031,6 @@
    "type": "kind",
    "description": "grill, spit, mortar and pestle, pepper mill",
    "models": [
-    "ken-food/steamer",
     "cooking-assets/mortar-and-pestle",
     "cooking-assets/trivet",
     "taalei-kit/barbecue",
@@ -20384,7 +20383,8 @@
     "kay-food/pot-a-closed",
     "kay-food/pot-large",
     "kay-food/pot-large-closed",
-    "kay-food/lid-large"
+    "kay-food/lid-large",
+    "ken-food/steamer"
    ]
   },
   {
@@ -20908,12 +20908,7 @@
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
    "models": [
     "fs-town/lamp-wall",
-    "ken-holiday/lights-colored",
     "lpa-home/wall-light",
-    "lpa-construction/work-light-b",
-    "lpa-construction/work-light-a",
-    "3dm-industrial/work-light",
-    "3dm-scifi/lamp",
     "m3-base/iron-wall-light",
     "m3-base/outdoor-wall-light",
     "m3-base/outdoor-wall-light-01"
@@ -20932,7 +20927,11 @@
     "sq-rink/floor-spot",
     "sq-rink/light-bar",
     "pm-store/stage-light",
-    "ipoly-concert/led-panel"
+    "ipoly-concert/led-panel",
+    "3dm-scifi/lamp",
+    "3dm-industrial/work-light",
+    "lpa-construction/work-light-a",
+    "lpa-construction/work-light-b"
    ]
   },
   {
@@ -21697,10 +21696,7 @@
    "type": "kind",
    "description": "Tool with no leaf that fits.",
    "color": "#6d738a",
-   "models": [
-    "lpa-construction/wood-stand",
-    "lpa-construction/ladder-b"
-   ]
+   "models": []
   },
   {
    "id": "obj-equipment-tool-scale",
@@ -21730,7 +21726,8 @@
     "wizp-asia/forge",
     "m3-base/bellows",
     "m3-base/saw-horse",
-    "emace-village/chopping-block"
+    "emace-village/chopping-block",
+    "lpa-construction/wood-stand"
    ]
   },
   {
@@ -21773,15 +21770,8 @@
     "ken-platformer/spring",
     "quat-survival/bear-trap-anim",
     "quat-survival/bear-trap",
-    "taalei-kit/magnet",
     "kay-platformer/button-base",
-    "fs-temple/puzzle-control-pressure-plate",
-    "fs-temple/puzzle-control-rising-switch",
-    "fs-temple/puzzle-sliding-emitter",
-    "fs-temple/puzzle-sliding-key",
-    "fs-temple/puzzle-sliding-mirror",
     "3dm-industrial/car-jack",
-    "m3-base/drawer-key-hole",
     "m3-base/spring",
     "m3-base/toggle-latch",
     "dungeon/crank-001",
@@ -21814,7 +21804,8 @@
    "models": [
     "ken-platformer/lock",
     "quat-rpg/padlock",
-    "m3-base/padlock"
+    "m3-base/padlock",
+    "m3-base/drawer-key-hole"
    ]
   },
   {
@@ -21902,7 +21893,9 @@
     "m3-base/letter-rack-01",
     "styloo-school/sticky-notes",
     "m3-base/sticky-note-pad",
-    "m3-base/sticky-note"
+    "m3-base/sticky-note",
+    "m3-base/organizer-drawers-01",
+    "m3-base/organizer-drawers-02"
    ]
   },
   {
@@ -21924,7 +21917,8 @@
     "m3-base/plunger",
     "lpa-construction/tape-measure",
     "m3-base/magnet",
-    "mek-tools/crowbar"
+    "mek-tools/crowbar",
+    "taalei-kit/magnet"
    ]
   },
   {
@@ -22330,7 +22324,11 @@
    "type": "kind",
    "description": "saddle",
    "color": "#5a7a9c",
-   "models": []
+   "models": [
+    "lpa-west/horseshoe",
+    "m3-base/horse-bit",
+    "m3-base/horse-shoe"
+   ]
   },
   {
    "id": "sym",
@@ -22429,11 +22427,7 @@
    "type": "kind",
    "description": "Vehicle on land: cart, road vehicle, rail vehicle.",
    "models": [
-    "ken-space/rover",
-    "lpa-west/horseshoe",
-    "m3-base/horse-bit",
-    "m3-base/horse-shoe",
-    "pm-store/tank"
+    "ken-space/rover"
    ]
   },
   {
@@ -22606,7 +22600,8 @@
     "quat-space/rover-round",
     "lowbudget/digger-a",
     "lowbudget/digger-b",
-    "lowbudget/digger-c"
+    "lowbudget/digger-c",
+    "pm-store/tank"
    ]
   },
   {
@@ -23400,11 +23395,7 @@
    "name": "Firearm",
    "type": "kind",
    "description": "Weapon that fires a shot with powder.",
-   "models": [
-    "quat-shoot/carbine",
-    "kay-minigame/blaster-azure",
-    "kay-minigame/blaster-amber"
-   ]
+   "models": []
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-part",
@@ -23478,7 +23469,9 @@
     "3dm-guns/flare-gun",
     "3dm-guns/luger",
     "3dm-guns/makarov",
-    "quat-pirate/shotgun-double"
+    "quat-pirate/shotgun-double",
+    "kay-minigame/blaster-azure",
+    "kay-minigame/blaster-amber"
    ]
   },
   {
@@ -25039,18 +25032,9 @@
    "id": "str",
    "name": "Structure",
    "type": "kind",
-   "description": "stage, plinth, pedestal, mine entrance",
+   "description": "mine entrance",
    "color": "#877a63",
    "models": [
-    "ipoly-concert/concert-stage",
-    "m3-base/champion-podium",
-    "m3-base/plinth",
-    "m3-base/statue-base",
-    "quat-dun-1/pedestal",
-    "quat-dun-1/pedestal-2",
-    "quat-dun-2/pedestal",
-    "quat-dun-2/pedestal-2",
-    "sq-cinema/screen-stage",
     "sq-pool/starting-block"
    ]
   },
@@ -25618,8 +25602,7 @@
    "description": "room, cellar, souterrain, dungeon",
    "color": "#a8762a",
    "models": [
-    "styloo-school/cafeteria-room",
-    "emace-village/balcony"
+    "styloo-school/cafeteria-room"
    ]
   },
   {
@@ -26150,7 +26133,12 @@
     "fs-temple/puzzle-sliding-base",
     "fs-temple/puzzle-sliding-pillar",
     "fs-temple/puzzle-sliding-pillar-platform-top",
-    "fs-temple/puzzle-wall-pillar-conduit-passthrough"
+    "fs-temple/puzzle-wall-pillar-conduit-passthrough",
+    "fs-temple/puzzle-sliding-key",
+    "fs-temple/puzzle-control-rising-switch",
+    "fs-temple/puzzle-sliding-emitter",
+    "fs-temple/puzzle-control-pressure-plate",
+    "fs-temple/puzzle-sliding-mirror"
    ]
   },
   {
@@ -26296,24 +26284,14 @@
    "id": "str-part-roof",
    "name": "Roof",
    "type": "kind",
-   "description": "roof, roof tile, gable",
+   "description": "roof, gable",
    "models": [
-    "fs-town/roof-accent-rake-concave",
-    "fs-town/roof-accent-rake-convex",
-    "fs-town/roof-accent-rake-eave",
-    "fs-town/roof-accent-rake-straight",
-    "fs-town/roof-accent-ridge",
-    "fs-town/roof-accent-ridge-end",
     "ken-town/overhang",
-    "fs-temple/tower-parapet-braced-crowned",
-    "fs-temple/tower-parapet-simple-crowned",
-    "ken-pirate/tower-roof",
     "lpa-west/triangle-wall-a",
     "lpa-west/triangle-wall-b",
     "loaf-gothic/ambulatory-inner-roof-a",
     "loaf-gothic/post-a-top",
     "loaf-gothic/post-b-top",
-    "loaf-gothic/roof-tower",
     "emace-village/roof-shingle-a",
     "emace-village/roof-shingle-b",
     "emace-village/roof-thatch",
@@ -26322,12 +26300,36 @@
     "emace-village/roof-thatch-cut-c2",
     "emace-village/roof-thatch-cut-c",
     "emace-village/roof-thatch-cut-d",
-    "emace-village/roof-thatch-cut-e",
+    "emace-village/roof-thatch-cut-e"
+   ]
+  },
+  {
+   "id": "str-part-roof-trim",
+   "name": "Trim",
+   "type": "kind",
+   "description": "Single tile or edge strip laid on a roof: roof tile, ridge tile, roof ridge, roof rake.",
+   "models": [
+    "fs-town/roof-accent-rake-concave",
+    "fs-town/roof-accent-rake-convex",
+    "fs-town/roof-accent-rake-eave",
+    "fs-town/roof-accent-rake-straight",
+    "fs-town/roof-accent-ridge",
+    "fs-town/roof-accent-ridge-end",
     "m3-base/ridge-tile-01",
     "m3-base/ridge-tile-03",
-    "m3-base/roll-top-chimney",
-    "m3-base/roman-interlocking-tile",
-    "m3-base/weathertop-chimney"
+    "m3-base/roman-interlocking-tile"
+   ]
+  },
+  {
+   "id": "str-part-roof-tower",
+   "name": "Tower roof",
+   "type": "kind",
+   "description": "Roof that caps a tower: tower roof, roof spire, dome roof.",
+   "models": [
+    "fs-temple/tower-parapet-braced-crowned",
+    "fs-temple/tower-parapet-simple-crowned",
+    "ken-pirate/tower-roof",
+    "loaf-gothic/roof-tower"
    ]
   },
   {
@@ -26352,7 +26354,9 @@
     "ken-industrial/smokestack-basic",
     "ken-industrial/smokestack-small",
     "m3-base/crown-chimney",
-    "rgp-medieval/forge-chimney"
+    "rgp-medieval/forge-chimney",
+    "m3-base/roll-top-chimney",
+    "m3-base/weathertop-chimney"
    ]
   },
   {
@@ -26833,7 +26837,6 @@
     "ken-water/buoy-flag",
     "ken-water/buoy",
     "ken-racing/banner-tower-red",
-    "m3-base/staddle-stone-02",
     "ken-water/gate",
     "ken-water/gate-finish"
    ]
@@ -27327,7 +27330,8 @@
     "rgp-medieval/porch-6",
     "lpa-desert/awning-a",
     "lpa-desert/awning-b",
-    "3dm-city-2/bus-shelter"
+    "3dm-city-2/bus-shelter",
+    "emace-village/balcony"
    ]
   },
   {
@@ -27357,6 +27361,32 @@
     "3dm-medieval/market-stall",
     "quat-props/stall-cart",
     "quat-props/stall"
+   ]
+  },
+  {
+   "id": "str-stage",
+   "name": "Stage",
+   "type": "kind",
+   "description": "Raised floor to stand or perform on: stage, podium.",
+   "models": [
+    "ipoly-concert/concert-stage",
+    "m3-base/champion-podium",
+    "sq-cinema/screen-stage"
+   ]
+  },
+  {
+   "id": "str-plinth",
+   "name": "Plinth",
+   "type": "kind",
+   "description": "Block or column base that holds something up: plinth, pedestal, statue base, staddle stone.",
+   "models": [
+    "m3-base/plinth",
+    "m3-base/staddle-stone-02",
+    "m3-base/statue-base",
+    "quat-dun-1/pedestal",
+    "quat-dun-1/pedestal-2",
+    "quat-dun-2/pedestal",
+    "quat-dun-2/pedestal-2"
    ]
   },
   {
@@ -28144,8 +28174,7 @@
     "ken-roads/electricity-side-single",
     "ken-roads/electricity-side-wide",
     "ken-roads/electricity-side",
-    "3dm-city/ac-unit",
-    "3dm-industrial/electrical-box"
+    "3dm-city/ac-unit"
    ],
    "color": "#6e8f86"
   },
@@ -28218,10 +28247,6 @@
     "ken-factory/piston-thin-square",
     "ken-factory/scanner-high",
     "ken-factory/scanner-low",
-    "sq-bowling/ball-return",
-    "sq-bowling/pinsetter",
-    "sq-carwash/foam-unit",
-    "sq-carwash/wand-bay",
     "ken-space/machine-generator",
     "ken-space/machine-wireless",
     "ken-space/machine-generator-large",
@@ -28256,7 +28281,9 @@
     "sq-carwash/brush-arch",
     "sq-carwash/blower-arch",
     "sq-carwash/side-brushes",
-    "sq-carwash/vacuum-station"
+    "sq-carwash/vacuum-station",
+    "sq-carwash/foam-unit",
+    "sq-carwash/wand-bay"
    ]
   },
   {
@@ -29168,7 +29195,8 @@
     "styloo-guns/assault-rifle",
     "styloo-guns/assault-rifle-short",
     "3dm-guns/ak-47",
-    "3dm-guns/m4a1"
+    "3dm-guns/m4a1",
+    "quat-shoot/carbine"
    ]
   },
   {
