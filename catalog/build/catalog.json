@@ -40262,7 +40262,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "aq-hallow",
@@ -46728,28 +46728,28 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "arming-sword",
-   "hash": "341e23667f",
+   "hash": "e299556363",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.119,
-    0.037,
-    0.553
+    0.16,
+    0.061,
+    0.597
    ],
    "tris": 708,
    "tpu": 2064,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 37848,
+   "bytes": 37840,
    "vtx": 1002,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0052,
-   "thick": 0.1631,
-   "avgTri": 0.00006,
-   "anglePct": 43,
+   "minEdge": 0.004,
+   "minTube": 0.0161,
+   "thick": 0.1343,
+   "avgTri": 0.00014,
+   "anglePct": 27,
    "vpt": 1.42,
    "grad": 0.53,
    "spread": {
@@ -46782,25 +46782,18 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.09,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0052 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.91
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "arrow",
-   "hash": "a4bb64ecd0",
+   "hash": "e5cc3ae90b",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.019,
-    0.018,
+    0.029,
+    0.027,
     0.427
    ],
    "tris": 172,
@@ -46808,15 +46801,14 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 10520,
+   "bytes": 10496,
    "vtx": 248,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0042,
-   "thick": 0.7353,
-   "avgTri": 0.00005,
+   "minTube": 0.0064,
+   "thick": 0.4921,
+   "avgTri": 0.00008,
    "anglePct": 65,
    "vpt": 1.44,
    "grad": 0.28,
@@ -46855,12 +46847,19 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 2.67,
+   "backface": {
+    "share": 0.0018,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.92,
    "lint": [
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0042 wants min 0.006"
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -46868,13 +46867,13 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "bolt",
-   "hash": "2e12afe5d1",
+   "hash": "6d67535dd8",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.022,
-    0.011,
-    0.195
+    0.033,
+    0.015,
+    0.214
    ],
    "tris": 154,
    "tpu": 449,
@@ -46886,10 +46885,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0057,
-   "thick": 0.3166,
-   "avgTri": 0.00004,
-   "anglePct": 57,
+   "minTube": 0.0084,
+   "thick": 0.2528,
+   "avgTri": 0.00007,
+   "anglePct": 58,
    "vpt": 1.48,
    "grad": 0.31,
    "spread": {
@@ -46928,28 +46927,18 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0051,
+    "share": 0.0039,
     "view": "90/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.15,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
-     "check": "size",
-     "text": "longest 0.195 under min 0.2 (obj-equipment-weapon-ranged-arrow)"
-    },
-    {
-     "level": "error",
      "check": "backface",
-     "text": "0.5% of view 90/50 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0057 wants min 0.006"
+     "text": "0.4% of view 90/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -46957,28 +46946,28 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "crossbow",
-   "hash": "e98a46e0d2",
+   "hash": "d93f956d59",
    "kind": "obj-equipment-weapon-ranged-crossbow",
    "size": "s",
    "wdh": [
-    0.352,
-    0.054,
-    0.455
+    0.354,
+    0.458,
+    0.085
    ],
    "tris": 588,
    "tpu": 1714,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 34764,
+   "bytes": 34760,
    "vtx": 928,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0043,
-   "thick": 0.0546,
-   "avgTri": 0.00016,
-   "anglePct": 56,
+   "minEdge": 0.004,
+   "minTube": 0.0068,
+   "thick": 0.0615,
+   "avgTri": 0.00025,
+   "anglePct": 42,
    "vpt": 1.58,
    "grad": 0.54,
    "spread": {
@@ -47017,41 +47006,34 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.84,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "dagger",
-   "hash": "ebb0b9cbbc",
+   "hash": "f438d6e9f1",
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
-    0.06,
-    0.021,
-    0.225
+    0.094,
+    0.042,
+    0.292
    ],
    "tris": 484,
    "tpu": 1411,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 24856,
+   "bytes": 24852,
    "vtx": 638,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0046,
-   "thick": 0.1564,
-   "avgTri": 0.00003,
-   "anglePct": 21,
+   "minEdge": 0.003,
+   "minTube": 0.0169,
+   "thick": 0.1505,
+   "avgTri": 0.00008,
+   "anglePct": 18,
    "vpt": 1.32,
    "grad": 0.56,
    "spread": {
@@ -47078,41 +47060,34 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0046 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.83
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "handaxe",
-   "hash": "09e8082125",
+   "hash": "687aa2a563",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
-    0.092,
-    0.023,
-    0.281
+    0.129,
+    0.036,
+    0.315
    ],
    "tris": 510,
    "tpu": 1487,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 28208,
+   "bytes": 28212,
    "vtx": 738,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0158,
-   "thick": 0.1331,
-   "avgTri": 0.00006,
-   "anglePct": 19,
+   "minEdge": 0.003,
+   "minTube": 0.0196,
+   "thick": 0.1178,
+   "avgTri": 0.00011,
+   "anglePct": 20,
    "vpt": 1.45,
    "grad": 0.6,
    "spread": {
@@ -47145,41 +47120,33 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.09,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.281 under min 0.3 (obj-equipment-weapon-melee-axe)"
-    }
-   ]
+   "thickRel": 0.98
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "knife",
-   "hash": "2b2e439150",
+   "hash": "e548e1be9b",
    "kind": "obj-equipment-tool-hand-blade",
    "size": "s",
    "wdh": [
-    0.017,
-    0.019,
-    0.155
+    0.03,
+    0.034,
+    0.209
    ],
    "tris": 320,
    "tpu": 933,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18448,
+   "bytes": 18444,
    "vtx": 468,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.3509,
-   "avgTri": 0.00004,
-   "anglePct": 84,
+   "minEdge": 0.002,
+   "thick": 0.3183,
+   "avgTri": 0.00009,
+   "anglePct": 69,
    "vpt": 1.46,
    "grad": 0.6,
    "spread": {
@@ -47200,18 +47167,18 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 1.91
+   "thickRel": 1.73
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "mace",
-   "hash": "62ec7e2c9c",
+   "hash": "8e1b02df7b",
    "kind": "obj-equipment-weapon-melee-warhammer",
    "size": "s",
    "wdh": [
-    0.064,
-    0.064,
+    0.083,
+    0.083,
     0.385
    ],
    "tris": 846,
@@ -47219,15 +47186,15 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 39632,
+   "bytes": 39636,
    "vtx": 1032,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0142,
-   "thick": 0.2742,
-   "avgTri": 0.00006,
-   "anglePct": 6,
+   "minTube": 0.0214,
+   "thick": 0.2243,
+   "avgTri": 0.00008,
+   "anglePct": 7,
    "vpt": 1.22,
    "grad": 0.42,
    "spread": {
@@ -47261,13 +47228,13 @@
     "metal-steel"
    ],
    "backface": {
-    "share": 0.001,
+    "share": 0.0011,
     "view": "0/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.74,
+   "thickRel": 1.43,
    "lint": [
     {
      "level": "warning",
@@ -47280,28 +47247,28 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "quiver",
-   "hash": "d0c947b745",
+   "hash": "58a7f54ad0",
    "kind": "obj-equipment-apparel-quiver",
    "size": "s",
    "wdh": [
-    0.075,
-    0.069,
-    0.427
+    0.077,
+    0.072,
+    0.429
    ],
    "tris": 1064,
    "tpu": 3102,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 57436,
+   "bytes": 57468,
    "vtx": 1549,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0033,
-   "thick": 0.34,
-   "avgTri": 0.00015,
-   "anglePct": 32,
+   "minTube": 0.0062,
+   "thick": 0.3439,
+   "avgTri": 0.00017,
+   "anglePct": 27,
    "vpt": 1.46,
    "grad": 0.52,
    "spread": {
@@ -47341,23 +47308,18 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0039,
-    "view": "45/50",
+    "share": 0.0031,
+    "view": "0/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.55,
+   "thickRel": 1.57,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 45/50 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.006"
+     "text": "0.3% of view 0/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -47365,12 +47327,12 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "scabbard",
-   "hash": "f9c9f896d5",
+   "hash": "be37520827",
    "kind": "obj-equipment-apparel",
    "size": "s",
    "wdh": [
-    0.052,
-    0.018,
+    0.063,
+    0.025,
     0.464
    ],
    "tris": 430,
@@ -47378,15 +47340,15 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 30636,
+   "bytes": 30612,
    "vtx": 828,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0043,
-   "thick": 0.3278,
-   "avgTri": 0.00014,
-   "anglePct": 96,
+   "minTube": 0.0178,
+   "thick": 0.3004,
+   "avgTri": 0.00019,
+   "anglePct": 88,
    "vpt": 1.93,
    "grad": 0.6,
    "spread": {
@@ -47413,14 +47375,7 @@
     "metal-gold",
     "textile-cloth-dark"
    ],
-   "thickRel": 3.54,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 3.25
   },
   {
    "kit": "avra-weapons",
@@ -47550,12 +47505,12 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "shortbow",
-   "hash": "ad07fac650",
+   "hash": "7a2fbdf6fa",
    "kind": "obj-equipment-weapon-ranged-bow",
    "size": "m",
    "wdh": [
-    0.032,
-    0.127,
+    0.044,
+    0.13,
     0.571
    ],
    "tris": 366,
@@ -47567,11 +47522,11 @@
    "vtx": 448,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0018,
-   "thick": 0.165,
-   "avgTri": 0.00015,
-   "anglePct": 56,
+   "minEdge": 0.003,
+   "minTube": 0.006,
+   "thick": 0.1674,
+   "avgTri": 0.00022,
+   "anglePct": 43,
    "vpt": 1.22,
    "grad": 0.43,
    "spread": {
@@ -47604,41 +47559,34 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.23,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0018 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.24
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "shortsword",
-   "hash": "8d7762ad8c",
+   "hash": "f8aa95b9fc",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
-    0.079,
-    0.024,
-    0.399
+    0.114,
+    0.043,
+    0.459
    ],
    "tris": 556,
    "tpu": 1621,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28860,
+   "bytes": 28852,
    "vtx": 750,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0054,
-   "thick": 0.1819,
-   "avgTri": 0.00006,
-   "anglePct": 31,
+   "minEdge": 0.004,
+   "minTube": 0.0264,
+   "thick": 0.165,
+   "avgTri": 0.00014,
+   "anglePct": 50,
    "vpt": 1.35,
    "grad": 0.56,
    "spread": {
@@ -47665,34 +47613,22 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.22,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.399 under min 0.4 (obj-equipment-weapon-melee-sword)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0054 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.12
   },
   {
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "spear",
-   "hash": "6e1f03d625",
+   "hash": "5cc3cd1c49",
    "kind": "obj-equipment-weapon-melee-spear",
    "size": "m",
    "wdh": [
-    0.035,
-    0.032,
-    1.194
+    0.048,
+    0.08,
+    1.074
    ],
    "tris": 620,
-   "tpu": 1060,
+   "tpu": 1178,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -47701,10 +47637,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0032,
-   "thick": 1.1222,
-   "avgTri": 0.00016,
-   "anglePct": 18,
+   "minTube": 0.0083,
+   "thick": 0.4626,
+   "avgTri": 0.00023,
+   "anglePct": 21,
    "vpt": 1.26,
    "grad": 0.37,
    "spread": {
@@ -47737,17 +47673,24 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 4.53,
+   "backface": {
+    "share": 0.0012,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.87,
    "lint": [
     {
      "level": "warning",
-     "check": "size",
-     "text": "longest 1.194 over max 1.1 (obj-equipment-weapon-melee-spear)"
+     "check": "backface",
+     "text": "0.1% of view 0/50 over 0.1%: open 100.0%"
     },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0032 wants min 0.012"
+     "text": "G27 minTube 0.0083 wants min 0.012"
     }
    ]
   },
@@ -47755,28 +47698,28 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "staff",
-   "hash": "4d76d01e4c",
+   "hash": "de0c47ad17",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",
    "wdh": [
-    0.076,
-    0.075,
-    1.122
+    0.085,
+    0.084,
+    0.886
    ],
    "tris": 721,
-   "tpu": 1311,
+   "tpu": 1661,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 37100,
+   "bytes": 37104,
    "vtx": 977,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.006,
-   "thick": 0.5,
-   "avgTri": 0.00014,
-   "anglePct": 12,
+   "minEdge": 0.003,
+   "minTube": 0.0238,
+   "thick": 0.3781,
+   "avgTri": 0.00015,
+   "anglePct": 9,
    "vpt": 1.36,
    "grad": 0.41,
    "spread": {
@@ -47810,28 +47753,18 @@
     "wood-dark"
    ],
    "backface": {
-    "share": 0.0103,
-    "view": "90/50",
+    "share": 0.0065,
+    "view": "180/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 2.54,
+   "thickRel": 1.92,
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 1.122 over max 0.9 (obj-equipment-weapon-magic-staff)"
-    },
     {
      "level": "error",
      "check": "backface",
-     "text": "1.0% of view 90/50 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.006 wants min 0.012"
+     "text": "0.7% of view 180/50 over 0.5%: open 100.0%"
     }
    ]
   },
@@ -47839,28 +47772,28 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "sword-wooden",
-   "hash": "1fa4cc3a30",
+   "hash": "2d3cfe7951",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
-    0.077,
-    0.025,
-    0.444
+    0.102,
+    0.039,
+    0.489
    ],
    "tris": 544,
    "tpu": 1586,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31680,
+   "bytes": 31672,
    "vtx": 840,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0104,
-   "thick": 0.2054,
-   "avgTri": 0.00007,
-   "anglePct": 62,
+   "minTube": 0.0195,
+   "thick": 0.1965,
+   "avgTri": 0.00014,
+   "anglePct": 33,
    "vpt": 1.54,
    "grad": 0.56,
    "spread": {
@@ -47887,14 +47820,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.38,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0104 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.33
   },
   {
    "kit": "avra-weapons",
@@ -122285,12 +122211,12 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
-   "thickRel": 0.46,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -122349,7 +122275,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 1.07
+   "thickRel": 1.15
   },
   {
    "kit": "kay-adventurers",
@@ -122412,12 +122338,12 @@
     "wood-dark"
    ],
    "variant": "kay-adventurers/arrow-bow-bundle",
-   "thickRel": 0.46,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -122476,7 +122402,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.93
+   "thickRel": 1
   },
   {
    "kit": "kay-adventurers",
@@ -122532,7 +122458,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "kay-adventurers",
@@ -124735,7 +124661,7 @@
     "metal-copper",
     "metal-steel"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "kay-adventurers",
@@ -124791,7 +124717,7 @@
     "scale-big"
    ],
    "variant": "kay-adventurers/sword-two-handed",
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "kay-adventurers",
@@ -124841,7 +124767,7 @@
     "scale-big"
    ],
    "variant": "kay-adventurers/sword-two-handed",
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "kay-adventurers",
@@ -129538,7 +129464,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.77
   },
   {
    "kit": "kay-dun-1",
@@ -129637,7 +129563,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-1/axe-rare",
-   "thickRel": 1.25
+   "thickRel": 1.27
   },
   {
    "kit": "kay-dun-1",
@@ -129845,7 +129771,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/axe-rare",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "kay-dun-1",
@@ -129893,7 +129819,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-1/axe-rare",
-   "thickRel": 1.01,
+   "thickRel": 1.02,
    "mark": [
     "centered"
    ]
@@ -135935,7 +135861,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/sword-rare",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-1",
@@ -135990,7 +135916,7 @@
     "metal-steel"
    ],
    "variant": "kay-dun-1/sword-rare",
-   "thickRel": 0.72
+   "thickRel": 0.73
   },
   {
    "kit": "kay-dun-1",
@@ -136039,7 +135965,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-1/sword-rare",
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "kay-dun-1",
@@ -168339,7 +168265,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "kay-minigame",
@@ -178313,12 +178239,12 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.3,
+   "thickRel": 0.32,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.3 wants min 0.5"
+     "text": "I01 thickRel 0.32 wants min 0.5"
     }
    ]
   },
@@ -178377,12 +178303,12 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.32,
+   "thickRel": 0.34,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.32 wants min 0.5"
+     "text": "I01 thickRel 0.34 wants min 0.5"
     }
    ]
   },
@@ -178435,7 +178361,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.57
+   "thickRel": 0.61
   },
   {
    "kit": "kay-skeleton",
@@ -178492,7 +178418,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton/arrow",
-   "thickRel": 0.93
+   "thickRel": 1
   },
   {
    "kit": "kay-skeleton",
@@ -178602,7 +178528,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "kay-skeleton",
@@ -181190,7 +181116,7 @@
     "wood-dark"
    ],
    "variant": "kay-skeleton-1/sword-broken-half",
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "kay-space",
@@ -188302,7 +188228,7 @@
     "wood-dark"
    ],
    "variant": "kay-weapons/arrow-a",
-   "thickRel": 1.09
+   "thickRel": 1.17
   },
   {
    "kit": "kay-weapons",
@@ -188359,7 +188285,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/arrow-a",
-   "thickRel": 1.13
+   "thickRel": 1.21
   },
   {
    "kit": "kay-weapons",
@@ -188538,7 +188464,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "kay-weapons",
@@ -188986,7 +188912,7 @@
     "metal-steel"
    ],
    "variant": "kay-weapons/fistweapon-a-stacked",
-   "thickRel": 0.9
+   "thickRel": 0.92
   },
   {
    "kit": "kay-weapons",
@@ -189084,7 +189010,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/fistweapon-b-stacked",
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "kay-weapons",
@@ -189696,7 +189622,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/sword-a",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "kay-weapons",
@@ -189746,7 +189672,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/sword-a",
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "kay-weapons",
@@ -189852,7 +189778,7 @@
     "metal-steel"
    ],
    "variant": "kay-weapons/sword-c",
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "error",
@@ -191928,7 +191854,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "ken-blaster",
@@ -264106,7 +264032,7 @@
     "wood-dark"
    ],
    "variant": "ken-survival/tool-axe",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "ken-survival",
@@ -289935,7 +289861,7 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.55
+   "thickRel": 1.67
   },
   {
    "kit": "lpa-tools",
@@ -289990,7 +289916,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "lpa-tools",
@@ -290462,7 +290388,7 @@
     "wood-mid"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.67
+   "thickRel": 1.79
   },
   {
    "kit": "lpa-tools",
@@ -290516,7 +290442,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "lpa-tools",
@@ -290931,7 +290857,7 @@
      "other": 0.06
     }
    },
-   "thickRel": 1.07,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
@@ -290986,7 +290912,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "lpa-weapons",
@@ -291577,7 +291503,7 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.88
   },
   {
    "kit": "lpa-weapons",
@@ -293092,7 +293018,7 @@
     "metal-steel"
    ],
    "variant": "lpa-weapons/greatsword",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "lpa-weapons",
@@ -293290,7 +293216,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.04
   },
   {
    "kit": "lpa-weapons",
@@ -293339,7 +293265,7 @@
     "metal-steel",
     "scale-big"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "lpa-west",
@@ -301599,7 +301525,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -309246,7 +309172,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.61
   },
   {
    "kit": "m3-base",
@@ -314181,7 +314107,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/gladius-01",
-   "thickRel": 1.26
+   "thickRel": 1.28
   },
   {
    "kit": "m3-base",
@@ -314230,7 +314156,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/gladius-01",
-   "thickRel": 1.46
+   "thickRel": 1.47
   },
   {
    "kit": "m3-base",
@@ -320589,7 +320515,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "m3-base",
@@ -332289,7 +332215,7 @@
     "metal-steel",
     "scale-small"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "m3-base",
@@ -343521,7 +343447,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "mek-tools",
@@ -352705,7 +352631,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "props",
@@ -354517,7 +354443,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.44,
+   "thickRel": 1.46,
    "lint": [
     {
      "level": "warning",
@@ -375090,7 +375016,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -378092,7 +378018,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.33
   },
   {
    "kit": "quat-pirate",
@@ -378147,7 +378073,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "quat-pirate",
@@ -378583,7 +378509,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.05
   },
   {
    "kit": "quat-props",
@@ -380749,7 +380675,7 @@
     "metal-gold",
     "qua"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "quat-props",
@@ -381431,7 +381357,7 @@
     "wood-dark"
    ],
    "variant": "quat-rpg/arrow",
-   "thickRel": 1.24
+   "thickRel": 1.34
   },
   {
    "kit": "quat-rpg",
@@ -381486,7 +381412,7 @@
     "wood-dark"
    ],
    "variant": "quat-rpg/arrow",
-   "thickRel": 1.24
+   "thickRel": 1.34
   },
   {
    "kit": "quat-rpg",
@@ -381608,7 +381534,7 @@
     "wood-mid"
    ],
    "variant": "quat-rpg/axe-double",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "quat-rpg",
@@ -382896,7 +382822,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.63,
+   "thickRel": 0.67,
    "lint": [
     {
      "level": "warning",
@@ -385418,7 +385344,7 @@
     "textile-cloth-mid"
    ],
    "variant": "quat-rpg/sword",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "quat-rpg",
@@ -385466,7 +385392,7 @@
     "textile-cloth-mid"
    ],
    "variant": "quat-rpg/sword",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "quat-scifi",
@@ -410355,7 +410281,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.16
   },
   {
    "kit": "rgp-medieval",
@@ -410410,7 +410336,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.11
   },
   {
    "kit": "rgp-medieval",
@@ -421883,7 +421809,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/arrow-a",
-   "thickRel": 0.72
+   "thickRel": 0.77
   },
   {
    "kit": "rgp-weapons",
@@ -421940,7 +421866,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/arrow-a",
-   "thickRel": 0.7
+   "thickRel": 0.75
   },
   {
    "kit": "rgp-weapons",
@@ -421996,7 +421922,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/axe-a",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -422052,7 +421978,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/axe-a",
-   "thickRel": 1.44
+   "thickRel": 1.45
   },
   {
    "kit": "rgp-weapons",
@@ -422783,7 +422709,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/sword-a",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "rgp-weapons",
@@ -422833,7 +422759,7 @@
     "textile-cloth-mid"
    ],
    "variant": "rgp-weapons/sword-a",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "rgp-weapons",
@@ -436927,7 +436853,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-farm",
@@ -440704,7 +440630,7 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/sword",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "styloo-farm",
@@ -440758,7 +440684,7 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/sword",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "styloo-farm",
@@ -456062,7 +455988,7 @@
      "inverted": 0.09
     }
    },
-   "thickRel": 1.01,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -456765,7 +456691,7 @@
     "textile-cloth-mid"
    ],
    "variant": "styloo-weapons/sword",
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "styloo-weapons",
@@ -456821,7 +456747,7 @@
     "wood-dark"
    ],
    "variant": "styloo-weapons/sword",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "swords-tember",
@@ -457102,7 +457028,7 @@
      "other": 0.06
     }
    },
-   "thickRel": 0.81,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "warning",
@@ -457233,7 +457159,7 @@
     "gemstone",
     "metal-gold"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "swords-tember",
@@ -457299,7 +457225,7 @@
      "inside-out": 0.02
     }
    },
-   "thickRel": 1.12,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "warning",
@@ -457371,7 +457297,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 0.98,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
@@ -457437,7 +457363,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "swords-tember",
@@ -457553,7 +457479,7 @@
     "metal-steel",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.6,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -457606,7 +457532,7 @@
     "leaf-light",
     "wood-mid"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "swords-tember",
@@ -457647,7 +457573,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "taalei-kit",
@@ -461793,7 +461719,7 @@
     "metal-steel"
    ],
    "variant": "weapon-pack/sword-1",
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "weapon-pack",
@@ -461846,7 +461772,7 @@
     "leather"
    ],
    "variant": "weapon-pack/sword-1",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "western",
@@ -477300,7 +477226,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.87
+   "thickRel": 2.01
   },
   {
    "kit": "zombie-weapons",
@@ -477388,7 +477314,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "zombie-weapons",
@@ -477631,7 +477557,7 @@
      "open": 1
     }
    },
-   "thickRel": 2.01,
+   "thickRel": 2.04,
    "lint": [
     {
      "level": "error",
@@ -478371,7 +478297,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.82
   },
   {
    "kit": "zombie-weapons",
@@ -478472,7 +478398,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "zombie-weapons",
