@@ -160,7 +160,6 @@ const SIZES = {
   'obj-equipment-weapon-ranged-firearm-rifle-sniper': 1.2,
   'obj-equipment-weapon-ranged-firearm-shotgun': 1.1,
   'obj-equipment-weapon-ranged-firearm-smg': 0.6,
-  'obj-equipment-weapon-ranged-grenade': 0.1,
   'obj-equipment-weapon-ranged-launcher': 1,
   'obj-equipment-weapon-siege-ammunition-cannonball': 0.12,
   'obj-equipment-weapon-siege-cannon': 2,
