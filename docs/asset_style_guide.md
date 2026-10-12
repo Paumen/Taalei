@@ -110,11 +110,16 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 **Golden rules** — the hardest rules, checked on every PR by `node lint/golden.mjs` straight from the workfiles. A broken rule fails the PR check. Values in `golden` in `lint/variables.json`.
 
 - **`R01`** — No catalogue model's longest side is under 0.05. A smaller model is scaled up to 0.05 or rejected for `size`.
-- **`R02`** — No zero-length vertex normals.
+- **`R02`** — Every vertex normal is unit length, as the glTF validator reads it.
 - **`R03`** — No triangle with corners in different colormap cells.
 - **`R04`** — No scale on a root node: the size belongs in the geometry.
 - **`R05`** — Every model has triangles.
 - **`R06`** — The only texture is `Textures/colormap.png`.
+- **`R07`** — No transparency: every material is opaque. `glass` and models with an animation clip (`animation`) are exempt.
+- **`R08`** — No PBR factors: every material is metallic 0, roughness 1. `glass` is exempt.
+- **`R09`** — One draw call per model. `glass`, `animation` and `tba` are exempt.
+- **`R10`** — Every workfile has exactly one kind, a node of `lint/kinds.json`, and every tagged model has a workfile.
+- **`R11`** — Every material tag is a node of `lint/materials.json`, and no model carries a material together with a subtype of it.
 
 - **`I01`** — Chunky, caricatured; not thin, not primitive.
 - **`I02`** — Clean facets, chamfered edges, rounded-soft.
@@ -122,7 +127,7 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 - **`I05`** — Like its deepest kind in shape, colour and style.
 - **`I06`** — No outline, unless the outline is a core feature (`P04`).
 
-The measured global rows, `I01`, `I08`, `I09`, `I11`, live in `lint/measures.json` (§2.2).
+The measured global row `I01` lives in `lint/measures.json` (§2.2).
 
 ---
 
@@ -148,7 +153,7 @@ Everything measured off the mesh: extents, counts, pivots, band counts.
 
 Every rule that asserts on one recorded field of one model lives here as a row: `id`, `when`, `except`, `field`, `assert`, `value`. `when` and `except` are `F05` terms; `field` is a recorded field or `nmat`; `assert` is `min`, `max`, `range`, `is` or `not`; `value` is a number, `true`/`false`, a range `a–b`, or a field with a factor (`nmat × 2`). A row applies when `when` matches and `except` does not.
 
-Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors, draw calls), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15`, `G17` and `G30` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness), `G29` (normals). `G06` leaves out `kind:str-part` and `kind:str-barrier-fence`, which are pivoted at a corner or edge. `G11` leaves out `kind:obj-transport-land-rail` and `kind:obj-transport-air-space`, whose livery takes more colours, `kind:str-fixture-light-traffic`, whose three lamps are one material, `kind:obj-equipment-pocketitem-scroll`, whose seal and writing have no material, and `kind:str-fixture-marker-totem`, whose paint has no material. `G30` holds `kind:str-building & tag:space` to three bands per material instead. `G12` leaves out birds, sushi, lettering signs and writing tools, which stay under `G13`. `G15` leaves out `kind:obj-transport-land-road`, which `G13` caps at every size.
+Rows here: `I01` (chunky — a warning), `G05`–`G06` (grounded, centred — warnings, not errors), `G09`, `G11`–`G15`, `G17` and `G30` (materials and the band budget), `G19` (barrel triangles), `G27` (tube thickness). `G06` leaves out `kind:str-part` and `kind:str-barrier-fence`, which are pivoted at a corner or edge. `G11` leaves out `kind:obj-transport-land-rail` and `kind:obj-transport-air-space`, whose livery takes more colours, `kind:str-fixture-light-traffic`, whose three lamps are one material, `kind:obj-equipment-pocketitem-scroll`, whose seal and writing have no material, and `kind:str-fixture-marker-totem`, whose paint has no material. `G30` holds `kind:str-building & tag:space` to three bands per material instead. `G12` leaves out birds, sushi, lettering signs and writing tools, which stay under `G13`. `G15` leaves out `kind:obj-transport-land-road`, which `G13` caps at every size.
 
 `leaf` is 1 for a model whose kind has no children in `lint/kinds.json`, 0 otherwise.
 
@@ -157,8 +162,6 @@ Rows here: `I01` (chunky — a warning), `I08`, `I09`, `I11` (alpha, PBR factors
 `G27` holds `minTube` to `tubeneed`: `tube.min` on the model's kind in `lint/kinds.json`, inherited per `F10`, 0.026 from `defaults`. Kinds carrying the thinnest real-world things set 0.006: bowstrings, darts and other ranged weapons, fishing lines, necklace and lantern cords, instrument strings, fish bones, chopsticks, whisk wires, flower stems, waterplants, leafy plants, spoons, kitchen knives, table cutlery, spatulas, fauna, shells, bags, glasses, pocket items, stationery, hand tools, scales, crates and sets, and also grass, deadwood branches, apparel, tool supplies, gas cylinders, bottles, kettles, ovens, pickaxes, radios, signs, target dummies, sculptures, air transport, churches and barracks, remains, hay, lollipops, market stalls and mills. Food, books, other weapons, vials, furnishing, toys, tents, mid fences, leisure fixtures, art and wheat set 0.012.
 
 `thick` reads `I01`: twice the mean depth of the model's solid over its middle extent. The solid is everything not seen from a view at or above the horizon, so a hollow shell that shows no opening counts as solid and an open barrel shows its walls; gaps narrower than about 7% of the longest extent are closed first. `thickRel` is `thick` over the median of the deepest kind with at least 8 models, `tag:plural`, `tag:piece`, `tag:comp` and `kind:set` left out. `I01` warns below 0.5, on leaf kinds only.
-
-`badNormals` counts vertex normals that are not unit length, zero-length ones included, as the glTF validator reads them. `G29` allows none.
 
 `G13` caps bands at `bandsmax`: `bands.max` on the model's kind in `lint/kinds.json`, inherited per `F10`, 5 from `defaults`. A kind raises it only where several colours define the thing itself: road vehicles set 7, arcade machines, carts and vending machines 6, target dummies 7.
 

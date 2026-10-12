@@ -149,8 +149,8 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   or set high on a building — a lantern, sign, wall shelf, window, canopy,
   waterwheel), `tba` (needs an animation made
   for it and keeps the moving parts as separate draw calls, so it is exempt
-  from `I11`; the model carries none yet), `animation` (the model carries an
-  animation clip, so it is exempt from `I08` and `I11`; every model with a clip
+  from `R09`; the model carries none yet), `animation` (the model carries an
+  animation clip, so it is exempt from `R07` and `R09`; every model with a clip
   takes it).
 
 `hero` and material `special` are the PO's to assign, per the bible's process

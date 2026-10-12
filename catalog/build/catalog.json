@@ -24069,7 +24069,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 765,
+   "count": 763,
    "parent": "metal"
   },
   {
@@ -24077,7 +24077,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1841,
+   "count": 1843,
    "parent": "metal"
   },
   {
@@ -24133,7 +24133,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains, planets.",
-   "count": 383,
+   "count": 382,
    "parent": "stone"
   },
   {
@@ -24189,7 +24189,7 @@
    "name": "Ceramic light",
    "type": "material",
    "description": "Light fired clay: porcelain plates, cups, basins, white tiles.",
-   "count": 314,
+   "count": 313,
    "parent": "ceramic"
   },
   {
@@ -24197,7 +24197,7 @@
    "name": "Ceramic mid",
    "type": "material",
    "description": "Terracotta: flower pots, jugs, roof tiles.",
-   "count": 124,
+   "count": 125,
    "parent": "ceramic"
   },
   {
@@ -24308,7 +24308,7 @@
    "name": "Paper sheet",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, labels.",
-   "count": 327,
+   "count": 326,
    "parent": "paper"
   },
   {
@@ -28519,7 +28519,7 @@
    "id": "tba",
    "name": "TBA",
    "type": "tag",
-   "description": "Needs an animation made for it and keeps the moving parts as separate draw calls, so it is exempt from I11; the model itself carries none yet.",
+   "description": "Needs an animation made for it and keeps the moving parts as separate draw calls, so it is exempt from R09; the model itself carries none yet.",
    "count": 247
   },
   {
@@ -28916,7 +28916,7 @@
    "id": "animation",
    "name": "Animation",
    "type": "tag",
-   "description": "Carries an animation clip in the .glb: things that open, flip or turn. Exempt from I08 and I11, so its moving parts may be transparent and draw separately. Derived from the models themselves, so not tracked in catalog/data/tags.json.",
+   "description": "Carries an animation clip in the .glb: things that open, flip or turn. Exempt from R07 and R09, so its moving parts may be transparent and draw separately. Derived from the models themselves, so not tracked in catalog/data/tags.json.",
    "count": 104,
    "derived": true
   }
@@ -33371,7 +33371,7 @@
    "kit": "3dm-city",
    "collection": "3dm",
    "name": "ac-unit",
-   "hash": "e321ee37a0",
+   "hash": "9fd2421886",
    "kind": "str-fixture-installation",
    "size": "m",
    "wdh": [
@@ -33400,27 +33400,20 @@
      0.148,
      0.75
     ],
-    "6,1": [
+    "15,3": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#3a3e4b",
+    "#7a8491",
     "#d8cfb7"
    ],
    "tags": [
     "3dm",
-    "metal-iron-dark"
+    "metal-steel"
    ],
-   "thickRel": 1.15,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (str-fixture-installation)"
-    }
-   ]
+   "thickRel": 1.15
   },
   {
    "kit": "3dm-city",
@@ -33485,7 +33478,7 @@
    "kit": "3dm-city",
    "collection": "3dm",
    "name": "bench-street",
-   "hash": "28c98e6d5d",
+   "hash": "a51c6f1503",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
@@ -34887,7 +34880,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "ak-47",
-   "hash": "d8387d5251",
+   "hash": "c2d2f8c455",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
@@ -35291,7 +35284,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "grease-gun",
-   "hash": "05f93dd0b6",
+   "hash": "e781581521",
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "size": "s",
    "wdh": [
@@ -35410,7 +35403,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "m24-grenade",
-   "hash": "901f93fe5e",
+   "hash": "fd2ec03c6c",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
@@ -36035,7 +36028,7 @@
    "kit": "3dm-industrial",
    "collection": "3dm",
    "name": "car-jack",
-   "hash": "0c94bc32f6",
+   "hash": "dbcdaeebb5",
    "kind": "obj-equipment-tool-mechanism",
    "size": "s",
    "wdh": [
@@ -36894,17 +36887,9 @@
    "tags": [
     "3dm",
     "metal-steel",
-    "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1.75,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "paper-sheet wants ivory, has basalt azure nickel"
-    }
-   ]
+   "thickRel": 1.75
   },
   {
    "kit": "3dm-industrial-2",
@@ -37267,7 +37252,7 @@
    "kit": "3dm-medieval",
    "collection": "3dm",
    "name": "guillotine",
-   "hash": "7573bba2a8",
+   "hash": "6c75293e0e",
    "kind": "str-fixture-punishment",
    "size": "m",
    "wdh": [
@@ -38357,7 +38342,7 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "candy-b-moss",
-   "hash": "0f16823b7c",
+   "hash": "8cd33cdf29",
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
@@ -38401,13 +38386,27 @@
     "special-food"
    ],
    "variant": "aq-hallow/candy-b",
-   "thickRel": 0.9
+   "backface": {
+    "share": 0.0049,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 135/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "candy-b",
-   "hash": "55f1d806a1",
+   "hash": "f3dc10c101",
    "kind": "obj-food-sweet",
    "size": "s",
    "wdh": [
@@ -38451,7 +38450,21 @@
     "special-food"
    ],
    "variant": "aq-hallow/candy-b",
-   "thickRel": 0.9
+   "backface": {
+    "share": 0.0044,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 135/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -40681,7 +40694,7 @@
     "scale-small",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.79
+   "thickRel": 1.81
   },
   {
    "kit": "aq-mushroom",
@@ -45653,7 +45666,7 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cliff-corner",
-   "hash": "c0edbd859e",
+   "hash": "c582df1b44",
    "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
@@ -45661,20 +45674,20 @@
     2.191,
     1.674
    ],
-   "tris": 2768,
-   "tpu": 343,
+   "tris": 2726,
+   "tpu": 338,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 152064,
-   "vtx": 4184,
+   "bytes": 152228,
+   "vtx": 4197,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2041,
-   "avgTri": 0.0066,
+   "thick": 0.204,
+   "avgTri": 0.00671,
    "anglePct": 17,
-   "vpt": 1.51,
+   "vpt": 1.54,
    "grad": 0.59,
    "spread": {
     "14,3": [
@@ -45699,22 +45712,7 @@
     "leaf-light",
     "stone-rock"
    ],
-   "backface": {
-    "share": 0.0069,
-    "view": "315/50",
-    "causes": {
-     "inverted": 0.48,
-     "open": 0.52
-    }
-   },
-   "thickRel": 1.05,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.7% of view 315/50 over 0.5%: open 52.0%, inverted 48.0%"
-    }
-   ]
+   "thickRel": 1.05
   },
   {
    "kit": "avra-nature",
@@ -45965,7 +45963,7 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "ivy",
-   "hash": "ff5ec0682f",
+   "hash": "9d9b51bff5",
    "kind": "env-flora-plant",
    "size": "m",
    "wdh": [
@@ -45973,26 +45971,26 @@
     0.047,
     0.75
    ],
-   "tris": 1352,
-   "tpu": 3679,
+   "tris": 2590,
+   "tpu": 7048,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 75796,
-   "vtx": 2068,
+   "bytes": 222252,
+   "vtx": 6412,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.001,
    "minTube": 0.0039,
-   "thick": 0.0395,
-   "avgTri": 0.00012,
-   "anglePct": 11,
-   "vpt": 1.53,
-   "grad": 0.35,
+   "thick": 0.0393,
+   "avgTri": 0.00011,
+   "anglePct": 8,
+   "vpt": 2.48,
+   "grad": 0.32,
    "spread": {
     "3,0": [
-     0.148,
-     0.742
+     0.234,
+     0.656
     ],
     "3,1": [
      0.281,
@@ -46014,21 +46012,8 @@
     "leaf-light",
     "mounted"
    ],
-   "backface": {
-    "share": 0.6661,
-    "view": "180/20",
-    "causes": {
-     "open": 0.97,
-     "inverted": 0.03
-    }
-   },
    "thickRel": 0.48,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "66.6% of view 180/20 over 0.5%: open 97.0%, inverted 3.0%"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -46464,28 +46449,28 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "slab",
-   "hash": "c28d0e37c1",
+   "hash": "ebaabfbe4f",
    "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
     1.35,
     1.121,
-    0.209
+    0.21
    ],
-   "tris": 266,
-   "tpu": 251,
+   "tris": 260,
+   "tpu": 245,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14076,
+   "bytes": 14040,
    "vtx": 342,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "thick": 0.1006,
-   "avgTri": 0.01117,
+   "avgTri": 0.01143,
    "anglePct": 60,
-   "vpt": 1.29,
+   "vpt": 1.32,
    "grad": 0.6,
    "spread": {
     "12,3": [
@@ -46504,7 +46489,22 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 1.77
+   "backface": {
+    "share": 0.0014,
+    "view": "135/20",
+    "causes": {
+     "open": 0.71,
+     "inverted": 0.29
+    }
+   },
+   "thickRel": 1.77,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/20 over 0.1%: open 71.0%, inverted 29.0%"
+    }
+   ]
   },
   {
    "kit": "avra-nature",
@@ -47770,7 +47770,7 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "staff",
-   "hash": "de0c47ad17",
+   "hash": "b825a071f8",
    "kind": "obj-equipment-weapon-magic-staff",
    "size": "m",
    "wdh": [
@@ -47778,21 +47778,21 @@
     0.084,
     0.886
    ],
-   "tris": 721,
-   "tpu": 1661,
+   "tris": 730,
+   "tpu": 1681,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 37104,
-   "vtx": 977,
+   "bytes": 37892,
+   "vtx": 1000,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0238,
    "thick": 0.3781,
    "avgTri": 0.00015,
-   "anglePct": 9,
-   "vpt": 1.36,
+   "anglePct": 10,
+   "vpt": 1.37,
    "grad": 0.41,
    "spread": {
     "2,0": [
@@ -47824,21 +47824,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0065,
-    "view": "180/50",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1.92,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.7% of view 180/50 over 0.5%: open 100.0%"
-    }
-   ]
+   "thickRel": 1.92
   },
   {
    "kit": "avra-weapons",
@@ -47898,7 +47884,7 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "weapon-rack",
-   "hash": "4537e88af3",
+   "hash": "a8402e0ccd",
    "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "m",
    "wdh": [
@@ -51659,7 +51645,7 @@
   {
    "kit": "cooking-assets",
    "name": "stove-induction",
-   "hash": "cdfe8aec63",
+   "hash": "e2e865d040",
    "kind": "obj-device-appliance-stove",
    "size": "s",
    "wdh": [
@@ -51700,6 +51686,20 @@
     "comp",
     "mab",
     "rubber"
+   ],
+   "backface": {
+    "share": 0.0014,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -51842,7 +51842,7 @@
   {
    "kit": "cooking-assets",
    "name": "toaster-oven",
-   "hash": "fc1de56327",
+   "hash": "dc0d94c021",
    "kind": "obj-device-appliance-kitchen",
    "size": "s",
    "wdh": [
@@ -51860,7 +51860,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0106,
+   "minTube": 0.0105,
    "thick": 0.2465,
    "avgTri": 0.00191,
    "anglePct": 43,
@@ -51901,14 +51901,14 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0106 wants min 0.026"
+     "text": "G27 minTube 0.0105 wants min 0.026"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "toaster",
-   "hash": "cd4ef4496f",
+   "hash": "1a8ceb11e5",
    "kind": "obj-device-appliance-toaster",
    "size": "s",
    "wdh": [
@@ -52826,7 +52826,7 @@
   {
    "kit": "dungeon",
    "name": "beam-001",
-   "hash": "c0f639b9e0",
+   "hash": "f89bde4c4a",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -52879,7 +52879,7 @@
   {
    "kit": "dungeon",
    "name": "beam-002",
-   "hash": "9169c9afcd",
+   "hash": "621043d298",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -52932,7 +52932,7 @@
   {
    "kit": "dungeon",
    "name": "beam",
-   "hash": "a7b24709ec",
+   "hash": "d5948242f3",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -53393,12 +53393,12 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.37,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.37 wants min 0.5"
+     "text": "I01 thickRel 0.38 wants min 0.5"
     },
     {
      "level": "error",
@@ -53810,21 +53810,21 @@
     "wood-light"
    ],
    "variant": "dungeon/walls-001",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "dungeon",
    "name": "walls-002",
-   "hash": "336ab55c55",
+   "hash": "e428dfff7c",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
     2.533,
     0.206,
-    1.016
+    1.019
    ],
    "tris": 3201,
-   "tpu": 6038,
+   "tpu": 6020,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -53834,7 +53834,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0537,
-   "thick": 0.1124,
+   "thick": 0.1123,
    "avgTri": 0.00295,
    "anglePct": 73,
    "vpt": 1.37,
@@ -53874,7 +53874,7 @@
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 6038 over max 5000 (str)"
+     "text": "tpu 6020 over max 5000 (str)"
     }
    ]
   },
@@ -54077,7 +54077,7 @@
     "stone-masonry-light"
    ],
    "variant": "dungeon/walls-010",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "dungeon",
@@ -54119,7 +54119,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/walls-010",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "dungeon",
@@ -54160,7 +54160,7 @@
     "broken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "dungeon",
@@ -54206,12 +54206,12 @@
    "tags": [
     "stone-masonry-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "dungeon",
    "name": "wallslittle-001",
-   "hash": "ec2fca7ad4",
+   "hash": "15c4583442",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -54270,7 +54270,7 @@
   {
    "kit": "dungeon",
    "name": "wallslittle-002",
-   "hash": "fac530b660",
+   "hash": "17ab5f6e72",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
@@ -54310,7 +54310,7 @@
    "tags": [
     "stone-masonry-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "dungeon",
@@ -54356,12 +54356,12 @@
    "tags": [
     "stone-masonry-mid"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "dungeon",
    "name": "woodchair-001",
-   "hash": "0929f1f49e",
+   "hash": "f33c29f039",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
    "wdh": [
@@ -54380,7 +54380,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0271,
-   "thick": 0.1179,
+   "thick": 0.1178,
    "avgTri": 0.00059,
    "anglePct": 87,
    "vpt": 1.47,
@@ -54415,7 +54415,7 @@
   {
    "kit": "dungeon",
    "name": "woodchair",
-   "hash": "c1124cc67b",
+   "hash": "8688623808",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
@@ -54436,7 +54436,7 @@
    "minTube": 0.016,
    "thick": 0.1082,
    "avgTri": 0.00073,
-   "anglePct": 64,
+   "anglePct": 65,
    "vpt": 1.56,
    "grad": 0.6,
    "spread": {
@@ -55133,7 +55133,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "barn",
-   "hash": "3d9515b412",
+   "hash": "3249393b5b",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -55146,14 +55146,14 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 189748,
+   "bytes": 189752,
    "vtx": 5300,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0393,
-   "thick": 0.1587,
-   "avgTri": 0.11066,
+   "thick": 0.1586,
+   "avgTri": 0.11071,
    "anglePct": 30,
    "vpt": 1.71,
    "grad": 0.6,
@@ -55489,7 +55489,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.25
   },
   {
    "kit": "emace-village",
@@ -56598,7 +56598,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-a",
-   "hash": "5d97baa7d3",
+   "hash": "f91d590be5",
    "kind": "str-access-path",
    "size": "m",
    "wdh": [
@@ -61664,7 +61664,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stool",
-   "hash": "6c5ee34309",
+   "hash": "7d88f0271c",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
    "wdh": [
@@ -61683,7 +61683,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "thick": 0.0895,
+   "thick": 0.0894,
    "avgTri": 0.00336,
    "anglePct": 30,
    "vpt": 1.74,
@@ -61706,7 +61706,22 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.76
+   "backface": {
+    "share": 0.0016,
+    "view": "135/50",
+    "causes": {
+     "open": 0.99,
+     "inverted": 0.01
+    }
+   },
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/50 over 0.1%: open 99.0%, inverted 1.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -61981,7 +61996,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "town-hall",
-   "hash": "d589f63bc0",
+   "hash": "03367d2973",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -62000,7 +62015,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0059,
-   "thick": 0.2174,
+   "thick": 0.2183,
    "avgTri": 0.05371,
    "anglePct": 45,
    "vpt": 2.99,
@@ -62190,7 +62205,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/wall-log-doorway",
-   "thickRel": 1.38
+   "thickRel": 1.39
   },
   {
    "kit": "emace-village",
@@ -62238,7 +62253,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-log-doorway",
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "emace-village",
@@ -62362,7 +62377,7 @@
      "inverted": 0.74
     }
    },
-   "thickRel": 0.98,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
@@ -62497,7 +62512,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-timber-door",
-   "hash": "64f414eb40",
+   "hash": "48cc8fc907",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
@@ -62517,7 +62532,7 @@
    "minEdge": 0.002,
    "minTube": 0.066,
    "thick": 0.1007,
-   "avgTri": 0.04426,
+   "avgTri": 0.04427,
    "anglePct": 82,
    "vpt": 1.9,
    "grad": 0.54,
@@ -62540,13 +62555,13 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber-door",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-timber-window-door",
-   "hash": "7ad3a17c29",
+   "hash": "1540cbb158",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
@@ -62566,7 +62581,7 @@
    "minEdge": 0.001,
    "minTube": 0.0549,
    "thick": 0.1061,
-   "avgTri": 0.04006,
+   "avgTri": 0.04007,
    "anglePct": 88,
    "vpt": 1.85,
    "grad": 0.52,
@@ -62589,13 +62604,13 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber-door",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-timber-windows",
-   "hash": "e8afa85102",
+   "hash": "e15a4035f2",
    "kind": "str-part-wall-unit-window",
    "size": "l",
    "wdh": [
@@ -62615,7 +62630,7 @@
    "minEdge": 0.005,
    "minTube": 0.105,
    "thick": 0.114,
-   "avgTri": 0.04793,
+   "avgTri": 0.04794,
    "anglePct": 81,
    "vpt": 1.73,
    "grad": 0.43,
@@ -62687,7 +62702,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "emace-village",
@@ -71292,7 +71307,7 @@
   {
    "kit": "food-pack-2",
    "name": "waffle-plate",
-   "hash": "1c9fbd3e02",
+   "hash": "7bee4d8f43",
    "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
@@ -71300,25 +71315,25 @@
     0.313,
     0.112
    ],
-   "tris": 2766,
-   "tpu": 8064,
+   "tris": 1658,
+   "tpu": 4834,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 65996,
-   "vtx": 1499,
+   "bytes": 170552,
+   "vtx": 4974,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.103,
-   "avgTri": 0.00017,
-   "anglePct": 21,
-   "vpt": 0.54,
-   "grad": 0.5,
+   "minEdge": 0.005,
+   "thick": 0.1032,
+   "avgTri": 0.00028,
+   "anglePct": 23,
+   "vpt": 3,
+   "grad": 0.6,
    "spread": {
     "5,2": [
-     0.406,
-     0.68
+     0.445,
+     0.633
     ],
     "1,0": [
      0.016,
@@ -71343,14 +71358,7 @@
     "ceramic-light",
     "special-food"
    ],
-   "thickRel": 0.6,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 8064 over max 5000 (obj-food)"
-    }
-   ]
+   "thickRel": 0.6
   },
   {
    "kit": "food-pack-2",
@@ -75660,7 +75668,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall-curved-small",
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "fs-house",
@@ -75715,7 +75723,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "fs-house",
@@ -75807,7 +75815,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall",
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "fs-house",
@@ -78650,7 +78658,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-steps-conduit",
-   "hash": "bf35c93451",
+   "hash": "1e2ec12081",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
@@ -78658,20 +78666,20 @@
     0.927,
     0.52
    ],
-   "tris": 357,
-   "tpu": 1041,
+   "tris": 355,
+   "tpu": 1035,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18616,
+   "bytes": 18604,
    "vtx": 470,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0604,
    "thick": 0.0994,
-   "avgTri": 0.00462,
-   "anglePct": 43,
+   "avgTri": 0.00452,
+   "anglePct": 45,
    "vpt": 1.32,
    "grad": 0.67,
    "spread": {
@@ -79602,7 +79610,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-corner",
-   "hash": "af5d478abd",
+   "hash": "26a8d708a3",
    "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
@@ -79610,21 +79618,21 @@
     0.09,
     0.45
    ],
-   "tris": 586,
-   "tpu": 1708,
+   "tris": 590,
+   "tpu": 1720,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27700,
-   "vtx": 710,
+   "bytes": 28172,
+   "vtx": 724,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "thick": 0.1051,
-   "avgTri": 0.00142,
+   "avgTri": 0.0014,
    "anglePct": 91,
-   "vpt": 1.21,
-   "grad": 0.42,
+   "vpt": 1.23,
+   "grad": 0.41,
    "spread": {
     "4,2": [
      0.5,
@@ -79651,7 +79659,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-cross",
-   "hash": "9042ac0ba8",
+   "hash": "2f11ead172",
    "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
@@ -79659,21 +79667,21 @@
     0.09,
     0.45
    ],
-   "tris": 702,
-   "tpu": 2047,
+   "tris": 712,
+   "tpu": 2076,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34700,
-   "vtx": 907,
+   "bytes": 35784,
+   "vtx": 939,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "thick": 0.1021,
-   "avgTri": 0.00126,
+   "avgTri": 0.00123,
    "anglePct": 91,
-   "vpt": 1.29,
-   "grad": 0.42,
+   "vpt": 1.32,
+   "grad": 0.41,
    "spread": {
     "4,2": [
      0.5,
@@ -79700,7 +79708,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-end",
-   "hash": "9700302284",
+   "hash": "fe92f65d67",
    "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
@@ -79708,13 +79716,13 @@
     0.09,
     0.45
    ],
-   "tris": 528,
-   "tpu": 1539,
+   "tris": 529,
+   "tpu": 1542,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 24336,
-   "vtx": 616,
+   "bytes": 24504,
+   "vtx": 621,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -79722,7 +79730,7 @@
    "avgTri": 0.00152,
    "anglePct": 90,
    "vpt": 1.17,
-   "grad": 0.43,
+   "grad": 0.42,
    "spread": {
     "4,2": [
      0.5,
@@ -79749,7 +79757,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-straight",
-   "hash": "66dac7f137",
+   "hash": "7ce7b1cf64",
    "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
@@ -79757,21 +79765,21 @@
     0.09,
     0.45
    ],
-   "tris": 586,
-   "tpu": 1708,
+   "tris": 590,
+   "tpu": 1720,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27800,
-   "vtx": 713,
+   "bytes": 28272,
+   "vtx": 727,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "thick": 0.105,
-   "avgTri": 0.00142,
+   "avgTri": 0.0014,
    "anglePct": 91,
-   "vpt": 1.22,
-   "grad": 0.42,
+   "vpt": 1.23,
+   "grad": 0.41,
    "spread": {
     "4,2": [
      0.5,
@@ -79798,7 +79806,7 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-wall-conduit-emitter-t-joint",
-   "hash": "6cfbaa2cf3",
+   "hash": "5fce23c413",
    "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
@@ -79806,21 +79814,21 @@
     0.09,
     0.45
    ],
-   "tris": 644,
-   "tpu": 1878,
+   "tris": 651,
+   "tpu": 1898,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 31152,
-   "vtx": 807,
+   "bytes": 31932,
+   "vtx": 830,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "thick": 0.1036,
-   "avgTri": 0.00133,
+   "avgTri": 0.00131,
    "anglePct": 91,
-   "vpt": 1.25,
-   "grad": 0.42,
+   "vpt": 1.27,
+   "grad": 0.41,
    "spread": {
     "4,2": [
      0.5,
@@ -81702,7 +81710,7 @@
     "scale-small",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "fs-temple",
@@ -82265,7 +82273,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-curved-small-middle",
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "fs-temple",
@@ -82398,7 +82406,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-inner-a",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "fs-temple",
@@ -82442,7 +82450,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-inner-a",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "fs-temple",
@@ -82486,7 +82494,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-outer-a",
-   "thickRel": 1.56
+   "thickRel": 1.57
   },
   {
    "kit": "fs-temple",
@@ -82530,7 +82538,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-outer-a",
-   "thickRel": 1.53
+   "thickRel": 1.54
   },
   {
    "kit": "fs-temple",
@@ -82574,7 +82582,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "fs-temple",
@@ -82618,7 +82626,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "fs-temple",
@@ -82662,7 +82670,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "fs-temple",
@@ -82706,7 +82714,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "fs-temple",
@@ -82750,7 +82758,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-half-a",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "fs-temple",
@@ -82794,7 +82802,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-half-a",
-   "thickRel": 1.79
+   "thickRel": 1.81
   },
   {
    "kit": "fs-temple",
@@ -83326,7 +83334,7 @@
     "fs",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "fs-temple",
@@ -83369,7 +83377,7 @@
     "scale-small",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "fs-temple",
@@ -91158,7 +91166,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-narrow-tall-a",
-   "thickRel": 1.69
+   "thickRel": 1.7
   },
   {
    "kit": "fs-town",
@@ -91206,7 +91214,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-narrow-tall-a",
-   "thickRel": 1.69
+   "thickRel": 1.7
   },
   {
    "kit": "fs-town",
@@ -91254,7 +91262,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "fs-town",
@@ -91302,7 +91310,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "fs-town",
@@ -91567,7 +91575,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "fs-town",
@@ -91615,7 +91623,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "fs-town",
@@ -91658,7 +91666,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.48
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -91701,7 +91709,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.48
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -91744,7 +91752,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.48
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -91787,7 +91795,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.48
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -91830,7 +91838,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.48
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -91964,7 +91972,7 @@
     "scale-small",
     "special"
    ],
-   "thickRel": 2.69
+   "thickRel": 2.71
   },
   {
    "kit": "fs-town",
@@ -92011,7 +92019,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/stucco-doorway-narrow-tall",
-   "thickRel": 1.69
+   "thickRel": 1.7
   },
   {
    "kit": "fs-town",
@@ -92058,7 +92066,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/stucco-doorway-narrow-tall",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "fs-town",
@@ -92455,7 +92463,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-window-double-narrow-tall",
-   "hash": "c82a6be5ab",
+   "hash": "5baf2306f5",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -92508,7 +92516,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stucco-window-double-narrow",
-   "hash": "6cc4fdb4de",
+   "hash": "04fa6783f4",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -92526,7 +92534,7 @@
    "grounded": true,
    "minEdge": 0.013,
    "minTube": 0.0132,
-   "thick": 0.2378,
+   "thick": 0.2379,
    "avgTri": 0.01178,
    "anglePct": 100,
    "vpt": 1.56,
@@ -93908,26 +93916,26 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "window-upper-convex",
-   "hash": "748a29c95c",
+   "hash": "c1a4631013",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
     1.388,
     0.636,
-    1.431
+    1.432
    ],
    "tris": 560,
    "tpu": 443,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 30048,
+   "bytes": 30068,
    "vtx": 785,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
    "minTube": 0.0132,
-   "thick": 0.1577,
+   "thick": 0.158,
    "avgTri": 0.01442,
    "anglePct": 86,
    "vpt": 1.4,
@@ -93967,7 +93975,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 1.431 over max 1.2 (str-part-wall-unit)"
+     "text": "high 1.432 over max 1.2 (str-part-wall-unit)"
     },
     {
      "level": "error",
@@ -93980,24 +93988,24 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "window-upper-straight",
-   "hash": "d8c38cc588",
+   "hash": "a1c8cc5df5",
    "kind": "str-part-roof-unit",
    "size": "l",
    "wdh": [
     0.636,
     1.388,
-    1.696
+    1.698
    ],
    "tris": 448,
    "tpu": 299,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 27220,
+   "bytes": 27244,
    "vtx": 720,
    "grounded": true,
    "minEdge": 0.013,
-   "thick": 0.1605,
+   "thick": 0.1607,
    "avgTri": 0.01955,
    "anglePct": 86,
    "vpt": 1.61,
@@ -98711,7 +98719,7 @@
    "kit": "ipoly-concert",
    "collection": "ipoly",
    "name": "concert-stage",
-   "hash": "fff32390e9",
+   "hash": "7b9ae57e37",
    "kind": "str-stage",
    "size": "l",
    "wdh": [
@@ -102777,7 +102785,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "display-case-long",
-   "hash": "c952807c0d",
+   "hash": "1bd7a429b3",
    "kind": "obj-furnishing-furniture-counter",
    "size": "m",
    "wdh": [
@@ -102798,7 +102806,7 @@
    "minTube": 0.0555,
    "thick": 0.1296,
    "avgTri": 0.00603,
-   "anglePct": 88,
+   "anglePct": 87,
    "vpt": 1.59,
    "grad": 0.5,
    "spread": {
@@ -102839,7 +102847,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "display-case-short",
-   "hash": "618138bec9",
+   "hash": "b5227f935c",
    "kind": "obj-furnishing-furniture-counter",
    "size": "s",
    "wdh": [
@@ -104734,7 +104742,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled-modular-corner-inner",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "isa-bakery",
@@ -104796,7 +104804,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "isa-bakery",
@@ -104853,7 +104861,7 @@
      "other": 0.4
     }
    },
-   "thickRel": 0.73,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -104917,7 +104925,7 @@
      "inverted": 0.53
     }
    },
-   "thickRel": 0.71,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "warning",
@@ -104986,7 +104994,7 @@
      "inverted": 0.03
     }
    },
-   "thickRel": 1.47,
+   "thickRel": 1.48,
    "lint": [
     {
      "level": "warning",
@@ -104999,7 +105007,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-panelled-modular-half",
-   "hash": "736122d2d9",
+   "hash": "a1a0d1a396",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -105042,13 +105050,13 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 1.43
+   "thickRel": 1.44
   },
   {
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-panelled-modular-window-large",
-   "hash": "6d67dad029",
+   "hash": "0f1fe4e4f5",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -105118,7 +105126,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-panelled-modular-window-small",
-   "hash": "183db76a75",
+   "hash": "54e67e6811",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -105232,7 +105240,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 0.72
+   "thickRel": 0.73
   },
   {
    "kit": "isa-bakery",
@@ -105406,7 +105414,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 1.5
+   "thickRel": 1.51
   },
   {
    "kit": "isa-bakery",
@@ -107497,7 +107505,7 @@
     "isa"
    ],
    "variant": "isa-bathroom/wall-tiled",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "isa-bathroom",
@@ -107545,7 +107553,7 @@
     "isa"
    ],
    "variant": "isa-bathroom/wall-tiled",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "isa-bathroom",
@@ -107601,7 +107609,7 @@
     "wood-mid"
    ],
    "variant": "isa-kitchen/wall-tiles-doorway",
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "isa-bathroom",
@@ -107709,7 +107717,7 @@
     "isa"
    ],
    "variant": "isa-bathroom/wall-tiled",
-   "thickRel": 1.5
+   "thickRel": 1.51
   },
   {
    "kit": "isa-food",
@@ -112183,7 +112191,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "utensil-crock",
-   "hash": "5271d80e32",
+   "hash": "6fda7cf6bb",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
@@ -112207,7 +112215,7 @@
    "vpt": 0.85,
    "grad": 0.2,
    "spread": {
-    "5,2": [
+    "5,0": [
      0.266,
      0.43
     ],
@@ -112228,22 +112236,15 @@
     "#7a8491",
     "#804f2a",
     "#ac764c",
-    "#d8cfb7"
+    "#ce7954"
    ],
    "tags": [
-    "ceramic-light",
+    "ceramic-mid",
     "isa",
     "metal-steel",
     "plural",
     "wood-dark",
     "wood-mid"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "ceramic-light wants terracotta sienna, has ivory nickel chestnut camel (obj-kitchenware-cookware)"
-    }
    ]
   },
   {
@@ -112930,7 +112931,7 @@
     "stone-masonry-light"
    ],
    "variant": "isa-kitchen/wall-tiles",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "isa-kitchen",
@@ -112987,7 +112988,7 @@
     "wood-mid"
    ],
    "variant": "isa-kitchen/wall-tiles-doorway",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "isa-kitchen",
@@ -113400,7 +113401,7 @@
     "stone-masonry-light"
    ],
    "variant": "isa-kitchen/wall-tiles",
-   "thickRel": 1.5
+   "thickRel": 1.51
   },
   {
    "kit": "isa-kitchen",
@@ -126652,7 +126653,7 @@
    "kit": "kay-builder",
    "collection": "kay-strategy",
    "name": "watermill-anim",
-   "hash": "b03a36e1ee",
+   "hash": "9751d4055a",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
    "wdh": [
@@ -126714,7 +126715,7 @@
    "kit": "kay-builder",
    "collection": "kay-strategy",
    "name": "watermill",
-   "hash": "a6e372d1f4",
+   "hash": "6d9a2af4dc",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
    "wdh": [
@@ -126773,16 +126774,16 @@
    "kit": "kay-builder",
    "collection": "kay-strategy",
    "name": "well-anim",
-   "hash": "ea236dc49e",
+   "hash": "43bec90fbb",
    "kind": "str-fixture-utility-well",
    "size": "l",
    "wdh": [
     1.642,
     1.246,
-    1.402
+    1.404
    ],
    "tris": 1604,
-   "tpu": 559,
+   "tpu": 558,
    "mat": 1,
    "bands": 5,
    "calls": 2,
@@ -126849,16 +126850,16 @@
    "kit": "kay-builder",
    "collection": "kay-strategy",
    "name": "well",
-   "hash": "57791e45d5",
+   "hash": "ad9132f029",
    "kind": "str-fixture-utility-well",
    "size": "l",
    "wdh": [
     1.642,
     1.246,
-    1.402
+    1.404
    ],
    "tris": 1192,
-   "tpu": 416,
+   "tpu": 415,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -132216,7 +132217,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.8,
+   "thickRel": 0.79,
    "mark": [
     "grounded"
    ]
@@ -137078,7 +137079,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/bed-frame",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "kay-dun-2",
@@ -142749,7 +142750,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "kay-dun-2",
@@ -142805,7 +142806,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.43
+   "thickRel": 1.44
   },
   {
    "kit": "kay-dun-2",
@@ -142854,7 +142855,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 2.34
+   "thickRel": 2.36
   },
   {
    "kit": "kay-dun-2",
@@ -142904,7 +142905,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.43
+   "thickRel": 1.44
   },
   {
    "kit": "kay-dun-2",
@@ -142960,7 +142961,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "kay-dun-2",
@@ -143009,7 +143010,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "kay-dun-2",
@@ -143171,7 +143172,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "kay-dun-2",
@@ -143237,7 +143238,7 @@
     "open"
    ],
    "variant": "kay-dun-2/wall-doorway",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
@@ -143287,7 +143288,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 2.96
+   "thickRel": 2.98
   },
   {
    "kit": "kay-dun-2",
@@ -143343,7 +143344,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "kay-dun-2",
@@ -143392,7 +143393,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.59
+   "thickRel": 1.6
   },
   {
    "kit": "kay-dun-2",
@@ -143441,7 +143442,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.69
+   "thickRel": 1.7
   },
   {
    "kit": "kay-dun-2",
@@ -143490,7 +143491,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.72
+   "thickRel": 1.74
   },
   {
    "kit": "kay-dun-2",
@@ -143588,7 +143589,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "kay-dun-2",
@@ -143643,7 +143644,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "kay-dun-2",
@@ -143764,7 +143765,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "kay-dun-2",
@@ -143813,7 +143814,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-2",
@@ -143862,7 +143863,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-2",
@@ -144147,7 +144148,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "kay-food",
@@ -153698,7 +153699,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/bed-double-b",
-   "thickRel": 0.69
+   "thickRel": 0.7
   },
   {
    "kit": "kay-furniture",
@@ -159061,7 +159062,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "archery-range",
-   "hash": "80d957c5e5",
+   "hash": "e1a8a4eb94",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -161809,7 +161810,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "mine",
-   "hash": "f7d5c8c65f",
+   "hash": "486bb94038",
    "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
@@ -162281,7 +162282,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "ruin",
-   "hash": "bb129d621f",
+   "hash": "67297425d8",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -164789,7 +164790,7 @@
   {
    "kit": "kay-holiday",
    "name": "christmas-tree-decorated",
-   "hash": "8dbd836bbf",
+   "hash": "c562a0d600",
    "kind": "set",
    "size": "m",
    "wdh": [
@@ -164802,7 +164803,7 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 282024,
+   "bytes": 282028,
    "vtx": 7621,
    "grounded": true,
    "centered": true,
@@ -166738,13 +166739,13 @@
   {
    "kit": "kay-holiday",
    "name": "train-track",
-   "hash": "b39e4847ee",
+   "hash": "98f92de3c2",
    "kind": "obj-leisure-toy",
    "size": "l",
    "wdh": [
     2.547,
     3.144,
-    0.215
+    0.218
    ],
    "tris": 8064,
    "tpu": 1439,
@@ -166757,7 +166758,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.006,
-   "thick": 0.0427,
+   "thick": 0.0428,
    "avgTri": 0.00048,
    "anglePct": 57,
    "vpt": 1.72,
@@ -166815,16 +166816,10 @@
     "kay",
     "metal-steel",
     "paper-sheet",
-    "stone-rock",
     "wood-dark"
    ],
    "thickRel": 0.3,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-rock wants taupe taupe-dark, has nickel slate hunter azure terracotta sienna amber chestnut ivory"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -166833,7 +166828,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G11 bands 9 wants max 8"
+     "text": "G11 bands 9 wants max 6"
     },
     {
      "level": "error",
@@ -175006,20 +175001,20 @@
    "kit": "kay-proto",
    "collection": "kay-play",
    "name": "target-stand-a-decorated",
-   "hash": "3dd7fc8c73",
+   "hash": "90f027f15a",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
    "wdh": [
     0.582,
     0.45,
-    0.732
+    0.733
    ],
    "tris": 1078,
-   "tpu": 3005,
+   "tpu": 3001,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 56464,
+   "bytes": 56484,
    "vtx": 1514,
    "grounded": true,
    "centered": true,
@@ -177926,7 +177921,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "textiles-stack-small",
-   "hash": "1b8f9e4427",
+   "hash": "e4118fadd8",
    "kind": "obj-resource-textile",
    "size": "m",
    "wdh": [
@@ -190115,28 +190110,28 @@
    "kit": "ken-arcade",
    "collection": "ken-mini",
    "name": "air-hockey",
-   "hash": "0ca474d19a",
+   "hash": "f9ebc22fea",
    "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
-    0.838,
+    0.837,
     1.197,
     0.699
    ],
-   "tris": 646,
-   "tpu": 920,
+   "tris": 622,
+   "tpu": 887,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 40296,
-   "vtx": 1091,
+   "bytes": 40412,
+   "vtx": 1099,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1068,
-   "avgTri": 0.01104,
+   "minEdge": 0.01,
+   "thick": 0.1118,
+   "avgTri": 0.00961,
    "anglePct": 98,
-   "vpt": 1.69,
+   "vpt": 1.77,
    "grad": 0.68,
    "spread": {
     "6,1": [
@@ -190173,24 +190168,12 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "backface": {
-    "share": 0.0016,
-    "view": "45/50",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.52,
+   "thickRel": 0.54,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 1.197 over max 1.1 (obj-leisure-game-arcade)"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 45/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -191113,7 +191096,7 @@
     "metal-steel",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "ken-arcade",
@@ -191230,7 +191213,7 @@
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.95
+   "thickRel": 1.97
   },
   {
    "kit": "ken-arena",
@@ -191873,7 +191856,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/wall",
-   "thickRel": 1.43
+   "thickRel": 1.45
   },
   {
    "kit": "ken-arena",
@@ -191971,7 +191954,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/wall",
-   "thickRel": 1.94
+   "thickRel": 1.96
   },
   {
    "kit": "ken-arena",
@@ -194551,7 +194534,7 @@
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "delivery",
-   "hash": "9c7cf88efc",
+   "hash": "02def96724",
    "kind": "obj-transport-land-road-truck",
    "size": "m",
    "wdh": [
@@ -194701,7 +194684,7 @@
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "garbage-truck",
-   "hash": "8b4ad396cc",
+   "hash": "06470a0355",
    "kind": "obj-transport-land-road-truck",
    "size": "m",
    "wdh": [
@@ -195893,7 +195876,7 @@
    "kit": "ken-car",
    "collection": "ken-city",
    "name": "van",
-   "hash": "f85ed809e2",
+   "hash": "ada87368f1",
    "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
@@ -198662,7 +198645,7 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "wheelchair-power-deluxe",
-   "hash": "adf3450601",
+   "hash": "0b9f5412fe",
    "kind": "obj-transport-land-wheelchair",
    "size": "m",
    "wdh": [
@@ -198706,12 +198689,24 @@
     "plastic"
    ],
    "variant": "ken-chars/wheelchair-power",
+   "backface": {
+    "share": 0.0028,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.61,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.748 over max 0.6 (obj-transport-land-wheelchair)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -198935,7 +198930,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-a",
-   "hash": "97e2f78ef4",
+   "hash": "888a77d551",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -199148,7 +199143,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-d",
-   "hash": "a008460c87",
+   "hash": "555434c7fd",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -199221,7 +199216,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-e",
-   "hash": "b7b38a19c9",
+   "hash": "1ce1297369",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -199292,7 +199287,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-f",
-   "hash": "ba4d80beb9",
+   "hash": "1204489f93",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -199312,7 +199307,7 @@
    "minEdge": 0.001,
    "minTube": 0.0445,
    "thick": 0.2529,
-   "avgTri": 0.03073,
+   "avgTri": 0.03074,
    "anglePct": 99,
    "vpt": 1.27,
    "grad": 0.53,
@@ -199370,7 +199365,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-g",
-   "hash": "719fee4f9e",
+   "hash": "abb844f085",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -199390,7 +199385,7 @@
    "minEdge": 0.001,
    "minTube": 0.0445,
    "thick": 0.2616,
-   "avgTri": 0.03088,
+   "avgTri": 0.03089,
    "anglePct": 98,
    "vpt": 1.2,
    "grad": 0.55,
@@ -199586,7 +199581,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-j",
-   "hash": "e215cbfec8",
+   "hash": "bfb05a2148",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -199659,7 +199654,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-k",
-   "hash": "31c86d0d21",
+   "hash": "9cfad25434",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -200065,7 +200060,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "skyscraper-a",
-   "hash": "5b77edb061",
+   "hash": "f3a7059983",
    "kind": "str-building-tower-skyscraper",
    "size": "l",
    "wdh": [
@@ -200132,7 +200127,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "skyscraper-b",
-   "hash": "297f0c0718",
+   "hash": "9a479aa08e",
    "kind": "str-building-tower-skyscraper",
    "size": "l",
    "wdh": [
@@ -200270,7 +200265,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "skyscraper-d",
-   "hash": "c8803ff678",
+   "hash": "093bb5d2d8",
    "kind": "str-building-tower-skyscraper",
    "size": "l",
    "wdh": [
@@ -202397,7 +202392,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/conveyor-bars-high",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -202446,7 +202441,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-bars-sides",
-   "thickRel": 0.8
+   "thickRel": 0.79
   },
   {
    "kit": "ken-factory",
@@ -202679,7 +202674,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-bars-sides",
-   "thickRel": 0.8
+   "thickRel": 0.79
   },
   {
    "kit": "ken-factory",
@@ -202775,7 +202770,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-bars",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "ken-factory",
@@ -202823,7 +202818,7 @@
     "plastic"
    ],
    "variant": "ken-factory/conveyor-corner",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-factory",
@@ -202914,7 +202909,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-junction-t",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "ken-factory",
@@ -202963,7 +202958,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-long-sides",
-   "thickRel": 1.37
+   "thickRel": 1.36
   },
   {
    "kit": "ken-factory",
@@ -203012,7 +203007,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-long-sides",
-   "thickRel": 1.36
+   "thickRel": 1.35
   },
   {
    "kit": "ken-factory",
@@ -203107,7 +203102,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor",
-   "thickRel": 1.36
+   "thickRel": 1.35
   },
   {
    "kit": "ken-factory",
@@ -203198,7 +203193,7 @@
     "plastic"
    ],
    "variant": "ken-factory/conveyor-corner",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-factory",
@@ -203245,42 +203240,48 @@
   {
    "kit": "ken-factory",
    "name": "conveyor-stripe-junction-t",
-   "hash": "551be5fda7",
+   "hash": "82e8d94865",
    "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.58,
     0.58,
-    0.232
+    0.262
    ],
-   "tris": 183,
-   "tpu": 534,
+   "tris": 201,
+   "tpu": 586,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 12936,
-   "vtx": 325,
+   "bytes": 15272,
+   "vtx": 357,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.016,
-   "thick": 0.1643,
-   "avgTri": 0.0066,
+   "minEdge": 0.015,
+   "minTube": 0.033,
+   "thick": 0.1634,
+   "avgTri": 0.00626,
    "anglePct": 74,
    "vpt": 1.78,
-   "grad": 0.84,
+   "grad": 0.86,
    "spread": {
     "15,3": [
      0.016,
-     0.859
+     0.922
     ],
     "13,3": [
      0.133,
      0.977
+    ],
+    "6,0": [
+     0.289,
+     0.773
     ]
    },
    "colors": [
     "#59534e",
-    "#7a8491"
+    "#7a8491",
+    "#f1a63b"
    ],
    "tags": [
     "ken",
@@ -203288,7 +203289,7 @@
     "rubber"
    ],
    "variant": "ken-factory/conveyor-junction-t",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "ken-factory",
@@ -203584,7 +203585,7 @@
   {
    "kit": "ken-factory",
    "name": "crane",
-   "hash": "f0d32adb01",
+   "hash": "dacfe4e660",
    "kind": "str-fixture-machinery-crane",
    "size": "l",
    "wdh": [
@@ -204014,7 +204015,7 @@
   {
    "kit": "ken-factory",
    "name": "machine-bed",
-   "hash": "5dbac328e7",
+   "hash": "695739e6d2",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204068,7 +204069,7 @@
   {
    "kit": "ken-factory",
    "name": "machine-connection-hole",
-   "hash": "a07feb664a",
+   "hash": "da0619e2d4",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204087,7 +204088,7 @@
    "centered": true,
    "minEdge": 0.022,
    "minTube": 0.0537,
-   "thick": 0.1016,
+   "thick": 0.1015,
    "avgTri": 0.01427,
    "anglePct": 61,
    "vpt": 1.31,
@@ -204122,7 +204123,7 @@
   {
    "kit": "ken-factory",
    "name": "machine-connection-pipe",
-   "hash": "75512015cd",
+   "hash": "fd75260625",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204176,7 +204177,7 @@
   {
    "kit": "ken-factory",
    "name": "machine-fortified",
-   "hash": "32b13493f1",
+   "hash": "829d03c4f1",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204230,7 +204231,7 @@
   {
    "kit": "ken-factory",
    "name": "machine-window-bar",
-   "hash": "ce8c0572d6",
+   "hash": "d91af1432f",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204248,7 +204249,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "thick": 0.1542,
+   "minTube": 0.0537,
+   "thick": 0.1541,
    "avgTri": 0.01078,
    "anglePct": 66,
    "vpt": 1.21,
@@ -204289,7 +204291,7 @@
   {
    "kit": "ken-factory",
    "name": "machine-window",
-   "hash": "f2131d33ee",
+   "hash": "8435b9c2c3",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204307,7 +204309,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "thick": 0.1543,
+   "minTube": 0.0537,
+   "thick": 0.1541,
    "avgTri": 0.01094,
    "anglePct": 65,
    "vpt": 1.22,
@@ -204348,7 +204351,7 @@
   {
    "kit": "ken-factory",
    "name": "machine",
-   "hash": "d00a1ccd4d",
+   "hash": "1e7e3f259b",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -204367,7 +204370,7 @@
    "centered": true,
    "minEdge": 0.016,
    "minTube": 0.0537,
-   "thick": 0.1273,
+   "thick": 0.1272,
    "avgTri": 0.01541,
    "anglePct": 60,
    "vpt": 1.31,
@@ -206516,14 +206519,7 @@
     "metal-steel",
     "special-emissive"
    ],
-   "thickRel": 1.56,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-iron-mid or metal-gold or metal-copper, has metal-steel (str-fixture-light)"
-    }
-   ]
+   "thickRel": 1.56
   },
   {
    "kit": "ken-factory",
@@ -207359,7 +207355,7 @@
   {
    "kit": "ken-food",
    "name": "cake-birthday",
-   "hash": "b315eb8065",
+   "hash": "19bda288f7",
    "kind": "obj-food-baked-cake",
    "size": "s",
    "wdh": [
@@ -208586,11 +208582,6 @@
    ],
    "thickRel": 2.19,
    "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "— wants sienna, has camel chestnut (obj-food-meat)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -211294,7 +211285,7 @@
   {
    "kit": "ken-food",
    "name": "pizza",
-   "hash": "4a931e791e",
+   "hash": "bffa4c1747",
    "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
@@ -212276,7 +212267,7 @@
   {
    "kit": "ken-food",
    "name": "sub",
-   "hash": "7c02069dc6",
+   "hash": "1aeab6725a",
    "kind": "obj-food-meal-sandwich",
    "size": "s",
    "wdh": [
@@ -213097,7 +213088,7 @@
    "kit": "ken-forest-mini",
    "collection": "ken-mini",
    "name": "character-archer",
-   "hash": "8521f1ee8e",
+   "hash": "77a6b5e52b",
    "kind": "char",
    "size": "m",
    "wdh": [
@@ -213158,11 +213149,11 @@
     "textile-cloth-dark"
    ],
    "backface": {
-    "share": 0.002,
-    "view": "90/20",
+    "share": 0.0023,
+    "view": "270/20",
     "causes": {
-     "open": 0.98,
-     "inverted": 0.02
+     "inverted": 0.23,
+     "open": 0.77
     }
    },
    "thickRel": 1,
@@ -213170,7 +213161,7 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.2% of view 90/20 over 0.1%: open 98.0%, inverted 2.0%"
+     "text": "0.2% of view 270/20 over 0.1%: open 77.0%, inverted 23.0%"
     }
    ]
   },
@@ -213847,7 +213838,7 @@
   {
    "kit": "ken-furniture",
    "name": "bathroom-mirror",
-   "hash": "4ba7c976f8",
+   "hash": "9593927cf8",
    "kind": "obj-furnishing-bathroom-mirror",
    "size": "s",
    "wdh": [
@@ -213865,7 +213856,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.1271,
+   "minTube": 0.127,
    "thick": 0.0543,
    "avgTri": 0.00551,
    "anglePct": 97,
@@ -219881,7 +219872,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/wall-doorway",
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "ken-furniture",
@@ -220037,7 +220028,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "ken-furniture",
@@ -223770,25 +223761,25 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-door",
-   "hash": "0564ae2cba",
+   "hash": "49165e0db0",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.525,
     0.21,
-    0.525
+    0.526
    ],
    "tris": 235,
    "tpu": 685,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 14140,
+   "bytes": 14164,
    "vtx": 354,
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
-   "thick": 0.1058,
+   "thick": 0.1057,
    "avgTri": 0.00712,
    "anglePct": 83,
    "vpt": 1.51,
@@ -223819,38 +223810,38 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 1.05,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.525 under min 0.7 (str-part-wall-unit-doorway)"
+     "text": "high 0.526 under min 0.7 (str-part-wall-unit-doorway)"
     }
    ]
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-doorway",
-   "hash": "46f3e6ad10",
+   "hash": "4cdd119e8a",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.525,
     0.21,
-    0.525
+    0.526
    ],
    "tris": 183,
    "tpu": 534,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11332,
+   "bytes": 11352,
    "vtx": 276,
    "grounded": true,
    "centered": true,
    "minEdge": 0.037,
-   "thick": 0.1007,
-   "avgTri": 0.00721,
+   "thick": 0.0999,
+   "avgTri": 0.00722,
    "anglePct": 79,
    "vpt": 1.51,
    "grad": 0.79,
@@ -223879,7 +223870,7 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.525 under min 0.7 (str-part-wall-unit-doorway)"
+     "text": "high 0.526 under min 0.7 (str-part-wall-unit-doorway)"
     }
    ]
   },
@@ -223929,28 +223920,28 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-door",
-   "hash": "7c9d861fc3",
+   "hash": "54b86c7897",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.525,
     0.284,
-    0.525
+    0.526
    ],
    "tris": 492,
    "tpu": 1434,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 29460,
+   "bytes": 29484,
    "vtx": 784,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.1173,
-   "thick": 0.1064,
+   "minTube": 0.0262,
+   "thick": 0.1056,
    "avgTri": 0.00512,
-   "anglePct": 65,
+   "anglePct": 66,
    "vpt": 1.59,
    "grad": 0.79,
    "spread": {
@@ -223984,33 +223975,33 @@
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.525 under min 0.7 (str-part-wall-unit-doorway)"
+     "text": "high 0.526 under min 0.7 (str-part-wall-unit-doorway)"
     }
    ]
   },
   {
    "kit": "ken-holiday",
    "name": "cabin-overhang-doorway",
-   "hash": "1796a579f7",
+   "hash": "f64ceab9c2",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     0.525,
     0.284,
-    0.525
+    0.526
    ],
    "tris": 203,
    "tpu": 592,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12364,
+   "bytes": 12388,
    "vtx": 304,
    "grounded": true,
    "centered": true,
    "minEdge": 0.037,
    "minTube": 0.1173,
-   "thick": 0.1013,
+   "thick": 0.0999,
    "avgTri": 0.00732,
    "anglePct": 71,
    "vpt": 1.5,
@@ -224041,12 +224032,12 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 1.01,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
      "check": "size",
-     "text": "high 0.525 under min 0.7 (str-part-wall-unit-doorway)"
+     "text": "high 0.526 under min 0.7 (str-part-wall-unit-doorway)"
     }
    ]
   },
@@ -224485,7 +224476,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "ken-holiday",
@@ -225920,7 +225911,7 @@
   {
    "kit": "ken-holiday",
    "name": "train-track",
-   "hash": "40ea4324f6",
+   "hash": "3e4283382c",
    "kind": "obj-leisure-toy",
    "size": "l",
    "wdh": [
@@ -225941,7 +225932,7 @@
    "minTube": 0.0079,
    "thick": 0.0362,
    "avgTri": 0.00064,
-   "anglePct": 85,
+   "anglePct": 84,
    "vpt": 1.48,
    "grad": 0.54,
    "spread": {
@@ -226616,27 +226607,27 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "factory-f",
-   "hash": "277b59b271",
+   "hash": "3d36ecf5e2",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.938,
     2.816,
-    4.235
+    4.239
    ],
    "tris": 1401,
    "tpu": 30,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 64488,
+   "bytes": 64508,
    "vtx": 1705,
    "grounded": true,
    "centered": true,
    "minEdge": 0.024,
    "minTube": 0.044,
-   "thick": 0.1434,
-   "avgTri": 0.05148,
+   "thick": 0.1437,
+   "avgTri": 0.05149,
    "anglePct": 82,
    "vpt": 1.22,
    "grad": 0.59,
@@ -226990,7 +226981,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "factory-k",
-   "hash": "7e7e861412",
+   "hash": "13928895ad",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -227702,7 +227693,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "shipping-container-a",
-   "hash": "aac40444ce",
+   "hash": "771cf1f844",
    "kind": "obj-container-cargo",
    "size": "l",
    "wdh": [
@@ -227720,9 +227711,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0301,
+   "minTube": 0.0282,
    "thick": 0.2863,
-   "avgTri": 0.02504,
+   "avgTri": 0.02503,
    "anglePct": 94,
    "vpt": 1.27,
    "grad": 0.6,
@@ -227751,7 +227742,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "shipping-container-b",
-   "hash": "cb928c1af7",
+   "hash": "372d2529da",
    "kind": "obj-container-cargo",
    "size": "l",
    "wdh": [
@@ -227769,9 +227760,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0301,
+   "minTube": 0.0282,
    "thick": 0.2863,
-   "avgTri": 0.02504,
+   "avgTri": 0.02503,
    "anglePct": 94,
    "vpt": 1.27,
    "grad": 0.6,
@@ -227800,7 +227791,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "shipping-container-c",
-   "hash": "cb5df853f8",
+   "hash": "4d33848c7c",
    "kind": "obj-container-cargo",
    "size": "l",
    "wdh": [
@@ -227818,9 +227809,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0301,
+   "minTube": 0.0282,
    "thick": 0.2863,
-   "avgTri": 0.02504,
+   "avgTri": 0.02503,
    "anglePct": 94,
    "vpt": 1.27,
    "grad": 0.6,
@@ -229389,7 +229380,7 @@
     "stone-masonry-dark",
     "tba"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "ken-market",
@@ -231315,11 +231306,11 @@
   {
    "kit": "ken-nature",
    "name": "bed-floor",
-   "hash": "3e1a707566",
+   "hash": "5909d96ef1",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.384,
+    0.385,
     0.897,
     0.155
    ],
@@ -231333,7 +231324,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1708,
+   "thick": 0.1706,
    "avgTri": 0.00606,
    "anglePct": 88,
    "vpt": 1.15,
@@ -231357,16 +231348,30 @@
     "textile-cloth-light"
    ],
    "variant": "ken-nature/bed",
-   "thickRel": 1.2
+   "backface": {
+    "share": 0.0028,
+    "view": "45/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.2,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 45/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
    "name": "bed",
-   "hash": "3783fbc0bb",
+   "hash": "8708117a8b",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.402,
+    0.403,
     0.897,
     0.328
    ],
@@ -231381,7 +231386,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0612,
-   "thick": 0.1417,
+   "thick": 0.1414,
    "avgTri": 0.00556,
    "anglePct": 75,
    "vpt": 1.35,
@@ -233080,7 +233085,7 @@
   {
    "kit": "ken-nature",
    "name": "log",
-   "hash": "586decebb5",
+   "hash": "c8627196e2",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
    "wdh": [
@@ -233093,12 +233098,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14912,
+   "bytes": 14552,
    "vtx": 359,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "thick": 0.2864,
+   "minTube": 0.2403,
+   "thick": 0.2862,
    "avgTri": 0.00279,
    "anglePct": 93,
    "vpt": 1.3,
@@ -233123,7 +233129,7 @@
     "wood-light"
    ],
    "backface": {
-    "share": 0.0036,
+    "share": 0.0039,
     "view": "0/20",
     "causes": {
      "open": 1
@@ -236779,13 +236785,13 @@
   {
    "kit": "ken-pirate",
    "name": "flag-high-pennant",
-   "hash": "46800f82d5",
+   "hash": "95b022f33e",
    "kind": "str-fixture-marker-flag",
    "size": "m",
    "wdh": [
     0.529,
     0.12,
-    1.079
+    1.08
    ],
    "tris": 156,
    "tpu": 295,
@@ -236887,25 +236893,25 @@
   {
    "kit": "ken-pirate",
    "name": "flag-pennant",
-   "hash": "52cbcf5eff",
+   "hash": "92429d95e8",
    "kind": "str-fixture-marker-flag",
    "size": "m",
    "wdh": [
     0.529,
     0.12,
-    0.629
+    0.63
    ],
    "tris": 156,
    "tpu": 455,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7208,
+   "bytes": 7228,
    "vtx": 150,
    "grounded": true,
    "minEdge": 0.001,
    "minTube": 0.0552,
-   "thick": 0.0702,
+   "thick": 0.0698,
    "avgTri": 0.00216,
    "anglePct": 61,
    "vpt": 0.96,
@@ -236938,7 +236944,7 @@
     "wood-dark"
    ],
    "variant": "ken-pirate/flag",
-   "thickRel": 0.83,
+   "thickRel": 0.82,
    "mark": [
     "centered"
    ]
@@ -238304,7 +238310,7 @@
   {
    "kit": "ken-pirate",
    "name": "ship-wreck",
-   "hash": "eb467a69b8",
+   "hash": "435938da68",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
@@ -238324,7 +238330,7 @@
    "minEdge": 0.007,
    "minTube": 0.0965,
    "thick": 0.091,
-   "avgTri": 0.03683,
+   "avgTri": 0.03687,
    "anglePct": 69,
    "vpt": 1.74,
    "grad": 0.71,
@@ -243136,7 +243142,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "ken-proto",
@@ -243183,7 +243189,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "ken-proto",
@@ -243231,7 +243237,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall-doorway-wide",
-   "thickRel": 1.58
+   "thickRel": 1.59
   },
   {
    "kit": "ken-proto",
@@ -243286,7 +243292,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.13,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -243383,7 +243389,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "ken-proto",
@@ -243598,7 +243604,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "ken-proto",
@@ -244997,7 +245003,7 @@
   {
    "kit": "ken-racing",
    "name": "light-red",
-   "hash": "4b501e9349",
+   "hash": "e175a1af4e",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -245172,12 +245178,12 @@
   {
    "kit": "ken-racing",
    "name": "overhead-round",
-   "hash": "ff774ef21d",
+   "hash": "f96f3cb73c",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
     2.756,
-    0.487,
+    0.49,
     1.378
    ],
    "tris": 132,
@@ -245215,7 +245221,21 @@
     "metal-iron-dark"
    ],
    "variant": "ken-racing/overhead-round",
-   "thickRel": 1.89
+   "backface": {
+    "share": 0.0021,
+    "view": "45/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.89,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -247842,7 +247862,7 @@
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "road-crossroad",
-   "hash": "1973b1183f",
+   "hash": "946f417019",
    "kind": "str-access-road",
    "size": "l",
    "wdh": [
@@ -247891,13 +247911,27 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/road-crossroad-line",
-   "thickRel": 0.76
+   "backface": {
+    "share": 0.0026,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "road-curve-intersection",
-   "hash": "5863703892",
+   "hash": "67fd46d780",
    "kind": "str-access-road",
    "size": "l",
    "wdh": [
@@ -247905,21 +247939,21 @@
     4.4,
     0.044
    ],
-   "tris": 252,
+   "tris": 251,
    "tpu": 19,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12216,
+   "bytes": 12212,
    "vtx": 290,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.0438,
    "thick": 0.0333,
-   "avgTri": 0.12372,
+   "avgTri": 0.12423,
    "anglePct": 99,
-   "vpt": 1.15,
+   "vpt": 1.16,
    "grad": 0.44,
    "spread": {
     "14,3": [
@@ -247946,7 +247980,21 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/road-curve",
-   "thickRel": 0.76
+   "backface": {
+    "share": 0.0028,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
@@ -249469,7 +249517,7 @@
    "kit": "ken-roads",
    "collection": "ken-city",
    "name": "traffic-light-object-horizontal",
-   "hash": "91e24b01f1",
+   "hash": "f976fdab8a",
    "kind": "str-fixture-light-traffic",
    "size": "s",
    "wdh": [
@@ -249487,7 +249535,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1678,
+   "thick": 0.1679,
    "avgTri": 0.00207,
    "anglePct": 100,
    "vpt": 1.04,
@@ -251265,7 +251313,7 @@
     "space"
    ],
    "variant": "ken-space/corridor-wall",
-   "thickRel": 0.69
+   "thickRel": 0.7
   },
   {
    "kit": "ken-space",
@@ -251319,7 +251367,7 @@
     "space"
    ],
    "variant": "ken-space/corridor-wall",
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "ken-space",
@@ -251687,7 +251735,7 @@
   {
    "kit": "ken-space",
    "name": "craft-racer",
-   "hash": "3f25207c78",
+   "hash": "0686f9f2ec",
    "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
@@ -251814,7 +251862,7 @@
   {
    "kit": "ken-space",
    "name": "craft-speeder-b",
-   "hash": "f95b4709ab",
+   "hash": "465ed22791",
    "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
@@ -254118,7 +254166,7 @@
   {
    "kit": "ken-space",
    "name": "rocket-a",
-   "hash": "73b48e5fcd",
+   "hash": "99704d09fc",
    "kind": "obj-transport-air-space",
    "size": "l",
    "wdh": [
@@ -254126,20 +254174,20 @@
     2.527,
     5.616
    ],
-   "tris": 826,
+   "tris": 822,
    "tpu": 23,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 44480,
+   "bytes": 44456,
    "vtx": 1188,
    "grounded": true,
    "centered": true,
    "minEdge": 0.07,
    "thick": 0.2089,
-   "avgTri": 0.06455,
+   "avgTri": 0.06476,
    "anglePct": 87,
-   "vpt": 1.44,
+   "vpt": 1.45,
    "grad": 0.55,
    "spread": {
     "15,3": [
@@ -256181,7 +256229,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-station/bed-single-covered",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "ken-station",
@@ -257945,7 +257993,7 @@
   {
    "kit": "ken-station",
    "name": "stairs-corner",
-   "hash": "dc5177664f",
+   "hash": "7d6735ede0",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
@@ -259115,7 +259163,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall",
-   "thickRel": 1.2
+   "thickRel": 1.21
   },
   {
    "kit": "ken-station",
@@ -259169,7 +259217,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall-corner",
-   "thickRel": 1.56
+   "thickRel": 1.57
   },
   {
    "kit": "ken-station",
@@ -259223,7 +259271,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall-corner-round",
-   "thickRel": 1.47
+   "thickRel": 1.48
   },
   {
    "kit": "ken-station",
@@ -259271,7 +259319,7 @@
     "space"
    ],
    "variant": "ken-station/wall-corner-round",
-   "thickRel": 1.47
+   "thickRel": 1.48
   },
   {
    "kit": "ken-station",
@@ -259319,7 +259367,7 @@
     "space"
    ],
    "variant": "ken-station/wall-corner",
-   "thickRel": 1.55
+   "thickRel": 1.56
   },
   {
    "kit": "ken-station",
@@ -259489,7 +259537,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall-door-wide",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "ken-station",
@@ -259543,7 +259591,7 @@
     "space"
    ],
    "variant": "ken-station/wall-door-wide",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "ken-station",
@@ -259652,7 +259700,7 @@
     "space"
    ],
    "variant": "ken-station/wall-pillar",
-   "thickRel": 1.54
+   "thickRel": 1.55
   },
   {
    "kit": "ken-station",
@@ -259701,7 +259749,7 @@
     "space"
    ],
    "variant": "ken-station/wall-pillar",
-   "thickRel": 1.53
+   "thickRel": 1.55
   },
   {
    "kit": "ken-station",
@@ -259957,7 +260005,7 @@
     "space"
    ],
    "variant": "ken-station/wall",
-   "thickRel": 1.2
+   "thickRel": 1.21
   },
   {
    "kit": "ken-suburban",
@@ -261451,7 +261499,7 @@
    "kit": "ken-suburban",
    "collection": "ken-city",
    "name": "house-s",
-   "hash": "865bc1c5c7",
+   "hash": "3e7c828d61",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -261523,13 +261571,27 @@
     "storeys-2"
    ],
    "variant": "ken-suburban/house-s",
-   "thickRel": 1.02
+   "backface": {
+    "share": 0.0026,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-suburban",
    "collection": "ken-city",
    "name": "house-t",
-   "hash": "5c85b64a79",
+   "hash": "d39bd5277e",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -262897,7 +262959,7 @@
     "scale-small"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "ken-survival",
@@ -262945,7 +263007,7 @@
     "metal-iron-mid"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "ken-survival",
@@ -262993,7 +263055,7 @@
     "metal-iron-mid"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 0.49
+   "thickRel": 0.5
   },
   {
    "kit": "ken-survival",
@@ -263035,7 +263097,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 0.49
+   "thickRel": 0.5
   },
   {
    "kit": "ken-survival",
@@ -268109,27 +268171,27 @@
    "kit": "ken-town",
    "collection": "ken-village",
    "name": "stall-red",
-   "hash": "68d9f6c1fe",
+   "hash": "5cff7fb4f1",
    "kind": "str-canopy-stall",
    "size": "m",
    "wdh": [
     0.901,
-    0.9,
+    0.902,
     1.113
    ],
    "tris": 400,
-   "tpu": 443,
+   "tpu": 442,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16312,
+   "bytes": 16308,
    "vtx": 390,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "thick": 0.0565,
-   "avgTri": 0.01131,
+   "thick": 0.0567,
+   "avgTri": 0.01132,
    "anglePct": 56,
    "vpt": 0.98,
    "grad": 0.79,
@@ -268592,7 +268654,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.1
+   "thickRel": 2.12
   },
   {
    "kit": "ken-town",
@@ -268641,7 +268703,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 1.89
+   "thickRel": 1.9
   },
   {
    "kit": "ken-town",
@@ -268689,7 +268751,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.57
+   "thickRel": 2.59
   },
   {
    "kit": "ken-town",
@@ -268884,7 +268946,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.51
+   "thickRel": 0.52
   },
   {
    "kit": "ken-town",
@@ -268933,7 +268995,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "ken-town",
@@ -269079,7 +269141,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "ken-town",
@@ -269226,7 +269288,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood-door",
-   "thickRel": 0.58
+   "thickRel": 0.59
   },
   {
    "kit": "ken-town",
@@ -269390,7 +269452,7 @@
     "wood-light"
    ],
    "variant": "ken-town/wall-wood-door",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "ken-town",
@@ -269438,7 +269500,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "ken-town",
@@ -269486,7 +269548,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.13
+   "thickRel": 2.15
   },
   {
    "kit": "ken-town",
@@ -269678,7 +269740,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "ken-town",
@@ -271426,7 +271488,7 @@
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "locomotive-c",
-   "hash": "db55592c5f",
+   "hash": "12272c80f3",
    "kind": "obj-transport-land-rail",
    "size": "l",
    "wdh": [
@@ -271625,7 +271687,7 @@
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "railroad-corner-large-ramp",
-   "hash": "c54c4db618",
+   "hash": "a945117bbc",
    "kind": "str-access-track",
    "size": "l",
    "wdh": [
@@ -271644,7 +271706,7 @@
    "centered": true,
    "minEdge": 0.015,
    "thick": 0.0347,
-   "avgTri": 0.00803,
+   "avgTri": 0.00804,
    "anglePct": 7,
    "vpt": 1.61,
    "grad": 0.79,
@@ -274374,7 +274436,7 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "boat-house-b",
-   "hash": "0aebf30847",
+   "hash": "42b123bca2",
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
@@ -274394,7 +274456,7 @@
    "minEdge": 0.03,
    "minTube": 0.0616,
    "thick": 0.215,
-   "avgTri": 0.07306,
+   "avgTri": 0.07303,
    "anglePct": 75,
    "vpt": 1.44,
    "grad": 0.24,
@@ -276792,7 +276854,7 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "ship-ocean-liner-small-anim",
-   "hash": "54f8088c58",
+   "hash": "924f626fe4",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
@@ -276884,7 +276946,7 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "ship-ocean-liner-small",
-   "hash": "058e163b17",
+   "hash": "1aa25fae84",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
@@ -283786,7 +283848,7 @@
   {
    "kit": "lpa-construction",
    "name": "steel-holder",
-   "hash": "100a2c0622",
+   "hash": "48c66c6600",
    "kind": "obj-resource-metal",
    "size": "m",
    "wdh": [
@@ -283811,7 +283873,7 @@
    "vpt": 2.05,
    "grad": 0.37,
    "spread": {
-    "8,0": [
+    "15,3": [
      0.352,
      0.695
     ],
@@ -283821,8 +283883,8 @@
     ]
    },
    "colors": [
-    "#804f2a",
-    "#873a27"
+    "#7a8491",
+    "#804f2a"
    ],
    "tags": [
     "lpa",
@@ -283831,11 +283893,6 @@
     "wood-dark"
    ],
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-steel wants nickel, has sienna chestnut"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -284396,7 +284453,7 @@
      "open": 0.59
     }
    },
-   "thickRel": 1.14,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
@@ -284611,7 +284668,7 @@
   {
    "kit": "lpa-desert",
    "name": "large-building-a",
-   "hash": "f4a7a51721",
+   "hash": "8393e77a14",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -284680,7 +284737,7 @@
   {
    "kit": "lpa-desert",
    "name": "large-building-b",
-   "hash": "9e94a791ab",
+   "hash": "154ea24939",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -284742,7 +284799,7 @@
   {
    "kit": "lpa-desert",
    "name": "large-building-c",
-   "hash": "b7de149a61",
+   "hash": "cedcdc3e40",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -284761,7 +284818,7 @@
    "minEdge": 0.004,
    "minTube": 0.0072,
    "thick": 0.1735,
-   "avgTri": 0.0165,
+   "avgTri": 0.01651,
    "anglePct": 96,
    "vpt": 1.98,
    "grad": 0.12,
@@ -284940,7 +284997,7 @@
   {
    "kit": "lpa-desert",
    "name": "large-building-frame-b",
-   "hash": "7c336a3b7c",
+   "hash": "df074ed8c7",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -285119,7 +285176,7 @@
   {
    "kit": "lpa-desert",
    "name": "medium-building-a",
-   "hash": "29e9048461",
+   "hash": "156905d6f7",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -291052,7 +291109,7 @@
   {
    "kit": "lpa-weapons",
    "name": "arrow",
-   "hash": "c43f3d9ab0",
+   "hash": "e83994c7be",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -291335,7 +291392,7 @@
   {
    "kit": "lpa-weapons",
    "name": "battering-ram",
-   "hash": "eb10fccbf4",
+   "hash": "2a9abd1ccf",
    "kind": "obj-equipment-weapon-siege",
    "size": "l",
    "wdh": [
@@ -291539,7 +291596,7 @@
   {
    "kit": "lpa-weapons",
    "name": "catapult",
-   "hash": "acdeb0cbe5",
+   "hash": "90c81be579",
    "kind": "obj-equipment-weapon-siege",
    "size": "l",
    "wdh": [
@@ -292920,7 +292977,7 @@
   {
    "kit": "lpa-weapons",
    "name": "siege-tower",
-   "hash": "74e0a5a6ca",
+   "hash": "79cdbfd122",
    "kind": "obj-equipment-weapon-siege",
    "size": "l",
    "wdh": [
@@ -292940,7 +292997,7 @@
    "minEdge": 0.005,
    "minTube": 0.0154,
    "thick": 0.0575,
-   "avgTri": 0.01927,
+   "avgTri": 0.01928,
    "anglePct": 87,
    "vpt": 2,
    "grad": 0.44,
@@ -293372,7 +293429,7 @@
   {
    "kit": "lpa-weapons",
    "name": "trebuchet",
-   "hash": "965a74819e",
+   "hash": "5a8fa50433",
    "kind": "obj-equipment-weapon-siege",
    "size": "l",
    "wdh": [
@@ -294832,7 +294889,7 @@
     "lpa",
     "metal-iron-dark"
    ],
-   "thickRel": 0.43
+   "thickRel": 0.44
   },
   {
    "kit": "lpa-west",
@@ -295337,7 +295394,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/door-and-window-a",
-   "thickRel": 0.98,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "error",
@@ -295404,7 +295461,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/door-and-window-a",
-   "thickRel": 0.97,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "error",
@@ -296093,7 +296150,7 @@
   {
    "kit": "lpa-west",
    "name": "foundation-f",
-   "hash": "d8e4ac1b64",
+   "hash": "e7c9d6e0d9",
    "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
@@ -297140,7 +297197,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/int-wall",
-   "thickRel": 0.63,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "error",
@@ -297195,7 +297252,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/int-wall",
-   "thickRel": 0.45,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "error",
@@ -297334,7 +297391,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/large-wall-a",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "lpa-west",
@@ -297382,7 +297439,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/large-wall-a",
-   "thickRel": 0.9,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
@@ -297486,7 +297543,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "lpa-west",
@@ -297541,7 +297598,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -297602,7 +297659,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 0.54,
+   "thickRel": 0.55,
    "lint": [
     {
      "level": "error",
@@ -297669,7 +297726,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -298311,7 +298368,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-door-a",
-   "thickRel": 0.71,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "error",
@@ -298384,7 +298441,7 @@
   {
    "kit": "lpa-west",
    "name": "small-foundation-a",
-   "hash": "0d9d1f67b7",
+   "hash": "6eaa349e3b",
    "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
@@ -298433,7 +298490,7 @@
   {
    "kit": "lpa-west",
    "name": "small-foundation-b",
-   "hash": "734f8f3490",
+   "hash": "92baa5e29b",
    "kind": "str-part-floor-unit-wood",
    "size": "l",
    "wdh": [
@@ -298630,7 +298687,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-wall-a",
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "lpa-west",
@@ -298678,7 +298735,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-wall-a",
-   "thickRel": 0.67,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "error",
@@ -299518,7 +299575,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-a",
-   "thickRel": 0.6
+   "thickRel": 0.61
   },
   {
    "kit": "lpa-west",
@@ -299561,7 +299618,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-a",
-   "thickRel": 0.47
+   "thickRel": 0.48
   },
   {
    "kit": "lpa-west",
@@ -299837,7 +299894,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.57,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "error",
@@ -299959,7 +300016,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.54,
+   "thickRel": 0.55,
    "lint": [
     {
      "level": "error",
@@ -313176,7 +313233,7 @@
     "textile-cloth-dark"
    ],
    "variant": "m3-base/folding-stool-01",
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "m3-base",
@@ -322564,7 +322621,7 @@
   {
    "kit": "m3-base",
    "name": "mini-ramp",
-   "hash": "eef16b22c1",
+   "hash": "c2fe387cfd",
    "kind": "str-fixture-leisure-playground",
    "size": "m",
    "wdh": [
@@ -322612,8 +322669,8 @@
     "share": 0.0038,
     "view": "0/50",
     "causes": {
-     "open": 0.82,
-     "inverted": 0.18
+     "open": 0.85,
+     "inverted": 0.15
     }
    },
    "thickRel": 1.48,
@@ -322621,7 +322678,7 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 0/50 over 0.1%: open 82.0%, inverted 18.0%"
+     "text": "0.4% of view 0/50 over 0.1%: open 85.0%, inverted 15.0%"
     },
     {
      "level": "error",
@@ -326869,7 +326926,7 @@
   {
    "kit": "m3-base",
    "name": "piano",
-   "hash": "6e0e5a10d2",
+   "hash": "3eaab2d403",
    "kind": "obj-leisure-art-instrument",
    "size": "m",
    "wdh": [
@@ -326889,7 +326946,7 @@
    "minEdge": 0.003,
    "minTube": 0,
    "thick": 0.1664,
-   "avgTri": 0.00285,
+   "avgTri": 0.00286,
    "anglePct": 72,
    "vpt": 1.74,
    "grad": 0.6,
@@ -331256,7 +331313,7 @@
   {
    "kit": "m3-base",
    "name": "rustic-wood-hand-basket",
-   "hash": "5b7dd5dc04",
+   "hash": "f082a69a23",
    "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
@@ -338156,7 +338213,7 @@
   {
    "kit": "m3-base",
    "name": "vent-cover-01",
-   "hash": "58bac08a64",
+   "hash": "3bcd027eae",
    "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
@@ -338180,26 +338237,19 @@
    "vpt": 1.01,
    "grad": 0.6,
    "spread": {
-    "6,1": [
+    "15,3": [
      0.148,
      0.75
     ]
    },
    "colors": [
-    "#3a3e4b"
+    "#7a8491"
    ],
    "tags": [
     "comp",
     "m3",
-    "metal-iron-dark",
+    "metal-steel",
     "mounted"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel or metal-gold or metal-copper, has metal-iron-dark (str-fixture-installation)"
-    }
    ]
   },
   {
@@ -343552,7 +343602,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/wall-1",
-   "thickRel": 1.58
+   "thickRel": 1.59
   },
   {
    "kit": "medieval-forge",
@@ -343618,7 +343668,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.52,
+   "thickRel": 1.53,
    "lint": [
     {
      "level": "warning",
@@ -350166,7 +350216,7 @@
   {
    "kit": "pm-store",
    "name": "emblem-tiger",
-   "hash": "f87159659f",
+   "hash": "de384c597c",
    "kind": "str-fixture-marker-sign",
    "size": "m",
    "wdh": [
@@ -350184,7 +350234,6 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0775,
    "thick": 0.07,
    "avgTri": 0.00103,
    "anglePct": 55,
@@ -350212,12 +350261,12 @@
     "pm"
    ],
    "backface": {
-    "share": 0.0042,
+    "share": 0.0043,
     "view": "180/20",
     "causes": {
-     "inverted": 0.79,
-     "other": 0.2,
-     "open": 0.01
+     "inverted": 0.56,
+     "open": 0.42,
+     "other": 0.02
     }
    },
    "thickRel": 0.65,
@@ -350225,14 +350274,14 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 180/20 over 0.1%: inverted 79.0%, other 20.0%, open 1.0%"
+     "text": "0.4% of view 180/20 over 0.1%: inverted 56.0%, open 42.0%, other 2.0%"
     }
    ]
   },
   {
    "kit": "pm-store",
    "name": "fireplace",
-   "hash": "666b945810",
+   "hash": "6b1e8a56e0",
    "kind": "str-fixture-fire-fireplace",
    "size": "m",
    "wdh": [
@@ -351483,7 +351532,7 @@
   {
    "kit": "pm-store",
    "name": "tank",
-   "hash": "4d541d2357",
+   "hash": "28aced2a93",
    "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
@@ -356196,7 +356245,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "survivor-lis",
-   "hash": "3f63e008c6",
+   "hash": "36c289516a",
    "kind": "char",
    "size": "m",
    "wdh": [
@@ -356724,7 +356773,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "traffic-light",
-   "hash": "5d842321e8",
+   "hash": "2e6156b4c6",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -358751,7 +358800,7 @@
      "open": 0.53
     }
    },
-   "thickRel": 0.92,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -359835,26 +359884,26 @@
    "kit": "quat-farms",
    "collection": "quat-medieval",
    "name": "silo-house",
-   "hash": "4471c8a07c",
+   "hash": "54c62e9262",
    "kind": "str-building-work-agricultural-silo",
    "size": "l",
    "wdh": [
     1.881,
     1.24,
-    2.697
+    2.7
    ],
    "tris": 2692,
-   "tpu": 428,
+   "tpu": 427,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 112276,
+   "bytes": 112296,
    "vtx": 2960,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0275,
-   "thick": 0.1918,
+   "thick": 0.1921,
    "avgTri": 0.0074,
    "anglePct": 50,
    "vpt": 1.1,
@@ -359903,26 +359952,26 @@
    "kit": "quat-farms",
    "collection": "quat-medieval",
    "name": "silo",
-   "hash": "6489119ee9",
+   "hash": "ed4d40f6cf",
    "kind": "str-building-work-agricultural-silo",
    "size": "l",
    "wdh": [
     1.297,
     1.24,
-    2.698
+    2.701
    ],
    "tris": 1237,
    "tpu": 285,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 49228,
+   "bytes": 49248,
    "vtx": 1263,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0432,
-   "thick": 0.284,
+   "thick": 0.2847,
    "avgTri": 0.01189,
    "anglePct": 41,
    "vpt": 1.02,
@@ -363602,14 +363651,7 @@
     "special-food",
     "wood-light"
    ],
-   "thickRel": 2.23,
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "— wants sienna, has tan camel (obj-food-meat)"
-    }
-   ]
+   "thickRel": 2.23
   },
   {
    "kit": "quat-food",
@@ -366701,7 +366743,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "quat-interior",
@@ -366754,7 +366796,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "quat-interior",
@@ -370692,7 +370734,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "blacksmith",
-   "hash": "5d3fe90b40",
+   "hash": "42460c5141",
    "kind": "str-building-work-industrial-workshop",
    "size": "l",
    "wdh": [
@@ -371426,7 +371468,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "fantasy-inn",
-   "hash": "ce54b23020",
+   "hash": "ffa2d8482a",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -371446,7 +371488,7 @@
    "minEdge": 0.009,
    "minTube": 0.0269,
    "thick": 0.153,
-   "avgTri": 0.04051,
+   "avgTri": 0.04052,
    "anglePct": 61,
    "vpt": 1.91,
    "grad": 0.38,
@@ -371493,7 +371535,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "fantasy-sawmill",
-   "hash": "e77cf8b2be",
+   "hash": "b4275aecbf",
    "kind": "str-building-work-industrial-workshop",
    "size": "l",
    "wdh": [
@@ -371568,7 +371610,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "fantasy-stable",
-   "hash": "ebe8ddb636",
+   "hash": "93f6eb0794",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -371587,7 +371629,7 @@
    "minEdge": 0.002,
    "minTube": 0.006,
    "thick": 0.1478,
-   "avgTri": 0.03253,
+   "avgTri": 0.03254,
    "anglePct": 58,
    "vpt": 1.76,
    "grad": 0.31,
@@ -374387,7 +374429,7 @@
    "kit": "quat-ocean",
    "collection": "quat-sea",
    "name": "fish-dory",
-   "hash": "095e78cf6a",
+   "hash": "417b672ddc",
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
@@ -374405,7 +374447,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.1439,
+   "thick": 0.144,
    "avgTri": 0.00021,
    "anglePct": 33,
    "vpt": 2.03,
@@ -374432,7 +374474,22 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 0.93
+   "backface": {
+    "share": 0.0014,
+    "view": "180/50",
+    "causes": {
+     "inside-out": 0.5,
+     "open": 0.5
+    }
+   },
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/50 over 0.1%: inside-out 50.0%, open 50.0%"
+    }
+   ]
   },
   {
    "kit": "quat-ocean",
@@ -374571,7 +374628,7 @@
    "kit": "quat-ocean",
    "collection": "quat-sea",
    "name": "penguin",
-   "hash": "9640ab81dd",
+   "hash": "29d7df3d00",
    "kind": "env-fauna-bird",
    "size": "m",
    "wdh": [
@@ -377788,7 +377845,7 @@
   {
    "kit": "quat-pirate",
    "name": "ship-large",
-   "hash": "43163e5651",
+   "hash": "be5798e60c",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
@@ -379159,7 +379216,7 @@
   {
    "kit": "quat-props",
    "name": "book-group-medium-1",
-   "hash": "bdab31d51a",
+   "hash": "2f6aaefd97",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "m",
    "wdh": [
@@ -379218,13 +379275,13 @@
   {
    "kit": "quat-props",
    "name": "book-group-medium-2",
-   "hash": "438eaf2ee4",
+   "hash": "66b3bc8ab5",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "m",
    "wdh": [
     0.774,
     0.174,
-    0.207
+    0.208
    ],
    "tris": 1368,
    "tpu": 3988,
@@ -379236,7 +379293,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2931,
+   "thick": 0.2934,
    "avgTri": 0.00181,
    "anglePct": 93,
    "vpt": 1.52,
@@ -379277,25 +379334,25 @@
   {
    "kit": "quat-props",
    "name": "book-group-medium-3",
-   "hash": "832764e093",
+   "hash": "76442d7c62",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "m",
    "wdh": [
     0.73,
     0.174,
-    0.207
+    0.208
    ],
    "tris": 1368,
    "tpu": 3988,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 56792,
+   "bytes": 56788,
    "vtx": 1473,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2899,
+   "thick": 0.2883,
    "avgTri": 0.00181,
    "anglePct": 93,
    "vpt": 1.08,
@@ -386345,7 +386402,7 @@
    "kit": "quat-scifi",
    "collection": "quat-guns",
    "name": "sniper-b",
-   "hash": "ed3a440810",
+   "hash": "f360069b2e",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -393480,7 +393537,7 @@
   {
    "kit": "quat-survival",
    "name": "compass-anim",
-   "hash": "c4e6e04fa8",
+   "hash": "66a56606d6",
    "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
@@ -393498,6 +393555,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
+   "minTube": 0.0305,
    "thick": 0.0885,
    "avgTri": 0.00018,
    "anglePct": 45,
@@ -393548,7 +393606,7 @@
   {
    "kit": "quat-survival",
    "name": "compass",
-   "hash": "44ad69aad2",
+   "hash": "2ef6c03a79",
    "kind": "obj-equipment-pocketitem",
    "size": "s",
    "wdh": [
@@ -395277,14 +395335,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.53,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure basalt, has ivory nickel camel"
-    }
-   ]
+   "thickRel": 0.53
   },
   {
    "kit": "quat-sushi",
@@ -395943,7 +395994,7 @@
   {
    "kit": "quat-sushi",
    "name": "drinks-fridge-anim",
-   "hash": "9197768e79",
+   "hash": "20f6efc20d",
    "kind": "obj-device-appliance-fridge",
    "size": "m",
    "wdh": [
@@ -396441,16 +396492,16 @@
   {
    "kit": "quat-sushi",
    "name": "floor-wood-broken",
-   "hash": "ab4e27589d",
+   "hash": "1b98c88d90",
    "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.832,
-    0.832,
+    0.834,
     0.24
    ],
    "tris": 272,
-   "tpu": 561,
+   "tpu": 560,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -396459,8 +396510,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.026,
-   "thick": 0.0871,
-   "avgTri": 0.01124,
+   "thick": 0.0872,
+   "avgTri": 0.01125,
    "anglePct": 91,
    "vpt": 1.62,
    "grad": 0.6,
@@ -396490,16 +396541,16 @@
   {
    "kit": "quat-sushi",
    "name": "floor-wood",
-   "hash": "a9aeec4353",
+   "hash": "b21069085e",
    "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
     0.832,
-    0.832,
+    0.834,
     0.126
    ],
    "tris": 192,
-   "tpu": 396,
+   "tpu": 395,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -396508,8 +396559,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
-   "thick": 0.0906,
-   "avgTri": 0.017,
+   "thick": 0.0907,
+   "avgTri": 0.01702,
    "anglePct": 100,
    "vpt": 1.78,
    "grad": 0.6,
@@ -396683,11 +396734,11 @@
   {
    "kit": "quat-sushi",
    "name": "japanese-door",
-   "hash": "af1a10c835",
+   "hash": "857d795d1f",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.832,
+    0.834,
     0.057,
     0.769
    ],
@@ -396703,7 +396754,7 @@
    "minEdge": 0.006,
    "minTube": 0.0285,
    "thick": 0.0439,
-   "avgTri": 0.01679,
+   "avgTri": 0.01681,
    "anglePct": 100,
    "vpt": 2.01,
    "grad": 0.55,
@@ -397442,33 +397493,33 @@
   {
    "kit": "quat-sushi",
    "name": "ramen",
-   "hash": "87db7f0829",
+   "hash": "21b0d87b12",
    "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
     0.207,
     0.218,
-    0.121
+    0.12
    ],
-   "tris": 2685,
-   "tpu": 7828,
+   "tris": 1610,
+   "tpu": 4694,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 84820,
-   "vtx": 2099,
+   "bytes": 165764,
+   "vtx": 4830,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1454,
-   "avgTri": 0.00007,
+   "minEdge": 0.001,
+   "thick": 0.1445,
+   "avgTri": 0.00011,
    "anglePct": 20,
-   "vpt": 0.78,
-   "grad": 0.59,
+   "vpt": 3,
+   "grad": 0.5,
    "spread": {
     "13,3": [
      0.148,
-     0.75
+     0.672
     ],
     "8,0": [
      0.148,
@@ -397480,11 +397531,11 @@
     ],
     "5,0": [
      0.148,
-     0.742
+     0.727
     ],
     "3,1": [
-     0.148,
-     0.742
+     0.328,
+     0.563
     ],
     "5,2": [
      0.148,
@@ -397504,13 +397555,8 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 0.85,
+   "thickRel": 0.84,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7828 over max 5000 (obj-food)"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -397974,7 +398020,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "quat-sushi",
@@ -398030,7 +398076,7 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/shoji-wall",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "quat-sushi",
@@ -398323,7 +398369,7 @@
   {
    "kit": "quat-sushi",
    "name": "sushi-truck",
-   "hash": "f1b81e1379",
+   "hash": "866a447df4",
    "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
@@ -398654,7 +398700,7 @@
   {
    "kit": "quat-sushi",
    "name": "udon",
-   "hash": "84f29dfc50",
+   "hash": "274cf707f4",
    "kind": "obj-food-meal",
    "size": "s",
    "wdh": [
@@ -398662,37 +398708,37 @@
     0.209,
     0.135
    ],
-   "tris": 2324,
-   "tpu": 6776,
+   "tris": 1626,
+   "tpu": 4741,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 75132,
-   "vtx": 1864,
+   "bytes": 167392,
+   "vtx": 4878,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1479,
-   "avgTri": 0.00008,
+   "minEdge": 0.003,
+   "thick": 0.1469,
+   "avgTri": 0.00011,
    "anglePct": 20,
-   "vpt": 0.8,
-   "grad": 0.57,
+   "vpt": 3,
+   "grad": 0.5,
    "spread": {
     "5,0": [
      0.531,
-     0.992
+     0.977
     ],
     "0,0": [
      0.148,
      0.742
     ],
     "3,1": [
-     0.148,
-     0.742
+     0.242,
+     0.648
     ],
     "5,2": [
      0.164,
-     0.727
+     0.57
     ],
     "8,0": [
      0.164,
@@ -398711,14 +398757,7 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 0.86,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6776 over max 5000 (obj-food)"
-    }
-   ]
+   "thickRel": 0.86
   },
   {
    "kit": "quat-sushi",
@@ -398761,16 +398800,16 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.59
   },
   {
    "kit": "quat-sushi",
    "name": "wall-shelves",
-   "hash": "0698feaa98",
+   "hash": "543f0b526c",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.832,
+    0.834,
     0.208,
     1.078
    ],
@@ -398779,13 +398818,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22712,
+   "bytes": 22708,
    "vtx": 602,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
    "minTube": 0.0293,
-   "thick": 0.091,
+   "thick": 0.0908,
    "avgTri": 0.01242,
    "anglePct": 100,
    "vpt": 1.89,
@@ -398811,16 +398850,16 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/shoji-wall",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "quat-sushi",
    "name": "wall",
-   "hash": "0b909e32e0",
+   "hash": "03efee050f",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.832,
+    0.833,
     0.165,
     1.078
    ],
@@ -399304,7 +399343,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-1-a",
-   "hash": "7ddec1142a",
+   "hash": "c2e138ae66",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -399324,7 +399363,7 @@
    "minEdge": 0.006,
    "minTube": 0.0296,
    "thick": 0.178,
-   "avgTri": 0.04951,
+   "avgTri": 0.04953,
    "anglePct": 92,
    "vpt": 1.81,
    "grad": 0.43,
@@ -399387,7 +399426,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-1-b",
-   "hash": "2a32986d66",
+   "hash": "4bd330134a",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -399400,14 +399439,14 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 106740,
+   "bytes": 106760,
    "vtx": 2992,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0624,
    "thick": 0.1366,
-   "avgTri": 0.04632,
+   "avgTri": 0.04635,
    "anglePct": 90,
    "vpt": 1.87,
    "grad": 0.42,
@@ -399456,7 +399495,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-1-c",
-   "hash": "8a18a85e6b",
+   "hash": "633ca7ffc1",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -399476,7 +399515,7 @@
    "minEdge": 0.005,
    "minTube": 0.0178,
    "thick": 0.1419,
-   "avgTri": 0.05161,
+   "avgTri": 0.05162,
    "anglePct": 94,
    "vpt": 1.89,
    "grad": 0.4,
@@ -399539,7 +399578,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-2-a",
-   "hash": "d9885e21aa",
+   "hash": "47c168f5ff",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -399559,7 +399598,7 @@
    "minEdge": 0.006,
    "minTube": 0.0301,
    "thick": 0.1601,
-   "avgTri": 0.02606,
+   "avgTri": 0.02607,
    "anglePct": 89,
    "vpt": 1.59,
    "grad": 0.28,
@@ -399613,7 +399652,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-2-b",
-   "hash": "49cdea7f93",
+   "hash": "e18f13cb3e",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -399687,7 +399726,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-2-c",
-   "hash": "54065b31bf",
+   "hash": "e07dc54faa",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -399811,7 +399850,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-2-a",
-   "hash": "256d2ec2d9",
+   "hash": "ac546e2472",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -399831,7 +399870,7 @@
    "minEdge": 0.006,
    "minTube": 0.026,
    "thick": 0.1566,
-   "avgTri": 0.01683,
+   "avgTri": 0.01684,
    "anglePct": 53,
    "vpt": 1.55,
    "grad": 0.3,
@@ -399880,7 +399919,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-2-b",
-   "hash": "dfeabdc0c7",
+   "hash": "e105c25725",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -399901,7 +399940,7 @@
    "minTube": 0.026,
    "thick": 0.1245,
    "avgTri": 0.01881,
-   "anglePct": 58,
+   "anglePct": 59,
    "vpt": 1.55,
    "grad": 0.31,
    "spread": {
@@ -399949,7 +399988,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-2-c",
-   "hash": "e1acd3d2bf",
+   "hash": "8deaf12458",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -400618,7 +400657,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-1-a",
-   "hash": "dd170aa777",
+   "hash": "2200965217",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -400681,7 +400720,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-1-b",
-   "hash": "a81bf67187",
+   "hash": "3340530246",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -400701,7 +400740,7 @@
    "minEdge": 0.006,
    "minTube": 0.026,
    "thick": 0.1666,
-   "avgTri": 0.01222,
+   "avgTri": 0.01223,
    "anglePct": 47,
    "vpt": 1.59,
    "grad": 0.23,
@@ -400738,7 +400777,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-1-c",
-   "hash": "202642aa84",
+   "hash": "e96da100e4",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -400801,7 +400840,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-2-a",
-   "hash": "e463d1171d",
+   "hash": "19208a71b3",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -400878,7 +400917,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-2-b",
-   "hash": "ef3d1f65b7",
+   "hash": "348a2b2910",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -400897,7 +400936,7 @@
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.1846,
+   "thick": 0.1845,
    "avgTri": 0.01777,
    "anglePct": 54,
    "vpt": 1.57,
@@ -400937,7 +400976,7 @@
    ],
    "variant": "quat-town/house-2-2-b",
    "backface": {
-    "share": 0.0041,
+    "share": 0.004,
     "view": "135/20",
     "causes": {
      "open": 1
@@ -400955,13 +400994,13 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-2-c",
-   "hash": "ad82ac5a74",
+   "hash": "1f6bce9a36",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
     3.841,
     3.768,
-    1.907
+    1.913
    ],
    "tris": 4943,
    "tpu": 179,
@@ -400974,7 +401013,7 @@
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.026,
-   "thick": 0.1166,
+   "thick": 0.1167,
    "avgTri": 0.01572,
    "anglePct": 53,
    "vpt": 1.55,
@@ -401032,7 +401071,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-3-a",
-   "hash": "9f5f404ac5",
+   "hash": "67845caff9",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -401109,7 +401148,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-3-b",
-   "hash": "a76b007e3d",
+   "hash": "a6862f380b",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -401179,7 +401218,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-3-c",
-   "hash": "4e5ba7f334",
+   "hash": "e5300426ad",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -401238,7 +401277,7 @@
    ],
    "variant": "quat-town/house-2-3-c",
    "backface": {
-    "share": 0.004,
+    "share": 0.0039,
     "view": "315/20",
     "causes": {
      "open": 1
@@ -401305,7 +401344,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-a",
-   "hash": "80b69f8154",
+   "hash": "96b3329f7f",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -401324,8 +401363,8 @@
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.026,
-   "thick": 0.0519,
-   "avgTri": 0.00706,
+   "thick": 0.052,
+   "avgTri": 0.00708,
    "anglePct": 45,
    "vpt": 1.85,
    "grad": 0.26,
@@ -401386,7 +401425,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-b",
-   "hash": "25b81231da",
+   "hash": "f1291f5df8",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -401406,7 +401445,7 @@
    "minEdge": 0.006,
    "minTube": 0.026,
    "thick": 0.0403,
-   "avgTri": 0.00978,
+   "avgTri": 0.00979,
    "anglePct": 45,
    "vpt": 1.86,
    "grad": 0.26,
@@ -401467,7 +401506,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-c",
-   "hash": "e5884f7fa3",
+   "hash": "f0751d1f49",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -401484,10 +401523,10 @@
    "vtx": 4354,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
+   "minEdge": 0.008,
    "minTube": 0.026,
    "thick": 0.044,
-   "avgTri": 0.0148,
+   "avgTri": 0.01481,
    "anglePct": 57,
    "vpt": 1.83,
    "grad": 0.25,
@@ -401548,7 +401587,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-a",
-   "hash": "a5d6df7b79",
+   "hash": "d4d3374e8d",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -401565,10 +401604,10 @@
    "vtx": 6114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.007,
    "minTube": 0.026,
    "thick": 0.0689,
-   "avgTri": 0.00958,
+   "avgTri": 0.00959,
    "anglePct": 74,
    "vpt": 1.92,
    "grad": 0.25,
@@ -401808,7 +401847,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "mine",
-   "hash": "5518e1410b",
+   "hash": "9a0766510b",
    "kind": "str-building-work-industrial-mine",
    "size": "l",
    "wdh": [
@@ -402169,7 +402208,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "port-1-b",
-   "hash": "279e34c00d",
+   "hash": "369f85cd0f",
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
@@ -402244,7 +402283,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "port-1-c",
-   "hash": "44e462787f",
+   "hash": "06ad5c862f",
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
@@ -402261,7 +402300,7 @@
    "vtx": 4512,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.007,
    "minTube": 0.026,
    "thick": 0.0475,
    "avgTri": 0.02976,
@@ -402300,7 +402339,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "port-2-a",
-   "hash": "dfb729abfe",
+   "hash": "2196851b96",
    "kind": "set",
    "size": "l",
    "wdh": [
@@ -402321,7 +402360,7 @@
    "minEdge": 0.005,
    "minTube": 0.0228,
    "thick": 0.0653,
-   "avgTri": 0.01943,
+   "avgTri": 0.01944,
    "anglePct": 72,
    "vpt": 1.95,
    "grad": 0.37,
@@ -402389,7 +402428,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "port-2-b",
-   "hash": "56b005e626",
+   "hash": "18aead0a54",
    "kind": "set",
    "size": "l",
    "wdh": [
@@ -402652,7 +402691,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-a",
-   "hash": "60986753e3",
+   "hash": "b8cf064aeb",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -402672,7 +402711,7 @@
    "minEdge": 0.006,
    "minTube": 0.026,
    "thick": 0.1029,
-   "avgTri": 0.03036,
+   "avgTri": 0.03037,
    "anglePct": 72,
    "vpt": 2,
    "grad": 0.28,
@@ -402703,7 +402742,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-b",
-   "hash": "a88d4bd4f9",
+   "hash": "768a8dfbb2",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -402720,10 +402759,10 @@
    "vtx": 4586,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
+   "minEdge": 0.008,
    "minTube": 0.0111,
    "thick": 0.131,
-   "avgTri": 0.02561,
+   "avgTri": 0.02562,
    "anglePct": 66,
    "vpt": 2.02,
    "grad": 0.28,
@@ -402761,7 +402800,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-c",
-   "hash": "fc2354425a",
+   "hash": "39fb72308c",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -402778,10 +402817,10 @@
    "vtx": 4836,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
+   "minEdge": 0.008,
    "minTube": 0.0135,
    "thick": 0.1588,
-   "avgTri": 0.02946,
+   "avgTri": 0.02947,
    "anglePct": 63,
    "vpt": 1.89,
    "grad": 0.29,
@@ -402819,7 +402858,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-a",
-   "hash": "17296317dc",
+   "hash": "b39a6b08b8",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -402893,7 +402932,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-b",
-   "hash": "613bb8d9a1",
+   "hash": "a4d0f071b0",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -402910,7 +402949,7 @@
    "vtx": 11183,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
+   "minEdge": 0.008,
    "minTube": 0.026,
    "thick": 0.1939,
    "avgTri": 0.00955,
@@ -402960,7 +402999,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-c",
-   "hash": "511adae7f3",
+   "hash": "aabfa58aa5",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -403090,7 +403129,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "tower-house-2",
-   "hash": "cf77ef3724",
+   "hash": "b3af699d06",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -404327,7 +404366,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "windmill-2",
-   "hash": "f31b9f8460",
+   "hash": "da84bd1a37",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
    "wdh": [
@@ -404347,7 +404386,7 @@
    "minEdge": 0.005,
    "minTube": 0.026,
    "thick": 0.1209,
-   "avgTri": 0.02178,
+   "avgTri": 0.02179,
    "anglePct": 43,
    "vpt": 1.89,
    "grad": 0.53,
@@ -404504,7 +404543,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "wonder-1-c",
-   "hash": "db26a4c0bc",
+   "hash": "0bf0a7dfbb",
    "kind": "str-building-military-castle",
    "size": "l",
    "wdh": [
@@ -405772,16 +405811,16 @@
   {
    "kit": "rgp-asia",
    "name": "garden-wall-gate-a",
-   "hash": "ca29a63ce1",
+   "hash": "d7ec0a3e28",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
     1.5,
     0.871,
-    1.387
+    1.389
    ],
    "tris": 1212,
-   "tpu": 669,
+   "tpu": 668,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -405840,16 +405879,16 @@
   {
    "kit": "rgp-asia",
    "name": "garden-wall-gate-b",
-   "hash": "dc0a2cb98c",
+   "hash": "710966d7d3",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
     1.5,
     0.871,
-    1.387
+    1.389
    ],
    "tris": 1412,
-   "tpu": 779,
+   "tpu": 778,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -408452,7 +408491,7 @@
   {
    "kit": "rgp-cars",
    "name": "ambulance",
-   "hash": "1eabaac0f3",
+   "hash": "397cc70739",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -408471,7 +408510,7 @@
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0264,
-   "thick": 0.2695,
+   "thick": 0.2696,
    "avgTri": 0.00421,
    "anglePct": 69,
    "vpt": 1.43,
@@ -409106,7 +409145,7 @@
   {
    "kit": "rgp-cars",
    "name": "swat-truck",
-   "hash": "351f8fe744",
+   "hash": "c562d3fb2b",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -409126,7 +409165,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0265,
-   "thick": 0.2571,
+   "thick": 0.257,
    "avgTri": 0.00515,
    "anglePct": 74,
    "vpt": 1.39,
@@ -409181,7 +409220,7 @@
   {
    "kit": "rgp-cars",
    "name": "taxi",
-   "hash": "e2b48d6f8f",
+   "hash": "5080173491",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -409960,16 +409999,16 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "annex-1",
-   "hash": "dc2e77926d",
+   "hash": "01840190fd",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
-    0.987,
+    0.988,
     0.819,
     1.051
    ],
    "tris": 876,
-   "tpu": 1031,
+   "tpu": 1030,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -409979,7 +410018,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0379,
-   "thick": 0.0491,
+   "thick": 0.049,
    "avgTri": 0.01562,
    "anglePct": 80,
    "vpt": 1.12,
@@ -411982,7 +412021,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "dormer",
-   "hash": "f20ff0dec8",
+   "hash": "789e4bdda8",
    "kind": "str-part-roof-unit",
    "size": "l",
    "wdh": [
@@ -413170,27 +413209,27 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-10",
-   "hash": "d3916dca8b",
+   "hash": "ecc2fe1caf",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
     3.885,
     3.966,
-    3.041
+    3.045
    ],
    "tris": 1438,
    "tpu": 31,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 63992,
+   "bytes": 64012,
    "vtx": 1686,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
    "minTube": 0.0348,
-   "thick": 0.1683,
-   "avgTri": 0.06165,
+   "thick": 0.1684,
+   "avgTri": 0.06166,
    "anglePct": 67,
    "vpt": 1.17,
    "grad": 0.93,
@@ -413226,12 +413265,11 @@
     "wood-dark"
    ],
    "backface": {
-    "share": 0.002,
+    "share": 0.0019,
     "view": "225/50",
     "causes": {
-     "inverted": 0.8,
-     "other": 0.19,
-     "open": 0.01
+     "inverted": 0.75,
+     "other": 0.25
     }
    },
    "thickRel": 0.93,
@@ -413239,7 +413277,7 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.2% of view 225/50 over 0.1%: inverted 80.0%, other 19.0%, open 1.0%"
+     "text": "0.2% of view 225/50 over 0.1%: inverted 75.0%, other 25.0%"
     }
    ]
   },
@@ -413247,26 +413285,26 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-11-a",
-   "hash": "2904eac8d1",
+   "hash": "4e2e5379cd",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
     2.479,
     4.526,
-    2.639
+    2.643
    ],
    "tris": 1100,
    "tpu": 37,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 56144,
+   "bytes": 56164,
    "vtx": 1504,
    "grounded": true,
    "centered": true,
    "minEdge": 0.022,
    "minTube": 0.026,
-   "thick": 0.2593,
+   "thick": 0.2591,
    "avgTri": 0.0859,
    "anglePct": 86,
    "vpt": 1.37,
@@ -413309,26 +413347,26 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-11-b",
-   "hash": "22948238dd",
+   "hash": "a6b2a529d6",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
     2.479,
     4.526,
-    2.639
+    2.643
    ],
    "tris": 1100,
    "tpu": 37,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 55600,
+   "bytes": 55620,
    "vtx": 1487,
    "grounded": true,
    "centered": true,
    "minEdge": 0.022,
    "minTube": 0.026,
-   "thick": 0.2593,
+   "thick": 0.2591,
    "avgTri": 0.0859,
    "anglePct": 86,
    "vpt": 1.35,
@@ -413740,7 +413778,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-9",
-   "hash": "56e7133e4e",
+   "hash": "45430525e8",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -413814,7 +413852,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-long",
-   "hash": "a16e4e3185",
+   "hash": "e8390d441e",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -413889,7 +413927,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "hut",
-   "hash": "8fa3d98b94",
+   "hash": "16e3f94c31",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -416074,11 +416112,11 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "rampart-stairs-a",
-   "hash": "9fb5e21583",
+   "hash": "19373e7927",
    "kind": "str-part-wall-rampart",
    "size": "l",
    "wdh": [
-    2.97,
+    2.973,
     1.607,
     2.809
    ],
@@ -416093,8 +416131,8 @@
    "centered": true,
    "minEdge": 0.017,
    "minTube": 0.1014,
-   "thick": 0.1803,
-   "avgTri": 0.04902,
+   "thick": 0.1801,
+   "avgTri": 0.04903,
    "anglePct": 95,
    "vpt": 1.15,
    "grad": 0.56,
@@ -416179,27 +416217,27 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "rampart-stairs-long",
-   "hash": "81e0fa75ae",
+   "hash": "23a42d49b2",
    "kind": "str-part-wall-rampart",
    "size": "l",
    "wdh": [
     7.192,
     1.359,
-    2.537
+    2.544
    ],
    "tris": 480,
    "tpu": 19,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 32976,
+   "bytes": 32996,
    "vtx": 896,
    "grounded": true,
    "centered": true,
    "minEdge": 0.041,
    "minTube": 0.0893,
-   "thick": 0.2214,
-   "avgTri": 0.14298,
+   "thick": 0.2218,
+   "avgTri": 0.14302,
    "anglePct": 99,
    "vpt": 1.87,
    "grad": 0.9,
@@ -419305,7 +419343,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "windmill",
-   "hash": "b7c66fe016",
+   "hash": "8777a8b0df",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
    "wdh": [
@@ -419985,7 +420023,7 @@
   {
    "kit": "rgp-props",
    "name": "cart-1-a",
-   "hash": "a745960799",
+   "hash": "8fa2f75bf6",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -420426,7 +420464,7 @@
   {
    "kit": "rgp-props",
    "name": "laundry-a",
-   "hash": "5eb1b868a4",
+   "hash": "d7ad20e93c",
    "kind": "str-part-frame",
    "size": "l",
    "wdh": [
@@ -420437,7 +420475,7 @@
    "tris": 874,
    "tpu": 2281,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
    "bytes": 55432,
    "vtx": 1520,
@@ -420449,19 +420487,23 @@
    "avgTri": 0.00128,
    "anglePct": 18,
    "vpt": 1.74,
-   "grad": 0.76,
+   "grad": 0.67,
    "spread": {
-    "5,0": [
+    "2,0": [
      0.219,
-     0.961
-    ],
-    "14,3": [
-     0.031,
      0.961
     ],
     "14,2": [
      0.031,
      0.773
+    ],
+    "3,0": [
+     0.031,
+     0.031
+    ],
+    "14,3": [
+     0.031,
+     0.469
     ],
     "13,3": [
      0.031,
@@ -420473,11 +420515,12 @@
     ]
    },
    "colors": [
+    "#4f2e1b",
     "#59534e",
     "#7a8491",
+    "#804f2a",
     "#88735f",
-    "#907a66",
-    "#ce7954"
+    "#907a66"
    ],
    "tags": [
     "leather",
@@ -420489,16 +420532,6 @@
    ],
    "thickRel": 1.54,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants bark, has terracotta taupe twine basalt nickel"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-dark wants chestnut, has terracotta taupe twine basalt nickel"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -422015,11 +422048,11 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "wall-panelled",
-   "hash": "4f5db782f1",
+   "hash": "c4b600c39f",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.858,
+    0.86,
     0.038,
     1.158
    ],
@@ -422034,8 +422067,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0057,
-   "thick": 0.045,
-   "avgTri": 0.00732,
+   "thick": 0.0449,
+   "avgTri": 0.00733,
    "anglePct": 89,
    "vpt": 1.6,
    "grad": 0.96,
@@ -425819,7 +425852,7 @@
    "kit": "sq-arcade",
    "collection": "sq-props",
    "name": "claw-machine",
-   "hash": "911fa154e8",
+   "hash": "f647232cd8",
    "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
@@ -426019,11 +426052,11 @@
    "kit": "sq-arcade",
    "collection": "sq-props",
    "name": "pinball",
-   "hash": "e896ededbd",
+   "hash": "d1ead2521e",
    "kind": "obj-leisure-game-arcade",
    "size": "m",
    "wdh": [
-    0.413,
+    0.415,
     0.905,
     0.864
    ],
@@ -426032,7 +426065,7 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 70764,
+   "bytes": 70760,
    "vtx": 1858,
    "grounded": true,
    "centered": true,
@@ -427081,16 +427114,16 @@
    "kit": "sq-bank",
    "collection": "sq-props",
    "name": "vault-door",
-   "hash": "2c630730ec",
+   "hash": "b29854154f",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.859,
     0.236,
-    0.782
+    0.783
    ],
    "tris": 2141,
-   "tpu": 5587,
+   "tpu": 5580,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -427100,7 +427133,7 @@
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0352,
-   "thick": 0.1185,
+   "thick": 0.1191,
    "avgTri": 0.00184,
    "anglePct": 88,
    "vpt": 1.82,
@@ -427141,7 +427174,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "sq-bank",
@@ -427603,13 +427636,13 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "lane-approach",
-   "hash": "ae6e7586c5",
+   "hash": "d647573b92",
    "kind": "str-part-floor-unit-wood",
    "size": "m",
    "wdh": [
-    0.529,
+    0.53,
     0.602,
-    0.033
+    0.034
    ],
    "tris": 367,
    "tpu": 1070,
@@ -427621,8 +427654,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0321,
-   "thick": 0.0499,
+   "minTube": 0.032,
+   "thick": 0.0498,
    "avgTri": 0.00206,
    "anglePct": 97,
    "vpt": 1.9,
@@ -427645,12 +427678,24 @@
     "sq",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0021,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.86,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 0.602 under min 0.7 (str-part-floor-unit)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -429021,26 +429066,26 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "conveyor-track",
-   "hash": "6ede25ddc2",
+   "hash": "5752cce7a9",
    "kind": "str-fixture-machinery-conveyor",
    "size": "m",
    "wdh": [
     0.175,
-    0.565,
-    0.045
+    0.566,
+    0.046
    ],
    "tris": 605,
    "tpu": 1764,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 43904,
+   "bytes": 43900,
    "vtx": 1211,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.026,
-   "thick": 0.1451,
+   "thick": 0.146,
    "avgTri": 0.00073,
    "anglePct": 88,
    "vpt": 2,
@@ -429069,7 +429114,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "sq-carwash",
@@ -429514,7 +429559,7 @@
    "kit": "sq-carwash",
    "collection": "sq-props",
    "name": "wand-bay",
-   "hash": "2cd4c0a859",
+   "hash": "cb04ee7e7f",
    "kind": "str-fixture-machinery-drivethrough",
    "size": "m",
    "wdh": [
@@ -430466,7 +430511,7 @@
    "kit": "sq-cinema",
    "collection": "sq-props",
    "name": "concession-counter",
-   "hash": "c2b96cc816",
+   "hash": "868d8daff5",
    "kind": "obj-furnishing-furniture-counter",
    "size": "m",
    "wdh": [
@@ -431035,12 +431080,12 @@
    "kit": "sq-cinema",
    "collection": "sq-props",
    "name": "seat-row",
-   "hash": "eb7b642d7f",
+   "hash": "1ec69f8572",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
     0.749,
-    0.283,
+    0.284,
     0.454
    ],
    "tris": 830,
@@ -431095,7 +431140,7 @@
    "kit": "sq-cinema",
    "collection": "sq-props",
    "name": "single-seat",
-   "hash": "705d0e79f1",
+   "hash": "87b5589cff",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
@@ -431112,9 +431157,9 @@
    "vtx": 898,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
+   "minEdge": 0.009,
    "minTube": 0.0445,
-   "thick": 0.1072,
+   "thick": 0.1071,
    "avgTri": 0.00153,
    "anglePct": 49,
    "vpt": 2.18,
@@ -431346,20 +431391,20 @@
    "kit": "sq-fastfood",
    "collection": "sq-props",
    "name": "drive-thru",
-   "hash": "7f49b31186",
+   "hash": "33b67d4404",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
-    0.756,
+    0.757,
     0.183,
-    1.024
+    1.025
    ],
    "tris": 960,
-   "tpu": 1913,
+   "tpu": 1911,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 73240,
+   "bytes": 73244,
    "vtx": 2061,
    "grounded": true,
    "centered": true,
@@ -431536,13 +431581,13 @@
    "kit": "sq-fastfood",
    "collection": "sq-props",
    "name": "menu-board",
-   "hash": "58f4d0d368",
+   "hash": "8f20d643ee",
    "kind": "str-fixture-marker-sign",
    "size": "m",
    "wdh": [
     1.14,
     0.076,
-    0.434
+    0.435
    ],
    "tris": 1391,
    "tpu": 4055,
@@ -431555,7 +431600,7 @@
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0361,
-   "thick": 0.1212,
+   "thick": 0.1209,
    "avgTri": 0.00146,
    "anglePct": 58,
    "vpt": 2.16,
@@ -431993,16 +432038,16 @@
    "kit": "sq-fastfood",
    "collection": "sq-props",
    "name": "walkin-door",
-   "hash": "93a11d0e33",
+   "hash": "0d94bc1b62",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.554,
     0.36,
-    0.841
+    0.842
    ],
    "tris": 599,
-   "tpu": 1454,
+   "tpu": 1452,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -432012,7 +432057,7 @@
    "centered": true,
    "minEdge": 0.007,
    "minTube": 0.0921,
-   "thick": 0.1051,
+   "thick": 0.1052,
    "avgTri": 0.00322,
    "anglePct": 79,
    "vpt": 2.15,
@@ -432533,7 +432578,7 @@
    "kit": "sq-gym",
    "collection": "sq-props",
    "name": "plate-tree",
-   "hash": "9ba70eee23",
+   "hash": "d54aca4544",
    "kind": "obj-leisure-game-gym",
    "size": "m",
    "wdh": [
@@ -434774,7 +434819,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "chart-desk",
-   "hash": "6c213b52fa",
+   "hash": "13ae505039",
    "kind": "set",
    "size": "m",
    "wdh": [
@@ -434911,7 +434956,7 @@
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "refractor-telescope",
-   "hash": "ba282e646c",
+   "hash": "ab6365ed76",
    "kind": "obj-device-science-astro-telescope",
    "size": "m",
    "wdh": [
@@ -434930,7 +434975,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "thick": 0.0902,
+   "thick": 0.0899,
    "avgTri": 0.00013,
    "anglePct": 26,
    "vpt": 1.45,
@@ -435088,7 +435133,7 @@
    "kit": "sq-pool",
    "collection": "sq-props",
    "name": "changing-stall",
-   "hash": "083c0ca476",
+   "hash": "e00577e94d",
    "kind": "obj-furnishing-bathroom",
    "size": "m",
    "wdh": [
@@ -435107,7 +435152,7 @@
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0438,
-   "thick": 0.0971,
+   "thick": 0.0972,
    "avgTri": 0.00401,
    "anglePct": 63,
    "vpt": 2.21,
@@ -435322,16 +435367,16 @@
    "kit": "sq-pool",
    "collection": "sq-props",
    "name": "lifeguard-chair",
-   "hash": "400bb2fbfb",
+   "hash": "b206833252",
    "kind": "str-fixture-leisure",
    "size": "m",
    "wdh": [
     0.232,
     0.303,
-    0.8
+    0.801
    ],
    "tris": 884,
-   "tpu": 2255,
+   "tpu": 2252,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -435447,20 +435492,20 @@
    "kit": "sq-pool",
    "collection": "sq-props",
    "name": "pool-edge-corner",
-   "hash": "f128c88104",
+   "hash": "075879b56a",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     0.822,
     0.822,
-    0.092
+    0.093
    ],
    "tris": 591,
    "tpu": 1250,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 48072,
+   "bytes": 48092,
    "vtx": 1344,
    "grounded": true,
    "centered": true,
@@ -435501,16 +435546,16 @@
    "kit": "sq-pool",
    "collection": "sq-props",
    "name": "pool-edge-straight",
-   "hash": "004a6fedd8",
+   "hash": "eb6f12991e",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    1,
+    1.002,
     0.5,
     0.092
    ],
    "tris": 478,
-   "tpu": 1366,
+   "tpu": 1363,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -435720,11 +435765,11 @@
    "kit": "sq-rink",
    "collection": "sq-props",
    "name": "cubby-bench",
-   "hash": "e896b1db6b",
+   "hash": "b9bf134440",
    "kind": "obj-furnishing-furniture-seating-bench-nobackrest",
    "size": "m",
    "wdh": [
-    0.671,
+    0.672,
     0.237,
     0.208
    ],
@@ -435739,7 +435784,7 @@
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0323,
-   "thick": 0.312,
+   "thick": 0.3126,
    "avgTri": 0.00241,
    "anglePct": 90,
    "vpt": 2.18,
@@ -440574,20 +440619,20 @@
   {
    "kit": "styloo-farm",
    "name": "smelter-large-anim",
-   "hash": "01c7d19a97",
+   "hash": "e39dcd4d27",
    "kind": "str-building-work-industrial-workshop",
    "size": "l",
    "wdh": [
     2.678,
     3.641,
-    3.317
+    3.321
    ],
    "tris": 4211,
    "tpu": 130,
    "mat": 2,
    "bands": 5,
    "calls": 2,
-   "bytes": 486276,
+   "bytes": 486296,
    "vtx": 7898,
    "grounded": true,
    "centered": true,
@@ -440644,7 +440689,7 @@
    "alpha": true,
    "variant": "styloo-farm/smelter-large-anim",
    "backface": {
-    "share": 0.0022,
+    "share": 0.0021,
     "view": "135/50",
     "causes": {
      "open": 1
@@ -440662,27 +440707,27 @@
   {
    "kit": "styloo-farm",
    "name": "smelter-large",
-   "hash": "9c0863e90c",
+   "hash": "1acf74fa41",
    "kind": "str-building-work-industrial-workshop",
    "size": "l",
    "wdh": [
     2.678,
     3.641,
-    2.293
+    2.297
    ],
    "tris": 2029,
    "tpu": 91,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 100608,
+   "bytes": 100628,
    "vtx": 2720,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.106,
    "thick": 0.1195,
-   "avgTri": 0.01968,
+   "avgTri": 0.01969,
    "anglePct": 62,
    "vpt": 1.34,
    "grad": 0.83,
@@ -440726,7 +440771,7 @@
    ],
    "variant": "styloo-farm/smelter-large-anim",
    "backface": {
-    "share": 0.0024,
+    "share": 0.0022,
     "view": "135/50",
     "causes": {
      "open": 1
@@ -449151,7 +449196,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-amber-anim",
-   "hash": "15cde7f10e",
+   "hash": "38395fb2ca",
    "kind": "obj-transport-air-plane",
    "size": "m",
    "wdh": [
@@ -449220,7 +449265,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-amber",
-   "hash": "108dba8a07",
+   "hash": "4457222d43",
    "kind": "obj-transport-air-plane",
    "size": "m",
    "wdh": [
@@ -449286,7 +449331,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-anim",
-   "hash": "03fe1adb1d",
+   "hash": "4f5fdac668",
    "kind": "obj-transport-air-plane",
    "size": "m",
    "wdh": [
@@ -449355,7 +449400,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-sienna-anim",
-   "hash": "890d21b89b",
+   "hash": "6b95a2848b",
    "kind": "obj-transport-air-plane",
    "size": "m",
    "wdh": [
@@ -449419,7 +449464,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized-sienna",
-   "hash": "6f8229daca",
+   "hash": "bd11b89cf4",
    "kind": "obj-transport-air-plane",
    "size": "m",
    "wdh": [
@@ -449480,7 +449525,7 @@
   {
    "kit": "styloo-planes",
    "name": "plane-stylized",
-   "hash": "255d5c172e",
+   "hash": "edf9af95b9",
    "kind": "obj-transport-air-plane",
    "size": "m",
    "wdh": [
@@ -453122,7 +453167,7 @@
   {
    "kit": "styloo-school",
    "name": "pc-tower-old",
-   "hash": "ae6338cd50",
+   "hash": "e98337e01c",
    "kind": "obj-device-electronics-computer-tower",
    "size": "s",
    "wdh": [
@@ -454350,7 +454395,7 @@
   {
    "kit": "styloo-school",
    "name": "school-bus",
-   "hash": "0a5846fc7e",
+   "hash": "9102e17b4b",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -455945,27 +455990,27 @@
   {
    "kit": "styloo-school",
    "name": "wall-doorway",
-   "hash": "474eb1a86d",
+   "hash": "eafe298e0f",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
     1,
     0.054,
-    1
+    1.001
    ],
    "tris": 50,
    "tpu": 102,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4208,
+   "bytes": 4228,
    "vtx": 80,
    "grounded": true,
    "centered": true,
    "minEdge": 0.027,
    "minTube": 0.0271,
    "thick": 0.0433,
-   "avgTri": 0.03755,
+   "avgTri": 0.03756,
    "anglePct": 100,
    "vpt": 1.6,
    "grad": 0.06,
@@ -456044,7 +456089,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/wall",
-   "thickRel": 0.43
+   "thickRel": 0.44
   },
   {
    "kit": "styloo-school",
@@ -456198,7 +456243,7 @@
     "sty"
    ],
    "variant": "styloo-school/wall",
-   "thickRel": 0.43
+   "thickRel": 0.44
   },
   {
    "kit": "styloo-school",
@@ -456252,7 +456297,7 @@
    "kit": "styloo-weapons",
    "collection": "styloo-weapons",
    "name": "axe",
-   "hash": "a17b179235",
+   "hash": "a1dcc19d89",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "m",
    "wdh": [
@@ -456273,7 +456318,7 @@
    "minTube": 0.0555,
    "thick": 0.1226,
    "avgTri": 0.00011,
-   "anglePct": 21,
+   "anglePct": 20,
    "vpt": 1.76,
    "grad": 0.6,
    "spread": {
@@ -457283,7 +457328,7 @@
   {
    "kit": "swords-tember",
    "name": "coral",
-   "hash": "3b52e9016b",
+   "hash": "4dc0d88f38",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -458433,7 +458478,7 @@
   {
    "kit": "taalei-kit",
    "name": "boarding-stairs-wooden",
-   "hash": "5fd80eabb0",
+   "hash": "8cb2d26765",
    "kind": "str-access-stairs-open",
    "size": "l",
    "wdh": [
@@ -458504,7 +458549,7 @@
   {
    "kit": "taalei-kit",
    "name": "boombox-compact",
-   "hash": "5cd2b93584",
+   "hash": "b8a5270d42",
    "kind": "obj-device-electronics-radio",
    "size": "s",
    "wdh": [
@@ -458562,7 +458607,7 @@
   {
    "kit": "taalei-kit",
    "name": "boombox-doubledeck",
-   "hash": "2ae257c015",
+   "hash": "1cd6bdc42a",
    "kind": "obj-device-electronics-radio",
    "size": "s",
    "wdh": [
@@ -458625,7 +458670,7 @@
   {
    "kit": "taalei-kit",
    "name": "boombox",
-   "hash": "44bbaa7444",
+   "hash": "0cf30f34ab",
    "kind": "obj-device-electronics-radio",
    "size": "s",
    "wdh": [
@@ -459554,7 +459599,7 @@
   {
    "kit": "taalei-kit",
    "name": "hanging-scale",
-   "hash": "27b5969b26",
+   "hash": "0d14a303b2",
    "kind": "obj-equipment-tool-scale",
    "size": "s",
    "wdh": [
@@ -459710,7 +459755,7 @@
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart-deluxe",
-   "hash": "14164c305c",
+   "hash": "9ac3898dff",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -459783,7 +459828,7 @@
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart-parasol",
-   "hash": "129ac5ef18",
+   "hash": "f412a9e6aa",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -459855,7 +459900,7 @@
   {
    "kit": "taalei-kit",
    "name": "ice-cream-cart",
-   "hash": "c213a42e6b",
+   "hash": "6dfeb352b8",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -459978,7 +460023,7 @@
   {
    "kit": "taalei-kit",
    "name": "jetski",
-   "hash": "7af7f23426",
+   "hash": "0d2e74e5d1",
    "kind": "obj-transport-watercraft-boat",
    "size": "m",
    "wdh": [
@@ -459998,7 +460043,7 @@
    "minEdge": 0.005,
    "minTube": 0.2681,
    "thick": 0.2658,
-   "avgTri": 0.01315,
+   "avgTri": 0.01316,
    "anglePct": 16,
    "vpt": 1.5,
    "grad": 0.6,
@@ -460408,7 +460453,7 @@
   {
    "kit": "taalei-kit",
    "name": "raft",
-   "hash": "6f49f3c3f8",
+   "hash": "20b7b592da",
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
@@ -461282,7 +461327,7 @@
   {
    "kit": "taalei-kit",
    "name": "totem-owl",
-   "hash": "68456004c1",
+   "hash": "c9e9252e31",
    "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
@@ -461393,7 +461438,7 @@
   {
    "kit": "taalei-kit",
    "name": "totem-raven",
-   "hash": "194a4be5db",
+   "hash": "e24ccd03fe",
    "kind": "str-fixture-marker-totem",
    "size": "l",
    "wdh": [
@@ -462373,7 +462418,7 @@
   {
    "kit": "western",
    "name": "cart",
-   "hash": "4b4292b821",
+   "hash": "3ce49e3803",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -474638,7 +474683,7 @@
    "kit": "wizp-mediev",
    "collection": "wizp-western",
    "name": "weapon-shop",
-   "hash": "ea6119cf68",
+   "hash": "07dd072f9c",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -474658,7 +474703,7 @@
    "minEdge": 0.005,
    "minTube": 0.0082,
    "thick": 0.1703,
-   "avgTri": 0.00803,
+   "avgTri": 0.00804,
    "anglePct": 48,
    "vpt": 1.62,
    "grad": 0.82,
@@ -477850,7 +477895,7 @@
   {
    "kit": "zombie-weapons",
    "name": "chainsaw-pole",
-   "hash": "17b6737157",
+   "hash": "8a5c5a1c41",
    "kind": "obj-equipment-weapon-melee",
    "size": "m",
    "wdh": [
@@ -477858,21 +477903,21 @@
     0.116,
     0.086
    ],
-   "tris": 1071,
-   "tpu": 3122,
+   "tris": 1111,
+   "tpu": 3239,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 86312,
-   "vtx": 2449,
+   "bytes": 88728,
+   "vtx": 2517,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0201,
-   "thick": 0.2932,
-   "avgTri": 0.0002,
-   "anglePct": 27,
-   "vpt": 2.29,
+   "thick": 0.2929,
+   "avgTri": 0.00021,
+   "anglePct": 25,
+   "vpt": 2.27,
    "grad": 0.48,
    "spread": {
     "15,3": [
@@ -477900,8 +477945,8 @@
     "textile-cloth-mid"
    ],
    "backface": {
-    "share": 0.0052,
-    "view": "270/20",
+    "share": 0.0017,
+    "view": "135/50",
     "causes": {
      "open": 1
     }
@@ -477909,9 +477954,9 @@
    "thickRel": 2.04,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "0.5% of view 270/20 over 0.5%: open 100.0%"
+     "text": "0.2% of view 135/50 over 0.1%: open 100.0%"
     }
    ]
   },

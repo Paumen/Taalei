@@ -1,9 +1,6 @@
 {
  "rows": [
   { "id": "I01", "when": "leaf=1 & thickRel>0", "field": "thickRel", "assert": "min", "value": 0.5, "level": "warning" },
-  { "id": "I08", "when": "*", "except": "mat=glass | tag:animation", "field": "alpha", "assert": "is", "value": false },
-  { "id": "I09", "when": "*", "except": "mat=glass", "field": "pbr", "assert": "is", "value": false },
-  { "id": "I11", "when": "*", "except": "mat=glass | tag:animation | tag:tba", "field": "calls", "assert": "max", "value": 1 },
   { "id": "G05", "when": "*", "except": "tag:plural | kind:set", "field": "grounded", "assert": "is", "value": true, "level": "warning" },
   { "id": "G06", "when": "*", "except": "tag:plural | kind:set | kind:str-part | kind:str-barrier-fence", "field": "centered", "assert": "is", "value": true, "level": "warning" },
   { "id": "G09", "when": "*", "except": "kind:env-fauna | tag:special | tag:plural | kind:set", "field": "nmat", "assert": "min", "value": 1 },
@@ -15,7 +12,6 @@
   { "id": "G15", "when": "size:l", "except": "kind:str-building | kind:obj-transport-land-road | tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
   { "id": "G17", "when": "size:l & kind:str-building", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 7 },
   { "id": "G19", "when": "kind:obj-container-barrel", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" },
-  { "id": "G27", "when": "minTube>0", "field": "minTube", "assert": "min", "value": "tubeneed" },
-  { "id": "G29", "when": "badNormals>0", "field": "badNormals", "assert": "max", "value": 0 }
+  { "id": "G27", "when": "minTube>0", "field": "minTube", "assert": "min", "value": "tubeneed" }
  ]
 }
