@@ -498,6 +498,12 @@
        "nouns": [
         "pallet"
        ]
+      },
+      {
+       "id": "obj-container-safe",
+       "nouns": [
+        "safe"
+       ]
       }
      ]
     },
@@ -930,7 +936,8 @@
          "nouns": [
           "sausage",
           "hot dog",
-          "hotdog"
+          "hotdog",
+          "corn dog"
          ]
         }
        ]
@@ -1492,10 +1499,7 @@
           "taupe"
          ],
          "nouns": [
-          "scythe (weapon)",
-          "knuckles",
-          "claws",
-          "gauntlet blade"
+          "scythe (weapon)"
          ],
          "children": [
           {
@@ -1600,6 +1604,15 @@
             "metal-gold",
             "metal-copper"
            ]
+          },
+          {
+           "id": "obj-equipment-weapon-melee-fist",
+           "nouns": [
+            "knuckles",
+            "knuckle duster",
+            "claws",
+            "gauntlet blade"
+           ]
           }
          ]
         },
@@ -1608,8 +1621,8 @@
          "tube.min": 0.006,
          "nouns": [
           "sling",
-          "javelin",
-          "dart"
+          "dart",
+          "slingshot"
          ],
          "children": [
           {
@@ -1730,7 +1743,8 @@
             "throwing knife",
             "shuriken",
             "throwing star",
-            "boomerang"
+            "boomerang",
+            "javelin"
            ]
           },
           {
@@ -2017,8 +2031,7 @@
         "ivory"
        ],
        "nouns": [
-        "compass",
-        "mirror (hand)"
+        "compass"
        ],
        "children": [
         {
@@ -2116,6 +2129,28 @@
             "rolled scroll"
            ]
           }
+         ]
+        },
+        {
+         "id": "obj-equipment-pocketitem-tag",
+         "nouns": [
+          "tag",
+          "label",
+          "clothing tag",
+          "luggage tag",
+          "door hanger",
+          "ticket",
+          "credit card",
+          "token"
+         ]
+        },
+        {
+         "id": "obj-equipment-pocketitem-cosmetic",
+         "nouns": [
+          "lipstick",
+          "makeup palette",
+          "powder compact",
+          "mirror (hand)"
          ]
         }
        ]
@@ -2226,6 +2261,13 @@
             "hand shovel",
             "hand hoe"
            ]
+          },
+          {
+           "id": "obj-equipment-tool-hand-crowbar",
+           "nouns": [
+            "crowbar",
+            "pry bar"
+           ]
           }
          ]
         },
@@ -2317,7 +2359,8 @@
             "nail",
             "bolt (fastener)",
             "pin",
-            "tent peg"
+            "tent peg",
+            "clothes peg"
            ]
           },
           {
@@ -2389,7 +2432,6 @@
          "nouns": [
           "spring",
           "pulley",
-          "button (floor)",
           "bear trap"
          ],
          "children": [
@@ -2407,7 +2449,16 @@
            "id": "obj-equipment-tool-mechanism-lock",
            "nouns": [
             "lock",
-            "padlock"
+            "padlock",
+            "latch"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-mechanism-button",
+           "nouns": [
+            "button (floor)",
+            "pressure plate",
+            "jump pad"
            ]
           }
          ]
@@ -2803,7 +2854,8 @@
        "longest.min": 0.15,
        "nouns": [
         "brick (loose)",
-        "cut block"
+        "cut block",
+        "breeze block"
        ]
       },
       {
@@ -2814,7 +2866,8 @@
         "textile bolt",
         "cloth roll",
         "cotton reel",
-        "spool (thread)"
+        "spool (thread)",
+        "sewing button"
        ]
       },
       {
@@ -2962,6 +3015,10 @@
           "candelabra"
          ]
         }
+       ],
+       "nouns": [
+        "string lights",
+        "glow stick"
        ]
       },
       {
@@ -3342,7 +3399,7 @@
        "nouns": [
         "wreath",
         "garland",
-        "birdhouse"
+        "stocking"
        ],
        "children": [
         {
@@ -3353,7 +3410,14 @@
           "mounted head",
           "hunting trophy",
           "trophy head",
-          "antlers (mounted)"
+          "antlers (mounted)",
+          "wall trophy"
+         ]
+        },
+        {
+         "id": "obj-furnishing-decor-birdhouse",
+         "nouns": [
+          "birdhouse"
          ]
         }
        ]
@@ -3550,13 +3614,7 @@
       {
        "id": "obj-device-electronics",
        "nouns": [
-        "battery",
-        "gramophone",
-        "circuit board",
-        "microchip",
-        "memory module",
-        "ssd",
-        "router"
+        "gramophone"
        ],
        "children": [
         {
@@ -3655,7 +3713,8 @@
           "console (computer)",
           "printer",
           "game console",
-          "control panel"
+          "control panel",
+          "router"
          ],
          "children": [
           {
@@ -3706,6 +3765,16 @@
           "phone",
           "telephone",
           "mobile phone"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-component",
+         "nouns": [
+          "battery",
+          "circuit board",
+          "microchip",
+          "memory module",
+          "ssd"
          ]
         }
        ]
@@ -3991,6 +4060,13 @@
          "nouns": [
           "doorway"
          ]
+        },
+        {
+         "id": "str-part-door-double",
+         "nouns": [
+          "double door",
+          "sliding door"
+         ]
         }
        ]
       },
@@ -4119,7 +4195,6 @@
        "nouns": [
         "wall",
         "wall segment",
-        "arch (building)",
         "corner"
        ],
        "children": [
@@ -4160,6 +4235,13 @@
           "perimeter wall",
           "palisade"
          ]
+        },
+        {
+         "id": "str-part-wall-arch",
+         "nouns": [
+          "arch (building)",
+          "archway"
+         ]
         }
        ]
       },
@@ -4175,7 +4257,8 @@
         "pillar",
         "column",
         "beam",
-        "support"
+        "support",
+        "bracing"
        ]
       },
       {
@@ -4340,7 +4423,8 @@
           "farm",
           "chicken coop",
           "farmhouse",
-          "barn"
+          "barn",
+          "kennel"
          ],
          "children": [
           {
@@ -4925,7 +5009,8 @@
          "nouns": [
           "mailbox",
           "letterbox",
-          "post box"
+          "post box",
+          "night deposit"
          ]
         },
         {
@@ -4941,8 +5026,7 @@
        "id": "str-fixture-utility",
        "nouns": [
         "utility pole",
-        "power line",
-        "night deposit"
+        "power line"
        ],
        "children": [
         {
@@ -5079,7 +5163,10 @@
         "ferris wheel",
         "grandstand",
         "grand stand",
-        "bleachers"
+        "bleachers",
+        "starting block",
+        "diving board",
+        "lifeguard chair"
        ],
        "children": [
         {
@@ -5113,7 +5200,8 @@
         "metal-copper"
        ],
        "nouns": [
-        "stone lantern"
+        "stone lantern",
+        "warning beacon"
        ],
        "children": [
         {
@@ -5239,7 +5327,10 @@
         "circuit breaker",
         "smoke detector",
         "fire alarm",
-        "light bulb"
+        "light bulb",
+        "air conditioner",
+        "vent cover",
+        "radiator"
        ]
       }
      ]
@@ -5528,8 +5619,7 @@
      "tpu.max": 3000,
      "nouns": [
       "island base",
-      "cave floor",
-      "riverbed"
+      "cave floor"
      ],
      "children": [
       {
@@ -5625,7 +5715,8 @@
           "ground cover",
           "grass patch",
           "ground tile",
-          "flat rock"
+          "flat rock",
+          "riverbed"
          ]
         },
         {
