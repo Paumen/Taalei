@@ -360,8 +360,7 @@
     "0.55": 18
    },
    "smooth": {
-    "smooth": 60,
-    "none": 2
+    "smooth": 62
    },
    "members": [
     {
@@ -380,8 +379,7 @@
       "1.24": 16
      },
      "smooth": {
-      "smooth": 15,
-      "none": 1
+      "smooth": 16
      }
     },
     {
@@ -400,8 +398,7 @@
       "0.39": 28
      },
      "smooth": {
-      "smooth": 27,
-      "none": 1
+      "smooth": 28
      }
     },
     {
@@ -425,7 +422,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 0.98,
+    "factor": 1.02,
     "kinds": 39
    }
   },
@@ -28627,7 +28624,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4062,
+   "count": 4063,
    "derived": true
   },
   {
@@ -28635,7 +28632,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3459,
+   "count": 3458,
    "derived": true
   },
   {
@@ -43075,7 +43072,7 @@
     "special-organic"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.87
+   "thickRel": 0.84
   },
   {
    "kit": "aq-pond",
@@ -43130,7 +43127,7 @@
     "special-organic"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.78
+   "thickRel": 0.76
   },
   {
    "kit": "aq-pond",
@@ -43174,7 +43171,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.66
+   "thickRel": 0.64
   },
   {
    "kit": "aq-pond",
@@ -43544,7 +43541,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "aq-pond",
@@ -43587,7 +43584,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 1.06
+   "thickRel": 1.03
   },
   {
    "kit": "aq-pond",
@@ -43630,7 +43627,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 0.94,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "warning",
@@ -43852,7 +43849,7 @@
     "stone-concrete",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.71,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -44372,27 +44369,27 @@
    "kit": "avra-food",
    "collection": "avra",
    "name": "ale-mug",
-   "hash": "81c69564f2",
+   "hash": "c30b3764ff",
    "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
-    0.176,
-    0.122,
-    0.148
+    0.15,
+    0.105,
+    0.127
    ],
    "tris": 388,
    "tpu": 1131,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 22872,
+   "bytes": 22908,
    "vtx": 596,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "thick": 0.1967,
-   "avgTri": 0.00056,
-   "anglePct": 49,
+   "minEdge": 0.013,
+   "thick": 0.1987,
+   "avgTri": 0.00042,
+   "anglePct": 37,
    "vpt": 1.54,
    "grad": 0.6,
    "spread": {
@@ -44425,34 +44422,34 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 2.14
+   "thickRel": 2.16
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "apple",
-   "hash": "c9548fae46",
+   "hash": "5c5f3c850d",
    "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
-    0.106,
-    0.104,
-    0.104
+    0.15,
+    0.148,
+    0.148
    ],
    "tris": 418,
    "tpu": 1219,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 21028,
+   "bytes": 21064,
    "vtx": 533,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0056,
-   "thick": 0.2331,
-   "avgTri": 0.00009,
-   "anglePct": 12,
+   "minEdge": 0.004,
+   "minTube": 0.0159,
+   "thick": 0.2398,
+   "avgTri": 0.00018,
+   "anglePct": 6,
    "vpt": 1.28,
    "grad": 0.59,
    "spread": {
@@ -44478,40 +44475,33 @@
     "leaf-dark",
     "special-food"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0056 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "bowl",
-   "hash": "7a22275580",
+   "hash": "b984d27d58",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.303,
-    0.179,
-    0.084
+    0.2,
+    0.121,
+    0.081
    ],
    "tris": 388,
    "tpu": 1131,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22604,
+   "bytes": 22640,
    "vtx": 588,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "thick": 0.1485,
-   "avgTri": 0.00053,
-   "anglePct": 62,
+   "minEdge": 0.01,
+   "thick": 0.1798,
+   "avgTri": 0.00029,
+   "anglePct": 32,
    "vpt": 1.52,
    "grad": 0.6,
    "spread": {
@@ -44532,34 +44522,34 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 2.02
+   "thickRel": 2.44
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "cabbage",
-   "hash": "c577124910",
+   "hash": "2cd69f18e7",
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.213,
-    0.205,
-    0.164
+    0.25,
+    0.244,
+    0.197
    ],
    "tris": 1448,
    "tpu": 4222,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 58292,
+   "bytes": 58300,
    "vtx": 1504,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0037,
-   "thick": 0.2126,
-   "avgTri": 0.00016,
-   "anglePct": 5,
+   "thick": 0.2189,
+   "avgTri": 0.00025,
+   "anglePct": 4,
    "vpt": 1.04,
    "grad": 0.6,
    "spread": {
@@ -44574,54 +44564,33 @@
    "tags": [
     "special-food"
    ],
-   "backface": {
-    "share": 0.0031,
-    "view": "180/20",
-    "causes": {
-     "other": 0.46,
-     "inverted": 0.54
-    }
-   },
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 180/20 over 0.1%: inverted 54.0%, other 46.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0037 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "cask",
-   "hash": "fd4bbc7b5e",
+   "hash": "e4c7bdaff6",
    "kind": "obj-container-barrel",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.428,
-    0.498,
-    0.528
+    0.33,
+    0.381,
+    0.4
    ],
    "tris": 1300,
    "tpu": 3790,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 54804,
+   "bytes": 54840,
    "vtx": 1423,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0173,
-   "thick": 0.229,
-   "avgTri": 0.00154,
-   "anglePct": 23,
+   "minEdge": 0.007,
+   "thick": 0.2316,
+   "avgTri": 0.00103,
+   "anglePct": 15,
    "vpt": 1.09,
    "grad": 0.58,
    "spread": {
@@ -44648,40 +44617,33 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0173 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.91
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "cheese-wheel",
-   "hash": "49c9f0a3df",
+   "hash": "1e8997484c",
    "kind": "obj-food-dairy-cheese",
    "size": "s",
    "wdh": [
-    0.362,
-    0.372,
-    0.139
+    0.195,
+    0.2,
+    0.098
    ],
    "tris": 1270,
    "tpu": 3703,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 44276,
+   "bytes": 44316,
    "vtx": 1099,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1562,
-   "avgTri": 0.00029,
-   "anglePct": 46,
+   "thick": 0.1858,
+   "avgTri": 0.00009,
+   "anglePct": 34,
    "vpt": 0.87,
    "grad": 0.52,
    "spread": {
@@ -44706,34 +44668,34 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 0.85
+   "thickRel": 1
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "cutlery",
-   "hash": "35d1df2551",
+   "hash": "48ebe4c547",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.345,
-    0.191,
-    0.039
+    0.2,
+    0.113,
+    0.027
    ],
    "tris": 1004,
    "tpu": 2927,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 46412,
+   "bytes": 46452,
    "vtx": 1216,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0053,
-   "thick": 0.0739,
-   "avgTri": 0.00018,
-   "anglePct": 79,
+   "minEdge": 0.002,
+   "minTube": 0.0072,
+   "thick": 0.0922,
+   "avgTri": 0.00007,
+   "anglePct": 63,
    "vpt": 1.21,
    "grad": 0.6,
    "spread": {
@@ -44766,40 +44728,33 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 0.38,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0053 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.47
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "fish",
-   "hash": "ff0468e435",
+   "hash": "c9effaa1c8",
    "kind": "obj-food-fish",
    "size": "s",
    "wdh": [
-    0.462,
-    0.151,
-    0.07
+    0.472,
+    0.16,
+    0.124
    ],
    "tris": 600,
    "tpu": 1749,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28420,
+   "bytes": 28456,
    "vtx": 730,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1851,
-   "avgTri": 0.00025,
-   "anglePct": 19,
+   "minEdge": 0.005,
+   "thick": 0.2465,
+   "avgTri": 0.00036,
+   "anglePct": 11,
    "vpt": 1.22,
    "grad": 0.6,
    "spread": {
@@ -44824,33 +44779,33 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.98
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "grapes",
-   "hash": "a45b612de8",
+   "hash": "b33fb24e5a",
    "kind": "obj-food-fruit-grapes",
    "size": "s",
    "wdh": [
-    0.104,
-    0.113,
-    0.222
+    0.096,
+    0.105,
+    0.2
    ],
    "tris": 708,
    "tpu": 2064,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 68636,
+   "bytes": 68676,
    "vtx": 1966,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0108,
-   "thick": 0.1753,
-   "avgTri": 0.00013,
+   "minEdge": 0.007,
+   "minTube": 0.0154,
+   "thick": 0.184,
+   "avgTri": 0.00014,
    "anglePct": 0,
    "vpt": 2.78,
    "grad": 0.56,
@@ -44877,26 +44832,19 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.75,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0108 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.79
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "herb-bundle",
-   "hash": "0721c07665",
+   "hash": "f5ddaa7b1f",
    "kind": "obj-food",
    "size": "s",
    "wdh": [
-    0.425,
-    0.427,
-    0.353
+    0.452,
+    0.453,
+    0.372
    ],
    "tris": 666,
    "tpu": 1942,
@@ -44907,11 +44855,11 @@
    "vtx": 885,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0068,
-   "thick": 0.04,
-   "avgTri": 0.00029,
-   "anglePct": 13,
+   "minEdge": 0.008,
+   "minTube": 0.0142,
+   "thick": 0.0445,
+   "avgTri": 0.00044,
+   "anglePct": 10,
    "vpt": 1.33,
    "grad": 0.58,
    "spread": {
@@ -44939,40 +44887,33 @@
     "mounted",
     "textile-rope"
    ],
-   "thickRel": 0.19,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0068 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.21
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "onion",
-   "hash": "00854b6284",
+   "hash": "a7d055a7ce",
    "kind": "obj-food-vegetable-onion",
    "size": "s",
    "wdh": [
-    0.095,
-    0.094,
-    0.126
+    0.117,
+    0.116,
+    0.15
    ],
    "tris": 386,
    "tpu": 1125,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 24320,
+   "bytes": 24360,
    "vtx": 642,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0097,
-   "thick": 0.242,
-   "avgTri": 0.00008,
+   "minEdge": 0.005,
+   "minTube": 0.0178,
+   "thick": 0.2421,
+   "avgTri": 0.00012,
    "anglePct": 3,
    "vpt": 1.66,
    "grad": 0.55,
@@ -44998,25 +44939,18 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 0.99,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0097 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.99
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "plate",
-   "hash": "927239c08c",
+   "hash": "03db14fa9e",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.298,
-    0.298,
+    0.25,
+    0.25,
     0.042
    ],
    "tris": 376,
@@ -45024,15 +44958,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15592,
+   "bytes": 15576,
    "vtx": 371,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0093,
-   "thick": 0.0607,
-   "avgTri": 0.00082,
-   "anglePct": 61,
+   "minEdge": 0.008,
+   "thick": 0.0747,
+   "avgTri": 0.00065,
+   "anglePct": 49,
    "vpt": 0.99,
    "grad": 0.6,
    "spread": {
@@ -45053,40 +44987,33 @@
     "metal-iron-dark",
     "metal-steel"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0093 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.24
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "potion",
-   "hash": "b3c06fc219",
+   "hash": "c18b76a69b",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.094,
-    0.093,
-    0.141
+    0.135,
+    0.133,
+    0.2
    ],
    "tris": 494,
    "tpu": 1440,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 23792,
+   "bytes": 23828,
    "vtx": 605,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "thick": 0.2476,
-   "avgTri": 0.00008,
-   "anglePct": 15,
+   "minEdge": 0.005,
+   "thick": 0.2482,
+   "avgTri": 0.00017,
+   "anglePct": 11,
    "vpt": 1.22,
    "grad": 0.49,
    "spread": {
@@ -45131,28 +45058,28 @@
    "kit": "avra-food",
    "collection": "avra",
    "name": "produce-crate",
-   "hash": "3276ab6982",
+   "hash": "f8e8ca8f4d",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
-    0.66,
-    0.436,
-    0.15
+    0.6,
+    0.4,
+    0.218
    ],
    "tris": 240,
    "tpu": 700,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17772,
+   "bytes": 17812,
    "vtx": 464,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.0123,
-   "thick": 0.0578,
-   "avgTri": 0.00503,
-   "anglePct": 100,
+   "minEdge": 0.017,
+   "minTube": 0.0188,
+   "thick": 0.0631,
+   "avgTri": 0.00601,
+   "anglePct": 87,
    "vpt": 1.93,
    "grad": 0.6,
    "spread": {
@@ -45179,33 +45106,33 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.68
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "roll",
-   "hash": "3cd1843076",
+   "hash": "7514a492f7",
    "kind": "obj-food-baked-bread-bun",
    "size": "s",
    "wdh": [
-    0.114,
-    0.107,
-    0.07
+    0.15,
+    0.141,
+    0.095
    ],
    "tris": 190,
    "tpu": 554,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10596,
+   "bytes": 10632,
    "vtx": 250,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.1709,
-   "avgTri": 0.00017,
-   "anglePct": 24,
+   "minEdge": 0.009,
+   "thick": 0.1867,
+   "avgTri": 0.0003,
+   "anglePct": 17,
    "vpt": 1.32,
    "grad": 0.42,
    "spread": {
@@ -45225,34 +45152,34 @@
    "tags": [
     "special-food"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.79
   },
   {
    "kit": "avra-food",
    "collection": "avra",
    "name": "scales",
-   "hash": "c99d5b573e",
+   "hash": "57299f8026",
    "kind": "obj-equipment-tool-scale",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.65,
-    0.248,
-    0.698
+    0.373,
+    0.147,
+    0.4
    ],
    "tris": 686,
    "tpu": 2000,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 41744,
+   "bytes": 41780,
    "vtx": 1130,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.0062,
-   "thick": 0.0484,
-   "avgTri": 0.00077,
-   "anglePct": 50,
+   "minEdge": 0.009,
+   "minTube": 0.01,
+   "thick": 0.0543,
+   "avgTri": 0.00033,
+   "anglePct": 26,
    "vpt": 1.65,
    "grad": 0.6,
    "spread": {
@@ -45285,33 +45212,33 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.86
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "boulder",
-   "hash": "8bc130d595",
+   "hash": "38c2adeb0b",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.599,
-    0.524,
-    0.3
+    0.95,
+    0.836,
+    0.598
    ],
    "tris": 64,
-   "tpu": 187,
+   "tpu": 115,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5128,
+   "bytes": 5124,
    "vtx": 100,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "thick": 0.2062,
-   "avgTri": 0.01201,
-   "anglePct": 29,
+   "minEdge": 0.049,
+   "thick": 0.2283,
+   "avgTri": 0.03394,
+   "anglePct": 22,
    "vpt": 1.56,
    "grad": 0.6,
    "spread": {
@@ -45326,34 +45253,34 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 0.96
+   "thickRel": 1.06
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "bridge-plank",
-   "hash": "72593d4d05",
+   "hash": "76152c6590",
    "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
     1.77,
-    0.643,
-    0.558
+    0.651,
+    0.561
    ],
    "tris": 584,
-   "tpu": 733,
+   "tpu": 724,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 35264,
+   "bytes": 35304,
    "vtx": 946,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.035,
-   "thick": 0.1468,
-   "avgTri": 0.00734,
-   "anglePct": 27,
+   "minEdge": 0.012,
+   "minTube": 0.047,
+   "thick": 0.1517,
+   "avgTri": 0.00837,
+   "anglePct": 26,
    "vpt": 1.62,
    "grad": 0.6,
    "spread": {
@@ -45380,33 +45307,33 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cave",
-   "hash": "06f0d2b4cd",
+   "hash": "cd5fdc8e52",
    "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
-    1.56,
-    0.488,
-    1.174
+    2.2,
+    0.73,
+    1.671
    ],
    "tris": 2610,
-   "tpu": 2920,
+   "tpu": 973,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 116592,
+   "bytes": 116692,
    "vtx": 3109,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1298,
-   "avgTri": 0.00223,
-   "anglePct": 57,
+   "minEdge": 0.001,
+   "thick": 0.1385,
+   "avgTri": 0.00485,
+   "anglePct": 46,
    "vpt": 1.19,
    "grad": 0.59,
    "spread": {
@@ -45432,33 +45359,33 @@
     "leaf-light",
     "stone-rock"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.71
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cliff-a",
-   "hash": "c55cb65ccc",
+   "hash": "59dee320e8",
    "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
-    1.56,
-    0.488,
-    1.174
+    2.2,
+    0.729,
+    1.671
    ],
    "tris": 2710,
-   "tpu": 3032,
+   "tpu": 1011,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 120592,
+   "bytes": 120692,
    "vtx": 3215,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1394,
-   "avgTri": 0.00221,
-   "anglePct": 58,
+   "minEdge": 0.001,
+   "thick": 0.1495,
+   "avgTri": 0.00476,
+   "anglePct": 38,
    "vpt": 1.19,
    "grad": 0.57,
    "spread": {
@@ -45485,33 +45412,33 @@
     "stone-rock"
    ],
    "variant": "avra-nature/cliff-a",
-   "thickRel": 0.72
+   "thickRel": 0.77
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cliff-b",
-   "hash": "8a56d4d689",
+   "hash": "5eb27bab7a",
    "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
-    1.56,
-    0.488,
-    1.174
+    2.2,
+    0.731,
+    1.671
    ],
    "tris": 2460,
-   "tpu": 2752,
+   "tpu": 915,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 109008,
+   "bytes": 109112,
    "vtx": 2900,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.136,
-   "avgTri": 0.0024,
-   "anglePct": 59,
+   "thick": 0.1469,
+   "avgTri": 0.00509,
+   "anglePct": 40,
    "vpt": 1.18,
    "grad": 0.59,
    "spread": {
@@ -45538,33 +45465,33 @@
     "stone-rock"
    ],
    "variant": "avra-nature/cliff-a",
-   "thickRel": 0.7
+   "thickRel": 0.75
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cliff-corner",
-   "hash": "19f814b1db",
+   "hash": "c0edbd859e",
    "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
-    1.56,
-    1.556,
-    1.17
+    2.2,
+    2.191,
+    1.674
    ],
    "tris": 2768,
-   "tpu": 975,
+   "tpu": 343,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 151996,
+   "bytes": 152064,
    "vtx": 4184,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.2002,
-   "avgTri": 0.00315,
-   "anglePct": 22,
+   "minEdge": 0.001,
+   "thick": 0.2041,
+   "avgTri": 0.0066,
+   "anglePct": 17,
    "vpt": 1.51,
    "grad": 0.59,
    "spread": {
@@ -45591,19 +45518,19 @@
     "stone-rock"
    ],
    "backface": {
-    "share": 0.01,
+    "share": 0.0069,
     "view": "315/50",
     "causes": {
-     "inverted": 0.43,
-     "open": 0.57
+     "inverted": 0.48,
+     "open": 0.52
     }
    },
-   "thickRel": 1.03,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "1.0% of view 315/50 over 0.5%: open 57.0%, inverted 43.0%"
+     "text": "0.7% of view 315/50 over 0.5%: open 52.0%, inverted 48.0%"
     }
    ]
   },
@@ -45611,27 +45538,27 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cliff-low",
-   "hash": "fa30aa8310",
+   "hash": "c2f98eb69f",
    "kind": "env-terrain-rock-formation",
    "size": "l",
    "wdh": [
-    1.56,
-    0.488,
-    0.691
+    2.2,
+    0.713,
+    0.996
    ],
    "tris": 2512,
-   "tpu": 4714,
+   "tpu": 1608,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 111440,
+   "bytes": 111544,
    "vtx": 2966,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.2311,
-   "avgTri": 0.0016,
-   "anglePct": 67,
+   "minEdge": 0.001,
+   "thick": 0.2373,
+   "avgTri": 0.00339,
+   "anglePct": 56,
    "vpt": 1.18,
    "grad": 0.58,
    "spread": {
@@ -45657,33 +45584,33 @@
     "leaf-light",
     "stone-rock"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.22
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "cobble",
-   "hash": "02b75a6286",
+   "hash": "feb276e35d",
    "kind": "str-access-path",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.39,
-    0.304,
-    0.035
+    0.75,
+    0.581,
+    0.079
    ],
    "tris": 362,
    "tpu": 1055,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27180,
+   "bytes": 27216,
    "vtx": 735,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.0755,
-   "avgTri": 0.00108,
-   "anglePct": 86,
+   "minEdge": 0.019,
+   "thick": 0.0831,
+   "avgTri": 0.00411,
+   "anglePct": 83,
    "vpt": 2.03,
    "grad": 0.36,
    "spread": {
@@ -45705,33 +45632,33 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.55
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "dead-tree",
-   "hash": "87e6dde250",
+   "hash": "576d279ca2",
    "kind": "env-remains-deadwood-tree",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    1.091,
-    1.729,
-    1.902
+    0.668,
+    1.043,
+    1.15
    ],
    "tris": 1486,
-   "tpu": 414,
+   "tpu": 1855,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 89744,
+   "bytes": 89736,
    "vtx": 2477,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "thick": 0.0643,
-   "avgTri": 0.00265,
-   "anglePct": 12,
+   "thick": 0.0711,
+   "avgTri": 0.00147,
+   "anglePct": 5,
    "vpt": 1.67,
    "grad": 0.59,
    "spread": {
@@ -45746,34 +45673,34 @@
    "tags": [
     "bark"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.67
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "flowers",
-   "hash": "f69fb6911f",
+   "hash": "9b45f20cc2",
    "kind": "env-flora-plant-flower",
    "size": "s",
    "wdh": [
-    0.173,
-    0.177,
-    0.142
+    0.292,
+    0.3,
+    0.24
    ],
    "tris": 644,
    "tpu": 1878,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 47280,
+   "bytes": 47276,
    "vtx": 1308,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.004,
-   "thick": 0.044,
-   "avgTri": 0.00008,
-   "anglePct": 5,
+   "minEdge": 0.007,
+   "minTube": 0.0116,
+   "thick": 0.0487,
+   "avgTri": 0.00031,
+   "anglePct": 1,
    "vpt": 2.03,
    "grad": 0.6,
    "spread": {
@@ -45809,40 +45736,33 @@
     "leaf-light",
     "plural",
     "special-organic"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.004 wants min 0.006"
-    }
    ]
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "grass",
-   "hash": "fae49c9875",
+   "hash": "37f730b946",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.116,
-    0.1,
-    0.116
+    0.247,
+    0.212,
+    0.25
    ],
    "tris": 330,
    "tpu": 962,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17924,
+   "bytes": 17880,
    "vtx": 450,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "thick": 0.0503,
-   "avgTri": 0.00011,
-   "anglePct": 2,
+   "minEdge": 0.011,
+   "thick": 0.0569,
+   "avgTri": 0.00058,
+   "anglePct": 1,
    "vpt": 1.36,
    "grad": 0.48,
    "spread": {
@@ -45857,33 +45777,33 @@
    "tags": [
     "leaf-light"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.86
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "ivy",
-   "hash": "0ffe2ae509",
+   "hash": "ff5ec0682f",
    "kind": "env-flora-plant",
    "size": "m",
    "wdh": [
-    0.78,
-    0.055,
-    0.879
+    0.666,
+    0.047,
+    0.75
    ],
    "tris": 1352,
-   "tpu": 3139,
+   "tpu": 3679,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 75756,
+   "bytes": 75796,
    "vtx": 2068,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0046,
+   "minEdge": 0.002,
+   "minTube": 0.0039,
    "thick": 0.0395,
-   "avgTri": 0.00016,
+   "avgTri": 0.00012,
    "anglePct": 11,
    "vpt": 1.53,
    "grad": 0.35,
@@ -45930,7 +45850,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0046 wants min 0.026"
+     "text": "G27 minTube 0.0039 wants min 0.026"
     }
    ]
   },
@@ -45938,27 +45858,27 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "lilypad",
-   "hash": "f9789164b4",
+   "hash": "6eb27352eb",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",
    "wdh": [
-    0.206,
-    0.315,
-    0.036
+    0.196,
+    0.3,
+    0.043
    ],
    "tris": 284,
    "tpu": 828,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17200,
+   "bytes": 17240,
    "vtx": 437,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "thick": 0.0596,
-   "avgTri": 0.0003,
-   "anglePct": 78,
+   "minEdge": 0.012,
+   "thick": 0.074,
+   "avgTri": 0.00034,
+   "anglePct": 62,
    "vpt": 1.54,
    "grad": 0.58,
    "spread": {
@@ -45984,33 +45904,33 @@
     "leaf-light",
     "special-organic"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.42
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "log",
-   "hash": "4e2feacfe7",
+   "hash": "61f21eb74b",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
    "wdh": [
-    0.595,
-    1.013,
-    0.582
+    0.411,
+    0.7,
+    0.405
    ],
    "tris": 946,
-   "tpu": 2242,
+   "tpu": 2758,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 47740,
+   "bytes": 47732,
    "vtx": 1266,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.205,
-   "avgTri": 0.00163,
-   "anglePct": 8,
+   "thick": 0.2152,
+   "avgTri": 0.00087,
+   "anglePct": 5,
    "vpt": 1.34,
    "grad": 0.59,
    "spread": {
@@ -46025,33 +45945,33 @@
    "tags": [
     "bark"
    ],
-   "thickRel": 1.59
+   "thickRel": 1.67
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "mushrooms",
-   "hash": "7512e24d13",
+   "hash": "65ff00c182",
    "kind": "env-fungi",
    "size": "s",
    "wdh": [
-    0.152,
-    0.188,
-    0.177
+    0.122,
+    0.15,
+    0.142
    ],
    "tris": 746,
    "tpu": 2175,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46844,
+   "bytes": 46840,
    "vtx": 1275,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1019,
-   "avgTri": 0.00012,
-   "anglePct": 9,
+   "thick": 0.1134,
+   "avgTri": 0.00009,
+   "anglePct": 8,
    "vpt": 1.71,
    "grad": 0.59,
    "spread": {
@@ -46077,28 +45997,28 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "paving",
-   "hash": "8ca72e9b4c",
+   "hash": "9a865972c8",
    "kind": "str-access-path",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.39,
-    0.39,
-    0.035
+    0.75,
+    0.739,
+    0.08
    ],
    "tris": 316,
-   "tpu": 921,
+   "tpu": 814,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21012,
+   "bytes": 21084,
    "vtx": 552,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0209,
-   "thick": 0.0633,
-   "avgTri": 0.00207,
-   "anglePct": 100,
+   "minEdge": 0.013,
+   "thick": 0.0728,
+   "avgTri": 0.00813,
+   "anglePct": 90,
    "vpt": 1.75,
    "grad": 0.6,
    "spread": {
@@ -46120,26 +46040,19 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.18,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0209 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.36
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "pebbles",
-   "hash": "fa835db06c",
+   "hash": "746ab9fe10",
    "kind": "env-terrain-rock-pebble",
    "size": "s",
    "wdh": [
     0.41,
-    0.33,
-    0.066
+    0.334,
+    0.082
    ],
    "tris": 364,
    "tpu": 1061,
@@ -46150,10 +46063,10 @@
    "vtx": 570,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.0789,
-   "avgTri": 0.00053,
-   "anglePct": 17,
+   "minEdge": 0.007,
+   "thick": 0.0918,
+   "avgTri": 0.00071,
+   "anglePct": 8,
    "vpt": 1.57,
    "grad": 0.6,
    "spread": {
@@ -46179,28 +46092,27 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "pine-sapling",
-   "hash": "5ef426e7cc",
+   "hash": "cc438c49d2",
    "kind": "env-flora-tree-conifer",
    "size": "m",
    "wdh": [
-    0.234,
-    0.234,
-    0.565
+    0.438,
+    0.436,
+    1.037
    ],
    "tris": 720,
-   "tpu": 2099,
+   "tpu": 1417,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 38284,
+   "bytes": 38272,
    "vtx": 1012,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.2132,
-   "avgTri": 0.00039,
-   "anglePct": 6,
+   "thick": 0.2148,
+   "avgTri": 0.00144,
+   "anglePct": 5,
    "vpt": 1.41,
    "grad": 0.59,
    "spread": {
@@ -46229,27 +46141,27 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "pine",
-   "hash": "3f781e0224",
+   "hash": "491a3d946f",
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
-    1.455,
-    1.415,
-    2.75
+    1.222,
+    1.188,
+    2.286
    ],
    "tris": 3032,
-   "tpu": 536,
+   "tpu": 914,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 165932,
+   "bytes": 165944,
    "vtx": 4569,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1751,
-   "avgTri": 0.00487,
-   "anglePct": 4,
+   "minEdge": 0.002,
+   "thick": 0.1803,
+   "avgTri": 0.0041,
+   "anglePct": 3,
    "vpt": 1.51,
    "grad": 0.58,
    "spread": {
@@ -46271,33 +46183,33 @@
     "leaf-dark"
    ],
    "variant": "avra-nature/pine",
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "riverbed",
-   "hash": "2304c8ff42",
+   "hash": "92784a9e77",
    "kind": "env-terrain",
    "size": "m",
    "wdh": [
-    0.78,
-    0.78,
-    0.064
+    0.617,
+    0.616,
+    0.063
    ],
    "tris": 292,
-   "tpu": 686,
+   "tpu": 851,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20704,
+   "bytes": 20844,
    "vtx": 548,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.049,
-   "avgTri": 0.00494,
-   "anglePct": 93,
+   "minEdge": 0.014,
+   "thick": 0.0579,
+   "avgTri": 0.00332,
+   "anglePct": 90,
    "vpt": 1.88,
    "grad": 0.6,
    "spread": {
@@ -46318,19 +46230,19 @@
     "earth-soil",
     "stone-rock"
    ],
-   "thickRel": 0.25
+   "thickRel": 0.29
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "rocks",
-   "hash": "30d7de440e",
+   "hash": "3893ac905a",
    "kind": "env-terrain-rock-boulder",
    "size": "s",
    "wdh": [
     0.44,
-    0.405,
-    0.347
+    0.406,
+    0.351
    ],
    "tris": 236,
    "tpu": 688,
@@ -46341,10 +46253,10 @@
    "vtx": 328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "thick": 0.1735,
-   "avgTri": 0.00217,
-   "anglePct": 14,
+   "minEdge": 0.003,
+   "thick": 0.185,
+   "avgTri": 0.00229,
+   "anglePct": 10,
    "vpt": 1.39,
    "grad": 0.6,
    "spread": {
@@ -46370,27 +46282,27 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "slab",
-   "hash": "fc5b88df18",
+   "hash": "c28d0e37c1",
    "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
-    0.626,
-    0.512,
-    0.07
+    1.35,
+    1.121,
+    0.209
    ],
    "tris": 266,
-   "tpu": 776,
+   "tpu": 251,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14080,
+   "bytes": 14076,
    "vtx": 342,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.0795,
-   "avgTri": 0.00223,
-   "anglePct": 76,
+   "thick": 0.1006,
+   "avgTri": 0.01117,
+   "anglePct": 60,
    "vpt": 1.29,
    "grad": 0.6,
    "spread": {
@@ -46410,19 +46322,19 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.77
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "stepping-stones",
-   "hash": "dbb7f09f7f",
+   "hash": "0f5f2ddb9f",
    "kind": "env-terrain-rock-cobble",
    "size": "m",
    "wdh": [
     1.2,
-    0.316,
-    0.074
+    0.329,
+    0.092
    ],
    "tris": 244,
    "tpu": 711,
@@ -46433,10 +46345,10 @@
    "vtx": 352,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1683,
-   "avgTri": 0.00229,
-   "anglePct": 48,
+   "minEdge": 0.01,
+   "thick": 0.1827,
+   "avgTri": 0.00266,
+   "anglePct": 40,
    "vpt": 1.44,
    "grad": 0.6,
    "spread": {
@@ -46462,28 +46374,28 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "steps-dirt",
-   "hash": "216c6f9f25",
+   "hash": "f66a384a7f",
    "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
-    0.832,
-    0.762,
-    0.402
+    1.05,
+    0.975,
+    0.539
    ],
    "tris": 1426,
-   "tpu": 3213,
+   "tpu": 1990,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 74392,
+   "bytes": 74432,
    "vtx": 2011,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0033,
-   "thick": 0.1242,
-   "avgTri": 0.00164,
-   "anglePct": 32,
+   "minEdge": 0.001,
+   "minTube": 0.1207,
+   "thick": 0.1363,
+   "avgTri": 0.00335,
+   "anglePct": 21,
    "vpt": 1.41,
    "grad": 0.6,
    "spread": {
@@ -46511,29 +46423,22 @@
     "stone-rock",
     "wood-dark"
    ],
-   "thickRel": 0.78,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0033 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.86
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "stream-rock",
-   "hash": "4c14fc0b81",
+   "hash": "140b8c7e55",
    "kind": "env-terrain-rock-boulder",
    "size": "m",
    "wdh": [
-    0.569,
-    0.477,
-    0.16
+    0.925,
+    0.784,
+    0.293
    ],
    "tris": 182,
-   "tpu": 531,
+   "tpu": 359,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -46541,10 +46446,10 @@
    "vtx": 243,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1507,
-   "avgTri": 0.00302,
-   "anglePct": 52,
+   "minEdge": 0.004,
+   "thick": 0.1622,
+   "avgTri": 0.00849,
+   "anglePct": 41,
    "vpt": 1.34,
    "grad": 0.6,
    "spread": {
@@ -46559,33 +46464,33 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.75
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "stump",
-   "hash": "6933516112",
+   "hash": "70591cde29",
    "kind": "env-remains-deadwood-stump",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.607,
-    0.613,
-    0.261
+    0.397,
+    0.4,
+    0.209
    ],
    "tris": 1146,
    "tpu": 3341,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 51240,
+   "bytes": 51248,
    "vtx": 1338,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1363,
-   "avgTri": 0.0007,
-   "anglePct": 41,
+   "thick": 0.1475,
+   "avgTri": 0.00034,
+   "anglePct": 38,
    "vpt": 1.17,
    "grad": 0.61,
    "spread": {
@@ -46606,41 +46511,34 @@
     "bark",
     "wood-light"
    ],
-   "thickRel": 0.69,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.613 over max 0.5 (env-remains-deadwood-stump)"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "walkway",
-   "hash": "35ad82bc06",
+   "hash": "ec1cbad182",
    "kind": "str-access-path",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    0.78,
-    0.508,
-    0.068
+    1.5,
+    0.976,
+    0.147
    ],
    "tris": 120,
-   "tpu": 350,
+   "tpu": 117,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9856,
+   "bytes": 9912,
    "vtx": 240,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "minTube": 0.0467,
-   "thick": 0.0759,
-   "avgTri": 0.01034,
-   "anglePct": 100,
+   "minEdge": 0.056,
+   "minTube": 0.1047,
+   "thick": 0.0758,
+   "avgTri": 0.04317,
+   "anglePct": 83,
    "vpt": 2,
    "grad": 0.6,
    "spread": {
@@ -46667,34 +46565,33 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.41
   },
   {
    "kit": "avra-nature",
    "collection": "avra",
    "name": "worn-ground",
-   "hash": "529946930b",
+   "hash": "1c187589b6",
    "kind": "env-terrain-ground",
    "size": "s",
    "wdh": [
-    0.323,
-    0.214,
-    0.059
+    0.393,
+    0.263,
+    0.075
    ],
    "tris": 304,
    "tpu": 886,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15664,
+   "bytes": 15668,
    "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0039,
-   "thick": 0.0509,
-   "avgTri": 0.00015,
-   "anglePct": 36,
+   "minEdge": 0.006,
+   "thick": 0.06,
+   "avgTri": 0.00025,
+   "anglePct": 35,
    "vpt": 1.26,
    "grad": 0.36,
    "spread": {
@@ -46715,14 +46612,7 @@
     "earth-soil",
     "leaf-light"
    ],
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0039 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.09
   },
   {
    "kit": "avra-weapons",
@@ -62865,7 +62755,7 @@
     "bark",
     "special-food"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.09
   },
   {
    "kit": "food-pack",
@@ -63071,7 +62961,7 @@
     "special-food"
    ],
    "variant": "food-pack/cheese-wedge",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "food-pack",
@@ -63153,7 +63043,7 @@
     "special-food"
    ],
    "variant": "food-pack/cheese-wheel",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "food-pack",
@@ -63905,7 +63795,7 @@
      "open": 0.26
     }
    },
-   "thickRel": 0.89,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
@@ -63973,7 +63863,7 @@
      "open": 0.26
     }
    },
-   "thickRel": 0.89,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
@@ -64032,7 +63922,7 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "food-pack-2",
@@ -64084,7 +63974,7 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "food-pack-2",
@@ -65884,7 +65774,7 @@
     "special-food"
    ],
    "variant": "food-pack-2/cheese-block",
-   "thickRel": 1.83
+   "thickRel": 1.82
   },
   {
    "kit": "food-pack-2",
@@ -85895,7 +85785,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/hilly-prop-rock-a",
-   "thickRel": 1.32
+   "thickRel": 1.31
   },
   {
    "kit": "fs-terrain",
@@ -87297,7 +87187,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/shared-prop-boulder-a",
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "fs-terrain",
@@ -87384,7 +87274,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/shared-prop-boulder-a",
-   "thickRel": 1.58
+   "thickRel": 1.57
   },
   {
    "kit": "fs-terrain",
@@ -87427,7 +87317,7 @@
     "stone-rock"
    ],
    "variant": "fs-terrain/shared-prop-boulder-a",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "fs-town",
@@ -114292,7 +114182,7 @@
     "special-organic"
    ],
    "variant": "isa-picnic/apple",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "isa-picnic",
@@ -114394,7 +114284,7 @@
     "special-organic"
    ],
    "variant": "isa-picnic/apple",
-   "thickRel": 0.99
+   "thickRel": 0.97
   },
   {
    "kit": "isa-picnic",
@@ -114584,7 +114474,7 @@
     "isa",
     "special-food"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "isa-picnic",
@@ -114626,7 +114516,7 @@
     "isa",
     "special-food"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "isa-picnic",
@@ -125099,7 +124989,7 @@
     "wood-dark"
    ],
    "variant": "kay-builder/bridge",
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "kay-builder",
@@ -125143,7 +125033,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-builder/bridge",
-   "thickRel": 1.59
+   "thickRel": 1.57
   },
   {
    "kit": "kay-builder",
@@ -146285,7 +146175,7 @@
     "special-food"
    ],
    "variant": "kay-food/food-ingredient-cheese",
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "kay-food",
@@ -151347,7 +151237,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-a",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "kay-forest",
@@ -151389,7 +151279,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-a",
-   "thickRel": 1.26
+   "thickRel": 1.25
   },
   {
    "kit": "kay-forest",
@@ -151431,7 +151321,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-a",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "kay-forest",
@@ -151515,7 +151405,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-j",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "kay-forest",
@@ -151599,7 +151489,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-j",
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "kay-forest",
@@ -151767,7 +151657,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-1-n",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "kay-forest",
@@ -152062,7 +151952,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-2-e",
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "kay-forest",
@@ -152400,7 +152290,7 @@
     "stone-rock"
    ],
    "variant": "kay-forest/rock-3-g",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "kay-forest",
@@ -159323,7 +159213,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "kay-hexagon",
@@ -163773,7 +163663,7 @@
     "kay",
     "leaf-light"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.05
   },
   {
    "kit": "kay-hexagon",
@@ -196735,12 +196625,12 @@
     "stone-rock"
    ],
    "variant": "ken-castle/rocks-large",
-   "thickRel": 0.47,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -206475,7 +206365,7 @@
     "special-organic"
    ],
    "variant": "ken-food/apple",
-   "thickRel": 0.96,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "warning",
@@ -232137,7 +232027,7 @@
     "ken"
    ],
    "variant": "ken-nature/crop-row",
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "ken-nature",
@@ -232179,7 +232069,7 @@
     "ken"
    ],
    "variant": "ken-nature/crop-row",
-   "thickRel": 1.32
+   "thickRel": 1.3
   },
   {
    "kit": "ken-nature",
@@ -232221,7 +232111,7 @@
     "ken"
    ],
    "variant": "ken-nature/crop-row",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-nature",
@@ -233732,7 +233622,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-large-d",
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "ken-nature",
@@ -234258,7 +234148,7 @@
     "stone-rock"
    ],
    "variant": "ken-nature/stone-small-f",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "ken-nature",
@@ -237533,7 +237423,7 @@
     "stone-rock"
    ],
    "variant": "ken-pirate/rocks-sand-a",
-   "thickRel": 0.6
+   "thickRel": 0.59
   },
   {
    "kit": "ken-pirate",
@@ -237575,7 +237465,7 @@
     "stone-rock"
    ],
    "variant": "ken-pirate/rocks-sand-a",
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "ken-pirate",
@@ -240593,7 +240483,7 @@
     "ken",
     "stone-rock"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.67
   },
   {
    "kit": "ken-platformer",
@@ -301150,7 +301040,7 @@
     "special-food"
    ],
    "variant": "m3-base/apple",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "m3-base",
@@ -305147,7 +305037,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -343138,7 +343028,7 @@
     "stone-masonry-mid"
    ],
    "variant": "medieval-forge/stone-bridge",
-   "thickRel": 1.82,
+   "thickRel": 1.78,
    "mark": [
     "grounded"
    ]
@@ -343182,7 +343072,7 @@
     "stone-masonry-mid"
    ],
    "variant": "medieval-forge/stone-bridge",
-   "thickRel": 2.13,
+   "thickRel": 2.1,
    "mark": [
     "grounded",
     "centered"
@@ -347413,7 +347303,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "natuur",
@@ -347454,7 +347344,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "natuur",
@@ -347495,7 +347385,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "natuur",
@@ -347577,7 +347467,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "natuur",
@@ -347701,7 +347591,7 @@
     "stone-rock"
    ],
    "variant": "natuur/rock-1",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "natuur",
@@ -361961,7 +361851,7 @@
     "special-food"
    ],
    "variant": "quat-food/apple",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "quat-food",
@@ -362016,7 +361906,7 @@
     "special-food"
    ],
    "variant": "quat-food/apple",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "quat-food",
@@ -391506,7 +391396,7 @@
     "stone-rock"
    ],
    "variant": "quat-space/rock-a",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "quat-space",
@@ -397560,7 +397450,7 @@
     "special-food"
    ],
    "variant": "quat-sushi/sea-urchin",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "quat-sushi",
@@ -397908,7 +397798,7 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "quat-sushi",
@@ -402204,7 +402094,7 @@
     "stone-rock"
    ],
    "variant": "quat-town/rock-a",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "quat-town",
@@ -406204,7 +406094,7 @@
     "leaf-light",
     "rgp"
    ],
-   "thickRel": 1.64
+   "thickRel": 1.59
   },
   {
    "kit": "rgp-asia",
@@ -406692,7 +406582,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.26
   },
   {
    "kit": "rgp-asia",
@@ -406820,7 +406710,7 @@
     "rgp",
     "stone-rock"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "rgp-asia",
@@ -408042,7 +407932,7 @@
     "rgp",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.57
+   "thickRel": 1.55
   },
   {
    "kit": "rgp-asia",
@@ -408133,7 +408023,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.68
   },
   {
    "kit": "rgp-cars",
@@ -410103,7 +409993,7 @@
     "rgp",
     "special-food"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "rgp-medieval",
@@ -410815,7 +410705,7 @@
     "rgp",
     "wood-light"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "rgp-medieval",
@@ -410870,7 +410760,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "rgp-medieval",
@@ -411112,7 +411002,7 @@
     "special-food"
    ],
    "variant": "rgp-medieval/cheese-wheel",
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "rgp-medieval",
@@ -412176,7 +412066,7 @@
     "textile-rope"
    ],
    "variant": "rgp-medieval/fish",
-   "thickRel": 1.22,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "error",
@@ -416188,7 +416078,7 @@
     "rgp",
     "stone-rock"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "rgp-medieval",
@@ -416316,7 +416206,7 @@
     "stone-rock"
    ],
    "variant": "rgp-medieval/rock-barrier-1",
-   "thickRel": 1.38
+   "thickRel": 1.37
   },
   {
    "kit": "rgp-medieval",
@@ -416359,7 +416249,7 @@
     "stone-rock"
    ],
    "variant": "rgp-medieval/rock-barrier-1",
-   "thickRel": 1.25
+   "thickRel": 1.24
   },
   {
    "kit": "rgp-medieval",
@@ -423705,7 +423595,7 @@
    "tags": [
     "stone-rock"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "rocks",
@@ -436725,7 +436615,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.05,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "warning",
@@ -436793,7 +436683,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.06,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "warning",
@@ -437541,7 +437431,7 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "styloo-farm",
@@ -440576,7 +440466,7 @@
     "earth-soil",
     "sty"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.69
   },
   {
    "kit": "styloo-farm",
@@ -446481,7 +446371,7 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "styloo-kitchen",
@@ -463522,7 +463412,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.51
   },
   {
    "kit": "wizp-asia",
@@ -466508,7 +466398,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-block-a",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "wizp-asia",
@@ -466772,7 +466662,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-medium-a",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "wizp-asia",
@@ -466948,7 +466838,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-small-a",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "wizp-asia",
@@ -466992,7 +466882,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/rock-small-a",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "wizp-asia",
@@ -467123,7 +467013,7 @@
     "stone-rock",
     "wizp"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "wizp-asia",
