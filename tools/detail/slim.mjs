@@ -128,7 +128,7 @@ if (cmd === 'parts') {
     if (!all && shown++ >= 40) { console.log('… (--all for the rest)'); break; }
     const r = g[0];
     const ids = g.map((x) => x.id);
-    console.log(`${String(g.length * r.tris).padStart(6)} tris  ${g.length > 1 ? `${g.length}× ${r.tris}` : r.tris}  ids ${ids.length > 12 ? `${ids.slice(0, 12).join(',')},…(${ids.length})` : ids.join(',')}  size ${r.size.join('x')}  at ${r.centre.join(',')}  uv ${r.uv.join(',')}`);
+    console.log(`${String(g.length * r.tris).padStart(6)} tris  ${g.length > 1 ? `${g.length}× ${r.tris}` : r.tris}  ids ${ids.length > 12 && !all ? `${ids.slice(0, 12).join(',')},…(${ids.length})` : ids.join(',')}  size ${r.size.join('x')}  at ${r.centre.join(',')}  uv ${r.uv.join(',')}`);
   }
   process.exit(0);
 }
