@@ -47,21 +47,22 @@ edges melts rounded edges, flattens thin parts and flips faces.
 
 ## 3. Level of detail to aim for
 
+There is no fixed number for most of this; judge each model by how it looks
+next to its original and its peers, and lean on the PO's past verdicts (§6).
+
 - Keep the core shape and the **distinctive** features, including those that
   make a model a special type within its kind: inlaid gems on a warhammer,
   numbers on a dartboard, twisted cake candles, a glowing bulb in a lamp.
   Losing them is a revert even when the kind still reads.
-- Round sections: about 12 sides where the round is seen (dials, rims,
-  bottles, glasses); 8 for thin shafts, legs and handles. Spheres: about 12
-  around and 6 rings; a 6×4 ball reads as a lump.
-- Repeats that are the look (sprinkles, notebook rings, rope wraps, candles)
-  keep most of their count; cutting half is too much. Repeats that are
-  incidental (spokes, extra trophies, back-panel knobs, caster stems) can
-  drop by half or more.
-- Nets, baskets and grilles: fewer, slightly wider strands with bigger holes;
-  keep the pattern regular.
-- A swapped part keeps its colour, size and placement; check that small
-  colour accents (steel hubs, amber bulbs) survive, or `palette` fails.
+- A repeat's count matters in proportion to how much it is the look. Ask
+  whether the result still reads as "covered in sprinkles" or "a spiral
+  binding", not what share was cut: the same cut can be too much on one
+  model and too little on another.
+- Round parts get enough sides to stay round at catalogue scale, and no more
+  than their peers use; thin shafts need fewer than wide rims or balls.
+- Nets, baskets and grilles keep a regular pattern; bigger holes are fine.
+- A swapped part keeps its colour, size and placement; small colour accents
+  (steel hubs, amber bulbs) must survive, or `palette` fails.
 
 ## 4. Tool
 
@@ -90,6 +91,18 @@ Swapped shapes fit the part's oriented box: check the axis (`axis`, `flip`,
 4. Rebuild (`catalog-assets` §6), run the seven lints and `golden`, and
    compare with the baselines: no new errors, including `G27` thin sticks
    from new strips and `palette` from lost colour accents.
-5. Put every changed model on a `review` page, easy-to-see changes first. Its
-   ★ and ✕✕ marks feed `review.mjs brief`: copy the ★ ones, never repeat the
-   ✕✕ ones.
+5. Put every changed model on a `review` page titled `Detail: …`, easy-to-see
+   changes first, and apply the verdicts.
+
+## 6. Calibrate
+
+Every verdict on a `Detail:` review is the skill's memory. Before any round,
+and in every sub agent's brief, run
+
+    node tools/review/review.mjs brief --review detail
+
+and read the kept, reverted, ★ and ✕✕ changes with their comments. Match a
+new case to the closest past ones, not to a rule: copy what was kept or ★,
+avoid what was reverted or ✕✕, and when the nearest examples disagree, put
+the change on the review page with high doubt. When the same lesson shows
+up across several models and reviews, write it into §3 in general terms.
