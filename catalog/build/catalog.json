@@ -2934,7 +2934,7 @@
    },
    "kitCheck": {
     "factor": 1.04,
-    "kinds": 187
+    "kinds": 189
    }
   },
   {
@@ -26383,6 +26383,34 @@
    "count": 52
   },
   {
+   "id": "sym-pickup",
+   "name": "Pickup",
+   "type": "kind",
+   "description": "Game collectible: gem, heart, star or bolt picked up for points or power.",
+   "count": 13
+  },
+  {
+   "id": "sym-pointer",
+   "name": "Pointer",
+   "type": "kind",
+   "description": "Shows a direction or place: arrow, chevron, map marker.",
+   "count": 8
+  },
+  {
+   "id": "sym-icon",
+   "name": "UI icon",
+   "type": "kind",
+   "description": "Interface icon: check, cross, question, power, settings, wifi, speech bubble, banner.",
+   "count": 18
+  },
+  {
+   "id": "sym-emblem",
+   "name": "Emblem",
+   "type": "kind",
+   "description": "Symbol that stands for an idea: music note, snowflake, peace sign, fleur-de-lys, moon.",
+   "count": 13
+  },
+  {
    "id": "obj-transport-land",
    "name": "Land vehicle",
    "type": "kind",
@@ -29006,8 +29034,7 @@
   "str-part-frame-scaffold",
   "str-part-pillar",
   "str-part-roof-unit",
-  "str-part-window",
-  "sym"
+  "str-part-window"
  ],
  "limits": {
   "char": {
@@ -32131,7 +32158,25 @@
    "longest.max": 1.1,
    "tpu.max": 5000
   },
-  "sym": {
+  "sym-emblem": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "sym-icon": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "sym-pickup": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "sym-pointer": {
    "high.max": 8,
    "longest.min": 0.2,
    "longest.max": 1.2,
@@ -163891,7 +163936,7 @@
    "collection": "kay-play",
    "name": "lightning",
    "hash": "5c8282648a",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.241,
@@ -164207,7 +164252,7 @@
    "collection": "kay-play",
    "name": "star",
    "hash": "82ad2efe8f",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.37,
@@ -167163,7 +167208,7 @@
    "collection": "kay-play",
    "name": "diamond",
    "hash": "8ccdc129c4",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.323,
@@ -167607,7 +167652,7 @@
    "collection": "kay-play",
    "name": "heart",
    "hash": "1cacee5578",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.324,
@@ -167643,7 +167688,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 1.53
+   "thickRel": 1.54
   },
   {
    "kit": "kay-platformer",
@@ -167919,7 +167964,7 @@
    "collection": "kay-play",
    "name": "lightning",
    "hash": "91632d4fcb",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.267,
@@ -169683,7 +169728,7 @@
    "collection": "kay-play",
    "name": "star",
    "hash": "18276b3550",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.35,
@@ -197285,7 +197330,7 @@
    "kit": "ken-factory",
    "name": "arrow-basic-rounded",
    "hash": "7272953be8",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "s",
    "wdh": [
     0.287,
@@ -197322,13 +197367,13 @@
     "plastic"
    ],
    "variant": "ken-factory/arrow-rounded",
-   "thickRel": 1.14
+   "thickRel": 1.06
   },
   {
    "kit": "ken-factory",
    "name": "arrow-rounded",
    "hash": "6a9321d660",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "s",
    "wdh": [
     0.442,
@@ -197364,7 +197409,7 @@
     "plastic"
    ],
    "variant": "ken-factory/arrow-rounded",
-   "thickRel": 1.05
+   "thickRel": 0.98
   },
   {
    "kit": "ken-factory",
@@ -236144,7 +236189,7 @@
    "collection": "ken-mini",
    "name": "heart",
    "hash": "5e11dd14fa",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.493,
@@ -236962,7 +237007,7 @@
    "collection": "ken-mini",
    "name": "star",
    "hash": "0270ea39df",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.436,
@@ -269997,7 +270042,7 @@
    "collection": "ken-city",
    "name": "arrow-standing",
    "hash": "92bd1b687a",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "m",
    "wdh": [
     0.24,
@@ -270039,14 +270084,14 @@
     "sailing"
    ],
    "variant": "ken-water/arrow",
-   "thickRel": 1
+   "thickRel": 0.94
   },
   {
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "arrow",
    "hash": "c5186e845a",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "m",
    "wdh": [
     0.8,
@@ -270088,7 +270133,7 @@
     "sailing"
    ],
    "variant": "ken-water/arrow",
-   "thickRel": 1
+   "thickRel": 0.94
   },
   {
    "kit": "ken-water",
@@ -297387,7 +297432,7 @@
    "kit": "m3-base",
    "name": "arrow",
    "hash": "eb22449b8b",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "m",
    "wdh": [
     0.736,
@@ -297422,7 +297467,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.02
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -298055,7 +298100,7 @@
    "kit": "m3-base",
    "name": "banner-ui-01",
    "hash": "8994b52c9a",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.45,
@@ -298092,13 +298137,13 @@
     "plastic"
    ],
    "variant": "m3-base/banner-ui-01",
-   "thickRel": 0.72
+   "thickRel": 0.79
   },
   {
    "kit": "m3-base",
    "name": "banner-ui-02",
    "hash": "70fd6b43c7",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.45,
@@ -298134,7 +298179,7 @@
     "plastic"
    ],
    "variant": "m3-base/banner-ui-01",
-   "thickRel": 1.12
+   "thickRel": 1.23
   },
   {
    "kit": "m3-base",
@@ -298476,7 +298521,7 @@
    "kit": "m3-base",
    "name": "bevelled-speech-bubble",
    "hash": "9d4b6b52c5",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "m",
    "wdh": [
     0.504,
@@ -298512,7 +298557,7 @@
     "paper-sheet"
    ],
    "variant": "m3-base/rounded-speech-bubble",
-   "thickRel": 1.17
+   "thickRel": 1.28
   },
   {
    "kit": "m3-base",
@@ -301714,7 +301759,7 @@
    "kit": "m3-base",
    "name": "checkmark",
    "hash": "b12c8d6ee5",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.434,
@@ -301749,7 +301794,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -301868,7 +301913,7 @@
    "kit": "m3-base",
    "name": "chevron",
    "hash": "0843d000da",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "m",
    "wdh": [
     0.615,
@@ -301903,7 +301948,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -304017,7 +304062,7 @@
    "kit": "m3-base",
    "name": "conical-arrow",
    "hash": "4978e2ed4f",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "s",
    "wdh": [
     0.215,
@@ -304052,7 +304097,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -304331,7 +304376,7 @@
    "kit": "m3-base",
    "name": "crescent-moon",
    "hash": "043d654d3f",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.285,
@@ -304366,7 +304411,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -305819,7 +305864,7 @@
    "kit": "m3-base",
    "name": "diamond",
    "hash": "4da884368f",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.314,
@@ -307198,7 +307243,7 @@
    "kit": "m3-base",
    "name": "eighth-note",
    "hash": "eb57dfc45e",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.252,
@@ -307234,7 +307279,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 0.88
+   "thickRel": 1.08
   },
   {
    "kit": "m3-base",
@@ -307679,7 +307724,7 @@
    "kit": "m3-base",
    "name": "exclamation-mark",
    "hash": "0166b5ddb9",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.117,
@@ -307714,7 +307759,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 2.33
+   "thickRel": 2.56
   },
   {
    "kit": "m3-base",
@@ -308683,7 +308728,7 @@
    "kit": "m3-base",
    "name": "fleur-de-lys-01",
    "hash": "fd4e0da54e",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.29,
@@ -308719,7 +308764,7 @@
     "m3",
     "metal-gold"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -311737,7 +311782,7 @@
    "kit": "m3-base",
    "name": "half-note",
    "hash": "fe13fc99cc",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.147,
@@ -311774,7 +311819,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.27
+   "thickRel": 1.56
   },
   {
    "kit": "m3-base",
@@ -312348,7 +312393,7 @@
    "kit": "m3-base",
    "name": "health",
    "hash": "0308394244",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "m",
    "wdh": [
     0.637,
@@ -312388,13 +312433,13 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
    "name": "heart-icon-01",
    "hash": "4a0dc02c23",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.448,
@@ -312429,7 +312474,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.29
   },
   {
    "kit": "m3-base",
@@ -317115,7 +317160,7 @@
    "kit": "m3-base",
    "name": "lightning-bolt",
    "hash": "dc76caa377",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.194,
@@ -317151,13 +317196,13 @@
     "plastic"
    ],
    "variant": "m3-base/lightning-bolt",
-   "thickRel": 1.04
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
    "name": "lightning-icon",
    "hash": "bacbf56bea",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.104,
@@ -317193,7 +317238,7 @@
     "plastic"
    ],
    "variant": "m3-base/lightning-bolt",
-   "thickRel": 1.14
+   "thickRel": 1.25
   },
   {
    "kit": "m3-base",
@@ -317372,7 +317417,7 @@
    "kit": "m3-base",
    "name": "location-marker",
    "hash": "3b3ae3f6e8",
-   "kind": "sym",
+   "kind": "sym-pointer",
    "size": "m",
    "wdh": [
     0.377,
@@ -317407,7 +317452,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -322356,7 +322401,7 @@
    "kit": "m3-base",
    "name": "peace-sign",
    "hash": "f39db5b09b",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.445,
@@ -322391,14 +322436,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.45,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.56
   },
   {
    "kit": "m3-base",
@@ -324173,7 +324211,7 @@
    "kit": "m3-base",
    "name": "power-icon",
    "hash": "a50f354e3d",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.423,
@@ -324209,7 +324247,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -324471,7 +324509,7 @@
    "kit": "m3-base",
    "name": "quarter-note",
    "hash": "a28d486820",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.147,
@@ -324508,7 +324546,7 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.5
+   "thickRel": 1.85
   },
   {
    "kit": "m3-base",
@@ -324577,7 +324615,7 @@
    "kit": "m3-base",
    "name": "question-mark",
    "hash": "0b56731ce1",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.295,
@@ -324612,13 +324650,13 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.94
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
    "name": "radioactive-symbol",
    "hash": "833db55893",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.45,
@@ -324653,7 +324691,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -324897,7 +324935,7 @@
    "kit": "m3-base",
    "name": "reticle-01",
    "hash": "c1154039d7",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.458,
@@ -324932,12 +324970,12 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -327069,7 +327107,7 @@
    "kit": "m3-base",
    "name": "rounded-speech-bubble",
    "hash": "310bf7e1ea",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "m",
    "wdh": [
     0.509,
@@ -327105,7 +327143,7 @@
     "paper-sheet"
    ],
    "variant": "m3-base/rounded-speech-bubble",
-   "thickRel": 1.17
+   "thickRel": 1.28
   },
   {
    "kit": "m3-base",
@@ -328094,7 +328132,7 @@
    "kit": "m3-base",
    "name": "settings-icon",
    "hash": "42d428cf2b",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.45,
@@ -328129,7 +328167,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -329333,7 +329371,7 @@
    "kit": "m3-base",
    "name": "snowflake-01",
    "hash": "d54c532fa7",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.39,
@@ -329370,20 +329408,13 @@
     "plastic"
    ],
    "variant": "m3-base/snowflake-01",
-   "thickRel": 0.49,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.6
   },
   {
    "kit": "m3-base",
    "name": "snowflake-02",
    "hash": "a2f1ec8156",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.399,
@@ -329419,7 +329450,7 @@
     "plastic"
    ],
    "variant": "m3-base/snowflake-01",
-   "thickRel": 0.51
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -330683,7 +330714,7 @@
    "kit": "m3-base",
    "name": "star-01",
    "hash": "4a9274390d",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "m",
    "wdh": [
     0.637,
@@ -330720,13 +330751,13 @@
     "plastic"
    ],
    "variant": "m3-base/star-01",
-   "thickRel": 0.78
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
    "name": "star-02",
    "hash": "7625890017",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "m",
    "wdh": [
     0.637,
@@ -330762,7 +330793,7 @@
     "plastic"
    ],
    "variant": "m3-base/star-01",
-   "thickRel": 1.02
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -334846,7 +334877,7 @@
    "kit": "m3-base",
    "name": "water-drip",
    "hash": "e86f544244",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.27,
@@ -334881,7 +334912,7 @@
     "m3",
     "special-liquid"
    ],
-   "thickRel": 1.94
+   "thickRel": 2.38
   },
   {
    "kit": "m3-base",
@@ -335488,7 +335519,7 @@
    "kit": "m3-base",
    "name": "whole-note",
    "hash": "cf2b5b0f1c",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.288,
@@ -335524,13 +335555,13 @@
     "plastic"
    ],
    "variant": "m3-base/quarter-note",
-   "thickRel": 1.1
+   "thickRel": 1.36
   },
   {
    "kit": "m3-base",
    "name": "wifi-symbol",
    "hash": "341692a74a",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.449,
@@ -335565,7 +335596,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.65
   },
   {
    "kit": "m3-base",
@@ -337152,7 +337183,7 @@
    "kit": "m3-base",
    "name": "x",
    "hash": "8c2e3b98c3",
-   "kind": "sym",
+   "kind": "sym-icon",
    "size": "s",
    "wdh": [
     0.493,
@@ -337187,7 +337218,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.97
   },
   {
    "kit": "makeup",
@@ -347197,7 +347228,7 @@
    "kit": "pm-store",
    "name": "star",
    "hash": "cfb77d8d2b",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.301,
@@ -347232,7 +347263,7 @@
     "metal-gold",
     "pm"
    ],
-   "thickRel": 0.87
+   "thickRel": 1.07
   },
   {
    "kit": "pm-store",
@@ -373207,7 +373238,7 @@
    "kit": "quat-pirate",
    "name": "red-x",
    "hash": "b629dc0a11",
-   "kind": "sym",
+   "kind": "sym-emblem",
    "size": "s",
    "wdh": [
     0.421,
@@ -373243,14 +373274,7 @@
     "pirate",
     "qua"
    ],
-   "thickRel": 0.42,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.52
   },
   {
    "kit": "quat-pirate",
@@ -379205,7 +379229,7 @@
    "kit": "quat-rpg",
    "name": "heart",
    "hash": "85b32364ae",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.207,
@@ -379241,7 +379265,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.48
   },
   {
    "kit": "quat-rpg",
@@ -381492,7 +381516,7 @@
    "kit": "quat-rpg",
    "name": "star",
    "hash": "fa726baa75",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.241,
@@ -386873,7 +386897,7 @@
    "kit": "quat-space",
    "name": "pickup-sphere",
    "hash": "f839f48332",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.195,
@@ -386917,13 +386941,13 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "quat-space",
    "name": "pickup-thunder",
    "hash": "a0357bbb0a",
-   "kind": "sym",
+   "kind": "sym-pickup",
    "size": "s",
    "wdh": [
     0.214,
