@@ -23821,7 +23821,7 @@
    "name": "Masonry light",
    "type": "material",
    "description": "Light stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 164,
+   "count": 163,
    "parent": "stone"
   },
   {
@@ -23988,7 +23988,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1209,
+   "count": 1208,
    "parent": "wood"
   },
   {
@@ -23996,7 +23996,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1553,
+   "count": 1552,
    "parent": "wood"
   },
   {
@@ -50567,17 +50567,9 @@
     "#cca571"
    ],
    "tags": [
-    "wood-dark",
     "wood-light"
    ],
-   "thickRel": 2.09,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-dark wants chestnut, has tan"
-    }
-   ]
+   "thickRel": 2.09
   },
   {
    "kit": "emace-80s",
@@ -53944,8 +53936,7 @@
    "tags": [
     "special-organic",
     "storeys-1",
-    "wood-dark",
-    "wood-mid"
+    "wood-dark"
    ],
    "backface": {
     "share": 0.0027,
@@ -53957,11 +53948,6 @@
    },
    "thickRel": 0.86,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-mid wants camel, has chestnut tan"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -54157,7 +54143,6 @@
    ],
    "tags": [
     "special-organic",
-    "stone-masonry-light",
     "storeys-1",
     "wood-dark",
     "wood-mid"
@@ -54171,11 +54156,6 @@
    },
    "thickRel": 0.51,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-masonry-light wants ivory, has chestnut tan camel"
-    },
     {
      "level": "warning",
      "check": "backface",
@@ -106348,7 +106328,7 @@
    "kit": "isa-homely",
    "collection": "isa-tt",
    "name": "letter",
-   "hash": "1845c92233",
+   "hash": "195542e33a",
    "kind": "obj-equipment-pocketitem-scroll",
    "size": "s",
    "wdh": [
@@ -106359,7 +106339,7 @@
    "tris": 102,
    "tpu": 297,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
    "bytes": 7444,
    "vtx": 166,
@@ -106370,38 +106350,26 @@
    "avgTri": 0.00077,
    "anglePct": 71,
    "vpt": 1.63,
-   "grad": 0.41,
+   "grad": 0.68,
    "spread": {
     "5,2": [
      0.148,
      0.75
     ],
     "6,1": [
-     0.844,
-     0.945
-    ],
-    "8,0": [
      0.195,
-     0.695
+     0.945
     ]
    },
    "colors": [
     "#3a3e4b",
-    "#873a27",
     "#d8cfb7"
    ],
    "tags": [
     "isa",
     "paper-sheet"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 3 wants max 2"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "isa-homely",
@@ -123699,7 +123667,7 @@
   {
    "kit": "kay-city",
    "name": "building-e-no-base",
-   "hash": "800f7c80cf",
+   "hash": "c76be4e9c2",
    "kind": "str-building-residential",
    "size": "l",
    "wdh": [
@@ -123710,7 +123678,7 @@
    "tris": 1014,
    "tpu": 50,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 65072,
    "vtx": 1792,
@@ -123732,8 +123700,8 @@
      0.148,
      0.75
     ],
-    "15,3": [
-     0.445,
+    "12,3": [
+     0.148,
      0.75
     ],
     "3,2": [
@@ -123744,10 +123712,6 @@
      0.148,
      0.75
     ],
-    "12,3": [
-     0.148,
-     0.75
-    ],
     "8,0": [
      0.188,
      0.445
@@ -123755,7 +123719,6 @@
    },
    "colors": [
     "#57493d",
-    "#7a8491",
     "#873a27",
     "#b5d5e3",
     "#ce7954",
@@ -123770,14 +123733,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-city/building-e",
-   "thickRel": 1.16,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.16
   },
   {
    "kit": "kay-city",
@@ -209189,7 +209145,7 @@
    "kit": "ken-forest-mini",
    "collection": "ken-mini",
    "name": "patch-dirt",
-   "hash": "d6c58bcbbd",
+   "hash": "990d4d45fa",
    "kind": "env-terrain-ground-patch",
    "size": "m",
    "wdh": [
@@ -228934,7 +228890,7 @@
   {
    "kit": "ken-nature",
    "name": "log",
-   "hash": "099ab4e461",
+   "hash": "586decebb5",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
    "wdh": [
@@ -228942,8 +228898,8 @@
     0.853,
     0.209
    ],
-   "tris": 336,
-   "tpu": 980,
+   "tris": 276,
+   "tpu": 805,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -228952,10 +228908,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "thick": 0.2859,
-   "avgTri": 0.00427,
-   "anglePct": 96,
-   "vpt": 1.07,
+   "thick": 0.2864,
+   "avgTri": 0.00279,
+   "anglePct": 93,
+   "vpt": 1.3,
    "grad": 0.55,
    "spread": {
     "0,0": [
@@ -228980,16 +228936,15 @@
     "share": 0.0036,
     "view": "0/20",
     "causes": {
-     "inverted": 0.76,
-     "open": 0.24
+     "open": 1
     }
    },
-   "thickRel": 2.41,
+   "thickRel": 2.42,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 0/20 over 0.1%: inverted 76.0%, open 24.0%"
+     "text": "0.4% of view 0/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -270247,7 +270202,7 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "boat-house-c",
-   "hash": "5b5f5e12bd",
+   "hash": "0e9352eddc",
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
@@ -270258,7 +270213,7 @@
    "tris": 447,
    "tpu": 49,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 23872,
    "vtx": 618,
@@ -270270,7 +270225,7 @@
    "avgTri": 0.05852,
    "anglePct": 50,
    "vpt": 1.38,
-   "grad": 0.36,
+   "grad": 0.37,
    "spread": {
     "4,2": [
      0.438,
@@ -270280,17 +270235,13 @@
      0.492,
      0.492
     ],
-    "15,3": [
-     0.5,
-     0.5
+    "13,3": [
+     0.313,
+     0.758
     ],
     "6,1": [
      0.336,
      0.82
-    ],
-    "13,3": [
-     0.313,
-     0.758
     ],
     "8,0": [
      0.313,
@@ -270305,7 +270256,6 @@
     "#1564a4",
     "#3a3e4b",
     "#59534e",
-    "#7a8491",
     "#873a27",
     "#b5d5e3",
     "#d8cfb7"
@@ -270318,14 +270268,7 @@
     "sailing"
    ],
    "variant": "ken-water/boat-house-a",
-   "thickRel": 1.21,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    }
-   ]
+   "thickRel": 1.21
   },
   {
    "kit": "ken-water",
@@ -454950,7 +454893,7 @@
   {
    "kit": "taalei-kit",
    "name": "graduation-cap",
-   "hash": "58982cb826",
+   "hash": "50a6a9d7b6",
    "kind": "obj-equipment-apparel-headgear",
    "size": "s",
    "wdh": [
@@ -454975,7 +454918,7 @@
    "vpt": 1.21,
    "grad": 0.47,
    "spread": {
-    "13,3": [
+    "8,0": [
      0.297,
      0.75
     ],
@@ -454985,7 +454928,7 @@
     ]
    },
    "colors": [
-    "#59534e",
+    "#873a27",
     "#f1a63b"
    ],
    "tags": [
@@ -454993,14 +454936,7 @@
     "textile-cloth-dark"
    ],
    "specialBand": "13,3",
-   "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "textile-cloth-dark wants ivory hunter sienna, has basalt amber (obj-equipment-apparel)"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "taalei-kit",
