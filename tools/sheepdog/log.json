@@ -49395,5 +49395,5737 @@
    "m3-base/reticle-01 and quat-pirate/red-x keep a thickRel warning; thin ring and flat ground mark by design",
    "quat-pirate/red-x carries gemstone for a painted X; no better material row fits"
   ]
+ },
+ {
+  "kind": "env-fauna-insect",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "aq-pond/dragonfly",
+    "before": "c252741cf643371c03e7e816742af0052e442e66",
+    "tags": [
+     "env-fauna-insect"
+    ]
+   },
+   {
+    "id": "aq-pond/dragonfly-a",
+    "before": "e8c08b21c7d47e4a8a174a227eb58170bb876df2",
+    "tags": [
+     "env-fauna-insect"
+    ]
+   },
+   {
+    "id": "aq-pond/dragonfly-b",
+    "before": "5c4e9407deae8e3b94ba5c3168fa8d67dccb5ef4",
+    "tags": [
+     "env-fauna-insect"
+    ]
+   },
+   {
+    "id": "aq-pond/dragonfly-c",
+    "before": "c2b97c27bbc8eb282563f6f501dfd3a4a510c050",
+    "tags": [
+     "env-fauna-insect"
+    ]
+   },
+   {
+    "id": "aq-pond/red-dragonfly",
+    "before": "308959a822d763e5f3c0974f2462bd55fc94c470",
+    "tags": [
+     "env-fauna-insect"
+    ]
+   },
+   {
+    "id": "m3-base/dragonfly-wings",
+    "before": "09197845bba19f1059c46c2323b3cf2bf97e0f00",
+    "tags": [
+     "env-fauna-insect",
+     "comp"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "aq-pond/dragonfly",
+    "category": "colour",
+    "change": "wings taupe to ivory, read apart from the body",
+    "doubt": true,
+    "why": "source drew tinted wings",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "aq-pond/red-dragonfly",
+    "category": "colour",
+    "change": "wings chestnut to ivory, clear wings like peers",
+    "doubt": true,
+    "why": "source drew brown wings",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "No fauna insect carries a material tag; most fauna kinds have none either, so left as is."
+  ]
+ },
+ {
+  "kind": "env-flora-plant-bamboo",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "ken-nature/bamboo-short",
+    "before": "2c5aa9c155821ef7c93b51788bc9bb910c04fb99",
+    "tags": [
+     "special-organic",
+     "env-flora-plant-bamboo",
+     "plural"
+    ]
+   },
+   {
+    "id": "ken-nature/bamboo-tall",
+    "before": "7127128c48f35a319bc0010a74cb3b29529423c6",
+    "tags": [
+     "special-organic",
+     "env-flora-plant-bamboo",
+     "plural"
+    ]
+   },
+   {
+    "id": "rgp-asia/bamboo",
+    "before": "11d3c36ef8d9531634984171a8786daf1d1b665b",
+    "tags": [
+     "leaf-light",
+     "env-flora-plant-bamboo",
+     "plural",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/bamboo-a",
+    "before": "12f40a2dcefc6e4e174e3087aa539111c0d09d88",
+    "tags": [
+     "leaf-light",
+     "special-organic",
+     "env-flora-plant-bamboo",
+     "plural",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/bamboo-b",
+    "before": "16753b9575b76e25b8e5d28cf9be8ea4513b435c",
+    "tags": [
+     "leaf-light",
+     "special-organic",
+     "env-flora-plant-bamboo",
+     "plural",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/bamboo-c",
+    "before": "d67e3006690d16f4094c39bc80e61eef05fd917a",
+    "tags": [
+     "leaf-light",
+     "special-organic",
+     "env-flora-plant-bamboo",
+     "plural",
+     "asia"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ken-nature/bamboo-short",
+    "category": "scale",
+    "change": "scaled 1.15, was under the kind's 0.75 minimum",
+    "doubt": true,
+    "why": "named short; one-model size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-asia/bamboo",
+    "category": "tag",
+    "change": "add special-organic for the canes, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "rgp-asia/bamboo canes are much thinner than peers; leaves share the band, so no clean way to thicken only the canes",
+   "ken-nature bamboo has no node rings, unlike wizp-asia's taupe rings; left as the kit's plain style"
+  ]
+ },
+ {
+  "kind": "env-terrain-rock-boulder",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "avra-nature/boulder",
+    "before": "e682c12cab673f93cf8c0538bc3a28dc1744b41d",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "avra-nature/rocks",
+    "before": "813da0471d0cdd51283581b4f616405cc552d627",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "plural"
+    ]
+   },
+   {
+    "id": "avra-nature/stream-rock",
+    "before": "dacad70ad1992e74b196bf5c7d1d465e6adc7e6f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "emace-village/boulders",
+    "before": "b225e149253453841a337cfd8d55a9f25c8a55ee",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "plural"
+    ]
+   },
+   {
+    "id": "fs-terrain/hilly-prop-rock-b",
+    "before": "29b3b393f15403aed13c82728aec0f439cec9295",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/hilly-prop-rock-c",
+    "before": "e7f0153da0df459d68133e5a49ed5a6dc93e9452",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/hilly-prop-rock-d",
+    "before": "c683fd677423cc23c932e2503eea9a39cea96bc5",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-a",
+    "before": "a11273e9927bf5ba66aed5f396535721a512ff41",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-b",
+    "before": "5d480a4f2a01efa96fa6ced1fa5c2906b7d87183",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-c",
+    "before": "eb24fd37b5a14f7a4d2c29b4a09c5051d9161b52",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-d",
+    "before": "a2ace1a906efb16c5aa89e48f85e7830477410cf",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-e",
+    "before": "520401dac9d736c8d0121ba2e7aba556181ee8d9",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-f",
+    "before": "08599f9b56de567fa967c7bd32df4b03edde7776",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-g",
+    "before": "34360ec026b74e80479734551f59a809e4612798",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-h",
+    "before": "e76f3fce08098e78b68336fbdd46021bc9ca03c9",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-i",
+    "before": "0493fa9d1c66fd34e7f1111aacb03cf9ef58acbd",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-j",
+    "before": "02ee6c7892ca13c15d9d1f9c3d83206499cc32fc",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-k",
+    "before": "fc57aec98133fec547f77b3ee924db107c45aaa0",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-l",
+    "before": "8e16e374d28b27bc45965d10ed15c2ac8b2a00eb",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-m",
+    "before": "b31b3a0361a1cc50432d41f7f43f4e13463c50d9",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-n",
+    "before": "0f57af0f2f468247ebeb74b48641d0f1ed1e6321",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-o",
+    "before": "905cefa30d1b3d8003b6debe8aac516acf0b5036",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-p",
+    "before": "8f80259c21c2b1309067c2daf45901db5a4a17e6",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-1-q",
+    "before": "08b1ae5555a712f3bbdbdbff563e13e877f4dd12",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-2-d",
+    "before": "b32dacf78596c4577e28f69c68af97e1012ef304",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-2-e",
+    "before": "3242541c692a1d1dfbd0bda892dbb2d7f917bcff",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-2-f",
+    "before": "104f747d7396805e7e38678398beeca8883514c6",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-2-g",
+    "before": "47aa738a7c9cc46054f86b66fc174cdc40b4eb54",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-2-h",
+    "before": "5ca88f3c859d9defcb127340c36cfff6cf84cf4e",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-g",
+    "before": "eab04e5a5eb1d124492ca9a3ff927899cbc492d2",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-h",
+    "before": "dfdbe79e62d9f9eea3318a847bae6feeb22a26b6",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-i",
+    "before": "18ffe26ad8ed4e23f441a1c7275d3986e7a8e334",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-j",
+    "before": "fda7f94a44a474b1534fea058005ff94eededde9",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-k",
+    "before": "3d19da0dfe6d6827de369071a523cc2f3ed94ba0",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-l",
+    "before": "6de333c2b06ea856a968b6b6f29c30cc53c95717",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-m",
+    "before": "fbf302cc7240c759e11a762af2508cd4830e5f45",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-n",
+    "before": "b10ce784f826fd17def31fdd0d6fe3c2c23fb1d7",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-o",
+    "before": "e67655a8cbf2557cdd5ec8e45851323ac02ad224",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-p",
+    "before": "4be1b2be0c0f5517c69daa5ebd6661f4ee84cd99",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-q",
+    "before": "7553d794e04853a7534b3785041577ac17ef7212",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-forest/rock-3-r",
+    "before": "e6ffe062770a6bea2ddb0f2a8cbd87a713b027c5",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "kay-space/rocks-a",
+    "before": "774a79929808ec9ec1bfbac45aa1349ef5a24580",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "plural",
+     "space"
+    ]
+   },
+   {
+    "id": "kay-space/rocks-b",
+    "before": "088acaccc3fdc1eba2885c543332d4e83f355ce5",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "plural",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-castle/rocks-large",
+    "before": "b4c5d4ffa3c75f95f31d8e5e220b3249872b2adf",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-castle/rocks-small",
+    "before": "06eca5360d411bb08838881f34f27bbba60fd6cc",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-forest-mini/stones",
+    "before": "f67f327f67801957fe347b485e99e93f3ea109d1",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-grave/rocks",
+    "before": "f69f2c6ebb22abd069b5cfc48075686f6e01259a",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-grave/rocks-tall",
+    "before": "b1290906425840f8f16d64ae49115b124db388b0",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-mini-dun/stones",
+    "before": "c2a557737094962f8133bf7f12a0f84cbb46009a",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "plural"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-large-a",
+    "before": "9b47df96397f58f1b4d8369564ebc60145410569",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-large-b",
+    "before": "52eb2f2960488cef1328aa9bb3a554fe7a9946e9",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-large-c",
+    "before": "9dd7374141081b163b90722695355730bc48b0cd",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-large-d",
+    "before": "b4f1d4ff877b4451a3e15ac2a894ecc23de1c015",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-large-e",
+    "before": "a98ba46655bed43f1f4a1a870d9c449e01a13b6a",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-large-f",
+    "before": "a4440206a9e05b9a3b6733986efc7040d2cd27f8",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-small-g",
+    "before": "97b42d131fa036947b04dac9beb4267ac88b2083",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-nature/stone-small-top-b",
+    "before": "fe181e16e63bca05c60d22ad16b8694dcabfe545",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-pirate/rocks-a",
+    "before": "a9fad79d2b8a388d3fa51b5229d019aed533b725",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-pirate/rocks-b",
+    "before": "8a56d65349d2cfdb05e71373296b5e46750fd60f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-pirate/rocks-c",
+    "before": "6c430e4faed09dfe74cd7fe24899ca8048fc25d6",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-pirate/rocks-sand-a",
+    "before": "6263e614aa8aac1135fce2fafbb903ddfb69bfa5",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-pirate/rocks-sand-b",
+    "before": "00612565d30a84909cbfbab9e6af6b8ea876dcde",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-pirate/rocks-sand-c",
+    "before": "1925ea0f0479051dfe1ee489c42462bdf2be6a57",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-platformer/rocks",
+    "before": "862dd7557ad097346f4adbf15cd4124d04c54ae7",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/resource-stone-large",
+    "before": "cc13c4c2105f1f2498c4a4f51113386dc28e82a2",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/rock-a",
+    "before": "1adef3030b8e6c64158251477d68dda322c19516",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/rock-b",
+    "before": "863408032afae0c65f29cda1d085af03dd45fd3a",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/rock-c",
+    "before": "d84719c8227dd2718edccb91f44c7ba4a028ef1c",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/rock-sand-a",
+    "before": "9623891021c435dec206cdd5252d075d1a2c786e",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/rock-sand-b",
+    "before": "2668260d37ce2cf13851cee63fe8872a2d8b0fc3",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-survival/rock-sand-c",
+    "before": "a1b180245243a2fa5075cf6df0c7039e70c426f9",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-town/rock-large",
+    "before": "f651895a9f369b3ad2b73f3f983230fd8f9bf229",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-town/rock-small",
+    "before": "5e98873af9547b6046e9dfb64c100dd3a3f2cc4f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "ken-town/rock-wide",
+    "before": "c6bd896a269c88e44e8d2358aece8ac0f856bdb5",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "nature-assets/boulder-a",
+    "before": "cb305eae5cc37803f023a27143cb709be3a9b6c7",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "nature-assets/boulder-b",
+    "before": "16c1e85d86bee9db06e07cfe17fe8981fd973d44",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-1",
+    "before": "4e6e4d3d0dae4165fe044522fa680f77e8e086a7",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-2",
+    "before": "52f3fde99c9d8da3367a3180765095a4b5bc7c67",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-3",
+    "before": "3a58c6a0440be45c83b1b8bd194ab7ec179b700f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-4",
+    "before": "871780408997dd3203645e20e6d44a1014822934",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-5",
+    "before": "289be4aa20fb6440c883ebb62a306ba948c1c8dc",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-6",
+    "before": "b285b74773c6fdcdeaae985ddab0a9db5ba65839",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-7",
+    "before": "3ef24924c803c4c59ba56111303bc1e8d3bda8ce",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-8",
+    "before": "16df6b5685d296dfbd613c4c3f4c0201ea227246",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "natuur/rock-9",
+    "before": "70239061f043c8917412816d69be0e74b46adba8",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "quat-space/rock-a",
+    "before": "0a73f74ba6ab9f7635d30860fac9cf43882dd829",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-space/rock-b",
+    "before": "7a9dfa99b0999446af0275e7d971f65278638764",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-space/rock-c",
+    "before": "ab239cb0c543da56b9c5ebf1e8f24cfe1bd54cbc",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-space/rock-d",
+    "before": "81791c89ceca20a70db897dcfa70495713bd6dbd",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-town/rock-a",
+    "before": "9f13bea8fe52bcdb865dc012cdee8fa204caa373",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "quat-town/rock-b",
+    "before": "c21c0c3aeba30f3a8b8f047a6b1977d3abf7ed60",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "quat-town/rock-c",
+    "before": "793ceb1a453092f4897e1280670812305fab8bde",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "plural"
+    ]
+   },
+   {
+    "id": "rgp-asia/rock-small",
+    "before": "e1204c68e24db9ec073af45888fe2935c39b264f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "rgp-asia/stepping-stone-f",
+    "before": "92fdf59bc5e82c9efea885be8ee56da146085d32",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-4",
+    "before": "c1ed7aff9dca7405aaf6b5e83e7879212f44c952",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-barrier-1",
+    "before": "1763c2dccabb6236597e2c86d6ab84dcff5fbfe7",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-barrier-2",
+    "before": "adaf38d361d3aca9410f80eff92e576d41d908e2",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-barrier-3",
+    "before": "ba1cfa2c37e78dc7d7795c7ff546d885aa6f6cfd",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-barrier-4",
+    "before": "281c138de7a915e590da99d315a94c4d1ac54df4",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rgp-medieval/stone-1",
+    "before": "14a0da8e9162cc80e17a1dc9e9b9fd588ff3d126",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rocks/rock-natural-c",
+    "before": "3e228a9361b9d208f154a4d8ddda2ada023ebbc0",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rocks/rock-natural-d",
+    "before": "29ad2016d419a2a269f41dafaf9f536332eb8c2d",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "rocks/rock-natural-e",
+    "before": "f9807f67510e9a3828a4d007391d78f15f8999d3",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-block-a",
+    "before": "3923aae8fda0b3d55c2e18d05647793924fe9add",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-block-b",
+    "before": "a272c19991aefaa737fc5d6a833e6b29d325c737",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-block-c",
+    "before": "3cf1b227ddc19859589c97f687f4ba68df01ff21",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-medium-a",
+    "before": "d5793aff9d47faf31f31e58e08780b06e05b065e",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-medium-b",
+    "before": "6d33595ccbfac938c71f8f844ea7c816dadd764f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-medium-c",
+    "before": "42f781982f18ad45efdd558aebed8c75d32b806f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-medium-d",
+    "before": "de50eb53f5a06679173da54517405c0ec2ef9610",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-small-a",
+    "before": "bbf533675c8650c46e6247155b68d7f79301fa59",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-small-b",
+    "before": "2893528078195454d689bc3198a36ee742a13a77",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-small-c",
+    "before": "a9c94de7dec2fbc063ab9909eeed77ced499fa9e",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-asia/rock-small-e",
+    "before": "bcceca203e19397f30905972b28e4ad8a1bc3028",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-a",
+    "before": "14bad2e093df3a668034c86004c16946c2562605",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-b",
+    "before": "35b085f17f3e505943b1cee82e157355c53af04f",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-c",
+    "before": "509dfad865219a4ef030d5422db04a08775f6225",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-d",
+    "before": "cf95b10b8123c634b7de38cdd916ca4f86bb6ab8",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-hot-a",
+    "before": "178b96af49d5c8616ae2ba633d660dc7ec8e65c2",
+    "tags": [
+     "stone-rock",
+     "special-emissive",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-hot-b",
+    "before": "2f80a93befa3d70d206d75c04b31d2ab6f55d7b0",
+    "tags": [
+     "stone-rock",
+     "special-emissive",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-hot-c",
+    "before": "71a8181f7336086dcb3be084ca0e7fff31111d19",
+    "tags": [
+     "stone-rock",
+     "special-emissive",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-lava/rock-hot-d",
+    "before": "7c4d505ae25121c62958c18d88ee8fa311f92ef3",
+    "tags": [
+     "stone-rock",
+     "special-emissive",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-mediev/rock-a",
+    "before": "e1de69eec69b168ba0cf964def48e4ecc9448a27",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-mediev/rock-b",
+    "before": "9025f58342aea5ebfb6c6e780956f72c13c94178",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-rock/boulder-a",
+    "before": "afe81eea464998712e9a39cb75d918b7b31816c1",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   },
+   {
+    "id": "wizp-rock/boulder-b",
+    "before": "e90e27f6850802c29372e261e9a93f8b44f4535d",
+    "tags": [
+     "stone-rock",
+     "env-terrain-rock-boulder"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "avra-nature/rocks",
+    "category": "glitch",
+    "change": "removed 3 sliver triangles showing as a back-face line",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-forest/rock-1-n",
+    "category": "kind",
+    "change": "kind to formation: a stacked rock spire",
+    "doubt": true,
+    "why": "1.2-1.3 m tall; could pass as a big boulder",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-forest/rock-1-o",
+    "category": "kind",
+    "change": "kind to formation: a stacked rock spire",
+    "doubt": true,
+    "why": "1.2-1.3 m tall; could pass as a big boulder",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-forest/rock-1-p",
+    "category": "kind",
+    "change": "kind to formation: a stacked rock spire",
+    "doubt": true,
+    "why": "1.2-1.3 m tall; could pass as a big boulder",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-forest/rock-1-q",
+    "category": "kind",
+    "change": "kind to formation: a stacked rock spire",
+    "doubt": true,
+    "why": "1.2-1.3 m tall; could pass as a big boulder",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "wizp-rock/boulder-a",
+    "category": "kind",
+    "change": "kind to formation: stacked hoodoo, like its siblings",
+    "doubt": true,
+    "why": "kit split on size; named boulder",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "wizp-rock/boulder-b",
+    "category": "kind",
+    "change": "kind to formation: stacked hoodoo, like its siblings",
+    "doubt": true,
+    "why": "kit split on size; named boulder",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "fs-terrain/shared-prop-boulder-e",
+    "category": "kind",
+    "change": "kind to formation: a 1.7 m needle, a spire",
+    "doubt": true,
+    "why": "named boulder, in a boulder group",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "kay-forest/rock-3-g..r: light facet patches painted on smooth rocks; source style, no tool evens curved faces",
+   "rgp-medieval/rock-barrier-1..4, stone-1: mottled smooth shading from the source UVs; left",
+   "wizp-lava/rock-*, wizp-mediev/rock-a: open bottoms, only seen from below; left",
+   "kay-forest/rock-1-j..m are rock clumps like ken-pirate/rocks-a; kept as boulder"
+  ]
+ },
+ {
+  "kind": "obj-container-bottle-drink",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "emace-80s/thermos",
+    "before": "7ecdcf9fcfd0dd6b6a69c2e6d4521e7082d63b5a",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-drink"
+    ]
+   },
+   {
+    "id": "isa-picnic/thermos",
+    "before": "dc58b7940487a9afbf9a0a8ae98cc47bc17d04c9",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-container-bottle-drink"
+    ]
+   },
+   {
+    "id": "kay-mixed/water-bottle-a",
+    "before": "f81452429d928af3067416079226c4aff2d05550",
+    "tags": [
+     "ceramic-light",
+     "obj-container-bottle-drink"
+    ]
+   },
+   {
+    "id": "kay-mixed/water-bottle-b",
+    "before": "b5dc3a390f6b0122feb596f92d31c80de3ebdbdf",
+    "tags": [
+     "ceramic-light",
+     "obj-container-bottle-drink"
+    ]
+   },
+   {
+    "id": "m3-base/hip-flask-01",
+    "before": "bcf78e52d719bb8d08e80224893989c433657c6f",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-container-bottle-drink"
+    ]
+   },
+   {
+    "id": "quat-survival/water-bottle",
+    "before": "619a3e3bc0eb7e663272b1226a4a736db631eeed",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-drink"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "kay-mixed/water-bottle-a",
+    "category": "colour",
+    "change": "cap ivory to azure, reads apart from the bottle",
+    "doubt": true,
+    "why": "source drew one colour; may mean a milk bottle",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-mixed/water-bottle-b",
+    "category": "colour",
+    "change": "cap ivory to azure, like its sibling",
+    "doubt": true,
+    "why": "source drew one colour; may mean a milk bottle",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-mixed/water-bottle-a",
+    "category": "tag",
+    "change": "ceramic-light to plastic, a plastic water bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-mixed/water-bottle-b",
+    "category": "tag",
+    "change": "ceramic-light to plastic, a plastic water bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "kay-mixed/water-bottle-b differs from -a only by a hidden inner water core (168 tris); it looks the same, a duplicate candidate"
+  ]
+ },
+ {
+  "kind": "obj-container-bottle-glass",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "emace-village/bottle-in-jar",
+    "before": "892d6c7525c39c34717847bdbd8fd9b8af966da1",
+    "tags": [
+     "ceramic-light",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "isa-picnic/wine-bottle",
+    "before": "8ee858bc98324c337b89d318eb4bd074359f12ec",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "jb-kitchen/bottle",
+    "before": "711ce8b6a72d485cadb6845efd36028b28a9af9a",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "jb-kitchen/bottle-yellow",
+    "before": "945770776b25ca5e81f97740984d7696bca6e9fa",
+    "tags": [
+     "ceramic-mid",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-a-brown",
+    "before": "3a80e75d93eb037c1070c6e2247df078a0b4c7b5",
+    "tags": [
+     "ceramic-mid",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-a-green",
+    "before": "1cc45583bec6b4f2508c748a49d618dc2b5a3d85",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-a-labeled-brown",
+    "before": "23333522f0efa32b26f4f38764f06cab55e55aee",
+    "tags": [
+     "ceramic-mid",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-a-labeled-green",
+    "before": "a650362b15bc9d15bd25532c88c53291aecd71b2",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-b-brown",
+    "before": "caa7ddd3f8a2f01c88ab8fc1377d554bc965547d",
+    "tags": [
+     "ceramic-mid",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-b-green",
+    "before": "df6953cfed2021cdc05826d4e4b02185fc8d1700",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-c-brown",
+    "before": "3da054ebb9dda2e5df1d1e3abb82b82440230bec",
+    "tags": [
+     "ceramic-mid",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "kay-dun-2/bottle-c-green",
+    "before": "9d742ff4360f40c45b9215d8d4f6690cb16363b1",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "ken-food/wine-red",
+    "before": "436826ad3f866d5823065524bee48c005728769e",
+    "tags": [
+     "glass-tinted",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "ken-pirate/bottle",
+    "before": "8115d26679f76a510b3f3daf03eedbd217b68011",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "obj-container-bottle-glass",
+     "pirate",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-pirate/bottle-large",
+    "before": "49055c0801a84fe5248d548c9e00851631ce131f",
+    "tags": [
+     "ceramic-mid",
+     "paper-sheet",
+     "obj-container-bottle-glass",
+     "pirate"
+    ]
+   },
+   {
+    "id": "ken-pirate/bottle-red",
+    "before": "3e3253faad51c3af9fe1e71fe6aae168a8e0832a",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "obj-container-bottle-glass",
+     "pirate",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-survival/bottle",
+    "before": "8277db4aca42213acf25543a1fed0de1f5780fa7",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass",
+     "pirate",
+     "robin-hood",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-survival/bottle-large",
+    "before": "768e507cbe9e079e487264a9acd421c419702965",
+    "tags": [
+     "ceramic-mid",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass",
+     "pirate",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "ken-survival/bottle-red",
+    "before": "fbd385be11e1a366acdd2d6f1ccf49b0dea44d2e",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "cork",
+     "obj-container-bottle-glass",
+     "pirate",
+     "robin-hood",
+     "sailing"
+    ]
+   },
+   {
+    "id": "lpa-west/bottle-a",
+    "before": "10c9924362df20f95ebe6adf456725cd352f8550",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "lpa-west/bottle-b",
+    "before": "5b5e9c0f32640440bfbee006169d3fcb3332aa5a",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "lpa-west/bottle-c",
+    "before": "93e047f6232fa30333ce0024213a3025afefa142",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "lpa-west/bottle-d",
+    "before": "eaac5a47de8e30685d60c2417418de3c2ffd7405",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "m3-base/decanter",
+    "before": "6a1870d5ec867dd58655fc94ffef06a3b0f34573",
+    "tags": [
+     "glass",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "m3-base/whiskey-bottle",
+    "before": "09e6c8244a183e855824e191bd6ba59e69c0fd05",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "plastic",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "m3-base/wine-bottle",
+    "before": "a91720bc8109df4e628609d2dae0418cdd3cfe63",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "props/bottle-b",
+    "before": "9f9b32f84329ba98e8fa6264afce8bf27024bf5b",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass",
+     "halloween"
+    ]
+   },
+   {
+    "id": "props/bottle-b-red",
+    "before": "cb7d5c9c5a364efa3f336c3fc23d87313524416b",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass",
+     "halloween"
+    ]
+   },
+   {
+    "id": "props/bottle-c",
+    "before": "097703261990d586fcb9efad75e386f97d2abe3a",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass",
+     "halloween"
+    ]
+   },
+   {
+    "id": "props/bottle-c-red",
+    "before": "9b62efd4634d564ba5c1db2c52cd2ac061f99f22",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass",
+     "halloween"
+    ]
+   },
+   {
+    "id": "quat-food/bottle-1",
+    "before": "50e9c6d82ef1ebd4cc18b0f0f12ec114d6703999",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "cork",
+     "textile-cloth-light",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "quat-food/bottle-2",
+    "before": "e7e1b2a1243828a632e41d542f8ee098059b3b52",
+    "tags": [
+     "glass",
+     "paper-sheet",
+     "cork",
+     "textile-cloth-dark",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "quat-props/bottle-1",
+    "before": "02fc36b2d856251721bd2730cf151771983f622e",
+    "tags": [
+     "glass",
+     "cork",
+     "textile-cloth-dark",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "quat-props/bottle-1-green",
+    "before": "c3a3097b06cb32111568e11eb86c40cc9a73a3f6",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   },
+   {
+    "id": "quat-sushi/soy-bottle",
+    "before": "55cc9e91d6d981a9c4d9f9162f432a7704fb70f0",
+    "tags": [
+     "glass",
+     "cork",
+     "obj-container-bottle-glass"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/whiskey-bottle",
+    "category": "colour",
+    "change": "body ivory to sienna, an amber whiskey bottle",
+    "doubt": true,
+    "why": "ivory may mean clear glass",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/whiskey-bottle",
+    "category": "tag",
+    "change": "remove paper-sheet, no label on the bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-dun-2/bottle-a-brown",
+    "category": "tag",
+    "change": "ceramic-mid to glass, brown twin of the glass bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-dun-2/bottle-a-labeled-brown",
+    "category": "tag",
+    "change": "ceramic-mid to glass, brown twin of the glass bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-dun-2/bottle-b-brown",
+    "category": "tag",
+    "change": "ceramic-mid to glass, brown twin of the glass bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-dun-2/bottle-c-brown",
+    "category": "tag",
+    "change": "ceramic-mid to glass, brown twin of the glass bottle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "jb-kitchen/bottle-yellow",
+    "category": "tag",
+    "change": "ceramic-mid to glass, same bottle as its green twin",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-survival/bottle-large",
+    "category": "tag",
+    "change": "ceramic-mid to glass, like its corked siblings",
+    "doubt": true,
+    "why": "orange may mean a stoneware bottle",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-pirate/bottle-large",
+    "category": "tag",
+    "change": "ceramic-mid to glass, like its siblings",
+    "doubt": true,
+    "why": "wide mouth may mean a stoneware jug",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/wine-red",
+    "category": "tag",
+    "change": "glass-tinted to glass, vessels carry glass",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "emace-village/bottle-in-jar",
+    "category": "tag",
+    "change": "add ceramic-dark for the red jug",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-props/bottle-1",
+    "category": "tag",
+    "change": "remove textile-cloth-dark, no cloth part",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-food/bottle-1",
+    "category": "tag",
+    "change": "remove textile-cloth-light, the ivory is the label",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "m3-base/whiskey-bottle, m3-base/decanter and jb-kitchen bottles are 3-8x the kind's median tris on smooth lathe bodies; slim.mjs cannot thin rings without decimation, which needs PO approval.",
+   "m3-base/decanter is a swan-neck designer decanter in ivory (clear glass); odd beside plain bottles but a real decanter, left as is."
+  ]
+ },
+ {
+  "kind": "obj-device-electronics-computer",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "3dm-electronics/console",
+    "before": "30c42661ab67948be2b4608cacf6e181c5dc8cd2",
+    "tags": [
+     "plastic",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "3dm-electronics/router",
+    "before": "8cfe89613f9c130f2f2bf96377b4b4af33b41600",
+    "tags": [
+     "plastic",
+     "special-emissive",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "3dm-scifi/control-panel",
+    "before": "b1fe928fc986324099be6b1d15933038281f05de",
+    "tags": [
+     "metal-steel",
+     "glass-screen",
+     "plastic",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "household/printer",
+    "before": "1550e941b29f89bfa06ce67aa36caf5e14105ca1",
+    "tags": [
+     "metal-iron-mid",
+     "paper-sheet",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "ken-furniture/laptop",
+    "before": "798dafd91bcabeda02d304f777b9e15b80344834",
+    "tags": [
+     "metal-iron-mid",
+     "glass-screen",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "ken-space/desk-computer",
+    "before": "330879b1452f8616721c5f46d2c2b9614a96f578",
+    "tags": [
+     "metal-steel",
+     "glass-screen",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-space/desk-computer-corner",
+    "before": "f9195417004142a3d31a9f74186ee31957e27cf4",
+    "tags": [
+     "metal-steel",
+     "glass-screen",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-space/desk-computer-screen",
+    "before": "6d59e2fb20277277755a19d3bc3e8d4004972f3f",
+    "tags": [
+     "metal-steel",
+     "glass-screen",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/computer",
+    "before": "cfa51636c17daa3756ff10eb0d3d2610c489c52b",
+    "tags": [
+     "metal-iron-dark",
+     "glass-screen",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/computer-screen",
+    "before": "6fe71abea3bbea12cd5c1c0c5e41a158bdcb22d4",
+    "tags": [
+     "metal-iron-dark",
+     "glass-screen",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/computer-system",
+    "before": "7a92cc6576b32d46b94c7137a88313fbe415a58d",
+    "tags": [
+     "metal-iron-dark",
+     "glass-screen",
+     "plastic",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/computer-wide",
+    "before": "14857af91290d74396702e074351a2687417d9a4",
+    "tags": [
+     "metal-iron-dark",
+     "glass-screen",
+     "obj-device-electronics-computer",
+     "space"
+    ]
+   },
+   {
+    "id": "lpa-home/console-c",
+    "before": "906e1e7403ef3daceeda3c370f500a9addc5c1a8",
+    "tags": [
+     "metal-iron-mid",
+     "plastic",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "lpa-home/console-d",
+    "before": "b7dfc7098c2e3ed8180a3faa0bffc9fddf9baceb",
+    "tags": [
+     "metal-iron-mid",
+     "plastic",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "lpa-home/laptop",
+    "before": "3dc4646e44077731c3d13afca5f8cf674a4b2977",
+    "tags": [
+     "metal-steel",
+     "glass-screen",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "m3-base/cartoon-controller",
+    "before": "f1f2e843328279cac2b30781549cc47817add67b",
+    "tags": [
+     "plastic",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "styloo-school/printer",
+    "before": "0ae27193f2e35d7314ff5ae1a11d65e9367cd482",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-computer"
+    ]
+   },
+   {
+    "id": "styloo-school/router",
+    "before": "f220220b4e5204ab481adae32d0b1230fe83a68a",
+    "tags": [
+     "plastic",
+     "obj-device-electronics-computer"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "3dm-electronics/router",
+    "category": "scale",
+    "change": "scaled 1.25, was under the kind's 0.2 minimum",
+    "doubt": true,
+    "why": "one-model size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "styloo-school/router",
+    "category": "colour",
+    "change": "green front panel moss to basalt, like its sides",
+    "doubt": true,
+    "why": "source drew a green front",
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "household/printer",
+    "category": "tag",
+    "change": "metal-iron-mid to plastic, a plastic printer body",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-furniture/laptop",
+    "category": "tag",
+    "change": "metal-iron-mid to plastic, a dark plastic laptop",
+    "doubt": true,
+    "why": "could be a dark metal shell",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "lpa-home/console-c",
+    "category": "tag",
+    "change": "remove metal-iron-mid, a plastic console",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "lpa-home/console-d",
+    "category": "tag",
+    "change": "remove metal-iron-mid, a plastic console",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "3dm-electronics/router 1305, styloo-school/router 1430 and styloo-school/printer 2292 tris are dense for the kind; a job for the detail skill.",
+   "3dm-electronics/console G27: thin dark seam ring between its two shells and side port strips; left, thickening would change the look.",
+   "household/printer G27: the thin paper sheets in its trays; paper is thin, left.",
+   "styloo-school/router port holes show a few tiny back faces; backface-fix did not clear them, left."
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-hand-crowbar",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "m3-base/crowbar",
+    "before": "6b1704001d33926821916e90fa55210c7f752240",
+    "tags": [
+     "metal-steel",
+     "obj-equipment-tool-hand-crowbar"
+    ]
+   },
+   {
+    "id": "mek-tools/crowbar",
+    "before": "1adc055bc9fc7ea1c31e0f6bb585b40e61f343fe",
+    "tags": [
+     "metal-steel",
+     "obj-equipment-tool-hand-crowbar"
+    ]
+   },
+   {
+    "id": "zombie-weapons/crowbar",
+    "before": "fb02449de4016284f64d81bb68717407867e63f4",
+    "tags": [
+     "metal-steel",
+     "obj-equipment-tool-hand-crowbar"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/crowbar",
+    "category": "shape",
+    "change": "bar inflated, chunkier like its peers",
+    "doubt": true,
+    "why": "claw slot narrows a little",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "mek-tools/crowbar",
+    "category": "tag",
+    "change": "add plastic for the red grip coat",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "all three stand upright on the bar end; kept, consistent across the kind"
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-twohand-pickaxe",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "emace-village/pickaxe",
+    "before": "9ec1fd6fdf002e581accf43df3b02409e9f3b8eb",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "fs-terrain/cave-prop-pick-large",
+    "before": "506dbf1edf5331fac6e38e51daebe49bb8b3acb2",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "fs-terrain/cave-prop-pick-small",
+    "before": "7e1833f55790a9ec31e25417e0ae4d44d7c0ed83",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "kay-tools/pickaxe",
+    "before": "2944422a8859f3043f17aaa9fcc03baa8fe0f52c",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "ken-survival/tool-pickaxe",
+    "before": "a3b2f39cbad6739771077d20ec0cbe362b58d6cc",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "ken-survival/tool-pickaxe-upgraded",
+    "before": "363849836b6ed542a064e478558cf2de52fa5151",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "lpa-tools/stone-pickaxe",
+    "before": "2b6e8f5e73ed6e7c9e709eca33a600d9c7fa4b14",
+    "tags": [
+     "stone-rock",
+     "wood-dark",
+     "textile-cloth-mid",
+     "leather",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "lpa-tools/wooden-pickaxe",
+    "before": "aac00fe30323bc317ae43f79ca654f412f02cb59",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "leather",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "lpa-west/pickaxe",
+    "before": "c2d792e5df558227e78713e4aad2d6864c4af993",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "m3-base/pick-axe",
+    "before": "ef23beaaad0a7caa3d04df25600cff4b13d3e979",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "mek-tools/pickaxe",
+    "before": "ad6cb65c486f95db5aa6f2899ea9f302368bf566",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "styloo-farm/pickaxe",
+    "before": "b8bd98ac798cb51410621c575f617a51ce48e1a4",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "styloo-farm/pickaxe-curved",
+    "before": "159fee868ec84bb84c36e7e95f700d0888fce963",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "styloo-weapons/pickaxe",
+    "before": "e2ad70e69c02297a4a1f5621c593008602bd7262",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "western/pickaxe",
+    "before": "de83ee1596acb0f3d8a4883f96664f7bfad3dad2",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   },
+   {
+    "id": "zombie-weapons/pickaxe",
+    "before": "1cd8c2f46c167278fdc57e9dcf358aa118d2ff61",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pickaxe"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "mek-tools/pickaxe",
+    "category": "glitch",
+    "change": "flipped inside-out stubs where the blades meet the head",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-tools/pickaxe",
+    "category": "tag",
+    "change": "add wood-light for the tan end grain on the handle top",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "mek-tools/pickaxe: backface-fix --dry would flip the repaired blade stubs back by edge winding; renders and glb-lint are clean, so do not run it on this file"
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-twohand-pitchfork",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "lpa-weapons/pitchfork",
+    "before": "31b1b8a4e414fc7f4699b696a99eb41d4d032346",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pitchfork"
+    ]
+   },
+   {
+    "id": "m3-base/garden-fork",
+    "before": "462028c8eda9b3272fc796fb005a37bd1bc4c5ea",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pitchfork"
+    ]
+   },
+   {
+    "id": "rgp-medieval/pitchfork",
+    "before": "73bbca2b0429a32cc2d9750d118e6c4b52472d0b",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pitchfork"
+    ]
+   },
+   {
+    "id": "rgp-props/pitchfork-a",
+    "before": "23ee5a6c953615c92c64b0df38699598324c22dd",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pitchfork"
+    ]
+   },
+   {
+    "id": "zombie-weapons/pitchfork",
+    "before": "22718567f002a21c9f40266026ca06adc56091a2",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-tool-twohand-pitchfork"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "rgp-props/pitchfork-a",
+    "category": "colour",
+    "change": "handle end camel to chestnut, like its sibling",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "lpa-weapons/pitchfork",
+    "category": "placement",
+    "change": "turned tines down, fan facing front, like its peers",
+    "doubt": true,
+    "why": "a weapon kit may mean it held tines up",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "lpa-weapons/pitchfork",
+    "category": "scale",
+    "change": "scaled 1.4, near its kit's spears and its peers",
+    "doubt": true,
+    "why": "one-model size change",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "m3-base/garden-fork: tines about 8 mm, thin beside peers, and 3x the kind's median tris; left, a real garden fork with fine tines (m3 thickening was turned down before)"
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-melee-axe-single",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "avra-weapons/handaxe",
+    "before": "b886789b5bb51ffae768dfd93a47934dda0330dc",
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "wood-mid",
+     "leather",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "kay-adventurers/axe-one-handed",
+    "before": "e77c7ffe21f55061238ba7ced53bf3b1dd1189a3",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-dun-1/axe-common",
+    "before": "e940e52997357e35d7599662205c9cb00c18af01",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "kay-dun-1/axe-rare",
+    "before": "4f459dd5852d6da82e2d3494795126d20b283c32",
+    "tags": [
+     "metal-steel",
+     "metal-gold",
+     "gemstone",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "kay-dun-1/axe-uncommon",
+    "before": "420518fdc50bb551c462c1f3318ab932ead8d87a",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "kay-tools/axe",
+    "before": "4703bd6518c002e910c34f932821ca7dd0b9f527",
+    "tags": [
+     "metal-steel",
+     "wood-light",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single",
+     "robin-hood"
+    ]
+   },
+   {
+    "id": "kay-weapons/axe-c",
+    "before": "d4d938c1f55937e944de253a6d58df5ed6e82e5b",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "ken-survival/tool-axe",
+    "before": "e3b2f577e127e201f5f65e2125c25fba72dd5551",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "lpa-tools/stone-axe",
+    "before": "c07f6f262847ee40c6b1078b9e8ca7e12905cca3",
+    "tags": [
+     "stone-rock",
+     "wood-mid",
+     "textile-cloth-mid",
+     "leather",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "lpa-tools/wooden-axe",
+    "before": "bea13377c72eb530d6e894cd1d6776e39d164af2",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "leather",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "lpa-weapons/axe",
+    "before": "bc2e4a66ee22972578725f1131e79c3942c3366c",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "lpa-weapons/two-handed-axe",
+    "before": "e0b00605485b861ff68413f7d64d24637371ee7b",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "m3-base/axe",
+    "before": "ea6c4d120acd082d5caedf9730ea66c218f00a3e",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "mek-tools/axe",
+    "before": "25c4522c4017b2f0842a13ace6dfb4157de9495f",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "props/axe-a",
+    "before": "d6840b423fd522c5ae8cc9cb9387113db4381106",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "quat-apocalypse/axe",
+    "before": "fce3c97cd46107a1f0d81db07aba2f0dd33c441e",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "quat-pirate/axe",
+    "before": "a58fac4a2da106b7afad10df00779dd800cad61d",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single",
+     "pirate"
+    ]
+   },
+   {
+    "id": "quat-props/axe-bronze",
+    "before": "c998b36ab02b1166d297227cff865b24ccd79390",
+    "tags": [
+     "metal-gold",
+     "wood-dark",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "quat-rpg/axe-small",
+    "before": "f64a99a63dcb67f9b4fea5bf01a8da04b109e9ce",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "textile-cloth-mid",
+     "leather",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "quat-survival/axe",
+    "before": "15f60524072bc414ce065f43d4f9ea5d61ba017f",
+    "tags": [
+     "metal-steel",
+     "wood-light",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "rgp-medieval/axe",
+    "before": "2a1cfb68e7d402867080818cc4202339a2ba5a64",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "rgp-weapons/axe-a",
+    "before": "73479122e7a4419b67c552aed170d490c325fb46",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "rgp-weapons/axe-b",
+    "before": "a91beb59d89ebf9d9b81af97c74a6e3656f30b04",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "styloo-farm/axe",
+    "before": "9fb8d77a38115dbce010bb0920a1ec839711eb7d",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "styloo-weapons/axe",
+    "before": "a9824167648d17cb0d412aa88e8fd04f337ac66c",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "textile-cloth-mid",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   },
+   {
+    "id": "zombie-weapons/axe",
+    "before": "c5aa593eee2aa7e7920f379a4fbb82063d546a84",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "obj-equipment-weapon-melee-axe-single"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "avra-weapons/handaxe",
+    "category": "colour",
+    "change": "head and rings basalt to nickel, steel like its peers",
+    "doubt": true,
+    "why": "dark head with a bright edge is lost",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "avra-weapons/handaxe",
+    "category": "tag",
+    "change": "remove metal-iron-mid, no iron left",
+    "doubt": true,
+    "why": "follows the doubted head recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "styloo-weapons/axe",
+    "category": "colour",
+    "change": "blade face and top spike taupe to nickel, a steel blade",
+    "doubt": true,
+    "why": "source drew a two-tone blade",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "props/axe-a",
+    "category": "colour",
+    "change": "steel shaft to wood, grip wrap to taupe, like peers",
+    "doubt": true,
+    "why": "an all-steel axe may be meant",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "props/axe-a",
+    "category": "tag",
+    "change": "add textile-cloth-mid for the taupe grip wrap",
+    "doubt": true,
+    "why": "follows the doubted shaft recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-weapons/axe-b",
+    "category": "glitch",
+    "change": "stray light chip on the shaft to the shaft's wood colour",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "quat-survival/axe: red fire-axe head is sienna, a band no tagged material may take; kept for recognisability, needs a paint home or a rule",
+   "quat-apocalypse/axe and kay-dun-1/axe-rare: metal shafts kept, an improvised pipe axe and a fantasy rare axe",
+   "orientation is mixed across the kind: blades face +x on some, -x on others; left as is"
+  ]
+ },
+ {
+  "kind": "obj-food-fruit-orange",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "food-pack-2/orange",
+    "before": "c99613430242f74fc5616c3392680cb53e992ce5",
+    "tags": [
+     "special-food",
+     "obj-food-fruit-orange"
+    ]
+   },
+   {
+    "id": "food-pack-2/orange-leaf",
+    "before": "d3c460c98fc654c65cafe21c21c777a1d899f1a9",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-fruit-orange"
+    ]
+   },
+   {
+    "id": "food-pack/orange",
+    "before": "131b73052e06dc21ce1761897c16e9c6a2f4adbe",
+    "tags": [
+     "bark",
+     "leaf-light",
+     "special-food",
+     "obj-food-fruit-orange"
+    ]
+   },
+   {
+    "id": "ken-food/orange",
+    "before": "4c3cb5ef27cda033e473a5d25931f67ad806d6bc",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-fruit-orange"
+    ]
+   },
+   {
+    "id": "styloo-kitchen/orange",
+    "before": "15fe8d1f24eb204c99c236bd3c9f9175db36a270",
+    "tags": [
+     "special-food",
+     "obj-food-fruit-orange"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "styloo-kitchen/orange",
+    "category": "placement",
+    "change": "set on the ground, was centred on the origin",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "styloo-kitchen/orange",
+    "category": "shape",
+    "change": "added a small green stem, a bare ball read as any ball",
+    "doubt": true,
+    "why": "new geometry; the kit drew a plain ball",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "styloo-kitchen/orange",
+    "category": "tag",
+    "change": "add leaf-light for the new stem",
+    "doubt": true,
+    "why": "follows the doubted stem",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/orange",
+    "category": "scale",
+    "change": "scaled 1.4, was under the kind's minimum",
+    "doubt": true,
+    "why": "now a bit bigger than the kit's apple",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "food-pack-2/orange",
+    "category": "tag",
+    "change": "add leaf-light for its leaves and stem",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "food-pack-2/orange and orange-leaf look the same (both have the leaf); one may be a duplicate to reject"
+  ]
+ },
+ {
+  "kind": "obj-food-sweet-cane",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "kay-holiday/candycane",
+    "before": "da48629dc07188e5f9c96c686103028d1d5a3f35",
+    "tags": [
+     "special-food",
+     "obj-food-sweet-cane"
+    ]
+   },
+   {
+    "id": "ken-holiday/candy-cane",
+    "before": "6300a2ac528e0fac67c8b38f2914c8e371cf25c3",
+    "tags": [
+     "special-food",
+     "obj-food-sweet-cane"
+    ]
+   },
+   {
+    "id": "m3-base/candy-cane",
+    "before": "3ee8a4c9b30928671b850686a03ab2018c8363eb",
+    "tags": [
+     "special-food",
+     "obj-food-sweet-cane"
+    ]
+   },
+   {
+    "id": "pm-store/candy-cane",
+    "before": "5ce471f3a0d6b48351a63c0a30155a912cf453d9",
+    "tags": [
+     "special-food",
+     "obj-food-sweet-cane"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/candy-cane",
+    "category": "placement",
+    "change": "turned a quarter so the hook faces front, like peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-holiday/candy-cane",
+    "category": "shape",
+    "change": "tube a bit fuller, clears the thickness minimum",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "m3-base/candy-cane has many thin stripes (640 tris, 2x median); kept, it reads well as a candy cane"
+  ]
+ },
+ {
+  "kind": "obj-food-vegetable-pumpkin",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "aq-hallow/jackolantern-a",
+    "before": "09ae02fc32a8238a2befa64b541a5bec509bbd03",
+    "tags": [
+     "special-emissive",
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "aq-hallow/jackolantern-b",
+    "before": "0dfc587a1b70a4dd1e9ad68aa11e3b7d6a001db9",
+    "tags": [
+     "special-emissive",
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "aq-hallow/jackolantern-c",
+    "before": "6e13f4a26353f877ac475770e923285946087cfb",
+    "tags": [
+     "special-emissive",
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "aq-hallow/pumpkin-a",
+    "before": "d8254c3c9b7e17ca2630cf2df4b9ce5981773f02",
+    "tags": [
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "aq-hallow/pumpkin-b",
+    "before": "2422ce9c59402890e94a0837fd1ffe855e3f2f95",
+    "tags": [
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "aq-hallow/pumpkin-c",
+    "before": "2ed6408456f924d480134b25fb84a54af6952722",
+    "tags": [
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "food-pack-2/pumpkin",
+    "before": "065ea7e7a6c1aace96b167a72dc28e79d342022f",
+    "tags": [
+     "special-food",
+     "obj-food-vegetable-pumpkin"
+    ]
+   },
+   {
+    "id": "household/jack-o-lantern",
+    "before": "a9ebf8a0df11fc3f99e1abe198759e63d3a6421e",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-hallow/pumpkin-orange",
+    "before": "b5362c9bba07ea197980120c7649d9313368e319",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-hallow/pumpkin-orange-jackolantern",
+    "before": "b0ce9649073c7e11218f331f12bd814579f55e9f",
+    "tags": [
+     "leaf-light",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-hallow/pumpkin-orange-small",
+    "before": "9e30ea7e13c30d77d647da49b3ba5d805183a687",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-spook/jackolantern-large",
+    "before": "c0a59cc9af7e48223b150b1c240c0176ceb34d0e",
+    "tags": [
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-spook/jackolantern-small",
+    "before": "339f9415c879a0ba4762a039eae74ce8acf77a97",
+    "tags": [
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-spook/pumpkin-large",
+    "before": "b711c833de063415eab70883b4e79bb7934a8f0a",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "kay-spook/pumpkin-small",
+    "before": "60d93c8efa3a1638c16e3b845722f9db1cb04d4b",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "ken-food/pumpkin",
+    "before": "dd4d1a1850a99cd2672549077d849a316566d986",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin"
+    ]
+   },
+   {
+    "id": "ken-food/pumpkin-basic",
+    "before": "e086de532d3d527584294d3def6b6612672a9fe7",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin"
+    ]
+   },
+   {
+    "id": "ken-grave/pumpkin",
+    "before": "c5ab46017f8fd0f8e5b764abb10cc5b2f6a59b4d",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "ken-grave/pumpkin-carved",
+    "before": "9e2bb4e69b4d433074332b2b34c74111131d55c6",
+    "tags": [
+     "leaf-light",
+     "special-emissive",
+     "special-organic",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "ken-grave/pumpkin-tall",
+    "before": "99fb7e05cce747f7c24fb4a263a08531d4d3e340",
+    "tags": [
+     "leaf-light",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "ken-grave/pumpkin-tall-carved",
+    "before": "cf6ed38d02737f65c463281147925b73d5a7f99e",
+    "tags": [
+     "leaf-light",
+     "special-emissive",
+     "special-food",
+     "obj-food-vegetable-pumpkin",
+     "halloween"
+    ]
+   },
+   {
+    "id": "quat-food/pumpkin",
+    "before": "902ab5fcef6312e31248cb1754bc7426d9f99579",
+    "tags": [
+     "special-food",
+     "special-organic",
+     "obj-food-vegetable-pumpkin"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "household/jack-o-lantern",
+    "category": "colour",
+    "change": "carved face walls terracotta to amber, a lit face like peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "household/jack-o-lantern",
+    "category": "tag",
+    "change": "add special-emissive for the lit face",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-hallow/pumpkin-orange-jackolantern",
+    "category": "colour",
+    "change": "carved face steps terracotta to amber, a lit face",
+    "doubt": true,
+    "why": "shallow carving; may be meant unlit",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-hallow/pumpkin-orange-jackolantern",
+    "category": "tag",
+    "change": "add special-emissive for the lit face",
+    "doubt": true,
+    "why": "follows the doubted face recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-spook/jackolantern-large",
+    "category": "colour",
+    "change": "inside and face cuts terracotta to amber, lit from within",
+    "doubt": true,
+    "why": "whole inside now glows through the open top",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-spook/jackolantern-large",
+    "category": "tag",
+    "change": "add special-emissive for the glowing inside",
+    "doubt": true,
+    "why": "follows the doubted recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-spook/jackolantern-large",
+    "category": "scale",
+    "change": "scaled 0.955, was over the kind's 0.45 max",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-spook/jackolantern-small",
+    "category": "colour",
+    "change": "inside and face cuts terracotta to amber, lit from within",
+    "doubt": true,
+    "why": "whole inside now glows through the open top",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-spook/jackolantern-small",
+    "category": "tag",
+    "change": "add special-emissive for the glowing inside",
+    "doubt": true,
+    "why": "follows the doubted recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-spook/pumpkin-small",
+    "category": "scale",
+    "change": "scaled 1.07, was under the kind's 0.2 min",
+    "doubt": true,
+    "why": "named small; one-model size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-hallow/pumpkin-orange-small",
+    "category": "scale",
+    "change": "scaled 1.12, was under the kind's 0.2 min",
+    "doubt": true,
+    "why": "named small; one-model size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/pumpkin",
+    "category": "scale",
+    "change": "scaled 1.07 with its sibling, was under 0.2 min",
+    "doubt": true,
+    "why": "one-group size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/pumpkin-basic",
+    "category": "scale",
+    "change": "scaled 1.07 with its sibling, was under 0.2 min",
+    "doubt": true,
+    "why": "one-group size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-food/pumpkin",
+    "category": "colour",
+    "change": "gradient lifted off the dark end, orange like peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "Variant groups look crossed: ken-grave/pumpkin-tall sits in kay-hallow/pumpkin-orange's group, ken-grave/pumpkin-tall-carved in ken-grave/pumpkin's.",
+   "kay-spook/jackolantern-large keeps a few small back faces at the eye edges and a raw eye plate; left as the source drew it.",
+   "Carved pumpkins mix special-food and special-organic between kits; left, no clear rule which one a carved pumpkin takes."
+  ]
+ },
+ {
+  "kind": "obj-furnishing-furniture-storage-dresser",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "fs-house/dresser",
+    "before": "36d1a6c98ee3a4127e39b54aec0c9d48bf71852d",
+    "tags": [
+     "wood-light",
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "fs-house/dresser-tall",
+    "before": "f2813971b9db6c76107dfc7370f74bcc15e17b3f",
+    "tags": [
+     "wood-light",
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "fs-house/dresser-wide",
+    "before": "a2553d6ac2ec313a743c7bf313a77aeca8852a74",
+    "tags": [
+     "wood-light",
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "fs-house/tv-stand",
+    "before": "12328bd699aef0cdd11f7a3d69da1b3bbeba26a2",
+    "tags": [
+     "wood-light",
+     "wood-mid",
+     "plastic",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "household/dresser",
+    "before": "2a27bcab8dc9f622dd09c6986c03539642815799",
+    "tags": [
+     "metal-iron-mid",
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "kay-furniture/cabinet-medium",
+    "before": "df03d58734e209ebabc1bdcd858881e3ad3e44cc",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "ken-furniture/cabinet-television",
+    "before": "503dbb15d96677ca75163fef9db7019d20071dcc",
+    "tags": [
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "ken-furniture/cabinet-television-doors",
+    "before": "c14d44be0d703faa9032e9c1677e7ca8e0459303",
+    "tags": [
+     "metal-steel",
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "lpa-home/dresser",
+    "before": "5c3e19a2ff0b6fc486749a0b38eea3e8f484d61f",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser",
+     "tba"
+    ]
+   },
+   {
+    "id": "lpa-home/tv-stand",
+    "before": "25b6d50d61cf9293369e0c8030f2cc0c9fdaf0df",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "m3-base/bedside-table-01",
+    "before": "2ff35e2cd73edc41b685a8254fa136987169e0f4",
+    "tags": [
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "m3-base/chest-of-drawers-01",
+    "before": "3b77a49c5fb5ea6d6d163ffd3e9f283ec6ff618a",
+    "tags": [
+     "metal-gold",
+     "wood-mid",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "quat-interior/dresser-a",
+    "before": "2f85dfcce6f01cc8e8af1a9d0bde29008753b253",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "quat-interior/dresser-b",
+    "before": "3304557d7d5c93ed35471cc442e19d0026dd53b5",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "quat-interior/dresser-c",
+    "before": "38fac69077c4475f0f2dc0492e010537f2c2e8fd",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "quat-interior/dresser-low",
+    "before": "bde23b024f609c21a9becb043b8e8c21e21f3646",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "quat-interior/dresser-wide",
+    "before": "0dd06f6688134dc42ffd23e86f7a93e64a4e3a3b",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   },
+   {
+    "id": "quat-props/drawers",
+    "before": "4dbe53d4908a65fb06c98ea14b37cd4a2d0e37e9",
+    "tags": [
+     "metal-iron-mid",
+     "wood-dark",
+     "obj-furnishing-furniture-storage-dresser"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-props/drawers",
+    "category": "colour",
+    "change": "drawer fronts chestnut to camel, drawers read apart",
+    "doubt": true,
+    "why": "source drew one plain dark box",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-props/drawers",
+    "category": "tag",
+    "change": "add wood-mid for the camel drawer fronts",
+    "doubt": true,
+    "why": "follows the doubted front recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/bedside-table-01",
+    "category": "colour",
+    "change": "handle slots camel to chestnut, like quat pulls",
+    "doubt": true,
+    "why": "source drew the slots body-coloured",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/bedside-table-01",
+    "category": "tag",
+    "change": "add wood-dark for the chestnut handle slots",
+    "doubt": true,
+    "why": "follows the doubted slot recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-interior/dresser-b",
+    "category": "glitch",
+    "change": "capped open corners under the body",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "household/dresser: open bottom and thin open slivers on front and side; backface-fix caps a big triangle across the front, so it was undone"
+  ]
+ },
+ {
+  "kind": "obj-furnishing-light-lamp",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "fs-town/lamp-wall",
+    "before": "72bdcfcf48f6c730ba440bc78c0c7b77fbdf7aa3",
+    "tags": [
+     "metal-iron-mid",
+     "wood-dark",
+     "special-emissive",
+     "obj-furnishing-light-lamp",
+     "mounted"
+    ]
+   },
+   {
+    "id": "lpa-home/wall-light",
+    "before": "d7ecd7ec9cb05d7f1fbe9bc04a272a46ddc8a656",
+    "tags": [
+     "wood-mid",
+     "special-emissive",
+     "obj-furnishing-light-lamp",
+     "mounted"
+    ]
+   },
+   {
+    "id": "m3-base/iron-wall-light",
+    "before": "c0eb424f90772b0147c756ea362f9e39027863c6",
+    "tags": [
+     "metal-iron-mid",
+     "wax",
+     "special-emissive",
+     "obj-furnishing-light-lamp",
+     "mounted"
+    ]
+   },
+   {
+    "id": "m3-base/outdoor-wall-light",
+    "before": "d57708a634d965196a39b1bc988e5e55ee7c6ed2",
+    "tags": [
+     "metal-iron-mid",
+     "special-emissive",
+     "obj-furnishing-light-lamp",
+     "mounted"
+    ]
+   },
+   {
+    "id": "m3-base/outdoor-wall-light-01",
+    "before": "e695d6e10e1d1b1cb887d2d4a1a0324571841f07",
+    "tags": [
+     "metal-iron-mid",
+     "special-emissive",
+     "obj-furnishing-light-lamp",
+     "mounted"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "fs-town/lamp-wall",
+    "category": "placement",
+    "change": "turned so the beam sticks out from the wall, grounded",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": []
+ },
+ {
+  "kind": "obj-furnishing-light-lamp-floor",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "3dm-industrial/work-light-tripod",
+    "before": "4a7ae930bd8d223040767d5becc04a2bd455ed79",
+    "tags": [
+     "metal-gold",
+     "plastic",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "kay-furniture/lamp-standing",
+    "before": "f2f9da5814e8c14d8aa905931d3e9b4852938ca9",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-light",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "ken-furniture/lamp-round-floor",
+    "before": "9210b8742ae8fbb015f0462d494173d439b6dbaa",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-light",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "ken-furniture/lamp-square-floor",
+    "before": "11c6a6185a9ac1a3520e39fe29238eeadd7fe10f",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-light",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "lpa-home/floor-lamp-a",
+    "before": "85f9c4cebc92e4bff40585b090b1839ed8445b2a",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-dark",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "lpa-home/floor-lamp-b",
+    "before": "9bd6b9513d7e1dc9eb576e91fb854289172481ab",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-light",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "quat-interior/floor-lamp",
+    "before": "e40dcd9b32c1749da65568bd5b920d0d4e60b37b",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-light",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   },
+   {
+    "id": "quat-interior/floor-lamp-slim",
+    "before": "4647bc5be6328a460bc03fb9ddec0e40e127a77b",
+    "tags": [
+     "metal-steel",
+     "special-emissive",
+     "obj-furnishing-light-lamp-floor"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "lpa-home/floor-lamp-a",
+    "category": "shape",
+    "change": "longer stem, lamp 0.8x: a floor lamp, not a big table lamp",
+    "doubt": true,
+    "why": "kit drew a short chunky lamp",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "lpa-home/floor-lamp-b",
+    "category": "shape",
+    "change": "stem lengthened, whole lamp 0.8x, like its sibling",
+    "doubt": true,
+    "why": "kit drew a short chunky lamp",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-furniture/lamp-square-floor",
+    "category": "shape",
+    "change": "shade cut to half height, stem shows like round sibling",
+    "doubt": true,
+    "why": "may be meant as a tall column lamp",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "3dm-industrial/work-light-tripod",
+    "category": "tag",
+    "change": "remove metal-gold, yellow frame is painted, not gold",
+    "doubt": true,
+    "why": "plastic then holds the amber alone",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "3dm-industrial/work-light-tripod: 1650 tris, near 6x the kind median; a detail pass could slim it",
+   "quat-interior/floor-lamp-slim: a metal uplight with an amber bulb, a bit shorter than its sibling; left as kit design"
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-cookware-cookpot",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "clay-props/crockpot",
+    "before": "171ae86405b2be51ec57c8ae2c4d88ddb6d860b1",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "clay-props/crockpot-closed",
+    "before": "735d0f60d2ae13a84d50691c8fbd58c4db01e6ea",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "clay-props/crockpot-lid",
+    "before": "642db02927d4cc204ff155e3bbe1f9eee63b735f",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot",
+     "comp"
+    ]
+   },
+   {
+    "id": "clay-props/rice-pot",
+    "before": "7703144762e01544491941650c7f9ff2f46c2386",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "cooking-assets/casserole-pot",
+    "before": "66049bbf8ad882599b834a93f4647b8de591c176",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "cooking-assets/crock-large",
+    "before": "c02a953fa3a3d9c9806cc030a0b06b13b4284890",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "cooking-assets/dutch-oven",
+    "before": "df491857bcd207c75d4b84e0aad016e6bf24ba9d",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "cooking-assets/stock-pot",
+    "before": "c3187ddeb9fceb2fdc680e653f6165bededd8f27",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "isa-kitchen/lid",
+    "before": "145770acaf44582732ed02fd1939b868cdffc28d",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot",
+     "comp"
+    ]
+   },
+   {
+    "id": "isa-kitchen/pot",
+    "before": "7b7b994a0cb52c62c88241b7eeaa776fc9a5bba7",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "jb-kitchen/cookpot",
+    "before": "3096796b470308b5b582df8907bd75aeb690fa8f",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "jb-kitchen/cookpot-lid",
+    "before": "f35a7fa8825a2a91c2b7ba6fd63c35e8825d2234",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/lid-a",
+    "before": "577c7e107026976668d95ca69dfd6c6f7331b382",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot",
+     "comp"
+    ]
+   },
+   {
+    "id": "kay-food/lid-b",
+    "before": "7bb66595611c6bd0f8964789a73ea2c7581213d6",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot",
+     "comp"
+    ]
+   },
+   {
+    "id": "kay-food/lid-large",
+    "before": "1194b204073a5bd0623fc18753b6aae6bc532d0b",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot",
+     "comp"
+    ]
+   },
+   {
+    "id": "kay-food/pot-a",
+    "before": "eda4c59b9e127dd5ef4d4910460f822a89e32e44",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-a-closed",
+    "before": "ab4fe7f9a1d91c687bb167769d7bc237b549a994",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-a-stew",
+    "before": "6d3ccedb1af8db80170361938a732ebde15efeb6",
+    "tags": [
+     "metal-steel",
+     "special-food",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-b",
+    "before": "ee7d69c062ae8cba42010aaab3f82281de055bf4",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-b-closed",
+    "before": "61f9b10877f0b5edd6ff4ce8a7e3b83048009838",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-b-stew",
+    "before": "2cd8354fc6832066a899f3aa8b3f0248ab52ead9",
+    "tags": [
+     "metal-iron-mid",
+     "special-food",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-large",
+    "before": "e57b5a456f1a737b859bbd3d08900280e5a17ace",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "kay-food/pot-large-closed",
+    "before": "0efd981f323bcfe9e3a26d3aaff86ff1c1b42817",
+    "tags": [
+     "ceramic-mid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "ken-food/pot-stew",
+    "before": "a634ce78e64cbb3cde36673171e70e41bd367003",
+    "tags": [
+     "metal-iron-dark",
+     "wood-mid",
+     "special-food",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "ken-food/steamer",
+    "before": "183d2d0b3894262248f0299adaac389fe7aa9952",
+    "tags": [
+     "wood-mid",
+     "leaf-light",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "lpa-home/cookpot",
+    "before": "a249a7b809dcca8366b00b2a4947cf69e20e3754",
+    "tags": [
+     "metal-iron-mid",
+     "wood-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-food/cooking-pot",
+    "before": "afcc67b77395a8f90ab17476c1f3be024e1ad953",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-food/cooking-pot-2",
+    "before": "37ec7d5887820d750c9625c8ee3d5aa277ce515a",
+    "tags": [
+     "metal-iron-dark",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-food/cooking-pot-2-soup",
+    "before": "36148bdf0490aa9650a3dfc9106ccf483fe515a9",
+    "tags": [
+     "metal-iron-dark",
+     "special-liquid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-food/cooking-pot-2-steel",
+    "before": "119af4e550656b0098f032a353335453c71eb12b",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-food/cooking-pot-soup",
+    "before": "86a5961c0cdbe05b52410b71afd6281f751eb1b1",
+    "tags": [
+     "metal-iron-dark",
+     "special-liquid",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-food/cooking-pot-steel",
+    "before": "f752b10c0bb46d0c510303f136d198175d9266b1",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-survival/pot",
+    "before": "8bc082b93013b921a64ad6706f59ba18cba13b62",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-survival/pot-shallow",
+    "before": "b05c328a77cfc29278873777d66dfa91f2a95e90",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-sushi/pot",
+    "before": "1023eb468cdaeeb690075aec24b20a1707ec93a0",
+    "tags": [
+     "metal-steel",
+     "special-food",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "quat-sushi/stockpot",
+    "before": "0812cbeba078de5d1853cf3d9701deea400bbcb7",
+    "tags": [
+     "metal-steel",
+     "special-food",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "styloo-furniture/cookpot",
+    "before": "636db9442a8959065db090ffa8b0811178db4e89",
+    "tags": [
+     "metal-steel",
+     "rubber",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   },
+   {
+    "id": "styloo-kitchen/cookpot",
+    "before": "603b49214a421a03d0eb6c2a0299cec3cace8fe6",
+    "tags": [
+     "metal-steel",
+     "obj-kitchenware-cookware-cookpot"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "kay-food/pot-b-stew",
+    "category": "colour",
+    "change": "pot basalt to slate, like its sibling pot-b",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-food/pot-b-stew",
+    "category": "tag",
+    "change": "metal-iron-mid to metal-iron-dark for the slate pot",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/pot-stew",
+    "category": "colour",
+    "change": "handles ivory to nickel, steel handles on an iron pot",
+    "doubt": true,
+    "why": "source drew cream handles; may mean enamel",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/pot-stew",
+    "category": "tag",
+    "change": "remove wood-mid, add metal-steel; camel is the soup",
+    "doubt": true,
+    "why": "follows the doubted handle recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "cooking-assets/crock-large",
+    "category": "scale",
+    "change": "scaled 1.3, a large crock sized like its kit's pots",
+    "doubt": true,
+    "why": "one-model size change",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-food/steamer",
+    "category": "tag",
+    "change": "add wood-light for the tan bamboo body",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "lpa-home/cookpot",
+    "category": "kind",
+    "change": "kind to pan: a saucepan with one long handle",
+    "doubt": true,
+    "why": "named cookpot by the kit",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "styloo-furniture/cookpot",
+    "category": "kind",
+    "change": "kind to pan: a saucepan with one long handle",
+    "doubt": true,
+    "why": "named cookpot by the kit",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "Sheets list in the brief was empty ([object Object]); used the chunk sheets c01-c04 in the run dir."
+  ]
+ },
+ {
+  "kind": "obj-transport-part",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "ken-car/debris-bumper",
+    "before": "0dc8836361e2709d5ad733e2a23c2ba697ffa292",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-door",
+    "before": "0c52e5a0c19db9243cc39cb07b875c2f3b8fcd32",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-door-window",
+    "before": "feb4e505855174fd61c6c1e717b4445dbf59a6db",
+    "tags": [
+     "metal-steel",
+     "glass-clear",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-drivetrain",
+    "before": "94de50249c83fa521d3783196c0e10a49c104ff5",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-drivetrain-axle",
+    "before": "4aa3ae744d94ec0982f1109b98a56d7a87679888",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-plate-a",
+    "before": "bab97abf9ddcc736a00e66d1d1cc7eb1595d489c",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-plate-b",
+    "before": "0dc3dea117ea15e262ff822a4b2bd9475329ffc8",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-spoiler-a",
+    "before": "c9df4280957653cc9f70bc457b60ba7527f02f62",
+    "tags": [
+     "metal-iron-dark",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-car/debris-spoiler-b",
+    "before": "f0828e18bfb7db1cf1598a7762bdeb70fd390ef7",
+    "tags": [
+     "metal-iron-dark",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-pirate/mast",
+    "before": "ddcb2ff33f1d0ebc05289fd194690b4b36f12db4",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-dark",
+     "special",
+     "obj-transport-part",
+     "pirate",
+     "hero",
+     "comp",
+     "tba",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-pirate/mast-ropes",
+    "before": "edf81485bde02f1c2332d53e7735f169c577bb55",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-light",
+     "textile-rope",
+     "obj-transport-part",
+     "pirate",
+     "hero",
+     "comp",
+     "tba",
+     "sailing"
+    ]
+   },
+   {
+    "id": "m3-base/anchor-01",
+    "before": "e3801618bcac14396c9099e8fc97bad8c6e6e140",
+    "tags": [
+     "metal-iron-mid",
+     "obj-transport-part",
+     "sailing"
+    ]
+   },
+   {
+    "id": "m3-base/digger-bucket",
+    "before": "670fe1028a7d68004be7edc3e91d5d2037f8b147",
+    "tags": [
+     "metal-steel",
+     "obj-transport-part",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/propeller-01",
+    "before": "45bd73836ea8faa4339d4d838e1b89582b0e8f25",
+    "tags": [
+     "metal-iron-mid",
+     "obj-transport-part"
+    ]
+   },
+   {
+    "id": "m3-base/ship-wheel",
+    "before": "ac5bcccfd29f2d3f48f9ffd56d4d94347b7fb13d",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-transport-part"
+    ]
+   },
+   {
+    "id": "quat-pirate/anchor",
+    "before": "d05640b1ef14843f4937d410210e778687634dce",
+    "tags": [
+     "metal-iron-mid",
+     "obj-transport-part",
+     "pirate",
+     "hero",
+     "comp",
+     "sailing"
+    ]
+   },
+   {
+    "id": "taalei-kit/lifebuoy",
+    "before": "0ce8aafcc64a858689553e51d42cae34755f9873",
+    "tags": [
+     "metal-steel",
+     "textile-rope",
+     "plastic",
+     "obj-transport-part",
+     "sailing"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ken-car/debris-drivetrain-axle",
+    "category": "shape",
+    "change": "spring bracket thickened 2 to 3 cm, clears tube min",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-car/debris-drivetrain",
+    "category": "shape",
+    "change": "spring brackets thickened 2 to 3 cm, like the axle",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-pirate/anchor",
+    "category": "placement",
+    "change": "stood upright on its crown, like the other anchor",
+    "doubt": true,
+    "why": "lying flat may be meant as a deck prop",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-car/debris-door",
+    "category": "tag",
+    "change": "add plastic for the red paint, as on the kit's cars",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-door-window",
+    "category": "tag",
+    "change": "add plastic for the red paint, as on the kit's cars",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-plate-a",
+    "category": "tag",
+    "change": "add plastic for the red paint, as on the kit's cars",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-plate-b",
+    "category": "tag",
+    "change": "add plastic for the red paint, as on the kit's cars",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-spoiler-a",
+    "category": "tag",
+    "change": "add plastic for the red paint, as on the kit's cars",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-spoiler-b",
+    "category": "tag",
+    "change": "add plastic for the red paint, as on the kit's cars",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-bumper",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-drivetrain",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-car/debris-drivetrain-axle",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-car/debris-door",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-door-window",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-plate-a",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-plate-b",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-spoiler-a",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-car/debris-spoiler-b",
+    "category": "tag",
+    "change": "add broken, car debris like the debris tire",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/ship-wheel",
+    "category": "tag",
+    "change": "add sailing theme, a ship's helm",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "m3-base/ship-wheel (3072 tris), lifebuoy (1872) and anchor-01 (1254) are dense next to peers; candidates for the detail skill.",
+   "ken-pirate/mast and mast-ropes are hero/special; looked fine, left as is."
+  ]
+ },
+ {
+  "kind": "str-barrier-fence",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "kay-hexagon/fence-stone-gate",
+    "before": "b2339745c6f93fcdef774dc9ef7d271cc4d4ae71",
+    "tags": [
+     "stone-masonry-mid",
+     "wood-dark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "ken-space/rail",
+    "before": "f94530e537d5f8890338b707afd6c00d0a8a87f9",
+    "tags": [
+     "metal-gold",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-space/rail-corner",
+    "before": "164089faef1f874c510313ac6229255344100aae",
+    "tags": [
+     "metal-gold",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/balcony-rail",
+    "before": "923a64d35d0d51c712d6774cf39980f1c23851ae",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/balcony-rail-center",
+    "before": "c3abf0bb9d5812e1d118948d6fd220b1e8264a5d",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/balcony-rail-corner",
+    "before": "669556f22591667bd31befa4767821a2810bcb9c",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/rail",
+    "before": "f12c80abd9e64509510006bb1ea1ccbc89b05d46",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "ken-station/rail-narrow",
+    "before": "e8a7f47f4b3aaf3bd604cbb077003b50e18dd650",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "str-barrier-fence",
+     "space"
+    ]
+   },
+   {
+    "id": "m3-base/border-fence",
+    "before": "0fda2134bfe510f8fd2db6e7c18b23dc60481981",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "m3-base/crowd-control-barrier",
+    "before": "64ad67ca5e790a9b21b001d325e4451790eaaf1a",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "m3-base/rounded-picket-fence",
+    "before": "1c77413f0cb61d4106049b007a9ca515109c8d48",
+    "tags": [
+     "wood-light",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "m3-base/square-trellis",
+    "before": "83d30cfb8f9dc1595d1ea136674172888e20d623",
+    "tags": [
+     "wood-mid",
+     "str-barrier-fence",
+     "mounted"
+    ]
+   },
+   {
+    "id": "m3-base/urban-fence-01",
+    "before": "96336896e0ac48a628c99bec94269f377673f818",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "m3-base/walking-trail-fence",
+    "before": "872097434bf1d3deeac7ff7ede2baf8760e223f1",
+    "tags": [
+     "wood-dark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "rgp-medieval/fence-branch-a",
+    "before": "d2b53e708188146521bb1019bec498f59429ae95",
+    "tags": [
+     "bark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "rgp-medieval/fence-branch-b",
+    "before": "03ac0a32a9e94c584c89cd6c6043b3140bde27d5",
+    "tags": [
+     "bark",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "rgp-medieval/fence-picket",
+    "before": "445b8bd77845772f2d6f40686c5eb4ac67f4ca0d",
+    "tags": [
+     "metal-iron-dark",
+     "wood-light",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "rgp-medieval/fence-picket-broken",
+    "before": "dda6dc6902057867b579e71a14cf818820d4bc72",
+    "tags": [
+     "metal-iron-dark",
+     "wood-light",
+     "str-barrier-fence",
+     "broken"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-fence-a",
+    "before": "176a427c7100dcae6755b1e680045ea62c7f173f",
+    "tags": [
+     "stone-rock",
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-fence-b",
+    "before": "1dddd80063ee9f8726ab63c2ad60b17f38433c4e",
+    "tags": [
+     "stone-rock",
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rock-fence-c",
+    "before": "24dd13c2d0d33377225894e5e9bce0a3767b4b6a",
+    "tags": [
+     "stone-rock",
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "sq-casino/rail-section",
+    "before": "c171e49dfdfbc8e1890d15c5385cade148fc9cb5",
+    "tags": [
+     "metal-gold",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "sq-rink/rink-barrier-corner",
+    "before": "6282e09a58bd4ac8a29f9753efbbd0895c923507",
+    "tags": [
+     "plastic",
+     "rubber",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "sq-rink/rink-barrier-straight",
+    "before": "148f9b9385628cc9766bad4dbe3d4df3a38ebd3d",
+    "tags": [
+     "plastic",
+     "rubber",
+     "str-barrier-fence"
+    ]
+   },
+   {
+    "id": "styloo-farm/fence-rail",
+    "before": "b2a36009e0e7d366344947b931497eac9a4fdd2c",
+    "tags": [
+     "wood-dark",
+     "str-barrier-fence",
+     "comp"
+    ]
+   },
+   {
+    "id": "styloo-farm/fence-rail-clean",
+    "before": "84fe43eaa5dc58dbdd27a8a87218a407294fd6d0",
+    "tags": [
+     "wood-dark",
+     "str-barrier-fence",
+     "comp"
+    ]
+   },
+   {
+    "id": "styloo-farm/fence-rail-mirror",
+    "before": "db2fec834a25cae9a9cee715ada92d91bf088d92",
+    "tags": [
+     "wood-dark",
+     "str-barrier-fence",
+     "comp"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "styloo-farm/fence-rail",
+    "category": "glitch",
+    "change": "crack sheet back side dropped, crack lifted off the face",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-medieval/fence-picket",
+    "category": "kind",
+    "change": "kind to mid fence, a knee-high picket fence",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/fence-picket-broken",
+    "category": "kind",
+    "change": "kind to mid fence, like its sibling",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/fence-branch-a",
+    "category": "kind",
+    "change": "kind to mid fence, a knee-high branch fence",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/fence-branch-b",
+    "category": "kind",
+    "change": "kind to mid fence, like its sibling",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/rock-fence-a",
+    "category": "kind",
+    "change": "kind to mid fence, rails between boulders",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/rock-fence-b",
+    "category": "kind",
+    "change": "kind to mid fence, like its siblings",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/rock-fence-c",
+    "category": "kind",
+    "change": "kind to mid fence, like its siblings",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/rounded-picket-fence",
+    "category": "kind",
+    "change": "kind to mid fence, a picket fence",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/walking-trail-fence",
+    "category": "kind",
+    "change": "kind to mid fence, a post and rail fence",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/urban-fence-01",
+    "category": "kind",
+    "change": "kind to mid fence, a low iron fence",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/border-fence",
+    "category": "kind",
+    "change": "kind to mid fence, a low log palisade",
+    "doubt": true,
+    "why": "could be read as garden edging",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-rink/rink-barrier-straight",
+    "category": "kind",
+    "change": "kind to mid fence, waist-high rink boards",
+    "doubt": true,
+    "why": "rink boards may want their own place",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "sq-rink/rink-barrier-corner",
+    "category": "kind",
+    "change": "kind to mid fence, like its sibling",
+    "doubt": true,
+    "why": "rink boards may want their own place",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-space/rail",
+    "category": "kind",
+    "change": "kind to railing, a handrail",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-space/rail-corner",
+    "category": "kind",
+    "change": "kind to railing, like its sibling",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-station/rail",
+    "category": "kind",
+    "change": "kind to railing, a handrail on posts",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-station/rail-narrow",
+    "category": "kind",
+    "change": "kind to railing, like its sibling",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-station/balcony-rail",
+    "category": "kind",
+    "change": "kind to railing, a balcony rail",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-station/balcony-rail-center",
+    "category": "kind",
+    "change": "kind to railing, like its siblings",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-station/balcony-rail-corner",
+    "category": "kind",
+    "change": "kind to railing, like its siblings",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "sq-casino/rail-section",
+    "category": "kind",
+    "change": "kind to railing, a brass rail on posts",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-hexagon/fence-stone-gate",
+    "category": "kind",
+    "change": "kind to gate, a gate between stone piers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/crowd-control-barrier",
+    "category": "kind",
+    "change": "kind to barrier, a crowd barricade",
+    "doubt": true,
+    "why": "a metal crowd fence, could stay fence",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "ken-space/rail-corner: minTube 0.001 lint, a tiny sliver, looks fine, left",
+   "m3-base/square-trellis: a wall trellis, no leaf fits, left in fence",
+   "styloo-farm/fence-rail*: single rail parts (comp), no leaf fits, left in fence"
+  ]
+ },
+ {
+  "kind": "str-barrier-hedge",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "isa-park/hedge-corner",
+    "before": "2195177c1dc8a86b957022e110c1e5a3df6e9c61",
+    "tags": [
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "isa-park/hedge-straight",
+    "before": "4267aedfcb3cc9ac304d40ad08827038b492ae0a",
+    "tags": [
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "isa-park/hedge-straight-long",
+    "before": "5bc030301268b6e94befa34b47a1c474ec892e7a",
+    "tags": [
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "ken-platformer/hedge",
+    "before": "410386024a304e289fe909b2f42e9b7d94cb0cc2",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "ken-platformer/hedge-corner",
+    "before": "cbb2afa16c1d6f2e14304aaab9d0f3ae68c5fd72",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "ken-town/hedge",
+    "before": "46ec92a62ee2573495f0ada55df89252338a016f",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "ken-town/hedge-curved",
+    "before": "469b99948799db489c2248c41b30146565859af7",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "ken-town/hedge-gate",
+    "before": "c9547e700d759a9ada5c63148108177684c97e60",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "ken-town/hedge-large",
+    "before": "c4d66b09cda9b060121346d4468b04a797d9a10b",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "ken-town/hedge-large-curved",
+    "before": "d3ac4463fdc070d7cf33049881de8597cf0705ba",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "ken-town/hedge-large-gate",
+    "before": "55865101dad76f83d7dd094f5af64feb9abbc08a",
+    "tags": [
+     "stone-masonry-mid",
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   },
+   {
+    "id": "styloo-farm/hedge",
+    "before": "9dc4617eba976cec7d78408542c50fac1c579772",
+    "tags": [
+     "leaf-light",
+     "str-barrier-hedge"
+    ]
+   }
+  ],
+  "changes": [],
+  "notes": [
+   "styloo-farm/hedge is 125 loose leaf cards around a core, 1532 tris (7.7x the kind median) and spiky, unlike its smooth block peers; reject it or give it a detail pass, the PO's call",
+   "ken-town/hedge-large-curved has a tight bend because the thick hedge turns inside a 0.9 tile; reads fine from the front, left as the source drew it"
+  ]
+ },
+ {
+  "kind": "str-barrier-traffic",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "ken-racing/barrier-wall",
+    "before": "5229d58a27818f136019ee9ba94d42891a4ca03b",
+    "tags": [
+     "plastic",
+     "str-barrier-traffic"
+    ]
+   },
+   {
+    "id": "ken-roads/construction-light",
+    "before": "c73d2f04f1b9734b661cf7e5de7fbfea309fb309",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "str-barrier-traffic"
+    ]
+   },
+   {
+    "id": "quat-apocalypse/traffic-drum",
+    "before": "d67ec78ddef8e3aa83fe5fc5a554de6d4a9a303f",
+    "tags": [
+     "plastic",
+     "str-barrier-traffic"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ken-roads/construction-light",
+    "category": "colour",
+    "change": "stripe nickel to ivory, orange and white like its peers",
+    "doubt": true,
+    "why": "source drew grey stripes",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-roads/construction-light",
+    "category": "placement",
+    "change": "turned so the striped face and lamp face front",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-apocalypse/traffic-drum",
+    "category": "tag",
+    "change": "add rubber for the dark base ring",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "ken-racing/barrier-wall is 19 cm tall, just under the jersey child's 0.2 min; left as traffic barrier",
+   "quat-apocalypse/traffic-drum has 3x the kind's median tris from its ridges; left, reads well"
+  ]
+ },
+ {
+  "kind": "str-canopy-stall",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "3dm-medieval/market-stall",
+    "before": "5e883e40b9fb431be5af388e19665c4430c82c1d",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-light",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "kay-builder/market",
+    "before": "56e9b892cbf77479173241d08f0488aae2cb16d9",
+    "tags": [
+     "stone-masonry-mid",
+     "earth-soil",
+     "ceramic-dark",
+     "wood-dark",
+     "textile-cloth-dark",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "kay-hexagon/market",
+    "before": "76e5d5e51317e9be5936335ca772165db31e81c6",
+    "tags": [
+     "stone-masonry-mid",
+     "wood-dark",
+     "textile-cloth-dark",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "ken-commercial/awning",
+    "before": "e8811eb85f443974e456d31429ab28bbd845335c",
+    "tags": [
+     "metal-iron-dark",
+     "textile-cloth-light",
+     "str-canopy-stall",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-commercial/awning-wide",
+    "before": "1dedff589e0a81958663853c20c1403f3be89d4a",
+    "tags": [
+     "metal-iron-dark",
+     "textile-cloth-light",
+     "str-canopy-stall",
+     "comp"
+    ]
+   },
+   {
+    "id": "ken-town/stall-red",
+    "before": "19bf1f235605bb8f37351dbe86e1e46c8fddbb12",
+    "tags": [
+     "wood-mid",
+     "textile-cloth-light",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "quat-medieval/market-stand",
+    "before": "10875b5f07c88e99f378410fb425b2e934aa895a",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-dark",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "quat-medieval/market-stand-2",
+    "before": "cad483ef0d55995ec7b7ea0d3113a0c4de72dbee",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-dark",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "quat-props/stall",
+    "before": "1f2379b0d6622e317db7da69796620cc30bc5ae1",
+    "tags": [
+     "metal-iron-dark",
+     "wood-dark",
+     "textile-cloth-light",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "quat-props/stall-cart",
+    "before": "fb61e39af05995f1f6c216341df0f4e28bb92e94",
+    "tags": [
+     "metal-iron-dark",
+     "wood-dark",
+     "textile-cloth-light",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "quat-town/market-1-a",
+    "before": "95758a82a59af9d04ed13937253fca0912cab81b",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "textile-cloth-light",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "quat-town/market-1-b",
+    "before": "53a379c4f3f154d6b65abd32bb97b328a3420167",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "textile-cloth-light",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "quat-town/market-1-c",
+    "before": "d22724b3430efc85081b175b38596ef84b92c23b",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "textile-cloth-light",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "quat-town/market-2-a",
+    "before": "76022ce1e5f444c8c5b8d545190b1d3f67c36b23",
+    "tags": [
+     "stone-masonry-light",
+     "wood-light",
+     "wood-dark",
+     "textile-cloth-light",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "quat-town/market-2-b",
+    "before": "67f00f5094d85b1a13b826fdc7251b2a1aa70efe",
+    "tags": [
+     "stone-masonry-mid",
+     "wood-dark",
+     "textile-cloth-mid",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "quat-town/market-2-c",
+    "before": "e4c365f5cf6d7ce961dbf71b481f9d43ce0c0184",
+    "tags": [
+     "stone-masonry-light",
+     "wood-dark",
+     "textile-cloth-light",
+     "special-food",
+     "str-canopy-stall",
+     "plural"
+    ]
+   },
+   {
+    "id": "rgp-medieval/stall",
+    "before": "fb10457ad05296550b2b50438f8c2deae7acf21d",
+    "tags": [
+     "metal-iron-dark",
+     "wood-dark",
+     "textile-cloth-light",
+     "textile-rope",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "rgp-medieval/stall-cloth",
+    "before": "9e725fc5bd70145cdd7a246ca71f7bda69a41354",
+    "tags": [
+     "metal-iron-dark",
+     "wood-dark",
+     "textile-cloth-light",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "wizp-asia/market-stand",
+    "before": "aaf0b69bcf3e12e1f275a5d63fc1187ef76a31f9",
+    "tags": [
+     "wood-dark",
+     "special-food",
+     "str-canopy-stall",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-mediev/market-stall-green",
+    "before": "deee2ada2f79949e5c419d4d51f7700d42ec2b8e",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-light",
+     "str-canopy-stall"
+    ]
+   },
+   {
+    "id": "wizp-mediev/market-stall-red",
+    "before": "e72f07373145662b8bc62fe8fb1701fd929d552c",
+    "tags": [
+     "wood-dark",
+     "textile-cloth-dark",
+     "str-canopy-stall"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "3dm-medieval/market-stall",
+    "category": "glitch",
+    "change": "roof rafters sunk 2 cm, no longer poke through the cloth",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-commercial/awning",
+    "category": "colour",
+    "change": "pole feet basalt to slate, one colour per pole",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "ken-commercial/awning-wide",
+    "category": "colour",
+    "change": "pole feet basalt to slate, one colour per pole",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-builder/market",
+    "category": "tag",
+    "change": "add textile-cloth-light for the cart's ivory stripes",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-hexagon/market",
+    "category": "tag",
+    "change": "add textile-cloth-light for the ivory awning stripes",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-hexagon/market",
+    "category": "tag",
+    "change": "add metal-steel for the nickel barrel hoop",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-medieval/market-stand",
+    "category": "tag",
+    "change": "add textile-cloth-light for the ivory stripes",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-medieval/market-stand-2",
+    "category": "tag",
+    "change": "add textile-cloth-light for the ivory stripes",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-mediev/market-stall-red",
+    "category": "tag",
+    "change": "add textile-cloth-light for the ivory stripes",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-town/market-1-a",
+    "category": "tag",
+    "change": "add textile-cloth-dark for the red canopy",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-town/market-1-b",
+    "category": "tag",
+    "change": "add textile-cloth-dark for the red canopies",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-town/market-1-c",
+    "category": "tag",
+    "change": "add textile-cloth-dark for the red canopies",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-town/market-2-a",
+    "category": "tag",
+    "change": "stone-masonry-light to mid, the plinth is taupe",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-town/market-2-c",
+    "category": "tag",
+    "change": "stone-masonry-light to mid, the plinth is taupe",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-town/market-2-b",
+    "category": "tag",
+    "change": "textile-cloth-mid to light, the roof cloth is ivory",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-town/market-2-b",
+    "category": "tag",
+    "change": "add textile-cloth-dark for the red roof",
+    "doubt": true,
+    "why": "red roof may read as clay tiles, not cloth",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-town/market-2-c",
+    "category": "tag",
+    "change": "add textile-cloth-dark for the red roof",
+    "doubt": true,
+    "why": "red roof may read as clay tiles, not cloth",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "quat-town/market-2-a/b/c: small roof tiles are open sheets, their undersides still show magenta at the tips from an angle; material is double-sided so it renders fine in game",
+   "wizp-mediev/market-stall-green: hunter stripes have no legal textile material; kept as the green twin of the red stall, a rule call for the PO",
+   "kay-hexagon/market: taupe-dark gazebo roof has no tagged material; left as drawn",
+   "kay-builder/market and kay-hexagon/market are whole market scenes on a base, far bigger than single stalls; kept, tagged plural"
+  ]
+ },
+ {
+  "kind": "str-fixture-fire-fireplace",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "emace-village/hearth",
+    "before": "f3f44f47a23486ec6cf0eb1df4ca40c2e1c9a155",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "ceramic-light",
+     "wood-dark",
+     "str-fixture-fire-fireplace"
+    ]
+   },
+   {
+    "id": "fs-house/fireplace",
+    "before": "c9c08eb6a735d0339863b03855e91a8d82e4c7c9",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "wood-mid",
+     "str-fixture-fire-fireplace"
+    ]
+   },
+   {
+    "id": "fs-house/fireplace-chimney",
+    "before": "287d6ac605ed8bac6a3e271ede4be6ad5ed24bb7",
+    "tags": [
+     "stone-masonry-mid",
+     "str-fixture-fire-fireplace",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/cast-iron-grate",
+    "before": "f45a554587a84f80a7e947484d3bd086f1f684a6",
+    "tags": [
+     "metal-iron-dark",
+     "str-fixture-fire-fireplace"
+    ]
+   },
+   {
+    "id": "pm-store/fireplace",
+    "before": "9a4acd84366721f5a728e47eb504f8815a11fef9",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "str-fixture-fire-fireplace"
+    ]
+   },
+   {
+    "id": "quat-interior/fireplace",
+    "before": "7980f3d501555edd546954a2af5e3ac0bd9c99e7",
+    "tags": [
+     "stone-masonry-mid",
+     "str-fixture-fire-fireplace"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "emace-village/hearth",
+    "category": "placement",
+    "change": "turned so the open corner and fire face the front",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "emace-village/hearth",
+    "category": "glitch",
+    "change": "split back-to-back wall faces, magenta patches gone",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-interior/fireplace",
+    "category": "colour",
+    "change": "firebox inside taupe to taupe-dark, sooty opening",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-interior/fireplace",
+    "category": "tag",
+    "change": "add stone-masonry-dark for the firebox",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "pm-store/fireplace",
+    "category": "colour",
+    "change": "firebox inside chestnut to taupe-dark, a stone firebox",
+    "doubt": true,
+    "why": "source drew a wooden firebox",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "pm-store/fireplace",
+    "category": "tag",
+    "change": "add stone-masonry-dark for the firebox",
+    "doubt": true,
+    "why": "follows the doubted firebox recolour",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "fs-house/fireplace",
+    "category": "colour",
+    "change": "firebox walls taupe to taupe-dark, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "fs-house/fireplace",
+    "category": "tag",
+    "change": "add stone-masonry-dark for the firebox walls",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "emace-village/hearth keeps a few thin back-face slivers at wall edges; backface-fix made it worse",
+   "fs-house/fireplace, m3-base/cast-iron-grate and quat-interior/fireplace stay under the 0.026 minTube (grate bars, mantel lips)",
+   "fs-house/fireplace-chimney is a chimney stack piece (comp), left in this kind"
+  ]
+ },
+ {
+  "kind": "sym-emblem",
+  "run": "2026-10-13-0517",
+  "models": [
+   {
+    "id": "m3-base/crescent-moon",
+    "before": "fc3f5abb58c0341b1d7de34d319a621ac3096de2",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/eighth-note",
+    "before": "df116a9c74763df457c6f40b0acc42c5a28ccf2b",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/fleur-de-lys-01",
+    "before": "b2dc0787a0bdf69d752fc6fefa207b665705fd72",
+    "tags": [
+     "metal-gold",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/half-note",
+    "before": "64ab92a5d96319eda34da9e88a2e8f0e78a06d1f",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/peace-sign",
+    "before": "b2f4d7bdac2d2e843039ea32bb12f80dd3ca293c",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/quarter-note",
+    "before": "31b854264770830c8e423e3e215ea4cda93dcc33",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/radioactive-symbol",
+    "before": "9e7b1546a46193b1b8067e4270a714f3e725d8bb",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/snowflake-01",
+    "before": "739594f53f3eca0f82787c386eca35b03b9b78c7",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/snowflake-02",
+    "before": "0f7e8eded658b65685456da3abda4632e182225f",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/water-drip",
+    "before": "80d1d4a0ad28815e74bb90b8061b3bc9fd9e3ba3",
+    "tags": [
+     "special-liquid",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "m3-base/whole-note",
+    "before": "533fd3bec3b20c12909f3f31888d67e9c5fc501a",
+    "tags": [
+     "plastic",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "pm-store/star",
+    "before": "a3461589aa283783048bfdbf265464c43b1145a1",
+    "tags": [
+     "metal-gold",
+     "sym-emblem"
+    ]
+   },
+   {
+    "id": "quat-pirate/red-x",
+    "before": "561e05df0d214e634697a0169fa3c22283d6c267",
+    "tags": [
+     "gemstone",
+     "sym-emblem",
+     "pirate"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-pirate/red-x",
+    "category": "tag",
+    "change": "gemstone to plastic, a painted map X, not a gem",
+    "doubt": true,
+    "why": "may be meant as a red gem marker",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "quat-pirate/red-x lies flat while the other emblems stand up; kept, a ground marker",
+   "m3-base/snowflake-01 at 1128 tris is dense next to snowflake-02, but well inside the budget"
+  ]
  }
 ]
