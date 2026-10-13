@@ -24220,7 +24220,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1863,
+   "count": 1862,
    "parent": "metal"
   },
   {
@@ -24515,7 +24515,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 283,
+   "count": 284,
    "parent": "textile-cloth"
   },
   {
@@ -24531,7 +24531,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 350,
+   "count": 349,
    "parent": "textile-cloth"
   },
   {
@@ -34306,38 +34306,39 @@
    "kit": "3dm-city-2",
    "collection": "3dm",
    "name": "patio-table",
-   "hash": "f980727057",
+   "hash": "d109e35838",
    "kind": "str-canopy",
    "size": "m",
    "wdh": [
-    0.712,
-    0.711,
-    0.842
+    0.747,
+    0.745,
+    0.841
    ],
-   "tris": 522,
-   "tpu": 1225,
+   "tris": 1386,
+   "tpu": 2961,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 36120,
-   "vtx": 982,
+   "bytes": 111260,
+   "vtx": 3168,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0288,
-   "thick": 0.0762,
-   "avgTri": 0.0027,
-   "anglePct": 57,
-   "vpt": 1.88,
-   "grad": 0.58,
+   "minTube": 0.0232,
+   "thick": 0.0696,
+   "avgTri": 0.0011,
+   "anglePct": 17,
+   "vpt": 2.29,
+   "grad": 0.59,
    "spread": {
-    "5,2": [
-     0.375,
-     0.453
-    ],
     "13,3": [
      0.148,
      0.75
+    ],
+    "5,2": [
+     0.156,
+     0.734
     ]
    },
    "colors": [
@@ -34350,7 +34351,14 @@
     "plastic",
     "textile-cloth-light"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0232 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "3dm-city-2",
@@ -187142,7 +187150,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-a-long",
-   "hash": "733f222032",
+   "hash": "db79a9f477",
    "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
@@ -187161,7 +187169,7 @@
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0262,
-   "thick": 0.4041,
+   "thick": 0.4045,
    "avgTri": 0.00034,
    "anglePct": 87,
    "vpt": 3,
@@ -187175,13 +187183,13 @@
      0,
      0.086
     ],
-    "6,1": [
+    "14,3": [
      0.539,
      0.992
     ]
    },
    "colors": [
-    "#3a3e4b",
+    "#88735f",
     "#cca571",
     "#f1a63b"
    ],
@@ -187198,7 +187206,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-a-short",
-   "hash": "30c6ab6ab0",
+   "hash": "e583b2cb10",
    "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
@@ -187211,13 +187219,13 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 4504,
+   "bytes": 4508,
    "vtx": 85,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0301,
-   "thick": 0.34,
+   "thick": 0.3408,
    "avgTri": 0.0002,
    "anglePct": 77,
    "vpt": 1.77,
@@ -187255,7 +187263,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-b-long",
-   "hash": "b70fa4410f",
+   "hash": "79a75dd88a",
    "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
@@ -187268,13 +187276,13 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 29008,
+   "bytes": 29012,
    "vtx": 810,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0301,
-   "thick": 0.3769,
+   "thick": 0.3764,
    "avgTri": 0.00007,
    "anglePct": 71,
    "vpt": 2.98,
@@ -187288,7 +187296,7 @@
      0,
      0.086
     ],
-    "6,1": [
+    "14,3": [
      0.539,
      0.836
     ],
@@ -187302,8 +187310,8 @@
     ]
    },
    "colors": [
-    "#3a3e4b",
     "#7a8491",
+    "#88735f",
     "#cca571",
     "#ce7954",
     "#f1a63b"
@@ -187322,7 +187330,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "pencil-b-short",
-   "hash": "8f05ee7cb6",
+   "hash": "121964a5cd",
    "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
@@ -187341,7 +187349,7 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0301,
-   "thick": 0.3247,
+   "thick": 0.3244,
    "avgTri": 0.00005,
    "anglePct": 56,
    "vpt": 1.09,
@@ -243406,7 +243414,7 @@
   {
    "kit": "ken-racing",
    "name": "banner-tower-red",
-   "hash": "690abb30f4",
+   "hash": "9d09718b3e",
    "kind": "str-fixture-marker",
    "size": "l",
    "wdh": [
@@ -243431,7 +243439,7 @@
    "vpt": 1.44,
    "grad": 0.57,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243441,13 +243449,12 @@
     ]
    },
    "colors": [
-    "#7a8491",
-    "#873a27"
+    "#873a27",
+    "#d8cfb7"
    ],
    "tags": [
     "ken",
-    "metal-steel",
-    "textile-cloth-dark"
+    "textile-cloth-light"
    ],
    "thickRel": 1.06
   },
@@ -455058,42 +455065,42 @@
   {
    "kit": "styloo-school",
    "name": "pen-green",
-   "hash": "de73b282e8",
+   "hash": "2ea89f97c2",
    "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.022,
     0.022,
-    0.157
+    0.158
    ],
-   "tris": 186,
-   "tpu": 542,
+   "tris": 2896,
+   "tpu": 8443,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12796,
-   "vtx": 321,
+   "bytes": 90600,
+   "vtx": 2241,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minTube": 0.022,
-   "thick": 0.4471,
-   "avgTri": 0.00008,
-   "anglePct": 28,
-   "vpt": 1.73,
-   "grad": 0.03,
+   "thick": 0.4393,
+   "avgTri": 0.00001,
+   "anglePct": 25,
+   "vpt": 0.77,
+   "grad": 0.05,
    "spread": {
     "3,1": [
-     0.484,
-     0.539
-    ],
-    "6,0": [
      0.5,
-     0.5
+     0.523
     ],
     "13,3": [
      0.5,
      0.5
+    ],
+    "6,0": [
+     0.43,
+     0.563
     ]
    },
    "colors": [
@@ -455107,47 +455114,47 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.13
+   "thickRel": 1.11
   },
   {
    "kit": "styloo-school",
    "name": "pen-red",
-   "hash": "ef89debbf9",
+   "hash": "488ad9cb2c",
    "kind": "obj-equipment-tool-stationery-writing",
    "size": "s",
    "wdh": [
     0.022,
     0.022,
-    0.157
+    0.158
    ],
-   "tris": 186,
-   "tpu": 542,
+   "tris": 2722,
+   "tpu": 7936,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12792,
-   "vtx": 321,
+   "bytes": 85492,
+   "vtx": 2114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minTube": 0.022,
-   "thick": 0.4471,
-   "avgTri": 0.00008,
-   "anglePct": 28,
-   "vpt": 1.73,
-   "grad": 0.03,
+   "thick": 0.4433,
+   "avgTri": 0.00001,
+   "anglePct": 25,
+   "vpt": 0.78,
+   "grad": 0.08,
    "spread": {
     "8,0": [
-     0.484,
-     0.539
-    ],
-    "6,0": [
-     0.5,
-     0.5
+     0.477,
+     0.531
     ],
     "13,3": [
      0.5,
      0.5
+    ],
+    "6,0": [
+     0.43,
+     0.563
     ]
    },
    "colors": [
@@ -455161,7 +455168,7 @@
     "sty"
    ],
    "variant": "styloo-school/pen-blue",
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "styloo-school",
@@ -481275,28 +481282,28 @@
   {
    "kit": "zombie-weapons",
    "name": "time-bomb",
-   "hash": "3f6f6a0340",
+   "hash": "f3b1332f95",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
-    0.074,
-    0.084,
+    0.073,
+    0.083,
     0.174
    ],
-   "tris": 1063,
-   "tpu": 3099,
+   "tris": 1052,
+   "tpu": 3067,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 80860,
-   "vtx": 2281,
+   "bytes": 80184,
+   "vtx": 2262,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0251,
-   "thick": 0.2598,
-   "avgTri": 0.00012,
-   "anglePct": 25,
+   "thick": 0.2615,
+   "avgTri": 0.00011,
+   "anglePct": 20,
    "vpt": 2.15,
    "grad": 0.6,
    "spread": {
@@ -481330,13 +481337,13 @@
     "tba"
    ],
    "backface": {
-    "share": 0.0012,
+    "share": 0.0013,
     "view": "90/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.08,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "warning",
