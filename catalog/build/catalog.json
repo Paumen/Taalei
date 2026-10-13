@@ -813,7 +813,8 @@
     "0.72": 75
    },
    "smooth": {
-    "smooth": 75
+    "smooth": 74,
+    "none": 1
    },
    "kitCheck": {
     "factor": 1.06,
@@ -24109,7 +24110,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 779,
+   "count": 780,
    "parent": "metal"
   },
   {
@@ -24261,7 +24262,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 523,
+   "count": 522,
    "parent": "glass"
   },
   {
@@ -24467,7 +24468,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat.",
-   "count": 163,
+   "count": 162,
    "parent": "animal"
   },
   {
@@ -24499,7 +24500,7 @@
    "name": "Skin",
    "type": "material",
    "description": "Bare skin of a human figure: face, hands, arms.",
-   "count": 39,
+   "count": 40,
    "parent": "animal"
   },
   {
@@ -24514,7 +24515,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1285,
+   "count": 1284,
    "parent": "polymer"
   },
   {
@@ -26994,7 +26995,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 1062,
+   "count": 1063,
    "color": "#6cb588"
   },
   {
@@ -27244,7 +27245,7 @@
    "name": "Rock",
    "type": "kind",
    "description": "crystal, ore (in rock), stalagmite",
-   "count": 313,
+   "count": 314,
    "color": "#9da4c4"
   },
   {
@@ -27259,7 +27260,7 @@
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose), stepping stone",
-   "count": 111
+   "count": 112
   },
   {
    "id": "env-terrain-rock-formation",
@@ -27280,7 +27281,7 @@
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor",
-   "count": 375,
+   "count": 376,
    "color": "#8a5d4b"
   },
   {
@@ -27885,7 +27886,7 @@
    "name": "Set",
    "type": "kind",
    "description": "several distinct things, one top-level",
-   "count": 103,
+   "count": 102,
    "color": "#b5651d"
   },
   {
@@ -70462,7 +70463,7 @@
   {
    "kit": "food-pack-2",
    "name": "rib-roast",
-   "hash": "8297c38dd9",
+   "hash": "a1c29ee797",
    "kind": "obj-food-meat-roast",
    "size": "s",
    "wdh": [
@@ -70473,25 +70474,21 @@
    "tris": 852,
    "tpu": 2484,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 25416,
-   "vtx": 591,
+   "bytes": 24104,
+   "vtx": 550,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "thick": 0.1302,
    "avgTri": 0.00026,
    "anglePct": 18,
-   "vpt": 0.69,
-   "grad": 0.7,
+   "vpt": 0.65,
+   "grad": 0.81,
    "spread": {
     "5,2": [
      0.016,
-     0.805
-    ],
-    "1,0": [
-     0.188,
      0.977
     ],
     "8,0": [
@@ -70501,11 +70498,9 @@
    },
    "colors": [
     "#873a27",
-    "#ac764c",
     "#d8cfb7"
    ],
    "tags": [
-    "bone",
     "special-food"
    ],
    "thickRel": 0.75
@@ -97473,35 +97468,36 @@
   {
    "kit": "household",
    "name": "rake",
-   "hash": "863033a343",
+   "hash": "ed1b314317",
    "kind": "obj-equipment-tool-twohand-rake",
    "size": "m",
    "wdh": [
-    0.358,
-    0.133,
+    0.24,
+    0.094,
     0.709
    ],
-   "tris": 356,
-   "tpu": 1025,
+   "tris": 120,
+   "tpu": 345,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 26252,
-   "vtx": 708,
+   "bytes": 10208,
+   "vtx": 252,
    "grounded": true,
-   "minEdge": 0.006,
-   "minTube": 0.0266,
-   "thick": 0.0778,
-   "avgTri": 0.00057,
-   "anglePct": 41,
-   "vpt": 1.99,
+   "centered": true,
+   "minEdge": 0.017,
+   "minTube": 0.0299,
+   "thick": 0.1147,
+   "avgTri": 0.00134,
+   "anglePct": 93,
+   "vpt": 2.1,
    "grad": 0,
    "spread": {
-    "15,3": [
+    "2,0": [
      0.5,
      0.5
     ],
-    "2,0": [
+    "15,3": [
      0.5,
      0.5
     ]
@@ -97515,10 +97511,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.57,
-   "mark": [
-    "centered"
-   ]
+   "thickRel": 0.84
   },
   {
    "kit": "household",
@@ -133078,7 +133071,7 @@
   {
    "kit": "kay-dun-1",
    "name": "potion-large-green",
-   "hash": "383688d899",
+   "hash": "64403e91cb",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
@@ -133088,37 +133081,33 @@
    ],
    "tris": 824,
    "tpu": 2402,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 26516,
-   "vtx": 627,
+   "mat": 2,
+   "bands": 2,
+   "calls": 2,
+   "bytes": 26632,
+   "vtx": 603,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
    "thick": 0.2416,
    "avgTri": 0.00127,
    "anglePct": 21,
-   "vpt": 0.76,
-   "grad": 0.2,
+   "vpt": 0.73,
+   "grad": 0.18,
    "spread": {
     "14,3": [
      0.25,
      0.398
     ],
     "1,1": [
-     0.438,
-     0.75
-    ],
-    "3,2": [
-     0.313,
-     0.43
+     0.516,
+     0.711
     ]
    },
    "colors": [
     "#21552a",
     "#88735f",
-    "#b5d5e3"
+    "#ffffff"
    ],
    "tags": [
     "cork",
@@ -133128,13 +133117,15 @@
     "scale-big",
     "special-liquid"
    ],
+   "alpha": true,
+   "pbr": true,
    "variant": "kay-dun-1/potion-large-green",
    "thickRel": 1.04
   },
   {
    "kit": "kay-dun-1",
    "name": "potion-large-red",
-   "hash": "42da283775",
+   "hash": "d0569eb8ea",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
@@ -133144,37 +133135,33 @@
    ],
    "tris": 824,
    "tpu": 2402,
-   "mat": 1,
-   "bands": 3,
-   "calls": 1,
-   "bytes": 26508,
-   "vtx": 627,
+   "mat": 2,
+   "bands": 2,
+   "calls": 2,
+   "bytes": 26624,
+   "vtx": 603,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
    "thick": 0.2416,
    "avgTri": 0.00127,
    "anglePct": 21,
-   "vpt": 0.76,
-   "grad": 0.2,
+   "vpt": 0.73,
+   "grad": 0.18,
    "spread": {
     "14,3": [
      0.25,
      0.398
     ],
     "8,0": [
-     0.438,
-     0.75
-    ],
-    "3,2": [
-     0.313,
-     0.43
+     0.516,
+     0.711
     ]
    },
    "colors": [
     "#873a27",
     "#88735f",
-    "#b5d5e3"
+    "#ffffff"
    ],
    "tags": [
     "cork",
@@ -133184,6 +133171,8 @@
     "scale-big",
     "special-liquid"
    ],
+   "alpha": true,
+   "pbr": true,
    "variant": "kay-dun-1/potion-large-green",
    "thickRel": 1.04
   },
@@ -167495,7 +167484,7 @@
    "collection": "kay-play",
    "name": "forest-detail",
    "hash": "83c332d6dc",
-   "kind": "set",
+   "kind": "env-terrain-rock-cobble",
    "size": "m",
    "wdh": [
     0.51,
@@ -180994,7 +180983,7 @@
    "kit": "kay-skeleton-1",
    "collection": "kay-undead",
    "name": "sword-broken-half",
-   "hash": "ce2eef3ca9",
+   "hash": "934f319ef0",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
@@ -181007,13 +180996,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7596,
+   "bytes": 7600,
    "vtx": 167,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "minTube": 0.0385,
-   "thick": 0.1097,
+   "thick": 0.1098,
    "avgTri": 0.00042,
    "anglePct": 22,
    "vpt": 1.35,
@@ -191782,7 +191771,7 @@
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "weapon-sword",
-   "hash": "033fcea5cf",
+   "hash": "8b2a44f4d4",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -252426,7 +252415,7 @@
   {
    "kit": "ken-space",
    "name": "hangar-round-glass",
-   "hash": "3694440130",
+   "hash": "6a60ec7220",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -252462,20 +252451,20 @@
      0.148,
      0.148
     ],
-    "3,2": [
+    "6,1": [
      0.148,
      0.445
     ]
    },
    "colors": [
     "#1564a4",
+    "#3a3e4b",
     "#7a8491",
-    "#b5d5e3",
     "#f1a63b"
    ],
    "tags": [
-    "glass-clear",
     "ken",
+    "metal-iron-dark",
     "plastic",
     "space",
     "storeys-1"
@@ -299084,7 +299073,7 @@
   {
    "kit": "lpa-west",
    "name": "tumbleweed",
-   "hash": "a461f6e699",
+   "hash": "0ea9d68d6f",
    "kind": "env-remains-deadwood",
    "size": "s",
    "wdh": [
@@ -299092,19 +299081,19 @@
     0.491,
     0.474
    ],
-   "tris": 1514,
-   "tpu": 4414,
+   "tris": 1517,
+   "tpu": 4423,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 100316,
-   "vtx": 2805,
+   "bytes": 100536,
+   "vtx": 2812,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.01,
-   "thick": 0.0412,
+   "thick": 0.0422,
    "avgTri": 0.00042,
    "anglePct": 6,
    "vpt": 1.85,
@@ -299122,7 +299111,7 @@
     "lpa",
     "special-organic"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.37
   },
   {
    "kit": "lpa-west",
@@ -308963,7 +308952,7 @@
   {
    "kit": "m3-base",
    "name": "dart-board",
-   "hash": "1308f1134c",
+   "hash": "60903e3fc2",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
@@ -308988,7 +308977,7 @@
    "vpt": 2.17,
    "grad": 0.51,
    "spread": {
-    "13,3": [
+    "12,3": [
      0.148,
      0.75
     ],
@@ -309011,7 +309000,7 @@
    },
    "colors": [
     "#21552a",
-    "#59534e",
+    "#57493d",
     "#7a8491",
     "#873a27",
     "#d8cfb7"
@@ -309020,11 +309009,20 @@
     "m3",
     "metal-steel",
     "mounted",
-    "plastic",
     "textile-cloth-light"
    ],
    "thickRel": 0.66,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 5 wants max 4"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G31 band:taupe-dark true wants is false"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -399670,29 +399668,29 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-field-c",
-   "hash": "f41ca0ac06",
+   "hash": "6f5047d254",
    "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     3.258,
-    1.644,
+    1.642,
     0.634
    ],
-   "tris": 6954,
-   "tpu": 1855,
+   "tris": 6888,
+   "tpu": 1839,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 528936,
-   "vtx": 13877,
+   "bytes": 494800,
+   "vtx": 12835,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0481,
-   "thick": 0.0739,
-   "avgTri": 0.00116,
-   "anglePct": 43,
-   "vpt": 2,
+   "thick": 0.0735,
+   "avgTri": 0.00115,
+   "anglePct": 44,
+   "vpt": 1.86,
    "grad": 0.26,
    "spread": {
     "12,3": [
@@ -431387,7 +431385,7 @@
    "kit": "sq-fastfood",
    "collection": "sq-props",
    "name": "tray-set",
-   "hash": "950a061b9d",
+   "hash": "96e3b50471",
    "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
@@ -431398,7 +431396,7 @@
    "tris": 387,
    "tpu": 1128,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
    "bytes": 29308,
    "vtx": 795,
@@ -431410,11 +431408,15 @@
    "avgTri": 0.00198,
    "anglePct": 71,
    "vpt": 2.05,
-   "grad": 0.59,
+   "grad": 0.54,
    "spread": {
     "1,1": [
      0.148,
      0.742
+    ],
+    "1,0": [
+     0.148,
+     0.273
     ],
     "8,0": [
      0.148,
@@ -431428,6 +431430,7 @@
    "colors": [
     "#21552a",
     "#873a27",
+    "#ac764c",
     "#f1a63b"
    ],
    "tags": [
@@ -439902,7 +439905,7 @@
   {
    "kit": "styloo-farm",
    "name": "shark",
-   "hash": "a4d9aaad67",
+   "hash": "39a893fdcf",
    "kind": "env-fauna-fish-shark",
    "size": "m",
    "wdh": [
@@ -439924,10 +439927,10 @@
    "avgTri": 0.00098,
    "anglePct": 3,
    "vpt": 0.62,
-   "grad": 0.53,
+   "grad": 0.76,
    "spread": {
-    "15,3": [
-     0.398,
+    "14,3": [
+     0.141,
      0.914
     ],
     "6,1": [
@@ -439937,9 +439940,10 @@
    },
    "colors": [
     "#3a3e4b",
-    "#7a8491"
+    "#88735f"
    ],
    "tags": [
+    "skin",
     "sty"
    ],
    "thickRel": 1.22
