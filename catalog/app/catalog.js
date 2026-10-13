@@ -12,7 +12,7 @@ import {
   SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText, TAG_TYPES,
   withParents as withParentsIn, collectColors, hydrate, WORKFILES, modelUrl, foldVariants as foldVariantsBy,
   span, glyph, flatMode, setLighting, attachViewer, watchViewers,
-  makeSelection, choiceChip as makeChoiceChip, copyPathsOnClick,
+  makeSelection, choiceChip as makeChoiceChip, copyPathsOnClick, readStore, writeStore,
 } from './shared.js?v=06861d7ddb';
 import './bouwstempel.js?v=964f9eed53';
 
@@ -1038,6 +1038,19 @@ async function start() {
   sortingChoice.addEventListener('change', () => {
     sorting = sortingChoice.value;
     refresh();
+  });
+
+  const perRowChoice = document.querySelector('#per-rij');
+  const setPerRow = (n) => {
+    perRowChoice.value = n;
+    if (n) document.body.style.setProperty('--per-rij', n);
+    else document.body.style.removeProperty('--per-rij');
+    document.body.toggleAttribute('data-per-rij', Boolean(n));
+  };
+  setPerRow(readStore('catalogus-per-rij').n ?? '');
+  perRowChoice.addEventListener('change', () => {
+    setPerRow(perRowChoice.value);
+    writeStore('catalogus-per-rij', { n: perRowChoice.value });
   });
 
   const raw = location.hash.slice(1);

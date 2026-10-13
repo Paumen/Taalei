@@ -20,8 +20,8 @@ const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 const FLAT = 0.95;
 const ALONG = 0.7;
 const UP = 0.95;
-const LIGHT = 0.2;
-const DARK = 0.8;
+const LIGHT = 0.3;
+const DARK = 0.7;
 
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
