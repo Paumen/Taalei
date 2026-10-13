@@ -4,6 +4,7 @@ export const KIND_FIELDS = ['bands.max', 'tube.min'];
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
 const BAND = 'band';
+const PALETTE_PREFIX = 'palette.';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 export const isBuilding = (kind) => idUnder(kind, 'str-building');
@@ -242,23 +243,29 @@ export function materialFindingsFor(model, rules, materialIds, vars) {
   return out;
 }
 
-export function buildPalettes(materials, vars) {
+export function buildPalettes(materials, kinds) {
   const lanes = new Map(Object.entries(materials.bands));
   const names = new Map([...lanes].map(([band, lane]) => [lane, band]));
   const parent = materialIdsOf(materials);
   const depth = (id) => { let d = 0; for (let at = parent.get(id); at; at = parent.get(at)) d++; return d; };
   const rows = [];
   const walk = (node) => {
-    if (node.bands) rows.push({ mat: node.id, size: null, bands: node.bands });
+    for (const [key, bands] of Object.entries(node)) {
+      if (key === 'bands') rows.push({ mat: node.id, size: null, bands });
+      else if (key.startsWith('bands.')) rows.push({ mat: node.id, size: key.slice('bands.'.length), bands });
+    }
     for (const child of node.children ?? []) walk(child);
   };
   for (const root of materials.materials) walk(root);
-  for (const [mat, bySize] of Object.entries(vars.palette.sizeBands ?? {})) {
-    for (const [size, bands] of Object.entries(bySize)) rows.push({ mat, size, bands });
-  }
   rows.sort((a, b) => depth(b.mat) - depth(a.mat));
-  const kindBands = Object.entries(vars.palette.kindBands ?? {})
-    .flatMap(([mat, byKind]) => Object.entries(byKind).map(([kind, bands]) => ({ mat, kind, bands })));
+  const kindBands = [];
+  const walkKinds = (node) => {
+    for (const [key, bands] of Object.entries(node)) {
+      if (key.startsWith(PALETTE_PREFIX)) kindBands.push({ mat: key.slice(PALETTE_PREFIX.length), kind: node.id, bands });
+    }
+    for (const child of node.children ?? []) walkKinds(child);
+  };
+  for (const root of kinds.kinds) walkKinds(root);
   return { lanes, names, rows, kindBands, parent };
 }
 
@@ -467,7 +474,7 @@ export function buildChecks({ vars, kinds, materials, measures }) {
     limits: buildLimits(kinds),
     scales: buildScales(kinds),
     mat: buildMaterialRules(kinds),
-    palettes: buildPalettes(materials, vars),
+    palettes: buildPalettes(materials, kinds),
     bands: buildKindBands(kinds),
     measures: measures.rows,
     kindFields: buildKindFields(kinds),

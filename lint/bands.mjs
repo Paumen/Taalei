@@ -2,8 +2,9 @@ import { buildPalettes, buildKindBands, kindBandFindingsFor, idUnder, materialId
 import { read, VARS, printTally, widthsOf } from './report.mjs';
 
 const MATERIALS = read(VARS.materials);
-const PALETTES = buildPalettes(MATERIALS, VARS);
-const RULES = buildKindBands(read(VARS.kinds));
+const KINDS = read(VARS.kinds);
+const PALETTES = buildPalettes(MATERIALS, KINDS);
+const RULES = buildKindBands(KINDS);
 const { models } = read(VARS.models);
 
 const materialIds = materialIdsOf(MATERIALS);
