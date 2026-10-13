@@ -15,6 +15,7 @@ const SIZES = {
   'env-fauna-fish-shark': 3,
   'env-fauna-insect': 0.05,
   'env-fauna-starfish': 0.2,
+  'env-flora-coral': 0.4,
   'env-flora-plant-bush': 1.2,
   'env-flora-plant-flower': 0.3,
   'env-flora-plant-grass': 0.4,
