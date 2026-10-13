@@ -5,14 +5,16 @@ const { rows } = read(VARS.measures);
 const KIND_FIELDS = buildKindFields(read(VARS.kinds));
 const { models } = read(VARS.models);
 
-const materialIds = materialIdsOf(read(VARS.materials));
+const MATERIALS = read(VARS.materials);
+const materialIds = materialIdsOf(MATERIALS);
+const lanes = new Map(Object.entries(MATERIALS.bands));
 
 const only = process.argv.slice(2);
 const active = only.length ? rows.filter((r) => only.includes(r.id)) : rows;
 
 const findings = [];
 for (const m of models) {
-  for (const f of measureFindingsFor(m, active, materialIds, VARS, KIND_FIELDS)) {
+  for (const f of measureFindingsFor(m, active, materialIds, VARS, KIND_FIELDS, lanes)) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });
   }
 }

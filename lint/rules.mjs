@@ -5,6 +5,7 @@ const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
 const BAND = 'band';
 const PALETTE_PREFIX = 'palette.';
+const BAND_PREFIX = 'band:';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 export const isBuilding = (kind) => idUnder(kind, 'str-building');
@@ -357,7 +358,8 @@ export function tubeNeed(model) {
   return model.tubemin ?? 0;
 }
 
-function fieldOf(model, name, materialIds, vars) {
+function fieldOf(model, name, materialIds, vars, lanes) {
+  if (name.startsWith(BAND_PREFIX)) return Object.keys(model.spread ?? {}).includes(lanes.get(name.slice(BAND_PREFIX.length)));
   if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
   if (name === 'tubeneed') return tubeNeed(model);
   if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
@@ -408,13 +410,13 @@ function holds(assert, actual, wanted) {
   }
 }
 
-export function measureFindingsFor(subject, rows, materialIds, vars, kindFields) {
+export function measureFindingsFor(subject, rows, materialIds, vars, kindFields, lanes) {
   const model = withKindFields(subject, kindFields);
   const out = [];
   for (const row of rows) {
     if (!matchTerm(row.when, model, materialIds, vars)) continue;
     if (row.except && matchTerm(row.except, model, materialIds, vars)) continue;
-    const actual = fieldOf(model, row.field, materialIds, vars);
+    const actual = fieldOf(model, row.field, materialIds, vars, lanes);
     const wanted = resolveValue(row.value, model, materialIds, vars);
     if (holds(row.assert, actual, wanted)) continue;
     out.push({
@@ -509,7 +511,7 @@ export function checkModel(model, checks) {
   push('backface', null, backfaceFindingsFor(model, vars));
 
   const mark = [];
-  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields)) {
+  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields, checks.palettes.lanes)) {
     if (vars.mark.includes(row.rule)) mark.push(row.field);
     else push('measures', row.level, [row]);
   }
