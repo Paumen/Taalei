@@ -1241,3 +1241,5 @@ body:has(.selectiebalk:not([hidden])):has(.tagedit-balk:not([hidden])) { padding
 }
 
 .scale-page .familie-doek { border-radius: 4px; box-shadow: none; }
+
+body[data-per-rij] .rooster { grid-template-columns: repeat(var(--per-rij), minmax(0, 1fr)); }
