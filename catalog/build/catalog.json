@@ -3466,7 +3466,7 @@
    "name": "quat-sea",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 59,
+   "count": 80,
    "packs": [
     "Animated Fish Pack",
     "Animated Fish Bundle",
@@ -3475,7 +3475,7 @@
    "origins": {
     "Animated Fish Pack": 7,
     "Animated Fish Bundle": 32,
-    "Ocean": 20
+    "Ocean": 41
    },
    "scales": {
     "0.116": 1,
@@ -3500,6 +3500,7 @@
     "0.088": 2,
     "0.1364": 1,
     "0.1112": 1,
+    "0.0007": 21,
     "0.0006446": 1,
     "0.000847": 1,
     "0.00077": 11,
@@ -3512,7 +3513,7 @@
     "0.006556": 1
    },
    "smooth": {
-    "smooth": 56,
+    "smooth": 77,
     "none": 3
    },
    "members": [
@@ -3583,14 +3584,15 @@
      "url": "https://quaternius.com/",
      "artist": "Quaternius",
      "licenseLabel": "CC0",
-     "count": 20,
+     "count": 41,
      "packs": [
       "Ocean"
      ],
      "origins": {
-      "Ocean": 20
+      "Ocean": 41
      },
      "scales": {
+      "0.0007": 21,
       "0.0006446": 1,
       "0.000847": 1,
       "0.00077": 11,
@@ -3603,13 +3605,13 @@
       "0.006556": 1
      },
      "smooth": {
-      "smooth": 20
+      "smooth": 41
      }
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 11
+    "factor": 0.93,
+    "kinds": 14
    }
   },
   {
@@ -24034,6 +24036,55 @@
     "ken-skate/ramp",
     "ken-skate/ramp-rail"
    ]
+  },
+  {
+   "id": "quat-ocean/coral-1",
+   "type": "detail-variant",
+   "main": "quat-ocean/coral-1",
+   "members": [
+    "quat-ocean/coral-1",
+    "quat-ocean/coral-2",
+    "quat-ocean/coral-3",
+    "quat-ocean/coral-4",
+    "quat-ocean/coral-5",
+    "quat-ocean/coral-6",
+    "quat-ocean/coral-7"
+   ]
+  },
+  {
+   "id": "quat-ocean/rock-1",
+   "type": "detail-variant",
+   "main": "quat-ocean/rock-1",
+   "members": [
+    "quat-ocean/rock-1",
+    "quat-ocean/rock-2",
+    "quat-ocean/rock-3",
+    "quat-ocean/rock-4",
+    "quat-ocean/rock-7",
+    "quat-ocean/rock-8"
+   ]
+  },
+  {
+   "id": "quat-ocean/rock-5",
+   "type": "detail-variant",
+   "main": "quat-ocean/rock-5",
+   "members": [
+    "quat-ocean/rock-5",
+    "quat-ocean/rock-6",
+    "quat-ocean/rock-9",
+    "quat-ocean/rock-10",
+    "quat-ocean/rock-11"
+   ]
+  },
+  {
+   "id": "quat-ocean/seaweed-1",
+   "type": "detail-variant",
+   "main": "quat-ocean/seaweed-1",
+   "members": [
+    "quat-ocean/seaweed-1",
+    "quat-ocean/seaweed-2",
+    "quat-ocean/seaweed-3"
+   ]
   }
  ],
  "bands": [
@@ -24203,7 +24254,7 @@
    "name": "Rock",
    "type": "material",
    "description": "Raw stone as it lies: boulders, pebbles, gravel, rubble, formations, mountains, planets.",
-   "count": 382,
+   "count": 393,
    "parent": "stone"
   },
   {
@@ -24410,7 +24461,7 @@
    "name": "Leaf light",
    "type": "material",
    "description": "Light-green leaves, needles, fronds, grass blades, stems, cactus bodies, lily pads.",
-   "count": 441,
+   "count": 444,
    "parent": "leaf"
   },
   {
@@ -24504,8 +24555,8 @@
    "id": "shell",
    "name": "Shell",
    "type": "material",
-   "description": "Seashell and snail shell.",
-   "count": 12,
+   "description": "Seashell, snail shell and coral.",
+   "count": 19,
    "parent": "animal"
   },
   {
@@ -27024,7 +27075,7 @@
    "name": "Environment",
    "type": "kind",
    "description": "cloud, snow drift, lava, smoke, fog",
-   "count": 1063,
+   "count": 1084,
    "color": "#6cb588"
   },
   {
@@ -27089,7 +27140,7 @@
    "name": "Flora",
    "type": "kind",
    "description": "Flora with no leaf that fits.",
-   "count": 343,
+   "count": 353,
    "color": "#6cb588"
   },
   {
@@ -27160,7 +27211,14 @@
    "name": "Water plant",
    "type": "kind",
    "description": "Plant that grows in or on water.",
-   "count": 41
+   "count": 44
+  },
+  {
+   "id": "env-flora-coral",
+   "name": "Coral",
+   "type": "kind",
+   "description": "coral, reef",
+   "count": 7
   },
   {
    "id": "env-flora-waterplant-cattail",
@@ -27274,7 +27332,7 @@
    "name": "Rock",
    "type": "kind",
    "description": "crystal, ore (in rock), stalagmite",
-   "count": 314,
+   "count": 325,
    "color": "#9da4c4"
   },
   {
@@ -27289,7 +27347,7 @@
    "name": "Cobble",
    "type": "kind",
    "description": "cobble, rock (small), stone (loose), stepping stone",
-   "count": 112
+   "count": 118
   },
   {
    "id": "env-terrain-rock-formation",
@@ -27303,14 +27361,14 @@
    "name": "Pebble",
    "type": "kind",
    "description": "pebble, stone (small), gravel",
-   "count": 18
+   "count": 23
   },
   {
    "id": "env-terrain",
    "name": "Terrain",
    "type": "kind",
    "description": "island base, cave floor",
-   "count": 376,
+   "count": 387,
    "color": "#8a5d4b"
   },
   {
@@ -28803,7 +28861,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4065,
+   "count": 4086,
    "derived": true
   },
   {
@@ -28843,7 +28901,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 942,
+   "count": 963,
    "derived": true
   },
   {
@@ -28999,6 +29057,7 @@
   "env-fauna-insect",
   "env-fauna-mammal",
   "env-fauna-starfish",
+  "env-flora-coral",
   "env-flora-plant",
   "env-flora-plant-bamboo",
   "env-flora-plant-bush",
@@ -29382,6 +29441,12 @@
    "longest.min": 0.1,
    "longest.max": 0.3,
    "tpu.max": 10000
+  },
+  "env-flora-coral": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 1.5,
+   "tpu.max": 5000
   },
   "env-flora-plant": {
    "high.max": 8,
@@ -42713,7 +42778,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/pebble-a",
-   "thickRel": 0.97
+   "thickRel": 1.02
   },
   {
    "kit": "aq-pond",
@@ -42756,7 +42821,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/pebble-a",
-   "thickRel": 0.72
+   "thickRel": 0.76
   },
   {
    "kit": "aq-pond",
@@ -42799,7 +42864,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/pebble-a",
-   "thickRel": 0.95
+   "thickRel": 1
   },
   {
    "kit": "aq-pond",
@@ -42842,7 +42907,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/pebble-a",
-   "thickRel": 1.03
+   "thickRel": 1.09
   },
   {
    "kit": "aq-pond",
@@ -42992,7 +43057,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/rock-a-2",
-   "thickRel": 1.13
+   "thickRel": 1.19
   },
   {
    "kit": "aq-pond",
@@ -43035,7 +43100,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/rock-a-2",
-   "thickRel": 1.27
+   "thickRel": 1.34
   },
   {
    "kit": "aq-pond",
@@ -43078,7 +43143,7 @@
     "stone-rock"
    ],
    "variant": "aq-pond/rock-a-2",
-   "thickRel": 1.18
+   "thickRel": 1.24
   },
   {
    "kit": "aq-pond",
@@ -43305,7 +43370,7 @@
     "special-organic"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.84
+   "thickRel": 0.87
   },
   {
    "kit": "aq-pond",
@@ -43360,7 +43425,7 @@
     "special-organic"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.76
+   "thickRel": 0.78
   },
   {
    "kit": "aq-pond",
@@ -43404,7 +43469,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.64
+   "thickRel": 0.66
   },
   {
    "kit": "aq-pond",
@@ -43774,7 +43839,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "aq-pond",
@@ -43817,7 +43882,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "aq-pond",
@@ -43860,7 +43925,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 0.91,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -163789,7 +163854,7 @@
     "kay",
     "leaf-light"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "kay-hexagon",
@@ -346199,7 +346264,7 @@
     "stone-rock"
    ],
    "variant": "nature-assets/pebble-a",
-   "thickRel": 0.95
+   "thickRel": 1.01
   },
   {
    "kit": "nature-assets",
@@ -346240,7 +346305,7 @@
     "stone-rock"
    ],
    "variant": "nature-assets/pebble-a",
-   "thickRel": 0.83
+   "thickRel": 0.88
   },
   {
    "kit": "nature-assets",
@@ -346281,7 +346346,7 @@
     "stone-rock"
    ],
    "variant": "nature-assets/pebble-a",
-   "thickRel": 1.13
+   "thickRel": 1.19
   },
   {
    "kit": "nature-assets",
@@ -375082,6 +375147,357 @@
   {
    "kit": "quat-ocean",
    "collection": "quat-sea",
+   "name": "coral-1",
+   "hash": "f812553cf2",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.124,
+    0.082,
+    0.253
+   ],
+   "tris": 274,
+   "tpu": 799,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 21720,
+   "vtx": 580,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0083,
+   "thick": 0.1423,
+   "avgTri": 0.0003,
+   "anglePct": 9,
+   "vpt": 2.12,
+   "grad": 0.43,
+   "spread": {
+    "5,0": [
+     0.32,
+     0.75
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "thickRel": 1.36
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "coral-2",
+   "hash": "8fa202b842",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.27,
+    0.395,
+    0.297
+   ],
+   "tris": 1332,
+   "tpu": 3883,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 81100,
+   "vtx": 2237,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0709,
+   "avgTri": 0.00013,
+   "anglePct": 3,
+   "vpt": 1.68,
+   "grad": 0.59,
+   "spread": {
+    "5,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "thickRel": 0.68
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "coral-3",
+   "hash": "e805ca25de",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.203,
+    0.177,
+    0.312
+   ],
+   "tris": 866,
+   "tpu": 2525,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 56996,
+   "vtx": 1571,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0724,
+   "avgTri": 0.00007,
+   "anglePct": 2,
+   "vpt": 1.81,
+   "grad": 0.59,
+   "spread": {
+    "5,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "thickRel": 0.69
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "coral-4",
+   "hash": "e99f831c65",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.175,
+    0.209
+   ],
+   "tris": 1590,
+   "tpu": 4636,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 91416,
+   "vtx": 2511,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0139,
+   "thick": 0.0566,
+   "avgTri": 0.00004,
+   "anglePct": 2,
+   "vpt": 1.58,
+   "grad": 0.59,
+   "spread": {
+    "5,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "thickRel": 0.54
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "coral-5",
+   "hash": "9c887250b8",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.276,
+    0.194,
+    0.328
+   ],
+   "tris": 943,
+   "tpu": 2749,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 52376,
+   "vtx": 1412,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0046,
+   "thick": 0.0474,
+   "avgTri": 0.0001,
+   "anglePct": 6,
+   "vpt": 1.5,
+   "grad": 0.59,
+   "spread": {
+    "5,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "backface": {
+    "share": 0.0016,
+    "view": "45/20",
+    "causes": {
+     "inverted": 0.31,
+     "open": 0.69
+    }
+   },
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/20 over 0.1%: open 69.0%, inverted 31.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0046 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "coral-6",
+   "hash": "30af516fd0",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.088,
+    0.134,
+    0.279
+   ],
+   "tris": 740,
+   "tpu": 2157,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 51600,
+   "vtx": 1426,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.01,
+   "thick": 0.1314,
+   "avgTri": 0.00013,
+   "anglePct": 6,
+   "vpt": 1.93,
+   "grad": 0.48,
+   "spread": {
+    "5,0": [
+     0.258,
+     0.742
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "thickRel": 1.26
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "coral-7",
+   "hash": "06730c47f0",
+   "kind": "env-flora-coral",
+   "size": "s",
+   "wdh": [
+    0.295,
+    0.255,
+    0.279
+   ],
+   "tris": 754,
+   "tpu": 2198,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 40448,
+   "vtx": 1075,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0078,
+   "thick": 0.0414,
+   "avgTri": 0.00012,
+   "anglePct": 8,
+   "vpt": 1.43,
+   "grad": 0.59,
+   "spread": {
+    "5,0": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#ce7954"
+   ],
+   "tags": [
+    "qua",
+    "shell"
+   ],
+   "variant": "quat-ocean/coral-1",
+   "backface": {
+    "share": 0.0014,
+    "view": "180/20",
+    "causes": {
+     "inverted": 0.92,
+     "open": 0.08
+    }
+   },
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/20 over 0.1%: inverted 92.0%, open 8.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "crab",
    "hash": "194bc0d8cb",
    "kind": "env-fauna",
@@ -375519,6 +375935,499 @@
   {
    "kit": "quat-ocean",
    "collection": "quat-sea",
+   "name": "rock-1",
+   "hash": "5110b0a183",
+   "kind": "env-terrain-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.154,
+    0.152,
+    0.141
+   ],
+   "tris": 45,
+   "tpu": 131,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4812,
+   "vtx": 95,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.025,
+   "thick": 0.2315,
+   "avgTri": 0.00178,
+   "anglePct": 4,
+   "vpt": 2.11,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-1",
+   "thickRel": 1.04
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-10",
+   "hash": "4ee69c5fb6",
+   "kind": "env-terrain-rock-pebble",
+   "size": "s",
+   "wdh": [
+    0.045,
+    0.057,
+    0.021
+   ],
+   "tris": 8,
+   "tpu": 23,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2188,
+   "vtx": 20,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "thick": 0.1298,
+   "avgTri": 0.00059,
+   "anglePct": 0,
+   "vpt": 2.5,
+   "grad": 0.55,
+   "spread": {
+    "14,3": [
+     0.195,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-5",
+   "thickRel": 0.63,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.057 under min 0.1 (env-terrain-rock-pebble)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-11",
+   "hash": "eb5c55da43",
+   "kind": "env-terrain-rock-pebble",
+   "size": "s",
+   "wdh": [
+    0.048,
+    0.058,
+    0.012
+   ],
+   "tris": 20,
+   "tpu": 58,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2676,
+   "vtx": 33,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.083,
+   "avgTri": 0.00027,
+   "anglePct": 0,
+   "vpt": 1.65,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-5",
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 0.058 under min 0.1 (env-terrain-rock-pebble)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-2",
+   "hash": "0be07ca191",
+   "kind": "env-terrain-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.208,
+    0.224,
+    0.205
+   ],
+   "tris": 87,
+   "tpu": 254,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7048,
+   "vtx": 157,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.027,
+   "thick": 0.242,
+   "avgTri": 0.00171,
+   "anglePct": 0,
+   "vpt": 1.8,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-1",
+   "thickRel": 1.09
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-3",
+   "hash": "232369edf5",
+   "kind": "env-terrain-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.175,
+    0.166,
+    0.418
+   ],
+   "tris": 108,
+   "tpu": 315,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6988,
+   "vtx": 151,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "minTube": 0.1229,
+   "thick": 0.2657,
+   "avgTri": 0.00193,
+   "anglePct": 8,
+   "vpt": 1.4,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-1",
+   "thickRel": 1.19
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-4",
+   "hash": "6e4c6702e1",
+   "kind": "env-terrain-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.226,
+    0.157,
+    0.365
+   ],
+   "tris": 182,
+   "tpu": 531,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11168,
+   "vtx": 268,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "thick": 0.2144,
+   "avgTri": 0.00106,
+   "anglePct": 7,
+   "vpt": 1.47,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-1",
+   "thickRel": 0.96
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-5",
+   "hash": "4e77f9d1b5",
+   "kind": "env-terrain-rock-pebble",
+   "size": "s",
+   "wdh": [
+    0.086,
+    0.116,
+    0.054
+   ],
+   "tris": 20,
+   "tpu": 58,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2736,
+   "vtx": 35,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.028,
+   "thick": 0.1938,
+   "avgTri": 0.00107,
+   "anglePct": 6,
+   "vpt": 1.75,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-5",
+   "thickRel": 0.94
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-6",
+   "hash": "d6691cda4b",
+   "kind": "env-terrain-rock-pebble",
+   "size": "s",
+   "wdh": [
+    0.122,
+    0.119,
+    0.077
+   ],
+   "tris": 20,
+   "tpu": 58,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2864,
+   "vtx": 39,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.044,
+   "thick": 0.1793,
+   "avgTri": 0.00166,
+   "anglePct": 22,
+   "vpt": 1.95,
+   "grad": 0.56,
+   "spread": {
+    "14,3": [
+     0.18,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-5",
+   "thickRel": 0.87
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-7",
+   "hash": "2bb844172d",
+   "kind": "env-terrain-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.154,
+    0.174,
+    0.1
+   ],
+   "tris": 46,
+   "tpu": 134,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5304,
+   "vtx": 110,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.029,
+   "thick": 0.2012,
+   "avgTri": 0.00132,
+   "anglePct": 9,
+   "vpt": 2.39,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-1",
+   "thickRel": 0.9
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-8",
+   "hash": "83429eff7f",
+   "kind": "env-terrain-rock-cobble",
+   "size": "s",
+   "wdh": [
+    0.138,
+    0.157,
+    0.081
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4244,
+   "vtx": 79,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.023,
+   "thick": 0.1853,
+   "avgTri": 0.0012,
+   "anglePct": 9,
+   "vpt": 2.19,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-1",
+   "thickRel": 0.83
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "rock-9",
+   "hash": "651359ef6f",
+   "kind": "env-terrain-rock-pebble",
+   "size": "s",
+   "wdh": [
+    0.126,
+    0.144,
+    0.069
+   ],
+   "tris": 20,
+   "tpu": 58,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3020,
+   "vtx": 44,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "thick": 0.172,
+   "avgTri": 0.00174,
+   "anglePct": 1,
+   "vpt": 2.2,
+   "grad": 0.59,
+   "spread": {
+    "14,3": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-rock"
+   ],
+   "variant": "quat-ocean/rock-5",
+   "thickRel": 0.83
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
    "name": "seal",
    "hash": "e1d3b452d9",
    "kind": "env-fauna-mammal",
@@ -375556,6 +376465,151 @@
     "qua"
    ],
    "thickRel": 0.72
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "seaweed-1",
+   "hash": "3c8883e6c2",
+   "kind": "env-flora-waterplant",
+   "size": "s",
+   "wdh": [
+    0.007,
+    0.29,
+    0.199
+   ],
+   "tris": 864,
+   "tpu": 2519,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 39292,
+   "vtx": 1018,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0015,
+   "thick": 0.0485,
+   "avgTri": 0.00006,
+   "anglePct": 78,
+   "vpt": 1.18,
+   "grad": 0.6,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#66852a"
+   ],
+   "tags": [
+    "leaf-light",
+    "qua"
+   ],
+   "variant": "quat-ocean/seaweed-1",
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0015 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "seaweed-2",
+   "hash": "fc4090f504",
+   "kind": "env-flora-waterplant",
+   "size": "s",
+   "wdh": [
+    0.004,
+    0.29,
+    0.197
+   ],
+   "tris": 324,
+   "tpu": 945,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15632,
+   "vtx": 380,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.049,
+   "avgTri": 0.00009,
+   "anglePct": 80,
+   "vpt": 1.17,
+   "grad": 0.6,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#66852a"
+   ],
+   "tags": [
+    "leaf-light",
+    "qua"
+   ],
+   "variant": "quat-ocean/seaweed-1",
+   "thickRel": 0.8
+  },
+  {
+   "kit": "quat-ocean",
+   "collection": "quat-sea",
+   "name": "seaweed-3",
+   "hash": "7417799fac",
+   "kind": "env-flora-waterplant",
+   "size": "s",
+   "wdh": [
+    0.006,
+    0.23,
+    0.132
+   ],
+   "tris": 176,
+   "tpu": 513,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9524,
+   "vtx": 217,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0049,
+   "thick": 0.058,
+   "avgTri": 0.00005,
+   "anglePct": 60,
+   "vpt": 1.23,
+   "grad": 0.59,
+   "spread": {
+    "3,1": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#66852a"
+   ],
+   "tags": [
+    "leaf-light",
+    "qua"
+   ],
+   "variant": "quat-ocean/seaweed-1",
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0049 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-ocean",
@@ -407348,7 +408402,7 @@
     "leaf-light",
     "rgp"
    ],
-   "thickRel": 1.59
+   "thickRel": 1.64
   },
   {
    "kit": "rgp-asia",
@@ -466465,7 +467519,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/ore-gold",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-asia",
@@ -466509,7 +467563,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/ore-gold",
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-asia",
