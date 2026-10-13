@@ -58,6 +58,8 @@ the run dir. Tools, all in place:
 | `tools/import/upright.mjs [--up] [--front]` | turns, grounds and centres |
 | `tools/import/backface-fix.mjs` | flips and caps back faces, at most 11 triangles |
 | `tools/import/scale.mjs --by <factor> <file>` | resizes one model |
+| `tools/detail/slim.mjs` | cuts triangles by dropping, thinning or swapping parts; see `.claude/skills/detail/SKILL.md` |
+| `tools/import/end-grain.mjs [--up] [--to <band>]` | gives cut log ends growth rings |
 | `tools/stylize/inflate.mjs`, `tools/stylize/stylize.mjs` | chunkier, thicker, resized by batch file; see `.claude/skills/stylize/SKILL.md` |
 | `anthropic-skills:glb-toolkit` skill | custom geometry edits with three.js or glTF-Transform when no tool fits |
 
@@ -70,7 +72,7 @@ makes a model worse is undone (`git checkout -- <file>`).
 Tags are set only through your `result.json`, never by editing
 `catalog/data/tags.json`: kind (exactly one, the deepest leaf), material
 (the subtype, never its parent on top), flags (`plural`, `pickup`, `comp`,
-`broken`, `piece`, `mounted`), attributes, themes. Every id must already be a
+`broken`, `piece`, `mounted`, `tba`), attributes, themes. Every id must already be a
 row in `tags.json`. `hero` and `special` are the PO's: put a proposal in
 `notes` instead.
 
@@ -98,8 +100,8 @@ calibrate on:
 
 ## Verify
 
-Render every changed model beside two or more peers at locked scale and look
-at it; check `--modes faceorient` for new red where a fix touched geometry:
+Render every changed model beside two or more peers, each tile fitted to its
+own model, and look at it; check `--modes faceorient` for new red where a fix touched geometry:
 
     node tools/renders/kind-sheet.mjs --models <kit/name>,<kit/peer>,<kit/peer> --out {{dir}}/after --modes pbr --free-scale --no-glb-lint
 
