@@ -24117,7 +24117,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 879,
+   "count": 878,
    "parent": "stone"
   },
   {
@@ -24125,7 +24125,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 85,
+   "count": 86,
    "parent": "stone"
   },
   {
@@ -40604,7 +40604,7 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "urn",
-   "hash": "3a8fcd85ac",
+   "hash": "cf3b7995cb",
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
@@ -40628,7 +40628,7 @@
    "vpt": 0.76,
    "grad": 0.58,
    "spread": {
-    "14,3": [
+    "12,3": [
      0.148,
      0.734
     ],
@@ -40638,7 +40638,7 @@
     ]
    },
    "colors": [
-    "#88735f",
+    "#57493d",
     "#f1a63b"
    ],
    "tags": [
@@ -40646,9 +40646,16 @@
     "grave",
     "halloween",
     "metal-gold",
-    "stone-masonry-mid"
+    "stone-masonry-dark"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.34,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G31 band:taupe-dark true wants is false"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -309353,7 +309360,7 @@
   {
    "kit": "m3-base",
    "name": "dart-board",
-   "hash": "591c3529ef",
+   "hash": "60903e3fc2",
    "kind": "obj-equipment-target-bullseye",
    "size": "s",
    "wdh": [
@@ -309378,7 +309385,7 @@
    "vpt": 2.17,
    "grad": 0.51,
    "spread": {
-    "14,3": [
+    "12,3": [
      0.148,
      0.75
     ],
@@ -309401,9 +309408,9 @@
    },
    "colors": [
     "#21552a",
+    "#57493d",
     "#7a8491",
     "#873a27",
-    "#88735f",
     "#d8cfb7"
    ],
    "tags": [
@@ -309418,6 +309425,11 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 5 wants max 4"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G31 band:taupe-dark true wants is false"
     },
     {
      "level": "error",
