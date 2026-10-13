@@ -24117,7 +24117,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 877,
+   "count": 878,
    "parent": "stone"
   },
   {
@@ -24125,7 +24125,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 87,
+   "count": 86,
    "parent": "stone"
   },
   {
@@ -40648,7 +40648,14 @@
     "metal-gold",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.34,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G31 band:taupe-dark true wants is false"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -223546,7 +223553,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "urn-round",
-   "hash": "302500d703",
+   "hash": "b9d3a6ece0",
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
@@ -223557,7 +223564,7 @@
    "tris": 230,
    "tpu": 671,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 9200,
    "vtx": 200,
@@ -223569,19 +223576,14 @@
    "avgTri": 0.00164,
    "anglePct": 41,
    "vpt": 0.87,
-   "grad": 0.74,
+   "grad": 0.79,
    "spread": {
     "14,3": [
      0.102,
      0.891
-    ],
-    "12,3": [
-     0.297,
-     0.891
     ]
    },
    "colors": [
-    "#57493d",
     "#88735f"
    ],
    "tags": [
@@ -223597,7 +223599,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "urn-square",
-   "hash": "0914741632",
+   "hash": "9aa7b083ce",
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
@@ -223608,7 +223610,7 @@
    "tris": 218,
    "tpu": 636,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 10284,
    "vtx": 236,
@@ -223620,19 +223622,14 @@
    "avgTri": 0.002,
    "anglePct": 41,
    "vpt": 1.08,
-   "grad": 0.75,
+   "grad": 0.79,
    "spread": {
     "14,3": [
      0.102,
      0.891
-    ],
-    "12,3": [
-     0.297,
-     0.563
     ]
    },
    "colors": [
-    "#57493d",
     "#88735f"
    ],
    "tags": [
@@ -292204,7 +292201,7 @@
   {
    "kit": "lpa-weapons",
    "name": "mandolin",
-   "hash": "c073c6994c",
+   "hash": "2e7752fc0b",
    "kind": "obj-leisure-art-instrument-string",
    "size": "s",
    "wdh": [
@@ -292241,15 +292238,15 @@
      0.5,
      0.5
     ],
-    "12,3": [
+    "14,3": [
      0.977,
      0.977
     ]
    },
    "colors": [
-    "#57493d",
     "#7a8491",
     "#804f2a",
+    "#88735f",
     "#ac764c"
    ],
    "tags": [
@@ -301558,7 +301555,7 @@
   {
    "kit": "m3-base",
    "name": "arrowhead",
-   "hash": "6aab18cd8c",
+   "hash": "4064ffe66e",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -301582,13 +301579,13 @@
    "vpt": 1.16,
    "grad": 0.43,
    "spread": {
-    "12,3": [
+    "14,3": [
      0.32,
      0.75
     ]
    },
    "colors": [
-    "#57493d"
+    "#88735f"
    ],
    "tags": [
     "comp",
@@ -309428,6 +309425,11 @@
      "level": "error",
      "check": "measures",
      "text": "G11 bands 5 wants max 4"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G31 band:taupe-dark true wants is false"
     },
     {
      "level": "error",
@@ -468003,7 +468005,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "urn-a",
-   "hash": "dcea1559d5",
+   "hash": "c911bba237",
    "kind": "obj-container-pot-urn",
    "size": "s",
    "wdh": [
@@ -468027,17 +468029,17 @@
    "vpt": 1.68,
    "grad": 0.7,
    "spread": {
-    "12,3": [
+    "14,3": [
      0.164,
      0.859
     ]
    },
    "colors": [
-    "#57493d"
+    "#88735f"
    ],
    "tags": [
     "asia",
-    "stone-masonry-dark",
+    "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
@@ -472071,7 +472073,7 @@
   {
    "kit": "wizp-lava",
    "name": "rock-e",
-   "hash": "12174eb111",
+   "hash": "cfb38dabd1",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
@@ -472095,13 +472097,13 @@
    "vpt": 2.74,
    "grad": 0.77,
    "spread": {
-    "12,3": [
+    "14,3": [
      0.016,
      0.789
     ]
    },
    "colors": [
-    "#57493d"
+    "#88735f"
    ],
    "tags": [
     "stone-rock",
@@ -472113,7 +472115,7 @@
   {
    "kit": "wizp-lava",
    "name": "rock-f",
-   "hash": "a52f637400",
+   "hash": "1010851c37",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
@@ -472137,13 +472139,13 @@
    "vpt": 2.86,
    "grad": 0.71,
    "spread": {
-    "12,3": [
+    "14,3": [
      0.078,
      0.789
     ]
    },
    "colors": [
-    "#57493d"
+    "#88735f"
    ],
    "tags": [
     "stone-rock",
@@ -472155,7 +472157,7 @@
   {
    "kit": "wizp-lava",
    "name": "rock-g",
-   "hash": "35b2ad26c7",
+   "hash": "51ebaa9e77",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
@@ -472179,13 +472181,13 @@
    "vpt": 2.82,
    "grad": 0.74,
    "spread": {
-    "12,3": [
+    "14,3": [
      0.047,
      0.789
     ]
    },
    "colors": [
-    "#57493d"
+    "#88735f"
    ],
    "tags": [
     "stone-rock",
@@ -472390,7 +472392,7 @@
   {
    "kit": "wizp-lava",
    "name": "rock-hot-e",
-   "hash": "dc79365bd9",
+   "hash": "505fd3485e",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
@@ -472414,7 +472416,7 @@
    "vpt": 2.81,
    "grad": 0.45,
    "spread": {
-    "12,3": [
+    "14,3": [
      0.867,
      0.977
     ],
@@ -472424,7 +472426,7 @@
     ]
    },
    "colors": [
-    "#57493d",
+    "#88735f",
     "#f1a63b"
    ],
    "tags": [
@@ -472438,7 +472440,7 @@
   {
    "kit": "wizp-lava",
    "name": "rock-hot-f",
-   "hash": "98d0ea0be1",
+   "hash": "e9744bc113",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
@@ -472466,13 +472468,13 @@
      0.273,
      0.82
     ],
-    "12,3": [
+    "14,3": [
      0.922,
      0.977
     ]
    },
    "colors": [
-    "#57493d",
+    "#88735f",
     "#f1a63b"
    ],
    "tags": [
@@ -472486,7 +472488,7 @@
   {
    "kit": "wizp-lava",
    "name": "rock-hot-g",
-   "hash": "f0ca2f9b16",
+   "hash": "69fafc18da",
    "kind": "env-terrain-rock-cobble",
    "size": "s",
    "wdh": [
@@ -472514,13 +472516,13 @@
      0.336,
      0.82
     ],
-    "12,3": [
+    "14,3": [
      0.938,
      0.977
     ]
    },
    "colors": [
-    "#57493d",
+    "#88735f",
     "#f1a63b"
    ],
    "tags": [

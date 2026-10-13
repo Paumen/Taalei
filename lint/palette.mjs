@@ -2,7 +2,8 @@ import { buildPalettes, paletteFindingsFor, idUnder, materialIdsOf } from './rul
 import { read, VARS, printTally, widthsOf } from './report.mjs';
 
 const MATERIALS = read(VARS.materials);
-const PALETTES = buildPalettes(MATERIALS, VARS);
+const KINDS = read(VARS.kinds);
+const PALETTES = buildPalettes(MATERIALS, KINDS);
 const { models } = read(VARS.models);
 
 const materialIds = materialIdsOf(MATERIALS);

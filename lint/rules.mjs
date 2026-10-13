@@ -4,6 +4,8 @@ export const KIND_FIELDS = ['bands.max', 'tube.min'];
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
 const BAND = 'band';
+const PALETTE_PREFIX = 'palette.';
+const BAND_PREFIX = 'band:';
 
 export const idUnder = (id, ancestor) => id === ancestor || Boolean(id?.startsWith(`${ancestor}-`));
 export const isBuilding = (kind) => idUnder(kind, 'str-building');
@@ -242,23 +244,29 @@ export function materialFindingsFor(model, rules, materialIds, vars) {
   return out;
 }
 
-export function buildPalettes(materials, vars) {
+export function buildPalettes(materials, kinds) {
   const lanes = new Map(Object.entries(materials.bands));
   const names = new Map([...lanes].map(([band, lane]) => [lane, band]));
   const parent = materialIdsOf(materials);
   const depth = (id) => { let d = 0; for (let at = parent.get(id); at; at = parent.get(at)) d++; return d; };
   const rows = [];
   const walk = (node) => {
-    if (node.bands) rows.push({ mat: node.id, size: null, bands: node.bands });
+    for (const [key, bands] of Object.entries(node)) {
+      if (key === 'bands') rows.push({ mat: node.id, size: null, bands });
+      else if (key.startsWith('bands.')) rows.push({ mat: node.id, size: key.slice('bands.'.length), bands });
+    }
     for (const child of node.children ?? []) walk(child);
   };
   for (const root of materials.materials) walk(root);
-  for (const [mat, bySize] of Object.entries(vars.palette.sizeBands ?? {})) {
-    for (const [size, bands] of Object.entries(bySize)) rows.push({ mat, size, bands });
-  }
   rows.sort((a, b) => depth(b.mat) - depth(a.mat));
-  const kindBands = Object.entries(vars.palette.kindBands ?? {})
-    .flatMap(([mat, byKind]) => Object.entries(byKind).map(([kind, bands]) => ({ mat, kind, bands })));
+  const kindBands = [];
+  const walkKinds = (node) => {
+    for (const [key, bands] of Object.entries(node)) {
+      if (key.startsWith(PALETTE_PREFIX)) kindBands.push({ mat: key.slice(PALETTE_PREFIX.length), kind: node.id, bands });
+    }
+    for (const child of node.children ?? []) walkKinds(child);
+  };
+  for (const root of kinds.kinds) walkKinds(root);
   return { lanes, names, rows, kindBands, parent };
 }
 
@@ -350,7 +358,8 @@ export function tubeNeed(model) {
   return model.tubemin ?? 0;
 }
 
-function fieldOf(model, name, materialIds, vars) {
+function fieldOf(model, name, materialIds, vars, lanes) {
+  if (name.startsWith(BAND_PREFIX)) return Object.keys(model.spread ?? {}).includes(lanes.get(name.slice(BAND_PREFIX.length)));
   if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
   if (name === 'tubeneed') return tubeNeed(model);
   if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
@@ -401,13 +410,13 @@ function holds(assert, actual, wanted) {
   }
 }
 
-export function measureFindingsFor(subject, rows, materialIds, vars, kindFields) {
+export function measureFindingsFor(subject, rows, materialIds, vars, kindFields, lanes) {
   const model = withKindFields(subject, kindFields);
   const out = [];
   for (const row of rows) {
     if (!matchTerm(row.when, model, materialIds, vars)) continue;
     if (row.except && matchTerm(row.except, model, materialIds, vars)) continue;
-    const actual = fieldOf(model, row.field, materialIds, vars);
+    const actual = fieldOf(model, row.field, materialIds, vars, lanes);
     const wanted = resolveValue(row.value, model, materialIds, vars);
     if (holds(row.assert, actual, wanted)) continue;
     out.push({
@@ -467,7 +476,7 @@ export function buildChecks({ vars, kinds, materials, measures }) {
     limits: buildLimits(kinds),
     scales: buildScales(kinds),
     mat: buildMaterialRules(kinds),
-    palettes: buildPalettes(materials, vars),
+    palettes: buildPalettes(materials, kinds),
     bands: buildKindBands(kinds),
     measures: measures.rows,
     kindFields: buildKindFields(kinds),
@@ -502,7 +511,7 @@ export function checkModel(model, checks) {
   push('backface', null, backfaceFindingsFor(model, vars));
 
   const mark = [];
-  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields)) {
+  for (const row of measureFindingsFor(model, checks.measures, materialIds, vars, checks.kindFields, checks.palettes.lanes)) {
     if (vars.mark.includes(row.rule)) mark.push(row.field);
     else push('measures', row.level, [row]);
   }
