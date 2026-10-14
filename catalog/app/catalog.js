@@ -116,9 +116,7 @@ function makeCard(model, kits, variants = []) {
     showThumb(box, thumb.at);
   }
 
-  const size = sizeClass(model);
   const glyphs = span('kaart-glyfen');
-  glyphs.append(glyph('maat', size.sign, `${size.hint} (longest axis ${size.longest.toFixed(2)})`));
   if (model.anim?.length) {
     glyphs.append(glyph('animatie', '▶', `${model.anim.length} animation${model.anim.length > 1 ? 's' : ''} — playable in the model panel`));
   }
@@ -554,8 +552,16 @@ function showDetail(model) {
   document.querySelector('#detail-naam').textContent = model.name;
   document.querySelector('#detail-herkomst').textContent = kit?.name ?? model.group;
 
+  const size = sizeClass(model);
   const lines = [
-    [{ kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh) }],
+    [
+      { kop: 'Size', vol: 'Size (w × d × h)', waarde: dimensions(model.wdh) },
+      {
+        kop: 'Class',
+        vol: 'Size class',
+        element: glyph('maat', size.sign, `${size.hint} (longest axis ${size.longest.toFixed(2)})`),
+      },
+    ],
     [
       {
         kop: 'Tris',
