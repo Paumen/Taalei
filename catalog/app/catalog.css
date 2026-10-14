@@ -518,11 +518,11 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   left: 0;
   z-index: 2;
   display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  padding: 4px;
-  border: 4px solid transparent;
+  place-items: start;
+  width: 38px;
+  height: 38px;
+  padding: 5px;
+  border: 0;
   border-radius: 999px;
   background: none;
   cursor: pointer;
@@ -536,8 +536,8 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 
 .kaart-kies input {
   margin: 0;
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   accent-color: var(--accent);
   cursor: pointer;
 }
@@ -569,8 +569,8 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 .kaart[hidden] { display: none; }
 .kaart-glyfen {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 4px;
+  right: 4px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -685,14 +685,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   border-top: 1px solid var(--lijn);
 }
 
-.kaart-naam {
-  font-size: 12.5px;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-  line-height: 1.25;
-  min-height: 2.5em;
-}
-
 .kaart-meta {
   display: flex;
   gap: 8px;
@@ -704,26 +696,7 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
 
 .kaart-meta .zwaar { color: var(--zwaar); font-weight: 600; }
 
-.kaart-merk {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  min-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.kaart-merk::before {
-  content: "";
-  flex: none;
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
-  background: var(--merk-kleur, var(--inkt-zacht));
-}
-.sectie[data-soort="kit"] .kaart-merk { display: none; }
-.sectie[data-soort^="kind"] .kaart-grootte { display: none; }
+.sectie[data-soort^="kind"] .kaart-tekst { display: none; }
 
 .leeg {
   display: none;
@@ -1082,20 +1055,7 @@ body:has(.selectiebalk:not([hidden])):has(.tagedit-balk:not([hidden])) { padding
     gap: 6px;
   }
 
-  .kaart-tekst { padding: 5px 6px 6px; gap: 1px; }
-
-  .kaart-naam {
-    font-size: 10.5px;
-    min-height: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .kaart-meta { font-size: 9.5px; }
-  .kaart-grootte { display: none; }
-  .kaart-merk { display: none; }
-  .kaart-kies input { width: 15px; height: 15px; }
+  .kaart-tekst { display: none; }
   .selectiebalk {
     left: 12px;
     right: 12px;

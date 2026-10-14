@@ -184,6 +184,7 @@ function makeCard(model, variants = []) {
   const card = document.createElement('button');
   card.type = 'button';
   card.className = 'kaart';
+  card.title = model.name;
 
   const box = document.createElement('div');
   box.className = 'kaart-viewer';
@@ -193,13 +194,8 @@ function makeCard(model, variants = []) {
   const text = document.createElement('div');
   text.className = 'kaart-tekst';
   const meta = span('kaart-meta');
-  meta.append(
-    span('kaart-merk', pack?.short ?? model.kit),
-    span('kaart-grootte', `${number.format(model.tris)} tri`),
-  );
-  const name = span('kaart-naam', model.name.replace(/_/g, '_\u200b'));
-  name.title = model.name;
-  text.append(name, meta);
+  meta.append(span('kaart-grootte', `${number.format(model.tris)} tri`));
+  text.append(meta);
 
   const family = [model, ...variants];
   const familyPaths = family.map((m) => m.path);

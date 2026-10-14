@@ -104,6 +104,7 @@ function makeCard(model, kits, variants = []) {
   const card = document.createElement('button');
   card.type = 'button';
   card.className = 'kaart';
+  card.title = model.name;
   card.style.setProperty('--merk-kleur', KIT_COLORS[model.group] ?? 'currentColor');
 
   const box = document.createElement('div');
@@ -136,11 +137,8 @@ function makeCard(model, kits, variants = []) {
   const text = document.createElement('div');
   text.className = 'kaart-tekst';
   const meta = span('kaart-meta');
-  meta.append(
-    span('kaart-merk', kit?.name ?? model.group),
-    span('kaart-grootte', readableBytes(model.bytes)),
-  );
-  text.append(span('kaart-naam', model.name), meta);
+  meta.append(span('kaart-grootte', readableBytes(model.bytes)));
+  text.append(meta);
 
   card.append(box, glyphs, text);
 
