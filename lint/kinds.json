@@ -283,6 +283,23 @@
           "thermos",
           "hip flask"
          ]
+        },
+        {
+         "id": "obj-container-bottle-sauce",
+         "nouns": [
+          "squeeze bottle",
+          "ketchup bottle",
+          "mustard bottle",
+          "sauce bottle"
+         ]
+        },
+        {
+         "id": "obj-container-bottle-pump",
+         "nouns": [
+          "pump bottle",
+          "soap dispenser",
+          "lotion pump"
+         ]
         }
        ]
       },
@@ -327,11 +344,7 @@
        },
        "nouns": [
         "pot",
-        "planter",
-        "amphora",
-        "jug",
-        "pitcher",
-        "ewer"
+        "amphora"
        ],
        "children": [
         {
@@ -357,6 +370,23 @@
          "longest.max": 0.5,
          "nouns": [
           "urn"
+         ]
+        },
+        {
+         "id": "obj-container-pot-planter",
+         "nouns": [
+          "planter",
+          "flower pot",
+          "plant pot",
+          "planter box"
+         ]
+        },
+        {
+         "id": "obj-container-pot-jug",
+         "nouns": [
+          "jug",
+          "pitcher",
+          "ewer"
          ]
         }
        ]
@@ -384,6 +414,22 @@
           "gas can",
           "jerrycan",
           "fuel can"
+         ]
+        },
+        {
+         "id": "obj-container-can-soda",
+         "nouns": [
+          "soda can",
+          "drink can",
+          "beer can"
+         ]
+        },
+        {
+         "id": "obj-container-can-food",
+         "nouns": [
+          "food can",
+          "tin can",
+          "canned food"
          ]
         }
        ]
@@ -456,7 +502,6 @@
        "tube.min": 0.006,
        "nouns": [
         "gas cylinder",
-        "fire extinguisher",
         "vat"
        ],
        "children": [
@@ -467,6 +512,12 @@
           "propane tank",
           "gas bottle",
           "gas canister"
+         ]
+        },
+        {
+         "id": "obj-container-cylinder-extinguisher",
+         "nouns": [
+          "fire extinguisher"
          ]
         }
        ]
@@ -532,8 +583,6 @@
          "longest.max": 0.35,
          "tube.min": 0.006,
          "nouns": [
-          "knife (table)",
-          "fork",
           "spoon"
          ],
          "children": [
@@ -543,6 +592,33 @@
            "longest.max": 0.4,
            "nouns": [
             "chopsticks"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-cutlery-fork",
+           "nouns": [
+            "fork",
+            "table fork",
+            "dinner fork"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-cutlery-knife",
+           "nouns": [
+            "knife (table)",
+            "table knife",
+            "butter knife",
+            "steak knife"
+           ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-cutlery-spoon",
+           "nouns": [
+            "spoon (table)",
+            "table spoon",
+            "teaspoon",
+            "soup spoon",
+            "rice spoon"
            ]
           }
          ]
@@ -742,6 +818,13 @@
             "frying pan",
             "skillet"
            ]
+          },
+          {
+           "id": "obj-kitchenware-cookware-pan-saucepan",
+           "nouns": [
+            "saucepan",
+            "sauce pan"
+           ]
           }
          ]
         },
@@ -855,6 +938,13 @@
               "cleaver",
               "nakiri knife"
              ]
+            },
+            {
+             "id": "obj-kitchenware-cookware-utensil-knife-block",
+             "nouns": [
+              "knife block",
+              "knife rack"
+             ]
             }
            ]
           }
@@ -956,7 +1046,6 @@
         "big": 2.5
        },
        "nouns": [
-        "potato",
         "veggie patty"
        ],
        "children": [
@@ -1058,6 +1147,12 @@
            ]
           }
          ]
+        },
+        {
+         "id": "obj-food-vegetable-potato",
+         "nouns": [
+          "potato"
+         ]
         }
        ]
       },
@@ -1076,7 +1171,6 @@
         "big": 2
        },
        "nouns": [
-        "fish fillet",
         "cured fish"
        ],
        "children": [
@@ -1087,6 +1181,14 @@
          "nouns": [
           "sushi",
           "sashimi"
+         ]
+        },
+        {
+         "id": "obj-food-fish-fillet",
+         "nouns": [
+          "fish fillet",
+          "fish steak",
+          "salmon fillet"
          ]
         }
        ]
@@ -1216,8 +1318,6 @@
        "longest.min": 0.08,
        "longest.max": 0.2,
        "nouns": [
-        "yogurt",
-        "yoghurt",
         "dairy"
        ],
        "children": [
@@ -1233,6 +1333,14 @@
           "cheese",
           "cheese wheel",
           "cheese wedge"
+         ]
+        },
+        {
+         "id": "obj-food-dairy-yogurt",
+         "nouns": [
+          "yogurt",
+          "yoghurt",
+          "yogurt cup"
          ]
         }
        ]
@@ -1298,10 +1406,7 @@
        "nouns": [
         "meal",
         "plated meal",
-        "stew",
-        "soup",
-        "taco",
-        "pizza"
+        "taco"
        ],
        "children": [
         {
@@ -1320,6 +1425,30 @@
          "nouns": [
           "sandwich",
           "sub"
+         ]
+        },
+        {
+         "id": "obj-food-meal-pizza",
+         "nouns": [
+          "pizza",
+          "pizza slice"
+         ]
+        },
+        {
+         "id": "obj-food-meal-fries",
+         "nouns": [
+          "fries",
+          "french fries",
+          "chips (fries)"
+         ]
+        },
+        {
+         "id": "obj-food-meal-soup",
+         "nouns": [
+          "soup",
+          "stew",
+          "ramen",
+          "noodle soup"
          ]
         }
        ]
@@ -1455,6 +1584,14 @@
             "cupcake",
             "muffin"
            ]
+          },
+          {
+           "id": "obj-food-baked-pastry-pancake",
+           "nouns": [
+            "pancake",
+            "pancake stack",
+            "crepe"
+           ]
           }
          ]
         }
@@ -1539,6 +1676,21 @@
               "katana",
               "saber",
               "scimitar"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-melee-sword-great",
+             "nouns": [
+              "greatsword",
+              "two-handed sword",
+              "longsword"
+             ]
+            },
+            {
+             "id": "obj-equipment-weapon-melee-sword-short",
+             "nouns": [
+              "short sword",
+              "gladius"
              ]
             }
            ]
@@ -1729,6 +1881,13 @@
                 "sniper rifle",
                 "sniper"
                ]
+              },
+              {
+               "id": "obj-equipment-weapon-ranged-firearm-rifle-assault",
+               "nouns": [
+                "assault rifle",
+                "automatic rifle"
+               ]
               }
              ]
             },
@@ -1852,6 +2011,14 @@
               "catapult ball"
              ]
             }
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-siege-catapult",
+           "nouns": [
+            "catapult",
+            "trebuchet",
+            "mangonel"
            ]
           }
          ]
@@ -2128,7 +2295,6 @@
          "nouns": [
           "scroll",
           "letter",
-          "parchment",
           "blueprint"
          ],
          "children": [
@@ -2138,6 +2304,15 @@
            "nouns": [
             "map (rolled)",
             "rolled scroll"
+           ]
+          },
+          {
+           "id": "obj-equipment-pocketitem-scroll-open",
+           "nouns": [
+            "open scroll",
+            "unrolled scroll",
+            "parchment",
+            "map (open)"
            ]
           }
          ]
@@ -2346,6 +2521,12 @@
            "nouns": [
             "rake",
             "hoe"
+           ]
+          },
+          {
+           "id": "obj-equipment-tool-twohand-sledgehammer",
+           "nouns": [
+            "sledgehammer"
            ]
           }
          ]
@@ -2625,8 +2806,7 @@
          "longest.min": 0.25,
          "longest.max": 0.5,
          "nouns": [
-          "wheel",
-          "tire"
+          "wheel"
          ],
          "children": [
           {
@@ -2634,6 +2814,14 @@
            "nouns": [
             "wooden wheel",
             "cartwheel"
+           ]
+          },
+          {
+           "id": "obj-transport-part-wheel-tire",
+           "nouns": [
+            "tire",
+            "tyre",
+            "tire stack"
            ]
           }
          ]
@@ -2704,7 +2892,25 @@
              "nouns": [
               "wheelbarrow"
              ]
+            },
+            {
+             "id": "obj-transport-land-cart-small-trolley",
+             "nouns": [
+              "trolley",
+              "hand truck",
+              "pallet jack",
+              "shopping cart",
+              "service cart"
+             ]
             }
+           ]
+          },
+          {
+           "id": "obj-transport-land-cart-wagon",
+           "nouns": [
+            "covered wagon",
+            "prairie wagon",
+            "conestoga"
            ]
           }
          ],
@@ -2798,7 +3004,6 @@
         "small": 0.5
        },
        "nouns": [
-        "ingot",
         "bar",
         "nugget",
         "ore lump"
@@ -2808,10 +3013,8 @@
          "id": "obj-resource-metal-parts",
          "longest.min": 0.08,
          "nouns": [
-          "cog",
           "spare part",
-          "gasket",
-          "gear"
+          "gasket"
          ],
          "children": [
           {
@@ -2820,7 +3023,24 @@
             "pipe (stock)",
             "pipe bundle"
            ]
+          },
+          {
+           "id": "obj-resource-metal-parts-gear",
+           "nouns": [
+            "gear",
+            "cog",
+            "sprocket"
+           ]
           }
+         ]
+        },
+        {
+         "id": "obj-resource-metal-ingot",
+         "nouns": [
+          "ingot",
+          "bar (metal)",
+          "gold bar",
+          "ingot stack"
          ]
         }
        ]
@@ -2951,8 +3171,7 @@
          "longest.max": 0.6,
          "tube.min": 0.006,
          "nouns": [
-          "lamp",
-          "wall lamp"
+          "lamp"
          ],
          "children": [
           {
@@ -2978,7 +3197,6 @@
            "longest.max": 0.7,
            "nouns": [
             "ceiling lamp",
-            "chandelier",
             "ceiling light",
             "disco ball"
            ],
@@ -2989,6 +3207,12 @@
              "longest.max": 0.9,
              "nouns": [
               "ceiling fan"
+             ]
+            },
+            {
+             "id": "obj-furnishing-light-lamp-ceiling-chandelier",
+             "nouns": [
+              "chandelier"
              ]
             }
            ]
@@ -3001,6 +3225,14 @@
             "stage light",
             "floor spot",
             "light bar"
+           ]
+          },
+          {
+           "id": "obj-furnishing-light-lamp-wall",
+           "nouns": [
+            "wall lamp",
+            "wall light",
+            "sconce"
            ]
           }
          ]
@@ -3177,8 +3409,7 @@
            "longest.min": 0.2,
            "longest.max": 0.5,
            "nouns": [
-            "stool",
-            "footstool"
+            "stool"
            ],
            "children": [
             {
@@ -3190,6 +3421,15 @@
               "lab stool",
               "counter stool",
               "roller stool"
+             ]
+            },
+            {
+             "id": "obj-furnishing-furniture-seating-stool-foot",
+             "nouns": [
+              "footstool",
+              "ottoman",
+              "footrest",
+              "pouffe"
              ]
             }
            ]
@@ -3248,6 +3488,13 @@
             "office desk",
             "corner desk",
             "writing desk"
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-table-coffee",
+           "nouns": [
+            "coffee table",
+            "low table"
            ]
           }
          ]
@@ -3317,6 +3564,14 @@
               "locker bank",
               "deposit box"
              ]
+            },
+            {
+             "id": "obj-furnishing-furniture-storage-cabinet-wall",
+             "nouns": [
+              "wall cabinet",
+              "upper cabinet",
+              "kitchen wall cupboard"
+             ]
             }
            ]
           },
@@ -3336,9 +3591,6 @@
            "longest.max": 0.95,
            "nouns": [
             "rack",
-            "display rack",
-            "spinner rack",
-            "slat wall",
             "ball rack",
             "dumbbell rack",
             "shelf cart"
@@ -3362,6 +3614,15 @@
               "coat stand",
               "hat stand",
               "coat hooks"
+             ]
+            },
+            {
+             "id": "obj-furnishing-furniture-storage-rack-display",
+             "nouns": [
+              "display rack",
+              "spinner rack",
+              "slat wall",
+              "prize wall"
              ]
             }
            ]
@@ -3398,6 +3659,15 @@
             "counter sink",
             "kitchen sink",
             "sink"
+           ]
+          },
+          {
+           "id": "obj-furnishing-furniture-counter-display",
+           "nouns": [
+            "display case",
+            "display counter",
+            "glass counter",
+            "showcase"
            ]
           }
          ]
@@ -3721,10 +3991,7 @@
           "computer",
           "laptop",
           "computer desk",
-          "console (computer)",
           "printer",
-          "game console",
-          "control panel",
           "router"
          ],
          "children": [
@@ -3743,6 +4010,21 @@
            "nouns": [
             "keyboard (computer)",
             "mouse (computer)"
+           ]
+          },
+          {
+           "id": "obj-device-electronics-computer-console",
+           "nouns": [
+            "game console",
+            "game controller"
+           ]
+          },
+          {
+           "id": "obj-device-electronics-computer-terminal",
+           "nouns": [
+            "computer terminal",
+            "control panel",
+            "console (computer)"
            ]
           }
          ]
@@ -3829,6 +4111,15 @@
             "binoculars"
            ]
           }
+         ]
+        },
+        {
+         "id": "obj-device-science-labware",
+         "nouns": [
+          "petri dish",
+          "pipette",
+          "test tube rack",
+          "funnel stand"
          ]
         }
        ]
@@ -4136,6 +4427,30 @@
             "wood floor",
             "plank floor"
            ]
+          },
+          {
+           "id": "str-part-floor-unit-stone",
+           "nouns": [
+            "stone floor",
+            "flagstone floor",
+            "cobblestone floor",
+            "paving"
+           ]
+          },
+          {
+           "id": "str-part-floor-unit-dirt",
+           "nouns": [
+            "dirt floor",
+            "earth floor"
+           ]
+          },
+          {
+           "id": "str-part-floor-unit-tiled",
+           "nouns": [
+            "tiled floor",
+            "checker floor",
+            "kitchen floor"
+           ]
           }
          ]
         }
@@ -4333,9 +4648,7 @@
        "band.leaf": [
         "moss"
        ],
-       "nouns": [
-        "apartment building"
-       ],
+       "nouns": [],
        "children": [
         {
          "id": "str-building-residential-house",
@@ -4345,6 +4658,14 @@
           "cottage",
           "annex",
           "lean-to"
+         ]
+        },
+        {
+         "id": "str-building-residential-apartment",
+         "nouns": [
+          "apartment building",
+          "block of flats",
+          "townhouse block"
          ]
         }
        ]
@@ -4378,7 +4699,6 @@
        "id": "str-building-tower",
        "nouns": [
         "tower",
-        "watchtower",
         "belltower",
         "lighthouse"
        ],
@@ -4395,6 +4715,13 @@
          ],
          "nouns": [
           "skyscraper"
+         ]
+        },
+        {
+         "id": "str-building-tower-watch",
+         "nouns": [
+          "watchtower",
+          "lookout tower"
          ]
         }
        ]
@@ -4438,10 +4765,7 @@
          "id": "str-building-work-agricultural",
          "nouns": [
           "farm",
-          "chicken coop",
-          "farmhouse",
-          "barn",
-          "kennel"
+          "farmhouse"
          ],
          "children": [
           {
@@ -4450,14 +4774,27 @@
             "silo",
             "granary"
            ]
+          },
+          {
+           "id": "str-building-work-agricultural-barn",
+           "nouns": [
+            "barn"
+           ]
+          },
+          {
+           "id": "str-building-work-agricultural-coop",
+           "nouns": [
+            "chicken coop",
+            "hutch",
+            "kennel",
+            "animal house"
+           ]
           }
          ]
         },
         {
          "id": "str-building-work-industrial",
          "nouns": [
-          "factory",
-          "plant",
           "warehouse",
           "storage"
          ],
@@ -4494,6 +4831,13 @@
             "mine entrance",
             "mine portal"
            ]
+          },
+          {
+           "id": "str-building-work-industrial-factory",
+           "nouns": [
+            "factory",
+            "plant"
+           ]
           }
          ]
         },
@@ -4514,7 +4858,6 @@
     {
      "id": "str-barrier",
      "nouns": [
-      "wall (low, garden)",
       "barricade",
       "curb",
       "kerb",
@@ -4652,6 +4995,15 @@
        },
        "nouns": [
         "hedge (trimmed)"
+       ]
+      },
+      {
+       "id": "str-barrier-wall",
+       "nouns": [
+        "low wall",
+        "garden wall",
+        "wall (low, garden)",
+        "dry stone wall"
        ]
       }
      ]
@@ -4918,8 +5270,6 @@
          },
          "nouns": [
           "sign",
-          "notice board",
-          "menu board",
           "price card"
          ],
          "children": [
@@ -4963,6 +5313,24 @@
             "wet floor sign",
             "caution sign",
             "signboard (freestanding)"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-noticeboard",
+           "nouns": [
+            "notice board",
+            "noticeboard",
+            "corkboard",
+            "bulletin board"
+           ]
+          },
+          {
+           "id": "str-fixture-marker-sign-menu",
+           "nouns": [
+            "menu board",
+            "price board",
+            "price totem",
+            "rate board"
            ]
           }
          ]
@@ -5218,7 +5586,6 @@
         "metal-copper"
        ],
        "nouns": [
-        "stone lantern",
         "warning beacon"
        ],
        "children": [
@@ -5272,6 +5639,13 @@
           "traffic light",
           "traffic signal",
           "start light"
+         ]
+        },
+        {
+         "id": "str-fixture-light-lantern",
+         "nouns": [
+          "stone lantern",
+          "toro"
          ]
         }
        ]
@@ -5847,6 +6221,13 @@
             "potted cactus",
             "potted succulent"
            ]
+          },
+          {
+           "id": "env-flora-plant-cactus-saguaro",
+           "nouns": [
+            "saguaro",
+            "column cactus"
+           ]
           }
          ]
         },
@@ -5915,6 +6296,14 @@
          ],
          "nouns": [
           "palm"
+         ]
+        },
+        {
+         "id": "env-flora-tree-poplar",
+         "nouns": [
+          "poplar",
+          "cypress",
+          "columnar tree"
          ]
         }
        ]

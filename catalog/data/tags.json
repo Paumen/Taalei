@@ -17043,16 +17043,11 @@
    "models": [
     "ken-chars/aid-defibrillator-green",
     "ken-chars/aid-defibrillator-red",
-    "sq-lab/funnel-stand",
     "sq-lab/syringe",
     "styloo-school/centrifuge",
     "styloo-school/microscope",
     "styloo-school/molecule-model",
-    "styloo-school/test-tube-rack",
-    "3dm-scifi/chamber",
-    "m3-base/petri-dish",
-    "m3-base/petri-dish-lid",
-    "m3-base/pipette"
+    "3dm-scifi/chamber"
    ]
   },
   {
@@ -17104,6 +17099,19 @@
     "quat-space/planet-spiked",
     "m3-base/globe",
     "m3-base/celestial-globe"
+   ]
+  },
+  {
+   "id": "obj-device-science-labware",
+   "name": "Labware",
+   "type": "kind",
+   "description": "petri dish, pipette, test tube rack, funnel stand",
+   "models": [
+    "m3-base/petri-dish",
+    "m3-base/petri-dish-lid",
+    "m3-base/pipette",
+    "sq-lab/funnel-stand",
+    "styloo-school/test-tube-rack"
    ]
   },
   {
@@ -17307,22 +17315,10 @@
    "type": "kind",
    "description": "Computer, laptop, keyboard, router or computer desk.",
    "models": [
-    "ken-station/computer",
-    "ken-station/computer-system",
-    "ken-space/desk-computer",
-    "ken-space/desk-computer-corner",
     "ken-furniture/laptop",
-    "ken-space/desk-computer-screen",
-    "ken-station/computer-screen",
-    "ken-station/computer-wide",
-    "lpa-home/console-c",
-    "lpa-home/console-d",
     "lpa-home/laptop",
     "styloo-school/printer",
     "household/printer",
-    "3dm-electronics/console",
-    "3dm-scifi/control-panel",
-    "m3-base/cartoon-controller",
     "3dm-electronics/router",
     "styloo-school/router"
    ]
@@ -17354,6 +17350,35 @@
     "styloo-school/pc-tower",
     "styloo-school/pc-tower-old",
     "m3-base/retro-computer"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-computer-console",
+   "name": "Console",
+   "type": "kind",
+   "description": "game console, game controller",
+   "models": [
+    "3dm-electronics/console",
+    "lpa-home/console-c",
+    "lpa-home/console-d",
+    "m3-base/cartoon-controller"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-computer-terminal",
+   "name": "Terminal",
+   "type": "kind",
+   "description": "computer terminal, control panel, console (computer)",
+   "models": [
+    "3dm-scifi/control-panel",
+    "ken-space/desk-computer-corner",
+    "ken-space/desk-computer-screen",
+    "ken-space/desk-computer",
+    "ken-station/computer-screen",
+    "ken-station/computer-system",
+    "ken-station/computer-wide",
+    "ken-station/computer",
+    "sq-bowling/score-console"
    ]
   },
   {
@@ -17553,13 +17578,9 @@
    "id": "obj-container-cylinder",
    "name": "Cylinder",
    "type": "kind",
-   "description": "Pressure or chemical cylinder: gas cylinder, fire extinguisher, chemical vat.",
+   "description": "Pressure or chemical cylinder: gas cylinder, chemical vat.",
    "models": [
-    "sq-lab/gas-cylinder",
-    "sq-lab/chemical-vat",
-    "sq-lab/fire-extinguisher",
-    "styloo-school/fire-extinguisher",
-    "3dm-industrial-2/fire-extinguisher"
+    "sq-lab/chemical-vat"
    ]
   },
   {
@@ -17575,7 +17596,19 @@
     "quat-shoot/gas-tank",
     "m3-base/gas-canister",
     "3dm-industrial/gas-bottle",
-    "m3-base/co2-cartridge"
+    "m3-base/co2-cartridge",
+    "sq-lab/gas-cylinder"
+   ]
+  },
+  {
+   "id": "obj-container-cylinder-extinguisher",
+   "name": "Extinguisher",
+   "type": "kind",
+   "description": "fire extinguisher",
+   "models": [
+    "3dm-industrial-2/fire-extinguisher",
+    "sq-lab/fire-extinguisher",
+    "styloo-school/fire-extinguisher"
    ]
   },
   {
@@ -17589,7 +17622,8 @@
     "quat-shoot/dumpster",
     "lpa-construction/skip",
     "3dm-city/dumpster",
-    "m3-base/skip"
+    "m3-base/skip",
+    "quat-shoot/trash-container-open"
    ]
   },
   {
@@ -17620,27 +17654,10 @@
    "type": "kind",
    "description": "can",
    "models": [
-    "isa-picnic/drink-can",
-    "quat-survival/can-broken",
-    "quat-survival/can-red",
-    "quat-survival/can",
-    "ken-food/soda-can",
-    "ken-food/soda-can-crushed",
-    "ken-food/can",
-    "ken-food/can-open",
-    "ken-food/can-small",
-    "styloo-kitchen/soda-can",
-    "kay-proto/can-a",
-    "kay-proto/can-b",
     "lpa-construction/paint-bucket",
-    "styloo-school/soda-can",
     "3dm-industrial-2/spray-can",
-    "m3-base/canned-food-01",
-    "m3-base/canned-food-02",
-    "m3-base/canned-food-03",
     "m3-base/paint-stripper-can",
     "m3-base/ring-pull",
-    "m3-base/soda-can",
     "m3-base/spray-can"
    ]
   },
@@ -17677,6 +17694,39 @@
     "isa-plants/watering-can-b",
     "household/watering-can",
     "m3-base/watering-can-01"
+   ]
+  },
+  {
+   "id": "obj-container-can-soda",
+   "name": "Soda",
+   "type": "kind",
+   "description": "soda can, drink can, beer can",
+   "models": [
+    "isa-picnic/drink-can",
+    "kay-proto/can-a",
+    "kay-proto/can-b",
+    "ken-food/soda-can",
+    "ken-food/soda-can-crushed",
+    "m3-base/soda-can",
+    "styloo-kitchen/soda-can",
+    "styloo-school/soda-can"
+   ]
+  },
+  {
+   "id": "obj-container-can-food",
+   "name": "Food",
+   "type": "kind",
+   "description": "food can, tin can, canned food",
+   "models": [
+    "ken-food/can",
+    "ken-food/can-open",
+    "ken-food/can-small",
+    "m3-base/canned-food-01",
+    "m3-base/canned-food-02",
+    "m3-base/canned-food-03",
+    "quat-survival/can",
+    "quat-survival/can-red",
+    "quat-survival/can-broken"
    ]
   },
   {
@@ -17822,7 +17872,6 @@
     "rgp-medieval/barrel",
     "rgp-medieval/barrel-open",
     "lpa-west/barrel-a",
-    "3dm-industrial/water-drum",
     "m3-base/wood-barrel",
     "m3-base/wooden-barrel-basic",
     "props/barrel-a",
@@ -17831,7 +17880,8 @@
     "dungeon/barrel",
     "kay-dun-2/barrel-small-stack",
     "styloo-farm/mixer",
-    "avra-food/cask"
+    "avra-food/cask",
+    "quat-props/barrel-apples"
    ]
   },
   {
@@ -17859,7 +17909,8 @@
     "3dm-scifi/barrel",
     "m3-base/oil-barrel",
     "kay-proto/pallet-small-decorated-a",
-    "lpa-construction/barrels-pallet"
+    "lpa-construction/barrels-pallet",
+    "3dm-industrial/water-drum"
    ]
   },
   {
@@ -17868,16 +17919,9 @@
    "type": "kind",
    "description": "bottle, flask, vial",
    "models": [
-    "kay-food/ketchup",
-    "kay-food/mustard",
-    "ken-food/bottle-mustard",
-    "ken-food/bottle-ketchup",
     "sq-laundry/jug-brand-a",
-    "quat-food/ketchup-bottle",
     "makeup/nail-polish",
     "makeup/perfume-bottle",
-    "makeup/lotion-pump-large",
-    "makeup/lotion-pump-small",
     "makeup/lotion-tube-azure",
     "makeup/lotion-tube-amber",
     "isa-bathroom/bottle-a-yellow",
@@ -17886,9 +17930,6 @@
     "isa-bathroom/bottle-b-pink",
     "isa-bathroom/bottle-b-yellow",
     "isa-bathroom/bottle-b-blue",
-    "isa-bathroom/soap-dispenser-pink",
-    "isa-bathroom/soap-dispenser-blue",
-    "isa-bathroom/soap-dispenser-yellow",
     "m3-base/adhesive-bottle",
     "m3-base/bleach-bottle-01",
     "m3-base/bleach-bottle-02",
@@ -17901,8 +17942,6 @@
     "m3-base/eye-drop-bottle",
     "m3-base/pill-bottle",
     "m3-base/plastic-bottle-01",
-    "m3-base/sauce-bottle",
-    "m3-base/soap-dispenser",
     "m3-base/cleaning-bottle-08",
     "m3-base/glue-bottle-01"
    ]
@@ -18056,6 +18095,34 @@
    ]
   },
   {
+   "id": "obj-container-bottle-sauce",
+   "name": "Sauce",
+   "type": "kind",
+   "description": "squeeze bottle, ketchup bottle, mustard bottle, sauce bottle",
+   "models": [
+    "kay-food/ketchup",
+    "kay-food/mustard",
+    "ken-food/bottle-ketchup",
+    "ken-food/bottle-mustard",
+    "quat-food/ketchup-bottle",
+    "m3-base/sauce-bottle"
+   ]
+  },
+  {
+   "id": "obj-container-bottle-pump",
+   "name": "Pump",
+   "type": "kind",
+   "description": "pump bottle, soap dispenser, lotion pump",
+   "models": [
+    "isa-bathroom/soap-dispenser-blue",
+    "isa-bathroom/soap-dispenser-pink",
+    "isa-bathroom/soap-dispenser-yellow",
+    "m3-base/soap-dispenser",
+    "makeup/lotion-pump-large",
+    "makeup/lotion-pump-small"
+   ]
+  },
+  {
    "id": "obj-container-bucket",
    "name": "Bucket",
    "type": "kind",
@@ -18074,7 +18141,6 @@
     "kay-hexagon/bucket",
     "kay-hexagon/bucket-water",
     "styloo-farm/bucket-metal",
-    "styloo-farm/bucket-wooden",
     "rgp-medieval/bucket",
     "lpa-construction/bucket",
     "lpa-west/bucket",
@@ -18095,7 +18161,8 @@
     "rgp-medieval/tub",
     "rgp-medieval/tub-apples",
     "rgp-props/basin-a",
-    "emace-village/tub"
+    "emace-village/tub",
+    "styloo-farm/bucket-wooden"
    ]
   },
   {
@@ -18129,7 +18196,8 @@
     "kay-dun-2/chest-gold",
     "kay-dun-1/chest-common-closed",
     "kay-dun-1/chest-rare-closed",
-    "emace-village/chest"
+    "emace-village/chest",
+    "quat-dun-1/chest-gold"
    ]
   },
   {
@@ -18184,7 +18252,6 @@
     "sq-bank/coin-trays",
     "household/toolbox",
     "lpa-construction/toolbox",
-    "m3-base/pallet-box-01",
     "m3-base/wine-box",
     "makeup/makeup-bag",
     "styloo-farm/crate-open",
@@ -18368,7 +18435,8 @@
     "kay-food/crate-steak",
     "kay-food/crate-tomatoes",
     "ken-pirate/crate-bottles",
-    "quat-sushi/bottle-crate"
+    "quat-sushi/bottle-crate",
+    "m3-base/pallet-box-01"
    ]
   },
   {
@@ -18396,22 +18464,10 @@
    "id": "obj-container-pot",
    "name": "Pot",
    "type": "kind",
-   "description": "pot, planter, amphora, jug, pitcher, ewer",
+   "description": "pot, amphora",
    "models": [
-    "clay-props/jug",
-    "clay-props/planter",
-    "isa-plants/pot-a-large",
-    "isa-plants/pot-a-medium",
-    "isa-plants/pot-a-small",
-    "isa-plants/pots-stacked",
-    "kay-dun-1/pot-a",
-    "kay-dun-1/pot-a-decorated",
-    "kay-dun-1/pot-b",
-    "kay-dun-1/pot-b-decorated",
     "kay-dun-1/pot-c",
     "kay-dun-1/pot-c-decorated",
-    "props/jug-a",
-    "props/jug-b",
     "props/jug-c",
     "props/jug-d",
     "wizp-asia/pot-large",
@@ -18421,16 +18477,8 @@
     "wizp-village/pot-stone-a",
     "wizp-village/pot-stone-b",
     "styloo-furniture/utensil-holder",
-    "isa-plants/saucer-a-large",
-    "fs-temple/vase-c",
-    "fs-temple/vase-d",
-    "emace-village/pitcher",
-    "m3-base/flower-pot",
     "m3-base/flower-vase-02",
     "m3-base/greek-vase-01",
-    "m3-base/hexagonal-planter",
-    "m3-base/milk-jug",
-    "m3-base/rectangular-planter",
     "m3-base/roman-pottery-01",
     "m3-base/roman-pottery-02",
     "m3-base/roman-pottery-03",
@@ -18438,9 +18486,6 @@
     "m3-base/roman-pottery-05",
     "m3-base/roman-pottery-06",
     "m3-base/roman-pottery-07",
-    "m3-base/square-planter",
-    "m3-base/wine-jug-01",
-    "m3-base/wine-jug-02",
     "loaf-coffins/ceramic-7",
     "loaf-coffins/ceramic-8",
     "kay-dun-1/pots"
@@ -18503,7 +18548,13 @@
     "loaf-coffins/ceramic-3",
     "loaf-coffins/ceramic-4",
     "loaf-coffins/ceramic-5",
-    "loaf-coffins/ceramic-6"
+    "loaf-coffins/ceramic-6",
+    "fs-temple/vase-c",
+    "fs-temple/vase-d",
+    "kay-dun-1/pot-a-decorated",
+    "kay-dun-1/pot-a",
+    "kay-dun-1/pot-b-decorated",
+    "kay-dun-1/pot-b"
    ]
   },
   {
@@ -18519,6 +18570,39 @@
     "ken-grave/urn-square",
     "m3-base/ceramic-urn",
     "m3-base/urn-02"
+   ]
+  },
+  {
+   "id": "obj-container-pot-planter",
+   "name": "Planter",
+   "type": "kind",
+   "description": "planter, flower pot, plant pot, planter box",
+   "models": [
+    "clay-props/planter",
+    "isa-plants/pot-a-large",
+    "isa-plants/pot-a-medium",
+    "isa-plants/pot-a-small",
+    "isa-plants/pots-stacked",
+    "isa-plants/saucer-a-large",
+    "m3-base/flower-pot",
+    "m3-base/hexagonal-planter",
+    "m3-base/rectangular-planter",
+    "m3-base/square-planter"
+   ]
+  },
+  {
+   "id": "obj-container-pot-jug",
+   "name": "Jug",
+   "type": "kind",
+   "description": "jug, pitcher, ewer",
+   "models": [
+    "clay-props/jug",
+    "emace-village/pitcher",
+    "m3-base/milk-jug",
+    "m3-base/wine-jug-01",
+    "m3-base/wine-jug-02",
+    "props/jug-a",
+    "props/jug-b"
    ]
   },
   {
@@ -18581,7 +18665,6 @@
    "type": "kind",
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
    "models": [
-    "kay-skeleton-1/mage-cloak",
     "rgp-asia/fan",
     "m3-base/bowtie",
     "m3-base/cane",
@@ -18783,29 +18866,15 @@
    "id": "obj-food-meal",
    "name": "Meal",
    "type": "kind",
-   "description": "Prepared meal served as one: a plate of food, a bowl of stew or soup, a taco, a pizza.",
+   "description": "Prepared meal served as one, such as a plate of food or a taco.",
    "models": [
     "kay-dun-1/plate-full",
     "kay-dun-1/plate-half",
     "kay-dun-2/plate-food-a",
     "kay-dun-2/plate-food-b",
-    "props/plate-food-a",
-    "kay-food/food-stew",
     "kay-mixed/taco",
     "ken-food/taco",
-    "m3-base/pizza",
-    "m3-base/pizza-slice",
-    "food-pack-2/pizza",
-    "food-pack-2/pizza-b",
-    "household/chips",
-    "quat-food/fries",
-    "styloo-food/fries-pocket",
-    "styloo-food/pizza-slice",
-    "ken-food/pizza",
-    "ken-food/fries",
     "food-pack-2/pancakes-plate",
-    "quat-sushi/ramen",
-    "quat-sushi/udon",
     "kay-food/food-dinner",
     "food-pack-2/waffle-plate",
     "kay-holiday/mug-cocoa-candycane"
@@ -18857,7 +18926,6 @@
     "isa-food/bread",
     "isa-food/bread-half",
     "isa-food/bread-slice",
-    "isa-bakery/bread",
     "ken-food/bread",
     "ken-food/loaf-round",
     "ken-food/loaf",
@@ -18891,7 +18959,8 @@
     "rgp-medieval/bread-round",
     "kay-food/food-ingredient-bun",
     "quat-sushi/bun-steamer",
-    "avra-food/roll"
+    "avra-food/roll",
+    "isa-bakery/bread"
    ]
   },
   {
@@ -18944,6 +19013,44 @@
    ]
   },
   {
+   "id": "obj-food-meal-pizza",
+   "name": "Pizza",
+   "type": "kind",
+   "description": "pizza, pizza slice",
+   "models": [
+    "food-pack-2/pizza-b",
+    "food-pack-2/pizza",
+    "ken-food/pizza",
+    "m3-base/pizza",
+    "m3-base/pizza-slice",
+    "styloo-food/pizza-slice"
+   ]
+  },
+  {
+   "id": "obj-food-meal-fries",
+   "name": "Fries",
+   "type": "kind",
+   "description": "fries, french fries, chips (fries)",
+   "models": [
+    "household/chips",
+    "ken-food/fries",
+    "quat-food/fries",
+    "styloo-food/fries-pocket"
+   ]
+  },
+  {
+   "id": "obj-food-meal-soup",
+   "name": "Soup",
+   "type": "kind",
+   "description": "soup, stew, ramen, noodle soup",
+   "models": [
+    "kay-food/food-stew",
+    "props/plate-food-a",
+    "quat-sushi/ramen",
+    "quat-sushi/udon"
+   ]
+  },
+  {
    "id": "obj-food-baked-pastry",
    "name": "Pastry",
    "type": "kind",
@@ -18952,11 +19059,7 @@
     "isa-food/cinnamon-roll",
     "isa-bakery/cream-puff",
     "isa-bakery/pretzel",
-    "ken-food/pancakes",
     "quat-sushi/gyoza",
-    "styloo-food/pain-au-chocolat",
-    "styloo-food/pancakes",
-    "food-pack-2/pancake",
     "food-pack-2/cinnamon-roll",
     "isa-bakery/pastry-stand-filled",
     "isa-bakery/pastry-stand-tiered-filled"
@@ -19099,20 +19202,16 @@
    "id": "obj-food-vegetable",
    "name": "Vegetable",
    "type": "kind",
-   "description": "cabbage, onion, potato, tomato",
+   "description": "cabbage, onion, tomato",
    "models": [
-    "kay-food/food-ingredient-potato",
-    "kay-food/food-ingredient-potato-chopped",
     "quat-sushi/cucumber",
     "quat-sushi/cucumber-slices",
     "food-pack-2/squash",
-    "food-pack-2/potato",
     "food-pack-2/courgette",
     "food-pack-2/garlic",
     "food-pack-2/asparagus",
     "food-pack-2/cucumber",
     "kay-food/food-ingredient-veggie-patty",
-    "styloo-school/potato",
     "m3-base/potato-waffle"
    ]
   },
@@ -19170,13 +19269,8 @@
    "id": "obj-food-fish",
    "name": "Prepared fish",
    "type": "kind",
-   "description": "fish fillet, cured fish",
+   "description": "cured fish",
    "models": [
-    "quat-sushi/shimesaba",
-    "food-pack-2/salmon",
-    "quat-sushi/salmon-fillet",
-    "m3-base/salmon-fillet",
-    "m3-base/salmon-steak",
     "rgp-medieval/fish-hanging",
     "rgp-medieval/fish-rack",
     "rgp-props/dried-fish-1-a",
@@ -19211,6 +19305,19 @@
     "quat-sushi/onigiri",
     "quat-sushi/crabsticks",
     "ken-food/rice-ball"
+   ]
+  },
+  {
+   "id": "obj-food-fish-fillet",
+   "name": "Fillet",
+   "type": "kind",
+   "description": "fish fillet, fish steak, salmon fillet",
+   "models": [
+    "food-pack-2/salmon",
+    "m3-base/salmon-fillet",
+    "m3-base/salmon-steak",
+    "quat-sushi/salmon-fillet",
+    "quat-sushi/shimesaba"
    ]
   },
   {
@@ -19252,16 +19359,8 @@
    "id": "obj-food-dairy",
    "name": "Dairy",
    "type": "kind",
-   "description": "Dairy food: yogurt, and cheese in its own leaf.",
-   "models": [
-    "food-pack-2/yogurt-azure",
-    "food-pack-2/yogurt-green",
-    "food-pack-2/yogurt-red",
-    "styloo-farm/yogurt",
-    "styloo-farm/yogurt-sienna",
-    "styloo-farm/yogurt-terracotta",
-    "styloo-kitchen/yogurt"
-   ]
+   "description": "Dairy food, with yogurt and cheese in their own leaves.",
+   "models": []
   },
   {
    "id": "obj-food-fruit-apple",
@@ -19328,6 +19427,21 @@
     "rgp-medieval/cheese-wheel-cut",
     "m3-base/swiss-cheese-slice",
     "avra-food/cheese-wheel"
+   ]
+  },
+  {
+   "id": "obj-food-dairy-yogurt",
+   "name": "Yogurt",
+   "type": "kind",
+   "description": "yogurt, yoghurt, yogurt cup",
+   "models": [
+    "food-pack-2/yogurt-azure",
+    "food-pack-2/yogurt-green",
+    "food-pack-2/yogurt-red",
+    "styloo-farm/yogurt",
+    "styloo-farm/yogurt-sienna",
+    "styloo-farm/yogurt-terracotta",
+    "styloo-kitchen/yogurt"
    ]
   },
   {
@@ -19493,8 +19607,6 @@
     "sq-bowling/shoe-counter",
     "sq-cinema/concession-counter",
     "sq-cinema/usher-stand",
-    "styloo-school/display-counter",
-    "styloo-school/lab-bench",
     "fs-house/bathroom-cabinet",
     "fs-house/bar-corner-inner",
     "fs-house/bar-corner-outer",
@@ -19503,9 +19615,6 @@
     "fs-house/counter-corner",
     "fs-house/counter",
     "lpa-west/bar",
-    "isa-bakery/display-case-long",
-    "isa-bakery/display-case-short",
-    "sq-cards/glass-counter",
     "m3-base/food-prep-table"
    ]
   },
@@ -19524,7 +19633,20 @@
     "quat-sushi/counter-sink",
     "fs-house/counter-sink",
     "quat-interior/kitchen-sink",
-    "m3-base/kitchen-tap"
+    "m3-base/kitchen-tap",
+    "styloo-school/lab-bench"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-counter-display",
+   "name": "Display",
+   "type": "kind",
+   "description": "display case, display counter, glass counter, showcase",
+   "models": [
+    "isa-bakery/display-case-long",
+    "isa-bakery/display-case-short",
+    "sq-cards/glass-counter",
+    "styloo-school/display-counter"
    ]
   },
   {
@@ -19809,13 +19931,10 @@
     "kay-dun-2/bed-frame",
     "kay-furniture/bed-single-a",
     "kay-furniture/bed-single-b",
-    "ken-furniture/bed-double",
     "ken-furniture/bed-single",
     "ken-nature/bed-floor",
     "ken-nature/bed",
     "ken-station/bed-double-cover",
-    "ken-station/bed-double-covered",
-    "ken-station/bed-double",
     "ken-station/bed-single-cover",
     "ken-station/bed-single-covered",
     "ken-station/bed-single",
@@ -19823,7 +19942,6 @@
     "ken-survival/bedroll",
     "ken-survival/camp-bed",
     "lpa-home/bed-single",
-    "western/bed",
     "fs-house/bed-single",
     "quat-interior/bed-single",
     "emace-village/bed",
@@ -19842,7 +19960,11 @@
     "kay-furniture/bed-double-a",
     "kay-furniture/bed-double-b",
     "household/bed",
-    "quat-interior/bed-king"
+    "quat-interior/bed-king",
+    "ken-furniture/bed-double",
+    "ken-station/bed-double",
+    "ken-station/bed-double-covered",
+    "western/bed"
    ]
   },
   {
@@ -19929,7 +20051,8 @@
     "m3-base/curved-stone-bench",
     "m3-base/walking-trail-bench",
     "m3-base/walking-trail-log-bench",
-    "m3-base/urban-bench-02"
+    "m3-base/urban-bench-02",
+    "sq-pool/bench-hooks"
    ]
   },
   {
@@ -19984,7 +20107,6 @@
     "ken-furniture/chair-rounded",
     "ken-furniture/chair",
     "ken-mini-dun/chair",
-    "quat-sushi/chair",
     "rgp-vintage/chair",
     "sq-cinema/single-seat",
     "sq-laundry/plastic-chair",
@@ -19992,7 +20114,6 @@
     "styloo-furniture/chair-b",
     "styloo-furniture/chair-c",
     "household/chair",
-    "household/rocking-chair",
     "lpa-home/chair",
     "styloo-school/cafeteria-chair",
     "styloo-school/school-chair",
@@ -20058,14 +20179,16 @@
     "quat-interior/armchair-a",
     "quat-interior/armchair-b",
     "m3-base/deck-chair",
-    "m3-base/lounge-chair-01"
+    "m3-base/lounge-chair-01",
+    "quat-sushi/chair",
+    "household/rocking-chair"
    ]
   },
   {
    "id": "obj-furnishing-furniture-seating-stool",
    "name": "Stool",
    "type": "kind",
-   "description": "stool, footstool",
+   "description": "stool",
    "models": [
     "jb-kitchen/stool",
     "kay-dun-1/stool-rounded",
@@ -20073,9 +20196,7 @@
     "kay-food/stool",
     "kay-furniture/chair-stool-wood",
     "kay-furniture/chair-stool",
-    "kay-holiday/footstool",
     "kay-holiday/stool",
-    "ken-furniture/lounge-sofa-ottoman",
     "ken-space/desk-chair-stool",
     "ken-town/stall-stool",
     "quat-sushi/stool",
@@ -20085,7 +20206,6 @@
     "sq-cards/play-stool",
     "ipoly-torture/stool",
     "lpa-home/stool",
-    "fs-house/sofa-footrest",
     "emace-village/stool",
     "m3-base/folding-stool-01",
     "m3-base/library-stool",
@@ -20113,6 +20233,17 @@
     "m3-base/stool-01",
     "m3-base/wooden-lab-stool",
     "m3-base/wooden-top-stool"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-seating-stool-foot",
+   "name": "Foot",
+   "type": "kind",
+   "description": "footstool, ottoman, footrest, pouffe",
+   "models": [
+    "fs-house/sofa-footrest",
+    "kay-holiday/footstool",
+    "ken-furniture/lounge-sofa-ottoman"
    ]
   },
   {
@@ -20192,28 +20323,10 @@
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
    "models": [
-    "isa-kitchen/wall-cabinet-corner",
-    "isa-kitchen/wall-cabinet-left",
-    "isa-kitchen/wall-cabinet-right",
-    "isa-kitchen/wall-cabinet",
-    "kay-food/cabinet-corner",
-    "kay-food/cabinet",
-    "ken-furniture/bathroom-cabinet",
     "ken-furniture/cabinet-bed-drawer",
     "ken-furniture/cabinet-bed",
-    "ken-furniture/kitchen-cabinet-upper-double",
-    "ken-furniture/kitchen-cabinet-upper-low",
-    "ken-furniture/kitchen-cabinet-upper",
     "quat-sushi/cabinet-doors",
-    "ken-furniture/kitchen-cabinet-upper-corner",
-    "kay-food/cabinet-half",
-    "kay-food/cabinet-corner-half",
     "household/cabinet",
-    "fs-house/wall-cabinet-corner",
-    "fs-house/wall-cabinet",
-    "fs-house/wall-cabinet-narrow",
-    "fs-house/wall-cabinet-open",
-    "fs-house/wall-cabinet-short",
     "styloo-school/lab-cupboard",
     "m3-base/filing-cabinet"
    ]
@@ -20232,6 +20345,32 @@
     "3dm-scifi/locker",
     "m3-base/locker",
     "3dm-industrial-2/steel-shelf"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-storage-cabinet-wall",
+   "name": "Wall",
+   "type": "kind",
+   "description": "wall cabinet, upper cabinet, kitchen wall cupboard",
+   "models": [
+    "fs-house/wall-cabinet-corner",
+    "fs-house/wall-cabinet-narrow",
+    "fs-house/wall-cabinet-open",
+    "fs-house/wall-cabinet-short",
+    "fs-house/wall-cabinet",
+    "isa-kitchen/wall-cabinet-corner",
+    "isa-kitchen/wall-cabinet-left",
+    "isa-kitchen/wall-cabinet-right",
+    "isa-kitchen/wall-cabinet",
+    "kay-food/cabinet-corner-half",
+    "kay-food/cabinet-corner",
+    "kay-food/cabinet-half",
+    "kay-food/cabinet",
+    "ken-furniture/bathroom-cabinet",
+    "ken-furniture/kitchen-cabinet-upper-corner",
+    "ken-furniture/kitchen-cabinet-upper-double",
+    "ken-furniture/kitchen-cabinet-upper-low",
+    "ken-furniture/kitchen-cabinet-upper"
    ]
   },
   {
@@ -20288,17 +20427,12 @@
    "id": "obj-furnishing-furniture-storage-rack",
    "name": "Rack",
    "type": "kind",
-   "description": "Open rack for showing or holding goods or gear: display rack, spinner rack, slat wall, ball or dumbbell rack.",
+   "description": "Open rack for holding goods or gear: ball or dumbbell rack.",
    "models": [
     "sq-bowling/ball-rack",
     "sq-gym/dumbbell-rack",
     "sq-fastfood/tray-rack",
-    "sq-cards/spinner-rack",
-    "sq-cards/slat-wall",
-    "sq-arcade/prize-wall",
     "sq-fastfood/pass-shelf",
-    "sq-cards/display-tower",
-    "styloo-school/display-rack",
     "styloo-school/shelf-cart",
     "m3-base/guitar-stand",
     "m3-base/wine-rack-01",
@@ -20317,7 +20451,8 @@
     "ken-arena/weapon-rack",
     "quat-props/weapon-stand",
     "kay-hexagon/weapon-rack",
-    "avra-weapons/weapon-rack"
+    "avra-weapons/weapon-rack",
+    "quat-dun-2/sword-wall-mount"
    ]
   },
   {
@@ -20335,6 +20470,19 @@
     "m3-base/coat-stand-02",
     "m3-base/clothes-rail",
     "household/coat-rack"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-storage-rack-display",
+   "name": "Display",
+   "type": "kind",
+   "description": "display rack, spinner rack, slat wall, prize wall",
+   "models": [
+    "sq-cards/display-tower",
+    "sq-cards/slat-wall",
+    "sq-cards/spinner-rack",
+    "sq-arcade/prize-wall",
+    "styloo-school/display-rack"
    ]
   },
   {
@@ -20356,13 +20504,10 @@
     "kay-dun-2/table-medium-broken",
     "kay-food/table-kitchen-b-large",
     "kay-food/table-kitchen-large",
-    "kay-furniture/table-low",
     "kay-furniture/table-medium-long",
     "kay-proto/table-medium-long",
     "kay-proto/table-medium",
     "ken-furniture/table-cloth",
-    "ken-furniture/table-coffee-glass",
-    "ken-furniture/table-coffee",
     "ken-furniture/table-cross-cloth",
     "ken-furniture/table-cross",
     "ken-furniture/table-glass",
@@ -20381,11 +20526,9 @@
     "sq-laundry/folding-table",
     "household/table",
     "lpa-home/table-a",
-    "lpa-home/coffee-table",
     "styloo-school/art-table",
     "styloo-school/cafeteria-table",
     "fs-house/table-dining",
-    "fs-house/table-coffee",
     "styloo-school/art-table-grey",
     "pm-store/table",
     "ken-station/table-display",
@@ -20394,10 +20537,8 @@
     "ken-station/table-inset-small",
     "emace-village/table-long",
     "m3-base/display-table-01",
-    "m3-base/display-table-03",
     "m3-base/display-table-04",
-    "dungeon/woodtable",
-    "m3-base/coffee-table"
+    "dungeon/woodtable"
    ]
   },
   {
@@ -20424,7 +20565,8 @@
     "quat-sushi/table",
     "emace-village/table",
     "m3-base/square-table",
-    "m3-base/stem-bar-table"
+    "m3-base/stem-bar-table",
+    "m3-base/display-table-03"
    ]
   },
   {
@@ -20488,6 +20630,20 @@
     "styloo-school/computer-desk",
     "m3-base/office-desk",
     "m3-base/writing-desk"
+   ]
+  },
+  {
+   "id": "obj-furnishing-furniture-table-coffee",
+   "name": "Coffee",
+   "type": "kind",
+   "description": "coffee table, low table",
+   "models": [
+    "fs-house/table-coffee",
+    "ken-furniture/table-coffee",
+    "ken-furniture/table-coffee-glass",
+    "lpa-home/coffee-table",
+    "m3-base/coffee-table",
+    "kay-furniture/table-low"
    ]
   },
   {
@@ -20648,7 +20804,6 @@
    "type": "kind",
    "description": "rice paddle, wooden paddle",
    "models": [
-    "ken-food/cake-slicer",
     "ken-food/cheese-slicer",
     "ken-food/cooking-fork",
     "ken-food/cookie-cutter",
@@ -20717,10 +20872,7 @@
     "jb-kitchen/kitchen-knife",
     "m3-base/kitchen-knife",
     "isa-kitchen/knife",
-    "kay-food/knife",
-    "isa-kitchen/wall-knife-rack",
-    "quat-sushi/knife-block",
-    "ken-food/knife-block"
+    "kay-food/knife"
    ]
   },
   {
@@ -20735,6 +20887,17 @@
     "cooking-assets/nakiri-knife",
     "styloo-kitchen/cleaver",
     "ken-food/knife-chopping"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-utensil-knife-block",
+   "name": "Block",
+   "type": "kind",
+   "description": "knife block, knife rack",
+   "models": [
+    "isa-kitchen/wall-knife-rack",
+    "ken-food/knife-block",
+    "quat-sushi/knife-block"
    ]
   },
   {
@@ -20760,7 +20923,8 @@
     "m3-base/silicone-spatula",
     "m3-base/spatula",
     "m3-base/wooden-spatula",
-    "styloo-furniture/wooden-spatula-slotted"
+    "styloo-furniture/wooden-spatula-slotted",
+    "ken-food/cake-slicer"
    ]
   },
   {
@@ -20793,21 +20957,14 @@
    "type": "kind",
    "description": "pan",
    "models": [
-    "kay-food/pan-006",
-    "kay-food/pan-006-cast",
     "cooking-assets/paella-pan",
-    "cooking-assets/sauce-pan-large",
-    "cooking-assets/sauce-pan-small",
     "ken-food/pan-stew",
     "ken-food/pan",
     "cooking-assets/loaf-pan",
-    "styloo-kitchen/saucepan",
     "m3-base/flan-tin",
     "m3-base/loaf-tin",
     "m3-base/roasting-tray",
-    "m3-base/cupcake-baking-tray",
-    "lpa-home/cookpot",
-    "styloo-furniture/cookpot"
+    "m3-base/cupcake-baking-tray"
    ]
   },
   {
@@ -20834,6 +20991,21 @@
     "household/frying-pan",
     "lpa-home/frying-pan",
     "emace-village/frying-pan-eggs"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-cookware-pan-saucepan",
+   "name": "Saucepan",
+   "type": "kind",
+   "description": "saucepan, sauce pan",
+   "models": [
+    "cooking-assets/sauce-pan-large",
+    "cooking-assets/sauce-pan-small",
+    "kay-food/pan-006",
+    "kay-food/pan-006-cast",
+    "lpa-home/cookpot",
+    "styloo-furniture/cookpot",
+    "styloo-kitchen/saucepan"
    ]
   },
   {
@@ -20914,7 +21086,8 @@
     "m3-base/chopping-board",
     "quat-sushi/wooden-board",
     "styloo-food/sushi-board",
-    "quat-sushi/chopping-board"
+    "quat-sushi/chopping-board",
+    "styloo-food/sushi-board-full"
    ]
   },
   {
@@ -20960,35 +21133,8 @@
    "id": "obj-kitchenware-tableware-cutlery",
    "name": "Cutlery",
    "type": "kind",
-   "description": "knife (table), fork, spoon",
+   "description": "spoon",
    "models": [
-    "quat-props/table-fork",
-    "quat-props/table-knife",
-    "quat-props/table-spoon",
-    "quat-food/fork",
-    "quat-food/knife",
-    "quat-food/spoon",
-    "cooking-assets/butter-knife",
-    "cooking-assets/fork",
-    "cooking-assets/spoon",
-    "isa-picnic/fork",
-    "isa-picnic/knife",
-    "isa-picnic/spoon",
-    "ken-food/fork",
-    "ken-food/knife",
-    "ken-food/spoon",
-    "cooking-assets/steak-knife",
-    "styloo-kitchen/fork",
-    "styloo-kitchen/knife",
-    "styloo-kitchen/spoon",
-    "styloo-kitchen/spoon-long",
-    "styloo-furniture/fork",
-    "styloo-furniture/spoon",
-    "jb-kitchen/spoon",
-    "m3-base/fork",
-    "m3-base/knife",
-    "m3-base/rice-spoon",
-    "m3-base/spoon",
     "avra-food/cutlery"
    ]
   },
@@ -21003,6 +21149,57 @@
     "quat-food/chopsticks",
     "styloo-food/chopsticks",
     "styloo-food/chopstick"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-cutlery-fork",
+   "name": "Fork",
+   "type": "kind",
+   "description": "fork, table fork, dinner fork",
+   "models": [
+    "cooking-assets/fork",
+    "isa-picnic/fork",
+    "ken-food/fork",
+    "m3-base/fork",
+    "quat-food/fork",
+    "quat-props/table-fork",
+    "styloo-furniture/fork",
+    "styloo-kitchen/fork"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-cutlery-knife",
+   "name": "Knife",
+   "type": "kind",
+   "description": "knife (table), table knife, butter knife, steak knife",
+   "models": [
+    "cooking-assets/butter-knife",
+    "cooking-assets/steak-knife",
+    "isa-picnic/knife",
+    "ken-food/knife",
+    "m3-base/knife",
+    "quat-food/knife",
+    "quat-props/table-knife",
+    "styloo-kitchen/knife"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-cutlery-spoon",
+   "name": "Spoon",
+   "type": "kind",
+   "description": "spoon (table), table spoon, teaspoon, soup spoon, rice spoon",
+   "models": [
+    "cooking-assets/spoon",
+    "isa-picnic/spoon",
+    "jb-kitchen/spoon",
+    "ken-food/spoon",
+    "m3-base/spoon",
+    "m3-base/rice-spoon",
+    "quat-food/spoon",
+    "quat-props/table-spoon",
+    "styloo-furniture/spoon",
+    "styloo-kitchen/spoon",
+    "styloo-kitchen/spoon-long"
    ]
   },
   {
@@ -21067,10 +21264,7 @@
    "type": "kind",
    "description": "Plate or stand that carries food to the table rather than holding one portion.",
    "models": [
-    "cooking-assets/cloche",
-    "isa-bakery/serving-tray",
-    "cooking-assets/platter-oval",
-    "clay-props/platter"
+    "cooking-assets/cloche"
    ]
   },
   {
@@ -21086,7 +21280,10 @@
     "sq-fastfood/tray-set",
     "isa-picnic/tray-round",
     "isa-picnic/tray-square",
-    "isa-picnic/tray-square-handles"
+    "isa-picnic/tray-square-handles",
+    "clay-props/platter",
+    "cooking-assets/platter-oval",
+    "isa-bakery/serving-tray"
    ]
   },
   {
@@ -21328,7 +21525,8 @@
     "m3-base/candle-holder-02",
     "m3-base/tealight",
     "m3-base/candle-holder-03",
-    "m3-base/candle-holder-04"
+    "m3-base/candle-holder-04",
+    "kay-hallow/plaque-candles"
    ]
   },
   {
@@ -21393,7 +21591,8 @@
     "wizp-grave/lamppost",
     "western/lantern",
     "lpa-west/lantern",
-    "3dm-electronics/flashlight"
+    "3dm-electronics/flashlight",
+    "pm-store/lantern-standing"
    ]
   },
   {
@@ -21401,13 +21600,7 @@
    "name": "Lamp",
    "type": "kind",
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
-   "models": [
-    "fs-town/lamp-wall",
-    "lpa-home/wall-light",
-    "m3-base/iron-wall-light",
-    "m3-base/outdoor-wall-light",
-    "m3-base/outdoor-wall-light-01"
-   ]
+   "models": []
   },
   {
    "id": "obj-furnishing-light-lamp-spot",
@@ -21433,7 +21626,7 @@
    "id": "obj-furnishing-light-lamp-ceiling",
    "name": "Ceiling lamp",
    "type": "kind",
-   "description": "ceiling lamp, chandelier, ceiling light, disco ball",
+   "description": "ceiling lamp, ceiling light, disco ball",
    "models": [
     "fs-house/ceiling-light",
     "lpa-home/ceiling-light",
@@ -21441,20 +21634,16 @@
     "sq-rink/disco-ball",
     "styloo-furniture/lamp",
     "western/lamp-hanging",
-    "household/chandelier",
     "quat-interior/ceiling-light",
     "quat-interior/ceiling-light-single",
     "quat-interior/ceiling-light-cluster-a",
     "quat-interior/ceiling-light-cluster-b",
     "quat-interior/ceiling-light-dome",
-    "quat-interior/chandelier",
     "quat-interior/ceiling-light-cube-frame",
     "quat-interior/ceiling-light-cube",
     "quat-interior/ceiling-light-icosahedron",
     "m3-base/fluorescent-light-fitting",
-    "m3-base/iron-chandelier",
     "fs-terrain/cave-prop-hanging-lamp",
-    "quat-props/chandelier",
     "ken-furniture/lamp-square-ceiling"
    ]
   },
@@ -21470,6 +21659,18 @@
     "ken-furniture/ceiling-fan-anim",
     "ken-furniture/ceiling-fan",
     "household/ceiling-fan"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "name": "Chandelier",
+   "type": "kind",
+   "description": "chandelier",
+   "models": [
+    "household/chandelier",
+    "m3-base/iron-chandelier",
+    "quat-interior/chandelier",
+    "quat-props/chandelier"
    ]
   },
   {
@@ -21507,6 +21708,19 @@
     "lpa-home/floor-lamp-b",
     "quat-interior/floor-lamp",
     "3dm-industrial/work-light-tripod"
+   ]
+  },
+  {
+   "id": "obj-furnishing-light-lamp-wall",
+   "name": "Wall",
+   "type": "kind",
+   "description": "wall lamp, wall light, sconce",
+   "models": [
+    "fs-town/lamp-wall",
+    "lpa-home/wall-light",
+    "m3-base/iron-wall-light",
+    "m3-base/outdoor-wall-light",
+    "m3-base/outdoor-wall-light-01"
    ]
   },
   {
@@ -21748,18 +21962,12 @@
    "id": "obj-equipment-pocketitem-scroll",
    "name": "Scroll",
    "type": "kind",
-   "description": "scroll, letter, parchment, blueprint",
+   "description": "scroll, letter, blueprint",
    "models": [
-    "quat-rpg/parchment",
     "kay-tools/blueprint",
     "kay-tools/blueprint-stacked",
-    "kay-tools/map-empty",
-    "kay-tools/map",
     "quat-pirate/papers",
-    "isa-homely/letter",
-    "m3-base/scroll-01",
-    "m3-base/scroll-02",
-    "m3-base/scroll-03"
+    "isa-homely/letter"
    ]
   },
   {
@@ -21775,6 +21983,20 @@
     "lpa-weapons/scroll",
     "3dm-medieval/scroll",
     "m3-base/scroll-04"
+   ]
+  },
+  {
+   "id": "obj-equipment-pocketitem-scroll-open",
+   "name": "Open",
+   "type": "kind",
+   "description": "open scroll, unrolled scroll, parchment, map (open)",
+   "models": [
+    "m3-base/scroll-01",
+    "m3-base/scroll-02",
+    "m3-base/scroll-03",
+    "quat-rpg/parchment",
+    "kay-tools/map",
+    "kay-tools/map-empty"
    ]
   },
   {
@@ -21819,7 +22041,6 @@
     "quat-rpg/necklace-1",
     "quat-rpg/necklace-2",
     "quat-rpg/necklace-3",
-    "m3-base/circular-barbell",
     "m3-base/dog-collar-tag",
     "m3-base/star-badge"
    ]
@@ -21841,7 +22062,8 @@
     "m3-base/ball-closure-ring",
     "m3-base/gold-ring",
     "m3-base/ring",
-    "m3-base/signet-ring-01"
+    "m3-base/signet-ring-01",
+    "m3-base/circular-barbell"
    ]
   },
   {
@@ -21856,62 +22078,34 @@
    "id": "obj-resource-metal",
    "name": "Metal",
    "type": "kind",
-   "description": "ingot, bar, nugget, ore lump",
+   "description": "bar, nugget, ore lump",
    "models": [
-    "kay-resources/copper-bar",
-    "kay-resources/copper-bars",
-    "kay-resources/copper-bars-stack-large",
-    "kay-resources/copper-bars-stack-medium",
-    "kay-resources/copper-bars-stack-small",
     "kay-resources/copper-nugget-large",
     "kay-resources/copper-nugget-medium",
     "kay-resources/copper-nugget-small",
     "kay-resources/copper-nuggets",
-    "kay-resources/gold-bar",
-    "kay-resources/gold-bars",
-    "kay-resources/gold-bars-stack-large",
-    "kay-resources/gold-bars-stack-medium",
-    "kay-resources/gold-bars-stack-small",
     "kay-resources/gold-nugget-large",
     "kay-resources/gold-nugget-medium",
     "kay-resources/gold-nugget-small",
     "kay-resources/gold-nuggets",
-    "kay-resources/iron-bar",
-    "kay-resources/iron-bars",
-    "kay-resources/iron-bars-stack-large",
-    "kay-resources/iron-bars-stack-medium",
-    "kay-resources/iron-bars-stack-small",
     "kay-resources/iron-nugget-large",
     "kay-resources/iron-nugget-medium",
     "kay-resources/iron-nugget-small",
-    "kay-resources/iron-nuggets",
-    "quat-rpg/gold-ingots",
-    "sq-bank/gold-stack",
-    "lpa-west/gold-bar",
-    "m3-base/ingot",
-    "lpa-construction/steel-holder"
+    "kay-resources/iron-nuggets"
    ]
   },
   {
    "id": "obj-resource-metal-parts",
    "name": "Parts",
    "type": "kind",
-   "description": "cog, spare part, gasket",
+   "description": "spare part, gasket",
    "models": [
-    "ken-factory/cog-e",
-    "ken-factory/cog-b",
-    "ken-factory/cog-c",
-    "ken-factory/cog-d",
-    "ken-factory/cog-a",
-    "kay-resources/parts-cog",
     "kay-resources/parts-pile-large",
     "kay-resources/parts-pile-medium",
     "kay-resources/parts-pile-small",
     "lpa-construction/steel-a",
     "lpa-construction/steel-b",
     "m3-base/saw-blade",
-    "m3-base/gear-01",
-    "m3-base/gear-02",
     "m3-base/kitbash-a-04",
     "m3-base/kitbash-c-02",
     "m3-base/kitbash-c-11",
@@ -21992,7 +22186,51 @@
     "lpa-construction/pipe-b",
     "quat-apocalypse/pipes",
     "lpa-construction/pipe-holder-a",
-    "lpa-construction/pipe-holder-b"
+    "lpa-construction/pipe-holder-b",
+    "lpa-construction/steel-holder"
+   ]
+  },
+  {
+   "id": "obj-resource-metal-parts-gear",
+   "name": "Gear",
+   "type": "kind",
+   "description": "gear, cog, sprocket",
+   "models": [
+    "kay-resources/parts-cog",
+    "ken-factory/cog-a",
+    "ken-factory/cog-b",
+    "ken-factory/cog-c",
+    "ken-factory/cog-d",
+    "ken-factory/cog-e",
+    "m3-base/gear-01",
+    "m3-base/gear-02"
+   ]
+  },
+  {
+   "id": "obj-resource-metal-ingot",
+   "name": "Ingot",
+   "type": "kind",
+   "description": "ingot, bar (metal), gold bar, ingot stack",
+   "models": [
+    "kay-resources/copper-bar",
+    "kay-resources/copper-bars-stack-large",
+    "kay-resources/copper-bars-stack-medium",
+    "kay-resources/copper-bars-stack-small",
+    "kay-resources/copper-bars",
+    "kay-resources/gold-bar",
+    "kay-resources/gold-bars-stack-large",
+    "kay-resources/gold-bars-stack-medium",
+    "kay-resources/gold-bars-stack-small",
+    "kay-resources/gold-bars",
+    "kay-resources/iron-bar",
+    "kay-resources/iron-bars-stack-large",
+    "kay-resources/iron-bars-stack-medium",
+    "kay-resources/iron-bars-stack-small",
+    "kay-resources/iron-bars",
+    "lpa-west/gold-bar",
+    "m3-base/ingot",
+    "quat-rpg/gold-ingots",
+    "sq-bank/gold-stack"
    ]
   },
   {
@@ -22578,7 +22816,8 @@
     "m3-base/paint-tube-01",
     "m3-base/paint-tube-02",
     "styloo-school/paint-palette",
-    "m3-base/painters-palette-01"
+    "m3-base/painters-palette-01",
+    "isa-bathroom/toothbrush-cup-brushes"
    ]
   },
   {
@@ -22638,10 +22877,7 @@
    "type": "kind",
    "description": "Tool swung or pushed with both hands on a long shaft.",
    "models": [
-    "mek-tools/saw-crosscut",
-    "zombie-weapons/sledgehammer",
-    "lpa-construction/sledgehammer",
-    "m3-base/sledgehammer"
+    "mek-tools/saw-crosscut"
    ]
   },
   {
@@ -23116,18 +23352,13 @@
     "ken-car/tractor-shovel",
     "ken-car/tractor",
     "styloo-farm/tractor",
-    "rgs-vehicles/limousine",
     "quat-space/rover",
     "quat-space/rover-long",
     "quat-space/rover-round",
     "lowbudget/digger-a",
     "lowbudget/digger-b",
     "lowbudget/digger-c",
-    "pm-store/tank",
-    "ken-racing/race-car-green",
-    "ken-racing/race-car-orange",
-    "ken-racing/race-car-red",
-    "ken-racing/race-car-white"
+    "pm-store/tank"
    ]
   },
   {
@@ -23168,7 +23399,12 @@
     "ken-proto/vehicle-convertible",
     "ken-car/race",
     "ken-car/race-future",
-    "ken-car/van"
+    "ken-car/van",
+    "ken-racing/race-car-green",
+    "ken-racing/race-car-orange",
+    "ken-racing/race-car-red",
+    "ken-racing/race-car-white",
+    "rgs-vehicles/limousine"
    ]
   },
   {
@@ -23310,7 +23546,6 @@
    "models": [
     "fs-town/cart-a-barrels",
     "fs-town/cart-a",
-    "ken-town/cart-high",
     "ken-town/cart",
     "quat-medieval/cart",
     "rgp-asia/cart",
@@ -23319,16 +23554,10 @@
     "rgp-props/cart-1-a",
     "styloo-farm/cart",
     "wizp-asia/cart",
-    "ken-town/cart-high-empty",
     "western/cart",
     "lpa-west/cart-a",
     "lpa-west/cart-b",
-    "lpa-west/cart-c",
-    "lpa-west/stagecoach",
-    "taalei-kit/ice-cream-cart",
-    "taalei-kit/ice-cream-cart-deluxe",
-    "taalei-kit/ice-cream-cart-parasol",
-    "western/cart-covered"
+    "lpa-west/stagecoach"
    ]
   },
   {
@@ -23340,15 +23569,12 @@
     "isa-playground/cart",
     "ken-holiday/sled-long",
     "ken-holiday/sled",
-    "ken-market/shopping-cart",
-    "sq-laundry/rolling-cart",
     "wizp-mediev/minecart-ore",
     "wizp-mediev/minecart",
     "fs-terrain/cave-prop-minecart",
-    "3dm-industrial/pallet-jack",
-    "3dm-industrial/platform-trolley",
-    "m3-base/cleaning-trolley",
-    "m3-base/sack-truck"
+    "taalei-kit/ice-cream-cart",
+    "taalei-kit/ice-cream-cart-parasol",
+    "taalei-kit/ice-cream-cart-deluxe"
    ]
   },
   {
@@ -23361,6 +23587,32 @@
     "lpa-construction/wheelbarrow",
     "rgp-medieval/wheelbarrow",
     "m3-base/wheelbarrow"
+   ]
+  },
+  {
+   "id": "obj-transport-land-cart-small-trolley",
+   "name": "Trolley",
+   "type": "kind",
+   "description": "trolley, hand truck, pallet jack, shopping cart, service cart",
+   "models": [
+    "3dm-industrial/pallet-jack",
+    "3dm-industrial/platform-trolley",
+    "m3-base/sack-truck",
+    "m3-base/cleaning-trolley",
+    "sq-laundry/rolling-cart",
+    "ken-market/shopping-cart"
+   ]
+  },
+  {
+   "id": "obj-transport-land-cart-wagon",
+   "name": "Wagon",
+   "type": "kind",
+   "description": "covered wagon, prairie wagon, conestoga",
+   "models": [
+    "lpa-west/cart-c",
+    "western/cart-covered",
+    "ken-town/cart-high",
+    "ken-town/cart-high-empty"
    ]
   },
   {
@@ -23410,9 +23662,8 @@
    "id": "obj-transport-part-wheel",
    "name": "Wheel",
    "type": "kind",
-   "description": "wheel, tire",
+   "description": "wheel",
    "models": [
-    "ken-car/debris-tire",
     "ken-car/wheel-dark",
     "ken-car/wheel-default",
     "ken-car/wheel-racing",
@@ -23421,11 +23672,7 @@
     "ken-car/wheel-tractor-dark-front",
     "ken-car/wheel-tractor-front",
     "ken-car/wheel-truck",
-    "quat-apocalypse/wheel",
-    "quat-apocalypse/wheels",
-    "quat-shoot/tires",
-    "m3-base/car-tire-01",
-    "m3-base/car-tire-02"
+    "quat-apocalypse/wheel"
    ]
   },
   {
@@ -23443,6 +23690,19 @@
    ]
   },
   {
+   "id": "obj-transport-part-wheel-tire",
+   "name": "Tire",
+   "type": "kind",
+   "description": "tire, tyre, tire stack",
+   "models": [
+    "ken-car/debris-tire",
+    "m3-base/car-tire-01",
+    "m3-base/car-tire-02",
+    "quat-apocalypse/wheels",
+    "quat-shoot/tires"
+   ]
+  },
+  {
    "id": "obj-equipment-weapon-siege",
    "name": "Siege",
    "description": "Siege weapon with no leaf that fits.",
@@ -23450,20 +23710,13 @@
    "models": [
     "ken-castle/siege-ballista",
     "ken-castle/siege-ballista-demolished",
-    "ken-castle/siege-catapult",
-    "ken-castle/siege-catapult-demolished",
-    "ken-castle/siege-trebuchet-demolished",
-    "ken-castle/siege-trebuchet",
     "ken-castle/siege-tower-demolished",
     "ken-castle/siege-tower",
     "ken-castle/siege-ram-demolished",
     "ken-castle/siege-ram",
-    "kay-hexagon/catapult",
     "lpa-weapons/ballista",
     "lpa-weapons/battering-ram",
-    "lpa-weapons/catapult",
-    "lpa-weapons/siege-tower",
-    "lpa-weapons/trebuchet"
+    "lpa-weapons/siege-tower"
    ]
   },
   {
@@ -23501,6 +23754,21 @@
     "kay-hexagon/catapult-ball",
     "lpa-weapons/catapult-boulder",
     "lpa-weapons/trebuchet-rock"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-siege-catapult",
+   "name": "Catapult",
+   "type": "kind",
+   "description": "catapult, trebuchet, mangonel",
+   "models": [
+    "kay-hexagon/catapult",
+    "ken-castle/siege-catapult",
+    "ken-castle/siege-catapult-demolished",
+    "ken-castle/siege-trebuchet",
+    "ken-castle/siege-trebuchet-demolished",
+    "lpa-weapons/catapult",
+    "lpa-weapons/trebuchet"
    ]
   },
   {
@@ -23704,8 +23972,6 @@
    "description": "sword, rapier, scimitar, katana",
    "models": [
     "kay-adventurers/sword-one-handed",
-    "kay-adventurers/sword-two-handed",
-    "kay-adventurers/sword-two-handed-colored",
     "kay-dun-1/sword-common",
     "kay-dun-1/sword-rare",
     "kay-dun-1/sword-uncommon",
@@ -23714,7 +23980,6 @@
     "kay-weapons/sword-a",
     "kay-weapons/sword-b",
     "kay-weapons/sword-d",
-    "kay-weapons/sword-e",
     "mek-tools/sword",
     "quat-rpg/sword",
     "quat-rpg/sword-big",
@@ -23723,16 +23988,11 @@
     "styloo-farm/sword",
     "styloo-farm/sword-taupe",
     "aq-hallow/sword",
-    "styloo-weapons/longsword",
     "styloo-weapons/sword",
-    "styloo-weapons/sword-short",
     "ken-arena/weapon-sword",
     "rgp-weapons/sword-a",
     "rgp-weapons/sword-b",
-    "lpa-weapons/claymore",
-    "lpa-weapons/greatsword",
     "lpa-weapons/sword",
-    "lpa-weapons/two-handed-sword",
     "weapon-pack/sword-1",
     "weapon-pack/sword-2",
     "swords-tember/crystal",
@@ -23743,13 +24003,9 @@
     "swords-tember/wooden",
     "swords-tember/pattern",
     "swords-tember/floral",
-    "m3-base/gladius-01",
-    "m3-base/gladius-02",
-    "m3-base/short-sword",
     "m3-base/sword",
     "quat-props/sword-bronze",
     "avra-weapons/arming-sword",
-    "avra-weapons/shortsword",
     "avra-weapons/sword-wooden"
    ]
   },
@@ -23782,6 +24038,34 @@
     "swords-tember/cephalopod",
     "swords-tember/crown",
     "swords-tember/skull"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-melee-sword-great",
+   "name": "Great",
+   "type": "kind",
+   "description": "greatsword, two-handed sword, longsword",
+   "models": [
+    "kay-adventurers/sword-two-handed",
+    "kay-adventurers/sword-two-handed-colored",
+    "kay-weapons/sword-e",
+    "lpa-weapons/claymore",
+    "lpa-weapons/greatsword",
+    "lpa-weapons/two-handed-sword",
+    "styloo-weapons/longsword"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-melee-sword-short",
+   "name": "Short",
+   "type": "kind",
+   "description": "short sword, gladius",
+   "models": [
+    "avra-weapons/shortsword",
+    "m3-base/gladius-01",
+    "m3-base/gladius-02",
+    "m3-base/short-sword",
+    "styloo-weapons/sword-short"
    ]
   },
   {
@@ -24318,7 +24602,6 @@
     "natuur/root-5",
     "natuur/root-6",
     "lpa-west/tumbleweed",
-    "rgp-medieval/fallen-tree",
     "wizp-tree/log-fallen"
    ]
   },
@@ -24352,7 +24635,8 @@
     "m3-base/stick-03",
     "m3-base/stick-04",
     "avra-nature/log",
-    "quat-nature/log"
+    "quat-nature/log",
+    "rgp-medieval/fallen-tree"
    ]
   },
   {
@@ -24463,11 +24747,6 @@
     "isa-plants/succulent-b",
     "isa-plants/succulent-c",
     "isa-plants/succulent-d",
-    "kay-minigame/cactus",
-    "quat-nature/cactus-2",
-    "quat-nature/cactus-3",
-    "quat-nature/cactus-4",
-    "quat-nature/cactus-5",
     "quat-nature/cactus-flower-1",
     "quat-nature/cactus-flower-2",
     "quat-nature/cactus-flower-3",
@@ -24476,10 +24755,6 @@
     "wizp-tree/cactus-flowering-tall",
     "wizp-tree/cactus-round",
     "wizp-tree/cactus-tall",
-    "western/cactus-a",
-    "western/cactus-b",
-    "lpa-west/cactus-a",
-    "lpa-west/cactus-b",
     "lpa-west/cactus-c"
    ]
   },
@@ -24501,6 +24776,23 @@
     "quat-interior/cactus-small",
     "kay-furniture/cactus-potted-small-b",
     "kay-furniture/cactus-potted-medium-b"
+   ]
+  },
+  {
+   "id": "env-flora-plant-cactus-saguaro",
+   "name": "Saguaro",
+   "type": "kind",
+   "description": "saguaro, column cactus",
+   "models": [
+    "kay-minigame/cactus",
+    "lpa-west/cactus-a",
+    "lpa-west/cactus-b",
+    "quat-nature/cactus-2",
+    "quat-nature/cactus-3",
+    "quat-nature/cactus-4",
+    "quat-nature/cactus-5",
+    "western/cactus-a",
+    "western/cactus-b"
    ]
   },
   {
@@ -24594,7 +24886,6 @@
    "type": "kind",
    "description": "Plant that grows in or on water.",
    "models": [
-    "rgp-asia/lily",
     "kay-hexagon/waterplant",
     "aq-pond/swamp-calla-a",
     "aq-pond/swamp-calla-b",
@@ -24668,7 +24959,8 @@
     "quat-nature/lilypad",
     "m3-base/lily-pad-01",
     "m3-base/lily-pad-02",
-    "avra-nature/lilypad"
+    "avra-nature/lilypad",
+    "rgp-asia/lily"
    ]
   },
   {
@@ -24780,7 +25072,6 @@
    "type": "kind",
    "description": "tree, oak, birch, willow, bush (tree-sized)",
    "models": [
-    "ken-town/tree-high-round",
     "kay-forest/tree-1-a",
     "kay-forest/tree-1-b",
     "kay-forest/tree-1-c",
@@ -24798,7 +25089,6 @@
     "fs-terrain/hilly-prop-tree-oak-d",
     "wizp-tree/banana-tree",
     "quat-shoot/tree-a",
-    "quat-shoot/tree-b",
     "quat-shoot/tree-c",
     "quat-shoot/tree-d",
     "kay-builder/tree-a",
@@ -24806,17 +25096,13 @@
     "kay-builder/tree-c",
     "fs-terrain/hilly-prop-tree-cedar-a",
     "fs-terrain/hilly-prop-tree-cedar-b",
-    "ken-nature/tree-cone-dark",
     "ken-nature/tree-detailed-dark",
     "ken-nature/tree-plateau-dark",
-    "ken-nature/tree-small-dark",
-    "ken-nature/tree-tall-dark",
     "nature-assets/oak-a",
     "nature-assets/oak-b",
     "nature-assets/oak-c",
     "nature-assets/oak-d",
-    "ken-nature/tree-plateau",
-    "ken-racing/tree-large"
+    "ken-nature/tree-plateau"
    ]
   },
   {
@@ -24914,6 +25200,20 @@
     "wizp-tree/palm-bent",
     "wizp-tree/palm-b",
     "wizp-tree/palm-young"
+   ]
+  },
+  {
+   "id": "env-flora-tree-poplar",
+   "name": "Poplar",
+   "type": "kind",
+   "description": "poplar, cypress, columnar tree",
+   "models": [
+    "ken-nature/tree-cone-dark",
+    "ken-nature/tree-small-dark",
+    "ken-nature/tree-tall-dark",
+    "ken-racing/tree-large",
+    "ken-town/tree-high-round",
+    "quat-shoot/tree-b"
    ]
   },
   {
@@ -25055,8 +25355,6 @@
    "description": "skull",
    "models": [
     "kay-skeleton/skull-horned",
-    "wizp-grave/skull",
-    "quat-pirate/skull-hollow",
     "aq-hallow/skull-wolf",
     "aq-hallow/skull-cat",
     "aq-hallow/skull-bird",
@@ -25088,7 +25386,9 @@
     "m3-base/skull-no-teeth",
     "kay-skeleton-1/skull-claw",
     "loaf-bones/skull",
-    "loaf-bones/skull-jawless"
+    "loaf-bones/skull-jawless",
+    "quat-pirate/skull-hollow",
+    "wizp-grave/skull"
    ]
   },
   {
@@ -25471,10 +25771,7 @@
    "type": "kind",
    "description": "ground, ground mesh",
    "models": [
-    "rgp-asia/tree-bed",
-    "m3-base/cast-iron-tree-grate-01",
-    "ken-platformer/stones",
-    "avra-nature/worn-ground"
+    "m3-base/cast-iron-tree-grate-01"
    ]
   },
   {
@@ -25518,7 +25815,8 @@
     "quat-town/farm-field-b",
     "kay-builder/farm-plot",
     "styloo-farm/soil",
-    "pm-store/ground-garden"
+    "pm-store/ground-garden",
+    "rgp-asia/tree-bed"
    ]
   },
   {
@@ -25556,7 +25854,9 @@
     "ken-survival/rock-flat-grass",
     "avra-nature/slab",
     "avra-nature/riverbed",
-    "wizp-asia/clover"
+    "wizp-asia/clover",
+    "ken-platformer/stones",
+    "avra-nature/worn-ground"
    ]
   },
   {
@@ -25621,7 +25921,8 @@
     "pm-store/fireplace",
     "quat-interior/fireplace",
     "emace-village/hearth",
-    "m3-base/cast-iron-grate"
+    "m3-base/cast-iron-grate",
+    "m3-base/companion-set"
    ]
   },
   {
@@ -25652,13 +25953,8 @@
    "id": "str-fixture-light",
    "name": "Street light",
    "type": "kind",
-   "description": "Light fixed in place: lamp post, street light, stone lantern, warning beacon.",
+   "description": "Light fixed in place: lamp post, street light, warning beacon.",
    "models": [
-    "rgp-asia/stone-lantern",
-    "wizp-asia/stone-lantern",
-    "pm-store/lantern-standing",
-    "m3-base/japanese-stone-lantern-01",
-    "m3-base/japanese-stone-lantern-02",
     "ken-factory/warning-orange"
    ]
   },
@@ -25681,6 +25977,18 @@
     "ken-racing/light-red-double",
     "ken-factory/warning-traffic",
     "quat-apocalypse/traffic-light"
+   ]
+  },
+  {
+   "id": "str-fixture-light-lantern",
+   "name": "Lantern",
+   "type": "kind",
+   "description": "stone lantern, toro",
+   "models": [
+    "m3-base/japanese-stone-lantern-01",
+    "m3-base/japanese-stone-lantern-02",
+    "rgp-asia/stone-lantern",
+    "wizp-asia/stone-lantern"
    ]
   },
   {
@@ -25873,7 +26181,6 @@
     "kay-dun-2/stairs-wall-right",
     "kay-dun-2/stairs-walled",
     "kay-dun-2/stairs-wide",
-    "kay-dun-2/stairs-wood",
     "ken-town/stairs-stone-corner",
     "medieval-forge/stairs",
     "quat-dun-1/stairs-modular",
@@ -25886,7 +26193,6 @@
     "ken-furniture/stairs-corner",
     "rgp-medieval/stairs-stone",
     "ken-castle/stairs-stone-square",
-    "fs-house/stairs",
     "fs-temple/puzzle-steps-conduit",
     "fs-temple/stairs-steps-straight",
     "lpa-west/big-staircase-a",
@@ -25894,7 +26200,6 @@
     "lpa-west/corner-staircase-b",
     "lpa-west/staircase-a",
     "lpa-west/staircase-b",
-    "pm-store/stairs",
     "ken-proto/stairs-diagonal-small",
     "ken-proto/stairs-small",
     "emace-village/stairs-walled",
@@ -25957,7 +26262,8 @@
     "ken-space/stairs-corner",
     "rgp-medieval/stairs-wood",
     "quat-space/stairs",
-    "rgp-asia/stairs"
+    "rgp-asia/stairs",
+    "kay-dun-2/stairs-wood"
    ]
   },
   {
@@ -25990,28 +26296,23 @@
     "ken-station/stairs",
     "ken-station/stairs-corner",
     "ken-station/stairs-corner-inner",
-    "emace-village/cobble-stairs"
+    "emace-village/cobble-stairs",
+    "pm-store/stairs",
+    "fs-house/stairs"
    ]
   },
   {
    "id": "str-barrier",
    "name": "Barrier",
    "type": "kind",
-   "description": "wall (low, garden), barricade",
+   "description": "barricade, curb, kerb, buffer stop",
    "color": "#b08968",
    "models": [
-    "wizp-asia/garden-wall-a",
-    "wizp-asia/garden-wall-b",
-    "wizp-asia/garden-wall-c",
-    "wizp-asia/garden-wall-d",
-    "wizp-asia/garden-wall-e",
     "quat-shoot/sandbags",
     "quat-shoot/sandbags-small",
     "quat-shoot/barrier",
-    "wizp-village/wall-stone-low",
     "quat-shoot/barricade-junk",
     "quat-shoot/barrier-large",
-    "ken-roads/construction-fence",
     "rgp-medieval/stakes-a",
     "rgp-medieval/stakes-b",
     "sq-bowling/lane-bumpers",
@@ -26022,14 +26323,6 @@
     "fs-town/stone-curb-d",
     "ipoly-concert/barricade",
     "fs-terrain/cave-prop-railway-bumpstop",
-    "ken-grave/stone-wall",
-    "ken-grave/stone-wall-column",
-    "ken-grave/stone-wall-curve",
-    "ken-grave/stone-wall-damaged",
-    "ken-grave/brick-wall",
-    "ken-grave/brick-wall-curve",
-    "ken-grave/brick-wall-curve-small",
-    "ken-grave/brick-wall-end",
     "m3-base/block-fence-foot",
     "m3-base/t-wall",
     "m3-base/wooden-rope-barrier",
@@ -26066,7 +26359,8 @@
    "models": [
     "quat-apocalypse/traffic-drum",
     "ken-roads/construction-light",
-    "ken-racing/barrier-wall"
+    "ken-racing/barrier-wall",
+    "ken-roads/construction-fence"
    ]
   },
   {
@@ -26355,7 +26649,6 @@
     "quat-dun-1/floor-bricks-separate",
     "ken-arena/border-corner",
     "ken-arena/border-straight",
-    "kay-dun-2/ceiling-tile",
     "emace-village/stone-footing"
    ]
   },
@@ -26365,82 +26658,27 @@
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
    "models": [
-    "fs-town/cobblestone-floor-a",
-    "fs-town/cobblestone-dirt-transition-b",
-    "fs-town/cobblestone-dirt-transition-c",
-    "fs-town/cobblestone-dirt-transition-d",
-    "fs-town/cobblestone-dirt-transition-a",
-    "fs-town/dirt-gathered-straight",
-    "isa-bakery/floor-tiled",
-    "kay-dun-1/floor-decoration-tiles-large",
-    "kay-dun-1/floor-decoration-tiles-small",
-    "kay-dun-1/tile-brick-a-large",
-    "kay-dun-1/tile-brick-b-large",
-    "kay-dun-2/floor-dirt-small-a",
-    "kay-dun-2/floor-dirt-small-b",
-    "kay-dun-2/floor-dirt-small-c",
-    "kay-dun-2/floor-dirt-small-corner",
-    "kay-dun-2/floor-dirt-small-d",
-    "kay-dun-2/floor-dirt-small-weeds",
     "kay-dun-2/floor-tile-extralarge-grates-open",
-    "kay-dun-2/floor-tile-small",
-    "kay-dun-2/floor-tile-small-broken-a",
-    "kay-dun-2/floor-tile-small-broken-b",
-    "kay-dun-2/floor-tile-small-corner",
-    "kay-dun-2/floor-tile-small-weeds-a",
-    "kay-dun-2/floor-tile-small-weeds-b",
-    "kay-food/floor-kitchen-small",
-    "kay-hallow/floor-dirt-small",
-    "ken-holiday/floor-stone",
-    "kay-hallow/floor-dirt",
-    "kay-hallow/floor-dirt-grave",
-    "kay-dun-2/floor-tile-large",
-    "kay-dun-2/floor-dirt-large-rocky",
-    "kay-dun-2/floor-dirt-large",
-    "kay-dun-2/floor-tile-large-rocks",
-    "quat-dun-1/floor-modular",
     "kay-dun-2/floor-tile-big-grate-open",
     "kay-dun-2/floor-tile-big-spikes",
-    "kay-food/floor-kitchen",
-    "isa-kitchen/floor-tiles",
     "kay-minigame/barrier-floor",
-    "ken-market/floor-tiles",
-    "quat-sushi/floor-checker",
-    "ken-arcade/floor",
     "ken-arena/block",
-    "fs-town/stone-floor-b",
-    "fs-town/stone-floor-a",
     "sq-pool/pool-edge-corner",
     "sq-pool/pool-edge-straight",
-    "quat-sushi/floor-kitchen",
-    "quat-sushi/floor-tile",
-    "kay-spook/floor-graveyard",
     "ken-mini-dun/floor-detail",
-    "ken-factory/floor-checkerboard",
     "ken-proto/floor-square-small",
     "ken-proto/floor-square",
     "ken-skate/floor-concrete",
     "kay-proto/floor",
-    "kay-proto/floor-dirt",
     "kay-proto/floor-prototype",
     "ken-station/floor",
     "ken-station/floor-detail",
     "ken-station/balcony-floor-corner",
     "ken-station/balcony-floor-center",
     "ken-station/balcony-floor",
-    "isa-bathroom/floor-tiled",
     "lpa-construction/floor-slab",
-    "dungeon/floor-004",
-    "dungeon/floor-005",
     "kay-dun-2/floor-tile-grate-open",
-    "wizp-grave/floor-tile-a",
-    "wizp-grave/floor-tile-b",
-    "wizp-grave/floor-tile-c",
-    "wizp-grave/floor-tile-d",
-    "wizp-grave/floor-tile-e",
-    "fs-town/dirt-fading",
-    "fs-town/dirt-fading-gathered",
-    "fs-town/dirt-gathered-corner"
+    "kay-dun-2/ceiling-tile"
    ]
   },
   {
@@ -26501,6 +26739,87 @@
    ]
   },
   {
+   "id": "str-part-floor-unit-stone",
+   "name": "Stone",
+   "type": "kind",
+   "description": "stone floor, flagstone floor, cobblestone floor, paving",
+   "models": [
+    "dungeon/floor-004",
+    "dungeon/floor-005",
+    "fs-town/cobblestone-dirt-transition-a",
+    "fs-town/cobblestone-dirt-transition-b",
+    "fs-town/cobblestone-dirt-transition-c",
+    "fs-town/cobblestone-dirt-transition-d",
+    "fs-town/cobblestone-floor-a",
+    "fs-town/stone-floor-a",
+    "fs-town/stone-floor-b",
+    "kay-dun-1/floor-decoration-tiles-large",
+    "kay-dun-1/floor-decoration-tiles-small",
+    "kay-dun-1/tile-brick-a-large",
+    "kay-dun-1/tile-brick-b-large",
+    "kay-dun-2/floor-tile-large",
+    "kay-dun-2/floor-tile-large-rocks",
+    "kay-dun-2/floor-tile-small",
+    "kay-dun-2/floor-tile-small-broken-a",
+    "kay-dun-2/floor-tile-small-broken-b",
+    "kay-dun-2/floor-tile-small-corner",
+    "kay-dun-2/floor-tile-small-weeds-a",
+    "kay-dun-2/floor-tile-small-weeds-b",
+    "ken-holiday/floor-stone",
+    "quat-dun-1/floor-modular",
+    "wizp-grave/floor-tile-a",
+    "wizp-grave/floor-tile-b",
+    "wizp-grave/floor-tile-c",
+    "wizp-grave/floor-tile-d",
+    "wizp-grave/floor-tile-e",
+    "kay-dun-2/floor-tile-small-decorated"
+   ]
+  },
+  {
+   "id": "str-part-floor-unit-dirt",
+   "name": "Dirt",
+   "type": "kind",
+   "description": "dirt floor, earth floor",
+   "models": [
+    "fs-town/dirt-fading-gathered",
+    "fs-town/dirt-fading",
+    "fs-town/dirt-gathered-corner",
+    "fs-town/dirt-gathered-straight",
+    "kay-dun-2/floor-dirt-large-rocky",
+    "kay-dun-2/floor-dirt-large",
+    "kay-dun-2/floor-dirt-small-a",
+    "kay-dun-2/floor-dirt-small-b",
+    "kay-dun-2/floor-dirt-small-c",
+    "kay-dun-2/floor-dirt-small-corner",
+    "kay-dun-2/floor-dirt-small-d",
+    "kay-dun-2/floor-dirt-small-weeds",
+    "kay-hallow/floor-dirt-grave",
+    "kay-hallow/floor-dirt-small",
+    "kay-hallow/floor-dirt",
+    "kay-proto/floor-dirt",
+    "kay-spook/floor-graveyard"
+   ]
+  },
+  {
+   "id": "str-part-floor-unit-tiled",
+   "name": "Tiled",
+   "type": "kind",
+   "description": "tiled floor, checker floor, kitchen floor",
+   "models": [
+    "isa-bakery/floor-tiled",
+    "isa-bathroom/floor-tiled",
+    "isa-kitchen/floor-tiles",
+    "kay-food/floor-kitchen-small",
+    "kay-food/floor-kitchen",
+    "ken-arcade/floor",
+    "ken-factory/floor-checkerboard",
+    "ken-market/floor-tiles",
+    "quat-sushi/floor-checker",
+    "quat-sushi/floor-kitchen",
+    "quat-sushi/floor-tile"
+   ]
+  },
+  {
    "id": "str-part-frame",
    "name": "Frame",
    "type": "kind",
@@ -26548,20 +26867,11 @@
     "ken-factory/structure-yellow-tall",
     "rgp-medieval/drying-rack-a",
     "rgp-medieval/drying-rack-b",
-    "fs-town/stucco-support-angled-large",
-    "fs-town/stucco-support-beam-a",
-    "fs-town/stucco-support-pillar-a",
     "fs-town/wood-baseboard",
     "ken-town/balcony-wall",
     "ken-space/supports-high",
     "ken-space/supports-low",
     "ken-town/balcony-wall-fence",
-    "fs-town/stucco-support-angled-low",
-    "fs-town/stucco-support-angled-small",
-    "fs-town/stucco-support-beam-b",
-    "fs-town/stucco-support-beam-c",
-    "fs-town/stucco-support-pillar-b",
-    "fs-town/stucco-support-pillar-c",
     "kay-platformer/frame-a",
     "ken-station/structure-panel",
     "pm-store/bell-frame",
@@ -26827,7 +27137,16 @@
     "fs-house/wall-joint-top",
     "kay-platformer/bracing-large",
     "kay-platformer/bracing-medium",
-    "kay-platformer/bracing-small"
+    "kay-platformer/bracing-small",
+    "fs-town/stucco-support-angled-large",
+    "fs-town/stucco-support-angled-low",
+    "fs-town/stucco-support-angled-small",
+    "fs-town/stucco-support-beam-a",
+    "fs-town/stucco-support-beam-b",
+    "fs-town/stucco-support-beam-c",
+    "fs-town/stucco-support-pillar-a",
+    "fs-town/stucco-support-pillar-b",
+    "fs-town/stucco-support-pillar-c"
    ]
   },
   {
@@ -27013,13 +27332,11 @@
     "kay-dun-2/wall",
     "kay-dun-2/wall-arched",
     "kay-dun-2/wall-corner",
-    "kay-dun-2/wall-corner-gated",
     "kay-dun-2/wall-corner-scaffold",
     "kay-dun-2/wall-corner-small",
     "kay-dun-2/wall-cracked",
     "kay-dun-2/wall-crossing",
     "kay-dun-2/wall-endcap",
-    "kay-dun-2/wall-gated",
     "kay-dun-2/wall-half",
     "kay-dun-2/wall-half-endcap",
     "kay-dun-2/wall-half-endcap-sloped",
@@ -27044,7 +27361,6 @@
     "quat-sushi/shoji-wall",
     "quat-sushi/wall-shelves",
     "ken-arcade/wall",
-    "ken-arena/wall-corner",
     "ken-arena/wall",
     "kay-proto/wall-decorated",
     "ken-space/corridor-wall",
@@ -27053,8 +27369,6 @@
     "fs-town/stucco-block",
     "ken-station/wall",
     "ken-station/wall-banner",
-    "medieval-forge/wall-1",
-    "medieval-forge/wall-2",
     "kay-proto/wall",
     "ken-station/wall-pillar",
     "ken-station/wall-pillar-banner",
@@ -27187,7 +27501,10 @@
     "lpa-desert/door-frame-b",
     "ken-station/wall-door-wide-banner",
     "ken-town/wall-wood-doorway-square",
-    "fs-temple/wall-straight-doorway"
+    "fs-temple/wall-straight-doorway",
+    "kay-dun-2/wall-gated",
+    "kay-dun-2/wall-corner-gated",
+    "ken-arena/wall-corner"
    ]
   },
   {
@@ -27278,14 +27595,16 @@
     "dungeon/walls-003",
     "dungeon/walls-004",
     "dungeon/walls-005",
-    "dungeon/wallslittle-001"
+    "dungeon/wallslittle-001",
+    "medieval-forge/wall-1",
+    "medieval-forge/wall-2"
    ]
   },
   {
    "id": "str-part-wall-rampart",
    "name": "Rampart",
    "type": "kind",
-   "description": "A segment or corner of a free-standing wall that encloses ground: rampart, curtain wall, garden wall. A wall that carries a building stays on the parent.",
+   "description": "A segment or corner of a free-standing wall that encloses ground: rampart, curtain wall. A wall that carries a building stays on the parent.",
    "models": [
     "kay-builder/wall-corner",
     "kay-builder/wall-hex-corner-a",
@@ -27451,28 +27770,15 @@
    "id": "str-fixture-marker-sign",
    "name": "Sign",
    "type": "kind",
-   "description": "sign, signpost, notice board, direction arrow",
+   "description": "sign, signpost, direction arrow",
    "models": [
-    "fs-town/sign-a",
     "isa-bakery/wall-sign-large",
     "isa-bakery/wall-sign-small",
     "ken-racing/billboard-double-exclusive",
     "ken-racing/billboard-low",
     "ken-racing/billboard-lower",
     "ken-racing/billboard",
-    "rgp-asia/notice-board",
-    "sq-bank/rate-board",
     "sq-cards/shop-sign",
-    "sq-fastfood/menu-board",
-    "sq-carwash/price-totem",
-    "ipoly-signs/sign-hanging-frame",
-    "ipoly-signs/sign-hanging-framed",
-    "ipoly-signs/sign-hanging-frame-oval",
-    "ipoly-signs/sign-hanging-plain",
-    "ipoly-signs/sign-hanging-notched",
-    "ipoly-signs/sign-board-planks",
-    "ipoly-signs/sign-board",
-    "household/corkboard",
     "styloo-school/chalkboard-large",
     "styloo-school/chalkboard",
     "lpa-west/sign-a",
@@ -27480,20 +27786,8 @@
     "lpa-west/sign-c",
     "lpa-west/sign-f",
     "lpa-west/small-sign",
-    "pm-store/notice-board",
-    "pm-store/emblem-tiger",
-    "m3-base/estate-sign-01",
-    "m3-base/estate-sign-02",
     "m3-base/interpretation-panel-01",
-    "m3-base/menu-stand",
-    "m3-base/noticeboard",
-    "m3-base/outdoor-sign",
-    "m3-base/pavement-sign",
-    "m3-base/standing-floor-chalkboard-01",
-    "m3-base/standing-floor-chalkboard-02",
-    "m3-base/estate-sign-04",
     "m3-base/sign-shelter-01",
-    "kay-food/menu",
     "isa-bakery/pricing-card"
    ]
   },
@@ -27532,7 +27826,10 @@
     "kay-platformer/sign-caution",
     "quat-shoot/sign-floor",
     "3dm-industrial-2/wet-floor-sign",
-    "m3-base/wet-floor-sign"
+    "m3-base/wet-floor-sign",
+    "m3-base/pavement-sign",
+    "m3-base/standing-floor-chalkboard-01",
+    "m3-base/standing-floor-chalkboard-02"
    ]
   },
   {
@@ -27580,7 +27877,8 @@
     "ken-proto/number-6",
     "ken-proto/number-7",
     "ken-proto/number-8",
-    "ken-proto/number-9"
+    "ken-proto/number-9",
+    "pm-store/emblem-tiger"
    ]
   },
   {
@@ -27610,7 +27908,44 @@
     "lpa-west/welcome-sign",
     "m3-base/finger-post-sign-01",
     "m3-base/finger-post-sign-02",
-    "sq-bowling/arrow-sign"
+    "sq-bowling/arrow-sign",
+    "fs-town/sign-a",
+    "ipoly-signs/sign-board-planks",
+    "ipoly-signs/sign-board",
+    "ipoly-signs/sign-hanging-frame-oval",
+    "ipoly-signs/sign-hanging-frame",
+    "ipoly-signs/sign-hanging-framed",
+    "ipoly-signs/sign-hanging-notched",
+    "ipoly-signs/sign-hanging-plain",
+    "m3-base/estate-sign-01",
+    "m3-base/estate-sign-02",
+    "m3-base/estate-sign-04",
+    "m3-base/outdoor-sign"
+   ]
+  },
+  {
+   "id": "str-fixture-marker-sign-noticeboard",
+   "name": "Noticeboard",
+   "type": "kind",
+   "description": "notice board, noticeboard, corkboard, bulletin board",
+   "models": [
+    "household/corkboard",
+    "m3-base/noticeboard",
+    "pm-store/notice-board",
+    "rgp-asia/notice-board"
+   ]
+  },
+  {
+   "id": "str-fixture-marker-sign-menu",
+   "name": "Menu",
+   "type": "kind",
+   "description": "menu board, price board, price totem, rate board",
+   "models": [
+    "kay-food/menu",
+    "m3-base/menu-stand",
+    "sq-fastfood/menu-board",
+    "sq-bank/rate-board",
+    "sq-carwash/price-totem"
    ]
   },
   {
@@ -27826,7 +28161,6 @@
    "description": "Tent: a closed shelter of cloth on poles.",
    "models": [
     "kay-mixed/circus-tent",
-    "rgp-medieval/tent",
     "taalei-kit/tipi-a",
     "taalei-kit/tipi-b",
     "taalei-kit/tipi-c",
@@ -27848,7 +28182,8 @@
     "ken-nature/tent-large-open",
     "ken-nature/tent-small-closed",
     "ken-nature/tent-small-open",
-    "quat-survival/tent"
+    "quat-survival/tent",
+    "rgp-medieval/tent"
    ]
   },
   {
@@ -27956,7 +28291,6 @@
     "kay-dun-2/box-small-decorated",
     "kay-dun-2/box-stacked",
     "kay-dun-2/crates-stacked",
-    "kay-dun-2/floor-tile-small-decorated",
     "kay-dun-2/keg-decorated",
     "kay-dun-2/stairs-wood-decorated",
     "kay-dun-2/table-long-decorated-a",
@@ -27967,17 +28301,13 @@
     "kay-dun-2/wall-shelves",
     "kay-hallow/bench-decorated",
     "kay-hallow/coffin-decorated",
-    "kay-hallow/plaque-candles",
     "kay-hallow/post-skull",
     "kay-hallow/shrine-candles",
     "kay-hallow/skull-candle",
     "kay-hallow/tree-dead-large-decorated",
     "ken-survival/workbench-anvil",
     "quat-medieval/sawmill-saw",
-    "quat-dun-2/sword-wall-mount",
     "quat-pirate/chest-gold",
-    "quat-props/barrel-apples",
-    "quat-dun-1/chest-gold",
     "styloo-farm/pond-scene",
     "kay-holiday/gingerbread-house",
     "kay-holiday/gingerbread-house-decorated",
@@ -27990,7 +28320,6 @@
     "kay-furniture/shelf-b-small-decorated",
     "quat-shoot/structure-a",
     "quat-shoot/structure-b",
-    "quat-shoot/trash-container-open",
     "kay-holiday/christmas-tree",
     "kay-holiday/christmas-tree-decorated",
     "kay-holiday/christmas-tree-unlit",
@@ -28011,7 +28340,6 @@
     "ken-holiday/tree-decorated-snow",
     "quat-shoot/structure-container",
     "quat-shoot/structure-c",
-    "styloo-food/sushi-board-full",
     "kay-proto/table-medium-decorated",
     "kay-space/cargodepot-a",
     "kay-space/cargodepot-b",
@@ -28021,7 +28349,6 @@
     "kay-space/roofmodule-cargo-c",
     "sq-arcade/token-gear",
     "sq-bank/pulled-box",
-    "sq-pool/bench-hooks",
     "sq-observatory/chart-desk",
     "quat-town/port-2-a",
     "quat-town/port-2-b",
@@ -28036,14 +28363,11 @@
     "kay-city/building-g",
     "kay-city/building-h",
     "quat-shoot/barrel-spill",
-    "sq-bowling/score-console",
     "kay-food/fridge-a-decorated-anim",
     "rey-studio/easel-set",
-    "isa-bathroom/toothbrush-cup-brushes",
     "pm-store/screen-dais",
     "kay-hexagon/scaffolding",
     "emace-village/drying-rack-hanging",
-    "m3-base/companion-set",
     "quat-town/town-center-1-a",
     "quat-town/town-center-1-b",
     "quat-town/town-center-1-c",
@@ -28310,9 +28634,8 @@
    "id": "str-building-tower",
    "name": "Tower",
    "type": "kind",
-   "description": "Tower-form building: tower, watchtower, belltower, lighthouse.",
+   "description": "Tower-form building: tower, belltower, lighthouse.",
    "models": [
-    "kay-builder/watchtower",
     "kay-hexagon/tower-a",
     "kay-hexagon/tower-b",
     "kay-hexagon/tower-base",
@@ -28320,14 +28643,6 @@
     "ken-pirate/tower-complete-large",
     "ken-pirate/tower-complete-small",
     "quat-medieval/bell-tower",
-    "quat-town/watchtower-1-a",
-    "quat-town/watchtower-1-b",
-    "quat-town/watchtower-1-c",
-    "quat-town/watchtower-2-a",
-    "quat-town/watchtower-2-b",
-    "quat-town/watchtower-2-c",
-    "rgp-medieval/watchtower-hut",
-    "rgp-medieval/watchtower",
     "taalei-kit/lighthouse",
     "wizp-mediev/wizard-tower",
     "wizp-village/tower",
@@ -28338,8 +28653,7 @@
     "ken-pirate/tower-middle",
     "ken-pirate/tower-middle-windows",
     "ken-pirate/tower-top",
-    "ken-pirate/tower-watch",
-    "emace-village/watchtower"
+    "ken-pirate/tower-watch"
    ]
   },
   {
@@ -28644,24 +28958,13 @@
    "id": "str-building-work-agricultural",
    "name": "Agricultural",
    "type": "kind",
-   "description": "Farm or animal building: farm, farmhouse, chicken coop, barn, kennel.",
+   "description": "Farm or animal building: farm, farmhouse.",
    "models": [
-    "architecture/barn",
-    "quat-farms/barn-large",
-    "quat-farms/barn-open",
-    "quat-farms/barn-small",
-    "quat-farms/barn",
-    "quat-farms/chicken-coop",
     "quat-town/farm-2-a",
     "quat-town/farm-2-b",
     "quat-town/farm-2-c",
     "rgp-medieval/shelter",
-    "styloo-farm/barn-large",
-    "styloo-farm/barn-small",
-    "styloo-farm/barn",
-    "emace-village/hutch",
-    "emace-village/barn",
-    "m3-base/kennel-01"
+    "emace-village/barn"
    ]
   },
   {
@@ -28675,6 +28978,33 @@
     "wizp-asia/granary",
     "wizp-mediev/silo",
     "wizp-village/granary-large"
+   ]
+  },
+  {
+   "id": "str-building-work-agricultural-barn",
+   "name": "Barn",
+   "type": "kind",
+   "description": "barn",
+   "models": [
+    "architecture/barn",
+    "quat-farms/barn-large",
+    "quat-farms/barn-open",
+    "quat-farms/barn-small",
+    "quat-farms/barn",
+    "styloo-farm/barn-large",
+    "styloo-farm/barn-small",
+    "styloo-farm/barn"
+   ]
+  },
+  {
+   "id": "str-building-work-agricultural-coop",
+   "name": "Coop",
+   "type": "kind",
+   "description": "chicken coop, hutch, kennel, animal house",
+   "models": [
+    "emace-village/hutch",
+    "m3-base/kennel-01",
+    "quat-farms/chicken-coop"
    ]
   },
   {
@@ -29031,6 +29361,15 @@
    "type": "kind",
    "description": "Building lived in, with no leaf that fits.",
    "models": [
+    "loaf-gothic/structure-i"
+   ]
+  },
+  {
+   "id": "str-building-residential-apartment",
+   "name": "Apartment",
+   "type": "kind",
+   "description": "apartment building, block of flats, townhouse block",
+   "models": [
     "kay-city/building-a-no-base",
     "kay-city/building-b-no-base",
     "kay-city/building-c-no-base",
@@ -29043,7 +29382,6 @@
     "ken-modular/tower-b",
     "ken-modular/tower-c",
     "ken-modular/tower-d",
-    "loaf-gothic/structure-i",
     "lowpoly-buildings/apartment-5",
     "lowpoly-buildings/apartment-7",
     "lowpoly-buildings/apartment-8",
@@ -29063,26 +29401,6 @@
     "kay-space/basemodule-e",
     "kay-space/basemodule-garage",
     "kay-space/drill-structure",
-    "ken-industrial/factory-a",
-    "ken-industrial/factory-b",
-    "ken-industrial/factory-c",
-    "ken-industrial/factory-d",
-    "ken-industrial/factory-e",
-    "ken-industrial/factory-f",
-    "ken-industrial/factory-g",
-    "ken-industrial/factory-h",
-    "ken-industrial/factory-i",
-    "ken-industrial/factory-j",
-    "ken-industrial/factory-k",
-    "ken-industrial/factory-l",
-    "ken-industrial/factory-m",
-    "ken-industrial/factory-n",
-    "ken-industrial/factory-o",
-    "ken-industrial/factory-p",
-    "ken-industrial/factory-q",
-    "ken-industrial/factory-r",
-    "ken-industrial/factory-s",
-    "ken-industrial/factory-t",
     "ken-space/hangar-large-a",
     "ken-space/hangar-large-b",
     "ken-space/hangar-round-a",
@@ -29111,6 +29429,34 @@
     "quat-town/mine",
     "kay-hexagon/mine",
     "wizp-mediev/mine-entrance"
+   ]
+  },
+  {
+   "id": "str-building-work-industrial-factory",
+   "name": "Factory",
+   "type": "kind",
+   "description": "factory, plant",
+   "models": [
+    "ken-industrial/factory-a",
+    "ken-industrial/factory-b",
+    "ken-industrial/factory-c",
+    "ken-industrial/factory-d",
+    "ken-industrial/factory-e",
+    "ken-industrial/factory-f",
+    "ken-industrial/factory-g",
+    "ken-industrial/factory-h",
+    "ken-industrial/factory-i",
+    "ken-industrial/factory-j",
+    "ken-industrial/factory-k",
+    "ken-industrial/factory-l",
+    "ken-industrial/factory-m",
+    "ken-industrial/factory-n",
+    "ken-industrial/factory-o",
+    "ken-industrial/factory-p",
+    "ken-industrial/factory-q",
+    "ken-industrial/factory-r",
+    "ken-industrial/factory-s",
+    "ken-industrial/factory-t"
    ]
   },
   {
@@ -29533,7 +29879,8 @@
     "styloo-food/croissant",
     "styloo-food/croissant-half",
     "food-pack-2/croissant",
-    "food-pack-2/croissant-chocolate"
+    "food-pack-2/croissant-chocolate",
+    "styloo-food/pain-au-chocolat"
    ]
   },
   {
@@ -29552,6 +29899,17 @@
     "food-pack-2/muffin",
     "food-pack-2/muffin-chips",
     "food-pack-2/muffin-blueberry"
+   ]
+  },
+  {
+   "id": "obj-food-baked-pastry-pancake",
+   "name": "Pancake",
+   "type": "kind",
+   "description": "pancake, pancake stack, crepe",
+   "models": [
+    "food-pack-2/pancake",
+    "ken-food/pancakes",
+    "styloo-food/pancakes"
    ]
   },
   {
@@ -29608,7 +29966,8 @@
     "lpa-west/hat-b",
     "lpa-west/hat-c",
     "lpa-construction/ear-defenders",
-    "m3-base/snapback-cap"
+    "m3-base/snapback-cap",
+    "kay-skeleton-1/mage-cloak"
    ]
   },
   {
@@ -29694,6 +30053,24 @@
    ]
   },
   {
+   "id": "str-building-tower-watch",
+   "name": "Watch",
+   "type": "kind",
+   "description": "watchtower, lookout tower",
+   "models": [
+    "emace-village/watchtower",
+    "kay-builder/watchtower",
+    "quat-town/watchtower-1-a",
+    "quat-town/watchtower-1-b",
+    "quat-town/watchtower-1-c",
+    "quat-town/watchtower-2-a",
+    "quat-town/watchtower-2-b",
+    "quat-town/watchtower-2-c",
+    "rgp-medieval/watchtower-hut",
+    "rgp-medieval/watchtower"
+   ]
+  },
+  {
    "id": "env-remains-bones-fishbone",
    "name": "Fish bones",
    "type": "kind",
@@ -29749,21 +30126,9 @@
     "quat-apocalypse/rifle",
     "quat-pirate/axe-rifle",
     "ken-blaster/blaster-d",
-    "ken-blaster/blaster-e",
-    "ken-blaster/blaster-f",
     "ken-blaster/blaster-p",
     "ken-space/weapon-rifle",
-    "zombie-weapons/assault-rifle",
     "zombie-weapons/lever-rifle",
-    "quat-scifi/rifle-ar",
-    "quat-scifi/rifle-assault",
-    "quat-scifi/rifle-assault-b",
-    "quat-scifi/rifle-assault-c",
-    "quat-scifi/rifle-assault-d",
-    "styloo-guns/assault-rifle",
-    "styloo-guns/assault-rifle-short",
-    "3dm-guns/ak-47",
-    "3dm-guns/m4a1",
     "quat-shoot/carbine"
    ]
   },
@@ -29780,7 +30145,27 @@
     "quat-scifi/sniper",
     "quat-scifi/sniper-b",
     "styloo-guns/sniper-rifle",
-    "3dm-guns/sniper"
+    "3dm-guns/sniper",
+    "ken-blaster/blaster-e",
+    "ken-blaster/blaster-f"
+   ]
+  },
+  {
+   "id": "obj-equipment-weapon-ranged-firearm-rifle-assault",
+   "name": "Assault",
+   "type": "kind",
+   "description": "assault rifle, automatic rifle",
+   "models": [
+    "3dm-guns/ak-47",
+    "3dm-guns/m4a1",
+    "quat-scifi/rifle-ar",
+    "quat-scifi/rifle-assault",
+    "quat-scifi/rifle-assault-b",
+    "quat-scifi/rifle-assault-c",
+    "quat-scifi/rifle-assault-d",
+    "styloo-guns/assault-rifle",
+    "styloo-guns/assault-rifle-short",
+    "zombie-weapons/assault-rifle"
    ]
   },
   {
@@ -29797,6 +30182,17 @@
     "lpa-home/broom",
     "emace-village/besom",
     "m3-base/broom"
+   ]
+  },
+  {
+   "id": "obj-equipment-tool-twohand-sledgehammer",
+   "name": "Sledgehammer",
+   "type": "kind",
+   "description": "sledgehammer",
+   "models": [
+    "lpa-construction/sledgehammer",
+    "m3-base/sledgehammer",
+    "zombie-weapons/sledgehammer"
    ]
   },
   {
@@ -29919,6 +30315,18 @@
     "ken-nature/turnip",
     "food-pack-2/radish-white",
     "food-pack-2/radish-red"
+   ]
+  },
+  {
+   "id": "obj-food-vegetable-potato",
+   "name": "Potato",
+   "type": "kind",
+   "description": "potato",
+   "models": [
+    "food-pack-2/potato",
+    "kay-food/food-ingredient-potato",
+    "kay-food/food-ingredient-potato-chopped",
+    "styloo-school/potato"
    ]
   },
   {
@@ -30098,6 +30506,28 @@
     "lpa-construction/barrier-d",
     "quat-apocalypse/traffic-barrier",
     "quat-apocalypse/traffic-barrier-triple"
+   ]
+  },
+  {
+   "id": "str-barrier-wall",
+   "name": "Wall",
+   "type": "kind",
+   "description": "low wall, garden wall, wall (low, garden), dry stone wall",
+   "models": [
+    "ken-grave/brick-wall",
+    "ken-grave/brick-wall-curve",
+    "ken-grave/brick-wall-curve-small",
+    "ken-grave/brick-wall-end",
+    "ken-grave/stone-wall",
+    "ken-grave/stone-wall-column",
+    "ken-grave/stone-wall-curve",
+    "ken-grave/stone-wall-damaged",
+    "wizp-asia/garden-wall-a",
+    "wizp-asia/garden-wall-b",
+    "wizp-asia/garden-wall-c",
+    "wizp-asia/garden-wall-d",
+    "wizp-asia/garden-wall-e",
+    "wizp-village/wall-stone-low"
    ]
   },
   {
