@@ -49,12 +49,6 @@ const SOURCES = {
     onlyLint: true,
     labels: { links: 'Retag', rechts: 'Add tag', omhoog: 'Flag rescale', omlaag: 'TBD' },
   },
-  sheepdog: {
-    file: '../build/catalog.json',
-    title: 'Swipe the sheepdog doubts',
-    key: 'sheepdog',
-    labels: { links: 'Revert', rechts: 'OK', omhoog: 'Leave open', omlaag: 'Leave open' },
-  },
 };
 
 const PARAMS = new URLSearchParams(location.search);
@@ -568,7 +562,7 @@ function labelled(viewer, label) {
 function makeBeforeViewer(after, src, name) {
   const viewer = document.createElement('model-viewer');
   viewer.src = src;
-  viewer.alt = `3D model ${name} before the sheepdog change`;
+  viewer.alt = `3D model ${name} before the change`;
   for (const attr of ['camera-orbit', 'shadow-softness', 'interaction-prompt', 'loading']) viewer.setAttribute(attr, after.getAttribute(attr));
   setLighting(viewer);
   const pair = [viewer, after];
