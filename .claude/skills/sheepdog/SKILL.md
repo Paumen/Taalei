@@ -1,13 +1,13 @@
 ---
 name: sheepdog
-description: Round up the strays of random catalogue kinds — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; doubted changes go to the PO's swipe page and the verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog swipe verdicts.
+description: Round up the strays of random catalogue kinds — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
 ---
 
 # Sheepdog
 
 One run: pick kinds, one sub agent per kind fixes its models, record, rebuild,
-push, and hand the PO the doubted models to swipe. A second, short run applies
-the PO's swipe verdicts.
+push, and end with a review (`.claude/skills/review`) of the run's changes. A
+second, short run applies the PO's verdicts.
 
 The tool is `tools/sheepdog/sheepdog.mjs` (`--help` lists every command). It
 logs every picked kind in `tools/sheepdog/log.json`, so a random pick never
@@ -51,36 +51,36 @@ say how bands and tags work. The agents get both as reading.
        node tools/sheepdog/sheepdog.mjs record --run kits/.cache/sheepdog/<run>
 
    It applies the agents' tag edits, lints every changed file against its
-   before-state and turns a new finding into doubt, stores the changes in the
-   log and writes `catalog/data/lists/sheepdog-open.json`, with the
-   before-state glbs in `catalog/data/lists/sheepdog-before`. An agent that
-   wrote no `result.json` is reported and skipped; chase it before recording
-   if its work is unfinished.
+   before-state and turns a new finding into doubt, and stores the changes in
+   the log. An agent that wrote no `result.json` is reported and skipped;
+   chase it before recording if its work is unfinished.
 
 6. Rebuild per `catalog-assets` §6, every step except `build-lists`. Commit
-   the workfiles, `tags.json`, the log, the open list and `catalog/build`;
-   push; open the PR.
+   the workfiles, `tags.json`, the log and `catalog/build`; push; open the PR.
 
-7. Report to the PO: the kinds, changes made and doubted per kind, the
-   agents' notes (`notes` in the log) and the full swipe link, live once
-   the push has deployed to Pages:
+7. Review, per the review skill. Write the list and calibrate it:
 
-       https://paumen.github.io/Taalei/catalog/app/swipe.html?source=sheepdog&list=sheepdog-open
+       node tools/sheepdog/sheepdog.mjs review --out <scratchpad>/review-list.json
+       node tools/review/review.mjs brief
 
-   A model whose file changed shows its before-state beside the current file,
-   turning together. Right is OK, left is revert; up and down leave a model
-   open.
+   Doubted changes are high, the rest low; drop the low items of a type the
+   brief says to send only where doubt is high. Build, publish the page as an
+   artifact and link it in the PR.
+
+8. Report to the PO: the kinds, changes made and doubted per kind, the
+   agents' notes (`notes` in the log) and the review link.
 
 ## 2. Verdict run
 
-The PO pastes the swipe page's export JSON. Save it to the scratchpad and:
+The PO pastes the review page's verdicts. Save them to the scratchpad and:
 
-    node tools/sheepdog/sheepdog.mjs swipe --file <export.json>
+    node tools/review/review.mjs apply <verdicts>
+    node tools/sheepdog/sheepdog.mjs verdicts --file <verdicts>
 
-A model swiped left is put back as it was before its run, file and tags,
-and every change on it is logged `nok`; one swiped right logs `ok`. Then
-rebuild per `catalog-assets` §6 except `build-lists`, commit and push on the
-same branch. `--ok` and `--nok` take ids when the PO gives ids instead.
+Revert and retry put the model back as it was before its run, file and tags,
+and log every change on it `nok`; keep, keep but, relax and other log `ok`;
+later stays open. Do the work `apply` prints, then rebuild per
+`catalog-assets` §6 except `build-lists`, commit and push on the same branch.
 
 `brief` folds the verdicts into the next run's briefs: changes judged nok
 tell the agents what not to do, doubted changes judged ok tell them where
@@ -88,7 +88,7 @@ less doubt is due. `stats` gives the counts.
 
 ## Gotchas
 
-- `pick` refuses a kind with open doubts: swipe those first.
+- `pick` refuses a kind with open doubts: review those first.
 - Commit nothing until `record`: agents lint and revert against `HEAD`.
 - A model changed by an agent but not listed in its `result.json` is logged
   as a doubted `look` change, so nothing slips past the PO unseen.

@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, renameSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, renameSync } from 'node:fs';
 import { execFileSync, execFile } from 'node:child_process';
 import { join, dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,7 +7,8 @@ import { tmpdir } from 'node:os';
 const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 0] [--per-sheet 12] [--jobs 3]
                   [--kind <id[,id]>] [--dry] [--no-render]
 sheepdog.mjs record --run <dir>
-sheepdog.mjs swipe (--file <export.json> | --ok <id[,id]> --nok <id[,id]>)
+sheepdog.mjs review [--run <id>] [--out <list.json>] [--base origin/main]
+sheepdog.mjs verdicts (--file <verdicts> | --ok <id[,id]> --nok <id[,id]>)
 sheepdog.mjs brief
 sheepdog.mjs stats
 sheepdog.mjs open
@@ -24,11 +25,7 @@ pick    draws --count random catalogue kinds with models from at least --kits
 record  reads <run>/<kind>/result.json for every kind of the run, applies its
         tag edits to catalog/data/tags.json, lints every changed model against
         its file before the run and flags new findings as doubt, stores the
-        changes in the log and writes catalog/data/lists/sheepdog-open.json:
-        every doubted model with its changes as the note, its kind and tags
-        before and after where they changed, and for a model whose
-        file changed the before-state glb in catalog/data/lists/sheepdog-before
-        for the swipe page to show beside the current file.
+        changes in the log.
 
         result.json:
         { "kind": "<id>",
@@ -42,22 +39,26 @@ record  reads <run>/<kind>/result.json for every kind of the run, applies its
           "notes": [ "what was seen and left, for the PO" ] }
         A tag edit is also listed under changes with category tag or kind.
 
-swipe   takes the swipe page's export: a model swiped right is ok, one swiped
-        left is nok and put back as it was before the run, file and tags; any
-        other direction stays open. The verdict lands on every change of that
-        model in its run. --ok and --nok take ids instead of a file.
+review  writes a list for tools/review/review.mjs build: one item per model
+        changed in --run (default the latest) or doubted and not judged in an
+        earlier run, high doubt when one of its changes is doubted, low when
+        none is, grouped by kind. --base is the commit before the run.
+
+verdicts takes the review page's verdicts (the file review.mjs apply reads):
+        keep, keepbut, relax and other are ok; revert and retry are nok and put
+        the model back as it was before the run, file and tags; later stays
+        open. The verdict lands on every change of that model in its run.
+        --ok and --nok take ids instead of a file.
 
 brief   prints what the verdicts so far say per category, with the changes
         judged nok and the doubted ones judged ok, for the agents' briefing.
 stats   prints counts per category and per run.
-open    prints the open list.`;
+open    prints the doubted models not judged yet.`;
 
 const CATEGORIES = ['colour', 'glitch', 'shape', 'detail', 'scale', 'placement', 'material', 'tag', 'kind', 'look'];
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const LOG = join(ROOT, 'tools', 'sheepdog', 'log.json');
-const OPEN = join(ROOT, 'catalog', 'data', 'lists', 'sheepdog-open.json');
-const BEFORE = join(ROOT, 'catalog', 'data', 'lists', 'sheepdog-before');
 const TAGS = join(ROOT, 'catalog', 'data', 'tags.json');
 const CATALOG = join(ROOT, 'catalog', 'build', 'catalog.json');
 const KIND_SHEET = join(ROOT, 'tools', 'renders', 'kind-sheet.mjs');
@@ -103,7 +104,7 @@ function setTags(id, wanted, tags) {
   }
 }
 
-function writeOpen() {
+function openChanges() {
   const notes = new Map();
   for (const entry of log) {
     for (const c of entry.changes ?? []) {
@@ -112,34 +113,7 @@ function writeOpen() {
       notes.set(c.id, [...(notes.get(c.id) ?? []), text]);
     }
   }
-  const open = [...notes].sort(([a], [b]) => a.localeCompare(b)).map(([id, texts]) => ({ id, note: texts.join(' · ') }));
-  const keep = new Set();
-  const tags = readJson(TAGS);
-  const kinds = new Set(tags.tags.filter((t) => t.type === 'kind').map((t) => t.id));
-  for (const entry of open) {
-    const first = log.find((e) => e.changes.some((c) => c.id === entry.id && c.doubt && c.verdict === null));
-    const was = first?.models.find((m) => m.id === entry.id)?.tags ?? [];
-    const now = tagsOf(entry.id, tags);
-    const kindWas = was.find((t) => kinds.has(t));
-    const kindNow = now.find((t) => kinds.has(t));
-    if (kindWas !== kindNow) entry.kind = [kindWas ?? null, kindNow ?? null];
-    const add = now.filter((t) => !kinds.has(t) && !was.includes(t));
-    const remove = was.filter((t) => !kinds.has(t) && !now.includes(t));
-    if (add.length || remove.length) entry.tags = { add, remove };
-    const blob = first?.models.find((m) => m.id === entry.id)?.before;
-    if (!blob || !existsSync(workfile(entry.id)) || blob === blobOf(workfile(entry.id))) continue;
-    const name = `${entry.id.replace('/', '__')}-${blob.slice(0, 10)}.glb`;
-    mkdirSync(join(BEFORE, 'Textures'), { recursive: true });
-    if (!existsSync(join(BEFORE, name))) writeFileSync(join(BEFORE, name), git(['cat-file', 'blob', blob], { encoding: 'buffer' }));
-    entry.before = `sheepdog-before/${name}`;
-    keep.add(name);
-  }
-  if (keep.size) {
-    copyFileSync(COLORMAP, join(BEFORE, 'Textures', 'colormap.png'));
-    for (const f of readdirSync(BEFORE)) if (f.endsWith('.glb') && !keep.has(f)) rmSync(join(BEFORE, f));
-  } else rmSync(BEFORE, { recursive: true, force: true });
-  writeJson(OPEN, open);
-  return open;
+  return [...notes].sort(([a], [b]) => a.localeCompare(b)).map(([id, texts]) => ({ id, note: texts.join(' · ') }));
 }
 
 function lintFindings(files) {
@@ -232,7 +206,7 @@ async function pick() {
   for (const kind of kinds) {
     const models = byKind.get(kind).sort().map((id) => ({ id, before: blobOf(workfile(id)), tags: tagsOf(id, tags) }));
     const open = log.find((e) => e.kind === kind && e.changes.some((c) => c.doubt && c.verdict === null));
-    if (open) throw new Error(`${kind} still has open changes from run ${open.run}; swipe those first`);
+    if (open) throw new Error(`${kind} still has open changes from run ${open.run}; review those first`);
     log.push({ kind, run, models, changes: [], notes: [] });
   }
   saveLog();
@@ -347,21 +321,51 @@ function record() {
     doubted += entry.changes.filter((c) => c.doubt && c.verdict === null).length;
   }
   saveLog();
-  const open = writeOpen();
-  console.log(`${total} changes recorded, ${doubted} doubted; ${changedFiles.length} files changed; ${open.length} models open in ${OPEN}`);
+  console.log(`${total} changes recorded, ${doubted} doubted; ${changedFiles.length} files changed; ${openChanges().length} models open`);
 }
 
-function swipe() {
+function review() {
+  const run = flag('run', log.map((e) => e.run).sort().at(-1));
+  const items = new Map();
+  for (const entry of log) {
+    for (const c of entry.changes) {
+      if (c.verdict !== null || (entry.run !== run && !c.doubt)) continue;
+      const item = items.get(c.id) ?? { model: c.id, group: entry.kind, change: [], note: [], doubt: 'low' };
+      item.change.push(c.change);
+      if (c.doubt) {
+        item.doubt = 'high';
+        item.note.push(`${c.why}${c.lint?.length ? ` [lint: ${c.lint.map((f) => f.split(':')[0]).join(', ')}]` : ''}`);
+      }
+      items.set(c.id, item);
+    }
+  }
+  const list = {
+    title: `Sheepdog ${run}`,
+    base: flag('base', 'origin/main'),
+    items: [...items.values()]
+      .sort((a, b) => (a.doubt === b.doubt ? a.group.localeCompare(b.group) || a.model.localeCompare(b.model) : a.doubt === 'high' ? -1 : 1))
+      .map((i) => ({ ...i, change: i.change.join('; '), note: i.note.join('; ') })),
+  };
+  const out = resolve(flag('out', join(tmpdir(), 'sheepdog-review.json')));
+  writeJson(out, list);
+  console.log(`${list.items.length} models, ${list.items.filter((i) => i.doubt === 'high').length} doubted -> ${out}`);
+}
+
+const OK = new Set(['keep', 'keepbut', 'relax', 'other']);
+const NOK = new Set(['revert', 'retry']);
+
+function verdicts() {
   const ok = new Set(list('ok'));
   const nok = new Set(list('nok'));
   if (flag('file')) {
-    const extract = readJson(resolve(flag('file')));
-    const choices = extract.swipe?.choices ?? [];
-    if (!choices.length) throw new Error('no swipe choices in the export');
-    for (const c of choices) {
-      if (c.direction === 'rechts') ok.add(c.id);
-      else if (c.direction === 'links') nok.add(c.id);
-      else console.log(`${c.id}: swiped ${c.direction}, left open`);
+    const text = readFileSync(resolve(flag('file')), 'utf8');
+    const items = text.trim().startsWith('{')
+      ? JSON.parse(text).items
+      : text.split('\n').filter((l) => l.includes(':')).map((l) => ({ model: l.slice(0, l.indexOf(':')).trim(), verdict: l.slice(l.indexOf(':') + 1).trim().split(/\s+[—-]\s+/)[0].trim().toLowerCase() }));
+    for (const { model, verdict } of items) {
+      if (OK.has(verdict)) ok.add(model);
+      else if (NOK.has(verdict)) nok.add(model);
+      else console.log(`${model}: ${verdict}, left open`);
     }
   }
   if (!ok.size && !nok.size) throw new Error('nothing to apply: give --file, or --ok and --nok');
@@ -388,8 +392,7 @@ function swipe() {
   }
   writeJson(TAGS, tags);
   saveLog();
-  const open = writeOpen();
-  console.log(`${judged} models judged, ${reverted} put back; ${open.length} still open`);
+  console.log(`${judged} models judged, ${reverted} put back; ${openChanges().length} still open`);
 }
 
 function brief() {
@@ -427,6 +430,6 @@ function stats() {
   }
 }
 
-const commands = { pick, record, swipe, brief, stats, open: () => console.log(JSON.stringify(writeOpen(), null, 1)) };
+const commands = { pick, record, review, verdicts, brief, stats, open: () => console.log(JSON.stringify(openChanges(), null, 1)) };
 if (!commands[command]) throw new Error(`unknown command ${command}; see --help`);
 await commands[command]();
