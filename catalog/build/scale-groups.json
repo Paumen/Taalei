@@ -1190,6 +1190,7 @@
      0.15
     ],
     "tags": [
+     "leaf-dark",
      "special-food"
     ],
     "colors": [
@@ -1394,7 +1395,7 @@
    {
     "slug": "household",
     "model": "birdhouse",
-    "hash": "8df1a241e2",
+    "hash": "f508bbabda",
     "wdh": [
      0.15,
      0.15,
@@ -1403,16 +1404,19 @@
     "tags": [
      "ct",
      "mounted",
+     "wood-dark",
      "wood-mid"
     ],
     "colors": [
+     "#59534e",
+     "#804f2a",
      "#ac764c"
     ]
    },
    {
     "slug": "m3-base",
     "model": "birdhouse",
-    "hash": "a65c77fb04",
+    "hash": "93121959d1",
     "wdh": [
      0.3,
      0.3,
@@ -1425,6 +1429,7 @@
      "wood-light"
     ],
     "colors": [
+     "#59534e",
      "#804f2a",
      "#cca571"
     ]
@@ -1767,11 +1772,11 @@
    {
     "slug": "ken-survival",
     "model": "tree-log",
-    "hash": "3e020dfd64",
+    "hash": "6de4022b84",
     "wdh": [
-     0.4,
-     1.6,
-     0.45
+     0.35,
+     1.4,
+     0.4
     ],
     "tags": [
      "bark",
@@ -1822,7 +1827,7 @@
     "slug": "sq-cinema",
     "collection": "sq-props",
     "model": "soda-tower",
-    "hash": "00336c7b84",
+    "hash": "7285e0a85d",
     "wdh": [
      0.3,
      0.2,
@@ -1837,8 +1842,8 @@
      "#3a3e4b",
      "#59534e",
      "#873a27",
-     "#ac764c",
-     "#cca571"
+     "#d8cfb7",
+     "#f1a63b"
     ]
    },
    {
@@ -1852,6 +1857,7 @@
      0.6
     ],
     "tags": [
+     "metal-iron-dark",
      "metal-iron-mid",
      "metal-steel",
      "plastic",
@@ -1876,6 +1882,7 @@
      0.65
     ],
     "tags": [
+     "metal-iron-dark",
      "metal-iron-mid",
      "metal-steel",
      "plastic",
@@ -1893,7 +1900,7 @@
     "slug": "sq-gym",
     "collection": "sq-props",
     "model": "water-cooler",
-    "hash": "a0564d3480",
+    "hash": "db0c734617",
     "wdh": [
      0.2,
      0.2,
@@ -3692,6 +3699,118 @@
      "#21552a",
      "#59534e",
      "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-device-appliance-extractor",
+  "name": "Object › Device › Appliance › Extractor",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.7,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "isa-kitchen",
+    "collection": "isa-tt",
+    "model": "extractor-hood",
+    "hash": "d20f242611",
+    "wdh": [
+     0.6,
+     0.45,
+     0.6
+    ],
+    "tags": [
+     "isa",
+     "metal-steel",
+     "mounted",
+     "plastic"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "kay-food",
+    "collection": "kay-interior",
+    "model": "extractor-hood",
+    "hash": "5c91aa0fd0",
+    "wdh": [
+     0.6,
+     0.5,
+     0.6
+    ],
+    "tags": [
+     "kay",
+     "metal-steel",
+     "mounted",
+     "plastic"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "hood-large",
+    "hash": "ceb2147311",
+    "wdh": [
+     0.45,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "mounted"
+    ],
+    "colors": [
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "hood-modern",
+    "hash": "6585a54b94",
+    "wdh": [
+     0.45,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "mounted"
+    ],
+    "colors": [
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "extractor-hood",
+    "hash": "d92a05e532",
+    "wdh": [
+     0.35,
+     0.4,
+     0.45
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "mounted",
+     "sty"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491"
     ]
    }
   ]
@@ -5740,134 +5859,113 @@
   ]
  },
  {
-  "slug": "obj-device-appliance-extractor",
-  "name": "Object › Device › Appliance › Extractor",
+  "slug": "obj-resource-textile",
+  "name": "Object › Resource › Textile",
   "category": "obj-gen",
   "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.7,
-   "tpu.max": 10000
+   "longest.min": 0.12,
+   "longest.max": 0.9,
+   "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "stove-hood",
-    "hash": "dd047db2b8",
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "sheet-stand",
+    "hash": "9d43c68c20",
     "wdh": [
-     0.35,
-     0.4,
-     1.35
+     0.85,
+     0.5,
+     0.8
     ],
     "tags": [
-     "fs",
-     "metal-iron-mid",
-     "metal-steel"
+     "textile-cloth-light",
+     "textile-rope",
+     "wood-dark"
     ],
     "colors": [
-     "#59534e",
-     "#7a8491",
+     "#804f2a",
+     "#907a66",
      "#d8cfb7"
     ]
    },
    {
-    "slug": "isa-kitchen",
-    "collection": "isa-tt",
-    "model": "extractor-hood",
-    "hash": "d20f242611",
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "pallet-wood-covered-b",
+    "hash": "e74caf4d40",
     "wdh": [
-     0.6,
-     0.45,
-     0.6
-    ],
-    "tags": [
-     "isa",
-     "metal-steel",
-     "mounted",
-     "plastic"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "kay-food",
-    "collection": "kay-interior",
-    "model": "extractor-hood",
-    "hash": "5c91aa0fd0",
-    "wdh": [
-     0.6,
      0.5,
-     0.6
+     0.5,
+     0.09
     ],
     "tags": [
      "kay",
-     "metal-steel",
-     "mounted",
-     "plastic"
+     "textile-cloth-mid",
+     "wood-light"
     ],
     "colors": [
-     "#59534e",
-     "#7a8491"
+     "#88735f",
+     "#cca571"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "hood-large",
-    "hash": "ceb2147311",
+    "slug": "kay-resources",
+    "collection": "kay-rpg",
+    "model": "textiles-c",
+    "hash": "9f8bc81036",
     "wdh": [
+     0.2,
      0.45,
-     0.3,
-     0.4
+     0.15
     ],
     "tags": [
-     "ken",
-     "metal-steel",
-     "mounted"
+     "kay",
+     "leather",
+     "textile-cloth-dark"
     ],
     "colors": [
-     "#7a8491"
+     "#4f2e1b",
+     "#873a27"
     ]
    },
    {
-    "slug": "ken-furniture",
-    "model": "hood-modern",
-    "hash": "6585a54b94",
+    "slug": "m3-base",
+    "model": "cotton-reel",
+    "hash": "0d57452bf0",
     "wdh": [
-     0.45,
-     0.3,
-     0.4
+     0.15,
+     0.15,
+     0.15
     ],
     "tags": [
-     "ken",
-     "metal-steel",
-     "mounted"
+     "m3",
+     "textile-cloth-dark",
+     "wood-mid"
     ],
     "colors": [
-     "#7a8491"
+     "#873a27",
+     "#ac764c"
     ]
    },
    {
-    "slug": "styloo-furniture",
-    "model": "extractor-hood",
-    "hash": "d92a05e532",
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "cloth-roll",
+    "hash": "809c8b724a",
     "wdh": [
-     0.35,
-     0.4,
-     0.45
+     0.1,
+     0.15,
+     0.35
     ],
     "tags": [
-     "metal-iron-mid",
-     "metal-steel",
-     "mounted",
-     "sty"
+     "rgp",
+     "textile-cloth-mid"
     ],
     "colors": [
-     "#59534e",
-     "#7a8491"
+     "#88735f"
     ]
    }
   ]
@@ -8012,20 +8110,20 @@
     "slug": "isa-bakery",
     "collection": "isa-tt",
     "model": "pastry-stand-covered",
-    "hash": "e40f3d7e4f",
+    "hash": "546f00bdb2",
     "wdh": [
      0.25,
      0.25,
      0.2
     ],
     "tags": [
-     "glass",
+     "glass-clear",
      "isa",
      "wood-dark"
     ],
     "colors": [
-     "#21552a",
-     "#804f2a"
+     "#804f2a",
+     "#b5d5e3"
     ]
    },
    {
@@ -8285,11 +8383,11 @@
    {
     "slug": "lpa-construction",
     "model": "steel-a",
-    "hash": "fe1169ece8",
+    "hash": "61880fc3fa",
     "wdh": [
      0.5,
-     0.06,
-     0.06
+     0.07,
+     0.07
     ],
     "tags": [
      "lpa",
@@ -8353,11 +8451,11 @@
    {
     "slug": "m3-base",
     "model": "saw-blade",
-    "hash": "40928478c1",
+    "hash": "308c803502",
     "wdh": [
      0.3,
-     0.02,
-     0.3
+     0.3,
+     0.02
     ],
     "tags": [
      "m3",
@@ -9855,6 +9953,7 @@
      0.2
     ],
     "tags": [
+     "leaf-light",
      "special-food"
     ],
     "colors": [
@@ -9892,6 +9991,7 @@
      0.2
     ],
     "tags": [
+     "leaf-light",
      "special-food"
     ],
     "colors": [
@@ -11414,7 +11514,7 @@
     "slug": "3dm-industrial-2",
     "collection": "3dm",
     "model": "steel-shelf",
-    "hash": "ed48005961",
+    "hash": "870cdf6007",
     "wdh": [
      0.15,
      0.2,
@@ -11432,7 +11532,7 @@
     "slug": "3dm-scifi",
     "collection": "3dm",
     "model": "locker",
-    "hash": "ac534a20c4",
+    "hash": "99782aa846",
     "wdh": [
      0.35,
      0.5,
@@ -11514,20 +11614,21 @@
     "slug": "sq-rink",
     "collection": "sq-props",
     "model": "locker-bank",
-    "hash": "359b7ffd2f",
+    "hash": "3fa0362065",
     "wdh": [
      0.7,
      0.35,
      0.9
     ],
     "tags": [
+     "metal-iron-dark",
      "metal-iron-mid",
      "plastic",
      "sq"
     ],
     "colors": [
      "#1564a4",
-     "#4f2e1b",
+     "#3a3e4b",
      "#59534e",
      "#d8cfb7"
     ]
@@ -12764,175 +12865,6 @@
   ]
  },
  {
-  "slug": "obj-resource-textile",
-  "name": "Object › Resource › Textile",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.12,
-   "longest.max": 0.9,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "sheet-stand",
-    "hash": "9d43c68c20",
-    "wdh": [
-     0.85,
-     0.5,
-     0.8
-    ],
-    "tags": [
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#804f2a",
-     "#907a66",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "pallet-wood-covered-b",
-    "hash": "e74caf4d40",
-    "wdh": [
-     0.5,
-     0.5,
-     0.09
-    ],
-    "tags": [
-     "kay",
-     "textile-cloth-mid",
-     "wood-light"
-    ],
-    "colors": [
-     "#88735f",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "textiles-a",
-    "hash": "bb63fa0706",
-    "wdh": [
-     0.25,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "textile-cloth-dark"
-    ],
-    "colors": [
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "kay-resources",
-    "collection": "kay-rpg",
-    "model": "textiles-c",
-    "hash": "9f8bc81036",
-    "wdh": [
-     0.2,
-     0.45,
-     0.15
-    ],
-    "tags": [
-     "kay",
-     "leather",
-     "textile-cloth-dark"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "spool-a",
-    "hash": "0bfe46ec8d",
-    "wdh": [
-     0.55,
-     0.55,
-     0.3
-    ],
-    "tags": [
-     "lpa",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#804f2a",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "spool-b",
-    "hash": "10d2b3bec7",
-    "wdh": [
-     0.55,
-     0.55,
-     0.3
-    ],
-    "tags": [
-     "lpa",
-     "rubber",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#59534e",
-     "#804f2a",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "cotton-reel",
-    "hash": "0d57452bf0",
-    "wdh": [
-     0.15,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "m3",
-     "textile-cloth-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#873a27",
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "cloth-roll",
-    "hash": "809c8b724a",
-    "wdh": [
-     0.1,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "rgp",
-     "textile-cloth-mid"
-    ],
-    "colors": [
-     "#88735f"
-    ]
-   }
-  ]
- },
- {
   "slug": "sym-pointer",
   "name": "Symbol › Pointer",
   "category": "obj-gen",
@@ -13082,223 +13014,6 @@
      "plastic"
     ],
     "colors": [
-     "#873a27"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-device-appliance-stove",
-  "name": "Object › Device › Appliance › Stove",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.8,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "household",
-    "model": "stove",
-    "hash": "7220f51abf",
-    "wdh": [
-     0.35,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "ct",
-     "glass-clear",
-     "metal-iron-mid",
-     "metal-steel"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "collection": "isa-tt",
-    "model": "stove",
-    "hash": "f336304149",
-    "wdh": [
-     0.6,
-     0.5,
-     0.4
-    ],
-    "tags": [
-     "ceramic-light",
-     "isa",
-     "metal-iron-mid",
-     "metal-steel",
-     "tba"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-stove-electric",
-    "hash": "cd03501b0b",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "ceramic-light",
-     "glass-clear",
-     "ken",
-     "metal-iron-mid",
-     "metal-steel",
-     "tba",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#ac764c",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-stove",
-    "hash": "f1cfaa07b1",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "ceramic-light",
-     "glass-clear",
-     "ken",
-     "metal-iron-mid",
-     "tba",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#ac764c",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "stove",
-    "hash": "7f8498d0bb",
-    "wdh": [
-     0.45,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "ceramic-light",
-     "glass-clear",
-     "lpa",
-     "metal-steel",
-     "tba"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "cast-iron-log-burner",
-    "hash": "724591f339",
-    "wdh": [
-     0.25,
-     0.25,
-     0.5
-    ],
-    "tags": [
-     "glass-clear",
-     "m3",
-     "metal-iron-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "oven",
-    "hash": "4cf23533c4",
-    "wdh": [
-     0.4,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "glass-clear",
-     "metal-steel",
-     "qua"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "oven",
-    "hash": "aec70693a4",
-    "wdh": [
-     0.45,
-     0.4,
-     0.45
-    ],
-    "tags": [
-     "glass-clear",
-     "metal-iron-mid",
-     "metal-steel",
-     "plastic",
-     "qua"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "sq-fastfood",
-    "collection": "sq-props",
-    "model": "griddle-station",
-    "hash": "a1bd6d477c",
-    "wdh": [
-     0.5,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "metal-steel",
-     "plastic",
-     "sq"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e",
-     "#7a8491",
      "#873a27"
     ]
    }
@@ -15131,7 +14846,7 @@
     "slug": "emace-village",
     "collection": "emace",
     "model": "cauldron-soup",
-    "hash": "1ab482302a",
+    "hash": "23ad11e42f",
     "wdh": [
      0.35,
      0.3,
@@ -15139,12 +14854,10 @@
     ],
     "tags": [
      "metal-iron-dark",
-     "metal-iron-mid",
      "special-food"
     ],
     "colors": [
      "#3a3e4b",
-     "#59534e",
      "#873a27"
     ]
    },
@@ -15173,7 +14886,7 @@
     "slug": "kay-spook",
     "collection": "kay-undead",
     "model": "cauldron",
-    "hash": "496aae6ad8",
+    "hash": "cab8cca768",
     "wdh": [
      0.4,
      0.4,
@@ -15184,13 +14897,11 @@
      "hero",
      "kay",
      "metal-iron-dark",
-     "special-liquid",
-     "wood-dark"
+     "special-liquid"
     ],
     "colors": [
      "#21552a",
-     "#3a3e4b",
-     "#804f2a"
+     "#3a3e4b"
     ]
    },
    {
@@ -15619,6 +15330,245 @@
     ],
     "colors": [
      "#59534e"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-device-appliance-stove",
+  "name": "Object › Device › Appliance › Stove",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "fs-house",
+    "collection": "fs-buildings",
+    "model": "stove-hood",
+    "hash": "8417ae5d0e",
+    "wdh": [
+     0.35,
+     0.4,
+     1.35
+    ],
+    "tags": [
+     "fs",
+     "glass-clear",
+     "metal-iron-mid",
+     "metal-steel"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "stove",
+    "hash": "7220f51abf",
+    "wdh": [
+     0.35,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "ct",
+     "glass-clear",
+     "metal-iron-mid",
+     "metal-steel"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "collection": "isa-tt",
+    "model": "stove",
+    "hash": "f336304149",
+    "wdh": [
+     0.6,
+     0.5,
+     0.4
+    ],
+    "tags": [
+     "ceramic-light",
+     "isa",
+     "metal-iron-mid",
+     "metal-steel",
+     "tba"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-stove-electric",
+    "hash": "cd03501b0b",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "ceramic-light",
+     "glass-clear",
+     "ken",
+     "metal-iron-mid",
+     "metal-steel",
+     "tba",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#ac764c",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-stove",
+    "hash": "f1cfaa07b1",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "ceramic-light",
+     "glass-clear",
+     "ken",
+     "metal-iron-mid",
+     "tba",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#ac764c",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "stove",
+    "hash": "7f8498d0bb",
+    "wdh": [
+     0.45,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "ceramic-light",
+     "glass-clear",
+     "lpa",
+     "metal-steel",
+     "tba"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "cast-iron-log-burner",
+    "hash": "724591f339",
+    "wdh": [
+     0.25,
+     0.25,
+     0.5
+    ],
+    "tags": [
+     "glass-clear",
+     "m3",
+     "metal-iron-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "oven",
+    "hash": "4cf23533c4",
+    "wdh": [
+     0.4,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "glass-clear",
+     "metal-steel",
+     "qua"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "oven",
+    "hash": "aec70693a4",
+    "wdh": [
+     0.45,
+     0.4,
+     0.45
+    ],
+    "tags": [
+     "glass-clear",
+     "metal-iron-mid",
+     "metal-steel",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "sq-fastfood",
+    "collection": "sq-props",
+    "model": "griddle-station",
+    "hash": "a1bd6d477c",
+    "wdh": [
+     0.5,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "sq"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e",
+     "#7a8491",
+     "#873a27"
     ]
    }
   ]
@@ -21226,6 +21176,278 @@
   ]
  },
  {
+  "slug": "obj-furnishing-light-lamp-table",
+  "name": "Object › Furnishing › Light › Lamp › Table",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.4,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-house",
+    "collection": "fs-buildings",
+    "model": "lamp-table",
+    "hash": "0f7cffa089",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "fs",
+     "textile-cloth-light",
+     "wood-mid"
+    ],
+    "colors": [
+     "#ac764c",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "desk-lamp",
+    "hash": "bd3dbbc401",
+    "wdh": [
+     0.1,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "ct",
+     "metal-iron-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "table-lamp",
+    "hash": "9b4b20152e",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ct",
+     "metal-iron-mid",
+     "metal-steel",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-furniture",
+    "collection": "kay-interior",
+    "model": "lamp-table",
+    "hash": "86c06933e2",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "ceramic-light",
+     "kay",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#ce7954",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-round-table",
+    "hash": "3ac8b8ad9b",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-square-table",
+    "hash": "491242ebfb",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "table-lamp",
+    "hash": "6b2130d71d",
+    "wdh": [
+     0.2,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "glass-tinted",
+     "lpa",
+     "metal-steel",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "desk-lamp",
+    "hash": "79ef55b0d4",
+    "wdh": [
+     0.15,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "plastic",
+     "special-emissive"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "desk-lamp",
+    "hash": "8cb1384495",
+    "wdh": [
+     0.1,
+     0.2,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "table-lamp-a",
+    "hash": "bbbdd31c07",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "qua",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "table-lamp-b",
+    "hash": "27c2ad5363",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "qua",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "table-lamp-c",
+    "hash": "fa32fabc6e",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "qua",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "sq-bank",
+    "collection": "sq-props",
+    "model": "bankers-lamp",
+    "hash": "0a65ffb728",
+    "wdh": [
+     0.15,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "glass-tinted",
+     "metal-gold",
+     "sq"
+    ],
+    "colors": [
+     "#21552a",
+     "#f1a63b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-kitchenware-cookware-board",
   "name": "Object › Kitchenware › Cookware › Board",
   "category": "obj-gen",
@@ -22592,7 +22814,7 @@
    {
     "slug": "food-pack",
     "model": "burger-sesame",
-    "hash": "f31b37244f",
+    "hash": "b8d94b6dbf",
     "wdh": [
      0.2,
      0.2,
@@ -22604,6 +22826,7 @@
     ],
     "colors": [
      "#66852a",
+     "#804f2a",
      "#873a27",
      "#ac764c",
      "#cca571",
@@ -22613,7 +22836,7 @@
    {
     "slug": "food-pack",
     "model": "burger",
-    "hash": "bac65c4e0f",
+    "hash": "2aad83012d",
     "wdh": [
      0.2,
      0.2,
@@ -22625,6 +22848,7 @@
     ],
     "colors": [
      "#66852a",
+     "#804f2a",
      "#873a27",
      "#ac764c",
      "#f1a63b"
@@ -22633,17 +22857,19 @@
    {
     "slug": "food-pack-2",
     "model": "burger-sandwich",
-    "hash": "32f6d72b44",
+    "hash": "50a9c84b58",
     "wdh": [
      0.15,
      0.15,
      0.15
     ],
     "tags": [
+     "leaf-light",
      "special-food"
     ],
     "colors": [
      "#66852a",
+     "#804f2a",
      "#873a27",
      "#ac764c"
     ]
@@ -22674,11 +22900,11 @@
     "slug": "kay-food",
     "collection": "kay-interior",
     "model": "food-burger",
-    "hash": "ca8ab429b6",
+    "hash": "3faab5d7fa",
     "wdh": [
-     0.3,
-     0.3,
-     0.25
+     0.25,
+     0.25,
+     0.2
     ],
     "tags": [
      "ceramic-light",
@@ -22700,11 +22926,11 @@
     "slug": "kay-food",
     "collection": "kay-interior",
     "model": "food-veggie-burger",
-    "hash": "52fb8401be",
+    "hash": "b51955eff1",
     "wdh": [
-     0.3,
-     0.3,
-     0.25
+     0.25,
+     0.25,
+     0.2
     ],
     "tags": [
      "ceramic-light",
@@ -22728,7 +22954,7 @@
    {
     "slug": "ken-food",
     "model": "burger-cheese",
-    "hash": "2983db8053",
+    "hash": "2c739cfd3a",
     "wdh": [
      0.15,
      0.15,
@@ -22740,14 +22966,14 @@
     ],
     "colors": [
      "#804f2a",
-     "#cca571",
+     "#ac764c",
      "#f1a63b"
     ]
    },
    {
     "slug": "ken-food",
     "model": "burger",
-    "hash": "045e6ac512",
+    "hash": "25855b6466",
     "wdh": [
      0.2,
      0.2,
@@ -22762,6 +22988,7 @@
      "#66852a",
      "#804f2a",
      "#873a27",
+     "#ac764c",
      "#cca571",
      "#f1a63b"
     ]
@@ -22788,11 +23015,11 @@
    {
     "slug": "quat-food",
     "model": "burger-large",
-    "hash": "ea9563ead6",
+    "hash": "1aabe05135",
     "wdh": [
-     0.3,
-     0.3,
-     0.25
+     0.25,
+     0.25,
+     0.2
     ],
     "tags": [
      "leaf-light",
@@ -22810,11 +23037,11 @@
    {
     "slug": "quat-food",
     "model": "burger",
-    "hash": "b62d22c55a",
+    "hash": "cdb5318c67",
     "wdh": [
-     0.3,
-     0.3,
-     0.2
+     0.25,
+     0.25,
+     0.15
     ],
     "tags": [
      "leaf-light",
@@ -22832,10 +23059,10 @@
    {
     "slug": "quat-food",
     "model": "cheeseburger",
-    "hash": "a70c92f6c1",
+    "hash": "a2edfc5ec8",
     "wdh": [
-     0.25,
-     0.25,
+     0.2,
+     0.2,
      0.15
     ],
     "tags": [
@@ -22851,11 +23078,11 @@
    {
     "slug": "quat-food",
     "model": "double-cheeseburger",
-    "hash": "3039feb02d",
+    "hash": "74d7d177a6",
     "wdh": [
-     0.25,
-     0.25,
-     0.2
+     0.2,
+     0.2,
+     0.15
     ],
     "tags": [
      "qua",
@@ -23167,296 +23394,6 @@
     "colors": [
      "#804f2a",
      "#873a27"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-furnishing-light-lamp-table",
-  "name": "Object › Furnishing › Light › Lamp › Table",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 0.4,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "lamp-table",
-    "hash": "0f7cffa089",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "fs",
-     "textile-cloth-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#ac764c",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "desk-lamp",
-    "hash": "bd3dbbc401",
-    "wdh": [
-     0.1,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "ct",
-     "metal-iron-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "table-lamp",
-    "hash": "9b4b20152e",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ct",
-     "metal-iron-mid",
-     "metal-steel",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-furniture",
-    "collection": "kay-interior",
-    "model": "lamp-table",
-    "hash": "e7ec5d22af",
-    "wdh": [
-     0.3,
-     0.3,
-     0.3
-    ],
-    "tags": [
-     "ceramic-light",
-     "kay",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#ce7954",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-round-table",
-    "hash": "3ac8b8ad9b",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-square-ceiling",
-    "hash": "1f5dcf3343",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-square-table",
-    "hash": "491242ebfb",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "table-lamp",
-    "hash": "6b2130d71d",
-    "wdh": [
-     0.2,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "desk-lamp",
-    "hash": "79ef55b0d4",
-    "wdh": [
-     0.15,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "m3",
-     "metal-steel",
-     "plastic",
-     "special-emissive"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "desk-lamp",
-    "hash": "8cb1384495",
-    "wdh": [
-     0.1,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "table-lamp-a",
-    "hash": "bbbdd31c07",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "qua",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "table-lamp-b",
-    "hash": "27c2ad5363",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "qua",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "table-lamp-c",
-    "hash": "fa32fabc6e",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "qua",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "sq-bank",
-    "collection": "sq-props",
-    "model": "bankers-lamp",
-    "hash": "b2287f59cb",
-    "wdh": [
-     0.15,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "glass-tinted",
-     "metal-gold",
-     "sq"
-    ],
-    "colors": [
-     "#21552a",
-     "#d8cfb7",
-     "#f1a63b"
     ]
    }
   ]
@@ -25302,6 +25239,7 @@
      0.15
     ],
     "tags": [
+     "bark",
      "leaf-dark",
      "special-food"
     ],
@@ -25340,7 +25278,7 @@
     ],
     "tags": [
      "bark",
-     "leaf-light",
+     "leaf-dark",
      "special-food"
     ],
     "colors": [
@@ -25416,9 +25354,9 @@
      0.1
     ],
     "tags": [
+     "bark",
      "isa",
-     "special-food",
-     "special-organic"
+     "special-food"
     ],
     "colors": [
      "#4f2e1b",
@@ -25437,9 +25375,9 @@
      0.1
     ],
     "tags": [
+     "bark",
      "isa",
-     "special-food",
-     "special-organic"
+     "special-food"
     ],
     "colors": [
      "#4f2e1b",
@@ -25449,22 +25387,22 @@
    {
     "slug": "ken-food",
     "model": "apple",
-    "hash": "2f7942f7a7",
+    "hash": "5aefed1aaf",
     "wdh": [
-     0.09,
-     0.09,
-     0.09
+     0.1,
+     0.1,
+     0.1
     ],
     "tags": [
+     "bark",
      "ken",
      "leaf-light",
-     "special-food",
-     "special-organic"
+     "special-food"
     ],
     "colors": [
+     "#4f2e1b",
      "#66852a",
-     "#873a27",
-     "#ac764c"
+     "#873a27"
     ]
    },
    {
@@ -25477,6 +25415,7 @@
      0.2
     ],
     "tags": [
+     "bark",
      "m3",
      "special-food"
     ],
@@ -25496,7 +25435,7 @@
     ],
     "tags": [
      "bark",
-     "leaf-light",
+     "leaf-dark",
      "qua",
      "special-food"
     ],
@@ -25531,13 +25470,14 @@
     "slug": "rgp-medieval",
     "collection": "rgp",
     "model": "apple",
-    "hash": "08baed63e1",
+    "hash": "d92eb83705",
     "wdh": [
      0.15,
      0.15,
      0.15
     ],
     "tags": [
+     "bark",
      "rgp",
      "special-food"
     ],
@@ -25549,7 +25489,7 @@
    {
     "slug": "styloo-farm",
     "model": "apple-moss",
-    "hash": "4bbd16835d",
+    "hash": "ed8beb35aa",
     "wdh": [
      0.1,
      0.1,
@@ -25557,7 +25497,7 @@
     ],
     "tags": [
      "bark",
-     "leaf-light",
+     "leaf-dark",
      "special-food",
      "sty"
     ],
@@ -25570,7 +25510,7 @@
    {
     "slug": "styloo-farm",
     "model": "apple",
-    "hash": "2cb407731b",
+    "hash": "e26cbda3f0",
     "wdh": [
      0.1,
      0.1,
@@ -27379,9 +27319,9 @@
    {
     "slug": "household",
     "model": "couch",
-    "hash": "3fb883a65b",
+    "hash": "dedd170680",
     "wdh": [
-     0.9,
+     0.95,
      0.7,
      0.35
     ],
@@ -27407,7 +27347,8 @@
     ],
     "tags": [
      "kay",
-     "textile-cloth-dark"
+     "textile-cloth-dark",
+     "textile-cloth-light"
     ],
     "colors": [
      "#873a27",
@@ -27435,7 +27376,7 @@
    {
     "slug": "ken-furniture",
     "model": "lounge-design-sofa-corner",
-    "hash": "545c3409e5",
+    "hash": "cb4de00333",
     "wdh": [
      1.15,
      1.15,
@@ -27454,9 +27395,9 @@
    {
     "slug": "ken-furniture",
     "model": "lounge-design-sofa",
-    "hash": "5f255b6978",
+    "hash": "41a23adafa",
     "wdh": [
-     0.95,
+     1,
      0.35,
      0.35
     ],
@@ -27473,7 +27414,7 @@
    {
     "slug": "ken-furniture",
     "model": "lounge-sofa-corner",
-    "hash": "ed80c9a999",
+    "hash": "ea613a59bd",
     "wdh": [
      0.9,
      0.9,
@@ -27492,7 +27433,7 @@
    {
     "slug": "ken-furniture",
     "model": "lounge-sofa-long",
-    "hash": "eaf940ccaa",
+    "hash": "5be66d89c4",
     "wdh": [
      0.9,
      0.75,
@@ -27549,11 +27490,11 @@
    {
     "slug": "lpa-home",
     "model": "sofa-b",
-    "hash": "ea529a831a",
+    "hash": "8881cb357f",
     "wdh": [
-     0.95,
-     0.3,
-     0.3
+     1.15,
+     0.4,
+     0.35
     ],
     "tags": [
      "lpa",
@@ -27672,9 +27613,9 @@
    {
     "slug": "quat-sushi",
     "model": "sofa",
-    "hash": "cd92b649e5",
+    "hash": "1a5520767b",
     "wdh": [
-     0.8,
+     0.85,
      0.35,
      0.35
     ],
@@ -28876,10 +28817,10 @@
     "slug": "ken-skate",
     "collection": "ken-mini",
     "model": "bench",
-    "hash": "3dbd4a23cc",
+    "hash": "4804e84f1b",
     "wdh": [
-     0.95,
-     0.55,
+     0.9,
+     0.5,
      0.6
     ],
     "tags": [
@@ -28987,7 +28928,7 @@
     "slug": "quat-medieval",
     "collection": "quat-medieval",
     "model": "bench",
-    "hash": "5d2d6cb470",
+    "hash": "eaa40c575e",
     "wdh": [
      0.75,
      0.3,
@@ -29055,7 +28996,7 @@
     ],
     "tags": [
      "metal-iron-dark",
-     "metal-iron-mid",
+     "plastic",
      "sq",
      "textile-cloth-dark"
     ],
@@ -31337,437 +31278,6 @@
   ]
  },
  {
-  "slug": "obj-furnishing-light-lamp-ceiling",
-  "name": "Object › Furnishing › Light › Lamp › Ceiling",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.7,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "ceiling-light-triple",
-    "hash": "2621724182",
-    "wdh": [
-     0.25,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "fs",
-     "mounted",
-     "special-emissive",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "ceiling-light",
-    "hash": "f110967d27",
-    "wdh": [
-     0.25,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "fs",
-     "mounted",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "collection": "fs-modular",
-    "model": "cave-prop-hanging-lamp",
-    "hash": "85f35c9cb1",
-    "wdh": [
-     0.15,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "fs",
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive"
-    ],
-    "colors": [
-     "#59534e",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "chandelier",
-    "hash": "03e9f81ab8",
-    "wdh": [
-     0.4,
-     0.4,
-     0.35
-    ],
-    "tags": [
-     "ct",
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive",
-     "wax"
-    ],
-    "colors": [
-     "#59534e",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "ceiling-light",
-    "hash": "240260fbbc",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel",
-     "mounted",
-     "plastic"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "fluorescent-light-fitting",
-    "hash": "c3f2bc21c2",
-    "wdh": [
-     0.35,
-     0.04,
-     0.04
-    ],
-    "tags": [
-     "m3",
-     "metal-steel",
-     "mounted",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "iron-chandelier",
-    "hash": "dd187636ee",
-    "wdh": [
-     0.4,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive",
-     "wax"
-    ],
-    "colors": [
-     "#59534e",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cluster-a",
-    "hash": "8cb4896a03",
-    "wdh": [
-     0.3,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cluster-b",
-    "hash": "22e14180cd",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cube-frame",
-    "hash": "4435383c16",
-    "wdh": [
-     0.25,
-     0.3,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cube",
-    "hash": "b5a4323ec1",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-dome",
-    "hash": "cb5eff70d1",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-icosahedron",
-    "hash": "15537845e3",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-single",
-    "hash": "3fb1c772a8",
-    "wdh": [
-     0.15,
-     0.2,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light",
-    "hash": "537e5546bc",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "chandelier",
-    "hash": "bcbdbfe9a4",
-    "wdh": [
-     0.35,
-     0.35,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "chandelier",
-    "hash": "0fa9ac543d",
-    "wdh": [
-     0.35,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "mounted",
-     "qua",
-     "special-emissive",
-     "wax",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#804f2a",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "disco-ball",
-    "hash": "21aac9c928",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "glass-mirror",
-     "hero",
-     "metal-iron-dark",
-     "metal-iron-mid",
-     "mounted",
-     "sq",
-     "tba"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "styloo-furniture",
-    "model": "lamp",
-    "hash": "d0cb4ff3ae",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "mounted",
-     "plastic",
-     "sty"
-    ],
-    "colors": [
-     "#59534e",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "western",
-    "model": "lamp-hanging",
-    "hash": "68ec293852",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive"
-    ],
-    "colors": [
-     "#59534e",
-     "#f1a63b"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-leisure-game-arcade",
   "name": "Object › Leisure › Game › Arcade",
   "category": "obj-gen",
@@ -32332,6 +31842,7 @@
     "tags": [
      "bark",
      "kay",
+     "leaf-light",
      "robin-hood",
      "wood-light"
     ],
@@ -32384,11 +31895,11 @@
    {
     "slug": "m3-base",
     "model": "log-01",
-    "hash": "cc94a6b66c",
+    "hash": "33efa9581a",
     "wdh": [
      0.25,
-     0.3,
-     0.5
+     0.5,
+     0.3
     ],
     "tags": [
      "bark",
@@ -32422,11 +31933,11 @@
    {
     "slug": "m3-base",
     "model": "log-03",
-    "hash": "4b03edd181",
+    "hash": "3fb33065a8",
     "wdh": [
      0.15,
-     0.2,
-     0.35
+     0.35,
+     0.2
     ],
     "tags": [
      "bark",
@@ -32608,7 +32119,7 @@
    {
     "slug": "quat-survival",
     "model": "wood-log",
-    "hash": "1a2b53bf50",
+    "hash": "07d65f1511",
     "wdh": [
      0.1,
      0.35,
@@ -32617,22 +32128,22 @@
     "tags": [
      "bark",
      "qua",
-     "wood-mid"
+     "wood-light"
     ],
     "colors": [
      "#4f2e1b",
-     "#ac764c"
+     "#cca571"
     ]
    },
    {
     "slug": "rgp-medieval",
     "collection": "rgp",
     "model": "log-sawhorse",
-    "hash": "853666467c",
+    "hash": "6a72ead281",
     "wdh": [
-     0.85,
-     0.25,
-     0.3
+     0.7,
+     0.2,
+     0.2
     ],
     "tags": [
      "bark",
@@ -33947,6 +33458,457 @@
      "#804f2a",
      "#873a27",
      "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-furnishing-light-lamp-ceiling",
+  "name": "Object › Furnishing › Light › Lamp › Ceiling",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.7,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-house",
+    "collection": "fs-buildings",
+    "model": "ceiling-light-triple",
+    "hash": "2621724182",
+    "wdh": [
+     0.25,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "fs",
+     "mounted",
+     "special-emissive",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "fs-house",
+    "collection": "fs-buildings",
+    "model": "ceiling-light",
+    "hash": "f110967d27",
+    "wdh": [
+     0.25,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "fs",
+     "mounted",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "collection": "fs-modular",
+    "model": "cave-prop-hanging-lamp",
+    "hash": "85f35c9cb1",
+    "wdh": [
+     0.15,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "fs",
+     "metal-iron-mid",
+     "mounted",
+     "special-emissive"
+    ],
+    "colors": [
+     "#59534e",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "chandelier",
+    "hash": "03e9f81ab8",
+    "wdh": [
+     0.4,
+     0.4,
+     0.35
+    ],
+    "tags": [
+     "ct",
+     "metal-iron-mid",
+     "mounted",
+     "special-emissive",
+     "wax"
+    ],
+    "colors": [
+     "#59534e",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-square-ceiling",
+    "hash": "1f5dcf3343",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "mounted",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "ceiling-light",
+    "hash": "240260fbbc",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "metal-steel",
+     "mounted",
+     "plastic"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "fluorescent-light-fitting",
+    "hash": "c3f2bc21c2",
+    "wdh": [
+     0.35,
+     0.04,
+     0.04
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "mounted",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "iron-chandelier",
+    "hash": "dd187636ee",
+    "wdh": [
+     0.4,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-mid",
+     "mounted",
+     "special-emissive",
+     "wax"
+    ],
+    "colors": [
+     "#59534e",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cluster-a",
+    "hash": "8cb4896a03",
+    "wdh": [
+     0.3,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cluster-b",
+    "hash": "22e14180cd",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cube-frame",
+    "hash": "4435383c16",
+    "wdh": [
+     0.25,
+     0.3,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cube",
+    "hash": "b5a4323ec1",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-dome",
+    "hash": "cb5eff70d1",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-icosahedron",
+    "hash": "15537845e3",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-single",
+    "hash": "3fb1c772a8",
+    "wdh": [
+     0.15,
+     0.2,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light",
+    "hash": "537e5546bc",
+    "wdh": [
+     0.2,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "chandelier",
+    "hash": "bcbdbfe9a4",
+    "wdh": [
+     0.35,
+     0.35,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "chandelier",
+    "hash": "0fa9ac543d",
+    "wdh": [
+     0.35,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "mounted",
+     "qua",
+     "special-emissive",
+     "wax",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#804f2a",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "disco-ball",
+    "hash": "21aac9c928",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "glass-mirror",
+     "hero",
+     "metal-iron-dark",
+     "metal-iron-mid",
+     "mounted",
+     "sq",
+     "tba"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "lamp",
+    "hash": "d0cb4ff3ae",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "mounted",
+     "plastic",
+     "sty"
+    ],
+    "colors": [
+     "#59534e",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "western",
+    "model": "lamp-hanging",
+    "hash": "68ec293852",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "mounted",
+     "special-emissive"
+    ],
+    "colors": [
+     "#59534e",
+     "#f1a63b"
     ]
    }
   ]
@@ -37177,10 +37139,10 @@
    {
     "slug": "dungeon",
     "model": "woodchair-001",
-    "hash": "f33c29f039",
+    "hash": "7398502203",
     "wdh": [
      0.2,
-     0.15,
+     0.2,
      0.2
     ],
     "tags": [
@@ -37196,7 +37158,7 @@
     "slug": "emace-village",
     "collection": "emace",
     "model": "stool",
-    "hash": "7d88f0271c",
+    "hash": "7d3b8a7659",
     "wdh": [
      0.25,
      0.25,
@@ -37223,7 +37185,8 @@
     ],
     "tags": [
      "fs",
-     "textile-cloth-dark"
+     "textile-cloth-dark",
+     "textile-cloth-light"
     ],
     "colors": [
      "#873a27",
@@ -37621,7 +37584,7 @@
     "slug": "rgp-medieval",
     "collection": "rgp",
     "model": "stool",
-    "hash": "aef385c67e",
+    "hash": "37bcd6ed57",
     "wdh": [
      0.25,
      0.25,
@@ -46618,6 +46581,130 @@
   ]
  },
  {
+  "slug": "obj-container-cylinder",
+  "name": "Object › Container › Cylinder",
+  "category": "obj-container",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.9,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "3dm-industrial-2",
+    "collection": "3dm",
+    "model": "fire-extinguisher",
+    "hash": "c17f0c5388",
+    "wdh": [
+     0.25,
+     0.2,
+     0.5
+    ],
+    "tags": [
+     "3dm",
+     "metal-iron-mid",
+     "metal-steel",
+     "plastic",
+     "rubber"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "chemical-vat",
+    "hash": "4eb8230016",
+    "wdh": [
+     0.3,
+     0.35,
+     0.45
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "sq"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e",
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "fire-extinguisher",
+    "hash": "933c9adaa1",
+    "wdh": [
+     0.15,
+     0.15,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "rubber",
+     "sq"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "sq-lab",
+    "collection": "sq-props",
+    "model": "gas-cylinder",
+    "hash": "2ab8ef5203",
+    "wdh": [
+     0.25,
+     0.2,
+     0.45
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "sq"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-school",
+    "model": "fire-extinguisher",
+    "hash": "2d1c996e7d",
+    "wdh": [
+     0.2,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "plastic",
+     "rubber",
+     "sty"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#873a27"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-container-trough",
   "name": "Object › Container › Trough",
   "category": "obj-container",
@@ -47115,143 +47202,6 @@
   ]
  },
  {
-  "slug": "obj-container-cylinder",
-  "name": "Object › Container › Cylinder",
-  "category": "obj-container",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.9,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "3dm-industrial-2",
-    "collection": "3dm",
-    "model": "fire-extinguisher",
-    "hash": "c17f0c5388",
-    "wdh": [
-     0.25,
-     0.2,
-     0.5
-    ],
-    "tags": [
-     "3dm",
-     "metal-iron-mid",
-     "rubber"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "co2-cartridge",
-    "hash": "44d3e3c93c",
-    "wdh": [
-     0.05,
-     0.2,
-     0.05
-    ],
-    "tags": [
-     "m3",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "chemical-vat",
-    "hash": "4eb8230016",
-    "wdh": [
-     0.3,
-     0.35,
-     0.45
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "metal-steel",
-     "plastic",
-     "sq"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e",
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "fire-extinguisher",
-    "hash": "933c9adaa1",
-    "wdh": [
-     0.15,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "plastic",
-     "rubber",
-     "sq"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "sq-lab",
-    "collection": "sq-props",
-    "model": "gas-cylinder",
-    "hash": "2ab8ef5203",
-    "wdh": [
-     0.25,
-     0.2,
-     0.45
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "plastic",
-     "sq"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-school",
-    "model": "fire-extinguisher",
-    "hash": "45397ef083",
-    "wdh": [
-     0.2,
-     0.2,
-     0.45
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "rubber",
-     "sty"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#873a27"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-container-dumpster",
   "name": "Object › Container › Dumpster",
   "category": "obj-container",
@@ -47421,7 +47371,8 @@
      0.25
     ],
     "tags": [
-     "paper-sheet"
+     "paper-sheet",
+     "plastic"
     ],
     "colors": [
      "#1564a4",
@@ -47432,7 +47383,7 @@
     "slug": "isa-bakery",
     "collection": "isa-tt",
     "model": "milk-carton",
-    "hash": "6f368d1636",
+    "hash": "73b474a047",
     "wdh": [
      0.1,
      0.1,
@@ -47440,9 +47391,11 @@
     ],
     "tags": [
      "isa",
-     "paper-sheet"
+     "paper-sheet",
+     "plastic"
     ],
     "colors": [
+     "#1564a4",
      "#d8cfb7"
     ]
    },
@@ -47513,161 +47466,11 @@
     ],
     "tags": [
      "paper-sheet",
+     "plastic",
      "sty"
     ],
     "colors": [
      "#1564a4",
-     "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-container-cylinder-tank",
-  "name": "Object › Container › Cylinder › Tank",
-  "category": "obj-container",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.9,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "3dm-industrial",
-    "collection": "3dm",
-    "model": "gas-bottle",
-    "hash": "61d7b9c208",
-    "wdh": [
-     0.15,
-     0.15,
-     0.25
-    ],
-    "tags": [
-     "3dm",
-     "metal-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "propane-tank",
-    "hash": "6b2f75c205",
-    "wdh": [
-     0.3,
-     0.3,
-     0.45
-    ],
-    "tags": [
-     "ct",
-     "metal-gold",
-     "plastic"
-    ],
-    "colors": [
-     "#21552a",
-     "#873a27",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "gas-tank-a",
-    "hash": "adbf511b5b",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "gas-tank-b",
-    "hash": "795cdf17cc",
-    "wdh": [
-     0.25,
-     0.25,
-     0.5
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "gas-canister",
-    "hash": "a0785cc693",
-    "wdh": [
-     0.25,
-     0.25,
-     0.4
-    ],
-    "tags": [
-     "m3",
-     "metal-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "quat-shoot",
-    "model": "gas-tank",
-    "hash": "ae77466712",
-    "wdh": [
-     0.35,
-     0.35,
-     0.5
-    ],
-    "tags": [
-     "metal-steel",
-     "plastic",
-     "qua"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-survival",
-    "model": "propane-tank",
-    "hash": "c6f8de1ac8",
-    "wdh": [
-     0.3,
-     0.3,
-     0.45
-    ],
-    "tags": [
-     "metal-copper",
-     "metal-steel",
-     "plastic",
-     "qua"
-    ],
-    "colors": [
-     "#7a8491",
-     "#ce7954",
      "#d8cfb7"
     ]
    }
@@ -47689,7 +47492,7 @@
     "slug": "aq-hallow",
     "collection": "aq",
     "model": "urn",
-    "hash": "cf3b7995cb",
+    "hash": "fa407ccd5d",
     "wdh": [
      0.2,
      0.2,
@@ -47700,10 +47503,10 @@
      "grave",
      "halloween",
      "metal-gold",
-     "stone-masonry-dark"
+     "metal-iron-dark"
     ],
     "colors": [
-     "#57493d",
+     "#3a3e4b",
      "#f1a63b"
     ]
    },
@@ -47750,7 +47553,7 @@
    {
     "slug": "m3-base",
     "model": "ceramic-urn",
-    "hash": "3e2aa4be0c",
+    "hash": "33b327ad7e",
     "wdh": [
      0.3,
      0.3,
@@ -47767,7 +47570,7 @@
    {
     "slug": "m3-base",
     "model": "urn-02",
-    "hash": "ecd304c431",
+    "hash": "a77e8f020c",
     "wdh": [
      0.2,
      0.2,
@@ -47980,6 +47783,174 @@
     "colors": [
      "#7a8491",
      "#873a27"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-container-cylinder-tank",
+  "name": "Object › Container › Cylinder › Tank",
+  "category": "obj-container",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.9,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "3dm-industrial",
+    "collection": "3dm",
+    "model": "gas-bottle",
+    "hash": "61d7b9c208",
+    "wdh": [
+     0.15,
+     0.15,
+     0.25
+    ],
+    "tags": [
+     "3dm",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "household",
+    "model": "propane-tank",
+    "hash": "6b2f75c205",
+    "wdh": [
+     0.3,
+     0.3,
+     0.45
+    ],
+    "tags": [
+     "ct",
+     "metal-gold",
+     "plastic"
+    ],
+    "colors": [
+     "#21552a",
+     "#873a27",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "gas-tank-a",
+    "hash": "adbf511b5b",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "gas-tank-b",
+    "hash": "795cdf17cc",
+    "wdh": [
+     0.25,
+     0.25,
+     0.5
+    ],
+    "tags": [
+     "lpa",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "co2-cartridge",
+    "hash": "9b10adf070",
+    "wdh": [
+     0.05,
+     0.05,
+     0.2
+    ],
+    "tags": [
+     "m3",
+     "metal-steel"
+    ],
+    "colors": [
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "gas-canister",
+    "hash": "a0785cc693",
+    "wdh": [
+     0.25,
+     0.25,
+     0.4
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "quat-shoot",
+    "model": "gas-tank",
+    "hash": "ae77466712",
+    "wdh": [
+     0.35,
+     0.35,
+     0.5
+    ],
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-survival",
+    "model": "propane-tank",
+    "hash": "c6f8de1ac8",
+    "wdh": [
+     0.3,
+     0.3,
+     0.45
+    ],
+    "tags": [
+     "metal-copper",
+     "metal-steel",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#7a8491",
+     "#ce7954",
+     "#d8cfb7"
     ]
    }
   ]
@@ -51696,7 +51667,7 @@
    {
     "slug": "lpa-west",
     "model": "bucket",
-    "hash": "936a2830ec",
+    "hash": "2ca90d1e2c",
     "wdh": [
      0.3,
      0.3,
@@ -51704,11 +51675,11 @@
     ],
     "tags": [
      "lpa",
-     "metal-iron-dark",
+     "metal-iron-mid",
      "wood-mid"
     ],
     "colors": [
-     "#3a3e4b",
+     "#59534e",
      "#ac764c"
     ]
    },
@@ -51837,26 +51808,26 @@
     "slug": "rgp-medieval",
     "collection": "rgp",
     "model": "bucket",
-    "hash": "af4f1f0072",
+    "hash": "93af3dd82c",
     "wdh": [
      0.3,
      0.3,
      0.3
     ],
     "tags": [
-     "metal-iron-dark",
+     "metal-iron-mid",
      "rgp",
      "wood-mid"
     ],
     "colors": [
-     "#3a3e4b",
+     "#59534e",
      "#ac764c"
     ]
    },
    {
     "slug": "rgp-props",
     "model": "bucket-1-a",
-    "hash": "ecd5acd42a",
+    "hash": "5dce8281c6",
     "wdh": [
      0.3,
      0.3,
@@ -51866,23 +51837,21 @@
      "metal-iron-mid",
      "rgp",
      "sailing",
-     "wood-dark",
-     "wood-light"
+     "wood-dark"
     ],
     "colors": [
      "#59534e",
-     "#804f2a",
-     "#cca571"
+     "#804f2a"
     ]
    },
    {
     "slug": "styloo-farm",
     "model": "bucket-metal",
-    "hash": "52721b414a",
+    "hash": "be7c6e7bf4",
     "wdh": [
-     0.55,
-     0.55,
-     0.5
+     0.3,
+     0.35,
+     0.3
     ],
     "tags": [
      "metal-steel",
@@ -58286,53 +58255,6 @@
   ]
  },
  {
-  "slug": "obj-transport",
-  "name": "Object › Transport",
-  "category": "obj-transport",
-  "limits": {
-   "high.max": 30,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "lpa-west",
-    "model": "horseshoe",
-    "hash": "8dc6bec04f",
-    "wdh": [
-     0.02,
-     0.2,
-     0.2
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-mid"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "horse-bit",
-    "hash": "6140a05491",
-    "wdh": [
-     0.3,
-     0.03,
-     0.15
-    ],
-    "tags": [
-     "m3",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-transport-part-paddle",
   "name": "Object › Transport › Part › Paddle",
   "category": "obj-transport",
@@ -58441,7 +58363,8 @@
     ],
     "tags": [
      "metal-steel",
-     "qua"
+     "qua",
+     "rubber"
     ],
     "colors": [
      "#59534e",
@@ -58601,7 +58524,7 @@
    {
     "slug": "lpa-construction",
     "model": "wheelbarrow",
-    "hash": "d29cadb561",
+    "hash": "69eb7a84e1",
     "wdh": [
      0.35,
      0.7,
@@ -58622,7 +58545,7 @@
    {
     "slug": "m3-base",
     "model": "wheelbarrow",
-    "hash": "b6bc96827a",
+    "hash": "bd0be73f63",
     "wdh": [
      0.4,
      0.85,
@@ -58631,6 +58554,7 @@
     "tags": [
      "m3",
      "metal-steel",
+     "plastic",
      "rubber"
     ],
     "colors": [
@@ -58643,7 +58567,7 @@
     "slug": "rgp-medieval",
     "collection": "rgp",
     "model": "wheelbarrow",
-    "hash": "a091345391",
+    "hash": "ee0b266170",
     "wdh": [
      0.3,
      0.9,
@@ -63901,6 +63825,7 @@
     "tags": [
      "ken",
      "metal-iron-dark",
+     "plastic",
      "space"
     ],
     "colors": [
@@ -63944,7 +63869,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-gold",
+     "metal-iron-dark",
+     "plastic",
      "space",
      "tba"
     ],
@@ -63968,7 +63894,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-gold",
+     "metal-iron-dark",
+     "plastic",
      "space"
     ],
     "colors": [
@@ -64017,7 +63944,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-gold",
+     "metal-iron-dark",
+     "plastic",
      "space"
     ],
     "colors": [
@@ -64039,7 +63967,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-gold",
+     "metal-iron-dark",
+     "plastic",
      "space"
     ],
     "colors": [
@@ -64073,7 +64002,7 @@
     "slug": "ken-train",
     "collection": "ken-city",
     "model": "carriage-coal",
-    "hash": "9be98088d5",
+    "hash": "e947eb35c4",
     "wdh": [
      0.75,
      1.65,
@@ -64081,12 +64010,10 @@
     ],
     "tags": [
      "ken",
-     "metal-steel",
-     "stone-rock"
+     "metal-steel"
     ],
     "colors": [
      "#3a3e4b",
-     "#57493d",
      "#7a8491"
     ]
    },
@@ -64518,7 +64445,7 @@
     "slug": "ken-train",
     "collection": "ken-city",
     "model": "locomotive-a-train",
-    "hash": "407ae8840d",
+    "hash": "953a3ce5d7",
     "wdh": [
      0.85,
      4.85,
@@ -64527,13 +64454,11 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel",
-     "stone-rock"
+     "metal-steel"
     ],
     "colors": [
      "#21552a",
      "#3a3e4b",
-     "#57493d",
      "#7a8491",
      "#873a27",
      "#b5d5e3"
@@ -65200,6 +65125,59 @@
   ]
  },
  {
+  "slug": "obj-equipment-pocketitem-tag",
+  "name": "Object › Equipment › Pocket item › Tag",
+  "category": "obj-equip",
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 0.35,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "m3-base",
+    "model": "door-hanger",
+    "hash": "872cd4a007",
+    "wdh": [
+     0.15,
+     0.01,
+     0.25
+    ],
+    "tags": [
+     "m3",
+     "mounted",
+     "paper-sheet"
+    ],
+    "colors": [
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "rgp-asia",
+    "model": "token-hanging",
+    "hash": "71153e140b",
+    "wdh": [
+     0.02,
+     0.09,
+     0.3
+    ],
+    "tags": [
+     "asia",
+     "mounted",
+     "rgp",
+     "textile-rope",
+     "wood-mid"
+    ],
+    "colors": [
+     "#907a66",
+     "#ac764c"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-equipment-weapon-magic",
   "name": "Object › Equipment › Weapon › Magic",
   "category": "obj-equip",
@@ -65476,76 +65454,6 @@
     ],
     "colors": [
      "#4f2e1b"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-equipment-pocketitem-tag",
-  "name": "Object › Equipment › Pocket item › Tag",
-  "category": "obj-equip",
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 0.35,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "m3-base",
-    "model": "door-hanger",
-    "hash": "872cd4a007",
-    "wdh": [
-     0.15,
-     0.01,
-     0.25
-    ],
-    "tags": [
-     "m3",
-     "paper-sheet"
-    ],
-    "colors": [
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "rgp-asia",
-    "model": "token-hanging",
-    "hash": "71153e140b",
-    "wdh": [
-     0.02,
-     0.09,
-     0.3
-    ],
-    "tags": [
-     "asia",
-     "mounted",
-     "rgp",
-     "textile-rope",
-     "wood-mid"
-    ],
-    "colors": [
-     "#907a66",
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "rgp-asia",
-    "model": "token",
-    "hash": "3f04ecd8a9",
-    "wdh": [
-     0.15,
-     0.08,
-     0.02
-    ],
-    "tags": [
-     "asia",
-     "rgp",
-     "wood-mid"
-    ],
-    "colors": [
-     "#ac764c"
     ]
    }
   ]
@@ -67449,144 +67357,6 @@
   ]
  },
  {
-  "slug": "obj-equipment-tool-station",
-  "name": "Object › Equipment › Tool › Station",
-  "category": "obj-equip",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 1.2,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "chopping-block",
-    "hash": "462a5deb46",
-    "wdh": [
-     0.4,
-     0.25,
-     0.5
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "metal-steel",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#804f2a",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "wood-stand",
-    "hash": "d3805f0d10",
-    "wdh": [
-     0.6,
-     0.3,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "wood-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#ac764c",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "bellows",
-    "hash": "14e17bb0da",
-    "wdh": [
-     0.2,
-     0.45,
-     0.08
-    ],
-    "tags": [
-     "leather",
-     "m3",
-     "metal-steel",
-     "tba",
-     "wood-mid"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#7a8491",
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "saw-horse",
-    "hash": "350669e0c8",
-    "wdh": [
-     0.7,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "m3",
-     "wood-light"
-    ],
-    "colors": [
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "bellows",
-    "hash": "e019cd5d3a",
-    "wdh": [
-     0.45,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "leather",
-     "rgp",
-     "tba",
-     "wood-light"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "forge",
-    "hash": "81b3898697",
-    "wdh": [
-     0.45,
-     0.45,
-     0.35
-    ],
-    "tags": [
-     "asia",
-     "metal-iron-dark",
-     "metal-steel",
-     "stone-masonry-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#88735f"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-equipment-tool-station-anvil",
   "name": "Object › Equipment › Tool › Station › Anvil",
   "category": "obj-equip",
@@ -68313,11 +68083,11 @@
    {
     "slug": "kay-mixed",
     "model": "rollerskate-a",
-    "hash": "42972ead1b",
+    "hash": "2f7261ec98",
     "wdh": [
-     0.08,
-     0.15,
-     0.06
+     0.1,
+     0.2,
+     0.1
     ],
     "tags": [
      "kay",
@@ -68333,11 +68103,11 @@
    {
     "slug": "kay-mixed",
     "model": "rollerskate-b",
-    "hash": "f4fa5a73ec",
+    "hash": "f6db52e9b1",
     "wdh": [
-     0.08,
-     0.15,
-     0.1
+     0.1,
+     0.2,
+     0.15
     ],
     "tags": [
      "kay",
@@ -69335,6 +69105,166 @@
   ]
  },
  {
+  "slug": "obj-equipment-tool-station",
+  "name": "Object › Equipment › Tool › Station",
+  "category": "obj-equip",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 1.2,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "chopping-block",
+    "hash": "462a5deb46",
+    "wdh": [
+     0.4,
+     0.25,
+     0.5
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#804f2a",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "wood-stand",
+    "hash": "d3805f0d10",
+    "wdh": [
+     0.6,
+     0.3,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "wood-light",
+     "wood-mid"
+    ],
+    "colors": [
+     "#ac764c",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "bellows",
+    "hash": "14e17bb0da",
+    "wdh": [
+     0.2,
+     0.45,
+     0.08
+    ],
+    "tags": [
+     "leather",
+     "m3",
+     "metal-steel",
+     "tba",
+     "wood-mid"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#7a8491",
+     "#ac764c"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "saw-horse",
+    "hash": "350669e0c8",
+    "wdh": [
+     0.7,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "m3",
+     "wood-light"
+    ],
+    "colors": [
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "medieval-forge",
+    "model": "furnace",
+    "hash": "cb677e622c",
+    "wdh": [
+     1,
+     1,
+     1.05
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#88735f",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "bellows",
+    "hash": "e019cd5d3a",
+    "wdh": [
+     0.45,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "leather",
+     "rgp",
+     "tba",
+     "wood-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "forge",
+    "hash": "81b3898697",
+    "wdh": [
+     0.45,
+     0.45,
+     0.35
+    ],
+    "tags": [
+     "asia",
+     "metal-iron-dark",
+     "metal-steel",
+     "stone-masonry-mid",
+     "wizp"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#88735f"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-equipment-weapon-ranged-firearm-smg",
   "name": "Object › Equipment › Weapon › Ranged › Firearm › SMG",
   "category": "obj-equip",
@@ -69844,7 +69774,7 @@
    {
     "slug": "dungeon",
     "model": "crank",
-    "hash": "c1a51b6ee4",
+    "hash": "d8e7fe8447",
     "wdh": [
      0.06,
      0.15,
@@ -69914,6 +69844,7 @@
     "tags": [
      "kay",
      "metal-steel",
+     "mounted",
      "plastic",
      "tba"
     ],
@@ -69936,6 +69867,7 @@
     "tags": [
      "kay",
      "metal-steel",
+     "mounted",
      "plastic",
      "tba"
     ],
@@ -69997,10 +69929,10 @@
     ],
     "tags": [
      "animation",
-     "ceramic-dark",
      "ken",
      "metal-iron-mid",
-     "metal-steel"
+     "metal-steel",
+     "plastic"
     ],
     "colors": [
      "#59534e",
@@ -70746,10 +70678,10 @@
    {
     "slug": "quat-shoot",
     "model": "grenade-launcher",
-    "hash": "aac5d98ac0",
+    "hash": "b982fbb18d",
     "wdh": [
      0.45,
-     0.15,
+     0.2,
      0.2
     ],
     "tags": [
@@ -70767,7 +70699,7 @@
    {
     "slug": "quat-shoot",
     "model": "rocket-launcher",
-    "hash": "3a1e2e8d45",
+    "hash": "b4649e0b3c",
     "wdh": [
      0.45,
      0.15,
@@ -70776,6 +70708,7 @@
     "tags": [
      "metal-iron-mid",
      "metal-steel",
+     "plastic",
      "qua",
      "tba"
     ],
@@ -73385,222 +73318,6 @@
   ]
  },
  {
-  "slug": "obj-equipment-tool-supplies-rope",
-  "name": "Object › Equipment › Tool › Supplies › Rope",
-  "category": "obj-equip",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "3dm-industrial",
-    "collection": "3dm",
-    "model": "cable-drum",
-    "hash": "dd5b947062",
-    "wdh": [
-     0.5,
-     0.35,
-     0.5
-    ],
-    "tags": [
-     "3dm",
-     "metal-iron-mid",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "kay-tools",
-    "collection": "kay-rpg",
-    "model": "rope-bundle-a",
-    "hash": "063de37199",
-    "wdh": [
-     0.4,
-     0.15,
-     0.08
-    ],
-    "tags": [
-     "kay",
-     "robin-hood",
-     "sailing",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "kay-tools",
-    "collection": "kay-rpg",
-    "model": "rope-bundle-b",
-    "hash": "807f3e1349",
-    "wdh": [
-     0.3,
-     0.25,
-     0.07
-    ],
-    "tags": [
-     "kay",
-     "robin-hood",
-     "sailing",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "rope-knot-01",
-    "hash": "117a56000c",
-    "wdh": [
-     0.4,
-     0.07,
-     0.05
-    ],
-    "tags": [
-     "m3",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "rope-1",
-    "hash": "09856815e6",
-    "wdh": [
-     0.35,
-     0.4,
-     0.07
-    ],
-    "tags": [
-     "qua",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "rope-2",
-    "hash": "8fee1a26b3",
-    "wdh": [
-     0.45,
-     0.45,
-     0.07
-    ],
-    "tags": [
-     "qua",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "rope-3",
-    "hash": "7186c4d893",
-    "wdh": [
-     0.55,
-     0.4,
-     0.05
-    ],
-    "tags": [
-     "qua",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-asia",
-    "model": "rope",
-    "hash": "0e9add2cf1",
-    "wdh": [
-     0.03,
-     0.03,
-     0.4
-    ],
-    "tags": [
-     "rgp",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "rope",
-    "hash": "c336eeb9c1",
-    "wdh": [
-     0.08,
-     0.08,
-     0.45
-    ],
-    "tags": [
-     "mounted",
-     "rgp",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "rope-1-a",
-    "hash": "03ddf8f6de",
-    "wdh": [
-     0.06,
-     0.3,
-     0.5
-    ],
-    "tags": [
-     "rgp",
-     "textile-rope"
-    ],
-    "colors": [
-     "#907a66"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "net",
-    "hash": "618878d5f5",
-    "wdh": [
-     0.85,
-     0.09,
-     0.8
-    ],
-    "tags": [
-     "asia",
-     "bark",
-     "textile-rope",
-     "wizp"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#907a66"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-equipment-weapon-magic-staff",
   "name": "Object › Equipment › Weapon › Magic › Staff",
   "category": "obj-equip",
@@ -75649,6 +75366,262 @@
   ]
  },
  {
+  "slug": "obj-equipment-tool-supplies-rope",
+  "name": "Object › Equipment › Tool › Supplies › Rope",
+  "category": "obj-equip",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "3dm-industrial",
+    "collection": "3dm",
+    "model": "cable-drum",
+    "hash": "dd5b947062",
+    "wdh": [
+     0.5,
+     0.35,
+     0.5
+    ],
+    "tags": [
+     "3dm",
+     "metal-iron-mid",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#ac764c"
+    ]
+   },
+   {
+    "slug": "kay-tools",
+    "collection": "kay-rpg",
+    "model": "rope-bundle-a",
+    "hash": "063de37199",
+    "wdh": [
+     0.4,
+     0.15,
+     0.08
+    ],
+    "tags": [
+     "kay",
+     "robin-hood",
+     "sailing",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "kay-tools",
+    "collection": "kay-rpg",
+    "model": "rope-bundle-b",
+    "hash": "807f3e1349",
+    "wdh": [
+     0.3,
+     0.25,
+     0.07
+    ],
+    "tags": [
+     "kay",
+     "robin-hood",
+     "sailing",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "spool-a",
+    "hash": "0bfe46ec8d",
+    "wdh": [
+     0.55,
+     0.55,
+     0.3
+    ],
+    "tags": [
+     "lpa",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#804f2a",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "spool-b",
+    "hash": "10d2b3bec7",
+    "wdh": [
+     0.55,
+     0.55,
+     0.3
+    ],
+    "tags": [
+     "lpa",
+     "rubber",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#59534e",
+     "#804f2a",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "rope-knot-01",
+    "hash": "117a56000c",
+    "wdh": [
+     0.4,
+     0.07,
+     0.05
+    ],
+    "tags": [
+     "m3",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "rope-1",
+    "hash": "09856815e6",
+    "wdh": [
+     0.35,
+     0.4,
+     0.07
+    ],
+    "tags": [
+     "qua",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "rope-2",
+    "hash": "8fee1a26b3",
+    "wdh": [
+     0.45,
+     0.45,
+     0.07
+    ],
+    "tags": [
+     "qua",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "rope-3",
+    "hash": "7186c4d893",
+    "wdh": [
+     0.55,
+     0.4,
+     0.05
+    ],
+    "tags": [
+     "qua",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-asia",
+    "model": "rope",
+    "hash": "0e9add2cf1",
+    "wdh": [
+     0.03,
+     0.03,
+     0.4
+    ],
+    "tags": [
+     "rgp",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "rope",
+    "hash": "c336eeb9c1",
+    "wdh": [
+     0.08,
+     0.08,
+     0.45
+    ],
+    "tags": [
+     "mounted",
+     "rgp",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "rope-1-a",
+    "hash": "03ddf8f6de",
+    "wdh": [
+     0.06,
+     0.3,
+     0.5
+    ],
+    "tags": [
+     "rgp",
+     "textile-rope"
+    ],
+    "colors": [
+     "#907a66"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "net",
+    "hash": "618878d5f5",
+    "wdh": [
+     0.85,
+     0.09,
+     0.8
+    ],
+    "tags": [
+     "asia",
+     "bark",
+     "textile-rope",
+     "wizp"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#907a66"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-equipment-tool-twohand-rod",
   "name": "Object › Equipment › Tool › Two-hand › Rod",
   "category": "obj-equip",
@@ -76297,6 +76270,7 @@
     ],
     "tags": [
      "ken",
+     "metal-iron-dark",
      "metal-steel"
     ],
     "colors": [
@@ -76443,10 +76417,10 @@
    {
     "slug": "m3-base",
     "model": "brick-hammer",
-    "hash": "d6d9525a25",
+    "hash": "39f81f3f6b",
     "wdh": [
      0.2,
-     0.03,
+     0.05,
      0.25
     ],
     "tags": [
@@ -77919,23 +77893,21 @@
     "slug": "avra-weapons",
     "collection": "avra",
     "model": "shortbow",
-    "hash": "7a2fbdf6fa",
+    "hash": "301053b0f9",
     "wdh": [
-     0.04,
      0.15,
+     0.04,
      0.55
     ],
     "tags": [
      "leather",
      "textile-rope",
-     "wood-dark",
-     "wood-light"
+     "wood-dark"
     ],
     "colors": [
      "#4f2e1b",
      "#804f2a",
-     "#907a66",
-     "#cca571"
+     "#907a66"
     ]
    },
    {
@@ -78182,7 +78154,7 @@
    {
     "slug": "lpa-weapons",
     "model": "longbow",
-    "hash": "04cad676af",
+    "hash": "f23bf16714",
     "wdh": [
      0.1,
      0.03,
@@ -78190,18 +78162,20 @@
     ],
     "tags": [
      "lpa",
+     "textile-rope",
      "wood-dark",
      "wood-mid"
     ],
     "colors": [
      "#804f2a",
+     "#907a66",
      "#ac764c"
     ]
    },
    {
     "slug": "lpa-weapons",
     "model": "recurve-bow",
-    "hash": "a203190ba7",
+    "hash": "38d4468d17",
     "wdh": [
      0.15,
      0.03,
@@ -78210,12 +78184,14 @@
     "tags": [
      "lpa",
      "metal-steel",
+     "textile-rope",
      "wood-dark",
      "wood-mid"
     ],
     "colors": [
      "#7a8491",
      "#804f2a",
+     "#907a66",
      "#ac764c"
     ]
    },
@@ -78290,7 +78266,7 @@
    {
     "slug": "zombie-weapons",
     "model": "bow",
-    "hash": "31af15a472",
+    "hash": "86cb95250c",
     "wdh": [
      0.2,
      0.05,
@@ -78299,12 +78275,12 @@
     "tags": [
      "ct",
      "rubber",
-     "textile-cloth-mid",
+     "textile-rope",
      "wood-light"
     ],
     "colors": [
      "#59534e",
-     "#88735f",
+     "#907a66",
      "#cca571"
     ]
    }
@@ -88919,7 +88895,7 @@
     "slug": "3dm-industrial-2",
     "collection": "3dm",
     "model": "wet-floor-sign",
-    "hash": "dc13b8c397",
+    "hash": "a3f6aedd63",
     "wdh": [
      0.2,
      0.2,
@@ -88930,7 +88906,6 @@
      "plastic"
     ],
     "colors": [
-     "#59534e",
      "#f1a63b"
     ]
    },
@@ -88957,7 +88932,7 @@
    {
     "slug": "m3-base",
     "model": "wet-floor-sign",
-    "hash": "588f7ce351",
+    "hash": "dbc0ac3909",
     "wdh": [
      0.3,
      0.25,
@@ -89463,7 +89438,7 @@
    {
     "slug": "m3-base",
     "model": "japanese-stone-lantern-01",
-    "hash": "04d8c02a7b",
+    "hash": "b906de714d",
     "wdh": [
      0.2,
      0.2,
@@ -89499,7 +89474,7 @@
    {
     "slug": "pm-store",
     "model": "lantern-standing",
-    "hash": "94fbfdb86b",
+    "hash": "ecb47e6aa7",
     "wdh": [
      0.45,
      0.45,
@@ -90124,146 +90099,6 @@
      "#804f2a",
      "#cca571",
      "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-fixture-fire-brazier",
-  "name": "Structure › Fixture › Fire › Brazier",
-  "category": "str-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.25,
-   "longest.max": 0.65,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "m3-base",
-    "model": "iron-brazier-01",
-    "hash": "d6bc16e949",
-    "wdh": [
-     0.4,
-     0.4,
-     0.25
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-mid"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "iron-brazier-02",
-    "hash": "d1c354f25f",
-    "wdh": [
-     0.25,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-mid"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "iron-brazier-03",
-    "hash": "f131556133",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-mid"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "roman-brazier",
-    "hash": "037f5b087e",
-    "wdh": [
-     0.2,
-     0.2,
-     0.4
-    ],
-    "tags": [
-     "m3",
-     "metal-copper"
-    ],
-    "colors": [
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "brazier",
-    "hash": "839ed01674",
-    "wdh": [
-     0.35,
-     0.35,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "rgp",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "rgp-props",
-    "model": "fireplace-1-1-a",
-    "hash": "904b3f2472",
-    "wdh": [
-     0.3,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "rgp"
-    ],
-    "colors": [
-     "#3a3e4b"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "brazier",
-    "hash": "81ef3e8b89",
-    "wdh": [
-     0.3,
-     0.3,
-     0.25
-    ],
-    "tags": [
-     "asia",
-     "metal-iron-dark",
-     "metal-iron-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e"
     ]
    }
   ]
@@ -90916,7 +90751,7 @@
     "slug": "3dm-city-2",
     "collection": "3dm",
     "model": "bus-shelter",
-    "hash": "c200ac3edf",
+    "hash": "372bd37d8c",
     "wdh": [
      1.15,
      0.55,
@@ -91243,6 +91078,181 @@
      "#804f2a",
      "#907a66",
      "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-fixture-fire-campfire",
+  "name": "Structure › Fixture › Fire › Campfire",
+  "category": "str-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.35,
+   "longest.max": 0.85,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-terrain",
+    "collection": "fs-modular",
+    "model": "hilly-prop-camp-campfire",
+    "hash": "14b071e3fc",
+    "wdh": [
+     0.75,
+     0.75,
+     0.1
+    ],
+    "tags": [
+     "bark",
+     "fs",
+     "robin-hood",
+     "stone-rock",
+     "wood-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#88735f",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "campfire-fishing-stand",
+    "hash": "7003048407",
+    "wdh": [
+     0.65,
+     0.4,
+     0.45
+    ],
+    "tags": [
+     "ken",
+     "wood-mid"
+    ],
+    "colors": [
+     "#ac764c"
+    ]
+   },
+   {
+    "slug": "ken-survival",
+    "model": "campfire-stand",
+    "hash": "6c8af2d4bb",
+    "wdh": [
+     0.65,
+     0.2,
+     0.45
+    ],
+    "tags": [
+     "ken",
+     "wood-mid"
+    ],
+    "colors": [
+     "#ac764c"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "campfire-star",
+    "hash": "3bed0b0b49",
+    "wdh": [
+     0.65,
+     0.6,
+     0.08
+    ],
+    "tags": [
+     "bark",
+     "robin-hood",
+     "wood-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "natuur",
+    "model": "campfire-teepee",
+    "hash": "c8cbc88ae2",
+    "wdh": [
+     0.5,
+     0.5,
+     0.45
+    ],
+    "tags": [
+     "bark",
+     "robin-hood",
+     "wood-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "bonfire",
+    "hash": "b7b36563d6",
+    "wdh": [
+     0.45,
+     0.4,
+     0.1
+    ],
+    "tags": [
+     "bark",
+     "qua",
+     "stone-rock",
+     "wood-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#88735f",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "quat-survival",
+    "model": "bonfire",
+    "hash": "70a391ff11",
+    "wdh": [
+     0.55,
+     0.5,
+     0.6
+    ],
+    "tags": [
+     "bark",
+     "qua",
+     "special-emissive",
+     "tba",
+     "wood-mid"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#ac764c",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "campfire",
+    "hash": "b0175ee65a",
+    "wdh": [
+     0.6,
+     0.4,
+     0.35
+    ],
+    "tags": [
+     "rgp",
+     "stone-rock",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#804f2a",
+     "#88735f",
+     "#cca571"
     ]
    }
   ]
@@ -92022,11 +92032,11 @@
    {
     "slug": "ken-racing",
     "model": "barrier-red",
-    "hash": "3d4c4971d1",
+    "hash": "6200c1c01d",
     "wdh": [
-     0.35,
-     0.2,
-     0.2
+     0.45,
+     0.25,
+     0.25
     ],
     "tags": [
      "ken",
@@ -92040,10 +92050,10 @@
     "slug": "ken-roads",
     "collection": "ken-city",
     "model": "construction-barrier",
-    "hash": "42fe0c0de9",
+    "hash": "0962003fc4",
     "wdh": [
-     0.3,
      0.5,
+     0.3,
      0.3
     ],
     "tags": [
@@ -92057,10 +92067,10 @@
    {
     "slug": "lpa-construction",
     "model": "barrier-b",
-    "hash": "c00ed48df1",
+    "hash": "be0cf72131",
     "wdh": [
-     0.25,
      0.7,
+     0.25,
      0.45
     ],
     "tags": [
@@ -92092,10 +92102,10 @@
    {
     "slug": "m3-base",
     "model": "jersey-barrier",
-    "hash": "da261c53a2",
+    "hash": "18d3fb5c73",
     "wdh": [
-     0.25,
      0.55,
+     0.25,
      0.3
     ],
     "tags": [
@@ -92126,7 +92136,7 @@
    {
     "slug": "quat-apocalypse",
     "model": "plastic-barrier",
-    "hash": "ce9c68d00a",
+    "hash": "3be529787c",
     "wdh": [
      0.55,
      0.2,
@@ -92585,6 +92595,181 @@
      "#804f2a",
      "#873a27",
      "#cca571"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-fixture-fire-brazier",
+  "name": "Structure › Fixture › Fire › Brazier",
+  "category": "str-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.25,
+   "longest.max": 0.65,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "m3-base",
+    "model": "garden-fire-pit",
+    "hash": "5f9d086b92",
+    "wdh": [
+     0.5,
+     0.5,
+     0.6
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-mid"
+    ],
+    "colors": [
+     "#59534e"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "iron-brazier-01",
+    "hash": "d6bc16e949",
+    "wdh": [
+     0.4,
+     0.4,
+     0.25
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-mid"
+    ],
+    "colors": [
+     "#59534e"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "iron-brazier-02",
+    "hash": "d1c354f25f",
+    "wdh": [
+     0.25,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-mid"
+    ],
+    "colors": [
+     "#59534e"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "iron-brazier-03",
+    "hash": "f131556133",
+    "wdh": [
+     0.2,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-mid"
+    ],
+    "colors": [
+     "#59534e"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "roman-brazier",
+    "hash": "037f5b087e",
+    "wdh": [
+     0.2,
+     0.2,
+     0.4
+    ],
+    "tags": [
+     "m3",
+     "metal-copper"
+    ],
+    "colors": [
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "props",
+    "model": "fire-a",
+    "hash": "efbf53bed7",
+    "wdh": [
+     0.35,
+     0.35,
+     0.2
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "wood-light"
+    ],
+    "colors": [
+     "#59534e",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "brazier",
+    "hash": "839ed01674",
+    "wdh": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "rgp",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#cca571"
+    ]
+   },
+   {
+    "slug": "rgp-props",
+    "model": "fireplace-1-1-a",
+    "hash": "904b3f2472",
+    "wdh": [
+     0.3,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "rgp"
+    ],
+    "colors": [
+     "#3a3e4b"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "brazier",
+    "hash": "81ef3e8b89",
+    "wdh": [
+     0.3,
+     0.3,
+     0.25
+    ],
+    "tags": [
+     "asia",
+     "metal-iron-dark",
+     "metal-iron-mid",
+     "wizp"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e"
     ]
    }
   ]
@@ -93612,213 +93797,6 @@
     ],
     "colors": [
      "#804f2a",
-     "#cca571"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-fixture-fire-campfire",
-  "name": "Structure › Fixture › Fire › Campfire",
-  "category": "str-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.35,
-   "longest.max": 0.85,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-terrain",
-    "collection": "fs-modular",
-    "model": "hilly-prop-camp-campfire",
-    "hash": "14b071e3fc",
-    "wdh": [
-     0.75,
-     0.75,
-     0.1
-    ],
-    "tags": [
-     "bark",
-     "fs",
-     "robin-hood",
-     "wood-light"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#88735f",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "campfire-fishing-stand",
-    "hash": "7003048407",
-    "wdh": [
-     0.65,
-     0.4,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "wood-mid"
-    ],
-    "colors": [
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "ken-survival",
-    "model": "campfire-stand",
-    "hash": "6c8af2d4bb",
-    "wdh": [
-     0.65,
-     0.2,
-     0.45
-    ],
-    "tags": [
-     "ken",
-     "wood-mid"
-    ],
-    "colors": [
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "garden-fire-pit",
-    "hash": "5f9d086b92",
-    "wdh": [
-     0.5,
-     0.5,
-     0.6
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-mid"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "campfire-star",
-    "hash": "3bed0b0b49",
-    "wdh": [
-     0.65,
-     0.6,
-     0.08
-    ],
-    "tags": [
-     "bark",
-     "robin-hood",
-     "wood-light"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "natuur",
-    "model": "campfire-teepee",
-    "hash": "c8cbc88ae2",
-    "wdh": [
-     0.5,
-     0.5,
-     0.45
-    ],
-    "tags": [
-     "bark",
-     "robin-hood",
-     "wood-light"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "props",
-    "model": "fire-a",
-    "hash": "efbf53bed7",
-    "wdh": [
-     0.35,
-     0.35,
-     0.2
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "wood-light"
-    ],
-    "colors": [
-     "#59534e",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "bonfire",
-    "hash": "b7b36563d6",
-    "wdh": [
-     0.45,
-     0.4,
-     0.1
-    ],
-    "tags": [
-     "bark",
-     "qua",
-     "stone-rock"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#88735f",
-     "#cca571"
-    ]
-   },
-   {
-    "slug": "quat-survival",
-    "model": "bonfire",
-    "hash": "70a391ff11",
-    "wdh": [
-     0.55,
-     0.5,
-     0.6
-    ],
-    "tags": [
-     "bark",
-     "qua",
-     "special-emissive",
-     "tba",
-     "wood-mid"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#ac764c",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "campfire",
-    "hash": "b0175ee65a",
-    "wdh": [
-     0.6,
-     0.4,
-     0.35
-    ],
-    "tags": [
-     "rgp",
-     "stone-rock",
-     "wood-dark"
-    ],
-    "colors": [
-     "#804f2a",
-     "#88735f",
      "#cca571"
     ]
    }
@@ -96661,6 +96639,428 @@
   ]
  },
  {
+  "slug": "str-building-work-industrial-workshop",
+  "name": "Structure › Building › Work › Industrial › Workshop",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "lumbermill",
+    "hash": "5601e900a8",
+    "wdh": [
+     3.5,
+     3.15,
+     2.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "kay",
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#804f2a",
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "blacksmith-anim",
+    "hash": "a4130d45f3",
+    "wdh": [
+     2.3,
+     2.25,
+     2.95
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-dark",
+     "metal-steel",
+     "special",
+     "special-emissive",
+     "stone-masonry-mid",
+     "storeys-1",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#ac764c",
+     "#b5d5e3",
+     "#d4d8dd",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "blacksmith",
+    "hash": "3f63007d58",
+    "wdh": [
+     2.3,
+     2.25,
+     1.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-dark",
+     "metal-steel",
+     "special",
+     "special-emissive",
+     "stone-masonry-mid",
+     "storeys-1",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#ac764c",
+     "#b5d5e3",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "lumbermill-anim",
+    "hash": "e50adb789e",
+    "wdh": [
+     2.45,
+     2.15,
+     3.1
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "textile-cloth-dark",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#ac764c",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "lumbermill",
+    "hash": "2c73be2533",
+    "wdh": [
+     2.45,
+     2.15,
+     3.1
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "tba",
+     "textile-cloth-dark",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#ac764c",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "blacksmith",
+    "hash": "42460c5141",
+    "wdh": [
+     4.3,
+     3.65,
+     2.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "metal-iron-mid",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "fantasy-sawmill",
+    "hash": "b4275aecbf",
+    "wdh": [
+     4.85,
+     3.6,
+     2.7
+    ],
+    "tags": [
+     "bark",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "metal-steel",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#7a8491",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter-large-anim",
+    "hash": "3e7430253c",
+    "wdh": [
+     2.7,
+     3.65,
+     3.3
+    ],
+    "tags": [
+     "animation",
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-2",
+     "sty",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#804f2a",
+     "#d4d8dd",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter-large",
+    "hash": "60f7698167",
+    "wdh": [
+     2.7,
+     3.65,
+     2.3
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-2",
+     "sty",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#804f2a",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter-medium",
+    "hash": "d0f9da8d4a",
+    "wdh": [
+     2.1,
+     3,
+     0.95
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-1",
+     "sty"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter",
+    "hash": "12afc0e955",
+    "wdh": [
+     1.95,
+     1.35,
+     0.95
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-1",
+     "sty"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "sawmill",
+    "hash": "710e65831a",
+    "wdh": [
+     2.55,
+     2.05,
+     1.05
+    ],
+    "tags": [
+     "ceramic-dark",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "storeys-1",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#804f2a",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "smithy-anim",
+    "hash": "5eda1a4c4e",
+    "wdh": [
+     2.1,
+     2.55,
+     2.7
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "textile-cloth-dark",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#d4d8dd",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "smithy",
+    "hash": "be84b51f1e",
+    "wdh": [
+     2.1,
+     2.55,
+     1.65
+    ],
+    "tags": [
+     "ceramic-dark",
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "textile-cloth-dark",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#804f2a",
+     "#873a27",
+     "#88735f",
+     "#f1a63b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-fixture-light-post",
   "name": "Structure › Fixture › Light › Lamp post",
   "category": "str-gen",
@@ -97280,436 +97680,6 @@
     ],
     "colors": [
      "#873a27"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-building-work-industrial-workshop",
-  "name": "Structure › Building › Work › Industrial › Workshop",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "lumbermill",
-    "hash": "5601e900a8",
-    "wdh": [
-     3.5,
-     3.15,
-     2.8
-    ],
-    "tags": [
-     "ceramic-dark",
-     "kay",
-     "metal-iron-dark",
-     "stone-masonry-mid",
-     "storeys-2",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#804f2a",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "blacksmith-anim",
-    "hash": "a4130d45f3",
-    "wdh": [
-     2.3,
-     2.25,
-     2.95
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "special",
-     "special-emissive",
-     "stone-masonry-mid",
-     "storeys-1",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#ac764c",
-     "#b5d5e3",
-     "#d4d8dd",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "blacksmith",
-    "hash": "3f63007d58",
-    "wdh": [
-     2.3,
-     2.25,
-     1.8
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "special",
-     "special-emissive",
-     "stone-masonry-mid",
-     "storeys-1",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#ac764c",
-     "#b5d5e3",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "lumbermill-anim",
-    "hash": "e50adb789e",
-    "wdh": [
-     2.45,
-     2.15,
-     3.1
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "stone-masonry-dark",
-     "storeys-3",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#ac764c",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "lumbermill",
-    "hash": "2c73be2533",
-    "wdh": [
-     2.45,
-     2.15,
-     3.1
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "stone-masonry-dark",
-     "storeys-3",
-     "tba",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#ac764c",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "medieval-forge",
-    "model": "furnace",
-    "hash": "cb677e622c",
-    "wdh": [
-     1,
-     1,
-     1.05
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-mid",
-     "storeys-1"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#88735f",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "blacksmith",
-    "hash": "42460c5141",
-    "wdh": [
-     4.3,
-     3.65,
-     2.8
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "fantasy-sawmill",
-    "hash": "b4275aecbf",
-    "wdh": [
-     4.85,
-     3.6,
-     2.7
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#7a8491",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter-large-anim",
-    "hash": "e39dcd4d27",
-    "wdh": [
-     2.7,
-     3.65,
-     3.3
-    ],
-    "tags": [
-     "animation",
-     "hero",
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-2",
-     "sty",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#804f2a",
-     "#88735f",
-     "#d4d8dd",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter-large",
-    "hash": "1acf74fa41",
-    "wdh": [
-     2.7,
-     3.65,
-     2.3
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-2",
-     "sty",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#804f2a",
-     "#88735f",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter-medium",
-    "hash": "d0f9da8d4a",
-    "wdh": [
-     2.1,
-     3,
-     0.95
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-1",
-     "sty"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter",
-    "hash": "12afc0e955",
-    "wdh": [
-     1.95,
-     1.35,
-     0.95
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-1",
-     "sty"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "sawmill",
-    "hash": "710e65831a",
-    "wdh": [
-     2.55,
-     2.05,
-     1.05
-    ],
-    "tags": [
-     "ceramic-dark",
-     "stone-masonry-dark",
-     "storeys-1",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#804f2a",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "smithy-anim",
-    "hash": "5eda1a4c4e",
-    "wdh": [
-     2.1,
-     2.55,
-     2.7
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "hero",
-     "special-emissive",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "textile-cloth-dark",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#d4d8dd",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "smithy",
-    "hash": "be84b51f1e",
-    "wdh": [
-     2.1,
-     2.55,
-     1.65
-    ],
-    "tags": [
-     "ceramic-dark",
-     "hero",
-     "special-emissive",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "textile-cloth-dark",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#804f2a",
-     "#873a27",
-     "#88735f",
-     "#f1a63b"
     ]
    }
   ]
@@ -98920,10 +98890,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-0",
-    "hash": "b928b9bbdc",
+    "hash": "cf54970e80",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -98939,7 +98909,7 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-1",
-    "hash": "26b6463738",
+    "hash": "3ea2523a59",
     "wdh": [
      0.15,
      0.15,
@@ -98958,10 +98928,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-2",
-    "hash": "e7144e1101",
+    "hash": "5b528d428d",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -98977,10 +98947,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-3",
-    "hash": "58c0c86fcb",
+    "hash": "ee3386cdd4",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -98996,10 +98966,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-4",
-    "hash": "a153b5c336",
+    "hash": "7c9665d835",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -99015,10 +98985,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-5",
-    "hash": "1b2bf6507d",
+    "hash": "dce7fbda52",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -99034,10 +99004,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-6",
-    "hash": "73fba82d15",
+    "hash": "5e84ae180c",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -99053,10 +99023,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-7",
-    "hash": "1b172802f6",
+    "hash": "ced1895e83",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -99072,10 +99042,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-8",
-    "hash": "dd7022e635",
+    "hash": "fe8743494d",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -99091,10 +99061,10 @@
     "slug": "ken-proto",
     "collection": "ken-mini",
     "model": "number-9",
-    "hash": "47d0484625",
+    "hash": "9a12146c91",
     "wdh": [
-     0.15,
      0.25,
+     0.15,
      0.4
     ],
     "tags": [
@@ -99117,6 +99087,7 @@
      0.25
     ],
     "tags": [
+     "metal-iron-dark",
      "mounted",
      "plastic",
      "sq"
@@ -99176,10 +99147,10 @@
     "slug": "sq-cinema",
     "collection": "sq-props",
     "model": "exit-sign",
-    "hash": "3ee70a4c43",
+    "hash": "0fe63ee948",
     "wdh": [
-     0.4,
-     0.1,
+     0.45,
+     0.15,
      0.2
     ],
     "tags": [
@@ -99190,8 +99161,8 @@
     ],
     "colors": [
      "#59534e",
-     "#7a8491",
-     "#ac764c",
+     "#873a27",
+     "#d8cfb7",
      "#f1a63b"
     ]
    },
@@ -99199,21 +99170,22 @@
     "slug": "sq-cinema",
     "collection": "sq-props",
     "model": "letter-rows",
-    "hash": "b6b42476ac",
+    "hash": "8ddf489c08",
     "wdh": [
      0.55,
      0.04,
      0.25
     ],
     "tags": [
+     "metal-steel",
      "mounted",
      "rubber",
      "sq",
-     "wood-mid"
+     "wood-light"
     ],
     "colors": [
      "#59534e",
-     "#ac764c",
+     "#7a8491",
      "#cca571"
     ]
    },
@@ -99228,6 +99200,7 @@
      0.35
     ],
     "tags": [
+     "metal-steel",
      "mounted",
      "rubber",
      "sq",
@@ -99270,6 +99243,7 @@
      0.15
     ],
     "tags": [
+     "metal-iron-dark",
      "mounted",
      "plastic",
      "sq"
@@ -100140,6 +100114,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-2",
+     "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -100164,6 +100139,7 @@
     "tags": [
      "ceramic-dark",
      "kay",
+     "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-2",
      "textile-cloth-mid",
@@ -100190,8 +100166,10 @@
      "ceramic-dark",
      "glass-clear",
      "kay",
+     "metal-iron-mid",
      "stone-masonry-mid",
      "storeys-3",
+     "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark",
      "wood-mid"
@@ -100222,6 +100200,7 @@
      "hero",
      "kay",
      "metal-gold",
+     "metal-iron-mid",
      "stone-masonry-mid",
      "storeys-2",
      "wood-dark",
@@ -100298,6 +100277,7 @@
     "tags": [
      "qua",
      "storeys-2",
+     "textile-cloth-dark",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -100342,6 +100322,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
+     "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -100366,6 +100347,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
+     "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -100391,6 +100373,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-4",
+     "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -100416,6 +100399,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-4",
+     "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -100438,6 +100422,7 @@
     ],
     "tags": [
      "metal-iron-dark",
+     "plastic",
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
@@ -100465,6 +100450,7 @@
     ],
     "tags": [
      "metal-iron-dark",
+     "plastic",
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
@@ -100492,6 +100478,7 @@
     ],
     "tags": [
      "metal-iron-dark",
+     "plastic",
      "qua",
      "stone-masonry-mid",
      "storeys-3",
@@ -100521,6 +100508,7 @@
      "ceramic-dark",
      "metal-iron-dark",
      "qua",
+     "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1-5",
      "wood-dark",
@@ -100549,6 +100537,7 @@
      "ceramic-dark",
      "metal-iron-dark",
      "qua",
+     "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-4",
      "wood-dark",
@@ -100577,6 +100566,7 @@
      "ceramic-dark",
      "metal-iron-dark",
      "qua",
+     "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-4",
      "wood-dark",
@@ -102288,7 +102278,7 @@
    {
     "slug": "lpa-west",
     "model": "doctor-sign-b",
-    "hash": "3ca2c5bcbb",
+    "hash": "443b2a1fac",
     "wdh": [
      1.15,
      0.25,
@@ -102610,7 +102600,7 @@
    {
     "slug": "lpa-west",
     "model": "sheriff-sign-a",
-    "hash": "b8572f209c",
+    "hash": "42f26dabc6",
     "wdh": [
      1.15,
      0.25,
@@ -102633,7 +102623,7 @@
    {
     "slug": "lpa-west",
     "model": "sheriff-sign-b",
-    "hash": "614f2ab545",
+    "hash": "0915ede8b7",
     "wdh": [
      1.15,
      0.25,
@@ -105350,7 +105340,7 @@
     ],
     "tags": [
      "ken",
-     "plastic"
+     "metal-copper"
     ],
     "colors": [
      "#ce7954"
@@ -105369,7 +105359,7 @@
     "tags": [
      "ken",
      "metal-copper",
-     "plastic"
+     "metal-steel"
     ],
     "colors": [
      "#7a8491",
@@ -105388,7 +105378,7 @@
     ],
     "tags": [
      "ken",
-     "plastic"
+     "metal-copper"
     ],
     "colors": [
      "#ce7954"
@@ -105407,7 +105397,7 @@
     "tags": [
      "ken",
      "metal-copper",
-     "plastic"
+     "metal-steel"
     ],
     "colors": [
      "#7a8491",
@@ -105426,7 +105416,7 @@
     ],
     "tags": [
      "ken",
-     "plastic"
+     "metal-copper"
     ],
     "colors": [
      "#ce7954"
@@ -105444,7 +105434,7 @@
     ],
     "tags": [
      "ken",
-     "plastic"
+     "metal-copper"
     ],
     "colors": [
      "#ce7954"
@@ -105470,7 +105460,7 @@
    {
     "slug": "styloo-furniture",
     "model": "faucet",
-    "hash": "0b668e67fb",
+    "hash": "991a6f6a72",
     "wdh": [
      0.3,
      0.1,
@@ -105480,6 +105470,7 @@
      "metal-gold",
      "metal-iron-dark",
      "mounted",
+     "rubber",
      "sty"
     ],
     "colors": [
@@ -118201,7 +118192,7 @@
    {
     "slug": "ken-station",
     "model": "door-double-closed",
-    "hash": "f36e4df22c",
+    "hash": "393085c3f8",
     "wdh": [
      0.6,
      0.1,
@@ -118222,7 +118213,7 @@
    {
     "slug": "ken-station",
     "model": "door-double-half",
-    "hash": "3ea4bd21a3",
+    "hash": "cee01f4108",
     "wdh": [
      0.6,
      0.1,
@@ -136291,258 +136282,6 @@
   ]
  },
  {
-  "slug": "env-flora-plant-leafy-potted",
-  "name": "Environment › Flora › Plant › Leafy plant › Potted",
-  "category": "env-flora",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.9,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "household",
-    "model": "potted-plant",
-    "hash": "0ccb4f0606",
-    "wdh": [
-     0.35,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "ceramic-mid",
-     "ct",
-     "earth-soil",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "monstera-potted-medium",
-    "hash": "ab97f70398",
-    "wdh": [
-     0.6,
-     0.65,
-     0.6
-    ],
-    "tags": [
-     "ceramic-mid",
-     "earth-soil",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "monstera-potted-small",
-    "hash": "f32000e3f2",
-    "wdh": [
-     0.35,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "ceramic-mid",
-     "earth-soil",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "pothos-potted-medium",
-    "hash": "131fc440ce",
-    "wdh": [
-     0.45,
-     0.4,
-     0.6
-    ],
-    "tags": [
-     "ceramic-mid",
-     "earth-soil",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "sansevieria-potted-medium",
-    "hash": "863aed4f85",
-    "wdh": [
-     0.35,
-     0.3,
-     0.65
-    ],
-    "tags": [
-     "ceramic-mid",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "yucca-potted-medium",
-    "hash": "75666ce6e7",
-    "wdh": [
-     0.4,
-     0.4,
-     0.7
-    ],
-    "tags": [
-     "bark",
-     "ceramic-mid",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "yucca-potted-small",
-    "hash": "eb51f6d4db",
-    "wdh": [
-     0.25,
-     0.25,
-     0.5
-    ],
-    "tags": [
-     "bark",
-     "ceramic-mid",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "zzplant-potted-medium",
-    "hash": "8423ddfc7e",
-    "wdh": [
-     0.35,
-     0.3,
-     0.6
-    ],
-    "tags": [
-     "ceramic-light",
-     "earth-soil",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "isa-plants",
-    "collection": "isa-tt",
-    "model": "zzplant-potted-small",
-    "hash": "9a29f43297",
-    "wdh": [
-     0.15,
-     0.15,
-     0.4
-    ],
-    "tags": [
-     "ceramic-light",
-     "earth-soil",
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "potted-plant",
-    "hash": "15f039f1f9",
-    "wdh": [
-     0.25,
-     0.3,
-     0.7
-    ],
-    "tags": [
-     "ceramic-mid",
-     "earth-soil",
-     "ken",
-     "leaf-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#66852a",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "potted-plant",
-    "hash": "390c1acd53",
-    "wdh": [
-     0.4,
-     0.4,
-     0.7
-    ],
-    "tags": [
-     "bark",
-     "ceramic-mid",
-     "earth-soil",
-     "leaf-light",
-     "lpa"
-    ],
-    "colors": [
-     "#4f2e1b",
-     "#57493d",
-     "#66852a",
-     "#ce7954"
-    ]
-   }
-  ]
- },
- {
   "slug": "env-flora-waterplant",
   "name": "Environment › Flora › Waterplant",
   "category": "env-flora",
@@ -136862,24 +136601,6 @@
     ]
    },
    {
-    "slug": "isa-homely",
-    "collection": "isa-tt",
-    "model": "foliage-b",
-    "hash": "090b5556da",
-    "wdh": [
-     0.2,
-     0.15,
-     0.15
-    ],
-    "tags": [
-     "isa",
-     "leaf-light"
-    ],
-    "colors": [
-     "#66852a"
-    ]
-   },
-   {
     "slug": "isa-park",
     "collection": "isa-tt",
     "model": "bush",
@@ -136895,26 +136616,6 @@
     ],
     "colors": [
      "#66852a"
-    ]
-   },
-   {
-    "slug": "kay-city",
-    "model": "bush-potted",
-    "hash": "50e3c8feb8",
-    "wdh": [
-     0.3,
-     0.3,
-     0.55
-    ],
-    "tags": [
-     "ceramic-mid",
-     "kay",
-     "leaf-light"
-    ],
-    "colors": [
-     "#66852a",
-     "#873a27",
-     "#ce7954"
     ]
    },
    {
@@ -136971,7 +136672,7 @@
    {
     "slug": "natuur",
     "model": "bush-1",
-    "hash": "1011e5b8bf",
+    "hash": "af62f5c886",
     "wdh": [
      0.45,
      0.55,
@@ -136987,7 +136688,7 @@
    {
     "slug": "quat-space",
     "model": "bush-spiral",
-    "hash": "40e7d880b1",
+    "hash": "5bc071aa49",
     "wdh": [
      0.4,
      0.15,
@@ -137005,9 +136706,9 @@
    {
     "slug": "styloo-farm",
     "model": "bush",
-    "hash": "988703abfd",
+    "hash": "8a124dc407",
     "wdh": [
-     0.4,
+     0.35,
      0.4,
      0.35
     ],
@@ -137017,6 +136718,279 @@
     ],
     "colors": [
      "#66852a"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "env-flora-plant-leafy-potted",
+  "name": "Environment › Flora › Plant › Leafy plant › Potted",
+  "category": "env-flora",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.9,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "potted-plant",
+    "hash": "0ccb4f0606",
+    "wdh": [
+     0.35,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "ceramic-mid",
+     "ct",
+     "earth-soil",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "monstera-potted-medium",
+    "hash": "ab97f70398",
+    "wdh": [
+     0.6,
+     0.65,
+     0.6
+    ],
+    "tags": [
+     "ceramic-mid",
+     "earth-soil",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "monstera-potted-small",
+    "hash": "f32000e3f2",
+    "wdh": [
+     0.35,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "ceramic-mid",
+     "earth-soil",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "pothos-potted-medium",
+    "hash": "131fc440ce",
+    "wdh": [
+     0.45,
+     0.4,
+     0.6
+    ],
+    "tags": [
+     "ceramic-mid",
+     "earth-soil",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "sansevieria-potted-medium",
+    "hash": "863aed4f85",
+    "wdh": [
+     0.35,
+     0.3,
+     0.65
+    ],
+    "tags": [
+     "ceramic-mid",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "yucca-potted-medium",
+    "hash": "75666ce6e7",
+    "wdh": [
+     0.4,
+     0.4,
+     0.7
+    ],
+    "tags": [
+     "bark",
+     "ceramic-mid",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "yucca-potted-small",
+    "hash": "eb51f6d4db",
+    "wdh": [
+     0.25,
+     0.25,
+     0.5
+    ],
+    "tags": [
+     "bark",
+     "ceramic-mid",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "zzplant-potted-medium",
+    "hash": "8423ddfc7e",
+    "wdh": [
+     0.35,
+     0.3,
+     0.6
+    ],
+    "tags": [
+     "ceramic-light",
+     "earth-soil",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "isa-plants",
+    "collection": "isa-tt",
+    "model": "zzplant-potted-small",
+    "hash": "9a29f43297",
+    "wdh": [
+     0.15,
+     0.15,
+     0.4
+    ],
+    "tags": [
+     "ceramic-light",
+     "earth-soil",
+     "isa",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-city",
+    "model": "bush-potted",
+    "hash": "b013ed8878",
+    "wdh": [
+     0.3,
+     0.3,
+     0.55
+    ],
+    "tags": [
+     "ceramic-mid",
+     "earth-soil",
+     "kay",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "potted-plant",
+    "hash": "15f039f1f9",
+    "wdh": [
+     0.25,
+     0.3,
+     0.7
+    ],
+    "tags": [
+     "ceramic-mid",
+     "earth-soil",
+     "ken",
+     "leaf-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#66852a",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "potted-plant",
+    "hash": "390c1acd53",
+    "wdh": [
+     0.4,
+     0.4,
+     0.7
+    ],
+    "tags": [
+     "bark",
+     "ceramic-mid",
+     "earth-soil",
+     "leaf-light",
+     "lpa"
+    ],
+    "colors": [
+     "#4f2e1b",
+     "#57493d",
+     "#66852a",
+     "#ce7954"
     ]
    }
   ]
@@ -142763,7 +142737,7 @@
    {
     "slug": "styloo-farm",
     "model": "fish-bones",
-    "hash": "512726be2e",
+    "hash": "d61b81dcc0",
     "wdh": [
      0.45,
      0.08,
@@ -142780,7 +142754,7 @@
    {
     "slug": "styloo-farm",
     "model": "fish-carcass-tan",
-    "hash": "10cc866b4e",
+    "hash": "f2af08a8d5",
     "wdh": [
      0.45,
      0.08,
@@ -142799,7 +142773,7 @@
    {
     "slug": "styloo-farm",
     "model": "fish-carcass-umber",
-    "hash": "4a5f7b4a90",
+    "hash": "30d1c59bb8",
     "wdh": [
      0.45,
      0.08,
@@ -142818,7 +142792,7 @@
    {
     "slug": "styloo-farm",
     "model": "fish-carcass",
-    "hash": "0eb24f920d",
+    "hash": "3b225654fb",
     "wdh": [
      0.45,
      0.08,
