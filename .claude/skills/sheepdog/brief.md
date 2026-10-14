@@ -54,7 +54,7 @@ the run dir. Tools, all in place:
 | `tools/import/recolour.mjs --from <band> --to <band> [--parts n,n] [--where y>1.3]` | moves a band, or part of it, to another cell; the gradient carries over |
 | `tools/import/face-bands.mjs <file>` | evens triangles that should read as one surface; needs `../lp-sources` |
 | `tools/import/fold-material.mjs --material <name> --to <band>` | folds a stray material into the colormap |
-| `tools/import/glass-uv.mjs` | lays glass panes across the glass cell |
+| `tools/import/glass-uv.mjs` | gives each glass piece one soft stripe |
 | `tools/import/upright.mjs [--up] [--front]` | turns, grounds and centres |
 | `tools/import/backface-fix.mjs` | flips and caps back faces, at most 11 triangles |
 | `tools/import/scale.mjs --by <factor> <file>` | resizes one model |
