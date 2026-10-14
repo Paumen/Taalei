@@ -24240,7 +24240,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 798,
+   "count": 796,
    "parent": "metal"
   },
   {
@@ -159486,12 +159486,12 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "bucket-arrows",
-   "hash": "135bb9963a",
+   "hash": "0aa4aa964e",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
     0.252,
-    0.263,
+    0.257,
     0.417
    ],
    "tris": 272,
@@ -159505,10 +159505,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.0272,
-   "thick": 0.166,
-   "avgTri": 0.00224,
-   "anglePct": 15,
+   "minTube": 0.0176,
+   "thick": 0.1404,
+   "avgTri": 0.00197,
+   "anglePct": 17,
    "vpt": 1.77,
    "grad": 0.57,
    "spread": {
@@ -159543,7 +159543,14 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/bucket",
-   "thickRel": 1.97
+   "thickRel": 1.66,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0176 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "kay-hexagon",
@@ -241126,7 +241133,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "door-sliding-double-wide",
-   "hash": "3e4356452c",
+   "hash": "742c2000ca",
    "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
@@ -241137,7 +241144,7 @@
    "tris": 168,
    "tpu": 490,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 9400,
    "vtx": 216,
@@ -241148,24 +241155,18 @@
    "avgTri": 0.01373,
    "anglePct": 99,
    "vpt": 1.29,
-   "grad": 0.81,
+   "grad": 0.88,
    "spread": {
     "2,0": [
-     0.172,
-     0.836
-    ],
-    "6,1": [
      0.094,
      0.977
     ]
    },
    "colors": [
-    "#3a3e4b",
     "#804f2a"
    ],
    "tags": [
     "ken",
-    "metal-iron-dark",
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
@@ -241175,7 +241176,7 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "door-sliding-double",
-   "hash": "c44e6ff95d",
+   "hash": "fe4f06c26a",
    "kind": "str-part-door-double",
    "size": "m",
    "wdh": [
@@ -241186,7 +241187,7 @@
    "tris": 168,
    "tpu": 490,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 9388,
    "vtx": 216,
@@ -241197,24 +241198,18 @@
    "avgTri": 0.01019,
    "anglePct": 99,
    "vpt": 1.29,
-   "grad": 0.81,
+   "grad": 0.88,
    "spread": {
     "2,0": [
-     0.172,
-     0.836
-    ],
-    "6,1": [
      0.094,
      0.977
     ]
    },
    "colors": [
-    "#3a3e4b",
     "#804f2a"
    ],
    "tags": [
     "ken",
-    "metal-iron-dark",
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
