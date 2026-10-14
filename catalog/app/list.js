@@ -191,16 +191,10 @@ function makeCard(model, variants = []) {
   box.dataset.src = modelUrl(model);
   box.dataset.alt = `3D model ${model.name} from ${pack?.name ?? model.kit}`;
 
-  const text = document.createElement('div');
-  text.className = 'kaart-tekst';
-  const meta = span('kaart-meta');
-  meta.append(span('kaart-grootte', `${number.format(model.tris)} tri`));
-  text.append(meta);
-
   const family = [model, ...variants];
   const familyPaths = family.map((m) => m.path);
 
-  card.append(box, text);
+  card.append(box);
   if (variants.length) {
     const glyphs = span('kaart-glyfen');
     glyphs.append(glyph('variant', String(family.length),

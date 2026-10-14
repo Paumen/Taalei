@@ -8,7 +8,7 @@ import { renderCommentBox, hasComment, onChange as onComment } from './comments.
 import { mountExtractBar, setPageParts } from './extract.js?v=7cfc9fa2c4';
 import { stamped, withHash } from './stamps.js?v=04e3ee3113';
 import {
-  number, unit, readableBytes, dimensions, longest, kindParent, kindChain, rootRank,
+  number, unit, dimensions, longest, kindParent, kindChain, rootRank,
   SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText, TAG_TYPES,
   withParents as withParentsIn, collectColors, hydrate, WORKFILES, modelUrl, foldVariants as foldVariantsBy,
   span, glyph, flatMode, setLighting, attachViewer, watchViewers,
@@ -134,13 +134,7 @@ function makeCard(model, kits, variants = []) {
       `${variants.length + 1} variants of the same model — viewable in the model panel`));
   }
 
-  const text = document.createElement('div');
-  text.className = 'kaart-tekst';
-  const meta = span('kaart-meta');
-  meta.append(span('kaart-grootte', readableBytes(model.bytes)));
-  text.append(meta);
-
-  card.append(box, glyphs, text);
+  card.append(box, glyphs);
 
   const family = [model, ...variants];
   const familyPaths = family.map((m) => m.path);

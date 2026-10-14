@@ -677,27 +677,6 @@ body.kiesmodus .kaart-houder:has(.kaart-kies :checked) > .kaart {
   top: calc(var(--row) * -100%);
 }
 
-.kaart-tekst {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 9px 10px 10px;
-  border-top: 1px solid var(--lijn);
-}
-
-.kaart-meta {
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
-  align-items: baseline;
-  font-size: 11px;
-  color: var(--inkt-zacht);
-}
-
-.kaart-meta .zwaar { color: var(--zwaar); font-weight: 600; }
-
-.sectie[data-soort^="kind"] .kaart-tekst { display: none; }
-
 .leeg {
   display: none;
   padding: 60px 0;
@@ -1055,7 +1034,6 @@ body:has(.selectiebalk:not([hidden])):has(.tagedit-balk:not([hidden])) { padding
     gap: 6px;
   }
 
-  .kaart-tekst { display: none; }
   .selectiebalk {
     left: 12px;
     right: 12px;
