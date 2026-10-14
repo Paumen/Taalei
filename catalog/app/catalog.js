@@ -129,7 +129,7 @@ function makeCard(model, kits, variants = []) {
     glyphs.append(glyph('opmerking', '✎', 'Carries a comment — read it in the model panel'));
   }
   if (variants.length) {
-    glyphs.append(glyph('variant', `⧉ ${variants.length + 1}`,
+    glyphs.append(glyph('variant', String(variants.length + 1),
       `${variants.length + 1} variants of the same model — viewable in the model panel`));
   }
 

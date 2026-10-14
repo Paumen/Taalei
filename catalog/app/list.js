@@ -207,7 +207,7 @@ function makeCard(model, variants = []) {
   card.append(box, text);
   if (variants.length) {
     const glyphs = span('kaart-glyfen');
-    glyphs.append(glyph('variant', `⧉ ${family.length}`,
+    glyphs.append(glyph('variant', String(family.length),
       `${family.length} colours of the same shape — the others are in the model panel`));
     card.append(glyphs);
   }
