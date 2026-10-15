@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 
 const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 0] [--per-sheet 12] [--jobs 3]
-                  [--kind <id[,id]>] [--dry] [--no-render] [--family [--min 12] [--max 48]]
+                  [--kind <id[,id]>] [--dry] [--no-render] [--family [--min 50] [--max 150]]
 sheepdog.mjs record --run <dir>
 sheepdog.mjs review [--run <id>] [--out <list.json>] [--base origin/main]
 sheepdog.mjs verdicts (--file <verdicts> | --ok <id[,id]> --nok <id[,id]>)
@@ -213,7 +213,7 @@ async function pick() {
   const family = has('family');
   const count = Number(flag('count', '6'));
   const minKits = Number(flag('kits', '2'));
-  const max = Number(flag('max', family ? '48' : '0'));
+  const max = Number(flag('max', family ? '150' : '0'));
   const perSheet = Number(flag('per-sheet', '12'));
   const jobs = Number(flag('jobs', '3'));
   const catalog = readJson(CATALOG);
@@ -222,7 +222,7 @@ async function pick() {
     if (!byKind.has(m.kind)) byKind.set(m.kind, []);
     byKind.get(m.kind).push(`${m.kit}/${m.name}`);
   }
-  const groups = family ? families(byKind, Number(flag('min', '12')), max) : new Map([...byKind.keys()].map((kind) => [kind, [kind]]));
+  const groups = family ? families(byKind, Number(flag('min', '50')), max) : new Map([...byKind.keys()].map((kind) => [kind, [kind]]));
   const modelsOf = (group) => groups.get(group).flatMap((kind) => byKind.get(kind));
   const kitsOf = (group) => new Set(modelsOf(group).map((id) => id.split('/')[0])).size;
   const done = new Set(log.filter((e) => !!e.family === family).map((e) => e.kind));
