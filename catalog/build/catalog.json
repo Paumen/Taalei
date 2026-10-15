@@ -2771,8 +2771,7 @@
     "Kenney Space Kit": 92
    },
    "scales": {
-    "1.404": 88,
-    "2.246": 1,
+    "1.404": 89,
     "1.221": 2,
     "1.123": 1
    },
@@ -2781,8 +2780,8 @@
     "none": 7
    },
    "kitCheck": {
-    "factor": 1.1,
-    "kinds": 18
+    "factor": 1.11,
+    "kinds": 17
    }
   },
   {
@@ -3062,8 +3061,7 @@
     "Low Poly Medieval Weapons": 47
    },
    "scales": {
-    "0.00354": 43,
-    "0.003505": 1,
+    "0.00354": 44,
     "0.004956": 1,
     "0.005664": 1,
     "0.004248": 1
@@ -24298,7 +24296,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 578,
+   "count": 580,
    "parent": "metal"
   },
   {
@@ -24314,7 +24312,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1998,
+   "count": 1997,
    "parent": "metal"
   },
   {
@@ -24680,7 +24678,7 @@
    "name": "Feather",
    "type": "material",
    "description": "Feathers: quills, plumes, fletching.",
-   "count": 52,
+   "count": 51,
    "parent": "animal"
   },
   {
@@ -24719,7 +24717,7 @@
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 166,
+   "count": 165,
    "parent": "polymer"
   },
   {
@@ -27063,7 +27061,7 @@
    "name": "Road vehicle",
    "type": "kind",
    "description": "Motor vehicle driven on roads or fields: truck, tractor, rover, digger.",
-   "count": 74
+   "count": 73
   },
   {
    "id": "obj-transport-land-road-car",
@@ -32440,6 +32438,12 @@
    "tpu.max": 10000
   },
   "obj-transport-air-space": {
+   "high.max": 30,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-transport-land": {
    "high.max": 30,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -38814,7 +38818,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.28
   },
   {
    "kit": "3dm-scifi",
@@ -55443,7 +55447,7 @@
    "kit": "emace-80s",
    "collection": "emace",
    "name": "bookcase",
-   "hash": "a0bd339e90",
+   "hash": "1248102f52",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
    "wdh": [
@@ -55462,9 +55466,9 @@
    "centered": true,
    "minEdge": 0.01,
    "minTube": 0.1156,
-   "thick": 0.0897,
-   "avgTri": 0.01336,
-   "anglePct": 78,
+   "thick": 0.0902,
+   "avgTri": 0.01338,
+   "anglePct": 72,
    "vpt": 1.59,
    "grad": 0.6,
    "spread": {
@@ -187090,7 +187094,7 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "chisel",
-   "hash": "9c8d4b6047",
+   "hash": "aabeb483c6",
    "kind": "obj-equipment-tool-hand-shaping",
    "size": "s",
    "wdh": [
@@ -187098,21 +187102,21 @@
     0.046,
     0.327
    ],
-   "tris": 212,
-   "tpu": 618,
+   "tris": 216,
+   "tpu": 630,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23376,
+   "bytes": 23400,
    "vtx": 646,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.042,
-   "thick": 0.4056,
+   "thick": 0.4057,
    "avgTri": 0.00021,
-   "anglePct": 52,
-   "vpt": 3.05,
+   "anglePct": 51,
+   "vpt": 2.99,
    "grad": 0.55,
    "spread": {
     "0,0": [
@@ -198993,7 +198997,7 @@
   {
    "kit": "ken-cave",
    "name": "gate",
-   "hash": "c945633991",
+   "hash": "fd2d82d902",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
@@ -204586,28 +204590,27 @@
   {
    "kit": "ken-factory",
    "name": "floor-checkerboard",
-   "hash": "fcf08fb9cf",
+   "hash": "a84f3beb44",
    "kind": "str-part-floor-unit-tiled",
    "size": "m",
    "wdh": [
     1.16,
     1.16,
-    0.03
+    0
    ],
-   "tris": 24,
-   "tpu": 25,
+   "tris": 8,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3060,
-   "vtx": 47,
+   "bytes": 1936,
+   "vtx": 15,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.03,
+   "minEdge": 0.58,
    "thick": 0.0333,
-   "avgTri": 0.06187,
+   "avgTri": 0.1682,
    "anglePct": 100,
-   "vpt": 1.96,
+   "vpt": 1.88,
    "grad": 0.53,
    "spread": {
     "6,1": [
@@ -253950,12 +253953,12 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "ken-space",
    "name": "desk-computer-screen",
-   "hash": "f0f675f0a2",
+   "hash": "4fce8671d6",
    "kind": "obj-device-electronics-computer-terminal",
    "size": "m",
    "wdh": [
@@ -253963,22 +253966,22 @@
     0.316,
     0.895
    ],
-   "tris": 109,
-   "tpu": 249,
+   "tris": 105,
+   "tpu": 239,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7684,
-   "vtx": 171,
+   "bytes": 7404,
+   "vtx": 163,
    "grounded": true,
    "centered": true,
    "minEdge": 0.026,
    "minTube": 0.0526,
-   "thick": 0.0971,
-   "avgTri": 0.02006,
-   "anglePct": 91,
-   "vpt": 1.57,
-   "grad": 0.52,
+   "thick": 0.1007,
+   "avgTri": 0.01702,
+   "anglePct": 89,
+   "vpt": 1.55,
+   "grad": 0.53,
    "spread": {
     "15,3": [
      0.148,
@@ -254049,7 +254052,7 @@
     "space"
    ],
    "variant": "ken-space/desk-computer",
-   "thickRel": 1.4
+   "thickRel": 1.35
   },
   {
    "kit": "ken-space",
@@ -256518,37 +256521,33 @@
   {
    "kit": "ken-space",
    "name": "rover",
-   "hash": "af7bf82e15",
-   "kind": "obj-transport-land-road",
+   "hash": "3af3a0eb65",
+   "kind": "obj-transport-land",
    "size": "m",
    "wdh": [
-    0.674,
-    0.786,
-    0.865
+    0.421,
+    0.491,
+    0.541
    ],
    "tris": 169,
-   "tpu": 369,
+   "tpu": 493,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
-   "bytes": 11040,
+   "bytes": 11036,
    "vtx": 266,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.026,
-   "thick": 0.1637,
-   "avgTri": 0.01177,
+   "minEdge": 0.016,
+   "thick": 0.1639,
+   "avgTri": 0.0046,
    "anglePct": 75,
    "vpt": 1.57,
-   "grad": 0.49,
+   "grad": 0.52,
    "spread": {
-    "13,3": [
-     0.164,
-     0.75
-    ],
     "6,1": [
      0.148,
-     0.586
+     0.75
     ],
     "5,2": [
      0.148,
@@ -256565,7 +256564,6 @@
    },
    "colors": [
     "#3a3e4b",
-    "#59534e",
     "#7a8491",
     "#d8cfb7",
     "#f1a63b"
@@ -256573,12 +256571,10 @@
    "tags": [
     "ken",
     "metal-iron-dark",
-    "metal-steel",
     "plastic",
-    "rubber",
     "space"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.79
   },
   {
    "kit": "ken-space",
@@ -258505,7 +258501,7 @@
     "space"
    ],
    "variant": "ken-station/computer",
-   "thickRel": 0.87
+   "thickRel": 0.83
   },
   {
    "kit": "ken-station",
@@ -258570,7 +258566,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 2.08
+   "thickRel": 2.01
   },
   {
    "kit": "ken-station",
@@ -258632,7 +258628,7 @@
     "space"
    ],
    "variant": "ken-station/computer",
-   "thickRel": 0.94
+   "thickRel": 0.91
   },
   {
    "kit": "ken-station",
@@ -258693,7 +258689,7 @@
     "space"
    ],
    "variant": "ken-station/computer",
-   "thickRel": 1.79
+   "thickRel": 1.73
   },
   {
    "kit": "ken-station",
@@ -281822,7 +281818,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 1.01,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -292793,30 +292789,30 @@
   {
    "kit": "lpa-weapons",
    "name": "ballista-bolt",
-   "hash": "03cf890395",
+   "hash": "90572aca3e",
    "kind": "obj-equipment-weapon-siege-ammunition",
    "size": "m",
    "wdh": [
-    0.103,
-    0.103,
-    0.892
+    0.054,
+    0.054,
+    0.901
    ],
-   "tris": 110,
-   "tpu": 252,
+   "tris": 80,
+   "tpu": 181,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 9248,
-   "vtx": 224,
+   "bytes": 7148,
+   "vtx": 164,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0494,
-   "thick": 0.3341,
-   "avgTri": 0.00132,
-   "anglePct": 12,
-   "vpt": 2.04,
-   "grad": 0.14,
+   "minTube": 0.0499,
+   "thick": 0.6297,
+   "avgTri": 0.00125,
+   "anglePct": 2,
+   "vpt": 2.05,
+   "grad": 0,
    "spread": {
     "1,0": [
      0.5,
@@ -292825,25 +292821,26 @@
     "6,1": [
      0.492,
      0.492
-    ],
-    "5,2": [
-     0.234,
-     0.758
     ]
    },
    "colors": [
     "#3a3e4b",
-    "#ac764c",
-    "#d8cfb7"
+    "#ac764c"
    ],
    "tags": [
-    "feather",
     "lpa",
     "metal-iron-dark",
     "scale-big",
     "wood-mid"
    ],
-   "thickRel": 3.17
+   "thickRel": 5.98,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.901 over max 0.9 (obj-equipment-weapon-siege-ammunition scale-big)"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -353052,7 +353049,7 @@
     "plastic",
     "pm"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "potions",
@@ -394745,7 +394742,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.7,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -395826,7 +395823,7 @@
   {
    "kit": "quat-survival",
    "name": "can-broken",
-   "hash": "2f371ff95a",
+   "hash": "0a09819ce9",
    "kind": "obj-container-can-food",
    "size": "s",
    "wdh": [
@@ -395837,7 +395834,7 @@
    "tris": 428,
    "tpu": 1248,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
    "bytes": 30964,
    "vtx": 840,
@@ -395848,18 +395845,24 @@
    "avgTri": 0.00022,
    "anglePct": 23,
    "vpt": 1.96,
-   "grad": 0.6,
+   "grad": 0.48,
    "spread": {
     "15,3": [
+     0.281,
+     0.664
+    ],
+    "13,3": [
      0.148,
      0.75
     ]
    },
    "colors": [
+    "#59534e",
     "#7a8491"
    ],
    "tags": [
     "broken",
+    "metal-iron-mid",
     "metal-steel",
     "qua"
    ],
@@ -395917,7 +395920,7 @@
   {
    "kit": "quat-survival",
    "name": "can",
-   "hash": "4c793056c7",
+   "hash": "3b1b6a0c66",
    "kind": "obj-container-can-food",
    "size": "s",
    "wdh": [
@@ -395928,7 +395931,7 @@
    "tris": 428,
    "tpu": 1248,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
    "bytes": 13272,
    "vtx": 288,
@@ -395939,17 +395942,23 @@
    "avgTri": 0.00026,
    "anglePct": 32,
    "vpt": 0.67,
-   "grad": 0.6,
+   "grad": 0.34,
    "spread": {
     "15,3": [
+     0.438,
+     0.469
+    ],
+    "13,3": [
      0.148,
      0.75
     ]
    },
    "colors": [
+    "#59534e",
     "#7a8491"
    ],
    "tags": [
+    "metal-iron-mid",
     "metal-steel",
     "qua"
    ],
@@ -430407,7 +430416,7 @@
     "sq",
     "wood-light"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.62
   },
   {
    "kit": "sq-bowling",
@@ -430728,7 +430737,7 @@
    "kit": "sq-cards",
    "collection": "sq-props",
    "name": "glass-counter",
-   "hash": "0b2065dcd3",
+   "hash": "d28dc43cd9",
    "kind": "obj-furnishing-furniture-counter-display",
    "size": "m",
    "wdh": [
@@ -430747,11 +430756,11 @@
    "centered": true,
    "minEdge": 0.007,
    "minTube": 0.1805,
-   "thick": 0.1318,
+   "thick": 0.1312,
    "avgTri": 0.00655,
    "anglePct": 78,
    "vpt": 2.29,
-   "grad": 0.39,
+   "grad": 0.42,
    "spread": {
     "6,1": [
      0.148,
@@ -430767,7 +430776,7 @@
     ],
     "4,2": [
      0.148,
-     0.453
+     0.75
     ],
     "6,0": [
      0.148,
