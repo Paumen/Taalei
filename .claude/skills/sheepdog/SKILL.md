@@ -1,6 +1,6 @@
 ---
 name: sheepdog
-description: Round up the strays of random catalogue kinds, or families of related kinds, — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
+description: Round up the strays of random catalogue kinds, or families of related kinds — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
 ---
 
 # Sheepdog
