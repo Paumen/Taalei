@@ -24176,7 +24176,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 1999,
+   "count": 1992,
    "parent": "metal"
   },
   {
@@ -24573,7 +24573,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1437,
+   "count": 1440,
    "parent": "polymer"
   },
   {
@@ -40839,7 +40839,7 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "pumpkin-basket-full",
-   "hash": "b4a97803ac",
+   "hash": "4e67b03440",
    "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
@@ -40850,7 +40850,7 @@
    "tris": 1990,
    "tpu": 5802,
    "mat": 1,
-   "bands": 5,
+   "bands": 8,
    "calls": 1,
    "bytes": 73180,
    "vtx": 1865,
@@ -40861,19 +40861,31 @@
    "avgTri": 0.00027,
    "anglePct": 5,
    "vpt": 0.94,
-   "grad": 0.59,
+   "grad": 0.57,
    "spread": {
     "5,0": [
      0.148,
      0.742
     ],
     "1,1": [
-     0.156,
+     0.234,
      0.75
     ],
     "13,3": [
+     0.352,
+     0.508
+    ],
+    "3,1": [
+     0.156,
+     0.734
+    ],
+    "6,1": [
      0.164,
      0.734
+    ],
+    "6,0": [
+     0.352,
+     0.547
     ],
     "5,2": [
      0.156,
@@ -40886,10 +40898,13 @@
    },
    "colors": [
     "#21552a",
+    "#3a3e4b",
     "#59534e",
+    "#66852a",
     "#873a27",
     "#ce7954",
-    "#d8cfb7"
+    "#d8cfb7",
+    "#f1a63b"
    ],
    "tags": [
     "aq",
@@ -40898,7 +40913,19 @@
     "special-food",
     "special-organic"
    ],
-   "thickRel": 2.33
+   "thickRel": 2.33,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 8 wants max 6"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 8 wants max 5"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -180679,7 +180706,7 @@
    "kit": "kay-skeleton-1",
    "collection": "kay-undead",
    "name": "sword-broken-half",
-   "hash": "ce2eef3ca9",
+   "hash": "934f319ef0",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
@@ -180692,13 +180719,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7596,
+   "bytes": 7600,
    "vtx": 167,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
    "minTube": 0.0385,
-   "thick": 0.1097,
+   "thick": 0.1098,
    "avgTri": 0.00042,
    "anglePct": 22,
    "vpt": 1.35,
@@ -189391,7 +189418,7 @@
    "kit": "kay-weapons",
    "collection": "kay-rpg",
    "name": "sword-d",
-   "hash": "a1e82d54aa",
+   "hash": "06e26ac5c2",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -189416,7 +189443,7 @@
    "vpt": 0.94,
    "grad": 0.72,
    "spread": {
-    "14,3": [
+    "4,2": [
      0.289,
      0.875
     ],
@@ -189426,8 +189453,8 @@
     ]
    },
    "colors": [
-    "#7a8491",
-    "#88735f"
+    "#1564a4",
+    "#7a8491"
    ],
    "tags": [
     "kay",
@@ -218921,7 +218948,7 @@
   {
    "kit": "ken-furniture",
    "name": "television-vintage",
-   "hash": "cb9feb8224",
+   "hash": "f098df0dc1",
    "kind": "obj-device-electronics-screen-tv",
    "size": "s",
    "wdh": [
@@ -218932,7 +218959,7 @@
    "tris": 144,
    "tpu": 420,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
    "bytes": 8116,
    "vtx": 178,
@@ -218945,10 +218972,6 @@
    "vpt": 1.24,
    "grad": 0.53,
    "spread": {
-    "15,3": [
-     0.445,
-     0.445
-    ],
     "5,2": [
      0.445,
      0.445
@@ -218964,14 +218987,12 @@
    },
    "colors": [
     "#59534e",
-    "#7a8491",
     "#ac764c",
     "#d8cfb7"
    ],
    "tags": [
     "glass-screen",
     "ken",
-    "metal-steel",
     "plastic",
     "wood-mid"
    ],
@@ -243608,7 +243629,7 @@
   {
    "kit": "ken-racing",
    "name": "light-colored",
-   "hash": "3e856d4f3f",
+   "hash": "e7b351ce00",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -243632,7 +243653,7 @@
    "vpt": 1.52,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243656,13 +243677,12 @@
    "colors": [
     "#21552a",
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "plastic",
     "special-emissive"
    ],
@@ -243672,7 +243692,7 @@
   {
    "kit": "ken-racing",
    "name": "light-post-exclusive",
-   "hash": "17da4fc600",
+   "hash": "4bacad4b60",
    "kind": "str-fixture-light-street",
    "size": "m",
    "wdh": [
@@ -243697,7 +243717,7 @@
    "vpt": 1.5,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243707,12 +243727,12 @@
     ]
    },
    "colors": [
-    "#7a8491",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
+    "plastic",
     "special-emissive"
    ],
    "variant": "ken-racing/light-post-large",
@@ -243721,7 +243741,7 @@
   {
    "kit": "ken-racing",
    "name": "light-post-large",
-   "hash": "8cb44fc249",
+   "hash": "e925696bbd",
    "kind": "str-fixture-light-street",
    "size": "m",
    "wdh": [
@@ -243746,7 +243766,7 @@
    "vpt": 1.45,
    "grad": 0.57,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243756,12 +243776,12 @@
     ]
    },
    "colors": [
-    "#7a8491",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
+    "plastic",
     "special-emissive"
    ],
    "variant": "ken-racing/light-post-large",
@@ -243770,7 +243790,7 @@
   {
    "kit": "ken-racing",
    "name": "light-post-modern",
-   "hash": "e51389691a",
+   "hash": "9b67c6cce4",
    "kind": "str-fixture-light-street",
    "size": "m",
    "wdh": [
@@ -243795,7 +243815,7 @@
    "vpt": 1.22,
    "grad": 0.54,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243805,12 +243825,12 @@
     ]
    },
    "colors": [
-    "#7a8491",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
+    "plastic",
     "special-emissive"
    ],
    "variant": "ken-racing/light-post-large",
@@ -243833,7 +243853,7 @@
   {
    "kit": "ken-racing",
    "name": "light-red-double",
-   "hash": "8a60b23720",
+   "hash": "1fc834db29",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -243857,7 +243877,7 @@
    "vpt": 1.45,
    "grad": 0.59,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243876,13 +243896,12 @@
    },
    "colors": [
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "plastic",
     "special-emissive"
    ],
@@ -243892,7 +243911,7 @@
   {
    "kit": "ken-racing",
    "name": "light-red",
-   "hash": "53ab0f08da",
+   "hash": "e175a1af4e",
    "kind": "str-fixture-light-traffic",
    "size": "m",
    "wdh": [
@@ -243917,7 +243936,7 @@
    "vpt": 1.49,
    "grad": 0.58,
    "spread": {
-    "15,3": [
+    "5,2": [
      0.148,
      0.75
     ],
@@ -243936,13 +243955,12 @@
    },
    "colors": [
     "#3a3e4b",
-    "#7a8491",
     "#873a27",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
     "ken",
-    "metal-steel",
     "plastic",
     "special-emissive"
    ],
@@ -306020,7 +306038,7 @@
   {
    "kit": "m3-base",
    "name": "chunky-loafer",
-   "hash": "71d2573dda",
+   "hash": "9ffcc50ebc",
    "kind": "obj-equipment-apparel-footwear",
    "size": "s",
    "wdh": [
@@ -306028,20 +306046,20 @@
     0.226,
     0.083
    ],
-   "tris": 1311,
-   "tpu": 3822,
+   "tris": 1300,
+   "tpu": 3790,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 48180,
-   "vtx": 1211,
+   "bytes": 47632,
+   "vtx": 1196,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0319,
-   "thick": 0.175,
-   "avgTri": 0.00009,
-   "anglePct": 28,
+   "thick": 0.1661,
+   "avgTri": 0.00007,
+   "anglePct": 9,
    "vpt": 0.92,
    "grad": 0.57,
    "spread": {
@@ -306075,7 +306093,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.89,
+   "thickRel": 1.8,
    "lint": [
     {
      "level": "warning",
@@ -379222,20 +379240,20 @@
   {
    "kit": "quat-pirate",
    "name": "wheat",
-   "hash": "792d5388e1",
+   "hash": "464c871917",
    "kind": "obj-resource-crop-wheat",
    "size": "s",
    "wdh": [
     0.331,
-    0.327,
-    0.07
+    0.07,
+    0.327
    ],
    "tris": 296,
    "tpu": 863,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22324,
+   "bytes": 22328,
    "vtx": 599,
    "grounded": true,
    "centered": true,
