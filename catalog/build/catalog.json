@@ -38712,45 +38712,45 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.58
+   "thickRel": 1.55
   },
   {
    "kit": "3dm-scifi",
    "collection": "3dm",
    "name": "container",
-   "hash": "5bbca6093d",
+   "hash": "c833b9fd67",
    "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
     0.484,
-    0.5,
+    0.506,
     0.477
    ],
-   "tris": 1334,
-   "tpu": 3889,
+   "tris": 1086,
+   "tpu": 3166,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 67556,
-   "vtx": 1814,
+   "bytes": 55588,
+   "vtx": 1486,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0424,
-   "thick": 0.2651,
-   "avgTri": 0.00181,
+   "thick": 0.2674,
+   "avgTri": 0.00224,
    "anglePct": 55,
-   "vpt": 1.36,
+   "vpt": 1.37,
    "grad": 0.6,
    "spread": {
-    "15,3": [
-     0.148,
-     0.75
-    ],
     "13,3": [
      0.148,
      0.742
+    ],
+    "15,3": [
+     0.148,
+     0.75
     ]
    },
    "colors": [
@@ -39654,28 +39654,28 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "cauldron-c",
-   "hash": "0e859e2bb5",
+   "hash": "6477b2ea24",
    "kind": "obj-kitchenware-cookware-cookpot-cauldron",
    "size": "s",
    "wdh": [
     0.31,
     0.297,
-    0.314
+    0.313
    ],
-   "tris": 3086,
-   "tpu": 8997,
+   "tris": 2462,
+   "tpu": 7178,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 74372,
-   "vtx": 1698,
+   "bytes": 133996,
+   "vtx": 3678,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "thick": 0.2232,
-   "avgTri": 0.00026,
+   "thick": 0.2228,
+   "avgTri": 0.00033,
    "anglePct": 11,
-   "vpt": 0.55,
+   "vpt": 1.49,
    "grad": 0.6,
    "spread": {
     "6,1": [
@@ -39684,7 +39684,7 @@
     ],
     "1,1": [
      0.148,
-     0.75
+     0.742
     ]
    },
    "colors": [
@@ -55805,12 +55805,12 @@
     "wood-dark"
    ],
    "variant": "emace-80s/telescope-stand",
-   "thickRel": 0.33,
+   "thickRel": 0.32,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.33 wants min 0.5"
+     "text": "I01 thickRel 0.32 wants min 0.5"
     }
    ]
   },
@@ -99158,12 +99158,12 @@
     "plastic",
     "wood-dark"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.44 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     }
    ]
   },
@@ -195905,7 +195905,7 @@
     "plastic"
    ],
    "variant": "ken-car/race",
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "ken-car",
@@ -199289,7 +199289,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.3
+   "thickRel": 1.28
   },
   {
    "kit": "ken-chars",
@@ -199343,7 +199343,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.3
+   "thickRel": 1.28
   },
   {
    "kit": "ken-chars",
@@ -207673,7 +207673,21 @@
     "paper-cardboard"
    ],
    "variant": "ken-food/bag",
-   "thickRel": 0.91
+   "backface": {
+    "share": 0.0045,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -208176,12 +208190,24 @@
     "special-food"
    ],
    "variant": "ken-food/burger",
+   "backface": {
+    "share": 0.0014,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5668 over max 5000 (obj-food)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 225/20 over 0.1%: open 100.0%"
     },
     {
      "level": "error",
@@ -208293,12 +208319,24 @@
     "ken",
     "special-food"
    ],
+   "backface": {
+    "share": 0.0035,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
      "check": "tpu",
      "text": "tpu 26764 over max 5000 (obj-food)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 270/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -209012,7 +209050,22 @@
     "special-food",
     "wood-mid"
    ],
-   "thickRel": 1.79
+   "backface": {
+    "share": 0.0016,
+    "view": "135/50",
+    "causes": {
+     "open": 0.87,
+     "inverted": 0.13
+    }
+   },
+   "thickRel": 1.79,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/50 over 0.1%: open 87.0%, inverted 13.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -210346,7 +210399,7 @@
   {
    "kit": "ken-food",
    "name": "grapes",
-   "hash": "b54cc4c0d8",
+   "hash": "346acc1ffc",
    "kind": "obj-food-fruit-grapes",
    "size": "s",
    "wdh": [
@@ -210354,21 +210407,21 @@
     0.112,
     0.192
    ],
-   "tris": 12600,
-   "tpu": 36735,
+   "tris": 3150,
+   "tpu": 9184,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 420188,
-   "vtx": 10722,
+   "bytes": 122956,
+   "vtx": 3209,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1832,
-   "avgTri": 0.00001,
-   "anglePct": 7,
-   "vpt": 0.85,
-   "grad": 0.56,
+   "thick": 0.1836,
+   "avgTri": 0.00004,
+   "anglePct": 10,
+   "vpt": 1.02,
+   "grad": 0.57,
    "spread": {
     "6,1": [
      0.148,
@@ -210394,12 +210447,12 @@
     "special-food",
     "special-organic"
    ],
-   "thickRel": 0.76,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 36735 over max 5000 (obj-food)"
+     "text": "tpu 9184 over max 5000 (obj-food)"
     }
    ]
   },
@@ -211762,6 +211815,20 @@
     "ken",
     "plural",
     "special-food"
+   ],
+   "backface": {
+    "share": 0.0024,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 270/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -212126,6 +212193,14 @@
     "leaf-light",
     "special-food"
    ],
+   "backface": {
+    "share": 0.0022,
+    "view": "315/50",
+    "causes": {
+     "inverted": 0.97,
+     "other": 0.03
+    }
+   },
    "thickRel": 0.91,
    "lint": [
     {
@@ -212137,6 +212212,11 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 7767 over max 5000 (obj-food)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/50 over 0.1%: inverted 97.0%, other 3.0%"
     }
    ]
   },
@@ -212754,7 +212834,21 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.76
+   "backface": {
+    "share": 0.0141,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.76,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.4% of view 315/20 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -213048,7 +213142,7 @@
   {
    "kit": "ken-food",
    "name": "steamer",
-   "hash": "dd2feb1f20",
+   "hash": "288eefc465",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
@@ -213056,21 +213150,21 @@
     0.287,
     0.269
    ],
-   "tris": 4284,
-   "tpu": 12490,
+   "tris": 1070,
+   "tpu": 3120,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 124412,
-   "vtx": 3039,
+   "bytes": 39964,
+   "vtx": 1006,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2422,
-   "avgTri": 0.00019,
-   "anglePct": 46,
-   "vpt": 0.71,
-   "grad": 0.51,
+   "thick": 0.242,
+   "avgTri": 0.00075,
+   "anglePct": 47,
+   "vpt": 0.94,
+   "grad": 0.5,
    "spread": {
     "0,0": [
      0.148,
@@ -213096,14 +213190,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.38,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12490 over max 5000 (obj-kitchenware)"
-    }
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "ken-food",
@@ -213639,7 +213726,7 @@
   {
    "kit": "ken-food",
    "name": "waffle",
-   "hash": "cba5772e37",
+   "hash": "bcf61c6d9d",
    "kind": "obj-food-baked-pastry-waffle",
    "size": "s",
    "wdh": [
@@ -213647,21 +213734,20 @@
     0.144,
     0.027
    ],
-   "tris": 4860,
-   "tpu": 14169,
+   "tris": 2430,
+   "tpu": 7085,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 155292,
-   "vtx": 3896,
+   "bytes": 93244,
+   "vtx": 2416,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0143,
+   "minEdge": 0.002,
    "thick": 0.0774,
-   "avgTri": 0.00002,
-   "anglePct": 42,
-   "vpt": 0.8,
+   "avgTri": 0.00003,
+   "anglePct": 39,
+   "vpt": 0.99,
    "grad": 0.6,
    "spread": {
     "1,0": [
@@ -213681,7 +213767,7 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 14169 over max 5000 (obj-food)"
+     "text": "tpu 7085 over max 5000 (obj-food)"
     }
    ]
   },
@@ -296356,36 +296442,36 @@
   {
    "kit": "lpa-west",
    "name": "cart-b",
-   "hash": "6f3ca0fe16",
+   "hash": "0eaa03b435",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
-    0.446,
+    0.444,
     1.125,
     0.375
    ],
-   "tris": 2938,
-   "tpu": 8365,
+   "tris": 2674,
+   "tpu": 7648,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 169104,
-   "vtx": 4686,
+   "bytes": 161740,
+   "vtx": 4506,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0282,
-   "thick": 0.1318,
-   "avgTri": 0.001,
+   "thick": 0.1322,
+   "avgTri": 0.0011,
    "anglePct": 38,
-   "vpt": 1.59,
+   "vpt": 1.69,
    "grad": 0.6,
    "spread": {
-    "0,0": [
+    "2,0": [
      0.148,
      0.75
     ],
-    "2,0": [
+    "0,0": [
      0.148,
      0.75
     ]
@@ -296400,7 +296486,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/cart-a",
-   "thickRel": 1.28
+   "thickRel": 1.29
   },
   {
    "kit": "lpa-west",
@@ -304203,7 +304289,7 @@
   {
    "kit": "m3-base",
    "name": "bellows",
-   "hash": "14e17bb0da",
+   "hash": "a00bae4cfb",
    "kind": "obj-equipment-tool-station",
    "size": "s",
    "wdh": [
@@ -304211,20 +304297,20 @@
     0.45,
     0.077
    ],
-   "tris": 2626,
-   "tpu": 7656,
+   "tris": 2130,
+   "tpu": 6210,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 105160,
-   "vtx": 2747,
+   "bytes": 99896,
+   "vtx": 2675,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "thick": 0.1476,
-   "avgTri": 0.00014,
-   "anglePct": 46,
-   "vpt": 1.05,
+   "avgTri": 0.00017,
+   "anglePct": 47,
+   "vpt": 1.26,
    "grad": 0.59,
    "spread": {
     "3,0": [
@@ -304342,7 +304428,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -306985,7 +307071,7 @@
   {
    "kit": "m3-base",
    "name": "cast-iron-log-burner",
-   "hash": "37f5db6818",
+   "hash": "3186a27591",
    "kind": "obj-device-appliance-stove",
    "size": "s",
    "wdh": [
@@ -306993,20 +307079,20 @@
     0.229,
     0.486
    ],
-   "tris": 2575,
-   "tpu": 7507,
+   "tris": 2277,
+   "tpu": 6638,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 132116,
-   "vtx": 3596,
+   "bytes": 116856,
+   "vtx": 3175,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "thick": 0.2452,
-   "avgTri": 0.0004,
+   "avgTri": 0.00045,
    "anglePct": 69,
-   "vpt": 1.4,
+   "vpt": 1.39,
    "grad": 0.59,
    "spread": {
     "6,1": [
@@ -328974,7 +329060,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 2.75
+   "thickRel": 2.7
   },
   {
    "kit": "m3-base",
@@ -358720,7 +358806,7 @@
   {
    "kit": "quat-cars",
    "name": "hatchback",
-   "hash": "517d2e07e1",
+   "hash": "9007962bb6",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -358728,23 +358814,22 @@
     1.004,
     0.347
    ],
-   "tris": 3124,
-   "tpu": 8944,
+   "tris": 1828,
+   "tpu": 5233,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 137708,
-   "vtx": 3670,
+   "bytes": 95624,
+   "vtx": 2598,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0077,
-   "thick": 0.222,
-   "avgTri": 0.00053,
-   "anglePct": 36,
-   "vpt": 1.17,
-   "grad": 0.59,
+   "thick": 0.2219,
+   "avgTri": 0.00095,
+   "anglePct": 41,
+   "vpt": 1.42,
+   "grad": 0.48,
    "spread": {
     "5,2": [
      0.148,
@@ -358759,8 +358844,8 @@
      0.742
     ],
     "15,3": [
-     0.148,
-     0.742
+     0.305,
+     0.445
     ],
     "6,0": [
      0.281,
@@ -358786,19 +358871,12 @@
     "qua"
    ],
    "variant": "quat-cars/suv",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0077 wants min 0.026"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "quat-cars",
    "name": "police-car",
-   "hash": "861c964bec",
+   "hash": "1ae3251e01",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
@@ -358806,21 +358884,21 @@
     1.131,
     0.376
    ],
-   "tris": 3232,
-   "tpu": 7574,
+   "tris": 1936,
+   "tpu": 4537,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 145200,
-   "vtx": 3884,
+   "bytes": 103120,
+   "vtx": 2812,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.2224,
-   "avgTri": 0.00062,
-   "anglePct": 34,
-   "vpt": 1.2,
-   "grad": 0.57,
+   "thick": 0.2228,
+   "avgTri": 0.00108,
+   "anglePct": 36,
+   "vpt": 1.45,
+   "grad": 0.48,
    "spread": {
     "5,2": [
      0.148,
@@ -358835,8 +358913,8 @@
      0.422
     ],
     "15,3": [
-     0.148,
-     0.742
+     0.203,
+     0.445
     ],
     "6,0": [
      0.359,
@@ -358871,29 +358949,29 @@
   {
    "kit": "quat-cars",
    "name": "sports-car-b",
-   "hash": "853ab4d527",
+   "hash": "9770349c8a",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.568,
     1.191,
-    0.365
+    0.362
    ],
-   "tris": 3148,
-   "tpu": 6648,
+   "tris": 1852,
+   "tpu": 3911,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 137404,
-   "vtx": 3655,
+   "bytes": 95320,
+   "vtx": 2583,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.2168,
-   "avgTri": 0.00067,
-   "anglePct": 31,
-   "vpt": 1.16,
-   "grad": 0.59,
+   "thick": 0.2157,
+   "avgTri": 0.00119,
+   "anglePct": 36,
+   "vpt": 1.39,
+   "grad": 0.48,
    "spread": {
     "5,2": [
      0.148,
@@ -358916,8 +358994,8 @@
      0.516
     ],
     "6,1": [
-     0.148,
-     0.742
+     0.375,
+     0.516
     ]
    },
    "colors": [
@@ -358935,7 +359013,7 @@
     "qua"
    ],
    "variant": "quat-cars/sports-car",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "quat-cars",
@@ -359081,29 +359159,29 @@
   {
    "kit": "quat-cars",
    "name": "taxi",
-   "hash": "27f176c9eb",
+   "hash": "c344f32cb7",
    "kind": "obj-transport-land-road-car",
    "size": "m",
    "wdh": [
     0.548,
     1.28,
-    0.397
+    0.395
    ],
-   "tris": 3278,
-   "tpu": 6676,
+   "tris": 1982,
+   "tpu": 4037,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 149704,
-   "vtx": 4016,
+   "bytes": 107624,
+   "vtx": 2944,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.2163,
-   "avgTri": 0.00066,
-   "anglePct": 36,
-   "vpt": 1.23,
-   "grad": 0.58,
+   "thick": 0.2162,
+   "avgTri": 0.00113,
+   "anglePct": 41,
+   "vpt": 1.49,
+   "grad": 0.41,
    "spread": {
     "6,0": [
      0.148,
@@ -359114,12 +359192,12 @@
      0.422
     ],
     "6,1": [
-     0.148,
-     0.742
+     0.328,
+     0.516
     ],
     "15,3": [
-     0.148,
-     0.742
+     0.305,
+     0.445
     ],
     "8,0": [
      0.328,
@@ -388392,7 +388470,7 @@
    "kit": "quat-scifi",
    "collection": "quat-guns",
    "name": "pistol-b",
-   "hash": "42a1c6b913",
+   "hash": "89fde97dd7",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
@@ -388400,22 +388478,22 @@
     0.337,
     0.183
    ],
-   "tris": 2624,
-   "tpu": 7650,
+   "tris": 2120,
+   "tpu": 6181,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 103144,
+   "bytes": 100140,
    "vtx": 2684,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0267,
-   "thick": 0.1364,
-   "avgTri": 0.00009,
-   "anglePct": 24,
-   "vpt": 1.02,
-   "grad": 0.34,
+   "thick": 0.1365,
+   "avgTri": 0.00011,
+   "anglePct": 26,
+   "vpt": 1.27,
+   "grad": 0.4,
    "spread": {
     "6,1": [
      0.492,
@@ -388915,7 +388993,7 @@
    "kit": "quat-scifi",
    "collection": "quat-guns",
    "name": "sniper-b",
-   "hash": "f360069b2e",
+   "hash": "eaf250d8fc",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -388923,22 +389001,22 @@
     0.635,
     0.158
    ],
-   "tris": 3231,
-   "tpu": 9420,
+   "tris": 2899,
+   "tpu": 8452,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 131956,
-   "vtx": 3471,
+   "bytes": 124352,
+   "vtx": 3295,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.028,
-   "thick": 0.1735,
-   "avgTri": 0.00007,
-   "anglePct": 27,
-   "vpt": 1.07,
-   "grad": 0.18,
+   "minTube": 0.0284,
+   "thick": 0.1731,
+   "avgTri": 0.00008,
+   "anglePct": 28,
+   "vpt": 1.14,
+   "grad": 0.19,
    "spread": {
     "6,1": [
      0.492,
@@ -424013,30 +424091,30 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "globe",
-   "hash": "6296c237f6",
+   "hash": "99916ea3ce",
    "kind": "obj-device-science-astro-globe",
    "size": "m",
    "wdh": [
-    0.502,
-    0.502,
+    0.487,
+    0.487,
     0.613
    ],
-   "tris": 3092,
-   "tpu": 9015,
+   "tris": 1610,
+   "tpu": 4694,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 99596,
-   "vtx": 2486,
+   "bytes": 76272,
+   "vtx": 2035,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0724,
-   "thick": 0.1695,
-   "avgTri": 0.00049,
+   "minTube": 0.0552,
+   "thick": 0.1756,
+   "avgTri": 0.00093,
    "anglePct": 10,
-   "vpt": 0.8,
+   "vpt": 1.26,
    "grad": 0.96,
    "spread": {
     "2,0": [
@@ -424046,16 +424124,11 @@
     "15,3": [
      0.016,
      0.977
-    ],
-    "5,2": [
-     0.977,
-     0.977
     ]
    },
    "colors": [
     "#7a8491",
-    "#804f2a",
-    "#d8cfb7"
+    "#804f2a"
    ],
    "tags": [
     "hero",
@@ -424065,7 +424138,14 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "paper-sheet wants ivory, has chestnut nickel"
+    }
+   ]
   },
   {
    "kit": "rgp-vintage",
@@ -424376,12 +424456,12 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.39 wants min 0.5"
     }
    ]
   },
@@ -428765,7 +428845,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "sq-arcade",
@@ -433161,39 +433241,31 @@
    "kit": "sq-cinema",
    "collection": "sq-props",
    "name": "popcorn-machine",
-   "hash": "6341b86902",
+   "hash": "88d6dad56b",
    "kind": "obj-device-electronics-vending",
    "size": "m",
    "wdh": [
     0.316,
     0.31,
-    0.817
+    0.785
    ],
-   "tris": 2464,
-   "tpu": 6155,
+   "tris": 2176,
+   "tpu": 5657,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 183448,
-   "vtx": 5222,
+   "bytes": 166984,
+   "vtx": 4762,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0429,
-   "thick": 0.2674,
-   "avgTri": 0.00086,
+   "thick": 0.2662,
+   "avgTri": 0.00096,
    "anglePct": 68,
-   "vpt": 2.12,
+   "vpt": 2.19,
    "grad": 0.67,
    "spread": {
-    "6,1": [
-     0.148,
-     0.742
-    ],
-    "8,0": [
-     0.148,
-     0.898
-    ],
     "6,0": [
      0.148,
      0.75
@@ -433201,6 +433273,14 @@
     "5,2": [
      0.148,
      0.844
+    ],
+    "8,0": [
+     0.148,
+     0.898
+    ],
+    "6,1": [
+     0.148,
+     0.461
     ],
     "3,2": [
      0.188,
@@ -435648,7 +435728,7 @@
     "metal-iron-dark",
     "sq"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "sq-lab",
@@ -436100,7 +436180,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 2.38
+   "thickRel": 2.34
   },
   {
    "kit": "sq-lab",
@@ -436938,7 +437018,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.42
+   "thickRel": 0.4
   },
   {
    "kit": "sq-observatory",
@@ -437076,13 +437156,13 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.38
+   "thickRel": 0.37
   },
   {
    "kit": "sq-observatory",
    "collection": "sq-props",
    "name": "refractor-telescope",
-   "hash": "d5137f9c54",
+   "hash": "ee40c8b1f0",
    "kind": "obj-device-science-astro-telescope",
    "size": "m",
    "wdh": [
@@ -437090,21 +437170,21 @@
     0.393,
     0.65
    ],
-   "tris": 3558,
-   "tpu": 10373,
+   "tris": 3382,
+   "tpu": 9860,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 199596,
-   "vtx": 5521,
+   "bytes": 200588,
+   "vtx": 5585,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "thick": 0.0902,
-   "avgTri": 0.00016,
+   "thick": 0.0903,
+   "avgTri": 0.00017,
    "anglePct": 26,
-   "vpt": 1.55,
+   "vpt": 1.65,
    "grad": 0.6,
    "spread": {
     "6,0": [
@@ -437144,7 +437224,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.51
   },
   {
    "kit": "sq-observatory",
@@ -437207,7 +437287,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.52
   },
   {
    "kit": "sq-pool",
@@ -453075,7 +453155,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.92,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "error",
@@ -454709,7 +454789,7 @@
     "sty",
     "tba"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "styloo-school",
@@ -456527,7 +456607,7 @@
   {
    "kit": "styloo-school",
    "name": "school-bus",
-   "hash": "96a45b3a54",
+   "hash": "462d0e542c",
    "kind": "obj-transport-land-road-truck",
    "size": "l",
    "wdh": [
@@ -456535,29 +456615,29 @@
     2.251,
     0.653
    ],
-   "tris": 5752,
-   "tpu": 5888,
+   "tris": 5400,
+   "tpu": 5527,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 247176,
-   "vtx": 6601,
+   "bytes": 249372,
+   "vtx": 6735,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0363,
-   "thick": 0.3287,
-   "avgTri": 0.0015,
+   "thick": 0.3291,
+   "avgTri": 0.00161,
    "anglePct": 66,
-   "vpt": 1.15,
+   "vpt": 1.25,
    "grad": 0.75,
    "spread": {
-    "13,3": [
-     0.141,
-     0.977
-    ],
     "6,0": [
      0.352,
+     0.977
+    ],
+    "13,3": [
+     0.141,
      0.977
     ],
     "3,2": [
@@ -457319,7 +457399,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "styloo-school",
@@ -461325,37 +461405,37 @@
   {
    "kit": "taalei-kit",
    "name": "fishing-rod",
-   "hash": "ccc9df87ba",
+   "hash": "1dae42a939",
    "kind": "obj-equipment-tool-twohand-rod",
    "size": "m",
    "wdh": [
-    0.632,
+    0.64,
     0.165,
-    1.08
+    1.079
    ],
-   "tris": 4446,
-   "tpu": 8401,
+   "tris": 3906,
+   "tpu": 7388,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 275188,
-   "vtx": 7721,
+   "bytes": 232984,
+   "vtx": 6500,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0073,
-   "thick": 0.0683,
-   "avgTri": 0.00006,
+   "thick": 0.0676,
+   "avgTri": 0.00007,
    "anglePct": 3,
-   "vpt": 1.74,
-   "grad": 0.96,
+   "vpt": 1.66,
+   "grad": 0.93,
    "spread": {
     "15,3": [
      0.016,
      0.977
     ],
     "2,0": [
-     0.016,
+     0.172,
      0.977
     ],
     "8,0": [
@@ -462510,7 +462590,7 @@
   {
    "kit": "taalei-kit",
    "name": "raft",
-   "hash": "20b7b592da",
+   "hash": "a235cf48e7",
    "kind": "obj-transport-watercraft-boat",
    "size": "l",
    "wdh": [
@@ -462518,23 +462598,31 @@
     1.32,
     1.54
    ],
-   "tris": 2636,
-   "tpu": 1228,
+   "tris": 2420,
+   "tpu": 1127,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 178676,
-   "vtx": 5046,
+   "bytes": 163576,
+   "vtx": 4614,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0389,
    "thick": 0.0799,
-   "avgTri": 0.0028,
+   "avgTri": 0.00305,
    "anglePct": 25,
    "vpt": 1.91,
-   "grad": 0.45,
+   "grad": 0.49,
    "spread": {
+    "5,2": [
+     0.414,
+     0.563
+    ],
+    "14,2": [
+     0.031,
+     0.453
+    ],
     "2,0": [
      0.266,
      0.977
@@ -462546,14 +462634,6 @@
     "13,3": [
      0.484,
      0.523
-    ],
-    "5,2": [
-     0.414,
-     0.563
-    ],
-    "14,2": [
-     0.031,
-     0.453
     ]
    },
    "colors": [
