@@ -81,6 +81,8 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 
 **Colour bands.** `column,row` cell of the 16 × 4 grid of `kits/colormap.png`. Each band is a vertical gradient: UV 0 of the band is its lightest end, 1 its darkest. `twine` is the exception: a tile of 45° two-tone stripes for rope, with u running around the strand and v along it. `glass` carries lighter diagonal streaks: each glass piece gets one soft stripe that runs on across its folds, set with `node tools/import/glass-uv.mjs <file.glb>` after it is moved into the band. Cut log and stump ends carry soft round growth rings around a darker pith at the log's heart, so a split piece shows arcs, built with `node tools/import/end-grain.mjs <file.glb>`.
 
+**Wood lightness.** OKLCH lightness from top to bottom of each band: `tan` 82 → 67.5, `camel` 65.5 → 51, `chestnut` 49 → 34.5, `bark` 38.2 → 26. About 3 L reads as a separate colour. Models skip the top and bottom 6% of a band, about 0.7 L at each end, so colours do not bleed when compressed or seen from afar. That leaves gaps of 2 between `tan`, `camel` and `chestnut`, above the 1.6 minimum. `chestnut` and `bark` overlap in lightness and stay apart by chroma: about 0.085 against 0.06.
+
 | band | lane |
 |---|---|
 | `transparent` | — |
