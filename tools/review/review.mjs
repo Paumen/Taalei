@@ -273,7 +273,8 @@ function build() {
     if (existsSync(join(ROOT, path))) copyFileSync(join(ROOT, path), join(out, 'after', `${key(item.model)}.glb`));
   }
   for (const side of ['before', 'after']) render(join(out, side), join(out, `r-${side}`), size);
-  const sized = list.items.filter((item) => diff(item.model, base, tagsBefore, tagsAfter).types.includes('size'));
+  const atScale = (d) => d.facts.some((f) => f.f === 'size' && Math.abs(f.to / f.from - 1) >= 0.2);
+  const sized = list.items.filter((item) => atScale(diff(item.model, base, tagsBefore, tagsAfter)));
   for (const side of ['before', 'after']) {
     if (!sized.length) break;
     const dir = join(out, `s-${side}`);
@@ -305,7 +306,7 @@ function build() {
       facts: d.facts,
       pixels,
       visual,
-      scale: d.types.includes('size') ? {
+      scale: atScale(d) ? {
         ...kindLimits(item.model),
         before: { wdh: d.wdh.before, img: trimmed(join(out, 'f-before', key(item.model), 'pbr_front.png')) },
         after: { wdh: d.wdh.after, img: trimmed(join(out, 'f-after', key(item.model), 'pbr_front.png')) },

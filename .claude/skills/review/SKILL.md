@@ -34,8 +34,8 @@ already given a verdict.
 
 It renders each model from two angles and diffs it. A card has two columns,
 before left and after right; boxes on the after image mark what changed. A
-model with only tag or invisible changes shows one image. A size change shows
-both at true scale in the scale page's style, at least 1 m tall: its grid (0.1 m dashed, 0.2 m solid, 1 m heavy), red and white ruler sticks in 0.2 m blocks,
+model with only tag or invisible changes shows one image. A size change of 20%
+or more shows both at true scale in the scale page's style, at least 1 m tall: its grid (0.1 m dashed, 0.2 m solid, 1 m heavy), red and white ruler sticks in 0.2 m blocks,
 and the kind's limits as lines. The Slider switch wipes between before and
 after. Keep or Revert scrolls to the next card. Each change type is a white glyph in a coloured circle (size, tags,
 colour, shape, mesh); a fact row puts the old value left, the new value right,
