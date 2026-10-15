@@ -307728,29 +307728,29 @@
   {
    "kit": "m3-base",
    "name": "companion-set",
-   "hash": "cb95db6ed5",
+   "hash": "7c078dff33",
    "kind": "str-fixture-fire-fireplace",
    "size": "s",
    "wdh": [
     0.133,
-    0.157,
-    0.404
+    0.153,
+    0.402
    ],
-   "tris": 1584,
-   "tpu": 4618,
+   "tris": 4970,
+   "tpu": 14490,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 84868,
-   "vtx": 2307,
+   "bytes": 224024,
+   "vtx": 6020,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
-   "thick": 0.1411,
-   "avgTri": 0.00012,
-   "anglePct": 35,
-   "vpt": 1.46,
+   "minTube": 0.004,
+   "thick": 0.1084,
+   "avgTri": 0.00003,
+   "anglePct": 27,
+   "vpt": 1.21,
    "grad": 0.6,
    "spread": {
     "13,3": [
@@ -307765,12 +307765,17 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 1.76,
+   "thickRel": 1.36,
    "lint": [
     {
      "level": "error",
+     "check": "tpu",
+     "text": "tpu 14490 over max 5000 (str)"
+    },
+    {
+     "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0122 wants min 0.026"
+     "text": "G27 minTube 0.004 wants min 0.026"
     }
    ]
   },
@@ -358313,7 +358318,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-dun-1/pedestal",
-   "thickRel": 1.89
+   "thickRel": 1.9
   },
   {
    "kit": "quat-dun-1",
