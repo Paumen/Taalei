@@ -76,7 +76,7 @@ say how bands and tags work. The agents get both as reading.
 `pick --family` works groups of related kinds instead of single kinds: a
 parent kind and the kinds under it, such as `obj-food-sweet` with its cane,
 chocolate and icecream kinds. Groups hold at most `--max` models (150) and are
-merged up from below `--min` (50) where they fit; a parent too big is split
+merged up from below `--min` (50) where they fit, and only groups of four or more kinds are drawn; a parent too big is split
 into `<parent>~2`, `~3`, …. Families keep their own done list, so every group
 is open once whatever the single-kind runs did. Everything else is the fix
 run: the agents judge across the group and may move a model to another kind
