@@ -5,11 +5,11 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 
 const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 0] [--per-sheet 12] [--jobs 3]
-                  [--kind <id[,id]>] [--dry] [--no-render] [--family [--min 50] [--max 150]]
+                  [--kind <id[,id]>] [--dry] [--no-render] [--family [--min 30] [--max 100]]
 sheepdog.mjs record --run <dir>
 sheepdog.mjs review [--run <id>] [--out <list.json>] [--base origin/main]
 sheepdog.mjs verdicts (--file <verdicts> | --ok <id[,id]> --nok <id[,id]>)
-sheepdog.mjs brief
+sheepdog.mjs brief [--run <dir> --kind <group>]
 sheepdog.mjs stats
 sheepdog.mjs open
 
@@ -61,6 +61,7 @@ verdicts takes the review page's verdicts (the file review.mjs apply reads):
 
 brief   prints what the verdicts so far say per category, with the changes
         judged nok and the doubted ones judged ok, for the agents' briefing.
+        --run and --kind leave out every change on a model of that group.
 stats   prints counts per category and per run.
 open    prints the doubted models not judged yet.`;
 
@@ -213,7 +214,7 @@ async function pick() {
   const family = has('family');
   const count = Number(flag('count', '6'));
   const minKits = Number(flag('kits', '2'));
-  const max = Number(flag('max', family ? '150' : '0'));
+  const max = Number(flag('max', family ? '100' : '0'));
   const perSheet = Number(flag('per-sheet', '12'));
   const jobs = Number(flag('jobs', '3'));
   const catalog = readJson(CATALOG);
@@ -222,7 +223,7 @@ async function pick() {
     if (!byKind.has(m.kind)) byKind.set(m.kind, []);
     byKind.get(m.kind).push(`${m.kit}/${m.name}`);
   }
-  const groups = family ? families(byKind, Number(flag('min', '50')), max) : new Map([...byKind.keys()].map((kind) => [kind, [kind]]));
+  const groups = family ? families(byKind, Number(flag('min', '30')), max) : new Map([...byKind.keys()].map((kind) => [kind, [kind]]));
   const modelsOf = (group) => groups.get(group).flatMap((kind) => byKind.get(kind));
   const kitsOf = (group) => new Set(modelsOf(group).map((id) => id.split('/')[0])).size;
   const done = new Set(log.filter((e) => !!e.family === family).map((e) => e.kind));
@@ -448,7 +449,11 @@ function verdicts() {
 }
 
 function brief() {
-  const changes = log.flatMap((e) => e.changes.map((c) => ({ ...c, kind: e.kind, run: e.run })));
+  const runDir = flag('run');
+  const skip = new Set(runDir ? readJson(join(resolve(runDir), 'run.json')).kinds
+    .filter((k) => k.kind === flag('kind')).flatMap((k) => k.sheets.flatMap((s) => s.models)) : []);
+  if (runDir && !skip.size) throw new Error(`no group ${flag('kind')} in ${runDir}`);
+  const changes = log.flatMap((e) => e.changes.map((c) => ({ ...c, kind: e.kind, run: e.run }))).filter((c) => !skip.has(c.id));
   const judged = changes.filter((c) => c.verdict);
   console.log(`${log.length} kinds in ${new Set(log.map((e) => e.run)).size} runs, ${changes.length} changes, ${judged.length} judged`);
   if (!judged.length) return;
