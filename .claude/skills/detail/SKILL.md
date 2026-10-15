@@ -90,9 +90,7 @@ Swapped shapes fit the part's oriented box: check the axis (`axis`, `flip`,
 
 ## 5. Process
 
-1. Prove the approach on a handful of models across the three methods, show
-   the PO before/after renders, and adjust. Only then hand batches to sub
-   agents, with the approved models as the bar.
+1. Hand batches to sub agents, with past kept and ★ changes as the bar.
 2. Per model: render the original and the result in `pbr` and `claywire`
    from two angles or more, and in `faceorient`; new magenta is a defect.
    `node lint/glb-lint.mjs <file> --only-problems` shows nothing new.
