@@ -17,6 +17,8 @@ A part is a shell: triangles welded on shared positions.
         {"net":{"ids":[ids],"around":12,"rows":3,"width":0.01,"thick":0.006,"steps":6}}
                                                       replace a net on a round upright surface with a
                                                       diamond lattice of straight strips
+        {"lathe":{"ids":[ids],"segs":16}}             rebuild a turned part (rings round one axis) with
+                                                      fewer sides, keeping its outline and end caps
         {"add":{"from":[ids],"shape":…,"axis":…,"scale":[axis,u,w],"move":[x,y,z],"up":[x,y,z],"along":0,"uv":[u,v]}}
                                                       along: slide along the shape axis, in half-lengths of the part (-1 = base end)
                                                       up: world direction the u side follows (round parts)
@@ -193,6 +195,112 @@ for (const op of ops) {
   if (op.replace) for (const i of op.replace.ids) if (out[i]) out[i].tris = shape(parts[i], op.replace);
   if (op.add) for (const i of op.add.from) out.push({ tris: shape(parts[i], op.add) });
   if (op.net) { const n = net(op.net); for (const i of op.net.ids) out[i] = null; out.push({ tris: n }); }
+  if (op.lathe) for (const i of op.lathe.ids) if (out[i]) { const l = lathe(parts[i], op.lathe); if (l) out[i].tris = l; else console.log(`part ${i}: not a turned shape, kept`); }
+}
+
+function rings(tris, A, c, size) {
+  const tol = 0.004 * Math.max(...size);
+  const vs = [...new Set(tris.flatMap((t) => [I[t * 3], I[t * 3 + 1], I[t * 3 + 2]]).map((v) => vpos[v]))];
+  const first = new Map(); for (let v = 0; v < vpos.length; v++) if (!first.has(vpos[v])) first.set(vpos[v], v);
+  const place = (cc) => vs.map((pid) => { const p = vtx(first.get(pid)), d = sub(p, cc), h = dot(d, A), q = d.map((x, k) => x - h * A[k]); return { pid, h, r: len(q), q }; });
+  const byH = (pts) => {
+    pts.sort((a, b) => a.h - b.h);
+    const gs = [];
+    for (const p of pts) { const g = gs[gs.length - 1]; if (g && p.h - g[g.length - 1].h <= tol) g.push(p); else gs.push([p]); }
+    return gs;
+  };
+  const off = [0, 0, 0]; let m = 0;
+  for (const g of byH(place(c))) if (g.length >= 3) { g.forEach((p) => p.q.forEach((x, k) => { off[k] += x; })); m += g.length; }
+  if (m) c = c.map((x, k) => x + off[k] / m);
+  const groups = byH(place(c));
+  const out = [];
+  for (const g of groups) {
+    g.sort((a, b) => a.r - b.r);
+    let cur = [g[0]];
+    for (let k = 1; k < g.length; k++) { if (g[k].r - g[k - 1].r > tol) { out.push(cur); cur = []; } cur.push(g[k]); }
+    out.push(cur);
+  }
+  const ok = out.every((ring) => (ring[ring.length - 1].r <= tol ? ring.length === 1 : ring.length >= 3 && ring[0].r > tol));
+  return ok ? { list: out, tol, c } : null;
+}
+
+function lathe(tris, o) {
+  const f = frame(tris), n = o.segs ?? 16;
+  let best = null;
+  for (const A of f.axes) {
+    const R = rings(tris, A, f.centre, f.size);
+    if (!R) continue;
+    const counts = R.list.filter((g) => g[0].r > R.tol).map((g) => g.length).sort((a, b) => a - b);
+    const segs = counts[counts.length >> 1] ?? 0;
+    if (!best || segs > best.segs) best = { A, R, segs };
+  }
+  if (!best || best.segs <= n) return null;
+  const { A, R } = best, tol = R.tol, C0 = R.c;
+  const ringOf = new Map(); R.list.forEach((g, k) => g.forEach((p) => ringOf.set(p.pid, k)));
+  const flatCap = new Set(), bandTris = new Map();
+  for (const t of tris) {
+    const rs = [0, 1, 2].map((k) => ringOf.get(vpos[I[t * 3 + k]]));
+    if (rs[0] === rs[1] && rs[1] === rs[2]) { flatCap.add(rs[0]); continue; }
+    const key = [...new Set(rs)].sort((a, b) => a - b).join(',');
+    (bandTris.get(key) ?? bandTris.set(key, []).get(key)).push(t);
+  }
+  if (R.list.some((g) => g[0].r > tol && g.length !== best.segs) || [...bandTris.keys()].some((k) => k.split(',').length !== 2)) return null;
+  const U = f.axes.find((a) => a !== A), W = cross(A, U);
+  const prof = R.list.map((g, k) => ({ h: g.reduce((q, p) => q + p.h, 0) / g.length, r: g[0].r <= tol ? 0 : g.reduce((q, p) => q + p.r, 0) / g.length, k }));
+  const bands = [...bandTris.keys()].map((key) => key.split(',').map(Number));
+  const big = R.list.reduce((m, g) => (g.length > m.length ? g : m));
+  const phase = Math.atan2(dot(big[0].q, W), dot(big[0].q, U));
+  const radial = (th) => [0, 1, 2].map((k) => U[k] * Math.cos(th) + W[k] * Math.sin(th));
+  const at = (h, r, th) => { const rd = radial(th); return [0, 1, 2].map((k) => C0[k] + A[k] * h + rd[k] * r); };
+  const uvAt = uvFit(tris);
+  const bandN = bands.map(([i, j]) => {
+    const p = prof[i], q = prof[j], dh = q.h - p.h, dr = q.r - p.r, l = Math.hypot(dh, dr) || 1;
+    let nh = -dr / l, nr = dh / l, s = 0;
+    for (const t of bandTris.get(`${i},${j}`)) {
+      const [a, bb, cc] = [0, 1, 2].map((k) => vtx(I[t * 3 + k])), fn = cross(sub(bb, a), sub(cc, a));
+      const m = [0, 1, 2].map((k) => (a[k] + bb[k] + cc[k]) / 3), d = sub(m, C0), hh = dot(d, A), rq = norm(d.map((x, k) => x - hh * A[k]));
+      s += dot(fn, [0, 1, 2].map((k) => A[k] * nh + rq[k] * nr));
+    }
+    return s < 0 ? [-nh, -nr] : [nh, nr];
+  });
+  const ringN = (b, ring) => {
+    const own = bandN[b], other = bands.map((x, k) => k).filter((k) => k !== b && bands[k].includes(ring));
+    if (other.length !== 1 || flatCap.has(ring)) return own;
+    const nb = bandN[other[0]];
+    if (own[0] * nb[0] + own[1] * nb[1] < Math.cos(Math.PI / 4)) return own;
+    const s = [own[0] + nb[0], own[1] + nb[1]], l = Math.hypot(...s) || 1; return [s[0] / l, s[1] / l];
+  };
+  const n3 = ([nh, nr], th) => { const rd = radial(th); return norm([0, 1, 2].map((k) => A[k] * nh + rd[k] * nr)); };
+  const res = [];
+  const tri = (a, b, c) => {
+    const pa = pos.slice(a * 3, a * 3 + 3), fn = cross(sub(pos.slice(b * 3, b * 3 + 3), pa), sub(pos.slice(c * 3, c * 3 + 3), pa));
+    const vn = nrm ? nrm.slice(a * 3, a * 3 + 3) : fn;
+    res.push(dot(fn, vn) >= 0 ? [a, b, c] : [a, c, b]);
+  };
+  const vert = (h, r, th, nn) => { const p = at(h, r, th); return addV(p, n3(nn, th), uvAt(p)); };
+  bands.forEach(([i, j], b) => {
+    const p = prof[i], q = prof[j];
+    const n0 = ringN(b, i), n1 = ringN(b, j);
+    for (let k = 0; k < n; k++) {
+      const t0 = phase + 2 * Math.PI * k / n, t1 = phase + 2 * Math.PI * (k + 1) / n, tm = (t0 + t1) / 2;
+      if (p.r === 0) { tri(vert(p.h, 0, tm, bandN[b]), vert(q.h, q.r, t0, n1), vert(q.h, q.r, t1, n1)); continue; }
+      if (q.r === 0) { tri(vert(p.h, p.r, t0, n0), vert(p.h, p.r, t1, n0), vert(q.h, 0, tm, bandN[b])); continue; }
+      const a = vert(p.h, p.r, t0, n0), b2 = vert(p.h, p.r, t1, n0), c2 = vert(q.h, q.r, t1, n1), d = vert(q.h, q.r, t0, n1);
+      tri(a, b2, c2); tri(a, c2, d);
+    }
+  });
+  for (const end of prof) {
+    if (!flatCap.has(end.k) || end.r === 0) continue;
+    let s = 0;
+    for (const t of tris) {
+      if ([0, 1, 2].some((k) => ringOf.get(vpos[I[t * 3 + k]]) !== end.k)) continue;
+      const [a, bb, cc] = [0, 1, 2].map((k) => vtx(I[t * 3 + k])); s += dot(cross(sub(bb, a), sub(cc, a)), A);
+    }
+    const nn = [Math.sign(s) || 1, 0], v = [];
+    for (let j = 0; j < n; j++) v.push(vert(end.h, end.r, phase + 2 * Math.PI * j / n, nn));
+    for (let j = 1; j < n - 1; j++) tri(v[0], v[j], v[j + 1]);
+  }
+  return res;
 }
 
 function faceN(a, b, c) {

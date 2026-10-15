@@ -85,7 +85,11 @@ workfile by parts, a part being a shell of welded triangles:
 - `edit <glb> '<ops>' --out <glb>` applies `keep`, `drop`, `replace`
   (`cyl`, `cone`, `sphere`, `box`), `add` and `net`, then re-grounds and
   re-centres the model in world space if it was before. `replace` and `add`
-  carry the part's colour gradient over to the new shape.
+  carry the part's colour gradient over to the new shape. `lathe` rebuilds a
+  turned part (full rings round one axis) with fewer sides, keeping its
+  outline and caps; it skips parts whose rings are uneven or partial.
+  A turned part that sits tight inside an untouched round neighbour shrinks
+  between corners and lets the neighbour poke through: lathe both or neither.
 
 To see what a part is, `keep` it into a scratch file and render that.
 Swapped shapes fit the part's oriented box: check the axis (`axis`, `flip`,
