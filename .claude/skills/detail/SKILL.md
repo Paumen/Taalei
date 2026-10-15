@@ -68,7 +68,10 @@ next to its original and its peers, and lean on the PO's past verdicts (§6).
   its shaded neighbours. Compare in `pbr`, not only in clay.
 - Small hardware goes freely: rivets, bolts, screws, pins and feet under a
   model. Turned legs, knobs and collars may become plain shapes. A handle or
-  pull keeps what makes it graspable; a flat plate is not a pull.
+  pull keeps what makes it graspable; a flat plate is not a pull. Open loops (buckles, tabs, rings)
+  stay open and rounded; a solid block is not a buckle.
+- A seam, ridge or groove that marks a type (the band round a frag grenade)
+  stays, even on a body that could become a plain sphere.
 - A swapped part never goes thinner than the original's thinnest tube, or
   `G27` fails.
 
