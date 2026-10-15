@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, renameSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, renameSync } from 'node:fs';
 import { execFileSync, execFile } from 'node:child_process';
 import { join, dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -225,7 +225,8 @@ async function pick() {
       const target = join(dir, 'sheets', name);
       if (!has('no-render')) {
         await spawn([RENDER, src, '--out', target, '--modes', 'pbr', '--views', 'iso', '--sheet', '--sheet-only']);
-        renameSync(join(target, 'sheet.png'), join(dir, `${name}.png`));
+        const made = existsSync(join(target, 'sheet.png')) ? 'sheet.png' : readdirSync(target).find((f) => f.endsWith('_sheet.png'));
+        renameSync(join(target, made), join(dir, `${name}.png`));
         rmSync(target, { recursive: true, force: true });
       }
       sheets.push({ sheet: join(dir, `${name}.png`), models: ids });
