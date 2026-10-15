@@ -24275,7 +24275,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 820,
+   "count": 821,
    "parent": "metal"
   },
   {
@@ -24578,7 +24578,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 296,
+   "count": 295,
    "parent": "textile-cloth"
   },
   {
@@ -24594,7 +24594,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 355,
+   "count": 354,
    "parent": "textile-cloth"
   },
   {
@@ -414029,34 +414029,38 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "clothesline",
-   "hash": "b6d92bbdaf",
+   "hash": "60c7ddeea8",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.991,
-    0.073,
+    0.989,
+    0.066,
     0.383
    ],
    "tris": 856,
    "tpu": 2496,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
    "bytes": 42308,
    "vtx": 1115,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0277,
-   "thick": 0.0969,
-   "avgTri": 0.00045,
-   "anglePct": 24,
+   "minTube": 0.0119,
+   "thick": 0.095,
+   "avgTri": 0.00033,
+   "anglePct": 19,
    "vpt": 1.3,
-   "grad": 0.9,
+   "grad": 0.88,
    "spread": {
     "14,2": [
      0.031,
      0.945
+    ],
+    "6,1": [
+     0.078,
+     0.883
     ],
     "3,0": [
      0.016,
@@ -414076,6 +414080,7 @@
     ]
    },
    "colors": [
+    "#3a3e4b",
     "#4f2e1b",
     "#873a27",
     "#88735f",
@@ -414084,13 +414089,24 @@
    ],
    "tags": [
     "bark",
+    "metal-iron-dark",
     "rgp",
-    "textile-cloth-dark",
-    "textile-cloth-light",
     "textile-cloth-mid",
     "textile-rope"
    ],
-   "thickRel": 1.58
+   "thickRel": 1.55,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 6 wants max 5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0119 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -450932,29 +450948,29 @@
   {
    "kit": "styloo-planes",
    "name": "plane-sty-b-anim",
-   "hash": "f08a90320c",
+   "hash": "45ef97199d",
    "kind": "obj-transport-air-plane",
    "size": "l",
    "wdh": [
     2.172,
     2.479,
-    0.54
+    0.748
    ],
-   "tris": 2874,
-   "tpu": 763,
+   "tris": 3081,
+   "tpu": 765,
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 172832,
-   "vtx": 4771,
+   "bytes": 186660,
+   "vtx": 5164,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0704,
-   "avgTri": 0.00173,
-   "anglePct": 24,
-   "vpt": 1.66,
-   "grad": 0.17,
+   "thick": 0.0697,
+   "avgTri": 0.00168,
+   "anglePct": 25,
+   "vpt": 1.68,
+   "grad": 0.18,
    "spread": {
     "8,0": [
      0.398,
@@ -450995,34 +451011,34 @@
     "spin"
    ],
    "variant": "styloo-planes/plane-sty-hunter-anim",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "styloo-planes",
    "name": "plane-sty-b",
-   "hash": "dfe28ca3a1",
+   "hash": "d3ac4825bb",
    "kind": "obj-transport-air-plane",
    "size": "l",
    "wdh": [
     2.172,
     2.479,
-    0.542
+    0.749
    ],
-   "tris": 2569,
-   "tpu": 682,
+   "tris": 2824,
+   "tpu": 700,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 159368,
-   "vtx": 4453,
+   "bytes": 176256,
+   "vtx": 4933,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0697,
-   "avgTri": 0.00193,
-   "anglePct": 21,
-   "vpt": 1.73,
-   "grad": 0.16,
+   "thick": 0.0692,
+   "avgTri": 0.00184,
+   "anglePct": 22,
+   "vpt": 1.75,
+   "grad": 0.17,
    "spread": {
     "8,0": [
      0.398,
@@ -451060,7 +451076,7 @@
     "tba"
    ],
    "variant": "styloo-planes/plane-sty-hunter-anim",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "styloo-planes",
