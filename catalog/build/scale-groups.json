@@ -12310,6 +12310,7 @@
      "hero",
      "leather",
      "metal-steel",
+     "plastic",
      "qua",
      "textile-cloth-mid",
      "wood-mid"
@@ -14839,7 +14840,7 @@
    {
     "slug": "m3-base",
     "model": "piano",
-    "hash": "7726c4890d",
+    "hash": "0535f61bed",
     "wdh": [
      0.75,
      0.3,
@@ -23053,7 +23054,7 @@
     "slug": "quat-medieval",
     "collection": "quat-medieval",
     "model": "bell",
-    "hash": "aa4b1cc5ff",
+    "hash": "99eb4dc01c",
     "wdh": [
      0.7,
      0.7,
@@ -65361,6 +65362,58 @@
   ]
  },
  {
+  "slug": "obj-equipment-weapon-ranged",
+  "name": "Object › Equipment › Weapon › Ranged",
+  "category": "obj-equip",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-minigame",
+    "collection": "kay-play",
+    "model": "slingshot",
+    "hash": "0e9c41c86f",
+    "wdh": [
+     0.2,
+     0.05,
+     0.35
+    ],
+    "tags": [
+     "kay",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "dart",
+    "hash": "ce9f34df2f",
+    "wdh": [
+     0.08,
+     0.08,
+     0.3
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-equipment-weapon-siege-ammunition-cannonball-scale-big",
   "name": "Object › Equipment › Weapon › Siege › Ammunition › Cannonball · scale-big",
   "category": "obj-equip",
@@ -71864,11 +71917,11 @@
    {
     "slug": "kay-dun-1",
     "model": "crossbow-common",
-    "hash": "0922a971be",
+    "hash": "96112a9a20",
     "wdh": [
+     0.35,
      0.3,
-     0.25,
-     0.08
+     0.09
     ],
     "tags": [
      "kay",
@@ -71943,7 +71996,7 @@
    {
     "slug": "zombie-weapons",
     "model": "crossbow",
-    "hash": "5c20881af9",
+    "hash": "7477202a46",
     "wdh": [
      0.3,
      0.4,
@@ -71952,12 +72005,12 @@
     "tags": [
      "ct",
      "plastic",
-     "textile-cloth-mid"
+     "textile-rope"
     ],
     "colors": [
      "#1564a4",
      "#59534e",
-     "#88735f"
+     "#907a66"
     ]
    }
   ]
@@ -78956,6 +79009,417 @@
   ]
  },
  {
+  "slug": "obj-equipment-weapon-ranged-arrow",
+  "name": "Object › Equipment › Weapon › Ranged › Arrow",
+  "category": "obj-equip",
+  "byLongest": true,
+  "rulerHeight": 0.6,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.55,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "avra-weapons",
+    "collection": "avra",
+    "model": "arrow",
+    "hash": "123aec1e84",
+    "wdh": [
+     0.03,
+     0.03,
+     0.45
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "wood-mid"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27",
+     "#ac764c",
+     "#cca571",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "avra-weapons",
+    "collection": "avra",
+    "model": "bolt",
+    "hash": "592e868946",
+    "wdh": [
+     0.03,
+     0.02,
+     0.2
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "wood-mid"
+    ],
+    "colors": [
+     "#7a8491",
+     "#804f2a",
+     "#873a27",
+     "#ac764c",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "collection": "kay-rpg",
+    "model": "arrow-bow",
+    "hash": "c958d93856",
+    "wdh": [
+     0.05,
+     0.04,
+     0.4
+    ],
+    "tags": [
+     "feather",
+     "kay",
+     "metal-steel",
+     "robin-hood",
+     "wood-dark"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "kay-adventurers",
+    "collection": "kay-rpg",
+    "model": "arrow-crossbow",
+    "hash": "25f0e580d0",
+    "wdh": [
+     0.04,
+     0.03,
+     0.25
+    ],
+    "tags": [
+     "feather",
+     "kay",
+     "metal-steel",
+     "robin-hood",
+     "wood-dark"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "kay-dun-1",
+    "model": "arrow",
+    "hash": "d5487764e5",
+    "wdh": [
+     0.06,
+     0.05,
+     0.25
+    ],
+    "tags": [
+     "feather",
+     "kay",
+     "metal-steel",
+     "wood-dark"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "kay-skeleton",
+    "collection": "kay-rpg",
+    "model": "arrow",
+    "hash": "1385e8b414",
+    "wdh": [
+     0.04,
+     0.03,
+     0.25
+    ],
+    "tags": [
+     "feather",
+     "kay",
+     "metal-steel",
+     "robin-hood",
+     "wood-dark"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "collection": "kay-rpg",
+    "model": "arrow-a",
+    "hash": "693f0e202a",
+    "wdh": [
+     0.05,
+     0.04,
+     0.35
+    ],
+    "tags": [
+     "feather",
+     "kay",
+     "metal-steel",
+     "robin-hood",
+     "wood-dark"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "kay-weapons",
+    "collection": "kay-rpg",
+    "model": "arrow-b",
+    "hash": "b4d27b9e76",
+    "wdh": [
+     0.05,
+     0.05,
+     0.4
+    ],
+    "tags": [
+     "feather",
+     "kay",
+     "metal-steel",
+     "robin-hood",
+     "textile-cloth-mid"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "lpa-tools",
+    "model": "stone-arrow",
+    "hash": "c0fc0efb97",
+    "wdh": [
+     0.02,
+     0.02,
+     0.25
+    ],
+    "tags": [
+     "feather",
+     "leather",
+     "lpa",
+     "stone-rock",
+     "wood-dark"
+    ],
+    "colors": [
+     "#1564a4",
+     "#4f2e1b",
+     "#804f2a",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "lpa-tools",
+    "model": "wooden-arrow",
+    "hash": "f9c6a7f7dd",
+    "wdh": [
+     0.02,
+     0.02,
+     0.25
+    ],
+    "tags": [
+     "feather",
+     "lpa",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#1564a4",
+     "#804f2a",
+     "#ac764c"
+    ]
+   },
+   {
+    "slug": "lpa-weapons",
+    "model": "arrow",
+    "hash": "e83994c7be",
+    "wdh": [
+     0.03,
+     0.03,
+     0.25
+    ],
+    "tags": [
+     "feather",
+     "lpa",
+     "metal-steel",
+     "textile-cloth-light",
+     "wood-mid"
+    ],
+    "colors": [
+     "#7a8491",
+     "#ac764c",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "arrow-golden",
+    "hash": "3eae7e8bb1",
+    "wdh": [
+     0.03,
+     0.04,
+     0.4
+    ],
+    "tags": [
+     "feather",
+     "metal-gold",
+     "qua",
+     "wood-dark"
+    ],
+    "colors": [
+     "#804f2a",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "arrow",
+    "hash": "0f2b2722f7",
+    "wdh": [
+     0.03,
+     0.04,
+     0.4
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "qua",
+     "wood-dark"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "quat-rpg",
+    "model": "dart",
+    "hash": "c903f4f2a9",
+    "wdh": [
+     0.04,
+     0.04,
+     0.2
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "qua",
+     "wood-dark"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "arrow",
+    "hash": "fd9fc480f1",
+    "wdh": [
+     0.04,
+     0.04,
+     0.3
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "rgp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#7a8491",
+     "#804f2a",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "rgp-weapons",
+    "collection": "rgp",
+    "model": "arrow-a",
+    "hash": "2856ac02ed",
+    "wdh": [
+     0.06,
+     0.07,
+     0.3
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "rgp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#804f2a"
+    ]
+   },
+   {
+    "slug": "rgp-weapons",
+    "collection": "rgp",
+    "model": "arrow-b",
+    "hash": "54981c7e9a",
+    "wdh": [
+     0.07,
+     0.07,
+     0.3
+    ],
+    "tags": [
+     "feather",
+     "metal-steel",
+     "rgp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#7a8491",
+     "#804f2a",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "zombie-weapons",
+    "model": "arrow",
+    "hash": "bb89587048",
+    "wdh": [
+     0.03,
+     0.03,
+     0.35
+    ],
+    "tags": [
+     "ct",
+     "feather",
+     "metal-steel",
+     "plastic"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-equipment-apparel-headgear",
   "name": "Object › Equipment › Apparel › Headgear",
   "category": "obj-equip",
@@ -79327,490 +79791,6 @@
     ],
     "colors": [
      "#4f2e1b",
-     "#873a27"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-equipment-weapon-ranged-arrow",
-  "name": "Object › Equipment › Weapon › Ranged › Arrow",
-  "category": "obj-equip",
-  "byLongest": true,
-  "rulerHeight": 0.6,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.2,
-   "longest.max": 0.55,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "avra-weapons",
-    "collection": "avra",
-    "model": "arrow",
-    "hash": "e5cc3ae90b",
-    "wdh": [
-     0.03,
-     0.03,
-     0.45
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "wood-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27",
-     "#ac764c",
-     "#cca571",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "avra-weapons",
-    "collection": "avra",
-    "model": "bolt",
-    "hash": "6d67535dd8",
-    "wdh": [
-     0.03,
-     0.02,
-     0.2
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#7a8491",
-     "#804f2a",
-     "#873a27",
-     "#ac764c",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "collection": "kay-rpg",
-    "model": "arrow-bow-bundle",
-    "hash": "2bb3f15fa6",
-    "wdh": [
-     0.15,
-     0.15,
-     0.35
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "leather",
-     "metal-steel",
-     "robin-hood",
-     "wood-dark"
-    ],
-    "colors": [
-     "#1564a4",
-     "#4f2e1b",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "collection": "kay-rpg",
-    "model": "arrow-bow",
-    "hash": "c958d93856",
-    "wdh": [
-     0.05,
-     0.04,
-     0.4
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "metal-steel",
-     "robin-hood",
-     "wood-dark"
-    ],
-    "colors": [
-     "#1564a4",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "collection": "kay-rpg",
-    "model": "arrow-crossbow-bundle",
-    "hash": "cf1963d9b0",
-    "wdh": [
-     0.09,
-     0.09,
-     0.2
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "leather",
-     "metal-steel",
-     "robin-hood",
-     "wood-dark"
-    ],
-    "colors": [
-     "#21552a",
-     "#4f2e1b",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-adventurers",
-    "collection": "kay-rpg",
-    "model": "arrow-crossbow",
-    "hash": "25f0e580d0",
-    "wdh": [
-     0.04,
-     0.03,
-     0.25
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "metal-steel",
-     "robin-hood",
-     "wood-dark"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-dun-1",
-    "model": "arrow",
-    "hash": "d5487764e5",
-    "wdh": [
-     0.06,
-     0.05,
-     0.25
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "metal-steel",
-     "wood-dark"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-skeleton",
-    "collection": "kay-rpg",
-    "model": "arrow",
-    "hash": "1385e8b414",
-    "wdh": [
-     0.04,
-     0.03,
-     0.25
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "metal-steel",
-     "robin-hood",
-     "wood-dark"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "collection": "kay-rpg",
-    "model": "arrow-a",
-    "hash": "693f0e202a",
-    "wdh": [
-     0.05,
-     0.04,
-     0.35
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "metal-steel",
-     "robin-hood",
-     "wood-dark"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "kay-weapons",
-    "collection": "kay-rpg",
-    "model": "arrow-b",
-    "hash": "b4d27b9e76",
-    "wdh": [
-     0.05,
-     0.05,
-     0.4
-    ],
-    "tags": [
-     "feather",
-     "kay",
-     "metal-steel",
-     "robin-hood",
-     "textile-cloth-mid"
-    ],
-    "colors": [
-     "#1564a4",
-     "#7a8491",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "lpa-tools",
-    "model": "stone-arrow",
-    "hash": "c0fc0efb97",
-    "wdh": [
-     0.02,
-     0.02,
-     0.25
-    ],
-    "tags": [
-     "feather",
-     "leather",
-     "lpa",
-     "stone-rock",
-     "wood-dark"
-    ],
-    "colors": [
-     "#1564a4",
-     "#4f2e1b",
-     "#804f2a",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "lpa-tools",
-    "model": "wooden-arrow",
-    "hash": "f9c6a7f7dd",
-    "wdh": [
-     0.02,
-     0.02,
-     0.25
-    ],
-    "tags": [
-     "feather",
-     "lpa",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#1564a4",
-     "#804f2a",
-     "#ac764c"
-    ]
-   },
-   {
-    "slug": "lpa-weapons",
-    "model": "arrow",
-    "hash": "e83994c7be",
-    "wdh": [
-     0.03,
-     0.03,
-     0.25
-    ],
-    "tags": [
-     "feather",
-     "lpa",
-     "metal-steel",
-     "textile-cloth-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#7a8491",
-     "#ac764c",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "dart",
-    "hash": "11ce323501",
-    "wdh": [
-     0.08,
-     0.08,
-     0.3
-    ],
-    "tags": [
-     "m3",
-     "metal-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "arrow-golden",
-    "hash": "3eae7e8bb1",
-    "wdh": [
-     0.03,
-     0.04,
-     0.4
-    ],
-    "tags": [
-     "feather",
-     "metal-gold",
-     "qua",
-     "wood-dark"
-    ],
-    "colors": [
-     "#804f2a",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "arrow",
-    "hash": "0f2b2722f7",
-    "wdh": [
-     0.03,
-     0.04,
-     0.4
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "qua",
-     "wood-dark"
-    ],
-    "colors": [
-     "#1564a4",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "quat-rpg",
-    "model": "dart",
-    "hash": "f1b6c4c825",
-    "wdh": [
-     0.03,
-     0.04,
-     0.2
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "qua",
-     "wood-dark"
-    ],
-    "colors": [
-     "#1564a4",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "arrow",
-    "hash": "fd9fc480f1",
-    "wdh": [
-     0.04,
-     0.04,
-     0.3
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "rgp",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#7a8491",
-     "#804f2a",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "rgp-weapons",
-    "collection": "rgp",
-    "model": "arrow-a",
-    "hash": "2856ac02ed",
-    "wdh": [
-     0.06,
-     0.07,
-     0.3
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "rgp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#804f2a"
-    ]
-   },
-   {
-    "slug": "rgp-weapons",
-    "collection": "rgp",
-    "model": "arrow-b",
-    "hash": "54981c7e9a",
-    "wdh": [
-     0.07,
-     0.07,
-     0.3
-    ],
-    "tags": [
-     "feather",
-     "metal-steel",
-     "rgp",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#7a8491",
-     "#804f2a",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "zombie-weapons",
-    "model": "arrow",
-    "hash": "bb89587048",
-    "wdh": [
-     0.03,
-     0.03,
-     0.35
-    ],
-    "tags": [
-     "ct",
-     "feather",
-     "metal-steel",
-     "plastic"
-    ],
-    "colors": [
-     "#7a8491",
      "#873a27"
     ]
    }
@@ -142921,7 +142901,7 @@
    {
     "slug": "natuur",
     "model": "stump-1",
-    "hash": "3a6cf90897",
+    "hash": "94f8b07d88",
     "wdh": [
      0.4,
      0.4,
@@ -147281,7 +147261,7 @@
    {
     "slug": "quat-nature",
     "model": "tree-birch-dead-4-bark",
-    "hash": "ccbf44c4bc",
+    "hash": "0840f7bd93",
     "wdh": [
      0.2,
      1.05,
@@ -147298,7 +147278,7 @@
    {
     "slug": "quat-nature",
     "model": "tree-birch-dead-4",
-    "hash": "98ad994fb3",
+    "hash": "26788a10c4",
     "wdh": [
      0.2,
      1.05,
@@ -147353,7 +147333,7 @@
    {
     "slug": "quat-nature",
     "model": "tree-common-dead-1",
-    "hash": "1712848906",
+    "hash": "3f3c81a57d",
     "wdh": [
      0.4,
      0.85,
@@ -147455,9 +147435,9 @@
    {
     "slug": "quat-nature",
     "model": "tree-willow-dead-2",
-    "hash": "3991422dac",
+    "hash": "1342709344",
     "wdh": [
-     0.45,
+     0.5,
      0.95,
      1.15
     ],
@@ -147489,7 +147469,7 @@
    {
     "slug": "quat-nature",
     "model": "tree-willow-dead-4",
-    "hash": "57a34367ba",
+    "hash": "8ab246c331",
     "wdh": [
      0.4,
      1.05,
@@ -147506,7 +147486,7 @@
    {
     "slug": "quat-nature",
     "model": "tree-willow-dead-5",
-    "hash": "14b3a16567",
+    "hash": "771cc09bf8",
     "wdh": [
      0.25,
      0.8,
