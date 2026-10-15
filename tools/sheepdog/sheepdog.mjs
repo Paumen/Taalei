@@ -26,7 +26,7 @@ pick    draws --count random catalogue kinds with models from at least --kits
         parent kind with every kind under it when they hold --max models or
         fewer, else the parent with its leaf kinds, split into groups of at
         most --max models; a group under --min models joins its parent's group
-        while that stays within --max. Only groups of two or more kinds with
+        while that stays within --max. Only groups of four or more kinds with
         models are drawn. A group is named after its parent kind, ~2, ~3, …
         for further splits, and families keep their own done list in the log.
         --kind names parent kinds and takes every group of each.
@@ -201,7 +201,7 @@ function families(byKind, min, max) {
   const named = new Map();
   for (const { root, kinds: all } of readJson(KINDS).kinds.flatMap(plan)) {
     const kinds = all.filter((id) => byKind.has(id));
-    if (kinds.length < 2) continue;
+    if (kinds.length < 4) continue;
     let id = root;
     for (let i = 2; named.has(id); i++) id = `${root}~${i}`;
     named.set(id, kinds);
