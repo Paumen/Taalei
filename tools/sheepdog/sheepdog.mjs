@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 
 const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 0] [--per-sheet 12] [--jobs 3]
-                  [--kind <id[,id]>] [--dry] [--no-render]
+                  [--kind <id[,id]>] [--dry] [--no-render] [--family [--min 50] [--max 150]]
 sheepdog.mjs record --run <dir>
 sheepdog.mjs review [--run <id>] [--out <list.json>] [--base origin/main]
 sheepdog.mjs verdicts (--file <verdicts> | --ok <id[,id]> --nok <id[,id]>)
@@ -21,6 +21,15 @@ pick    draws --count random catalogue kinds with models from at least --kits
         --per-sheet models, each tile fitted to its model, c01.png, c02.png, ….
         <out> defaults to kits/.cache/sheepdog/<run>. --kind takes those kinds
         instead of random ones. --dry prints the pool and the draw only.
+
+        --family draws groups of related kinds instead of single kinds: a
+        parent kind with every kind under it when they hold --max models or
+        fewer, else the parent with its leaf kinds, split into groups of at
+        most --max models; a group under --min models joins its parent's group
+        while that stays within --max. Only groups of two or more kinds with
+        models are drawn. A group is named after its parent kind, ~2, ~3, …
+        for further splits, and families keep their own done list in the log.
+        --kind names parent kinds and takes every group of each.
 
 record  reads <run>/<kind>/result.json for every kind of the run, applies its
         tag edits to catalog/data/tags.json, lints every changed model against
@@ -61,6 +70,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const LOG = join(ROOT, 'tools', 'sheepdog', 'log.json');
 const TAGS = join(ROOT, 'catalog', 'data', 'tags.json');
 const CATALOG = join(ROOT, 'catalog', 'build', 'catalog.json');
+const KINDS = join(ROOT, 'lint', 'kinds.json');
 const KIND_SHEET = join(ROOT, 'tools', 'renders', 'kind-sheet.mjs');
 const RENDER = join(ROOT, 'tools', 'renders', 'render.mjs');
 const GLB_LINT = join(ROOT, 'lint', 'glb-lint.mjs');
@@ -166,10 +176,44 @@ const spawn = (argv) =>
     });
   });
 
+function families(byKind, min, max) {
+  const count = (kinds) => kinds.reduce((n, id) => n + (byKind.get(id)?.length ?? 0), 0);
+  const ids = (k) => [k.id, ...(k.children ?? []).flatMap(ids)];
+  const plan = (k) => {
+    const children = k.children ?? [];
+    if (!children.length) return [];
+    if (count(ids(k)) <= max) return [{ root: k.id, kinds: ids(k), whole: true }];
+    const out = children.filter((c) => c.children?.length).flatMap(plan);
+    const rest = [k.id, ...children.filter((c) => !c.children?.length).map((c) => c.id)];
+    for (const group of [...out].sort((a, b) => count(a.kinds) - count(b.kinds))) {
+      if (!group.whole || count(group.kinds) >= min || count(rest) + count(group.kinds) > max) continue;
+      rest.push(...group.kinds);
+      out.splice(out.indexOf(group), 1);
+    }
+    const target = count(rest) / Math.ceil(count(rest) / max);
+    const chunks = [[]];
+    for (const id of rest) {
+      if (chunks.at(-1).length && (count(chunks.at(-1)) >= target || count(chunks.at(-1)) + count([id]) > max)) chunks.push([]);
+      chunks.at(-1).push(id);
+    }
+    return [...chunks.map((kinds) => ({ root: k.id, kinds, whole: chunks.length === 1 })), ...out];
+  };
+  const named = new Map();
+  for (const { root, kinds: all } of readJson(KINDS).kinds.flatMap(plan)) {
+    const kinds = all.filter((id) => byKind.has(id));
+    if (kinds.length < 2) continue;
+    let id = root;
+    for (let i = 2; named.has(id); i++) id = `${root}~${i}`;
+    named.set(id, kinds);
+  }
+  return named;
+}
+
 async function pick() {
+  const family = has('family');
   const count = Number(flag('count', '6'));
   const minKits = Number(flag('kits', '2'));
-  const max = Number(flag('max', '0'));
+  const max = Number(flag('max', family ? '150' : '0'));
   const perSheet = Number(flag('per-sheet', '12'));
   const jobs = Number(flag('jobs', '3'));
   const catalog = readJson(CATALOG);
@@ -178,16 +222,22 @@ async function pick() {
     if (!byKind.has(m.kind)) byKind.set(m.kind, []);
     byKind.get(m.kind).push(`${m.kit}/${m.name}`);
   }
-  const kitsOf = (kind) => new Set(byKind.get(kind).map((id) => id.split('/')[0])).size;
-  const done = new Set(log.map((e) => e.kind));
+  const groups = family ? families(byKind, Number(flag('min', '50')), max) : new Map([...byKind.keys()].map((kind) => [kind, [kind]]));
+  const modelsOf = (group) => groups.get(group).flatMap((kind) => byKind.get(kind));
+  const kitsOf = (group) => new Set(modelsOf(group).map((id) => id.split('/')[0])).size;
+  const done = new Set(log.filter((e) => !!e.family === family).map((e) => e.kind));
 
   let kinds = list('kind');
   if (kinds.length) {
-    for (const kind of kinds) if (!byKind.has(kind)) throw new Error(`no catalogue models of kind ${kind}`);
+    if (family) {
+      const wanted = kinds;
+      kinds = [...groups.keys()].filter((g) => wanted.includes(g.split('~')[0]));
+      for (const root of wanted) if (!kinds.some((g) => g.split('~')[0] === root)) throw new Error(`no family under ${root}`);
+    } else for (const kind of kinds) if (!byKind.has(kind)) throw new Error(`no catalogue models of kind ${kind}`);
   } else {
-    const pool = [...byKind.keys()].filter((kind) => {
-      const n = byKind.get(kind).length;
-      return kitsOf(kind) >= minKits && (max === 0 || n <= max) && !done.has(kind);
+    const pool = [...groups.keys()].filter((group) => {
+      const n = modelsOf(group).length;
+      return kitsOf(group) >= minKits && (family || max === 0 || n <= max) && !done.has(group);
     });
     if (pool.length < count) throw new Error(`only ${pool.length} kinds left to pick; ${done.size} are in ${LOG}`);
     for (let i = pool.length - 1; i > 0; i--) {
@@ -197,17 +247,18 @@ async function pick() {
     kinds = pool.slice(0, count);
     console.log(`${pool.length} kinds in the pool, ${done.size} logged`);
   }
-  for (const kind of kinds) console.log(`${kind}  ${byKind.get(kind).length} models from ${kitsOf(kind)} kits`);
+  for (const kind of kinds) console.log(`${kind}  ${modelsOf(kind).length} models from ${kitsOf(kind)} kits${family ? `: ${groups.get(kind).join(', ')}` : ''}`);
   if (has('dry')) return;
 
   const run = new Date().toISOString().slice(0, 16).replace('T', '-').replace(':', '');
   const out = resolve(flag('out', join(ROOT, 'kits', '.cache', 'sheepdog', run)));
   const tags = readJson(TAGS);
+  const open = new Set(openChanges().map((c) => c.id));
   for (const kind of kinds) {
-    const models = byKind.get(kind).sort().map((id) => ({ id, before: blobOf(workfile(id)), tags: tagsOf(id, tags) }));
-    const open = log.find((e) => e.kind === kind && e.changes.some((c) => c.doubt && c.verdict === null));
-    if (open) throw new Error(`${kind} still has open changes from run ${open.run}; review those first`);
-    log.push({ kind, run, models, changes: [], notes: [] });
+    const models = modelsOf(kind).sort().map((id) => ({ id, before: blobOf(workfile(id)), tags: tagsOf(id, tags) }));
+    const stuck = models.find((m) => open.has(m.id));
+    if (stuck) throw new Error(`${kind}: ${stuck.id} still has open changes; review those first`);
+    log.push({ kind, ...(family ? { family: groups.get(kind) } : {}), run, models, changes: [], notes: [] });
   }
   saveLog();
 
@@ -215,9 +266,9 @@ async function pick() {
   mkdirSync(out, { recursive: true });
   const tasks = kinds.map((kind) => async () => {
     const dir = join(out, kind);
-    const n = byKind.get(kind).length;
+    const n = modelsOf(kind).length;
     const chunk = n > perSheet ? Math.ceil(n / Math.ceil(n / perSheet)) : 0;
-    await spawn([KIND_SHEET, '--kind', kind, '--out', dir, '--no-render', '--no-glb-lint', ...(chunk ? ['--chunk', String(chunk)] : ['--no-chunks'])]);
+    await spawn([KIND_SHEET, '--kind', groups.get(kind).join(','), '--out', dir, '--no-render', '--no-glb-lint', ...(chunk ? ['--chunk', String(chunk)] : ['--no-chunks'])]);
     const dossier = readJson(join(dir, 'dossier.json'));
     const sources = dossier.chunks.length ? dossier.chunks.map((c) => [c.name, join(dir, 'src', c.name), c.models]) : [['c01', join(dir, 'src'), dossier.models.map((m) => m.id)]];
     const sheets = [];
@@ -232,7 +283,7 @@ async function pick() {
       sheets.push({ sheet: join(dir, `${name}.png`), models: ids });
     }
     rmSync(join(dir, 'sheets'), { recursive: true, force: true });
-    runFile.kinds.push({ kind, dir, dossier: join(dir, 'dossier.json'), count: n, sheets });
+    runFile.kinds.push({ kind, kinds: groups.get(kind), dir, dossier: join(dir, 'dossier.json'), count: n, sheets });
     console.log(`${kind}: ${sheets.length} sheet${sheets.length === 1 ? '' : 's'} in ${dir}`);
   });
   await runAll(tasks, jobs);
