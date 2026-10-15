@@ -1,6 +1,6 @@
 ---
 name: sheepdog
-description: Round up the strays of random catalogue kinds — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
+description: Round up the strays of random catalogue kinds, or families of related kinds, — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
 ---
 
 # Sheepdog
@@ -40,8 +40,9 @@ say how bands and tags work. The agents get both as reading.
 
 4. For every kind in `run.json`, spawn one sub agent (`general-purpose`,
    inherit the model, background) with `brief.md` from this folder, the
-   placeholders filled: `{{kind}}`, `{{dir}}`, `{{sheets}}` (one path per
-   line), `{{calibration}}` (the output of step 2). Three run at once; start
+   placeholders filled: `{{kind}}`, `{{kinds}}` (the entry's `kinds`, comma
+   separated), `{{dir}}`, `{{sheets}}` (one path per line), `{{calibration}}`
+   (the output of step 2). Three run at once; start
    the next when one finishes. Agents work only their own kind's workfiles and
    their own run dir, so they do not collide. Do not touch `tags.json` or run
    a rebuild while agents run.
@@ -69,6 +70,17 @@ say how bands and tags work. The agents get both as reading.
 
 8. Report to the PO: the kinds, changes made and doubted per kind, the
    agents' notes (`notes` in the log) and the review link.
+
+## Family run
+
+`pick --family` works groups of related kinds instead of single kinds: a
+parent kind and the kinds under it, such as `obj-food-sweet` with its cane,
+chocolate and icecream kinds. Groups hold at most `--max` models (48) and are
+merged up from below `--min` (12) where they fit; a parent too big is split
+into `<parent>~2`, `~3`, …. Families keep their own done list, so every group
+is open once whatever the single-kind runs did. Everything else is the fix
+run: the agents judge across the group and may move a model to another kind
+of it.
 
 ## 2. Verdict run
 
