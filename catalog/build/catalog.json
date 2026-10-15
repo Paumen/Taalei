@@ -24431,7 +24431,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1235,
+   "count": 1234,
    "parent": "wood"
   },
   {
@@ -24439,7 +24439,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1588,
+   "count": 1589,
    "parent": "wood"
   },
   {
@@ -338235,47 +338235,52 @@
   {
    "kit": "m3-base",
    "name": "vintage-phone",
-   "hash": "0b4a2b8e8b",
+   "hash": "ed2a0ef173",
    "kind": "obj-device-electronics-phone",
    "size": "s",
    "wdh": [
-    0.23,
+    0.232,
     0.128,
-    0.179
+    0.177
    ],
-   "tris": 3280,
-   "tpu": 9563,
+   "tris": 4056,
+   "tpu": 11825,
    "mat": 1,
-   "bands": 3,
+   "bands": 4,
    "calls": 1,
-   "bytes": 138424,
-   "vtx": 3665,
+   "bytes": 177100,
+   "vtx": 3967,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0048,
-   "thick": 0.1448,
-   "avgTri": 0.00004,
-   "anglePct": 40,
-   "vpt": 1.12,
-   "grad": 0.68,
+   "thick": 0.1463,
+   "avgTri": 0.00003,
+   "anglePct": 39,
+   "vpt": 0.98,
+   "grad": 0.63,
    "spread": {
-    "1,0": [
+    "2,0": [
      0.148,
      0.75
-    ],
-    "13,3": [
-     0.148,
-     0.844
     ],
     "6,0": [
      0.148,
      0.844
+    ],
+    "5,2": [
+     0.18,
+     0.672
+    ],
+    "13,3": [
+     0.156,
+     0.695
     ]
    },
    "colors": [
     "#59534e",
-    "#ac764c",
+    "#804f2a",
+    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
@@ -338283,10 +338288,15 @@
     "metal-gold",
     "plastic",
     "tba",
-    "wood-mid"
+    "wood-dark"
    ],
-   "thickRel": 0.97,
+   "thickRel": 0.98,
    "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 11825 over max 10000 (obj)"
+    },
     {
      "level": "error",
      "check": "measures",
