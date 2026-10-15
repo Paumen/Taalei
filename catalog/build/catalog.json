@@ -24458,7 +24458,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 288,
+   "count": 289,
    "parent": "textile-cloth"
   },
   {
@@ -291110,7 +291110,7 @@
   {
    "kit": "lpa-weapons",
    "name": "arrow",
-   "hash": "c491cda89e",
+   "hash": "e83994c7be",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -291157,22 +291157,23 @@
     "feather",
     "lpa",
     "metal-steel",
+    "textile-cloth-light",
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0074,
-    "view": "45/50",
+    "share": 0.0033,
+    "view": "270/50",
     "causes": {
-     "inverted": 0.98,
-     "other": 0.02
+     "inverted": 0.94,
+     "other": 0.06
     }
    },
    "thickRel": 1.01,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "0.7% of view 45/50 over 0.5%: inverted 98.0%, other 2.0%"
+     "text": "0.3% of view 270/50 over 0.1%: inverted 94.0%, other 6.0%"
     }
    ]
   },
