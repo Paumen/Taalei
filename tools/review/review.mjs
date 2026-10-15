@@ -81,6 +81,7 @@ function facts(buf) {
   const scene = measureScene(glb);
   const atlas = readAtlas(COLORMAP);
   const area = new Map();
+  const uvs = [];
   const positions = [];
   for (const mesh of glb.json.meshes ?? []) {
     for (const prim of mesh.primitives ?? []) {
@@ -88,6 +89,7 @@ function facts(buf) {
       positions.push(pos);
       if (prim.attributes.TEXCOORD_0 === undefined) continue;
       const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
+      uvs.push(uv);
       const idx = prim.indices === undefined
         ? Array.from({ length: pos.length / 3 }, (_, i) => i)
         : Array.from(readAccessor(glb, prim.indices).data);
@@ -105,7 +107,7 @@ function facts(buf) {
   }
   const total = [...area.values()].reduce((s, a) => s + a, 0) || 1;
   const bands = new Map([...area].map(([cell, a]) => [cell, a / total]));
-  return { tris: scene.triangles, wdh: scene.wdh, bands, positions };
+  return { tris: scene.triangles, wdh: scene.wdh, bands, uvs, positions };
 }
 
 function bandInfo(cell) {
@@ -160,7 +162,9 @@ function diff(model, base, tagsBefore, tagsAfter) {
       .map(([cell, share]) => ({ ...bandInfo(cell), share: Math.round(share * 100) }));
     const gone = [...before.bands.keys()].filter((c) => !after.bands.has(c));
     const come = [...after.bands.keys()].filter((c) => !before.bands.has(c));
-    if (gone.length || come.length || shift >= 0.02) {
+    const sameMesh = before.uvs.length === after.uvs.length && before.uvs.every((u, i) => u.length === after.uvs[i].length);
+    const slide = sameMesh && before.uvs.some((u, i) => u.some((x, k) => Math.abs(x - after.uvs[i][k]) * ROWS > 0.02));
+    if (gone.length || come.length || shift >= 0.02 || slide) {
       types.add('recolour');
       out.push({ f: 'colour', from: row(before.bands), to: row(after.bands), changed: Math.round(shift * 100),
         s: strength(shift, 0.1, 0.35) });
@@ -343,7 +347,7 @@ function apply() {
   const at = new Date().toISOString().slice(0, 10);
   for (const { model, verdict, mark, comment, change, types, doubt } of verdicts.items) {
     const kind = Object.entries(tagsOf(tags, model)).find(([, type]) => type === 'kind')?.[0] ?? null;
-    log.push({ at, review: verdicts.review ?? null, model, kind, types: types ?? diff(model, base, baseTags, tags).types,
+    log.push({ at, review: verdicts.review ?? null, model, kind, types: types?.length ? types : diff(model, base, baseTags, tags).types,
       doubt: doubt ?? null, verdict, ...(mark ? { mark } : {}), ...(change ? { change } : {}), comment: comment ?? '' });
     if (REVERTS.has(verdict)) {
       reverted.push(model);
