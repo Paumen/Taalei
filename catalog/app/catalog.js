@@ -578,6 +578,7 @@ function showDetail(model) {
     [
       { kop: 'Verts', vol: 'Vertices', waarde: number.format(model.vtx) },
       { kop: '/ tri', vol: 'Vertices per triangle', waarde: model.vpt === undefined ? '—' : unit.format(model.vpt) },
+      { kop: 'Pieces', vol: 'Mesh islands: bits of geometry not joined to the rest', waarde: model.pieces === undefined ? '—' : number.format(model.pieces) },
       { kop: 'Min edge', waarde: `${(model.minEdge * 100).toFixed(1)} cm` },
       { kop: 'Avg facet', vol: 'Average facet', waarde: `${(model.avgTri * 10000).toFixed(1)} cm²` },
       { kop: 'On-angle', vol: 'On-angle facets', waarde: `${model.anglePct}%` },
