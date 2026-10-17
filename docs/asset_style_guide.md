@@ -290,7 +290,7 @@ Every row names the set of bands its subject may draw from. How rows combine: `F
 
 One row per material: the bands a model carrying it may draw from. They live in `lint/materials.json`, on the node of the material they name, as `bands`, and read per `F10`. The band names come from the lane table at the top of that file. Glass carries a subtype — `glass-clear`, `glass-tinted`, `glass-screen`, `glass-mirror` — except vessels, which carry `glass`. Lit lantern and lamp panes are `special-emissive`, not glass. A palette that holds only at one size — glass at `size:s` — sits on the same node as `bands.«size»`, and wins over the node's own `bands` for a model of that size. Bands a material may also draw from under one kind sit on that kind's node in `lint/kinds.json` as `palette.«material»`, and add to that material's own palette — not its subtypes' — for models of that kind and its descendants.
 
-Rock is `taupe`; only pits (lava pits, craters) also take `taupe-dark`. A rock model of several parts shifts each stone a small random step along the `taupe` gradient, so the stones read apart.
+Rock is `taupe`; only pits (lava pits, craters) also take `taupe-dark`. A rock model of several parts shifts each stone a small random step along the `taupe` gradient, keeping its own shading, so the stones read apart.
 
 Run `node lint/palette.mjs`.
 
