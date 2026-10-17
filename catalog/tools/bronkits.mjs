@@ -215,6 +215,7 @@ export const BRONKITS = [
   { map: 'Ultimate_Space_Kit', naam: 'Ultimate Space Kit', kit: 'quat-space', source: 'qua', formaat: 'glb' },
   { map: 'Ultimate_House_Interior_Pack', naam: 'Ultimate House Interior Pack', kit: 'quat-interior', source: 'qua', formaat: 'glb' },
   { map: 'Cars_Bundle', naam: 'Cars Bundle', kit: 'quat-cars', source: 'qua', formaat: 'glb' },
+  { map: 'Cyberpunk_Game_Kit', naam: 'Cyberpunk Game Kit', kit: null, source: 'qua', formaat: 'glb' },
   { map: 'Enemies_Pack', naam: 'Enemies Pack', kit: null, formaat: 'glb' },
   { map: 'Animated_Enemies', naam: 'Animated Enemies', kit: null, formaat: 'glb' },
   { map: 'Lava_Tileset', naam: 'Lava Tileset', kit: 'wizp-lava', source: 'wizp', formaat: 'glb', splitsPerMesh: true },
