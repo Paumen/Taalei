@@ -5010,13 +5010,13 @@
    "name": "taalei-kit",
    "note": "ornament comes from the Scythian Decoration source zip, which has no licence file and no author named; see kits/workfiles/taalei-kit/ornament-LICENSE.txt.",
    "licenseLabel": "CC0",
-   "count": 93,
+   "count": 102,
    "packs": [
     "Scythian Decoration",
     "Taalei"
    ],
    "origins": {
-    "Taalei": 87,
+    "Taalei": 96,
     "procedureel": 5,
     "Scythian Decoration": 1
    },
@@ -5038,10 +5038,12 @@
     "0.638": 1,
     "0.4664": 1,
     "0.1705": 1,
+    "0.6": 3,
     "0.913": 1,
     "0.605": 1,
     "0.968": 1,
     "0.38": 3,
+    "0.35": 3,
     "0.88": 1,
     "1.419": 1,
     "0.4268": 1,
@@ -5061,15 +5063,16 @@
     "0.5": 2,
     "0.517": 3,
     "0.858": 1,
+    "0.75": 3,
     "1.595": 1
    },
    "smooth": {
-    "smooth": 77,
+    "smooth": 86,
     "none": 16
    },
    "kitCheck": {
     "factor": 1.25,
-    "kinds": 15
+    "kinds": 16
    }
   },
   {
@@ -24119,6 +24122,36 @@
     "taalei-kit/sewing-machine-mini",
     "taalei-kit/sewing-machine-vintage"
    ]
+  },
+  {
+   "id": "taalei-kit/jukebox",
+   "type": "detail-variant",
+   "main": "taalei-kit/jukebox",
+   "members": [
+    "taalei-kit/jukebox",
+    "taalei-kit/jukebox-diner",
+    "taalei-kit/jukebox-space"
+   ]
+  },
+  {
+   "id": "taalei-kit/phone-booth",
+   "type": "detail-variant",
+   "main": "taalei-kit/phone-booth",
+   "members": [
+    "taalei-kit/phone-booth",
+    "taalei-kit/phone-booth-wooden",
+    "taalei-kit/phone-booth-kiosk"
+   ]
+  },
+  {
+   "id": "taalei-kit/typewriter",
+   "type": "detail-variant",
+   "main": "taalei-kit/typewriter",
+   "members": [
+    "taalei-kit/typewriter",
+    "taalei-kit/typewriter-office",
+    "taalei-kit/typewriter-portable"
+   ]
   }
  ],
  "bands": [
@@ -24224,7 +24257,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 835,
+   "count": 837,
    "parent": "metal"
   },
   {
@@ -24232,7 +24265,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2008,
+   "count": 2015,
    "parent": "metal"
   },
   {
@@ -24240,7 +24273,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 324,
+   "count": 325,
    "parent": "metal"
   },
   {
@@ -24376,7 +24409,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 532,
+   "count": 535,
    "parent": "glass"
   },
   {
@@ -24431,7 +24464,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1234,
+   "count": 1235,
    "parent": "wood"
   },
   {
@@ -24439,7 +24472,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1589,
+   "count": 1591,
    "parent": "wood"
   },
   {
@@ -24463,7 +24496,7 @@
    "name": "Paper sheet",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, labels.",
-   "count": 300,
+   "count": 303,
    "parent": "paper"
   },
   {
@@ -24629,7 +24662,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1465,
+   "count": 1474,
    "parent": "polymer"
   },
   {
@@ -24688,7 +24721,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4781,
+   "count": 4790,
    "color": "#c07c8a"
   },
   {
@@ -24696,7 +24729,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 277
+   "count": 286
   },
   {
    "id": "obj-leisure",
@@ -24822,7 +24855,7 @@
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
-   "count": 144
+   "count": 153
   },
   {
    "id": "obj-device-electronics-component",
@@ -24906,7 +24939,7 @@
    "name": "Vending",
    "type": "kind",
    "description": "Coin or card operated service machine: vending machine, ATM, kiosk, changer.",
-   "count": 14
+   "count": 17
   },
   {
    "id": "obj-device-electronics-screen",
@@ -29287,7 +29320,7 @@
    "name": "Face shaded",
    "type": "attribute",
    "description": "Shaded per face direction: each flat face takes one tone, faces pointing up light and sides darker.",
-   "count": 3432
+   "count": 3441
   },
   {
    "id": "shading-part",
@@ -29308,7 +29341,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4072,
+   "count": 4075,
    "derived": true
   },
   {
@@ -29316,7 +29349,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3456,
+   "count": 3462,
    "derived": true
   },
   {
@@ -35204,7 +35237,7 @@
     "plastic",
     "shading-face"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "3dm-city-2",
@@ -37812,7 +37845,7 @@
     "plastic",
     "shading-face"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "3dm-industrial-2",
@@ -102421,12 +102454,12 @@
     "plastic",
     "shading-hand"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -102478,7 +102511,7 @@
     "plastic",
     "shading-part"
    ],
-   "thickRel": 1.67
+   "thickRel": 1.66
   },
   {
    "kit": "ipoly-electronics",
@@ -196671,7 +196704,7 @@
     "plastic",
     "shading-part"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "ken-arcade",
@@ -235678,7 +235711,7 @@
     "plastic",
     "shading-face"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-market",
@@ -407914,7 +407947,7 @@
     "shading-face"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.87
+   "thickRel": 1.86
   },
   {
    "kit": "quat-survival",
@@ -407969,7 +408002,7 @@
     "shading-face"
    ],
    "variant": "quat-survival/battery",
-   "thickRel": 1.73
+   "thickRel": 1.72
   },
   {
    "kit": "quat-survival",
@@ -442121,7 +442154,7 @@
     "shading-part",
     "sq"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "sq-arcade",
@@ -442193,7 +442226,7 @@
     "shading-part",
     "sq"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "sq-bank",
@@ -444233,7 +444266,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "sq-cards",
@@ -445494,7 +445527,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "sq-casino",
@@ -446728,7 +446761,7 @@
     "sq",
     "tba"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "sq-cinema",
@@ -449895,7 +449928,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "sq-laundry",
@@ -450277,7 +450310,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "sq-laundry",
@@ -476811,6 +476844,223 @@
   },
   {
    "kit": "taalei-kit",
+   "name": "jukebox-diner",
+   "hash": "e2eec864aa",
+   "kind": "obj-device-electronics",
+   "size": "m",
+   "wdh": [
+    0.602,
+    0.384,
+    1.071
+   ],
+   "tris": 7456,
+   "tpu": 14208,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 210844,
+   "vtx": 5145,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0292,
+   "thick": 0.19,
+   "avgTri": 0.00074,
+   "anglePct": 72,
+   "pieces": 29,
+   "vpt": 0.69,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "3,1": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#66852a",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/jukebox",
+   "thickRel": 1.2,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 14208 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "jukebox-space",
+   "hash": "1003cb2e13",
+   "kind": "obj-device-electronics",
+   "size": "m",
+   "wdh": [
+    0.648,
+    0.417,
+    0.898
+   ],
+   "tris": 6144,
+   "tpu": 13963,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 191996,
+   "vtx": 4802,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0359,
+   "thick": 0.2063,
+   "avgTri": 0.00059,
+   "anglePct": 67,
+   "pieces": 32,
+   "vpt": 0.78,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.742
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.742
+    ]
+   },
+   "colors": [
+    "#1564a4",
+    "#59534e",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/jukebox",
+   "thickRel": 1.3,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 13963 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "jukebox",
+   "hash": "bc607768bf",
+   "kind": "obj-device-electronics",
+   "size": "m",
+   "wdh": [
+    0.576,
+    0.39,
+    0.966
+   ],
+   "tris": 3024,
+   "tpu": 6389,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 155080,
+   "vtx": 4234,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0089,
+   "thick": 0.2178,
+   "avgTri": 0.0021,
+   "anglePct": 80,
+   "pieces": 62,
+   "vpt": 1.4,
+   "grad": 0.6,
+   "spread": {
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#6f3d1a",
+    "#7a8491",
+    "#873a27",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "shading-face",
+    "wood-dark"
+   ],
+   "variant": "taalei-kit/jukebox",
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0089 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
    "name": "kettlebell",
    "hash": "58e79d1e9b",
    "kind": "obj-leisure-game-gym",
@@ -477352,6 +477602,223 @@
      "level": "warning",
      "check": "backface",
      "text": "0.3% of view 225/20 over 0.1%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "phone-booth-kiosk",
+   "hash": "68bfe86af1",
+   "kind": "obj-device-electronics-vending",
+   "size": "m",
+   "wdh": [
+    0.434,
+    0.427,
+    0.935
+   ],
+   "tris": 1680,
+   "tpu": 3667,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 128808,
+   "vtx": 3664,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0298,
+   "thick": 0.1283,
+   "avgTri": 0.00221,
+   "anglePct": 100,
+   "pieces": 42,
+   "vpt": 2.18,
+   "grad": 0.6,
+   "spread": {
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "3,2": [
+     0.148,
+     0.75
+    ],
+    "4,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#7a8491",
+    "#b5d5e3"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/phone-booth",
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "phone-booth-wooden",
+   "hash": "ea7634ad14",
+   "kind": "obj-device-electronics-vending",
+   "size": "m",
+   "wdh": [
+    0.392,
+    0.392,
+    0.945
+   ],
+   "tris": 2758,
+   "tpu": 5956,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 209224,
+   "vtx": 5975,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0105,
+   "thick": 0.2969,
+   "avgTri": 0.00186,
+   "anglePct": 98,
+   "pieces": 64,
+   "vpt": 2.17,
+   "grad": 0.6,
+   "spread": {
+    "2,0": [
+     0.148,
+     0.75
+    ],
+    "1,0": [
+     0.148,
+     0.75
+    ],
+    "3,2": [
+     0.148,
+     0.75
+    ],
+    "6,0": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#6f3d1a",
+    "#873a27",
+    "#a26d42",
+    "#b5d5e3",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-gold",
+    "plastic",
+    "shading-face",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "taalei-kit/phone-booth",
+   "thickRel": 1.12,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0105 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "phone-booth",
+   "hash": "f604f0c789",
+   "kind": "obj-device-electronics-vending",
+   "size": "m",
+   "wdh": [
+    0.406,
+    0.406,
+    0.982
+   ],
+   "tris": 2792,
+   "tpu": 5802,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 210664,
+   "vtx": 6014,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0159,
+   "thick": 0.2824,
+   "avgTri": 0.00192,
+   "anglePct": 97,
+   "pieces": 68,
+   "vpt": 2.15,
+   "grad": 0.6,
+   "spread": {
+    "6,1": [
+     0.148,
+     0.75
+    ],
+    "8,0": [
+     0.148,
+     0.75
+    ],
+    "3,2": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#3a3e4b",
+    "#873a27",
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-iron-dark",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/phone-booth",
+   "thickRel": 1.06,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0159 wants min 0.026"
     }
    ]
   },
@@ -480062,6 +480529,210 @@
     "shading-face"
    ],
    "thickRel": 0.93
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "typewriter-office",
+   "hash": "cc3079b977",
+   "kind": "obj-device-electronics",
+   "size": "s",
+   "wdh": [
+    0.47,
+    0.328,
+    0.314
+   ],
+   "tris": 2880,
+   "tpu": 8397,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 179720,
+   "vtx": 5030,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0042,
+   "thick": 0.1458,
+   "avgTri": 0.00035,
+   "anglePct": 79,
+   "pieces": 115,
+   "vpt": 1.75,
+   "grad": 0.6,
+   "spread": {
+    "1,1": [
+     0.148,
+     0.742
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#59534e",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "paper-sheet",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/typewriter",
+   "thickRel": 0.92,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0042 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "typewriter-portable",
+   "hash": "f767864b29",
+   "kind": "obj-device-electronics",
+   "size": "s",
+   "wdh": [
+    0.376,
+    0.224,
+    0.224
+   ],
+   "tris": 1536,
+   "tpu": 4478,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 102400,
+   "vtx": 2866,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0089,
+   "thick": 0.1388,
+   "avgTri": 0.0003,
+   "anglePct": 51,
+   "pieces": 66,
+   "vpt": 1.87,
+   "grad": 0.6,
+   "spread": {
+    "1,1": [
+     0.148,
+     0.75
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#59534e",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "paper-sheet",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/typewriter",
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0089 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "typewriter",
+   "hash": "c9ef3be645",
+   "kind": "obj-device-electronics",
+   "size": "s",
+   "wdh": [
+    0.417,
+    0.242,
+    0.261
+   ],
+   "tris": 2112,
+   "tpu": 6157,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 133492,
+   "vtx": 3730,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0059,
+   "thick": 0.1481,
+   "avgTri": 0.00029,
+   "anglePct": 61,
+   "pieces": 87,
+   "vpt": 1.77,
+   "grad": 0.6,
+   "spread": {
+    "1,1": [
+     0.148,
+     0.742
+    ],
+    "13,3": [
+     0.148,
+     0.75
+    ],
+    "5,2": [
+     0.148,
+     0.75
+    ],
+    "15,3": [
+     0.148,
+     0.75
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#59534e",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "paper-sheet",
+    "plastic",
+    "shading-face"
+   ],
+   "variant": "taalei-kit/typewriter",
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0059 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
