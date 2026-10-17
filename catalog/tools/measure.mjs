@@ -3,7 +3,7 @@ import { join, dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { isMainThread, parentPort } from 'node:worker_threads';
-import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare, badNormals, toSrgb } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare, badNormals, toSrgb, meshParts } from './glb.mjs';
 import { readPng } from './png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -139,6 +139,7 @@ function measureFile(dir, file) {
       averageTriangleArea: scene.averageTriangleArea,
       strictAnglePercent: scene.strictAnglePercent,
       gradientSpread: gradientSpread(read.gradient),
+      pieces: meshParts(glb, Infinity).length,
       laneSpread: laneSpread(read.gradient),
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }

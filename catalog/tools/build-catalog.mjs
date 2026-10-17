@@ -595,6 +595,7 @@ const rows = models.map((m) => {
     thick: m.thickness == null ? undefined : round(m.thickness, 4),
     avgTri: round(m.averageTriangleArea, 5),
     anglePct: Math.round(m.strictAnglePercent),
+    pieces: m.pieces,
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
     grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
     spread: m.laneSpread ?? undefined,
