@@ -5010,18 +5010,18 @@
    "name": "taalei-kit",
    "note": "ornament comes from the Scythian Decoration source zip, which has no licence file and no author named; see kits/workfiles/taalei-kit/ornament-LICENSE.txt.",
    "licenseLabel": "CC0",
-   "count": 102,
+   "count": 108,
    "packs": [
     "Scythian Decoration",
     "Taalei"
    ],
    "origins": {
-    "Taalei": 96,
+    "Taalei": 102,
     "procedureel": 5,
     "Scythian Decoration": 1
    },
    "scales": {
-    "1": 16,
+    "1": 22,
     "1.6": 1,
     "0.77": 8,
     "none": 5,
@@ -5067,12 +5067,12 @@
     "1.595": 1
    },
    "smooth": {
-    "smooth": 86,
+    "smooth": 92,
     "none": 16
    },
    "kitCheck": {
     "factor": 1.25,
-    "kinds": 16
+    "kinds": 17
    }
   },
   {
@@ -24152,6 +24152,18 @@
     "taalei-kit/typewriter-office",
     "taalei-kit/typewriter-portable"
    ]
+  },
+  {
+   "id": "taalei-kit/spyglass",
+   "type": "detail-variant",
+   "main": "taalei-kit/spyglass",
+   "members": [
+    "taalei-kit/spyglass",
+    "taalei-kit/spyglass-collapsed",
+    "taalei-kit/spyglass-long",
+    "taalei-kit/spyglass-dark",
+    "taalei-kit/spyglass-white"
+   ]
   }
  ],
  "bands": [
@@ -24249,7 +24261,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 581,
+   "count": 586,
    "parent": "metal"
   },
   {
@@ -24265,7 +24277,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2015,
+   "count": 2016,
    "parent": "metal"
   },
   {
@@ -24273,7 +24285,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 325,
+   "count": 328,
    "parent": "metal"
   },
   {
@@ -24409,7 +24421,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 535,
+   "count": 541,
    "parent": "glass"
   },
   {
@@ -24464,7 +24476,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1235,
+   "count": 1238,
    "parent": "wood"
   },
   {
@@ -24472,7 +24484,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1591,
+   "count": 1592,
    "parent": "wood"
   },
   {
@@ -24607,7 +24619,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers.",
-   "count": 188,
+   "count": 189,
    "parent": "animal"
   },
   {
@@ -24662,7 +24674,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1474,
+   "count": 1476,
    "parent": "polymer"
   },
   {
@@ -24670,7 +24682,7 @@
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 173,
+   "count": 174,
    "parent": "polymer"
   },
   {
@@ -24721,7 +24733,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4790,
+   "count": 4796,
    "color": "#c07c8a"
   },
   {
@@ -24729,7 +24741,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 286
+   "count": 292
   },
   {
    "id": "obj-leisure",
@@ -24785,21 +24797,21 @@
    "name": "Science",
    "type": "kind",
    "description": "Scientific, lab or medical instrument: lab and medical gear.",
-   "count": 39
+   "count": 45
   },
   {
    "id": "obj-device-science-astro",
    "name": "Astronomy",
    "type": "kind",
    "description": "Astronomy instrument: telescope, orrery, armillary sphere, globe, star projector.",
-   "count": 27
+   "count": 33
   },
   {
    "id": "obj-device-science-astro-telescope",
    "name": "Telescope",
    "type": "kind",
    "description": "telescope, binoculars",
-   "count": 7
+   "count": 13
   },
   {
    "id": "obj-device-science-astro-globe",
@@ -29114,7 +29126,7 @@
    "name": "Sailing",
    "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
-   "count": 139
+   "count": 144
   },
   {
    "id": "space",
@@ -29327,7 +29339,7 @@
    "name": "Part shaded",
    "type": "attribute",
    "description": "Shaded per part: each part fades light to dark from its own top to its own bottom.",
-   "count": 666
+   "count": 672
   },
   {
    "id": "shading-hand",
@@ -29341,7 +29353,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4075,
+   "count": 4080,
    "derived": true
   },
   {
@@ -29349,7 +29361,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3462,
+   "count": 3463,
    "derived": true
   },
   {
@@ -37845,7 +37857,7 @@
     "plastic",
     "shading-face"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.26
   },
   {
    "kit": "3dm-industrial-2",
@@ -38835,7 +38847,7 @@
     "shading-face",
     "space"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.32
   },
   {
    "kit": "3dm-scifi",
@@ -56320,12 +56332,12 @@
     "wood-dark"
    ],
    "variant": "emace-80s/telescope-stand",
-   "thickRel": 0.32,
+   "thickRel": 0.21,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.32 wants min 0.5"
+     "text": "I01 thickRel 0.21 wants min 0.5"
     }
    ]
   },
@@ -101379,12 +101391,12 @@
     "shading-part",
     "wood-dark"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.28,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.28 wants min 0.5"
     }
    ]
   },
@@ -204406,7 +204418,7 @@
     "shading-top"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.28
+   "thickRel": 1.09
   },
   {
    "kit": "ken-chars",
@@ -204462,7 +204474,7 @@
     "shading-top"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.28
+   "thickRel": 1.09
   },
   {
    "kit": "ken-chars",
@@ -313011,7 +313023,14 @@
     "plastic",
     "shading-face"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -338213,12 +338232,12 @@
     "shading-hand"
    ],
    "variant": "m3-base/petri-dish",
-   "thickRel": 0.22,
+   "thickRel": 0.19,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.22 wants min 0.5"
+     "text": "I01 thickRel 0.19 wants min 0.5"
     }
    ]
   },
@@ -338734,7 +338753,7 @@
     "rubber",
     "shading-face"
    ],
-   "thickRel": 2.7
+   "thickRel": 2.3
   },
   {
    "kit": "m3-base",
@@ -437600,12 +437619,12 @@
     "shading-hand",
     "wood-dark"
    ],
-   "thickRel": 0.39,
+   "thickRel": 0.26,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.39 wants min 0.5"
+     "text": "I01 thickRel 0.26 wants min 0.5"
     }
    ]
   },
@@ -449269,7 +449288,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.61
   },
   {
    "kit": "sq-lab",
@@ -449739,7 +449758,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 2.34
+   "thickRel": 1.99
   },
   {
    "kit": "sq-lab",
@@ -450607,7 +450626,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.4
+   "thickRel": 0.35
   },
   {
    "kit": "sq-observatory",
@@ -450749,7 +450768,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.32
   },
   {
    "kit": "sq-observatory",
@@ -450819,7 +450838,14 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "sq-observatory",
@@ -450884,7 +450910,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.46
   },
   {
    "kit": "sq-pool",
@@ -467165,7 +467191,7 @@
     "shading-hand",
     "sty"
    ],
-   "thickRel": 0.9,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
@@ -468871,7 +468897,7 @@
     "sty",
     "tba"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.68
   },
   {
    "kit": "styloo-school",
@@ -468942,7 +468968,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.34,
+   "thickRel": 0.29,
    "lint": [
     {
      "level": "warning",
@@ -471586,7 +471612,7 @@
     "shading-hand",
     "sty"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.56
   },
   {
    "kit": "styloo-school",
@@ -478814,6 +478840,376 @@
    ],
    "variant": "taalei-kit/space-shuttle",
    "thickRel": 0.92
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass-collapsed",
+   "hash": "fbd5af529c",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "s",
+   "wdh": [
+    0.295,
+    0.107,
+    0.116
+   ],
+   "tris": 560,
+   "tpu": 1633,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 58464,
+   "vtx": 1680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0879,
+   "thick": 0.263,
+   "avgTri": 0.0002,
+   "anglePct": 8,
+   "pieces": 2,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "1,0": [
+     0.078,
+     0.914
+    ],
+    "6,0": [
+     0.078,
+     0.914
+    ],
+    "3,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#a26d42",
+    "#b5d5e3",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-gold",
+    "metal-iron-mid",
+    "sailing",
+    "shading-part",
+    "wood-mid"
+   ],
+   "variant": "taalei-kit/spyglass",
+   "thickRel": 1
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass-dark",
+   "hash": "33bc07eb26",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "s",
+   "wdh": [
+    0.404,
+    0.107,
+    0.116
+   ],
+   "tris": 560,
+   "tpu": 1633,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 58460,
+   "vtx": 1680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0879,
+   "thick": 0.2725,
+   "avgTri": 0.00023,
+   "anglePct": 8,
+   "pieces": 2,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "2,0": [
+     0.078,
+     0.914
+    ],
+    "15,3": [
+     0.078,
+     0.914
+    ],
+    "3,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#6f3d1a",
+    "#7a8491",
+    "#b5d5e3"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-iron-mid",
+    "metal-steel",
+    "sailing",
+    "shading-part",
+    "wood-dark"
+   ],
+   "variant": "taalei-kit/spyglass",
+   "thickRel": 1.04
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass-long",
+   "hash": "9cb027b921",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "m",
+   "wdh": [
+    0.553,
+    0.107,
+    0.115
+   ],
+   "tris": 780,
+   "tpu": 2274,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 80900,
+   "vtx": 2340,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0879,
+   "thick": 0.3131,
+   "avgTri": 0.00025,
+   "anglePct": 11,
+   "pieces": 5,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "1,0": [
+     0.078,
+     0.914
+    ],
+    "6,0": [
+     0.078,
+     0.914
+    ],
+    "3,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ],
+    "3,0": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#4a2917",
+    "#59534e",
+    "#a26d42",
+    "#b5d5e3",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-clear",
+    "leather",
+    "metal-gold",
+    "metal-iron-mid",
+    "sailing",
+    "shading-part",
+    "wood-mid"
+   ],
+   "variant": "taalei-kit/spyglass",
+   "thickRel": 1.19
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass-modern",
+   "hash": "a10c8356c8",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "s",
+   "wdh": [
+    0.245,
+    0.086,
+    0.09
+   ],
+   "tris": 560,
+   "tpu": 1633,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 58464,
+   "vtx": 1680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.078,
+   "thick": 0.289,
+   "avgTri": 0.00015,
+   "anglePct": 20,
+   "pieces": 2,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "3,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ],
+    "1,1": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#21552a",
+    "#59534e",
+    "#b5d5e3"
+   ],
+   "tags": [
+    "glass-clear",
+    "plastic",
+    "rubber",
+    "shading-part"
+   ],
+   "thickRel": 1.1
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass-white",
+   "hash": "78cadb188f",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "s",
+   "wdh": [
+    0.404,
+    0.107,
+    0.116
+   ],
+   "tris": 560,
+   "tpu": 1633,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 58460,
+   "vtx": 1680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0879,
+   "thick": 0.2725,
+   "avgTri": 0.00023,
+   "anglePct": 8,
+   "pieces": 2,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "5,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ],
+    "3,2": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-iron-mid",
+    "plastic",
+    "sailing",
+    "shading-part"
+   ],
+   "variant": "taalei-kit/spyglass",
+   "thickRel": 1.04
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass",
+   "hash": "4e57484486",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "s",
+   "wdh": [
+    0.404,
+    0.107,
+    0.116
+   ],
+   "tris": 560,
+   "tpu": 1633,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 58456,
+   "vtx": 1680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0879,
+   "thick": 0.2725,
+   "avgTri": 0.00023,
+   "anglePct": 8,
+   "pieces": 2,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "1,0": [
+     0.078,
+     0.914
+    ],
+    "6,0": [
+     0.078,
+     0.914
+    ],
+    "3,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#a26d42",
+    "#b5d5e3",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-gold",
+    "metal-iron-mid",
+    "sailing",
+    "shading-part",
+    "wood-mid"
+   ],
+   "variant": "taalei-kit/spyglass",
+   "thickRel": 1.04
   },
   {
    "kit": "taalei-kit",
