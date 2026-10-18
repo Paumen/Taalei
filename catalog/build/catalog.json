@@ -5010,18 +5010,18 @@
    "name": "taalei-kit",
    "note": "ornament comes from the Scythian Decoration source zip, which has no licence file and no author named; see kits/workfiles/taalei-kit/ornament-LICENSE.txt.",
    "licenseLabel": "CC0",
-   "count": 107,
+   "count": 108,
    "packs": [
     "Scythian Decoration",
     "Taalei"
    ],
    "origins": {
-    "Taalei": 101,
+    "Taalei": 102,
     "procedureel": 5,
     "Scythian Decoration": 1
    },
    "scales": {
-    "1": 21,
+    "1": 22,
     "1.6": 1,
     "0.77": 8,
     "none": 5,
@@ -5067,7 +5067,7 @@
     "1.595": 1
    },
    "smooth": {
-    "smooth": 91,
+    "smooth": 92,
     "none": 16
    },
    "kitCheck": {
@@ -24161,7 +24161,8 @@
     "taalei-kit/spyglass",
     "taalei-kit/spyglass-collapsed",
     "taalei-kit/spyglass-long",
-    "taalei-kit/spyglass-dark"
+    "taalei-kit/spyglass-dark",
+    "taalei-kit/spyglass-white"
    ]
   }
  ],
@@ -24260,7 +24261,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 585,
+   "count": 586,
    "parent": "metal"
   },
   {
@@ -24420,7 +24421,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 540,
+   "count": 541,
    "parent": "glass"
   },
   {
@@ -24673,7 +24674,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1475,
+   "count": 1476,
    "parent": "polymer"
   },
   {
@@ -24732,7 +24733,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4795,
+   "count": 4796,
    "color": "#c07c8a"
   },
   {
@@ -24740,7 +24741,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 291
+   "count": 292
   },
   {
    "id": "obj-leisure",
@@ -24796,21 +24797,21 @@
    "name": "Science",
    "type": "kind",
    "description": "Scientific, lab or medical instrument: lab and medical gear.",
-   "count": 44
+   "count": 45
   },
   {
    "id": "obj-device-science-astro",
    "name": "Astronomy",
    "type": "kind",
    "description": "Astronomy instrument: telescope, orrery, armillary sphere, globe, star projector.",
-   "count": 32
+   "count": 33
   },
   {
    "id": "obj-device-science-astro-telescope",
    "name": "Telescope",
    "type": "kind",
    "description": "telescope, binoculars",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-device-science-astro-globe",
@@ -29125,7 +29126,7 @@
    "name": "Sailing",
    "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
-   "count": 143
+   "count": 144
   },
   {
    "id": "space",
@@ -29338,7 +29339,7 @@
    "name": "Part shaded",
    "type": "attribute",
    "description": "Shaded per part: each part fades light to dark from its own top to its own bottom.",
-   "count": 671
+   "count": 672
   },
   {
    "id": "shading-hand",
@@ -29352,7 +29353,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4079,
+   "count": 4080,
    "derived": true
   },
   {
@@ -38846,7 +38847,7 @@
     "shading-face",
     "space"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.32
   },
   {
    "kit": "3dm-scifi",
@@ -56331,12 +56332,12 @@
     "wood-dark"
    ],
    "variant": "emace-80s/telescope-stand",
-   "thickRel": 0.29,
+   "thickRel": 0.21,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.29 wants min 0.5"
+     "text": "I01 thickRel 0.21 wants min 0.5"
     }
    ]
   },
@@ -101390,12 +101391,12 @@
     "shading-part",
     "wood-dark"
    ],
-   "thickRel": 0.38,
+   "thickRel": 0.28,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.38 wants min 0.5"
+     "text": "I01 thickRel 0.28 wants min 0.5"
     }
    ]
   },
@@ -204417,7 +204418,7 @@
     "shading-top"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.13
+   "thickRel": 1.09
   },
   {
    "kit": "ken-chars",
@@ -204473,7 +204474,7 @@
     "shading-top"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.13
+   "thickRel": 1.09
   },
   {
    "kit": "ken-chars",
@@ -313022,7 +313023,14 @@
     "plastic",
     "shading-face"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -338745,7 +338753,7 @@
     "rubber",
     "shading-face"
    ],
-   "thickRel": 2.39
+   "thickRel": 2.3
   },
   {
    "kit": "m3-base",
@@ -437611,12 +437619,12 @@
     "shading-hand",
     "wood-dark"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.26,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
+     "text": "I01 thickRel 0.26 wants min 0.5"
     }
    ]
   },
@@ -449280,7 +449288,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.61
   },
   {
    "kit": "sq-lab",
@@ -449750,7 +449758,7 @@
     "shading-face",
     "sq"
    ],
-   "thickRel": 2.07
+   "thickRel": 1.99
   },
   {
    "kit": "sq-lab",
@@ -450618,7 +450626,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.37
+   "thickRel": 0.35
   },
   {
    "kit": "sq-observatory",
@@ -450760,7 +450768,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.34
+   "thickRel": 0.32
   },
   {
    "kit": "sq-observatory",
@@ -450830,12 +450838,12 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 0.47,
+   "thickRel": 0.34,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.34 wants min 0.5"
     }
    ]
   },
@@ -450902,7 +450910,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.47
+   "thickRel": 0.46
   },
   {
    "kit": "sq-pool",
@@ -467183,7 +467191,7 @@
     "shading-hand",
     "sty"
    ],
-   "thickRel": 0.79,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
@@ -468889,7 +468897,7 @@
     "sty",
     "tba"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.68
   },
   {
    "kit": "styloo-school",
@@ -468960,7 +468968,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.3,
+   "thickRel": 0.29,
    "lint": [
     {
      "level": "warning",
@@ -471604,7 +471612,7 @@
     "shading-hand",
     "sty"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.56
   },
   {
    "kit": "styloo-school",
@@ -478894,7 +478902,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/spyglass",
-   "thickRel": 1.36
+   "thickRel": 1
   },
   {
    "kit": "taalei-kit",
@@ -478957,7 +478965,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/spyglass",
-   "thickRel": 1.41
+   "thickRel": 1.04
   },
   {
    "kit": "taalei-kit",
@@ -479026,7 +479034,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/spyglass",
-   "thickRel": 1.62
+   "thickRel": 1.19
   },
   {
    "kit": "taalei-kit",
@@ -479081,7 +479089,64 @@
     "rubber",
     "shading-part"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.1
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "spyglass-white",
+   "hash": "78cadb188f",
+   "kind": "obj-device-science-astro-telescope",
+   "size": "s",
+   "wdh": [
+    0.404,
+    0.107,
+    0.116
+   ],
+   "tris": 560,
+   "tpu": 1633,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 58460,
+   "vtx": 1680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0879,
+   "thick": 0.2725,
+   "avgTri": 0.00023,
+   "anglePct": 8,
+   "pieces": 2,
+   "vpt": 3,
+   "grad": 0.84,
+   "spread": {
+    "5,2": [
+     0.078,
+     0.914
+    ],
+    "13,3": [
+     0.078,
+     0.914
+    ],
+    "3,2": [
+     0.078,
+     0.914
+    ]
+   },
+   "colors": [
+    "#59534e",
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-iron-mid",
+    "plastic",
+    "sailing",
+    "shading-part"
+   ],
+   "variant": "taalei-kit/spyglass",
+   "thickRel": 1.04
   },
   {
    "kit": "taalei-kit",
@@ -479144,7 +479209,7 @@
     "wood-mid"
    ],
    "variant": "taalei-kit/spyglass",
-   "thickRel": 1.41
+   "thickRel": 1.04
   },
   {
    "kit": "taalei-kit",
