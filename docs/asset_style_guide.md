@@ -14,7 +14,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 | `F02` | `kind` | what it **is** — form cohort | closed, hierarchical, **exactly one** |
 | `F03` | `size` | rough bbox: `s` `m` `l` | closed, measured |
 | `F04` | `tag` | kit/artist, theme, flags (`hero`, `plural`, `animation`, `comp`, `pickup`, `broken`, `piece`, `mounted`, etc.) | open |
-| `F11` | `attribute` | a property read off the model in steps (`storeys`, `scale`, `shading`) | closed, **at most one per attribute** |
+| `F11` | `attribute` | a property read off the model in steps (`storeys`, `scale`) | closed, **at most one per attribute** |
 
 **[F05] Term.** A term is one of:
 
@@ -35,7 +35,7 @@ For a model of a given kind, every rule on its ancestor kinds also applies.
 
 In a value, a material id ending in `:` (`wood:`) means that material or any subtype. `any` means every band.
 
-**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `scale`, `bands`, `calls`, `tris`, `tpu`, `grad`, `pieces`, `anim`, `alpha`, `pbr`, `minEdge`, `minTube`, `thickRel`, `badNormals`, `leaf`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
+**[F06] Subject.** What the assert is about. A closed set: `model`, any recorded field (`kind`, `size`, `tags`, `mat`, `nmat`, `storeys`, `scale`, `bands`, `calls`, `tris`, `tpu`, `pieces`, `anim`, `alpha`, `pbr`, `minEdge`, `minTube`, `thickRel`, `badNormals`, `leaf`, `grounded`, `centered`, `specialWhy`), `dim:w`, `dim:d`, `dim:high`, `dim:longest`, `band`, `mat:<id>`, `part:<name>`, `—`.
 
 **[F07] Assert.** Closed vocabulary:
 
@@ -226,7 +226,6 @@ What a model *is*, before any material or colour question.
 | `T10` | a word two kinds both answer to | — | the specialised `kind` | is | the qualified form (`warhammer`, `cookpot`); the generic one stays plain |
 | `T11` | a model reading as two or more kinds from different nodes | — | `kind` | is | `set` |
 | `T12` | a kind with `scale` in `lint/kinds.json` | — | `scale` | is | `scale-small` for a clearly smaller version (half, low, short, small), `scale-big` for a clearly bigger one (double, high, long, tall); none for the regular size. A new split on size is an attribute, not a kind |
-| `T13` | `*` | — | `shading` | is | how the tones sit in the bands: `shading-none` one tone per colour; `shading-top` one light-to-dark fade from the model's top to its bottom; `shading-face` one tone per face, faces pointing up light; `shading-part` a fade per part, from its own top to its own bottom; `shading-hand` tones picked by hand, following neither |
 
 - **`T06`** — A `tag:pickup` model is deliberately scaled differently when found and when collected, and is exempt from size rules.
 

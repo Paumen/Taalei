@@ -165,8 +165,8 @@ catalogue siblings at locked scale, with the render command in that section.
 - `#ffffff` is not a band. `kits/colormap.png` has no white cell; the white in
   the palette panel comes from untextured material base colours. A mark on it
   cannot be read as a band — ask what was meant.
-- `grad` is recorded per model but no rule reads it, so nothing stops a
-  flattening that removes a model's baked shading. Judge it by eye.
+- No rule measures baked shading, so nothing stops a flattening that
+  removes it. Judge it by eye.
 - A view angle matters. `--views 205/45` — from behind, off to one side and
   looking down — shows horizontal beams and top faces that iso and front both
   hide.
