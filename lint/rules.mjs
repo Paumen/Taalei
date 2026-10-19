@@ -284,7 +284,7 @@ function paletteOf(material, size, kind, palettes) {
 
 export function paletteFindingsFor(model, palettes, materialIds, vars) {
   const out = [];
-  const used = Object.keys(model.spread ?? {});
+  const used = (model.cells ?? []);
   const special = model.specialBand && used.includes(model.specialBand);
   for (const material of materialsOf(model, materialIds, vars)) {
     const palette = paletteOf(material, model.size, model.kind, palettes);
@@ -326,7 +326,7 @@ export function buildKindBands(kinds) {
 
 export function kindBandFindingsFor(model, rules, palettes, materialIds, vars) {
   const out = [];
-  const used = Object.keys(model.spread ?? {});
+  const used = (model.cells ?? []);
   const mats = materialsOf(model, materialIds, vars);
   for (const [mat, row] of rules ?? []) {
     const present = mat === null ? [] : mats.filter((m) => matUnder(materialIds, m, mat));
@@ -359,7 +359,7 @@ export function tubeNeed(model) {
 }
 
 function fieldOf(model, name, materialIds, vars, lanes) {
-  if (name.startsWith(BAND_PREFIX)) return Object.keys(model.spread ?? {}).includes(lanes.get(name.slice(BAND_PREFIX.length)));
+  if (name.startsWith(BAND_PREFIX)) return (model.cells ?? []).includes(lanes.get(name.slice(BAND_PREFIX.length)));
   if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
   if (name === 'tubeneed') return tubeNeed(model);
   if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);

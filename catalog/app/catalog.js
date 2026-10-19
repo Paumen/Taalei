@@ -286,8 +286,6 @@ const SORTINGS = {
   minstOpRaster: (a, b) => num(a.anglePct) - num(b.anglePct),
   dunsteVsSoort: (a, b) => (a.thickRel ?? Infinity) - (b.thickRel ?? Infinity),
   diksteVsSoort: (a, b) => num(b.thickRel) - num(a.thickRel),
-  breedsteVerloop: (a, b) => num(b.grad) - num(a.grad),
-  smalsteVerloop: (a, b) => num(a.grad) - num(b.grad),
   meesteBanden: (a, b) => num(b.bands) - num(a.bands),
   minsteBanden: (a, b) => num(a.bands) - num(b.bands),
   meesteMats: (a, b) => num(b.mat) - num(a.mat),
@@ -586,11 +584,6 @@ function showDetail(model) {
         kop: 'Thick',
         vol: 'Mean depth of the visible solid over the middle extent, then against the kind median',
         waarde: model.thick === undefined ? '—' : `${unit.format(model.thick)}${model.thickRel === undefined ? '' : ` · ${unit.format(model.thickRel)}×`}`,
-      },
-      {
-        kop: 'Gradient',
-        vol: 'Gradient spread within the colour band',
-        element: marked(model, 'grad', model.grad === undefined ? '—' : unit.format(model.grad)),
       },
     ],
     [

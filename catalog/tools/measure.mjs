@@ -35,7 +35,6 @@ export const hex = (r, g, b) => '#' + [r, g, b].map((v) => v.toString(16).padSta
 function readColors(glb, dir) {
   const { json } = glb;
   const lanes = new Set();
-  const gradient = new Map();
   const materials = new Map();
   let atlasPath = null;
 
@@ -68,38 +67,12 @@ function readColors(glb, dir) {
         const y = Math.min(Math.max(Math.floor(uv.data[i * 2 + 1] * atlas.height), 0), atlas.height - 1);
         const i4 = (y * atlas.width + x) * 4;
         if (atlas.pixels[i4] === 0 && atlas.pixels[i4 + 1] === 0 && atlas.pixels[i4 + 2] === 0) continue;
-        const row = Math.floor(y / cellHeight);
-        const lane = `${Math.floor(x / cellWidth)},${row}`;
-        lanes.add(lane);
-
-        const position = (y - row * cellHeight) / cellHeight;
-        const seen = gradient.get(lane);
-        if (!seen) gradient.set(lane, { min: position, max: position, count: 1 });
-        else {
-          if (position < seen.min) seen.min = position;
-          if (position > seen.max) seen.max = position;
-          seen.count++;
-        }
+        lanes.add(`${Math.floor(x / cellWidth)},${Math.floor(y / cellHeight)}`);
       }
     }
   }
 
-  return { atlas: atlasPath, lanes, gradient, materials };
-}
-
-function gradientSpread(gradient) {
-  let spread = 0;
-  let total = 0;
-  for (const { min, max, count } of gradient.values()) {
-    spread += (max - min) * count;
-    total += count;
-  }
-  return total === 0 ? null : spread / total;
-}
-
-function laneSpread(gradient) {
-  if (gradient.size === 0) return null;
-  return Object.fromEntries([...gradient].map(([lane, { min, max }]) => [lane, [round(min, 3), round(max, 3)]]));
+  return { atlas: atlasPath, lanes, materials };
 }
 
 function measureFile(dir, file) {
@@ -116,7 +89,6 @@ function measureFile(dir, file) {
     atlas: read.atlas ? relative(ROOT, read.atlas).split(sep).join('/') : null,
     atlasKey: read.atlas ? atlasKey(read.atlas) : null,
     lanes: [...read.lanes],
-    gradient: [...read.gradient],
     materials: [...read.materials],
     fields: {
       triangles: scene.triangles,
@@ -138,9 +110,7 @@ function measureFile(dir, file) {
       thickness: thickness(glb),
       averageTriangleArea: scene.averageTriangleArea,
       strictAnglePercent: scene.strictAnglePercent,
-      gradientSpread: gradientSpread(read.gradient),
       pieces: meshParts(glb, Infinity).length,
-      laneSpread: laneSpread(read.gradient),
       ...((gltf.animations ?? []).length
         ? { animations: gltf.animations.map((a, i) => a.name ?? `animation ${i}`) }
         : {}),

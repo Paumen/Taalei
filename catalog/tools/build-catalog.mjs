@@ -213,7 +213,6 @@ for (const slug of kitSlugs) {
     const read = {
       atlas: entry.atlas ? join(ROOT, entry.atlas) : null,
       lanes: new Set(entry.lanes),
-      gradient: new Map(entry.gradient),
       materials: new Map(entry.materials),
     };
     if (read.lanes.size === 0 && read.materials.size === 0) noColor.push(`${slug}/${name}`);
@@ -230,6 +229,7 @@ for (const slug of kitSlugs) {
       path,
       hash: entry.hash.slice(0, 10),
       bytes: entry.bytes,
+      cells: entry.lanes,
       ...JSON.parse(JSON.stringify(entry.fields)),
       ...backfaceOf(`${slug}/${name}`, entry.hash),
     });
@@ -597,8 +597,7 @@ const rows = models.map((m) => {
     anglePct: Math.round(m.strictAnglePercent),
     pieces: m.pieces,
     vpt: m.triangles ? round(m.vertices / m.triangles, 2) : null,
-    grad: m.gradientSpread === null ? null : round(m.gradientSpread, 2),
-    spread: m.laneSpread ?? undefined,
+    cells: m.cells.length ? m.cells : undefined,
     colors: m.colors.length ? m.colors : undefined,
     tags: m.tags,
     specialBand: m.specialBand,
