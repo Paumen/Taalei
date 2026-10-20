@@ -116,7 +116,7 @@ const ICON={
   geometry:svg('<path d="M12 3 21 20H3z"/><path d="M7.5 11.5h9M12 3l-4.5 8.5L12 20l4.5-8.5z"/>'),
 };
 const NAME={size:'Size',tag:'Tags',recolour:'Colour',shape:'Shape',geometry:'Mesh'};
-const MORE=[['keepbut','Keep but…','Keep, and then what?'],['retry','Retry','Revert and try how?'],['relax','Relax rule','Which rule, and how?'],['other','Other','What should happen?'],['later','Later','']];
+const MORE=[['keepbut','Keep but…','Keep, and then what?'],['revert','Revert',''],['relax','Relax rule','Which rule, and how?'],['other','Other','What should happen?'],['later','Later','']];
 const NEED=Object.fromEntries(MORE.filter(m=>m[2]).map(m=>[m[0],m[2]]));
 const MARK={great:['★','Spot on: excellent, beyond expectations'],bad:['✕✕','Big no: opposite of the goal, high impact']};
 const K='review:'+D.title+':'+D.base;
@@ -195,7 +195,7 @@ function card(it,i){
   const marks=Object.entries(MARK).map(([m,[g,t]])=>`<button type="button" class="mark ${m} ${s.m===m?'on':''}" data-m="${m}" title="${t}" aria-label="${t}" aria-pressed="${s.m===m}">${g}</button>`).join('');
   return `<article data-i="${i}" class="${s.m?'m-'+s.m:''}"><div class="head"><span class="name">${esc(it.model)}</span><span class="marks">${marks}</span></div>
 ${pics(it)}${factRows(it)}${it.change||it.note?`<p class="note">${esc([it.change,it.note].filter(Boolean).join(' '))}</p>`:''}
-<div class="verdict"><button type="button" class="revert ${s.v==='revert'?'on':''}" data-v="revert">Revert</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="moreb ${more?'on':''}" data-more>More</button></div>
+<div class="verdict"><button type="button" class="revert ${s.v==='retry'?'on':''}" data-v="retry" title="Revert and try another fix">Fail</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="moreb ${more?'on':''}" data-more>More</button></div>
 <div class="more ${more?'open':''}">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}</div>
 <textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${more||s.c?'open':''} ${NEED[s.v]&&!s.c?'need':''}">${esc(s.c||'')}</textarea></article>`;
 }
@@ -224,7 +224,7 @@ document.addEventListener('click',e=>{
   const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
   s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c&&!s.m)delete st[it.model];save();
   const i=+a.dataset.i;redraw(a);
-  if(s.v==='keep'||s.v==='revert'){let n=document.querySelector(`article[data-i="${i}"]`).nextElementSibling;while(n&&(n.tagName!=='ARTICLE'||n.hidden))n=n.nextElementSibling;
+  if(s.v==='keep'||s.v==='retry'){let n=document.querySelector(`article[data-i="${i}"]`).nextElementSibling;while(n&&(n.tagName!=='ARTICLE'||n.hidden))n=n.nextElementSibling;
     if(n){const y=n.getBoundingClientRect().top+scrollY-document.getElementById('top').offsetHeight-6;scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}
   if(NEED[s.v]&&!s.c)document.getElementById('c'+a.dataset.i).focus();
 });

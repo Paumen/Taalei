@@ -37,7 +37,7 @@ before left and after right; boxes on the after image mark what changed. A
 model with only tag or invisible changes shows one image. A size change of 20%
 or more shows both at true scale in the scale page's style, at least 1 m tall: its grid (0.1 m dashed, 0.2 m solid, 1 m heavy), red and white ruler sticks in 0.2 m blocks,
 and the kind's limits as lines. The Slider switch wipes between before and
-after. Keep or Revert scrolls to the next card. Each change type is a white glyph in a coloured circle (size, tags,
+after. Keep or Fail scrolls to the next card. Each change type is a white glyph in a coloured circle (size, tags,
 colour, shape, mesh); a fact row puts the old value left, the new value right,
 and the glyph with the delta centred between them. Tags are catalogue chips
 (removed struck through in red, added filled), colours catalogue swatches
@@ -46,7 +46,7 @@ renamed `_v2`, `_v3`, … on each new round, and link it in the PR.
 
 ## 3. Verdicts
 
-The PO marks each item Keep, Keep but…, Revert, Retry, Relax rule, Other or
+The PO marks each item Keep, Fail (retry), Keep but…, Revert, Relax rule, Other or
 Later, with a comment where the verdict needs one, and pastes the copied
 verdicts (JSON, or lines of `kit/name: verdict — comment`). Save them to the
 scratchpad and run
@@ -54,8 +54,8 @@ scratchpad and run
     node tools/review/review.mjs apply <verdicts>
 
 Reverts are done by the tool, file and tags. Then do the work it prints:
-keep but (the follow-up in the comment), retry (another fix, the comment says
-how), relax (loosen or except the rule in `lint/*.json`, as the comment says),
+keep but (the follow-up in the comment), retry (another fix, as the comment says
+if there is one), relax (loosen or except the rule in `lint/*.json`, as the comment says),
 other. Later stays open for the next round. Next to the verdict a card can carry a
 mark: ★ great (spot on, beyond expectations) or ✕✕ bad (opposite of the goal,
 high impact); a mark without a verdict counts as keep or revert. `brief` lists
