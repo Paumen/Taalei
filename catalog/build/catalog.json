@@ -24483,7 +24483,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 789,
+   "count": 788,
    "parent": "wood"
   },
   {
@@ -24491,7 +24491,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1237,
+   "count": 1238,
    "parent": "wood"
   },
   {
@@ -24619,7 +24619,7 @@
    "name": "Wick",
    "type": "material",
    "description": "The wick of a candle, lamp or lantern.",
-   "count": 38,
+   "count": 37,
    "parent": "textile"
   },
   {
@@ -185621,7 +185621,7 @@
   {
    "kit": "ken-food",
    "name": "corn-dog",
-   "hash": "fcf1fc84b9",
+   "hash": "febfa58d0a",
    "kind": "obj-food-meat-sausage",
    "size": "s",
    "wdh": [
@@ -185638,27 +185638,34 @@
    "vtx": 496,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0124,
-   "thick": 0.3758,
-   "avgTri": 0.00007,
-   "anglePct": 87,
+   "minEdge": 0.002,
+   "minTube": 0.0082,
+   "thick": 0.3785,
+   "avgTri": 0.00006,
+   "anglePct": 85,
    "pieces": 2,
    "vpt": 0.86,
    "cells": [
-    "0,0",
-    "1,0"
+    "1,0",
+    "2,0"
    ],
    "colors": [
-    "#a26d42",
-    "#cea572"
+    "#6f3d1a",
+    "#a26d42"
    ],
    "tags": [
     "ken",
     "special-food",
-    "wood-light"
+    "wood-mid"
    ],
-   "thickRel": 2.01
+   "thickRel": 2.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0082 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -259505,7 +259512,7 @@
   {
    "kit": "lpa-west",
    "name": "big-staircase-a",
-   "hash": "8c0e79904c",
+   "hash": "4ee62b435e",
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
@@ -259524,7 +259531,7 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0261,
-   "thick": 0.1368,
+   "thick": 0.139,
    "avgTri": 0.0039,
    "anglePct": 86,
    "pieces": 31,
@@ -259542,7 +259549,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "lpa-west",
@@ -260724,7 +260731,7 @@
   {
    "kit": "lpa-west",
    "name": "dynamite-b",
-   "hash": "4604c12a50",
+   "hash": "5558af9421",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
@@ -260735,10 +260742,10 @@
    "tris": 772,
    "tpu": 2251,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
-   "bytes": 45292,
-   "vtx": 1222,
+   "bytes": 43052,
+   "vtx": 1152,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -260747,16 +260754,14 @@
    "avgTri": 0.00021,
    "anglePct": 16,
    "pieces": 6,
-   "vpt": 1.58,
+   "vpt": 1.49,
    "cells": [
     "8,0",
     "5,2",
-    "6,1",
-    "13,3"
+    "6,1"
    ],
    "colors": [
     "#3a3e4b",
-    "#59534e",
     "#873a27",
     "#d8cfb7"
    ],
@@ -260764,8 +260769,7 @@
     "lpa",
     "metal-iron-dark",
     "paper-sheet",
-    "plural",
-    "wick"
+    "plural"
    ],
    "variant": "lpa-west/dynamite-a"
   },
@@ -423091,29 +423095,29 @@
   {
    "kit": "zombie-weapons",
    "name": "time-bomb",
-   "hash": "3f6f6a0340",
+   "hash": "f3b1332f95",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
-    0.074,
-    0.084,
+    0.073,
+    0.083,
     0.174
    ],
-   "tris": 1063,
-   "tpu": 3099,
+   "tris": 1052,
+   "tpu": 3067,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 80860,
-   "vtx": 2281,
+   "bytes": 80184,
+   "vtx": 2262,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0251,
-   "thick": 0.2598,
-   "avgTri": 0.00012,
-   "anglePct": 25,
-   "pieces": 18,
+   "thick": 0.2615,
+   "avgTri": 0.00011,
+   "anglePct": 20,
+   "pieces": 17,
    "vpt": 2.15,
    "cells": [
     "13,3",
@@ -423134,13 +423138,13 @@
     "tba"
    ],
    "backface": {
-    "share": 0.0012,
+    "share": 0.0013,
     "view": "90/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.08,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "warning",
