@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>]] [--dry] <workfile.glb> [...]
+const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit]] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of each piece by height. A piece is a run of
 triangles joined on shared positions. Every vertex keeps its cell of
@@ -16,7 +16,8 @@ lowest. Twine, glass and amber cells are left as they are.
 profile, less its mean over the piece, to the v the vertex has. A piece that
 ends up past 0.02 or 0.95 is squeezed back into that range as a whole, so its
 faces keep their order. --reach keeps it within r of the lightest and darkest
-v the piece had.`;
+v the piece had. --fit adds less of the profile to a piece instead of
+squeezing it, so its own light and dark stay as they were.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -24,7 +25,7 @@ const LIGHT = 0.02;
 const DARK = 0.95;
 const KEEP = new Set(Object.entries(BANDS).filter(([band, cell]) => cell && /twine|glass|amber/.test(band)).map(([, cell]) => cell));
 
-function profile(file, top, bottom, add, reach, dry) {
+function profile(file, top, bottom, add, reach, fit, dry) {
   const glb = readGlb(file);
   const replaced = new Map();
   let moved = 0;
@@ -99,11 +100,26 @@ function profile(file, top, bottom, add, reach, dry) {
       }
       next.set(i, [row, v]);
     }
+    const scale = new Map();
+    if (fit) {
+      for (const [i, [row, raw]] of next) {
+        const piece = find(point[i]);
+        const r = range.get(piece);
+        const light = Math.max(LIGHT, r[2] - reach), dark = Math.min(DARK, r[3] + reach);
+        const was = uv[2 * i + 1] * 4 - row, d = raw - was;
+        const room = d > 1e-9 ? (dark - was) / d : d < -1e-9 ? (light - was) / d : 1;
+        scale.set(piece, Math.max(0, Math.min(scale.get(piece) ?? 1, room)));
+      }
+    }
     for (const [i, [row, raw]] of next) {
       let v = raw;
-      const r = range.get(find(point[i]));
+      const piece = find(point[i]);
+      const r = range.get(piece);
       const light = r ? Math.max(LIGHT, r[2] - reach) : LIGHT, dark = r ? Math.min(DARK, r[3] + reach) : DARK;
-      if (r && (r[0] < light || r[1] > dark)) {
+      if (fit) {
+        const was = uv[2 * i + 1] * 4 - row;
+        v = was + (raw - was) * scale.get(piece);
+      } else if (r && (r[0] < light || r[1] > dark)) {
         const low = Math.max(light, Math.min(r[0], dark)), high = Math.min(dark, Math.max(r[1], light));
         v = r[1] - r[0] < 1e-9 ? low : low + ((raw - r[0]) / (r[1] - r[0])) * (high - low);
       }
@@ -136,5 +152,6 @@ const top = take('--top', 0.08);
 const bottom = take('--bottom', 0.85);
 const add = take('--add', 0);
 const reach = take('--reach', 1);
+const fit = args.includes('--fit');
 const dry = args.includes('--dry');
-for (const file of args.filter((a) => a !== '--dry')) console.log(`${file}: ${profile(file, top, bottom, add, reach, dry)} vertices`);
+for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, dry)} vertices`);

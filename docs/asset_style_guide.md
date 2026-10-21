@@ -330,6 +330,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B61` | `kind:env-flora-tree & !kind:env-flora-tree-conifer & !kind:env-flora-tree-palm & !tag:plural`, except `wizp-tree/banana-tree`, `wizp-asia/tree-garden`, `quat-shoot/tree-b` | `part:foliage` | is | per canopy blob, UV 0.08 of the band at the blob top to 0.85 at its bottom; undersides 0.92. A blob is foliage bounded by undersides |
 | `B62` | as `B61` | `part:trunk, branch` | is | as `B60` |
 | `B63` | `kind:env-terrain-rock & !tag:plural`, except `wizp-rock`, `wizp-asia` large and medium rocks, `wizp-mediev/rock-a`, `wizp-lava` hot rocks other than `rock-hot-g`, and `nature-assets/cobble-d` | `part:rock` | is | per rock piece, lighter at its top and darker at its bottom: UV 0.08 of the band at the top to 0.85 at the bottom, less its mean, added to each face's own light and dark; a rock past the band is squeezed back in whole. Rocks of `ken-*`, `kay-forest` and `kay-hexagon` stay within 0.15 of their own lightest and darkest. Set with `node tools/import/v-profile.mjs --add 1 [--reach 0.15]` |
+| `B64` | `kind:str-building* & !tag:plural` | all parts | is | per piece, lighter at its top and darker at its bottom, as `B63`, within 0.15 of its own lightest and darkest; a piece that would pass that gets less gradient instead, so its own light and dark stay. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit` |
 
 ---
 
