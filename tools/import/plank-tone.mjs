@@ -21,7 +21,7 @@ that hold at least --share (default 0.25) of its wood area. Only planks are
 recoloured; other wood keeps its look.
 --side sets how much darker a board's narrow edges are (default 0.1).
 --band <from>:<to> moves all wood of one band into another.
---like gives planks of one kind (same size within 10%) one shared tone.
+--like gives planks of one kind (same direction, widths without a jump over 15%) one shared tone.
 --force tones every board and slat and skips the --min and --share check.
 --dry reports without writing.`;
 
@@ -380,14 +380,17 @@ function tone(file, options) {
     const pool = [];
     while (pool.length < pieces.length) pool.push(...[...TONES.keys()].sort(() => R() - 0.5));
     pool.slice(0, pieces.length).forEach((k) => bag[k]++);
-    const sizes = pieces.map((p) => p.ext.map(span));
-    const kinds = [];
-    const kind = (p) => {
-      const d = sizes[pieces.indexOf(p)];
-      let k = kinds.findIndex((e) => e.every((x, i) => Math.abs(x - d[i]) <= 0.1 * Math.max(x, d[i])));
-      if (k < 0) { kinds.push(d); k = kinds.length - 1; }
-      return k;
-    };
+    const role = (p) => `${Math.abs(p.axes[0][1]) > 0.7 ? 'v' : 'h'}${Math.abs(p.axes[2][1]) > 0.7 ? 'u' : 's'}`;
+    const kindOf = new Map();
+    for (const r of new Set(pieces.map(role))) {
+      const list = pieces.filter((p) => role(p) === r).sort((p, q) => span(p.ext[1]) - span(q.ext[1]));
+      let k = `${r}0`;
+      list.forEach((p, i) => {
+        if (i && span(p.ext[1]) > 1.15 * span(list[i - 1].ext[1])) k = `${r}${i}`;
+        kindOf.set(p, k);
+      });
+    }
+    const kind = (p) => kindOf.get(p);
     for (const i of pieces.map((_, i) => i).sort(() => R() - 0.5)) {
       if (pieces[i].tone !== undefined) continue;
       let best = 0;
