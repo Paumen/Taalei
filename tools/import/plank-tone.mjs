@@ -6,24 +6,27 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMa
 
 const HELP = `plank-tone.mjs [--dry] [--side <n>] [--min <n>] <workfile.glb> [...]
 
-Gives each flat plank in the tan, camel and chestnut bands of kits/colormap.png its
-own tone from a set of six, with a soft gradient across its width and darker
-narrow sides, so boards read apart. Neighbouring planks get tones far apart.
+Shifts each plank in the tan, camel and chestnut bands of kits/colormap.png
+lighter or darker by one of six tones, adds a soft gradient across its width
+and darkens its narrow sides, on top of each face's own shade, so boards read
+apart while the model keeps its light and dark. Neighbouring planks get tones far apart.
 A piece is a run of triangles in one band that share corners. A piece that
 holds three or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
 inward fold. A file is left alone unless it has at least
---min (default 3) planks, boxy pieces that are boards (thinner than wide, longer than wide)
-or slats (three times longer than wide),
+--min (default 2) planks, boxy pieces that are boards (thinner than wide, longer than wide)
+whose broad face fills their outline, or slats (three times longer than wide)
+lying next to a like slat,
 that hold at least --share (default 0.25) of its wood area. Only planks are
 recoloured; other wood keeps its look.
---side sets how much darker the narrow sides are (default 0.30).
+--side sets how much darker the narrow sides are (default 0.15).
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
 const TONES = [[0.581, 0.11], [0.477, 0.22], [0.747, 0.11], [0.691, 0.33], [0.809, 0.22], [0.526, 0.11]];
+const MEAN = TONES.reduce((sum, [b]) => sum + b, 0) / TONES.length;
 const RANGE = [0.06, 0.94];
 const REF = norm([0.3, 1, 0.5]);
 const FLAT = Math.cos((2 * Math.PI) / 180);
@@ -230,13 +233,31 @@ function tone(file, options) {
         const f = frame(list.flatMap((t) => at.corners[t]));
         let square = 0;
         let area = 0;
+        const face = [0, 0];
         for (const t of list) {
           area += at.area[t];
           if (f.axes.some((a) => Math.abs(dot(at.normal[t], a)) > 0.95)) square += at.area[t];
+          const d = dot(at.normal[t], f.axes[2]);
+          if (Math.abs(d) > 0.95) face[d > 0 ? 0 : 1] += at.area[t];
         }
-        return { tris: list, ...f, plank: isPlank(f) && square >= 0.7 * area };
+        const [l, w] = f.ext.map(span);
+        const filled = Math.max(...face) >= 0.75 * l * w;
+        return { tris: list, ...f, plank: isPlank(f) && square >= 0.7 * area && (!isBoard(f) || filled) };
       });
-      jobs.push({ prim, idx, cell, pieces, world, normal: at.normal });
+      const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
+      const similar = (a, b) => {
+        const [la, wa, ta] = a.ext.map(span);
+        const [lb, wb, tb] = b.ext.map(span);
+        const close = (x, y) => Math.abs(x - y) <= 0.3 * Math.max(x, y);
+        return Math.abs(dot(a.axes[0], b.axes[0])) > 0.95 && close(la, lb) && close(wa, wb) && close(ta, tb);
+      };
+      for (const p of pieces) {
+        if (!p.plank || isBoard(p)) continue;
+        const w = span(p.ext[1]);
+        p.plank = pieces.some((q) => q !== p && isPlank(q) && similar(p, q) && gap(p, q) <= 2 * w);
+      }
+      const light = (v) => 1 - (uv[v * 2 + 1] * 512 - cell[1] * 128 - 0.5) / 127;
+      jobs.push({ prim, idx, cell, pieces, world, light, normal: at.normal });
       planks += pieces.filter((p) => p.plank).length;
       for (const p of pieces) for (const t of p.tris) { woodArea += at.area[t]; if (p.plank) plankArea += at.area[t]; }
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${pieces.length} pieces ${pieces.filter((p) => p.plank).length} planks`);
@@ -284,7 +305,7 @@ function tone(file, options) {
         for (let k = 0; k < 3; k++) {
           const q = job.world(job.idx[t * 3 + k]);
           const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-          lightOf.set(t * 3 + k, b + s * c - side);
+          lightOf.set(t * 3 + k, job.light(job.idx[t * 3 + k]) + b - MEAN + s * c - side);
         }
       }
     }
@@ -328,7 +349,7 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { side: 0.3, min: 3, share: 0.25, dry: false };
+const options = { side: 0.15, min: 2, share: 0.25, dry: false };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry') options.dry = true;
