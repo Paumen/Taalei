@@ -4,22 +4,24 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--side <n>] [--min <n>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--side <n>] [--min <n>] [--share <n>] [--band <from>:<to>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, with a soft gradient across its width, so boards
 read apart. Faces are lit from above: faces turned sideways are 0.2 darker,
 faces turned down 0.3, and a board's narrow edges a little more. Neighbouring planks get tones far apart.
 A piece is a run of triangles in one band that share corners. A piece that
-holds three or more parallel flat strips (boards fused with grooves or steps)
+holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
 inward fold. A file is left alone unless it has at least
 --min (default 2) planks, boxy pieces that are boards (thinner than wide, longer than wide)
-whose broad face fills their outline, or slats (three times longer than wide), each lying edge to edge beside a
-like one,
-that hold at least --share (default 0.2) of its wood area. Only planks are
+whose broad face fills their outline, or slats (three times longer than wide) lying edge to edge beside a like slat
+or a board,
+that hold at least --share (default 0.25) of its wood area. Only planks are
 recoloured; other wood keeps its look.
 --side sets how much darker a board's narrow edges are (default 0.1).
+--band <from>:<to> moves all wood of one band into another.
+--force tones every board and slat and skips the --min and --share check.
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -150,36 +152,41 @@ function splitStrips(tris, at) {
       const f = frame(r.tris.flatMap((t) => at.corners[t]));
       return { ...r, long: f.axes[0], length: span(f.ext[0]), width: span(f.ext[1]) };
     }).filter((r) => r.length >= 1.5 * r.width);
-    if (strips.length < 3) continue;
+    if (strips.length < 2) continue;
     const long = strips.reduce((a, b) => (b.area > a.area ? b : a)).long;
     const aligned = strips.filter((r) => Math.abs(dot(r.long, long)) > 0.9);
-    if (aligned.length < 3) continue;
+    if (aligned.length < 2) continue;
     const area = aligned.reduce((s, r) => s + r.area, 0);
     if (!best || area > best.area) best = { area, normal: group.normal, long, strips: aligned };
   }
   if (!best) return splitConcave(tris, at);
   const across = norm(cross(best.normal, best.long));
-  const proj = (t) => at.corners[t].map((p) => dot(p, across));
-  const bins = best.strips.map((r) => {
-    const s = r.tris.flatMap(proj);
-    return { lo: Math.min(...s), hi: Math.max(...s), tris: [] };
-  }).sort((a, b) => a.lo - b.lo);
-  const widths = bins.map((b) => b.hi - b.lo).sort((a, b) => a - b);
+  const range = (list, axis) => {
+    const s = list.flatMap((t) => at.corners[t].map((p) => dot(p, axis)));
+    return [Math.min(...s), Math.max(...s)];
+  };
+  const bins = best.strips.map((r) => ({
+    across: range(r.tris, across), long: range(r.tris, best.long), height: range(r.tris, best.normal)[1], tris: [],
+  }));
+  const widths = bins.map((b) => span(b.across)).sort((a, b) => a - b);
   const wide = 1.5 * widths[widths.length >> 1];
   const base = [];
-  for (const t of tris) {
-    const s = proj(t);
-    const lo = Math.min(...s);
-    const hi = Math.max(...s);
-    if (hi - lo > wide) { base.push(t); continue; }
+  for (const region of regions.values()) {
+    const [lo, hi] = range(region.tris, across);
+    const points = region.tris.flatMap((t) => at.corners[t]);
+    const c = [0, 1, 2].map((i) => points.reduce((sum, p) => sum + p[i], 0) / points.length);
+    const along = dot(c, best.long);
+    const up = dot(c, best.normal);
     const mid = (lo + hi) / 2;
-    let pick = bins[0];
+    let pick = null;
     let gap = Infinity;
-    for (const b of bins) {
-      const d = mid < b.lo ? b.lo - mid : mid > b.hi ? mid - b.hi : 0;
-      if (d < gap) { gap = d; pick = b; }
+    if (hi - lo <= wide) for (const b of bins) {
+      const w = span(b.across);
+      if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || up < b.height - 2 * w) continue;
+      const d = mid < b.across[0] ? b.across[0] - mid : mid > b.across[1] ? mid - b.across[1] : 0;
+      if (d <= 0.5 * w && d < gap) { gap = d; pick = b; }
     }
-    pick.tris.push(t);
+    (pick ? pick.tris : base).push(...region.tris);
   }
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
@@ -266,8 +273,10 @@ function tone(file, options) {
         return Math.abs(dot(d, p.axes[1])) >= 0.6 * w && Math.abs(dot(d, p.axes[2])) <= w && gap(p, q) <= 2 * w;
       };
       const candidates = pieces.filter((p) => p.plank);
-      for (const p of candidates) p.plank = candidates.some((q) => q !== p && similar(p, q) && beside(p, q));
-      jobs.push({ prim, idx, cell, pieces, world, normal: at.normal });
+      if (!options.force) for (const p of candidates.filter((q) => !isBoard(q))) {
+        p.plank = candidates.some((q) => q !== p && (isBoard(q) || similar(p, q)) && Math.abs(dot(p.axes[0], q.axes[0])) > 0.95 && beside(p, q));
+      }
+      jobs.push({ prim, idx, uv, cell, pieces, world, normal: at.normal });
       planks += pieces.filter((p) => p.plank).length;
       for (const p of pieces) for (const t of p.tris) { woodArea += at.area[t]; if (p.plank) plankArea += at.area[t]; }
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${pieces.length} pieces ${pieces.filter((p) => p.plank).length} planks`);
@@ -275,11 +284,20 @@ function tone(file, options) {
   }
   const share = plankArea / (woodArea || 1);
   report.push(`share ${share.toFixed(2)}`);
-  if (planks < options.min || share < options.share) return `skip (${planks} planks; ${report.join(', ')})`;
+  if (!options.force && (planks < options.min || share < options.share)) return `skip (${planks} planks; ${report.join(', ')})`;
   if (options.dry) return report.join(', ');
   const writes = new Map();
   for (const job of jobs) {
     const pieces = job.pieces.filter((p) => p.plank);
+    const to = options.band && options.band[0].join() === job.cell.join() ? options.band[1] : job.cell;
+    if (to !== job.cell) {
+      const moved = writes.get(job.prim) ?? new Map();
+      writes.set(job.prim, moved);
+      for (const p of job.pieces) if (!p.plank) for (const t of p.tris) for (let k = 0; k < 3; k++) {
+        const v = job.idx[t * 3 + k];
+        moved.set(t * 3 + k, [(to[0] * 32 + 16) / 512, (to[1] * 128 + job.uv[v * 2 + 1] * 512 - job.cell[1] * 128) / 512]);
+      }
+    }
     if (!pieces.length) continue;
     const lo = [0, 1, 2].map((i) => Math.min(...pieces.map((p) => p.lo[i])));
     const hi = [0, 1, 2].map((i) => Math.max(...pieces.map((p) => p.hi[i])));
@@ -317,13 +335,13 @@ function tone(file, options) {
         for (let k = 0; k < 3; k++) {
           const q = job.world(job.idx[t * 3 + k]);
           const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-          lightOf.set(t * 3 + k, b + s * c - facing - edge);
+          lightOf.set(t * 3 + k, (facing || edge ? b - s / 2 : b + s * c) - facing - edge);
         }
       }
     }
     for (const [c, l] of lightOf) {
       const v = Math.min(RANGE[1], Math.max(RANGE[0], l));
-      writesOf.set(c, [(job.cell[0] * 32 + 16) / 512, (job.cell[1] * 128 + 0.5 + (1 - v) * 127) / 512]);
+      writesOf.set(c, [(to[0] * 32 + 16) / 512, (to[1] * 128 + 0.5 + (1 - v) * 127) / 512]);
     }
   }
   for (const [prim, corner] of writes) {
@@ -361,10 +379,11 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { side: 0.1, min: 2, share: 0.2, dry: false };
+const options = { side: 0.1, min: 2, share: 0.25, dry: false, force: false, band: null };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
-  if (argv[i] === '--dry') options.dry = true;
+  if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
+  else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
 }
