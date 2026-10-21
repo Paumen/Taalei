@@ -333,7 +333,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B64` | `kind:str-building* & !tag:plural` | all parts | is | per piece, lighter at its top and darker at its bottom, as `B63`, within 0.15 of its own lightest and darkest; a piece that would pass that gets less gradient instead, so its own light and dark stay. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit` |
 | `B65` | `kind:str-part-wall* | kind:str-barrier-wall`, `!tag:plural` | all parts | is | as `B64`; `ken-holiday` cabin walls at half strength. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit` (`--add 0.5` for the cabin walls) |
 | `B66` | `kind:obj-transport* & !kind:obj-transport-part* & !tag:plural` | all parts | is | as `B64`; `kay-space/lander-a` at half strength. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit` (`--add 0.5` for the lander) |
-| `B67` | `kind:str-part-roof* & !tag:plural` | all parts | is | as `B64`, except a piece whose darkest point is in its upper half, which stays as it was. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow` |
+| `B67` | `kind:str-part-roof* & !tag:plural` | all parts | is | as `B64`, except a piece whose darkest point is in its upper half, which stays as it was; the chimney of `ken-holiday` cabin roofs stays as it was. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow` |
 
 ---
 
