@@ -193,6 +193,64 @@ function splitStrips(tris, at) {
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
 
+function splitSlabs(tris, at) {
+  const parent = new Map(tris.map((t) => [t, t]));
+  const find = (a) => (parent.get(a) === a ? a : (parent.set(a, find(parent.get(a))), parent.get(a)));
+  const byEdge = new Map();
+  for (const t of tris) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) {
+    const key = edgeKey(at.weld[t][a], at.weld[t][b]);
+    if (!byEdge.has(key)) byEdge.set(key, []);
+    byEdge.get(key).push(t);
+  }
+  for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
+    if (dot(at.normal[list[0]], at.normal[list[i]]) > FLAT) parent.set(find(list[i]), find(list[0]));
+  }
+  const regions = new Map();
+  for (const t of tris) {
+    const r = find(t);
+    if (!regions.has(r)) regions.set(r, { tris: [], area: 0, normal: at.normal[r] });
+    regions.get(r).tris.push(t);
+    regions.get(r).area += at.area[t];
+  }
+  const total = tris.reduce((s, t) => s + at.area[t], 0);
+  const box = (list) => {
+    const points = list.flatMap((t) => at.corners[t]);
+    return { lo: [0, 1, 2].map((i) => Math.min(...points.map((p) => p[i]))), hi: [0, 1, 2].map((i) => Math.max(...points.map((p) => p[i]))) };
+  };
+  const big = [...regions.values()].filter((r) => r.area > 0.05 * total).sort((a, b) => b.area - a.area);
+  for (const r of big) { r.f = frame(r.tris.flatMap((t) => at.corners[t])); r.c = r.f.ext.map(([lo, hi], i) => scale(r.f.axes[i], (lo + hi) / 2)).reduce((a, b) => a.map((x, i) => x + b[i])); }
+  const slabs = [];
+  const used = new Set();
+  for (const r of big) {
+    if (used.has(r)) continue;
+    used.add(r);
+    const slab = { tris: [...r.tris] };
+    const w = span(r.f.ext[1]);
+    const partner = big.find((q) => !used.has(q) && dot(q.normal, r.normal) < -PARALLEL && (() => {
+      const d = sub(q.c, r.c);
+      const depth = -dot(d, r.normal);
+      return depth > 0 && depth <= 0.6 * w && Math.hypot(...sub(d, scale(r.normal, dot(d, r.normal)))) <= 0.5 * w;
+    })());
+    if (partner) { used.add(partner); slab.tris.push(...partner.tris); }
+    slabs.push(slab);
+  }
+  if (slabs.length < 2) return [tris];
+  for (const s of slabs) Object.assign(s, box(s.tris));
+  const seeded = new Set(slabs.flatMap((s) => s.tris));
+  for (const t of tris) {
+    if (seeded.has(t)) continue;
+    const c = [0, 1, 2].map((i) => (at.corners[t][0][i] + at.corners[t][1][i] + at.corners[t][2][i]) / 3);
+    let pick = slabs[0];
+    let gap = Infinity;
+    for (const s of slabs) {
+      const d = Math.hypot(...[0, 1, 2].map((i) => Math.max(0, s.lo[i] - c[i], c[i] - s.hi[i])));
+      if (d < gap) { gap = d; pick = s; }
+    }
+    pick.tris.push(t);
+  }
+  return slabs.map((s) => s.tris);
+}
+
 function tone(file, options) {
   const glb = readGlb(file);
   const R = seeded(basename(file));
@@ -244,7 +302,7 @@ function tone(file, options) {
         if (!comps.has(r)) comps.set(r, []);
         comps.get(r).push(t);
       }
-      const pieces = [...comps.values()].flatMap((c) => splitStrips(c, at)).map((list) => {
+      const measure = (list) => {
         const f = frame(list.flatMap((t) => at.corners[t]));
         let square = 0;
         let area = 0;
@@ -258,6 +316,16 @@ function tone(file, options) {
         const [l, w] = f.ext.map(span);
         const filled = Math.max(...face) >= 0.4 * l * w;
         return { tris: list, ...f, plank: !list.rest && isPlank(f) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
+      };
+      const pieces = [...comps.values()].flatMap((c) => {
+        const whole = measure(c);
+        const parts = splitStrips(c, at).map(measure);
+        const size = (p) => p.tris.reduce((s, t) => s + at.area[t], 0);
+        const split = parts.filter((p) => p.plank);
+        if (whole.plank && (split.length < 2 || split.reduce((s, p) => s + size(p), 0) < 0.5 * size(whole))) return [whole];
+        if (split.length) return parts;
+        const slabs = splitSlabs(c, at).map(measure);
+        return slabs.filter((p) => p.plank).length >= 2 ? slabs : parts;
       });
       const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
       const similar = (a, b) => {
