@@ -9,7 +9,7 @@ const HELP = `plank-tone.mjs [--dry] [--side <n>] [--min <n>] [--share <n>] [--b
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, with a soft gradient across its width, so boards
 read apart. Faces are lit from above: faces turned sideways are 0.2 darker,
-faces turned down 0.3, and a board's narrow edges a little more. Neighbouring planks get tones far apart, and every plank's average shade moves at least 0.12 from where it was, on its faces turned up and on those turned sideways.
+faces turned down 0.3, and a board's narrow edges a little more. Neighbouring planks get tones far apart.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
@@ -21,7 +21,6 @@ that hold at least --share (default 0.25) of its wood area. Only planks are
 recoloured; other wood keeps its look.
 --side sets how much darker a board's narrow edges are (default 0.1).
 --band <from>:<to> moves all wood of one band into another.
---like gives planks of one kind (same direction, widths without a jump over 15%) one shared tone.
 --force tones every board and slat and skips the --min and --share check.
 --dry reports without writing.`;
 
@@ -31,7 +30,6 @@ const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Num
 const TONES = [[0.581, 0.11], [0.477, 0.22], [0.747, 0.11], [0.691, 0.33], [0.809, 0.22], [0.526, 0.11]];
 const FACING = { up: 0, side: 0.2, down: 0.3 };
 const RANGE = [0.06, 0.94];
-const MOVE = 0.12;
 const REF = norm([0.3, 1, 0.5]);
 const FLAT = Math.cos((2 * Math.PI) / 180);
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
@@ -349,7 +347,7 @@ function tone(file, options) {
       if (!options.force) for (const p of candidates.filter((q) => !isBoard(q))) {
         p.plank = candidates.some((q) => q !== p && (isBoard(q) || similar(p, q)) && Math.abs(dot(p.axes[0], q.axes[0])) > 0.95 && beside(p, q));
       }
-      jobs.push({ prim, idx, uv, cell, pieces, world, normal: at.normal, area: at.area });
+      jobs.push({ prim, idx, uv, cell, pieces, world, normal: at.normal });
       planks += pieces.filter((p) => p.plank).length;
       for (const p of pieces) for (const t of p.tris) { woodArea += at.area[t]; if (p.plank) plankArea += at.area[t]; }
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${pieces.length} pieces ${pieces.filter((p) => p.plank).length} planks`);
@@ -382,56 +380,19 @@ function tone(file, options) {
     const pool = [];
     while (pool.length < pieces.length) pool.push(...[...TONES.keys()].sort(() => R() - 0.5));
     pool.slice(0, pieces.length).forEach((k) => bag[k]++);
-    const role = (p) => `${Math.abs(p.axes[0][1]) > 0.7 ? 'v' : 'h'}${Math.abs(p.axes[2][1]) > 0.7 ? 'u' : 's'}`;
-    const kindOf = new Map();
-    for (const r of new Set(pieces.map(role))) {
-      const list = pieces.filter((p) => role(p) === r).sort((p, q) => span(p.ext[1]) - span(q.ext[1]));
-      let k = `${r}0`;
-      list.forEach((p, i) => {
-        if (i && span(p.ext[1]) > 1.15 * span(list[i - 1].ext[1])) k = `${r}${i}`;
-        kindOf.set(p, k);
-      });
-    }
-    const kind = (p) => kindOf.get(p);
     for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
-    const shade = (p, t, k, [b, s]) => {
-      const n = job.normal[t];
-      const facing = n[1] > 0.5 ? FACING.up : n[1] < -0.5 ? FACING.down : FACING.side;
-      const edge = isBoard(p) && Math.abs(dot(n, p.axes[2])) <= 0.7 ? options.side : 0;
-      const q = job.world(job.idx[t * 3 + k]);
-      const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-      return Math.min(RANGE[1], Math.max(RANGE[0], (facing || edge ? b - s / 2 : b + s * c) - facing - edge));
-    };
-    const original = (t, k) => 1 - ((job.uv[job.idx[t * 3 + k] * 2 + 1] * 512 - job.cell[1] * 128 - 0.5) / 127);
-    const shift = (list, tone) => {
-      const sum = [0, 0];
-      const area = [0, 0];
-      for (const p of list) for (const t of p.tris) {
-        const y = job.normal[t][1];
-        if (y < -0.5) continue;
-        const side = y > 0.5 ? 0 : 1;
-        const a = job.area[t];
-        for (let k = 0; k < 3; k++) sum[side] += (a * (shade(p, t, k, tone) - original(t, k))) / 3;
-        area[side] += a;
-      }
-      const total = area[0] + area[1];
-      return Math.min(...[0, 1].filter((i) => area[i] > 0.05 * total).map((i) => Math.abs(sum[i] / area[i])));
-    };
     for (const i of pieces.map((_, i) => i).sort(() => R() - 0.5)) {
-      if (pieces[i].tone !== undefined) continue;
       let best = 0;
       let score = -Infinity;
       for (let k = 0; k < TONES.length; k++) {
         if (used[k] >= bag[k]) continue;
         const d = near[i].filter((j) => pieces[j].tone !== undefined)
           .map((j) => Math.abs(TONES[k][0] - TONES[pieces[j].tone][0]) + 0.5 * Math.abs(TONES[k][1] - TONES[pieces[j].tone][1]));
-        const group = options.like ? pieces.filter((q) => kind(q) === kind(pieces[i])) : [pieces[i]];
-        const s = (d.length ? Math.min(...d) : 1) * 10 + R() * 0.5 - (shift(group, TONES[k]) < MOVE ? 100 : 0);
+        const s = (d.length ? Math.min(...d) : 1) * 10 + R() * 0.5;
         if (s > score) { score = s; best = k; }
       }
       pieces[i].tone = best;
       used[best]++;
-      if (options.like) for (const q of pieces) if (q.tone === undefined && kind(q) === kind(pieces[i])) q.tone = best;
     }
     const writesOf = writes.get(job.prim) ?? new Map();
     writes.set(job.prim, writesOf);
@@ -489,10 +450,10 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { side: 0.1, min: 2, share: 0.25, dry: false, force: false, like: false, band: null };
+const options = { side: 0.1, min: 2, share: 0.25, dry: false, force: false, band: null };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
-  if (['--dry', '--force', '--like'].includes(argv[i])) options[argv[i].slice(2)] = true;
+  if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
