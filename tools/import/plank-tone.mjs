@@ -21,6 +21,7 @@ that hold at least --share (default 0.25) of its wood area. Only planks are
 recoloured; other wood keeps its look.
 --side sets how much darker a board's narrow edges are (default 0.1).
 --band <from>:<to> moves all wood of one band into another.
+--like gives planks of one kind (same size within 10%) one shared tone.
 --force tones every board and slat and skips the --min and --share check.
 --dry reports without writing.`;
 
@@ -379,7 +380,16 @@ function tone(file, options) {
     const pool = [];
     while (pool.length < pieces.length) pool.push(...[...TONES.keys()].sort(() => R() - 0.5));
     pool.slice(0, pieces.length).forEach((k) => bag[k]++);
+    const sizes = pieces.map((p) => p.ext.map(span));
+    const kinds = [];
+    const kind = (p) => {
+      const d = sizes[pieces.indexOf(p)];
+      let k = kinds.findIndex((e) => e.every((x, i) => Math.abs(x - d[i]) <= 0.1 * Math.max(x, d[i])));
+      if (k < 0) { kinds.push(d); k = kinds.length - 1; }
+      return k;
+    };
     for (const i of pieces.map((_, i) => i).sort(() => R() - 0.5)) {
+      if (pieces[i].tone !== undefined) continue;
       let best = 0;
       let score = -Infinity;
       for (let k = 0; k < TONES.length; k++) {
@@ -391,6 +401,7 @@ function tone(file, options) {
       }
       pieces[i].tone = best;
       used[best]++;
+      if (options.like) for (const q of pieces) if (q.tone === undefined && kind(q) === kind(pieces[i])) q.tone = best;
     }
     const writesOf = writes.get(job.prim) ?? new Map();
     writes.set(job.prim, writesOf);
@@ -449,10 +460,10 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { side: 0.1, min: 2, share: 0.25, dry: false, force: false, band: null };
+const options = { side: 0.1, min: 2, share: 0.25, dry: false, force: false, like: false, band: null };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
-  if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
+  if (['--dry', '--force', '--like'].includes(argv[i])) options[argv[i].slice(2)] = true;
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
