@@ -259,7 +259,7 @@ function applyCut(mesh, cut, gap, warn) {
       const avg = [0, 1].map((k) => inCell.reduce((t, v) => t + verts[v].uv[k], 0) / inCell.length);
       const capLoops = loops.map((l) => l.map((v) => {
         const p = verts[v].p;
-        const id = verts.push({ p: [...p], n: [...cn], uv: cellOf(verts[v].uv) === cell ? [...verts[v].uv] : [...avg], on: true, s }) - 1;
+        const id = verts.push({ p: [...p], n: [...cn], uv: [...avg], on: true, s }) - 1;
         return { id, key: pkey(p), q: [dot(p, u), dot(p, w)] };
       }));
       try {
@@ -287,20 +287,76 @@ function applyCut(mesh, cut, gap, warn) {
   return chosen.length;
 }
 
+function boundaryLoops(verts, tris, tol) {
+  const raw = [];
+  const points = new Map();
+  for (const t of tris) for (let i = 0; i < 3; i++) {
+    points.set(pkey(verts[t[i]].p), t[i]);
+    raw.push([t[i], t[(i + 1) % 3]]);
+  }
+  const count = new Map();
+  const ends = new Map();
+  for (const [a, b] of raw) {
+    const pa = verts[a].p; const pb = verts[b].p;
+    const dir = pb.map((x, k) => x - pa[k]); const len2 = dot(dir, dir);
+    const inner = [];
+    for (const [, v] of points) {
+      const r = verts[v].p.map((x, q) => x - pa[q]);
+      const t = dot(r, dir) / len2;
+      if (t <= 1e-6 || t >= 1 - 1e-6) continue;
+      const off = r.map((x, q) => x - dir[q] * t);
+      if (dot(off, off) <= tol * tol) inner.push([t, v]);
+    }
+    inner.sort((x, y) => x[0] - y[0]);
+    const chain = [a, ...inner.map((x) => x[1]), b];
+    for (let i = 0; i + 1 < chain.length; i++) {
+      const ka = pkey(verts[chain[i]].p); const kb = pkey(verts[chain[i + 1]].p);
+      if (ka === kb) continue;
+      const back = `${kb}>${ka}`;
+      if ((count.get(back) ?? 0) > 0) count.set(back, count.get(back) - 1);
+      else { count.set(`${ka}>${kb}`, (count.get(`${ka}>${kb}`) ?? 0) + 1); ends.set(`${ka}>${kb}`, [chain[i], ka, kb]); }
+    }
+  }
+  const next = new Map();
+  for (const [k, n] of count) for (let i = 0; i < n; i++) {
+    const e = ends.get(k);
+    if (!next.has(e[1])) next.set(e[1], []);
+    next.get(e[1]).push(e);
+  }
+  const loops = [];
+  for (const start of [...next.keys()]) {
+    while (next.get(start)?.length) {
+      const loop = [];
+      let at = start;
+      while (next.get(at)?.length) { const e = next.get(at).pop(); loop.push(e[0]); at = e[2]; if (at === start) break; }
+      if (at !== start) return null;
+      loops.push(loop);
+    }
+  }
+  return loops;
+}
+
 function simplify(mesh) {
   const { verts } = mesh;
-  const q = (v, s = 1e4) => Math.round(v * s);
-  const kept = [];
-  const groups = new Map();
+  let extent = 0;
+  for (const v of verts) for (const c of v.p) extent = Math.max(extent, Math.abs(c));
+  const tol = Math.max(1e-7, extent * 2e-5);
+  const area = (t) => Math.hypot(...cross(verts[t[1]].p.map((x, k) => x - verts[t[0]].p[k]), verts[t[2]].p.map((x, k) => x - verts[t[0]].p[k]))) / 2;
+  const out = [];
+  const groups = [];
   for (const isl of islands(verts, mesh.tris)) {
-    for (const ti of isl.tris) {
-      const t = mesh.tris[ti];
-      const [a, b, c] = t.map((v) => verts[v]);
-      const raw = cross(b.p.map((x, k) => x - a.p[k]), c.p.map((x, k) => x - a.p[k]));
-      const len = Math.hypot(...raw);
-      const fn = raw.map((x) => x / (len || 1));
-      const cells = new Set(t.map((v) => cellOf(verts[v].uv)));
-      if (len < 1e-12 || cells.size > 1 || t.some((v) => dot(norm(verts[v].n), fn) < 0.9999)) { kept.push(t); continue; }
+    const list = isl.tris.map((i) => mesh.tris[i]);
+    const byEdge = new Map();
+    list.forEach((t, i) => { for (let k = 0; k < 3; k++) { const e = [pkey(verts[t[k]].p), pkey(verts[t[(k + 1) % 3]].p)].sort().join('|'); if (!byEdge.has(e)) byEdge.set(e, []); byEdge.get(e).push(i); } });
+    const order = list.map((_, i) => i).sort((x, y) => area(list[y]) - area(list[x]));
+    const taken = new Set();
+    for (const seed of order) {
+      if (taken.has(seed)) continue;
+      const st = list[seed];
+      const [a, b, c] = st.map((v) => verts[v]);
+      const fn = norm(cross(b.p.map((x, k) => x - a.p[k]), c.p.map((x, k) => x - a.p[k])));
+      const d0 = dot(fn, a.p);
+      const cell = cellOf(a.uv);
       const helper = Math.abs(fn[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0];
       const u = norm(cross(helper, fn)); const w = cross(fn, u);
       const P = [a, b, c].map((v) => [dot(v.p, u), dot(v.p, w)]);
@@ -311,68 +367,70 @@ function simplify(mesh) {
         const gt = (d2 * (P[1][0] - P[0][0]) - d1 * (P[2][0] - P[0][0])) / det;
         return [gs, gt, a.uv[k] - gs * P[0][0] - gt * P[0][1]];
       });
-      const key = [isl.tris[0], ...fn.map((x) => q(x)), q(dot(fn, a.p), 1e5), ...grad.flat().map((x) => q(x, 1e3))].join(',');
-      if (!groups.has(key)) groups.set(key, { fn, u, w, grad, tris: [] });
-      groups.get(key).tris.push(t);
+      const uvAt = (p) => { const s = dot(p, u); const t = dot(p, w); return grad.map(([gs, gt, k]) => gs * s + gt * t + k); };
+      const fits = (t) => {
+        const [x, y, z] = t.map((v) => verts[v].p);
+        if (dot(cross(y.map((q, k) => q - x[k]), z.map((q, k) => q - x[k])), fn) <= 0) return false;
+        return t.every((v) => {
+          const vv = verts[v];
+          if (Math.abs(dot(fn, vv.p) - d0) > tol || cellOf(vv.uv) !== cell || dot(norm(vv.n), fn) < 0.9999) return false;
+          const e = uvAt(vv.p);
+          return Math.abs(e[0] - vv.uv[0]) < 4e-3 && Math.abs(e[1] - vv.uv[1]) < 4e-3;
+        });
+      };
+      if (!fits(st)) { taken.add(seed); out.push(st); continue; }
+      const members = [seed]; taken.add(seed);
+      for (let m = 0; m < members.length; m++) {
+        const t = list[members[m]];
+        for (let k = 0; k < 3; k++) {
+          const e = [pkey(verts[t[k]].p), pkey(verts[t[(k + 1) % 3]].p)].sort().join('|');
+          for (const j of byEdge.get(e)) if (!taken.has(j) && fits(list[j])) { taken.add(j); members.push(j); }
+        }
+      }
+      groups.push({ fn, u, w, tris: members.map((i) => list[i]) });
     }
   }
-  const out = [...kept];
-  const useCount = new Map();
-  const note = (k, g) => { if (!useCount.has(k)) useCount.set(k, new Set()); useCount.get(k).add(g); };
-  for (const t of kept) for (const v of t) note(pkey(verts[v].p), 'kept');
-  const plans = [];
-  for (const g of groups.values()) {
-    const edges = new Map();
-    for (const t of g.tris) for (let i = 0; i < 3; i++) {
-      const a = t[i]; const b = t[(i + 1) % 3];
-      const ka = pkey(verts[a].p); const kb = pkey(verts[b].p);
-      note(ka, g);
-      const back = `${kb}>${ka}`;
-      if (edges.has(back)) edges.delete(back); else edges.set(`${ka}>${kb}`, [a, b, ka, kb]);
-    }
-    const next = new Map(); let ok = true;
-    for (const e of edges.values()) { if (next.has(e[2])) ok = false; next.set(e[2], e); }
-    const loops = [];
-    const used = new Set();
-    for (const e of edges.values()) {
-      if (!ok || used.has(e[2])) continue;
-      const loop = []; let cur = e;
-      while (cur && !used.has(cur[2])) { used.add(cur[2]); loop.push(cur[0]); cur = next.get(cur[3]); }
-      if (cur !== e) ok = false; else loops.push(loop);
-    }
-    plans.push({ g, ok, loops, boundary: new Set([...edges.values()].map((e) => e[2])) });
-  }
-  for (const plan of plans) {
-    if (!plan.ok) continue;
-    for (const t of plan.g.tris) for (const v of t) {
-      const k = pkey(verts[v].p);
-      if (!plan.boundary.has(k) && useCount.get(k).size > 1) plan.ok = false;
-    }
+  const users = new Map();
+  for (const t of out) for (const v of t) users.set(pkey(verts[v].p), 2);
+  for (const g of groups) {
+    g.loops = g.tris.length > 1 ? boundaryLoops(verts, g.tris, tol) : null;
+    const seen = new Set(g.tris.flat().map((v) => pkey(verts[v].p)));
+    for (const k of seen) users.set(k, (users.get(k) ?? 0) + 1);
+    g.boundary = new Set((g.loops ?? []).flat().map((v) => pkey(verts[v].p)));
   }
   const removable = new Map();
   const mark = (k, val) => removable.set(k, (removable.get(k) ?? true) && val);
-  for (const t of kept) for (const v of t) mark(pkey(verts[v].p), false);
-  for (const { g, ok, loops } of plans) {
-    if (!ok) { for (const t of g.tris) for (const v of t) mark(pkey(verts[v].p), false); continue; }
-    for (const loop of loops) loop.forEach((v, i) => {
+  for (const t of out) for (const v of t) mark(pkey(verts[v].p), false);
+  for (const g of groups) {
+    if (g.loops) for (const t of g.tris) for (const v of t) {
+      const k = pkey(verts[v].p);
+      if (!g.boundary.has(k) && users.get(k) > 1) g.loops = null;
+    }
+  }
+  for (const g of groups) {
+    if (!g.loops) { for (const t of g.tris) for (const v of t) mark(pkey(verts[v].p), false); continue; }
+    for (const loop of g.loops) loop.forEach((v, i) => {
       const a = verts[loop[(i + loop.length - 1) % loop.length]].p; const b = verts[v].p; const c = verts[loop[(i + 1) % loop.length]].p;
       const ab = b.map((x, k) => x - a[k]); const bc = c.map((x, k) => x - b[k]);
-      mark(pkey(b), Math.hypot(...cross(ab, bc)) <= 1e-6 * Math.hypot(...ab) * Math.hypot(...bc) && dot(ab, bc) > 0);
+      const lab = Math.hypot(...ab); const lbc = Math.hypot(...bc);
+      mark(pkey(b), Math.hypot(...cross(ab, bc)) / (lab + lbc) <= tol && dot(ab, bc) > 0);
     });
   }
-  for (const { g, ok, loops } of plans) {
-    if (!ok) { out.push(...g.tris); continue; }
-    const uvAt = (p) => { const s = dot(p, g.u); const t = dot(p, g.w); return g.grad.map(([gs, gt, c]) => gs * s + gt * t + c); };
-    const ring = loops.map((l) => l.filter((v) => !removable.get(pkey(verts[v].p))).map((v) => {
+  for (const g of groups) {
+    if (!g.loops) { out.push(...g.tris); continue; }
+    const ring = g.loops.map((l) => l.filter((v) => !removable.get(pkey(verts[v].p))).map((v) => {
       const p = verts[v].p;
-      const id = verts.push({ p: [...p], n: [...g.fn], uv: uvAt(p) }) - 1;
+      const id = verts.push({ p: [...p], n: [...g.fn], uv: [...verts[v].uv] }) - 1;
       return { id, key: pkey(p), q: [dot(p, g.u), dot(p, g.w)] };
     })).filter((l) => l.length >= 3);
     let tris = null;
     try { tris = triangulate(ring).map((t) => t.map((p) => p.id)); } catch { tris = null; }
-    out.push(...(tris && tris.length && tris.length <= g.tris.length ? tris : g.tris));
+    const before = g.tris.reduce((s, t) => s + area(t), 0);
+    const after = tris ? tris.reduce((s, t) => s + area(t), 0) : 0;
+    const same = tris && tris.length && Math.abs(after - before) <= before * 1e-4 + tol * tol;
+    out.push(...(same && tris.length <= g.tris.length ? tris : g.tris));
   }
-  mesh.tris = out;
+  mesh.tris = out.filter((t) => area(t) > 2 * (extent * 1e-5) ** 2);
 }
 
 function save(glb, mesh, out) {
