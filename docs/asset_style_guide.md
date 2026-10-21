@@ -335,6 +335,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B66` | `kind:obj-transport* & !kind:obj-transport-part* & !tag:plural` | all parts | is | as `B64`; `kay-space/lander-a` at half strength. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit` (`--add 0.5` for the lander) |
 | `B67` | `kind:str-part-roof* & !tag:plural` | all parts | is | as `B64`, except a piece whose darkest point is in its upper half, which stays as it was; the chimney of `ken-holiday` cabin roofs stays as it was. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow` |
 | `B68` | `kind:str-barrier-fence* & !tag:plural` | all parts | is | as `B67`. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow` |
+| `B69` | `kind:str-part-door* | kind:str-part-frame* | kind:str-part-pillar* | kind:str-access-stairs*`, `!tag:plural` | all parts | is | as `B67`, and a spot that faces down or has the model's own geometry within 0.15 of its height right above it stays as it was. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow --keep-under` |
 
 ---
 

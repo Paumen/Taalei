@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow]] [--dry] <workfile.glb> [...]
+const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow] [--keep-under]] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of each piece by height. A piece is a run of
 triangles joined on shared positions. Every vertex keeps its cell of
@@ -19,15 +19,63 @@ faces keep their order. --reach keeps it within r of the lightest and darkest
 v the piece had. --fit adds less of the profile to a piece instead of
 squeezing it, so its own light and dark stay as they were. --keep-shadow
 leaves a piece as it is when its darkest point sits in its upper half, such as
-a painted shadow under a cap or overhang.`;
+a painted shadow under a cap or overhang. --keep-under leaves a vertex as it is
+when it faces down or the model has geometry less than 0.15 of its height
+right above it.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const LIGHT = 0.02;
 const DARK = 0.95;
+const UNDER = 0.15;
 const KEEP = new Set(Object.entries(BANDS).filter(([band, cell]) => cell && /twine|glass|amber/.test(band)).map(([, cell]) => cell));
 
-function profile(file, top, bottom, add, reach, fit, keepShadow, dry) {
+function overhung(pos, idx, m, y) {
+  const count = pos.length / 3;
+  const x = new Float64Array(count), z = new Float64Array(count);
+  for (let i = 0; i < count; i++) {
+    x[i] = m[0] * pos[3 * i] + m[4] * pos[3 * i + 1] + m[8] * pos[3 * i + 2] + m[12];
+    z[i] = m[2] * pos[3 * i] + m[6] * pos[3 * i + 1] + m[10] * pos[3 * i + 2] + m[14];
+  }
+  let lowY = Infinity, highY = -Infinity, lowX = Infinity, highX = -Infinity, lowZ = Infinity, highZ = -Infinity;
+  for (let i = 0; i < count; i++) {
+    lowY = Math.min(lowY, y[i]); highY = Math.max(highY, y[i]);
+    lowX = Math.min(lowX, x[i]); highX = Math.max(highX, x[i]);
+    lowZ = Math.min(lowZ, z[i]); highZ = Math.max(highZ, z[i]);
+  }
+  const height = highY - lowY || 1, near = UNDER * height, eps = 0.002 * height;
+  const G = 24, sx = (highX - lowX) / G || 1, sz = (highZ - lowZ) / G || 1;
+  const gx = (v) => Math.min(G - 1, Math.max(0, Math.floor((v - lowX) / sx)));
+  const gz = (v) => Math.min(G - 1, Math.max(0, Math.floor((v - lowZ) / sz)));
+  const grid = Array.from({ length: G * G }, () => []);
+  const under = new Uint8Array(count);
+  for (let t = 0; t < idx.length; t += 3) {
+    const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
+    const ny = (x[b] - x[a]) * (z[c] - z[a]) - (z[b] - z[a]) * (x[c] - x[a]);
+    const ux = x[b] - x[a], uy = y[b] - y[a], uz = z[b] - z[a], vx = x[c] - x[a], vy = y[c] - y[a], vz = z[c] - z[a];
+    const nx = uy * vz - uz * vy, nz = ux * vy - uy * vx, len = Math.hypot(nx, ny, nz) || 1;
+    if (ny / len > 0.5) under[a] = under[b] = under[c] = 1;
+    if (Math.abs(ny / len) < 0.1) continue;
+    for (let i = gx(Math.min(x[a], x[b], x[c])); i <= gx(Math.max(x[a], x[b], x[c])); i++)
+      for (let k = gz(Math.min(z[a], z[b], z[c])); k <= gz(Math.max(z[a], z[b], z[c])); k++) grid[i * G + k].push(t);
+  }
+  for (let p = 0; p < count; p++) {
+    if (under[p]) continue;
+    for (const t of grid[gx(x[p]) * G + gz(z[p])]) {
+      const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
+      const d = (z[b] - z[c]) * (x[a] - x[c]) + (x[c] - x[b]) * (z[a] - z[c]);
+      const l1 = ((z[b] - z[c]) * (x[p] - x[c]) + (x[c] - x[b]) * (z[p] - z[c])) / d;
+      const l2 = ((z[c] - z[a]) * (x[p] - x[c]) + (x[a] - x[c]) * (z[p] - z[c])) / d;
+      const l3 = 1 - l1 - l2;
+      if (l1 < -1e-6 || l2 < -1e-6 || l3 < -1e-6) continue;
+      const h = l1 * y[a] + l2 * y[b] + l3 * y[c] - y[p];
+      if (h > eps && h < near) { under[p] = 1; break; }
+    }
+  }
+  return under;
+}
+
+function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry) {
   const glb = readGlb(file);
   const replaced = new Map();
   let moved = 0;
@@ -43,6 +91,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, dry) {
     const y = new Float64Array(count);
     for (let i = 0; i < count; i++) y[i] = m[1] * pos[3 * i] + m[5] * pos[3 * i + 1] + m[9] * pos[3 * i + 2] + m[13];
 
+    const under = keepUnder ? overhung(pos, idx, m, y) : null;
     const { weld } = welder(pos);
     const point = Array.from({ length: count }, (_, i) => weld(i));
     const parent = new Map();
@@ -125,6 +174,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, dry) {
       let v = raw;
       const piece = find(point[i]);
       if (keepShadow && shadowed(piece)) continue;
+      if (under && under[i]) continue;
       const r = range.get(piece);
       const light = r ? Math.max(LIGHT, r[2] - reach) : LIGHT, dark = r ? Math.min(DARK, r[3] + reach) : DARK;
       if (fit) {
@@ -165,5 +215,6 @@ const add = take('--add', 0);
 const reach = take('--reach', 1);
 const fit = args.includes('--fit');
 const keepShadow = args.includes('--keep-shadow');
+const keepUnder = args.includes('--keep-under');
 const dry = args.includes('--dry');
-for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, keepShadow, dry)} vertices`);
+for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)} vertices`);
