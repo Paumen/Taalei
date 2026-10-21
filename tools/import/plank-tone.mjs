@@ -9,7 +9,7 @@ const HELP = `plank-tone.mjs [--dry] [--side <n>] [--min <n>] [--share <n>] [--b
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, with a soft gradient across its width, so boards
 read apart. Faces are lit from above: faces turned sideways are 0.2 darker,
-faces turned down 0.3, and a board's narrow edges a little more. Neighbouring planks get tones far apart.
+faces turned down 0.3, and a board's narrow edges a little more. Neighbouring planks get tones far apart, and every plank's average shade moves at least 0.12 from where it was, on its faces turned up and on those turned sideways.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
@@ -31,6 +31,7 @@ const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Num
 const TONES = [[0.581, 0.11], [0.477, 0.22], [0.747, 0.11], [0.691, 0.33], [0.809, 0.22], [0.526, 0.11]];
 const FACING = { up: 0, side: 0.2, down: 0.3 };
 const RANGE = [0.06, 0.94];
+const MOVE = 0.12;
 const REF = norm([0.3, 1, 0.5]);
 const FLAT = Math.cos((2 * Math.PI) / 180);
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
@@ -324,9 +325,10 @@ function tone(file, options) {
         const size = (p) => p.tris.reduce((s, t) => s + at.area[t], 0);
         const split = parts.filter((p) => p.plank);
         if (whole.plank && (split.length < 2 || split.reduce((s, p) => s + size(p), 0) < 0.5 * size(whole))) return [whole];
-        if (split.length) return parts;
         const slabs = splitSlabs(c, at).map(measure);
-        return slabs.filter((p) => p.plank).length >= 2 ? slabs : parts;
+        const covered = (list) => list.filter((p) => p.plank).reduce((s, p) => s + size(p), 0);
+        if (slabs.filter((p) => p.plank).length >= 2 && covered(slabs) > covered(parts)) return slabs;
+        return parts;
       });
       const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
       const similar = (a, b) => {
@@ -347,7 +349,7 @@ function tone(file, options) {
       if (!options.force) for (const p of candidates.filter((q) => !isBoard(q))) {
         p.plank = candidates.some((q) => q !== p && (isBoard(q) || similar(p, q)) && Math.abs(dot(p.axes[0], q.axes[0])) > 0.95 && beside(p, q));
       }
-      jobs.push({ prim, idx, uv, cell, pieces, world, normal: at.normal });
+      jobs.push({ prim, idx, uv, cell, pieces, world, normal: at.normal, area: at.area });
       planks += pieces.filter((p) => p.plank).length;
       for (const p of pieces) for (const t of p.tris) { woodArea += at.area[t]; if (p.plank) plankArea += at.area[t]; }
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${pieces.length} pieces ${pieces.filter((p) => p.plank).length} planks`);
@@ -391,6 +393,30 @@ function tone(file, options) {
       });
     }
     const kind = (p) => kindOf.get(p);
+    for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
+    const shade = (p, t, k, [b, s]) => {
+      const n = job.normal[t];
+      const facing = n[1] > 0.5 ? FACING.up : n[1] < -0.5 ? FACING.down : FACING.side;
+      const edge = isBoard(p) && Math.abs(dot(n, p.axes[2])) <= 0.7 ? options.side : 0;
+      const q = job.world(job.idx[t * 3 + k]);
+      const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
+      return Math.min(RANGE[1], Math.max(RANGE[0], (facing || edge ? b - s / 2 : b + s * c) - facing - edge));
+    };
+    const original = (t, k) => 1 - ((job.uv[job.idx[t * 3 + k] * 2 + 1] * 512 - job.cell[1] * 128 - 0.5) / 127);
+    const shift = (list, tone) => {
+      const sum = [0, 0];
+      const area = [0, 0];
+      for (const p of list) for (const t of p.tris) {
+        const y = job.normal[t][1];
+        if (y < -0.5) continue;
+        const side = y > 0.5 ? 0 : 1;
+        const a = job.area[t];
+        for (let k = 0; k < 3; k++) sum[side] += (a * (shade(p, t, k, tone) - original(t, k))) / 3;
+        area[side] += a;
+      }
+      const total = area[0] + area[1];
+      return Math.min(...[0, 1].filter((i) => area[i] > 0.05 * total).map((i) => Math.abs(sum[i] / area[i])));
+    };
     for (const i of pieces.map((_, i) => i).sort(() => R() - 0.5)) {
       if (pieces[i].tone !== undefined) continue;
       let best = 0;
@@ -399,7 +425,8 @@ function tone(file, options) {
         if (used[k] >= bag[k]) continue;
         const d = near[i].filter((j) => pieces[j].tone !== undefined)
           .map((j) => Math.abs(TONES[k][0] - TONES[pieces[j].tone][0]) + 0.5 * Math.abs(TONES[k][1] - TONES[pieces[j].tone][1]));
-        const s = (d.length ? Math.min(...d) : 1) * 10 + R() * 0.5;
+        const group = options.like ? pieces.filter((q) => kind(q) === kind(pieces[i])) : [pieces[i]];
+        const s = (d.length ? Math.min(...d) : 1) * 10 + R() * 0.5 - (shift(group, TONES[k]) < MOVE ? 100 : 0);
         if (s > score) { score = s; best = k; }
       }
       pieces[i].tone = best;
@@ -410,7 +437,6 @@ function tone(file, options) {
     writes.set(job.prim, writesOf);
     const lightOf = new Map();
     for (const p of pieces) {
-      if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
       const [b, s] = TONES[p.tone];
       for (const t of p.tris) {
         const n = job.normal[t];
