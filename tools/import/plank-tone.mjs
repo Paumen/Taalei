@@ -406,7 +406,7 @@ function tone(file, options) {
         for (let k = 0; k < 3; k++) {
           const q = job.world(job.idx[t * 3 + k]);
           const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-          lightOf.set(t * 3 + k, (facing || edge ? b - s / 2 : b + s * c) - facing - edge);
+          lightOf.set(t * 3 + k, b + s * c - facing - edge);
         }
       }
     }
