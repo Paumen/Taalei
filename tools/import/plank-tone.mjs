@@ -6,27 +6,27 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMa
 
 const HELP = `plank-tone.mjs [--dry] [--side <n>] [--min <n>] <workfile.glb> [...]
 
-Shifts each plank in the tan, camel and chestnut bands of kits/colormap.png
-lighter or darker by one of six tones, adds a soft gradient across its width
-and darkens its narrow sides, on top of each face's own shade, so boards read
-apart while the model keeps its light and dark. Neighbouring planks get tones far apart.
+Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
+own tone from a set of six, with a soft gradient across its width, so boards
+read apart. Faces are lit from above: faces turned sideways are 0.2 darker,
+faces turned down 0.3, and a board's narrow edges a little more. Neighbouring planks get tones far apart.
 A piece is a run of triangles in one band that share corners. A piece that
 holds three or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
 inward fold. A file is left alone unless it has at least
 --min (default 2) planks, boxy pieces that are boards (thinner than wide, longer than wide)
-whose broad face fills their outline, or slats (three times longer than wide)
-lying next to a like slat,
-that hold at least --share (default 0.25) of its wood area. Only planks are
+whose broad face fills their outline, or slats (three times longer than wide), each lying edge to edge beside a
+like one,
+that hold at least --share (default 0.2) of its wood area. Only planks are
 recoloured; other wood keeps its look.
---side sets how much darker the narrow sides are (default 0.15).
+--side sets how much darker a board's narrow edges are (default 0.1).
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
 const TONES = [[0.581, 0.11], [0.477, 0.22], [0.747, 0.11], [0.691, 0.33], [0.809, 0.22], [0.526, 0.11]];
-const MEAN = TONES.reduce((sum, [b]) => sum + b, 0) / TONES.length;
+const FACING = { up: 0, side: 0.2, down: 0.3 };
 const RANGE = [0.06, 0.94];
 const REF = norm([0.3, 1, 0.5]);
 const FLAT = Math.cos((2 * Math.PI) / 180);
@@ -41,6 +41,8 @@ const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const scale = (a, k) => a.map((x) => x * k);
 
+const span = ([lo, hi]) => hi - lo;
+
 function frame(points) {
   const c = [0, 1, 2].map((i) => points.reduce((s, p) => s + p[i], 0) / points.length);
   const C = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
@@ -48,27 +50,31 @@ function frame(points) {
     const d = sub(p, c);
     for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) C[i][j] += d[i] * d[j];
   }
+  const across = (a) => norm(cross(a, Math.abs(a[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0]));
   const axes = [];
-  for (let k = 0; k < 3; k++) {
+  for (let k = 0; k < 2; k++) {
     let v = norm([1, 0.3 + k, 0.7 - k]);
     for (let it = 0; it < 80; it++) {
-      v = norm([0, 1, 2].map((i) => dot(C[i], v)));
-      for (const a of axes) v = norm(sub(v, scale(a, dot(v, a))));
+      let next = [0, 1, 2].map((i) => dot(C[i], v));
+      for (const a of axes) next = sub(next, scale(a, dot(next, a)));
+      if (Math.hypot(...next) < 1e-12) { v = axes.length ? across(axes[0]) : [1, 0, 0]; break; }
+      v = norm(next);
     }
     axes.push(v);
   }
+  axes.push(norm(cross(axes[0], axes[1])));
   const ext = axes.map((a) => {
     let lo = Infinity;
     let hi = -Infinity;
     for (const p of points) { const s = dot(p, a); lo = Math.min(lo, s); hi = Math.max(hi, s); }
     return [lo, hi];
   });
+  const order = [0, 1, 2].sort((a, b) => span(ext[b]) - span(ext[a]));
   const lo = [0, 1, 2].map((i) => Math.min(...points.map((p) => p[i])));
   const hi = [0, 1, 2].map((i) => Math.max(...points.map((p) => p[i])));
-  return { axes, ext, lo, hi };
+  return { axes: order.map((i) => axes[i]), ext: order.map((i) => ext[i]), lo, hi };
 }
 
-const span = ([lo, hi]) => hi - lo;
 const isBoard = (f) => {
   const [, w, t] = f.ext.map(span);
   return t <= 0.6 * w;
@@ -241,23 +247,27 @@ function tone(file, options) {
           if (Math.abs(d) > 0.95) face[d > 0 ? 0 : 1] += at.area[t];
         }
         const [l, w] = f.ext.map(span);
-        const filled = Math.max(...face) >= 0.75 * l * w;
-        return { tris: list, ...f, plank: isPlank(f) && square >= 0.7 * area && (!isBoard(f) || filled) };
+        const filled = Math.max(...face) >= 0.6 * l * w;
+        return { tris: list, ...f, plank: isPlank(f) && square >= 0.6 * area && (!isBoard(f) || filled) };
       });
       const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
       const similar = (a, b) => {
-        const [la, wa, ta] = a.ext.map(span);
-        const [lb, wb, tb] = b.ext.map(span);
-        const close = (x, y) => Math.abs(x - y) <= 0.3 * Math.max(x, y);
-        return Math.abs(dot(a.axes[0], b.axes[0])) > 0.95 && close(la, lb) && close(wa, wb) && close(ta, tb);
+        const wa = span(a.ext[1]);
+        const wb = span(b.ext[1]);
+        const close = (x, y) => Math.abs(x - y) <= 0.4 * Math.max(x, y);
+        return Math.abs(dot(a.axes[0], b.axes[0])) > 0.95 && close(wa, wb);
       };
-      for (const p of pieces) {
-        if (!p.plank || isBoard(p)) continue;
+      const centre = (p) => p.lo.map((x, i) => (x + p.hi[i]) / 2);
+      const beside = (p, q) => {
+        const d = sub(centre(q), centre(p));
         const w = span(p.ext[1]);
-        p.plank = pieces.some((q) => q !== p && isPlank(q) && similar(p, q) && gap(p, q) <= 2 * w);
-      }
-      const light = (v) => 1 - (uv[v * 2 + 1] * 512 - cell[1] * 128 - 0.5) / 127;
-      jobs.push({ prim, idx, cell, pieces, world, light, normal: at.normal });
+        const lateral = Math.hypot(...sub(d, scale(p.axes[0], dot(d, p.axes[0]))));
+        if (!isBoard(p)) return lateral >= 0.6 * span(p.ext[2]) && gap(p, q) <= 2 * w;
+        return Math.abs(dot(d, p.axes[1])) >= 0.6 * w && Math.abs(dot(d, p.axes[2])) <= w && gap(p, q) <= 2 * w;
+      };
+      const candidates = pieces.filter((p) => p.plank);
+      for (const p of candidates) p.plank = candidates.some((q) => q !== p && similar(p, q) && beside(p, q));
+      jobs.push({ prim, idx, cell, pieces, world, normal: at.normal });
       planks += pieces.filter((p) => p.plank).length;
       for (const p of pieces) for (const t of p.tris) { woodArea += at.area[t]; if (p.plank) plankArea += at.area[t]; }
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${pieces.length} pieces ${pieces.filter((p) => p.plank).length} planks`);
@@ -301,11 +311,13 @@ function tone(file, options) {
       if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
       const [b, s] = TONES[p.tone];
       for (const t of p.tris) {
-        const side = isBoard(p) && Math.abs(dot(job.normal[t], p.axes[2])) <= 0.7 ? options.side : 0;
+        const n = job.normal[t];
+        const facing = n[1] > 0.5 ? FACING.up : n[1] < -0.5 ? FACING.down : FACING.side;
+        const edge = isBoard(p) && Math.abs(dot(n, p.axes[2])) <= 0.7 ? options.side : 0;
         for (let k = 0; k < 3; k++) {
           const q = job.world(job.idx[t * 3 + k]);
           const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-          lightOf.set(t * 3 + k, job.light(job.idx[t * 3 + k]) + b - MEAN + s * c - side);
+          lightOf.set(t * 3 + k, b + s * c - facing - edge);
         }
       }
     }
@@ -349,7 +361,7 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { side: 0.15, min: 2, share: 0.25, dry: false };
+const options = { side: 0.1, min: 2, share: 0.2, dry: false };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry') options.dry = true;
