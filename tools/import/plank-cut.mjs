@@ -14,7 +14,7 @@ A face lying on the plane stays with the half it faces away from, so a rail weld
 onto a post comes off at the post's face. Cuts run in the order given. --list
 prints the parts with their triangles and mesh-space bounds.`;
 
-const r6 = (v) => Math.round(v * 1e6) / 1e6;
+const r6 = (v) => Math.round(v * 1e9) / 1e9;
 
 function parseCut(spec) {
   const [plane, region] = spec.split(/\s+in=/);
@@ -202,26 +202,51 @@ function applyCut(mesh, cut, gap, warn) {
     for (const s of [1, -1]) {
       const { polys } = side[s];
       for (const poly of polys) for (let i = 1; i + 1 < poly.length; i++) added.push([poly[0], poly[i], poly[i + 1]]);
-      const edges = new Map();
+      const raw = [];
+      const points = new Map();
       for (const poly of polys) for (let i = 0; i < poly.length; i++) {
         const a = poly[i]; const b = poly[(i + 1) % poly.length];
-        if (!verts[a].on || !verts[b].on) continue;
-        const ka = pkey(verts[a].p); const kb = pkey(verts[b].p);
-        if (ka === kb) continue;
-        const back = `${kb}>${ka}`;
-        if (edges.has(back)) edges.delete(back); else edges.set(`${ka}>${kb}`, [a, b, ka, kb]);
+        if (verts[a].on) points.set(pkey(verts[a].p), a);
+        if (verts[a].on && verts[b].on && pkey(verts[a].p) !== pkey(verts[b].p)) raw.push([a, b]);
+      }
+      const count = new Map();
+      const ends = new Map();
+      for (const [a, b] of raw) {
+        const pa = verts[a].p; const pb = verts[b].p;
+        const dir = pb.map((x, k) => x - pa[k]); const len2 = dot(dir, dir);
+        const inner = [];
+        for (const [k, v] of points) {
+          const r = verts[v].p.map((x, q) => x - pa[q]);
+          const t = dot(r, dir) / len2;
+          if (t <= 1e-6 || t >= 1 - 1e-6) continue;
+          const off = r.map((x, q) => x - dir[q] * t);
+          if (dot(off, off) <= tol * tol * 4) inner.push([t, v, k]);
+        }
+        inner.sort((x, y) => x[0] - y[0]);
+        const chain = [a, ...inner.map((x) => x[1]), b];
+        for (let i = 0; i + 1 < chain.length; i++) {
+          const ka = pkey(verts[chain[i]].p); const kb = pkey(verts[chain[i + 1]].p);
+          if (ka === kb) continue;
+          const back = `${kb}>${ka}`;
+          if ((count.get(back) ?? 0) > 0) count.set(back, count.get(back) - 1);
+          else { count.set(`${ka}>${kb}`, (count.get(`${ka}>${kb}`) ?? 0) + 1); ends.set(`${ka}>${kb}`, [chain[i], ka, kb]); }
+        }
       }
       const next = new Map();
-      for (const e of edges.values()) { if (next.has(e[2])) warn(`${cut.spec}: branching cap edge`); next.set(e[2], e); }
+      for (const [k, n] of count) for (let i = 0; i < n; i++) {
+        const e = ends.get(k);
+        if (!next.has(e[1])) next.set(e[1], []);
+        next.get(e[1]).push(e);
+      }
       const loops = [];
-      const used = new Set();
-      for (const e of edges.values()) {
-        if (used.has(e[2])) continue;
-        const loop = [];
-        let cur = e;
-        while (cur && !used.has(cur[2])) { used.add(cur[2]); loop.push(cur[0]); cur = next.get(cur[3]); }
-        if (!cur || cur !== e) { warn(`${cut.spec}: open cap edge left unfilled`); continue; }
-        if (loop.length >= 3) loops.push(loop.reverse());
+      for (const start of [...next.keys()]) {
+        while (next.get(start)?.length) {
+          const loop = [];
+          let at = start;
+          while (next.get(at)?.length) { const e = next.get(at).pop(); loop.push(e[0]); at = e[2]; if (at === start) break; }
+          if (at !== start) { warn(`${cut.spec}: open cap edge left unfilled`); continue; }
+          if (loop.length >= 3) loops.push(loop.reverse());
+        }
       }
       if (!loops.length) continue;
       const cn = cut.n.map((x) => x * -s);
@@ -237,7 +262,11 @@ function applyCut(mesh, cut, gap, warn) {
         const id = verts.push({ p: [...p], n: [...cn], uv: cellOf(verts[v].uv) === cell ? [...verts[v].uv] : [...avg], on: true, s }) - 1;
         return { id, key: pkey(p), q: [dot(p, u), dot(p, w)] };
       }));
-      for (const [a, b, c] of triangulate(capLoops)) added.push([a.id, b.id, c.id]);
+      try {
+        for (const [a, b, c] of triangulate(capLoops)) added.push([a.id, b.id, c.id]);
+      } catch (e) {
+        warn(`${cut.spec}: ${e.message}, cut face left open`);
+      }
     }
     for (const s of [1, -1]) {
       for (const poly of side[s].polys) for (const v of poly) {
