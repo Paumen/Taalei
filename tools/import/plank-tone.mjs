@@ -182,12 +182,14 @@ function splitStrips(tris, at) {
     let gap = Infinity;
     if (hi - lo <= wide) for (const b of bins) {
       const w = span(b.across);
-      if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || up < b.height - 2 * w) continue;
+      const [low] = range(region.tris, best.normal);
+      if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || low < b.height - 0.5 * w) continue;
       const d = mid < b.across[0] ? b.across[0] - mid : mid > b.across[1] ? mid - b.across[1] : 0;
       if (d <= 0.5 * w && d < gap) { gap = d; pick = b; }
     }
     (pick ? pick.tris : base).push(...region.tris);
   }
+  base.rest = true;
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
 
@@ -254,8 +256,8 @@ function tone(file, options) {
           if (Math.abs(d) > 0.95) face[d > 0 ? 0 : 1] += at.area[t];
         }
         const [l, w] = f.ext.map(span);
-        const filled = Math.max(...face) >= 0.6 * l * w;
-        return { tris: list, ...f, plank: isPlank(f) && square >= 0.6 * area && (!isBoard(f) || filled) };
+        const filled = Math.max(...face) >= 0.4 * l * w;
+        return { tris: list, ...f, plank: !list.rest && isPlank(f) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
       });
       const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
       const similar = (a, b) => {
