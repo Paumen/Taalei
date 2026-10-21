@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit]] [--dry] <workfile.glb> [...]
+const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow]] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of each piece by height. A piece is a run of
 triangles joined on shared positions. Every vertex keeps its cell of
@@ -17,7 +17,9 @@ profile, less its mean over the piece, to the v the vertex has. A piece that
 ends up past 0.02 or 0.95 is squeezed back into that range as a whole, so its
 faces keep their order. --reach keeps it within r of the lightest and darkest
 v the piece had. --fit adds less of the profile to a piece instead of
-squeezing it, so its own light and dark stay as they were.`;
+squeezing it, so its own light and dark stay as they were. --keep-shadow
+leaves a piece as it is when its darkest point sits in its upper half, such as
+a painted shadow under a cap or overhang.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -25,7 +27,7 @@ const LIGHT = 0.02;
 const DARK = 0.95;
 const KEEP = new Set(Object.entries(BANDS).filter(([band, cell]) => cell && /twine|glass|amber/.test(band)).map(([, cell]) => cell));
 
-function profile(file, top, bottom, add, reach, fit, dry) {
+function profile(file, top, bottom, add, reach, fit, keepShadow, dry) {
   const glb = readGlb(file);
   const replaced = new Map();
   let moved = 0;
@@ -84,6 +86,7 @@ function profile(file, top, bottom, add, reach, fit, dry) {
     }
     const next = new Map();
     const range = new Map();
+    const darkest = new Map();
     for (let i = 0; i < count; i++) {
       if (!cell[i] || cell[i] === 'mixed' || KEEP.has(cell[i])) continue;
       const f = shape(i);
@@ -97,9 +100,16 @@ function profile(file, top, bottom, add, reach, fit, dry) {
         v = was + add * (f - sum / n);
         const r = range.get(piece) ?? [Infinity, -Infinity, Infinity, -Infinity];
         range.set(piece, [Math.min(r[0], v), Math.max(r[1], v), Math.min(r[2], was), Math.max(r[3], was)]);
+        const d = darkest.get(piece);
+        if (!d || was > d[0]) darkest.set(piece, [was, i]);
       }
       next.set(i, [row, v]);
     }
+    const shadowed = (piece) => {
+      const d = darkest.get(piece), r = range.get(piece);
+      const [low, high] = span.get(piece);
+      return d && r[3] - r[2] > 0.2 && (y[d[1]] - low) / (high - low) > 0.5;
+    };
     const scale = new Map();
     if (fit) {
       for (const [i, [row, raw]] of next) {
@@ -114,6 +124,7 @@ function profile(file, top, bottom, add, reach, fit, dry) {
     for (const [i, [row, raw]] of next) {
       let v = raw;
       const piece = find(point[i]);
+      if (keepShadow && shadowed(piece)) continue;
       const r = range.get(piece);
       const light = r ? Math.max(LIGHT, r[2] - reach) : LIGHT, dark = r ? Math.min(DARK, r[3] + reach) : DARK;
       if (fit) {
@@ -153,5 +164,6 @@ const bottom = take('--bottom', 0.85);
 const add = take('--add', 0);
 const reach = take('--reach', 1);
 const fit = args.includes('--fit');
+const keepShadow = args.includes('--keep-shadow');
 const dry = args.includes('--dry');
-for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, dry)} vertices`);
+for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, keepShadow, dry)} vertices`);
