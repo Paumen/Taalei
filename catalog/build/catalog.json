@@ -210584,7 +210584,7 @@
   {
    "kit": "ken-pirate",
    "name": "platform",
-   "hash": "95fe1154d2",
+   "hash": "6bc508961b",
    "kind": "str-access-platform-deck",
    "size": "m",
    "wdh": [
@@ -210595,7 +210595,7 @@
    "tris": 60,
    "tpu": 152,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
    "bytes": 5616,
    "vtx": 120,
@@ -210610,11 +210610,9 @@
    "pieces": 5,
    "vpt": 2,
    "cells": [
-    "0,0",
-    "2,0"
+    "0,0"
    ],
    "colors": [
-    "#713e14",
     "#ca9f6e"
    ],
    "tags": [
@@ -210623,7 +210621,14 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.87,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has tan"
+    }
+   ]
   },
   {
    "kit": "ken-pirate",
