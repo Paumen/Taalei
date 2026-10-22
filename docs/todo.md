@@ -16,3 +16,9 @@ ipoly-signs/signpost-planks
 isa-homely/fence-straight
 isa-playground/picnic-table
 kay-food/crate
+dungeon/woodchair-001
+dungeon/woodchair
+fs-town/well-a
+kay-dun-2/chest-gold
+kay-food/crate-buns
+kay-food/crate-carrots
