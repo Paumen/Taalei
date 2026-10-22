@@ -10,9 +10,10 @@ Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
 equally, with a gradient across its width set per tone (0.04, 0.02, 0.02, 0.06,
 0.02, 0.04 from dark to light) that runs the same way
-on every plank. Faces turned sideways are 0.02 darker than faces turned up, faces
-turned down 0.04. For planks side by side, the light end of one plank's gradient
-is never within 0.02 of the dark end of the other's.
+on every plank. A plank's long edges take its darkest value. Faces turned
+sideways are 0.02 darker than faces turned up, faces turned down 0.04. For
+planks side by side, the light end of one plank's gradient is never within
+0.02 of the dark end of the other's.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
@@ -413,9 +414,10 @@ function tone(file, options) {
     for (const p of pieces) for (const t of p.tris) {
       const n = job.normal[t];
       const facing = n[1] > 0.5 ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
+      const edge = Math.abs(dot(n, p.axes[1])) > 0.7;
       for (let k = 0; k < 3; k++) {
         const q = job.world(job.idx[t * 3 + k]);
-        const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
+        const c = edge ? -0.5 : (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
         lightOf.set(t * 3 + k, TONES[p.tone] + GRADIENT[p.tone] * c - facing);
       }
     }
