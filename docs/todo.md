@@ -9,9 +9,5 @@ lpa-west/cart-b
 lpa-west/foundation-a
 fs-town/crate-a-open
 fs-town/wood-floor-straight-a
-isa-homely/fence-straight
 isa-playground/picnic-table
 fs-town/well-a
-kay-dun-2/chest-gold
-jb-kitchen/chair
-kay-food/chair-b
