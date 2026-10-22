@@ -18,21 +18,21 @@ passes the self-check.
 
 ## 2. Tone
 
-- Default: `plank-tone.mjs --across 0.3 --flat 8 --big 0.02 --join <file>`.
-  The gradient across each board's width keeps boards apart even when two
-  draw the same tone.
+- Default: `plank-tone.mjs --strength 0.4 --across 0.15 --flat 8 --big 0.02 --join <file>`.
 - Boards of one wall or floor in mixed bands: put them in one band first,
   with `--band <from>:<to>` for a whole band, or by moving only those
   boards.
 - A board built from several strips gets cut into strips: use `--whole`
   when each piece is one board.
 - Strong baked gradients drown the tones: lower `--gradient` (0.5).
-- Staircase built as one piece: `--steps` instead of `--join` and `--big`.
-- Log or plank wall built as one piece: `--rows <row height>`.
+- Staircase built as one piece: `--steps` without `--across`, `--join` or
+  `--big`, so the step's tone does not smear over its riser and sides.
+- Log or plank wall built as one piece: `--rows auto`, or `--rows <row
+  height>` when the boards have no underside.
 - `--join` can merge whole rows of siding: drop it when boards already run
   through the gap.
-- Narrow boards look streaky: lower `--across` (0.2).
-- Tones stay random. No rule for neighbours.
+- Boards that look skipped are often boards whose tones sit too close:
+  check the strength before blaming the board split.
 
 ## 3. Self-check, every time, before the review
 

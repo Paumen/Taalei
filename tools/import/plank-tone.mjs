@@ -7,7 +7,7 @@ import { editablePrimitives, welder, vertexAdder, repack, fixBounds } from './me
 const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] [--join] [--steps] [--rows <h>] <workfile.glb> [...]
 
 Gives each board in the tan, camel and chestnut bands of the colormap one of
-six tones, picked at random. The tones are spread evenly over a range of
+six tones, drawn at random without repeats until all six are used. The tones are spread evenly over a range of
 2 x strength (default 0.25) lightness around the band's average, kept inside
 the cell, so no two tones come out the same. Each board keeps its own
 gradient, flattened only where it would leave the cell.
@@ -30,7 +30,8 @@ door, window or gap.
 its front edge and the riser below it is one board; faces that span
 several steps, like a solid side, keep their colours.
 --rows <h> cuts a wall built as one piece into rows of height h from the
-floor, one board per row, for log or plank walls.
+floor, one board per row, for log or plank walls; --rows auto cuts it at the
+underside of each board instead.
 --only tones only the listed bands.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -51,7 +52,7 @@ const WHOLE = argv.includes('--whole');
 const JOIN = argv.includes('--join');
 const STEPS = argv.includes('--steps');
 if (STEPS) argv.splice(argv.indexOf('--steps'), 1);
-const ROWS = Number(opt('--rows', '0'));
+const ROWS = opt('--rows', '');
 if (JOIN) argv.splice(argv.indexOf('--join'), 1);
 if (WHOLE) argv.splice(argv.indexOf('--whole'), 1);
 const OFF = [-1, -0.6, -0.2, 0.2, 0.6, 1].map((x) => x * Number(strength));
@@ -147,11 +148,14 @@ for (const prim of editablePrimitives(glb.json)) {
     for (const ts of pieces.values()) {
       if (STEPS && stepSplit(ts)) { split++; continue; }
       if (ROWS) {
-        const h = ROWS, y0 = 0;
         const ys = ts.map((t) => geo.get(t).c[1]);
-        if (Math.max(...ys) - Math.min(...ys) > 3 * h) {
+        const cuts = [];
+        if (ROWS === 'auto') for (const y of ts.filter((t) => geo.get(t).n[1] < -0.5).map((t) => geo.get(t).c[1]).sort((a, b) => a - b)) { if (!cuts.length || y - cuts[cuts.length - 1] > 0.01) cuts.push(y); }
+        const h = Number(ROWS);
+        const row = ROWS === 'auto' ? (y) => cuts.filter((c) => c <= y + 0.005).length : (y) => Math.floor(y / h);
+        if (ROWS === 'auto' ? cuts.length > 2 : Math.max(...ys) - Math.min(...ys) > 3 * h) {
           const ids = new Map();
-          for (const t of ts) { const k = Math.floor((geo.get(t).c[1] - y0) / h); if (!ids.has(k)) { ids.set(k, regions++); cellOfRegion[ids.get(k)] = cell; } triRegion.set(t, ids.get(k)); }
+          for (const t of ts) { const k = row(geo.get(t).c[1]); if (!ids.has(k)) { ids.set(k, regions++); cellOfRegion[ids.get(k)] = cell; } triRegion.set(t, ids.get(k)); }
           split++; continue;
         }
       }
@@ -231,7 +235,9 @@ for (const { prim, idx, triRegion, regions, cellOfRegion } of plans) {
     idx[t * 3 + k] = copy.get(key);
   }
   adder.commit(idx, replaced);
-  const offs = Array.from({ length: regions }, () => OFF[Math.floor(R() * OFF.length)]);
+  let deck = [];
+  const draw = () => { if (!deck.length) { deck = [...OFF]; for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; } } return deck.pop(); };
+  const offs = Array.from({ length: regions }, draw);
   if (JOIN) joinRegions(glb, prim, idx, triRegion, cellOfRegion, offs);
   after.push({ prim, vRegion, offs, cellOfRegion });
 }
