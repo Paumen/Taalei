@@ -19,6 +19,8 @@ passes the self-check.
 ## 2. Tone
 
 - Default: `plank-tone.mjs <file>`.
+- Tones are shuffled at random. Never pick or change a tone because of
+  the boards next to it.
 - Sibling boards in mixed bands: put them in one band with
   `--band <from>:<to>`, or move single boards by hand after toning.
   Pillars against planks, or upright against flat boards, may keep their

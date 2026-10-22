@@ -4,16 +4,15 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--steps <min>-<max>] [--floor] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--floor] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
 equally, with a gradient across its width set per tone (0.04, 0.02, 0.02, 0.06,
 0.02, 0.04 from dark to light) that runs the same way
 on every plank. A plank's long edges take its darkest value. Faces turned
-sideways are 0.02 darker than faces turned up, faces turned down 0.04. For
-planks side by side, the light end of one plank's gradient is never within
-0.02 of the dark end of the other's.
+sideways are 0.02 darker than faces turned up, faces turned down 0.04. Tones are shuffled
+with no regard to neighbours.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
@@ -31,7 +30,6 @@ recoloured; other wood keeps its look.
 --flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
---steps <min>-<max> makes planks side by side differ by min to max tones, in place of the gradient-end rule.
 --whole keeps each run of joined triangles as one plank instead of cutting it.
 --dry reports without writing.`;
 
@@ -41,11 +39,9 @@ const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Num
 const TONES = [0.37, 0.452, 0.534, 0.616, 0.698, 0.78];
 const GRADIENT = [0.22, 0.11, 0.11, 0.33, 0.11, 0.22];
 const SIDE = 0.11;
-const APART = 0.11;
 const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
 let FLAT = Math.cos((2 * Math.PI) / 180);
-let STEPS = null;
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
 
 function norm(a) {
@@ -267,42 +263,9 @@ function splitSlabs(tris, at) {
   return slabs.map((s) => s.tris);
 }
 
-function pickTones(pieces, R, touch = pieces.map(() => [])) {
-  const lo = [0, 1, 2].map((i) => Math.min(...pieces.map((p) => p.lo[i])));
-  const hi = [0, 1, 2].map((i) => Math.max(...pieces.map((p) => p.hi[i])));
-  const tol = 0.035 * Math.hypot(...sub(hi, lo));
-  const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
-  const mid = (p) => [0, 1, 2].map((i) => (p.lo[i] + p.hi[i]) / 2);
-  const beside = pieces.map((p, i) => [-1, 1].flatMap((side) => {
-    const list = pieces.map((q, j) => ({ q, j, d: sub(mid(q), mid(p)) })).filter(({ q, j, d }) => j !== i
-      && Math.abs(dot(p.axes[0], q.axes[0])) >= 0.9
-      && side * dot(d, p.axes[1]) > Math.abs(dot(d, p.axes[0]))
-      && gap(p, q) < Math.max(tol, span(p.ext[1]), span(q.ext[1])));
-    list.sort((x, y) => Math.abs(dot(x.d, p.axes[1])) - Math.abs(dot(y.d, p.axes[1])));
-    return list.slice(0, 1).map(({ j }) => j);
-  }));
+function pickTones(pieces, R) {
   for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
-  const ends = (i, tones) => [TONES[tones[i]] - GRADIENT[tones[i]] / 2, TONES[tones[i]] + GRADIENT[tones[i]] / 2];
-  const clash = (i, j, tones) => {
-    if (STEPS) { const d = Math.abs(tones[i] - tones[j]); return d < STEPS[0] || d > STEPS[1]; }
-    const [a0, a1] = ends(i, tones);
-    const [b0, b1] = ends(j, tones);
-    return Math.abs(a1 - b0) < APART || Math.abs(b1 - a0) < APART;
-  };
-  const near = (i, j, tones) => touch[i].includes(j) && Math.abs(tones[i] - tones[j]) < 2;
-  const bad = (i, tones) => beside[i].some((j) => clash(i, j, tones)) || touch[i].some((j) => near(i, j, tones));
-  const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length + touch[i].filter((j) => j > i && near(i, j, tones)).length, 0);
   const tones = pieces.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
-  let count = clashes(tones);
-  for (let step = 0; step < 4000 && count; step++) {
-    const wrong = pieces.map((_, i) => i).filter((i) => bad(i, tones));
-    const i = wrong[Math.floor(R() * wrong.length)];
-    const j = Math.floor(R() * pieces.length);
-    [tones[i], tones[j]] = [tones[j], tones[i]];
-    const after = clashes(tones);
-    if (after <= count) count = after;
-    else [tones[i], tones[j]] = [tones[j], tones[i]];
-  }
   pieces.forEach((p, i) => { p.tone = tones[i]; });
 }
 
@@ -733,7 +696,7 @@ function floorTone(file, options) {
       }
       for (const b of boards) for (const t of b.tris) { done.add(t); pieces.push({ owner: b, tri: [0, 1, 2].map((k) => vert(idx[t * 3 + k])), normal: at.normal[t] }); }
       if (!boards.length) continue;
-      pickTones(boards, R, boards.map((b) => boards.map((c, j) => (c !== b && sep(b, c).gap <= 0.25 * midWidth ? j : -1)).filter((j) => j >= 0)));
+      pickTones(boards, R);
       const shade = (pc, q) => {
         const n = pc.normal;
         if (n[1] <= 0.3) return light(pc.owner, n, q.w, options.edges);
@@ -791,7 +754,6 @@ for (let i = 0; i < argv.length; i++) {
   else if (argv[i] === '--no-edges') options.edges = false;
   else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--floor') options.floor = true;
-  else if (argv[i] === '--steps') STEPS = argv[++i].split('-').map(Number);
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
