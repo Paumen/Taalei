@@ -7,10 +7,10 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMa
 const HELP = `plank-tone.mjs [--dry] [--min <n>] [--share <n>] [--band <from>:<to>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
-own tone from a set of four, each used about equally, with a gradient across its
-width that runs the same way on every plank. Faces turned sideways are a step
-darker than faces turned up, faces turned down two steps. Where two planks lie
-side by side, the tone is chosen so the shade jumps at the seam.
+own tone, spread evenly from light to dark over the model's planks, with a
+gradient across its width of its own strength and direction. Faces turned
+sideways are a step darker than faces turned up, faces turned down two steps.
+Planks side by side differ in tone and at the seam.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
@@ -27,12 +27,11 @@ recoloured; other wood keeps its look.
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
-const TONES = [0.476, 0.603, 0.73, 0.857];
-const GRADIENT = 0.167;
+const TOP = [0.393, 0.94];
+const GRADIENT = [0.11, 0.28];
 const SIDE = 0.167;
-const SEAM = 0.11;
+const APART = 0.11;
 const RANGE = [0.06, 0.94];
-const REF = norm([0.3, 1, 0.5]);
 const FLAT = Math.cos((2 * Math.PI) / 180);
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
 
@@ -376,47 +375,36 @@ function tone(file, options) {
     const hi = [0, 1, 2].map((i) => Math.max(...pieces.map((p) => p.hi[i])));
     const tol = 0.035 * Math.hypot(...sub(hi, lo));
     const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
-    const near = pieces.map((p, i) => pieces.map((_, j) => j).filter((j) => j !== i && gap(p, pieces[j]) < tol));
     const mid = (p) => [0, 1, 2].map((i) => (p.lo[i] + p.hi[i]) / 2);
-    const beside = pieces.map((p, i) => near[i].filter((j) => {
-      const q = pieces[j];
-      if (Math.abs(dot(p.axes[0], q.axes[0])) < 0.9) return false;
-      const d = sub(mid(q), mid(p));
-      return Math.abs(dot(d, p.axes[1])) > Math.abs(dot(d, p.axes[0]));
+    const beside = pieces.map((p, i) => [-1, 1].flatMap((side) => {
+      const list = pieces.map((q, j) => ({ q, j, d: sub(mid(q), mid(p)) })).filter(({ q, j, d }) => j !== i
+        && Math.abs(dot(p.axes[0], q.axes[0])) >= 0.9
+        && side * dot(d, p.axes[1]) > Math.abs(dot(d, p.axes[0]))
+        && gap(p, q) < Math.max(tol, span(p.ext[1]), span(q.ext[1])));
+      list.sort((x, y) => Math.abs(dot(x.d, p.axes[1])) - Math.abs(dot(y.d, p.axes[1])));
+      return list.slice(0, 1).map(({ j }) => j);
     }));
-    const flip = (p) => { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; };
-    for (const p of pieces) if (dot(p.axes[1], REF) < 0) flip(p);
-    const weak = new Set(pieces.filter((p) => Math.abs(dot(p.axes[1], REF)) < 0.25));
-    for (let pass = 0; pass < pieces.length && weak.size; pass++) for (const p of [...weak]) {
-      const i = pieces.indexOf(p);
-      const q = beside[i].map((j) => pieces[j]).find((r) => !weak.has(r) && Math.abs(dot(p.axes[1], r.axes[1])) > 0.9);
-      if (!q) continue;
-      if (dot(p.axes[1], q.axes[1]) < 0) flip(p);
-      weak.delete(p);
+    const edgeOf = (p, q, tone) => tone.base + (tone.gradient / 2) * tone.way * Math.sign(dot(sub(mid(q), mid(p)), p.axes[1]));
+    const clash = (i, j, tones) => Math.abs(tones[i].base - tones[j].base) < APART
+      || Math.abs(edgeOf(pieces[i], pieces[j], tones[i]) - edgeOf(pieces[j], pieces[i], tones[j])) < APART;
+    const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length, 0);
+    const tones = pieces.map((_, k) => {
+      const gradient = GRADIENT[0] + R() * (GRADIENT[1] - GRADIENT[0]);
+      const slot = (k + 0.2 + 0.6 * R()) / pieces.length;
+      return { base: TOP[0] + gradient / 2 + slot * (TOP[1] - TOP[0] - gradient), gradient, way: R() < 0.5 ? -1 : 1 };
+    }).sort(() => R() - 0.5);
+    let count = clashes(tones);
+    for (let step = 0; step < 4000 && count; step++) {
+      const bad = pieces.map((_, i) => i).filter((i) => beside[i].some((j) => clash(i, j, tones)));
+      const i = bad[Math.floor(R() * bad.length)];
+      const j = Math.floor(R() * pieces.length);
+      const before = [tones[i], tones[j]];
+      [tones[i], tones[j]] = [{ ...tones[j], way: R() < 0.5 ? -1 : 1 }, { ...tones[i], way: R() < 0.5 ? -1 : 1 }];
+      const after = clashes(tones);
+      if (after <= count) count = after;
+      else [tones[i], tones[j]] = before;
     }
-    const edgeOf = (p, q, k) => TONES[k] + (GRADIENT / 2) * Math.sign(dot(sub(mid(q), mid(p)), p.axes[1]));
-    const seamOf = (i, k, tones) => Math.min(1, ...beside[i].filter((j) => tones[j] !== undefined)
-      .map((j) => Math.abs(edgeOf(pieces[i], pieces[j], k) - edgeOf(pieces[j], pieces[i], tones[j]))));
-    let best = null;
-    for (let attempt = 0; attempt < 40; attempt++) {
-      const bag = Array(TONES.length).fill(0);
-      const used = Array(TONES.length).fill(0);
-      const pool = [];
-      while (pool.length < pieces.length) pool.push(...[...TONES.keys()].sort(() => R() - 0.5));
-      pool.slice(0, pieces.length).forEach((k) => bag[k]++);
-      const tones = [];
-      for (const i of pieces.map((_, i) => i).sort(() => R() - 0.5)) {
-        const options = [...TONES.keys()].sort(() => R() - 0.5).sort((a, b) => (used[a] >= bag[a]) - (used[b] >= bag[b]));
-        const k = options.find((k) => seamOf(i, k, tones) >= SEAM) ?? options.reduce((a, b) => (seamOf(i, b, tones) > seamOf(i, a, tones) ? b : a));
-        tones[i] = k;
-        used[k]++;
-      }
-      const under = pieces.filter((_, i) => seamOf(i, tones[i], tones) < SEAM).length;
-      const score = under * 100 + Math.max(...used) - Math.min(...used);
-      if (!best || score < best.score) best = { score, tones };
-      if (score <= 1) break;
-    }
-    pieces.forEach((p, i) => { p.tone = best.tones[i]; });
+    pieces.forEach((p, i) => { p.tone = tones[i]; });
     const writesOf = writes.get(job.prim) ?? new Map();
     writes.set(job.prim, writesOf);
     const lightOf = new Map();
@@ -426,7 +414,7 @@ function tone(file, options) {
       for (let k = 0; k < 3; k++) {
         const q = job.world(job.idx[t * 3 + k]);
         const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-        lightOf.set(t * 3 + k, TONES[p.tone] + GRADIENT * c - facing);
+        lightOf.set(t * 3 + k, p.tone.base + p.tone.gradient * p.tone.way * c - facing);
       }
     }
     for (const [c, l] of lightOf) {
