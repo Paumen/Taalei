@@ -11,3 +11,4 @@ fs-town/crate-a-open
 fs-town/wood-floor-straight-a
 isa-playground/picnic-table
 fs-town/well-a
+ken-castle/bridge-straight-pillar
