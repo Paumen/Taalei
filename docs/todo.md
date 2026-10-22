@@ -1,14 +1,10 @@
 emace-village/wall-planks
 ken-castle/siege-trebuchet-demolished
-isa-bakery/floor-connection
-isa-bakery/floor-wood
-kay-dun-2/floor-wood-large
 lpa-west/hotel-sign-c
 dungeon/walls-002
 lpa-west/cart-b
 lpa-west/foundation-a
 fs-town/crate-a-open
-fs-town/wood-floor-straight-a
 isa-playground/picnic-table
 fs-town/well-a
 ken-castle/bridge-straight-pillar
