@@ -22,3 +22,6 @@ fs-town/well-a
 kay-dun-2/chest-gold
 kay-food/crate-buns
 kay-food/crate-carrots
+emace-village/bench-draped
+jb-kitchen/chair
+kay-food/chair-b
