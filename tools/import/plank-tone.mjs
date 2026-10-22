@@ -196,7 +196,7 @@ function splitStrips(tris, at) {
     if (hi - lo <= wide) for (const b of bins) {
       const w = span(b.across);
       const [low] = range(region.tris, best.normal);
-      if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || low < b.height - 0.5 * w) continue;
+      if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || low < b.height - (dot(region.normal, best.normal) < -PARALLEL ? 1.5 : 0.5) * w) continue;
       const d = mid < b.across[0] ? b.across[0] - mid : mid > b.across[1] ? mid - b.across[1] : 0;
       const da = along < b.long[0] ? b.long[0] - along : along > b.long[1] ? along - b.long[1] : 0;
       if (d <= 0.5 * w && (d < gap - 1e-9 || (d < gap + 1e-9 && da < gapAlong))) { gap = d; gapAlong = da; pick = b; }
