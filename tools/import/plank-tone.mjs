@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--ends] [--whole] [--only <band>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--ends] [--whole] [--all] [--only <band>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -31,6 +31,7 @@ recoloured; other wood keeps its look.
 --flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
+--all also tones the rest of the wood: a flat top left over becomes its own plank, every other triangle joins the nearest plank.
 --whole keeps each run of joined triangles as one plank instead of cutting it.
 --ends also counts short boards that lie end to end in a row of fused boards as planks.
 --dry reports without writing.`;
@@ -388,6 +389,34 @@ function tone(file, options) {
       const c = [0, 1, 2].map((k) => job.world(job.idx[t * 3 + k]));
       return Math.hypot(...cross(sub(c[1], c[0]), sub(c[2], c[0]))) / 2;
     };
+    if (options.all && pieces.length) {
+      const rest = job.pieces.filter((q) => !q.plank).flatMap((q) => q.tris);
+      const up = rest.filter((t) => job.normal[t][1] > 0.9);
+      const key = (q) => q.map((x) => x.toFixed(4)).join(',');
+      const tag = new Map(up.map((t) => [t, t]));
+      const find = (a) => (tag.get(a) === a ? a : (tag.set(a, find(tag.get(a))), tag.get(a)));
+      const at = new Map();
+      for (const t of up) for (let k = 0; k < 3; k++) {
+        const v = key(job.world(job.idx[t * 3 + k]));
+        if (at.has(v)) tag.set(find(t), find(at.get(v))); else at.set(v, t);
+      }
+      const groups = new Map();
+      for (const t of up) { const r = find(t); if (!groups.has(r)) groups.set(r, []); groups.get(r).push(t); }
+      const size = Math.min(...pieces.map((p) => p.tris.reduce((s, t) => s + triArea(t), 0)));
+      const taken = new Set();
+      for (const g of groups.values()) {
+        if (g.reduce((s, t) => s + triArea(t), 0) < 0.3 * size) continue;
+        const f = frame(g.flatMap((t) => [0, 1, 2].map((k) => job.world(job.idx[t * 3 + k]))));
+        pieces.push({ tris: [...g], ...f, plank: true });
+        for (const t of g) taken.add(t);
+      }
+      job.leftover = rest.filter((t) => !taken.has(t));
+    }
+    if (options.all && pieces.length) for (const t of job.leftover) { const q = { tris: [t] }; for (const t of q.tris) {
+      const c = [0, 1, 2].map((i) => [0, 1, 2].reduce((s, k) => s + job.world(job.idx[t * 3 + k])[i], 0) / 3);
+      const d = (p) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, p.lo[i] - c[i], c[i] - p.hi[i])));
+      pieces.reduce((a, b) => (d(b) < d(a) ? b : a)).tris.push(t);
+    } }
     for (const p of pieces) p.area = p.tris.reduce((s, t) => s + triArea(t), 0);
     const median = pieces.map((p) => p.area).sort((a, b) => a - b)[pieces.length >> 1] || 0;
     const boxGap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
@@ -536,6 +565,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (argv[i] === '--no-edges') options.edges = false;
   else if (argv[i] === '--ends') ENDS = true;
   else if (argv[i] === '--whole') options.whole = true;
+  else if (argv[i] === '--all') options.all = true;
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
