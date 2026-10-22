@@ -11,3 +11,8 @@ lpa-west/cart-b
 lpa-west/foundation-a
 fs-town/crate-a-open
 emace-village/table-long
+fs-town/wood-floor-straight-a
+ipoly-signs/signpost-planks
+isa-homely/fence-straight
+isa-playground/picnic-table
+kay-food/crate
