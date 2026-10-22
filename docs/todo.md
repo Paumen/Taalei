@@ -9,3 +9,4 @@ dungeon/walls-002
 kay-food/crate-potatoes
 lpa-west/cart-b
 lpa-west/foundation-a
+fs-town/crate-a-open
