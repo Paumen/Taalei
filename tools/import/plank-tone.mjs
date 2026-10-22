@@ -2,9 +2,9 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
-import { editablePrimitives, welder, vertexAdder, repack } from './mesh-edit.mjs';
+import { editablePrimitives, welder, vertexAdder, repack, fixBounds } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--whole] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] <workfile.glb> [...]
 
 Gives each board in the tan, camel and chestnut bands of the colormap one of
 six tones, picked at random. The tones are spread evenly over a range of
@@ -17,9 +17,13 @@ cut into one board per face; faces under --big (default 0.1) of its largest
 face join the nearest board. Faces of one board split by a gap or hole stay
 one board. Corners shared by two boards are doubled so each keeps its tone.
 --band <from>:<to> first moves all wood of one band into another.
+--flat <deg> (default 2.56) is how far faces may turn and still count as one flat face.
 --whole keeps each run of joined triangles as one board, for boards built
 from several strips.
 --gradient <n> (default 1) scales each board's gradient; 0 gives one even tone.
+--span <n> (default 1) caps each board's gradient to n of the cell's range.
+--across <n> replaces each board's gradient with one of n running across its
+width, light on the same side for every board.
 --only tones only the listed bands.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -33,6 +37,9 @@ const only = opt('--only', '');
 const move = opt('--band', '');
 const BIG = Number(opt('--big', '0.1'));
 const GRAD = Number(opt('--gradient', '1'));
+const SPAN = Number(opt('--span', '1'));
+const ACROSS = Number(opt('--across', '0'));
+const FLAT = Math.cos((Number(opt('--flat', '2.56')) * Math.PI) / 180);
 const WHOLE = argv.includes('--whole');
 if (WHOLE) argv.splice(argv.indexOf('--whole'), 1);
 const OFF = [-1, -0.6, -0.2, 0.2, 0.6, 1].map((x) => x * Number(strength));
@@ -86,7 +93,7 @@ for (const prim of editablePrimitives(glb.json)) {
       }
       const dot = (p, q) => p[0] * q[0] + p[1] * q[1] + p[2] * q[2];
       const [fpar, ff] = uf();
-      for (const l of byEdge.values()) for (let i = 1; i < l.length; i++) if (dot(geo.get(l[0]).n, geo.get(l[i]).n) > 0.999) fpar.set(ff(l[i]), ff(l[0]));
+      for (const l of byEdge.values()) for (let i = 1; i < l.length; i++) if (dot(geo.get(l[0]).n, geo.get(l[i]).n) > FLAT) fpar.set(ff(l[i]), ff(l[0]));
       const flat = new Map();
       for (const t of ts) {
         const r = ff(t);
@@ -187,16 +194,58 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
     if (hi - lo < 2 * s) { if (lo === 0.1) hi = Math.min(0.9, lo + 2 * s); else lo = Math.max(0.1, hi - 2 * s); }
     tones.set(key, OFF.map((_, k) => lo + (k / (OFF.length - 1)) * (hi - lo)));
   }
+  const pos = readAccessor(glb, prim.attributes.POSITION).data;
+  const across = new Map();
+  if (ACROSS) {
+    const pts = new Map();
+    for (const [v, r] of vRegion) {
+      if (!pts.has(r)) pts.set(r, []);
+      pts.get(r).push([pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]);
+    }
+    const dir = new Map();
+    for (const [r, ps] of pts) {
+      const c = [0, 1, 2].map((i) => ps.reduce((a, p) => a + p[i], 0) / ps.length);
+      const C = [0, 1, 2].map((i) => [0, 1, 2].map((j) => ps.reduce((a, p) => a + (p[i] - c[i]) * (p[j] - c[j]), 0)));
+      const top = (M, skip) => {
+        let x = [0.57, 0.61, 0.55];
+        for (let it = 0; it < 60; it++) {
+          for (const s of skip) { const d = s[0] * x[0] + s[1] * x[1] + s[2] * x[2]; x = x.map((q, i) => q - d * s[i]); }
+          x = [0, 1, 2].map((i) => M[i][0] * x[0] + M[i][1] * x[1] + M[i][2] * x[2]);
+          const l = Math.hypot(...x) || 1;
+          x = x.map((q) => q / l);
+        }
+        return x;
+      };
+      const long = top(C, []);
+      const wide = top(C, [long]);
+      const t = ps.map((p) => wide[0] * p[0] + wide[1] * p[1] + wide[2] * p[2]);
+      const flip = wide[0] + wide[1] + wide[2] < 0 ? -1 : 1;
+      dir.set(r, { wide, lo: Math.min(...t), hi: Math.max(...t), flip });
+    }
+    for (const [v, r] of vRegion) {
+      const d = dir.get(r);
+      const w = d.hi - d.lo;
+      const t = d.wide[0] * pos[v * 3] + d.wide[1] * pos[v * 3 + 1] + d.wide[2] * pos[v * 3 + 2];
+      across.set(v, w > 0 ? d.flip * ((t - d.lo) / w - 0.5) : 0);
+    }
+  }
   for (const [v, r] of vRegion) {
     const cell = cellOfRegion[r];
     const o = st.get(r);
+    if (ACROSS) {
+      const M = tones.get(cell.join())[OFF.indexOf(offs[r])];
+      const n = Math.min(0.94, Math.max(0.06, M + across.get(v) * ACROSS));
+      glb.bin.writeFloatLE((cell[1] * 128 + 0.5 + (1 - n) * 127) / 512, start + v * step + 4);
+      continue;
+    }
     const m = o.sum / o.n;
     const M = tones.get(cell.join())[OFF.indexOf(offs[r])];
-    const g = Math.min(GRAD, o.hi > m ? (0.94 - M) / (o.hi - m) : 1, o.lo < m ? (M - 0.06) / (m - o.lo) : 1);
+    const g = Math.min(GRAD, SPAN / Math.max(o.hi - o.lo, 1e-6), o.hi > m ? (0.94 - M) / (o.hi - m) : 1, o.lo < m ? (M - 0.06) / (m - o.lo) : 1);
     const n = M + (L.get(v) - m) * g;
     glb.bin.writeFloatLE((cell[1] * 128 + 0.5 + (1 - n) * 127) / 512, start + v * step + 4);
   }
 }
+fixBounds(glb);
 writeGlb(file, glb.json, glb.bin, writeFileSync);
 console.log(`${basename(file)}: ${log.join(', ')}`);
 }
