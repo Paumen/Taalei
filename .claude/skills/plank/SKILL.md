@@ -18,7 +18,9 @@ passes the self-check.
 
 ## 2. Tone
 
-- Default: `plank-tone.mjs <file>`.
+- Default: `plank-tone.mjs --across 0.3 --flat 8 --big 0.02 --join <file>`.
+  The gradient across each board's width keeps boards apart even when two
+  draw the same tone.
 - Boards of one wall or floor in mixed bands: put them in one band first,
   with `--band <from>:<to>` for a whole band, or by moving only those
   boards.

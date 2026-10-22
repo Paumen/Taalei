@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { editablePrimitives, welder, vertexAdder, repack, fixBounds } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] [--join] <workfile.glb> [...]
 
 Gives each board in the tan, camel and chestnut bands of the colormap one of
 six tones, picked at random. The tones are spread evenly over a range of
@@ -24,6 +24,8 @@ from several strips.
 --span <n> (default 1) caps each board's gradient to n of the cell's range.
 --across <n> replaces each board's gradient with one of n running across its
 width, light on the same side for every board.
+--join gives one tone to board pieces that line up as one board cut by a
+door, window or gap.
 --only tones only the listed bands.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -41,6 +43,8 @@ const SPAN = Number(opt('--span', '1'));
 const ACROSS = Number(opt('--across', '0'));
 const FLAT = Math.cos((Number(opt('--flat', '2.56')) * Math.PI) / 180);
 const WHOLE = argv.includes('--whole');
+const JOIN = argv.includes('--join');
+if (JOIN) argv.splice(argv.indexOf('--join'), 1);
 if (WHOLE) argv.splice(argv.indexOf('--whole'), 1);
 const OFF = [-1, -0.6, -0.2, 0.2, 0.6, 1].map((x) => x * Number(strength));
 for (const file of argv) tone(file);
@@ -162,6 +166,7 @@ for (const { prim, idx, triRegion, regions, cellOfRegion } of plans) {
   }
   adder.commit(idx, replaced);
   const offs = Array.from({ length: regions }, () => OFF[Math.floor(R() * OFF.length)]);
+  if (JOIN) joinRegions(glb, prim, idx, triRegion, cellOfRegion, offs);
   after.push({ prim, vRegion, offs, cellOfRegion });
 }
 repack(glb, replaced);
@@ -264,4 +269,34 @@ function moveBand(glb, from, to) {
       glb.bin.writeFloatLE(w + (T[1] - F[1]) / 4, at + 4);
     }
   }
+}
+
+function joinRegions(glb, prim, idx, triRegion, cellOfRegion, offs) {
+  const pos = readAccessor(glb, prim.attributes.POSITION).data;
+  const box = new Map();
+  for (const [t, r] of triRegion) {
+    if (!box.has(r)) box.set(r, { lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity] });
+    const b = box.get(r);
+    for (let k = 0; k < 3; k++) { const v = idx[t * 3 + k]; for (let i = 0; i < 3; i++) { b.lo[i] = Math.min(b.lo[i], pos[v * 3 + i]); b.hi[i] = Math.max(b.hi[i], pos[v * 3 + i]); } }
+  }
+  for (const b of box.values()) {
+    const e = b.lo.map((x, i) => b.hi[i] - x);
+    b.ax = [0, 1, 2].sort((p, q) => e[p] - e[q]);
+    b.e = e;
+  }
+  const keys = [...box.keys()];
+  const root = new Map(keys.map((k) => [k, k]));
+  const f = (a) => (root.get(a) === a ? a : (root.set(a, f(root.get(a))), root.get(a)));
+  for (let i = 0; i < keys.length; i++) for (let j = i + 1; j < keys.length; j++) {
+    const A = box.get(keys[i]), B = box.get(keys[j]);
+    if (cellOfRegion[keys[i]] !== cellOfRegion[keys[j]] || A.ax[0] !== B.ax[0] || A.ax[1] !== B.ax[1]) continue;
+    const [th, w, l] = A.ax;
+    const mid = (o, k) => (o.lo[k] + o.hi[k]) / 2;
+    if (Math.abs(mid(A, th) - mid(B, th)) > Math.max(A.e[th], B.e[th])) continue;
+    const ov = Math.min(A.hi[w], B.hi[w]) - Math.max(A.lo[w], B.lo[w]);
+    if (ov < 0.8 * Math.max(A.e[w], B.e[w])) continue;
+    if (Math.max(A.lo[l], B.lo[l]) - Math.min(A.hi[l], B.hi[l]) > 3 * Math.max(A.e[w], B.e[w])) continue;
+    root.set(f(keys[j]), f(keys[i]));
+  }
+  for (const k of keys) offs[k] = offs[f(k)];
 }
