@@ -17,7 +17,10 @@ planks side by side, the light end of one plank's gradient is never within
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
-inward fold. A file is left alone unless it has at least
+inward fold. A plank under a tenth of the median plank's area joins the
+nearest plank, a triangle cut off its face by a diagonal seam joins the plank
+that holds the rest of that face, and each face is shaded by its average
+direction. A file is left alone unless it has at least
 --min (default 2) planks, boxy pieces that are boards (thinner than wide, longer than wide)
 whose broad face fills their outline, or slats (three times longer than wide) lying edge to edge beside a like slat
 or a board,
@@ -364,7 +367,56 @@ function tone(file, options) {
   if (options.dry) return report.join(', ');
   const writes = new Map();
   for (const job of jobs) {
-    const pieces = job.pieces.filter((p) => p.plank);
+    let pieces = job.pieces.filter((p) => p.plank);
+    const triArea = (t) => {
+      const c = [0, 1, 2].map((k) => job.world(job.idx[t * 3 + k]));
+      return Math.hypot(...cross(sub(c[1], c[0]), sub(c[2], c[0]))) / 2;
+    };
+    for (const p of pieces) p.area = p.tris.reduce((s, t) => s + triArea(t), 0);
+    const median = pieces.map((p) => p.area).sort((a, b) => a - b)[pieces.length >> 1] || 0;
+    const boxGap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
+    for (const p of [...pieces].sort((a, b) => a.area - b.area)) {
+      const rest = pieces.filter((q) => q !== p && q.area > p.area);
+      if (p.area >= 0.1 * median || !rest.length) continue;
+      const q = rest.reduce((a, b) => (boxGap(p, b) < boxGap(p, a) ? b : a));
+      q.tris.push(...p.tris);
+      q.area += p.area;
+      pieces = pieces.filter((r) => r !== p);
+    }
+    const owner = new Map();
+    for (const p of pieces) for (const t of p.tris) owner.set(t, p);
+    const near = new Map([...owner.keys()].map((t) => [t, []]));
+    const byEdge = new Map();
+    const pointKey = (q) => q.map((x) => x.toFixed(4)).join(',');
+    for (const t of owner.keys()) for (const [u, v] of [[0, 1], [1, 2], [2, 0]]) {
+      const A = job.world(job.idx[t * 3 + u]);
+      const B = job.world(job.idx[t * 3 + v]);
+      const k = [pointKey(A), pointKey(B)].sort().join('|');
+      if (!byEdge.has(k)) byEdge.set(k, { d: norm(sub(B, A)), list: [] });
+      byEdge.get(k).list.push(t);
+    }
+    for (const { d, list } of byEdge.values()) if (list.length === 2 && dot(job.normal[list[0]], job.normal[list[1]]) > 0.85) {
+      near.get(list[0]).push({ t: list[1], d });
+      near.get(list[1]).push({ t: list[0], d });
+    }
+    for (let pass = 0; pass < 4; pass++) for (const [t, list] of near) {
+      const p = owner.get(t);
+      const diag = list.filter(({ t: u, d }) => owner.get(u) !== p && p.axes.every((a) => Math.abs(dot(d, a)) < 0.95));
+      if (!diag.length) continue;
+      const q = owner.get(diag[0].t);
+      if (list.filter(({ t: u }) => owner.get(u) === q).length < list.filter(({ t: u }) => owner.get(u) === p).length) continue;
+      p.tris.splice(p.tris.indexOf(t), 1);
+      q.tris.push(t);
+      owner.set(t, q);
+    }
+    const faceNormal = new Map();
+    for (const t of owner.keys()) {
+      if (faceNormal.has(t)) continue;
+      const group = [t];
+      for (let i = 0; i < group.length; i++) for (const { t: u } of near.get(group[i])) if (!group.includes(u) && owner.get(u) === owner.get(t)) group.push(u);
+      const n = norm(group.reduce((s, u) => s.map((x, k) => x + job.normal[u][k] * triArea(u)), [0, 0, 0]));
+      for (const u of group) faceNormal.set(u, n);
+    }
     const to = options.band && options.band[0].join() === job.cell.join() ? options.band[1] : job.cell;
     if (to !== job.cell) {
       const moved = writes.get(job.prim) ?? new Map();
@@ -412,12 +464,12 @@ function tone(file, options) {
     writes.set(job.prim, writesOf);
     const lightOf = new Map();
     for (const p of pieces) for (const t of p.tris) {
-      const n = job.normal[t];
+      const n = faceNormal.get(t);
       const facing = n[1] > 0.5 ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
       const edge = Math.abs(dot(n, p.axes[1])) > 0.7;
       for (let k = 0; k < 3; k++) {
         const q = job.world(job.idx[t * 3 + k]);
-        const c = edge ? -0.5 : (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
+        const c = edge ? -0.5 : Math.min(0.5, Math.max(-0.5, (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5));
         lightOf.set(t * 3 + k, TONES[p.tone] + GRADIENT[p.tone] * c - facing);
       }
     }
