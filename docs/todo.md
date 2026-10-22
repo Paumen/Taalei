@@ -25,3 +25,4 @@ rgp-medieval/house-8
 rgp-medieval/house-9
 rgp-medieval/house-long
 rgp-medieval/hut
+lpa-west/small-wall-b
