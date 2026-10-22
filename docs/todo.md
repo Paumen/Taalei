@@ -15,16 +15,3 @@ fs-town/well-a
 kay-dun-2/chest-gold
 jb-kitchen/chair
 kay-food/chair-b
-fs-town/wood-floor-straight-c
-isa-homely/fence-open-long
-isa-homely/fence-open-wide-long
-isa-homely/fence-open
-kay-dun-2/chest
-kay-dun-2/floor-wood-large-dark
-emace-village/corner-shelf-long
-emace-village/corner-shelf
-fs-town/wood-floor-straight-d
-kay-dun-1/chest-rare-closed
-kay-dun-2/floor-wood-small-dark
-ken-castle/bridge-straight-pillar
-ken-furniture/bed-single
