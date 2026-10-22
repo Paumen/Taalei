@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--floor] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--steps <min>-<max>] [--floor] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -31,6 +31,7 @@ recoloured; other wood keeps its look.
 --flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
+--steps <min>-<max> makes planks side by side differ by min to max tones, in place of the gradient-end rule.
 --whole keeps each run of joined triangles as one plank instead of cutting it.
 --dry reports without writing.`;
 
@@ -44,6 +45,7 @@ const APART = 0.11;
 const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
 let FLAT = Math.cos((2 * Math.PI) / 180);
+let STEPS = null;
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
 
 function norm(a) {
@@ -282,6 +284,7 @@ function pickTones(pieces, R, touch = pieces.map(() => [])) {
   for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
   const ends = (i, tones) => [TONES[tones[i]] - GRADIENT[tones[i]] / 2, TONES[tones[i]] + GRADIENT[tones[i]] / 2];
   const clash = (i, j, tones) => {
+    if (STEPS) { const d = Math.abs(tones[i] - tones[j]); return d < STEPS[0] || d > STEPS[1]; }
     const [a0, a1] = ends(i, tones);
     const [b0, b1] = ends(j, tones);
     return Math.abs(a1 - b0) < APART || Math.abs(b1 - a0) < APART;
@@ -788,6 +791,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (argv[i] === '--no-edges') options.edges = false;
   else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--floor') options.floor = true;
+  else if (argv[i] === '--steps') STEPS = argv[++i].split('-').map(Number);
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
