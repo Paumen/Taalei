@@ -12,3 +12,6 @@ lpa-west/hotel-sign-c
 emace-village/shutters-wide
 dungeon/walls-002
 quat-farms/barn
+kay-food/crate-potatoes
+lpa-west/cart-b
+lpa-west/foundation-a
