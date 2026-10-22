@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--only <band>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--ends] [--whole] [--only <band>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -31,6 +31,8 @@ recoloured; other wood keeps its look.
 --flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
+--whole keeps each run of joined triangles as one plank instead of cutting it.
+--ends also counts short boards that lie end to end in a row of fused boards as planks.
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -43,6 +45,7 @@ const APART = 0.11;
 const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
 let FLAT = Math.cos((2 * Math.PI) / 180);
+let ENDS = false;
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
 
 function norm(a) {
@@ -168,7 +171,7 @@ function splitStrips(tris, at) {
     const aligned = strips.filter((r) => Math.abs(dot(r.long, long)) > 0.9);
     if (aligned.length < 2) continue;
     const area = aligned.reduce((s, r) => s + r.area, 0);
-    if (!best || area > best.area) best = { area, normal: group.normal, long, strips: aligned };
+    if (!best || area > best.area) best = { area, normal: group.normal, long, strips: aligned, group, total };
   }
   if (!best) return splitConcave(tris, at);
   const across = norm(cross(best.normal, best.long));
@@ -181,8 +184,13 @@ function splitStrips(tris, at) {
   }));
   const widths = bins.map((b) => span(b.across)).sort((a, b) => a - b);
   const wide = 1.5 * widths[widths.length >> 1];
+  if (ENDS) for (const r of best.group.regions) {
+    if (best.strips.some((q) => q.tris === r.tris) || r.area <= 0.02 * best.total || span(range(r.tris, across)) > wide) continue;
+    bins.push({ across: range(r.tris, across), long: range(r.tris, best.long), height: range(r.tris, best.normal)[1], tris: [] });
+  }
   const base = [];
-  for (const region of regions.values()) {
+  const units = ENDS ? [...regions.values()].flatMap((r) => r.tris.map((t) => ({ tris: [t] }))) : regions.values();
+  for (const region of units) {
     const [lo, hi] = range(region.tris, across);
     const points = region.tris.flatMap((t) => at.corners[t]);
     const c = [0, 1, 2].map((i) => points.reduce((sum, p) => sum + p[i], 0) / points.length);
@@ -191,12 +199,15 @@ function splitStrips(tris, at) {
     const mid = (lo + hi) / 2;
     let pick = null;
     let gap = Infinity;
+    let gapAlong = Infinity;
     if (hi - lo <= wide) for (const b of bins) {
       const w = span(b.across);
       const [low] = range(region.tris, best.normal);
       if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || low < b.height - 0.5 * w) continue;
+      if (ENDS) { const [a0, a1] = range(region.tris, best.long); if (a0 < b.long[0] - 0.5 * w || a1 > b.long[1] + 0.5 * w || low < b.height - 0.25 * w) continue; }
       const d = mid < b.across[0] ? b.across[0] - mid : mid > b.across[1] ? mid - b.across[1] : 0;
-      if (d <= 0.5 * w && d < gap) { gap = d; pick = b; }
+      const da = along < b.long[0] ? b.long[0] - along : along > b.long[1] ? along - b.long[1] : 0;
+      if (d <= 0.5 * w && (d < gap - 1e-9 || (d < gap + 1e-9 && da < gapAlong))) { gap = d; gapAlong = da; pick = b; }
     }
     (pick ? pick.tris : base).push(...region.tris);
   }
@@ -330,6 +341,7 @@ function tone(file, options) {
       };
       const pieces = [...comps.values()].flatMap((c) => {
         const whole = measure(c);
+        if (options.whole) return [{ ...whole, plank: options.force || isPlank(whole) }];
         const parts = splitStrips(c, at).map(measure);
         const size = (p) => p.tris.reduce((s, t) => s + at.area[t], 0);
         const split = parts.filter((p) => p.plank);
@@ -516,11 +528,13 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { min: 2, share: 0.25, dry: false, force: false, band: null, flat: 2, edges: true, only: null };
+const options = { min: 2, share: 0.25, dry: false, force: false, band: null, flat: 2, edges: true, only: null, whole: false };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
   else if (argv[i] === '--no-edges') options.edges = false;
+  else if (argv[i] === '--ends') ENDS = true;
+  else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
