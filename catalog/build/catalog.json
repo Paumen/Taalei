@@ -54722,7 +54722,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "firewood-rack",
-   "hash": "32aa455cd9",
+   "hash": "7d33771a86",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
@@ -54735,8 +54735,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 388652,
-   "vtx": 10198,
+   "bytes": 379208,
+   "vtx": 9903,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -54745,7 +54745,7 @@
    "avgTri": 0.00053,
    "anglePct": 18,
    "pieces": 38,
-   "vpt": 1.01,
+   "vpt": 0.98,
    "cells": [
     "3,0",
     "0,0",
@@ -54762,6 +54762,20 @@
     "bark",
     "plural",
     "wood-dark"
+   ],
+   "backface": {
+    "share": 0.0035,
+    "view": "315/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 315/20 over 0.1%: inverted 100.0%"
+    }
    ]
   },
   {
@@ -57839,7 +57853,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "shelf-standing-wide",
-   "hash": "1f44193cb3",
+   "hash": "9f1127fb2e",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -57882,7 +57896,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "shelf-standing",
-   "hash": "3495e2e8d5",
+   "hash": "72774c511a",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -57895,8 +57909,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14464,
-   "vtx": 371,
+   "bytes": 14048,
+   "vtx": 358,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
@@ -57905,7 +57919,7 @@
    "avgTri": 0.00374,
    "anglePct": 14,
    "pieces": 12,
-   "vpt": 2.04,
+   "vpt": 1.97,
    "cells": [
     "2,0",
     "1,0"
@@ -58062,7 +58076,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "split-logs",
-   "hash": "ce75791ab7",
+   "hash": "309b116c26",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
@@ -58075,8 +58089,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 146668,
-   "vtx": 3689,
+   "bytes": 144300,
+   "vtx": 3615,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -58084,7 +58098,7 @@
    "avgTri": 0.00021,
    "anglePct": 8,
    "pieces": 16,
-   "vpt": 0.82,
+   "vpt": 0.8,
    "cells": [
     "0,0",
     "3,0"
@@ -58097,6 +58111,21 @@
     "bark",
     "plural",
     "wood-light"
+   ],
+   "backface": {
+    "share": 0.0012,
+    "view": "315/20",
+    "causes": {
+     "inverted": 0.17,
+     "open": 0.83
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 83.0%, inverted 17.0%"
+    }
    ]
   },
   {
@@ -58628,7 +58657,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stool",
-   "hash": "2cdfbbe2f6",
+   "hash": "7d3b8a7659",
    "kind": "obj-furnishing-furniture-seating-stool",
    "size": "s",
    "wdh": [
@@ -58641,8 +58670,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8096,
-   "vtx": 187,
+   "bytes": 7776,
+   "vtx": 177,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -58651,7 +58680,7 @@
    "avgTri": 0.00313,
    "anglePct": 30,
    "pieces": 7,
-   "vpt": 1.87,
+   "vpt": 1.77,
    "cells": [
     "1,0",
     "2,0"
@@ -58664,7 +58693,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.82
+   "backface": {
+    "share": 0.0016,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -88054,7 +88097,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-steps-stucco",
-   "hash": "cfd7e9ce7d",
+   "hash": "f2e704f28e",
    "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
@@ -88097,7 +88140,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "wood-steps",
-   "hash": "0ac802bb5d",
+   "hash": "f03b1476e4",
    "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
@@ -123545,7 +123588,7 @@
   {
    "kit": "kay-dun-1",
    "name": "table-large",
-   "hash": "027c286878",
+   "hash": "701bf54596",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
@@ -123584,7 +123627,7 @@
   {
    "kit": "kay-dun-1",
    "name": "table-medium-rounded",
-   "hash": "fb5f8737f7",
+   "hash": "382869f81e",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
@@ -127904,7 +127947,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "stairs-wood",
-   "hash": "71c415be83",
+   "hash": "c58373960b",
    "kind": "str-access-stairs-open",
    "size": "l",
    "wdh": [
@@ -128436,7 +128479,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "table-long",
-   "hash": "fb0fcd1a3b",
+   "hash": "764eb0a91c",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
@@ -142254,7 +142297,7 @@
   {
    "kit": "kay-hallow",
    "name": "gravemarker-a",
-   "hash": "13ad99ce2f",
+   "hash": "ba63e95767",
    "kind": "str-fixture-marker-grave",
    "size": "s",
    "wdh": [
@@ -142296,7 +142339,7 @@
   {
    "kit": "kay-hallow",
    "name": "gravemarker-b",
-   "hash": "56d272947b",
+   "hash": "e8139394c9",
    "kind": "str-fixture-marker-grave",
    "size": "s",
    "wdh": [
@@ -147697,7 +147740,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "weapon-rack",
-   "hash": "698e6a7123",
+   "hash": "50b9c44e19",
    "kind": "obj-furnishing-furniture-storage-rack-weapon",
    "size": "s",
    "wdh": [
@@ -189435,7 +189478,7 @@
    "kit": "ken-forest-mini",
    "collection": "ken-mini",
    "name": "fence",
-   "hash": "b4193eb0d7",
+   "hash": "3d321d7826",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
@@ -249645,7 +249688,7 @@
   {
    "kit": "lpa-construction",
    "name": "plank-holder",
-   "hash": "2281deeab0",
+   "hash": "caacee1b22",
    "kind": "obj-resource-wood-plank",
    "size": "m",
    "wdh": [
@@ -258312,7 +258355,7 @@
   {
    "kit": "lpa-weapons",
    "name": "siege-tower",
-   "hash": "3d9eaacd7c",
+   "hash": "79cdbfd122",
    "kind": "obj-equipment-weapon-siege",
    "size": "l",
    "wdh": [
@@ -258325,8 +258368,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 371460,
-   "vtx": 10575,
+   "bytes": 370692,
+   "vtx": 10551,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -258335,7 +258378,7 @@
    "avgTri": 0.01928,
    "anglePct": 87,
    "pieces": 244,
-   "vpt": 2.01,
+   "vpt": 2,
    "cells": [
     "2,0",
     "1,0",
@@ -258701,7 +258744,7 @@
   {
    "kit": "lpa-weapons",
    "name": "trebuchet",
-   "hash": "d68be8e057",
+   "hash": "5a8fa50433",
    "kind": "obj-equipment-weapon-siege-catapult",
    "size": "l",
    "wdh": [
@@ -259984,7 +260027,7 @@
   {
    "kit": "lpa-west",
    "name": "chair",
-   "hash": "1941c98c58",
+   "hash": "4b56c99cfd",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
@@ -259997,8 +260040,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 28424,
-   "vtx": 750,
+   "bytes": 25800,
+   "vtx": 668,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -260007,7 +260050,7 @@
    "avgTri": 0.00064,
    "anglePct": 34,
    "pieces": 11,
-   "vpt": 1.56,
+   "vpt": 1.39,
    "cells": [
     "1,0"
    ],
@@ -263432,7 +263475,7 @@
   {
    "kit": "lpa-west",
    "name": "staircase-a",
-   "hash": "139d75472c",
+   "hash": "c46f2d9d5d",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
@@ -263471,7 +263514,7 @@
   {
    "kit": "lpa-west",
    "name": "staircase-b",
-   "hash": "975f1438cd",
+   "hash": "155b8e7982",
    "kind": "str-access-stairs",
    "size": "m",
    "wdh": [
@@ -264016,7 +264059,7 @@
   {
    "kit": "lpa-west",
    "name": "wall-b",
-   "hash": "963d1bebba",
+   "hash": "314bc60b4d",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -264029,8 +264072,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8832,
-   "vtx": 204,
+   "bytes": 8704,
+   "vtx": 200,
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
@@ -264039,7 +264082,7 @@
    "avgTri": 0.026,
    "anglePct": 5,
    "pieces": 1,
-   "vpt": 1.55,
+   "vpt": 1.52,
    "cells": [
     "0,0"
    ],
@@ -264056,7 +264099,7 @@
   {
    "kit": "lpa-west",
    "name": "wall-c",
-   "hash": "337a22ebbe",
+   "hash": "dab6a402de",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -264069,8 +264112,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13324,
-   "vtx": 324,
+   "bytes": 13260,
+   "vtx": 322,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -264079,7 +264122,7 @@
    "avgTri": 0.0105,
    "anglePct": 51,
    "pieces": 1,
-   "vpt": 1.37,
+   "vpt": 1.36,
    "cells": [
     "0,0",
     "5,2"
@@ -264105,7 +264148,7 @@
   {
    "kit": "lpa-west",
    "name": "wall-d",
-   "hash": "5e36e8f70b",
+   "hash": "1b3434a53e",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -264118,8 +264161,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8456,
-   "vtx": 190,
+   "bytes": 8392,
+   "vtx": 188,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -264128,7 +264171,7 @@
    "avgTri": 0.023,
    "anglePct": 49,
    "pieces": 1,
-   "vpt": 1.36,
+   "vpt": 1.34,
    "cells": [
     "0,0",
     "5,2"
@@ -264714,7 +264757,7 @@
   {
    "kit": "lpa-west",
    "name": "window-c",
-   "hash": "c41a08ee65",
+   "hash": "74bceda2ee",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -264727,8 +264770,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 67620,
-   "vtx": 1845,
+   "bytes": 66308,
+   "vtx": 1804,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -264737,7 +264780,7 @@
    "avgTri": 0.00263,
    "anglePct": 72,
    "pieces": 11,
-   "vpt": 1.57,
+   "vpt": 1.54,
    "cells": [
     "0,0",
     "5,2",
@@ -284205,7 +284248,7 @@
   {
    "kit": "m3-base",
    "name": "medieval-bookcase",
-   "hash": "314bab79c4",
+   "hash": "91ae257ba8",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
    "wdh": [
@@ -302907,7 +302950,7 @@
   {
    "kit": "medieval-forge",
    "name": "box",
-   "hash": "2338fefb34",
+   "hash": "06c7311ca9",
    "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
@@ -302920,8 +302963,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 93484,
-   "vtx": 2632,
+   "bytes": 87084,
+   "vtx": 2432,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -302929,7 +302972,7 @@
    "avgTri": 0.00155,
    "anglePct": 94,
    "pieces": 5,
-   "vpt": 2.02,
+   "vpt": 1.87,
    "cells": [
     "1,0",
     "13,3",
@@ -355674,7 +355717,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "wall-1",
-   "hash": "ec5b78d9a7",
+   "hash": "977d914dbf",
    "kind": "str-part-wall-rampart",
    "size": "l",
    "wdh": [
@@ -355764,7 +355807,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "wall-towers-1",
-   "hash": "2e3889d641",
+   "hash": "b6c79dec2a",
    "kind": "str-part-wall-rampart",
    "size": "l",
    "wdh": [
@@ -357567,7 +357610,7 @@
   {
    "kit": "rgp-asia",
    "name": "fence-rope-a",
-   "hash": "46db512373",
+   "hash": "8d7e627213",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
@@ -357943,7 +357986,7 @@
   {
    "kit": "rgp-asia",
    "name": "gong",
-   "hash": "630feb0b6d",
+   "hash": "4a37d7b5cd",
    "kind": "obj-leisure-art-instrument",
    "size": "m",
    "wdh": [
@@ -359639,7 +359682,7 @@
   {
    "kit": "rgp-asia",
    "name": "table",
-   "hash": "06c8b2f08f",
+   "hash": "304e6dac70",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
@@ -368012,7 +368055,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "signpost-4",
-   "hash": "d9e66f0452",
+   "hash": "5f1bb8218a",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
@@ -368025,8 +368068,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 24188,
-   "vtx": 638,
+   "bytes": 24060,
+   "vtx": 634,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -368035,7 +368078,7 @@
    "avgTri": 0.00137,
    "anglePct": 2,
    "pieces": 13,
-   "vpt": 1.62,
+   "vpt": 1.61,
    "cells": [
     "2,0",
     "0,0",
@@ -408512,7 +408555,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "cart",
-   "hash": "5f3c5f8ce1",
+   "hash": "42746d80ae",
    "kind": "obj-transport-land-cart",
    "size": "m",
    "wdh": [
@@ -408525,8 +408568,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 53120,
-   "vtx": 1457,
+   "bytes": 49536,
+   "vtx": 1345,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -408536,7 +408579,7 @@
    "avgTri": 0.00181,
    "anglePct": 22,
    "pieces": 12,
-   "vpt": 1.71,
+   "vpt": 1.58,
    "cells": [
     "2,0",
     "1,0"
@@ -408766,7 +408809,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "drum",
-   "hash": "856e08a38b",
+   "hash": "faea0a097e",
    "kind": "obj-leisure-art-instrument-drum",
    "size": "m",
    "wdh": [
@@ -408864,7 +408907,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "fence-a",
-   "hash": "e0226d9389",
+   "hash": "4053ac498b",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
