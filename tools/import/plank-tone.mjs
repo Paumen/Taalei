@@ -26,10 +26,11 @@ built as one.
 from several strips.
 --gradient <n> (default 1) scales each board's gradient; 0 gives one even tone.
 --span <n> (default 1) caps each board's gradient to n of the cell's range.
---across <n> replaces each board's gradient with one of n tone steps running
+--across <n> replaces each board's gradient with one of n lightness running
 across the width of its largest face, light on the same side for every
-board. At 0.5, 1.5 or 2.5 the seam between two boards always shows,
-whatever their tones.
+board. Above 2 x strength, the seam between two boards always shows,
+whatever their tones. Each face keeps how much lighter or darker than its
+board it was, so edges between faces stay.
 --join gives one tone to board pieces that line up as one board cut by a
 door, window or gap.
 --steps cuts a staircase built as one piece into steps: each tread with
@@ -282,9 +283,9 @@ for (const { prim, idx, triRegion, vRegion, offs, cellOfRegion } of after) {
     if (hi - lo < 2 * s) { if (lo === 0.1) hi = Math.min(0.9, lo + 2 * s); else lo = Math.max(0.1, hi - 2 * s); }
     tones.set(key, OFF.map((_, k) => lo + (k / (OFF.length - 1)) * (hi - lo)));
   }
-  const toneStep = 0.4 * s;
   const pos = readAccessor(glb, prim.attributes.POSITION).data;
   const across = new Map();
+  const shade = new Map();
   if (ACROSS) {
     const pts = new Map();
     for (const [v, r] of vRegion) {
@@ -303,8 +304,10 @@ for (const { prim, idx, triRegion, vRegion, offs, cellOfRegion } of after) {
       if (!faces.has(r)) faces.set(r, []);
       const fs = faces.get(r);
       const n = x.map((q) => q / l);
-      const f = fs.find((o) => Math.abs(o.n[0] * n[0] + o.n[1] * n[1] + o.n[2] * n[2]) > FLAT);
-      if (f) f.a += l; else fs.push({ n, a: l });
+      let f = fs.find((o) => o.n[0] * n[0] + o.n[1] * n[1] + o.n[2] * n[2] > FLAT);
+      if (!f) fs.push((f = { n, a: 0, vs: new Set() }));
+      f.a += l;
+      for (let k = 0; k < 3; k++) f.vs.add(idx[t * 3 + k]);
     }
     const dir = new Map();
     for (const [r, ps] of pts) {
@@ -333,6 +336,15 @@ for (const { prim, idx, triRegion, vRegion, offs, cellOfRegion } of after) {
       const t = ps.map((p) => wide[0] * p[0] + wide[1] * p[1] + wide[2] * p[2]);
       dir.set(r, { wide, lo: Math.min(...t), hi: Math.max(...t), flip });
     }
+    const offs2 = new Map();
+    for (const [r, fs] of faces) {
+      const m = st.get(r).sum / st.get(r).n;
+      for (const f of fs) {
+        const fm = [...f.vs].reduce((a, v) => a + L.get(v), 0) / f.vs.size;
+        for (const v of f.vs) { if (!offs2.has(v)) offs2.set(v, []); offs2.get(v).push((fm - m) * GRAD); }
+      }
+    }
+    for (const [v, l] of offs2) shade.set(v, l.reduce((a, b) => a + b, 0) / l.length);
     for (const [v, r] of vRegion) {
       if (keepRegions.has(r)) continue;
       const d = dir.get(r);
@@ -347,7 +359,7 @@ for (const { prim, idx, triRegion, vRegion, offs, cellOfRegion } of after) {
     const o = st.get(r);
     if (ACROSS) {
       const M = tones.get(cell.join())[OFF.indexOf(offs[r])];
-      const n = Math.min(0.94, Math.max(0.06, M + across.get(v) * ACROSS * toneStep));
+      const n = Math.min(0.94, Math.max(0.06, M + (shade.get(v) ?? 0) + across.get(v) * ACROSS));
       glb.bin.writeFloatLE((cell[1] * 128 + 0.5 + (1 - n) * 127) / 512, start + v * step + 4);
       continue;
     }

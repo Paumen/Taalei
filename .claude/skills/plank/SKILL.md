@@ -18,20 +18,23 @@ passes the self-check.
 
 ## 2. Tone
 
-- Default: `plank-tone.mjs --strength 0.4 --across 1.5 --flat 8 --big 0.02 --join <file>`.
-  Keep `--across` at a whole number of tone steps plus a half, so every
-  seam shows whatever two tones meet there.
+- Default: `plank-tone.mjs --strength 0.15 --across 0.45 --flat 8 --big 0.02 --join <file>`.
+  Keep `--across` above 2 x strength, so every seam shows whatever two
+  tones meet there, and keep both low, so the shading between faces
+  still reads.
 - Sibling boards in mixed bands: put them in one band. Use
   `--band <from>:<to>` when the boards are told apart by shape, and
   `--band-after <from>:<to>` when they are told apart only by their band.
   Move single boards by hand after toning. Pillars against planks, or
-  upright against flat boards, may keep their own bands.
+  upright against flat boards, may keep their own bands. End grain on
+  post tops and board ends keeps its lighter band: tone only the boards'
+  band with `--only`.
 - A board built from several strips, or a curved board, gets cut face by
   face: use `--whole` when each piece is one board.
 - Staves of a round piece built as one: `--facets` with `--flat` just
   under the angle between staves.
 - Strong baked gradients drown the tones: lower `--gradient` (0.5).
-- Staircase built as one piece: `--steps --strength 0.4 --across 1.5 --flat 8`.
+- Staircase built as one piece: `--steps --strength 0.15 --across 0.45 --flat 8`.
 - Log or plank wall built as one piece: `--rows auto`, or `--rows <row
   height>` when the boards have no underside.
 - `--join` can merge sloped siding: drop it when boards already run
@@ -50,6 +53,8 @@ its original. Look at each board and fix these before showing anything:
   of boards in one tone. Usual causes: boards fused into one piece, or
   tones capped at the light or dark end of the band.
 - **Streaks:** stripes along a board instead of one tone per board.
+- **Blended faces:** a board's top and side in one shade, so its edge is
+  lost.
 - **Split boards:** one board with two tones, cut diagonally, by a door or
   window, or face by face (top, sides, ends).
 - **Mixed bands:** boards of one wall or floor in different wood bands.
