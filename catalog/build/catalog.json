@@ -44341,7 +44341,7 @@
    "kit": "avra-food",
    "collection": "avra",
    "name": "produce-crate",
-   "hash": "f8e8ca8f4d",
+   "hash": "6ba1be644c",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
@@ -44352,10 +44352,10 @@
    "tris": 240,
    "tpu": 700,
    "mat": 1,
-   "bands": 3,
+   "bands": 1,
    "calls": 1,
-   "bytes": 17812,
-   "vtx": 464,
+   "bytes": 18324,
+   "vtx": 480,
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
@@ -44364,23 +44364,31 @@
    "avgTri": 0.00601,
    "anglePct": 87,
    "pieces": 11,
-   "vpt": 1.93,
+   "vpt": 2,
    "cells": [
-    "2,0",
-    "0,0",
-    "1,0"
+    "2,0"
    ],
    "colors": [
-    "#713e14",
-    "#9e6d44",
-    "#ca9f6e"
+    "#713e14"
    ],
    "tags": [
     "wood-dark",
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.53,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-light wants tan, has chestnut"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-mid wants camel, has chestnut"
+    }
+   ]
   },
   {
    "kit": "avra-food",
@@ -44512,7 +44520,7 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "bridge-plank",
-   "hash": "76152c6590",
+   "hash": "f77099b9c4",
    "kind": "str-access-bridge-long",
    "size": "l",
    "wdh": [
@@ -44523,10 +44531,10 @@
    "tris": 584,
    "tpu": 724,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 35304,
-   "vtx": 946,
+   "bytes": 39276,
+   "vtx": 1070,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
@@ -44535,23 +44543,28 @@
    "avgTri": 0.00837,
    "anglePct": 26,
    "pieces": 27,
-   "vpt": 1.62,
+   "vpt": 1.83,
    "cells": [
     "2,0",
-    "1,0",
     "14,3"
    ],
    "colors": [
     "#713e14",
-    "#88735f",
-    "#9e6d44"
+    "#88735f"
    ],
    "tags": [
     "stone-rock",
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.06,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-mid wants camel, has chestnut taupe"
+    }
+   ]
   },
   {
    "kit": "avra-nature",
@@ -45593,7 +45606,7 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "walkway",
-   "hash": "ec1cbad182",
+   "hash": "bac06648fa",
    "kind": "str-access-path",
    "size": "l",
    "wdh": [
@@ -45604,7 +45617,7 @@
    "tris": 120,
    "tpu": 117,
    "mat": 1,
-   "bands": 3,
+   "bands": 1,
    "calls": 1,
    "bytes": 9912,
    "vtx": 240,
@@ -45618,21 +45631,29 @@
    "pieces": 10,
    "vpt": 2,
    "cells": [
-    "2,0",
-    "0,0",
-    "1,0"
+    "2,0"
    ],
    "colors": [
-    "#713e14",
-    "#9e6d44",
-    "#ca9f6e"
+    "#713e14"
    ],
    "tags": [
     "wood-dark",
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.31,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-light wants tan, has chestnut"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-mid wants camel, has chestnut"
+    }
+   ]
   },
   {
    "kit": "avra-nature",
@@ -55358,7 +55379,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "ladder",
-   "hash": "746e300be9",
+   "hash": "48532817af",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
@@ -55369,10 +55390,10 @@
    "tris": 108,
    "tpu": 215,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 8240,
-   "vtx": 189,
+   "bytes": 9456,
+   "vtx": 227,
    "grounded": true,
    "centered": true,
    "minEdge": 0.017,
@@ -55381,20 +55402,25 @@
    "avgTri": 0.00512,
    "anglePct": 17,
    "pieces": 6,
-   "vpt": 1.75,
+   "vpt": 2.1,
    "cells": [
-    "2,0",
-    "1,0"
+    "2,0"
    ],
    "colors": [
-    "#713e14",
-    "#9e6d44"
+    "#713e14"
    ],
    "tags": [
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-mid wants camel, has chestnut"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -56120,7 +56146,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "pier",
-   "hash": "bbe8f22392",
+   "hash": "284de0f223",
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
@@ -56131,10 +56157,10 @@
    "tris": 242,
    "tpu": 236,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 16036,
-   "vtx": 408,
+   "bytes": 18468,
+   "vtx": 484,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -56143,21 +56169,26 @@
    "avgTri": 0.0168,
    "anglePct": 20,
    "pieces": 13,
-   "vpt": 1.69,
+   "vpt": 2,
    "cells": [
-    "2,0",
-    "1,0"
+    "2,0"
    ],
    "colors": [
-    "#713e14",
-    "#9e6d44"
+    "#713e14"
    ],
    "tags": [
     "wood-dark",
     "wood-mid"
    ],
    "variant": "emace-village/pier",
-   "thickRel": 1.26
+   "thickRel": 1.26,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-mid wants camel, has chestnut"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -58588,7 +58619,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "table-long",
-   "hash": "d113a4151d",
+   "hash": "dd0eb08f91",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
@@ -58599,10 +58630,10 @@
    "tris": 288,
    "tpu": 840,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 18668,
-   "vtx": 481,
+   "bytes": 19212,
+   "vtx": 498,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -58611,20 +58642,25 @@
    "avgTri": 0.00557,
    "anglePct": 63,
    "pieces": 11,
-   "vpt": 1.67,
+   "vpt": 1.73,
    "cells": [
-    "1,0",
-    "2,0"
+    "1,0"
    ],
    "colors": [
-    "#713e14",
     "#9e6d44"
    ],
    "tags": [
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.32,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has camel"
+    }
+   ]
   },
   {
    "kit": "emace-village",
