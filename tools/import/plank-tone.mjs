@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--ends] [--whole] [--all] [--only <band>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--ends] [--whole] [--all] [--only <band>] [--checker <band>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -31,6 +31,7 @@ recoloured; other wood keeps its look.
 --flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
+--checker <band> reads the magenta and black colormap cells as wood and tones them into that band.
 --all also tones the rest of the wood: a flat top left over becomes its own plank, every other triangle joins the nearest plank.
 --whole keeps each run of joined triangles as one plank instead of cutting it.
 --ends also counts short boards that lie end to end in a row of fused boards as planks.
@@ -39,6 +40,7 @@ recoloured; other wood keeps its look.
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
+const CHECKER = [[2, 3], [4, 0]];
 const TONES = [0.37, 0.452, 0.534, 0.616, 0.698, 0.78];
 const GRADIENT = [0.22, 0.11, 0.11, 0.33, 0.11, 0.22];
 const SIDE = 0.11;
@@ -306,10 +308,11 @@ function tone(file, options) {
       at.area[t] = Math.hypot(...x) / 2;
       at.normal[t] = norm(x);
     }
-    for (const cell of options.only ? [options.only] : WOOD) {
+    for (const cell of options.checker ? [options.checker] : options.only ? [options.only] : WOOD) {
+      const cells = options.checker ? CHECKER : [cell];
       const tris = [];
       for (let t = 0; t < n; t++) {
-        if ([0, 1, 2].every((k) => { const [cu, cv] = cellOf(idx[t * 3 + k]); return cu === cell[0] && cv === cell[1]; })) tris.push(t);
+        if ([0, 1, 2].every((k) => { const [cu, cv] = cellOf(idx[t * 3 + k]); return cells.some((c) => cu === c[0] && cv === c[1]); })) tris.push(t);
       }
       if (!tris.length) continue;
       const parent = new Map();
@@ -567,6 +570,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--all') options.all = true;
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
+  else if (argv[i] === '--checker') options.checker = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
