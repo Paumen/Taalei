@@ -177,6 +177,7 @@ function splitStrips(tris, at) {
   for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
     if (dot(at.normal[list[0]], at.normal[list[i]]) > FLAT) parent.set(find(list[i]), find(list[0]));
   }
+  joinLoose(tris, at, parent, find, byEdge);
   const regions = new Map();
   for (const t of tris) {
     const r = find(t);
@@ -255,6 +256,18 @@ function splitStrips(tris, at) {
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
 
+function joinLoose(tris, at, parent, find, byEdge) {
+  const size = new Map();
+  for (const t of tris) size.set(find(t), (size.get(find(t)) ?? 0) + 1);
+  for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
+    const a = find(list[0]);
+    const b = find(list[i]);
+    if (a === b || (size.get(a) !== 1 && size.get(b) !== 1) || dot(at.normal[list[0]], at.normal[list[i]]) < Math.cos(Math.PI / 18)) continue;
+    parent.set(b, a);
+    size.set(a, size.get(a) + size.get(b));
+  }
+}
+
 function splitSlabs(tris, at) {
   const parent = new Map(tris.map((t) => [t, t]));
   const find = (a) => (parent.get(a) === a ? a : (parent.set(a, find(parent.get(a))), parent.get(a)));
@@ -267,6 +280,7 @@ function splitSlabs(tris, at) {
   for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
     if (dot(at.normal[list[0]], at.normal[list[i]]) > FLAT) parent.set(find(list[i]), find(list[0]));
   }
+  joinLoose(tris, at, parent, find, byEdge);
   const regions = new Map();
   for (const t of tris) {
     const r = find(t);
@@ -332,6 +346,7 @@ function flatFaces(tris, at) {
   for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
     if (dot(at.normal[list[0]], at.normal[list[i]]) > FLAT) parent.set(find(list[i]), find(list[0]));
   }
+  joinLoose(tris, at, parent, find, byEdge);
   const groups = new Map();
   for (const t of tris) {
     const r = find(t);
