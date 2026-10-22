@@ -10,3 +10,4 @@ kay-food/crate-potatoes
 lpa-west/cart-b
 lpa-west/foundation-a
 fs-town/crate-a-open
+emace-village/table-long
