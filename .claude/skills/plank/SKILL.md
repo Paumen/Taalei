@@ -22,6 +22,9 @@ passes the self-check.
 - Boards of one wall or floor in mixed bands: put them in one band first,
   with `--band <from>:<to>` for a whole band, or by moving only those
   boards.
+- A board built from several strips gets cut into strips: use `--whole`
+  when each piece is one board.
+- Strong baked gradients drown the tones: lower `--gradient` (0.5).
 - Tones stay random. No rule for neighbours.
 
 ## 3. Self-check, every time, before the review

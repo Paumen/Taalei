@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { editablePrimitives, welder, vertexAdder, repack } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--whole] <workfile.glb> [...]
 
 Gives each board in the tan, camel and chestnut bands of the colormap one of
 six tones, picked at random. The tones are spread evenly over a range of
@@ -17,6 +17,9 @@ cut into one board per face; faces under --big (default 0.1) of its largest
 face join the nearest board. Faces of one board split by a gap or hole stay
 one board. Corners shared by two boards are doubled so each keeps its tone.
 --band <from>:<to> first moves all wood of one band into another.
+--whole keeps each run of joined triangles as one board, for boards built
+from several strips.
+--gradient <n> (default 1) scales each board's gradient; 0 gives one even tone.
 --only tones only the listed bands.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -29,6 +32,9 @@ const strength = opt('--strength', '0.25');
 const only = opt('--only', '');
 const move = opt('--band', '');
 const BIG = Number(opt('--big', '0.1'));
+const GRAD = Number(opt('--gradient', '1'));
+const WHOLE = argv.includes('--whole');
+if (WHOLE) argv.splice(argv.indexOf('--whole'), 1);
 const OFF = [-1, -0.6, -0.2, 0.2, 0.6, 1].map((x) => x * Number(strength));
 for (const file of argv) tone(file);
 
@@ -108,7 +114,7 @@ for (const prim of editablePrimitives(glb.json)) {
       big.forEach((o, i) => { const g = bf(i); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(o); });
       const boards = [...groups.values()];
       const sameDir = boards.some((g) => boards.filter((h) => h !== g && dot(h[0].n, g[0].n) > 0.999).length > 0);
-      if (!sameDir || boards.length < 2) {
+      if (WHOLE || !sameDir || boards.length < 2) {
         const id = regions++;
         cellOfRegion[id] = cell;
         for (const t of ts) triRegion.set(t, id);
@@ -186,7 +192,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
     const o = st.get(r);
     const m = o.sum / o.n;
     const M = tones.get(cell.join())[OFF.indexOf(offs[r])];
-    const g = Math.min(1, o.hi > m ? (0.94 - M) / (o.hi - m) : 1, o.lo < m ? (M - 0.06) / (m - o.lo) : 1);
+    const g = Math.min(GRAD, o.hi > m ? (0.94 - M) / (o.hi - m) : 1, o.lo < m ? (M - 0.06) / (m - o.lo) : 1);
     const n = M + (L.get(v) - m) * g;
     glb.bin.writeFloatLE((cell[1] * 128 + 0.5 + (1 - n) * 127) / 512, start + v * step + 4);
   }
