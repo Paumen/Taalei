@@ -731,8 +731,13 @@ function floorTone(file, options) {
       for (const b of boards) for (const t of b.tris) { done.add(t); pieces.push({ owner: b, tri: [0, 1, 2].map((k) => vert(idx[t * 3 + k])), normal: at.normal[t] }); }
       if (!boards.length) continue;
       pickTones(boards, R, boards.map((b) => boards.map((c, j) => (c !== b && sep(b, c).gap <= 0.25 * midWidth ? j : -1)).filter((j) => j >= 0)));
-      const facing = (n) => (n[1] > 0.3 && n[1] < Math.cos(Math.PI / 12) ? norm([n[0], 0, n[2]]) : n);
-      out.push(...pieces.map((pc) => pc.tri.map((q) => ({ ...q, uv: cellUv(to, light(pc.owner, facing(pc.normal), q.w, options.edges)) }))));
+      const shade = (pc, q) => {
+        const n = pc.normal;
+        if (n[1] <= 0.3) return light(pc.owner, n, q.w, options.edges);
+        const t = Math.min(1, Math.max(0, (1 - q.n[1]) / (1 - Math.cos(Math.PI / 9))));
+        return light(pc.owner, [0, 1, 0], q.w, options.edges) - t * SIDE;
+      };
+      out.push(...pieces.map((pc) => pc.tri.map((q) => ({ ...q, uv: cellUv(to, shade(pc, q)) }))));
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${boards.length} boards, ${pieces.length - owned.size} pieces from ${done.size - owned.size} triangles`);
     }
     if (!out.length || options.dry) continue;
