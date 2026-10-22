@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--ends] [--whole] [--all] [--only <band>] [--checker <band>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--floor] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -31,16 +31,12 @@ recoloured; other wood keeps its look.
 --flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
---checker <band> reads the magenta and black colormap cells as wood and tones them into that band.
---all also tones the rest of the wood: a flat top left over becomes its own plank, every other triangle joins the nearest plank.
 --whole keeps each run of joined triangles as one plank instead of cutting it.
---ends also counts short boards that lie end to end in a row of fused boards as planks.
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
-const CHECKER = [[2, 3], [4, 0]];
 const TONES = [0.37, 0.452, 0.534, 0.616, 0.698, 0.78];
 const GRADIENT = [0.22, 0.11, 0.11, 0.33, 0.11, 0.22];
 const SIDE = 0.11;
@@ -48,7 +44,6 @@ const APART = 0.11;
 const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
 let FLAT = Math.cos((2 * Math.PI) / 180);
-let ENDS = false;
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
 
 function norm(a) {
@@ -187,13 +182,8 @@ function splitStrips(tris, at) {
   }));
   const widths = bins.map((b) => span(b.across)).sort((a, b) => a - b);
   const wide = 1.5 * widths[widths.length >> 1];
-  if (ENDS) for (const r of best.group.regions) {
-    if (best.strips.some((q) => q.tris === r.tris) || r.area <= 0.02 * best.total || span(range(r.tris, across)) > wide) continue;
-    bins.push({ across: range(r.tris, across), long: range(r.tris, best.long), height: range(r.tris, best.normal)[1], tris: [], end: true });
-  }
   const base = [];
-  const units = ENDS ? [...regions.values()].flatMap((r) => r.tris.map((t) => ({ tris: [t] }))) : regions.values();
-  for (const region of units) {
+  for (const region of regions.values()) {
     const [lo, hi] = range(region.tris, across);
     const points = region.tris.flatMap((t) => at.corners[t]);
     const c = [0, 1, 2].map((i) => points.reduce((sum, p) => sum + p[i], 0) / points.length);
@@ -207,7 +197,6 @@ function splitStrips(tris, at) {
       const w = span(b.across);
       const [low] = range(region.tris, best.normal);
       if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || low < b.height - 0.5 * w) continue;
-      if (ENDS) { const [a0, a1] = range(region.tris, best.long); if (a0 < b.long[0] - 0.5 * w || a1 > b.long[1] + 0.5 * w || low < b.height - 0.25 * w || lo < b.across[0] - 0.25 * w || hi > b.across[1] + 0.25 * w) continue; }
       const d = mid < b.across[0] ? b.across[0] - mid : mid > b.across[1] ? mid - b.across[1] : 0;
       const da = along < b.long[0] ? b.long[0] - along : along > b.long[1] ? along - b.long[1] : 0;
       if (d <= 0.5 * w && (d < gap - 1e-9 || (d < gap + 1e-9 && da < gapAlong))) { gap = d; gapAlong = da; pick = b; }
@@ -215,7 +204,6 @@ function splitStrips(tris, at) {
     (pick ? pick.tris : base).push(...region.tris);
   }
   base.rest = true;
-  for (const b of bins) if (b.end) b.tris.end = true;
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
 
@@ -277,6 +265,54 @@ function splitSlabs(tris, at) {
   return slabs.map((s) => s.tris);
 }
 
+function pickTones(pieces, R) {
+  const lo = [0, 1, 2].map((i) => Math.min(...pieces.map((p) => p.lo[i])));
+  const hi = [0, 1, 2].map((i) => Math.max(...pieces.map((p) => p.hi[i])));
+  const tol = 0.035 * Math.hypot(...sub(hi, lo));
+  const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
+  const mid = (p) => [0, 1, 2].map((i) => (p.lo[i] + p.hi[i]) / 2);
+  const beside = pieces.map((p, i) => [-1, 1].flatMap((side) => {
+    const list = pieces.map((q, j) => ({ q, j, d: sub(mid(q), mid(p)) })).filter(({ q, j, d }) => j !== i
+      && Math.abs(dot(p.axes[0], q.axes[0])) >= 0.9
+      && side * dot(d, p.axes[1]) > Math.abs(dot(d, p.axes[0]))
+      && gap(p, q) < Math.max(tol, span(p.ext[1]), span(q.ext[1])));
+    list.sort((x, y) => Math.abs(dot(x.d, p.axes[1])) - Math.abs(dot(y.d, p.axes[1])));
+    return list.slice(0, 1).map(({ j }) => j);
+  }));
+  for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
+  const ends = (i, tones) => [TONES[tones[i]] - GRADIENT[tones[i]] / 2, TONES[tones[i]] + GRADIENT[tones[i]] / 2];
+  const clash = (i, j, tones) => {
+    const [a0, a1] = ends(i, tones);
+    const [b0, b1] = ends(j, tones);
+    return Math.abs(a1 - b0) < APART || Math.abs(b1 - a0) < APART;
+  };
+  const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length, 0);
+  const tones = pieces.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
+  let count = clashes(tones);
+  for (let step = 0; step < 4000 && count; step++) {
+    const bad = pieces.map((_, i) => i).filter((i) => beside[i].some((j) => clash(i, j, tones)));
+    const i = bad[Math.floor(R() * bad.length)];
+    const j = Math.floor(R() * pieces.length);
+    [tones[i], tones[j]] = [tones[j], tones[i]];
+    const after = clashes(tones);
+    if (after <= count) count = after;
+    else [tones[i], tones[j]] = [tones[j], tones[i]];
+  }
+  pieces.forEach((p, i) => { p.tone = tones[i]; });
+}
+
+function light(p, n, q, edges) {
+  const facing = n[1] > 0.5 ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
+  const c = edges && Math.abs(dot(n, p.axes[1])) > 0.7 ? -0.5
+    : Math.min(0.5, Math.max(-0.5, (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5));
+  return TONES[p.tone] + GRADIENT[p.tone] * c - facing;
+}
+
+function cellUv(cell, l) {
+  const v = Math.min(RANGE[1], Math.max(RANGE[0], l));
+  return [(cell[0] * 32 + 16) / 512, (cell[1] * 128 + 0.5 + (1 - v) * 127) / 512];
+}
+
 function tone(file, options) {
   const glb = readGlb(file);
   const R = seeded(basename(file));
@@ -308,11 +344,10 @@ function tone(file, options) {
       at.area[t] = Math.hypot(...x) / 2;
       at.normal[t] = norm(x);
     }
-    for (const cell of options.checker ? [options.checker] : options.only ? [options.only] : WOOD) {
-      const cells = options.checker ? CHECKER : [cell];
+    for (const cell of options.only ? [options.only] : WOOD) {
       const tris = [];
       for (let t = 0; t < n; t++) {
-        if ([0, 1, 2].every((k) => { const [cu, cv] = cellOf(idx[t * 3 + k]); return cells.some((c) => cu === c[0] && cv === c[1]); })) tris.push(t);
+        if ([0, 1, 2].every((k) => { const [cu, cv] = cellOf(idx[t * 3 + k]); return cu === cell[0] && cv === cell[1]; })) tris.push(t);
       }
       if (!tris.length) continue;
       const parent = new Map();
@@ -342,7 +377,7 @@ function tone(file, options) {
         }
         const [l, w] = f.ext.map(span);
         const filled = Math.max(...face) >= 0.4 * l * w;
-        return { tris: list, ...f, plank: !list.rest && (list.end || isPlank(f)) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
+        return { tris: list, ...f, plank: !list.rest && isPlank(f) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
       };
       const pieces = [...comps.values()].flatMap((c) => {
         const whole = measure(c);
@@ -392,34 +427,6 @@ function tone(file, options) {
       const c = [0, 1, 2].map((k) => job.world(job.idx[t * 3 + k]));
       return Math.hypot(...cross(sub(c[1], c[0]), sub(c[2], c[0]))) / 2;
     };
-    if (options.all && pieces.length) {
-      const rest = job.pieces.filter((q) => !q.plank).flatMap((q) => q.tris);
-      const up = rest.filter((t) => job.normal[t][1] > 0.9);
-      const key = (q) => q.map((x) => x.toFixed(4)).join(',');
-      const tag = new Map(up.map((t) => [t, t]));
-      const find = (a) => (tag.get(a) === a ? a : (tag.set(a, find(tag.get(a))), tag.get(a)));
-      const at = new Map();
-      for (const t of up) for (let k = 0; k < 3; k++) {
-        const v = key(job.world(job.idx[t * 3 + k]));
-        if (at.has(v)) tag.set(find(t), find(at.get(v))); else at.set(v, t);
-      }
-      const groups = new Map();
-      for (const t of up) { const r = find(t); if (!groups.has(r)) groups.set(r, []); groups.get(r).push(t); }
-      const size = Math.min(...pieces.map((p) => p.tris.reduce((s, t) => s + triArea(t), 0)));
-      const taken = new Set();
-      for (const g of groups.values()) {
-        if (g.reduce((s, t) => s + triArea(t), 0) < 0.3 * size) continue;
-        const f = frame(g.flatMap((t) => [0, 1, 2].map((k) => job.world(job.idx[t * 3 + k]))));
-        pieces.push({ tris: [...g], ...f, plank: true });
-        for (const t of g) taken.add(t);
-      }
-      job.leftover = rest.filter((t) => !taken.has(t));
-    }
-    if (options.all && pieces.length) for (const t of job.leftover) { const q = { tris: [t] }; for (const t of q.tris) {
-      const c = [0, 1, 2].map((i) => [0, 1, 2].reduce((s, k) => s + job.world(job.idx[t * 3 + k])[i], 0) / 3);
-      const d = (p) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, p.lo[i] - c[i], c[i] - p.hi[i])));
-      pieces.reduce((a, b) => (d(b) < d(a) ? b : a)).tris.push(t);
-    } }
     for (const p of pieces) p.area = p.tris.reduce((s, t) => s + triArea(t), 0);
     const median = pieces.map((p) => p.area).sort((a, b) => a - b)[pieces.length >> 1] || 0;
     const boxGap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
@@ -475,56 +482,15 @@ function tone(file, options) {
       }
     }
     if (!pieces.length) continue;
-    const lo = [0, 1, 2].map((i) => Math.min(...pieces.map((p) => p.lo[i])));
-    const hi = [0, 1, 2].map((i) => Math.max(...pieces.map((p) => p.hi[i])));
-    const tol = 0.035 * Math.hypot(...sub(hi, lo));
-    const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
-    const mid = (p) => [0, 1, 2].map((i) => (p.lo[i] + p.hi[i]) / 2);
-    const beside = pieces.map((p, i) => [-1, 1].flatMap((side) => {
-      const list = pieces.map((q, j) => ({ q, j, d: sub(mid(q), mid(p)) })).filter(({ q, j, d }) => j !== i
-        && Math.abs(dot(p.axes[0], q.axes[0])) >= 0.9
-        && side * dot(d, p.axes[1]) > Math.abs(dot(d, p.axes[0]))
-        && gap(p, q) < Math.max(tol, span(p.ext[1]), span(q.ext[1])));
-      list.sort((x, y) => Math.abs(dot(x.d, p.axes[1])) - Math.abs(dot(y.d, p.axes[1])));
-      return list.slice(0, 1).map(({ j }) => j);
-    }));
-    for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
-    const ends = (i, tones) => [TONES[tones[i]] - GRADIENT[tones[i]] / 2, TONES[tones[i]] + GRADIENT[tones[i]] / 2];
-    const clash = (i, j, tones) => {
-      const [a0, a1] = ends(i, tones);
-      const [b0, b1] = ends(j, tones);
-      return Math.abs(a1 - b0) < APART || Math.abs(b1 - a0) < APART;
-    };
-    const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length, 0);
-    const tones = pieces.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
-    let count = clashes(tones);
-    for (let step = 0; step < 4000 && count; step++) {
-      const bad = pieces.map((_, i) => i).filter((i) => beside[i].some((j) => clash(i, j, tones)));
-      const i = bad[Math.floor(R() * bad.length)];
-      const j = Math.floor(R() * pieces.length);
-      [tones[i], tones[j]] = [tones[j], tones[i]];
-      const after = clashes(tones);
-      if (after <= count) count = after;
-      else [tones[i], tones[j]] = [tones[j], tones[i]];
-    }
-    pieces.forEach((p, i) => { p.tone = tones[i]; });
+    pickTones(pieces, R);
     const writesOf = writes.get(job.prim) ?? new Map();
     writes.set(job.prim, writesOf);
     const lightOf = new Map();
     for (const p of pieces) for (const t of p.tris) {
       const n = faceNormal.get(t);
-      const facing = n[1] > 0.5 ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
-      const edge = options.edges && Math.abs(dot(n, p.axes[1])) > 0.7;
-      for (let k = 0; k < 3; k++) {
-        const q = job.world(job.idx[t * 3 + k]);
-        const c = edge ? -0.5 : Math.min(0.5, Math.max(-0.5, (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5));
-        lightOf.set(t * 3 + k, TONES[p.tone] + GRADIENT[p.tone] * c - facing);
-      }
+      for (let k = 0; k < 3; k++) lightOf.set(t * 3 + k, light(p, n, job.world(job.idx[t * 3 + k]), options.edges));
     }
-    for (const [c, l] of lightOf) {
-      const v = Math.min(RANGE[1], Math.max(RANGE[0], l));
-      writesOf.set(c, [(to[0] * 32 + 16) / 512, (to[1] * 128 + 0.5 + (1 - v) * 127) / 512]);
-    }
+    for (const [c, l] of lightOf) writesOf.set(c, cellUv(to, l));
   }
   for (const [prim, corner] of writes) {
     const idx = Array.from(readAccessor(glb, prim.indices).data);
@@ -556,6 +522,252 @@ function tone(file, options) {
   return report.join(', ');
 }
 
+function clip(poly, n, d, keep) {
+  const out = [];
+  for (let i = 0; i < poly.length; i++) {
+    const a = poly[i];
+    const b = poly[(i + 1) % poly.length];
+    const sa = keep * (dot(a.w, n) - d);
+    const sb = keep * (dot(b.w, n) - d);
+    if (sa >= -1e-9) out.push(a);
+    if ((sa > 1e-9 && sb < -1e-9) || (sa < -1e-9 && sb > 1e-9)) {
+      const f = sa / (sa - sb);
+      const mix = (x, y) => x.map((v, k) => v + (y[k] - v) * f);
+      out.push({ w: mix(a.w, b.w), l: mix(a.l, b.l), n: norm(mix(a.n, b.n)), src: f < 0.5 ? a.src : b.src });
+    }
+  }
+  return out;
+}
+
+function polyArea(poly) {
+  let s = [0, 0, 0];
+  for (let i = 1; i + 1 < poly.length; i++) s = s.map((v, k) => v + cross(sub(poly[i].w, poly[0].w), sub(poly[i + 1].w, poly[0].w))[k]);
+  return Math.hypot(...s) / 2;
+}
+
+function floorTone(file, options) {
+  const glb = readGlb(file);
+  const R = seeded(basename(file));
+  const replaced = new Map();
+  const report = [];
+  for (const prim of editablePrimitives(glb.json)) {
+    if (prim.attributes.TEXCOORD_0 === undefined) continue;
+    const pos = readAccessor(glb, prim.attributes.POSITION).data;
+    const nrm = prim.attributes.NORMAL === undefined ? null : readAccessor(glb, prim.attributes.NORMAL).data;
+    const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
+    const idx = Array.from(readAccessor(glb, prim.indices).data);
+    const m = primitiveMatrix(glb.json, prim);
+    const world = (v) => {
+      const [x, y, z] = [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
+      return [0, 1, 2].map((r) => m[r] * x + m[4 + r] * y + m[8 + r] * z + m[12 + r]);
+    };
+    const vert = (v) => ({ w: world(v), l: [0, 1, 2].map((k) => pos[v * 3 + k]), n: nrm ? [0, 1, 2].map((k) => nrm[v * 3 + k]) : [0, 1, 0], src: v });
+    const { weld } = welder(pos);
+    const cellOf = (v) => [Math.floor(uv[v * 2] * 16), Math.floor(uv[v * 2 + 1] * 4)];
+    const n = idx.length / 3;
+    const at = { weld: [], corners: [], normal: [], area: [] };
+    for (let t = 0; t < n; t++) {
+      const c = [0, 1, 2].map((k) => idx[t * 3 + k]);
+      at.weld[t] = c.map(weld);
+      at.corners[t] = c.map(world);
+      const x = cross(sub(at.corners[t][1], at.corners[t][0]), sub(at.corners[t][2], at.corners[t][0]));
+      at.area[t] = Math.hypot(...x) / 2;
+      at.normal[t] = norm(x);
+    }
+    const out = [];
+    const done = new Set();
+    const extent = Math.hypot(...[0, 1, 2].map((k) => Math.max(...at.corners.flat().map((q) => q[k])) - Math.min(...at.corners.flat().map((q) => q[k]))));
+    const tiny = 1e-8 * extent * extent;
+    for (const cell of options.only ? [options.only] : WOOD) {
+      const to = options.band && options.band[0].join() === cell.join() ? options.band[1] : cell;
+      const tris = [];
+      for (let t = 0; t < n; t++) {
+        if (at.area[t] > 0 && [0, 1, 2].every((k) => { const [cu, cv] = cellOf(idx[t * 3 + k]); return cu === cell[0] && cv === cell[1]; })) tris.push(t);
+      }
+      if (!tris.length) continue;
+      const shell = new Map();
+      const root = (a) => (shell.get(a) === a ? a : (shell.set(a, root(shell.get(a))), shell.get(a)));
+      for (const t of tris) for (const w of at.weld[t]) if (!shell.has(w)) shell.set(w, w);
+      for (const t of tris) for (const w of at.weld[t]) shell.set(root(w), root(at.weld[t][0]));
+      const top = tris.filter((t) => at.normal[t][1] > 0.3);
+      const parent = new Map(top.map((t) => [t, t]));
+      const find = (a) => (parent.get(a) === a ? a : (parent.set(a, find(parent.get(a))), parent.get(a)));
+      const byEdge = new Map();
+      for (const t of top) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) {
+        const key = edgeKey(at.weld[t][a], at.weld[t][b]);
+        if (!byEdge.has(key)) byEdge.set(key, []);
+        byEdge.get(key).push(t);
+      }
+      for (const [key, list] of byEdge) {
+        if (list.length !== 2) continue;
+        const [a, b] = list;
+        const ids = key.split(',').map(Number);
+        const far = at.weld[b].findIndex((w) => !ids.includes(w));
+        const rise = dot(at.normal[a], sub(at.corners[b][far], at.corners[a][at.weld[a].indexOf(ids[0])]));
+        if (rise > 1e-6 && dot(at.normal[a], at.normal[b]) < Math.cos(Math.PI / 18)) continue;
+        parent.set(find(b), find(a));
+      }
+      const groups = new Map();
+      for (const t of top) { const r = find(t); if (!groups.has(r)) groups.set(r, []); groups.get(r).push(t); }
+      let boards = [...groups.values()].map((list) => {
+        const f = frame(list.flatMap((t) => at.corners[t]));
+        let long = norm([f.axes[0][0], 0, f.axes[0][2]]);
+        if (Math.abs(long[0]) > Math.cos(Math.PI / 18)) long = [Math.sign(long[0]), 0, 0];
+        else if (Math.abs(long[2]) > Math.cos(Math.PI / 18)) long = [0, 0, Math.sign(long[2])];
+        const axes = [long, [-long[2], 0, long[0]], [0, 1, 0]];
+        const ext = axes.map((a) => {
+          const s = list.flatMap((t) => at.corners[t].map((q) => dot(q, a)));
+          return [Math.min(...s), Math.max(...s)];
+        });
+        const foot = [0, 1].map((i) => ({ a: axes[i], lo: ext[i][0], hi: ext[i][1] }));
+        return { tris: list, ...f, axes, ext, foot, shell: root(at.weld[list[0]][0]), area: list.reduce((s, t) => s + at.area[t], 0) };
+      });
+      const median = (list) => list.sort((a, b) => a - b)[list.length >> 1] || 0;
+      const midArea = median(boards.map((b) => b.area));
+      const midWidth = median(boards.map((b) => span([b.foot[1].lo, b.foot[1].hi])));
+      const proj = (b, a) => { const q = b.tris.flatMap((u) => at.corners[u].map((p) => dot(p, a))); return [Math.min(...q), Math.max(...q)]; };
+      const overlap = (b, c, shrink) => b.foot.concat(c.foot).every(({ a }) => {
+        const [x, y] = [proj(b, a), proj(c, a)];
+        return Math.min(x[1], y[1]) - Math.max(x[0], y[0]) > shrink;
+      });
+      boards = boards.filter((b) => b.area >= 0.1 * midArea && span([b.foot[1].lo, b.foot[1].hi]) >= 0.3 * midWidth
+        && !boards.some((c) => c !== b && c.hi[1] > b.hi[1] + 1e-6 && overlap(b, c, 0.1 * midWidth)));
+      const owned = new Map();
+      for (const b of boards) for (const t of b.tris) owned.set(t, b);
+      const shells = new Set(boards.map((b) => b.shell));
+      const footDist = (b, pts) => {
+        let d = 0;
+        for (const { a, lo, hi } of b.foot) {
+          const s = pts.map((q) => dot(q, a));
+          d = Math.max(d, lo - Math.max(...s), Math.min(...s) - hi);
+        }
+        return Math.max(0, d);
+      };
+      const pointDist = (b, q) => Math.hypot(...b.foot.map(({ a, lo, hi }) => Math.max(0, lo - dot(q, a), dot(q, a) - hi)));
+      const pieces = [];
+      for (const t of tris) {
+        const s = root(at.weld[t][0]);
+        if (owned.has(t) || !shells.has(s)) continue;
+        const local = boards.filter((b) => b.shell === s);
+        const dist = local.map((b) => footDist(b, at.corners[t]));
+        const near = Math.min(...dist);
+        const cand = local.filter((_, i) => dist[i] <= near + 0.25 * midWidth);
+        const whole = [0, 1, 2].map((k) => vert(idx[t * 3 + k]));
+        const sep = (b, c) => {
+          let best = null;
+          for (const { a } of b.foot.concat(c.foot)) {
+            const [x, y] = [proj(b, a), proj(c, a)];
+            const [gap, d, sign] = y[0] - x[1] >= x[0] - y[1] ? [y[0] - x[1], (x[1] + y[0]) / 2, -1] : [x[0] - y[1], (y[1] + x[0]) / 2, 1];
+            if (!best || gap > best.gap) best = { gap, a, d, sign };
+          }
+          return best;
+        };
+        const cells = cand.length < 2 ? [{ poly: whole, owner: cand[0] }] : cand.map((b) => {
+          let poly = whole;
+          for (const c of cand) if (c !== b && poly.length >= 3) {
+            const { a, d, sign } = sep(b, c);
+            const side = poly.map((q) => sign * (dot(q.w, a) - d));
+            if (side.every((x) => x > -1e-9)) continue;
+            poly = side.every((x) => x < 1e-9) ? [] : clip(poly, a, d, sign);
+          }
+          poly = poly.filter((q, k, list) => {
+            const u = sub(q.w, list[(k + list.length - 1) % list.length].w);
+            const v = sub(list[(k + 1) % list.length].w, q.w);
+            return Math.hypot(...cross(u, v)) > 1e-4 * Math.hypot(...u) * Math.hypot(...v);
+          });
+          return { poly, owner: b };
+        }).filter((c) => c.poly.length >= 3 && polyArea(c.poly) > tiny);
+        if (at.area[t] - cells.reduce((sum, c) => sum + polyArea(c.poly), 0) > 1e-3 * at.area[t]) {
+          let parts = [whole];
+          for (let i = 0; i < cand.length; i++) for (let j = i + 1; j < cand.length; j++) {
+            const { a, d } = sep(cand[i], cand[j]);
+            parts = parts.flatMap((poly) => {
+              const side = poly.map((q) => dot(q.w, a) - d);
+              if (side.every((x) => x > -1e-9) || side.every((x) => x < 1e-9)) return [poly];
+              return [clip(poly, a, d, 1), clip(poly, a, d, -1)].filter((q) => q.length >= 3 && polyArea(q) > tiny);
+            });
+          }
+          cells.length = 0;
+          for (const poly of parts) {
+            const mid = [0, 1, 2].map((k) => poly.reduce((sum, q) => sum + q.w[k], 0) / poly.length);
+            cells.push({ poly, owner: cand.reduce((x, y) => (pointDist(y, mid) < pointDist(x, mid) - 1e-9 ? y : x)) });
+          }
+          const key = (q) => q.w.map((x) => x.toFixed(6)).join(',');
+          const convex = (poly) => poly.every((q, k) => dot(cross(sub(poly[(k + 1) % poly.length].w, q.w), sub(poly[(k + 2) % poly.length].w, poly[(k + 1) % poly.length].w)), at.normal[t]) > -1e-12);
+          for (let merged = true; merged;) {
+            merged = false;
+            for (let i = 0; i < cells.length && !merged; i++) for (let j = i + 1; j < cells.length && !merged; j++) {
+              const [A, B] = [cells[i].poly, cells[j].poly];
+              const shared = A.filter((q) => B.some((r) => key(r) === key(q)));
+              if (cells[i].owner !== cells[j].owner || shared.length !== 2) continue;
+              const x = A.findIndex((q, k) => key(q) === key(shared[0]) && key(A[(k + 1) % A.length]) === key(shared[1])) >= 0
+                ? A.findIndex((q) => key(q) === key(shared[0])) : A.findIndex((q) => key(q) === key(shared[1]));
+              if (key(A[(x + 1) % A.length]) !== key(shared[0]) && key(A[(x + 1) % A.length]) !== key(shared[1])) continue;
+              const y = B.findIndex((q) => key(q) === key(A[(x + 1) % A.length]));
+              if (key(B[(y + 1) % B.length]) !== key(A[x])) continue;
+              const poly = [...A.slice(0, x + 1)];
+              for (let k = 2; k < B.length; k++) poly.push(B[(y + k) % B.length]);
+              poly.push(...A.slice(x + 1));
+              if (!convex(poly)) continue;
+              cells[i].poly = poly;
+              cells.splice(j, 1);
+              merged = true;
+            }
+          }
+          for (const c of cells) c.poly = c.poly.filter((q, k, list) => {
+            const u = sub(q.w, list[(k + list.length - 1) % list.length].w);
+            const v = sub(list[(k + 1) % list.length].w, q.w);
+            return Math.hypot(...cross(u, v)) > 1e-4 * Math.hypot(...u) * Math.hypot(...v);
+          });
+        }
+        done.add(t);
+        for (const c of cells) for (let k = 1; k + 1 < c.poly.length; k++) {
+          const tri = [c.poly[0], c.poly[k], c.poly[k + 1]];
+          if (polyArea(tri) > tiny) pieces.push({ owner: c.owner, tri, normal: at.normal[t] });
+        }
+      }
+      for (const b of boards) for (const t of b.tris) { done.add(t); pieces.push({ owner: b, tri: [0, 1, 2].map((k) => vert(idx[t * 3 + k])), normal: at.normal[t] }); }
+      if (!boards.length) continue;
+      pickTones(boards, R);
+      out.push(...pieces.map((pc) => pc.tri.map((q) => ({ ...q, uv: cellUv(to, light(pc.owner, pc.normal, q.w, options.edges)) }))));
+      report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${boards.length} boards, ${pieces.length - owned.size} pieces from ${done.size - owned.size} triangles`);
+    }
+    if (!out.length || options.dry) continue;
+    const adder = vertexAdder(glb, prim);
+    const used = new Map();
+    for (let t = 0; t < n; t++) if (!done.has(t)) for (let k = 0; k < 3; k++) used.set(idx[t * 3 + k], null);
+    const copies = new Map();
+    const inPlace = new Map();
+    const next = [];
+    for (let t = 0; t < n; t++) if (!done.has(t)) next.push(idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]);
+    for (const tri of out) {
+      const ids = tri.map((q) => {
+      const original = q.src !== undefined && q.l.every((x, k) => Math.abs(x - pos[q.src * 3 + k]) < 1e-9);
+      const key = `${q.l.map((x) => x.toFixed(6))}|${q.n.map((x) => x.toFixed(4))}|${q.uv.map((x) => x.toFixed(6))}`;
+      if (copies.has(key)) return copies.get(key);
+      let v;
+      if (original && !used.has(q.src)) { v = q.src; used.set(v, key); inPlace.set(v, q.uv); }
+      else v = adder.add(q.src, { POSITION: q.l, ...(nrm ? { NORMAL: q.n } : {}), TEXCOORD_0: q.uv });
+      copies.set(key, v);
+      return v;
+      });
+      if (new Set(ids).size === 3) next.push(...ids);
+    }
+    const uvAccessor = glb.json.accessors[prim.attributes.TEXCOORD_0];
+    if (uvAccessor.componentType !== 5126) throw new Error(`${file}: UVs are not float`);
+    const view = glb.json.bufferViews[uvAccessor.bufferView];
+    const start = (view.byteOffset ?? 0) + (uvAccessor.byteOffset ?? 0);
+    const step = view.byteStride ?? 8;
+    for (const [v, value] of inPlace) new Float32Array(glb.bin.buffer, glb.bin.byteOffset + start + v * step, 2).set(value);
+    adder.commit(next, replaced);
+  }
+  if (options.dry) return report.join(', ');
+  repack(glb, replaced);
+  fixBounds(glb);
+  writeGlb(file, glb.json, glb.bin, writeFileSync);
+  return report.join(', ');
+}
+
 const argv = process.argv.slice(2);
 if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
@@ -566,14 +778,12 @@ const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
   else if (argv[i] === '--no-edges') options.edges = false;
-  else if (argv[i] === '--ends') ENDS = true;
   else if (argv[i] === '--whole') options.whole = true;
-  else if (argv[i] === '--all') options.all = true;
+  else if (argv[i] === '--floor') options.floor = true;
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
-  else if (argv[i] === '--checker') options.checker = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
 }
 FLAT = Math.cos((options.flat * Math.PI) / 180);
-for (const file of files) console.log(`${file}: ${tone(file, options)}`);
+for (const file of files) console.log(`${file}: ${(options.floor ? floorTone : tone)(file, options)}`);
