@@ -97,6 +97,32 @@ function frame(points) {
   return { axes: order.map((i) => axes[i]), ext: order.map((i) => ext[i]), lo, hi };
 }
 
+function faceFrame(list, at) {
+  const f = frame(list.flatMap((t) => at.corners[t]));
+  const long = f.axes[0];
+  const bins = [];
+  for (const t of list) {
+    const n = sub(at.normal[t], scale(long, dot(at.normal[t], long)));
+    if (Math.hypot(...n) < 0.7) continue;
+    const u = norm(n);
+    const bin = bins.find((b) => Math.abs(dot(b.n, u)) > 0.98);
+    if (bin) bin.area += at.area[t];
+    else bins.push({ n: u, area: at.area[t] });
+  }
+  if (!bins.length) return f;
+  const broad = bins.reduce((a, b) => (b.area > a.area ? b : a)).n;
+  const pts = list.flatMap((t) => at.corners[t]);
+  const extOf = (a) => {
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const q of pts) { const v = dot(q, a); lo = Math.min(lo, v); hi = Math.max(hi, v); }
+    return [lo, hi];
+  };
+  const cross1 = norm(cross(broad, long));
+  const pair = [[cross1, extOf(cross1)], [broad, extOf(broad)]].sort((a, b) => span(b[1]) - span(a[1]));
+  return { ...f, axes: [long, pair[0][0], pair[1][0]], ext: [f.ext[0], pair[0][1], pair[1][1]] };
+}
+
 const isBoard = (f) => {
   const [, w, t] = f.ext.map(span);
   return t <= 0.6 * w;
@@ -190,8 +216,22 @@ function splitStrips(tris, at) {
   }));
   const widths = bins.map((b) => span(b.across)).sort((a, b) => a - b);
   const wide = 1.5 * widths[widths.length >> 1];
+  const overlap = (a, b) => Math.min(a[1], b[1]) - Math.max(a[0], b[0]);
+  const own = new Map();
+  const minArea = 0.2 * Math.min(...best.strips.map((r) => r.area));
+  for (const region of regions.values()) {
+    if (dot(region.normal, best.normal) > -0.9 || region.area < minArea) continue;
+    const f = frame(region.tris.flatMap((t) => at.corners[t]));
+    if (span(f.ext[0]) < 1.5 * span(f.ext[1]) || Math.abs(dot(f.axes[0], best.long)) < 0.9) continue;
+    const ac = range(region.tris, across);
+    if (bins.some((b) => overlap(ac, b.across) >= 0.8 * Math.max(span(ac), span(b.across)))) continue;
+    const bin = { across: ac, long: range(region.tris, best.long), height: range(region.tris, best.normal)[1], tris: [] };
+    bins.push(bin);
+    own.set(region, bin);
+  }
   const base = [];
   for (const region of regions.values()) {
+    if (own.has(region)) { own.get(region).tris.push(...region.tris); continue; }
     const [lo, hi] = range(region.tris, across);
     const points = region.tris.flatMap((t) => at.corners[t]);
     const c = [0, 1, 2].map((i) => points.reduce((sum, p) => sum + p[i], 0) / points.length);
@@ -449,7 +489,7 @@ function tone(file, options) {
         comps.get(r).push(t);
       }
       const measure = (list) => {
-        const f = frame(list.flatMap((t) => at.corners[t]));
+        const f = faceFrame(list, at);
         let square = 0;
         let area = 0;
         const face = [0, 0];
@@ -474,7 +514,17 @@ function tone(file, options) {
         if (whole.plank && (split.length < 2 || split.reduce((s, p) => s + size(p), 0) < 0.5 * size(whole))) return [whole];
         const slabs = splitSlabs(c, at).map(measure);
         const covered = (list) => list.filter((p) => p.plank).reduce((s, p) => s + size(p), 0);
-        if (slabs.filter((p) => p.plank).length >= 2 && covered(slabs) > covered(parts)) return slabs;
+        const within = (a, b, axis) => {
+          const r = (p) => { const v = p.tris.flatMap((t) => at.corners[t].map((q) => dot(q, axis))); return [Math.min(...v), Math.max(...v)]; };
+          const [alo, ahi] = r(a);
+          const [blo, bhi] = r(b);
+          const tol = 0.1 * Math.max(ahi - alo, bhi - blo);
+          return (blo >= alo - tol && bhi <= ahi + tol) || (alo >= blo - tol && ahi <= bhi + tol);
+        };
+        const flat = slabs.filter((p) => p.plank);
+        const oneSolid = flat.some((a, i) => flat.some((b, j) => j > i && within(a, b, whole.axes[1]) && within(a, b, whole.axes[2])));
+        if (flat.length >= 2 && !oneSolid && covered(slabs) > covered(parts)) return slabs;
+        if (!split.length && isPlank(whole)) return [{ ...whole, plank: true }];
         return parts;
       });
       const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
