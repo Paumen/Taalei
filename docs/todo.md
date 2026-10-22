@@ -1,16 +1,11 @@
 emace-village/wall-planks
-m3-base/finger-post-sign-02
 ken-castle/siege-trebuchet-demolished
 isa-bakery/floor-connection
 isa-bakery/floor-wood
 kay-dun-2/floor-wood-large
-quat-sushi/floor-wood
-ken-furniture/stairs
-kay-dun-1/scaffold-medium-corner-both
 lpa-west/hotel-sign-c
 emace-village/shutters-wide
 dungeon/walls-002
-quat-farms/barn
 kay-food/crate-potatoes
 lpa-west/cart-b
 lpa-west/foundation-a
