@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--min <n>] [--share <n>] [--band <from>:<to>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--only <band>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -28,6 +28,9 @@ that hold at least --share (default 0.25) of its wood area. Only planks are
 recoloured; other wood keeps its look.
 --band <from>:<to> moves all wood of one band into another.
 --force tones every board and slat and skips the --min and --share check.
+--flat <deg> (default 2) is how far apart faces may turn and still count as one flat face.
+--no-edges leaves long edges on the gradient instead of the darkest value.
+--only <band> tones only that band.
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -39,7 +42,7 @@ const SIDE = 0.11;
 const APART = 0.11;
 const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
-const FLAT = Math.cos((2 * Math.PI) / 180);
+let FLAT = Math.cos((2 * Math.PI) / 180);
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
 
 function norm(a) {
@@ -290,7 +293,7 @@ function tone(file, options) {
       at.area[t] = Math.hypot(...x) / 2;
       at.normal[t] = norm(x);
     }
-    for (const cell of WOOD) {
+    for (const cell of options.only ? [options.only] : WOOD) {
       const tris = [];
       for (let t = 0; t < n; t++) {
         if ([0, 1, 2].every((k) => { const [cu, cv] = cellOf(idx[t * 3 + k]); return cu === cell[0] && cv === cell[1]; })) tris.push(t);
@@ -466,7 +469,7 @@ function tone(file, options) {
     for (const p of pieces) for (const t of p.tris) {
       const n = faceNormal.get(t);
       const facing = n[1] > 0.5 ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
-      const edge = Math.abs(dot(n, p.axes[1])) > 0.7;
+      const edge = options.edges && Math.abs(dot(n, p.axes[1])) > 0.7;
       for (let k = 0; k < 3; k++) {
         const q = job.world(job.idx[t * 3 + k]);
         const c = edge ? -0.5 : Math.min(0.5, Math.max(-0.5, (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5));
@@ -513,12 +516,15 @@ if (!argv.length || argv.includes('--help')) {
   console.log(HELP);
   process.exit(argv.length ? 0 : 1);
 }
-const options = { min: 2, share: 0.25, dry: false, force: false, band: null };
+const options = { min: 2, share: 0.25, dry: false, force: false, band: null, flat: 2, edges: true, only: null };
 const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
+  else if (argv[i] === '--no-edges') options.edges = false;
+  else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
 }
+FLAT = Math.cos((options.flat * Math.PI) / 180);
 for (const file of files) console.log(`${file}: ${tone(file, options)}`);
