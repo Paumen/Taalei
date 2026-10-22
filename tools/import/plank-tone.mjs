@@ -265,7 +265,7 @@ function splitSlabs(tris, at) {
   return slabs.map((s) => s.tris);
 }
 
-function pickTones(pieces, R) {
+function pickTones(pieces, R, touch = pieces.map(() => [])) {
   const lo = [0, 1, 2].map((i) => Math.min(...pieces.map((p) => p.lo[i])));
   const hi = [0, 1, 2].map((i) => Math.max(...pieces.map((p) => p.hi[i])));
   const tol = 0.035 * Math.hypot(...sub(hi, lo));
@@ -286,12 +286,14 @@ function pickTones(pieces, R) {
     const [b0, b1] = ends(j, tones);
     return Math.abs(a1 - b0) < APART || Math.abs(b1 - a0) < APART;
   };
-  const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length, 0);
+  const near = (i, j, tones) => touch[i].includes(j) && Math.abs(tones[i] - tones[j]) < 2;
+  const bad = (i, tones) => beside[i].some((j) => clash(i, j, tones)) || touch[i].some((j) => near(i, j, tones));
+  const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length + touch[i].filter((j) => j > i && near(i, j, tones)).length, 0);
   const tones = pieces.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
   let count = clashes(tones);
   for (let step = 0; step < 4000 && count; step++) {
-    const bad = pieces.map((_, i) => i).filter((i) => beside[i].some((j) => clash(i, j, tones)));
-    const i = bad[Math.floor(R() * bad.length)];
+    const wrong = pieces.map((_, i) => i).filter((i) => bad(i, tones));
+    const i = wrong[Math.floor(R() * wrong.length)];
     const j = Math.floor(R() * pieces.length);
     [tones[i], tones[j]] = [tones[j], tones[i]];
     const after = clashes(tones);
@@ -626,6 +628,15 @@ function floorTone(file, options) {
       const midArea = median(boards.map((b) => b.area));
       const midWidth = median(boards.map((b) => span([b.foot[1].lo, b.foot[1].hi])));
       const proj = (b, a) => { const q = b.tris.flatMap((u) => at.corners[u].map((p) => dot(p, a))); return [Math.min(...q), Math.max(...q)]; };
+      const sep = (b, c) => {
+        let best = null;
+        for (const { a } of b.foot.concat(c.foot)) {
+          const [x, y] = [proj(b, a), proj(c, a)];
+          const [gap, d, sign] = y[0] - x[1] >= x[0] - y[1] ? [y[0] - x[1], (x[1] + y[0]) / 2, -1] : [x[0] - y[1], (y[1] + x[0]) / 2, 1];
+          if (!best || gap > best.gap) best = { gap, a, d, sign };
+        }
+        return best;
+      };
       const overlap = (b, c, shrink) => b.foot.concat(c.foot).every(({ a }) => {
         const [x, y] = [proj(b, a), proj(c, a)];
         return Math.min(x[1], y[1]) - Math.max(x[0], y[0]) > shrink;
@@ -653,15 +664,6 @@ function floorTone(file, options) {
         const near = Math.min(...dist);
         const cand = local.filter((_, i) => dist[i] <= near + 0.25 * midWidth);
         const whole = [0, 1, 2].map((k) => vert(idx[t * 3 + k]));
-        const sep = (b, c) => {
-          let best = null;
-          for (const { a } of b.foot.concat(c.foot)) {
-            const [x, y] = [proj(b, a), proj(c, a)];
-            const [gap, d, sign] = y[0] - x[1] >= x[0] - y[1] ? [y[0] - x[1], (x[1] + y[0]) / 2, -1] : [x[0] - y[1], (y[1] + x[0]) / 2, 1];
-            if (!best || gap > best.gap) best = { gap, a, d, sign };
-          }
-          return best;
-        };
         const cells = cand.length < 2 ? [{ poly: whole, owner: cand[0] }] : cand.map((b) => {
           let poly = whole;
           for (const c of cand) if (c !== b && poly.length >= 3) {
@@ -728,8 +730,9 @@ function floorTone(file, options) {
       }
       for (const b of boards) for (const t of b.tris) { done.add(t); pieces.push({ owner: b, tri: [0, 1, 2].map((k) => vert(idx[t * 3 + k])), normal: at.normal[t] }); }
       if (!boards.length) continue;
-      pickTones(boards, R);
-      out.push(...pieces.map((pc) => pc.tri.map((q) => ({ ...q, uv: cellUv(to, light(pc.owner, pc.normal, q.w, options.edges)) }))));
+      pickTones(boards, R, boards.map((b) => boards.map((c, j) => (c !== b && sep(b, c).gap <= 0.25 * midWidth ? j : -1)).filter((j) => j >= 0)));
+      const facing = (n) => (n[1] > 0.3 && n[1] < Math.cos(Math.PI / 12) ? norm([n[0], 0, n[2]]) : n);
+      out.push(...pieces.map((pc) => pc.tri.map((q) => ({ ...q, uv: cellUv(to, light(pc.owner, facing(pc.normal), q.w, options.edges)) }))));
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${boards.length} boards, ${pieces.length - owned.size} pieces from ${done.size - owned.size} triangles`);
     }
     if (!out.length || options.dry) continue;
