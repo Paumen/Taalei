@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { editablePrimitives, welder, vertexAdder, repack, fixBounds } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] [--join] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] [--join] [--steps] [--rows <h>] <workfile.glb> [...]
 
 Gives each board in the tan, camel and chestnut bands of the colormap one of
 six tones, picked at random. The tones are spread evenly over a range of
@@ -26,6 +26,11 @@ from several strips.
 width, light on the same side for every board.
 --join gives one tone to board pieces that line up as one board cut by a
 door, window or gap.
+--steps cuts a staircase built as one piece into steps: each tread with
+its front edge and the riser below it is one board; faces that span
+several steps, like a solid side, keep their colours.
+--rows <h> cuts a wall built as one piece into rows of height h from the
+floor, one board per row, for log or plank walls.
 --only tones only the listed bands.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -44,6 +49,9 @@ const ACROSS = Number(opt('--across', '0'));
 const FLAT = Math.cos((Number(opt('--flat', '2.56')) * Math.PI) / 180);
 const WHOLE = argv.includes('--whole');
 const JOIN = argv.includes('--join');
+const STEPS = argv.includes('--steps');
+if (STEPS) argv.splice(argv.indexOf('--steps'), 1);
+const ROWS = Number(opt('--rows', '0'));
 if (JOIN) argv.splice(argv.indexOf('--join'), 1);
 if (WHOLE) argv.splice(argv.indexOf('--whole'), 1);
 const OFF = [-1, -0.6, -0.2, 0.2, 0.6, 1].map((x) => x * Number(strength));
@@ -58,6 +66,7 @@ const glb = readGlb(file);
 if (move) moveBand(glb, ...move.split(':'));
 const log = [];
 const plans = [];
+const keepRegions = new Set();
 for (const prim of editablePrimitives(glb.json)) {
   if (prim.attributes.TEXCOORD_0 === undefined) continue;
   const pos = readAccessor(glb, prim.attributes.POSITION).data;
@@ -87,8 +96,65 @@ for (const prim of editablePrimitives(glb.json)) {
     for (const t of tris) { const w = [0, 1, 2].map((k) => weld(idx[t * 3 + k])); pp.set(fp(w[1]), fp(w[0])); pp.set(fp(w[2]), fp(w[0])); }
     const pieces = new Map();
     for (const t of tris) { const r = fp(weld(idx[t * 3])); if (!pieces.has(r)) pieces.set(r, []); pieces.get(r).push(t); }
+    const stepSplit = (ts) => {
+      const TOL = 0.03;
+      const up = ts.filter((t) => geo.get(t).n[1] > 0.9);
+      if (up.length < 4) return false;
+      const hs = up.map((t) => [geo.get(t).c[1], geo.get(t).area]).sort((a, b) => a[0] - b[0]);
+      const lv = [];
+      for (const [h, a] of hs) { const l = lv[lv.length - 1]; if (l && h - l.max < TOL) { l.a += a; l.max = h; } else lv.push({ a, max: h }); }
+      const med = lv.map((l) => l.a).sort((a, b) => a - b)[Math.floor(lv.length / 2)];
+      const L = lv.filter((l) => l.a > 0.2 * med).map((l) => l.max);
+      if (L.length < 2) return false;
+      const gap = Math.min(...L.slice(1).map((h, i) => h - L[i]));
+      const near = (y) => L.reduce((b, h, i) => (Math.abs(h - y) < Math.abs(L[b] - y) ? i : b), 0);
+      const above = (y) => { const i = L.findIndex((h) => h >= y - TOL); return i; };
+      const ext = (t) => { const ys = [0, 1, 2].map((k) => P(idx[t * 3 + k])[1]); return [Math.min(...ys), Math.max(...ys)]; };
+      const byEdge = new Map();
+      for (const t of up) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) { const e = [weld(idx[t * 3 + a]), weld(idx[t * 3 + b])].sort((p, q) => p - q).join(); if (!byEdge.has(e)) byEdge.set(e, []); byEdge.get(e).push(t); }
+      const [cp, cf] = uf();
+      for (const l of byEdge.values()) for (let i = 1; i < l.length; i++) if (Math.abs(geo.get(l[i]).c[1] - geo.get(l[0]).c[1]) < 0.002) cp.set(cf(l[i]), cf(l[0]));
+      const comps = new Map();
+      for (const t of up) { const r = cf(t); if (!comps.has(r)) comps.set(r, { k: near(geo.get(t).c[1]), tris: [], lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity], area: 0 }); const o = comps.get(r); o.tris.push(t); o.area += geo.get(t).area; for (let k = 0; k < 3; k++) { const p = P(idx[t * 3 + k]); for (let i = 0; i < 3; i++) { o.lo[i] = Math.min(o.lo[i], p[i]); o.hi[i] = Math.max(o.hi[i], p[i]); } } }
+      let cs = [...comps.values()];
+      const cmed = cs.map((o) => o.area).sort((a, b) => a - b)[Math.floor(cs.length / 2)];
+      const small = cs.filter((o) => o.area < 0.2 * cmed);
+      cs = cs.filter((o) => o.area >= 0.2 * cmed);
+      const ids = cs.map(() => { const id = regions++; cellOfRegion[id] = cell; return id; });
+      const body = regions++; cellOfRegion[body] = cell; keepRegions.add(body);
+      const boxDist = (c, o) => Math.hypot(...[0, 1, 2].map((i) => Math.max(o.lo[i] - c[i], 0, c[i] - o.hi[i])));
+      const nearest = (c, k) => { let best = -1, bd = Infinity; cs.forEach((o, i) => { if (o.k !== k) return; const d = boxDist(c, o); if (d < bd) { bd = d; best = i; } }); return best; };
+      cs.forEach((o, i) => o.tris.forEach((t) => triRegion.set(t, ids[i])));
+      const eAll = new Map();
+      for (const t of ts) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) { const e = [weld(idx[t * 3 + a]), weld(idx[t * 3 + b])].sort((p, q) => p - q).join(); if (!eAll.has(e)) eAll.set(e, []); eAll.get(e).push(t); }
+      const [fp2, ff2] = uf();
+      const dt = (p, q) => p[0] * q[0] + p[1] * q[1] + p[2] * q[2];
+      for (const l of eAll.values()) for (let i = 1; i < l.length; i++) if (dt(geo.get(l[0]).n, geo.get(l[i]).n) > FLAT) fp2.set(ff2(l[i]), ff2(l[0]));
+      const fspan = new Map();
+      for (const t of ts) { const r = ff2(t), [a, b] = ext(t); const o = fspan.get(r) ?? [Infinity, -Infinity]; fspan.set(r, [Math.min(o[0], a), Math.max(o[1], b)]); }
+      for (const t of ts) {
+        if (triRegion.has(t)) continue;
+        const g = geo.get(t), [y0, y1] = fspan.get(ff2(t));
+        let k = -1;
+        if (g.n[1] > 0.9) k = near(g.c[1]);
+        else if (y1 - y0 <= gap * 1.1 + TOL) k = above(y1);
+        const i = k >= 0 ? nearest(g.c, k) : -1;
+        triRegion.set(t, i >= 0 ? ids[i] : body);
+      }
+      return true;
+    };
     let split = 0;
     for (const ts of pieces.values()) {
+      if (STEPS && stepSplit(ts)) { split++; continue; }
+      if (ROWS) {
+        const h = ROWS, y0 = 0;
+        const ys = ts.map((t) => geo.get(t).c[1]);
+        if (Math.max(...ys) - Math.min(...ys) > 3 * h) {
+          const ids = new Map();
+          for (const t of ts) { const k = Math.floor((geo.get(t).c[1] - y0) / h); if (!ids.has(k)) { ids.set(k, regions++); cellOfRegion[ids.get(k)] = cell; } triRegion.set(t, ids.get(k)); }
+          split++; continue;
+        }
+      }
       const byEdge = new Map();
       for (const t of ts) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) {
         const e = [weld(idx[t * 3 + a]), weld(idx[t * 3 + b])].sort((p, q) => p - q).join();
@@ -179,6 +245,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
   const L = new Map();
   const st = new Map();
   for (const [v, r] of vRegion) {
+    if (keepRegions.has(r)) continue;
     const cell = cellOfRegion[r];
     const l = 1 - (glb.bin.readFloatLE(start + v * step + 4) * 512 - cell[1] * 128 - 0.5) / 127;
     L.set(v, l);
@@ -204,6 +271,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
   if (ACROSS) {
     const pts = new Map();
     for (const [v, r] of vRegion) {
+      if (keepRegions.has(r)) continue;
       if (!pts.has(r)) pts.set(r, []);
       pts.get(r).push([pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]);
     }
@@ -228,6 +296,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
       dir.set(r, { wide, lo: Math.min(...t), hi: Math.max(...t), flip });
     }
     for (const [v, r] of vRegion) {
+      if (keepRegions.has(r)) continue;
       const d = dir.get(r);
       const w = d.hi - d.lo;
       const t = d.wide[0] * pos[v * 3] + d.wide[1] * pos[v * 3 + 1] + d.wide[2] * pos[v * 3 + 2];
@@ -235,6 +304,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
     }
   }
   for (const [v, r] of vRegion) {
+    if (keepRegions.has(r)) continue;
     const cell = cellOfRegion[r];
     const o = st.get(r);
     if (ACROSS) {

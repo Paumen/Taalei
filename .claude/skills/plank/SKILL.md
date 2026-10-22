@@ -27,6 +27,11 @@ passes the self-check.
 - A board built from several strips gets cut into strips: use `--whole`
   when each piece is one board.
 - Strong baked gradients drown the tones: lower `--gradient` (0.5).
+- Staircase built as one piece: `--steps` instead of `--join` and `--big`.
+- Log or plank wall built as one piece: `--rows <row height>`.
+- `--join` can merge whole rows of siding: drop it when boards already run
+  through the gap.
+- Narrow boards look streaky: lower `--across` (0.2).
 - Tones stay random. No rule for neighbours.
 
 ## 3. Self-check, every time, before the review
