@@ -186,7 +186,7 @@ function splitStrips(tris, at) {
   const wide = 1.5 * widths[widths.length >> 1];
   if (ENDS) for (const r of best.group.regions) {
     if (best.strips.some((q) => q.tris === r.tris) || r.area <= 0.02 * best.total || span(range(r.tris, across)) > wide) continue;
-    bins.push({ across: range(r.tris, across), long: range(r.tris, best.long), height: range(r.tris, best.normal)[1], tris: [] });
+    bins.push({ across: range(r.tris, across), long: range(r.tris, best.long), height: range(r.tris, best.normal)[1], tris: [], end: true });
   }
   const base = [];
   const units = ENDS ? [...regions.values()].flatMap((r) => r.tris.map((t) => ({ tris: [t] }))) : regions.values();
@@ -204,7 +204,7 @@ function splitStrips(tris, at) {
       const w = span(b.across);
       const [low] = range(region.tris, best.normal);
       if (along < b.long[0] - 0.5 * w || along > b.long[1] + 0.5 * w || up > b.height + 1e-6 || low < b.height - 0.5 * w) continue;
-      if (ENDS) { const [a0, a1] = range(region.tris, best.long); if (a0 < b.long[0] - 0.5 * w || a1 > b.long[1] + 0.5 * w || low < b.height - 0.25 * w) continue; }
+      if (ENDS) { const [a0, a1] = range(region.tris, best.long); if (a0 < b.long[0] - 0.5 * w || a1 > b.long[1] + 0.5 * w || low < b.height - 0.25 * w || lo < b.across[0] - 0.25 * w || hi > b.across[1] + 0.25 * w) continue; }
       const d = mid < b.across[0] ? b.across[0] - mid : mid > b.across[1] ? mid - b.across[1] : 0;
       const da = along < b.long[0] ? b.long[0] - along : along > b.long[1] ? along - b.long[1] : 0;
       if (d <= 0.5 * w && (d < gap - 1e-9 || (d < gap + 1e-9 && da < gapAlong))) { gap = d; gapAlong = da; pick = b; }
@@ -212,6 +212,7 @@ function splitStrips(tris, at) {
     (pick ? pick.tris : base).push(...region.tris);
   }
   base.rest = true;
+  for (const b of bins) if (b.end) b.tris.end = true;
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
 
@@ -337,7 +338,7 @@ function tone(file, options) {
         }
         const [l, w] = f.ext.map(span);
         const filled = Math.max(...face) >= 0.4 * l * w;
-        return { tris: list, ...f, plank: !list.rest && isPlank(f) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
+        return { tris: list, ...f, plank: !list.rest && (list.end || isPlank(f)) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
       };
       const pieces = [...comps.values()].flatMap((c) => {
         const whole = measure(c);
