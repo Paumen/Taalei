@@ -2,7 +2,6 @@ emace-village/wall-planks
 m3-base/finger-post-sign-02
 ken-castle/siege-trebuchet-demolished
 isa-bakery/floor-connection
-quat-medieval/crate
 isa-bakery/floor-wood
 kay-dun-2/floor-wood-large
 quat-sushi/floor-wood
