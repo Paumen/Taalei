@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { editablePrimitives, welder, vertexAdder, repack, fixBounds } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] [--join] [--steps] [--rows <h>] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--strength <n>] [--only <band,...>] [--band <from>:<to>] [--band-after <from>:<to>] [--big <n>] [--gradient <n>] [--span <n>] [--across <n>] [--flat <deg>] [--whole] [--facets] [--join] [--steps] [--rows <h>] <workfile.glb> [...]
 
 Gives each board in the tan, camel and chestnut bands of the colormap one of
 six tones, drawn at random without repeats until all six are used. The tones are spread evenly over a range of
@@ -17,13 +17,19 @@ cut into one board per face; faces under --big (default 0.1) of its largest
 face join the nearest board. Faces of one board split by a gap or hole stay
 one board. Corners shared by two boards are doubled so each keeps its tone.
 --band <from>:<to> first moves all wood of one band into another.
+--band-after <from>:<to> moves it after the boards are toned, for boards
+told apart only by their band.
 --flat <deg> (default 2.56) is how far faces may turn and still count as one flat face.
+--facets makes every flat face its own board, for staves of a round piece
+built as one.
 --whole keeps each run of joined triangles as one board, for boards built
 from several strips.
 --gradient <n> (default 1) scales each board's gradient; 0 gives one even tone.
 --span <n> (default 1) caps each board's gradient to n of the cell's range.
---across <n> replaces each board's gradient with one of n running across its
-width, light on the same side for every board.
+--across <n> replaces each board's gradient with one of n tone steps running
+across the width of its largest face, light on the same side for every
+board. At 0.5, 1.5 or 2.5 the seam between two boards always shows,
+whatever their tones.
 --join gives one tone to board pieces that line up as one board cut by a
 door, window or gap.
 --steps cuts a staircase built as one piece into steps: each tread with
@@ -43,6 +49,7 @@ const opt = (name, def) => { const i = argv.indexOf(name); if (i < 0) return def
 const strength = opt('--strength', '0.25');
 const only = opt('--only', '');
 const move = opt('--band', '');
+const moveAfter = opt('--band-after', '');
 const BIG = Number(opt('--big', '0.1'));
 const GRAD = Number(opt('--gradient', '1'));
 const SPAN = Number(opt('--span', '1'));
@@ -50,6 +57,8 @@ const ACROSS = Number(opt('--across', '0'));
 const FLAT = Math.cos((Number(opt('--flat', '2.56')) * Math.PI) / 180);
 const WHOLE = argv.includes('--whole');
 const JOIN = argv.includes('--join');
+const FACETS = argv.includes('--facets');
+if (FACETS) argv.splice(argv.indexOf('--facets'), 1);
 const STEPS = argv.includes('--steps');
 if (STEPS) argv.splice(argv.indexOf('--steps'), 1);
 const ROWS = opt('--rows', '');
@@ -114,10 +123,11 @@ for (const prim of editablePrimitives(glb.json)) {
       const byEdge = new Map();
       for (const t of up) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) { const e = [weld(idx[t * 3 + a]), weld(idx[t * 3 + b])].sort((p, q) => p - q).join(); if (!byEdge.has(e)) byEdge.set(e, []); byEdge.get(e).push(t); }
       const [cp, cf] = uf();
-      for (const l of byEdge.values()) for (let i = 1; i < l.length; i++) if (Math.abs(geo.get(l[i]).c[1] - geo.get(l[0]).c[1]) < 0.002) cp.set(cf(l[i]), cf(l[0]));
+      for (const l of byEdge.values()) for (let i = 1; i < l.length; i++) cp.set(cf(l[i]), cf(l[0]));
       const comps = new Map();
-      for (const t of up) { const r = cf(t); if (!comps.has(r)) comps.set(r, { k: near(geo.get(t).c[1]), tris: [], lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity], area: 0 }); const o = comps.get(r); o.tris.push(t); o.area += geo.get(t).area; for (let k = 0; k < 3; k++) { const p = P(idx[t * 3 + k]); for (let i = 0; i < 3; i++) { o.lo[i] = Math.min(o.lo[i], p[i]); o.hi[i] = Math.max(o.hi[i], p[i]); } } }
+      for (const t of up) { const r = cf(t); if (!comps.has(r)) comps.set(r, { tris: [], lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity], area: 0 }); const o = comps.get(r); o.tris.push(t); o.area += geo.get(t).area; for (let k = 0; k < 3; k++) { const p = P(idx[t * 3 + k]); for (let i = 0; i < 3; i++) { o.lo[i] = Math.min(o.lo[i], p[i]); o.hi[i] = Math.max(o.hi[i], p[i]); } } }
       let cs = [...comps.values()];
+      for (const o of cs) o.k = near(o.tris.reduce((a, t) => a + geo.get(t).c[1] * geo.get(t).area, 0) / o.area);
       const cmed = cs.map((o) => o.area).sort((a, b) => a - b)[Math.floor(cs.length / 2)];
       const small = cs.filter((o) => o.area < 0.2 * cmed);
       cs = cs.filter((o) => o.area >= 0.2 * cmed);
@@ -195,7 +205,7 @@ for (const prim of editablePrimitives(glb.json)) {
       big.forEach((o, i) => { const g = bf(i); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(o); });
       const boards = [...groups.values()];
       const sameDir = boards.some((g) => boards.filter((h) => h !== g && dot(h[0].n, g[0].n) > 0.999).length > 0);
-      if (WHOLE || !sameDir || boards.length < 2) {
+      if (WHOLE || (!sameDir && !FACETS) || boards.length < 2) {
         const id = regions++;
         cellOfRegion[id] = cell;
         for (const t of ts) triRegion.set(t, id);
@@ -239,10 +249,10 @@ for (const { prim, idx, triRegion, regions, cellOfRegion } of plans) {
   const draw = () => { if (!deck.length) { deck = [...OFF]; for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; } } return deck.pop(); };
   const offs = Array.from({ length: regions }, draw);
   if (JOIN) joinRegions(glb, prim, idx, triRegion, cellOfRegion, offs);
-  after.push({ prim, vRegion, offs, cellOfRegion });
+  after.push({ prim, idx, triRegion, vRegion, offs, cellOfRegion });
 }
 repack(glb, replaced);
-for (const { prim, vRegion, offs, cellOfRegion } of after) {
+for (const { prim, idx, triRegion, vRegion, offs, cellOfRegion } of after) {
   const acc = glb.json.accessors[prim.attributes.TEXCOORD_0];
   const view = glb.json.bufferViews[acc.bufferView];
   const start = (view.byteOffset ?? 0) + (acc.byteOffset ?? 0);
@@ -272,6 +282,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
     if (hi - lo < 2 * s) { if (lo === 0.1) hi = Math.min(0.9, lo + 2 * s); else lo = Math.max(0.1, hi - 2 * s); }
     tones.set(key, OFF.map((_, k) => lo + (k / (OFF.length - 1)) * (hi - lo)));
   }
+  const toneStep = 0.4 * s;
   const pos = readAccessor(glb, prim.attributes.POSITION).data;
   const across = new Map();
   if (ACROSS) {
@@ -280,6 +291,20 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
       if (keepRegions.has(r)) continue;
       if (!pts.has(r)) pts.set(r, []);
       pts.get(r).push([pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]);
+    }
+    const faces = new Map();
+    for (const [t, r] of triRegion) {
+      if (keepRegions.has(r)) continue;
+      const [a, b, c] = [0, 1, 2].map((k) => { const v = idx[t * 3 + k]; return [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]]; });
+      const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], w = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+      const x = [u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]];
+      const l = Math.hypot(...x);
+      if (!l) continue;
+      if (!faces.has(r)) faces.set(r, []);
+      const fs = faces.get(r);
+      const n = x.map((q) => q / l);
+      const f = fs.find((o) => Math.abs(o.n[0] * n[0] + o.n[1] * n[1] + o.n[2] * n[2]) > FLAT);
+      if (f) f.a += l; else fs.push({ n, a: l });
     }
     const dir = new Map();
     for (const [r, ps] of pts) {
@@ -295,10 +320,17 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
         }
         return x;
       };
-      const long = top(C, []);
-      const wide = top(C, [long]);
+      const N = (faces.get(r) ?? []).reduce((m, o) => (!m || o.a > m.a ? o : m), null)?.n;
+      let wide;
+      if (N) {
+        const P = [0, 1, 2].map((i) => [0, 1, 2].map((j) => (i === j ? 1 : 0) - N[i] * N[j]));
+        const CP = [0, 1, 2].map((i) => [0, 1, 2].map((j) => [0, 1, 2].reduce((a, k) => a + [0, 1, 2].reduce((b, m) => b + P[i][k] * C[k][m] * P[m][j], 0), 0)));
+        const long = top(CP, [N]);
+        wide = [N[1] * long[2] - N[2] * long[1], N[2] * long[0] - N[0] * long[2], N[0] * long[1] - N[1] * long[0]];
+      } else wide = top(C, [top(C, [])]);
+      const k = [0, 1, 2].reduce((m, i) => (Math.abs(wide[i]) > Math.abs(wide[m]) + 1e-3 ? i : m), 0);
+      const flip = wide[k] < 0 ? -1 : 1;
       const t = ps.map((p) => wide[0] * p[0] + wide[1] * p[1] + wide[2] * p[2]);
-      const flip = wide[0] + wide[1] + wide[2] < 0 ? -1 : 1;
       dir.set(r, { wide, lo: Math.min(...t), hi: Math.max(...t), flip });
     }
     for (const [v, r] of vRegion) {
@@ -315,7 +347,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
     const o = st.get(r);
     if (ACROSS) {
       const M = tones.get(cell.join())[OFF.indexOf(offs[r])];
-      const n = Math.min(0.94, Math.max(0.06, M + across.get(v) * ACROSS));
+      const n = Math.min(0.94, Math.max(0.06, M + across.get(v) * ACROSS * toneStep));
       glb.bin.writeFloatLE((cell[1] * 128 + 0.5 + (1 - n) * 127) / 512, start + v * step + 4);
       continue;
     }
@@ -326,6 +358,7 @@ for (const { prim, vRegion, offs, cellOfRegion } of after) {
     glb.bin.writeFloatLE((cell[1] * 128 + 0.5 + (1 - n) * 127) / 512, start + v * step + 4);
   }
 }
+if (moveAfter) moveBand(glb, ...moveAfter.split(':'));
 fixBounds(glb);
 writeGlb(file, glb.json, glb.bin, writeFileSync);
 console.log(`${basename(file)}: ${log.join(', ')}`);
@@ -368,7 +401,7 @@ function joinRegions(glb, prim, idx, triRegion, cellOfRegion, offs) {
     if (cellOfRegion[keys[i]] !== cellOfRegion[keys[j]] || A.ax[0] !== B.ax[0] || A.ax[1] !== B.ax[1]) continue;
     const [th, w, l] = A.ax;
     const mid = (o, k) => (o.lo[k] + o.hi[k]) / 2;
-    if (Math.abs(mid(A, th) - mid(B, th)) > Math.max(A.e[th], B.e[th])) continue;
+    if (Math.abs(mid(A, th) - mid(B, th)) > 0.5 * Math.min(A.e[th], B.e[th])) continue;
     const ov = Math.min(A.hi[w], B.hi[w]) - Math.max(A.lo[w], B.lo[w]);
     if (ov < 0.8 * Math.max(A.e[w], B.e[w])) continue;
     if (Math.max(A.lo[l], B.lo[l]) - Math.min(A.hi[l], B.hi[l]) > 3 * Math.max(A.e[w], B.e[w])) continue;

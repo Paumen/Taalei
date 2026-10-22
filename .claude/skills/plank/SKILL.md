@@ -18,21 +18,28 @@ passes the self-check.
 
 ## 2. Tone
 
-- Default: `plank-tone.mjs --strength 0.4 --across 0.15 --flat 8 --big 0.02 --join <file>`.
-- Boards of one wall or floor in mixed bands: put them in one band first,
-  with `--band <from>:<to>` for a whole band, or by moving only those
-  boards.
-- A board built from several strips gets cut into strips: use `--whole`
-  when each piece is one board.
+- Default: `plank-tone.mjs --strength 0.4 --across 1.5 --flat 8 --big 0.02 --join <file>`.
+  Keep `--across` at a whole number of tone steps plus a half, so every
+  seam shows whatever two tones meet there.
+- Sibling boards in mixed bands: put them in one band. Use
+  `--band <from>:<to>` when the boards are told apart by shape, and
+  `--band-after <from>:<to>` when they are told apart only by their band.
+  Move single boards by hand after toning. Pillars against planks, or
+  upright against flat boards, may keep their own bands.
+- A board built from several strips, or a curved board, gets cut face by
+  face: use `--whole` when each piece is one board.
+- Staves of a round piece built as one: `--facets` with `--flat` just
+  under the angle between staves.
 - Strong baked gradients drown the tones: lower `--gradient` (0.5).
-- Staircase built as one piece: `--steps` without `--across`, `--join` or
-  `--big`, so the step's tone does not smear over its riser and sides.
+- Staircase built as one piece: `--steps --strength 0.4 --across 1.5 --flat 8`.
 - Log or plank wall built as one piece: `--rows auto`, or `--rows <row
   height>` when the boards have no underside.
-- `--join` can merge whole rows of siding: drop it when boards already run
+- `--join` can merge sloped siding: drop it when boards already run
   through the gap.
-- Boards that look skipped are often boards whose tones sit too close:
-  check the strength before blaming the board split.
+- Boards that look skipped or smudged are almost always boards fused into
+  one or one board cut in two, not the tones. Check the board map first:
+  copy the tool, write each board in its own bright colormap cell instead
+  of its tone, and render it.
 
 ## 3. Self-check, every time, before the review
 
