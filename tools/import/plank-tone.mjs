@@ -7,10 +7,12 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMa
 const HELP = `plank-tone.mjs [--dry] [--min <n>] [--share <n>] [--band <from>:<to>] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
-own tone, spread evenly from light to dark over the model's planks, with a
-gradient across its width of its own strength and direction. Faces turned
-sideways are a step darker than faces turned up, faces turned down two steps.
-Planks side by side differ in tone and at the seam.
+own tone from a set of six, 0.015 OKLCH lightness apart and each used about
+equally, with a gradient across its width set per tone (0.04, 0.02, 0.02, 0.06,
+0.02, 0.04 from dark to light) that runs the same way
+on every plank. Faces turned sideways are 0.02 darker than faces turned up, faces
+turned down 0.04. For planks side by side, the light end of one plank's gradient
+is never within 0.02 of the dark end of the other's.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
 is cut into one plank per strip; other pieces are cut where faces meet in an
@@ -27,10 +29,11 @@ recoloured; other wood keeps its look.
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
-const TOP = [0.393, 0.94];
-const GRADIENT = [0.11, 0.28];
-const SIDE = 0.167;
+const TONES = [0.37, 0.452, 0.534, 0.616, 0.698, 0.78];
+const GRADIENT = [0.22, 0.11, 0.11, 0.33, 0.11, 0.22];
+const SIDE = 0.11;
 const APART = 0.11;
+const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
 const FLAT = Math.cos((2 * Math.PI) / 180);
 const PARALLEL = Math.cos((5 * Math.PI) / 180);
@@ -384,25 +387,24 @@ function tone(file, options) {
       list.sort((x, y) => Math.abs(dot(x.d, p.axes[1])) - Math.abs(dot(y.d, p.axes[1])));
       return list.slice(0, 1).map(({ j }) => j);
     }));
-    const edgeOf = (p, q, tone) => tone.base + (tone.gradient / 2) * tone.way * Math.sign(dot(sub(mid(q), mid(p)), p.axes[1]));
-    const clash = (i, j, tones) => Math.abs(tones[i].base - tones[j].base) < APART
-      || Math.abs(edgeOf(pieces[i], pieces[j], tones[i]) - edgeOf(pieces[j], pieces[i], tones[j])) < APART;
+    for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
+    const ends = (i, tones) => [TONES[tones[i]] - GRADIENT[tones[i]] / 2, TONES[tones[i]] + GRADIENT[tones[i]] / 2];
+    const clash = (i, j, tones) => {
+      const [a0, a1] = ends(i, tones);
+      const [b0, b1] = ends(j, tones);
+      return Math.abs(a1 - b0) < APART || Math.abs(b1 - a0) < APART;
+    };
     const clashes = (tones) => pieces.reduce((n, _, i) => n + beside[i].filter((j) => j > i && clash(i, j, tones)).length, 0);
-    const tones = pieces.map((_, k) => {
-      const gradient = GRADIENT[0] + R() * (GRADIENT[1] - GRADIENT[0]);
-      const slot = (k + 0.2 + 0.6 * R()) / pieces.length;
-      return { base: TOP[0] + gradient / 2 + slot * (TOP[1] - TOP[0] - gradient), gradient, way: R() < 0.5 ? -1 : 1 };
-    }).sort(() => R() - 0.5);
+    const tones = pieces.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
     let count = clashes(tones);
     for (let step = 0; step < 4000 && count; step++) {
       const bad = pieces.map((_, i) => i).filter((i) => beside[i].some((j) => clash(i, j, tones)));
       const i = bad[Math.floor(R() * bad.length)];
       const j = Math.floor(R() * pieces.length);
-      const before = [tones[i], tones[j]];
-      [tones[i], tones[j]] = [{ ...tones[j], way: R() < 0.5 ? -1 : 1 }, { ...tones[i], way: R() < 0.5 ? -1 : 1 }];
+      [tones[i], tones[j]] = [tones[j], tones[i]];
       const after = clashes(tones);
       if (after <= count) count = after;
-      else [tones[i], tones[j]] = before;
+      else [tones[i], tones[j]] = [tones[j], tones[i]];
     }
     pieces.forEach((p, i) => { p.tone = tones[i]; });
     const writesOf = writes.get(job.prim) ?? new Map();
@@ -414,7 +416,7 @@ function tone(file, options) {
       for (let k = 0; k < 3; k++) {
         const q = job.world(job.idx[t * 3 + k]);
         const c = (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5;
-        lightOf.set(t * 3 + k, p.tone.base + p.tone.gradient * p.tone.way * c - facing);
+        lightOf.set(t * 3 + k, TONES[p.tone] + GRADIENT[p.tone] * c - facing);
       }
     }
     for (const [c, l] of lightOf) {
