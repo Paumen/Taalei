@@ -21,13 +21,19 @@ passes the self-check.
 - Default: `plank-tone.mjs <file>`.
 - Tones are shuffled at random. Never pick or change a tone because of
   the boards next to it.
-- Sibling boards in mixed bands: put them in one band with
-  `--band <from>:<to>`, or move single boards by hand after toning.
+- Sibling boards in mixed bands: put them in one band. Use
+  `--band <from>:<to>` when the boards are told apart by shape, and
+  `--band-after <from>:<to>` when they are told apart only by their band.
+  Move single boards by hand after toning.
   Pillars against planks, or upright against flat boards, may keep their
   own bands. End grain on post tops and board ends keeps its lighter band:
   tone only the boards' band with `--only`.
 - A board built from several strips, or a curved board, gets cut face by
   face: use `--whole` when each piece is one board.
+- Staves of a round piece built as one: `--facets` with `--flat` just
+  under the angle between staves.
+- Staircase built as one piece: `--steps --flat 8`.
+- Boards cut in two by a door, window or post: `--join`.
 - Boards that look skipped or smudged are almost always boards fused into
   one or one board cut in two, not the tones. Check the board map first:
   copy the tool, write each board in its own bright colormap cell instead

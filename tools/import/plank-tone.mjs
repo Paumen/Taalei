@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--floor] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--band-after <from>:<to>] [--steps] [--facets] [--join] [--floor] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -32,6 +32,15 @@ recoloured; other wood keeps its look.
 --no-edges leaves long edges on the gradient instead of the darkest value.
 --only <band> tones only that band.
 --whole keeps each run of joined triangles as one plank instead of cutting it.
+--band-after <from>:<to> moves all wood of one band into another after toning,
+so boards told apart only by their band stay apart.
+--steps cuts a staircase built as one piece into one plank per step: its top
+and the upright face under its front edge. Other faces keep their look.
+--facets cuts each piece at every flat face, one plank per face, for staves
+of a round piece built as one.
+--join gives pieces of one board cut apart by a gap, such as a door or post,
+one tone: same direction and thickness, in line, at most three board widths
+apart.
 --dry reports without writing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -264,10 +273,116 @@ function splitSlabs(tris, at) {
   return slabs.map((s) => s.tris);
 }
 
-function pickTones(pieces, R) {
+function pickTones(pieces, R, group = pieces.map((_, i) => i)) {
   for (const p of pieces) if (dot(p.axes[1], REF) < 0) { p.axes[1] = scale(p.axes[1], -1); p.ext[1] = [-p.ext[1][1], -p.ext[1][0]]; }
-  const tones = pieces.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
-  pieces.forEach((p, i) => { p.tone = tones[i]; });
+  const roots = [...new Set(group)];
+  const tones = roots.map((_, k) => k % TONES.length).sort(() => R() - 0.5);
+  pieces.forEach((p, i) => { p.tone = tones[roots.indexOf(group[i])]; });
+}
+
+function flatFaces(tris, at) {
+  const parent = new Map(tris.map((t) => [t, t]));
+  const find = (a) => (parent.get(a) === a ? a : (parent.set(a, find(parent.get(a))), parent.get(a)));
+  const byEdge = new Map();
+  for (const t of tris) for (const [a, b] of [[0, 1], [1, 2], [2, 0]]) {
+    const k = edgeKey(at.weld[t][a], at.weld[t][b]);
+    if (!byEdge.has(k)) byEdge.set(k, []);
+    byEdge.get(k).push(t);
+  }
+  for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
+    if (dot(at.normal[list[0]], at.normal[list[i]]) > FLAT) parent.set(find(list[i]), find(list[0]));
+  }
+  const groups = new Map();
+  for (const t of tris) {
+    const r = find(t);
+    if (!groups.has(r)) groups.set(r, []);
+    groups.get(r).push(t);
+  }
+  return [...groups.values()];
+}
+
+function splitSteps(tris, at) {
+  const TOL = 0.01;
+  const mid = (t) => [0, 1, 2].map((i) => (at.corners[t][0][i] + at.corners[t][1][i] + at.corners[t][2][i]) / 3);
+  const faces = flatFaces(tris, at).map((f) => {
+    const ys = f.flatMap((t) => at.corners[t].map((q) => q[1]));
+    const area = f.reduce((s, t) => s + at.area[t], 0);
+    const n = norm(f.reduce((s, t) => s.map((x, i) => x + at.normal[t][i] * at.area[t]), [0, 0, 0]));
+    return { tris: f, area, n, y: f.reduce((s, t) => s + mid(t)[1] * at.area[t], 0) / area, y0: Math.min(...ys), y1: Math.max(...ys) };
+  });
+  const tops = faces.filter((f) => f.n[1] > 0.9);
+  const big = tops.map((f) => f.area).sort((a, b) => a - b)[tops.length >> 1] || 0;
+  const treads = tops.filter((f) => f.area >= 0.2 * big).sort((a, b) => a.y - b.y);
+  const levels = [];
+  for (const f of treads) if (!levels.length || f.y - levels[levels.length - 1] > TOL) levels.push(f.y);
+  if (levels.length < 2) return null;
+  const rise = Math.min(...levels.slice(1).map((y, i) => y - levels[i]));
+  const level = (y) => levels.reduce((b, h, i) => (Math.abs(h - y) < Math.abs(levels[b] - y) ? i : b), 0);
+  const box = (list) => {
+    const pts = list.flatMap((t) => at.corners[t]);
+    return { lo: [0, 1, 2].map((i) => Math.min(...pts.map((q) => q[i]))), hi: [0, 1, 2].map((i) => Math.max(...pts.map((q) => q[i]))) };
+  };
+  const steps = treads.map((f) => ({ tread: f.tris, k: level(f.y), tris: [...f.tris], ...box(f.tris) }));
+  const dist = (c, o) => Math.hypot(...[0, 1, 2].map((i) => Math.max(o.lo[i] - c[i], 0, c[i] - o.hi[i])));
+  const body = [];
+  for (const f of faces) {
+    if (treads.includes(f)) continue;
+    let k = -1;
+    if (f.n[1] > 0.9) k = level(f.y);
+    else if (Math.abs(f.n[1]) < 0.5 && f.y1 - f.y0 <= rise * 1.1 + TOL) k = levels.findIndex((h) => h >= f.y1 - TOL);
+    const c = mid(f.tris[0]);
+    const near = k < 0 ? null : steps.filter((s) => s.k === k).reduce((a, b) => (!a || dist(c, b) < dist(c, a) ? b : a), null);
+    (near ? near.tris : body).push(...f.tris);
+  }
+  return [...steps.map((s) => {
+    const f = frame(s.tread.flatMap((t) => at.corners[t]));
+    const all = box(s.tris);
+    return { tris: s.tris, axes: f.axes, ext: f.ext, lo: all.lo, hi: all.hi, plank: true };
+  }), ...(body.length ? [{ tris: body, ...frame(body.flatMap((t) => at.corners[t])), plank: false }] : [])];
+}
+
+function joinBoards(pieces, job) {
+  const pts = pieces.map((p) => p.tris.flatMap((t) => [0, 1, 2].map((k) => job.world(job.idx[t * 3 + k]))));
+  const range = (i, a) => {
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const q of pts[i]) { const s = dot(q, a); lo = Math.min(lo, s); hi = Math.max(hi, s); }
+    return [lo, hi];
+  };
+  const root = pieces.map((_, i) => i);
+  const find = (a) => (root[a] === a ? a : (root[a] = find(root[a])));
+  for (let i = 0; i < pieces.length; i++) for (let j = i + 1; j < pieces.length; j++) {
+    const A = pieces[i];
+    const B = pieces[j];
+    if (Math.abs(dot(A.axes[0], B.axes[0])) < 0.95 || Math.abs(dot(A.axes[2], B.axes[2])) < 0.95) continue;
+    const [la, wa, ta] = A.axes.map((a) => range(i, a));
+    const [lb, wb, tb] = A.axes.map((a) => range(j, a));
+    const midOf = (r) => (r[0] + r[1]) / 2;
+    if (Math.abs(midOf(ta) - midOf(tb)) > 0.5 * Math.min(span(ta), span(tb))) continue;
+    const width = Math.max(span(wa), span(wb));
+    if (Math.min(wa[1], wb[1]) - Math.max(wa[0], wb[0]) < 0.8 * width) continue;
+    if (Math.max(la[0], lb[0]) - Math.min(la[1], lb[1]) > 3 * width) continue;
+    root[find(j)] = find(i);
+  }
+  return pieces.map((_, i) => find(i));
+}
+
+function moveBand(file, from, to) {
+  const glb = readGlb(file);
+  for (const prim of editablePrimitives(glb.json)) {
+    const acc = glb.json.accessors[prim.attributes.TEXCOORD_0];
+    if (!acc) continue;
+    const view = glb.json.bufferViews[acc.bufferView];
+    const start = glb.bin.byteOffset + (view.byteOffset ?? 0) + (acc.byteOffset ?? 0);
+    const step = view.byteStride ?? 8;
+    for (let v = 0; v < acc.count; v++) {
+      const uv = new Float32Array(glb.bin.buffer, start + v * step, 2);
+      if (Math.floor(uv[0] * 16) !== from[0] || Math.floor(uv[1] * 4) !== from[1]) continue;
+      uv[0] += (to[0] - from[0]) / 16;
+      uv[1] += (to[1] - from[1]) / 4;
+    }
+  }
+  writeGlb(file, glb.json, glb.bin, writeFileSync);
 }
 
 function light(p, n, q, edges) {
@@ -351,6 +466,8 @@ function tone(file, options) {
       const pieces = [...comps.values()].flatMap((c) => {
         const whole = measure(c);
         if (options.whole) return [{ ...whole, plank: options.force || isPlank(whole) }];
+        if (options.steps) { const steps = splitSteps(c, at); if (steps) return steps; }
+        if (options.facets) return flatFaces(c, at).map((f) => ({ ...measure(f), plank: true }));
         const parts = splitStrips(c, at).map(measure);
         const size = (p) => p.tris.reduce((s, t) => s + at.area[t], 0);
         const split = parts.filter((p) => p.plank);
@@ -451,7 +568,7 @@ function tone(file, options) {
       }
     }
     if (!pieces.length) continue;
-    pickTones(pieces, R);
+    pickTones(pieces, R, options.join ? joinBoards(pieces, job) : pieces.map((_, i) => i));
     const writesOf = writes.get(job.prim) ?? new Map();
     writes.set(job.prim, writesOf);
     const lightOf = new Map();
@@ -755,10 +872,16 @@ for (let i = 0; i < argv.length; i++) {
   else if (argv[i] === '--no-edges') options.edges = false;
   else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--floor') options.floor = true;
+  else if (argv[i] === '--steps' || argv[i] === '--facets' || argv[i] === '--join') options[argv[i].slice(2)] = true;
+  else if (argv[i] === '--band-after') options.bandAfter = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
   else if (argv[i] === '--band') options.band = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i].startsWith('--')) options[argv[i].slice(2)] = Number(argv[++i]);
   else files.push(argv[i]);
 }
 FLAT = Math.cos((options.flat * Math.PI) / 180);
-for (const file of files) console.log(`${file}: ${(options.floor ? floorTone : tone)(file, options)}`);
+for (const file of files) {
+  const result = (options.floor ? floorTone : tone)(file, options);
+  if (options.bandAfter && !options.dry && !result.startsWith('skip')) moveBand(file, ...options.bandAfter);
+  console.log(`${file}: ${result}`);
+}
