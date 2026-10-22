@@ -11,7 +11,7 @@ own tone from a set of six, 0.015 OKLCH lightness apart and each used about
 equally, with a gradient across its width set per tone (0.04, 0.02, 0.02, 0.06,
 0.02, 0.04 from dark to light) that runs the same way
 on every plank. A plank's long edges take its darkest value. Faces turned
-sideways are 0.02 darker than faces turned up, faces turned down 0.04. Tones are shuffled
+sideways are 0.015 darker than faces turned up, faces turned down 0.03. Tones are shuffled
 with no regard to neighbours.
 A piece is a run of triangles in one band that share corners. A piece that
 holds two or more parallel flat strips (boards fused with grooves or steps)
@@ -38,7 +38,7 @@ const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
 const TONES = [0.37, 0.452, 0.534, 0.616, 0.698, 0.78];
 const GRADIENT = [0.22, 0.11, 0.11, 0.33, 0.11, 0.22];
-const SIDE = 0.11;
+const SIDE = 0.082;
 const REF = norm([0.3, 1, 0.5]);
 const RANGE = [0.06, 0.94];
 let FLAT = Math.cos((2 * Math.PI) / 180);
