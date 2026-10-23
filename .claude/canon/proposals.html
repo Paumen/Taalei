@@ -1,0 +1,204 @@
+<title>Canon Proposals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #f7f8f6;
+  --card: #ffffff;
+  --fg: #1d2420;
+  --muted: #66706a;
+  --line: #dde2dd;
+  --accent: #2f6b4f;
+  --old-bg: #fbecea;
+  --old-fg: #8a2d22;
+  --new-bg: #e6f3eb;
+  --new-fg: #1f5a3c;
+  --warn: #9a6a12;
+  --warn-bg: #fbf2de;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151916; --card: #1d221f; --fg: #e3e8e4; --muted: #96a19a; --line: #2f3732; --accent: #7cc39c;
+    --old-bg: #3a201d; --old-fg: #f2aaa0; --new-bg: #183626; --new-fg: #a5dcbb; --warn: #e3b860; --warn-bg: #362a12;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151916; --card: #1d221f; --fg: #e3e8e4; --muted: #96a19a; --line: #2f3732; --accent: #7cc39c;
+  --old-bg: #3a201d; --old-fg: #f2aaa0; --new-bg: #183626; --new-fg: #a5dcbb; --warn: #e3b860; --warn-bg: #362a12;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--fg); font: 14px/1.45 var(--sans);
+  padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px));
+  padding-block: 10px 24px;
+}
+main { max-width: 540px; margin: 0 auto; display: grid; gap: 8px; }
+.bar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.tab { font: 500 13px var(--sans); background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
+.tab[aria-pressed="true"] { color: var(--fg); border-color: var(--accent); }
+.tab:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.state { margin-left: auto; color: var(--muted); font-size: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: grid; gap: 6px; min-width: 0; }
+.meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline; font-size: 12px; color: var(--muted); }
+.meta b { color: var(--fg); font-weight: 600; font-size: 14px; flex-basis: 100%; }
+.chip { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: 0 5px; border-radius: 4px; background: var(--warn-bg); color: var(--warn); }
+.chip.approved, .chip.applied { background: var(--new-bg); color: var(--new-fg); }
+.chip.rejected { background: var(--old-bg); color: var(--old-fg); }
+.line { font: 12.5px/1.4 var(--mono); padding: 4px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.line.old { background: var(--old-bg); color: var(--old-fg); }
+.line.new { background: var(--new-bg); color: var(--new-fg); }
+dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
+dt { color: var(--muted); font-size: 12px; padding-top: 1px; }
+dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.thread { display: grid; gap: 3px; font-size: 13px; border-top: 1px solid var(--line); padding-top: 5px; }
+.thread div span { color: var(--muted); font-size: 12px; }
+textarea { font: 13px var(--sans); width: 100%; box-sizing: border-box; min-height: 34px; resize: vertical; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); padding: 4px 6px; }
+.acts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.acts button { font: 500 13px var(--sans); border-radius: 6px; padding: 5px 0; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
+.acts button.approve { background: var(--accent); border-color: var(--accent); color: var(--card); }
+.acts button:disabled { opacity: .45; cursor: default; }
+.hint { font-size: 12px; color: var(--muted); }
+.empty { color: var(--muted); padding: 14px 4px; }
+</style>
+
+<main>
+  <div class="bar">
+    <button class="tab" id="tab-open" aria-pressed="true">To decide</button>
+    <button class="tab" id="tab-log" aria-pressed="false">Log</button>
+    <span class="state" id="state">Loading…</span>
+  </div>
+  <div id="list"><p class="empty">Proposals show here once Claude adds them.</p></div>
+</main>
+
+<script>
+const LABELS = { pending: 'to decide', approved: 'approved', applied: 'in canon', rejected: 'rejected', clarify: 'clarify', adjust: 'adjust' };
+let docs = [];
+let view = 'open';
+let canWrite = true;
+let db = null;
+const busy = new Set();
+
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const when = (iso) => iso ? new Date(iso).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) : '';
+
+function field(dl, name, value) {
+  if (!value) return;
+  dl.append(el('dt', null, name), el('dd', null, value));
+}
+
+function card(d) {
+  const p = d.data();
+  const c = el('article', 'card');
+  const meta = el('div', 'meta');
+  meta.append(el('b', null, p.title || d.id), el('span', 'chip ' + p.status, LABELS[p.status] || p.status), el('span', null, [p.repo, when(p.updated || p.created)].filter(Boolean).join(' · ')));
+  c.append(meta);
+  if (p.old) c.append(el('div', 'line old', p.old));
+  if (p.new) c.append(el('div', 'line new', p.new));
+  const dl = el('dl');
+  field(dl, 'Trigger', p.trigger);
+  field(dl, 'Effect', p.effect);
+  field(dl, 'Risk', p.risk);
+  field(dl, 'Example', p.example);
+  field(dl, 'Reviewer', p.review);
+  c.append(dl);
+  const thread = Array.isArray(p.thread) ? p.thread : [];
+  if (thread.length) {
+    const t = el('div', 'thread');
+    for (const m of thread) {
+      const row = el('div');
+      row.append(el('span', null, (m.by === 'po' ? 'You' : 'Claude') + (m.verdict ? ' · ' + m.verdict : '') + ' · ' + when(m.at) + ' — '), document.createTextNode(m.note || ''));
+      t.append(row);
+    }
+    c.append(t);
+  }
+  if (p.status === 'pending') c.append(controls(d, p));
+  return c;
+}
+
+function controls(d, p) {
+  const box = el('div');
+  box.style.display = 'grid';
+  box.style.gap = '5px';
+  if (!canWrite) { box.append(el('p', 'hint', 'Only the owner can decide.')); return box; }
+  const note = el('textarea');
+  note.id = 'note-' + d.id;
+  note.placeholder = 'Note (needed for clarify and adjust)';
+  const acts = el('div', 'acts');
+  const buttons = [['approve', 'Approve'], ['reject', 'Reject'], ['clarify', 'Clarify'], ['adjust', 'Adjust']].map(([v, label]) => {
+    const b = el('button', v, label);
+    b.type = 'button';
+    b.addEventListener('click', () => decide(d, p, v === 'approve' ? 'approved' : v === 'reject' ? 'rejected' : v, note.value.trim()));
+    return b;
+  });
+  const sync = () => { for (const b of buttons) b.disabled = busy.has(d.id) || ((b.className === 'clarify' || b.className === 'adjust') && !note.value.trim()); };
+  note.addEventListener('input', sync);
+  sync();
+  acts.append(...buttons);
+  box.append(note, acts);
+  return box;
+}
+
+async function decide(d, p, verdict, note) {
+  if (busy.has(d.id)) return;
+  busy.add(d.id);
+  render();
+  const at = new Date().toISOString();
+  const thread = (Array.isArray(p.thread) ? p.thread : []).concat([{ by: 'po', verdict, note, at }]);
+  try {
+    await db.doc('proposals/' + d.id).update({ status: verdict, updated: at, thread });
+    setState('Saved: ' + (LABELS[verdict] || verdict));
+  } catch (e) {
+    if (e && e.code === 'invalid_argument') { canWrite = false; setState('Read only'); }
+    else setState('Not saved. Try again.');
+  } finally {
+    busy.delete(d.id);
+    render();
+  }
+}
+
+function setState(text) { document.getElementById('state').textContent = text; }
+
+function render() {
+  const list = document.getElementById('list');
+  const open = docs.filter((d) => d.data().status === 'pending');
+  const log = docs.filter((d) => d.data().status !== 'pending').sort((a, b) => String(b.data().updated || '').localeCompare(String(a.data().updated || '')));
+  document.getElementById('tab-open').textContent = 'To decide (' + open.length + ')';
+  document.getElementById('tab-log').textContent = 'Log (' + log.length + ')';
+  const shown = view === 'open' ? open : log;
+  list.replaceChildren();
+  if (!shown.length) {
+    list.append(el('p', 'empty', view === 'open' ? 'Nothing to decide. Claude adds proposals here when canon needs a change.' : 'No decisions yet.'));
+    return;
+  }
+  const wrap = el('div');
+  wrap.style.display = 'grid';
+  wrap.style.gap = '8px';
+  wrap.append(...shown.map(card));
+  list.append(wrap);
+}
+
+for (const [id, v] of [['tab-open', 'open'], ['tab-log', 'log']]) {
+  document.getElementById(id).addEventListener('click', () => {
+    view = v;
+    document.getElementById('tab-open').setAttribute('aria-pressed', String(v === 'open'));
+    document.getElementById('tab-log').setAttribute('aria-pressed', String(v === 'log'));
+    render();
+  });
+}
+
+(async () => {
+  db = await window.claude?.use?.('db');
+  if (!db) { setState('Sign in to see proposals'); return; }
+  const user = await window.claude.use('user');
+  const can = user ? await user.can('data.write') : null;
+  if (can === false) canWrite = false;
+  db.collection('proposals').orderBy('created', 'desc').onSnapshot((snap) => {
+    docs = snap.docs;
+    setState(canWrite ? '' : 'Read only');
+    render();
+  }, () => setState('Proposals could not load'));
+})();
+</script>
