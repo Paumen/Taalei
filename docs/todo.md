@@ -8,5 +8,3 @@ kay-hallow/coffin
 m3-base/bedside-table-01
 ken-proto/door-sliding-double
 ken-proto/door-sliding-double-wide
-kay-proto/door-a
-kay-proto/door-a-decorated
