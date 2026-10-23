@@ -43434,8 +43434,20 @@
     "storeys-1-5",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0018,
+    "view": "270/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
    "thickRel": 1.05,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 270/20 over 0.1%: inverted 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -45820,7 +45832,21 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.68
+   "backface": {
+    "share": 0.0159,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.6% of view 0/50 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "avra-weapons",
@@ -45869,7 +45895,21 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.85
+   "backface": {
+    "share": 0.0171,
+    "view": "45/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.7% of view 45/50 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "avra-weapons",
@@ -46164,7 +46204,21 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.57
+   "backface": {
+    "share": 0.0031,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.57,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "avra-weapons",
@@ -46601,7 +46655,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.62
+   "backface": {
+    "share": 0.0011,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "clay-props",
@@ -54435,8 +54503,21 @@
     "wood-dark"
    ],
    "variant": "emace-village/crate",
+   "backface": {
+    "share": 0.0011,
+    "view": "90/20",
+    "causes": {
+     "inverted": 0.96,
+     "other": 0.04
+    }
+   },
    "thickRel": 0.26,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: inverted 96.0%, other 4.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -54482,7 +54563,21 @@
     "wood-dark"
    ],
    "variant": "emace-village/crate",
-   "thickRel": 0.97
+   "backface": {
+    "share": 0.0012,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 225/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -54654,7 +54749,20 @@
     "special-organic",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0022,
+    "view": "0/20",
+    "causes": {
+     "inverted": 0.8,
+     "other": 0.2
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/20 over 0.1%: inverted 80.0%, other 20.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -54705,11 +54813,23 @@
     "plural",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0035,
+    "view": "315/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
    "lint": [
     {
      "level": "error",
      "check": "palette",
      "text": "wood-dark wants chestnut, has bark tan camel"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 315/20 over 0.1%: inverted 100.0%"
     }
    ]
   },
@@ -55239,7 +55359,22 @@
     "storeys-1",
     "wood-dark"
    ],
-   "thickRel": 0.87
+   "backface": {
+    "share": 0.0012,
+    "view": "270/50",
+    "causes": {
+     "open": 0.98,
+     "inverted": 0.02
+    }
+   },
+   "thickRel": 0.87,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/50 over 0.1%: open 98.0%, inverted 2.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -55414,7 +55549,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.51
+   "backface": {
+    "share": 0.0035,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.51,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 270/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -56633,7 +56782,20 @@
     "wood-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0026,
+    "view": "0/20",
+    "causes": {
+     "other": 0.37,
+     "inverted": 0.63
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/20 over 0.1%: inverted 63.0%, other 37.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -57135,7 +57297,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "variant": "emace-village/roof-thatch"
+   "variant": "emace-village/roof-thatch",
+   "backface": {
+    "share": 0.0019,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -57181,7 +57357,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "variant": "emace-village/roof-thatch"
+   "variant": "emace-village/roof-thatch",
+   "backface": {
+    "share": 0.0024,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -57227,7 +57417,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "variant": "emace-village/roof-thatch"
+   "variant": "emace-village/roof-thatch",
+   "backface": {
+    "share": 0.0026,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -57273,7 +57477,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "variant": "emace-village/roof-thatch"
+   "variant": "emace-village/roof-thatch",
+   "backface": {
+    "share": 0.0026,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -57320,7 +57538,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "variant": "emace-village/roof-thatch"
+   "variant": "emace-village/roof-thatch",
+   "backface": {
+    "share": 0.0025,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -57366,7 +57598,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "variant": "emace-village/roof-thatch"
+   "variant": "emace-village/roof-thatch",
+   "backface": {
+    "share": 0.002,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -57835,7 +58081,21 @@
     "wood-dark"
    ],
    "variant": "emace-village/shutters",
-   "thickRel": 0.99
+   "backface": {
+    "share": 0.0035,
+    "view": "180/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -58538,12 +58798,24 @@
     "wood-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0016,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.82,
    "lint": [
     {
      "level": "error",
      "check": "palette",
      "text": "wood-dark wants chestnut, has camel"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -59068,7 +59340,21 @@
     "wood-mid"
    ],
    "variant": "emace-village/wall-log",
-   "thickRel": 1.35
+   "backface": {
+    "share": 0.0036,
+    "view": "270/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 1.35,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 270/20 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "emace-village",
@@ -59110,8 +59396,21 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-log",
+   "backface": {
+    "share": 0.0022,
+    "view": "90/20",
+    "causes": {
+     "other": 0.26,
+     "inverted": 0.74
+    }
+   },
    "thickRel": 1,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: inverted 74.0%, other 26.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -59206,8 +59505,22 @@
     "wood-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.002,
+    "view": "315/20",
+    "causes": {
+     "inverted": 0.79,
+     "inside-out": 0.14,
+     "other": 0.07
+    }
+   },
    "thickRel": 0.96,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/20 over 0.1%: inverted 79.0%, inside-out 14.0%, other 7.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -89259,7 +89572,21 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.72
+   "backface": {
+    "share": 0.004,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -89605,8 +89932,21 @@
     "tba",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0024,
+    "view": "315/50",
+    "causes": {
+     "inverted": 0.9,
+     "open": 0.1
+    }
+   },
    "thickRel": 1.82,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/50 over 0.1%: inverted 90.0%, open 10.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -90475,8 +90815,20 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0022,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.44,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -93775,7 +94127,21 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 0.86
+   "backface": {
+    "share": 0.001,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ipoly-torture",
@@ -118093,7 +118459,21 @@
     "kay",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0035,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.71,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 270/50 over 0.1%: open 100.0%"
+    }
+   ],
    "mark": [
     "centered"
    ]
@@ -118939,7 +119319,21 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 0.85
+   "backface": {
+    "share": 0.0026,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-1",
@@ -123186,7 +123580,21 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1
+   "backface": {
+    "share": 0.0025,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-1",
@@ -128161,6 +128569,20 @@
     "special-food",
     "textile-cloth-light",
     "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0016,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -128205,7 +128627,21 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/table-long",
-   "thickRel": 0.95
+   "backface": {
+    "share": 0.004,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -190373,7 +190809,21 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/bookcase-closed",
-   "thickRel": 0.64
+   "backface": {
+    "share": 0.0013,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -190412,7 +190862,21 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/bookcase-closed",
-   "thickRel": 1.18
+   "backface": {
+    "share": 0.0024,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 225/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -191416,7 +191880,22 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/desk",
-   "thickRel": 1.02
+   "backface": {
+    "share": 0.0035,
+    "view": "0/20",
+    "causes": {
+     "open": 0.98,
+     "inverted": 0.02
+    }
+   },
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/20 over 0.1%: open 98.0%, inverted 2.0%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -192104,7 +192583,21 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-cabinet-upper",
-   "thickRel": 0.94
+   "backface": {
+    "share": 0.0023,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -194610,7 +195103,21 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/table",
-   "thickRel": 0.96
+   "backface": {
+    "share": 0.0016,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -204277,7 +204784,21 @@
     "mounted",
     "wood-mid"
    ],
-   "variant": "ken-modular/window-brown"
+   "variant": "ken-modular/window-brown",
+   "backface": {
+    "share": 0.0035,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-modular",
@@ -204441,7 +204962,21 @@
     "mounted",
     "wood-mid"
    ],
-   "variant": "ken-modular/window-brown"
+   "variant": "ken-modular/window-brown",
+   "backface": {
+    "share": 0.0037,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-modular",
@@ -204524,7 +205059,21 @@
     "mounted",
     "wood-mid"
    ],
-   "variant": "ken-modular/window-brown"
+   "variant": "ken-modular/window-brown",
+   "backface": {
+    "share": 0.0028,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -246063,8 +246612,21 @@
     "wood-dark"
    ],
    "variant": "loaf-coffins/coffin-wood-a",
+   "backface": {
+    "share": 0.001,
+    "view": "0/50",
+    "causes": {
+     "open": 0.93,
+     "inverted": 0.07
+    }
+   },
    "thickRel": 0.48,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/50 over 0.1%: open 93.0%, inverted 7.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -247656,6 +248218,20 @@
     "wood-dark",
     "wood-light",
     "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0013,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -250639,7 +251215,22 @@
     "wood-dark"
    ],
    "variant": "lpa-desert/door-frame-a",
-   "thickRel": 1.16
+   "backface": {
+    "share": 0.0021,
+    "view": "315/20",
+    "causes": {
+     "inverted": 0.41,
+     "open": 0.59
+    }
+   },
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/20 over 0.1%: open 59.0%, inverted 41.0%"
+    }
+   ]
   },
   {
    "kit": "lpa-desert",
@@ -256410,7 +257001,22 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 1.01
+   "backface": {
+    "share": 0.0033,
+    "view": "270/50",
+    "causes": {
+     "inverted": 0.94,
+     "other": 0.06
+    }
+   },
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/50 over 0.1%: inverted 94.0%, other 6.0%"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -266256,7 +266862,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.86
+   "backface": {
+    "share": 0.0027,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -269369,7 +269989,21 @@
     "metal-gold",
     "wood-mid"
    ],
-   "thickRel": 0.69
+   "backface": {
+    "share": 0.001,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -279504,7 +280138,21 @@
     "wood-light"
    ],
    "variant": "m3-base/industrial-shelving-01",
-   "thickRel": 0.65
+   "backface": {
+    "share": 0.0011,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.65,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -284412,8 +285060,20 @@
     "wood-light"
    ],
    "variant": "m3-base/half-pipe",
+   "backface": {
+    "share": 0.0073,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.31,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.7% of view 0/50 over 0.5%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -292424,7 +293084,21 @@
     "wood-mid"
    ],
    "variant": "m3-base/salloon-door-01",
-   "thickRel": 0.83
+   "backface": {
+    "share": 0.0029,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.83,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -292464,7 +293138,21 @@
     "wood-mid"
    ],
    "variant": "m3-base/salloon-door-01",
-   "thickRel": 0.8
+   "backface": {
+    "share": 0.0039,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -324221,7 +324909,21 @@
     "wood-mid"
    ],
    "variant": "quat-interior/dresser-a",
-   "thickRel": 1.09
+   "backface": {
+    "share": 0.0011,
+    "view": "225/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 225/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -324263,7 +324965,21 @@
     "wood-mid"
    ],
    "variant": "quat-interior/dresser-a",
-   "thickRel": 0.8
+   "backface": {
+    "share": 0.002,
+    "view": "225/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 225/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -324347,7 +325063,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.94
+   "backface": {
+    "share": 0.0015,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -332491,7 +333221,21 @@
    ],
    "alpha": true,
    "variant": "quat-pirate/house-1-anim",
-   "thickRel": 1.1
+   "backface": {
+    "share": 0.0014,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -332544,7 +333288,21 @@
     "wood-light"
    ],
    "variant": "quat-pirate/house-1-anim",
-   "thickRel": 1.1
+   "backface": {
+    "share": 0.0013,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -332657,7 +333415,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.72
+   "backface": {
+    "share": 0.0028,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -341459,8 +342231,22 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0035,
+    "view": "45/20",
+    "causes": {
+     "inverted": 0.53,
+     "other": 0.47,
+     "open": 0.01
+    }
+   },
    "thickRel": 0.79,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 45/20 over 0.1%: inverted 53.0%, other 47.0%, open 1.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -343464,7 +344250,21 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "variant": "quat-shoot/structure-a"
+   "variant": "quat-shoot/structure-a",
+   "backface": {
+    "share": 0.0014,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -351846,7 +352646,21 @@
     "wood-dark"
    ],
    "variant": "quat-town/archery-2-b",
-   "thickRel": 0.7
+   "backface": {
+    "share": 0.0042,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -351898,7 +352712,21 @@
     "wood-dark"
    ],
    "variant": "quat-town/archery-2-b",
-   "thickRel": 0.85
+   "backface": {
+    "share": 0.0039,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 315/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -351950,7 +352778,21 @@
     "wood-dark"
    ],
    "variant": "quat-town/archery-2-b",
-   "thickRel": 0.72
+   "backface": {
+    "share": 0.0034,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 315/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -352005,7 +352847,21 @@
     "wood-light"
    ],
    "variant": "quat-town/barracks-1-b",
-   "thickRel": 1.38
+   "backface": {
+    "share": 0.0039,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -352115,7 +352971,21 @@
     "wood-light"
    ],
    "variant": "quat-town/barracks-1-b",
-   "thickRel": 1.1
+   "backface": {
+    "share": 0.0024,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353218,7 +354088,21 @@
     "wood-light"
    ],
    "variant": "quat-town/house-2-2-b",
-   "thickRel": 0.99
+   "backface": {
+    "share": 0.0014,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353269,7 +354153,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/house-2-2-b"
+   "variant": "quat-town/house-2-2-b",
+   "backface": {
+    "share": 0.0011,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353371,7 +354269,21 @@
     "wood-light"
    ],
    "variant": "quat-town/house-2-3-c",
-   "thickRel": 1.21
+   "backface": {
+    "share": 0.0012,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.21,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353480,7 +354392,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/house-2-3-c"
+   "variant": "quat-town/house-2-3-c",
+   "backface": {
+    "share": 0.001,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 225/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353576,7 +354502,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-1-b"
+   "variant": "quat-town/market-1-b",
+   "backface": {
+    "share": 0.0015,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 225/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353629,7 +354569,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-1-b"
+   "variant": "quat-town/market-1-b",
+   "backface": {
+    "share": 0.0018,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353682,7 +354636,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-1-b"
+   "variant": "quat-town/market-1-b",
+   "backface": {
+    "share": 0.0023,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353737,7 +354705,22 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-2-b"
+   "variant": "quat-town/market-2-b",
+   "backface": {
+    "share": 0.006,
+    "view": "135/20",
+    "causes": {
+     "open": 0.83,
+     "inverted": 0.17
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.6% of view 135/20 over 0.5%: open 83.0%, inverted 17.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353792,7 +354775,21 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "variant": "quat-town/market-2-b"
+   "variant": "quat-town/market-2-b",
+   "backface": {
+    "share": 0.0042,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -353847,7 +354844,22 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "variant": "quat-town/market-2-b"
+   "variant": "quat-town/market-2-b",
+   "backface": {
+    "share": 0.0042,
+    "view": "135/20",
+    "causes": {
+     "open": 1,
+     "inverted": 0
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -354141,8 +355153,20 @@
     "wood-light"
    ],
    "variant": "quat-town/port-1-a",
+   "backface": {
+    "share": 0.0048,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.61,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -354195,8 +355219,20 @@
     "wood-light"
    ],
    "variant": "quat-town/port-1-a",
+   "backface": {
+    "share": 0.0017,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.56,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -354305,7 +355341,22 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/port-2-a"
+   "variant": "quat-town/port-2-a",
+   "backface": {
+    "share": 0.007,
+    "view": "270/20",
+    "causes": {
+     "open": 0.83,
+     "inverted": 0.17
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.7% of view 270/20 over 0.5%: open 83.0%, inverted 17.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -354362,7 +355413,22 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/port-2-a"
+   "variant": "quat-town/port-2-a",
+   "backface": {
+    "share": 0.0052,
+    "view": "225/20",
+    "causes": {
+     "open": 0.85,
+     "inverted": 0.15
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.5% of view 225/20 over 0.5%: open 85.0%, inverted 15.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -354708,7 +355774,21 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 0.95
+   "backface": {
+    "share": 0.0014,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -355732,7 +356812,21 @@
     "wood-dark"
    ],
    "variant": "quat-town/watchtower-2-b",
-   "thickRel": 0.98
+   "backface": {
+    "share": 0.0012,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.98,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -359334,7 +360428,21 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "thickRel": 0.9
+   "backface": {
+    "share": 0.0013,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -362484,7 +363592,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.18
+   "backface": {
+    "share": 0.0029,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -363506,7 +364628,22 @@
     "storeys-2",
     "wood-dark"
    ],
-   "thickRel": 0.94
+   "backface": {
+    "share": 0.0019,
+    "view": "225/50",
+    "causes": {
+     "inverted": 0.75,
+     "other": 0.25
+    }
+   },
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 225/50 over 0.1%: inverted 75.0%, other 25.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -367319,6 +368456,21 @@
     "mounted",
     "rgp",
     "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0017,
+    "view": "315/50",
+    "causes": {
+     "other": 0.38,
+     "inverted": 0.62
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/50 over 0.1%: inverted 62.0%, other 38.0%"
+    }
    ]
   },
   {
@@ -367369,7 +368521,21 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/signpost-1",
-   "thickRel": 0.98
+   "backface": {
+    "share": 0.0016,
+    "view": "270/50",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 0.98,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 270/50 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -368654,7 +369820,21 @@
     "rgp",
     "wood-mid"
    ],
-   "thickRel": 1.15
+   "backface": {
+    "share": 0.001,
+    "view": "0/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/20 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -368713,7 +369893,23 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1
+   "backface": {
+    "share": 0.0018,
+    "view": "90/20",
+    "causes": {
+     "open": 0.88,
+     "inverted": 0.09,
+     "inside-out": 0.03
+    }
+   },
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: open 88.0%, inverted 9.0%, inside-out 3.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -369842,7 +371038,7 @@
   {
    "kit": "rgp-props",
    "name": "practice-target-2-a",
-   "hash": "7e99ba9bd0",
+   "hash": "638cf0373f",
    "kind": "obj-equipment-target-bullseye",
    "size": "m",
    "wdh": [
@@ -369853,10 +371049,10 @@
    "tris": 861,
    "tpu": 2510,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 63460,
-   "vtx": 1773,
+   "bytes": 63524,
+   "vtx": 1775,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -369870,12 +371066,14 @@
     "8,0",
     "5,2",
     "14,2",
-    "2,0"
+    "2,0",
+    "0,0"
    ],
    "colors": [
     "#713e14",
     "#873a27",
     "#907a66",
+    "#ca9f6e",
     "#d8cfb7"
    ],
    "tags": [
@@ -369885,7 +371083,14 @@
     "wood-dark"
    ],
    "variant": "rgp-props/practice-target-2-a",
-   "thickRel": 1.1
+   "thickRel": 1.1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G11 bands 5 wants max 4"
+    }
+   ]
   },
   {
    "kit": "rgp-props",
@@ -370377,8 +371582,21 @@
     "tba",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0045,
+    "view": "180/20",
+    "causes": {
+     "open": 0.81,
+     "inverted": 0.19
+    }
+   },
    "thickRel": 0.68,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 81.0%, inverted 19.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -381257,6 +382475,20 @@
     "paper-sheet",
     "sq",
     "wood-dark"
+   ],
+   "backface": {
+    "share": 0.0022,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 180/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -383994,12 +385226,24 @@
     "wood-mid"
    ],
    "variant": "styloo-farm/crate-open",
+   "backface": {
+    "share": 0.0011,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.23,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 1.005 over max 1 (obj-container-crate)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -387186,7 +388430,21 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/windmill-anim",
-   "thickRel": 1.16
+   "backface": {
+    "share": 0.0013,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -387301,7 +388559,21 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/windmill-anim",
-   "thickRel": 0.88
+   "backface": {
+    "share": 0.0014,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 225/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -404985,7 +406257,22 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/tipi-a",
-   "thickRel": 0.79
+   "backface": {
+    "share": 0.0011,
+    "view": "45/20",
+    "causes": {
+     "open": 0.97,
+     "inverted": 0.03
+    }
+   },
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 97.0%, inverted 3.0%"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -406675,7 +407962,23 @@
     "metal-iron-mid",
     "wood-dark"
    ],
-   "thickRel": 0.91
+   "backface": {
+    "share": 0.0031,
+    "view": "180/20",
+    "causes": {
+     "open": 0.79,
+     "inverted": 0.19,
+     "other": 0.02
+    }
+   },
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 180/20 over 0.1%: open 79.0%, inverted 19.0%, other 2.0%"
+    }
+   ]
   },
   {
    "kit": "western",
@@ -407140,7 +408443,21 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 0.97
+   "backface": {
+    "share": 0.0014,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "western",
@@ -409342,7 +410659,21 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/house-a",
-   "thickRel": 0.7
+   "backface": {
+    "share": 0.0014,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
@@ -419290,7 +420621,21 @@
     "wood-mid"
    ],
    "variant": "wizp-village/house-a",
-   "thickRel": 0.69
+   "backface": {
+    "share": 0.0012,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
