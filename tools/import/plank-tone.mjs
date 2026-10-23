@@ -11,7 +11,9 @@ own tone from a set of six, 0.015 OKLCH lightness apart and each used about
 equally, with a gradient across its width set per tone (0.06, 0.03, 0.06, 0.06,
 0.03, 0.06 from dark to light) that runs the same way
 on every plank. A plank's long edges take its darkest value. Faces turned
-sideways are 0.015 darker than faces turned up, faces turned down 0.03. Tones are shuffled
+sideways are 0.015 darker than faces turned up, faces turned down 0.03; a face
+turned up counts as up only when it is the plank's broad face or points almost
+straight up, so bevels count as sideways. Tones are shuffled
 with no regard to neighbours. The light end of any tone is at least 0.015 from
 the dark end of every other tone.
 A piece is a run of triangles in one band that share corners. A piece that
@@ -195,16 +197,26 @@ function splitStrips(tris, at) {
   let best = null;
   for (const group of groups) {
     const total = group.regions.reduce((s, r) => s + r.area, 0);
-    const strips = group.regions.filter((r) => r.area > 0.08 * total).map((r) => {
+    const cand = group.regions.filter((r) => r.area > 0.02 * total && r.tris.length > 1).map((r) => {
       const f = frame(r.tris.flatMap((t) => at.corners[t]));
       return { ...r, long: f.axes[0], length: span(f.ext[0]), width: span(f.ext[1]) };
-    }).filter((r) => r.length >= 1.5 * r.width);
-    if (strips.length < 2) continue;
-    const long = strips.reduce((a, b) => (b.area > a.area ? b : a)).long;
-    const aligned = strips.filter((r) => Math.abs(dot(r.long, long)) > 0.9);
+    });
+    const lead = cand.filter((r) => r.length >= 1.5 * r.width);
+    if (lead.length < 1) continue;
+    const long = lead.reduce((a, b) => (b.area > a.area ? b : a)).long;
+    const side = norm(cross(group.normal, long));
+    const extent = (r, axis) => { const v = r.tris.flatMap((t) => at.corners[t].map((q) => dot(q, axis))); return [Math.min(...v), Math.max(...v)]; };
+    for (const r of cand) { r.ac = extent(r, side); r.al = extent(r, long); }
+    const rowLength = (r) => {
+      const row = cand.filter((q) => Math.min(q.ac[1], r.ac[1]) - Math.max(q.ac[0], r.ac[0]) >= 0.8 * Math.min(span(q.ac), span(r.ac)));
+      return Math.max(...row.map((q) => q.al[1])) - Math.min(...row.map((q) => q.al[0]));
+    };
+    const aligned = cand.filter((r) => (r.length >= 1.5 * r.width && Math.abs(dot(r.long, long)) > 0.9) || (r.length < 1.5 * r.width && rowLength(r) >= 1.5 * span(r.ac)));
+    if (aligned.length < 2) continue;
     if (aligned.length < 2) continue;
     const area = aligned.reduce((s, r) => s + r.area, 0);
-    if (!best || area > best.area) best = { area, normal: group.normal, long, strips: aligned, group, total };
+    const down = group.normal[1] < -0.5;
+    if (!best || (best.down && !down) || (best.down === down && area > best.area)) best = { area, normal: group.normal, long, strips: aligned, group, total, down };
   }
   if (!best) return splitConcave(tris, at);
   const across = norm(cross(best.normal, best.long));
@@ -253,16 +265,27 @@ function splitStrips(tris, at) {
     (pick ? pick.tris : base).push(...region.tris);
   }
   base.rest = true;
+  for (const b of bins) b.tris.strip = true;
   return [...bins.map((b) => b.tris), base].filter((list) => list.length);
 }
 
 function joinLoose(tris, at, parent, find, byEdge) {
   const size = new Map();
   for (const t of tris) size.set(find(t), (size.get(find(t)) ?? 0) + 1);
-  for (const list of byEdge.values()) for (let i = 1; i < list.length; i++) {
+  const longest = (t, ids) => {
+    const len = [[0, 1], [1, 2], [2, 0]].map(([a, b]) => Math.hypot(...sub(at.corners[t][a], at.corners[t][b])));
+    const k = [[0, 1], [1, 2], [2, 0]].findIndex(([a, b]) => ids.includes(at.weld[t][a]) && ids.includes(at.weld[t][b]));
+    return k >= 0 && len[k] >= Math.max(...len) - 1e-9;
+  };
+  for (const [key, list] of byEdge) {
+    if (list.length !== 2) continue;
     const a = find(list[0]);
-    const b = find(list[i]);
-    if (a === b || (size.get(a) !== 1 && size.get(b) !== 1) || dot(at.normal[list[0]], at.normal[list[i]]) < Math.cos(Math.PI / 18)) continue;
+    const b = find(list[1]);
+    if (a === b) continue;
+    const d = dot(at.normal[list[0]], at.normal[list[1]]);
+    const ids = key.split(',').map(Number);
+    const diagonal = d > Math.cos(Math.PI / 12) && longest(list[0], ids) && longest(list[1], ids);
+    if (!diagonal && ((size.get(a) !== 1 && size.get(b) !== 1) || d < Math.cos(Math.PI / 18))) continue;
     parent.set(b, a);
     size.set(a, size.get(a) + size.get(b));
   }
@@ -441,7 +464,8 @@ function moveBand(file, from, to) {
 }
 
 function light(p, n, q, edges) {
-  const facing = n[1] > 0.5 ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
+  const top = n[1] > 0.9 || (n[1] > 0.5 && Math.abs(dot(n, p.axes[2])) > 0.9);
+  const facing = top ? 0 : n[1] < -0.5 ? 2 * SIDE : SIDE;
   const c = edges && Math.abs(dot(n, p.axes[1])) > 0.7 ? -0.5
     : Math.min(0.5, Math.max(-0.5, (dot(q, p.axes[1]) - p.ext[1][0]) / (span(p.ext[1]) || 1) - 0.5));
   return TONES[p.tone] + GRADIENT[p.tone] * c - facing;
@@ -516,7 +540,7 @@ function tone(file, options) {
         }
         const [l, w] = f.ext.map(span);
         const filled = Math.max(...face) >= 0.4 * l * w;
-        return { tris: list, ...f, plank: !list.rest && isPlank(f) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
+        return { tris: list, ...f, plank: !list.rest && (list.strip || isPlank(f)) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
       };
       const pieces = [...comps.values()].flatMap((c) => {
         const whole = measure(c);
@@ -526,7 +550,9 @@ function tone(file, options) {
         const parts = splitStrips(c, at).map(measure);
         const size = (p) => p.tris.reduce((s, t) => s + at.area[t], 0);
         const split = parts.filter((p) => p.plank);
-        if (whole.plank && (split.length < 2 || split.reduce((s, p) => s + size(p), 0) < 0.5 * size(whole))) return [whole];
+        const widths = split.map((p) => span(p.ext[1])).sort((a, b) => a - b);
+        const rows = split.length >= 3 && widths[widths.length >> 1] >= 0.1 * span(whole.ext[1]);
+        if (whole.plank && (split.length < 2 || (!rows && split.reduce((s, p) => s + size(p), 0) < 0.5 * size(whole)))) return [whole];
         const slabs = splitSlabs(c, at).map(measure);
         const covered = (list) => list.filter((p) => p.plank).reduce((s, p) => s + size(p), 0);
         const within = (a, b, axis) => {
@@ -538,8 +564,10 @@ function tone(file, options) {
         };
         const flat = slabs.filter((p) => p.plank);
         const oneSolid = flat.some((a, i) => flat.some((b, j) => j > i && within(a, b, whole.axes[1]) && within(a, b, whole.axes[2])));
-        if (flat.length >= 2 && !oneSolid && covered(slabs) > covered(parts)) return slabs;
-        if (!split.length && isPlank(whole)) return [{ ...whole, plank: true }];
+        const depth = (p) => { const v = p.tris.flatMap((t) => at.corners[t].map((q) => dot(q, whole.axes[2]))); return Math.max(...v) - Math.min(...v); };
+        const deep = flat.every((p) => depth(p) >= 0.5 * span(whole.ext[2]));
+        if (flat.length >= 2 && !oneSolid && deep && covered(slabs) > covered(parts)) return slabs;
+        if (!split.length && (isPlank(whole) || options.force)) return [{ ...whole, plank: true }];
         return parts;
       });
       const gap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
