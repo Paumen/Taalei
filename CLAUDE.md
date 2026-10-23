@@ -1,20 +1,14 @@
-## Claude contract:
-* Don't look at any previous commits or prs and related files.
-* If you doubt, you ask clarification.
-* never write assumptions, comments, requirements, statements, rules or similar in code files.
-* All new code is written in English.
-* never record historical notes and comments on which changes were made or why, not in code not in docs, information just represents latest state and ways.
-* Keep docs tersely, and in plain English..
-* import scripts are used only once and not reused for same models.Source files are kept for reference and comparison, not for reimport
-* Only commit final assets/work.
-* `merge`, `Merge`, `erge`, `.erge`, `merg`, and similar all mean: merge the PR(s).
-* 
+## Canon
+* canon.md holds the rules and key decisions, and binds over every other file. Read it first. Everything else, this file included, is context.
+* docs/draft_spec.md is the spec: current working guidance, in line with canon.
+* lint/golden.mjs is the canon test file.
+* Hooks in .claude/hooks: guard.sh (approval prompt on edits to canon.md and lint/golden.mjs; blocks edits to .claude/settings*.json and .claude/hooks/), comment-gate.mjs (blocks new code comments), no-git-history.sh (approval prompt on git log, blame, reflog, whatchanged), golden-on-stop.sh (golden lint after model or tag changes).
 
 ## Working with me
 * I often type on my phone: short, with typos.
+* `merge`, `Merge`, `erge`, `.erge`, `merg`, and similar all mean: merge the PR(s).
 * Reply in plain English and keep it short. No jargon.
 * Simpler beats more. Aim to remove lines.
-* Keep the first brief. When iterating, never drop the initial request or requirements, except if unambiguously changed by me.
 * Show visual work as a render or screenshot or artefact.
 * No PR check-ins or timers. I'll say merge.
 
