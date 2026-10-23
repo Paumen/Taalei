@@ -14,7 +14,7 @@ Proposal page: https://claude.ai/artifact/HzPVT8oxhCnGZyG6jNEi9H (db collection 
 One proposal per item. Fields, with word limits:
 
 - `old`: the current canon line, exactly. Empty for a new item.
-- `new`: the new canon line in the canon.md format: `- [ID · type · scope: … · test: … · review YYYY-MM] item — why: reason`. Item about 20 words, why about 10. Next free ID for a new item. Review date one month out. Empty to remove an item.
+- `new`: the new canon line in the canon.md format: `- [ID · type · scope: … · test: … · review YYYY-MM] item — why: reason`. Item at most 20 words, why about 6. Next free ID for a new item. Review date one month out. Empty to remove an item.
 - `trigger`: the situation that led here, about 10 words.
 - `effect`: what becomes allowed or blocked, or how Claude behaves differently, about 10 words.
 - `risk`: what could go wrong, about 10 words.
