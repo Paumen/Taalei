@@ -26,11 +26,11 @@ Write for a PO who has not seen the session, the files or a diff. No jargon. Inv
 
 ## 2. Review
 
-Run the `canon-reviewer` subagent with the full draft and nothing else. It checks the draft against canon.md with a fresh context. Revise and rerun until it passes, at most two rounds. Put its findings in `review`, about 10 words: what you fixed and what is left open.
+`ArtifactData` `set` each draft on `drafts/<repo>-<yyyymmdd>-<slug>` with the fields above plus `repo` (repo folder name). The page does not show `drafts`. Run a general-purpose subagent told to follow .claude/agents/canon-reviewer.md, with the draft ids only; it reads the drafts (ArtifactData) and canon.md itself. The `canon-reviewer` agent type has no ArtifactData access. Keep no local copies of drafts while it runs. Revise the drafts in place and rerun until it passes, at most two rounds. Put its findings in `review`, about 10 words: what you fixed and what is left open.
 
 ## 3. Post
 
-`ArtifactData` `set` on `proposals/<repo>-<yyyymmdd>-<slug>` with the fields above plus `repo` (repo folder name), `status: "pending"`, `created` and `updated` (ISO time), `thread: []`. Tell the PO in one line, with the page link.
+Move each draft to `proposals/<same id>` with `status: "pending"`, `created` and `updated` (ISO time), `thread: []`, then delete it from `drafts`. Tell the PO in one line, with the page link.
 
 ## 4. Decisions
 
@@ -39,7 +39,7 @@ At the start of a session that touches canon, and when the PO says they decided,
 - `approved`: apply `new` to canon.md exactly (the edit gate asks the PO to confirm), keep the canon section order, then `update` the proposal with `status: "applied"` and `updated`.
 - `rejected`: `delete` the proposal. Rejections are not recorded.
 - `clarify`: answer the PO's note. Append `{by: "claude", note, at}` to `thread`, set `status: "pending"`.
-- `adjust`: redraft per the note, rerun step 2, update the fields, append your one-line change to `thread`, set `status: "pending"`.
+- `adjust`: redraft per the note into `drafts`, rerun step 2, update the proposal's fields, append your one-line change to `thread`, set `status: "pending"`.
 
 ## Due reviews
 
