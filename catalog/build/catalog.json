@@ -141270,7 +141270,7 @@
   {
    "kit": "kay-hallow",
    "name": "coffin",
-   "hash": "d47cef1873",
+   "hash": "d41f9a551d",
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
@@ -141283,8 +141283,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18936,
-   "vtx": 488,
+   "bytes": 19192,
+   "vtx": 496,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
@@ -141293,7 +141293,7 @@
    "avgTri": 0.00995,
    "anglePct": 66,
    "pieces": 7,
-   "vpt": 1.54,
+   "vpt": 1.57,
    "cells": [
     "2,0",
     "13,3"
@@ -199134,7 +199134,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-b",
-   "hash": "cfb80a3765",
+   "hash": "cb20abb622",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -199147,8 +199147,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12996,
-   "vtx": 324,
+   "bytes": 14692,
+   "vtx": 377,
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
@@ -199157,7 +199157,7 @@
    "avgTri": 0.00459,
    "anglePct": 53,
    "pieces": 3,
-   "vpt": 1.59,
+   "vpt": 1.85,
    "cells": [
     "1,0",
     "0,0"
@@ -199247,7 +199247,7 @@
   {
    "kit": "ken-holiday",
    "name": "cabin-window-large",
-   "hash": "d0992d6da3",
+   "hash": "97e3fe8473",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -199260,15 +199260,15 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 11888,
-   "vtx": 292,
+   "bytes": 13104,
+   "vtx": 330,
    "grounded": true,
    "minEdge": 0.018,
    "thick": 0.1115,
    "avgTri": 0.00628,
    "anglePct": 42,
    "pieces": 5,
-   "vpt": 1.54,
+   "vpt": 1.75,
    "cells": [
     "1,0",
     "3,2",
@@ -256605,7 +256605,7 @@
   {
    "kit": "lpa-weapons",
    "name": "battering-ram",
-   "hash": "4d1a5a0a01",
+   "hash": "4348c8cfbd",
    "kind": "obj-equipment-weapon-siege",
    "size": "l",
    "wdh": [
@@ -256618,8 +256618,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 170000,
-   "vtx": 4819,
+   "bytes": 166256,
+   "vtx": 4702,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
@@ -256628,7 +256628,7 @@
    "avgTri": 0.02042,
    "anglePct": 50,
    "pieces": 95,
-   "vpt": 2.01,
+   "vpt": 1.96,
    "cells": [
     "2,0",
     "6,1",
@@ -261886,7 +261886,7 @@
   {
    "kit": "lpa-west",
    "name": "saloon-door-a",
-   "hash": "ab7d238859",
+   "hash": "8748f4ffdf",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
@@ -261899,17 +261899,17 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16448,
-   "vtx": 416,
+   "bytes": 17856,
+   "vtx": 460,
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "minTube": 0.0302,
+   "minTube": 0.0294,
    "thick": 0.0598,
    "avgTri": 0.00781,
    "anglePct": 33,
    "pieces": 2,
-   "vpt": 1.56,
+   "vpt": 1.73,
    "cells": [
     "0,0",
     "2,0"
@@ -266233,7 +266233,7 @@
   {
    "kit": "m3-base",
    "name": "bedside-table-01",
-   "hash": "bcf132bdec",
+   "hash": "608de920f7",
    "kind": "obj-furnishing-furniture-storage-dresser",
    "size": "m",
    "wdh": [
@@ -266246,8 +266246,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21868,
-   "vtx": 554,
+   "bytes": 20204,
+   "vtx": 502,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -266256,7 +266256,7 @@
    "avgTri": 0.01042,
    "anglePct": 76,
    "pieces": 8,
-   "vpt": 1.29,
+   "vpt": 1.17,
    "cells": [
     "1,0",
     "2,0"
@@ -266270,7 +266270,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.86
+   "backface": {
+    "share": 0.0027,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -266979,7 +266993,7 @@
   {
    "kit": "m3-base",
    "name": "border-fence",
-   "hash": "e4ad05cf40",
+   "hash": "121d98e30d",
    "kind": "str-barrier-fence-mid",
    "size": "l",
    "wdh": [
@@ -266992,8 +267006,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 31880,
-   "vtx": 811,
+   "bytes": 33388,
+   "vtx": 858,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
@@ -267002,7 +267016,7 @@
    "avgTri": 0.00379,
    "anglePct": 64,
    "pieces": 3,
-   "vpt": 1.11,
+   "vpt": 1.18,
    "cells": [
     "2,0",
     "0,0"
@@ -298485,7 +298499,7 @@
   {
    "kit": "m3-base",
    "name": "viking-bog-chair",
-   "hash": "b29e25cf19",
+   "hash": "27e2d7139c",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
@@ -298498,8 +298512,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10508,
-   "vtx": 239,
+   "bytes": 9804,
+   "vtx": 217,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
@@ -298507,7 +298521,7 @@
    "avgTri": 0.00128,
    "anglePct": 1,
    "pieces": 3,
-   "vpt": 1.11,
+   "vpt": 1,
    "cells": [
     "0,0"
    ],
@@ -371378,7 +371392,7 @@
    "kit": "rgp-weapons",
    "collection": "rgp",
    "name": "shield-a-white",
-   "hash": "ebe5f386e9",
+   "hash": "ab7e0f4866",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
@@ -371563,7 +371577,7 @@
    "kit": "rgp-weapons",
    "collection": "rgp",
    "name": "shield-b",
-   "hash": "e936658cdd",
+   "hash": "5875026677",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
