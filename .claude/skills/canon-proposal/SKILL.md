@@ -13,7 +13,6 @@ Proposal page: https://claude.ai/artifact/HzPVT8oxhCnGZyG6jNEi9H (db collection 
 
 One proposal per item. Fields, with word limits:
 
-- `title`: the change in under 8 words.
 - `old`: the current canon line, exactly. Empty for a new item.
 - `new`: the new canon line in the canon.md format: `- [ID · type · scope: … · test: … · review YYYY-MM] item — why: reason`. Item about 20 words, why about 10. Next free ID for a new item. Review date one month out. Empty to remove an item.
 - `trigger`: the situation that led here, about 10 words.

@@ -42,8 +42,6 @@ main { max-width: 540px; margin: 0 auto; display: grid; gap: 8px; }
 .tab:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .state { margin-left: auto; color: var(--muted); font-size: 12px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: grid; gap: 6px; min-width: 0; }
-.meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline; font-size: 12px; color: var(--muted); }
-.meta b { color: var(--fg); font-weight: 600; font-size: 14px; flex-basis: 100%; }
 .chip { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: 0 5px; border-radius: 4px; background: var(--warn-bg); color: var(--warn); }
 .chip.approved, .chip.applied { background: var(--new-bg); color: var(--new-fg); }
 .chip.rejected { background: var(--old-bg); color: var(--old-fg); }
@@ -62,7 +60,11 @@ textarea { font: 13px var(--sans); width: 100%; box-sizing: border-box; min-heig
 .acts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
 .acts button { font: 500 13px var(--sans); border-radius: 6px; padding: 5px 0; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
 .acts button.approve { background: var(--accent); border-color: var(--accent); color: var(--card); }
-.acts button:disabled { opacity: .45; cursor: default; }
+.acts button.on { border-color: var(--accent); color: var(--accent); }
+.acts button:disabled, .send:disabled { opacity: .45; cursor: default; }
+.send { justify-self: end; font: 500 13px var(--sans); border-radius: 6px; padding: 5px 14px; cursor: pointer; border: 1px solid var(--accent); background: var(--accent); color: var(--card); }
+.rev summary { font-size: 12px; color: var(--muted); cursor: pointer; }
+.rev p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
 .hint { font-size: 12px; color: var(--muted); }
 .empty { color: var(--muted); padding: 14px 4px; }
 </style>
@@ -83,6 +85,8 @@ let view = 'open';
 let canWrite = true;
 let db = null;
 const busy = new Set();
+const modes = new Map();
+const drafts = new Map();
 
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const when = (iso) => iso ? new Date(iso).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) : '';
@@ -115,14 +119,27 @@ function diff(a, b) {
   return out;
 }
 
-function change(oldLine, newLine) {
+function split(text) {
+  const [item, why = ''] = (text || '').split(/\s*—\s*why:\s*/);
+  return { item: item.trim(), why: why.trim() };
+}
+
+function change(oldLine, newLine, status) {
   const a = parse(oldLine), b = parse(newLine);
+  const shown = (s) => !/^review\b/.test(s);
   const tags = el('div', 'tags');
-  const base = newLine ? b.meta : a.meta;
-  for (const s of base) tags.append(el('span', 'tag' + (oldLine && newLine && !a.meta.includes(s) ? ' add' : ''), s));
-  if (oldLine && newLine) for (const s of a.meta) if (!b.meta.includes(s)) tags.append(el('span', 'tag del', s));
+  if (status !== 'pending') tags.append(el('span', 'chip ' + status, LABELS[status] || status));
+  if (!oldLine) tags.append(el('span', 'tag add', 'new item'));
+  if (!newLine) tags.append(el('span', 'tag del', 'removed'));
+  for (const s of (newLine ? b.meta : a.meta).filter(shown)) tags.append(el('span', 'tag' + (oldLine && newLine && !a.meta.includes(s) ? ' add' : ''), s));
+  if (oldLine && newLine) for (const s of a.meta.filter(shown)) if (!b.meta.includes(s)) tags.append(el('span', 'tag del', s));
+  const x = split(a.text), y = split(b.text);
+  return { tags, item: marked(oldLine ? x.item : '', newLine ? y.item : '', oldLine, newLine), why: marked(oldLine ? x.why : '', newLine ? y.why : '', oldLine, newLine) };
+}
+
+function marked(oldText, newText, oldLine, newLine) {
   const line = el('div', 'change');
-  const parts = !oldLine ? [['=', b.text]] : !newLine ? [['-', a.text]] : diff(a.text, b.text);
+  const parts = !oldLine ? [['=', newText]] : !newLine ? [['-', oldText]] : diff(oldText, newText);
   let del = '', ins = '';
   const flush = () => {
     if (del.trim()) line.append(el('del', null, del.trim()));
@@ -138,25 +155,26 @@ function change(oldLine, newLine) {
     else { flush(); line.append(s.replace(/^\s+/, line.lastChild && line.lastChild.nodeType === 3 && / $/.test(line.lastChild.textContent) ? '' : '$&')); }
   });
   flush();
-  if (!oldLine) tags.prepend(el('span', 'tag add', 'new item'));
-  if (!newLine) tags.prepend(el('span', 'tag del', 'removed'));
-  return [tags, line];
+  return line;
 }
 
 function card(d) {
   const p = d.data();
   const c = el('article', 'card');
-  const meta = el('div', 'meta');
-  meta.append(el('b', null, p.title || d.id), el('span', 'chip ' + p.status, LABELS[p.status] || p.status), el('span', null, [p.repo, when(p.updated || p.created)].filter(Boolean).join(' · ')));
-  c.append(meta);
-  c.append(...change(p.old, p.new));
+  const ch = change(p.old, p.new, p.status);
+  c.append(ch.tags, ch.item);
   const dl = el('dl');
+  if (ch.why.textContent.trim()) { const dd = el('dd'); dd.append(ch.why); dl.append(el('dt', null, 'Why'), dd); }
   field(dl, 'Trigger', p.trigger);
   field(dl, 'Effect', p.effect);
   field(dl, 'Risk', p.risk);
   field(dl, 'Example', p.example);
-  field(dl, 'Reviewer', p.review);
   c.append(dl);
+  if (p.review) {
+    const rv = el('details', 'rev');
+    rv.append(el('summary', null, 'Reviewer'), el('p', null, p.review));
+    c.append(rv);
+  }
   const thread = Array.isArray(p.thread) ? p.thread : [];
   if (thread.length) {
     const t = el('div', 'thread');
@@ -176,21 +194,34 @@ function controls(d, p) {
   box.style.display = 'grid';
   box.style.gap = '5px';
   if (!canWrite) { box.append(el('p', 'hint', 'Only the owner can decide.')); return box; }
-  const note = el('textarea');
-  note.id = 'note-' + d.id;
-  note.placeholder = 'Note (needed for clarify and adjust)';
+  const mode = modes.get(d.id);
   const acts = el('div', 'acts');
-  const buttons = [['approve', 'Approve'], ['reject', 'Reject'], ['clarify', 'Clarify'], ['adjust', 'Adjust']].map(([v, label]) => {
-    const b = el('button', v, label);
+  for (const [v, label] of [['approve', 'Approve'], ['reject', 'Reject'], ['clarify', 'Clarify'], ['adjust', 'Adjust']]) {
+    const b = el('button', v + (mode === v ? ' on' : ''), label);
     b.type = 'button';
-    b.addEventListener('click', () => decide(d, p, v === 'approve' ? 'approved' : v === 'reject' ? 'rejected' : v, note.value.trim()));
-    return b;
-  });
-  const sync = () => { for (const b of buttons) b.disabled = busy.has(d.id) || ((b.className === 'clarify' || b.className === 'adjust') && !note.value.trim()); };
-  note.addEventListener('input', sync);
-  sync();
-  acts.append(...buttons);
-  box.append(note, acts);
+    b.disabled = busy.has(d.id);
+    b.addEventListener('click', () => {
+      if (v === 'approve' || v === 'reject') return decide(d, p, v === 'approve' ? 'approved' : 'rejected', '');
+      modes.set(d.id, mode === v ? null : v);
+      render();
+      document.getElementById('note-' + d.id)?.focus();
+    });
+    acts.append(b);
+  }
+  box.append(acts);
+  if (mode) {
+    const note = el('textarea');
+    note.id = 'note-' + d.id;
+    note.placeholder = mode === 'clarify' ? 'What is unclear?' : 'What should change?';
+    note.value = drafts.get(d.id) || '';
+    const send = el('button', 'send', mode === 'clarify' ? 'Send question' : 'Send change');
+    send.type = 'button';
+    const sync = () => { send.disabled = busy.has(d.id) || !note.value.trim(); };
+    note.addEventListener('input', () => { drafts.set(d.id, note.value); sync(); });
+    send.addEventListener('click', () => decide(d, p, mode, note.value.trim()));
+    sync();
+    box.append(note, send);
+  }
   return box;
 }
 
@@ -203,6 +234,8 @@ async function decide(d, p, verdict, note) {
   try {
     await db.doc('proposals/' + d.id).update({ status: verdict, updated: at, thread });
     setState('Saved: ' + (LABELS[verdict] || verdict));
+    modes.delete(d.id);
+    drafts.delete(d.id);
   } catch (e) {
     if (e && e.code === 'invalid_argument') { canWrite = false; setState('Read only'); }
     else setState('Not saved. Try again.');
