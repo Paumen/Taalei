@@ -1,0 +1,214 @@
+<title>Canon Proposals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root {
+  --bg: #f6f7f5; --card: #fff; --fg: #1c221f; --muted: #6b746e; --line: #e0e4e0; --accent: #2f6b4f;
+  --ins-bg: #e3f2e8; --ins: #1d5a3a; --del-bg: #fbe9e6; --del: #8a2d22;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #141815; --card: #1c211e; --fg: #e2e7e3; --muted: #97a29b; --line: #2e3631; --accent: #7cc39c; --ins-bg: #173424; --ins: #a5dcbb; --del-bg: #3a1f1c; --del: #f2aaa0; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #141815; --card: #1c211e; --fg: #e2e7e3; --muted: #97a29b; --line: #2e3631; --accent: #7cc39c; --ins-bg: #173424; --ins: #a5dcbb; --del-bg: #3a1f1c; --del: #f2aaa0; color-scheme: dark; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.4 system-ui, sans-serif; padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); padding-block: 10px 24px; }
+main { max-width: 540px; margin: 0 auto; display: grid; gap: 10px; }
+button { font: 500 14px system-ui, sans-serif; border-radius: 6px; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--fg); padding: 6px 0; }
+button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button:disabled { opacity: .45; cursor: default; }
+.tabs { display: flex; gap: 6px; align-items: center; }
+.tabs button { padding: 3px 10px; font-size: 13px; color: var(--muted); }
+.tabs button[aria-pressed="true"] { color: var(--fg); border-color: var(--accent); }
+#state { margin-left: auto; font-size: 12px; color: var(--muted); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 8px; min-width: 0; }
+.head { display: flex; gap: 8px; align-items: flex-start; }
+.rule { flex: 1; min-width: 0; font-weight: 600; font-size: 16px; overflow-wrap: anywhere; }
+.rule .id { color: var(--muted); font-weight: 600; font-size: 14px; margin-right: 6px; }
+.chips { display: flex; gap: 3px; padding-top: 2px; }
+.chip { width: 18px; height: 18px; border-radius: 4px; font: 700 11px/18px system-ui, sans-serif; text-align: center; color: var(--card); cursor: default; }
+.chip.i { background: var(--accent); }
+.chip.d { background: var(--muted); }
+.chip.t { background: var(--fg); }
+dl { margin: 0; display: grid; grid-template-columns: 3.4em 1fr; gap: 3px 8px; font-size: 14px; }
+dt { color: var(--muted); font-size: 13px; }
+dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.status { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; }
+ins { text-decoration: none; background: var(--ins-bg); color: var(--ins); border-radius: 3px; }
+del { background: var(--del-bg); color: var(--del); border-radius: 3px; }
+.acts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.acts .approve { background: var(--accent); border-color: var(--accent); color: var(--card); }
+.acts .on { border-color: var(--accent); color: var(--accent); }
+.note { display: grid; gap: 6px; }
+textarea { font: 14px system-ui, sans-serif; width: 100%; box-sizing: border-box; min-height: 44px; resize: vertical; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); padding: 5px 7px; }
+.note .send { justify-self: end; padding: 6px 16px; background: var(--accent); border-color: var(--accent); color: var(--card); }
+.thread { font-size: 13px; color: var(--muted); display: grid; gap: 2px; }
+.empty { color: var(--muted); padding: 14px 4px; }
+</style>
+
+<main>
+  <div class="tabs">
+    <button id="tab-open" aria-pressed="true">To decide</button>
+    <button id="tab-log" aria-pressed="false">Log</button>
+    <span id="state"></span>
+  </div>
+  <div id="list"></div>
+</main>
+
+<script>
+const LABELS = { approved: 'Approved', applied: 'In canon', rejected: 'Rejected', clarify: 'Question sent', adjust: 'Change asked' };
+let docs = [], view = 'open', canWrite = true, db = null;
+const busy = new Set(), modes = new Map(), drafts = new Map();
+
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+
+function diff(a, b) {
+  const x = a.split(/(\s+)/), y = b.split(/(\s+)/), n = x.length, m = y.length;
+  const t = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) t[i][j] = x[i] === y[j] ? t[i + 1][j + 1] + 1 : Math.max(t[i + 1][j], t[i][j + 1]);
+  const out = [];
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && x[i] === y[j]) { out.push(['=', x[i]]); i++; j++; }
+    else if (j < m && (i >= n || t[i][j + 1] >= t[i + 1][j])) { out.push(['+', y[j]]); j++; }
+    else { out.push(['-', x[i]]); i++; }
+  }
+  return out;
+}
+
+function marked(target, before, after) {
+  if (before == null || before === after) { target.append(after || ''); return; }
+  if (!after) { target.append(el('del', null, before)); return; }
+  const parts = diff(before, after);
+  let del = '', ins = '';
+  const flush = () => {
+    const last = target.lastChild;
+    if (/^\s/.test(del || ins) && last && !(last.nodeType === 3 && /\s$/.test(last.textContent))) target.append(' ');
+    if (del.trim()) target.append(el('del', null, del.trim()));
+    if (del.trim() && ins.trim()) target.append(' ');
+    if (ins.trim()) target.append(el('ins', null, ins.trim()));
+    if (/\s$/.test(del + ins)) target.append(' ');
+    del = ''; ins = '';
+  };
+  parts.forEach(([k, s], i) => {
+    if (k === '-') del += s;
+    else if (k === '+') ins += s;
+    else if (!s.trim() && (del || ins) && parts[i + 1] && parts[i + 1][0] !== '=') { del += s; ins += s; }
+    else { flush(); target.append(target.lastChild?.nodeType === 3 && /\s$/.test(target.lastChild.textContent) ? s.replace(/^\s+/, '') : s); }
+  });
+  flush();
+}
+
+function card(d) {
+  const p = d.data();
+  const c = el('article', 'card');
+  if (p.status !== 'pending') c.append(el('span', 'status', LABELS[p.status] || p.status));
+  const head = el('div', 'head');
+  const rule = el('div', 'rule');
+  if (p.id) rule.append(el('span', 'id', p.id));
+  marked(rule, p.old ? p.old : null, p.rule);
+  const chips = el('span', 'chips');
+  for (const [on, letter, name] of [[p.type === 'invariant', 'I', 'invariant'], [p.type === 'direction', 'D', 'direction'], [!!p.test, 'T', 'tested by ' + p.test]]) {
+    if (!on) continue;
+    const chip = el('span', 'chip ' + letter.toLowerCase(), letter);
+    chip.title = name;
+    chips.append(chip);
+  }
+  head.append(rule, chips);
+  c.append(head);
+  const dl = el('dl');
+  for (const [k, v] of [['Now', p.now], ['After', p.after], ['Why', p.why], ['Risk', p.risk]]) if (v) dl.append(el('dt', null, k), el('dd', null, v));
+  c.append(dl);
+  const thread = (p.thread || []).filter((m) => m.note);
+  if (thread.length) {
+    const t = el('div', 'thread');
+    for (const m of thread) t.append(el('div', null, (m.by === 'po' ? 'You: ' : 'Claude: ') + m.note));
+    c.append(t);
+  }
+  if (p.status === 'pending' && canWrite) c.append(...controls(d, p));
+  return c;
+}
+
+function controls(d, p) {
+  const mode = modes.get(d.id);
+  const acts = el('div', 'acts');
+  for (const [v, label] of [['approved', 'Approve'], ['rejected', 'Reject'], ['clarify', 'Clarify'], ['adjust', 'Adjust']]) {
+    const b = el('button', (v === 'approved' ? 'approve' : '') + (mode === v ? ' on' : ''), label);
+    b.type = 'button';
+    b.disabled = busy.has(d.id);
+    b.addEventListener('click', () => {
+      if (v === 'approved' || v === 'rejected') return decide(d, p, v, '');
+      modes.set(d.id, mode === v ? null : v);
+      render();
+      document.getElementById('note-' + d.id)?.focus();
+    });
+    acts.append(b);
+  }
+  if (!mode) return [acts];
+  const box = el('div', 'note');
+  const note = el('textarea');
+  note.id = 'note-' + d.id;
+  note.placeholder = mode === 'clarify' ? 'What is unclear?' : 'What should change?';
+  note.value = drafts.get(d.id) || '';
+  const send = el('button', 'send', 'Send');
+  send.type = 'button';
+  const sync = () => { send.disabled = busy.has(d.id) || !note.value.trim(); };
+  note.addEventListener('input', () => { drafts.set(d.id, note.value); sync(); });
+  send.addEventListener('click', () => decide(d, p, mode, note.value.trim()));
+  sync();
+  box.append(note, send);
+  return [acts, box];
+}
+
+async function decide(d, p, verdict, note) {
+  if (busy.has(d.id)) return;
+  busy.add(d.id);
+  render();
+  const at = new Date().toISOString();
+  try {
+    await db.doc('proposals/' + d.id).update({ status: verdict, updated: at, thread: (p.thread || []).concat([{ by: 'po', verdict, note, at }]) });
+    setState('Saved');
+    modes.delete(d.id);
+    drafts.delete(d.id);
+  } catch (e) {
+    if (e && e.code === 'invalid_argument') { canWrite = false; setState('Read only'); }
+    else setState('Not saved. Try again.');
+  } finally {
+    busy.delete(d.id);
+    render();
+  }
+}
+
+function setState(t) { document.getElementById('state').textContent = t; }
+
+function render() {
+  const key = (d) => d.data().id || '';
+  const pending = docs.filter((d) => d.data().status === 'pending').sort((a, b) => key(a).localeCompare(key(b)));
+  const log = docs.filter((d) => d.data().status !== 'pending').sort((a, b) => String(b.data().updated || '').localeCompare(String(a.data().updated || '')));
+  document.getElementById('tab-open').textContent = 'To decide (' + pending.length + ')';
+  document.getElementById('tab-log').textContent = 'Log (' + log.length + ')';
+  const shown = view === 'open' ? pending : log;
+  const list = document.getElementById('list');
+  list.replaceChildren();
+  if (!shown.length) { list.append(el('p', 'empty', view === 'open' ? 'Nothing to decide.' : 'No decisions yet.')); return; }
+  const wrap = el('div');
+  wrap.style.cssText = 'display:grid;gap:10px';
+  wrap.append(...shown.map(card));
+  list.append(wrap);
+}
+
+for (const v of ['open', 'log']) {
+  document.getElementById('tab-' + v).addEventListener('click', () => {
+    view = v;
+    for (const w of ['open', 'log']) document.getElementById('tab-' + w).setAttribute('aria-pressed', String(w === v));
+    render();
+  });
+}
+
+render();
+(async () => {
+  setState('Loading…');
+  db = await window.claude?.use?.('db');
+  if (!db) { setState('Sign in to see proposals'); return; }
+  const user = await window.claude.use('user');
+  if (user && (await user.can('data.write')) === false) canWrite = false;
+  db.collection('proposals').onSnapshot((snap) => { docs = snap.docs; setState(canWrite ? '' : 'Read only'); render(); }, () => setState('Proposals could not load'));
+})();
+</script>

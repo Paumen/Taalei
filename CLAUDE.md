@@ -2,7 +2,7 @@
 * canon.md holds the rules and key decisions, and binds over every other file. Read it first. Everything else, this file included, is context.
 * docs/draft_spec.md is the spec: current working guidance, in line with canon.
 * lint/golden.mjs is the canon test file.
-* Canon changes go through the canon-proposal skill: drafted, checked by the canon-reviewer subagent (.claude/agents), decided by the PO on the proposal page https://claude.ai/artifact/HzPVT8oxhCnGZyG6jNEi9H (source .claude/canon/proposals.html, decisions in its db collection `proposals`). Read pending decisions there at the start of a session that touches canon.
+* Canon changes go through the canon-proposal skill: drafted, checked by a reviewer following .claude/agents/canon-reviewer.md, decided by the PO on the proposal page https://claude.ai/artifact/Pp5sUgHL37z8nasTMWMEDU (source .claude/canon/proposals.html, decisions in its db collection `proposals`). Read pending decisions there at the start of a session that touches canon.
 * The reset skill (/reset) restarts a task that keeps missing from the PO's words and canon.
 * Hooks in .claude/hooks: guard.sh (approval prompt on edits to canon.md and lint/golden.mjs; blocks edits to .claude/settings*.json and .claude/hooks/), comment-gate.mjs (blocks new code comments), no-git-history.sh (approval prompt on git log, blame, reflog, whatchanged), golden-on-stop.sh (golden lint after model or tag changes).
 
