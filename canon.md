@@ -7,9 +7,9 @@ Invariant: precise, never broken without an approved change. Direction: broad on
 
 ## Binding
 
-- [C01 · invariant · review 2026-11] canon.md binds over any other file. The PO's instruction in the session binds for that task; flag a conflict with canon and propose. — why: one visible source of rules.
+- [C01 · invariant · review 2026-11] canon.md binds over other files. The PO's instruction binds its task, except C03; flag canon conflicts and propose. — why: one visible source of rules.
 - [C02 · invariant · review 2026-11] Where canon is silent, the matter is allowed. Spec, docs, code, CLAUDE.md, lint data, history and PRs inform but never forbid. — why: hidden limits cause drift.
-- [C03 · invariant · test: .claude/hooks/guard.sh · review 2026-11] canon.md and lint/golden.mjs change only after the PO approves. — why: canon stays the PO's.
+- [C03 · invariant · test: .claude/hooks/guard.sh · review 2026-11] Claude edits canon.md or lint/golden.mjs only after the PO approves its proposal at claude.ai/artifact/HzPVT8oxhCnGZyG6jNEi9H, then the guard.sh prompt. — why: the PO decides on the proposal, then confirms the edit.
 - [C04 · invariant · test: .claude/hooks/guard.sh · review 2026-11] Claude never edits .claude/settings*.json or .claude/hooks/. — why: the guards must not guard themselves.
 - [C05 · invariant · test: lint/golden.mjs · review 2026-11] `node lint/golden.mjs` passes on every PR. — why: golden rules keep catalogue models usable.
 
