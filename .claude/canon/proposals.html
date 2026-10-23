@@ -47,10 +47,13 @@ main { max-width: 540px; margin: 0 auto; display: grid; gap: 8px; }
 .chip { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: 0 5px; border-radius: 4px; background: var(--warn-bg); color: var(--warn); }
 .chip.approved, .chip.applied { background: var(--new-bg); color: var(--new-fg); }
 .chip.rejected { background: var(--old-bg); color: var(--old-fg); }
-.line { font: 12.5px/1.4 var(--mono); padding: 4px 6px; border-radius: 4px; overflow-wrap: anywhere; }
-.line.old { background: var(--old-bg); color: var(--old-fg); }
-.line.new { background: var(--new-bg); color: var(--new-fg); }
-dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
+.tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.tag { font: 11px var(--mono); color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; overflow-wrap: anywhere; }
+.tag.add { color: var(--new-fg); background: var(--new-bg); border-color: transparent; }
+.tag.del { color: var(--old-fg); background: var(--old-bg); border-color: transparent; text-decoration: line-through; }
+.change { font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.change ins { text-decoration: none; background: var(--new-bg); color: var(--new-fg); border-radius: 3px; }
+.change del { background: var(--old-bg); color: var(--old-fg); border-radius: 3px; }dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
 dt { color: var(--muted); font-size: 12px; padding-top: 1px; }
 dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .thread { display: grid; gap: 3px; font-size: 13px; border-top: 1px solid var(--line); padding-top: 5px; }
@@ -89,14 +92,64 @@ function field(dl, name, value) {
   dl.append(el('dt', null, name), el('dd', null, value));
 }
 
+function parse(line) {
+  const m = /^-?\s*\[([^\]]*)\]\s*([\s\S]*)$/.exec(line || '');
+  if (!m) return { meta: [], text: line || '' };
+  return { meta: m[1].split('·').map((s) => s.trim()).filter(Boolean), text: m[2].trim() };
+}
+
+function diff(a, b) {
+  const x = a ? a.split(/(\s+)/) : [];
+  const y = b ? b.split(/(\s+)/) : [];
+  const n = x.length, m = y.length;
+  const t = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) t[i][j] = x[i] === y[j] ? t[i + 1][j + 1] + 1 : Math.max(t[i + 1][j], t[i][j + 1]);
+  const out = [];
+  const push = (k, s) => { const last = out[out.length - 1]; if (last && last[0] === k) last[1] += s; else out.push([k, s]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && x[i] === y[j]) { push('=', x[i]); i++; j++; }
+    else if (j < m && (i >= n || t[i][j + 1] >= t[i + 1][j])) { push('+', y[j]); j++; }
+    else { push('-', x[i]); i++; }
+  }
+  return out;
+}
+
+function change(oldLine, newLine) {
+  const a = parse(oldLine), b = parse(newLine);
+  const tags = el('div', 'tags');
+  const base = newLine ? b.meta : a.meta;
+  for (const s of base) tags.append(el('span', 'tag' + (oldLine && newLine && !a.meta.includes(s) ? ' add' : ''), s));
+  if (oldLine && newLine) for (const s of a.meta) if (!b.meta.includes(s)) tags.append(el('span', 'tag del', s));
+  const line = el('div', 'change');
+  const parts = !oldLine ? [['=', b.text]] : !newLine ? [['-', a.text]] : diff(a.text, b.text);
+  let del = '', ins = '';
+  const flush = () => {
+    if (del.trim()) line.append(el('del', null, del.trim()));
+    if (del.trim() && ins.trim()) line.append(' ');
+    if (ins.trim()) line.append(el('ins', null, ins.trim()));
+    if (del || ins) line.append(' ');
+    del = ''; ins = '';
+  };
+  parts.forEach(([k, s], i) => {
+    if (k === '-') del += s;
+    else if (k === '+') ins += s;
+    else if (!s.trim() && (del || ins) && parts[i + 1] && parts[i + 1][0] !== '=') { del += s; ins += s; }
+    else { flush(); line.append(s.replace(/^\s+/, line.lastChild && line.lastChild.nodeType === 3 && / $/.test(line.lastChild.textContent) ? '' : '$&')); }
+  });
+  flush();
+  if (!oldLine) tags.prepend(el('span', 'tag add', 'new item'));
+  if (!newLine) tags.prepend(el('span', 'tag del', 'removed'));
+  return [tags, line];
+}
+
 function card(d) {
   const p = d.data();
   const c = el('article', 'card');
   const meta = el('div', 'meta');
   meta.append(el('b', null, p.title || d.id), el('span', 'chip ' + p.status, LABELS[p.status] || p.status), el('span', null, [p.repo, when(p.updated || p.created)].filter(Boolean).join(' · ')));
   c.append(meta);
-  if (p.old) c.append(el('div', 'line old', p.old));
-  if (p.new) c.append(el('div', 'line new', p.new));
+  c.append(...change(p.old, p.new));
   const dl = el('dl');
   field(dl, 'Trigger', p.trigger);
   field(dl, 'Effect', p.effect);

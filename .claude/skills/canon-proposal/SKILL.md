@@ -16,9 +16,9 @@ One proposal per item. Fields, with word limits:
 - `title`: the change in under 8 words.
 - `old`: the current canon line, exactly. Empty for a new item.
 - `new`: the new canon line in the canon.md format: `- [ID · type · scope: … · test: … · review YYYY-MM] item — why: reason`. Item about 20 words, why about 10. Next free ID for a new item. Review date one month out. Empty to remove an item.
-- `trigger`: the situation that led here, about 30 words.
-- `effect`: what becomes allowed or blocked, and how Claude will behave differently, about 30 words.
-- `risk`: what could go wrong, about 20 words.
+- `trigger`: the situation that led here, about 10 words.
+- `effect`: what becomes allowed or blocked, or how Claude behaves differently, about 10 words.
+- `risk`: what could go wrong, about 10 words.
 - `example`: optional; only when the wording alone is ambiguous, since examples anchor strongly.
 
 For lint/golden.mjs, `old` and `new` hold the rule's wording (R-number and line from CLAUDE.md), and `effect` sums up the code change in one line.
@@ -27,7 +27,7 @@ Write for a PO who has not seen the session, the files or a diff. No jargon. Inv
 
 ## 2. Review
 
-Run the `canon-reviewer` subagent with the full draft and nothing else. It checks the draft against canon.md with a fresh context. Revise and rerun until it passes, at most two rounds. Put its findings, one line, in `review`; say which ones you left and why.
+Run the `canon-reviewer` subagent with the full draft and nothing else. It checks the draft against canon.md with a fresh context. Revise and rerun until it passes, at most two rounds. Put its findings in `review`, about 10 words: what you fixed and what is left open.
 
 ## 3. Post
 
