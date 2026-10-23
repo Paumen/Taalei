@@ -97,6 +97,11 @@ function field(dl, name, value) {
 }
 
 function parse(line) {
+  const two = /^-\s*\*\*([^*]+)\*\*\s*([^\n]*?)\\?\s*\n\s*why:\s*([\s\S]*)$/.exec(line || '');
+  if (two) {
+    const rest = two[3].split('·').map((s) => s.trim());
+    return { meta: [two[1], ...rest.slice(1)], text: two[2].trim() + ' — why: ' + rest[0] };
+  }
   const m = /^-?\s*\[([^\]]*)\]\s*([\s\S]*)$/.exec(line || '');
   if (!m) return { meta: [], text: line || '' };
   return { meta: m[1].split('·').map((s) => s.trim()).filter(Boolean), text: m[2].trim() };
@@ -121,7 +126,7 @@ function diff(a, b) {
 
 function split(text) {
   const [item, why = ''] = (text || '').split(/\s*—\s*why:\s*/);
-  return { item: item.trim(), why: why.trim() };
+  return { item: item.trim(), why: why.trim().replace(/\.$/, '') };
 }
 
 function change(oldLine, newLine, status) {
@@ -133,7 +138,8 @@ function change(oldLine, newLine, status) {
   if (!newLine) tags.append(el('span', 'tag del', 'removed'));
   for (const s of (newLine ? b.meta : a.meta).filter(shown)) tags.append(el('span', 'tag' + (oldLine && newLine && !a.meta.includes(s) ? ' add' : ''), s));
   if (oldLine && newLine) for (const s of a.meta.filter(shown)) if (!b.meta.includes(s)) tags.append(el('span', 'tag del', s));
-  const x = split(a.text), y = split(b.text);
+  const whole = (p) => p.meta.length ? split(p.text) : { item: p.text, why: '' };
+  const x = whole(a), y = whole(b);
   return { tags, item: marked(oldLine ? x.item : '', newLine ? y.item : '', oldLine, newLine), why: marked(oldLine ? x.why : '', newLine ? y.why : '', oldLine, newLine) };
 }
 
