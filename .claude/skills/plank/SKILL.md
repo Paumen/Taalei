@@ -11,9 +11,9 @@ passes the self-check.
 
 ## 1. Pick models
 
-- Only models with wood in the tan, camel or chestnut band, built as
-  separate boards or logs. Skip smooth roofs, plaster and slabs with only
-  drawn lines.
+- Only models with wood in the tan, camel or chestnut band whose planks,
+  boards, panels or logs can be told apart by eye, however the mesh is
+  built.
 - Batch similar models (signs, walls, houses, props) so one method fits.
 
 ## 2. Tone
