@@ -1,10 +1,11 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
+import { cutAlong } from './plank-cut.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--band-after <from>:<to>] [--steps] [--facets] [--join] [--floor] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--band-after <from>:<to>] [--steps] [--facets] [--join] [--floor] [--spec <spec.mjs>] [--debug] [--pieces [x|y|z]] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -43,7 +44,22 @@ of a round piece built as one.
 --join gives pieces of one board cut apart by a gap, such as a door or post,
 one tone: same direction and thickness, in line, at most three board widths
 apart.
---dry reports without writing.`;
+--dry reports without writing.
+--spec <spec.mjs> names the boards by hand and skips the --min and --share
+check. Its default export gets each wood triangle as { c (centre), n (normal),
+band, comp (its piece's number in that band), area, light (its old lightness,
+0 dark to 1 light) } and returns a board key, or null to leave the triangle as
+it is. Triangles with one key make one board. Optional exports:
+  cut({ c, band, comp }) returns planes [[normal, offset], ...] that split the
+    triangle before toning, to part boards fused into one piece;
+  axis { key: long | [long, width] } sets a board's length (and width) direction;
+  band { key: 'camel' } moves a board into another wood band;
+  detail { from, min, band } keeps triangles whose old lightness reaches
+    from light: each corner at least min, in band if given.
+--debug writes each board in its own bright colour instead of its tone.
+--pieces [axis] lists each piece per band with its triangles and bounds, and
+with an axis the rounded vertex coordinates on it, to find board seams; writes
+nothing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -124,6 +140,22 @@ function faceFrame(list, at) {
   const pair = [[cross1, extOf(cross1)], [broad, extOf(broad)]].sort((a, b) => span(b[1]) - span(a[1]));
   return { ...f, axes: [long, pair[0][0], pair[1][0]], ext: [f.ext[0], pair[0][1], pair[1][1]] };
 }
+
+function axisFrame(list, at, spec) {
+  const [long, width] = Array.isArray(spec[0]) ? spec.map(norm) : [norm(spec), null];
+  const f = faceFrame(list, at);
+  const pts = list.flatMap((t) => at.corners[t]);
+  const rest = f.axes.filter((a) => Math.abs(dot(a, long)) < 0.7);
+  const w = width ?? (rest[0] ? norm(sub(rest[0], scale(long, dot(rest[0], long)))) : norm(cross(long, [0, 1, 0])));
+  const third = norm(cross(long, w));
+  const ext = (a) => { let lo = Infinity; let hi = -Infinity; for (const q of pts) { const v = dot(q, a); lo = Math.min(lo, v); hi = Math.max(hi, v); } return [lo, hi]; };
+  const pair = [[w, ext(w)], [third, ext(third)]];
+  if (!width) pair.sort((a, b) => span(b[1]) - span(a[1]));
+  return { ...f, axes: [long, pair[0][0], pair[1][0]], ext: [ext(long), pair[0][1], pair[1][1]] };
+}
+
+const oldLight = (uv, v, cell) => 1 - (uv[v * 2 + 1] * 512 - cell[1] * 128 - 0.5) / 127;
+const DEBUG = [[5, 0], [1, 1], [4, 2], [6, 0], [3, 1], [13, 3], [8, 0], [6, 1], [5, 2]];
 
 const isBoard = (f) => {
   const [, w, t] = f.ext.map(span);
@@ -542,7 +574,38 @@ function tone(file, options) {
         const filled = Math.max(...face) >= 0.4 * l * w;
         return { tris: list, ...f, plank: !list.rest && (list.strip || isPlank(f)) && (isBoard(f) ? square >= 0.4 * area && filled : square >= 0.6 * area) };
       };
-      const pieces = [...comps.values()].flatMap((c) => {
+      const bandName = Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','));
+      if (options.pieces) {
+        [...comps.values()].forEach((c, i) => {
+          const pts = c.flatMap((t) => at.corners[t]);
+          const lo = [0, 1, 2].map((k) => Math.min(...pts.map((q) => q[k])).toFixed(3));
+          const hi = [0, 1, 2].map((k) => Math.max(...pts.map((q) => q[k])).toFixed(3));
+          let line = `${bandName} ${i}: ${c.length} tris, ${lo.join(' ')} to ${hi.join(' ')}`;
+          if (typeof options.pieces === 'string') {
+            const k = 'xyz'.indexOf(options.pieces);
+            const count = new Map();
+            for (const q of pts) count.set(q[k].toFixed(3), (count.get(q[k].toFixed(3)) ?? 0) + 1);
+            line += `\n  ${options.pieces}: ${[...count].sort((a, b) => a[0] - b[0]).map(([v, n]) => `${v}(${n})`).join(' ')}`;
+          }
+          report.push(line);
+        });
+        continue;
+      }
+      const compOf = new Map();
+      [...comps.values()].forEach((c, i) => c.forEach((t) => compOf.set(t, i)));
+      const pieces = options.spec ? (() => {
+        const groups = new Map();
+        for (const t of tris) {
+          const cs = at.corners[t];
+          const c = [0, 1, 2].map((i) => (cs[0][i] + cs[1][i] + cs[2][i]) / 3);
+          const light = [0, 1, 2].reduce((sum, k) => sum + oldLight(uv, idx[t * 3 + k], cell), 0) / 3;
+          const key = options.spec.default({ c, n: at.normal[t], band: bandName, comp: compOf.get(t), area: at.area[t], light });
+          if (key == null) continue;
+          if (!groups.has(key)) groups.set(key, []);
+          groups.get(key).push(t);
+        }
+        return [...groups].map(([key, list]) => ({ ...(options.spec.axis?.[key] ? axisFrame(list, at, options.spec.axis[key]) : faceFrame(list, at)), tris: list, plank: true, key }));
+      })() : [...comps.values()].flatMap((c) => {
         const whole = measure(c);
         if (options.whole) return [{ ...whole, plank: options.force || isPlank(whole) }];
         if (options.steps) { const steps = splitSteps(c, at); if (steps) return steps; }
@@ -595,6 +658,7 @@ function tone(file, options) {
       report.push(`${Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','))} ${pieces.length} pieces ${pieces.filter((p) => p.plank).length} planks`);
     }
   }
+  if (options.pieces) return `\n${report.join('\n')}`;
   const share = plankArea / (woodArea || 1);
   report.push(`share ${share.toFixed(2)}`);
   if (!options.force && (planks < options.min || share < options.share)) return `skip (${planks} planks; ${report.join(', ')})`;
@@ -611,7 +675,7 @@ function tone(file, options) {
     const boxGap = (a, b) => Math.hypot(...[0, 1, 2].map((i) => Math.max(0, a.lo[i] - b.hi[i], b.lo[i] - a.hi[i])));
     for (const p of [...pieces].sort((a, b) => a.area - b.area)) {
       const rest = pieces.filter((q) => q !== p && q.area > p.area);
-      if (p.area >= 0.1 * median || !rest.length) continue;
+      if (options.spec || p.area >= 0.1 * median || !rest.length) continue;
       const q = rest.reduce((a, b) => (boxGap(p, b) < boxGap(p, a) ? b : a));
       q.tris.push(...p.tris);
       q.area += p.area;
@@ -633,7 +697,7 @@ function tone(file, options) {
       near.get(list[0]).push({ t: list[1], d });
       near.get(list[1]).push({ t: list[0], d });
     }
-    for (let pass = 0; pass < 4; pass++) for (const [t, list] of near) {
+    for (let pass = 0; pass < (options.spec ? 0 : 4); pass++) for (const [t, list] of near) {
       const p = owner.get(t);
       const diag = list.filter(({ t: u, d }) => owner.get(u) !== p && p.axes.every((a) => Math.abs(dot(d, a)) < 0.95));
       if (!diag.length) continue;
@@ -669,7 +733,24 @@ function tone(file, options) {
       const n = faceNormal.get(t);
       for (let k = 0; k < 3; k++) lightOf.set(t * 3 + k, light(p, n, job.world(job.idx[t * 3 + k]), options.edges));
     }
-    for (const [c, l] of lightOf) writesOf.set(c, cellUv(to, l));
+    const cellOfBand = (b) => BANDS[b].split(',').map(Number);
+    const detail = options.spec?.detail;
+    if (detail) for (const p of pieces) for (const t of p.tris) {
+      const old = [0, 1, 2].map((k) => oldLight(job.uv, job.idx[t * 3 + k], job.cell));
+      if (Math.max(...old) < detail.from) continue;
+      for (let k = 0; k < 3; k++) lightOf.set(t * 3 + k, { cell: detail.band ? cellOfBand(detail.band) : to, l: Math.max(detail.min ?? 0, old[k]) });
+    }
+    if (options.spec?.band) for (const p of pieces) {
+      if (!options.spec.band[p.key]) continue;
+      for (const t of p.tris) for (let k = 0; k < 3; k++) {
+        const l = lightOf.get(t * 3 + k);
+        if (typeof l === 'number') lightOf.set(t * 3 + k, { cell: cellOfBand(options.spec.band[p.key]), l });
+      }
+    }
+    if (options.debug) pieces.forEach((p, i) => {
+      for (const t of p.tris) for (let k = 0; k < 3; k++) lightOf.set(t * 3 + k, { cell: DEBUG[i % DEBUG.length], l: i % 18 < 9 ? 0.75 : 0.3 });
+    });
+    for (const [c, l] of lightOf) writesOf.set(c, typeof l === 'number' ? cellUv(to, l) : cellUv(l.cell, l.l));
   }
   for (const [prim, corner] of writes) {
     const idx = Array.from(readAccessor(glb, prim.indices).data);
@@ -963,6 +1044,9 @@ const files = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--dry' || argv[i] === '--force') options[argv[i].slice(2)] = true;
   else if (argv[i] === '--no-edges') options.edges = false;
+  else if (argv[i] === '--debug') options.debug = true;
+  else if (argv[i] === '--spec') { options.spec = await import(pathToFileURL(resolve(argv[++i])).href); options.force = true; }
+  else if (argv[i] === '--pieces') options.pieces = /^[xyz]$/.test(argv[i + 1] ?? '') ? argv[++i] : true;
   else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--floor') options.floor = true;
   else if (argv[i] === '--steps' || argv[i] === '--facets' || argv[i] === '--join') options[argv[i].slice(2)] = true;
@@ -974,6 +1058,7 @@ for (let i = 0; i < argv.length; i++) {
 }
 FLAT = Math.cos((options.flat * Math.PI) / 180);
 for (const file of files) {
+  if (options.spec?.cut && !options.dry && !options.pieces) cutAlong(file, options.spec.cut);
   const result = (options.floor ? floorTone : tone)(file, options);
   if (options.bandAfter && !options.dry && !result.startsWith('skip')) moveBand(file, ...options.bandAfter);
   console.log(`${file}: ${result}`);
