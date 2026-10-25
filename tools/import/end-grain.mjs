@@ -13,7 +13,8 @@ around a darker pith at the heart of the log: the centre of the circle through
 the rim where it meets the bark, so a split piece shows arcs around a heart at
 or past its edge. <n> (default 4) rings run from heart to bark and on to the
 far corners, stepping between the light and dark end of the band. An end whose
-rim does not run once around it is left as it is. --up takes faces that face up instead, for stump tops. --to moves the
+rim does not run once around it is left as it is. --up takes faces that face up instead, for stump tops, and carries the rings on
+across the sloped faces in <band> of the same part, such as a bevel or a broken corner. --to moves the
 ends into another band, for ends that are bark like the rest of the log.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -21,6 +22,7 @@ const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 const FLAT = 0.95;
 const ALONG = 0.7;
 const UP = 0.95;
+const SLOPE = 0.3;
 const LIGHT = 0.3;
 const DARK = 0.7;
 const SECTORS = 8;
@@ -66,7 +68,8 @@ function earcut(poly) {
     for (let i = 0; i < left.length && cut < 0; i++) {
       const [a, b, c] = [left[(i + left.length - 1) % left.length], left[i], left[(i + 1) % left.length]];
       if (cross2(poly[a], poly[b], poly[c]) <= 0) continue;
-      const inside = left.some((j) => j !== a && j !== b && j !== c
+      const same = (j) => [a, b, c].some((x) => poly[x][0] === poly[j][0] && poly[x][1] === poly[j][1]);
+      const inside = left.some((j) => j !== a && j !== b && j !== c && !same(j)
         && cross2(poly[a], poly[b], poly[j]) >= 0 && cross2(poly[b], poly[c], poly[j]) >= 0 && cross2(poly[c], poly[a], poly[j]) >= 0);
       if (!inside) cut = i;
     }
@@ -124,16 +127,46 @@ function rimLoop(group, idx, weld) {
     next.set(weld(a), b);
   }
   if (next.size < 3) return null;
-  const start = next.keys().next().value;
-  const loop = [];
-  let w = start;
-  do {
-    const v = next.get(w);
-    if (v === undefined || loop.length > next.size) return null;
-    loop.push(v);
-    w = weld(v);
-  } while (w !== start);
-  return loop.length === next.size ? loop : null;
+  const loops = [];
+  const seen = new Set();
+  for (const start of next.keys()) {
+    if (seen.has(start)) continue;
+    const loop = [];
+    let w = start;
+    do {
+      const v = next.get(w);
+      if (v === undefined || seen.has(w)) return null;
+      seen.add(w);
+      loop.push(v);
+      w = weld(v);
+    } while (w !== start);
+    if (loop.length < 3) return null;
+    loops.push(loop);
+  }
+  return loops;
+}
+
+function bridge(loops, flat) {
+  const signed = (poly) => poly.reduce((s, a, i) => {
+    const b = poly[(i + 1) % poly.length];
+    return s + a[0] * b[1] - a[1] * b[0];
+  }, 0) / 2;
+  const flats = loops.map((l) => l.map(flat));
+  const order = loops.map((_, i) => i).sort((a, b) => Math.abs(signed(flats[b])) - Math.abs(signed(flats[a])));
+  let loop = loops[order[0]];
+  for (const h of order.slice(1)) {
+    if (Math.sign(signed(flats[h])) === Math.sign(signed(flats[order[0]]))) return null;
+    let best = null;
+    const outer = loop.map(flat);
+    flats[h].forEach((q, i) => outer.forEach((o, j) => {
+      const d = Math.hypot(q[0] - o[0], q[1] - o[1]);
+      if (!best || d < best.d) best = { d, i, j };
+    }));
+    const hole = loops[h];
+    const turn = [...hole.slice(best.i), ...hole.slice(0, best.i), hole[best.i]];
+    loop = [...loop.slice(0, best.j + 1), ...turn, ...loop.slice(best.j)];
+  }
+  return loop;
 }
 
 function prune(glb, prim, replaced) {
@@ -228,12 +261,13 @@ function grain(file, cell, rings, up, to = cell) {
     const adder = vertexAdder(glb, prim);
     const drop = new Set();
     const added = [];
+    const done = [];
     for (const group of groups.values()) {
       const n = unit(group.reduce((s, t) => s.map((x, k) => x + normals.get(t)[k]), [0, 0, 0]));
       const axis = up ? [0, 1, 0] : axes.get(findShell(weld(idx[group[0] * 3])));
       if (up ? dot(n, axis) < UP : Math.abs(dot(n, axis)) < ALONG) continue;
-      const loop = rimLoop(group, idx, weld);
-      if (!loop) continue;
+      const loops = rimLoop(group, idx, weld);
+      if (!loops) continue;
       let area = 0;
       const centre = [0, 0, 0];
       for (const t of group) {
@@ -244,12 +278,14 @@ function grain(file, cell, rings, up, to = cell) {
         for (let k = 0; k < 3; k++) centre[k] += (s * (a[k] + b[k] + c[k])) / 3;
       }
       for (let k = 0; k < 3; k++) centre[k] /= area;
-      const d0 = sub(p(loop[0]), centre);
+      const d0 = sub(p(loops[0][0]), centre);
       const e1 = unit(d0.map((x, j) => x - dot(d0, n) * n[j]));
       const e2 = unit([n[1] * e1[2] - n[2] * e1[1], n[2] * e1[0] - n[0] * e1[2], n[0] * e1[1] - n[1] * e1[0]]);
       const flat = (q) => [dot(sub(q, centre), e1), dot(sub(q, centre), e2)];
+      const loop = loops.length === 1 ? loops[0] : bridge(loops, (v) => flat(p(v)));
+      if (!loop) continue;
       const rim = loop.map((v) => flat(p(v)));
-      const convex = rim.every((a, i) => {
+      const convex = loops.length === 1 && rim.every((a, i) => {
         const b = rim[(i + 1) % rim.length], c = rim[(i + 2) % rim.length];
         return (b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0]) >= 0;
       });
@@ -309,11 +345,24 @@ function grain(file, cell, rings, up, to = cell) {
         }
       }
       group.forEach((t) => drop.add(t));
+      done.push({ shell: findShell(weld(idx[group[0] * 3])), flat, heart, shadeAt });
       ends++;
     }
     if (!drop.size) continue;
+    const slope = new Map();
+    if (up) {
+      for (const t of tris) {
+        if (drop.has(t) || normals.get(t)[1] < SLOPE) continue;
+        const end = done.find((e) => e.shell === findShell(weld(idx[t * 3])));
+        if (!end) continue;
+        slope.set(t, [0, 1, 2].map((k) => {
+          const v = idx[t * 3 + k], q = end.flat(p(v));
+          return adder.add(v, { TEXCOORD_0: uvAt(end.shadeAt(Math.hypot(q[0] - end.heart.c[0], q[1] - end.heart.c[1]))) });
+        }));
+      }
+    }
     const out = [];
-    for (let t = 0; t < triCount; t++) if (!drop.has(t)) out.push(idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]);
+    for (let t = 0; t < triCount; t++) if (!drop.has(t)) out.push(...(slope.get(t) ?? [idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]]));
     for (const tri of added) out.push(...tri);
     adder.commit(out, replaced);
     edited.push(prim);
