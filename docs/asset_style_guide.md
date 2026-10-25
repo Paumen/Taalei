@@ -336,6 +336,10 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B67` | `kind:str-part-roof* & !tag:plural` | all parts | is | as `B64`, except a piece whose darkest point is in its upper half, which stays as it was; the chimney of `ken-holiday` cabin roofs stays as it was. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow --keep-under` |
 | `B68` | `kind:str-barrier-fence* & !tag:plural` | all parts | is | as `B67`. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow --keep-under` |
 | `B69` | `kind:str-part-door* | kind:str-part-frame* | kind:str-part-pillar* | kind:str-access-stairs*`, `!tag:plural` | all parts | is | as `B67`. Set with `node tools/import/v-profile.mjs --add 1 --reach 0.15 --fit --keep-shadow --keep-under` |
+| `B70` | `kind:env-flora & !kind:env-flora-tree* & !kind:env-flora-coral & !tag:plural` | `part:foliage, stem` in `moss`, `hunter` | is | per piece, UV 0.08 of the band at its top to 0.85 at its bottom; undersides 0.92. Set with `node tools/import/flora-shade.mjs --mode plant` |
+| `B71` | `kind:env-fungi & !tag:plural`, except cut halves and slices | `part:cap` | is | UV 0.08 of the band at the cap top to 0.85 at its rim; undersides 0.92. Set with `node tools/import/flora-shade.mjs --mode fungi` |
+| `B72` | as `B71` | `part:stem` | is | as `B60`: UV 0.80 under the cap to 0.20 at the base |
+| `B73` | `kind:env-remains-deadwood* & !tag:plural` | `part:bark` | is | over the whole model, UV 0.08 of the band at the top to 0.85 at the base. Set with `node tools/import/flora-shade.mjs --mode wood` (`--bands bark,ivory` for birch) |
 
 ---
 
