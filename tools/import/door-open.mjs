@@ -129,7 +129,7 @@ function plan(shape, found, minW, minH) {
   return { h, v, after, changed: extra > 0 || vk.length > 2 };
 }
 
-function deform(glb, shape, h, v) {
+export function deform(glb, shape, h, v) {
   const { parts, axis } = shape;
   const replaced = new Map();
   for (const { m, prims } of parts) for (const { p, world } of prims) {
