@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `flora-shade.mjs --mode <plant|fungi|wood> [--bands <a,b>] [--keep-detail [--strength <k>]] [--dry] <workfile.glb> [...]
+const HELP = `flora-shade.mjs --mode <plant|fungi|wood|trunk> [--bands <a,b>] [--keep-detail [--strength <k>]] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of plants, mushrooms and dead wood by height.
 Every vertex keeps its cell of kits/colormap.png and its u; only its v within
@@ -19,6 +19,8 @@ fungi: the cap runs from v 0.08 at its top to 0.85 at its rim, undersides
   upright stretch above it that sits under the cap.
 wood: one gradient over the whole model for bark in <bands> (default bark),
   v 0.08 at the top to 0.85 at the base.
+trunk: one gradient over the whole model for <bands> (default tan), v 0.80
+  at the top to 0.20 at the base, as a trunk under a canopy.
 Twine, glass and amber cells are left as they are.
 
 --keep-detail keeps the light and dark each face already has: it adds the
@@ -108,10 +110,11 @@ function targets(prims, mode, cells, keep) {
   }
   let low = Infinity, high = -Infinity;
   for (const p of prims) for (let i = 0; i < p.count; i++) if (take(p, i)) { low = Math.min(low, p.w[i][1]); high = Math.max(high, p.w[i][1]); }
-  if (mode === 'wood') {
+  if (mode === 'wood' || mode === 'trunk') {
+    const [a, b] = mode === 'wood' ? [TOP, BOTTOM] : [STEM_TOP, STEM_BASE];
     for (const [k, p] of prims.entries()) for (let i = 0; i < p.count; i++) {
       if (!take(p, i)) continue;
-      const v = lerp(p.w[i][1], high, low, TOP, BOTTOM);
+      const v = lerp(p.w[i][1], high, low, a, b);
       if (v !== null) out.set(`${k}:${i}`, v);
     }
     return out;
@@ -180,7 +183,7 @@ function shade(file, mode, cells, keep, strength, dry) {
   const glb = readGlb(file);
   const prims = load(glb);
   let set = targets(prims, mode, cells, keep);
-  if (keep) set = keepDetail(prims, set, mode === 'wood', strength);
+  if (keep) set = keepDetail(prims, set, mode === 'wood' || mode === 'trunk', strength);
   const replaced = new Map();
   for (const [k, p] of prims.entries()) {
     for (let i = 0; i < p.count; i++) {
@@ -212,8 +215,8 @@ const opt = (flag) => {
   return value;
 };
 const mode = opt('--mode');
-if (!['plant', 'fungi', 'wood'].includes(mode)) throw new Error('--mode plant, fungi or wood');
-const names = opt('--bands') ?? { plant: 'moss,hunter', wood: 'bark' }[mode];
+if (!['plant', 'fungi', 'wood', 'trunk'].includes(mode)) throw new Error('--mode plant, fungi, wood or trunk');
+const names = opt('--bands') ?? { plant: 'moss,hunter', wood: 'bark', trunk: 'tan' }[mode];
 const cells = names ? new Set(names.split(',').map((b) => {
   if (!BANDS[b]) throw new Error(`no such band: ${b}`);
   return BANDS[b];
