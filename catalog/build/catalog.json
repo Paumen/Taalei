@@ -91586,7 +91586,7 @@
   {
    "kit": "household",
    "name": "wine-glass",
-   "hash": "e2cb5f1450",
+   "hash": "0bbdb17dbd",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
@@ -91603,10 +91603,10 @@
    "vtx": 541,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "thick": 0.1354,
-   "avgTri": 0.00015,
-   "anglePct": 4,
+   "minEdge": 0.002,
+   "thick": 0.1178,
+   "avgTri": 0.00012,
+   "anglePct": 6,
    "pieces": 1,
    "vpt": 1.89,
    "cells": [
@@ -91619,7 +91619,7 @@
     "ct",
     "glass"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.29
   },
   {
    "kit": "household",
@@ -259703,7 +259703,7 @@
   {
    "kit": "lpa-west",
    "name": "bottle-b",
-   "hash": "90d9af6b63",
+   "hash": "c8db527325",
    "kind": "obj-container-bottle-glass",
    "size": "s",
    "wdh": [
@@ -259721,9 +259721,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.3262,
-   "avgTri": 0.00015,
-   "anglePct": 13,
+   "minTube": 0.0571,
+   "thick": 0.3476,
+   "avgTri": 0.00017,
+   "anglePct": 14,
    "pieces": 1,
    "vpt": 1.37,
    "cells": [
@@ -259740,7 +259741,7 @@
     "lpa"
    ],
    "variant": "lpa-west/bottle-a",
-   "thickRel": 1.14
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -306323,13 +306324,13 @@
   {
    "kit": "natuur",
    "name": "flower-balloon-2",
-   "hash": "c98acead9f",
+   "hash": "10bb7cb0af",
    "kind": "env-flora-plant-flower",
    "size": "s",
    "wdh": [
-    0.179,
-    0.218,
-    0.272
+    0.177,
+    0.215,
+    0.266
    ],
    "tris": 148,
    "tpu": 431,
@@ -306340,10 +306341,10 @@
    "vtx": 307,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0158,
-   "thick": 0.0625,
-   "avgTri": 0.00061,
+   "minEdge": 0.007,
+   "minTube": 0.0124,
+   "thick": 0.0511,
+   "avgTri": 0.00052,
    "anglePct": 1,
    "pieces": 6,
    "vpt": 2.07,
@@ -306362,7 +306363,7 @@
     "special-organic"
    ],
    "variant": "natuur/flower-balloon-1",
-   "thickRel": 0.9
+   "thickRel": 0.73
   },
   {
    "kit": "natuur",
@@ -384109,28 +384110,28 @@
    "kit": "sq-studio",
    "collection": "sq-props",
    "name": "mic-stand",
-   "hash": "693006403a",
+   "hash": "06079f255e",
    "kind": "obj-leisure-art-instrument",
    "size": "m",
    "wdh": [
-    0.376,
-    0.307,
-    0.588
+    0.321,
+    0.227,
+    0.572
    ],
    "tris": 481,
    "tpu": 1402,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27820,
+   "bytes": 27816,
    "vtx": 731,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0152,
-   "thick": 0.058,
-   "avgTri": 0.00025,
-   "anglePct": 27,
+   "minTube": 0.0023,
+   "thick": 0.0602,
+   "avgTri": 0.00007,
+   "anglePct": 45,
    "pieces": 9,
    "vpt": 1.52,
    "cells": [
@@ -384149,19 +384150,12 @@
     "rubber",
     "sq"
    ],
-   "backface": {
-    "share": 0.0028,
-    "view": "270/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.36,
+   "thickRel": 0.38,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 270/20 over 0.1%: open 100.0%"
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0023 wants min 0.006"
     }
    ]
   },
@@ -399959,13 +399953,13 @@
   {
    "kit": "styloo-school",
    "name": "toilet-roll",
-   "hash": "be47e46243",
+   "hash": "6048160674",
    "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
     0.102,
     0.064,
-    0.085
+    0.065
    ],
    "tris": 320,
    "tpu": 933,
@@ -399977,9 +399971,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.137,
-   "avgTri": 0.00011,
-   "anglePct": 43,
+   "minTube": 0.0036,
+   "thick": 0.185,
+   "avgTri": 0.0001,
+   "anglePct": 54,
    "pieces": 2,
    "vpt": 1.14,
    "cells": [
@@ -399995,7 +399990,14 @@
     "paper-sheet",
     "sty"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.43,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0036 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -422705,28 +422707,28 @@
   {
    "kit": "zombie-weapons",
    "name": "revolver",
-   "hash": "f3fda6bc8d",
+   "hash": "6cb3cd1a26",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
-    0.046,
+    0.034,
     0.26,
-    0.154
+    0.12
    ],
    "tris": 730,
    "tpu": 2128,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 47676,
+   "bytes": 47680,
    "vtx": 1306,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0274,
-   "thick": 0.1013,
-   "avgTri": 0.0001,
-   "anglePct": 28,
+   "minTube": 0.0135,
+   "thick": 0.1098,
+   "avgTri": 0.00007,
+   "anglePct": 30,
    "pieces": 11,
    "vpt": 1.79,
    "cells": [
@@ -422742,7 +422744,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.76
   },
   {
    "kit": "zombie-weapons",
