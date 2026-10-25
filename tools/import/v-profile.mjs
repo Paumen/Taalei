@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow] [--keep-under]] [--dry] <workfile.glb> [...]
+const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow] [--keep-under]] [--whole] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of each piece by height. A piece is a run of
 triangles joined on shared positions. Every vertex keeps its cell of
@@ -21,7 +21,8 @@ squeezing it, so its own light and dark stay as they were. --keep-shadow
 leaves a piece as it is when its darkest point sits in its upper half, such as
 a painted shadow under a cap or overhang. --keep-under leaves a vertex as it is
 when it faces down or the model has geometry less than 0.15 of its height
-right above it.`;
+right above it. --whole treats the whole model as one piece, so parts that
+meet, such as a fin on a body, match where they join.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -75,7 +76,7 @@ function overhung(pos, idx, m, y) {
   return under;
 }
 
-function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry) {
+function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, whole, dry) {
   const glb = readGlb(file);
   const replaced = new Map();
   let moved = 0;
@@ -103,6 +104,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)
       a = find(a); b = find(b);
       if (a !== b) parent.set(a, b);
     };
+    const pieceOf = (i) => (whole ? 0 : find(point[i]));
     const cell = new Array(count).fill(null);
     for (let t = 0; t < idx.length; t += 3) {
       const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
@@ -117,19 +119,19 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)
     }
     const span = new Map();
     for (let i = 0; i < count; i++) {
-      const piece = find(point[i]);
+      const piece = pieceOf(i);
       const s = span.get(piece) ?? [Infinity, -Infinity];
       span.set(piece, [Math.min(s[0], y[i]), Math.max(s[1], y[i])]);
     }
     const shape = (i) => {
-      const [low, high] = span.get(find(point[i]));
+      const [low, high] = span.get(pieceOf(i));
       return high - low < 1e-9 ? null : top + ((high - y[i]) / (high - low)) * (bottom - top);
     };
     const mean = new Map();
     for (let i = 0; i < count; i++) {
       const f = shape(i);
       if (f === null) continue;
-      const piece = find(point[i]);
+      const piece = pieceOf(i);
       const [sum, n] = mean.get(piece) ?? [0, 0];
       mean.set(piece, [sum + f, n + 1]);
     }
@@ -143,7 +145,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)
       const row = Number(cell[i].split(',')[1]);
       let v = f;
       if (add) {
-        const piece = find(point[i]);
+        const piece = pieceOf(i);
         const [sum, n] = mean.get(piece);
         const was = uv[2 * i + 1] * 4 - row;
         v = was + add * (f - sum / n);
@@ -162,7 +164,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)
     const scale = new Map();
     if (fit) {
       for (const [i, [row, raw]] of next) {
-        const piece = find(point[i]);
+        const piece = pieceOf(i);
         const r = range.get(piece);
         const light = Math.max(LIGHT, r[2] - reach), dark = Math.min(DARK, r[3] + reach);
         const was = uv[2 * i + 1] * 4 - row, d = raw - was;
@@ -172,7 +174,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)
     }
     for (const [i, [row, raw]] of next) {
       let v = raw;
-      const piece = find(point[i]);
+      const piece = pieceOf(i);
       if (keepShadow && shadowed(piece)) continue;
       if (under && under[i]) continue;
       const r = range.get(piece);
@@ -216,5 +218,6 @@ const reach = take('--reach', 1);
 const fit = args.includes('--fit');
 const keepShadow = args.includes('--keep-shadow');
 const keepUnder = args.includes('--keep-under');
+const whole = args.includes('--whole');
 const dry = args.includes('--dry');
-for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, dry)} vertices`);
+for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, whole, dry)} vertices`);

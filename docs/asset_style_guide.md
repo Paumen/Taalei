@@ -342,7 +342,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B73` | `kind:env-remains-deadwood* & !tag:plural` | `part:bark` | is | over the whole model, UV 0.08 of the band at the top to 0.85 at the base; detailed models as in `B70`. Set with `node tools/import/flora-shade.mjs --mode wood` (`--bands bark,ivory` for birch, `--keep-detail` for detailed models) |
 | `B74` | `kind:env-flora-tree-palm & !tag:plural` | `part:frond` in `moss` | is | as `B70`, with each model's own detail kept. Set with `node tools/import/flora-shade.mjs --mode plant --keep-detail` |
 | `B75` | as `B74` | `part:trunk` in `tan` | is | as `B60`, with each model's own detail kept. Set with `node tools/import/flora-shade.mjs --mode trunk --keep-detail` |
-| `B76` | sea animals: `kind:env-fauna-fish* \| kind:env-fauna-starfish`, and `env-fauna*` of `quat-ocean` and `quat-fish`; `!tag:plural` | all parts | is | per piece, darker at its top and lighter at its bottom, added on top of each face's own light and dark, so painted bellies, stripes and spots stay. Set with `node tools/import/v-profile.mjs --top 0.85 --bottom 0.08 --add 1 --fit` |
+| `B76` | sea animals: `kind:env-fauna-fish* \| kind:env-fauna-starfish`, and `env-fauna*` of `quat-ocean` and `quat-fish`; `!tag:plural` | all parts | is | per piece, darker at its top and lighter at its bottom, added on top of each face's own light and dark, so painted bellies, stripes and spots stay. Set with `node tools/import/v-profile.mjs --top 0.85 --bottom 0.08 --add 1 --fit`; `--whole` (one gradient over the model) where a per-piece one would part a fin from the body, as `quat-fishing/clownfish` |
 
 ---
 
