@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `flora-shade.mjs --mode <plant|fungi|wood> [--bands <a,b>] [--dry] <workfile.glb> [...]
+const HELP = `flora-shade.mjs --mode <plant|fungi|wood> [--bands <a,b>] [--keep-detail] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of plants, mushrooms and dead wood by height.
 Every vertex keeps its cell of kits/colormap.png and its u; only its v within
@@ -19,7 +19,12 @@ fungi: the cap runs from v 0.08 at its top to 0.85 at its rim, undersides
   upright stretch above it that sits under the cap.
 wood: one gradient over the whole model for bark in <bands> (default bark),
   v 0.08 at the top to 0.85 at the base.
-Twine, glass and amber cells are left as they are.`;
+Twine, glass and amber cells are left as they are.
+
+--keep-detail keeps the light and dark each face already has: it adds the
+gradient, less its mean over the piece (the whole model for wood), to the v
+the vertex has, undersides included, and adds less of it to a piece that would
+leave 0.02-0.95.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -31,6 +36,8 @@ const STEM_TOP = 0.8;
 const STEM_BASE = 0.2;
 const WIDE = 0.7;
 const NARROW = 1.25;
+const LIGHTEST = 0.02;
+const DARKEST = 0.95;
 
 const lerp = (y, high, low, a, b) => (high - low < 1e-9 ? null : a + Math.min(1, Math.max(0, (high - y) / (high - low))) * (b - a));
 
@@ -78,7 +85,7 @@ function load(glb) {
   return prims;
 }
 
-function targets(prims, mode, cells) {
+function targets(prims, mode, cells, keep) {
   const out = new Map();
   const take = (p, i) => p.cell[i] && p.cell[i] !== 'mixed' && !KEEP.has(p.cell[i]) && (!cells || cells.has(p.cell[i]));
   if (mode === 'plant') {
@@ -92,7 +99,7 @@ function targets(prims, mode, cells) {
       for (let i = 0; i < p.count; i++) {
         if (!take(p, i)) continue;
         const [low, high] = span.get(p.piece[i]);
-        const v = p.down[i] ? UNDER : lerp(p.w[i][1], high, low, TOP, BOTTOM);
+        const v = p.down[i] && !keep ? UNDER : lerp(p.w[i][1], high, low, TOP, BOTTOM);
         if (v !== null) out.set(`${k}:${i}`, v);
       }
     }
@@ -133,17 +140,46 @@ function targets(prims, mode, cells) {
     const stem = !stemless && (y < rim || (y <= underTop && !p.down[i] && p.up[i] < 0.5 && r(p, i) < NARROW * stemR));
     let v;
     if (stem) v = lerp(Math.min(y, rim), rim, low, STEM_TOP, STEM_BASE);
-    else if (p.down[i]) v = UNDER;
+    else if (p.down[i] && !keep) v = UNDER;
     else v = lerp(y, high, stemless ? low : rim, TOP, BOTTOM);
     if (v !== null) out.set(`${k}:${i}`, v);
   }
   return out;
 }
 
-function shade(file, mode, cells, dry) {
+function keepDetail(prims, set, whole) {
+  const sum = new Map();
+  for (const [key, v] of set) {
+    const [k, i] = key.split(':').map(Number);
+    const g = whole ? 'all' : `${k}:${prims[k].piece[i]}`;
+    const s = sum.get(g) ?? [0, 0];
+    sum.set(g, [s[0] + v, s[1] + 1]);
+  }
+  const was = (k, i) => prims[k].uv[2 * i + 1] * 4 - Number(prims[k].cell[i].split(',')[1]);
+  const scale = new Map();
+  for (const [key, v] of set) {
+    const [k, i] = key.split(':').map(Number);
+    const g = whole ? 'all' : `${k}:${prims[k].piece[i]}`;
+    const [s, n] = sum.get(g);
+    const d = v - s / n, w = was(k, i);
+    const room = d > 1e-9 ? (DARKEST - w) / d : d < -1e-9 ? (LIGHTEST - w) / d : 1;
+    scale.set(g, Math.max(0, Math.min(scale.get(g) ?? 1, room)));
+  }
+  const out = new Map();
+  for (const [key, v] of set) {
+    const [k, i] = key.split(':').map(Number);
+    const g = whole ? 'all' : `${k}:${prims[k].piece[i]}`;
+    const [s, n] = sum.get(g);
+    out.set(key, was(k, i) + (v - s / n) * scale.get(g));
+  }
+  return out;
+}
+
+function shade(file, mode, cells, keep, dry) {
   const glb = readGlb(file);
   const prims = load(glb);
-  const set = targets(prims, mode, cells);
+  let set = targets(prims, mode, cells, keep);
+  if (keep) set = keepDetail(prims, set, mode === 'wood');
   const replaced = new Map();
   for (const [k, p] of prims.entries()) {
     for (let i = 0; i < p.count; i++) {
@@ -181,5 +217,6 @@ const cells = names ? new Set(names.split(',').map((b) => {
   if (!BANDS[b]) throw new Error(`no such band: ${b}`);
   return BANDS[b];
 })) : null;
+const keep = args.includes('--keep-detail');
 const dry = args.includes('--dry');
-for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${shade(file, mode, cells, dry)} vertices`);
+for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${shade(file, mode, cells, keep, dry)} vertices`);
