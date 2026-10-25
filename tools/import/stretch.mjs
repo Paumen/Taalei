@@ -8,8 +8,9 @@ const HELP = `stretch.mjs [--x <factor>] [--y <factor>] [--z <factor>] <workfile
 Stretches a model along single axes. --y works about the ground plane: every
 vertex, node and animated translation height is multiplied by <factor>,
 normals follow. --x and --z work about the centre of the model's footprint on
-its vertices only. A mesh node turned so that its height leans into another
-axis, or one with a scale, is refused. Use scale.mjs --by first for the size in
+its vertices only. A node turned so that its height leans into another axis
+is refused, and for --x and --z also a mesh node with a scale or mesh data
+shared between nodes. Use scale.mjs --by first for the size in
 every direction.`;
 
 export function stretchGlb(glb, k) {

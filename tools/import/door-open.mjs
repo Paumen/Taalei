@@ -133,6 +133,7 @@ export function deform(glb, shape, h, v) {
   const { parts, axis } = shape;
   const replaced = new Map();
   for (const { m, prims } of parts) for (const { p, world } of prims) {
+    if (replaced.has(p.attributes.POSITION)) throw new Error('mesh data shared between nodes');
     const out = new Float32Array(world.length);
     const scales = [];
     for (let i = 0; i < world.length; i += 3) {
