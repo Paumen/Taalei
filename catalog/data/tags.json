@@ -35010,7 +35010,7 @@
    "id": "grid-0-5x0-5",
    "name": "½×½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 0.5 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 0.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "fs-house/floor",
     "fs-house/wall-curved-small",
@@ -35058,12 +35058,19 @@
     "isa-bakery/floor-wood",
     "isa-bathroom/floor-tiled",
     "isa-kitchen/floor-tiles",
+    "kay-dun-1/floor-decoration-shattered-bricks",
     "kay-dun-2/floor-dirt-small-a",
     "kay-dun-2/floor-dirt-small-b",
     "kay-dun-2/floor-dirt-small-c",
     "kay-dun-2/floor-dirt-small-corner",
     "kay-dun-2/floor-dirt-small-d",
     "kay-dun-2/floor-dirt-small-weeds",
+    "kay-dun-2/floor-foundation-allsides",
+    "kay-dun-2/floor-foundation-corner",
+    "kay-dun-2/floor-foundation-diagonal-corner",
+    "kay-dun-2/floor-foundation-front-and-back",
+    "kay-dun-2/floor-foundation-front-and-sides",
+    "kay-dun-2/floor-foundation-front",
     "kay-dun-2/floor-tile-small-broken-a",
     "kay-dun-2/floor-tile-small-broken-b",
     "kay-dun-2/floor-tile-small-corner",
@@ -35075,6 +35082,8 @@
     "kay-dun-2/floor-wood-small",
     "kay-food/floor-kitchen-small",
     "kay-hallow/floor-dirt-small",
+    "kay-minigame/gate-small",
+    "quat-dun-1/floor-bricks-separate",
     "sq-bowling/lane-approach",
     "wizp-grave/floor-tile-a",
     "wizp-grave/floor-tile-b",
@@ -35086,8 +35095,10 @@
    "id": "grid-0-5x1",
    "name": "½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
+    "fs-house/doorway-exterior",
+    "fs-house/doorway",
     "fs-house/window-single",
     "fs-temple/wall-curved-small-window-tall",
     "fs-temple/wall-straight-doorway",
@@ -35128,6 +35139,7 @@
     "kay-dun-2/wall-half-endcap-sloped",
     "kay-dun-2/wall-half-endcap",
     "kay-dun-2/wall-half",
+    "ken-furniture/doorway",
     "ken-survival/metal-panel-narrow",
     "ken-survival/metal-panel-screws-narrow",
     "lpa-desert/door-frame-a"
@@ -35137,7 +35149,7 @@
    "id": "grid-1x0-5",
    "name": "1×½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1 wide and 0.5 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 1 wide and 0.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "fs-house/wall-curved-large",
     "fs-temple/tower-wall-normal-plain",
@@ -35150,6 +35162,7 @@
     "fs-town/stucco-window-single-wide",
     "kay-dun-2/floor-tile-grate-open",
     "ken-furniture/floor-half",
+    "ken-space/corridor-end",
     "ken-survival/metal-panel-screws-half",
     "ken-town/planks-half",
     "ken-town/wall-wood-block-half",
@@ -35160,8 +35173,9 @@
    "id": "grid-1x1",
    "name": "1×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 1 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
+    "emace-village/stone-gateway",
     "fs-house/window-double",
     "fs-temple/tower-wall-tall-window",
     "fs-temple/tower-wall-tall-windows",
@@ -35229,7 +35243,10 @@
     "ken-arcade/wall-window",
     "ken-arcade/wall",
     "ken-arena/block",
+    "ken-arena/wall-gate",
     "ken-arena/wall",
+    "ken-cave/gate-metal-bars",
+    "ken-cave/gate",
     "ken-cave/template-floor-layer",
     "ken-factory/floor-checkerboard",
     "ken-furniture/floor",
@@ -35253,6 +35270,8 @@
     "ken-market/wall-door",
     "ken-market/wall-window",
     "ken-mini-dun/floor-detail",
+    "ken-mini-dun/wood-structure",
+    "ken-mini-dun/wood-support",
     "ken-proto/floor-square-small",
     "ken-proto/floor-square",
     "ken-proto/wall-doorway",
@@ -35264,11 +35283,24 @@
     "ken-proto/wall",
     "ken-skate/floor-concrete",
     "ken-skate/floor-wood",
+    "ken-space/corridor-corner-round-window",
+    "ken-space/corridor-corner-round",
+    "ken-space/corridor-corner",
+    "ken-space/corridor-cross",
+    "ken-space/corridor-detailed",
+    "ken-space/corridor-open",
     "ken-space/corridor-roof",
+    "ken-space/corridor-split",
     "ken-space/corridor-wall-corner",
     "ken-space/corridor-wall",
+    "ken-space/corridor-window-closed",
+    "ken-space/corridor-window",
+    "ken-space/corridor",
     "ken-station/floor-detail",
     "ken-station/floor",
+    "ken-station/structure-barrier-high",
+    "ken-station/structure-barrier",
+    "ken-station/structure",
     "ken-station/wall-banner",
     "ken-station/wall-door-banner",
     "ken-station/wall-door-wide-banner",
@@ -35284,6 +35316,15 @@
     "ken-survival/floor",
     "ken-survival/metal-panel-screws",
     "ken-survival/metal-panel",
+    "ken-survival/structure-canvas",
+    "ken-survival/structure-floor",
+    "ken-survival/structure-metal-doorway",
+    "ken-survival/structure-metal-floor",
+    "ken-survival/structure-metal-roof",
+    "ken-survival/structure-metal",
+    "ken-survival/structure",
+    "ken-town/balcony-wall-fence",
+    "ken-town/balcony-wall",
     "ken-town/planks-opening",
     "ken-town/planks",
     "ken-town/roof-corner-inner",
@@ -35327,8 +35368,10 @@
     "lpa-west/small-wall-b",
     "lpa-west/small-window-a",
     "lpa-west/small-window-b",
+    "pm-store/gateway-board",
     "quat-dun-1/floor-modular",
     "quat-dun-1/wall-modular",
+    "quat-sushi/doorway",
     "quat-sushi/floor-checker",
     "quat-sushi/floor-kitchen",
     "quat-sushi/floor-tile",
@@ -35355,28 +35398,54 @@
    ]
   },
   {
+   "id": "grid-1x1-5",
+   "name": "1×1½ grid",
+   "type": "attribute",
+   "description": "Size on the building grid in tiles of 1.0: 1 wide and 1.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "models": [
+    "fs-temple/wall-straight-doorway-large-extension",
+    "fs-temple/wall-straight-doorway-large-pocket",
+    "fs-temple/wall-straight-doorway-large",
+    "ken-space/gate-complex",
+    "ken-space/gate-simple",
+    "ken-space/structure-closed",
+    "ken-space/structure-detailed",
+    "ken-space/structure-diagonal",
+    "ken-space/structure",
+    "ken-survival/structure-roof"
+   ]
+  },
+  {
    "id": "grid-1-5x1",
    "name": "1½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "dungeon/ironwalls-001",
     "dungeon/ironwalls",
     "dungeon/wallslittle-001",
     "dungeon/wallslittle-002",
     "dungeon/wallslittle-003",
+    "emace-village/timber-gateway",
+    "kay-dun-1/scaffold-medium-corner-both",
+    "kay-dun-1/scaffold-medium-corner-left",
+    "kay-dun-1/scaffold-medium-corner-right",
+    "kay-dun-1/scaffold-medium-railing",
+    "kay-dun-1/scaffold-small-medium-railing-long",
     "ken-holiday/cabin-roof-snow-dormer",
     "ken-proto/wall-doorway-garage",
     "ken-proto/wall-doorway-sliding",
     "ken-proto/wall-doorway-wide",
-    "lpa-west/cell-wall"
+    "lpa-construction/scaffolding-a",
+    "lpa-west/cell-wall",
+    "quat-sushi/torii-gate"
    ]
   },
   {
    "id": "grid-2x1",
    "name": "2×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "aq-hallow/wall",
     "emace-village/wall-log",
@@ -35403,29 +35472,47 @@
    "id": "grid-1-5x1-5",
    "name": "1½×1½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1.5 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "fs-town/window-upper-convex",
+    "kay-dun-1/scaffold-high-corner-both",
+    "kay-dun-1/scaffold-high-corner-left",
+    "kay-dun-1/scaffold-high-corner-right",
+    "kay-dun-1/scaffold-high-railing",
+    "kay-dun-1/scaffold-high",
+    "kay-dun-1/scaffold-small-high-long",
+    "kay-dun-1/scaffold-small-high-railing-long",
     "ken-holiday/cabin-roof-corner",
     "ken-holiday/cabin-roof-point",
-    "pm-store/roof-panel"
+    "lpa-construction/scaffolding-b",
+    "pm-store/roof-panel",
+    "quat-sushi/arch"
    ]
   },
   {
    "id": "grid-2-5x1",
    "name": "2½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "lpa-west/window-b",
     "lpa-west/window-d"
    ]
   },
   {
+   "id": "grid-2x1-5",
+   "name": "2×1½ grid",
+   "type": "attribute",
+   "description": "Size on the building grid in tiles of 1.0: 2 wide and 1.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "models": [
+    "emace-village/timber-frame"
+   ]
+  },
+  {
    "id": "grid-3x1",
    "name": "3×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 3 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 3 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "dungeon/walls-001",
     "dungeon/walls-002",
@@ -35449,7 +35536,7 @@
    "id": "grid-3-5x1",
    "name": "3½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 3.5 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 3.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "dungeon/walls-012",
     "emace-village/wall-log-doorway-b",
@@ -35460,7 +35547,7 @@
    "id": "grid-2x2",
    "name": "2×2 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2 wide and 2 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2 wide and 2 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "kay-dun-1/floor-decoration-tiles-large",
     "kay-dun-1/tile-brick-a-large",
@@ -35477,14 +35564,15 @@
     "lpa-west/foundation-d",
     "lpa-west/foundation-e",
     "lpa-west/foundation-f",
-    "pm-store/floor-planks"
+    "pm-store/floor-planks",
+    "quat-dun-1/arch"
    ]
   },
   {
    "id": "grid-4x1",
    "name": "4×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 4 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 4 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "lpa-west/door-and-window-a",
     "lpa-west/door-and-window-b",
@@ -35498,9 +35586,64 @@
    "id": "grid-2-5x2-5",
    "name": "2½×2½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 2.5 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 2.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "models": [
     "lpa-west/small-foundation-b"
+   ]
+  },
+  {
+   "id": "grid-h1",
+   "name": "1 high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 1 storey high; width free. For pillars.",
+   "models": [
+    "dungeon/beam-002",
+    "dungeon/beam",
+    "kay-dun-1/pillar-broken",
+    "kay-dun-2/pillar",
+    "kay-hallow/pillar",
+    "ken-arcade/column",
+    "ken-arena/column",
+    "ken-mini-dun/column",
+    "ken-proto/shape-hollow-cylinder-half",
+    "ken-proto/shape-hollow-cylinder",
+    "ken-proto/shape-hollow-hexagon-half",
+    "ken-proto/shape-hollow-hexagon",
+    "ken-town/pillar-stone",
+    "ken-town/pillar-wood",
+    "pm-store/pillar",
+    "rgp-vintage/beam",
+    "wizp-grave/column-medium",
+    "wizp-grave/column-short"
+   ]
+  },
+  {
+   "id": "grid-h1-5",
+   "name": "1½ high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 1.5 storeys high; width free. For pillars.",
+   "models": [
+    "wizp-grave/column-tall"
+   ]
+  },
+  {
+   "id": "grid-h2",
+   "name": "2 high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 2 storeys high; width free. For pillars.",
+   "models": [
+    "aq-hallow/pillar-a",
+    "quat-dun-1/column"
+   ]
+  },
+  {
+   "id": "grid-h2-5",
+   "name": "2½ high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 2.5 storeys high; width free. For pillars.",
+   "models": [
+    "aq-hallow/pillar-b",
+    "aq-hallow/pillar-c"
    ]
   },
   {

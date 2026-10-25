@@ -2518,7 +2518,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.87,
+    "factor": 0.86,
     "kinds": 4
    }
   },
@@ -2833,7 +2833,7 @@
     "none": 7
    },
    "kitCheck": {
-    "factor": 1.09,
+    "factor": 1.15,
     "kinds": 17
    }
   },
@@ -2887,7 +2887,7 @@
     "none": 18
    },
    "kitCheck": {
-    "factor": 1.08,
+    "factor": 1.04,
     "kinds": 25
    }
   },
@@ -5287,7 +5287,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.07,
+    "factor": 1.03,
     "kinds": 17
    }
   },
@@ -29293,156 +29293,342 @@
    "id": "grid-0-5x0-5",
    "name": "½×½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 0.5 high (walls) or deep (floors, roofs).",
-   "count": 68,
+   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 0.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 77,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-0-5x1",
    "name": "½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 1 high (walls) or deep (floors, roofs).",
-   "count": 43,
+   "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 46,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-1x0-5",
    "name": "1×½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1 wide and 0.5 high (walls) or deep (floors, roofs).",
-   "count": 15,
+   "description": "Size on the building grid in tiles of 1.0: 1 wide and 0.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 16,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-1x1",
    "name": "1×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1 wide and 1 high (walls) or deep (floors, roofs).",
-   "count": 190,
+   "description": "Size on the building grid in tiles of 1.0: 1 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 220,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
+   ]
+  },
+  {
+   "id": "grid-1x1-5",
+   "name": "1×1½ grid",
+   "type": "attribute",
+   "description": "Size on the building grid in tiles of 1.0: 1 wide and 1.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 10,
+   "kinds": [
+    "str-part-floor-unit",
+    "str-part-wall-unit",
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-1-5x1",
    "name": "1½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1 high (walls) or deep (floors, roofs).",
-   "count": 10,
+   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 18,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-2x1",
    "name": "2×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "count": 19,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-1-5x1-5",
    "name": "1½×1½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1.5 high (walls) or deep (floors, roofs).",
-   "count": 4,
+   "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 13,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-2-5x1",
    "name": "2½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "count": 2,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
+   ]
+  },
+  {
+   "id": "grid-2x1-5",
+   "name": "2×1½ grid",
+   "type": "attribute",
+   "description": "Size on the building grid in tiles of 1.0: 2 wide and 1.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 1,
+   "kinds": [
+    "str-part-floor-unit",
+    "str-part-wall-unit",
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-3x1",
    "name": "3×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 3 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 3 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "count": 16,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-3-5x1",
    "name": "3½×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 3.5 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 3.5 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "count": 3,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-2x2",
    "name": "2×2 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2 wide and 2 high (walls) or deep (floors, roofs).",
-   "count": 16,
+   "description": "Size on the building grid in tiles of 1.0: 2 wide and 2 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
+   "count": 17,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-4x1",
    "name": "4×1 grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 4 wide and 1 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 4 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "count": 6,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
    "id": "grid-2-5x2-5",
    "name": "2½×2½ grid",
    "type": "attribute",
-   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 2.5 high (walls) or deep (floors, roofs).",
+   "description": "Size on the building grid in tiles of 1.0: 2.5 wide and 2.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
    "count": 1,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
-    "str-part-roof-unit"
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
+   ]
+  },
+  {
+   "id": "grid-h1",
+   "name": "1 high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 1 storey high; width free. For pillars.",
+   "count": 18,
+   "kinds": [
+    "str-part-floor-unit",
+    "str-part-wall-unit",
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
+   ]
+  },
+  {
+   "id": "grid-h1-5",
+   "name": "1½ high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 1.5 storeys high; width free. For pillars.",
+   "count": 1,
+   "kinds": [
+    "str-part-floor-unit",
+    "str-part-wall-unit",
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
+   ]
+  },
+  {
+   "id": "grid-h2",
+   "name": "2 high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 2 storeys high; width free. For pillars.",
+   "count": 2,
+   "kinds": [
+    "str-part-floor-unit",
+    "str-part-wall-unit",
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
+   ]
+  },
+  {
+   "id": "grid-h2-5",
+   "name": "2½ high grid",
+   "type": "attribute",
+   "description": "Height on the building grid: 2.5 storeys high; width free. For pillars.",
+   "count": 2,
+   "kinds": [
+    "str-part-floor-unit",
+    "str-part-wall-unit",
+    "str-part-roof-unit",
+    "str-part-frame",
+    "str-part-gate-gateway",
+    "str-part-door-doorway",
+    "str-part-corridor",
+    "str-part-floor",
+    "str-part-pillar"
    ]
   },
   {
@@ -29552,7 +29738,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3458,
+   "count": 3447,
    "derived": true
   },
   {
@@ -29560,7 +29746,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1194,
+   "count": 1205,
    "derived": true
   },
   {
@@ -39986,16 +40172,16 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "pillar-a",
-   "hash": "7e7aede86f",
+   "hash": "bf69ab0003",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
     0.762,
     0.762,
-    1.956
+    2
    ],
    "tris": 244,
-   "tpu": 215,
+   "tpu": 210,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -40005,9 +40191,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.035,
-   "thick": 0.2516,
-   "avgTri": 0.02165,
-   "anglePct": 74,
+   "thick": 0.2498,
+   "avgTri": 0.02201,
+   "anglePct": 75,
    "pieces": 1,
    "vpt": 1.66,
    "cells": [
@@ -40019,6 +40205,7 @@
    "tags": [
     "aq",
     "grave",
+    "grid-h2",
     "halloween",
     "stone-masonry-mid"
    ],
@@ -40029,16 +40216,16 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "pillar-b",
-   "hash": "cd38b5a1ee",
+   "hash": "726b439f35",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
     0.762,
     0.762,
-    2.416
+    2.5
    ],
    "tris": 452,
-   "tpu": 322,
+   "tpu": 311,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -40048,9 +40235,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.035,
-   "thick": 0.2713,
-   "avgTri": 0.01334,
-   "anglePct": 65,
+   "thick": 0.2767,
+   "avgTri": 0.01369,
+   "anglePct": 66,
    "pieces": 2,
    "vpt": 1.15,
    "cells": [
@@ -40062,16 +40249,17 @@
    "tags": [
     "aq",
     "grave",
+    "grid-h2-5",
     "halloween",
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1.08,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 2.416 over max 2 (str-part-pillar)"
+     "text": "longest 2.5 over max 2 (str-part-pillar)"
     }
    ]
   },
@@ -40079,16 +40267,16 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "pillar-c",
-   "hash": "ec0fe76afb",
+   "hash": "1f6145a451",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
     0.762,
     0.762,
-    2.586
+    2.5
    ],
    "tris": 376,
-   "tpu": 250,
+   "tpu": 259,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -40098,9 +40286,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
-   "thick": 0.2633,
-   "avgTri": 0.01602,
-   "anglePct": 73,
+   "thick": 0.2655,
+   "avgTri": 0.01562,
+   "anglePct": 76,
    "pieces": 2,
    "vpt": 1.73,
    "cells": [
@@ -40112,16 +40300,17 @@
    "tags": [
     "aq",
     "grave",
+    "grid-h2-5",
     "halloween",
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1.05,
+   "thickRel": 1.06,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 2.586 over max 2 (str-part-pillar)"
+     "text": "longest 2.5 over max 2 (str-part-pillar)"
     }
    ]
   },
@@ -51122,16 +51311,16 @@
   {
    "kit": "dungeon",
    "name": "beam-002",
-   "hash": "71cc7ce70c",
+   "hash": "c3dd328dcf",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.391,
     0.294,
-    0.881
+    1
    ],
    "tris": 2585,
-   "tpu": 5988,
+   "tpu": 5276,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -51140,8 +51329,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.211,
-   "avgTri": 0.0009,
+   "thick": 0.223,
+   "avgTri": 0.00094,
    "anglePct": 70,
    "pieces": 13,
    "vpt": 1.94,
@@ -51154,42 +51343,43 @@
     "#d8cfb7"
    ],
    "tags": [
+    "grid-h1",
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.84,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
-     "text": "tpu 5988 over max 5000 (str)"
+     "text": "tpu 5276 over max 5000 (str)"
     }
    ]
   },
   {
    "kit": "dungeon",
    "name": "beam",
-   "hash": "f2b7da8ba8",
+   "hash": "d284a36d4a",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.525,
     0.396,
-    1.099
+    1
    ],
    "tris": 2564,
-   "tpu": 4761,
+   "tpu": 5233,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 177800,
+   "bytes": 177804,
    "vtx": 5028,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.2045,
-   "avgTri": 0.00159,
-   "anglePct": 71,
+   "thick": 0.1957,
+   "avgTri": 0.00154,
+   "anglePct": 73,
    "pieces": 21,
    "vpt": 1.96,
    "cells": [
@@ -51201,10 +51391,18 @@
     "#d8cfb7"
    ],
    "tags": [
+    "grid-h1",
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.81
+   "thickRel": 0.78,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 5233 over max 5000 (str)"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -58796,16 +58994,16 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-gateway",
-   "hash": "a1b8ab3fd2",
+   "hash": "4bd5a9d2d1",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    1.244,
+    1,
     0.442,
-    0.883
+    1
    ],
    "tris": 2332,
-   "tpu": 4803,
+   "tpu": 4759,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -58814,10 +59012,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0466,
-   "thick": 0.0938,
-   "avgTri": 0.00222,
-   "anglePct": 28,
+   "minTube": 0.0372,
+   "thick": 0.074,
+   "avgTri": 0.00205,
+   "anglePct": 31,
    "pieces": 81,
    "vpt": 1.85,
    "cells": [
@@ -58833,24 +59031,25 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1x1",
     "stone-masonry-mid",
     "wood-dark",
     "wood-mid"
    ],
    "backface": {
     "share": 0.0045,
-    "view": "135/20",
+    "view": "90/50",
     "causes": {
      "inverted": 0.9,
      "other": 0.1
     }
    },
-   "thickRel": 1.1,
+   "thickRel": 0.83,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 135/20 over 0.1%: inverted 90.0%, other 10.0%"
+     "text": "0.4% of view 90/50 over 0.1%: inverted 90.0%, other 10.0%"
     }
    ]
   },
@@ -59171,16 +59370,16 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "timber-frame",
-   "hash": "67ffdf959f",
+   "hash": "2d26c0170f",
    "kind": "str-part-frame",
    "size": "l",
    "wdh": [
-    1.958,
+    2,
     1.216,
-    1.325
+    1.5
    ],
    "tris": 784,
-   "tpu": 249,
+   "tpu": 215,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -59189,10 +59388,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.025,
-   "thick": 0.0604,
-   "avgTri": 0.01093,
-   "anglePct": 25,
+   "minTube": 0.0283,
+   "thick": 0.0563,
+   "avgTri": 0.0117,
+   "anglePct": 28,
    "pieces": 43,
    "vpt": 1.81,
    "cells": [
@@ -59205,43 +59404,38 @@
    ],
    "tags": [
     "bark",
+    "grid-2x1-5",
     "wood-dark"
    ],
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.025 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.88
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "timber-gateway",
-   "hash": "6e9b7b836c",
+   "hash": "753f48a29d",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.333,
+    1.5,
     0.489,
-    1.104
+    1
    ],
    "tris": 587,
-   "tpu": 816,
+   "tpu": 800,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 40832,
+   "bytes": 40836,
    "vtx": 1117,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.034,
-   "minTube": 0.0363,
-   "thick": 0.0781,
-   "avgTri": 0.00717,
-   "anglePct": 25,
+   "minEdge": 0.033,
+   "minTube": 0.034,
+   "thick": 0.0887,
+   "avgTri": 0.0074,
+   "anglePct": 26,
    "pieces": 40,
    "vpt": 1.9,
    "cells": [
@@ -59251,9 +59445,10 @@
     "#713e14"
    ],
    "tags": [
+    "grid-1-5x1",
     "wood-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 1
   },
   {
    "kit": "emace-village",
@@ -68728,6 +68923,7 @@
    ],
    "tags": [
     "fs",
+    "grid-0-5x1",
     "stone-masonry-light"
    ],
    "variant": "fs-house/doorway",
@@ -68769,6 +68965,7 @@
    ],
    "tags": [
     "fs",
+    "grid-0-5x1",
     "stone-masonry-light"
    ],
    "variant": "fs-house/doorway",
@@ -78043,11 +78240,11 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "wall-straight-doorway-large-extension",
-   "hash": "1759b0d456",
+   "hash": "76214c4cfe",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
-    0.97,
+    1,
     0.441,
     1.5
    ],
@@ -78060,9 +78257,9 @@
    "vtx": 72,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.088,
-   "thick": 0.0964,
-   "avgTri": 0.07331,
+   "minEdge": 0.091,
+   "thick": 0.0979,
+   "avgTri": 0.07421,
    "anglePct": 89,
    "pieces": 1,
    "vpt": 1.29,
@@ -78074,20 +78271,21 @@
    ],
    "tags": [
     "fs",
+    "grid-1x1-5",
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-doorway-large",
-   "thickRel": 1.13
+   "thickRel": 1.1
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "wall-straight-doorway-large-pocket",
-   "hash": "70862d7936",
+   "hash": "0c7a4c1310",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
-    0.97,
+    1,
     0.176,
     1.5
    ],
@@ -78096,13 +78294,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10204,
+   "bytes": 10200,
    "vtx": 232,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
-   "thick": 0.077,
-   "avgTri": 0.0122,
+   "thick": 0.0743,
+   "avgTri": 0.0125,
    "anglePct": 89,
    "pieces": 1,
    "vpt": 1.05,
@@ -78114,20 +78312,21 @@
    ],
    "tags": [
     "fs",
+    "grid-1x1-5",
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-doorway-large",
-   "thickRel": 0.9
+   "thickRel": 0.84
   },
   {
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "wall-straight-doorway-large",
-   "hash": "2af825dc10",
+   "hash": "3b5b8f5f08",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
-    0.97,
+    1,
     0.176,
     1.5
    ],
@@ -78140,10 +78339,10 @@
    "vtx": 172,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.044,
-   "minTube": 0.0922,
-   "thick": 0.0809,
-   "avgTri": 0.01668,
+   "minEdge": 0.045,
+   "minTube": 0.095,
+   "thick": 0.0788,
+   "avgTri": 0.01697,
    "anglePct": 83,
    "pieces": 2,
    "vpt": 0.93,
@@ -78155,10 +78354,11 @@
    ],
    "tags": [
     "fs",
+    "grid-1x1-5",
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-doorway-large",
-   "thickRel": 0.95
+   "thickRel": 0.89
   },
   {
    "kit": "fs-temple",
@@ -80719,7 +80919,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "fs-terrain",
@@ -80760,7 +80960,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "fs-terrain",
@@ -115898,7 +116098,7 @@
     "wood-dark"
    ],
    "variant": "kay-builder/wall-gate",
-   "thickRel": 1.44
+   "thickRel": 1.39
   },
   {
    "kit": "kay-builder",
@@ -115940,7 +116140,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-builder/wall-gate",
-   "thickRel": 1.43
+   "thickRel": 1.38
   },
   {
    "kit": "kay-builder",
@@ -120634,12 +120834,12 @@
   {
    "kit": "kay-dun-1",
    "name": "floor-decoration-shattered-bricks",
-   "hash": "9bdd1e5f25",
+   "hash": "5e7a188126",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.522,
-    0.568,
+    0.5,
+    0.5,
     0.017
    ],
    "tris": 450,
@@ -120649,12 +120849,13 @@
    "calls": 1,
    "bytes": 16708,
    "vtx": 387,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "thick": 0.0363,
-   "avgTri": 0.0006,
-   "anglePct": 74,
+   "minEdge": 0.003,
+   "thick": 0.0337,
+   "avgTri": 0.00052,
+   "anglePct": 71,
    "pieces": 10,
    "vpt": 0.86,
    "cells": [
@@ -120664,10 +120865,11 @@
     "#88735f"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.55
   },
   {
    "kit": "kay-dun-1",
@@ -121125,16 +121327,16 @@
   {
    "kit": "kay-dun-1",
    "name": "pillar-broken",
-   "hash": "f9fe370450",
+   "hash": "9277236024",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.545,
     0.549,
-    1.167
+    1
    ],
    "tris": 1252,
-   "tpu": 2189,
+   "tpu": 2555,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -121142,10 +121344,11 @@
    "vtx": 1464,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "thick": 0.301,
-   "avgTri": 0.00391,
-   "anglePct": 62,
+   "minEdge": 0.006,
+   "minTube": 0.0943,
+   "thick": 0.29,
+   "avgTri": 0.00351,
+   "anglePct": 60,
    "pieces": 19,
    "vpt": 1.17,
    "cells": [
@@ -121158,10 +121361,11 @@
    ],
    "tags": [
     "broken",
+    "grid-h1",
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.16
   },
   {
    "kit": "kay-dun-1",
@@ -122084,6 +122288,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122127,6 +122332,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122170,6 +122376,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122213,6 +122420,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122256,6 +122464,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122511,6 +122720,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122554,6 +122764,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122597,6 +122808,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122640,6 +122852,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122812,6 +123025,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -122855,6 +123069,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -123392,6 +123607,7 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1-5x1",
     "kay",
     "wood-dark",
     "wood-mid"
@@ -126479,12 +126695,12 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-foundation-allsides",
-   "hash": "f47976a05e",
+   "hash": "ddab20f87c",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.55,
-    0.55,
+    0.5,
+    0.5,
     0.5
    ],
    "tris": 384,
@@ -126494,12 +126710,13 @@
    "calls": 1,
    "bytes": 39372,
    "vtx": 1112,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.2414,
-   "avgTri": 0.00507,
-   "anglePct": 99,
+   "minEdge": 0.007,
+   "thick": 0.2505,
+   "avgTri": 0.00445,
+   "anglePct": 91,
    "pieces": 21,
    "vpt": 2.9,
    "cells": [
@@ -126510,23 +126727,24 @@
    ],
    "tags": [
     "grave",
+    "grid-0-5x0-5",
     "halloween",
     "kay",
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 3.92
+   "thickRel": 4.07
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-foundation-corner",
-   "hash": "d432e7836b",
+   "hash": "799a7be655",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.525,
-    0.525,
+    0.5,
+    0.5,
     0.5
    ],
    "tris": 214,
@@ -126536,11 +126754,12 @@
    "calls": 1,
    "bytes": 22696,
    "vtx": 622,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.2558,
-   "avgTri": 0.00804,
+   "minEdge": 0.007,
+   "thick": 0.2591,
+   "avgTri": 0.00753,
    "anglePct": 99,
    "pieces": 11,
    "vpt": 2.91,
@@ -126552,23 +126771,24 @@
    ],
    "tags": [
     "grave",
+    "grid-0-5x0-5",
     "halloween",
     "kay",
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.15
+   "thickRel": 4.21
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-foundation-diagonal-corner",
-   "hash": "3e53726b9c",
+   "hash": "5fefe0b8ac",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.525,
-    0.525,
+    0.5,
+    0.5,
     0.5
    ],
    "tris": 142,
@@ -126578,11 +126798,12 @@
    "calls": 1,
    "bytes": 14364,
    "vtx": 374,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.1773,
-   "avgTri": 0.00882,
+   "minEdge": 0.007,
+   "thick": 0.1753,
+   "avgTri": 0.0083,
    "anglePct": 93,
    "pieces": 6,
    "vpt": 2.63,
@@ -126594,23 +126815,24 @@
    ],
    "tags": [
     "grave",
+    "grid-0-5x0-5",
     "halloween",
     "kay",
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 2.88
+   "thickRel": 2.85
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-foundation-front-and-back",
-   "hash": "04b1a83c9e",
+   "hash": "cd9608a730",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
     0.5,
-    0.55,
+    0.5,
     0.5
    ],
    "tris": 214,
@@ -126620,12 +126842,13 @@
    "calls": 1,
    "bytes": 22692,
    "vtx": 622,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.268,
-   "avgTri": 0.00803,
-   "anglePct": 99,
+   "minEdge": 0.007,
+   "thick": 0.26,
+   "avgTri": 0.00754,
+   "anglePct": 95,
    "pieces": 11,
    "vpt": 2.91,
    "cells": [
@@ -126636,23 +126859,24 @@
    ],
    "tags": [
     "grave",
+    "grid-0-5x0-5",
     "halloween",
     "kay",
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.35
+   "thickRel": 4.22
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-foundation-front-and-sides",
-   "hash": "8b05c25c3e",
+   "hash": "8ea5bd70c4",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.55,
-    0.525,
+    0.5,
+    0.5,
     0.5
    ],
    "tris": 299,
@@ -126662,12 +126886,13 @@
    "calls": 1,
    "bytes": 31068,
    "vtx": 867,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.2528,
-   "avgTri": 0.00613,
-   "anglePct": 99,
+   "minEdge": 0.007,
+   "thick": 0.2547,
+   "avgTri": 0.00556,
+   "anglePct": 94,
    "pieces": 16,
    "vpt": 2.9,
    "cells": [
@@ -126678,23 +126903,24 @@
    ],
    "tags": [
     "grave",
+    "grid-0-5x0-5",
     "halloween",
     "kay",
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.1
+   "thickRel": 4.13
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-foundation-front",
-   "hash": "558f98032f",
+   "hash": "aa59956e87",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
     0.5,
-    0.525,
+    0.5,
     0.5
    ],
    "tris": 129,
@@ -126704,11 +126930,12 @@
    "calls": 1,
    "bytes": 14324,
    "vtx": 377,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.269,
-   "avgTri": 0.01247,
+   "minEdge": 0.007,
+   "thick": 0.2649,
+   "avgTri": 0.01208,
    "anglePct": 100,
    "pieces": 6,
    "vpt": 2.92,
@@ -126720,12 +126947,13 @@
    ],
    "tags": [
     "grave",
+    "grid-0-5x0-5",
     "halloween",
     "kay",
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.37
+   "thickRel": 4.3
   },
   {
    "kit": "kay-dun-2",
@@ -127773,6 +128001,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "halloween",
     "kay",
     "stone-masonry-mid"
@@ -143288,16 +143517,16 @@
   {
    "kit": "kay-hallow",
    "name": "pillar",
-   "hash": "c2b4ea22f8",
+   "hash": "66a13277ae",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.25,
     0.25,
-    1.1
+    1
    ],
    "tris": 94,
-   "tpu": 174,
+   "tpu": 192,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -143306,10 +143535,10 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "thick": 0.3559,
-   "avgTri": 0.01126,
-   "anglePct": 84,
+   "minEdge": 0.042,
+   "thick": 0.3429,
+   "avgTri": 0.01041,
+   "anglePct": 72,
    "pieces": 1,
    "vpt": 1.91,
    "cells": [
@@ -143320,11 +143549,12 @@
    ],
    "tags": [
     "grave",
+    "grid-h1",
     "halloween",
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.37
   },
   {
    "kit": "kay-hallow",
@@ -144842,7 +145072,7 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/building-site-a",
-   "thickRel": 1.63
+   "thickRel": 1.61
   },
   {
    "kit": "kay-hexagon",
@@ -144896,7 +145126,7 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/building-site-a",
-   "thickRel": 1.46
+   "thickRel": 1.44
   },
   {
    "kit": "kay-hexagon",
@@ -144950,7 +145180,7 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/building-site-a",
-   "thickRel": 1.77
+   "thickRel": 1.73
   },
   {
    "kit": "kay-hexagon",
@@ -147825,7 +148055,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 1.26,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -148049,7 +148279,7 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 1.52,
+   "thickRel": 1.46,
    "lint": [
     {
      "level": "warning",
@@ -151496,7 +151726,7 @@
     "plastic"
    ],
    "variant": "kay-minigame/gate-large",
-   "thickRel": 0.96,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "warning",
@@ -151509,11 +151739,11 @@
    "kit": "kay-minigame",
    "collection": "kay-play",
    "name": "gate-small",
-   "hash": "48d3557d7d",
+   "hash": "7c6f842928",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    0.6,
+    0.5,
     0.103,
     0.5
    ],
@@ -151526,10 +151756,10 @@
    "vtx": 191,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
-   "thick": 0.0886,
-   "avgTri": 0.00123,
-   "anglePct": 18,
+   "minEdge": 0.02,
+   "thick": 0.0802,
+   "avgTri": 0.0011,
+   "anglePct": 5,
    "pieces": 1,
    "vpt": 0.58,
    "cells": [
@@ -151539,11 +151769,12 @@
     "#1564a4"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "kay",
     "plastic"
    ],
    "variant": "kay-minigame/gate-large",
-   "thickRel": 1.04,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "error",
@@ -153856,7 +154087,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.75
   },
   {
    "kit": "kay-platformer",
@@ -153901,7 +154132,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/arch",
-   "thickRel": 0.82
+   "thickRel": 0.79
   },
   {
    "kit": "kay-platformer",
@@ -153946,7 +154177,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/arch",
-   "thickRel": 0.7
+   "thickRel": 0.68
   },
   {
    "kit": "kay-platformer",
@@ -154465,7 +154696,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/finish-line",
-   "thickRel": 1
+   "thickRel": 0.96
   },
   {
    "kit": "kay-platformer",
@@ -154513,7 +154744,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/finish-line",
-   "thickRel": 0.67
+   "thickRel": 0.65
   },
   {
    "kit": "kay-platformer",
@@ -170756,16 +170987,16 @@
    "kit": "ken-arcade",
    "collection": "ken-mini",
    "name": "column",
-   "hash": "d7139308fe",
+   "hash": "eff4e6977b",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.724,
     0.724,
-    0.997
+    1
    ],
    "tris": 188,
-   "tpu": 360,
+   "tpu": 359,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -170774,8 +171005,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.071,
-   "thick": 0.2042,
-   "avgTri": 0.01347,
+   "thick": 0.2062,
+   "avgTri": 0.0135,
    "anglePct": 49,
    "pieces": 1,
    "vpt": 0.9,
@@ -170790,11 +171021,12 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "ken-arcade",
@@ -171611,16 +171843,16 @@
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "column",
-   "hash": "b494250f4d",
+   "hash": "5cf1e57443",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.601,
     0.598,
-    0.997
+    1
    ],
    "tris": 168,
-   "tpu": 344,
+   "tpu": 343,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -171629,8 +171861,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.029,
-   "thick": 0.216,
-   "avgTri": 0.02282,
+   "thick": 0.22,
+   "avgTri": 0.02285,
    "anglePct": 92,
    "pieces": 5,
    "vpt": 1.19,
@@ -171641,11 +171873,12 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/column",
-   "thickRel": 0.86
+   "thickRel": 0.88
   },
   {
    "kit": "ken-arena",
@@ -171951,27 +172184,27 @@
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "wall-gate",
-   "hash": "74d7c7d318",
+   "hash": "a56ea1b2fd",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    0.997,
+    1,
     0.598,
-    0.997
+    1
    ],
    "tris": 321,
-   "tpu": 540,
+   "tpu": 537,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19288,
+   "bytes": 19284,
    "vtx": 498,
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
-   "minTube": 0.0642,
-   "thick": 0.1298,
-   "avgTri": 0.01617,
+   "minTube": 0.0498,
+   "thick": 0.1295,
+   "avgTri": 0.01623,
    "anglePct": 86,
    "pieces": 6,
    "vpt": 1.55,
@@ -171986,12 +172219,13 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "stone-masonry-mid",
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.46
   },
   {
    "kit": "ken-arena",
@@ -176917,7 +177151,7 @@
     "wood-light"
    ],
    "variant": "ken-castle/tower-square-mid-open",
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "ken-castle",
@@ -176960,7 +177194,7 @@
     "wood-light"
    ],
    "variant": "ken-castle/tower-square-mid-open",
-   "thickRel": 0.93
+   "thickRel": 0.91
   },
   {
    "kit": "ken-castle",
@@ -177084,7 +177318,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-castle/wall",
-   "thickRel": 1.94
+   "thickRel": 1.86
   },
   {
    "kit": "ken-castle",
@@ -177123,7 +177357,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-castle/wall",
-   "thickRel": 1.43
+   "thickRel": 1.38
   },
   {
    "kit": "ken-castle",
@@ -177168,28 +177402,28 @@
   {
    "kit": "ken-cave",
    "name": "gate-metal-bars",
-   "hash": "6f7017f4aa",
+   "hash": "2bc38038d1",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    1.104,
+    1,
     0.351,
-    1.104
+    1
    ],
    "tris": 746,
-   "tpu": 1379,
+   "tpu": 1522,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 53860,
+   "bytes": 53864,
    "vtx": 1498,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0012,
-   "thick": 0.0778,
-   "avgTri": 0.01081,
-   "anglePct": 61,
+   "minTube": 0.0011,
+   "thick": 0.0785,
+   "avgTri": 0.00949,
+   "anglePct": 60,
    "pieces": 70,
    "vpt": 2.01,
    "cells": [
@@ -177201,45 +177435,47 @@
     "#88735f"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
    "backface": {
-    "share": 0.0012,
-    "view": "45/20",
+    "share": 0.0038,
+    "view": "0/50",
     "causes": {
-     "open": 1
+     "open": 0.98,
+     "inverted": 0.02
     }
    },
-   "thickRel": 0.91,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+     "text": "0.4% of view 0/50 over 0.1%: open 98.0%, inverted 2.0%"
     },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0012 wants min 0.026"
+     "text": "G27 minTube 0.0011 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ken-cave",
    "name": "gate",
-   "hash": "29756b41c8",
+   "hash": "fa8d980132",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    1.104,
+    1,
     0.351,
-    1.104
+    1
    ],
    "tris": 606,
-   "tpu": 1120,
+   "tpu": 1237,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -177248,9 +177484,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0816,
-   "avgTri": 0.01033,
-   "anglePct": 50,
+   "thick": 0.0829,
+   "avgTri": 0.00912,
+   "anglePct": 49,
    "pieces": 41,
    "vpt": 2.06,
    "cells": [
@@ -177260,23 +177496,25 @@
     "#88735f"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
    "backface": {
-    "share": 0.0013,
+    "share": 0.001,
     "view": "45/20",
     "causes": {
-     "open": 1
+     "open": 0.95,
+     "inverted": 0.05
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+     "text": "0.1% of view 45/20 over 0.1%: open 95.0%, inverted 5.0%"
     }
    ]
   },
@@ -177361,7 +177599,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.87
   },
   {
    "kit": "ken-cave",
@@ -177404,7 +177642,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.92
   },
   {
    "kit": "ken-cave",
@@ -190052,7 +190290,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.14
   },
   {
    "kit": "ken-forest-mini",
@@ -192464,16 +192702,16 @@
   {
    "kit": "ken-furniture",
    "name": "doorway",
-   "hash": "b66679710e",
+   "hash": "ea143a6da6",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    0.552,
+    0.5,
     0.154,
-    0.876
+    1
    ],
    "tris": 28,
-   "tpu": 65,
+   "tpu": 57,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -192481,10 +192719,11 @@
    "vtx": 48,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.042,
-   "thick": 0.0691,
-   "avgTri": 0.0308,
-   "anglePct": 94,
+   "minEdge": 0.038,
+   "minTube": 0.0382,
+   "thick": 0.0857,
+   "avgTri": 0.03309,
+   "anglePct": 90,
    "pieces": 1,
    "vpt": 1.71,
    "cells": [
@@ -192494,17 +192733,11 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-0-5x1",
     "ken",
     "wood-mid"
    ],
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "high 0.876 under min 0.9 (str-part-door-doorway)"
-    }
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "ken-furniture",
@@ -204297,16 +204530,16 @@
    "kit": "ken-mini-dun",
    "collection": "ken-mini",
    "name": "column",
-   "hash": "dc1e1592a4",
+   "hash": "5c99852afe",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.499,
     0.499,
-    1.097
+    1
    ],
    "tris": 104,
-   "tpu": 193,
+   "tpu": 212,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -204315,10 +204548,10 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.057,
-   "thick": 0.2491,
-   "avgTri": 0.02147,
-   "anglePct": 32,
+   "minEdge": 0.055,
+   "thick": 0.2403,
+   "avgTri": 0.02025,
+   "anglePct": 33,
    "pieces": 3,
    "vpt": 0.92,
    "cells": [
@@ -204328,10 +204561,11 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.96
   },
   {
    "kit": "ken-mini-dun",
@@ -204586,28 +204820,29 @@
    "kit": "ken-mini-dun",
    "collection": "ken-mini",
    "name": "wood-structure",
-   "hash": "c098b3c889",
+   "hash": "8273d69f49",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    1.085,
-    1.085,
-    0.997
+    1,
+    1,
+    1
    ],
    "tris": 256,
-   "tpu": 218,
+   "tpu": 256,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16328,
+   "bytes": 16304,
    "vtx": 416,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "minTube": 0.0997,
-   "thick": 0.0707,
-   "avgTri": 0.02126,
-   "anglePct": 100,
+   "minEdge": 0.046,
+   "minTube": 0.0918,
+   "thick": 0.0708,
+   "avgTri": 0.01928,
+   "anglePct": 95,
    "pieces": 20,
    "vpt": 1.63,
    "cells": [
@@ -204617,37 +204852,39 @@
     "#713e14"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "wood-dark"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.1
   },
   {
    "kit": "ken-mini-dun",
    "collection": "ken-mini",
    "name": "wood-support",
-   "hash": "0ac8d1b1bc",
+   "hash": "814043dff0",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    1.085,
+    1,
     0.237,
-    0.997
+    1
    ],
    "tris": 112,
    "tpu": 229,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7776,
+   "bytes": 7780,
    "vtx": 176,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.05,
    "minTube": 0.0997,
-   "thick": 0.0758,
-   "avgTri": 0.01934,
-   "anglePct": 86,
+   "thick": 0.0715,
+   "avgTri": 0.01843,
+   "anglePct": 78,
    "pieces": 7,
    "vpt": 1.57,
    "cells": [
@@ -204657,10 +204894,11 @@
     "#713e14"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "wood-dark"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.12
   },
   {
    "kit": "ken-modular",
@@ -210224,7 +210462,7 @@
     "stone-masonry-mid",
     "wood-light"
    ],
-   "thickRel": 2.39
+   "thickRel": 2.3
   },
   {
    "kit": "ken-pirate",
@@ -210262,7 +210500,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.61
+   "thickRel": 1.55
   },
   {
    "kit": "ken-pirate",
@@ -211848,7 +212086,7 @@
     "wood-dark"
    ],
    "variant": "ken-pirate/structure-fence-sides",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "ken-pirate",
@@ -211889,7 +212127,7 @@
     "wood-dark"
    ],
    "variant": "ken-pirate/structure-fence-sides",
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "ken-pirate",
@@ -212114,7 +212352,7 @@
     "wood-light"
    ],
    "variant": "ken-pirate/structure",
-   "thickRel": 2.31
+   "thickRel": 2.27
   },
   {
    "kit": "ken-pirate",
@@ -212155,7 +212393,7 @@
     "wood-dark"
    ],
    "variant": "ken-pirate/structure",
-   "thickRel": 1.06
+   "thickRel": 1.04
   },
   {
    "kit": "ken-pirate",
@@ -215348,13 +215586,13 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "shape-hollow-cylinder-half",
-   "hash": "dda1f4c7dd",
+   "hash": "b4d8fee3e4",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.502,
     1.004,
-    1.004
+    1
    ],
    "tris": 52,
    "tpu": 103,
@@ -215367,8 +215605,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.13,
-   "thick": 0.1239,
-   "avgTri": 0.06571,
+   "thick": 0.1243,
+   "avgTri": 0.06549,
    "anglePct": 54,
    "pieces": 1,
    "vpt": 1.5,
@@ -215379,30 +215617,24 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-cylinder",
-   "thickRel": 0.49,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "shape-hollow-cylinder",
-   "hash": "81e36797b4",
+   "hash": "01fe4b1afa",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     1.004,
     1.004,
-    1.004
+    1
    ],
    "tris": 96,
    "tpu": 95,
@@ -215415,8 +215647,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.13,
-   "thick": 0.1324,
-   "avgTri": 0.06069,
+   "thick": 0.1323,
+   "avgTri": 0.0605,
    "anglePct": 46,
    "pieces": 1,
    "vpt": 1.33,
@@ -215427,6 +215659,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
@@ -215437,13 +215670,13 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "shape-hollow-hexagon-half",
-   "hash": "bd6cf4fe44",
+   "hash": "2815158735",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.435,
     1.004,
-    1.004
+    1
    ],
    "tris": 28,
    "tpu": 57,
@@ -215455,8 +215688,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.212,
-   "thick": 0.1262,
-   "avgTri": 0.11674,
+   "thick": 0.1266,
+   "avgTri": 0.11635,
    "anglePct": 100,
    "pieces": 1,
    "vpt": 1.71,
@@ -215467,6 +215700,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
@@ -215477,13 +215711,13 @@
    "kit": "ken-proto",
    "collection": "ken-mini",
    "name": "shape-hollow-hexagon",
-   "hash": "42d35fc199",
+   "hash": "8afedb67ec",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.869,
     1.004,
-    1.004
+    1
    ],
    "tris": 54,
    "tpu": 62,
@@ -215495,8 +215729,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.106,
-   "thick": 0.1374,
-   "avgTri": 0.09952,
+   "thick": 0.1379,
+   "avgTri": 0.09921,
    "anglePct": 100,
    "pieces": 1,
    "vpt": 1.44,
@@ -215507,6 +215741,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
@@ -217557,7 +217792,7 @@
      "inverted": 0.14
     }
    },
-   "thickRel": 1.2,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -217606,7 +217841,7 @@
     "plastic"
    ],
    "variant": "ken-racing/overhead-round",
-   "thickRel": 1.81
+   "thickRel": 1.74
   },
   {
    "kit": "ken-racing",
@@ -217655,7 +217890,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.81,
+   "thickRel": 1.75,
    "lint": [
     {
      "level": "warning",
@@ -217701,7 +217936,7 @@
     "plastic"
    ],
    "variant": "ken-racing/overhead",
-   "thickRel": 1.28
+   "thickRel": 1.23
   },
   {
    "kit": "ken-racing",
@@ -218810,7 +219045,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "ken-roads",
@@ -218853,7 +219088,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "ken-roads",
@@ -223201,7 +223436,7 @@
     "ken",
     "wood-dark"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "ken-space",
@@ -223418,6 +223653,7 @@
    ],
    "tags": [
     "glass-clear",
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223464,6 +223700,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223510,6 +223747,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223556,6 +223794,7 @@
     "#d8cfb7"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223566,26 +223805,27 @@
   {
    "kit": "ken-space",
    "name": "corridor-detailed",
-   "hash": "2bb10e611d",
+   "hash": "f48cddc22e",
    "kind": "str-part-corridor",
    "size": "m",
    "wdh": [
-    1.203,
+    1,
     1.002,
     1.379
    ],
    "tris": 160,
-   "tpu": 96,
+   "tpu": 116,
    "mat": 1,
    "bands": 3,
    "calls": 1,
    "bytes": 10324,
    "vtx": 246,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.1,
-   "thick": 0.0853,
-   "avgTri": 0.0494,
+   "minEdge": 0.083,
+   "thick": 0.0958,
+   "avgTri": 0.046,
    "anglePct": 85,
    "pieces": 1,
    "vpt": 1.54,
@@ -223600,13 +223840,14 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
     "space"
    ],
    "variant": "ken-space/corridor",
-   "thickRel": 1.03
+   "thickRel": 1.16
   },
   {
    "kit": "ken-space",
@@ -223648,6 +223889,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x0-5",
     "ken",
     "metal-steel",
     "plastic",
@@ -223691,6 +223933,7 @@
     "#d8cfb7"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223781,6 +224024,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223924,6 +224168,7 @@
    ],
    "tags": [
     "glass-clear",
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -223973,6 +224218,7 @@
    ],
    "tags": [
     "glass-clear",
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -224019,6 +224265,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -224720,27 +224967,27 @@
   {
    "kit": "ken-space",
    "name": "gate-complex",
-   "hash": "872cf6d41c",
+   "hash": "a66d780e04",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
     1.002,
     0.501,
-    1.27
+    1.5
    ],
    "tris": 448,
-   "tpu": 703,
+   "tpu": 595,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 27672,
+   "bytes": 27668,
    "vtx": 733,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.02,
-   "thick": 0.0833,
-   "avgTri": 0.00616,
+   "thick": 0.0922,
+   "avgTri": 0.00688,
    "anglePct": 80,
    "pieces": 1,
    "vpt": 1.64,
@@ -224757,27 +225004,28 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "metal-steel",
     "plastic",
     "space"
    ],
    "variant": "ken-space/gate-complex",
-   "thickRel": 0.98
+   "thickRel": 1.04
   },
   {
    "kit": "ken-space",
    "name": "gate-simple",
-   "hash": "058871782f",
+   "hash": "3040bc0460",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
     1.002,
     0.501,
-    1.354
+    1.5
    ],
    "tris": 209,
-   "tpu": 307,
+   "tpu": 278,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -224787,9 +225035,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.05,
-   "thick": 0.0854,
-   "avgTri": 0.01271,
-   "anglePct": 79,
+   "thick": 0.0914,
+   "avgTri": 0.01357,
+   "anglePct": 87,
    "pieces": 1,
    "vpt": 1.44,
    "cells": [
@@ -224803,13 +225051,14 @@
     "#d8cfb7"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "metal-steel",
     "plastic",
     "space"
    ],
    "variant": "ken-space/gate-complex",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "ken-space",
@@ -227064,16 +227313,16 @@
   {
    "kit": "ken-space",
    "name": "structure-closed",
-   "hash": "9dc055dde3",
+   "hash": "f9408fe1f4",
    "kind": "str-part-frame",
-   "size": "m",
+   "size": "l",
    "wdh": [
     1.002,
     1.002,
-    1.254
+    1.5
    ],
    "tris": 293,
-   "tpu": 233,
+   "tpu": 195,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -227083,8 +227332,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.062,
-   "avgTri": 0.03532,
+   "thick": 0.0719,
+   "avgTri": 0.04179,
    "anglePct": 100,
    "pieces": 5,
    "vpt": 1.32,
@@ -227099,27 +227348,28 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "metal-steel",
     "plastic",
     "space"
    ],
    "variant": "ken-space/structure",
-   "thickRel": 0.98
+   "thickRel": 1.12
   },
   {
    "kit": "ken-space",
    "name": "structure-detailed",
-   "hash": "088acdc758",
+   "hash": "14ab4cd465",
    "kind": "str-part-frame",
-   "size": "m",
+   "size": "l",
    "wdh": [
     1.002,
     1.002,
-    1.254
+    1.5
    ],
    "tris": 220,
-   "tpu": 175,
+   "tpu": 146,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -227129,8 +227379,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.05,
-   "thick": 0.0681,
-   "avgTri": 0.02352,
+   "thick": 0.0776,
+   "avgTri": 0.02702,
    "anglePct": 100,
    "pieces": 1,
    "vpt": 1.67,
@@ -227145,27 +227395,28 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "metal-steel",
     "plastic",
     "space"
    ],
    "variant": "ken-space/structure",
-   "thickRel": 1.08
+   "thickRel": 1.21
   },
   {
    "kit": "ken-space",
    "name": "structure-diagonal",
-   "hash": "6ef3e656ce",
+   "hash": "6fe352a7ee",
    "kind": "str-part-frame",
-   "size": "m",
+   "size": "l",
    "wdh": [
     1.002,
     1.002,
-    1.254
+    1.5
    ],
    "tris": 332,
-   "tpu": 264,
+   "tpu": 220,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -227175,10 +227426,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.025,
-   "minTube": 0.0501,
-   "thick": 0.0658,
-   "avgTri": 0.02083,
-   "anglePct": 94,
+   "thick": 0.0754,
+   "avgTri": 0.02412,
+   "anglePct": 100,
    "pieces": 1,
    "vpt": 1.55,
    "cells": [
@@ -227192,27 +227442,28 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "metal-steel",
     "plastic",
     "space"
    ],
    "variant": "ken-space/structure",
-   "thickRel": 1.04
+   "thickRel": 1.18
   },
   {
    "kit": "ken-space",
    "name": "structure",
-   "hash": "45f50ab619",
+   "hash": "f75e432af0",
    "kind": "str-part-frame",
-   "size": "m",
+   "size": "l",
    "wdh": [
     1.002,
     1.002,
-    1.254
+    1.5
    ],
    "tris": 165,
-   "tpu": 131,
+   "tpu": 110,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -227222,8 +227473,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.05,
-   "thick": 0.0689,
-   "avgTri": 0.02429,
+   "thick": 0.077,
+   "avgTri": 0.02825,
    "anglePct": 100,
    "pieces": 1,
    "vpt": 1.55,
@@ -227236,12 +227487,13 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "plastic",
     "space"
    ],
    "variant": "ken-space/structure",
-   "thickRel": 1.09
+   "thickRel": 1.2
   },
   {
    "kit": "ken-space",
@@ -227286,7 +227538,7 @@
     "space"
    ],
    "variant": "ken-space/supports-high",
-   "thickRel": 1.19
+   "thickRel": 1.17
   },
   {
    "kit": "ken-space",
@@ -227331,7 +227583,7 @@
     "space"
    ],
    "variant": "ken-space/supports-high",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "ken-space",
@@ -229799,27 +230051,28 @@
   {
    "kit": "ken-station",
    "name": "structure-barrier-high",
-   "hash": "9c07057f44",
+   "hash": "d16fce3b54",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    1.1,
-    1.1,
+    1,
+    1,
     1.002
    ],
    "tris": 256,
-   "tpu": 211,
+   "tpu": 255,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15996,
+   "bytes": 15940,
    "vtx": 404,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
+   "minEdge": 0.045,
    "thick": 0.0676,
-   "avgTri": 0.01978,
-   "anglePct": 100,
+   "avgTri": 0.01759,
+   "anglePct": 98,
    "pieces": 5,
    "vpt": 1.58,
    "cells": [
@@ -229833,6 +230086,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -229840,32 +230094,33 @@
     "space"
    ],
    "variant": "ken-station/structure",
-   "thickRel": 1.07
+   "thickRel": 1.05
   },
   {
    "kit": "ken-station",
    "name": "structure-barrier",
-   "hash": "00b82098b3",
+   "hash": "80067b227d",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    1.1,
-    1.1,
+    1,
+    1,
     1.002
    ],
    "tris": 256,
-   "tpu": 211,
+   "tpu": 255,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15980,
+   "bytes": 15924,
    "vtx": 404,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "thick": 0.0622,
-   "avgTri": 0.01712,
-   "anglePct": 100,
+   "minEdge": 0.045,
+   "thick": 0.0633,
+   "avgTri": 0.01517,
+   "anglePct": 97,
    "pieces": 5,
    "vpt": 1.58,
    "cells": [
@@ -229879,6 +230134,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -229966,13 +230222,14 @@
     "#7a8491"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
     "space"
    ],
    "variant": "ken-station/structure",
-   "thickRel": 0.94
+   "thickRel": 0.92
   },
   {
    "kit": "ken-station",
@@ -234100,26 +234357,27 @@
     "#d8cfb7"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "textile-cloth-light",
     "wood-dark"
    ],
    "variant": "ken-survival/structure-canvas",
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "ken-survival",
    "name": "structure-floor",
-   "hash": "720c62c4a4",
+   "hash": "b8f66d4a39",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     1.003,
     1.003,
-    1.113
+    1
    ],
    "tris": 164,
-   "tpu": 146,
+   "tpu": 163,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -234128,10 +234386,10 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.04,
-   "minTube": 0.0401,
-   "thick": 0.109,
-   "avgTri": 0.03648,
+   "minEdge": 0.036,
+   "minTube": 0.036,
+   "thick": 0.0955,
+   "avgTri": 0.0345,
    "anglePct": 100,
    "pieces": 15,
    "vpt": 2,
@@ -234144,36 +234402,37 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.73
+   "thickRel": 1.49
   },
   {
    "kit": "ken-survival",
    "name": "structure-metal-doorway",
-   "hash": "77274b1905",
+   "hash": "7385581102",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
-    1.149,
+    1,
     0.191,
-    1.126
+    1
    ],
    "tris": 160,
-   "tpu": 290,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 11168,
    "vtx": 272,
    "grounded": true,
-   "minEdge": 0.033,
-   "minTube": 0.0918,
-   "thick": 0.0632,
-   "avgTri": 0.01494,
-   "anglePct": 100,
+   "minEdge": 0.031,
+   "minTube": 0.0799,
+   "thick": 0.0658,
+   "avgTri": 0.01245,
+   "anglePct": 95,
    "pieces": 11,
    "vpt": 1.7,
    "cells": [
@@ -234185,25 +234444,26 @@
     "#59534e"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-iron-mid"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.74
   },
   {
    "kit": "ken-survival",
    "name": "structure-metal-floor",
-   "hash": "cd0f77eb3f",
+   "hash": "3d4552e279",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
+    1,
     1.004,
-    1.004,
-    1.028
+    1
    ],
    "tris": 360,
-   "tpu": 347,
+   "tpu": 359,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -234213,8 +234473,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1285,
-   "avgTri": 0.02431,
+   "thick": 0.1253,
+   "avgTri": 0.02395,
    "anglePct": 95,
    "pieces": 13,
    "vpt": 1.28,
@@ -234227,38 +234487,40 @@
     "#59534e"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-iron-mid"
    ],
    "variant": "ken-survival/structure-metal",
-   "thickRel": 2.04
+   "thickRel": 1.95
   },
   {
    "kit": "ken-survival",
    "name": "structure-metal-roof",
-   "hash": "ebb7328777",
+   "hash": "a533a6173d",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    1.092,
-    1.103,
+    1,
+    1,
     1.003
    ],
    "tris": 328,
-   "tpu": 272,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
    "bytes": 22160,
    "vtx": 584,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "minTube": 0.0877,
-   "thick": 0.0751,
-   "avgTri": 0.01811,
-   "anglePct": 42,
+   "minEdge": 0.028,
+   "minTube": 0.0795,
+   "thick": 0.076,
+   "avgTri": 0.01585,
+   "anglePct": 47,
    "pieces": 12,
    "vpt": 1.78,
    "cells": [
@@ -234270,6 +234532,7 @@
     "#59534e"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-iron-mid"
@@ -234322,27 +234585,28 @@
   {
    "kit": "ken-survival",
    "name": "structure-metal",
-   "hash": "f3f78c4b33",
+   "hash": "e8ee45b58c",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    1.074,
-    1.074,
+    1,
+    1,
     1.003
    ],
    "tris": 200,
-   "tpu": 173,
+   "tpu": 199,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12368,
+   "bytes": 12340,
    "vtx": 304,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.031,
-   "minTube": 0.0877,
-   "thick": 0.0605,
-   "avgTri": 0.01703,
+   "minEdge": 0.029,
+   "minTube": 0.0816,
+   "thick": 0.062,
+   "avgTri": 0.01559,
    "anglePct": 100,
    "pieces": 12,
    "vpt": 1.52,
@@ -234355,38 +234619,40 @@
     "#59534e"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-iron-mid"
    ],
    "variant": "ken-survival/structure-metal",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "ken-survival",
    "name": "structure-roof",
-   "hash": "98481503af",
+   "hash": "bfb1277987",
    "kind": "str-part-frame",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.081,
-    1.107,
-    1.318
+    1,
+    1,
+    1.501
    ],
    "tris": 204,
-   "tpu": 129,
+   "tpu": 136,
    "mat": 1,
    "bands": 2,
    "calls": 2,
-   "bytes": 16348,
+   "bytes": 16324,
    "vtx": 408,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.04,
-   "minTube": 0.0401,
-   "thick": 0.0655,
-   "avgTri": 0.03638,
-   "anglePct": 53,
+   "minEdge": 0.045,
+   "minTube": 0.0452,
+   "thick": 0.0796,
+   "avgTri": 0.03437,
+   "anglePct": 57,
    "pieces": 17,
    "vpt": 2,
    "cells": [
@@ -234398,12 +234664,13 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-1x1-5",
     "ken",
     "tba",
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.24
   },
   {
    "kit": "ken-survival",
@@ -234440,11 +234707,12 @@
     "#713e14"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "wood-dark"
    ],
    "variant": "ken-survival/structure-canvas",
-   "thickRel": 0.88
+   "thickRel": 0.86
   },
   {
    "kit": "ken-survival",
@@ -235379,12 +235647,13 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "wood-dark",
     "wood-light"
    ],
    "variant": "ken-town/balcony-wall",
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "ken-town",
@@ -235420,11 +235689,12 @@
     "#713e14"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "wood-dark"
    ],
    "variant": "ken-town/balcony-wall",
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "ken-town",
@@ -236642,11 +236912,12 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "stone-masonry-mid"
    ],
    "variant": "ken-town/pillar-stone",
-   "thickRel": 1.55
+   "thickRel": 1.56
   },
   {
    "kit": "ken-town",
@@ -236685,12 +236956,13 @@
     "#713e14"
    ],
    "tags": [
+    "grid-h1",
     "ken",
     "metal-iron-dark",
     "wood-dark"
    ],
    "variant": "ken-town/pillar-stone",
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "ken-town",
@@ -250707,16 +250979,16 @@
   {
    "kit": "lpa-construction",
    "name": "scaffolding-a",
-   "hash": "15d40a436a",
+   "hash": "ef3da4c73c",
    "kind": "str-part-frame-scaffold",
-   "size": "m",
+   "size": "l",
    "wdh": [
     0.604,
-    1.447,
-    1.179
+    1.5,
+    1
    ],
    "tris": 736,
-   "tpu": 714,
+   "tpu": 812,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -250724,11 +250996,11 @@
    "vtx": 1572,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.021,
-   "minTube": 0.0573,
-   "thick": 0.0776,
-   "avgTri": 0.01061,
-   "anglePct": 31,
+   "minEdge": 0.019,
+   "minTube": 0.0486,
+   "thick": 0.0795,
+   "avgTri": 0.0101,
+   "anglePct": 45,
    "pieces": 20,
    "vpt": 2.14,
    "cells": [
@@ -250740,26 +251012,27 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-1-5x1",
     "lpa",
     "metal-steel",
     "wood-light"
    ],
    "variant": "lpa-construction/scaffolding-a",
-   "thickRel": 1.34
+   "thickRel": 1.38
   },
   {
    "kit": "lpa-construction",
    "name": "scaffolding-b",
-   "hash": "5e32cc7446",
+   "hash": "047a106356",
    "kind": "str-part-frame-scaffold",
    "size": "l",
    "wdh": [
     0.591,
-    1.26,
-    1.74
+    1.5,
+    1.5
    ],
    "tris": 1360,
-   "tpu": 1050,
+   "tpu": 1023,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -250768,10 +251041,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minTube": 0.0469,
-   "thick": 0.063,
-   "avgTri": 0.00476,
-   "anglePct": 16,
+   "minTube": 0.0442,
+   "thick": 0.0474,
+   "avgTri": 0.00497,
+   "anglePct": 36,
    "pieces": 32,
    "vpt": 1.97,
    "cells": [
@@ -250783,12 +251056,13 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "lpa",
     "metal-steel",
     "wood-light"
    ],
    "variant": "lpa-construction/scaffolding-a",
-   "thickRel": 1.09
+   "thickRel": 0.82
   },
   {
    "kit": "lpa-construction",
@@ -277888,7 +278162,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.76
+   "thickRel": 1.73
   },
   {
    "kit": "m3-base",
@@ -287684,7 +287958,7 @@
     "m3",
     "wood-dark"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.84
   },
   {
    "kit": "m3-base",
@@ -298941,7 +299215,7 @@
     "wood-dark"
    ],
    "variant": "m3-base/torii-gate-01",
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -298982,7 +299256,7 @@
     "wood-dark"
    ],
    "variant": "m3-base/torii-gate-01",
-   "thickRel": 0.74
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -299321,7 +299595,7 @@
     "m3",
     "stone-masonry-light"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "m3-base",
@@ -310050,7 +310324,7 @@
     "pm",
     "wood-dark"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.27
   },
   {
    "kit": "pm-store",
@@ -310465,28 +310739,28 @@
   {
    "kit": "pm-store",
    "name": "gateway-board",
-   "hash": "a0128ebddf",
+   "hash": "b696e277f2",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    1.096,
+    1,
     0.447,
-    1.09
+    1
    ],
    "tris": 264,
-   "tpu": 494,
+   "tpu": 539,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 19304,
+   "bytes": 19308,
    "vtx": 508,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
+   "minEdge": 0.021,
    "minTube": 0.0553,
-   "thick": 0.0666,
-   "avgTri": 0.00995,
-   "anglePct": 38,
+   "thick": 0.0685,
+   "avgTri": 0.00868,
+   "anglePct": 43,
    "pieces": 11,
    "vpt": 1.92,
    "cells": [
@@ -310503,11 +310777,12 @@
    ],
    "tags": [
     "asia",
+    "grid-1x1",
     "paper-sheet",
     "pm",
     "wood-dark"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "pm-store",
@@ -310704,16 +310979,16 @@
   {
    "kit": "pm-store",
    "name": "pillar",
-   "hash": "f010217b0b",
+   "hash": "098b60cde7",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.372,
     0.372,
-    1.05
+    1
    ],
    "tris": 144,
-   "tpu": 280,
+   "tpu": 294,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -310721,11 +310996,11 @@
    "vtx": 246,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.034,
+   "minEdge": 0.033,
    "minTube": 0.3718,
-   "thick": 0.3038,
-   "avgTri": 0.00906,
-   "anglePct": 40,
+   "thick": 0.2982,
+   "avgTri": 0.00871,
+   "anglePct": 41,
    "pieces": 1,
    "vpt": 1.71,
    "cells": [
@@ -310739,11 +311014,12 @@
     "#9e6d44"
    ],
    "tags": [
+    "grid-h1",
     "pm",
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.19
   },
   {
    "kit": "pm-store",
@@ -316664,26 +316940,27 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "arch",
-   "hash": "3136a3f6e6",
+   "hash": "9298ad5e07",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
-    2.051,
+    2,
     0.496,
     2.004
    ],
    "tris": 4187,
-   "tpu": 2054,
+   "tpu": 2106,
    "mat": 1,
    "bands": 1,
    "calls": 1,
    "bytes": 295420,
    "vtx": 8403,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "thick": 0.0811,
-   "avgTri": 0.00457,
+   "thick": 0.0795,
+   "avgTri": 0.0045,
    "anglePct": 77,
    "pieces": 52,
    "vpt": 2.01,
@@ -316694,12 +316971,13 @@
     "#88735f"
    ],
    "tags": [
+    "grid-2x2",
     "halloween",
     "qua",
     "stone-masonry-mid"
    ],
    "variant": "quat-dun-1/arch-door",
-   "thickRel": 0.95
+   "thickRel": 0.9
   },
   {
    "kit": "quat-dun-1",
@@ -317069,16 +317347,16 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "column",
-   "hash": "c2456da8fc",
+   "hash": "cc0fc11aa2",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
     0.652,
     0.652,
-    2.032
+    2
    ],
    "tris": 392,
-   "tpu": 394,
+   "tpu": 400,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -317088,9 +317366,9 @@
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.6275,
-   "thick": 0.2967,
-   "avgTri": 0.01418,
-   "anglePct": 86,
+   "thick": 0.2927,
+   "avgTri": 0.01402,
+   "anglePct": 87,
    "pieces": 2,
    "vpt": 1.78,
    "cells": [
@@ -317100,12 +317378,13 @@
     "#57493d"
    ],
    "tags": [
+    "grid-h2",
     "halloween",
     "qua",
     "scale-big",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "quat-dun-1",
@@ -317154,12 +317433,12 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "floor-bricks-separate",
-   "hash": "4008b18656",
+   "hash": "e8ad25cab3",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
-    0.475,
-    0.6,
+    0.5,
+    0.5,
     0.128
    ],
    "tris": 200,
@@ -317169,12 +317448,13 @@
    "calls": 1,
    "bytes": 14460,
    "vtx": 370,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "thick": 0.1089,
-   "avgTri": 0.00275,
-   "anglePct": 72,
+   "minEdge": 0.009,
+   "thick": 0.0987,
+   "avgTri": 0.00251,
+   "anglePct": 68,
    "pieces": 3,
    "vpt": 1.85,
    "cells": [
@@ -317184,11 +317464,12 @@
     "#88735f"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "halloween",
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.77
+   "thickRel": 1.6
   },
   {
    "kit": "quat-dun-1",
@@ -349498,16 +349779,16 @@
   {
    "kit": "quat-sushi",
    "name": "arch",
-   "hash": "dbda02b459",
+   "hash": "074cf6d2af",
    "kind": "str-part-gate-gateway",
    "size": "l",
    "wdh": [
-    1.539,
+    1.5,
     0.144,
-    1.45
+    1.499
    ],
    "tris": 90,
-   "tpu": 127,
+   "tpu": 123,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -349515,10 +349796,10 @@
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.09,
-   "thick": 0.0513,
-   "avgTri": 0.02037,
-   "anglePct": 68,
+   "minEdge": 0.093,
+   "thick": 0.0485,
+   "avgTri": 0.02061,
+   "anglePct": 72,
    "pieces": 1,
    "vpt": 1.13,
    "cells": [
@@ -349529,10 +349810,11 @@
    ],
    "tags": [
     "asia",
+    "grid-1-5x1-5",
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.55
   },
   {
    "kit": "quat-sushi",
@@ -350539,27 +350821,27 @@
   {
    "kit": "quat-sushi",
    "name": "doorway",
-   "hash": "ebb7601aab",
+   "hash": "cccd778a84",
    "kind": "str-part-door-doorway",
    "size": "m",
    "wdh": [
     1.003,
     0.199,
-    0.996
+    1
    ],
    "tris": 84,
-   "tpu": 172,
+   "tpu": 171,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6816,
+   "bytes": 6812,
    "vtx": 150,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
+   "minEdge": 0.051,
    "minTube": 0.0766,
-   "thick": 0.0642,
-   "avgTri": 0.02662,
+   "thick": 0.0633,
+   "avgTri": 0.02669,
    "anglePct": 100,
    "pieces": 4,
    "vpt": 1.79,
@@ -350573,11 +350855,12 @@
    ],
    "tags": [
     "asia",
+    "grid-1x1",
     "qua",
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "quat-sushi",
@@ -352799,16 +353082,16 @@
   {
    "kit": "quat-sushi",
    "name": "torii-gate",
-   "hash": "11c18c88ca",
+   "hash": "47c2e4a534",
    "kind": "str-part-gate-gateway",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.435,
+    1.5,
     0.219,
-    1.025
+    1
    ],
    "tris": 104,
-   "tpu": 207,
+   "tpu": 212,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -352816,10 +353099,10 @@
    "vtx": 188,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.072,
-   "minTube": 0.0723,
-   "thick": 0.0705,
-   "avgTri": 0.02474,
+   "minEdge": 0.071,
+   "minTube": 0.0705,
+   "thick": 0.0744,
+   "avgTri": 0.02521,
    "anglePct": 97,
    "pieces": 6,
    "vpt": 1.81,
@@ -352831,10 +353114,11 @@
    ],
    "tags": [
     "asia",
+    "grid-1-5x1",
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "quat-sushi",
@@ -357127,7 +357411,7 @@
     "wood-light"
    ],
    "variant": "quat-town/wall-towers-door-1",
-   "thickRel": 2.05
+   "thickRel": 1.98
   },
   {
    "kit": "quat-town",
@@ -357174,7 +357458,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/wall-towers-door-2",
-   "thickRel": 1.93
+   "thickRel": 1.86
   },
   {
    "kit": "quat-town",
@@ -357218,7 +357502,7 @@
     "wood-light"
    ],
    "variant": "quat-town/wall-towers-door-1",
-   "thickRel": 2.03
+   "thickRel": 1.96
   },
   {
    "kit": "quat-town",
@@ -357268,7 +357552,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/wall-towers-door-2",
-   "thickRel": 2.03
+   "thickRel": 1.95
   },
   {
    "kit": "quat-town",
@@ -358937,7 +359221,7 @@
     "wood-light"
    ],
    "variant": "rgp-asia/garden-wall-gate-a",
-   "thickRel": 1.4
+   "thickRel": 1.35
   },
   {
    "kit": "rgp-asia",
@@ -358990,7 +359274,7 @@
     "wood-light"
    ],
    "variant": "rgp-asia/garden-wall-gate-a",
-   "thickRel": 1.38
+   "thickRel": 1.33
   },
   {
    "kit": "rgp-asia",
@@ -359033,7 +359317,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.84
   },
   {
    "kit": "rgp-asia",
@@ -359877,7 +360161,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "rgp-asia",
@@ -361083,7 +361367,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.86,
+   "thickRel": 0.83,
    "lint": [
     {
      "level": "warning",
@@ -363901,7 +364185,7 @@
     "textile-cloth-mid",
     "textile-rope"
    ],
-   "thickRel": 1.51,
+   "thickRel": 1.48,
    "lint": [
     {
      "level": "error",
@@ -364301,7 +364585,7 @@
     "textile-rope"
    ],
    "variant": "rgp-medieval/drying-rack-a",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "rgp-medieval",
@@ -364345,7 +364629,7 @@
     "textile-rope"
    ],
    "variant": "rgp-medieval/drying-rack-a",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "rgp-medieval",
@@ -367515,7 +367799,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/post-a",
-   "thickRel": 1.69
+   "thickRel": 1.7
   },
   {
    "kit": "rgp-medieval",
@@ -371448,7 +371732,7 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.47
   },
   {
    "kit": "rgp-props",
@@ -372056,16 +372340,16 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "beam",
-   "hash": "0f177c08dd",
+   "hash": "3c641e0ff0",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.076,
     0.461,
-    1.022
+    1
    ],
    "tris": 172,
-   "tpu": 343,
+   "tpu": 351,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -372075,8 +372359,8 @@
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.076,
-   "thick": 0.1007,
-   "avgTri": 0.00228,
+   "thick": 0.0984,
+   "avgTri": 0.00223,
    "anglePct": 87,
    "pieces": 2,
    "vpt": 0.81,
@@ -372087,15 +372371,16 @@
     "#713e14"
    ],
    "tags": [
+    "grid-h1",
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.39 wants min 0.5"
     }
    ]
   },
@@ -411936,7 +412221,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "wizp-asia",
@@ -412022,7 +412307,7 @@
     "wood-dark"
    ],
    "variant": "wizp-asia/pillar-wood",
-   "thickRel": 1.36
+   "thickRel": 1.37
   },
   {
    "kit": "wizp-asia",
@@ -413491,7 +413776,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.85
   },
   {
    "kit": "wizp-asia",
@@ -414937,16 +415222,16 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-medium",
-   "hash": "87f70a73ee",
+   "hash": "a19878d94a",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.545,
     0.545,
-    1.202
+    1
    ],
    "tris": 256,
-   "tpu": 435,
+   "tpu": 522,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -414955,9 +415240,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "thick": 0.2504,
-   "avgTri": 0.00926,
-   "anglePct": 20,
+   "thick": 0.2349,
+   "avgTri": 0.00815,
+   "anglePct": 24,
    "pieces": 2,
    "vpt": 1.98,
    "cells": [
@@ -414967,37 +415252,38 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "halloween",
     "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 1
+   "thickRel": 0.94
   },
   {
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-short",
-   "hash": "2d655c6573",
+   "hash": "6df92912ee",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.545,
     0.545,
-    0.946
+    1.001
    ],
    "tris": 198,
-   "tpu": 427,
+   "tpu": 404,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15248,
+   "bytes": 15244,
    "vtx": 396,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "thick": 0.2388,
-   "avgTri": 0.00996,
+   "thick": 0.2452,
+   "avgTri": 0.01035,
    "anglePct": 18,
    "pieces": 2,
    "vpt": 2,
@@ -415008,27 +415294,28 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1",
     "halloween",
     "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 0.95
+   "thickRel": 0.98
   },
   {
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-tall",
-   "hash": "d934219d8c",
+   "hash": "0a2835e670",
    "kind": "str-part-pillar",
-   "size": "m",
+   "size": "l",
    "wdh": [
     0.545,
     0.545,
-    1.432
+    1.5
    ],
    "tris": 290,
-   "tpu": 413,
+   "tpu": 395,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -415037,8 +415324,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "thick": 0.263,
-   "avgTri": 0.01031,
+   "thick": 0.2679,
+   "avgTri": 0.01065,
    "anglePct": 22,
    "pieces": 3,
    "vpt": 2.03,
@@ -415049,12 +415336,13 @@
     "#88735f"
    ],
    "tags": [
+    "grid-h1-5",
     "halloween",
     "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 1.05
+   "thickRel": 1.07
   },
   {
    "kit": "wizp-grave",
