@@ -4373,7 +4373,7 @@
         {
          "id": "str-part-door-single",
          "high.min": 0.7,
-         "high.max": 1.1
+         "high.max": 1.2
         },
         {
          "id": "str-part-door-doorway",
@@ -4401,7 +4401,7 @@
        "children": [
         {
          "id": "str-part-gate-single",
-         "high.min": 0.9,
+         "high.min": 0.8,
          "high.max": 1.6
         },
         {
@@ -4425,15 +4425,8 @@
        "children": [
         {
          "id": "str-part-floor-unit",
-         "longest.min": 0.7,
-         "longest.max": 1.35,
-         "scale": {
-          "small": {
-           "longest.min": 0.35,
-           "longest.max": 0.75
-          },
-          "big": 2
-         },
+         "longest.min": 0.35,
+         "longest.max": 3.2,
          "children": [
           {
            "id": "str-part-floor-unit-wood",
@@ -4482,11 +4475,8 @@
        "children": [
         {
          "id": "str-part-roof-unit",
-         "longest.min": 0.5,
-         "longest.max": 1.2,
-         "scale": {
-          "big": 2
-         }
+         "longest.min": 0.35,
+         "longest.max": 2.4
         },
         {
          "id": "str-part-roof-trim",
@@ -4529,8 +4519,8 @@
       },
       {
        "id": "str-part-window",
-       "longest.min": 0.4,
-       "longest.max": 1.1,
+       "longest.min": 0.35,
+       "longest.max": 1.2,
        "nouns": [
         "window",
         "shutter"
@@ -4546,15 +4536,11 @@
        "children": [
         {
          "id": "str-part-wall-unit",
-         "high.min": 0.8,
+         "high.min": 0.4,
          "high.max": 1.2,
-         "scale": {
-          "small": 0.5
-         },
          "children": [
           {
            "id": "str-part-wall-unit-doorway",
-           "high.min": 0.7,
            "nouns": [
             "wall with doorway",
             "door wall"
@@ -4562,7 +4548,6 @@
           },
           {
            "id": "str-part-wall-unit-window",
-           "high.min": 0.7,
            "nouns": [
             "wall with window",
             "window wall"
@@ -4594,7 +4579,7 @@
       {
        "id": "str-part-pillar",
        "longest.min": 0.6,
-       "longest.max": 2,
+       "longest.max": 2.5,
        "scale": {
         "small": 0.5,
         "big": 2
@@ -4620,7 +4605,7 @@
        "children": [
         {
          "id": "str-part-frame-scaffold",
-         "longest.min": 0.8,
+         "longest.min": 0.6,
          "longest.max": 3.5,
          "nouns": [
           "scaffold",
@@ -5059,8 +5044,8 @@
       },
       {
        "id": "str-access-stairs",
-       "longest.min": 0.5,
-       "longest.max": 2.5,
+       "longest.min": 0.4,
+       "longest.max": 3,
        "nouns": [
         "stairs"
        ],
