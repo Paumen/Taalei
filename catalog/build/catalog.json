@@ -91586,7 +91586,7 @@
   {
    "kit": "household",
    "name": "wine-glass",
-   "hash": "0bbdb17dbd",
+   "hash": "37b88d1ca0",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
@@ -91603,8 +91603,8 @@
    "vtx": 541,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.1178,
+   "minEdge": 0.001,
+   "thick": 0.1139,
    "avgTri": 0.00012,
    "anglePct": 6,
    "pieces": 1,
@@ -91619,7 +91619,7 @@
     "ct",
     "glass"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.25
   },
   {
    "kit": "household",
@@ -384110,28 +384110,28 @@
    "kit": "sq-studio",
    "collection": "sq-props",
    "name": "mic-stand",
-   "hash": "06079f255e",
+   "hash": "8f6158f113",
    "kind": "obj-leisure-art-instrument",
    "size": "m",
    "wdh": [
     0.321,
-    0.227,
-    0.572
+    0.226,
+    0.573
    ],
    "tris": 481,
    "tpu": 1402,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27816,
+   "bytes": 27824,
    "vtx": 731,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0023,
-   "thick": 0.0602,
-   "avgTri": 0.00007,
-   "anglePct": 45,
+   "minEdge": 0,
+   "minTube": 0.0019,
+   "thick": 0.0608,
+   "avgTri": 0.00006,
+   "anglePct": 46,
    "pieces": 9,
    "vpt": 1.52,
    "cells": [
@@ -384150,12 +384150,24 @@
     "rubber",
     "sq"
    ],
+   "backface": {
+    "share": 0.013,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.38,
    "lint": [
     {
      "level": "error",
+     "check": "backface",
+     "text": "1.3% of view 270/20 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0023 wants min 0.006"
+     "text": "G27 minTube 0.0019 wants min 0.006"
     }
    ]
   },
