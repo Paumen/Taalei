@@ -1428,7 +1428,8 @@
     "KayKit Prototype Bits": 31
    },
    "scales": {
-    "0.3": 116,
+    "0.3": 112,
+    "0.25": 4,
     "0.2499": 10
    },
    "smooth": {
@@ -1470,7 +1471,8 @@
       "KayKit Mini-Game Variety Pack": 33
      },
      "scales": {
-      "0.3": 33
+      "0.25": 4,
+      "0.3": 29
      },
      "smooth": {
       "smooth": 33
@@ -1882,8 +1884,9 @@
     "KayKit Spooktober Seasonal Pack": 36
    },
    "scales": {
-    "0.35": 56,
+    "0.35": 55,
     "0.322": 1,
+    "0.25": 1,
     "0.3342": 1,
     "0.3745": 1
    },
@@ -1925,8 +1928,9 @@
       "KayKit Spooktober Seasonal Pack": 36
      },
      "scales": {
-      "0.35": 33,
+      "0.35": 32,
       "0.322": 1,
+      "0.25": 1,
       "0.3342": 1,
       "0.3745": 1
      },
@@ -5209,7 +5213,8 @@
     "Trees Pack": 26
    },
    "scales": {
-    "0.2": 64,
+    "0.2": 55,
+    "0.25": 9,
     "0.4": 2
    },
    "smooth": {
@@ -5251,7 +5256,8 @@
       "Cementery Pack": 38
      },
      "scales": {
-      "0.2": 38
+      "0.25": 9,
+      "0.2": 29
      },
      "smooth": {
       "smooth": 30,
@@ -5281,7 +5287,7 @@
     }
    ],
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 1.07,
     "kinds": 17
    }
   },
@@ -29288,7 +29294,7 @@
    "name": "½×½ grid",
    "type": "attribute",
    "description": "Size on the building grid in tiles of 1.0: 0.5 wide and 0.5 high (walls) or deep (floors, roofs).",
-   "count": 64,
+   "count": 68,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -29324,7 +29330,7 @@
    "name": "1×1 grid",
    "type": "attribute",
    "description": "Size on the building grid in tiles of 1.0: 1 wide and 1 high (walls) or deep (floors, roofs).",
-   "count": 176,
+   "count": 190,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -29360,7 +29366,7 @@
    "name": "1½×1½ grid",
    "type": "attribute",
    "description": "Size on the building grid in tiles of 1.0: 1.5 wide and 1.5 high (walls) or deep (floors, roofs).",
-   "count": 3,
+   "count": 4,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -29408,7 +29414,7 @@
    "name": "2×2 grid",
    "type": "attribute",
    "description": "Size on the building grid in tiles of 1.0: 2 wide and 2 high (walls) or deep (floors, roofs).",
-   "count": 15,
+   "count": 16,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -29538,7 +29544,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4061,
+   "count": 4056,
    "derived": true
   },
   {
@@ -29546,7 +29552,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3453,
+   "count": 3458,
    "derived": true
   },
   {
@@ -150744,13 +150750,13 @@
    "kit": "kay-minigame",
    "collection": "kay-play",
    "name": "barrier-floor",
-   "hash": "60d7a6a6cf",
+   "hash": "4f7b621784",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
-    0.588,
-    0.6,
-    0.05
+    0.49,
+    0.5,
+    0.041
    ],
    "tris": 568,
    "tpu": 1656,
@@ -150759,12 +150765,13 @@
    "calls": 1,
    "bytes": 16412,
    "vtx": 362,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.0442,
+   "minEdge": 0.01,
+   "minTube": 0.0369,
    "thick": 0.0487,
-   "avgTri": 0.00097,
+   "avgTri": 0.00067,
    "anglePct": 29,
    "pieces": 4,
    "vpt": 0.64,
@@ -150951,27 +150958,27 @@
    "kit": "kay-minigame",
    "collection": "kay-play",
    "name": "barrier-strut",
-   "hash": "a16d707fc0",
+   "hash": "56527330b1",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
-    0.348,
-    0.35,
-    0.6
+    0.29,
+    0.291,
+    0.5
    ],
    "tris": 1056,
    "tpu": 3079,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 44624,
+   "bytes": 44628,
    "vtx": 1152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.0442,
+   "minEdge": 0.01,
+   "minTube": 0.0369,
    "thick": 0.0854,
-   "avgTri": 0.00123,
+   "avgTri": 0.00085,
    "anglePct": 37,
    "pieces": 24,
    "vpt": 1.09,
@@ -151441,26 +151448,26 @@
    "kit": "kay-minigame",
    "collection": "kay-play",
    "name": "gate-large",
-   "hash": "fb4b222197",
+   "hash": "ef2a0658d6",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    0.72,
-    0.124,
-    0.957
+    0.6,
+    0.103,
+    0.798
    ],
    "tris": 258,
-   "tpu": 550,
+   "tpu": 660,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8244,
+   "bytes": 8248,
    "vtx": 165,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.032,
+   "minEdge": 0.026,
    "thick": 0.0819,
-   "avgTri": 0.00334,
+   "avgTri": 0.00232,
    "anglePct": 25,
    "pieces": 1,
    "vpt": 0.64,
@@ -151475,32 +151482,39 @@
     "plastic"
    ],
    "variant": "kay-minigame/gate-large",
-   "thickRel": 0.96
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.798 under min 0.8 (str-part-gate-gateway)"
+    }
+   ]
   },
   {
    "kit": "kay-minigame",
    "collection": "kay-play",
    "name": "gate-small",
-   "hash": "e5d4a2924d",
+   "hash": "48d3557d7d",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
-    0.72,
-    0.124,
-    0.6
+    0.6,
+    0.103,
+    0.5
    ],
    "tris": 330,
    "tpu": 962,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9508,
+   "bytes": 9512,
    "vtx": 191,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.027,
+   "minEdge": 0.023,
    "thick": 0.0886,
-   "avgTri": 0.00178,
+   "avgTri": 0.00123,
    "anglePct": 18,
    "pieces": 1,
    "vpt": 0.58,
@@ -151518,9 +151532,9 @@
    "thickRel": 1.04,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "size",
-     "text": "high 0.6 under min 0.8 (str-part-gate-gateway)"
+     "text": "high 0.5 under min 0.8 (str-part-gate-gateway)"
     }
    ]
   },
@@ -166257,26 +166271,27 @@
    "kit": "kay-spook",
    "collection": "kay-undead",
    "name": "floor-graveyard",
-   "hash": "2c6f4cc748",
+   "hash": "74d63fe624",
    "kind": "str-part-floor-unit-dirt",
    "size": "m",
    "wdh": [
-    1.4,
-    1.4,
-    0.35
+    1,
+    1,
+    0.25
    ],
    "tris": 276,
-   "tpu": 201,
+   "tpu": 394,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7944,
+   "bytes": 7928,
    "vtx": 152,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
-   "thick": 0.1227,
-   "avgTri": 0.02048,
+   "minEdge": 0.009,
+   "thick": 0.1215,
+   "avgTri": 0.01045,
    "anglePct": 86,
    "pieces": 1,
    "vpt": 0.55,
@@ -166289,10 +166304,11 @@
    "tags": [
     "earth-soil",
     "grave",
+    "grid-1x1",
     "halloween",
     "kay"
    ],
-   "thickRel": 2.04
+   "thickRel": 2.02
   },
   {
    "kit": "kay-spook",
@@ -229124,6 +229140,7 @@
     "#7a8491"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -229168,6 +229185,7 @@
     "#7a8491"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -230315,6 +230333,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "space",
@@ -230580,6 +230599,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -230628,6 +230648,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -230675,6 +230696,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -230721,6 +230743,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "metal-steel",
@@ -230768,6 +230791,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "plastic",
@@ -230812,6 +230836,7 @@
     "#7a8491"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-steel",
     "space"
@@ -230856,6 +230881,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-gold",
     "plastic",
@@ -230989,6 +231015,7 @@
     "#f1a63b"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-gold",
     "plastic",
@@ -231032,6 +231059,7 @@
     "#7a8491"
    ],
    "tags": [
+    "grid-1x1",
     "ken",
     "metal-iron-dark",
     "space"
@@ -249569,6 +249597,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-1x1",
     "lpa",
     "stone-masonry-mid"
    ],
@@ -310379,6 +310408,7 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-2x2",
     "pm",
     "wood-light"
    ],
@@ -310891,6 +310921,7 @@
     "#ca9f6e"
    ],
    "tags": [
+    "grid-1-5x1-5",
     "pm",
     "wood-light"
    ],
@@ -414596,16 +414627,16 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "arch-stone",
-   "hash": "0214cc82ae",
+   "hash": "483b6decdf",
    "kind": "str-part-wall-arch",
    "size": "l",
    "wdh": [
-    1.656,
-    0.307,
-    0.672
+    2.07,
+    0.384,
+    0.839
    ],
    "tris": 364,
-   "tpu": 1023,
+   "tpu": 546,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -414613,9 +414644,9 @@
    "vtx": 744,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
+   "minEdge": 0.011,
    "thick": 0.1788,
-   "avgTri": 0.00604,
+   "avgTri": 0.00944,
    "anglePct": 29,
    "pieces": 1,
    "vpt": 2.04,
@@ -414887,26 +414918,26 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-medium",
-   "hash": "30f5bedcb6",
+   "hash": "87f70a73ee",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.436,
-    0.436,
-    0.961
+    0.545,
+    0.545,
+    1.202
    ],
    "tris": 256,
-   "tpu": 544,
+   "tpu": 435,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19184,
+   "bytes": 19180,
    "vtx": 508,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "thick": 0.2505,
-   "avgTri": 0.00593,
+   "minEdge": 0.007,
+   "thick": 0.2504,
+   "avgTri": 0.00926,
    "anglePct": 20,
    "pieces": 2,
    "vpt": 1.98,
@@ -414928,16 +414959,16 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-short",
-   "hash": "a883d038f9",
+   "hash": "2d655c6573",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.436,
-    0.436,
-    0.757
+    0.545,
+    0.545,
+    0.946
    ],
    "tris": 198,
-   "tpu": 534,
+   "tpu": 427,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -414945,9 +414976,9 @@
    "vtx": 396,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
+   "minEdge": 0.009,
    "thick": 0.2388,
-   "avgTri": 0.00638,
+   "avgTri": 0.00996,
    "anglePct": 18,
    "pieces": 2,
    "vpt": 2,
@@ -414969,16 +415000,16 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-tall",
-   "hash": "f9547427ea",
+   "hash": "d934219d8c",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
-    0.436,
-    0.436,
-    1.146
+    0.545,
+    0.545,
+    1.432
    ],
    "tris": 290,
-   "tpu": 516,
+   "tpu": 413,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -414986,9 +415017,9 @@
    "vtx": 588,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
+   "minEdge": 0.007,
    "thick": 0.263,
-   "avgTri": 0.0066,
+   "avgTri": 0.01031,
    "anglePct": 22,
    "pieces": 3,
    "vpt": 2.03,
@@ -415051,26 +415082,27 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "floor-tile-a",
-   "hash": "48f849bea4",
+   "hash": "4fbdafd4b5",
    "kind": "str-part-floor-unit-stone",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.103
+    0.5,
+    0.5,
+    0.128
    ],
    "tris": 44,
    "tpu": 128,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4204,
+   "bytes": 4144,
    "vtx": 80,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "thick": 0.1252,
-   "avgTri": 0.00936,
+   "minEdge": 0.031,
+   "thick": 0.1251,
+   "avgTri": 0.01463,
    "anglePct": 58,
    "pieces": 1,
    "vpt": 1.82,
@@ -415081,6 +415113,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -415092,26 +415125,27 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "floor-tile-b",
-   "hash": "4b948ec7a8",
+   "hash": "40fbf60045",
    "kind": "str-part-floor-unit-stone",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.103
+    0.5,
+    0.5,
+    0.128
    ],
    "tris": 80,
    "tpu": 233,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6664,
+   "bytes": 6608,
    "vtx": 150,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.1249,
-   "avgTri": 0.00515,
+   "thick": 0.125,
+   "avgTri": 0.00805,
    "anglePct": 58,
    "pieces": 1,
    "vpt": 1.88,
@@ -415122,6 +415156,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -415133,26 +415168,27 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "floor-tile-c",
-   "hash": "2bda2ea58a",
+   "hash": "a77e8b7aad",
    "kind": "str-part-floor-unit-stone",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.103
+    0.5,
+    0.5,
+    0.128
    ],
    "tris": 92,
    "tpu": 268,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7856,
+   "bytes": 7800,
    "vtx": 185,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
+   "minEdge": 0.016,
    "thick": 0.1248,
-   "avgTri": 0.00448,
+   "avgTri": 0.007,
    "anglePct": 57,
    "pieces": 1,
    "vpt": 2.01,
@@ -415163,6 +415199,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -415174,26 +415211,27 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "floor-tile-d",
-   "hash": "7f9746c85a",
+   "hash": "499732fc8d",
    "kind": "str-part-floor-unit-stone",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.4,
-    0.4,
-    0.103
+    0.5,
+    0.5,
+    0.129
    ],
    "tris": 128,
    "tpu": 373,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13484,
+   "bytes": 13424,
    "vtx": 354,
+   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "thick": 0.122,
-   "avgTri": 0.0035,
+   "avgTri": 0.00546,
    "anglePct": 50,
    "pieces": 2,
    "vpt": 2.77,
@@ -415204,6 +415242,7 @@
     "#88735f"
    ],
    "tags": [
+    "grid-0-5x0-5",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -415215,13 +415254,13 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "floor-tile-e",
-   "hash": "6351c35755",
+   "hash": "0f8ebce438",
    "kind": "str-part-floor-unit-stone",
-   "size": "s",
+   "size": "m",
    "wdh": [
-    0.402,
-    0.333,
-    0.103
+    0.502,
+    0.416,
+    0.129
    ],
    "tris": 108,
    "tpu": 315,
@@ -415232,9 +415271,9 @@
    "vtx": 298,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.1441,
-   "avgTri": 0.00273,
+   "minEdge": 0.012,
+   "thick": 0.1442,
+   "avgTri": 0.00427,
    "anglePct": 50,
    "pieces": 1,
    "vpt": 2.76,
