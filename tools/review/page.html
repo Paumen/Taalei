@@ -75,7 +75,7 @@ body.slide .wipe:not(.back){display:block}body.slide .pics.vis{display:none}
 .mag.l1 i:first-child{background:var(--m2)}.mag.l2 i:nth-child(-n+2){background:var(--m2)}.mag.l3 i{background:var(--m3)}
 .lens{display:grid;gap:3px;width:100%;max-width:200px}.lens i{display:block;height:5px;border-radius:3px;background:var(--m1)}.lens i.now{background:var(--t-size)}
 .note{margin:8px 0 0;color:var(--ink-soft);font-size:13px}
-.verdict{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.verdict{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;margin-top:10px}
 .verdict button,.more button{font:600 14px system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .verdict .keep{border-color:var(--keep);color:var(--keep)}.verdict .revert{border-color:var(--revert);color:var(--revert)}
 .verdict .keep.on{background:var(--keep);color:#fff}.verdict .revert.on{background:var(--revert);color:#fff}
@@ -86,11 +86,12 @@ body.slide .wipe:not(.back){display:block}body.slide .pics.vis{display:none}
 .mark.bad.on{background:var(--revert);border-color:var(--revert);color:#fff}
 article.m-great{border-color:var(--m2);box-shadow:0 0 0 1px var(--m2)}
 article.m-bad{border-color:var(--revert);box-shadow:0 0 0 1px var(--revert)}
-.more{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.more{display:none;flex-wrap:wrap;gap:6px;margin-top:8px}.more.open{display:flex}
+.verdict .moreb.on{background:var(--ink);border-color:var(--ink);color:var(--card)}
 .more button{font-size:13px;font-weight:500;padding:6px 11px;border-radius:999px}
 .more button.on{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:600}
-textarea{display:block;width:100%;margin-top:8px;font:13px system-ui,sans-serif;padding:8px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-height:42px;resize:vertical}
-textarea.need{border-color:var(--m2)}
+textarea{display:none;width:100%;margin-top:8px;font:13px system-ui,sans-serif;padding:8px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-height:42px;resize:vertical}
+textarea.open{display:block}textarea.need{border-color:var(--m2)}
 button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:3;background:var(--card);border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
 .bar .in{max-width:520px;margin:0 auto;display:flex;align-items:center;gap:10px}
@@ -191,13 +192,13 @@ function drawTop(){
   `<button type="button" class="switch" id="slide" aria-pressed="${slide}">Slider</button><button type="button" class="switch" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="switch" id="open" aria-pressed="${openOnly}">Unjudged</button>`;
 }
 function card(it,i){
-  const s=st[it.model]||{};
+  const s=st[it.model]||{},more=MORE.some(m=>m[0]===s.v);
   const marks=Object.entries(MARK).map(([m,[g,t]])=>`<button type="button" class="mark ${m} ${s.m===m?'on':''}" data-m="${m}" title="${t}" aria-label="${t}" aria-pressed="${s.m===m}">${g}</button>`).join('');
   return `<article data-i="${i}" class="${s.m?'m-'+s.m:''}"><div class="head"><span class="name">${esc(it.model)}</span><span class="marks">${marks}</span></div>
 ${pics(it)}${factRows(it)}${it.change||it.note?`<p class="note">${esc([it.change,it.note].filter(Boolean).join(' '))}</p>`:''}
-<div class="verdict"><button type="button" class="revert ${s.v==='retry'?'on':''}" data-v="retry" title="Revert and try another fix">Fail</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert">Revert</button></div>
-<div class="more">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}</div>
-<textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${NEED[s.v]&&!s.c?'need':''}">${esc(s.c||'')}</textarea></article>`;
+<div class="verdict"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert">Revert</button><button type="button" class="revert ${s.v==='retry'?'on':''}" data-v="retry" title="Revert and try another fix">Fail</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="moreb ${more?'on':''}" data-more>More</button></div>
+<div class="more ${more?'open':''}">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}</div>
+<textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${more||s.c?'open':''} ${NEED[s.v]&&!s.c?'need':''}">${esc(s.c||'')}</textarea></article>`;
 }
 function drawList(){
   let html='',g=null;
@@ -219,6 +220,7 @@ document.addEventListener('click',e=>{
   const a=e.target.closest('article');if(!a)return;
   const mk=e.target.closest('[data-m]');if(mk){const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
     s.m=s.m===mk.dataset.m?undefined:mk.dataset.m;if(!s.v&&!s.c&&!s.m)delete st[it.model];save();redraw(a);return}
+  if(e.target.closest('[data-more]')){a.querySelector('.more').classList.toggle('open');a.querySelector('textarea').classList.add('open');return}
   const b=e.target.closest('[data-v]');if(!b)return;
   const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
   s.v=s.v===b.dataset.v?undefined:b.dataset.v;if(!s.v&&!s.c&&!s.m)delete st[it.model];save();
