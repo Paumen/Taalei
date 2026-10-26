@@ -1,13 +1,16 @@
 import { readFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadModel, saveModel, bounds, median, clamp, samples, profile, straightRuns, warp, BINS } from './mesh.mjs';
+import { loadModel, saveModel, bounds, median, clamp, samples, profile, straightRuns, warp, BINS, HELD } from './mesh.mjs';
 
 const HELP = `stylize.mjs <batch.json> [name,...]
 
 Resizes and reshapes the models a batch file names, from its "src" folder into its
 "out" folder, and prints one JSON line per model with what it did. Never writes
 into "src". Each model is one node with one mesh of one primitive.
+
+Held items (weapons, tools, cooking utensils, cutlery, drinkware, glass
+bottles) are only resized: no shape move, unless named in "shapeHeld".
 
 Shape, in this order:
   stick    a model over 4x as tall as wide gets thicker; straight runs keep
@@ -36,13 +39,25 @@ batch.json:
   { "src": dir, "out": dir, "kits": [kit], "dropKits": [kit], "models": { name: kind },
     "curve": [0.70, 0.511], "blend": 0.75,
     "size": {}, "mixedKinds": [], "heightKinds": [],
-    "keep": [], "noStick": [], "noFlat": [], "noClamp": [],
+    "keep": [], "shapeHeld": [], "noStick": [], "noFlat": [], "noClamp": [],
     "flatRefs": { name: [catalogue names] }, "depth": { name: share } }
 
   "kits" names the batch's own kits and "dropKits" kits that skew a kind; neither
   counts as a peer.`;
 
 const P_SQUEEZE = 0.63;
+const SMOOTH_BINS = 4;
+
+function smoothBins(f) {
+  return f.map((_, i) => {
+    let s = 0, w = 0;
+    for (let j = Math.max(0, i - 3 * SMOOTH_BINS); j <= Math.min(f.length - 1, i + 3 * SMOOTH_BINS); j++) {
+      const g = Math.exp(-((i - j) ** 2) / (2 * SMOOTH_BINS ** 2));
+      s += g * f[j]; w += g;
+    }
+    return s / w;
+  });
+}
 
 function args() {
   const [file, only] = process.argv.slice(2);
@@ -59,7 +74,7 @@ function args() {
     flatRefs: batch.flatRefs ?? {},
     depth: batch.depth ?? {},
     mixedKinds: set('mixedKinds'), heightKinds: set('heightKinds'),
-    keep: set('keep'), noStick: set('noStick'), noFlat: set('noFlat'), noClamp: set('noClamp'),
+    keep: set('keep'), shapeHeld: set('shapeHeld'), noStick: set('noStick'), noFlat: set('noFlat'), noClamp: set('noClamp'),
     only: only ? only.split(',') : null,
   };
 }
@@ -92,7 +107,7 @@ function stick(Q, M, S, log) {
   const { mask } = straightRuns(prof);
   const fx = new Array(BINS).fill(f);
   log.thicken = +f.toFixed(2);
-  return warp(Q, M, prof, fx, mask.map((m) => (m ? 1 : f)), fx);
+  return warp(Q, M, prof, fx, smoothBins(mask.map((m) => (m ? 1 : f))), fx);
 }
 
 function squeeze(Q, M, S, log) {
@@ -111,7 +126,7 @@ function squeeze(Q, M, S, log) {
   }
   log.squeeze = +(1 - Math.min(want, spare / prof.H)).toFixed(2);
   const ones = new Array(BINS).fill(1);
-  return warp(Q, M, prof, ones, fy, ones);
+  return warp(Q, M, prof, ones, smoothBins(fy), ones);
 }
 
 function flatRatio(n) {
@@ -157,6 +172,7 @@ function depth(n, Q, M, log) {
 
 function shape(n, model, log) {
   let Q = model.P.slice(), M = model.N.slice();
+  if (HELD.test(B.models[n]) && !B.shapeHeld.has(n)) { log.held = 'size only'; return [Q, M]; }
   const S = samples(Q, model.F);
   const stuck = B.noStick.has(n) ? null : stick(Q, M, S, log);
   if (stuck) [Q, M] = stuck;
