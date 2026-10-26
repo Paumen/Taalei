@@ -10,8 +10,9 @@ Gives the roof of each model one band and one shading by roof type and shape.
 The roof is the band seen most from above (above --cut of the model's height,
 default 0 for roof parts; pass 0.4 for buildings), on the pieces that carry it.
 Pitched, cone and dome pieces run from light at their top to dark at their
-eaves; flat pieces get one tone; faces under the roof get 0.90. Each face keeps
-its own light and dark against its piece. Cloth keeps its band.`;
+eaves; flat pieces get one tone; faces under the roof get 0.90; upright faces
+keep their tone. Each face keeps its own light and dark against its
+piece's old gradient, within 0.12. Cloth keeps its band.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -23,7 +24,7 @@ const TYPES = {
   metal: { band: 'nickel', top: 0.2, bottom: 0.7 },
   cloth: { band: null, top: 0.3, bottom: 0.6 },
 };
-const FLAT = 0.4, UNDER = 0.9, LIGHT = 0.02, DARK = 0.95, G = 128;
+const FLAT = 0.4, UNDER = 0.9, DETAIL = 0.12, LIGHT = 0.02, DARK = 0.95, G = 128;
 const SKIP = new Set(Object.entries(BANDS).filter(([b, c]) => c && /glass|twine|amber/.test(b)).map(([, c]) => c));
 
 function tone(file, type, cut, dry) {
@@ -104,31 +105,43 @@ function tone(file, type, cut, dry) {
     }
     if (!pick.length) continue;
 
-    const span = new Map(), flat = new Map(), was = new Map();
+    const flat = new Map(), box = new Map(), fit = new Map();
+    const vOf = (i) => uv[2 * i + 1] * 4 - Math.floor(uv[2 * i + 1] * 4);
     for (const t of pick) {
       const p = piece(t);
       if (ny[t] > 0.17) {
         const f = flat.get(p) ?? [0, 0];
         flat.set(p, [f[0] + (ny[t] > 0.985 ? area[t] : 0), f[1] + area[t]]);
       }
+      if (ny[t] <= 0.17) continue;
       for (const i of idx.slice(3 * t, 3 * t + 3)) {
-        const sp = span.get(p) ?? [Infinity, -Infinity];
-        if (ny[t] > -0.3) span.set(p, [Math.min(sp[0], P(i, 1)), Math.max(sp[1], P(i, 1))]);
-        const w = was.get(p) ?? [0, 0];
-        was.set(p, [w[0] + (uv[2 * i + 1] * 4 - Math.floor(uv[2 * i + 1] * 4)), w[1] + 1]);
+        const b = box.get(p) ?? [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
+        for (let k = 0; k < 3; k++) { b[k] = Math.min(b[k], P(i, k)); b[3 + k] = Math.max(b[3 + k], P(i, k)); }
+        box.set(p, b);
+        const s = fit.get(p) ?? [0, 0, 0, 0, 0];
+        const y = P(i, 1), v = vOf(i);
+        fit.set(p, [s[0] + 1, s[1] + y, s[2] + v, s[3] + y * y, s[4] + y * v]);
       }
     }
+    const isFlat = (p) => { const f = flat.get(p) ?? [0, 1]; return f[0] >= 0.7 * f[1]; };
+    const trend = (p, y) => {
+      const [n0, sy, sv, syy, syv] = fit.get(p) ?? [1, 0, 0, 0, 0];
+      const d = n0 * syy - sy * sy, b = Math.abs(d) < 1e-12 ? 0 : (n0 * syv - sy * sv) / d;
+      return (sv - b * sy) / n0 + b * y;
+    };
+    const span = new Map([...box].filter(([p]) => !isFlat(p)).map(([p, b]) => [p, [b[1], b[4]]]));
     const [col, row] = target ?? roofCell.split(',').map(Number);
     const want = new Map();
     for (const t of pick) {
-      const p = piece(t), [y0, y1] = span.get(p) ?? [0, 0], f = flat.get(p) ?? [0, 1], [ws, wn] = was.get(p);
-      const isFlat = f[0] >= 0.7 * f[1];
+      const p = piece(t), flatPiece = isFlat(p) || !span.has(p);
+      const [y0, y1] = flatPiece ? [0, 0] : span.get(p);
       for (const i of idx.slice(3 * t, 3 * t + 3)) {
         let v;
         if (ny[t] < -0.3) v = UNDER;
+        else if (ny[t] <= 0.17) v = vOf(i);
         else {
-          const base = isFlat || y1 - y0 < 1e-9 ? FLAT : spec.top + ((y1 - P(i, 1)) / (y1 - y0)) * (spec.bottom - spec.top);
-          const own = uv[2 * i + 1] * 4 - Math.floor(uv[2 * i + 1] * 4) - ws / wn;
+          const base = flatPiece || y1 - y0 < 1e-9 ? FLAT : spec.top + ((y1 - P(i, 1)) / (y1 - y0)) * (spec.bottom - spec.top);
+          const own = Math.max(-DETAIL, Math.min(DETAIL, vOf(i) - trend(p, P(i, 1))));
           v = Math.min(DARK, Math.max(LIGHT, base + own));
         }
         const u = target ? (col + 0.5) / 16 : uv[2 * i];
