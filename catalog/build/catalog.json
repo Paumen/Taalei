@@ -384173,7 +384173,7 @@
   {
    "kit": "styloo-farm",
    "name": "barn-large",
-   "hash": "087b3fae91",
+   "hash": "b725b19b0b",
    "kind": "str-building-work-agricultural-barn",
    "size": "l",
    "wdh": [
@@ -384218,7 +384218,21 @@
     "wood-light"
    ],
    "variant": "styloo-farm/barn",
-   "thickRel": 1.05
+   "backface": {
+    "share": 0.0016,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.05,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -384270,7 +384284,7 @@
   {
    "kit": "styloo-farm",
    "name": "barn",
-   "hash": "ab227f42bc",
+   "hash": "94a0c410df",
    "kind": "str-building-work-agricultural-barn",
    "size": "l",
    "wdh": [
@@ -384312,7 +384326,21 @@
     "wood-light"
    ],
    "variant": "styloo-farm/barn",
-   "thickRel": 1.27
+   "backface": {
+    "share": 0.0016,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.27,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
