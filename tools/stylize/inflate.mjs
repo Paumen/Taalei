@@ -1,6 +1,6 @@
 import { readFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { loadModel, saveModel, bounds, weldedNormals } from './mesh.mjs';
+import { loadModel, saveModel, bounds, weldedNormals, HELD } from './mesh.mjs';
 
 const HELP = `inflate.mjs <batch.json> [name,...]
 
@@ -14,7 +14,8 @@ batch.json, next to the keys stylize.mjs reads:
   "inflate": { "default": 0.03, "models": { name: k } }
   "inflateUv": { name: { "u": 0.406, "tol": 0.02 } }
     pushes only vertices whose texture u lies within tol of u, so one
-    material of a model gets fuller and the rest keeps its shape.`;
+    material of a model gets fuller and the rest keeps its shape.
+  Held items (see stylize.mjs) get k 0 unless named in "models".`;
 
 const [file, only] = process.argv.slice(2);
 if (!file || file === '--help') { console.log(HELP); process.exit(file ? 0 : 1); }
@@ -27,7 +28,7 @@ for (const n of only ? only.split(',') : Object.keys(B.models)) {
   const { P, F, UV } = model;
   const b = bounds(P);
   const L = Math.max(...b.size);
-  const k = conf.models?.[n] ?? conf.default ?? 0.03;
+  const k = conf.models?.[n] ?? (HELD.test(B.models[n]) ? 0 : conf.default ?? 0.03);
   const push = k * [...b.size].sort((x, y) => x - y)[1];
   const mask = B.inflateUv?.[n];
   const G = weldedNormals(P, F);

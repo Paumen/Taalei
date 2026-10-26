@@ -3,6 +3,7 @@ import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds } from '../import/mesh-edit.mjs';
 
 export const BINS = 100;
+export const HELD = /^obj-(equipment-(weapon|tool)|kitchenware-cookware-utensil|kitchenware-tableware-(cutlery|drinkware)|container-bottle-glass)/;
 
 export function loadModel(path) {
   const glb = readGlb(path);
@@ -187,12 +188,21 @@ export function weldedNormals(Q, F) {
     group[v] = key.get(k);
   }
   const G = new Float64Array(key.size * 3);
+  const corner = (p, q, r) => {
+    const u = [Q[q] - Q[p], Q[q + 1] - Q[p + 1], Q[q + 2] - Q[p + 2]];
+    const w = [Q[r] - Q[p], Q[r + 1] - Q[p + 1], Q[r + 2] - Q[p + 2]];
+    const l = Math.hypot(...u) * Math.hypot(...w);
+    return l ? Math.acos(Math.max(-1, Math.min(1, (u[0] * w[0] + u[1] * w[1] + u[2] * w[2]) / l))) : 0;
+  };
   for (let t = 0; t < F.length; t += 3) {
     const [a, b, c] = [F[t] * 3, F[t + 1] * 3, F[t + 2] * 3];
     const u = [Q[b] - Q[a], Q[b + 1] - Q[a + 1], Q[b + 2] - Q[a + 2]];
     const w = [Q[c] - Q[a], Q[c + 1] - Q[a + 1], Q[c + 2] - Q[a + 2]];
     const n = [u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]];
-    for (const v of [F[t], F[t + 1], F[t + 2]]) for (let k = 0; k < 3; k++) G[group[v] * 3 + k] += n[k];
+    const l = Math.hypot(...n);
+    if (!l) continue;
+    const angles = [corner(a, b, c), corner(b, c, a), corner(c, a, b)];
+    [F[t], F[t + 1], F[t + 2]].forEach((v, i) => { for (let k = 0; k < 3; k++) G[group[v] * 3 + k] += (n[k] / l) * angles[i]; });
   }
   const out = new Float64Array(Q.length);
   for (let v = 0; v < group.length; v++) {
