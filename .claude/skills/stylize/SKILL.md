@@ -21,6 +21,9 @@ different move or a hand-made one, and some need none.
 - Round stays round and square stays square. Scale round and square parts
   evenly; only straight runs may change length.
 - Smooth curves stay smooth.
+- Bends and curves the source has stay; never straighten them.
+- When fixing a stylized model, first name what differs from the source,
+  then fix only that.
 - Chunkier never means thinner: no part may end thinner, relative to the
   model, than it started.
 - Sharp things get less inflation. Tines, slots, holes, gaps and joints stay
