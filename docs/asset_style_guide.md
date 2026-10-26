@@ -387,11 +387,11 @@ Which models sit together as one entry and which stand apart. Groups live in `ca
 | `D10` | size | kind, shape, material, band | extents, by redesign |
 | `D11` | state | kind, material | a part moved, removed, filled or recoloured |
 | `D12` | plural | kind, material, band | how many instances |
+| `D13` | set | kit | a set and the pieces it is made of |
 
 What holds of every group:
 
 - **`V01`** — Its `kits` is one kit; a second only for the same artist, never across artists without the PO.
-- **`V02`** — Its `kind` is the same for every member.
 - **`V03`** — The more models of a kind, the more sit inside a group.
 - **`V04`** — Reasons stack; the more and the wider, the sooner a model earns its own row.
 - **`V05`** — A group is judged by how it reads, not by how far it measures.
