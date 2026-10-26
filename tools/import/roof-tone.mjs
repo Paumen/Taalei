@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, rawRows, vertexAdder } from './mesh-edit.mjs';
 
-const HELP = `roof-tone.mjs --type <ceramic|wood|thatch|stone|metal|cloth> [--cut <f>] [--top <f>] [--bottom <f>] [--keep-mean] [--whole] [--cell <col,row>] [--exclude <x0,y0,z0,x1,y1,z1> ...] [--dry] <workfile.glb> [...]
+const HELP = `roof-tone.mjs --type <ceramic|wood|thatch|stone|metal|cloth> [--cut <f>] [--top <f>] [--bottom <f>] [--keep-mean] [--add] [--min-piece <f>] [--whole] [--cell <col,row>] [--exclude <x0,y0,z0,x1,y1,z1> ...] [--dry] <workfile.glb> [...]
 
 Gives the roof of each model one band and one shading by roof type and shape.
 The roof is the band seen most from above (above --cut of the model's height,
@@ -17,7 +17,10 @@ face keeps its own light and dark against its piece's old gradient. Cloth
 keeps its band. --whole runs one gradient over all sloped roof pieces of the
 model by height. --cell picks the roof band's cell instead of the one seen
 most. --exclude leaves faces whose centre lies in that box alone, given as
-fractions 0-1 of the model's bounds; it may repeat.`;
+fractions 0-1 of the model's bounds; it may repeat. --add keeps each face's
+old tone and adds the gradient on top, so stepped planks keep their lines.
+--min-piece leaves pieces alone whose roof area is under that share of the
+largest roof piece, such as ribs, curbs or small canopies.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -142,10 +145,20 @@ function tone(file, type, cut, dry) {
       const all = [Math.min(...[...span.values()].map((s) => s[0])), Math.max(...[...span.values()].map((s) => s[1]))];
       for (const p of span.keys()) span.set(p, all);
     }
+    const upArea = new Map();
+    for (const t of pick) if (ny[t] > 0.17) upArea.set(piece(t), (upArea.get(piece(t)) ?? 0) + area[t]);
+    const biggest = Math.max(0, ...upArea.values());
+    const small = (p) => minPiece > 0 && (upArea.get(p) ?? 0) < minPiece * biggest;
+    const meanBase = new Map();
+    for (const [p, [n0, sy]] of fit) {
+      const s = span.get(p);
+      if (s && s[1] - s[0] > 1e-9) meanBase.set(p, spec.top + ((s[1] - sy / n0) / (s[1] - s[0])) * (spec.bottom - spec.top));
+    }
     const [col, row] = target ?? roofCell.split(',').map(Number);
     const want = new Map();
     for (const t of pick) {
       const p = piece(t), flatPiece = isFlat(p) || !span.has(p);
+      if (small(p)) continue;
       const [y0, y1] = flatPiece ? [0, 0] : span.get(p);
       const b = box.get(p);
       if (ny[t] <= 0.17 && (!b || Math.max(...idx.slice(3 * t, 3 * t + 3).map((i) => P(i, 1))) < b[1] - 0.02 * (hi[1] - lo[1]))) continue;
@@ -157,7 +170,7 @@ function tone(file, type, cut, dry) {
         else if (ny[t] <= 0.17 || !seen[t]) v = vOf(i);
         else {
           const base = flatPiece || y1 - y0 < 1e-9 ? FLAT : spec.top + ((y1 - P(i, 1)) / (y1 - y0)) * (spec.bottom - spec.top) + shift;
-          v = Math.min(DARK, Math.max(LIGHT, base + vOf(i) - trend(p, P(i, 1))));
+          v = Math.min(DARK, Math.max(LIGHT, add && meanBase.has(p) ? vOf(i) + base - meanBase.get(p) : base + vOf(i) - trend(p, P(i, 1))));
         }
         const u = target ? (col + 0.5) / 16 : uv[2 * i];
         want.set(3 * t + idx.slice(3 * t, 3 * t + 3).indexOf(i), [u, (row + v) / 4]);
@@ -204,7 +217,7 @@ const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const take = (flag) => { const i = args.indexOf(flag); if (i < 0) return undefined; const v = args[i + 1]; args.splice(i, 2); return v; };
 const type = take('--type'), cut = Number(take('--cut') ?? 0), dry = args.includes('--dry'), keepMean = args.includes('--keep-mean');
-const top = take('--top'), bottom = take('--bottom'), forceCell = take('--cell'), whole = args.includes('--whole');
+const top = take('--top'), bottom = take('--bottom'), minPiece = Number(take('--min-piece') ?? 0), add = args.includes('--add'), forceCell = take('--cell'), whole = args.includes('--whole');
 const excludes = [];
 for (let e = take('--exclude'); e !== undefined; e = take('--exclude')) excludes.push(e.split(',').map(Number));
 if (TYPES[type] && top !== undefined) TYPES[type].top = Number(top);
