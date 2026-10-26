@@ -4,15 +4,20 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, rawRows, vertexAdder } from './mesh-edit.mjs';
 
-const HELP = `roof-tone.mjs --type <ceramic|wood|thatch|stone|metal|cloth> [--cut <f>] [--dry] <workfile.glb> [...]
+const HELP = `roof-tone.mjs --type <ceramic|wood|thatch|stone|metal|cloth> [--cut <f>] [--top <f>] [--bottom <f>] [--keep-mean] [--whole] [--cell <col,row>] [--exclude <x0,y0,z0,x1,y1,z1> ...] [--dry] <workfile.glb> [...]
 
 Gives the roof of each model one band and one shading by roof type and shape.
 The roof is the band seen most from above (above --cut of the model's height,
 default 0 for roof parts; pass 0.4 for buildings), on the pieces that carry it.
 Pitched, cone and dome pieces run from light at their top to dark at their
-eaves; flat pieces get one tone; faces under the roof get 0.90; upright faces
-keep their tone. Each face keeps its own light and dark against its
-piece's old gradient, within 0.12. Cloth keeps its band.`;
+eaves (--keep-mean centres that run on the piece's old mean tone); flat pieces
+get one tone; faces under the roof get 0.90. Upright faces and faces hidden
+from above keep their tone; upright faces below the roof are left alone. Each
+face keeps its own light and dark against its piece's old gradient. Cloth
+keeps its band. --whole runs one gradient over all sloped roof pieces of the
+model by height. --cell picks the roof band's cell instead of the one seen
+most. --exclude leaves faces whose centre lies in that box alone, given as
+fractions 0-1 of the model's bounds; it may repeat.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -24,7 +29,7 @@ const TYPES = {
   metal: { band: 'nickel', top: 0.2, bottom: 0.7 },
   cloth: { band: null, top: 0.3, bottom: 0.6 },
 };
-const FLAT = 0.4, UNDER = 0.9, DETAIL = 0.12, LIGHT = 0.02, DARK = 0.95, G = 128;
+const FLAT = 0.4, UNDER = 0.9, LIGHT = 0.02, DARK = 0.95, G = 128;
 const SKIP = new Set(Object.entries(BANDS).filter(([b, c]) => c && /glass|twine|amber/.test(b)).map(([, c]) => c));
 
 function tone(file, type, cut, dry) {
@@ -87,7 +92,7 @@ function tone(file, type, cut, dry) {
     for (let i = 0; i < G * G; i++) if (owner[i] >= 0 && zb[i] >= floor) seen[owner[i]] += 1;
     const byCell = new Map();
     for (let t = 0; t < T; t++) if (seen[t] && !SKIP.has(cell[t])) byCell.set(cell[t], (byCell.get(cell[t]) ?? 0) + seen[t]);
-    const roofCell = [...byCell].sort((a, b) => b[1] - a[1])[0]?.[0];
+    const roofCell = forceCell ?? [...byCell].sort((a, b) => b[1] - a[1])[0]?.[0];
     if (!roofCell) continue;
 
     const top = new Map(), all = new Map();
@@ -101,6 +106,9 @@ function tone(file, type, cut, dry) {
     const pick = [];
     for (let t = 0; t < T; t++) {
       if (cell[t] !== roofCell) continue;
+      const c = [0, 1, 2].map((k) => idx.slice(3 * t, 3 * t + 3).reduce((s, i) => s + P(i, k), 0) / 3);
+      const f = c.map((v, k) => (v - lo[k]) / ((hi[k] - lo[k]) || 1));
+      if (excludes.some((e) => [0, 1, 2].every((k) => f[k] >= e[k] && f[k] <= e[3 + k]))) continue;
       if (roofPiece.has(piece(t)) || (seen[t] && ny[t] > 0.17)) pick.push(t);
     }
     if (!pick.length) continue;
@@ -130,19 +138,26 @@ function tone(file, type, cut, dry) {
       return (sv - b * sy) / n0 + b * y;
     };
     const span = new Map([...box].filter(([p]) => !isFlat(p)).map(([p, b]) => [p, [b[1], b[4]]]));
+    if (whole && span.size) {
+      const all = [Math.min(...[...span.values()].map((s) => s[0])), Math.max(...[...span.values()].map((s) => s[1]))];
+      for (const p of span.keys()) span.set(p, all);
+    }
     const [col, row] = target ?? roofCell.split(',').map(Number);
     const want = new Map();
     for (const t of pick) {
       const p = piece(t), flatPiece = isFlat(p) || !span.has(p);
       const [y0, y1] = flatPiece ? [0, 0] : span.get(p);
+      const b = box.get(p);
+      if (ny[t] <= 0.17 && (!b || Math.max(...idx.slice(3 * t, 3 * t + 3).map((i) => P(i, 1))) < b[1] - 0.02 * (hi[1] - lo[1]))) continue;
+      const [n0, , sv] = fit.get(p) ?? [1, 0, 0];
+      const shift = keepMean && !flatPiece ? sv / n0 - (spec.top + spec.bottom) / 2 : 0;
       for (const i of idx.slice(3 * t, 3 * t + 3)) {
         let v;
         if (ny[t] < -0.3) v = UNDER;
-        else if (ny[t] <= 0.17) v = vOf(i);
+        else if (ny[t] <= 0.17 || !seen[t]) v = vOf(i);
         else {
-          const base = flatPiece || y1 - y0 < 1e-9 ? FLAT : spec.top + ((y1 - P(i, 1)) / (y1 - y0)) * (spec.bottom - spec.top);
-          const own = Math.max(-DETAIL, Math.min(DETAIL, vOf(i) - trend(p, P(i, 1))));
-          v = Math.min(DARK, Math.max(LIGHT, base + own));
+          const base = flatPiece || y1 - y0 < 1e-9 ? FLAT : spec.top + ((y1 - P(i, 1)) / (y1 - y0)) * (spec.bottom - spec.top) + shift;
+          v = Math.min(DARK, Math.max(LIGHT, base + vOf(i) - trend(p, P(i, 1))));
         }
         const u = target ? (col + 0.5) / 16 : uv[2 * i];
         want.set(3 * t + idx.slice(3 * t, 3 * t + 3).indexOf(i), [u, (row + v) / 4]);
@@ -188,6 +203,11 @@ function tone(file, type, cut, dry) {
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const take = (flag) => { const i = args.indexOf(flag); if (i < 0) return undefined; const v = args[i + 1]; args.splice(i, 2); return v; };
-const type = take('--type'), cut = Number(take('--cut') ?? 0), dry = args.includes('--dry');
+const type = take('--type'), cut = Number(take('--cut') ?? 0), dry = args.includes('--dry'), keepMean = args.includes('--keep-mean');
+const top = take('--top'), bottom = take('--bottom'), forceCell = take('--cell'), whole = args.includes('--whole');
+const excludes = [];
+for (let e = take('--exclude'); e !== undefined; e = take('--exclude')) excludes.push(e.split(',').map(Number));
+if (TYPES[type] && top !== undefined) TYPES[type].top = Number(top);
+if (TYPES[type] && bottom !== undefined) TYPES[type].bottom = Number(bottom);
 if (!TYPES[type]) { console.error(`unknown --type ${type}`); process.exit(1); }
 for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${tone(file, type, cut, dry)} vertices`);
