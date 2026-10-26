@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, rawRows, vertexAdder } from './mesh-edit.mjs';
 
-const HELP = `roof-tone.mjs --type <ceramic|wood|thatch|stone|metal|cloth> [--cut <f>] [--top <f>] [--bottom <f>] [--keep-mean] [--add] [--min-piece <f>] [--whole] [--cell <col,row>] [--exclude <x0,y0,z0,x1,y1,z1> ...] [--dry] <workfile.glb> [...]
+const HELP = `roof-tone.mjs --type <ceramic|wood|thatch|stone|metal|cloth> [--cut <f>] [--top <f>] [--bottom <f>] [--keep-mean] [--add] [--min-piece <f>] [--by-plane] [--keep-upright] [--ramp-upright] [--keep-under] [--whole] [--cell <col,row>] [--exclude <x0,y0,z0,x1,y1,z1> ...] [--dry] <workfile.glb> [...]
 
 Gives the roof of each model one band and one shading by roof type and shape.
 The roof is the band seen most from above (above --cut of the model's height,
@@ -20,7 +20,11 @@ most. --exclude leaves faces whose centre lies in that box alone, given as
 fractions 0-1 of the model's bounds; it may repeat. --add keeps each face's
 old tone and adds the gradient on top, so stepped planks keep their lines.
 --min-piece leaves pieces alone whose roof area is under that share of the
-largest roof piece, such as ribs, curbs or small canopies.`;
+largest roof piece, such as ribs, curbs or small canopies. --by-plane splits
+pieces into flat parts, so each plank face of a welded roof gets its own run.
+--keep-upright leaves upright faces fully alone, colour band too, such as
+parapet walls. --ramp-upright gives upright roof edges the run of their piece. --keep-under
+keeps faces turned down at their tone, such as the sides of roof ribs.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -57,19 +61,19 @@ function tone(file, type, cut, dry) {
     const { weld } = welder(pos);
     const parent = new Map();
     const find = (a) => { while (parent.has(a) && parent.get(a) !== a) a = parent.get(a); return a; };
-    const ny = new Float64Array(T), area = new Float64Array(T), cell = new Array(T);
+    const nx = new Float64Array(T), nz = new Float64Array(T), ny = new Float64Array(T), area = new Float64Array(T), cell = new Array(T);
     for (let t = 0; t < T; t++) {
       const [a, b, c] = idx.slice(3 * t, 3 * t + 3);
       const u = [0, 1, 2].map((k) => P(b, k) - P(a, k)), v = [0, 1, 2].map((k) => P(c, k) - P(a, k));
       const nn = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
       const L = Math.hypot(...nn);
-      area[t] = L / 2; ny[t] = L ? nn[1] / L : 0;
+      area[t] = L / 2; ny[t] = L ? nn[1] / L : 0; nx[t] = L ? nn[0] / L : 0; nz[t] = L ? nn[2] / L : 0;
       cell[t] = `${Math.floor(((uv[2 * a] + uv[2 * b] + uv[2 * c]) / 3) * 16)},${Math.floor(((uv[2 * a + 1] + uv[2 * b + 1] + uv[2 * c + 1]) / 3) * 4)}`;
       const pa = find(weld(a)), pb = find(weld(b)), pc = find(weld(c));
       if (pa !== pb) parent.set(pa, pb);
       if (find(pb) !== find(pc)) parent.set(find(pb), find(pc));
     }
-    const piece = (t) => find(weld(idx[3 * t]));
+    const piece = (t) => byPlane ? `${find(weld(idx[3 * t]))}|${[nx[t], ny[t], nz[t]].map((v) => Math.round(v * 20)).join()}` : find(weld(idx[3 * t]));
 
     let lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
     for (let i = 0; i < n; i++) for (let k = 0; k < 3; k++) { lo[k] = Math.min(lo[k], P(i, k)); hi[k] = Math.max(hi[k], P(i, k)); }
@@ -161,12 +165,14 @@ function tone(file, type, cut, dry) {
       if (small(p)) continue;
       const [y0, y1] = flatPiece ? [0, 0] : span.get(p);
       const b = box.get(p);
+      if (ny[t] <= 0.17 && keepUpright) continue;
       if (ny[t] <= 0.17 && (!b || Math.max(...idx.slice(3 * t, 3 * t + 3).map((i) => P(i, 1))) < b[1] - 0.02 * (hi[1] - lo[1]))) continue;
       const [n0, , sv] = fit.get(p) ?? [1, 0, 0];
       const shift = keepMean && !flatPiece ? sv / n0 - (spec.top + spec.bottom) / 2 : 0;
       for (const i of idx.slice(3 * t, 3 * t + 3)) {
         let v;
-        if (ny[t] < -0.3) v = UNDER;
+        if (ny[t] < -0.3) v = keepUnder ? vOf(i) : UNDER;
+        else if (ny[t] <= 0.17 && rampUpright && !flatPiece && y1 - y0 > 1e-9) v = Math.min(DARK, Math.max(LIGHT, spec.top + Math.min(1, Math.max(0, (y1 - P(i, 1)) / (y1 - y0))) * (spec.bottom - spec.top) + vOf(i) - trend(p, P(i, 1))));
         else if (ny[t] <= 0.17 || !seen[t]) v = vOf(i);
         else {
           const base = flatPiece || y1 - y0 < 1e-9 ? FLAT : spec.top + ((y1 - P(i, 1)) / (y1 - y0)) * (spec.bottom - spec.top) + shift;
@@ -217,7 +223,7 @@ const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const take = (flag) => { const i = args.indexOf(flag); if (i < 0) return undefined; const v = args[i + 1]; args.splice(i, 2); return v; };
 const type = take('--type'), cut = Number(take('--cut') ?? 0), dry = args.includes('--dry'), keepMean = args.includes('--keep-mean');
-const top = take('--top'), bottom = take('--bottom'), minPiece = Number(take('--min-piece') ?? 0), add = args.includes('--add'), forceCell = take('--cell'), whole = args.includes('--whole');
+const top = take('--top'), bottom = take('--bottom'), minPiece = Number(take('--min-piece') ?? 0), add = args.includes('--add'), byPlane = args.includes('--by-plane'), keepUpright = args.includes('--keep-upright'), rampUpright = args.includes('--ramp-upright'), keepUnder = args.includes('--keep-under'), forceCell = take('--cell'), whole = args.includes('--whole');
 const excludes = [];
 for (let e = take('--exclude'); e !== undefined; e = take('--exclude')) excludes.push(e.split(',').map(Number));
 if (TYPES[type] && top !== undefined) TYPES[type].top = Number(top);
