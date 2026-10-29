@@ -38,7 +38,7 @@ function clip(poly, n, d, keep) {
   return out;
 }
 
-export function cutAlong(file, planesOf) {
+export function cutAlong(file, planesOf, bands = WOOD) {
   const glb = readGlb(file);
   const replaced = new Map();
   let added = 0;
@@ -58,7 +58,7 @@ export function cutAlong(file, planesOf) {
     const { weld } = welder(pos);
     const n = idx.length / 3;
     const compOf = new Map();
-    for (const band of WOOD) {
+    for (const band of bands) {
       const parent = new Map();
       const find = (a) => (parent.get(a) === a ? a : (parent.set(a, find(parent.get(a))), parent.get(a)));
       const tris = [];
@@ -91,7 +91,7 @@ export function cutAlong(file, planesOf) {
     for (let t = 0; t < n; t++) {
       const tri = [0, 1, 2].map((k) => vert(idx[t * 3 + k]));
       const c = [0, 1, 2].map((i) => (tri[0].w[i] + tri[1].w[i] + tri[2].w[i]) / 3);
-      const band = WOOD.includes(bandOf(idx[t * 3])) && compOf.has(t) ? bandOf(idx[t * 3]) : null;
+      const band = bands.includes(bandOf(idx[t * 3])) && compOf.has(t) ? bandOf(idx[t * 3]) : null;
       const planes = band ? planesOf({ c, band, comp: compOf.get(t) }) ?? [] : [];
       let parts = [tri];
       for (const [nv, d] of planes) parts = parts.flatMap((p) => {

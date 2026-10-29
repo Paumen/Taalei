@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder } from './mesh-edit.mjs';
 
-const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow] [--keep-under]] [--whole] [--dry] <workfile.glb> [...]
+const HELP = `v-profile.mjs [--top <f>] [--bottom <f>] [--add <k> [--reach <r>] [--fit] [--keep-shadow] [--keep-under]] [--whole] [--only <band,...>] [--dry] <workfile.glb> [...]
 
 Sets the light-to-dark gradient of each piece by height. A piece is a run of
 triangles joined on shared positions. Every vertex keeps its cell of
@@ -22,7 +22,8 @@ leaves a piece as it is when its darkest point sits in its upper half, such as
 a painted shadow under a cap or overhang. --keep-under leaves a vertex as it is
 when it faces down or the model has geometry less than 0.15 of its height
 right above it. --whole treats the whole model as one piece, so parts that
-meet, such as a fin on a body, match where they join.`;
+meet, such as a fin on a body, match where they join. --only changes only
+vertices in the named bands, such as stone toned after the rest of the model.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
@@ -139,7 +140,7 @@ function profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, whol
     const range = new Map();
     const darkest = new Map();
     for (let i = 0; i < count; i++) {
-      if (!cell[i] || cell[i] === 'mixed' || KEEP.has(cell[i])) continue;
+      if (!cell[i] || cell[i] === 'mixed' || KEEP.has(cell[i]) || (only && !only.has(cell[i]))) continue;
       const f = shape(i);
       if (f === null) continue;
       const row = Number(cell[i].split(',')[1]);
@@ -220,4 +221,6 @@ const keepShadow = args.includes('--keep-shadow');
 const keepUnder = args.includes('--keep-under');
 const whole = args.includes('--whole');
 const dry = args.includes('--dry');
+const onlyAt = args.indexOf('--only');
+const only = onlyAt < 0 ? null : new Set(args.splice(onlyAt, 2)[1].split(',').map((b) => BANDS[b]));
 for (const file of args.filter((a) => !a.startsWith('--'))) console.log(`${file}: ${profile(file, top, bottom, add, reach, fit, keepShadow, keepUnder, whole, dry)} vertices`);
