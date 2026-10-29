@@ -13,7 +13,7 @@ its faces meet in an inward fold (grooves, notches, steps) or where its colour j
 between faces less than 45 degrees apart (painted stones). A part under a tenth of the median stone
 joins the stone it shares the longest edge with.
 Each stone is lighter at its top and darker at its bottom; a flat stone (lower
-than a quarter of its width) keeps one tone on top. Faces turned sideways are
+than a quarter of its width) has no gradient. Faces turned sideways are
 darker than faces turned up, faces turned down darker still.
 --band <from>:<to> moves stone in another band into a stone band first, such
 as red brick: --band terracotta:taupe.
@@ -130,6 +130,14 @@ function fused(list, shared, at, area) {
   const near = new Map(list.map((t) => [t, []]));
   for (const e of edges) { near.get(e.p).push(e.q); near.get(e.q).push(e.p); }
   for (let i = 0; i < queue.length; i++) for (const u of near.get(queue[i])) if (!owner.has(u)) { owner.set(u, owner.get(queue[i])); queue.push(u); }
+  for (const f of info) {
+    if (seeds.includes(f)) continue;
+    const share = new Map();
+    for (const t of f.tris) if (owner.has(t)) share.set(owner.get(t), (share.get(owner.get(t)) ?? 0) + at.area[t]);
+    if (!share.size) continue;
+    const best = [...share].sort((x, y) => y[1] - x[1])[0][0];
+    for (const t of f.tris) owner.set(t, best);
+  }
   const out = seeds.map(() => []);
   const rest = [];
   for (const t of list) (owner.has(t) ? out[owner.get(t)] : rest).push(t);
@@ -181,10 +189,10 @@ function tone(file, options) {
         const flat = height < 0.25 * Math.max(hi[0] - lo[0], hi[2] - lo[2]);
         for (const t of list) {
           const nm = at.normal[t];
-          const facing = nm[1] > 0.7 ? 0 : nm[1] < -0.5 ? 2 * SIDE : SIDE;
+          const facing = nm[1] > 0.95 ? 0 : nm[1] < -0.5 ? 2 * SIDE : SIDE;
           for (let k = 0; k < 3; k++) {
             const y = at.corners[t][k][1];
-            const c = flat && nm[1] > 0.7 ? 0 : height > 1e-9 ? (y - lo[1]) / height - 0.5 : 0;
+            const c = flat ? 0 : height > 1e-9 ? (y - lo[1]) / height - 0.5 : 0;
             const l = TONES[tones[i]] + GRADIENT * c - facing;
             writes.set(t * 3 + k, options.debug ? cellUv(DEBUG[i % DEBUG.length], i % 18 < 9 ? 0.75 : 0.3) : cellUv(to, l));
           }
