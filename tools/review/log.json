@@ -98150,5 +98150,71 @@
   "verdict": "retry",
   "change": "each stone swapped for a plain block with a joint gap (250 → 48 tris)",
   "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: dungeon retries, round 2",
+  "model": "dungeon/stair",
+  "kind": "str-access-stairs",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "stair rebuilt step by step: one block per stone, split at the original joints, colour from the stone at the same spot; rails kept (4678 → 1222 tris)",
+  "comment": "lost it's side vs top shading"
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: dungeon retries, round 2",
+  "model": "dungeon/wallslittle-002",
+  "kind": "str-part-wall-unit-doorway",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "only the arch rebuilt (2 jambs, 7 wedge stones); ruin stones stay lumpy (1385 → 861 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: dungeon retries, round 2",
+  "model": "dungeon/wallslittle-001",
+  "kind": "str-part-wall-unit-window",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "only the window arch rebuilt (jambs, 7 wedge stones, sill); ruin stones and bars stay (1350 → 1138 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: dungeon retries, round 2",
+  "model": "dungeon/floor-004",
+  "kind": "str-part-floor-unit-stone",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "each slab a block with a bevelled top edge (878 → 220 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: dungeon retries, round 2",
+  "model": "dungeon/floor-005",
+  "kind": "str-part-floor-unit-stone",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "each slab a block with a bevelled top edge (250 → 80 tris)",
+  "comment": ""
  }
 ]
