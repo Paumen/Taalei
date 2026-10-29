@@ -26,7 +26,8 @@ const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 const cellOf = (b) => BANDS[b].split(',').map(Number);
 const STONE = ['ivory', 'taupe', 'taupe-dark'];
 const TONES = [0.44, 0.48, 0.52, 0.56, 0.6, 0.64];
-const GRADIENT = 0.26;
+const GRADIENT = { ivory: 0.26, taupe: 0.44, 'taupe-dark': 0.5 };
+const gradientOf = (cell) => GRADIENT[STONE.find((b) => cellOf(b).join() === cell.join())] ?? 0.26;
 const SIDE = 0.08;
 const RANGE = [0.06, 0.94];
 const FOLD = Math.cos((10 * Math.PI) / 180);
@@ -194,7 +195,7 @@ function tone(file, options) {
             const y = at.corners[t][k][1];
             const depth = hi[2] - lo[2];
             const c = flat ? (depth > 1e-9 ? (hi[2] - at.corners[t][k][2]) / depth - 0.5 : 0) : height > 1e-9 ? (y - lo[1]) / height - 0.5 : 0;
-            const l = TONES[tones[i]] + GRADIENT * c - facing;
+            const l = TONES[tones[i]] + gradientOf(to) * c - facing;
             writes.set(t * 3 + k, options.debug ? cellUv(DEBUG[i % DEBUG.length], i % 18 < 9 ? 0.75 : 0.3) : cellUv(to, l));
           }
         }
