@@ -4,18 +4,18 @@ import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix } from './mesh-edit.mjs';
 
-const HELP = `stone-tone.mjs [--tones <list>] [--top <d>] [--bottom <d>] [--debug] [--dry] <workfile.glb> [...]
+const HELP = `stone-tone.mjs [--band <band>] [--keep <share>] [--tones <list>] [--top <d>] [--bottom <d>] [--debug] [--dry] <workfile.glb> [...]
 
-Gives each stone in the ivory, taupe and taupe-dark bands of kits/colormap.png
-its own shade, and shades its faces by direction: faces turned up lighter,
-faces turned sideways as they are, faces turned down darkest. A stone is a run
-of triangles in one stone band that share corners. Each stone's v in its band
-moves by one of the tones (default -0.24,-0.12,0,0.12,0.24), each used about
-equally and shuffled per file, seeded by its name. On top of that a face moves
-by --top (default -0.12) when it points up and --bottom (default 0.3) when it
-points down, blended in between. Faces keep their own light and dark
-within its stone and facing: each facing of a stone is set from the stone's
-own sideways shade, so old light tops or dark caps do not carry over. A stone pushed past 0.02 or 0.95 is shifted back whole.
+Moves every stone in the ivory, taupe and taupe-dark bands of kits/colormap.png
+into one band (default taupe) and gives each stone its own shade. A stone is a
+run of triangles in one stone band that share corners. Each stone takes one of
+the tones (v in the band, default 0.2,0.3,0.4,0.5,0.6), each used about
+equally and shuffled per file, seeded by its name; stones that touch get
+different tones where they can. Its faces turned sideways take its tone, faces
+turned up --top (default -0.15) lighter and faces turned down --bottom
+(default 0.33) darker, blended in between. The old shading of stone faces is
+replaced. Small pieces in taupe-dark, under --keep (default 0.01) of the
+stone surface, such as holes and slits, stay as they are.
 --debug writes each stone in a bright band instead, to check the stone map.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -81,15 +81,7 @@ function tone(file, opts) {
       pieces[triPiece[t]].tris.push(t);
     }
     if (!pieces.length) continue;
-    const order = pieces.map((_, i) => i);
-    for (let i = order.length - 1; i > 0; i--) {
-      const j = Math.floor(R() * (i + 1));
-      [order[i], order[j]] = [order[j], order[i]];
-    }
-    order.forEach((p, k) => { pieces[p].tone = opts.tones[k % opts.tones.length]; pieces[p].loud = LOUD[k % LOUD.length]; });
-
     const shade = new Float64Array(tris);
-    const area = new Float64Array(tris);
     for (let t = 0; t < tris; t++) {
       if (triPiece[t] < 0) continue;
       const [a, b, c] = idx.slice(3 * t, 3 * t + 3).map((v) => [0, 1, 2].map((k) => pos[3 * v + k]));
@@ -98,36 +90,39 @@ function tone(file, opts) {
       const wy = m[1] * n[0] + m[5] * n[1] + m[9] * n[2];
       const wl = Math.hypot(m[0] * n[0] + m[4] * n[1] + m[8] * n[2], wy, m[2] * n[0] + m[6] * n[1] + m[10] * n[2]) || 1;
       const ny = wy / wl;
-      area[t] = Math.hypot(...n) / 2;
       shade[t] = ny > 0 ? opts.top * ramp(ny, 0.3, 0.8) : opts.bottom * ramp(-ny, 0.3, 0.8);
+      const piece = pieces[triPiece[t]];
+      piece.area = (piece.area ?? 0) + Math.hypot(...n) / 2;
+      piece.cell = cell[t];
+      piece.box ??= [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
+      for (const p of [a, b, c]) for (let k = 0; k < 3; k++) {
+        piece.box[k] = Math.min(piece.box[k], p[k]);
+        piece.box[3 + k] = Math.max(piece.box[3 + k], p[k]);
+      }
     }
+    let extent = 0;
+    for (const piece of pieces) for (let k = 0; k < 3; k++) extent = Math.max(extent, piece.box[3 + k] - piece.box[k]);
+    const gap = 0.01 * extent;
+    const touch = (p, q) => [0, 1, 2].every((k) => p.box[k] <= q.box[3 + k] + gap && q.box[k] <= p.box[3 + k] + gap);
+    const total = pieces.reduce((sum, piece) => sum + piece.area, 0);
+    for (const piece of pieces) piece.keep = piece.cell === BANDS['taupe-dark'] && piece.area < opts.keep * total;
+    const order = pieces.map((_, i) => i).filter((i) => !pieces[i].keep);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(R() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const used = opts.tones.map(() => 0);
+    order.forEach((p, k) => {
+      const near = new Set(pieces.filter((q) => q !== pieces[p] && q.tone !== undefined && touch(pieces[p], q)).map((q) => q.tone));
+      const pick = opts.tones.map((tone, i) => [near.has(tone) ? 1 : 0, used[i], R(), i]).sort((x, y) => x[0] - y[0] || x[1] - y[1] || x[2] - y[2])[0][3];
+      used[pick]++;
+      pieces[p].tone = opts.tones[pick];
+      pieces[p].loud = LOUD[pick % LOUD.length];
+      stones++;
+    });
+    const [bandCol, bandRow] = BANDS[opts.band].split(',').map(Number);
 
     const target = new Map();
-    const old = (v, t) => uv0[2 * v + 1] * 4 - Number(cell[t].split(',')[1]);
-    const facing = (t) => (shade[t] < opts.top / 2 ? 0 : shade[t] > opts.bottom / 2 ? 2 : 1);
-    const value = (v, t) => {
-      const piece = pieces[triPiece[t]];
-      return old(v, t) - piece.mean[facing(t)] + piece.base + piece.tone + shade[t];
-    };
-    for (const piece of pieces) {
-      const sum = [0, 0, 0], weight = [0, 0, 0];
-      for (const t of piece.tris) {
-        const f = facing(t), w = area[t] + 1e-12;
-        for (let k = 0; k < 3; k++) sum[f] += (w * old(idx[3 * t + k], t)) / 3;
-        weight[f] += w;
-      }
-      const all = sum.reduce((a, b) => a + b) / weight.reduce((a, b) => a + b);
-      piece.mean = sum.map((x, f) => (weight[f] ? x / weight[f] : all));
-      piece.base = weight[1] ? piece.mean[1] : all;
-      let low = Infinity, high = -Infinity;
-      for (const t of piece.tris) for (let k = 0; k < 3; k++) {
-        const nv = value(idx[3 * t + k], t);
-        low = Math.min(low, nv); high = Math.max(high, nv);
-      }
-      piece.shift = low < LIGHT ? Math.min(LIGHT - low, DARK - high) : high > DARK ? Math.max(DARK - high, LIGHT - low) : 0;
-      stones++;
-    }
-
     const adder = vertexAdder(glb, prim);
     const next = idx.slice();
     const extra = [];
@@ -136,14 +131,13 @@ function tone(file, opts) {
       const piece = pieces[triPiece[t]];
       if (opts.debug) {
         const [lc, lr] = piece.loud;
-        return [(lc + 0.5) / 16, (lr + 0.3 + 0.4 * ((shade[t] - opts.top) / (opts.bottom - opts.top || 1))) / 4];
+        return [(lc + 0.5) / 16, (lr + 0.2 + 0.6 * ((shade[t] - opts.top) / (opts.bottom - opts.top || 1))) / 4];
       }
-      const nv = value(v, t) + piece.shift;
-      const row = Number(cell[t].split(',')[1]);
-      return [uv0[2 * v], (row + Math.max(LIGHT, Math.min(DARK, nv))) / 4];
+      const nv = piece.tone + shade[t];
+      return [(bandCol + 0.5) / 16, (bandRow + Math.max(LIGHT, Math.min(DARK, nv))) / 4];
     };
     for (let t = 0; t < tris; t++) {
-      if (triPiece[t] < 0) continue;
+      if (triPiece[t] < 0 || pieces[triPiece[t]].keep) continue;
       for (let k = 0; k < 3; k++) {
         const v = idx[3 * t + k];
         const want = setUv(v, t);
@@ -187,9 +181,11 @@ const take = (flag, fallback) => {
   return value;
 };
 const opts = {
-  tones: take('--tones', '-0.24,-0.12,0,0.12,0.24').split(',').map(Number),
-  top: Number(take('--top', -0.12)),
-  bottom: Number(take('--bottom', 0.3)),
+  band: take('--band', 'taupe'),
+  keep: Number(take('--keep', 0.01)),
+  tones: take('--tones', '0.2,0.3,0.4,0.5,0.6').split(',').map(Number),
+  top: Number(take('--top', -0.15)),
+  bottom: Number(take('--bottom', 0.33)),
   debug: args.includes('--debug'),
   dry: args.includes('--dry'),
 };
