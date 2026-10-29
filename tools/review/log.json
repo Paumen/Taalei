@@ -99075,5 +99075,410 @@
   "verdict": "keep",
   "change": "Same as plane-sty, body only; rotor and spin clip unchanged (3504 → 3504 tris)",
   "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "pm-store/emblem-tiger",
+  "kind": "str-fixture-marker-sign-lettering",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "The tiger character was a tangle of flipped and doubled layers, so face flipping could not fix it. I rebuilt it from its own brown front outline as one clean solid: the brown front, a sloped orange edge, brown side walls (tone taken from the old walls) and a flat gold back. Then I scaled it to 0.90 so the stroke ends sit just against the ring instead of running into it. Ring untouched. 1278 → 502 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "sq-gym/plate-pair",
+  "kind": "obj-leisure-game-gym",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "The jagged notched yellow blob on each plate is now a real round 10-sided hole through the plate. It is lined with a yellow sleeve and has a raised yellow collar on both faces. The plate faces were rebuilt around the hole, which also closes a small open gap in the back face of the green plate. 328 → 444 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "styloo-school/pen-cup",
+  "kind": "obj-equipment-tool-stationery-holder",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Rebuilt the front and back walls with 9 clean 8-sided holes in an even 3×3 grid. Each hole goes straight through, so the openings line up with their rims. The holes are a bit smaller (about 13.6 mm, was 15 mm), the top row is moved down so it no longer cuts into the inner rim band, and the side columns are moved in so the bottom corners are no longer clipped. Same colour and shading. 960 → 920 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "ipoly-glasses/glasses-round-azure",
+  "kind": "obj-equipment-apparel-glasses",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "revert",
+  "change": "Both lens rims are now round 18-sided rings, the same blue and thickness, at the same lens centres. The glass on both faces is now round 18-sided discs tucked just under the rims, keeping the diagonal light streak. The lumpy bridge is now a clean arched bar and the side tabs are plain blocks into the hinges. Temples and hinges are untouched. The rims are about 2 mm taller, so the model was lifted to sit on the ground again. 612 → 636 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "cooking-assets/demitasse",
+  "kind": "obj-kitchenware-tableware-drinkware-cup",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "I rebuilt the body as a clean, evenly round 12-sided cup from its own outline. The rings, flat rim, foot, thin floor and cream shading are the same as before. I removed the slightly oval, uneven 8-sided body. The handle is untouched (366 → 482 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "styloo-kitchen/donut",
+  "kind": "obj-food-baked-pastry-donut",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "I rebuilt the lumpy donut as a clean, round torus with 16 sides around and 10 around the tube. Its cross-section comes from the original, and it is the same width and height. The icing covers the top half with an even edge just above the outer middle and a round, centred hole. The dough keeps its light-to-dark shading (336 → 320 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "quat-rpg/potion-6-filled",
+  "kind": "obj-container-bottle-vial",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "The jagged border between glass and liquid colour is now a clean level line, cut along a flat plane at the waist under the shoulder. Liquid colour below has a soft top-to-bottom shading; glass above uses the same glass streak mapping the other potions use. Shape is the same; triangles only split along the line (1662 → 1782 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "avra-food/cask",
+  "kind": "obj-container-barrel",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "revert",
+  "change": "Rebuilt the 4 wobbly twisted rope rings as clean 14-sided round tubes with flat facets, lined up with the 14 barrel staves. Each ring keeps its own light or dark tan tone, height and thickness. A check at 140 angles confirms no barrel edge pokes out between the paired ropes. Body, tap and lid are untouched (1300 → 1132 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "rgp-vintage/globe",
+  "kind": "obj-device-science-astro-globe",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Replaced the lumpy ball with a clean 16×10 sphere of the same size and place. Its patchy brown pattern is half-blended into a light-top, dark-bottom gradient so it reads as round. Rebuilt the wobbly twisted steel ring as a clean 24-sided flat band of the same size and steel colour. Stand, wooden horizon ring, pole caps and axle are untouched (1610 → 1238 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "kay-spook/jackolantern-large",
+  "kind": "obj-food-vegetable-pumpkin",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Rebuilt from the original Kay source shape (same scale and place) instead of patching the torn workfile. The source's own clean eye and mouth outlines are kept. The tube ends inside the eyes were pulled within the hole outline. The inner wall was cut away behind the eyes and mouth, and the gap closed with a new inner surface, so all three are clean see-through holes with no torn edges, loose flaps or magenta. Colours and shading copied from the old workfile (orange outside, yellow cut walls and inside). 1510 → 1394 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "rgp-vintage/clock",
+  "kind": "obj-furnishing-clock",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Clock face rebuilt as an even 16-sided cream disc with the same size, place, thickness and flat cream colour. The spiky shard at the lower left came from a broken back cap on the left column: a fan of triangles drawn from a front-bottom corner cut through the column. Removed it and closed the bottom with a flat cap, so the column now matches the right one. 1468 → 1454 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "m3-base/wall-clock",
+  "kind": "obj-furnishing-clock",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Pulled the rim's inner lip vertices (88) in to just inside the rim's top inner edge and moved them into the face's thickness, so no brown rim part pokes through the cream face from the front or the back. Rim outline, colour and shading are unchanged. 540 → 540 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "kay-minigame/target",
+  "kind": "obj-equipment-target-bullseye",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Front face rings rebuilt as clean, centred, regular rings: outer red ring and inner cream ring 16 sides each, red bullseye 12 sides. Same radii and the same flat red and cream. The outer cream band joins the existing rim edge, keeping its light-to-dark tone. 506 → 528 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "rgp-medieval/archery-target",
+  "kind": "obj-equipment-target-bullseye",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "On both faces, the bullseye and the 4 rings were rebuilt as regular 11-sided rings that match the board's 11-sided outline. Same radii, same red and cream, same tilt, rings even in width. 598 → 612 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "rgp-props/practice-target-2-a",
+  "kind": "obj-equipment-target-bullseye",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "revert",
+  "mark": "bad",
+  "change": "18 light end-grain triangles on the sides of the legs and crossbars were recoloured to the wood colour of the nearest leg vertex, which keeps the leg's light-to-dark tone. End grain on the leg tops and bar ends is kept. No geometry change. 861 → 861 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "sq-gym/barbell-loaded",
+  "kind": "obj-leisure-game-gym",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "The four tilted oval yellow hubs (two on each plate) are now round 12-sided discs with a small bevelled edge. Each sits in the same spot with the same yellow light-to-dark shading. They are as wide as the old oval's long side, so the oval bar end is still fully covered. 708 → 760 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "m3-base/button-02",
+  "kind": "obj-resource-textile",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "Rebuilt the button as a clean 24-sided shape with the same profile: flat rim, sloped dish, flat centre and slightly domed back. It now has 4 round 10-sided thread holes (about 9 mm across, set 9.5 mm from the centre on each side) that go cleanly through. Same red colour and shading, same size and resting height. 518 → 460 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "m3-base/glasses-frames-01",
+  "kind": "obj-equipment-apparel-glasses",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "The edges of both lens holes now follow a smooth curve, fitted to the hole's own outline and applied the same to front and back. This removes the bump on the top edge and the dips on the bottom edge (no point moved more than 1.4 mm). No triangles added. 650 → 650 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "cooking-assets/sauce-pan-small",
+  "kind": "obj-kitchenware-cookware-pan-saucepan",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "The lid top's colour was split light and dark across each triangle, which made the star. It now has one smooth tone, lightest at the knob and a little darker toward the rim. The knob top is a clean light disc, and its dark wedge is gone. Shape not changed (448 → 448 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "styloo-kitchen/frying-pan",
+  "kind": "obj-kitchenware-cookware-pan-frying",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "The shape was already smooth, so only the shading was fixed. The pan body now runs smoothly from light at the rim to dark on the inner floor, as the original roughly did. The handle is lighter on top and darker on its sides and underside. Shape not changed (882 → 882 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "household/cup-of-tea",
+  "kind": "obj-kitchenware-tableware-drinkware-cup",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "The inner cup wall and the tea's edge bulged out through the outer wall at mid-height. I pulled 62 points of them in to just inside the outer wall. The tea still seals against the inner wall (450 → 450 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "props/cup-a",
+  "kind": "obj-kitchenware-tableware-drinkware-tankard",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "The handle had the same shape as cup-b's, but flat, broken shading made it look dented. I swapped in cup-b's smooth handle, which has the same shape, place, steel colour and shading (532 → 532 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "m3-base/wood-barrel",
+  "kind": "obj-container-barrel",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Rebuilt the 4 metal hoops as clean, even 16-sided bands. Each sits just outside the barrel body, so the body no longer pokes through the hoop edges, and each keeps its old height, place and dark steel shading. The top hoop was off-centre and showed magenta; it is now centred and closed. Body, bung and lids are untouched (1398 → 1410 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "pm-store/snow-globe",
+  "kind": "obj-furnishing-decor",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Rebuilt the glass ball as a clean 16-sided sphere of the same size and height, cut flat where it sits in the base, with the same blue glass shading. It was an 8-sided ball that looked like an uneven polygon from above. The scene inside and the base are untouched (304 → 350 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "rgp-asia/vase",
+  "kind": "obj-container-pot-vase",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Removed the raised teardrop jar shape that poked out of the front. Rebuilt the body as a clean 8-sided turned shape from its own outline, with the same light-to-dark shading. The lid was already centred; it only looked off-centre because the bulge sat under it, and it now sits evenly. Lid and handle untouched (193 → 168 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "fs-temple/vase-c",
+  "kind": "obj-container-pot-vase",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Rebuilt the lower body (foot, belly and shoulder up to the neck) as a clean 8-sided turned shape from its own outline and shading. It joins the old neck exactly. The handle roots had pinched the shoulder inward at the sides, making the vase look bent; that pinch is gone. A hidden cone inside the foot was dropped. Neck, mouth and handles are untouched (312 → 292 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "m3-base/fire-alarm-bell",
+  "kind": "obj-leisure-art-instrument-bell",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Rebuilt the dented, notched back plate as a clean 16-sided disc with bevelled edges. It now sits on the same centre as the bell, at radius 0.155, slightly wider than the bell (0.149), so the bell no longer pokes past it on one side. Dropped 2 loose slivers (6 tris). Kept the grey colour with its top-to-bottom shading. Model re-grounded (moved about 5 mm). 554 → 548 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "lpa-home/fan",
+  "kind": "obj-device-appliance",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Spiky 12-point star hub cap rebuilt as a clean round 16-sided cap with a bevelled front edge, same size, place and cream shading. The motor housing behind it had the same spiky star front rim with magenta; rebuilt as a clean 12-sided turned shape with the same outline. 1584 → 1576 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "sq-bank/camera-dome",
+  "kind": "obj-device-electronics-camera",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "Both white rings rebuilt as clean 16-sided bevelled discs. Same radius, height and bevel, and the same top-to-bottom shading and centre tones. The old sawtooth came from the side rings being turned 15° against the cap rings. Dark dome and red lens untouched. 670 → 638 tris",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Detail: round part fixes",
+  "model": "m3-base/quarter-pipe-01",
+  "kind": "str-fixture-leisure-playground",
+  "types": [
+   "recolour",
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "The 9 twisted posts (top square turned against the bottom, so they looked like spikes) replaced by straight square boxes, same width, top height and grey shading. Each post bottom now sits just inside the deck and its sloped back edge instead of hanging 8 cm below. Posts moved up to 2 cm inward so none sticks out of the ramp's back or side faces. 1189 → 1189 tris",
+  "comment": ""
  }
 ]
