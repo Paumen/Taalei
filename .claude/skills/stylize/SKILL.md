@@ -22,8 +22,16 @@ different move or a hand-made one, and some need none.
   evenly; only straight runs may change length.
 - Smooth curves stay smooth.
 - Bends and curves the source has stay; never straighten them.
-- When fixing a stylized model, first name what differs from the source,
-  then fix only that.
+- When fixing a stylized model, measure each part against the source first
+  (head, haft, blade, grip, handle, body as ratios), name the parts that
+  drifted, and fix those per part. One factor for the whole model fails.
+- Parts are judged against each other: blade to grip, head to haft, barrel
+  to stock keep the source's ratios at the catalogue's chunkiness.
+- Fix what shows at review size first. A clean-up nobody can see is no fix.
+- A retry starts from the last round: keep what was not rejected, change
+  only what was.
+- Before sending, compare the outline with the source from iso, front and
+  side.
 - Chunkier never means thinner: no part may end thinner, relative to the
   model, than it started.
 - Sharp things get less inflation. Tines, slots, holes, gaps and joints stay

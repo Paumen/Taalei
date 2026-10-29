@@ -56,7 +56,10 @@ scratchpad and run
 Reverts are done by the tool, file and tags. Then do the work it prints:
 keep but (the follow-up in the comment), retry (another fix, as the comment says
 if there is one), relax (loosen or except the rule in `lint/*.json`, as the comment says),
-other. Later stays open for the next round. Next to the verdict a card can carry a
+other. Later stays open for the next round.
+A revert or retry can point to another problem with the model than the
+change itself: look at the whole model against its source and peers before
+retrying the same change. Next to the verdict a card can carry a
 mark: ★ great (spot on, beyond expectations) or ✕✕ bad (opposite of the goal,
 high impact); a mark without a verdict counts as keep or revert. `brief` lists
 the latest marked changes: copy the great ones in later work, and never repeat
