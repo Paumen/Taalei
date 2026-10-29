@@ -99480,5 +99480,392 @@
   "verdict": "keep",
   "change": "The 9 twisted posts (top square turned against the bottom, so they looked like spikes) replaced by straight square boxes, same width, top height and grey shading. Each post bottom now sits just inside the deck and its sloped back edge instead of hanging 8 cm below. Posts moved up to 2 cm inward so none sticks out of the ramp's back or side faces. 1189 → 1189 tris",
   "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "rgp-medieval/rampart",
+  "kind": "str-part-wall-rampart",
+  "types": [
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Toned only the taupe-dark stones (the inset bricks, merlons and corbels), each its own tone: --stone --whole --only taupe-dark; then B65 v-profile. The smooth taupe wall body was left alone.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "ken-grave/stone-wall",
+  "kind": "str-barrier-wall",
+  "types": [
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Base, middle and cap slabs toned as one plank each: --stone with a spec (one key per piece, length x, width y); then B65 v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "wizp-grave/floor-tile-a",
+  "kind": "str-part-floor-unit-stone",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "One flagstone toned as one plank: --stone --whole --force. No v-profile (floor).",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "kay-dun-1/tile-brick-a-large",
+  "kind": "str-part-floor-unit-stone",
+  "types": [
+   "recolour",
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "36 raised bricks toned one tone each and moved into taupe-dark: --stone with a spec (one key per brick, band taupe-dark). The mortar bed was left alone.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "wizp-village/wall-stone-low",
+  "kind": "str-barrier-wall",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "The single fused piece was cut into 2 end posts, 3 coping stones (cuts at x=±0.261, along the existing mesh seams) and the panel, each toned on its own: --stone --spec with cut planes x=±0.465, ±0.261 and y=0.286; then B65 v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "kay-food/wall",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Lower taupe slab toned as one plank (spec, length x, width y); upper ivory part left alone as plaster/tile. v-profile run with --only taupe, so the ivory wasn't profiled twice.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "fs-temple/pillar-wall-top",
+  "kind": "str-part-pillar",
+  "types": [
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Shaft and capital toned one each: --stone with a spec (shaft length y, capital length x) and --no-edges; then B69 v-profile (--keep-shadow --keep-under).",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "m3-base/moulded-breeze-block-01",
+  "kind": "obj-resource-stone",
+  "types": [],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Unchanged: a single cast block in ivory, with no separate stones to tone.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "kay-dun-2/wall",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Each raised brick toned on its own; top and bottom caps cut at their notches (x = ±0.25) into 3 blocks each and toned. Flat plaster face behind the bricks left as is. Spec cut + --stone, then B65 v-profile with --only ivory,taupe,taupe-dark.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "ken-proto/wall",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Plain box, no stones to see: toned as one slab (--stone --whole, spec with one key, length x, width y so the gradient runs up the wall), then B65 v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "fs-temple/wall-straight-middle",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Same as ken-proto/wall: one slab, --stone --whole, length x, width y, then B65 v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "kay-hexagon/wall",
+  "kind": "str-part-wall-rampart",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Front blocks were fused in one piece: cut at x = ±0.601, ±1.201 and y = 0.721, 1.261 so each block (3 rows by 5 columns, buttresses included) is its own stone. The plain back face is one stone, and the small raised bricks are each toned. Length x, width y on every block. Wooden walkway untouched. Then B65 v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "ken-castle/stairs-stone-square",
+  "kind": "str-access-stairs",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Staircase built as one piece: cut at every step height (exact vertex heights, so no slivers) so each step course (tread, riser and the side and back strips at that height) is its own stone. Then the B69 v-profile line (--keep-shadow --keep-under, --only stone bands).",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "fs-house/chimney",
+  "kind": "str-part-chimney",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Cut at y = 0.4 into shaft and cap (with the bevel under it), each toned as one stone; the shaft's width set to y so its gradient runs up. Chimney kind, no v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "ken-grave/brick-wall",
+  "kind": "str-barrier-wall",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Terracotta brick panel moved to taupe (--stone --band terracotta:taupe) and toned. Panel, the 6 raised bricks and the top and bottom caps are each one stone. Then B65 v-profile with --only.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "ken-castle/wall",
+  "kind": "str-part-wall-rampart",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "The tower is one flat fused slab, so it is toned as one stone. Spec keys one stone per piece, with width axis set to vertical ([x,y]) so the gradient runs top to bottom, not across. The 3 raised bricks get their own tone. Then B65 v-profile with --only.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "ken-arcade/wall",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "--stone --only taupe: the plain back face and the front and back plinth strips each get one tone. The dark painted hills, sides and top (taupe-dark) and the orange sky are kept. Then B65 v-profile with --only.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "kay-platformer/pillar-2x2x2",
+  "kind": "str-part-pillar",
+  "types": [
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "--stone default: cap, shaft and base are each one stone, and the iron bolts are kept. Then B69 v-profile with --keep-shadow and --only.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "wizp-asia/well",
+  "kind": "str-fixture-utility-well",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Spec splits the two fused stone rings into 12 sectors each, at the visible facet seams (3+30k degrees), with vertical cut planes only near the seams. That gives 24 stones plus the inner floor. Wood lid untouched. No v-profile, since it is a utility. 450 to 678 tris.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "quat-dun-1/wall-modular",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Each of the 18 stones its own tone: --stone with a spec keying one stone per piece (same as --whole) and detail {from 0.55, min 0.5} to keep the light corner chips; then B65 v-profile with --only ivory,taupe,taupe-dark.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "quat-town/watchtower-2-c",
+  "kind": "str-building-tower-watch",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "All 130 blocks (quoins, merlons, base blocks, steps) toned one tone each: --stone with a spec keying one per piece. The two smooth wall panels were left as they were; then B64 v-profile. No roof on this model.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "fs-town/cobblestone-floor-a",
+  "kind": "str-part-floor-unit-stone",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Each of the 39 cobbles toned on its own (--stone --only taupe). The ground slab between them (taupe-dark) kept as it was. Floor kind, no v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "emace-village/stone-footing",
+  "kind": "str-part-floor",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "Default --stone run: 187 taupe and 27 taupe-dark stones, each toned on its own. Floor kind, no v-profile.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "m3-base/stone-archway-01",
+  "kind": "str-part-wall-arch",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "Default --stone run: the 5 arch stones (2 bases, 2 sides, keystone) each toned, then B65 v-profile (kind str-part-wall-arch).",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "wizp-village/house-c",
+  "kind": "str-building-residential-house",
+  "types": [],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Left unchanged. Its only stone-band parts are the plaster wall infill panels between the wooden posts, with no stones or bricks to see; the roof is B77's.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "fs-town/stone-wall-a",
+  "kind": "str-part-wall-unit",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "Stone tone (--stone, default map: 7 front stones each their own piece, the flat back slab one stone), then B65 v-profile with --only ivory,taupe,taupe-dark.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "kay-dun-2/floor-tile-small",
+  "kind": "str-part-floor-unit-stone",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "Spec cut along the grooves (x=0, z=0 and the centre diamond |x|+|z|=0.161), giving 5 stones: the centre diamond and 4 corner stones. Toned with --stone --spec. No v-profile, since it is a floor. 68 to 114 tris.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "quat-dun-1/floor-bricks-separate",
+  "kind": "str-part-floor",
+  "types": [
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "--stone --whole: 3 separate bricks, each one stone. The small brick's bevel no longer splits into 3. No v-profile, since it is a floor.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "quat-dun-1/stairs-side-cover",
+  "kind": "str-access-stairs",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "--stone --whole (taupe-dark): 9 blocks, each one stone. Without --whole, blocks split face by face. Then B69 v-profile with --keep-shadow and --only.",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-29",
+  "review": "Stone tones test 30",
+  "model": "avra-nature/paving",
+  "kind": "str-access-path",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "--stone default: 15 flagstones in taupe and taupe-dark, each its own stone, plus the base slab. No v-profile, since it is a path.",
+  "comment": ""
  }
 ]

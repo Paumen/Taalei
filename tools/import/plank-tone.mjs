@@ -5,7 +5,7 @@ import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMatrix, edgeKey } from './mesh-edit.mjs';
 import { cutAlong } from './plank-cut.mjs';
 
-const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--band-after <from>:<to>] [--steps] [--facets] [--join] [--floor] [--stone] [--spec <spec.mjs>] [--debug] [--pieces [x|y|z]] <workfile.glb> [...]
+const HELP = `plank-tone.mjs [--dry] [--force] [--min <n>] [--share <n>] [--band <from>:<to>] [--flat <deg>] [--no-edges] [--whole] [--only <band>] [--band-after <from>:<to>] [--steps] [--facets] [--join] [--floor] [--spec <spec.mjs>] [--debug] [--pieces [x|y|z]] <workfile.glb> [...]
 
 Gives each plank in the tan, camel and chestnut bands of kits/colormap.png its
 own tone from a set of six, 0.015 OKLCH lightness apart and each used about
@@ -44,9 +44,6 @@ of a round piece built as one.
 --join gives pieces of one board cut apart by a gap, such as a door or post,
 one tone: same direction and thickness, in line, at most three board widths
 apart.
---stone works on the stone bands ivory, taupe and taupe-dark instead of wood,
-and takes every piece as a stone, whatever its shape or neighbours.
-Bricks in another band join with --band <from>:<to> (terracotta:taupe).
 --dry reports without writing.
 --spec <spec.mjs> names the boards by hand and skips the --min and --share
 check. Its default export gets each wood triangle as { c (centre), n (normal),
@@ -66,11 +63,7 @@ nothing.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
-const WOOD_BANDS = ['tan', 'camel', 'chestnut'];
-const STONE_BANDS = ['ivory', 'taupe', 'taupe-dark'];
-const bandCell = (b) => BANDS[b].split(',').map(Number);
-let WOOD = WOOD_BANDS.map(bandCell);
-let STONE = false;
+const WOOD = ['tan', 'camel', 'chestnut'].map((b) => BANDS[b].split(',').map(Number));
 const TONES = [0.37, 0.452, 0.534, 0.616, 0.698, 0.78];
 const GRADIENT = [0.328, 0.164, 0.328, 0.328, 0.164, 0.328];
 const SIDE = 0.082;
@@ -169,7 +162,6 @@ const isBoard = (f) => {
   return t <= 0.6 * w;
 };
 const isPlank = (f) => {
-  if (STONE) return true;
   const [l, w] = f.ext.map(span);
   return isBoard(f) ? l >= 1.5 * w : l >= 3 * w;
 };
@@ -656,9 +648,8 @@ function tone(file, options) {
         if (!isBoard(p)) return lateral >= 0.6 * span(p.ext[2]) && gap(p, q) <= 2 * w;
         return Math.abs(dot(d, p.axes[1])) >= 0.6 * w && Math.abs(dot(d, p.axes[2])) <= w && gap(p, q) <= 2 * w;
       };
-      if (STONE) for (const p of pieces) p.plank = true;
       const candidates = pieces.filter((p) => p.plank);
-      if (!options.force && !STONE) for (const p of candidates.filter((q) => !isBoard(q))) {
+      if (!options.force) for (const p of candidates.filter((q) => !isBoard(q))) {
         p.plank = candidates.some((q) => q !== p && (isBoard(q) || similar(p, q)) && Math.abs(dot(p.axes[0], q.axes[0])) > 0.95 && beside(p, q));
       }
       jobs.push({ prim, idx, uv, cell, pieces, world, normal: at.normal });
@@ -1058,7 +1049,6 @@ for (let i = 0; i < argv.length; i++) {
   else if (argv[i] === '--pieces') options.pieces = /^[xyz]$/.test(argv[i + 1] ?? '') ? argv[++i] : true;
   else if (argv[i] === '--whole') options.whole = true;
   else if (argv[i] === '--floor') options.floor = true;
-  else if (argv[i] === '--stone') options.stone = true;
   else if (argv[i] === '--steps' || argv[i] === '--facets' || argv[i] === '--join') options[argv[i].slice(2)] = true;
   else if (argv[i] === '--band-after') options.bandAfter = argv[++i].split(':').map((b) => BANDS[b].split(',').map(Number));
   else if (argv[i] === '--only') options.only = BANDS[argv[++i]].split(',').map(Number);
@@ -1067,13 +1057,8 @@ for (let i = 0; i < argv.length; i++) {
   else files.push(argv[i]);
 }
 FLAT = Math.cos((options.flat * Math.PI) / 180);
-const BAND_NAMES = [...(options.stone ? STONE_BANDS : WOOD_BANDS)];
-const fromBand = options.band && Object.keys(BANDS).find((b) => BANDS[b] === options.band[0].join(','));
-if (fromBand && !BAND_NAMES.includes(fromBand)) BAND_NAMES.push(fromBand);
-STONE = !!options.stone;
-WOOD = BAND_NAMES.map(bandCell);
 for (const file of files) {
-  if (options.spec?.cut && !options.dry && !options.pieces) cutAlong(file, options.spec.cut, BAND_NAMES);
+  if (options.spec?.cut && !options.dry && !options.pieces) cutAlong(file, options.spec.cut);
   const result = (options.floor ? floorTone : tone)(file, options);
   if (options.bandAfter && !options.dry && !result.startsWith('skip')) moveBand(file, ...options.bandAfter);
   console.log(`${file}: ${result}`);
