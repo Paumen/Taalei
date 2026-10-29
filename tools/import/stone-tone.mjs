@@ -13,7 +13,7 @@ its faces meet in an inward fold (grooves, notches, steps) or where its colour j
 between faces less than 45 degrees apart (painted stones). A part under a tenth of the median stone
 joins the stone it shares the longest edge with.
 Each stone is lighter at its top and darker at its bottom; a flat stone (lower
-than a quarter of its width) has no gradient. Faces turned sideways are
+than a quarter of its width) is lighter at its back (-z) and darker at its front. Faces turned sideways are
 darker than faces turned up, faces turned down darker still.
 --band <from>:<to> moves stone in another band into a stone band first, such
 as red brick: --band terracotta:taupe.
@@ -192,7 +192,8 @@ function tone(file, options) {
           const facing = nm[1] > 0.95 ? 0 : nm[1] < -0.5 ? 2 * SIDE : SIDE;
           for (let k = 0; k < 3; k++) {
             const y = at.corners[t][k][1];
-            const c = flat ? 0 : height > 1e-9 ? (y - lo[1]) / height - 0.5 : 0;
+            const depth = hi[2] - lo[2];
+            const c = flat ? (depth > 1e-9 ? (hi[2] - at.corners[t][k][2]) / depth - 0.5 : 0) : height > 1e-9 ? (y - lo[1]) / height - 0.5 : 0;
             const l = TONES[tones[i]] + GRADIENT * c - facing;
             writes.set(t * 3 + k, options.debug ? cellUv(DEBUG[i % DEBUG.length], i % 18 < 9 ? 0.75 : 0.3) : cellUv(to, l));
           }
