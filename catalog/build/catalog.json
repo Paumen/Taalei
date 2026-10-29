@@ -402240,7 +402240,7 @@
   {
    "kit": "swords-tember",
    "name": "antler",
-   "hash": "7e7bb041c8",
+   "hash": "e45a7eae85",
    "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
@@ -402248,26 +402248,26 @@
     0.19,
     0.796
    ],
-   "tris": 1002,
-   "tpu": 2569,
+   "tris": 654,
+   "tpu": 1677,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 61436,
-   "vtx": 1684,
+   "bytes": 48264,
+   "vtx": 1215,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.1594,
-   "avgTri": 0.0001,
-   "anglePct": 3,
+   "thick": 0.1602,
+   "avgTri": 0.00014,
+   "anglePct": 2,
    "pieces": 11,
-   "vpt": 1.68,
+   "vpt": 1.86,
    "cells": [
-    "6,0",
     "3,0",
+    "15,3",
     "2,0",
-    "15,3"
+    "6,0"
    ],
    "colors": [
     "#472715",
@@ -402281,12 +402281,26 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.77
+   "backface": {
+    "share": 0.0012,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.77,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 45/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "swords-tember",
    "name": "cephalopod",
-   "hash": "20696053ae",
+   "hash": "ea80a9785c",
    "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
@@ -402294,27 +402308,27 @@
     0.122,
     0.573
    ],
-   "tris": 2852,
-   "tpu": 8315,
+   "tris": 1367,
+   "tpu": 3985,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 168320,
-   "vtx": 4677,
+   "bytes": 104476,
+   "vtx": 2704,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0182,
-   "thick": 0.1673,
-   "avgTri": 0.00005,
-   "anglePct": 6,
-   "pieces": 8,
-   "vpt": 1.64,
+   "thick": 0.1672,
+   "avgTri": 0.00009,
+   "anglePct": 8,
+   "pieces": 11,
+   "vpt": 1.98,
    "cells": [
     "8,0",
     "6,0",
-    "5,0",
     "15,3",
+    "5,0",
     "2,0"
    ],
    "colors": [
@@ -402332,19 +402346,20 @@
     "wood-dark"
    ],
    "backface": {
-    "share": 0.003,
-    "view": "135/20",
+    "share": 0.0162,
+    "view": "270/20",
     "causes": {
-     "inverted": 0.66,
-     "other": 0.34
+     "open": 0.91,
+     "inverted": 0.09,
+     "other": 0
     }
    },
    "thickRel": 0.8,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.3% of view 135/20 over 0.1%: inverted 66.0%, other 34.0%"
+     "text": "1.6% of view 270/20 over 0.5%: open 91.0%, inverted 9.0%"
     }
    ]
   },
@@ -402411,7 +402426,7 @@
   {
    "kit": "swords-tember",
    "name": "coral",
-   "hash": "4dc0d88f38",
+   "hash": "d2bc463815",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -402419,26 +402434,26 @@
     0.069,
     0.761
    ],
-   "tris": 3122,
-   "tpu": 8372,
+   "tris": 2260,
+   "tpu": 6061,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 194696,
-   "vtx": 5451,
+   "bytes": 162316,
+   "vtx": 4177,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0144,
    "thick": 0.1214,
-   "avgTri": 0.00008,
-   "anglePct": 15,
-   "pieces": 10,
-   "vpt": 1.75,
+   "avgTri": 0.00009,
+   "anglePct": 8,
+   "pieces": 13,
+   "vpt": 1.85,
    "cells": [
+    "4,2",
     "5,0",
     "8,0",
-    "4,2",
     "6,0",
     "5,2"
    ],
@@ -402455,26 +402470,28 @@
     "shell"
    ],
    "backface": {
-    "share": 0.0029,
+    "share": 0.0099,
     "view": "270/20",
     "causes": {
-     "inverted": 0.94,
+     "open": 0.41,
+     "inverted": 0.48,
+     "inside-out": 0.04,
      "other": 0.06
     }
    },
    "thickRel": 0.83,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.3% of view 270/20 over 0.1%: inverted 94.0%, other 6.0%"
+     "text": "1.0% of view 270/20 over 0.5%: inverted 48.0%, open 41.0%, other 6.0%, inside-out 4.0%"
     }
    ]
   },
   {
    "kit": "swords-tember",
    "name": "crown",
-   "hash": "008c7cdefb",
+   "hash": "44f340b507",
    "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "s",
    "wdh": [
@@ -402482,21 +402499,21 @@
     0.092,
     0.455
    ],
-   "tris": 2510,
-   "tpu": 7318,
+   "tris": 2132,
+   "tpu": 6216,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 159732,
-   "vtx": 4473,
+   "bytes": 149104,
+   "vtx": 3812,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "thick": 0.1081,
-   "avgTri": 0.00003,
-   "anglePct": 4,
+   "avgTri": 0.00004,
+   "anglePct": 5,
    "pieces": 90,
-   "vpt": 1.78,
+   "vpt": 1.79,
    "cells": [
     "6,0",
     "15,3",
@@ -402517,22 +402534,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "backface": {
-    "share": 0.003,
-    "view": "180/20",
-    "causes": {
-     "inverted": 0.98,
-     "other": 0.02
-    }
-   },
-   "thickRel": 0.52,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 180/20 over 0.1%: inverted 98.0%, other 2.0%"
-    }
-   ]
+   "thickRel": 0.52
   },
   {
    "kit": "swords-tember",
@@ -402577,7 +402579,7 @@
   {
    "kit": "swords-tember",
    "name": "floral",
-   "hash": "172eca9d6a",
+   "hash": "8362bea4a3",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -402585,26 +402587,26 @@
     0.073,
     0.646
    ],
-   "tris": 3375,
-   "tpu": 9840,
+   "tris": 2728,
+   "tpu": 7953,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 212860,
-   "vtx": 5971,
+   "bytes": 197024,
+   "vtx": 5086,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0121,
-   "thick": 0.1672,
-   "avgTri": 0.00004,
+   "thick": 0.167,
+   "avgTri": 0.00005,
    "anglePct": 8,
-   "pieces": 68,
-   "vpt": 1.77,
+   "pieces": 70,
+   "vpt": 1.86,
    "cells": [
+    "15,3",
     "6,0",
     "3,1",
-    "15,3",
     "2,0"
    ],
    "colors": [
@@ -402618,20 +402620,20 @@
     "special-organic"
    ],
    "backface": {
-    "share": 0.0036,
-    "view": "315/20",
+    "share": 0.0095,
+    "view": "90/20",
     "causes": {
-     "inverted": 0.75,
-     "other": 0.23,
-     "inside-out": 0.02
+     "open": 0.5,
+     "inverted": 0.37,
+     "other": 0.13
     }
    },
    "thickRel": 1.14,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.4% of view 315/20 over 0.1%: inverted 75.0%, other 23.0%, inside-out 2.0%"
+     "text": "0.9% of view 90/20 over 0.5%: open 50.0%, inverted 37.0%, other 13.0%"
     }
    ]
   },
@@ -402684,7 +402686,7 @@
   {
    "kit": "swords-tember",
    "name": "pattern",
-   "hash": "bd4e25046d",
+   "hash": "6e6772faa9",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
@@ -402692,22 +402694,22 @@
     0.031,
     0.42
    ],
-   "tris": 1694,
-   "tpu": 4939,
+   "tris": 1482,
+   "tpu": 4321,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 92084,
-   "vtx": 2512,
+   "bytes": 95992,
+   "vtx": 2396,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0325,
-   "thick": 0.1352,
+   "thick": 0.1342,
    "avgTri": 0.00007,
    "anglePct": 40,
    "pieces": 18,
-   "vpt": 1.48,
+   "vpt": 1.62,
    "cells": [
     "14,3",
     "15,3",
@@ -402726,39 +402728,39 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "swords-tember",
    "name": "skull",
-   "hash": "425d21a14f",
+   "hash": "51887533bb",
    "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
-    0.147,
+    0.146,
     0.07,
     0.516
    ],
-   "tris": 1279,
-   "tpu": 3729,
+   "tris": 526,
+   "tpu": 1534,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 94132,
-   "vtx": 2654,
+   "bytes": 43264,
+   "vtx": 1107,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0125,
-   "thick": 0.162,
-   "avgTri": 0.00005,
+   "thick": 0.1624,
+   "avgTri": 0.00012,
    "anglePct": 3,
    "pieces": 4,
-   "vpt": 2.08,
+   "vpt": 2.1,
    "cells": [
-    "14,3",
     "15,3",
-    "5,2"
+    "5,2",
+    "14,3"
    ],
    "colors": [
     "#7a8491",
@@ -402775,35 +402777,35 @@
   {
    "kit": "swords-tember",
    "name": "snake",
-   "hash": "6b05a28f5a",
+   "hash": "2ffcbf2fdf",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "s",
    "wdh": [
     0.069,
     0.061,
-    0.405
+    0.402
    ],
-   "tris": 1330,
-   "tpu": 3878,
+   "tris": 794,
+   "tpu": 2315,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 74636,
-   "vtx": 2035,
+   "bytes": 57176,
+   "vtx": 1441,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.2385,
-   "avgTri": 0.00003,
-   "anglePct": 1,
+   "thick": 0.2347,
+   "avgTri": 0.00005,
+   "anglePct": 3,
    "pieces": 8,
-   "vpt": 1.53,
+   "vpt": 1.81,
    "cells": [
     "1,1",
     "6,0",
     "14,3",
-    "3,1",
-    "15,3"
+    "15,3",
+    "3,1"
    ],
    "colors": [
     "#21552a",
@@ -402818,7 +402820,7 @@
     "metal-steel",
     "textile-cloth-mid"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.61
   },
   {
    "kit": "swords-tember",
@@ -402863,30 +402865,30 @@
   {
    "kit": "swords-tember",
    "name": "woven",
-   "hash": "790b12fcad",
+   "hash": "708f79b10a",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.178,
+    0.174,
     0.04,
-    0.653
+    0.648
    ],
-   "tris": 1851,
-   "tpu": 5397,
+   "tris": 927,
+   "tpu": 2703,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 103740,
-   "vtx": 2847,
+   "bytes": 62704,
+   "vtx": 1564,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0122,
-   "thick": 0.1337,
-   "avgTri": 0.00009,
-   "anglePct": 3,
+   "minEdge": 0.004,
+   "minTube": 0.0133,
+   "thick": 0.1334,
+   "avgTri": 0.00017,
+   "anglePct": 2,
    "pieces": 20,
-   "vpt": 1.54,
+   "vpt": 1.69,
    "cells": [
     "15,3"
    ],
@@ -402896,7 +402898,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "taalei-kit",
