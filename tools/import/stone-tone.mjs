@@ -6,9 +6,11 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, welder, primitiveMa
 
 const HELP = `stone-tone.mjs [--random] [--spread <v>] [--bands <a,b>] [--no-wall] [--debug] [--dry] [--report] <workfile.glb> [...]
 
-Gives each stone of a masonry model its own tone inside its band, lighter on
-top, mid on its sides and darkest underneath, and the whole model lighter at
-the top than at the base. A stone is a block in the mesh (a piece of its own,
+Gives each stone of a masonry model its own tone around the middle of its band,
+its top faces lighter, its sides graded lighter at the top edge, its underside
+darkest, and the whole model lighter at the top than at the base. The look is
+the same across the catalogue; a stone keeps its own painted detail at a third.
+A stone is a block in the mesh (a piece of its own,
 or a bump parted from its piece at an inward fold), or a patch painted lighter
 or darker on a flat face. A piece with neither is one stone: it keeps its own
 light and dark and gets the top-to-bottom order; several such pieces (a
@@ -18,7 +20,7 @@ Painted detail inside a stone (cracks, chips) stays, at half strength.
 Tones come from where a stone sits and how big it is (bigger a touch darker),
 so neighbours differ and no run repeats; --random shuffles a seeded set
 instead, as plank-tone does.
---spread <v>   how far apart stone tones lie, in band units (default 0.22).
+--spread <v>   how far apart stone tones lie, in band units (default 0.12).
 --bands <a,b>  bands to tone (default taupe,taupe-dark,ivory).
 --no-wall      no model-wide top-to-bottom gradient.
 --debug        each stone in its own bright colour.
@@ -30,10 +32,14 @@ const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 const RANGE = [0.06, 0.94];
 const FLAT = Math.cos((2 * Math.PI) / 180);
 const FOLD = Math.cos((8 * Math.PI) / 180);
-const FACING = { top: 0.07, side: 0, under: -0.14 };
-const WALL = 0.06;
-const DETAIL = 0.5;
-const PIECE_SPREAD = 0.35;
+const BASE = 0.5;
+const MODES = {
+  blocks: { accent: [0.2, 0.12], accentDark: 0.2, accentLight: 0.14, jitter: 0.04, course: 0.04, top: 0.15, under: -0.25, within: 0.1, withinPlain: 0.3, keep: 0.5, keepPlain: 0.6, lift: 0, wall: 0.08 },
+  painted: { jitter: 0.02, top: 0.1, under: -0.15, within: 0.08, withinPlain: 0.3, keep: 0.8, keepPlain: 0.8, lift: 1, wall: 0.06 },
+  cobbles: { accent: [0.2, 0.12], accentDark: 0.14, accentLight: 0.12, jitter: 0.04, top: 0.1, under: -0.2, within: 0.12, withinPlain: 0, keep: 0.4, keepPlain: 0, lift: 0.08, wall: 0, bed: -0.2 },
+  courses: { jitter: 0.02, course: 0.08, top: 0.12, under: -0.2, within: 0.16, withinPlain: 0.3, keep: 0.5, keepPlain: 0.6, lift: 0, wall: 0.08 },
+  plain: { jitter: 0.03, top: 0.15, under: -0.2, within: 0.25, withinPlain: 0.25, keep: 0.8, keepPlain: 0.8, lift: 0.5, wall: 0.08 },
+};
 const DEBUG = [[5, 0], [1, 1], [4, 2], [6, 0], [3, 1], [13, 3], [8, 0], [6, 1], [5, 2], [2, 0], [0, 0]];
 
 const norm = (a) => { const l = Math.hypot(...a) || 1; return a.map((x) => x / l); };
@@ -284,39 +290,69 @@ function tone(file, options) {
         s.c = centre(s.tris, at);
         s.area = s.tris.reduce((sum, t) => sum + at.area[t], 0);
         s.old = mean(s.tris.map((t) => at.light[t]));
+        const sy = s.tris.flatMap((t) => at.corners[t].map((q) => q[1]));
+        s.y0 = Math.min(...sy);
+        s.y1 = Math.max(...sy);
+        const pts = s.tris.flatMap((t) => [0, 1, 2].map((k) => [at.corners[t][k][1], at.cornerLight[t][k]]));
+        const my = mean(pts.map((q) => q[0]));
+        const ml = mean(pts.map((q) => q[1]));
+        const vy = pts.reduce((sum, q) => sum + (q[0] - my) ** 2, 0);
+        s.slope = vy > 1e-12 ? pts.reduce((sum, q) => sum + (q[0] - my) * (q[1] - ml), 0) / vy : 0;
+        s.my = my;
+        s.old = ml;
       }
-      const areas = all.map((s) => s.area).sort((a, b) => a - b);
-      const medianArea = areas[areas.length >> 1] || 1;
-      const spread = options.spread;
+      const heights = all.map((s) => s.y1 - s.y0).sort((a, b) => a - b);
+      const medianHeight = heights[heights.length >> 1] || 1;
+      const rows = [];
+      for (const s of [...all].sort((a, b) => a.c[1] - b.c[1])) {
+        const row = rows.find((r) => Math.abs(r.y - s.c[1]) < 0.5 * medianHeight);
+        if (row) { row.list.push(s); row.y = mean(row.list.map((q) => q.c[1])); } else rows.push({ y: s.c[1], list: [s] });
+      }
+      rows.forEach((r, i) => r.list.forEach((s) => { s.row = i; }));
+      const mode = MODES[options.mode];
+      const touch = (a, b) => [0, 2].every((k) => Math.abs(a.c[k] - b.c[k]) < 0.6 * (Math.abs(a.y1 - a.y0) + Math.abs(b.y1 - b.y0)) + 0.5 * (a.w + b.w)) && Math.abs(a.c[1] - b.c[1]) < 1.1 * medianHeight;
+      for (const s of all) { s.w = Math.sqrt(s.area); s.h = hash(s.c); s.tone = 0; }
+      if (mode.accent) {
+        const accents = [];
+        for (const s of [...all].filter((q) => !q.plain).sort((a, b) => a.h - b.h)) {
+          const dark = s.h < mode.accent[0];
+          const light = !dark && s.h < mode.accent[0] + mode.accent[1];
+          if (!dark && !light) { s.tone = mode.jitter * (s.h - 0.5) * 2; continue; }
+          if (accents.some((a) => touch(a, s))) { s.tone = mode.jitter * (s.h - 0.5) * 2; continue; }
+          s.tone = dark ? -mode.accentDark : mode.accentLight;
+          accents.push(s);
+        }
+      } else for (const s of all) s.tone = mode.jitter * (s.h - 0.5) * 2;
+      if (mode.course) for (const s of all) s.tone += (s.row % 2 ? -1 : 1) * mode.course;
       if (options.random) {
-        const k = all.length;
-        const set = all.map((_, i) => (k > 1 ? i / (k - 1) - 0.5 : 0)).sort(() => R() - 0.5);
-        all.forEach((s, i) => { s.tone = set[i] * spread; });
-      } else for (const s of all) {
-        const size = clamp(-Math.log(s.area / medianArea) * 0.08, -0.25, 0.25);
-        s.tone = (0.75 * (hash(s.c) - 0.5) + 0.25 * size) * spread;
+        const tones = all.map((s) => s.tone).sort(() => R() - 0.5);
+        all.forEach((s, i) => { s.tone = tones[i]; });
       }
-      for (const s of plain) s.tone *= stones.length ? 1 : PIECE_SPREAD;
       const bandName = Object.keys(BANDS).find((b) => BANDS[b] === cell.join(','));
-      report.push(`${bandName}: ${pieces.length} pieces, ${stones.filter((s) => s.block).length} blocks, ${stones.filter((s) => s.painted).length} painted, ${plain.length} plain`);
+      report.push(`${bandName}: ${pieces.length} pieces, ${stones.filter((s) => s.block).length} blocks, ${stones.filter((s) => s.painted).length} painted, ${plain.length} plain, ${rows.length} rows`);
       found += stones.length;
       const faceOf = new Map();
       for (const s of all) for (const face of flatFaces(s.tris, at)) {
         const nn = norm(face.reduce((acc, t) => acc.map((x, k) => x + at.normal[t][k] * at.area[t]), [0, 0, 0]));
         for (const t of face) faceOf.set(t, nn);
       }
-      const anchor = stones.length ? 0.5 : 0.5;
+      const modelOld = mean(all.map((s) => s.old));
       all.forEach((s, si) => {
         const ny = (q) => (y1 > y0 ? (q[1] - y0) / (y1 - y0) : 0.5);
-        const wall = options.wall ? WALL * (ny(s.c) - 0.5) * 2 : 0;
-        const basis = s.plain ? s.old : clamp(s.old, 0.35, 0.65) * 0.5 + anchor * 0.5;
+        const bed = mode.bed !== undefined && s.plain;
+        const wall = options.wall ? mode.wall * (ny(s.c) - 0.5) * 2 : 0;
+        const within = s.plain ? mode.withinPlain : mode.within;
+        const keep = s.plain ? mode.keepPlain : mode.keep;
+        const base = BASE + (bed ? mode.bed : s.tone + mode.lift * (s.old - modelOld));
         for (const t of s.tris) {
           const nn = faceOf.get(t);
-          const facing = nn[1] > 0.5 ? FACING.top * Math.min(1, (nn[1] - 0.5) * 2 + 0.5) : nn[1] < -0.3 ? FACING.under : FACING.side + nn[1] * 0.06;
+          const facing = bed ? 0 : nn[1] > 0 ? mode.top * Math.min(1, nn[1] * 1.5) : mode.under * Math.min(1, -nn[1] * 1.5);
           for (let k = 0; k < 3; k++) {
             const v = idx[t * 3 + k];
-            const detail = clamp(DETAIL * (oldLight(uv, v, cell) - s.old), -0.15, 0.15);
-            let l = basis + s.tone + facing + wall + detail;
+            const q = at.corners[t][k];
+            const grad = bed || s.y1 <= s.y0 ? 0 : within * ((q[1] - s.y0) / (s.y1 - s.y0) - 0.5) * 2;
+            const detail = clamp(keep * (oldLight(uv, v, cell) - s.old - s.slope * (q[1] - s.my)), -0.2, 0.2);
+            const l = base + facing + grad + wall + detail;
             if (options.debug) corner.set(t * 3 + k, cellUv(DEBUG[si % DEBUG.length], si % 22 < 11 ? 0.75 : 0.3));
             else corner.set(t * 3 + k, cellUv(cell, l));
           }
@@ -357,12 +393,12 @@ function tone(file, options) {
 }
 
 const args = process.argv.slice(2);
-const options = { bands: ['taupe', 'taupe-dark', 'ivory'], spread: 0.22, wall: true };
+const options = { bands: ['taupe', 'taupe-dark', 'ivory'], mode: 'blocks', wall: true };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--random') options.random = true;
-  else if (a === '--spread') options.spread = Number(args[++i]);
+  else if (a === '--mode') options.mode = args[++i];
   else if (a === '--bands') options.bands = args[++i].split(',');
   else if (a === '--no-wall') options.wall = false;
   else if (a === '--debug') options.debug = true;
