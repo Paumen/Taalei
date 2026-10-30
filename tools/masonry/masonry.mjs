@@ -78,12 +78,13 @@ export function process(inPath,outPath,{kind='',tags=[],id='',opts={}}={}){
   const edges=new Map();tris.forEach((t,i)=>{if(!t.m)return;for(let e=0;e<3;e++){const a=t.w[e],b=t.w[(e+1)%3];const k=a<b?a+'_'+b:b+'_'+a;(edges.get(k)||edges.set(k,[]).get(k)).push(i)}});
   const par=tris.map((_,i)=>i);const f=i=>par[i]===i?i:(par[i]=f(par[i]));const un=(a,b)=>{a=f(a);b=f(b);if(a!==b)par[a]=b};
   const fpar=tris.map((_,i)=>i);const ff=i=>fpar[i]===i?i:(fpar[i]=ff(fpar[i]));
+  const ppar=tris.map((_,i)=>i);const pf=i=>ppar[i]===i?i:(ppar[i]=pf(ppar[i]));
   const concave=new Map();
   for(const [k,l] of edges){for(let x=0;x<l.length;x++)for(let y=x+1;y<l.length;y++){const A=tris[l[x]],B=tris[l[y]];if(A.cell!==B.cell)continue;
     const cosang=dot(A.n,B.n);const opp=B.p[[0,1,2].find(i=>!A.w.includes(B.w[i]))??0];
     const s=dot(A.n,sub(opp,A.c));const isConcave=s>eps*2&&cosang<0.97;
     if(isConcave){(concave.get(l[x])||concave.set(l[x],[]).get(l[x])).push(l[y]);(concave.get(l[y])||concave.set(l[y],[]).get(l[y])).push(l[x]);continue}
-    un(l[x],l[y]);if(cosang>0.88){const a=ff(l[x]),b=ff(l[y]);if(a!==b)fpar[a]=b}}}
+    un(l[x],l[y]);if(cosang>0.9995){const a=pf(l[x]),b=pf(l[y]);if(a!==b)ppar[a]=b}if(cosang>0.88){const a=ff(l[x]),b=ff(l[y]);if(a!==b)fpar[a]=b}}}
   const segMap=new Map();
   tris.forEach((t,i)=>{if(!t.m)return;const r=f(i);if(!segMap.has(r))segMap.set(r,{tris:[],a:0,c:[0,0,0],nb:new Set(),mn:[1e9,1e9,1e9],mx:[-1e9,-1e9,-1e9],nsum:[0,0,0]});const s=segMap.get(r);s.tris.push(i);s.a+=t.a;for(let k=0;k<3;k++){s.c[k]+=t.c[k]*t.a;s.nsum[k]+=t.n[k]*t.a}for(const p of t.p)for(let k=0;k<3;k++){s.mn[k]=Math.min(s.mn[k],p[k]);s.mx[k]=Math.max(s.mx[k],p[k])}});
   const segs=[...segMap.values()];segs.forEach((s,i)=>{s.id=i;s.c=s.c.map(x=>x/s.a);for(const ti of s.tris)tris[ti].seg=s});
@@ -136,20 +137,24 @@ export function process(inPath,outPath,{kind='',tags=[],id='',opts={}}={}){
   const fArea=new Map();for(const t of mt){const r=ff(t.idx);fArea.set(r,(fArea.get(r)||0)+t.a)}
   const facets=new Map();for(const s of segs)for(const ti of s.tris){const r=ff(ti);if(!facets.has(r))facets.set(r,(R()-0.5)*2*Q.facet)}
   const facetW=t=>{const fa=fArea.get(ff(t.idx))||0;return Math.min(1.4,0.3+fa/(area*0.05))};
+  const pAO=new Map();for(const t of mt){let a_=ao(t.c,t.n)*2;for(const p of t.p)a_+=ao([p[0]*0.6+t.c[0]*0.4,p[1]*0.6+t.c[1]*0.4,p[2]*0.6+t.c[2]*0.4],t.n);const k=ff(t.idx);const e=pAO.get(k)||[0,0];e[0]+=a_/5*t.a;e[1]+=t.a;pAO.set(k,e)}
+  for(const t of mt){const e=pAO.get(ff(t.idx));t.aoF=Q.ao*e[0]/e[1]}
   for(const t of tris){if(!t.m)continue;const s=t.seg;if(s.roof){t.nv=t.ev.slice();continue}
     const ny=t.n[1];const or=ny>=0?Q.top*smooth(0.3,0.9,ny):Q.bottom*smooth(0.15,0.75,-ny);
     const sh=s.mx[1]-s.mn[1];
-    {let acc_=ao(t.c,t.n)*2;for(const p of t.p)acc_+=ao([p[0]*0.6+t.c[0]*0.4,p[1]*0.6+t.c[1]*0.4,p[2]*0.6+t.c[2]*0.4],t.n);t.aoF=Q.ao*acc_/5}
     t.nv=t.p.map((p,ci)=>{
       const hs=sh>size*0.02?(p[1]-s.mn[1])/sh:0.5;const hm=(p[1]-H0)/H;
       const g=Q.grad*(0.5-hs)*(cls==='ground'?0.5:1)+(cls==='ground'?0:Q.modelGrad*(0.5-hm));
       const a=t.aoF;
       const d=Math.max(-0.2,Math.min(0.2,(t.ev[ci]-s.em)*Q.keepDetail));
-      return Math.max(0.03,Math.min(0.97,base+s.tone+or+g+a+d+(facets.get(ff(t.idx))||0)*facetW(t)));
+      return base+s.tone+or+g+a+d+(facets.get(ff(t.idx))||0)*facetW(t);
     });}
+  {let sm=0,sa=0,so=0;for(const t of mt){if(t.seg.roof)continue;sm+=(t.nv[0]+t.nv[1]+t.nv[2])/3*t.a;so+=(t.ev[0]+t.ev[1]+t.ev[2])/3*t.a;sa+=t.a}
+   const sh_=sa?Math.min(0,(so-sm)/sa+0.06):0;for(const t of mt){if(t.seg.roof)continue;t.nv=t.nv.map(v=>Math.max(0.02,Math.min(0.98,v+sh_)))}}
+  let jump=0;{const at=new Map();for(const t of mt){const k=pf(t.idx);t.w.forEach((w,ci)=>{const kk=k+'|'+w;if(at.has(kk)){const [n0,e0]=at.get(kk);jump=Math.max(jump,Math.abs(n0-t.nv[ci])-Q.keepDetail*Math.abs(e0-t.ev[ci]))}else at.set(kk,[t.nv[ci],t.ev[ci]])})}}
   rebuild(g,prims,tris);
   writeGlb(g,outPath);
-  const st={cls,segs:segs.length,stones:segs.filter(s=>!s.inset).length,insets:segs.filter(s=>s.inset).length,roofs:segs.filter(s=>s.roof).length,base:+base.toFixed(3),aoDist:+aoDist.toFixed(3)};
+  const st={jump:+jump.toFixed(3),cls,segs:segs.length,stones:segs.filter(s=>!s.inset).length,insets:segs.filter(s=>s.inset).length,roofs:segs.filter(s=>s.roof).length,base:+base.toFixed(3),aoDist:+aoDist.toFixed(3)};
   return st;
 }
 
