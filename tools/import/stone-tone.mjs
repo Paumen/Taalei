@@ -252,6 +252,15 @@ function tone(file, options) {
     const corner = new Map();
     const box = [[Infinity, Infinity, Infinity], [-Infinity, -Infinity, -Infinity]];
     for (let v = 0; v < pos.length / 3; v++) { const q = world(v); for (let k = 0; k < 3; k++) { box[0][k] = Math.min(box[0][k], q[k]); box[1][k] = Math.max(box[1][k], q[k]); } }
+    const bandArea = new Map();
+    for (let t = 0; t < idx.length / 3; t++) {
+      const c = [0, 1, 2].map((k) => idx[t * 3 + k]);
+      const [cu, cv] = cellOf(c[0]);
+      const p3 = c.map(world);
+      const a = Math.hypot(...cross(sub(p3[1], p3[0]), sub(p3[2], p3[0]))) / 2;
+      bandArea.set(`${cu},${cv}`, (bandArea.get(`${cu},${cv}`) || 0) + a);
+    }
+    const mainCell = options.bands.map((c) => c.join(',')).reduce((a, b) => ((bandArea.get(b) || 0) > (bandArea.get(a) || 0) ? b : a));
     for (const cell of options.bands) {
       const at = { weld: [], corners: [], normal: [], area: [], mid: [], light: [], cornerLight: [] };
       const tris = [];
@@ -352,12 +361,15 @@ function tone(file, options) {
           const sh = [0, 1, 2].map((k) => Math.max(...s.tris.flatMap((t) => at.corners[t].map((c) => c[k]))));
           s.lo = sl; s.hi = sh;
           const spans = all.length > 1 && axes.every((k) => sh[k] - sl[k] >= 0.8 * (hi[k] - lo[k]));
-          s.masonry = !options.noMasonry && (s.plain || spans || (all.length > 1 && s.area >= 0.25 * total && s.area >= 4 * mid));
+          s.masonry = !options.noMasonry && !(options.one && cell.join(',') !== mainCell) && (spans || (s.plain && s.area >= 0.25 * total) || (all.length > 1 && s.area >= 0.25 * total && s.area >= 4 * mid));
         }
         const masonry = all.filter((s) => s.masonry);
         const wallOld = masonry.length ? mean(masonry.map((s) => s.old)) : null;
         const STEPS = [-2, -1, 0, 1, 2].map((k) => k * options.spread / 2);
         const order = all.filter((s) => !s.masonry).sort(() => R() - 0.5);
+        const olds = order.map((s) => s.old);
+        const ranked = olds.length > 1 && Math.max(...olds) - Math.min(...olds) > 0.06;
+        if (ranked) [...order].sort((a, b) => a.old - b.old).forEach((s, i, list) => { s.want = STEPS[Math.round((i / Math.max(1, list.length - 1)) * 4)]; });
         const done = [];
         for (const s of order) {
           let pool = STEPS;
@@ -368,7 +380,7 @@ function tone(file, options) {
           const near = done.filter((q) => touch(q, s)).map((q) => q.step);
           const free = pool.filter((x) => !near.includes(x));
           const pick = free.length ? free : pool;
-          s.step = pick[Math.floor(R() * pick.length)];
+          s.step = ranked ? pick.reduce((a, b) => (Math.abs(b - s.want) < Math.abs(a - s.want) ? b : a)) : pick[Math.floor(R() * pick.length)];
           done.push(s);
         }
         for (const s of masonry) s.step = 0;
