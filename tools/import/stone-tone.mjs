@@ -375,6 +375,7 @@ function tone(file, options) {
         const H = box[1][1] - box[0][1];
         const Wd = Math.max(box[1][0] - box[0][0], box[1][2] - box[0][2]);
         const roleBand = (s) => {
+          if (options.one && [BANDS.taupe, BANDS['taupe-dark'], BANDS.ivory].includes(cell.join(','))) return BANDS[options.one].split(',').map(Number);
           if (!options.roles || ![BANDS.taupe, BANDS['taupe-dark']].includes(cell.join(','))) return cell;
           if (s.masonry || H < 0.3 * Wd) return BANDS.taupe.split(',').map(Number);
           const top = s.lo[1] >= box[1][1] - 0.2 * H, bottom = s.hi[1] <= box[0][1] + 0.2 * H;
@@ -470,6 +471,7 @@ for (let i = 0; i < args.length; i++) {
   else if (a === '--keep') options.keep = Number(args[++i]);
   else if (a === '--no-masonry') options.noMasonry = true;
   else if (a === '--roles') options.roles = true;
+  else if (a === '--one') options.one = args[++i];
   else if (a === '--debug') options.debug = true;
   else if (a === '--dry') options.dry = true;
   else if (a === '--report') options.report = true;
