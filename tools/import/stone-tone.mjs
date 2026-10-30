@@ -13,22 +13,24 @@ the masonry bands the catalogue tags name (stone-masonry-light ivory,
 
 A stone is a run of masonry triangles joined across flat or outward edges.
 Grooves (inward edges sharper than --groove degrees) part stones, so stones
-fused into one piece still come apart. --whole makes every piece one stone
-(solid stairs, a gravestone).
+fused into one piece still come apart. Pieces smaller than --sliver times
+the median stone join the neighbour they touch. --whole makes every piece
+one stone; markers, plinths, stairs and statues are whole unless --split.
 
-Each stone's tone: the shared target --target, plus --keep times how far the
-stone sat from the model's own mean (so a darker cap stays darker), plus a
-shuffled tone from an even spread of +-spread over the model's stones. Then
-each face moves by its facing: --top up, --side sideways, --bottom down. A
-stone taller than a third of the model also runs lighter to darker over its
-height (--tall); the whole model darkens to its base by --base times its
-height over its width. v stays within 0.02 to 0.95 of the band.
+Each stone's tone: the model's own mean per band (or --target), plus --keep
+times how far the stone sat from it, plus a shuffled tone from an even
+spread of +-spread among stones of its band and about its size. Each vertex
+keeps --detail times its own offset within the stone. Then each face moves
+by its facing: --top up, --side sideways, --bottom down. A stone taller than
+a third of the model also runs lighter to darker over its height (--tall);
+the whole model darkens to its base by --base times its height over its
+width. v stays within 0.02 to 0.95 of the band.
 
 --debug paints each stone a loud cell to check the stone map.
 --seed <s> changes the shuffle (default: file name).
 
-Defaults: --target 0.42 --keep 0.5 --spread 0.12 --top -0.1 --side 0.06
---bottom 0.25 --tall 0.2 --base 0.08 --groove 25`;
+Defaults: --keep 1 --spread 0.16 --detail 1 --top -0.1 --side 0.05
+--bottom 0.25 --tall 0.2 --base 0.08 --groove 25 --sliver 0.15`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const MASONRY = { 'stone-masonry-light': '5,2', 'stone-masonry-mid': '14,3', 'stone-masonry-dark': '12,3' };
@@ -36,14 +38,16 @@ const LOUD = ['8,0', '6,0', '1,1', '3,1', '4,2', '0,0', '2,0', '5,0', '6,1', '3,
 const LIGHT = 0.02;
 const DARK = 0.95;
 
+const CARVED = ['str-fixture-marker', 'str-plinth', 'str-access-stairs', 'obj-leisure-art'];
+
 let catalog = null;
-function cellsOf(file) {
+function modelOf(file) {
   catalog ??= new Map(JSON.parse(readFileSync(resolve(ROOT, 'catalog/build/catalog.json'), 'utf8')).models.map((m) => [`${m.kit}/${m.name}`, m]));
   const model = catalog.get(`${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`);
   const tags = model?.tags ?? [];
   const cells = new Set(tags.filter((t) => MASONRY[t]).map((t) => MASONRY[t]));
   if (cells.size && !tags.includes('earth-soil')) for (const t of ['stone-masonry-mid', 'stone-masonry-dark']) cells.add(MASONRY[t]);
-  return cells;
+  return { cells, carved: CARVED.some((k) => (model?.kind ?? '').startsWith(k)) };
 }
 
 function rng(seed) {
@@ -57,7 +61,8 @@ function rng(seed) {
 }
 
 function tone(file, o) {
-  const cells = o.cells ?? cellsOf(file);
+  const { cells, carved } = modelOf(file);
+  const whole = o.whole || (carved && !o.split);
   if (!cells.size) return { stones: 0, added: 0, note: 'no masonry tag' };
   const glb = readGlb(file);
   const prims = editablePrimitives(glb.json).filter((p) => p.attributes.TEXCOORD_0 !== undefined && glb.json.accessors[p.attributes.TEXCOORD_0].componentType === 5126);
@@ -114,14 +119,39 @@ function tone(file, o) {
   for (const list of edges.values()) {
     for (let x = 0; x < list.length; x++) for (let y = x + 1; y < list.length; y++) {
       const A = tris[list[x]], B = tris[list[y]];
-      if (A.cell !== B.cell && !o.whole) continue;
-      if (!o.whole) {
+      if (A.cell !== B.cell) continue;
+      if (!whole) {
         const d = A.n[0] * B.n[0] + A.n[1] * B.n[1] + A.n[2] * B.n[2];
         const toward = (B.c[0] - A.c[0]) * A.n[0] + (B.c[1] - A.c[1]) * A.n[1] + (B.c[2] - A.c[2]) * A.n[2];
         if (toward > 0 && d < cosGroove) continue;
       }
       parent[find(list[x])] = find(list[y]);
     }
+  }
+
+  const regionArea = () => {
+    const m = new Map();
+    tris.forEach((t, i) => m.set(find(i), (m.get(find(i)) ?? 0) + t.area));
+    return m;
+  };
+  let areas = regionArea();
+  const sorted = [...areas.values()].sort((a, b) => a - b);
+  const median = sorted[Math.floor(sorted.length / 2)];
+  const small = [...areas.entries()].filter(([, a]) => a < o.sliver * median).sort((a, b) => a[1] - b[1]);
+  for (const [r] of small) {
+    const root = find(r);
+    if (areas.get(root) >= o.sliver * median) continue;
+    const touch = new Map();
+    for (const list of edges.values()) {
+      const rs = list.map((i) => find(i));
+      if (!rs.includes(root)) continue;
+      list.forEach((i, k) => { if (rs[k] !== root && tris[i].cell === tris[list[rs.indexOf(root)]].cell) touch.set(rs[k], (touch.get(rs[k]) ?? 0) + 1); });
+    }
+    if (!touch.size) continue;
+    const to = [...touch.keys()].sort((a, b) => (areas.get(b) ?? 0) - (areas.get(a) ?? 0))[0];
+    parent[root] = to;
+    areas.set(to, (areas.get(to) ?? 0) + areas.get(root));
+    areas.delete(root);
   }
 
   const stones = new Map();
@@ -142,13 +172,20 @@ function tone(file, o) {
   const meanOf = (cell) => sums.get(cell)[0] / sums.get(cell)[1];
 
   const random = rng(o.seed ?? basename(file));
-  const order = list.map((s) => [random(), s]).sort((a, b) => a[0] - b[0]).map(([, s]) => s);
-  order.forEach((s, i) => {
-    const spread = order.length > 1 ? -o.spread + (2 * o.spread * i) / (order.length - 1) : 0;
-    const own = s.was - meanOf(s.cell);
-    s.base = o.target + o.keep * own + spread * Math.max(0, 1 - Math.abs(own) / o.stand);
-    s.loud = LOUD[i % LOUD.length];
-  });
+  const groups = new Map();
+  for (const s of list) {
+    const key = `${s.cell}:${Math.round(Math.log2(s.area))}`;
+    (groups.get(key) ?? groups.set(key, []).get(key)).push(s);
+  }
+  for (const group of groups.values()) {
+    const order = group.map((s) => [random(), s]).sort((a, b) => a[0] - b[0]).map(([, s]) => s);
+    order.forEach((s, i) => {
+      const spread = order.length > 1 ? -o.spread + (2 * o.spread * i) / (order.length - 1) : 0;
+      const centre = Number.isFinite(o.target) ? o.target : meanOf(s.cell);
+      s.base = centre + o.keep * (s.was - meanOf(s.cell)) + spread;
+    });
+  }
+  list.forEach((s, i) => { s.loud = LOUD[i % LOUD.length]; });
 
   const baseAmp = o.base * Math.min(1, height / width);
   const vOf = (s, tri, i) => {
@@ -162,7 +199,6 @@ function tone(file, o) {
   };
 
   const adders = data.map((d) => vertexAdder(glb, d.prim));
-  const extra = data.map(() => []);
   const assigned = data.map((d) => new Map());
   let added = 0;
   for (const s of list) {
@@ -227,9 +263,9 @@ const str = (flag) => {
   return value;
 };
 const o = {
-  target: num('--target', 0.42), keep: num('--keep', 0.5), spread: num('--spread', 0.12),
-  top: num('--top', -0.1), side: num('--side', 0.06), bottom: num('--bottom', 0.25),
-  detail: num('--detail', 0.7), stand: num('--stand', 0.2),
+  target: num('--target', NaN), keep: num('--keep', 1), spread: num('--spread', 0.16),
+  top: num('--top', -0.1), side: num('--side', 0.05), bottom: num('--bottom', 0.25),
+  detail: num('--detail', 1), sliver: num('--sliver', 0.15), split: args.includes('--split'),
   tall: num('--tall', 0.2), base: num('--base', 0.08), groove: num('--groove', 25),
   seed: str('--seed'), whole: args.includes('--whole'), debug: args.includes('--debug'), dry: args.includes('--dry'),
 };
