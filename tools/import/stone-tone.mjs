@@ -363,8 +363,9 @@ function tone(file, options) {
           const spans = all.length > 1 && axes.every((k) => sh[k] - sl[k] >= 0.8 * (hi[k] - lo[k]));
           s.masonry = !options.noMasonry && !(options.one && cell.join(',') !== mainCell) && (spans || (s.plain && s.area >= 0.25 * total) || (all.length > 1 && s.area >= 0.25 * total && s.area >= 4 * mid));
         }
+        for (const s of all) s.old = s.tris.reduce((sum, t) => sum + at.light[t] * at.area[t], 0) / (s.area || 1);
         const masonry = all.filter((s) => s.masonry);
-        const wallOld = masonry.length ? mean(masonry.map((s) => s.old)) : null;
+        const wallOld = masonry.length ? masonry.reduce((sum, s) => sum + s.old * s.area, 0) / masonry.reduce((sum, s) => sum + s.area, 0) : null;
         const STEPS = [-2, -1, 0, 1, 2].map((k) => k * options.spread / 2);
         const order = all.filter((s) => !s.masonry).sort(() => R() - 0.5);
         const olds = order.map((s) => s.old);
@@ -374,13 +375,21 @@ function tone(file, options) {
         for (const s of order) {
           let pool = STEPS;
           if (wallOld !== null) {
-            const diff = s.old - wallOld;
-            pool = diff > 0.05 ? STEPS.filter((x) => x > 0) : diff < -0.05 ? STEPS.filter((x) => x < 0) : STEPS.filter((x) => x !== 0);
+            const main = flatFaces(s.tris, at).reduce((a, b) => (area(b) > area(a) ? b : a));
+            const mn = norm(main.reduce((acc, t) => acc.map((x, k) => x + at.normal[t][k] * at.area[t]), [0, 0, 0]));
+            const reach = 2 * Math.sqrt(s.area) + 1e-6;
+            const local = masonry.flatMap((q) => q.tris).filter((t) => dot(at.normal[t], mn) > 0.9 && Math.hypot(...sub(at.mid[t], s.c)) < reach);
+            const la = local.reduce((sum, t) => sum + at.area[t], 0);
+            const ref = la > 0 ? local.reduce((sum, t) => sum + at.light[t] * at.area[t], 0) / la : wallOld;
+            const diff = main.reduce((sum, t) => sum + at.light[t] * at.area[t], 0) / (area(main) || 1) - ref;
+            const gap = Math.sign(diff) * clamp(Math.abs(diff), options.spread, 0.35);
+            pool = Math.abs(diff) > 0.05 ? [-1, 0, 1].map((k) => gap + (k * options.spread) / 2).filter((x) => Math.sign(x) === Math.sign(diff) && Math.abs(x) >= options.spread) : STEPS.filter((x) => x !== 0);
+            if (Math.abs(diff) > 0.05) s.want = gap;
           }
           const near = done.filter((q) => touch(q, s)).map((q) => q.step);
           const free = pool.filter((x) => !near.includes(x));
           const pick = free.length ? free : pool;
-          s.step = ranked ? pick.reduce((a, b) => (Math.abs(b - s.want) < Math.abs(a - s.want) ? b : a)) : pick[Math.floor(R() * pick.length)];
+          s.step = ranked || s.want !== undefined ? pick.reduce((a, b) => (Math.abs(b - s.want) < Math.abs(a - s.want) ? b : a)) : pick[Math.floor(R() * pick.length)];
           done.push(s);
         }
         for (const s of masonry) s.step = 0;
