@@ -30,3 +30,5 @@
   why: makes hidden limits visible · direction
 - **C16** If canon blocks or limits your request or the best result, name the item; propose a change if it seems wrong.\
   why: keeps canon's cost visible · direction
+- **C18** Claude judges how colour, gradients or shading look only after viewing a render.\
+  why: numbers can't show how colour looks · invariant
