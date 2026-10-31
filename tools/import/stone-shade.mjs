@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
-import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, buildTree, hitBox, hitTriangle } from './mesh-edit.mjs';
+import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, buildTree, hitBox, hitTriangle, vertexAdder } from './mesh-edit.mjs';
 
 const HELP = `stone-shade.mjs [options] <workfile.glb> [...]
 
@@ -15,13 +15,20 @@ A face is a run of stone triangles in one plane that touch at least at a
 corner. Recess, overhang and trim are
 measured at points spread over each face and fitted with a straight ramp by
 height (upright faces) or one tone (flat faces), so a face reads clean and a vertex is never coloured
-by geometry far from it. A vertex shared by faces takes their mean.
+by geometry far from it. Faces that meet at a hard edge (over 30 degrees)
+each get their own copy of a shared vertex, so one tone does not bleed into
+the next; faces of a smooth surface share it and take their mean. No triangle
+is added and no position moves.
 
   height    lighter at the top of each solid column, darker toward its foot,
             the dark end softer than the light end. A column runs from a
-            point straight up and down through the stone, and through stone
-            that touches it, to where it ends, so a tower, a wall or a stack
-            of courses each ramp as one
+            point deep enough inside the stone to pass under small ridges,
+            straight up and down to the next top or bottom face, and on
+            through stone that touches it, so a tower, a wall or a stack of
+            courses each ramp as one. With no bottom face, the column ends at
+            the model's floor. A top lights up only as far as it is open: not
+            when stone closes in around it or sits anywhere above it, such as
+            a sill under its lintel
   facing    faces that look up lighter, faces that look down darker
   recess    darker where nearby geometry closes in around the surface, less so
             on faces that look up
@@ -40,8 +47,8 @@ the model's longest side.
   --up <f> --down <f>  facing shifts (default 0.16, 0.12)
   --recess <f>         weight of the recess term (default 0.95)
   --overhang <f>       weight of the overhang term (default 0.60)
-  --trim <f>           weight of the trim term (default 0.40)
-  --variety <f>        largest shift per piece (default 0.07)
+  --trim <f>           weight of the trim term (default 0.60)
+  --variety <f>        largest shift per piece (default 0.12)
   --reach <f>          short recess ray length, share of the longest side; the long
                        rays reach three times as far (default 0.10)
   --lift <f>           overhang ray length, share of the height (default 0.15)
@@ -114,7 +121,8 @@ function allHits(tree, tris, normals, o, d, far) {
       const t = tree.order[i];
       const at = hitTriangle(o, d, tris[t]);
       const n = normals[t];
-      if (at > 1e-7 && at < far) out.push([at, n[0] * d[0] + n[1] * d[1] + n[2] * d[2]]);
+      const facing = n[0] * d[0] + n[1] * d[1] + n[2] * d[2];
+      if (at > 1e-7 && at < far && Math.abs(facing) > 0.5) out.push([at, facing]);
     }
   }
   return out.sort((a, b) => a[0] - b[0]);
@@ -133,16 +141,17 @@ function runOut(tree, tris, normals, o, d, far, gap) {
   return null;
 }
 
-function column(tree, tris, normals, at, n, eps, size) {
-  const inside = add(at, n, -eps * 40);
-  const along = Math.abs(n[1]) > 0.7 ? [0, 1, 0] : norm(add([0, 1, 0], n, -n[1]));
+function column(tree, tris, normals, at, n, eps, size, floor) {
+  const inside = add(at, n, -eps * (Math.abs(n[1]) > 0.7 ? 40 : 250));
+  const along = [0, 1, 0];
   const up = runOut(tree, tris, normals, inside, along, size * 3, 0.01 * size);
-  const down = runOut(tree, tris, normals, inside, along.map((x) => -x), size * 3, 0.01 * size);
+  const down = runOut(tree, tris, normals, inside, along.map((x) => -x), size * 3, 0.01 * size)
+    ?? (inside[1] - floor) / Math.max(0.3, along[1]);
   if (up === null || down === null || up + down < eps * 50) return null;
   return up / (up + down);
 }
 
-function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, fallback) {
+function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, floor, fallback) {
   const [t1, t2] = frame(n);
   const from = add(at, n, eps * 10);
   let closed = 0;
@@ -159,6 +168,8 @@ function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, fallb
       if (hit !== null) cover += 1 - hit / lift;
     }
   }
+  let roofed = 0;
+  if (n[1] > 0.7) for (const d of UP_RAYS) if (firstHit(tree, tris, add(from, n, eps * 40), d, size) !== null) roofed++;
   let relief = 0, samples = 0;
   for (let k = 0; k < 8; k++) {
     const a = (k * Math.PI) / 4;
@@ -171,7 +182,7 @@ function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, fallb
       samples++;
     }
   }
-  return [closed / (RECESS_RAYS.length * 2), cover / UP_RAYS.length, relief / samples, column(tree, tris, normals, at, n, eps, size) ?? fallback(at)];
+  return [closed / (RECESS_RAYS.length * 2), cover / UP_RAYS.length, relief / samples, column(tree, tris, normals, at, n, eps, size, floor) ?? fallback(at), roofed / UP_RAYS.length];
 }
 
 function fitLine(points, upright) {
@@ -230,7 +241,7 @@ function shade(file, o) {
 
   const replaced = new Map();
   const spread = { height: [], facing: [], recess: [], overhang: [], trim: [], variety: [], v: [] };
-  const jobs = [];
+  const jobs = [], contexts = [];
   for (const { prim, pos, p, idx } of world) {
     const uvIndex = prim.attributes.TEXCOORD_0;
     if (uvIndex === undefined || glb.json.accessors[uvIndex].componentType !== 5126) continue;
@@ -306,32 +317,42 @@ function shade(file, o) {
         const [A, B, C] = [p[idx[3 * f]], p[idx[3 * f + 1]], p[idx[3 * f + 2]]];
         for (const [x, y, z] of SPOTS) {
           const at = [0, 1, 2].map((k) => A[k] * x + B[k] * y + C[k] * z);
-          points.push({ h: at[1], y: measure(tree, tris, normals, at, N, eps, reach, lift, step, size, (q) => pieceHeight(q, idx[3 * f])), weight: triArea[f] / SPOTS.length });
+          points.push({ h: at[1], y: measure(tree, tris, normals, at, N, eps, reach, lift, step, size, lo[1], (q) => pieceHeight(q, idx[3 * f])), weight: triArea[f] / SPOTS.length });
         }
       }
       const upright = Math.abs(N[1]) < 0.7;
+      const shut = N[1] > 0.7 ? 1 : 0;
       const fit = fitLine(points, upright);
       const occ = Math.min(1, (points.reduce((s, q) => s + q.weight * q.y[0], 0) / points.reduce((s, q) => s + q.weight, 0)) * 2);
       const facing = N[1] > 0 ? -o.up * N[1] : o.down * -N[1];
-      const done = new Set();
+      const uses = new Map();
       for (const f of members) for (let k = 0; k < 3; k++) {
         const i = idx[3 * f + k];
-        if (done.has(i)) continue;
-        done.add(i);
-        const [closed, cover, relief, h] = fit(p[i][1]);
-        perVertex[i].push([facing, o.recess * closed * (1 - 0.6 * Math.max(0, N[1])), o.overhang * cover, o.trim * relief, occ, o.height * (Math.sqrt(Math.max(0, h)) - 0.6)]);
+        if (!uses.has(i)) uses.set(i, []);
+        uses.get(i).push(f);
+      }
+      for (const [i, faceTris] of uses) {
+        const [closed, cover, relief, h, roofed] = fit(p[i][1]);
+        perVertex[i].push({ N, faceTris, t: [facing, o.recess * closed * (1 - 0.3 * Math.max(0, N[1])), o.overhang * cover, o.trim * relief, occ, o.height * (Math.sqrt(Math.max(0, h)) - 0.6), shut * Math.max(occ, roofed)] });
       }
     }
 
+    const ctx = { prim, uv, idx: Array.from(idx), uvIndex };
     for (let i = 0; i < count; i++) {
       if (!isStone[i] || !perVertex[i].length) continue;
-      const mean = [0, 1, 2, 3, 4, 5].map((k) => perVertex[i].reduce((s, x) => s + x[k], 0) / perVertex[i].length);
-      const [fTerm, rTerm, oTerm, tTerm, occ, hTerm] = mean;
+      const clusters = [];
+      for (const e of perVertex[i]) {
+        const near = clusters.find((c) => c[0].N[0] * e.N[0] + c[0].N[1] * e.N[1] + c[0].N[2] * e.N[2] > 0.87);
+        if (near) near.push(e); else clusters.push([e]);
+      }
       const piece = pieces.find(point[i]);
-      const open = (x) => (x < 0 ? x * (1 - occ) : x);
-      jobs.push({ uv, i, terms: [hTerm, open(fTerm), rTerm, oTerm, open(tTerm), shift.get(piece)] });
+      clusters.forEach((cluster, c) => {
+        const [fTerm, rTerm, oTerm, tTerm, occ, hTerm, shut] = [0, 1, 2, 3, 4, 5, 6].map((k) => cluster.reduce((s, x) => s + x.t[k], 0) / cluster.length);
+        const open = (x) => (x < 0 ? x * (1 - Math.max(occ, shut)) : x);
+        jobs.push({ ctx, i, tris: c ? cluster.flatMap((x) => x.faceTris) : null, terms: [hTerm < 0 ? hTerm * (1 - shut) : hTerm, open(fTerm), rTerm, oTerm, open(tTerm), shift.get(piece)] });
+      });
     }
-    replaced.set(uvIndex, uv);
+    contexts.push(ctx);
   }
   const NAMES = ['height', 'facing', 'recess', 'overhang', 'trim', 'variety'];
   const middle = (a) => { const b = [...a].sort((x, y) => x - y); return b.length ? b[b.length >> 1] : 0; };
@@ -341,15 +362,32 @@ function shade(file, o) {
   const centre = o.centre * middle(sums);
   const mid = (o.light + o.dark) / 2, half = (o.dark - o.light) / 2;
   let moved = 0;
+  const adders = new Map(contexts.map((c) => [c, { adder: vertexAdder(glb, c.prim), added: 0 }]));
+  const extra = [];
   jobs.forEach((j, k) => {
     const v = mid + half * Math.tanh((o.base + sums[k] - centre - mid) / half);
     NAMES.forEach((name, t) => spread[name].push(j.terms[t]));
     spread.v.push(v);
-    const row = Math.floor(j.uv[2 * j.i + 1] * 4);
-    j.uv[2 * j.i + 1] = (row + v) / 4;
+    const { uv, idx } = j.ctx;
+    const value = (Math.floor(uv[2 * j.i + 1] * 4) + v) / 4;
+    if (!j.tris) uv[2 * j.i + 1] = value;
+    else extra.push([j, value]);
     moved++;
   });
-  for (const [index, uv] of replaced) replaced.set(index, Buffer.from(uv.buffer));
+  for (const [j, value] of extra) {
+    const a = adders.get(j.ctx);
+    const copy = a.adder.add(j.i, { TEXCOORD_0: [j.ctx.uv[2 * j.i], value] });
+    a.added++;
+    for (const f of j.tris) for (let k = 0; k < 3; k++) if (j.ctx.idx[3 * f + k] === j.i) j.ctx.idx[3 * f + k] = copy;
+  }
+  for (const c of contexts) {
+    const accessor = glb.json.accessors[c.uvIndex];
+    const view = glb.json.bufferViews[accessor.bufferView];
+    const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0), stride = view.byteStride ?? 8;
+    for (let i = 0; i < accessor.count; i++) glb.bin.writeFloatLE(c.uv[2 * i + 1], start + i * stride + 4);
+    const a = adders.get(c);
+    if (a.added) a.adder.commit(c.idx, replaced);
+  }
   if (o.dry) {
     for (const [k, a] of Object.entries(spread)) {
       if (!a.length) continue;
@@ -381,7 +419,7 @@ const o = {
   base: take('--base', 0.42), height: take('--height', 0.70),
   up: take('--up', 0.16), down: take('--down', 0.12),
   recess: take('--recess', 0.95), overhang: take('--overhang', 0.60),
-  trim: take('--trim', 0.40), variety: take('--variety', 0.07),
+  trim: take('--trim', 0.60), variety: take('--variety', 0.12),
   reach: take('--reach', 0.10), lift: take('--lift', 0.15), step: take('--step', 0.035),
   centre: take('--centre', 0.5), light: take('--light', 0.03), dark: take('--dark', 0.94),
   only: take('--only', ''),
