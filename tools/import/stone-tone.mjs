@@ -10,8 +10,8 @@ A surface is a run of triangles that share vertices. Within a surface the tone
 only changes in a straight line, so no patch can show that the shape does not
 have:
 
-  height    light at the top of the model's stone to dark at its foot,
-            straight by height, so stone at one height starts out alike
+  height    light at the top to dark at the foot, straight by height: a blend
+            of one ramp over the model's stone and one over each piece
   facing    up lighter, down darker, from the plane of a flat surface or each
             vertex's own normal on a curved one
   recess    one step per surface, darker the more nearby geometry closes in,
@@ -31,6 +31,7 @@ slope.
   --cells <c;c>    stone cells as col,row (default 14,3;12,3;5,2)
   --top <f>        darkness at the top (default 0.04)
   --height <f>     darkness added from top to foot (default 0.72)
+  --piece <f>      share of the height ramp per piece (default 0)
   --soft <f>       surfaces whose normals agree past this share recess and
                    overhang, as the facets of a round tower (default 0.7)
   --up <f>         lighter on faces that look up (default 0.35)
@@ -473,7 +474,9 @@ function tone(file, o) {
       if (!stone[i]) continue;
       const s = piece.get(pieceOf(i)), id = surfaces.find(i), f = surface.get(id);
       if (!s || !f) continue;
-      const h = high - low > 1e-9 ? (high - p[i][1]) / (high - low) : 0.5;
+      const whole = high - low > 1e-9 ? (high - p[i][1]) / (high - low) : 0.5;
+      const part = s.high - s.low > 1e-9 ? (s.high - p[i][1]) / (s.high - s.low) : whole;
+      const h = (1 - o.piece) * whole + o.piece * part;
       const own = f.high - f.low > 1e-9 ? (f.high - p[i][1]) / (f.high - f.low) : 0.5;
       const ny = f.planar || !n ? f.normal[1] : n[i][1];
       d[i] = o.top + o.height * h - o.up * Math.max(0, ny) + o.down * Math.max(0, -ny)
@@ -510,7 +513,7 @@ const take = (flag, fallback) => {
 const num = (flag, fallback) => Number(take(flag, fallback));
 const o = {
   cells: new Set(take('--cells', '14,3;12,3;5,2').split(';')),
-  top: num('--top', 0.04), height: num('--height', 0.72), soft: num('--soft', 0.7),
+  top: num('--top', 0.04), height: num('--height', 0.72), piece: num('--piece', 0), soft: num('--soft', 0.7),
   up: num('--up', 0.35), down: num('--down', 0.45), recess: num('--recess', 0.45), overhang: num('--overhang', 0.5),
   trim: num('--trim', 0.14), relief: num('--relief', 0.08), variety: num('--variety', 0.05),
   reach: num('--reach', 0.06), lift: num('--lift', 0.25), light: num('--light', 0.03), dark: num('--dark', 0.94),
