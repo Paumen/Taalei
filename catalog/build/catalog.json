@@ -3568,7 +3568,8 @@
     "0.45": 37
    },
    "smooth": {
-    "smooth": 37
+    "smooth": 33,
+    "none": 4
    },
    "kitCheck": {
     "factor": 1.19,
@@ -24599,7 +24600,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 884,
+   "count": 882,
    "parent": "metal"
   },
   {
@@ -24607,7 +24608,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2094,
+   "count": 2097,
    "parent": "metal"
   },
   {
@@ -24623,7 +24624,7 @@
    "name": "Copper",
    "type": "material",
    "description": "Copper: bars, nuggets and their stacks.",
-   "count": 52,
+   "count": 51,
    "parent": "metal"
   },
   {
@@ -25004,7 +25005,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1488,
+   "count": 1490,
    "parent": "polymer"
   },
   {
@@ -317705,7 +317706,7 @@
   {
    "kit": "quat-cyberpunk",
    "name": "ac-stacked",
-   "hash": "231517a411",
+   "hash": "7a7c13592f",
    "kind": "str-fixture-installation",
    "size": "m",
    "wdh": [
@@ -317718,8 +317719,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 34480,
-   "vtx": 884,
+   "bytes": 38644,
+   "vtx": 1014,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -317727,21 +317728,21 @@
    "avgTri": 0.0024,
    "anglePct": 54,
    "pieces": 10,
-   "vpt": 1.14,
+   "vpt": 1.31,
    "cells": [
     "6,1",
     "15,3",
-    "5,0"
+    "6,0"
    ],
    "colors": [
     "#3a3e4b",
     "#7a8491",
-    "#ce7954"
+    "#f1a63b"
    ],
    "tags": [
-    "metal-copper",
     "metal-iron-dark",
     "metal-steel",
+    "plastic",
     "plural",
     "qua"
    ]
@@ -319368,7 +319369,7 @@
   {
    "kit": "quat-essentials",
    "name": "ammo-box-closed",
-   "hash": "6a07a70d08",
+   "hash": "3ee791a9a2",
    "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
@@ -319381,8 +319382,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 88688,
-   "vtx": 2289,
+   "bytes": 91056,
+   "vtx": 2363,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319390,7 +319391,7 @@
    "avgTri": 0.00016,
    "anglePct": 79,
    "pieces": 9,
-   "vpt": 0.99,
+   "vpt": 1.02,
    "cells": [
     "6,1",
     "15,3"
@@ -319411,7 +319412,7 @@
   {
    "kit": "quat-essentials",
    "name": "ammo-box-small",
-   "hash": "93a791bfd7",
+   "hash": "feaf7220cb",
    "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
@@ -319424,8 +319425,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 117616,
-   "vtx": 2971,
+   "bytes": 179572,
+   "vtx": 4907,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319433,7 +319434,7 @@
    "avgTri": 0.00006,
    "anglePct": 68,
    "pieces": 20,
-   "vpt": 0.85,
+   "vpt": 1.4,
    "cells": [
     "6,1",
     "15,3",
@@ -319468,7 +319469,7 @@
   {
    "kit": "quat-essentials",
    "name": "ammo-box",
-   "hash": "d89691ecf1",
+   "hash": "0ce1382e7a",
    "kind": "obj-container-crate-ammo",
    "size": "s",
    "wdh": [
@@ -319481,8 +319482,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 228764,
-   "vtx": 5720,
+   "bytes": 408484,
+   "vtx": 11336,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319490,7 +319491,7 @@
    "avgTri": 0.00005,
    "anglePct": 66,
    "pieces": 43,
-   "vpt": 0.78,
+   "vpt": 1.54,
    "cells": [
     "6,1",
     "15,3",
@@ -319521,7 +319522,7 @@
   {
    "kit": "quat-essentials",
    "name": "barrel-b-open",
-   "hash": "76c94b7496",
+   "hash": "05c0679096",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
@@ -319534,8 +319535,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 157156,
-   "vtx": 4079,
+   "bytes": 159588,
+   "vtx": 4155,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -319544,7 +319545,7 @@
    "avgTri": 0.00018,
    "anglePct": 50,
    "pieces": 4,
-   "vpt": 0.98,
+   "vpt": 0.99,
    "cells": [
     "6,1",
     "15,3"
@@ -319577,7 +319578,7 @@
   {
    "kit": "quat-essentials",
    "name": "barrel-b",
-   "hash": "43dd0bdc70",
+   "hash": "64fc4e85da",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
@@ -319590,8 +319591,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 157148,
-   "vtx": 4079,
+   "bytes": 159580,
+   "vtx": 4155,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -319600,7 +319601,7 @@
    "avgTri": 0.00018,
    "anglePct": 50,
    "pieces": 4,
-   "vpt": 0.98,
+   "vpt": 0.99,
    "cells": [
     "6,1",
     "15,3"
@@ -319633,7 +319634,7 @@
   {
    "kit": "quat-essentials",
    "name": "barrel",
-   "hash": "202c103931",
+   "hash": "687d442822",
    "kind": "obj-container-barrel-metal",
    "size": "m",
    "wdh": [
@@ -319646,8 +319647,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 97748,
-   "vtx": 2566,
+   "bytes": 99220,
+   "vtx": 2612,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -319655,7 +319656,7 @@
    "avgTri": 0.00025,
    "anglePct": 29,
    "pieces": 5,
-   "vpt": 1.09,
+   "vpt": 1.11,
    "cells": [
     "15,3",
     "6,1"
@@ -319682,7 +319683,7 @@
   {
    "kit": "quat-essentials",
    "name": "chair",
-   "hash": "53be62315d",
+   "hash": "ceccd731c3",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "m",
    "wdh": [
@@ -319693,10 +319694,10 @@
    "tris": 1134,
    "tpu": 3132,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 39676,
-   "vtx": 980,
+   "bytes": 44000,
+   "vtx": 1115,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -319705,15 +319706,18 @@
    "avgTri": 0.00086,
    "anglePct": 15,
    "pieces": 2,
-   "vpt": 0.86,
+   "vpt": 0.98,
    "cells": [
-    "5,2"
+    "6,1",
+    "15,3"
    ],
    "colors": [
-    "#d8cfb7"
+    "#3a3e4b",
+    "#7a8491"
    ],
    "tags": [
-    "plastic",
+    "metal-iron-dark",
+    "metal-steel",
     "qua",
     "space"
    ],
@@ -319729,7 +319733,7 @@
   {
    "kit": "quat-essentials",
    "name": "chest",
-   "hash": "b36028ef61",
+   "hash": "fb400aa97a",
    "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
@@ -319740,10 +319744,10 @@
    "tris": 3422,
    "tpu": 9977,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 131016,
-   "vtx": 3405,
+   "bytes": 135848,
+   "vtx": 3556,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319752,18 +319756,21 @@
    "avgTri": 0.00084,
    "anglePct": 75,
    "pieces": 12,
-   "vpt": 1,
+   "vpt": 1.04,
    "cells": [
     "6,1",
-    "15,3"
+    "15,3",
+    "6,0"
    ],
    "colors": [
     "#3a3e4b",
-    "#7a8491"
+    "#7a8491",
+    "#f1a63b"
    ],
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "plastic",
     "qua",
     "space"
    ],
@@ -319772,7 +319779,7 @@
   {
    "kit": "quat-essentials",
    "name": "crate-large",
-   "hash": "f28ca8d770",
+   "hash": "b7a04757dc",
    "kind": "obj-container-crate-scifi",
    "size": "l",
    "wdh": [
@@ -319785,8 +319792,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 180452,
-   "vtx": 4838,
+   "bytes": 199396,
+   "vtx": 5430,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319794,7 +319801,7 @@
    "avgTri": 0.00155,
    "anglePct": 80,
    "pieces": 31,
-   "vpt": 1.2,
+   "vpt": 1.35,
    "cells": [
     "15,3"
    ],
@@ -319827,7 +319834,7 @@
   {
    "kit": "quat-essentials",
    "name": "crate-tarp-large",
-   "hash": "5733a8356b",
+   "hash": "636e940294",
    "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
@@ -319840,8 +319847,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 177204,
-   "vtx": 4650,
+   "bytes": 196724,
+   "vtx": 5260,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319850,19 +319857,20 @@
    "avgTri": 0.00162,
    "anglePct": 87,
    "pieces": 39,
-   "vpt": 1.04,
+   "vpt": 1.18,
    "cells": [
     "4,2",
     "6,1",
-    "13,3"
+    "15,3"
    ],
    "colors": [
     "#1564a4",
     "#3a3e4b",
-    "#59534e"
+    "#7a8491"
    ],
    "tags": [
     "metal-iron-dark",
+    "metal-steel",
     "plastic",
     "qua",
     "scale-big",
@@ -319874,7 +319882,7 @@
   {
    "kit": "quat-essentials",
    "name": "crate-tarp",
-   "hash": "a64b755169",
+   "hash": "609c2b5732",
    "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
@@ -319887,8 +319895,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 121860,
-   "vtx": 3204,
+   "bytes": 134276,
+   "vtx": 3592,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319897,19 +319905,20 @@
    "avgTri": 0.00146,
    "anglePct": 87,
    "pieces": 29,
-   "vpt": 1.08,
+   "vpt": 1.21,
    "cells": [
-    "13,3",
+    "15,3",
     "6,1",
     "4,2"
    ],
    "colors": [
     "#1564a4",
     "#3a3e4b",
-    "#59534e"
+    "#7a8491"
    ],
    "tags": [
     "metal-iron-dark",
+    "metal-steel",
     "plastic",
     "qua",
     "space"
@@ -319920,7 +319929,7 @@
   {
    "kit": "quat-essentials",
    "name": "crate",
-   "hash": "a4a6a1d9ca",
+   "hash": "cdae68a39f",
    "kind": "obj-container-crate-scifi",
    "size": "m",
    "wdh": [
@@ -319933,8 +319942,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 179192,
-   "vtx": 4806,
+   "bytes": 197720,
+   "vtx": 5385,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319942,7 +319951,7 @@
    "avgTri": 0.00088,
    "anglePct": 78,
    "pieces": 31,
-   "vpt": 1.21,
+   "vpt": 1.35,
    "cells": [
     "15,3"
    ],
@@ -319967,7 +319976,7 @@
   {
    "kit": "quat-essentials",
    "name": "desk-l",
-   "hash": "379e956dd5",
+   "hash": "194e6ebda1",
    "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
@@ -319980,8 +319989,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27492,
-   "vtx": 684,
+   "bytes": 28196,
+   "vtx": 706,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -319990,7 +319999,7 @@
    "avgTri": 0.00489,
    "anglePct": 90,
    "pieces": 2,
-   "vpt": 1,
+   "vpt": 1.03,
    "cells": [
     "6,1",
     "15,3"
@@ -320017,7 +320026,7 @@
   {
    "kit": "quat-essentials",
    "name": "desk-medium",
-   "hash": "ce680aedd7",
+   "hash": "8f8d63314a",
    "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
@@ -320060,7 +320069,7 @@
   {
    "kit": "quat-essentials",
    "name": "desk-small",
-   "hash": "d372ee471a",
+   "hash": "514b894fc7",
    "kind": "obj-furnishing-furniture-table-desk",
    "size": "m",
    "wdh": [
@@ -320073,8 +320082,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20880,
-   "vtx": 513,
+   "bytes": 21200,
+   "vtx": 523,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
@@ -320082,7 +320091,7 @@
    "avgTri": 0.00421,
    "anglePct": 89,
    "pieces": 2,
-   "vpt": 1.03,
+   "vpt": 1.05,
    "cells": [
     "6,1",
     "15,3"
@@ -320103,7 +320112,7 @@
   {
    "kit": "quat-essentials",
    "name": "eye-drone",
-   "hash": "0167939d81",
+   "hash": "b47d3bf33e",
    "kind": "char",
    "size": "s",
    "wdh": [
@@ -320116,8 +320125,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 122312,
-   "vtx": 3112,
+   "bytes": 123020,
+   "vtx": 3134,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -320125,7 +320134,7 @@
    "avgTri": 0.00027,
    "anglePct": 1,
    "pieces": 11,
-   "vpt": 0.88,
+   "vpt": 0.89,
    "cells": [
     "15,3",
     "6,1",
@@ -320155,7 +320164,7 @@
   {
    "kit": "quat-essentials",
    "name": "grenade",
-   "hash": "1f10549cba",
+   "hash": "024e5053c9",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
@@ -320166,10 +320175,10 @@
    "tris": 1712,
    "tpu": 4991,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
-   "bytes": 65480,
-   "vtx": 1677,
+   "bytes": 64904,
+   "vtx": 1659,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -320178,17 +320187,15 @@
    "avgTri": 0.00001,
    "anglePct": 31,
    "pieces": 3,
-   "vpt": 0.98,
+   "vpt": 0.97,
    "cells": [
     "6,1",
-    "5,2",
     "15,3",
     "6,0"
    ],
    "colors": [
     "#3a3e4b",
     "#7a8491",
-    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
@@ -320203,7 +320210,7 @@
   {
    "kit": "quat-essentials",
    "name": "health-pack",
-   "hash": "161c780ecb",
+   "hash": "4575770c49",
    "kind": "obj-container-bag-kit",
    "size": "s",
    "wdh": [
@@ -320214,32 +320221,30 @@
    "tris": 2380,
    "tpu": 6939,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
-   "bytes": 98172,
-   "vtx": 2573,
+   "bytes": 100348,
+   "vtx": 2641,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.016,
+   "minTube": 0.0159,
    "thick": 0.1367,
    "avgTri": 0.00013,
    "anglePct": 71,
    "pieces": 12,
-   "vpt": 1.08,
+   "vpt": 1.11,
    "cells": [
     "3,1",
     "15,3",
-    "5,2",
     "6,1",
-    "1,1"
+    "6,0"
    ],
    "colors": [
-    "#21552a",
     "#3a3e4b",
     "#66852a",
     "#7a8491",
-    "#d8cfb7"
+    "#f1a63b"
    ],
    "tags": [
     "metal-iron-dark",
@@ -320254,7 +320259,7 @@
   {
    "kit": "quat-essentials",
    "name": "health-tube",
-   "hash": "80809f1ee3",
+   "hash": "ee24590f40",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
@@ -320265,10 +320270,10 @@
    "tris": 340,
    "tpu": 991,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 16348,
-   "vtx": 400,
+   "bytes": 14940,
+   "vtx": 356,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -320276,16 +320281,14 @@
    "avgTri": 0.00015,
    "anglePct": 37,
    "pieces": 3,
-   "vpt": 1.18,
+   "vpt": 1.05,
    "cells": [
     "3,1",
-    "15,3",
-    "5,2"
+    "15,3"
    ],
    "colors": [
     "#66852a",
-    "#7a8491",
-    "#d8cfb7"
+    "#7a8491"
    ],
    "tags": [
     "metal-steel",
@@ -320299,7 +320302,7 @@
   {
    "kit": "quat-essentials",
    "name": "keycard",
-   "hash": "d2fc961ab6",
+   "hash": "8514618933",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
    "wdh": [
@@ -320312,8 +320315,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 29072,
-   "vtx": 725,
+   "bytes": 31216,
+   "vtx": 792,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -320322,18 +320325,19 @@
    "avgTri": 0.00004,
    "anglePct": 80,
    "pieces": 3,
-   "vpt": 1,
+   "vpt": 1.1,
    "cells": [
     "15,3",
     "6,0",
-    "13,3"
+    "6,1"
    ],
    "colors": [
-    "#59534e",
+    "#3a3e4b",
     "#7a8491",
     "#f1a63b"
    ],
    "tags": [
+    "metal-iron-dark",
     "metal-steel",
     "pickup",
     "plastic",
@@ -320352,7 +320356,7 @@
   {
    "kit": "quat-essentials",
    "name": "locker",
-   "hash": "4dae49fa64",
+   "hash": "9d6098eb2d",
    "kind": "obj-furnishing-furniture-storage-cabinet-locker",
    "size": "m",
    "wdh": [
@@ -320398,7 +320402,7 @@
   {
    "kit": "quat-essentials",
    "name": "mine",
-   "hash": "4c1a298987",
+   "hash": "57c8327aad",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
@@ -320411,8 +320415,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 92040,
-   "vtx": 2453,
+   "bytes": 94376,
+   "vtx": 2526,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -320421,7 +320425,7 @@
    "avgTri": 0.00013,
    "anglePct": 50,
    "pieces": 13,
-   "vpt": 1.23,
+   "vpt": 1.26,
    "cells": [
     "15,3",
     "6,1",
@@ -320451,7 +320455,7 @@
   {
    "kit": "quat-essentials",
    "name": "mug",
-   "hash": "65a26738eb",
+   "hash": "9ed3595c3b",
    "kind": "obj-kitchenware-tableware-drinkware-mug",
    "size": "s",
    "wdh": [
@@ -320464,8 +320468,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22552,
-   "vtx": 554,
+   "bytes": 23320,
+   "vtx": 578,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -320473,7 +320477,7 @@
    "avgTri": 0.00006,
    "anglePct": 14,
    "pieces": 2,
-   "vpt": 1,
+   "vpt": 1.05,
    "cells": [
     "5,2"
    ],
@@ -320497,7 +320501,7 @@
   {
    "kit": "quat-essentials",
    "name": "pistol",
-   "hash": "8796ee6277",
+   "hash": "1e41cac7d6",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
@@ -320510,8 +320514,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 127756,
-   "vtx": 3322,
+   "bytes": 131596,
+   "vtx": 3442,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -320519,7 +320523,7 @@
    "avgTri": 0.00002,
    "anglePct": 66,
    "pieces": 19,
-   "vpt": 1,
+   "vpt": 1.04,
    "cells": [
     "6,0",
     "6,1",
@@ -320542,7 +320546,7 @@
   {
    "kit": "quat-essentials",
    "name": "quad-shell",
-   "hash": "e2effb7789",
+   "hash": "70d7c4c5de",
    "kind": "char",
    "size": "m",
    "wdh": [
@@ -320553,10 +320557,10 @@
    "tris": 7494,
    "tpu": 13307,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
-   "bytes": 292448,
-   "vtx": 7686,
+   "bytes": 306752,
+   "vtx": 8133,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -320565,17 +320569,15 @@
    "avgTri": 0.00026,
    "anglePct": 20,
    "pieces": 64,
-   "vpt": 1.03,
+   "vpt": 1.09,
    "cells": [
     "15,3",
-    "6,0",
-    "5,2",
-    "6,1"
+    "6,1",
+    "6,0"
    ],
    "colors": [
     "#3a3e4b",
     "#7a8491",
-    "#d8cfb7",
     "#f1a63b"
    ],
    "tags": [
@@ -320597,7 +320599,7 @@
   {
    "kit": "quat-essentials",
    "name": "revolver",
-   "hash": "5c474b8dec",
+   "hash": "a161b91bfc",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
@@ -320610,8 +320612,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 168708,
-   "vtx": 4378,
+   "bytes": 180996,
+   "vtx": 4762,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -320620,7 +320622,7 @@
    "avgTri": 0.00001,
    "anglePct": 55,
    "pieces": 13,
-   "vpt": 0.97,
+   "vpt": 1.06,
    "cells": [
     "15,3",
     "6,0"
@@ -320647,7 +320649,7 @@
   {
    "kit": "quat-essentials",
    "name": "rifle",
-   "hash": "c574492912",
+   "hash": "a9e34ad781",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
@@ -320660,8 +320662,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 218292,
-   "vtx": 5612,
+   "bytes": 238452,
+   "vtx": 6242,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -320670,7 +320672,7 @@
    "avgTri": 0.00003,
    "anglePct": 68,
    "pieces": 60,
-   "vpt": 0.91,
+   "vpt": 1.01,
    "cells": [
     "15,3",
     "6,1",
@@ -320700,7 +320702,7 @@
   {
    "kit": "quat-essentials",
    "name": "satellite-dish",
-   "hash": "9a8a4a0908",
+   "hash": "62c0b9ef8c",
    "kind": "str-fixture-utility-antenna",
    "size": "l",
    "wdh": [
@@ -320711,10 +320713,10 @@
    "tris": 3306,
    "tpu": 1224,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 122692,
-   "vtx": 3166,
+   "bytes": 112772,
+   "vtx": 2856,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -320723,19 +320725,16 @@
    "avgTri": 0.00108,
    "anglePct": 47,
    "pieces": 13,
-   "vpt": 0.96,
+   "vpt": 0.86,
    "cells": [
-    "6,1",
     "15,3",
     "8,0"
    ],
    "colors": [
-    "#3a3e4b",
     "#7a8491",
     "#873a27"
    ],
    "tags": [
-    "metal-iron-dark",
     "metal-steel",
     "plastic",
     "qua",
@@ -320766,7 +320765,7 @@
   {
    "kit": "quat-essentials",
    "name": "shelves-thin-short",
-   "hash": "933a8f6413",
+   "hash": "7781d84c90",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -320779,8 +320778,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 75024,
-   "vtx": 1878,
+   "bytes": 76048,
+   "vtx": 1910,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -320789,7 +320788,7 @@
    "avgTri": 0.00057,
    "anglePct": 92,
    "pieces": 32,
-   "vpt": 0.84,
+   "vpt": 0.86,
    "cells": [
     "15,3",
     "6,1"
@@ -320822,7 +320821,7 @@
   {
    "kit": "quat-essentials",
    "name": "shelves-thin-tall",
-   "hash": "79e1ea2144",
+   "hash": "43465696da",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -320835,8 +320834,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 142256,
-   "vtx": 3580,
+   "bytes": 144304,
+   "vtx": 3644,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -320845,7 +320844,7 @@
    "avgTri": 0.00059,
    "anglePct": 92,
    "pieces": 60,
-   "vpt": 0.82,
+   "vpt": 0.84,
    "cells": [
     "15,3",
     "6,1"
@@ -320883,7 +320882,7 @@
   {
    "kit": "quat-essentials",
    "name": "shelves-wide-short",
-   "hash": "f3e2f69863",
+   "hash": "1738650140",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -320896,8 +320895,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 75028,
-   "vtx": 1878,
+   "bytes": 76052,
+   "vtx": 1910,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -320906,7 +320905,7 @@
    "avgTri": 0.00077,
    "anglePct": 92,
    "pieces": 32,
-   "vpt": 0.84,
+   "vpt": 0.86,
    "cells": [
     "15,3",
     "6,1"
@@ -320939,7 +320938,7 @@
   {
    "kit": "quat-essentials",
    "name": "shelves-wide-tall",
-   "hash": "1ed78ce081",
+   "hash": "f2494531b8",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -320952,8 +320951,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 142260,
-   "vtx": 3580,
+   "bytes": 144308,
+   "vtx": 3644,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -320962,7 +320961,7 @@
    "avgTri": 0.00079,
    "anglePct": 92,
    "pieces": 60,
-   "vpt": 0.82,
+   "vpt": 0.84,
    "cells": [
     "15,3",
     "6,1"
@@ -321000,7 +320999,7 @@
   {
    "kit": "quat-essentials",
    "name": "smg-magazine",
-   "hash": "8f3538e4eb",
+   "hash": "f10c75ff57",
    "kind": "obj-equipment-weapon-ranged-firearm-part",
    "size": "s",
    "wdh": [
@@ -321011,10 +321010,10 @@
    "tris": 482,
    "tpu": 1405,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 18716,
-   "vtx": 446,
+   "bytes": 24860,
+   "vtx": 638,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -321022,15 +321021,18 @@
    "avgTri": 0.00002,
    "anglePct": 70,
    "pieces": 2,
-   "vpt": 0.93,
+   "vpt": 1.32,
    "cells": [
-    "15,3"
+    "15,3",
+    "6,0"
    ],
    "colors": [
-    "#7a8491"
+    "#7a8491",
+    "#f1a63b"
    ],
    "tags": [
     "metal-steel",
+    "plastic",
     "qua",
     "space"
    ],
@@ -321039,7 +321041,7 @@
   {
    "kit": "quat-essentials",
    "name": "sniper-magazine",
-   "hash": "f942ef65d2",
+   "hash": "2cca8c7f47",
    "kind": "obj-equipment-weapon-ranged-firearm-part",
    "size": "s",
    "wdh": [
@@ -321052,8 +321054,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22664,
-   "vtx": 561,
+   "bytes": 26312,
+   "vtx": 675,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -321061,18 +321063,18 @@
    "avgTri": 0.00002,
    "anglePct": 85,
    "pieces": 2,
-   "vpt": 1.07,
+   "vpt": 1.28,
    "cells": [
     "15,3",
-    "6,1"
+    "6,0"
    ],
    "colors": [
-    "#3a3e4b",
-    "#7a8491"
+    "#7a8491",
+    "#f1a63b"
    ],
    "tags": [
-    "metal-iron-dark",
     "metal-steel",
+    "plastic",
     "qua",
     "space"
    ],
@@ -321081,7 +321083,7 @@
   {
    "kit": "quat-essentials",
    "name": "sniper",
-   "hash": "b355a6e47e",
+   "hash": "ca623a270a",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -321092,10 +321094,10 @@
    "tris": 8738,
    "tpu": 25475,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 318420,
-   "vtx": 8264,
+   "bytes": 328468,
+   "vtx": 8578,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -321104,19 +321106,16 @@
    "avgTri": 0.00002,
    "anglePct": 66,
    "pieces": 47,
-   "vpt": 0.95,
+   "vpt": 0.98,
    "cells": [
     "15,3",
-    "6,1",
     "6,0"
    ],
    "colors": [
-    "#3a3e4b",
     "#7a8491",
     "#f1a63b"
    ],
    "tags": [
-    "metal-iron-dark",
     "metal-steel",
     "plastic",
     "qua",
@@ -321134,7 +321133,7 @@
   {
    "kit": "quat-essentials",
    "name": "syringe",
-   "hash": "5f3dd94d58",
+   "hash": "4c0e0fd38c",
    "kind": "obj-device-science",
    "size": "s",
    "wdh": [
@@ -321145,10 +321144,10 @@
    "tris": 1118,
    "tpu": 3259,
    "mat": 1,
-   "bands": 4,
+   "bands": 2,
    "calls": 1,
-   "bytes": 49820,
-   "vtx": 1299,
+   "bytes": 53500,
+   "vtx": 1414,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -321157,21 +321156,16 @@
    "avgTri": 0.00004,
    "anglePct": 22,
    "pieces": 6,
-   "vpt": 1.16,
+   "vpt": 1.26,
    "cells": [
     "15,3",
-    "5,2",
-    "3,1",
-    "6,1"
+    "3,1"
    ],
    "colors": [
-    "#3a3e4b",
     "#66852a",
-    "#7a8491",
-    "#d8cfb7"
+    "#7a8491"
    ],
    "tags": [
-    "metal-iron-dark",
     "metal-steel",
     "plastic",
     "qua",
@@ -321189,7 +321183,7 @@
   {
    "kit": "quat-essentials",
    "name": "trilobite",
-   "hash": "cf55476897",
+   "hash": "138a4ccd74",
    "kind": "char",
    "size": "m",
    "wdh": [
@@ -321200,10 +321194,10 @@
    "tris": 8338,
    "tpu": 5311,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 348972,
-   "vtx": 9294,
+   "bytes": 344812,
+   "vtx": 9164,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -321212,21 +321206,18 @@
    "avgTri": 0.00084,
    "anglePct": 49,
    "pieces": 36,
-   "vpt": 1.11,
+   "vpt": 1.1,
    "cells": [
     "15,3",
-    "6,1",
-    "5,2"
+    "6,1"
    ],
    "colors": [
     "#3a3e4b",
-    "#7a8491",
-    "#d8cfb7"
+    "#7a8491"
    ],
    "tags": [
     "metal-iron-dark",
     "metal-steel",
-    "plastic",
     "qua",
     "space"
    ],

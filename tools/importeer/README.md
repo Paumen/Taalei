@@ -28,6 +28,12 @@ A config is a JSON object:
   names one. `vlakken: true` gives each flat face, a run of triangles sharing
   edges in one plane, the band covering most of its area, for textured sources
   whose detail would otherwise split big triangles into stray colours.
+  `eilanden: <share>` gives every patch of one band, triangles sharing edges,
+  whose area is under that share of the model's surface the band it borders
+  most, so texture noise does not leave flecks.
+- A band in `banden` may carry a tone, `nickel+0.3` or `slate-0.2`: the UV moves
+  that far towards the dark or light end of the band, so two source greys can
+  share one band and still read apart.
 - `varianten`: groups of `leden` (workfile names) with a `type`, `detail-variant`
   when left out.
 

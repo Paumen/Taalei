@@ -81,19 +81,21 @@ function gladdeNormalen(posities, driehoeken, drempel) {
         y += n[1] * oppervlak;
         z += n[2] * oppervlak;
       }
-      const lengte = Math.hypot(x, y, z) || 1;
-      uit.push([x / lengte, y / lengte, z / lengte]);
+      const lengte = Math.hypot(x, y, z);
+      uit.push(lengte > 1e-12 ? [x / lengte, y / lengte, z / lengte] : [0, 1, 0]);
     }
   }
   return uit;
 }
 
 function bandUv(band, normaalY) {
-  const cel = BANDEN[band];
+  const [naam, toon = '0'] = band.split(/(?=[+-]\d)/);
+  const cel = BANDEN[naam];
   if (!cel) throw new Error(`unknown band: ${band}`);
   const [kolom, rij] = cel.split(',').map(Number);
   const donker = 1 - (normaalY + 1) / 2;
-  return [(kolom + 0.5) / KOLOMMEN, (rij + LICHT + SPREIDING * donker) / RIJEN];
+  const v = Math.min(Math.max(LICHT + SPREIDING * donker + Number(toon), 0.02), 0.98);
+  return [(kolom + 0.5) / KOLOMMEN, (rij + v) / RIJEN];
 }
 
 function treffers(posities, driehoeken, o, d, zelf) {
@@ -246,7 +248,63 @@ function egaliseerVlakken(bron, banden) {
   for (const [f, tri] of driehoeken.entries()) tri.kleur = keuze.get(wortel(f));
 }
 
-function bouwGlb(naam, bron, banden, schaal, drempel, bronkitNaam, bronbestand) {
+function ruimEilanden(bron, banden, aandeel) {
+  const { posities, driehoeken } = bron;
+  const oppervlak = driehoeken.map((tri) => Math.hypot(...vlakNormaal(posities, ...tri.hoeken)) / 2);
+  const totaal = oppervlak.reduce((a, b) => a + b, 0);
+  const randen = new Map();
+  for (const [f, tri] of driehoeken.entries()) {
+    for (let k = 0; k < 3; k++) {
+      const a = tri.hoeken[k], b = tri.hoeken[(k + 1) % 3];
+      const sleutel = a < b ? `${a},${b}` : `${b},${a}`;
+      if (randen.has(sleutel)) randen.get(sleutel).zijden.push(f);
+      else {
+        const lengte = Math.hypot(...[0, 1, 2].map((i) => posities[a * 3 + i] - posities[b * 3 + i]));
+        randen.set(sleutel, { lengte, zijden: [f] });
+      }
+    }
+  }
+  const buren = driehoeken.map(() => []);
+  for (const { lengte, zijden } of randen.values()) {
+    for (const f of zijden) for (const g of zijden) if (f !== g) buren[f].push([g, lengte]);
+  }
+  for (let ronde = 0; ronde < 4; ronde++) {
+    const band = driehoeken.map((tri) => banden[tri.kleur]);
+    const groep = new Array(driehoeken.length).fill(-1);
+    let veranderd = false;
+    for (const start of driehoeken.keys()) {
+      if (groep[start] !== -1) continue;
+      const leden = [start];
+      groep[start] = start;
+      for (let i = 0; i < leden.length; i++) {
+        for (const [g] of buren[leden[i]]) {
+          if (groep[g] === -1 && band[g] === band[start]) {
+            groep[g] = start;
+            leden.push(g);
+          }
+        }
+      }
+      const opp = leden.reduce((som, f) => som + oppervlak[f], 0);
+      if (opp >= totaal * aandeel) continue;
+      const grens = new Map();
+      for (const f of leden) {
+        for (const [g, lengte] of buren[f]) {
+          if (band[g] !== band[start]) grens.set(g, (grens.get(g) ?? 0) + lengte);
+        }
+      }
+      const perBand = new Map();
+      for (const [g, lengte] of grens) perBand.set(band[g], (perBand.get(band[g]) ?? 0) + lengte);
+      if (!perBand.size) continue;
+      const nieuw = [...perBand].sort((a, b) => b[1] - a[1])[0][0];
+      const kleur = [...grens.keys()].find((g) => band[g] === nieuw);
+      for (const f of leden) driehoeken[f].kleur = driehoeken[kleur].kleur;
+      veranderd = true;
+    }
+    if (!veranderd) break;
+  }
+}
+
+function bouwGlb(naam,bron, banden, schaal, drempel, bronkitNaam, bronbestand) {
   const { posities, driehoeken } = bron;
   const normalen = gladdeNormalen(posities, driehoeken, drempel);
 
@@ -377,6 +435,7 @@ for (const rij of config.modellen) {
   }
   kiesMeerderheid(bron, banden);
   if (rij.vlakken) egaliseerVlakken(bron, banden);
+  if (rij.eilanden) ruimEilanden(bron, banden, rij.eilanden);
   const { json, bin } = bouwGlb(
     rij.naam,
     bron,
