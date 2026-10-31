@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
-import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, buildTree, hitBox, hitTriangle } from './mesh-edit.mjs';
+import { repack, fixBounds, editablePrimitives, primitiveMatrix, welder, buildTree, hitBox, hitTriangle, vertexAdder } from './mesh-edit.mjs';
 
 const HELP = `stone-shade.mjs [options] <workfile.glb> [...]
 
@@ -11,7 +11,9 @@ band stays as it is. Per vertex, v within the band is
        - up * upward facing + down * downward facing
        + shadow * max(recess, overhang)
        + trim step,
-kept within --light .. 0.94.
+kept within --light .. --dark. With --band, stone walls under an eave get a
+cut line --band of the model's height below it, so the shade under the eave
+ends there.
 recess is how closed in the spot is within --near of the stone's size,
 overhang how much of the sky right above it is covered within --over of its
 height, both by the whole model.
@@ -29,6 +31,9 @@ height, both by the whole model.
   --open <f>       0.45   share of closed-in view a spot may have before it darkens
   --under <f>      0.3    faces looking down are at least base + under
   --light <f>      0.15   lightest v
+  --dark <f>       0.82   darkest v
+  --band <f>       0.12   0 for no cut lines
+  --budget <f>     0.08   most tris cut lines may add, as a share of the model's
   --dry`;
 
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
@@ -76,9 +81,140 @@ const transform = (m, p) => [
 ];
 const turn = (m, p) => norm([m[0] * p[0] + m[4] * p[1] + m[8] * p[2], m[1] * p[0] + m[5] * p[1] + m[9] * p[2], m[2] * p[0] + m[6] * p[1] + m[10] * p[2]]);
 
+
+function worldTris(glb) {
+  const all = [];
+  for (const prim of (glb.json.meshes ?? []).flatMap((m) => m.primitives)) {
+    const m = primitiveMatrix(glb.json, prim);
+    const pos = readAccessor(glb, prim.attributes.POSITION).data;
+    const idx = readAccessor(glb, prim.indices).data;
+    const w = [];
+    for (let i = 0; i < pos.length / 3; i++) w.push(transform(m, [pos[3 * i], pos[3 * i + 1], pos[3 * i + 2]]));
+    for (let t = 0; t < idx.length; t += 3) all.push([w[idx[t]], w[idx[t + 1]], w[idx[t + 2]]]);
+  }
+  return all;
+}
+
+function nearestUp(tree, tris, p, n, eps, far) {
+  const o = [p[0] + n[0] * eps * 4, p[1] + eps, p[2] + n[2] * eps * 4];
+  let c = 0;
+  for (const d of CONE) if (blocked(tree, tris, o, d, far)) c++;
+  return c / CONE.length;
+}
+
+function cutUnderEaves(glb, o, cu, cv) {
+  const all = worldTris(glb);
+  if (!all.length) return 0;
+  const tree = buildTree(all);
+  let yl = Infinity, yh = -Infinity, size = 0;
+  const low = [Infinity, Infinity, Infinity], high = [-Infinity, -Infinity, -Infinity];
+  for (const tri of all) for (const p of tri) for (let k = 0; k < 3; k++) { low[k] = Math.min(low[k], p[k]); high[k] = Math.max(high[k], p[k]); }
+  yl = low[1]; yh = high[1];
+  size = Math.max(...sub(high, low));
+  const eps = 1e-3 * size, band = o.band * (yh - yl);
+  const replaced = new Map();
+  let added = 0;
+  for (const prim of editablePrimitives(glb.json)) {
+    if (prim.attributes.TEXCOORD_0 === undefined || prim.targets) continue;
+    const m = primitiveMatrix(glb.json, prim);
+    const pos = Array.from(readAccessor(glb, prim.attributes.POSITION).data);
+    const uv = Array.from(readAccessor(glb, prim.attributes.TEXCOORD_0).data);
+    const nrm = prim.attributes.NORMAL !== undefined ? Array.from(readAccessor(glb, prim.attributes.NORMAL).data) : null;
+    let idx = Array.from(readAccessor(glb, prim.indices).data);
+    const wy = (i) => transform(m, [pos[3 * i], pos[3 * i + 1], pos[3 * i + 2]])[1];
+    const mine = (t) => {
+      const ku = Math.floor(((uv[2 * idx[t]] + uv[2 * idx[t + 1]] + uv[2 * idx[t + 2]]) / 3) * 16);
+      const kv = Math.floor(((uv[2 * idx[t] + 1] + uv[2 * idx[t + 1] + 1] + uv[2 * idx[t + 2] + 1]) / 3) * 4);
+      return ku === cu && kv === cv;
+    };
+    const planes = [];
+    for (let t = 0; t < idx.length; t += 3) {
+      if (!mine(t)) continue;
+      const w = [0, 1, 2].map((k) => transform(m, [pos[3 * idx[t + k]], pos[3 * idx[t + k] + 1], pos[3 * idx[t + k] + 2]]));
+      const e1 = sub(w[1], w[0]), e2 = sub(w[2], w[0]);
+      const n = norm([e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]]);
+      if (Math.abs(n[1]) > 0.3) continue;
+      const top = w.reduce((a, b) => (b[1] > a[1] ? b : a));
+      const bottom = Math.min(...w.map((p) => p[1]));
+      if (top[1] - bottom < 2.5 * band) continue;
+      if (nearestUp(tree, all, top, n, eps, band) < 0.5) continue;
+      const mid = [0, 1, 2].map((k) => (w[0][k] + w[1][k] + w[2][k]) / 3 + n[k] * eps * 4);
+      if (blocked(tree, all, mid, n, 0.3 * size)) continue;
+      const y = top[1] - band;
+      const q = planes.find((r) => Math.abs(r.y - y) < 0.2 * band);
+      const area = Math.hypot(e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]);
+      if (q) q.area += area; else planes.push({ y, area });
+    }
+    if (!planes.length) continue;
+    const crossing = (y) => {
+      let c = 0;
+      for (let t = 0; t < idx.length; t += 3) {
+        if (!mine(t)) continue;
+        const ys = [0, 1, 2].map((k) => wy(idx[t + k]) - y);
+        if (ys.some((d) => d > 1e-6 * size) && ys.some((d) => d < -1e-6 * size)) c += 2;
+      }
+      return c;
+    };
+    let budget = Math.floor(o.budget * idx.length / 3);
+    const keep = [];
+    for (const q of planes.sort((a, b) => b.area - a.area)) {
+      const c = crossing(q.y);
+      if (c <= budget) { keep.push(q.y); budget -= c; }
+    }
+    planes.length = 0;
+    planes.push(...keep);
+    if (!planes.length) continue;
+    const adder = vertexAdder(glb, prim);
+    let count = pos.length / 3;
+    for (const y of planes) {
+      const made = new Map();
+      const at = (a, b) => {
+        const key = a < b ? `${a},${b}` : `${b},${a}`;
+        if (made.has(key)) return made.get(key);
+        const ya = wy(a), yb = wy(b), f = (y - ya) / (yb - ya);
+        const lerp = (arr, k) => Array.from({ length: k }, (_, j) => arr[k * a + j] + (arr[k * b + j] - arr[k * a + j]) * f);
+        const P = lerp(pos, 3), U = lerp(uv, 2);
+        const set = { POSITION: P, TEXCOORD_0: U };
+        pos.push(...P); uv.push(...U);
+        if (nrm) { const N = norm(lerp(nrm, 3)); set.NORMAL = N; nrm.push(...N); }
+        const from = adder.add(a, set);
+        if (from !== count) throw new Error('vertex order');
+        count++;
+        made.set(key, from);
+        return from;
+      };
+      const next = [];
+      for (let t = 0; t < idx.length; t += 3) {
+        const tri = [idx[t], idx[t + 1], idx[t + 2]];
+        const sd = tri.map((i) => wy(i) - y);
+        const above = sd.map((d) => d > 1e-6 * size), below = sd.map((d) => d < -1e-6 * size);
+        if (!mine(t) || !above.some(Boolean) || !below.some(Boolean)) { next.push(...tri); continue; }
+        const on = sd.findIndex((d) => !(d > 1e-6 * size) && !(d < -1e-6 * size));
+        if (on >= 0) {
+          const [a, b, c] = [tri[on], tri[(on + 1) % 3], tri[(on + 2) % 3]];
+          const p = at(b, c);
+          next.push(a, b, p, a, p, c);
+          added++;
+          continue;
+        }
+        const lone = [0, 1, 2].find((k) => above.filter(Boolean).length === 1 ? above[k] : below[k]);
+        const [a, b, c] = [tri[lone], tri[(lone + 1) % 3], tri[(lone + 2) % 3]];
+        const pab = at(a, b), pac = at(a, c);
+        next.push(a, pab, pac, pab, b, c, pab, c, pac);
+        added += 2;
+      }
+      idx = next;
+    }
+    adder.commit(idx, replaced);
+  }
+  if (replaced.size) { repack(glb, replaced); fixBounds(glb); }
+  return added;
+}
+
 function shade(file, o) {
   const glb = readGlb(file);
   const [cu, cv] = o.cell.split(',').map(Number);
+  const cuts = o.band > 0 ? cutUnderEaves(glb, o, cu, cv) : 0;
   const prims = editablePrimitives(glb.json).filter((p) => p.attributes.TEXCOORD_0 !== undefined && glb.json.accessors[p.attributes.TEXCOORD_0].componentType === 5126);
   const all = [];
   const stone = [];
@@ -162,11 +298,34 @@ function shade(file, o) {
   }
 
   const near = o.near * size;
+  const mh = high[1] - low[1] || 1;
+  const reach = 0.08 * size, tol = 0.01 * size;
+  const nkey = (n) => n.map((x) => Math.round(x * 4)).join(',');
+  const cellOf = (p) => p.map((x) => Math.floor(x / reach));
+  const hash = new Map();
+  for (const v of verts) {
+    const k = `${nkey(v.n)}|${cellOf(v.p).join(',')}`;
+    if (!hash.has(k)) hash.set(k, []);
+    hash.get(k).push(v);
+  }
+  for (const v of verts) {
+    const d = v.n[0] * v.p[0] + v.n[1] * v.p[1] + v.n[2] * v.p[2];
+    const [x, y, z] = cellOf(v.p);
+    v.proud = false;
+    for (let i = -1; i <= 1 && !v.proud; i++) for (let j = -1; j <= 1 && !v.proud; j++) for (let k = -1; k <= 1 && !v.proud; k++) {
+      for (const w of hash.get(`${nkey(v.n)}|${x + i},${y + j},${z + k}`) ?? []) {
+        const e = v.n[0] * w.p[0] + v.n[1] * w.p[1] + v.n[2] * w.p[2];
+        const lateral = Math.hypot(...sub(sub(w.p, v.p), v.n.map((c) => c * (e - d))));
+        if (d - e > tol && d - e < reach && lateral < reach) { v.proud = true; break; }
+      }
+    }
+  }
+  const band = o.band * mh;
   let moved = 0;
   for (const v of verts) {
     const pc = pieces.get(v.piece);
     const ph = pc.high[1] - pc.low[1];
-    const hWhole = (yHigh - v.p[1]) / span - 0.5;
+    const hWhole = (high[1] - v.p[1]) / mh - 0.5;
     const hPiece = ph > 1e-9 ? (pc.high[1] - v.p[1]) / ph - 0.5 : 0;
     const origin = [v.p[0] + v.n[0] * eps, v.p[1] + v.n[1] * eps, v.p[2] + v.n[2] * eps];
     const f = frame(v.n);
@@ -174,16 +333,17 @@ function shade(file, o) {
     for (const d of HEMI) if (blocked(tree, all, origin, f(d), near)) hit++;
     const up = [v.p[0] + v.n[0] * eps * 4, v.p[1] + eps, v.p[2] + v.n[2] * eps * 4];
     let c = 0;
-    for (const d of CONE) if (blocked(tree, all, up, d, o.over * span)) c++;
+    for (const d of CONE) if (blocked(tree, all, up, d, o.over * mh)) c++;
     const sky = c / CONE.length;
     const recess = Math.max(0, Math.min(1, (hit / HEMI.length - o.open) / 0.3)) * (0.35 + 0.65 * sky);
-    const overhang = v.n[1] > -0.3 ? Math.max(0, Math.min(1, (sky - 0.25) / 0.5)) : 0;
+    const eave = v.n[1] > -0.3 ? nearestUp(tree, all, v.p, v.n, eps, 1.2 * band) : 0;
+    const overhang = Math.max(0, Math.min(1, (eave - 0.25) / 0.5));
     const open = 1 - 0.5 * Math.max(0, v.n[1]) * (1 - sky);
     let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : open) + o.piece * hPiece
       - o.up * Math.max(0, v.n[1]) + o.down * Math.max(0, -v.n[1])
-      + o.shadow * Math.max(recess, overhang) + pc.trim;
+      + o.shadow * Math.max(recess, overhang) + pc.trim - (v.proud && v.n[1] < 0.5 ? o.trim : 0);
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
-    val = Math.max(o.light, Math.min(0.94, val));
+    val = Math.max(o.light, Math.min(o.dark, val));
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
     moved++;
   }
@@ -193,12 +353,12 @@ function shade(file, o) {
     fixBounds(glb);
     writeGlb(file, glb.json, glb.bin, writeFileSync);
   }
-  return moved;
+  return `${moved} vertices, ${cuts} tris added`;
 }
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dry: false };
+const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, dry: false };
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') { opts.dry = true; continue; }
@@ -209,4 +369,4 @@ for (let i = 0; i < args.length; i++) {
   args[i + 1] = '';
   i++;
 }
-for (const file of args.filter((a) => a && !a.startsWith('--'))) console.log(`${file}: ${shade(file, opts)} vertices`);
+for (const file of args.filter((a) => a && !a.startsWith('--'))) console.log(`${file}: ${shade(file, opts)}`);
