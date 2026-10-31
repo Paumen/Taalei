@@ -1125,5 +1125,11 @@ window.KENNEY_KITS = [
    "avra-weapons",
    "avra-nature"
   ]
+ },
+ {
+  "slug": "quat-megakit",
+  "url": "https://quaternius.com/",
+  "licenseLabel": "CC0 1.0",
+  "note": "Quaternius; free version of the Modular SciFi MegaKit."
  }
 ]

@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -276,7 +276,9 @@ function build() {
     if (old) writeFileSync(join(out, 'before', `${key(item.model)}.glb`), old);
     if (existsSync(join(ROOT, path))) copyFileSync(join(ROOT, path), join(out, 'after', `${key(item.model)}.glb`));
   }
-  for (const side of ['before', 'after']) render(join(out, side), join(out, `r-${side}`), size);
+  for (const side of ['before', 'after']) {
+    if (readdirSync(join(out, side)).some((f) => f.endsWith('.glb'))) render(join(out, side), join(out, `r-${side}`), size);
+  }
   const atScale = (d) => d.facts.some((f) => f.f === 'size' && Math.abs(f.to / f.from - 1) >= 0.2);
   const sized = list.items.filter((item) => atScale(diff(item.model, base, tagsBefore, tagsAfter)));
   for (const side of ['before', 'after']) {
