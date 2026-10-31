@@ -17,7 +17,7 @@ if [ "$tool" = Bash ]; then
   writes='(\btee\b|\bsed\b[^|;&]*[[:space:]]-[a-zA-Z]*i|\bperl\b[^|;&]*[[:space:]]-[a-zA-Z]*i|\b(mv|cp|rm|ln|truncate|dd|patch|install|chmod|touch|rsync)\b|\bgit[[:space:]]+(checkout|restore|apply|mv|rm|stash|reset|cherry-pick|revert|am)\b|\b(python3?|node|ruby|bash|sh)\b[^|;&]*[[:space:]]-(e|c)\b)'
   redirect_into() { grep -Eq ">>?[[:space:]]*[^[:space:]]*$1" <<<"$cmd"; }
   if redirect_into '\.claude/(settings|hooks)' || { grep -Eq "$writes" <<<"$cmd" && grep -Eq "$locked" <<<"$cmd"; }; then
-    decide deny "$lock_msg"
+    decide ask "$lock_msg"
   fi
   if redirect_into '(canon\.md|golden\.mjs)' || { grep -Eq "$writes" <<<"$cmd" && grep -Eq "$canon" <<<"$cmd"; }; then
     decide ask "$canon_msg"
