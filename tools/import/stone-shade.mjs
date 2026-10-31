@@ -11,7 +11,7 @@ band stays as it is. Per vertex, v within the band is
        - up * upward facing + down * downward facing
        + shadow * max(recess, overhang)
        + trim step,
-kept within 0.03 .. 0.94.
+kept within --light .. 0.94.
 recess is how closed in the spot is within --near of the stone's size,
 overhang how much of the sky right above it is covered within --over of its
 height, both by the whole model.
@@ -26,7 +26,9 @@ height, both by the whole model.
   --trim <f>       0.08   caps and sills lighter, plinths darker
   --near <f>       0.12
   --over <f>       0.35
-  --open <f>       0.2    share of closed-in sky a spot may have before it darkens
+  --open <f>       0.45   share of closed-in view a spot may have before it darkens
+  --under <f>      0.3    faces looking down are at least base + under
+  --light <f>      0.15   lightest v
   --dry`;
 
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
@@ -170,19 +172,18 @@ function shade(file, o) {
     const f = frame(v.n);
     let hit = 0;
     for (const d of HEMI) if (blocked(tree, all, origin, f(d), near)) hit++;
-    const recess = Math.max(0, Math.min(1, (hit / HEMI.length - o.open) / 0.35));
-    let overhang = 0;
-    if (v.n[1] > -0.3) {
-      const far = o.over * span;
-      const up = [v.p[0] + v.n[0] * eps * 4, v.p[1] + eps, v.p[2] + v.n[2] * eps * 4];
-      let c = 0;
-      for (const d of CONE) if (blocked(tree, all, up, d, far)) c++;
-      overhang = Math.max(0, Math.min(1, (c / CONE.length - 0.25) / 0.5));
-    }
-    let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : 1) + o.piece * hPiece
+    const up = [v.p[0] + v.n[0] * eps * 4, v.p[1] + eps, v.p[2] + v.n[2] * eps * 4];
+    let c = 0;
+    for (const d of CONE) if (blocked(tree, all, up, d, o.over * span)) c++;
+    const sky = c / CONE.length;
+    const recess = Math.max(0, Math.min(1, (hit / HEMI.length - o.open) / 0.3)) * (0.35 + 0.65 * sky);
+    const overhang = v.n[1] > -0.3 ? Math.max(0, Math.min(1, (sky - 0.25) / 0.5)) : 0;
+    const open = 1 - 0.5 * Math.max(0, v.n[1]) * (1 - sky);
+    let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : open) + o.piece * hPiece
       - o.up * Math.max(0, v.n[1]) + o.down * Math.max(0, -v.n[1])
       + o.shadow * Math.max(recess, overhang) + pc.trim;
-    val = Math.max(0.03, Math.min(0.94, val));
+    if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
+    val = Math.max(o.light, Math.min(0.94, val));
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
     moved++;
   }
@@ -197,7 +198,7 @@ function shade(file, o) {
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.2, dry: false };
+const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dry: false };
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') { opts.dry = true; continue; }
