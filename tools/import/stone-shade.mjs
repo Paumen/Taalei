@@ -11,12 +11,17 @@ its cell of kits/colormap.png and its u, and gets a new v within the cell from
 six terms, each from the model's own geometry. Other bands are left as they
 are, but all geometry blocks light.
 
-A face is a run of stone triangles in one plane. Recess, overhang and trim are
+A face is a run of stone triangles in one plane that touch at least at a
+corner. Recess, overhang and trim are
 measured at points spread over each face and fitted with a straight gradient
 across it, so a face gets one clean tone or ramp and a vertex is never coloured
 by geometry far from it. A vertex shared by faces takes their mean.
 
-  height    lighter at the top of each piece, darker at its bottom
+  height    lighter at the top of each solid column, darker toward its foot,
+            the dark end softer than the light end. A column runs from a
+            point straight up and down through the stone, and through stone
+            that touches it, to where it ends, so a tower, a wall or a stack
+            of courses each ramp as one
   facing    faces that look up lighter, faces that look down darker
   recess    darker where nearby geometry closes in around the surface
   overhang  darker where geometry sits right above
@@ -24,17 +29,16 @@ by geometry far from it. A vertex shared by faces takes their mean.
             darker where it is set back
   variety   a fixed shift per piece, so separate stones differ a little
 
-Height, facing and trim only lighten as far as the surface is open, so a
-ceiling inside an opening does not light up. A piece is a run of triangles
+Facing and trim only lighten as far as the surface is open. A piece is a run of triangles
 joined on shared positions. Distances scale with
 the model's longest side.
 
   --cells <band,band>  stone bands to shade (default taupe,taupe-dark,ivory)
   --base <f>           v before the terms (default 0.42)
-  --height <f>         top-to-bottom swing per piece (default 0.50)
+  --height <f>         top-to-bottom swing per column (default 0.70)
   --up <f> --down <f>  facing shifts (default 0.16, 0.22)
   --recess <f>         weight of the recess term (default 0.95)
-  --overhang <f>       weight of the overhang term (default 0.40)
+  --overhang <f>       weight of the overhang term (default 0.60)
   --trim <f>           weight of the trim term (default 0.40)
   --variety <f>        largest shift per piece (default 0.07)
   --reach <f>          short recess ray length, share of the longest side; the long
@@ -97,7 +101,46 @@ function hash(x) {
   return ((h >>> 0) % 10000) / 10000;
 }
 
-function measure(tree, tris, at, n, eps, reach, lift, step) {
+function allHits(tree, tris, normals, o, d, far) {
+  const inv = d.map((x) => 1 / x);
+  const out = [];
+  const stack = [tree.root];
+  while (stack.length) {
+    const node = stack.pop();
+    if (!hitBox(node.b, o, inv, far)) continue;
+    if (node.left) { stack.push(node.left, node.right); continue; }
+    for (let i = node.start; i < node.end; i++) {
+      const t = tree.order[i];
+      const at = hitTriangle(o, d, tris[t]);
+      const n = normals[t];
+      if (at > 1e-7 && at < far) out.push([at, n[0] * d[0] + n[1] * d[1] + n[2] * d[2]]);
+    }
+  }
+  return out.sort((a, b) => a[0] - b[0]);
+}
+
+function runOut(tree, tris, normals, o, d, far, gap) {
+  const hits = allHits(tree, tris, normals, o, d, far);
+  let depth = 1;
+  for (let k = 0; k < hits.length; k++) {
+    depth += hits[k][1] > 0 ? -1 : 1;
+    if (depth > 0) continue;
+    const next = hits[k + 1];
+    if (next && next[1] < 0 && next[0] - hits[k][0] < gap) continue;
+    return hits[k][0];
+  }
+  return null;
+}
+
+function column(tree, tris, normals, at, n, eps, size) {
+  const inside = add(at, n, -eps * 20);
+  const up = runOut(tree, tris, normals, inside, [0, 1, 0], size * 3, 0.01 * size);
+  const down = runOut(tree, tris, normals, inside, [0, -1, 0], size * 3, 0.01 * size);
+  if (up === null || down === null || up + down < eps * 50) return null;
+  return up / (up + down);
+}
+
+function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, fallback) {
   const [t1, t2] = frame(n);
   const from = add(at, n, eps * 10);
   let closed = 0;
@@ -126,7 +169,7 @@ function measure(tree, tris, at, n, eps, reach, lift, step) {
       samples++;
     }
   }
-  return [closed / (RECESS_RAYS.length * 2), cover / UP_RAYS.length, relief / samples];
+  return [closed / (RECESS_RAYS.length * 2), cover / UP_RAYS.length, relief / samples, column(tree, tris, normals, at, n, eps, size) ?? fallback(at)];
 }
 
 function fitPlane(points) {
@@ -173,11 +216,15 @@ function shade(file, o) {
     }
     world.push({ prim, pos, p, idx: readAccessor(glb, prim.indices).data });
   }
-  const tris = [];
+  const tris = [], normals = [];
   const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
   for (const w of world) {
     for (const q of w.p) for (let k = 0; k < 3; k++) { lo[k] = Math.min(lo[k], q[k]); hi[k] = Math.max(hi[k], q[k]); }
-    for (let t = 0; t < w.idx.length; t += 3) tris.push([w.p[w.idx[t]], w.p[w.idx[t + 1]], w.p[w.idx[t + 2]]]);
+    for (let t = 0; t < w.idx.length; t += 3) {
+      const tri = [w.p[w.idx[t]], w.p[w.idx[t + 1]], w.p[w.idx[t + 2]]];
+      tris.push(tri);
+      normals.push(norm(cross(sub(tri[1], tri[0]), sub(tri[2], tri[0]))));
+    }
   }
   const size = Math.max(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]) || 1;
   const height = hi[1] - lo[1] || size;
@@ -230,19 +277,23 @@ function shade(file, o) {
       if (isStone[a] && isStone[b] && isStone[c] && area > 0) stoneTris.push(t / 3);
     }
     const faces = unions();
-    const edges = new Map();
+    const corners = new Map();
+    const plane = (f) => { const q = p[idx[3 * f]], n = triN[f]; return q[0] * n[0] + q[1] * n[1] + q[2] * n[2]; };
     for (const f of stoneTris) {
       for (let e = 0; e < 3; e++) {
-        const a = point[idx[3 * f + e]], b = point[idx[3 * f + ((e + 1) % 3)]];
-        const key = a < b ? `${a},${b}` : `${b},${a}`;
-        for (const g of edges.get(key) ?? []) {
+        const key = point[idx[3 * f + e]];
+        for (const g of corners.get(key) ?? []) {
           const n = triN[f], m = triN[g];
-          if (n[0] * m[0] + n[1] * m[1] + n[2] * m[2] > 0.995) faces.join(`t${f}`, `t${g}`);
+          if (n[0] * m[0] + n[1] * m[1] + n[2] * m[2] > 0.995 && Math.abs(plane(f) - plane(g)) < 1e-3 * size) faces.join(`t${f}`, `t${g}`);
         }
-        if (!edges.has(key)) edges.set(key, []);
-        edges.get(key).push(f);
+        if (!corners.has(key)) corners.set(key, []);
+        corners.get(key).push(f);
       }
     }
+    const pieceHeight = (q, i) => {
+      const [low, high] = span.get(pieces.find(point[i]));
+      return high - low > 1e-9 ? (high - q[1]) / (high - low) : 0.5;
+    };
     const groups = new Map();
     for (const f of stoneTris) {
       const root = faces.find(`t${f}`);
@@ -263,7 +314,7 @@ function shade(file, o) {
         for (const [x, y, z] of SPOTS) {
           const at = [0, 1, 2].map((k) => A[k] * x + B[k] * y + C[k] * z);
           const [u, w] = flat(at);
-          points.push({ u, w, y: measure(tree, tris, at, N, eps, reach, lift, step), weight: triArea[f] / SPOTS.length });
+          points.push({ u, w, y: measure(tree, tris, normals, at, N, eps, reach, lift, step, size, (q) => pieceHeight(q, idx[3 * f])), weight: triArea[f] / SPOTS.length });
         }
       }
       const fit = fitPlane(points);
@@ -274,20 +325,18 @@ function shade(file, o) {
         const i = idx[3 * f + k];
         if (done.has(i)) continue;
         done.add(i);
-        const [closed, cover, relief] = fit(...flat(p[i]));
-        perVertex[i].push([facing, o.recess * closed, o.overhang * cover, o.trim * relief, occ]);
+        const [closed, cover, relief, h] = fit(...flat(p[i]));
+        perVertex[i].push([facing, o.recess * closed, o.overhang * cover, o.trim * relief, occ, o.height * (Math.sqrt(Math.max(0, h)) - 0.6)]);
       }
     }
 
     for (let i = 0; i < count; i++) {
       if (!isStone[i] || !perVertex[i].length) continue;
-      const mean = [0, 1, 2, 3, 4].map((k) => perVertex[i].reduce((s, x) => s + x[k], 0) / perVertex[i].length);
-      const [fTerm, rTerm, oTerm, tTerm, occ] = mean;
+      const mean = [0, 1, 2, 3, 4, 5].map((k) => perVertex[i].reduce((s, x) => s + x[k], 0) / perVertex[i].length);
+      const [fTerm, rTerm, oTerm, tTerm, occ, hTerm] = mean;
       const piece = pieces.find(point[i]);
-      const [low, high] = span.get(piece);
-      const h = high - low > 1e-9 ? (high - p[i][1]) / (high - low) : 0.5;
       const open = (x) => (x < 0 ? x * (1 - occ) : x);
-      jobs.push({ uv, i, terms: [open(o.height * (h - 0.5)), open(fTerm), rTerm, oTerm, open(tTerm), shift.get(piece)] });
+      jobs.push({ uv, i, terms: [hTerm, open(fTerm), rTerm, oTerm, open(tTerm), shift.get(piece)] });
     }
     replaced.set(uvIndex, uv);
   }
@@ -336,9 +385,9 @@ const take = (flag, fallback) => {
 };
 const o = {
   cells: take('--cells', 'taupe,taupe-dark,ivory').split(','),
-  base: take('--base', 0.42), height: take('--height', 0.50),
+  base: take('--base', 0.42), height: take('--height', 0.70),
   up: take('--up', 0.16), down: take('--down', 0.22),
-  recess: take('--recess', 0.95), overhang: take('--overhang', 0.40),
+  recess: take('--recess', 0.95), overhang: take('--overhang', 0.60),
   trim: take('--trim', 0.40), variety: take('--variety', 0.07),
   reach: take('--reach', 0.10), lift: take('--lift', 0.25), step: take('--step', 0.035),
   centre: take('--centre', 0.5), light: take('--light', 0.03), dark: take('--dark', 0.94),
