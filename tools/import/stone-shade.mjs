@@ -168,10 +168,10 @@ function cutUnderEaves(glb, o, cu, cv) {
     let count = pos.length / 3;
     for (const y of planes) {
       const made = new Map();
-      const at = (a, b) => {
-        const key = a < b ? `${a},${b}` : `${b},${a}`;
+      const at = (a, b, side) => {
+        const key = `${a < b ? `${a},${b}` : `${b},${a}`}|${side}`;
         if (made.has(key)) return made.get(key);
-        const ya = wy(a), yb = wy(b), f = (y - ya) / (yb - ya);
+        const ya = wy(a), yb = wy(b), f = b === a ? 0 : (y - ya) / (yb - ya);
         const lerp = (arr, k) => Array.from({ length: k }, (_, j) => arr[k * a + j] + (arr[k * b + j] - arr[k * a + j]) * f);
         const P = lerp(pos, 3), U = lerp(uv, 2);
         const set = { POSITION: P, TEXCOORD_0: U };
@@ -192,15 +192,16 @@ function cutUnderEaves(glb, o, cu, cv) {
         const on = sd.findIndex((d) => !(d > 1e-6 * size) && !(d < -1e-6 * size));
         if (on >= 0) {
           const [a, b, c] = [tri[on], tri[(on + 1) % 3], tri[(on + 2) % 3]];
-          const p = at(b, c);
-          next.push(a, b, p, a, p, c);
+          const sb = above[(on + 1) % 3] ? 'u' : 'd', sc = sb === 'u' ? 'd' : 'u';
+          next.push(a, b, at(b, c, sb), at(a, a, sc), at(b, c, sc), c);
           added++;
           continue;
         }
         const lone = [0, 1, 2].find((k) => above.filter(Boolean).length === 1 ? above[k] : below[k]);
         const [a, b, c] = [tri[lone], tri[(lone + 1) % 3], tri[(lone + 2) % 3]];
-        const pab = at(a, b), pac = at(a, c);
-        next.push(a, pab, pac, pab, b, c, pab, c, pac);
+        const sl = above[lone] ? 'u' : 'd', so = sl === 'u' ? 'd' : 'u';
+        const pab = at(a, b, so), pac = at(a, c, so);
+        next.push(a, at(a, b, sl), at(a, c, sl), pab, b, c, pab, c, pac);
         added += 2;
       }
       idx = next;
@@ -321,29 +322,87 @@ function shade(file, o) {
     }
   }
   const band = o.band * mh;
+  const sample = (p, n) => {
+    const origin = [p[0] + n[0] * eps, p[1] + n[1] * eps, p[2] + n[2] * eps];
+    const f = frame(n);
+    let hit = 0;
+    for (const d of HEMI) if (blocked(tree, all, origin, f(d), near)) hit++;
+    const sky = nearestUp(tree, all, p, n, eps, o.over * mh);
+    const eave = n[1] > -0.3 ? nearestUp(tree, all, p, n, eps, 1.2 * band) : 0;
+    return { hit: hit / HEMI.length, sky, eave };
+  };
+  const tparent = new Map();
+  const tfind = (x) => { while (tparent.get(x) !== x) x = tparent.get(x); return x; };
+  const flat = [];
+  const byIndex = new Map();
+  for (const [si, s] of stone.entries()) for (const t of s.trisMine) {
+    const keys = [0, 1, 2].map((k) => `${si}#${s.idx[t + k]}`);
+    const w = keys.map((k) => byVert.get(k).p);
+    const e1 = sub(w[1], w[0]), e2 = sub(w[2], w[0]);
+    const cr = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    const area = Math.hypot(...cr);
+    if (area < 1e-12) continue;
+    const tri = { id: flat.length, keys, area, c: [0, 1, 2].map((k) => (w[0][k] + w[1][k] + w[2][k]) / 3), n: norm(cr) };
+    flat.push(tri);
+    tparent.set(tri.id, tri.id);
+    for (const k of keys) {
+      if (!byIndex.has(k)) byIndex.set(k, []);
+      for (const other of byIndex.get(k)) {
+        if (other.n[0] * tri.n[0] + other.n[1] * tri.n[1] + other.n[2] * tri.n[2] < 0.99) continue;
+        const x = tfind(other.id), y = tfind(tri.id);
+        if (x !== y) tparent.set(x, y);
+      }
+      byIndex.get(k).push(tri);
+    }
+  }
+  const region = new Map();
+  for (const tri of flat) {
+    const r = tfind(tri.id);
+    if (!region.has(r)) region.set(r, { tris: [], verts: [] });
+    region.get(r).tris.push(tri);
+    tri.region = region.get(r);
+  }
+  for (const [, g] of region) {
+    const pick = [...g.tris].sort((x, y) => y.area - x.area).slice(0, 8);
+    const total = pick.reduce((acc, t) => acc + t.area, 0);
+    const acc = { hit: 0, sky: 0, eave: 0 };
+    for (const t of pick) { const q = sample(t.c, t.n); for (const k in acc) acc[k] += (q[k] * t.area) / total; }
+    g.q = acc;
+  }
+  for (const v of verts) {
+    const tris = byIndex.get(`${stone.indexOf(v.s)}#${v.i}`) ?? [];
+    if (!tris.length) continue;
+    const seen = new Map();
+    for (const t of tris) seen.set(t.region, (seen.get(t.region) ?? 0) + t.area);
+    const total = [...seen.values()].reduce((x, y) => x + y, 0);
+    v.q = { hit: 0, sky: 0, eave: 0 };
+    for (const [g, w] of seen) { for (const k in v.q) v.q[k] += (g.q[k] * w) / total; g.verts.push(v); }
+    v.region = [...seen.entries()].sort((x, y) => y[1] - x[1])[0][0];
+  }
+  for (const [, g] of region) g.proud = g.verts.filter((v) => v.proud).length * 2 > g.verts.length;
+  const soft = (x) => {
+    const k = 0.12, lo = o.light, hi = o.dark;
+    if (x < lo + k) return lo + k * Math.exp((x - lo - k) / k);
+    if (x > hi - k) return hi - k * Math.exp((hi - k - x) / k);
+    return x;
+  };
   let moved = 0;
   for (const v of verts) {
     const pc = pieces.get(v.piece);
     const ph = pc.high[1] - pc.low[1];
     const hWhole = (high[1] - v.p[1]) / mh - 0.5;
     const hPiece = ph > 1e-9 ? (pc.high[1] - v.p[1]) / ph - 0.5 : 0;
-    const origin = [v.p[0] + v.n[0] * eps, v.p[1] + v.n[1] * eps, v.p[2] + v.n[2] * eps];
-    const f = frame(v.n);
-    let hit = 0;
-    for (const d of HEMI) if (blocked(tree, all, origin, f(d), near)) hit++;
-    const up = [v.p[0] + v.n[0] * eps * 4, v.p[1] + eps, v.p[2] + v.n[2] * eps * 4];
-    let c = 0;
-    for (const d of CONE) if (blocked(tree, all, up, d, o.over * mh)) c++;
-    const sky = c / CONE.length;
-    const recess = Math.max(0, Math.min(1, (hit / HEMI.length - o.open) / 0.3)) * (0.35 + 0.65 * sky);
-    const eave = v.n[1] > -0.3 ? nearestUp(tree, all, v.p, v.n, eps, 1.2 * band) : 0;
+    const q = v.q ?? sample(v.p, v.n);
+    const proud = v.region ? v.region.proud : v.proud;
+    const { sky, eave } = q;
+    const recess = Math.max(0, Math.min(1, (q.hit - o.open) / 0.3)) * (0.35 + 0.65 * sky);
     const overhang = Math.max(0, Math.min(1, (eave - 0.25) / 0.5));
     const open = 1 - 0.5 * Math.max(0, v.n[1]) * (1 - sky);
     let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : open) + o.piece * hPiece
       - o.up * Math.max(0, v.n[1]) + o.down * Math.max(0, -v.n[1])
-      + o.shadow * Math.max(recess, overhang) + pc.trim - (v.proud && v.n[1] < 0.5 ? o.trim : 0);
+      + o.shadow * Math.max(recess, overhang) + pc.trim - (proud && v.n[1] < 0.5 ? o.trim : 0);
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
-    val = Math.max(o.light, Math.min(o.dark, val));
+    val = soft(val);
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
     moved++;
   }
