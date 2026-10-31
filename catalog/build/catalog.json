@@ -137382,7 +137382,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "wall-doorway",
-   "hash": "27871de067",
+   "hash": "2525e4a8bd",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
@@ -366507,7 +366507,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-5",
-   "hash": "c8cc60f802",
+   "hash": "91f4b2cfcb",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -366520,8 +366520,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28692,
-   "vtx": 740,
+   "bytes": 24692,
+   "vtx": 615,
    "grounded": true,
    "centered": true,
    "minEdge": 0.048,
@@ -366530,7 +366530,7 @@
    "avgTri": 0.12375,
    "anglePct": 73,
    "pieces": 20,
-   "vpt": 1.23,
+   "vpt": 1.02,
    "cells": [
     "2,0",
     "0,0",
@@ -411319,7 +411319,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "house-a",
-   "hash": "8af9f73992",
+   "hash": "dab27e8413",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -411374,7 +411374,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "house-b",
-   "hash": "693d9a6cf5",
+   "hash": "eea0d4ff8b",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -411424,13 +411424,27 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/house-a",
-   "thickRel": 0.7
+   "backface": {
+    "share": 0.0014,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "house-c",
-   "hash": "bf291dce68",
+   "hash": "b2bbc4df35",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -411485,7 +411499,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "market-house",
-   "hash": "8ca1b49600",
+   "hash": "ce9265fb9d",
    "kind": "str-building-work-commercial",
    "size": "m",
    "wdh": [
@@ -421276,7 +421290,7 @@
    "kit": "wizp-village",
    "collection": "wizp-eastern",
    "name": "house-a",
-   "hash": "89ce871674",
+   "hash": "5d757a7169",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -421331,7 +421345,7 @@
    "kit": "wizp-village",
    "collection": "wizp-eastern",
    "name": "house-b",
-   "hash": "adf413fc8e",
+   "hash": "46050c1acd",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -421380,13 +421394,27 @@
     "wood-mid"
    ],
    "variant": "wizp-village/house-a",
-   "thickRel": 0.69
+   "backface": {
+    "share": 0.0012,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.69,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
    "collection": "wizp-eastern",
    "name": "house-c",
-   "hash": "9b5b7b0a56",
+   "hash": "b9e208e390",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
