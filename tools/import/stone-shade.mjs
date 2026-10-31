@@ -11,6 +11,11 @@ its cell of kits/colormap.png and its u, and gets a new v within the cell from
 six terms, each from the model's own geometry. Other bands are left as they
 are, but all geometry blocks light.
 
+A face is a run of stone triangles in one plane. Recess, overhang and trim are
+measured at points spread over each face and fitted with a straight gradient
+across it, so a face gets one clean tone or ramp and a vertex is never coloured
+by geometry far from it. A vertex shared by faces takes their mean.
+
   height    lighter at the top of each piece, darker at its bottom
   facing    faces that look up lighter, faces that look down darker
   recess    darker where nearby geometry closes in around the surface
@@ -39,9 +44,6 @@ the model's longest side.
   --centre <f>         share of the model's median shift taken back out, so a
                        model mostly in shade still keeps its light (default 0.5)
   --light <f> --dark <f>  v limits, reached softly (default 0.03, 0.94)
-  --inset <f,f>        points between a vertex and the middle of its face where
-                       recess, overhang and trim are measured and averaged, so a
-                       big face is not judged by its corners (default 0.08,0.4,0.7)
   --only <term>        use only that term, to see what it does
   --dry                print the spread per term, write nothing`;
 
@@ -95,15 +97,72 @@ function hash(x) {
   return ((h >>> 0) % 10000) / 10000;
 }
 
+function measure(tree, tris, at, n, eps, reach, lift, step) {
+  const [t1, t2] = frame(n);
+  const from = add(at, n, eps * 10);
+  let closed = 0;
+  for (const r of RECESS_RAYS) {
+    const d = norm(add(add([t1[0] * r[0], t1[1] * r[0], t1[2] * r[0]], t2, r[1]), n, r[2]));
+    const hit = firstHit(tree, tris, from, d, reach * 3);
+    if (hit !== null) closed += Math.max(0, 1 - hit / reach) + (1 - hit / (reach * 3));
+  }
+  let cover = 0;
+  if (n[1] > -0.5) {
+    for (const d of UP_RAYS) {
+      if (d[0] * n[0] + d[1] * n[1] + d[2] * n[2] < -0.02) continue;
+      const hit = firstHit(tree, tris, add(from, n, eps * 40), d, lift);
+      if (hit !== null) cover += 1 - (hit / lift) * 0.5;
+    }
+  }
+  let relief = 0, samples = 0;
+  for (let k = 0; k < 8; k++) {
+    const a = (k * Math.PI) / 4;
+    const lat = norm(add([t1[0] * Math.cos(a), t1[1] * Math.cos(a), t1[2] * Math.cos(a)], t2, Math.sin(a)));
+    for (const s of [step, step * 2.5]) {
+      const top = add(add(at, lat, s), n, s * 2);
+      const hit = firstHit(tree, tris, top, [-n[0], -n[1], -n[2]], s * 4);
+      const out = hit === null ? -2 * s : s * 2 - hit;
+      relief += Math.max(-1, Math.min(1, out / s));
+      samples++;
+    }
+  }
+  return [closed / (RECESS_RAYS.length * 2), cover / UP_RAYS.length, relief / samples];
+}
+
+function fitPlane(points) {
+  const A = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  const width = points[0].y.length;
+  const B = Array.from({ length: width }, () => [0, 0, 0]);
+  const lo = new Array(width).fill(Infinity), hi = new Array(width).fill(-Infinity);
+  let total = 0;
+  for (const { u, w, y, weight } of points) {
+    const row = [1, u, w];
+    for (let a = 0; a < 3; a++) {
+      for (let b = 0; b < 3; b++) A[a][b] += weight * row[a] * row[b];
+      for (let k = 0; k < width; k++) B[k][a] += weight * row[a] * y[k];
+    }
+    y.forEach((v, k) => { lo[k] = Math.min(lo[k], v); hi[k] = Math.max(hi[k], v); });
+    total += weight;
+  }
+  const det = (M) => M[0][0] * (M[1][1] * M[2][2] - M[1][2] * M[2][1]) - M[0][1] * (M[1][0] * M[2][2] - M[1][2] * M[2][0]) + M[0][2] * (M[1][0] * M[2][1] - M[1][1] * M[2][0]);
+  const D = det(A);
+  const coef = B.map((b) => {
+    if (Math.abs(D) < 1e-12 * Math.max(1, total ** 3)) return [b[0] / total, 0, 0];
+    return [0, 1, 2].map((c) => det(A.map((r, i) => r.map((x, j) => (j === c ? b[i] : x)))) / D);
+  });
+  return (u, w) => coef.map((c, k) => Math.max(lo[k], Math.min(hi[k], c[0] + c[1] * u + c[2] * w)));
+}
+
+const SPOTS = [[1 / 3, 1 / 3, 1 / 3], [0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6]];
+
 function shade(file, o) {
   const glb = readGlb(file);
   const stone = new Set(o.cells.map((b) => {
     if (!BANDS[b]) throw new Error(`no such band: ${b}`);
     return BANDS[b];
   }));
-  const prims = editablePrimitives(glb.json);
   const world = [];
-  for (const prim of prims) {
+  for (const prim of editablePrimitives(glb.json)) {
     const pos = readAccessor(glb, prim.attributes.POSITION).data;
     const m = primitiveMatrix(glb.json, prim);
     const count = pos.length / 3;
@@ -128,37 +187,29 @@ function shade(file, o) {
 
   const replaced = new Map();
   const spread = { height: [], facing: [], recess: [], overhang: [], trim: [], variety: [], v: [] };
-  let moved = 0;
   const jobs = [];
   for (const { prim, pos, p, idx } of world) {
     const uvIndex = prim.attributes.TEXCOORD_0;
     if (uvIndex === undefined || glb.json.accessors[uvIndex].componentType !== 5126) continue;
     const uv = Float32Array.from(readAccessor(glb, uvIndex).data);
     const count = p.length;
-    const cellOf = (i) => `${Math.floor(uv[2 * i] * 16)},${Math.floor(uv[2 * i + 1] * 4)}`;
     const isStone = new Uint8Array(count);
-    let any = false;
-    for (let i = 0; i < count; i++) if (stone.has(cellOf(i))) { isStone[i] = 1; any = true; }
-    if (!any) continue;
+    for (let i = 0; i < count; i++) if (stone.has(`${Math.floor(uv[2 * i] * 16)},${Math.floor(uv[2 * i + 1] * 4)}`)) isStone[i] = 1;
+    if (!isStone.some((x) => x)) continue;
 
-    const faceN = new Array(count).fill(null).map(() => [0, 0, 0]);
-    const faceC = new Array(count).fill(null).map(() => [0, 0, 0]);
-    const faces = new Uint32Array(count);
     const { weld } = welder(pos);
     const point = Array.from({ length: count }, (_, i) => weld(i));
-    const parent = new Map();
-    const find = (a) => { while (parent.has(a) && parent.get(a) !== a) a = parent.get(a); return a; };
-    const join = (a, b) => { a = find(a); b = find(b); if (a !== b) parent.set(a, b); };
-    for (let t = 0; t < idx.length; t += 3) {
-      const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
-      join(point[a], point[b]); join(point[b], point[c]);
-      const n = cross(sub(p[b], p[a]), sub(p[c], p[a]));
-      const cen = [0, 1, 2].map((k) => (p[a][k] + p[b][k] + p[c][k]) / 3);
-      for (const v of [a, b, c]) { faceN[v] = add(faceN[v], n); faceC[v] = add(faceC[v], cen); faces[v]++; }
-    }
+    const unions = () => {
+      const parent = new Map();
+      const find = (a) => { while (parent.has(a) && parent.get(a) !== a) a = parent.get(a); return a; };
+      const join = (a, b) => { a = find(a); b = find(b); if (a !== b) parent.set(a, b); };
+      return { find, join };
+    };
+    const pieces = unions();
+    for (let t = 0; t < idx.length; t += 3) { pieces.join(point[idx[t]], point[idx[t + 1]]); pieces.join(point[idx[t + 1]], point[idx[t + 2]]); }
     const span = new Map(), centre = new Map();
     for (let i = 0; i < count; i++) {
-      const piece = find(point[i]);
+      const piece = pieces.find(point[i]);
       const s = span.get(piece) ?? [Infinity, -Infinity];
       span.set(piece, [Math.min(s[0], p[i][1]), Math.max(s[1], p[i][1])]);
       const c = centre.get(piece) ?? [0, 0, 0, 0];
@@ -170,56 +221,73 @@ function shade(file, o) {
       shift.set(piece, (hash(key) * 2 - 1) * o.variety);
     }
 
-    for (let i = 0; i < count; i++) {
-      if (!isStone[i]) continue;
-      const n = norm(faceN[i]);
-      const w = faces[i] || 1;
-      const toward = sub(faceC[i].map((x) => x / w), p[i]);
-      const piece = find(point[i]);
-      const [low, high] = span.get(piece);
-      const h = high - low > 1e-9 ? (high - p[i][1]) / (high - low) : 0.5;
-      const hTerm = o.height * (h - 0.5);
-      const fTerm = n[1] > 0 ? -o.up * n[1] : o.down * -n[1];
-      const [t1, t2] = frame(n);
-
-      let closed = 0, cover = 0, relief = 0, rays = 0, ups = 0, samples = 0;
-      for (const f of o.inset) {
-        const inner = add(p[i], toward, f);
-        const from = add(inner, n, eps * 10);
-        for (const r of RECESS_RAYS) {
-          const d = norm(add(add([t1[0] * r[0], t1[1] * r[0], t1[2] * r[0]], t2, r[1]), n, r[2]));
-          const at = firstHit(tree, tris, from, d, reach * 3);
-          if (at !== null) closed += Math.max(0, 1 - at / reach) + (1 - at / (reach * 3));
-          rays += 2;
+    const triN = [], triArea = [], stoneTris = [];
+    for (let t = 0; t < idx.length; t += 3) {
+      const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
+      const n = cross(sub(p[b], p[a]), sub(p[c], p[a]));
+      const area = Math.hypot(...n) / 2;
+      triN[t / 3] = norm(n); triArea[t / 3] = area;
+      if (isStone[a] && isStone[b] && isStone[c] && area > 0) stoneTris.push(t / 3);
+    }
+    const faces = unions();
+    const edges = new Map();
+    for (const f of stoneTris) {
+      for (let e = 0; e < 3; e++) {
+        const a = point[idx[3 * f + e]], b = point[idx[3 * f + ((e + 1) % 3)]];
+        const key = a < b ? `${a},${b}` : `${b},${a}`;
+        for (const g of edges.get(key) ?? []) {
+          const n = triN[f], m = triN[g];
+          if (n[0] * m[0] + n[1] * m[1] + n[2] * m[2] > 0.995) faces.join(`t${f}`, `t${g}`);
         }
-        if (n[1] > -0.5) {
-          for (const d of UP_RAYS) {
-            if (d[0] * n[0] + d[1] * n[1] + d[2] * n[2] < -0.02) continue;
-            const at = firstHit(tree, tris, add(from, n, eps * 40), d, lift);
-            if (at !== null) cover += 1 - (at / lift) * 0.5;
-            ups++;
-          }
-        }
-        for (let k = 0; k < 8; k++) {
-          const a = (k * Math.PI) / 4;
-          const lat = norm(add([t1[0] * Math.cos(a), t1[1] * Math.cos(a), t1[2] * Math.cos(a)], t2, Math.sin(a)));
-          for (const s of [step, step * 2.5]) {
-            const top = add(add(inner, lat, s), n, s * 2);
-            const at = firstHit(tree, tris, top, [-n[0], -n[1], -n[2]], s * 4);
-            const out = at === null ? -2 * s : s * 2 - at;
-            relief += Math.max(-1, Math.min(1, out / s));
-            samples++;
-          }
+        if (!edges.has(key)) edges.set(key, []);
+        edges.get(key).push(f);
+      }
+    }
+    const groups = new Map();
+    for (const f of stoneTris) {
+      const root = faces.find(`t${f}`);
+      if (!groups.has(root)) groups.set(root, []);
+      groups.get(root).push(f);
+    }
+    const perVertex = Array.from({ length: count }, () => []);
+    for (const members of groups.values()) {
+      let N = [0, 0, 0];
+      for (const f of members) N = add(N, triN[f], triArea[f]);
+      N = norm(N);
+      const [t1, t2] = frame(N);
+      const origin = p[idx[3 * members[0]]];
+      const flat = (q) => { const d = sub(q, origin); return [d[0] * t1[0] + d[1] * t1[1] + d[2] * t1[2], d[0] * t2[0] + d[1] * t2[1] + d[2] * t2[2]]; };
+      const points = [];
+      for (const f of members) {
+        const [A, B, C] = [p[idx[3 * f]], p[idx[3 * f + 1]], p[idx[3 * f + 2]]];
+        for (const [x, y, z] of SPOTS) {
+          const at = [0, 1, 2].map((k) => A[k] * x + B[k] * y + C[k] * z);
+          const [u, w] = flat(at);
+          points.push({ u, w, y: measure(tree, tris, at, N, eps, reach, lift, step), weight: triArea[f] / SPOTS.length });
         }
       }
-      const occ = Math.min(1, closed / rays * 2);
-      const rTerm = o.recess * (closed / rays);
-      const oTerm = ups ? o.overhang * (cover / (UP_RAYS.length * o.inset.length)) : 0;
-      const tTerm = o.trim * (relief / samples);
+      const fit = fitPlane(points);
+      const occ = Math.min(1, (points.reduce((s, q) => s + q.weight * q.y[0], 0) / points.reduce((s, q) => s + q.weight, 0)) * 2);
+      const facing = N[1] > 0 ? -o.up * N[1] : o.down * -N[1];
+      const done = new Set();
+      for (const f of members) for (let k = 0; k < 3; k++) {
+        const i = idx[3 * f + k];
+        if (done.has(i)) continue;
+        done.add(i);
+        const [closed, cover, relief] = fit(...flat(p[i]));
+        perVertex[i].push([facing, o.recess * closed, o.overhang * cover, o.trim * relief, occ]);
+      }
+    }
 
-      const vTerm = shift.get(piece);
+    for (let i = 0; i < count; i++) {
+      if (!isStone[i] || !perVertex[i].length) continue;
+      const mean = [0, 1, 2, 3, 4].map((k) => perVertex[i].reduce((s, x) => s + x[k], 0) / perVertex[i].length);
+      const [fTerm, rTerm, oTerm, tTerm, occ] = mean;
+      const piece = pieces.find(point[i]);
+      const [low, high] = span.get(piece);
+      const h = high - low > 1e-9 ? (high - p[i][1]) / (high - low) : 0.5;
       const open = (x) => (x < 0 ? x * (1 - occ) : x);
-      jobs.push({ uv, i, terms: [open(hTerm), open(fTerm), rTerm, oTerm, open(tTerm), vTerm] });
+      jobs.push({ uv, i, terms: [open(o.height * (h - 0.5)), open(fTerm), rTerm, oTerm, open(tTerm), shift.get(piece)] });
     }
     replaced.set(uvIndex, uv);
   }
@@ -230,6 +298,7 @@ function shade(file, o) {
   const sums = jobs.map((j) => j.terms.reduce((s, x, t) => s + (!o.only || o.only === NAMES[t] ? x : 0), 0));
   const centre = o.centre * middle(sums);
   const mid = (o.light + o.dark) / 2, half = (o.dark - o.light) / 2;
+  let moved = 0;
   jobs.forEach((j, k) => {
     const v = mid + half * Math.tanh((o.base + sums[k] - centre - mid) / half);
     NAMES.forEach((name, t) => spread[name].push(j.terms[t]));
@@ -272,7 +341,6 @@ const o = {
   recess: take('--recess', 0.95), overhang: take('--overhang', 0.40),
   trim: take('--trim', 0.40), variety: take('--variety', 0.07),
   reach: take('--reach', 0.10), lift: take('--lift', 0.25), step: take('--step', 0.035),
-  inset: take('--inset', '0.08,0.4,0.7').split(',').map(Number),
   centre: take('--centre', 0.5), light: take('--light', 0.03), dark: take('--dark', 0.94),
   only: take('--only', ''),
   dry: args.includes('--dry'),
