@@ -33,7 +33,11 @@ height, both by the whole model.
   --light <f>      0.15   lightest v
   --dark <f>       0.82   darkest v
   --band <f>       0.12   0 for no cut lines
+  --keep <f>       1      share of the original light and dark of each face kept, against its piece's mean
+  --split <0|1>    0      1: a hard edge at the cut line instead of a fade
   --flat <f>       0.97   faces this close in direction share one shadow tone
+  --keep <f>       1      share of the original light and dark of each face kept, against its piece's mean
+  --split <0|1>    0      1: a hard edge at the cut line instead of a fade
   --flat <f>       0.97   faces this close in direction share one shadow tone
   --budget <f>     0.08   most tris cut lines may add, as a share of the model's
   --dry`;
@@ -175,7 +179,8 @@ function cutUnderEaves(glb, o, cu, cv) {
     for (const y of planes) {
       const made = new Map();
       const at = (a, b, side) => {
-        const key = `${a < b ? `${a},${b}` : `${b},${a}`}|${side}`;
+        const key = `${a < b ? `${a},${b}` : `${b},${a}`}|${o.split ? side : ''}`;
+        if (a === b && !o.split) return a;
         if (made.has(key)) return made.get(key);
         const ya = wy(a), yb = wy(b), f = b === a ? 0 : (y - ya) / (yb - ya);
         const lerp = (arr, k) => Array.from({ length: k }, (_, j) => arr[k * a + j] + (arr[k * b + j] - arr[k * a + j]) * f);
@@ -266,7 +271,7 @@ function shade(file, o) {
     for (let i = 0; i < count; i++) {
       if (cell[i] !== true) continue;
       const n = s.nrm ? turn(s.m, [s.nrm[3 * i], s.nrm[3 * i + 1], s.nrm[3 * i + 2]]) : norm(fn[i]);
-      verts.push({ s, i, p: w[i], n, key: `${verts.length}`, point: `${stone.indexOf(s)}:${weld(i)}` });
+      verts.push({ s, i, p: w[i], n, was: uv[2 * i + 1] * 4 - cv, key: `${verts.length}`, point: `${stone.indexOf(s)}:${weld(i)}` });
     }
     s.trisMine = [];
     for (let t = 0; t < idx.length; t += 3) if (cell[idx[t]] === true && cell[idx[t + 1]] === true && cell[idx[t + 2]] === true) s.trisMine.push(t);
@@ -294,6 +299,7 @@ function shade(file, o) {
   const span = yHigh - yLow || 1;
 
   for (const [, pc] of pieces) {
+    pc.was = pc.verts.reduce((x, v) => x + v.was, 0) / pc.verts.length;
     const h = pc.high[1] - pc.low[1];
     const wide = Math.max(pc.high[0] - pc.low[0], pc.high[2] - pc.low[2]);
     pc.trim = 0;
@@ -438,13 +444,16 @@ function shade(file, o) {
     const hPiece = ph > 1e-9 ? (pc.high[1] - v.p[1]) / ph - 0.5 : 0;
     const q = v.q ?? sample(v.p, v.n);
     const proud = v.region ? v.region.proud : v.proud;
-    const { sky, eave } = q;
+    const { sky } = q;
+    const eave = v.n[1] > -0.3 ? nearestUp(tree, all, v.p, v.n, eps, 1.2 * band) : 0;
+    const dev = v.was - pc.was;
+    const own = Math.min(1, Math.abs(dev) / 0.1);
     const recess = Math.max(0, Math.min(1, (q.hit - o.open) / 0.3)) * (0.35 + 0.65 * sky);
     const overhang = Math.max(0, Math.min(1, (eave - 0.25) / 0.5));
     const open = 1 - 0.5 * Math.max(0, v.n[1]) * (1 - sky);
     let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : open) + o.piece * hPiece
       - o.up * Math.max(0, v.n[1]) * (1 - recess * (1 - sky)) + o.down * Math.max(0, -v.n[1])
-      + o.shadow * Math.max(recess, overhang);
+      + o.shadow * Math.max(recess * (1 - own), overhang) + o.keep * dev;
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
     val = soft(val) + pc.trim + (v.region ? v.region.step : proud ? -o.trim : 0);
     val = Math.max(0.04, Math.min(0.94, val));
@@ -462,7 +471,7 @@ function shade(file, o) {
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, dry: false };
+const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, keep: 1, split: 0, dry: false };
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') { opts.dry = true; continue; }
