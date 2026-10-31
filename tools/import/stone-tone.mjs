@@ -10,35 +10,34 @@ A surface is a run of triangles that share vertices. Within a surface the tone
 only changes in a straight line, so no patch can show that the shape does not
 have:
 
-  height    light at the top to dark at the foot, straight by height, a blend
-            of a ramp over each piece (triangles touching at the same spot) and
-            one over each surface on its own; a surface that faces mostly up
-            counts as a top, mostly down as a foot
-  facing    from each vertex's own normal: up lighter, down darker
+  height    per piece, light at its top to dark at its foot, straight by
+            height. A piece is a run of triangles touching at the same spot;
+            pieces whose faces lie flush in one plane count as one
+  facing    up lighter, down darker, from the plane of a flat surface or each
+            vertex's own normal on a curved one
   recess    one step per surface, darker the more nearby geometry closes in,
             the nearer the more
-  overhang  one step per surface, darker the more of it has geometry right
-            above, the nearer the more
+  overhang  darker the more of a surface has geometry right above, the nearer
+            the more; full at the top of the surface, 0.3 of that at its foot
   trim      one step per piece, lighter for a small piece set on a bigger one
   variety   one step per piece, so separate stones differ a little
 
-Terms work on darkness, 0 at the light limit and 1 at the dark limit. A
-darkening term takes its share of the light left, a lightening one its share
-of the dark, so no term pushes past a limit.
+Terms add up as darkness, 0 at the light limit and 1 at the dark limit. A
+surface that ends up past a limit is shifted back whole, so its ramp keeps its
+slope.
 
   --cells <c;c>    stone cells as col,row (default 14,3;12,3;5,2)
-  --top <f>        darkness at the top of a piece (default 0.04)
-  --height <f>     darkness added from top to foot (default 0.82)
-  --local <f>      share of the height ramp per surface (default 0)
+  --top <f>        darkness at the top of a piece (default 0.08)
+  --height <f>     darkness added from top to foot (default 0.62)
   --soft <f>       surfaces whose normals agree past this share recess and
                    overhang, as the facets of a round tower (default 0.7)
-  --up <f>         share of the dark taken off faces that look up (default 0.40)
-  --down <f>       share of the light taken off faces that look down (default 0.50)
-  --recess <f>     share of the light taken when fully closed in (default 0.95)
-  --overhang <f>   share of the light taken when fully covered (default 0.65)
-  --trim <f>       share of the dark taken off trim pieces (default 0.30)
-  --variety <f>    largest share up or down per piece (default 0.15)
-  --reach <f>      recess ray length, share of the longest side (default 0.12)
+  --up <f>         lighter on faces that look up (default 0.12)
+  --down <f>       darker on faces that look down (default 0.20)
+  --recess <f>     darker when fully closed in (default 0.45)
+  --overhang <f>   darker when fully covered (default 0.35)
+  --trim <f>       lighter for trim pieces (default 0.10)
+  --variety <f>    largest shift per piece (default 0.06)
+  --reach <f>      recess ray length, share of the longest side (default 0.06)
   --lift <f>       overhang ray length, share of the height (default 0.25)
   --light <f> --dark <f>  v limits (default 0.03, 0.94)
   --dry            print what each term does, write nothing`;
@@ -353,6 +352,26 @@ function tone(file, o) {
       }
     }
 
+    const flat = new Map();
+    for (const t of stoneTris) {
+      const tri = [p[idx[t]], p[idx[t + 1]], p[idx[t + 2]]];
+      const c = cross(sub(tri[1], tri[0]), sub(tri[2], tri[0]));
+      if (Math.hypot(...c) < 1e-14) continue;
+      const normal = unit(c), id = surfaces.find(idx[t]);
+      const g = flat.get(id) ?? { normal, at: tri[0], planar: true, box: [Infinity, -Infinity, Infinity, -Infinity, Infinity, -Infinity] };
+      if (dot(g.normal, normal) < 0.995 || Math.abs(dot(g.normal, sub(tri[0], g.at))) > size * 0.02) g.planar = false;
+      for (const q of tri) for (let k = 0; k < 3; k++) { g.box[2 * k] = Math.min(g.box[2 * k], q[k]); g.box[2 * k + 1] = Math.max(g.box[2 * k + 1], q[k]); }
+      flat.set(id, g);
+    }
+    const planes = [...flat].filter(([, g]) => g.planar);
+    const touch = (a, b) => [0, 2, 4].every((k) => a[k] <= b[k + 1] + eps * 10 && b[k] <= a[k + 1] + eps * 10);
+    for (let a = 0; a < planes.length; a++) for (let b = a + 1; b < planes.length; b++) {
+      const [ia, ga] = planes[a], [ib, gb] = planes[b];
+      if (dot(ga.normal, gb.normal) > 0.995 && Math.abs(dot(ga.normal, sub(gb.at, ga.at))) < size * 0.01 && touch(ga.box, gb.box)) {
+        surfaces.join(ia, ib);
+        pieces.join(point[ia], point[ib]);
+      }
+    }
     const piece = new Map();
     for (const t of stoneTris) {
       const tri = [p[idx[t]], p[idx[t + 1]], p[idx[t + 2]]];
@@ -434,20 +453,29 @@ function tone(file, o) {
     for (const s of surface.values()) { s.recess = s.region.recess; s.overhang = s.region.overhang; }
     report.surfaces += region.size;
 
+    for (const f of surface.values()) f.planar = f.tris.every(({ normal }) => dot(normal, f.normal) > 0.995);
+    const d = new Float64Array(count).fill(NaN);
+    const span = new Map();
     for (let i = 0; i < count; i++) {
       if (!stone[i]) continue;
-      const s = piece.get(pieceOf(i));
-      if (!s) continue;
-      const f = surface.get(surfaces.find(i));
-      if (!f) continue;
+      const s = piece.get(pieceOf(i)), id = surfaces.find(i), f = surface.get(id);
+      if (!s || !f) continue;
       const h = s.high - s.low > 1e-9 ? (s.high - p[i][1]) / (s.high - s.low) : 0.5;
-      const flat = f.ny / f.area;
-      const own = Math.abs(flat) > 0.7 || f.high - f.low < 1e-9 ? (flat > 0 ? 0 : 1) : (f.high - p[i][1]) / (f.high - f.low);
-      const ny = n ? n[i][1] : 0;
-      let d = o.top + o.height * ((1 - o.local) * h + o.local * own);
-      d = 1 - (1 - d) * (1 - o.down * Math.max(0, -ny)) * (1 - o.recess * f.recess) * (1 - o.overhang * f.overhang);
-      d *= (1 - o.up * Math.max(0, ny)) * (1 - o.trim * s.trim) * (1 + s.shift);
-      const x = o.light + (o.dark - o.light) * Math.min(1, Math.max(0, d));
+      const own = f.high - f.low > 1e-9 ? (f.high - p[i][1]) / (f.high - f.low) : 0.5;
+      const ny = f.planar || !n ? f.normal[1] : n[i][1];
+      d[i] = o.top + o.height * h - o.up * Math.max(0, ny) + o.down * Math.max(0, -ny)
+        + o.recess * f.recess + o.overhang * f.overhang * (1 - 0.7 * own) - o.trim * s.trim + s.shift;
+      const r = span.get(id) ?? [Infinity, -Infinity];
+      span.set(id, [Math.min(r[0], d[i]), Math.max(r[1], d[i])]);
+    }
+    for (let i = 0; i < count; i++) {
+      if (Number.isNaN(d[i])) continue;
+      const [a, b] = span.get(surfaces.find(i));
+      const k = b - a > 1 ? 1 / (b - a) : 1;
+      let x = a + (d[i] - a) * k;
+      const top = a + (b - a) * k;
+      x += a < 0 ? -a : top > 1 ? 1 - top : 0;
+      x = o.light + (o.dark - o.light) * Math.min(1, Math.max(0, x));
       uv[2 * i + 1] = (Math.floor(uv[2 * i + 1] * 4) + x) / 4;
     }
     if (!o.dry) writeFloatRows(glb, uvIndex, uv);
@@ -468,9 +496,10 @@ const take = (flag, fallback) => {
 const num = (flag, fallback) => Number(take(flag, fallback));
 const o = {
   cells: new Set(take('--cells', '14,3;12,3;5,2').split(';')),
-  top: num('--top', 0.04), height: num('--height', 0.82), local: num('--local', 0), soft: num('--soft', 0.7), up: num('--up', 0.4), down: num('--down', 0.5),
-  recess: num('--recess', 0.95), overhang: num('--overhang', 0.65), trim: num('--trim', 0.3), variety: num('--variety', 0.15),
-  reach: num('--reach', 0.12), lift: num('--lift', 0.25), light: num('--light', 0.03), dark: num('--dark', 0.94),
+  top: num('--top', 0.08), height: num('--height', 0.62), soft: num('--soft', 0.7),
+  up: num('--up', 0.12), down: num('--down', 0.2), recess: num('--recess', 0.45), overhang: num('--overhang', 0.35),
+  trim: num('--trim', 0.1), variety: num('--variety', 0.06),
+  reach: num('--reach', 0.06), lift: num('--lift', 0.25), light: num('--light', 0.03), dark: num('--dark', 0.94),
 };
 const dryAt = args.indexOf('--dry');
 if (dryAt >= 0) { o.dry = true; args.splice(dryAt, 1); }
