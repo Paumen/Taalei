@@ -13,6 +13,8 @@ A config is a JSON object:
   written into each model.
 - `url`, `licenseLabel`, `note`: the manifest row; `licentie`: a licence file
   copied to the kit's `LICENSE.txt`.
+- `monsters`: how many points of the texture each triangle reads, 1 to 7
+  (1 by default, the centre); with more, the band most points fall in wins.
 - `schaal`: the pack's scale; `drempel`: the angle in degrees below which faces
   share a smoothed normal.
 - `banden`: source colour (`"r,g,b"`) → band.
