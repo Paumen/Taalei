@@ -33,6 +33,8 @@ height, both by the whole model.
   --light <f>      0.15   lightest v
   --dark <f>       0.82   darkest v
   --band <f>       0.12   0 for no cut lines
+  --flat <f>       0.97   faces this close in direction share one shadow tone
+  --flat <f>       0.97   faces this close in direction share one shadow tone
   --budget <f>     0.08   most tris cut lines may add, as a share of the model's
   --dry`;
 
@@ -97,9 +99,13 @@ function worldTris(glb) {
 
 function nearestUp(tree, tris, p, n, eps, far) {
   const o = [p[0] + n[0] * eps * 4, p[1] + eps, p[2] + n[2] * eps * 4];
-  let c = 0;
-  for (const d of CONE) if (blocked(tree, tris, o, d, far)) c++;
-  return c / CONE.length;
+  let c = 0, m = 0;
+  for (const d of CONE) {
+    if (d[0] * n[0] + d[1] * n[1] + d[2] * n[2] < 0) continue;
+    m++;
+    if (blocked(tree, tris, o, d, far)) c++;
+  }
+  return m ? c / m : 1;
 }
 
 function cutUnderEaves(glb, o, cu, cv) {
@@ -348,7 +354,7 @@ function shade(file, o) {
     for (const k of keys) {
       if (!byIndex.has(k)) byIndex.set(k, []);
       for (const other of byIndex.get(k)) {
-        if (other.n[0] * tri.n[0] + other.n[1] * tri.n[1] + other.n[2] * tri.n[2] < 0.99) continue;
+        if (other.n[0] * tri.n[0] + other.n[1] * tri.n[1] + other.n[2] * tri.n[2] < o.flat) continue;
         const x = tfind(other.id), y = tfind(tri.id);
         if (x !== y) tparent.set(x, y);
       }
@@ -363,17 +369,38 @@ function shade(file, o) {
     tri.region = region.get(r);
   }
   for (const [, g] of region) {
-    const pick = [...g.tris].sort((x, y) => y.area - x.area).slice(0, 8);
+    const pick = [...g.tris].sort((x, y) => y.area - x.area).slice(0, 24);
     const total = pick.reduce((acc, t) => acc + t.area, 0);
     const acc = { hit: 0, sky: 0, eave: 0 };
     for (const t of pick) { const q = sample(t.c, t.n); for (const k in acc) acc[k] += (q[k] * t.area) / total; }
     g.q = acc;
+    g.area = g.tris.reduce((x, t) => x + t.area, 0);
+    g.n = norm(g.tris.reduce((x, t) => x.map((c, k) => c + t.n[k] * t.area), [0, 0, 0]));
   }
+  const touching = new Map();
+  for (const tri of flat) for (const k of tri.keys) {
+    const pt = byVert.get(k).point;
+    if (!touching.has(pt)) touching.set(pt, new Set());
+    touching.get(pt).add(tri.region);
+  }
+  const near2 = new Map([...region.values()].map((g) => [g, new Set([g])]));
+  for (const set of touching.values()) for (const a of set) for (const b of set) {
+    if (a.n[0] * b.n[0] + a.n[1] * b.n[1] + a.n[2] * b.n[2] > 0.85) near2.get(a).add(b);
+  }
+  for (const [g, set] of near2) {
+    const total = [...set].reduce((x, h) => x + h.area, 0);
+    g.qs = { hit: 0, sky: 0, eave: 0 };
+    for (const h of set) for (const k in g.qs) g.qs[k] += (h.q[k] * h.area) / total;
+  }
+  for (const g of region.values()) g.q = g.qs;
   for (const v of verts) {
     const tris = byIndex.get(`${stone.indexOf(v.s)}#${v.i}`) ?? [];
     if (!tris.length) continue;
     const seen = new Map();
-    for (const t of tris) seen.set(t.region, (seen.get(t.region) ?? 0) + t.area);
+    for (const t of tris) {
+      const d = Math.max(0, t.n[0] * v.n[0] + t.n[1] * v.n[1] + t.n[2] * v.n[2]);
+      seen.set(t.region, (seen.get(t.region) ?? 0) + t.area * d ** 4 + 1e-12 * t.area);
+    }
     const total = [...seen.values()].reduce((x, y) => x + y, 0);
     v.q = { hit: 0, sky: 0, eave: 0 };
     for (const [g, w] of seen) { for (const k in v.q) v.q[k] += (g.q[k] * w) / total; g.verts.push(v); }
@@ -399,10 +426,11 @@ function shade(file, o) {
     const overhang = Math.max(0, Math.min(1, (eave - 0.25) / 0.5));
     const open = 1 - 0.5 * Math.max(0, v.n[1]) * (1 - sky);
     let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : open) + o.piece * hPiece
-      - o.up * Math.max(0, v.n[1]) + o.down * Math.max(0, -v.n[1])
-      + o.shadow * Math.max(recess, overhang) + pc.trim - (proud && v.n[1] < 0.5 ? o.trim : 0);
+      - o.up * Math.max(0, v.n[1]) * (1 - recess) + o.down * Math.max(0, -v.n[1])
+      + o.shadow * Math.max(recess, overhang);
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
-    val = soft(val);
+    val = soft(val) + pc.trim - (proud ? o.trim : 0);
+    val = Math.max(0.04, Math.min(0.94, val));
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
     moved++;
   }
@@ -417,7 +445,7 @@ function shade(file, o) {
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, dry: false };
+const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, dry: false };
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') { opts.dry = true; continue; }
