@@ -23,7 +23,9 @@ A config is a JSON object:
 - `modellen`: a row per model with `bron` (source name), `naam` (workfile name),
   `kind`, `materialen`, `vlaggen`, `attributen`, `themas`, and optionally its own
   `banden` and a `factor` on top of the pack's scale where the style guide's `P10`
-  names one.
+  names one. `vlakken: true` gives each flat face, a run of triangles sharing
+  edges in one plane, the band covering most of its area, for textured sources
+  whose detail would otherwise split big triangles into stray colours.
 - `varianten`: groups of `leden` (workfile names) with a `type`, `detail-variant`
   when left out.
 

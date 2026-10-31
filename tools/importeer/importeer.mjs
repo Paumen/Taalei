@@ -186,6 +186,50 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepa
   return { posities, driehoeken };
 }
 
+function egaliseerVlakken(bron, banden) {
+  const { posities, driehoeken } = bron;
+  const ouder = driehoeken.map((_, f) => f);
+  const wortel = (f) => (ouder[f] === f ? f : (ouder[f] = wortel(ouder[f])));
+  const vlak = driehoeken.map((tri) => {
+    const n = vlakNormaal(posities, ...tri.hoeken);
+    const lengte = Math.hypot(...n);
+    const e = lengte ? n.map((v) => v / lengte) : [0, 0, 0];
+    const a = tri.hoeken[0];
+    return { n: e, d: e[0] * posities[a * 3] + e[1] * posities[a * 3 + 1] + e[2] * posities[a * 3 + 2], oppervlak: lengte / 2 };
+  });
+  const randen = new Map();
+  for (const [f, tri] of driehoeken.entries()) {
+    for (let k = 0; k < 3; k++) {
+      const a = tri.hoeken[k], b = tri.hoeken[(k + 1) % 3];
+      const sleutel = a < b ? `${a},${b}` : `${b},${a}`;
+      if (randen.has(sleutel)) randen.get(sleutel).push(f);
+      else randen.set(sleutel, [f]);
+    }
+  }
+  for (const zijden of randen.values()) {
+    for (let i = 1; i < zijden.length; i++) {
+      const p = vlak[zijden[0]], q = vlak[zijden[i]];
+      const dot = p.n[0] * q.n[0] + p.n[1] * q.n[1] + p.n[2] * q.n[2];
+      if (dot > 0.9998 && Math.abs(p.d - q.d) < 1e-4) ouder[wortel(zijden[i])] = wortel(zijden[0]);
+    }
+  }
+  const groepen = new Map();
+  for (const f of driehoeken.keys()) {
+    const g = wortel(f);
+    if (!groepen.has(g)) groepen.set(g, new Map());
+    const kleuren = groepen.get(g);
+    kleuren.set(driehoeken[f].kleur, (kleuren.get(driehoeken[f].kleur) ?? 0) + vlak[f].oppervlak);
+  }
+  const keuze = new Map();
+  for (const [g, kleuren] of groepen) {
+    const perBand = new Map();
+    for (const [kleur, oppervlak] of kleuren) perBand.set(banden[kleur], (perBand.get(banden[kleur]) ?? 0) + oppervlak);
+    const band = [...perBand].sort((a, b) => b[1] - a[1])[0][0];
+    keuze.set(g, [...kleuren].filter(([kleur]) => banden[kleur] === band).sort((a, b) => b[1] - a[1])[0][0]);
+  }
+  for (const [f, tri] of driehoeken.entries()) tri.kleur = keuze.get(wortel(f));
+}
+
 function bouwGlb(naam, bron, banden, schaal, drempel, bronkitNaam, bronbestand) {
   const { posities, driehoeken } = bron;
   const normalen = gladdeNormalen(posities, driehoeken, drempel);
@@ -312,6 +356,7 @@ for (const rij of config.modellen) {
   if (!model) throw new Error(`${config.map}: no source model named ${rij.bron}`);
   const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel);
   const banden = { ...(config.banden ?? {}), ...(rij.banden ?? {}) };
+  if (rij.vlakken) egaliseerVlakken(bron, banden);
   const { json, bin } = bouwGlb(
     rij.naam,
     bron,
