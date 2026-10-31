@@ -13,8 +13,8 @@ are, but all geometry blocks light.
 
 A face is a run of stone triangles in one plane that touch at least at a
 corner. Recess, overhang and trim are
-measured at points spread over each face and fitted with a straight gradient
-across it, so a face gets one clean tone or ramp and a vertex is never coloured
+measured at points spread over each face and fitted with a straight ramp by
+height (upright faces) or one tone (flat faces), so a face reads clean and a vertex is never coloured
 by geometry far from it. A vertex shared by faces takes their mean.
 
   height    lighter at the top of each solid column, darker toward its foot,
@@ -23,7 +23,8 @@ by geometry far from it. A vertex shared by faces takes their mean.
             that touches it, to where it ends, so a tower, a wall or a stack
             of courses each ramp as one
   facing    faces that look up lighter, faces that look down darker
-  recess    darker where nearby geometry closes in around the surface
+  recess    darker where nearby geometry closes in around the surface, less so
+            on faces that look up
   overhang  darker where geometry sits right above
   trim      lighter where the surface stands out from the surface around it,
             darker where it is set back
@@ -36,14 +37,14 @@ the model's longest side.
   --cells <band,band>  stone bands to shade (default taupe,taupe-dark,ivory)
   --base <f>           v before the terms (default 0.42)
   --height <f>         top-to-bottom swing per column (default 0.70)
-  --up <f> --down <f>  facing shifts (default 0.16, 0.22)
+  --up <f> --down <f>  facing shifts (default 0.16, 0.12)
   --recess <f>         weight of the recess term (default 0.95)
   --overhang <f>       weight of the overhang term (default 0.60)
   --trim <f>           weight of the trim term (default 0.40)
   --variety <f>        largest shift per piece (default 0.07)
   --reach <f>          short recess ray length, share of the longest side; the long
                        rays reach three times as far (default 0.10)
-  --lift <f>           overhang ray length, share of the height (default 0.25)
+  --lift <f>           overhang ray length, share of the height (default 0.15)
   --step <f>           trim sample distance, share of the longest side (default 0.035)
   --centre <f>         share of the model's median shift taken back out, so a
                        model mostly in shade still keeps its light (default 0.5)
@@ -133,9 +134,10 @@ function runOut(tree, tris, normals, o, d, far, gap) {
 }
 
 function column(tree, tris, normals, at, n, eps, size) {
-  const inside = add(at, n, -eps * 20);
-  const up = runOut(tree, tris, normals, inside, [0, 1, 0], size * 3, 0.01 * size);
-  const down = runOut(tree, tris, normals, inside, [0, -1, 0], size * 3, 0.01 * size);
+  const inside = add(at, n, -eps * 40);
+  const along = Math.abs(n[1]) > 0.7 ? [0, 1, 0] : norm(add([0, 1, 0], n, -n[1]));
+  const up = runOut(tree, tris, normals, inside, along, size * 3, 0.01 * size);
+  const down = runOut(tree, tris, normals, inside, along.map((x) => -x), size * 3, 0.01 * size);
   if (up === null || down === null || up + down < eps * 50) return null;
   return up / (up + down);
 }
@@ -154,7 +156,7 @@ function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, fallb
     for (const d of UP_RAYS) {
       if (d[0] * n[0] + d[1] * n[1] + d[2] * n[2] < -0.02) continue;
       const hit = firstHit(tree, tris, add(from, n, eps * 40), d, lift);
-      if (hit !== null) cover += 1 - (hit / lift) * 0.5;
+      if (hit !== null) cover += 1 - hit / lift;
     }
   }
   let relief = 0, samples = 0;
@@ -172,28 +174,22 @@ function measure(tree, tris, normals, at, n, eps, reach, lift, step, size, fallb
   return [closed / (RECESS_RAYS.length * 2), cover / UP_RAYS.length, relief / samples, column(tree, tris, normals, at, n, eps, size) ?? fallback(at)];
 }
 
-function fitPlane(points) {
-  const A = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+function fitLine(points, upright) {
   const width = points[0].y.length;
-  const B = Array.from({ length: width }, () => [0, 0, 0]);
   const lo = new Array(width).fill(Infinity), hi = new Array(width).fill(-Infinity);
-  let total = 0;
-  for (const { u, w, y, weight } of points) {
-    const row = [1, u, w];
-    for (let a = 0; a < 3; a++) {
-      for (let b = 0; b < 3; b++) A[a][b] += weight * row[a] * row[b];
-      for (let k = 0; k < width; k++) B[k][a] += weight * row[a] * y[k];
-    }
-    y.forEach((v, k) => { lo[k] = Math.min(lo[k], v); hi[k] = Math.max(hi[k], v); });
-    total += weight;
+  let sw = 0, sx = 0, sxx = 0;
+  const sy = new Array(width).fill(0), sxy = new Array(width).fill(0);
+  for (const { h, y, weight } of points) {
+    sw += weight; sx += weight * h; sxx += weight * h * h;
+    y.forEach((v, k) => { sy[k] += weight * v; sxy[k] += weight * h * v; lo[k] = Math.min(lo[k], v); hi[k] = Math.max(hi[k], v); });
   }
-  const det = (M) => M[0][0] * (M[1][1] * M[2][2] - M[1][2] * M[2][1]) - M[0][1] * (M[1][0] * M[2][2] - M[1][2] * M[2][0]) + M[0][2] * (M[1][0] * M[2][1] - M[1][1] * M[2][0]);
-  const D = det(A);
-  const coef = B.map((b) => {
-    if (Math.abs(D) < 1e-12 * Math.max(1, total ** 3)) return [b[0] / total, 0, 0];
-    return [0, 1, 2].map((c) => det(A.map((r, i) => r.map((x, j) => (j === c ? b[i] : x)))) / D);
+  const d = sw * sxx - sx * sx;
+  const coef = sy.map((_, k) => {
+    if (!upright || Math.abs(d) < 1e-12 * Math.max(1, sw * sw)) return [sy[k] / sw, 0];
+    const b = (sw * sxy[k] - sx * sy[k]) / d;
+    return [(sy[k] - b * sx) / sw, b];
   });
-  return (u, w) => coef.map((c, k) => Math.max(lo[k], Math.min(hi[k], c[0] + c[1] * u + c[2] * w)));
+  return (h) => coef.map(([a, b], k) => Math.max(lo[k], Math.min(hi[k], a + b * h)));
 }
 
 const SPOTS = [[1 / 3, 1 / 3, 1 / 3], [0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6]];
@@ -305,19 +301,16 @@ function shade(file, o) {
       let N = [0, 0, 0];
       for (const f of members) N = add(N, triN[f], triArea[f]);
       N = norm(N);
-      const [t1, t2] = frame(N);
-      const origin = p[idx[3 * members[0]]];
-      const flat = (q) => { const d = sub(q, origin); return [d[0] * t1[0] + d[1] * t1[1] + d[2] * t1[2], d[0] * t2[0] + d[1] * t2[1] + d[2] * t2[2]]; };
       const points = [];
       for (const f of members) {
         const [A, B, C] = [p[idx[3 * f]], p[idx[3 * f + 1]], p[idx[3 * f + 2]]];
         for (const [x, y, z] of SPOTS) {
           const at = [0, 1, 2].map((k) => A[k] * x + B[k] * y + C[k] * z);
-          const [u, w] = flat(at);
-          points.push({ u, w, y: measure(tree, tris, normals, at, N, eps, reach, lift, step, size, (q) => pieceHeight(q, idx[3 * f])), weight: triArea[f] / SPOTS.length });
+          points.push({ h: at[1], y: measure(tree, tris, normals, at, N, eps, reach, lift, step, size, (q) => pieceHeight(q, idx[3 * f])), weight: triArea[f] / SPOTS.length });
         }
       }
-      const fit = fitPlane(points);
+      const upright = Math.abs(N[1]) < 0.7;
+      const fit = fitLine(points, upright);
       const occ = Math.min(1, (points.reduce((s, q) => s + q.weight * q.y[0], 0) / points.reduce((s, q) => s + q.weight, 0)) * 2);
       const facing = N[1] > 0 ? -o.up * N[1] : o.down * -N[1];
       const done = new Set();
@@ -325,8 +318,8 @@ function shade(file, o) {
         const i = idx[3 * f + k];
         if (done.has(i)) continue;
         done.add(i);
-        const [closed, cover, relief, h] = fit(...flat(p[i]));
-        perVertex[i].push([facing, o.recess * closed, o.overhang * cover, o.trim * relief, occ, o.height * (Math.sqrt(Math.max(0, h)) - 0.6)]);
+        const [closed, cover, relief, h] = fit(p[i][1]);
+        perVertex[i].push([facing, o.recess * closed * (1 - 0.6 * Math.max(0, N[1])), o.overhang * cover, o.trim * relief, occ, o.height * (Math.sqrt(Math.max(0, h)) - 0.6)]);
       }
     }
 
@@ -386,10 +379,10 @@ const take = (flag, fallback) => {
 const o = {
   cells: take('--cells', 'taupe,taupe-dark,ivory').split(','),
   base: take('--base', 0.42), height: take('--height', 0.70),
-  up: take('--up', 0.16), down: take('--down', 0.22),
+  up: take('--up', 0.16), down: take('--down', 0.12),
   recess: take('--recess', 0.95), overhang: take('--overhang', 0.60),
   trim: take('--trim', 0.40), variety: take('--variety', 0.07),
-  reach: take('--reach', 0.10), lift: take('--lift', 0.25), step: take('--step', 0.035),
+  reach: take('--reach', 0.10), lift: take('--lift', 0.15), step: take('--step', 0.035),
   centre: take('--centre', 0.5), light: take('--light', 0.03), dark: take('--dark', 0.94),
   only: take('--only', ''),
   dry: args.includes('--dry'),
