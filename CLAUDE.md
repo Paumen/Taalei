@@ -5,6 +5,7 @@
 * Canon changes go through the canon-proposal skill: drafted, checked by a reviewer following .claude/agents/canon-reviewer.md, decided by the PO on the proposal page https://claude.ai/artifact/Pp5sUgHL37z8nasTMWMEDU (source .claude/canon/proposals.html, decisions in its db collection `proposals`). Read pending decisions there at the start of a session that touches canon.
 * The reset skill (/reset) restarts a task that keeps missing from the PO's words and canon.
 * Hooks in .claude/hooks: guard.sh (approval prompt on edits to canon.md and lint/golden.mjs; blocks edits to .claude/settings*.json and .claude/hooks/), comment-gate.mjs (blocks new code comments), no-git-history.sh (approval prompt on git log, blame, reflog, whatchanged), golden-on-stop.sh (golden lint after model or tag changes).
+* NEVER blindly reuse existing tools or helpers or copy their code for new tasks, even if the task is similar to a previous task. They might have never been successful, broken, bugged, stale, or created for totally different task or models than your new task. If you do reuse you must be sure it's suitable for the task, you must say so explicitly towards PO in session, and you must provided the specific reason you've decided reuse is possible and highly preferred. 
 
 ## Working with me
 * I often type on my phone: short, with typos.
