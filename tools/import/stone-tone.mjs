@@ -16,6 +16,9 @@ surface. Each part's original tone is taken against the model's own trend of
 tone by facing and height. Two parts whose tones differ by --mark or more keep
 a difference: the one that was lighter stays lighter by at least --apart, by
 moving the smaller part as a whole.
+Sections: side faces joined to each other without a top or underside between
+them. Each runs its own gradient of --piece in v, light at its top, on top of
+the whole model's.
 
   --cell <c,r>     14,3
   --top <a,b>      0.05,0.25
@@ -28,13 +31,14 @@ moving the smaller part as a whole.
   --big <f>        0.05
   --mark <f>       0.02   OKLCH lightness
   --apart <f>      0.03   OKLCH lightness
+  --piece <f>      0.2
   --dry`;
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const opt = {
   cell: [14, 3], top: [0.05, 0.25], side: [0.25, 0.75], under: [0.75, 0.95], deep: [0.75, 0.95],
-  reach: [0.2], open: [0.35], shut: [0.75], big: [0.05], mark: [0.02], apart: [0.03], dry: false,
+  reach: [0.2], open: [0.35], shut: [0.75], big: [0.05], mark: [0.02], apart: [0.03], piece: [0.2], dry: false,
 };
 const files = [];
 for (let i = 0; i < args.length; i++) {
@@ -209,8 +213,26 @@ function tone(file) {
     ys.forEach((y, k) => { sxy += (y - my) * (ws[k] - mw); sxx += (y - my) ** 2; });
     const slope = sxx > 1e-12 ? sxy / sxx : 0;
     face.wasAt = (y) => mw + slope * (y - my);
+  }
+  {
+    const q = size * 1e-4;
+    const sides = faces.filter((f) => f.kind === 1);
+    const parent = new Map(sides.map((f) => [f, f]));
+    const find = (f) => { while (parent.get(f) !== f) f = parent.get(f); return f; };
+    const byPoint = new Map();
+    for (const f of sides) for (const tri of f.tris) for (let k = 0; k < 3; k++) {
+      const key = f.s.world[f.s.idx[tri.t + k]].map((x) => Math.round(x / q)).join(',');
+      if (byPoint.has(key)) { const r = find(byPoint.get(key)); const t = find(f); if (r !== t) parent.set(t, r); } else byPoint.set(key, f);
+    }
+    const sec = new Map();
+    for (const f of sides) { const r = find(f); if (!sec.has(r)) sec.set(r, [Infinity, -Infinity]); const z = sec.get(r); z[0] = Math.min(z[0], f.lo[1]); z[1] = Math.max(z[1], f.hi[1]); }
+    for (const f of sides) f.section = sec.get(find(f));
+  }
+  for (const face of faces) {
     const [a, b] = ranges[face.kind];
-    face.nowAt = (y) => { const h = low(y); return lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), face.dark); };
+    const z = face.section;
+    const piece = (y) => (z && z[1] - z[0] > 1e-6 ? opt.piece[0] * ((z[1] - y) / (z[1] - z[0]) - 0.5) : 0);
+    face.nowAt = (y) => { const h = low(y); return lerp(lerp(a, b, h) + piece(y), lerp(opt.deep[0], opt.deep[1], h), face.dark); };
   }
 
   const parts = [];
@@ -304,7 +326,7 @@ function tone(file) {
       const i = s.idx[tri.t + k];
       const h = low(s.world[i][1]);
       const [a, b] = ranges[tri.face.kind];
-      const v = Math.max(0.02, Math.min(0.98, lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), tri.face.dark) + tri.face.part.shift));
+      const v = Math.max(0.02, Math.min(0.98, tri.face.nowAt(s.world[i][1]) + tri.face.part.shift));
       uv[i * 2] = (cu + 0.5) / 16;
       uv[i * 2 + 1] = (cr + v) / 4;
     }
