@@ -17,6 +17,14 @@ That share moves the face toward --deep as well; the larger of the two counts.
 Trim: a face standing in front of a bigger face looking the same way, by less
 than its own longest side, is --step lighter; one set back behind such a face
 is --step darker.
+Overhang: from just in front of the top of a side face, --out of the model's
+size away from it, rays go up. If most of them hit the model within --over of
+the stone's height, the face is under an overhang: its stone fades toward
+--deep by --shade, fully right under the overhang, gone --fade of the stone's
+height lower. Faces taller than that get a cut line where the fade ends,
+biggest faces first, until the cuts add --budget of the model's tris.
+Keep: --keep of the original's own light and dark, beyond its plain top to
+bottom trend, is added back.
 
   --cell <c,r>     14,3
   --top <a,b>      0.05,0.25
@@ -28,13 +36,19 @@ is --step darker.
   --shut <f>       0.75
   --gap <f>        1.0
   --step <f>       0.12
+  --out <f>        0.04
+  --over <f>       0.35
+  --shade <f>      0.7
+  --fade <f>       0.2
+  --budget <f>     0.15
+  --keep <f>       0
   --dry`;
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const opt = {
   cell: [14, 3], top: [0.05, 0.25], side: [0.25, 0.75], under: [0.75, 0.95], deep: [0.75, 0.95],
-  reach: [0.2], open: [0.35], shut: [0.75], gap: [1.0], step: [0.12], dry: false,
+  reach: [0.2], open: [0.35], shut: [0.75], gap: [1.0], step: [0.12], out: [0.04], over: [0.35], shade: [0.7], fade: [0.2], budget: [0.15], keep: [0], dry: false,
 };
 const files = [];
 for (let i = 0; i < args.length; i++) {
@@ -124,6 +138,8 @@ function tone(file) {
     const pos = readAccessor(glb, prim.attributes.POSITION).data;
     const uv = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
     const idx = Array.from(readAccessor(glb, prim.indices).data);
+    const local = Array.from(pos);
+    const nrm = prim.attributes.NORMAL !== undefined ? Array.from(readAccessor(glb, prim.attributes.NORMAL).data) : null;
     const world = [];
     for (let i = 0; i < pos.length / 3; i++) world.push(apply(m, [pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]]));
     const tris = [];
@@ -138,7 +154,11 @@ function tone(file) {
       const normal = n.map((x) => x / l);
       tris.push({ t, normal, area: l / 2, kind: facing(normal) });
     }
-    if (tris.length) stone.push({ prim, world, uv: Float32Array.from(uv), idx, tris });
+    if (tris.length) {
+      const was = [];
+      for (let i = 0; i < world.length; i++) was.push(uv[i * 2 + 1] * 4 - cr);
+      stone.push({ prim, world, local, nrm, was, uv: Float32Array.from(uv), idx, tris, adder: vertexAdder(glb, prim), base: world.length, src: new Map() });
+    }
   }
   if (!stone.length) { console.log(`${file}: no stone in cell ${opt.cell}`); return; }
 
@@ -231,10 +251,91 @@ function tone(file) {
     f.step = proud && !inset ? -opt.step[0] : inset && !proud ? opt.step[0] : 0;
   }
 
+  const H = y1 - y0;
+  const UPS = [[0, 1, 0], ...[0, 1, 2, 3].map((k) => unit([Math.cos(k * Math.PI / 2) * 0.3, 1, Math.sin(k * Math.PI / 2) * 0.3]))];
+  for (const f of faces) {
+    f.eave = null;
+    if (f.kind !== 1) continue;
+    const top = f.hi[1] - Math.max(0.02 * H, 0.1 * (f.hi[1] - f.lo[1]));
+    const pts = [];
+    for (const tri of f.tris) for (let k = 0; k < 3; k++) {
+      const p = f.s.world[f.s.idx[tri.t + k]];
+      if (p[1] >= top) pts.push(p);
+    }
+    const ys = [];
+    let tries = 0;
+    for (const p of pts.slice(0, 16)) {
+      const o = add(add([p[0], p[1] - 0.01 * H, p[2]], f.n, opt.out[0] * size), [0, 1, 0], 0);
+      for (const d of UPS) {
+        tries++;
+        const hitAt = nearest(tree, all, o, d, opt.over[0] * H);
+        if (hitAt === null) continue;
+        const tri = all[hitAt];
+        const at = hitTriangle(o, d, tri);
+        ys.push(o[1] + d[1] * at);
+      }
+    }
+    if (tries && ys.length / tries > 0.5) { ys.sort((a, b) => a - b); f.eave = ys[ys.length >> 1]; }
+  }
+
+  let cutTris = 0;
+  for (const s of stone) {
+    const mid = new Map();
+    const lerpAt = (a, b, c) => {
+      const key = a < b ? `${a},${b},${c}` : `${b},${a},${c}`;
+      if (mid.has(key)) return mid.get(key);
+      const t = (c - s.world[a][1]) / (s.world[b][1] - s.world[a][1]);
+      const mix = (arr) => [0, 1, 2].map((k) => arr[a * 3 + k] + (arr[b * 3 + k] - arr[a * 3 + k]) * t);
+      const set = { POSITION: mix(s.local) };
+      if (s.nrm) set.NORMAL = unit(mix(s.nrm));
+      const j = s.adder.add(a, set);
+      s.world[j] = s.world[a].map((x, k) => x + (s.world[b][k] - x) * t);
+      s.local.push(...set.POSITION);
+      if (s.nrm) s.nrm.push(...set.NORMAL);
+      s.was[j] = s.was[a] + (s.was[b] - s.was[a]) * t;
+      s.src.set(j, a);
+      mid.set(key, j);
+      return j;
+    };
+    for (const tri of [...s.tris].sort((p, q) => q.face.area - p.face.area || p.face.id - q.face.id)) {
+      const f = tri.face;
+      if (f.eave === null || f.uncut) continue;
+      const c = f.eave - opt.fade[0] * H;
+      if (c <= f.lo[1] || c >= f.hi[1]) continue;
+      if (f.cutStart === undefined) {
+        const need = 2 * f.tris.length;
+        if (cutTris + need > opt.budget[0] * all.length) { f.uncut = true; continue; }
+        f.cutStart = true;
+      }
+      const v = [0, 1, 2].map((k) => s.idx[tri.t + k]);
+      const above = v.map((i) => s.world[i][1] > c);
+      const n = above.filter(Boolean).length;
+      if (n === 0 || n === 3) continue;
+      const lone = above.findIndex((x) => (n === 1 ? x : !x));
+      const [a, b, d] = [v[lone], v[(lone + 1) % 3], v[(lone + 2) % 3]];
+      const ab = lerpAt(a, b, c); const ad = lerpAt(a, d, c);
+      s.idx[tri.t] = a; s.idx[tri.t + 1] = ab; s.idx[tri.t + 2] = ad;
+      const t1 = s.idx.length; s.idx.push(ab, b, d);
+      const t2 = s.idx.length; s.idx.push(ab, d, ad);
+      for (const t of [t1, t2]) { const nt = { ...tri, t }; s.tris.push(nt); f.tris.push(nt); }
+      cutTris += 2;
+    }
+  }
+
+  const keepFit = (() => {
+    let n = 0; let sx = 0; let sy = 0; let sxx = 0; let sxy = 0;
+    for (const s of stone) for (const tri of s.tris) for (let k = 0; k < 3; k++) {
+      const i = s.idx[tri.t + k]; const x = low(s.world[i][1]); const y = s.was[i];
+      n++; sx += x; sy += y; sxx += x * x; sxy += x * y;
+    }
+    const b = (n * sxy - sx * sy) / (n * sxx - sx * sx || 1);
+    return (x) => (sy - b * sx) / n + b * x;
+  })();
+
   const replaced = new Map();
   let added = 0;
   for (const s of stone) {
-    const adder = vertexAdder(glb, s.prim);
+    const { adder } = s;
     const owner = new Map();
     const stoneT = new Set(s.tris.map((x) => x.t));
     for (let t = 0; t < s.idx.length; t += 3) if (!stoneT.has(t)) for (let k = 0; k < 3; k++) owner.set(s.idx[t + k], null);
@@ -246,18 +347,30 @@ function tone(file) {
       if (owner.get(i) === tri.face) continue;
       const key = `${i}:${tri.face.id}`;
       let j = made.get(key);
-      if (j === undefined) { j = adder.add(i); made.set(key, j); copies.push({ j, from: i }); added++; }
+      if (j === undefined) {
+        const set = {};
+        if (i >= s.base) {
+          set.POSITION = s.local.slice(i * 3, i * 3 + 3);
+          if (s.nrm) set.NORMAL = s.nrm.slice(i * 3, i * 3 + 3);
+        }
+        j = adder.add(s.src.get(i) ?? i, set);
+        if (i >= s.base) { s.local.push(...set.POSITION); if (s.nrm) s.nrm.push(...set.NORMAL); }
+        else { s.local.push(...s.local.slice(i * 3, i * 3 + 3)); if (s.nrm) s.nrm.push(...s.nrm.slice(i * 3, i * 3 + 3)); }
+        made.set(key, j); copies.push({ j, from: i }); added++;
+      }
       s.idx[tri.t + k] = j;
     }
-    const base = s.world.length;
-    const uv = new Float32Array((base + copies.length) * 2);
+    for (const c of copies) { s.world[c.j] = s.world[c.from]; s.was[c.j] = s.was[c.from]; }
+    const uv = new Float32Array(s.world.length * 2);
     uv.set(s.uv);
-    for (const c of copies) s.world[c.j] = s.world[c.from];
     for (const tri of s.tris) for (let k = 0; k < 3; k++) {
       const i = s.idx[tri.t + k];
       const h = low(s.world[i][1]);
       const [a, b] = ranges[tri.face.kind];
-      const v = Math.max(0.02, Math.min(0.98, lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), tri.face.dark) + tri.face.step));
+      const f = tri.face;
+      const under = f.eave === null ? 0 : opt.shade[0] * clamp(1 - (f.eave - s.world[i][1]) / (opt.fade[0] * H));
+      const keep = opt.keep[0] * (s.was[i] - keepFit(h));
+      const v = Math.max(0.02, Math.min(0.98, lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), Math.max(f.dark, under)) + f.step + keep));
       uv[i * 2] = (cu + 0.5) / 16;
       uv[i * 2 + 1] = (cr + v) / 4;
     }
@@ -269,7 +382,7 @@ function tone(file) {
   const darkened = faces.filter((f) => f.dark > 0).length;
   const opened = faces.filter((f) => f.opening > 0.3).length;
   const trims = `${faces.filter((f) => f.step < 0).length} proud, ${faces.filter((f) => f.step > 0).length} set back`;
-  console.log(`${file}: ${count} stone tris, ${faces.length} faces, ${darkened} darkened, ${opened} in openings, ${trims}, ${added} points doubled`);
+  console.log(`${file}: ${count} stone tris, ${faces.length} faces, ${darkened} darkened, ${opened} in openings, ${trims}, ${faces.filter((f) => f.eave !== null).length} under overhang, ${cutTris} tris added (${(100 * cutTris / all.length).toFixed(1)}%), ${added} points doubled`);
   if (opt.dry) return;
   repack(glb, replaced);
   fixBounds(glb);
