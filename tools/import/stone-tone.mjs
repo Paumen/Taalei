@@ -11,10 +11,11 @@ own tone: where two faces share a point, the point is doubled.
 Recess: from each face, rays go out over its half of the sky; the share that
 hits the model within --reach of the model's size is how closed in it is.
 From --open on, the face moves toward --deep, fully at --shut.
-Pairs: two touching faces looking the same way, compared at the height where
-they meet. If the original tones there differ
-by --mark or more in lightness, the pair keeps a difference: the part that was
-lighter stays lighter by at least --apart, by moving the smaller face as a whole.
+Parts: separate pieces of the stone mesh with at least --big of the stone's
+surface. Each part's original tone is taken against the model's own trend of
+tone by facing and height. Two parts whose tones differ by --mark or more keep
+a difference: the one that was lighter stays lighter by at least --apart, by
+moving the smaller part as a whole.
 
   --cell <c,r>     14,3
   --top <a,b>      0.05,0.25
@@ -24,6 +25,7 @@ lighter stays lighter by at least --apart, by moving the smaller face as a whole
   --reach <f>      0.2
   --open <f>       0.35
   --shut <f>       0.75
+  --big <f>        0.05
   --mark <f>       0.02   OKLCH lightness
   --apart <f>      0.03   OKLCH lightness
   --dry`;
@@ -32,7 +34,7 @@ const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const opt = {
   cell: [14, 3], top: [0.05, 0.25], side: [0.25, 0.75], under: [0.75, 0.95], deep: [0.75, 0.95],
-  reach: [0.2], open: [0.35], shut: [0.75], mark: [0.02], apart: [0.03], dry: false,
+  reach: [0.2], open: [0.35], shut: [0.75], big: [0.05], mark: [0.02], apart: [0.03], dry: false,
 };
 const files = [];
 for (let i = 0; i < args.length; i++) {
@@ -211,45 +213,70 @@ function tone(file) {
     face.nowAt = (y) => { const h = low(y); return lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), face.dark); };
   }
 
-  const parts = faces.map((f, id) => { const part = { id, faces: [f], area: f.area, shift: 0 }; f.part = part; return part; });
-
-  const pad = size * 0.01;
-  const touch = (f, g) => [0, 1, 2].every((k) => f.lo[k] - pad <= g.hi[k] && g.lo[k] - pad <= f.hi[k]);
-  const pairs = new Map();
-  for (let i = 0; i < faces.length; i++) for (let j = i + 1; j < faces.length; j++) {
-    const f = faces[i]; const g = faces[j];
-    if (f.part === g.part || f.kind !== g.kind || dot(f.n, g.n) < 0.97 || !touch(f, g)) continue;
-    if (Math.abs(dot(sub(f.c, g.c), f.n)) > Math.max(f.span, g.span) * 0.5) continue;
-    const y = Math.max(f.lo[1], g.lo[1]) <= Math.min(f.hi[1], g.hi[1])
-      ? (Math.max(f.lo[1], g.lo[1]) + Math.min(f.hi[1], g.hi[1])) / 2
-      : (f.hi[1] < g.lo[1] ? (f.hi[1] + g.lo[1]) / 2 : (g.hi[1] + f.lo[1]) / 2);
-    const [A, B] = f.part.id < g.part.id ? [f, g] : [g, f];
-    const key = `${A.part.id},${B.part.id}`;
-    if (!pairs.has(key)) pairs.set(key, { A: A.part, B: B.part, at: [] });
-    pairs.get(key).at.push({ fa: A, fb: B, y, w: Math.min(f.area, g.area) });
+  const parts = [];
+  {
+    const q = size * 1e-4;
+    const parent = faces.map((_, i) => i);
+    const find = (i) => { while (parent[i] !== i) { parent[i] = parent[parent[i]]; i = parent[i]; } return i; };
+    const byPoint = new Map();
+    faces.forEach((f, fi) => { for (const tri of f.tris) for (let k = 0; k < 3; k++) {
+      const key = f.s.world[f.s.idx[tri.t + k]].map((x) => Math.round(x / q)).join(',');
+      if (byPoint.has(key)) parent[find(fi)] = find(byPoint.get(key)); else byPoint.set(key, fi);
+    } });
+    const groups = new Map();
+    faces.forEach((f, fi) => { const r = find(fi); if (!groups.has(r)) groups.set(r, []); groups.get(r).push(f); });
+    for (const list of groups.values()) {
+      const part = { id: parts.length, faces: list, area: list.reduce((x, f) => x + f.area, 0), shift: 0 };
+      for (const f of list) f.part = part;
+      parts.push(part);
+    }
   }
-  const median = (xs) => { const v = [...xs].sort((a, b) => a - b); return v.length ? v[v.length >> 1] : 0; };
+  const samples = [];
+  for (const f of faces) for (const tri of f.tris) {
+    const ids = [0, 1, 2].map((k) => f.s.idx[tri.t + k]);
+    const y = ids.reduce((x, i) => x + f.s.world[i][1], 0) / 3;
+    const was = ids.reduce((x, i) => x + f.s.uv[i * 2 + 1] * 4 - cr, 0) / 3;
+    samples.push({ part: f.part, kind: f.kind, h: low(y), w: tri.area, was: lightness(was), now: lightness(f.nowAt(y)) });
+  }
+  const trend = (key) => {
+    const fit = [0, 1, 2].map((kind) => {
+      let n = 0; let sx = 0; let sy = 0; let sxx = 0; let sxy = 0;
+      for (const p of samples) if (p.kind === kind) { n += p.w; sx += p.w * p.h; sy += p.w * p[key]; sxx += p.w * p.h * p.h; sxy += p.w * p.h * p[key]; }
+      if (!n) return () => 0;
+      const d = n * sxx - sx * sx;
+      const b = Math.abs(d) > 1e-12 ? (n * sxy - sx * sy) / d : 0;
+      const c = (sy - b * sx) / n;
+      return (h) => c + b * h;
+    });
+    const res = new Map(parts.map((part) => [part, [0, 0]]));
+    for (const p of samples) { const r = res.get(p.part); r[0] += p.w * (p[key] - fit[p.kind](p.h)); r[1] += p.w; }
+    return new Map([...res].map(([part, [x, w]]) => [part, w ? x / w : 0]));
+  };
+  const wasRes = trend('was');
+  const nowRes = trend('now');
+  const stoneArea = parts.reduce((x, part) => x + part.area, 0);
+  const big = parts.filter((part) => part.area >= opt.big[0] * stoneArea);
   const marked = [];
-  for (const pr of pairs.values()) {
-    const d = median(pr.at.map((x) => lightness(x.fa.wasAt(x.y)) - lightness(x.fb.wasAt(x.y))));
-    if (Math.abs(d) >= opt.mark[0]) { pr.sign = Math.sign(d); marked.push(pr); }
+  for (let i = 0; i < big.length; i++) for (let j = i + 1; j < big.length; j++) {
+    const d = wasRes.get(big[i]) - wasRes.get(big[j]);
+    if (Math.abs(d) >= opt.mark[0]) marked.push({ A: big[i], B: big[j], sign: Math.sign(d) });
   }
-  const gap = (pr) => median(pr.at.map((x) => lightness(x.fa.nowAt(x.y) + pr.A.shift) - lightness(x.fb.nowAt(x.y) + pr.B.shift))) * pr.sign;
-  const perL = 0.1 / 0.026;
-  for (let pass = 0; pass < 12; pass++) {
+  const LV = 0.26;
+  const gap = (pr) => ((nowRes.get(pr.A) - pr.A.shift * LV) - (nowRes.get(pr.B) - pr.B.shift * LV)) * pr.sign;
+  for (let pass = 0; pass < 30; pass++) {
     let moved = false;
     for (const pr of marked) {
       const short = opt.apart[0] - gap(pr);
       if (short <= 1e-4) continue;
-      const dv = short * perL;
+      const dv = short / LV;
       const small = pr.A.area <= pr.B.area ? pr.A : pr.B;
-      const lighterIsA = pr.sign > 0;
-      small.shift += (small === pr.A) === lighterIsA ? -dv : dv;
+      small.shift += (small === pr.A) === (pr.sign > 0) ? -dv : dv;
       moved = true;
     }
     if (!moved) break;
   }
   const unmet = marked.filter((pr) => gap(pr) < opt.apart[0] - 0.005).length;
+  if (process.env.DBG) for (const part of parts) console.log('part', part.id, (part.area / stoneArea).toFixed(3), 'was', wasRes.get(part).toFixed(3), 'now', nowRes.get(part).toFixed(3), 'shift', part.shift.toFixed(3));
 
   const replaced = new Map();
   let added = 0;
@@ -286,7 +313,7 @@ function tone(file) {
   }
   const count = stone.reduce((n, s) => n + s.tris.length, 0);
   const darkened = faces.filter((f) => f.dark > 0).length;
-  console.log(`${file}: ${count} stone tris, ${faces.length} faces, ${darkened} darkened, ${marked.length} pairs kept apart${unmet ? ` (${unmet} short)` : ''}, ${parts.filter((p) => p.shift).length} faces moved, ${added} points doubled`);
+  console.log(`${file}: ${count} stone tris, ${faces.length} faces, ${darkened} darkened, ${marked.length} pairs kept apart${unmet ? ` (${unmet} short)` : ''}, ${parts.filter((p) => p.shift).length} parts moved, ${added} points doubled`);
   if (opt.dry) return;
   repack(glb, replaced);
   fixBounds(glb);
