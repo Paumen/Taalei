@@ -385,7 +385,8 @@ function shade(file, o) {
   }
   const near2 = new Map([...region.values()].map((g) => [g, new Set([g])]));
   for (const set of touching.values()) for (const a of set) for (const b of set) {
-    if (a.n[0] * b.n[0] + a.n[1] * b.n[1] + a.n[2] * b.n[2] > 0.85) near2.get(a).add(b);
+    const dn = a.n[0] * b.n[0] + a.n[1] * b.n[1] + a.n[2] * b.n[2];
+    if (dn > 0.85 && dn < 0.995) near2.get(a).add(b);
   }
   for (const [g, set] of near2) {
     const total = [...set].reduce((x, h) => x + h.area, 0);
@@ -406,7 +407,23 @@ function shade(file, o) {
     for (const [g, w] of seen) { for (const k in v.q) v.q[k] += (g.q[k] * w) / total; g.verts.push(v); }
     v.region = [...seen.entries()].sort((x, y) => y[1] - x[1])[0][0];
   }
-  for (const [, g] of region) g.proud = g.verts.filter((v) => v.proud).length * 2 > g.verts.length;
+  for (const [, g] of region) {
+    let front = false, behind = false;
+    for (const v of g.verts) {
+      const d = v.n[0] * v.p[0] + v.n[1] * v.p[1] + v.n[2] * v.p[2];
+      const [x, y, z] = cellOf(v.p);
+      for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) for (let k = -1; k <= 1; k++) {
+        for (const w of hash.get(`${nkey(v.n)}|${x + i},${y + j},${z + k}`) ?? []) {
+          if (!w.region || w.region === g || w.region.area <= g.area) continue;
+          const e = v.n[0] * w.p[0] + v.n[1] * w.p[1] + v.n[2] * w.p[2];
+          if (Math.abs(d - e) <= tol || Math.abs(d - e) > reach) continue;
+          if (Math.hypot(...sub(sub(w.p, v.p), v.n.map((c) => c * (e - d)))) > reach) continue;
+          if (e > d) front = true; else behind = true;
+        }
+      }
+    }
+    g.step = behind && !front ? -o.trim : front && !behind ? o.trim : 0;
+  }
   const soft = (x) => {
     const k = 0.12, lo = o.light, hi = o.dark;
     if (x < lo + k) return lo + k * Math.exp((x - lo - k) / k);
@@ -426,10 +443,10 @@ function shade(file, o) {
     const overhang = Math.max(0, Math.min(1, (eave - 0.25) / 0.5));
     const open = 1 - 0.5 * Math.max(0, v.n[1]) * (1 - sky);
     let val = o.base + o.whole * hWhole * (hWhole < 0 ? 1 - overhang : open) + o.piece * hPiece
-      - o.up * Math.max(0, v.n[1]) * (1 - recess) + o.down * Math.max(0, -v.n[1])
+      - o.up * Math.max(0, v.n[1]) * (1 - recess * (1 - sky)) + o.down * Math.max(0, -v.n[1])
       + o.shadow * Math.max(recess, overhang);
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
-    val = soft(val) + pc.trim - (proud ? o.trim : 0);
+    val = soft(val) + pc.trim + (v.region ? v.region.step : proud ? -o.trim : 0);
     val = Math.max(0.04, Math.min(0.94, val));
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
     moved++;
