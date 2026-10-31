@@ -23,8 +23,6 @@ the stone's height, the face is under an overhang: its stone fades toward
 --deep by --shade, fully right under the overhang, gone --fade of the stone's
 height lower. Faces taller than that get a cut line where the fade ends,
 biggest faces first, until the cuts add --budget of the model's tris.
-Keep: --keep of the original's own light and dark, beyond its plain top to
-bottom trend, is added back.
 
   --cell <c,r>     14,3
   --top <a,b>      0.05,0.25
@@ -41,14 +39,13 @@ bottom trend, is added back.
   --shade <f>      0.7
   --fade <f>       0.2
   --budget <f>     0.15
-  --keep <f>       0
   --dry`;
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
 const opt = {
   cell: [14, 3], top: [0.05, 0.25], side: [0.25, 0.75], under: [0.75, 0.95], deep: [0.75, 0.95],
-  reach: [0.2], open: [0.35], shut: [0.75], gap: [1.0], step: [0.12], out: [0.04], over: [0.35], shade: [0.7], fade: [0.2], budget: [0.15], keep: [0], dry: false,
+  reach: [0.2], open: [0.35], shut: [0.75], gap: [1.0], step: [0.12], out: [0.04], over: [0.35], shade: [0.7], fade: [0.2], budget: [0.15], dry: false,
 };
 const files = [];
 for (let i = 0; i < args.length; i++) {
@@ -155,9 +152,7 @@ function tone(file) {
       tris.push({ t, normal, area: l / 2, kind: facing(normal) });
     }
     if (tris.length) {
-      const was = [];
-      for (let i = 0; i < world.length; i++) was.push(uv[i * 2 + 1] * 4 - cr);
-      stone.push({ prim, world, local, nrm, was, uv: Float32Array.from(uv), idx, tris, adder: vertexAdder(glb, prim), base: world.length, src: new Map() });
+      stone.push({ prim, world, local, nrm, uv: Float32Array.from(uv), idx, tris, adder: vertexAdder(glb, prim), base: world.length, src: new Map() });
     }
   }
   if (!stone.length) { console.log(`${file}: no stone in cell ${opt.cell}`); return; }
@@ -292,7 +287,6 @@ function tone(file) {
       s.world[j] = s.world[a].map((x, k) => x + (s.world[b][k] - x) * t);
       s.local.push(...set.POSITION);
       if (s.nrm) s.nrm.push(...set.NORMAL);
-      s.was[j] = s.was[a] + (s.was[b] - s.was[a]) * t;
       s.src.set(j, a);
       mid.set(key, j);
       return j;
@@ -322,16 +316,6 @@ function tone(file) {
     }
   }
 
-  const keepFit = (() => {
-    let n = 0; let sx = 0; let sy = 0; let sxx = 0; let sxy = 0;
-    for (const s of stone) for (const tri of s.tris) for (let k = 0; k < 3; k++) {
-      const i = s.idx[tri.t + k]; const x = low(s.world[i][1]); const y = s.was[i];
-      n++; sx += x; sy += y; sxx += x * x; sxy += x * y;
-    }
-    const b = (n * sxy - sx * sy) / (n * sxx - sx * sx || 1);
-    return (x) => (sy - b * sx) / n + b * x;
-  })();
-
   const replaced = new Map();
   let added = 0;
   for (const s of stone) {
@@ -360,7 +344,7 @@ function tone(file) {
       }
       s.idx[tri.t + k] = j;
     }
-    for (const c of copies) { s.world[c.j] = s.world[c.from]; s.was[c.j] = s.was[c.from]; }
+    for (const c of copies) { s.world[c.j] = s.world[c.from]; }
     const uv = new Float32Array(s.world.length * 2);
     uv.set(s.uv);
     for (const tri of s.tris) for (let k = 0; k < 3; k++) {
@@ -369,8 +353,7 @@ function tone(file) {
       const [a, b] = ranges[tri.face.kind];
       const f = tri.face;
       const under = f.eave === null ? 0 : opt.shade[0] * clamp(1 - (f.eave - s.world[i][1]) / (opt.fade[0] * H));
-      const keep = opt.keep[0] * (s.was[i] - keepFit(h));
-      const v = Math.max(0.02, Math.min(0.98, lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), Math.max(f.dark, under)) + f.step + keep));
+      const v = Math.max(0.02, Math.min(0.98, lerp(lerp(a, b, h), lerp(opt.deep[0], opt.deep[1], h), Math.max(f.dark, under)) + f.step));
       uv[i * 2] = (cu + 0.5) / 16;
       uv[i * 2 + 1] = (cr + v) / 4;
     }
