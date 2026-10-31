@@ -3455,6 +3455,26 @@
    }
   },
   {
+   "slug": "quat-cyberpunk",
+   "name": "quat-cyberpunk",
+   "note": "Quaternius; source zip carries no licence file.",
+   "artist": "Quaternius",
+   "licenseLabel": "CC0",
+   "count": 1,
+   "packs": [
+    "Cyberpunk Game Kit"
+   ],
+   "origins": {
+    "Cyberpunk Game Kit": 1
+   },
+   "scales": {
+    "0.7": 1
+   },
+   "smooth": {
+    "smooth": 1
+   }
+  },
+  {
    "slug": "quat-dun",
    "name": "quat-dun",
    "url": "https://quaternius.com/packs/modulardungeon.html",
@@ -3527,6 +3547,31 @@
    ],
    "kitCheck": {
     "factor": 1.14,
+    "kinds": 14
+   }
+  },
+  {
+   "slug": "quat-essentials",
+   "name": "quat-essentials",
+   "url": "https://quaternius.com/",
+   "note": "Quaternius; free version of the Sci-Fi Essentials Kit.",
+   "artist": "Quaternius",
+   "licenseLabel": "CC0 1.0",
+   "count": 37,
+   "packs": [
+    "SciFi Essentials Kit"
+   ],
+   "origins": {
+    "SciFi Essentials Kit": 37
+   },
+   "scales": {
+    "0.45": 37
+   },
+   "smooth": {
+    "smooth": 37
+   },
+   "kitCheck": {
+    "factor": 1.19,
     "kinds": 14
    }
   },
@@ -24393,6 +24438,62 @@
     "quat-megakit/platform-window-wide",
     "quat-megakit/platform-window-thin"
    ]
+  },
+  {
+   "id": "quat-essentials/ammo-box",
+   "type": "detail-variant",
+   "main": "quat-essentials/ammo-box",
+   "members": [
+    "quat-essentials/ammo-box",
+    "quat-essentials/ammo-box-closed"
+   ]
+  },
+  {
+   "id": "quat-essentials/barrel-b",
+   "type": "detail-variant",
+   "main": "quat-essentials/barrel-b",
+   "members": [
+    "quat-essentials/barrel-b",
+    "quat-essentials/barrel-b-open"
+   ]
+  },
+  {
+   "id": "quat-essentials/crate",
+   "type": "maatvariant",
+   "main": "quat-essentials/crate",
+   "members": [
+    "quat-essentials/crate",
+    "quat-essentials/crate-large"
+   ]
+  },
+  {
+   "id": "quat-essentials/crate-tarp",
+   "type": "maatvariant",
+   "main": "quat-essentials/crate-tarp",
+   "members": [
+    "quat-essentials/crate-tarp",
+    "quat-essentials/crate-tarp-large"
+   ]
+  },
+  {
+   "id": "quat-essentials/desk-medium",
+   "type": "maatvariant",
+   "main": "quat-essentials/desk-medium",
+   "members": [
+    "quat-essentials/desk-medium",
+    "quat-essentials/desk-small"
+   ]
+  },
+  {
+   "id": "quat-essentials/shelves-thin-short",
+   "type": "maatvariant",
+   "main": "quat-essentials/shelves-thin-short",
+   "members": [
+    "quat-essentials/shelves-thin-short",
+    "quat-essentials/shelves-thin-tall",
+    "quat-essentials/shelves-wide-short",
+    "quat-essentials/shelves-wide-tall"
+   ]
   }
  ],
  "bands": [
@@ -24498,7 +24599,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 855,
+   "count": 884,
    "parent": "metal"
   },
   {
@@ -24506,7 +24607,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2060,
+   "count": 2094,
    "parent": "metal"
   },
   {
@@ -24514,7 +24615,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 324,
+   "count": 326,
    "parent": "metal"
   },
   {
@@ -24522,7 +24623,7 @@
    "name": "Copper",
    "type": "material",
    "description": "Copper: bars, nuggets and their stacks.",
-   "count": 51,
+   "count": 52,
    "parent": "metal"
   },
   {
@@ -24618,7 +24719,7 @@
    "name": "Ceramic light",
    "type": "material",
    "description": "Light fired clay: porcelain plates, cups, basins, white tiles.",
-   "count": 303,
+   "count": 304,
    "parent": "ceramic"
   },
   {
@@ -24903,7 +25004,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1471,
+   "count": 1488,
    "parent": "polymer"
   },
   {
@@ -24962,7 +25063,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4791,
+   "count": 4824,
    "color": "#c07c8a"
   },
   {
@@ -24970,7 +25071,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 289
+   "count": 290
   },
   {
    "id": "obj-leisure",
@@ -25026,7 +25127,7 @@
    "name": "Science",
    "type": "kind",
    "description": "Scientific, lab or medical instrument: lab and medical gear.",
-   "count": 45
+   "count": 46
   },
   {
    "id": "obj-device-science-astro",
@@ -25110,7 +25211,7 @@
    "name": "House electrics",
    "type": "kind",
    "description": "Fixed household electrics, heating and air: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb, radiator, air conditioner, vent cover.",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-device-electronics-media",
@@ -25236,7 +25337,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 707,
+   "count": 720,
    "color": "#dd9f79"
   },
   {
@@ -25349,14 +25450,14 @@
    "name": "Bag",
    "type": "kind",
    "description": "bag, satchel",
-   "count": 30
+   "count": 31
   },
   {
    "id": "obj-container-bag-kit",
    "name": "Kit",
    "type": "kind",
    "description": "first-aid kit, health kit, med kit",
-   "count": 4
+   "count": 5
   },
   {
    "id": "obj-container-bag-sack",
@@ -25370,28 +25471,28 @@
    "name": "Barrel",
    "type": "kind",
    "description": "Barrel or cask, tapped keg included.",
-   "count": 59
+   "count": 62
   },
   {
    "id": "obj-container-barrel-metal",
    "name": "Metal barrel",
    "type": "kind",
    "description": "metal barrel, oil drum, fuel barrel, chemical drum",
-   "count": 21
+   "count": 24
   },
   {
    "id": "obj-container-bottle",
    "name": "Bottle",
    "type": "kind",
    "description": "bottle, flask, vial",
-   "count": 151
+   "count": 152
   },
   {
    "id": "obj-container-bottle-vial",
    "name": "Vial",
    "type": "kind",
    "description": "Small stoppered bottle for a dose: potion, phial, sample.",
-   "count": 69
+   "count": 70
   },
   {
    "id": "obj-container-bottle-glass",
@@ -25461,7 +25562,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 138
+   "count": 146
   },
   {
    "id": "obj-container-crate-cube",
@@ -25489,14 +25590,14 @@
    "name": "Ammo box",
    "type": "kind",
    "description": "Box or can for ammunition, metal, plastic or wood.",
-   "count": 7
+   "count": 10
   },
   {
    "id": "obj-container-crate-scifi",
    "name": "Sci-fi crate",
    "type": "kind",
    "description": "Futuristic cargo pod, supply crate or canister.",
-   "count": 17
+   "count": 22
   },
   {
    "id": "obj-container-crate-produce",
@@ -25573,7 +25674,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1160,
+   "count": 1169,
    "color": "#6b5b95"
   },
   {
@@ -25911,7 +26012,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 805,
+   "count": 814,
    "color": "#c07c8a"
   },
   {
@@ -25926,7 +26027,7 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 530
+   "count": 539
   },
   {
    "id": "obj-furnishing-furniture-counter",
@@ -26087,7 +26188,7 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 180
+   "count": 181
   },
   {
    "id": "obj-furnishing-furniture-seating-sofa",
@@ -26122,7 +26223,7 @@
    "name": "Chair",
    "type": "kind",
    "description": "chair, throne",
-   "count": 77
+   "count": 78
   },
   {
    "id": "obj-furnishing-furniture-seating-chair-desk",
@@ -26164,7 +26265,7 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser, coat rack, weapon rack",
-   "count": 150
+   "count": 155
   },
   {
    "id": "obj-furnishing-furniture-storage-bookcase",
@@ -26185,14 +26286,14 @@
    "name": "Cabinet",
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
-   "count": 32
+   "count": 33
   },
   {
    "id": "obj-furnishing-furniture-storage-cabinet-locker",
    "name": "Locker",
    "type": "kind",
    "description": "locker, locker bank, deposit box",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-furnishing-furniture-storage-cabinet-wall",
@@ -26206,7 +26307,7 @@
    "name": "Shelf",
    "type": "kind",
    "description": "Boards carried on brackets or a frame, open on the front.",
-   "count": 42
+   "count": 46
   },
   {
    "id": "obj-furnishing-furniture-storage-rack",
@@ -26241,7 +26342,7 @@
    "name": "Table",
    "type": "kind",
    "description": "table, desk, workbench",
-   "count": 113
+   "count": 116
   },
   {
    "id": "obj-furnishing-furniture-table-square",
@@ -26269,7 +26370,7 @@
    "name": "Desk",
    "type": "kind",
    "description": "Work or office desk, straight or corner.",
-   "count": 11
+   "count": 14
   },
   {
    "id": "obj-furnishing-furniture-table-coffee",
@@ -26283,7 +26384,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 424,
+   "count": 425,
    "color": "#9c3f2e"
   },
   {
@@ -26459,7 +26560,7 @@
    "name": "Tableware",
    "type": "kind",
    "description": "and any tableware with no leaf that fits",
-   "count": 226
+   "count": 227
   },
   {
    "id": "obj-kitchenware-tableware-condiment",
@@ -26543,7 +26644,7 @@
    "name": "Drinkware",
    "type": "kind",
    "description": "cup, tankard, glass",
-   "count": 82
+   "count": 83
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-takeaway",
@@ -26571,7 +26672,7 @@
    "name": "Mug",
    "type": "kind",
    "description": "mug",
-   "count": 14
+   "count": 15
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-goblet",
@@ -26712,7 +26813,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, cigarette packet",
-   "count": 152,
+   "count": 153,
    "color": "#f1976c"
   },
   {
@@ -26748,7 +26849,7 @@
    "name": "Key",
    "type": "kind",
    "description": "key",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-equipment-pocketitem-medicine",
@@ -27409,7 +27510,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 442,
+   "count": 450,
    "color": "#4c5468"
   },
   {
@@ -27529,7 +27630,7 @@
    "name": "Ranged",
    "type": "kind",
    "description": "sling, slingshot, dart",
-   "count": 169
+   "count": 175
   },
   {
    "id": "obj-equipment-apparel-quiver",
@@ -27564,14 +27665,14 @@
    "name": "Firearm",
    "type": "kind",
    "description": "Weapon that fires a shot with powder.",
-   "count": 95
+   "count": 101
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-part",
    "name": "Firearm part",
    "type": "kind",
    "description": "Gun attachment or magazine: scope, silencer, clip.",
-   "count": 11
+   "count": 13
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-shotgun",
@@ -27585,14 +27686,14 @@
    "name": "Handgun",
    "type": "kind",
    "description": "pistol, revolver",
-   "count": 37
+   "count": 39
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "name": "Revolver",
    "type": "kind",
    "description": "Handgun with a revolving cylinder.",
-   "count": 6
+   "count": 7
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-smg",
@@ -27627,7 +27728,7 @@
    "name": "Character",
    "type": "kind",
    "description": "playable, npc, skeleton (rigged), animal (rigged)",
-   "count": 27,
+   "count": 30,
    "color": "#8a6fb0"
   },
   {
@@ -27992,7 +28093,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "mine entrance",
-   "count": 2700,
+   "count": 2702,
    "color": "#877a63"
   },
   {
@@ -28000,7 +28101,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 572
+   "count": 574
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -28779,7 +28880,7 @@
    "name": "Utility",
    "type": "kind",
    "description": "Standing works that serve a settlement: utility pole, power line, tank, pipe, solar panel, turbine, antenna, hydrant, well, fountain.",
-   "count": 105,
+   "count": 106,
    "color": "#6e8f86"
   },
   {
@@ -28787,7 +28888,7 @@
    "name": "Antenna",
    "type": "kind",
    "description": "satellite dish, antenna, radar",
-   "count": 7
+   "count": 8
   },
   {
    "id": "str-fixture-utility-turbine",
@@ -29089,14 +29190,14 @@
    "name": "Rifle",
    "type": "kind",
    "description": "rifle",
-   "count": 29
+   "count": 31
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "name": "Sniper rifle",
    "type": "kind",
    "description": "A long rifle with a telescopic sight.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-equipment-weapon-ranged-firearm-rifle-assault",
@@ -29138,7 +29239,7 @@
    "name": "Explosive",
    "type": "kind",
    "description": "A charge set off by a fuse, pin or trigger: grenade, molotov, dynamite, fuse bomb, time bomb, claymore.",
-   "count": 44
+   "count": 46
   },
   {
    "id": "obj-food-vegetable-broccoli",
@@ -29299,14 +29400,14 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 354
+   "count": 355
   },
   {
    "id": "pickup",
    "name": "Pickup",
    "type": "tag",
    "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token.",
-   "count": 166
+   "count": 169
   },
   {
    "id": "broken",
@@ -29362,7 +29463,7 @@
    "name": "Space",
    "type": "theme",
    "description": "Space and sci-fi theme set: spacecraft, space base modules, station interiors, corridors and landers.",
-   "count": 344
+   "count": 381
   },
   {
    "id": "storeys-0-5",
@@ -30391,7 +30492,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 163,
+   "count": 165,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -30445,7 +30546,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4049,
+   "count": 4067,
    "derived": true
   },
   {
@@ -30453,7 +30554,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3460,
+   "count": 3478,
    "derived": true
   },
   {
@@ -30461,7 +30562,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1225,
+   "count": 1227,
    "derived": true
   },
   {
@@ -30485,7 +30586,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1012,
+   "count": 1050,
    "derived": true
   },
   {
@@ -37119,7 +37220,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "3dm-guns",
@@ -37210,7 +37311,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "3dm-guns",
@@ -37401,7 +37502,7 @@
     "metal-iron-dark",
     "scale-big"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.41
   },
   {
    "kit": "3dm-guns",
@@ -37444,7 +37545,7 @@
     "metal-steel",
     "wick"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "3dm-guns",
@@ -37532,7 +37633,7 @@
     "plastic"
    ],
    "variant": "3dm-guns/flashbang",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "3dm-guns",
@@ -37578,7 +37679,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.74
   },
   {
    "kit": "3dm-guns",
@@ -37878,7 +37979,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "3dm-industrial",
@@ -38877,7 +38978,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.31
   },
   {
    "kit": "3dm-medieval",
@@ -38965,7 +39066,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "3dm-scifi",
@@ -39096,7 +39197,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.27
   },
   {
    "kit": "3dm-scifi",
@@ -39141,7 +39242,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "3dm-scifi",
@@ -49808,7 +49909,7 @@
     "ceramic-light",
     "mab"
    ],
-   "thickRel": 1
+   "thickRel": 1.02
   },
   {
    "kit": "cooking-assets",
@@ -50103,7 +50204,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.55
+   "thickRel": 3.56
   },
   {
    "kit": "cooking-assets",
@@ -50664,7 +50765,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 3.4
+   "thickRel": 3.42
   },
   {
    "kit": "cooking-assets",
@@ -51169,7 +51270,7 @@
     "ceramic-light",
     "mab"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.86
   },
   {
    "kit": "cooking-assets",
@@ -52545,7 +52646,7 @@
     "mounted",
     "wood-light"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "dungeon",
@@ -53376,7 +53477,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.92,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "error",
@@ -53714,7 +53815,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.98
   },
   {
    "kit": "emace-80s",
@@ -55082,7 +55183,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 0.78,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "error",
@@ -55434,7 +55535,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/corner-shelf",
-   "thickRel": 0.57
+   "thickRel": 0.59
   },
   {
    "kit": "emace-village",
@@ -55474,7 +55575,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/corner-shelf",
-   "thickRel": 0.71
+   "thickRel": 0.73
   },
   {
    "kit": "emace-village",
@@ -57685,7 +57786,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.79
   },
   {
    "kit": "emace-village",
@@ -58986,7 +59087,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/shelf-standing",
-   "thickRel": 0.5,
+   "thickRel": 0.52,
    "lint": [
     {
      "level": "error",
@@ -59034,7 +59135,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/shelf-standing",
-   "thickRel": 0.72,
+   "thickRel": 0.75,
    "lint": [
     {
      "level": "error",
@@ -60527,7 +60628,7 @@
      "other": 0.07
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
@@ -65946,7 +66047,7 @@
     "paper-sheet"
    ],
    "variant": "food-pack-2/milk-carton",
-   "thickRel": 1.55
+   "thickRel": 1.54
   },
   {
    "kit": "food-pack-2",
@@ -65987,7 +66088,7 @@
     "plastic"
    ],
    "variant": "food-pack-2/milk-carton",
-   "thickRel": 1.55
+   "thickRel": 1.54
   },
   {
    "kit": "food-pack-2",
@@ -70756,7 +70857,7 @@
     "mounted",
     "wood-light"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.18
   },
   {
    "kit": "fs-house",
@@ -83141,7 +83242,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/barrel-a",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "fs-town",
@@ -90073,7 +90174,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "household",
@@ -90317,7 +90418,7 @@
     "ct",
     "wood-mid"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "household",
@@ -90768,7 +90869,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.46
   },
   {
    "kit": "household",
@@ -95364,7 +95465,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "ipoly-torture",
@@ -95956,7 +96057,7 @@
     "isa",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "isa-bakery",
@@ -97243,7 +97344,7 @@
     "isa"
    ],
    "variant": "isa-picnic/mug",
-   "thickRel": 0.95
+   "thickRel": 0.98
   },
   {
    "kit": "isa-bakery",
@@ -97283,7 +97384,7 @@
     "isa"
    ],
    "variant": "isa-picnic/mug",
-   "thickRel": 0.82
+   "thickRel": 0.84
   },
   {
    "kit": "isa-bakery",
@@ -98843,7 +98944,7 @@
     "wood-light"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 1.29
+   "thickRel": 1.33
   },
   {
    "kit": "isa-bakery",
@@ -98888,7 +98989,7 @@
     "mounted"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 1.19
+   "thickRel": 1.23
   },
   {
    "kit": "isa-bakery",
@@ -98930,7 +99031,7 @@
     "mounted"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 0.91
+   "thickRel": 0.94
   },
   {
    "kit": "isa-bakery",
@@ -99526,7 +99627,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.07,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -99583,7 +99684,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.07,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -99640,7 +99741,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.07,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -100133,7 +100234,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "isa-bathroom",
@@ -100175,7 +100276,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "isa-bathroom",
@@ -100217,7 +100318,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "isa-bathroom",
@@ -100522,7 +100623,7 @@
     "wood-mid"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.17
+   "thickRel": 2.24
   },
   {
    "kit": "isa-bathroom",
@@ -103439,7 +103540,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "isa-kitchen",
@@ -104000,7 +104101,7 @@
     "isa"
    ],
    "variant": "isa-kitchen/mug-ivory",
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "isa-kitchen",
@@ -104040,7 +104141,7 @@
     "isa"
    ],
    "variant": "isa-kitchen/mug-ivory",
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "isa-kitchen",
@@ -104161,7 +104262,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.95
+   "thickRel": 2.96
   },
   {
    "kit": "isa-kitchen",
@@ -105015,7 +105116,7 @@
     "wood-light"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 0.82
+   "thickRel": 0.85
   },
   {
    "kit": "isa-kitchen",
@@ -105110,7 +105211,7 @@
     "wood-light"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.16
+   "thickRel": 2.23
   },
   {
    "kit": "isa-kitchen",
@@ -105155,7 +105256,7 @@
     "wood-light"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2
+   "thickRel": 2.06
   },
   {
    "kit": "isa-kitchen",
@@ -106864,7 +106965,7 @@
     "isa",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "isa-picnic",
@@ -107243,7 +107344,7 @@
     "isa"
    ],
    "variant": "isa-picnic/mug",
-   "thickRel": 0.78
+   "thickRel": 0.8
   },
   {
    "kit": "isa-picnic",
@@ -112686,7 +112787,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "jb-kitchen",
@@ -113101,7 +113202,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 2.96
+   "thickRel": 2.97
   },
   {
    "kit": "jb-kitchen",
@@ -113871,7 +113972,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.14,
+   "thickRel": 1.15,
    "mark": [
     "centered"
    ]
@@ -114291,7 +114392,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.17,
+   "thickRel": 1.18,
    "mark": [
     "centered"
    ]
@@ -114813,7 +114914,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.04,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "error",
@@ -115413,7 +115514,7 @@
     "leather",
     "metal-iron-dark"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "kay-adventurers",
@@ -120787,7 +120888,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.89,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "warning",
@@ -126912,7 +127013,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "kay-dun-2",
@@ -128740,7 +128841,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "kay-dun-2",
@@ -128781,7 +128882,7 @@
     "metal-iron-mid",
     "pickup"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.21
   },
   {
    "kit": "kay-dun-2",
@@ -129165,7 +129266,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/shelf-large",
-   "thickRel": 2.55
+   "thickRel": 2.64
   },
   {
    "kit": "kay-dun-2",
@@ -129211,7 +129312,7 @@
     "wick",
     "wood-dark"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.12
   },
   {
    "kit": "kay-dun-2",
@@ -129252,7 +129353,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/shelf-large",
-   "thickRel": 1.91
+   "thickRel": 1.97
   },
   {
    "kit": "kay-dun-2",
@@ -132675,7 +132776,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "kay-food",
@@ -132715,7 +132816,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-b-wood",
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "kay-food",
@@ -135960,7 +136061,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.31
+   "thickRel": 2.32
   },
   {
    "kit": "kay-food",
@@ -141433,7 +141534,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "kay-furniture",
@@ -141476,7 +141577,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-a",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "kay-furniture",
@@ -141516,7 +141617,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-b-wood",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "kay-furniture",
@@ -141559,7 +141660,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-a",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "kay-furniture",
@@ -141602,7 +141703,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-a",
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "kay-furniture",
@@ -142480,7 +142581,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-a-big",
-   "thickRel": 2.49
+   "thickRel": 2.57
   },
   {
    "kit": "kay-furniture",
@@ -142524,7 +142625,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-a-big",
-   "thickRel": 1.98
+   "thickRel": 2.04
   },
   {
    "kit": "kay-furniture",
@@ -142615,7 +142716,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-b-large",
-   "thickRel": 2.46
+   "thickRel": 2.54
   },
   {
    "kit": "kay-furniture",
@@ -142706,7 +142807,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-b-large",
-   "thickRel": 1.97
+   "thickRel": 2.03
   },
   {
    "kit": "kay-furniture",
@@ -142746,7 +142847,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.5
   },
   {
    "kit": "kay-furniture",
@@ -150777,7 +150878,7 @@
     "kay",
     "special-food"
    ],
-   "thickRel": 2.35
+   "thickRel": 2.4
   },
   {
    "kit": "kay-holiday",
@@ -159363,7 +159464,7 @@
     "plastic"
    ],
    "variant": "kay-resources/fuel-barrel-a-dirty",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-resources",
@@ -159406,7 +159507,7 @@
     "plastic"
    ],
    "variant": "kay-resources/fuel-barrel-a",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-resources",
@@ -159452,7 +159553,7 @@
     "special-liquid"
    ],
    "variant": "kay-resources/fuel-barrel-a-dirty",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-resources",
@@ -159495,7 +159596,7 @@
     "plastic"
    ],
    "variant": "kay-resources/fuel-barrel-a",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-resources",
@@ -162471,7 +162572,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "kay-skeleton",
@@ -162659,7 +162760,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "kay-skeleton",
@@ -162843,7 +162944,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "kay-skeleton",
@@ -163030,7 +163131,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "kay-skeleton",
@@ -164571,7 +164672,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "kay-space",
@@ -164666,7 +164767,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-space",
@@ -164712,7 +164813,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "kay-space",
@@ -164800,7 +164901,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "kay-space",
@@ -167558,7 +167659,7 @@
     "special-organic",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.82
+   "thickRel": 1.83
   },
   {
    "kit": "kay-spook",
@@ -168458,7 +168559,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "kay-tools",
@@ -172145,7 +172246,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.95
   },
   {
    "kit": "ken-arcade",
@@ -173485,7 +173586,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.08,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -173536,7 +173637,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/blaster-e",
-   "thickRel": 0.95
+   "thickRel": 0.9
   },
   {
    "kit": "ken-blaster",
@@ -173724,7 +173825,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/blaster-r",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "ken-blaster",
@@ -173768,7 +173869,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/blaster-o",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "ken-blaster",
@@ -174308,7 +174409,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.93
+   "thickRel": 0.9
   },
   {
    "kit": "ken-blaster",
@@ -174352,7 +174453,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.89
+   "thickRel": 0.86
   },
   {
    "kit": "ken-blaster",
@@ -174396,7 +174497,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "ken-blaster",
@@ -174437,7 +174538,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/grenade-a",
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "ken-blaster",
@@ -174478,7 +174579,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/grenade-a",
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "ken-blaster",
@@ -178641,7 +178742,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.09
+   "thickRel": 1.05
   },
   {
    "kit": "ken-chars",
@@ -178686,7 +178787,7 @@
     "plastic"
    ],
    "variant": "ken-chars/aid-defibrillator-red",
-   "thickRel": 1.09
+   "thickRel": 1.05
   },
   {
    "kit": "ken-chars",
@@ -186037,7 +186138,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "ken-food",
@@ -186793,7 +186894,7 @@
     "paper-sheet"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1.31
+   "thickRel": 1.3
   },
   {
    "kit": "ken-food",
@@ -187591,7 +187692,7 @@
     "special-liquid"
    ],
    "variant": "ken-food/cup-tea-a",
-   "thickRel": 2.07
+   "thickRel": 2.12
   },
   {
    "kit": "ken-food",
@@ -187671,7 +187772,7 @@
     "ceramic-light",
     "ken"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "ken-food",
@@ -188121,7 +188222,7 @@
     "paper-sheet",
     "special-food"
    ],
-   "thickRel": 2.89
+   "thickRel": 2.9
   },
   {
    "kit": "ken-food",
@@ -189630,7 +189731,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.67
+   "thickRel": 3.69
   },
   {
    "kit": "ken-food",
@@ -190478,7 +190579,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 2.61
+   "thickRel": 2.62
   },
   {
    "kit": "ken-food",
@@ -192813,7 +192914,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/cabinet-bed-drawer",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "ken-furniture",
@@ -192856,7 +192957,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/cabinet-bed-drawer",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "ken-furniture",
@@ -193175,7 +193276,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/chair",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "ken-furniture",
@@ -193258,7 +193359,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-furniture/chair-modern-cushion",
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "ken-furniture",
@@ -193300,7 +193401,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-furniture/chair-modern-cushion",
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "ken-furniture",
@@ -193338,7 +193439,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "ken-furniture",
@@ -193384,7 +193485,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.15,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -193596,7 +193697,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/desk",
-   "thickRel": 0.51
+   "thickRel": 0.56
   },
   {
    "kit": "ken-furniture",
@@ -193646,7 +193747,7 @@
      "inverted": 0.02
     }
    },
-   "thickRel": 1.02,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -196468,7 +196569,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.98,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "warning",
@@ -205097,7 +205198,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "ken-market",
@@ -205145,7 +205246,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.13
   },
   {
    "kit": "ken-market",
@@ -205557,7 +205658,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "ken-mini-dun",
@@ -220464,7 +220565,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "ken-roads",
@@ -228175,7 +228276,7 @@
     "tba"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "ken-space",
@@ -228221,7 +228322,7 @@
     "tba"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "ken-space",
@@ -228271,7 +228372,7 @@
     "tba"
    ],
    "variant": "ken-space/satellite-dish",
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "ken-space",
@@ -231195,7 +231296,7 @@
     "tba"
    ],
    "variant": "ken-station/table-display",
-   "thickRel": 1.42
+   "thickRel": 1.41
   },
   {
    "kit": "ken-station",
@@ -249616,7 +249717,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "lpa-construction",
@@ -252592,7 +252693,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "lpa-construction",
@@ -252891,7 +252992,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "lpa-desert",
@@ -252934,7 +253035,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "lpa-desert",
@@ -254906,7 +255007,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "lpa-home",
@@ -255245,7 +255346,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.28
   },
   {
    "kit": "lpa-home",
@@ -256185,7 +256286,7 @@
     "ceramic-mid",
     "lpa"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "lpa-home",
@@ -256653,7 +256754,7 @@
     "metal-steel"
    ],
    "variant": "lpa-home/safe-a",
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "lpa-home",
@@ -257736,7 +257837,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/wall-shelf-a",
-   "thickRel": 1.79
+   "thickRel": 1.85
   },
   {
    "kit": "lpa-home",
@@ -257777,7 +257878,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/wall-shelf-a",
-   "thickRel": 1.27
+   "thickRel": 1.31
   },
   {
    "kit": "lpa-home",
@@ -262059,7 +262160,7 @@
     "lpa",
     "wood-mid"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -267135,7 +267236,7 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 2.34
+   "thickRel": 2.35
   },
   {
    "kit": "m3-base",
@@ -272110,7 +272211,7 @@
     "paper-cardboard",
     "paper-sheet"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "m3-base",
@@ -273104,7 +273205,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 2.69
+   "thickRel": 2.7
   },
   {
    "kit": "m3-base",
@@ -274959,7 +275060,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -275548,7 +275649,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/dining-chair-01",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -277225,7 +277326,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.38
   },
   {
    "kit": "m3-base",
@@ -278201,7 +278302,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -278329,7 +278430,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -278372,7 +278473,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -281430,7 +281531,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -281553,12 +281654,12 @@
     "wood-mid"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.46,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -281933,7 +282034,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.65,
+   "thickRel": 0.67,
    "lint": [
     {
      "level": "warning",
@@ -281983,7 +282084,7 @@
     "wood-light"
    ],
    "variant": "m3-base/industrial-shelving-01",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -282660,7 +282761,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -282701,7 +282802,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "m3-base",
@@ -286730,7 +286831,7 @@
     "textile-rope",
     "wood-light"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.64
   },
   {
    "kit": "m3-base",
@@ -287189,7 +287290,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -287969,7 +288070,7 @@
      "other": 1
     }
    },
-   "thickRel": 0.62,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -288256,7 +288357,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 0.94
+   "thickRel": 0.96
   },
   {
    "kit": "m3-base",
@@ -290630,12 +290731,12 @@
     "m3"
    ],
    "variant": "m3-base/petri-dish",
-   "thickRel": 0.19,
+   "thickRel": 0.18,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.19 wants min 0.5"
+     "text": "I01 thickRel 0.18 wants min 0.5"
     }
    ]
   },
@@ -291074,7 +291175,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 2.3
+   "thickRel": 2.22
   },
   {
    "kit": "m3-base",
@@ -295068,7 +295169,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 2.96
+   "thickRel": 2.97
   },
   {
    "kit": "m3-base",
@@ -296563,7 +296664,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -296760,7 +296861,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -298888,7 +298989,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -300987,7 +301088,7 @@
     "m3",
     "wood-light"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.57
   },
   {
    "kit": "m3-base",
@@ -303729,7 +303830,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.61
   },
   {
    "kit": "m3-base",
@@ -304301,7 +304402,7 @@
     "plastic"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "makeup",
@@ -304946,7 +305047,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/barrel",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "medieval-forge",
@@ -305029,7 +305130,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "medieval-forge",
@@ -313792,7 +313893,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "props",
@@ -316706,7 +316807,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.72,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "error",
@@ -317600,6 +317701,50 @@
    ],
    "variant": "quat-cars/car",
    "thickRel": 0.97
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "ac-stacked",
+   "hash": "231517a411",
+   "kind": "str-fixture-installation",
+   "size": "m",
+   "wdh": [
+    0.469,
+    0.358,
+    0.704
+   ],
+   "tris": 776,
+   "tpu": 2250,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 34480,
+   "vtx": 884,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.2348,
+   "avgTri": 0.0024,
+   "anglePct": 54,
+   "pieces": 10,
+   "vpt": 1.14,
+   "cells": [
+    "6,1",
+    "15,3",
+    "5,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#ce7954"
+   ],
+   "tags": [
+    "metal-copper",
+    "metal-iron-dark",
+    "metal-steel",
+    "plural",
+    "qua"
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -319217,6 +319362,1880 @@
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.006 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "ammo-box-closed",
+   "hash": "6a07a70d08",
+   "kind": "obj-container-crate-ammo",
+   "size": "s",
+   "wdh": [
+    0.257,
+    0.325,
+    0.185
+   ],
+   "tris": 2316,
+   "tpu": 6752,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 88688,
+   "vtx": 2289,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1944,
+   "avgTri": 0.00016,
+   "anglePct": 79,
+   "pieces": 9,
+   "vpt": 0.99,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/ammo-box",
+   "thickRel": 1.04
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "ammo-box-small",
+   "hash": "93a791bfd7",
+   "kind": "obj-container-crate-ammo",
+   "size": "s",
+   "wdh": [
+    0.181,
+    0.195,
+    0.128
+   ],
+   "tris": 3500,
+   "tpu": 10204,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 117616,
+   "vtx": 2971,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.2079,
+   "avgTri": 0.00006,
+   "anglePct": 68,
+   "pieces": 20,
+   "vpt": 0.85,
+   "cells": [
+    "6,1",
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.195 under min 0.2 (obj-container-crate)"
+    },
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 10204 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "ammo-box",
+   "hash": "d89691ecf1",
+   "kind": "obj-container-crate-ammo",
+   "size": "s",
+   "wdh": [
+    0.257,
+    0.325,
+    0.127
+   ],
+   "tris": 7366,
+   "tpu": 21475,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 228764,
+   "vtx": 5720,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1779,
+   "avgTri": 0.00005,
+   "anglePct": 66,
+   "pieces": 43,
+   "vpt": 0.78,
+   "cells": [
+    "6,1",
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/ammo-box",
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 21475 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "barrel-b-open",
+   "hash": "76c94b7496",
+   "kind": "obj-container-barrel-metal",
+   "size": "s",
+   "wdh": [
+    0.244,
+    0.244,
+    0.493
+   ],
+   "tris": 4180,
+   "tpu": 12187,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 157156,
+   "vtx": 4079,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2705,
+   "avgTri": 0.00018,
+   "anglePct": 50,
+   "pieces": 4,
+   "vpt": 0.98,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/barrel-b",
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 12187 over max 10000 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G19 tris 4180 wants range 100–1500"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "barrel-b",
+   "hash": "43dd0bdc70",
+   "kind": "obj-container-barrel-metal",
+   "size": "s",
+   "wdh": [
+    0.244,
+    0.244,
+    0.345
+   ],
+   "tris": 4180,
+   "tpu": 12187,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 157148,
+   "vtx": 4079,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2653,
+   "avgTri": 0.00018,
+   "anglePct": 50,
+   "pieces": 4,
+   "vpt": 0.98,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/barrel-b",
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 12187 over max 10000 (obj)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G19 tris 4180 wants range 100–1500"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "barrel",
+   "hash": "202c103931",
+   "kind": "obj-container-barrel-metal",
+   "size": "m",
+   "wdh": [
+    0.325,
+    0.292,
+    0.5
+   ],
+   "tris": 2352,
+   "tpu": 6857,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 97748,
+   "vtx": 2566,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2541,
+   "avgTri": 0.00025,
+   "anglePct": 29,
+   "pieces": 5,
+   "vpt": 1.09,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G19 tris 2352 wants range 100–1500"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "chair",
+   "hash": "53be62315d",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.396,
+    0.505,
+    0.739
+   ],
+   "tris": 1134,
+   "tpu": 3132,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 39676,
+   "vtx": 980,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0832,
+   "thick": 0.0956,
+   "avgTri": 0.00086,
+   "anglePct": 15,
+   "pieces": 2,
+   "vpt": 0.86,
+   "cells": [
+    "5,2"
+   ],
+   "colors": [
+    "#d8cfb7"
+   ],
+   "tags": [
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.739 over max 0.6 (obj-furnishing-furniture-seating-chair)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "chest",
+   "hash": "b36028ef61",
+   "kind": "obj-container-crate-scifi",
+   "size": "m",
+   "wdh": [
+    0.829,
+    0.441,
+    0.423
+   ],
+   "tris": 3422,
+   "tpu": 9977,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 131016,
+   "vtx": 3405,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0333,
+   "thick": 0.2889,
+   "avgTri": 0.00084,
+   "anglePct": 75,
+   "pieces": 12,
+   "vpt": 1,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1.08
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "crate-large",
+   "hash": "f28ca8d770",
+   "kind": "obj-container-crate-scifi",
+   "size": "l",
+   "wdh": [
+    1.56,
+    0.675,
+    0.675
+   ],
+   "tris": 4016,
+   "tpu": 5448,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 180452,
+   "vtx": 4838,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.3334,
+   "avgTri": 0.00155,
+   "anglePct": 80,
+   "pieces": 31,
+   "vpt": 1.2,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "scale-big",
+    "space"
+   ],
+   "variant": "quat-essentials/crate",
+   "backface": {
+    "share": 0.0017,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.25,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "crate-tarp-large",
+   "hash": "5733a8356b",
+   "kind": "obj-container-crate-scifi",
+   "size": "m",
+   "wdh": [
+    1.449,
+    0.773,
+    0.705
+   ],
+   "tris": 4472,
+   "tpu": 5663,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 177204,
+   "vtx": 4650,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0117,
+   "thick": 0.2993,
+   "avgTri": 0.00162,
+   "anglePct": 87,
+   "pieces": 39,
+   "vpt": 1.04,
+   "cells": [
+    "4,2",
+    "6,1",
+    "13,3"
+   ],
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#59534e"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "plastic",
+    "qua",
+    "scale-big",
+    "space"
+   ],
+   "variant": "quat-essentials/crate-tarp",
+   "thickRel": 1.12
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "crate-tarp",
+   "hash": "a64b755169",
+   "kind": "obj-container-crate-scifi",
+   "size": "m",
+   "wdh": [
+    0.773,
+    0.772,
+    0.705
+   ],
+   "tris": 2964,
+   "tpu": 7045,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 121860,
+   "vtx": 3204,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0117,
+   "thick": 0.2405,
+   "avgTri": 0.00146,
+   "anglePct": 87,
+   "pieces": 29,
+   "vpt": 1.08,
+   "cells": [
+    "13,3",
+    "6,1",
+    "4,2"
+   ],
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#59534e"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/crate-tarp",
+   "thickRel": 0.9
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "crate",
+   "hash": "a4a6a1d9ca",
+   "kind": "obj-container-crate-scifi",
+   "size": "m",
+   "wdh": [
+    0.706,
+    0.675,
+    0.675
+   ],
+   "tris": 3984,
+   "tpu": 11615,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 179192,
+   "vtx": 4806,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.2513,
+   "avgTri": 0.00088,
+   "anglePct": 78,
+   "pieces": 31,
+   "vpt": 1.21,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/crate",
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 11615 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "desk-l",
+   "hash": "379e956dd5",
+   "kind": "obj-furnishing-furniture-table-desk",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.423
+   ],
+   "tris": 686,
+   "tpu": 980,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 27492,
+   "vtx": 684,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0588,
+   "avgTri": 0.00489,
+   "anglePct": 90,
+   "pieces": 2,
+   "vpt": 1,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.47,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.47 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "desk-medium",
+   "hash": "ce680aedd7",
+   "kind": "obj-furnishing-furniture-table-desk",
+   "size": "m",
+   "wdh": [
+    1.279,
+    0.463,
+    0.423
+   ],
+   "tris": 504,
+   "tpu": 1216,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 21384,
+   "vtx": 526,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.1433,
+   "avgTri": 0.00523,
+   "anglePct": 91,
+   "pieces": 2,
+   "vpt": 1.04,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/desk-medium",
+   "thickRel": 1.15
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "desk-small",
+   "hash": "d372ee471a",
+   "kind": "obj-furnishing-furniture-table-desk",
+   "size": "m",
+   "wdh": [
+    0.929,
+    0.463,
+    0.423
+   ],
+   "tris": 496,
+   "tpu": 1446,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20880,
+   "vtx": 513,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "thick": 0.1133,
+   "avgTri": 0.00421,
+   "anglePct": 89,
+   "pieces": 2,
+   "vpt": 1.03,
+   "cells": [
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/desk-medium",
+   "thickRel": 0.91
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "eye-drone",
+   "hash": "0167939d81",
+   "kind": "char",
+   "size": "s",
+   "wdh": [
+    0.448,
+    0.402,
+    0.448
+   ],
+   "tris": 3530,
+   "tpu": 10292,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 122312,
+   "vtx": 3112,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.247,
+   "avgTri": 0.00027,
+   "anglePct": 1,
+   "pieces": 11,
+   "vpt": 0.88,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1.98,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.448 under min 0.45 (char)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "grenade",
+   "hash": "1f10549cba",
+   "kind": "obj-equipment-weapon-explosive",
+   "size": "s",
+   "wdh": [
+    0.057,
+    0.039,
+    0.108
+   ],
+   "tris": 1712,
+   "tpu": 4991,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 65480,
+   "vtx": 1677,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0364,
+   "thick": 0.2215,
+   "avgTri": 0.00001,
+   "anglePct": 31,
+   "pieces": 3,
+   "vpt": 0.98,
+   "cells": [
+    "6,1",
+    "5,2",
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.9
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "health-pack",
+   "hash": "161c780ecb",
+   "kind": "obj-container-bag-kit",
+   "size": "s",
+   "wdh": [
+    0.194,
+    0.079,
+    0.271
+   ],
+   "tris": 2380,
+   "tpu": 6939,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 98172,
+   "vtx": 2573,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.016,
+   "thick": 0.1367,
+   "avgTri": 0.00013,
+   "anglePct": 71,
+   "pieces": 12,
+   "vpt": 1.08,
+   "cells": [
+    "3,1",
+    "15,3",
+    "5,2",
+    "6,1",
+    "1,1"
+   ],
+   "colors": [
+    "#21552a",
+    "#3a3e4b",
+    "#66852a",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.62
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "health-tube",
+   "hash": "80809f1ee3",
+   "kind": "obj-container-bottle-vial",
+   "size": "s",
+   "wdh": [
+    0.067,
+    0.067,
+    0.142
+   ],
+   "tris": 340,
+   "tpu": 991,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 16348,
+   "vtx": 400,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.309,
+   "avgTri": 0.00015,
+   "anglePct": 37,
+   "pieces": 3,
+   "vpt": 1.18,
+   "cells": [
+    "3,1",
+    "15,3",
+    "5,2"
+   ],
+   "colors": [
+    "#66852a",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1.33
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "keycard",
+   "hash": "d2fc961ab6",
+   "kind": "obj-equipment-pocketitem-key",
+   "size": "s",
+   "wdh": [
+    0.082,
+    0.022,
+    0.214
+   ],
+   "tris": 722,
+   "tpu": 2105,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 29072,
+   "vtx": 725,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0052,
+   "thick": 0.0881,
+   "avgTri": 0.00004,
+   "anglePct": 80,
+   "pieces": 3,
+   "vpt": 1,
+   "cells": [
+    "15,3",
+    "6,0",
+    "13,3"
+   ],
+   "colors": [
+    "#59534e",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0052 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "locker",
+   "hash": "4dae49fa64",
+   "kind": "obj-furnishing-furniture-storage-cabinet-locker",
+   "size": "m",
+   "wdh": [
+    0.442,
+    0.225,
+    1.201
+   ],
+   "tris": 424,
+   "tpu": 720,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 15856,
+   "vtx": 370,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.252,
+   "avgTri": 0.00427,
+   "anglePct": 96,
+   "pieces": 1,
+   "vpt": 0.87,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.201 over max 0.9 (obj-furnishing-furniture-storage-cabinet)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "mine",
+   "hash": "4c1a298987",
+   "kind": "obj-equipment-weapon-explosive",
+   "size": "s",
+   "wdh": [
+    0.363,
+    0.314,
+    0.367
+   ],
+   "tris": 2001,
+   "tpu": 5834,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 92040,
+   "vtx": 2453,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0133,
+   "thick": 0.0913,
+   "avgTri": 0.00013,
+   "anglePct": 50,
+   "pieces": 13,
+   "vpt": 1.23,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "mug",
+   "hash": "65a26738eb",
+   "kind": "obj-kitchenware-tableware-drinkware-mug",
+   "size": "s",
+   "wdh": [
+    0.082,
+    0.06,
+    0.077
+   ],
+   "tris": 552,
+   "tpu": 1609,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 22552,
+   "vtx": 554,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0581,
+   "avgTri": 0.00006,
+   "anglePct": 14,
+   "pieces": 2,
+   "vpt": 1,
+   "cells": [
+    "5,2"
+   ],
+   "colors": [
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-light",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.082 under min 0.1 (obj-kitchenware-tableware-drinkware)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "pistol",
+   "hash": "8796ee6277",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand",
+   "size": "s",
+   "wdh": [
+    0.199,
+    0.031,
+    0.114
+   ],
+   "tris": 3322,
+   "tpu": 9685,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 127756,
+   "vtx": 3322,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1197,
+   "avgTri": 0.00002,
+   "anglePct": 66,
+   "pieces": 19,
+   "vpt": 1,
+   "cells": [
+    "6,0",
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.83
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "quad-shell",
+   "hash": "e2effb7789",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.907,
+    0.887,
+    0.672
+   ],
+   "tris": 7494,
+   "tpu": 13307,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 292448,
+   "vtx": 7686,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0167,
+   "thick": 0.0759,
+   "avgTri": 0.00026,
+   "anglePct": 20,
+   "pieces": 64,
+   "vpt": 1.03,
+   "cells": [
+    "15,3",
+    "6,0",
+    "5,2",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.61,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0167 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "revolver",
+   "hash": "5c474b8dec",
+   "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
+   "size": "s",
+   "wdh": [
+    0.239,
+    0.037,
+    0.118
+   ],
+   "tris": 4510,
+   "tpu": 13149,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 168708,
+   "vtx": 4378,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0123,
+   "thick": 0.1336,
+   "avgTri": 0.00001,
+   "anglePct": 55,
+   "pieces": 13,
+   "vpt": 0.97,
+   "cells": [
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 13149 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "rifle",
+   "hash": "c574492912",
+   "kind": "obj-equipment-weapon-ranged-firearm-rifle",
+   "size": "s",
+   "wdh": [
+    0.477,
+    0.039,
+    0.168
+   ],
+   "tris": 6194,
+   "tpu": 18058,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 218292,
+   "vtx": 5612,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.017,
+   "thick": 0.1398,
+   "avgTri": 0.00003,
+   "anglePct": 68,
+   "pieces": 60,
+   "vpt": 0.91,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 18058 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "satellite-dish",
+   "hash": "9a8a4a0908",
+   "kind": "str-fixture-utility-antenna",
+   "size": "l",
+   "wdh": [
+    0.828,
+    1.251,
+    2.608
+   ],
+   "tris": 3306,
+   "tpu": 1224,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 122692,
+   "vtx": 3166,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0084,
+   "thick": 0.0827,
+   "avgTri": 0.00108,
+   "anglePct": 47,
+   "pieces": 13,
+   "vpt": 0.96,
+   "cells": [
+    "6,1",
+    "15,3",
+    "8,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "backface": {
+    "share": 0.0078,
+    "view": "180/50",
+    "causes": {
+     "inverted": 0.86,
+     "other": 0.14
+    }
+   },
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.8% of view 180/50 over 0.5%: inverted 86.0%, other 14.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0084 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "shelves-thin-short",
+   "hash": "933a8f6413",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "size": "m",
+   "wdh": [
+    0.618,
+    0.243,
+    0.545
+   ],
+   "tris": 2232,
+   "tpu": 6507,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 75024,
+   "vtx": 1878,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.009,
+   "thick": 0.0831,
+   "avgTri": 0.00057,
+   "anglePct": 92,
+   "pieces": 32,
+   "vpt": 0.84,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/shelves-thin-short",
+   "thickRel": 0.81,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 6507 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.009 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "shelves-thin-tall",
+   "hash": "79e1ea2144",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "size": "m",
+   "wdh": [
+    0.618,
+    0.243,
+    1.201
+   ],
+   "tris": 4360,
+   "tpu": 7409,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 142256,
+   "vtx": 3580,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.009,
+   "thick": 0.0986,
+   "avgTri": 0.00059,
+   "anglePct": 92,
+   "pieces": 60,
+   "vpt": 0.82,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/shelves-thin-short",
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.201 over max 0.95 (obj-furnishing-furniture-storage-shelf)"
+    },
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 7409 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.009 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "shelves-wide-short",
+   "hash": "f3e2f69863",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "size": "m",
+   "wdh": [
+    0.889,
+    0.243,
+    0.545
+   ],
+   "tris": 2232,
+   "tpu": 6507,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 75028,
+   "vtx": 1878,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.009,
+   "thick": 0.096,
+   "avgTri": 0.00077,
+   "anglePct": 92,
+   "pieces": 32,
+   "vpt": 0.84,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/shelves-thin-short",
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 6507 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.009 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "shelves-wide-tall",
+   "hash": "1ed78ce081",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "size": "m",
+   "wdh": [
+    0.889,
+    0.243,
+    1.201
+   ],
+   "tris": 4360,
+   "tpu": 7409,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 142260,
+   "vtx": 3580,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.009,
+   "thick": 0.0695,
+   "avgTri": 0.00079,
+   "anglePct": 92,
+   "pieces": 60,
+   "vpt": 0.82,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "variant": "quat-essentials/shelves-thin-short",
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 1.201 over max 0.95 (obj-furnishing-furniture-storage-shelf)"
+    },
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 7409 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.009 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "smg-magazine",
+   "hash": "8f3538e4eb",
+   "kind": "obj-equipment-weapon-ranged-firearm-part",
+   "size": "s",
+   "wdh": [
+    0.029,
+    0.018,
+    0.125
+   ],
+   "tris": 482,
+   "tpu": 1405,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 18716,
+   "vtx": 446,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.3034,
+   "avgTri": 0.00002,
+   "anglePct": 70,
+   "pieces": 2,
+   "vpt": 0.93,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 2.07
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "sniper-magazine",
+   "hash": "f942ef65d2",
+   "kind": "obj-equipment-weapon-ranged-firearm-part",
+   "size": "s",
+   "wdh": [
+    0.062,
+    0.012,
+    0.07
+   ],
+   "tris": 526,
+   "tpu": 1534,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22664,
+   "vtx": 561,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1092,
+   "avgTri": 0.00002,
+   "anglePct": 85,
+   "pieces": 2,
+   "vpt": 1.07,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.74
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "sniper",
+   "hash": "b355a6e47e",
+   "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
+   "size": "m",
+   "wdh": [
+    0.773,
+    0.027,
+    0.148
+   ],
+   "tris": 8738,
+   "tpu": 25475,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 318420,
+   "vtx": 8264,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0105,
+   "thick": 0.18,
+   "avgTri": 0.00002,
+   "anglePct": 66,
+   "pieces": 47,
+   "vpt": 0.95,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1.12,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 25475 over max 10000 (obj)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "syringe",
+   "hash": "5f3dd94d58",
+   "kind": "obj-device-science",
+   "size": "s",
+   "wdh": [
+    0.051,
+    0.051,
+    0.294
+   ],
+   "tris": 1118,
+   "tpu": 3259,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 49820,
+   "vtx": 1299,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0027,
+   "thick": 0.3671,
+   "avgTri": 0.00004,
+   "anglePct": 22,
+   "pieces": 6,
+   "vpt": 1.16,
+   "cells": [
+    "15,3",
+    "5,2",
+    "3,1",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#66852a",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 1.83,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0027 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-essentials",
+   "name": "trilobite",
+   "hash": "cf55476897",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    1.144,
+    1.223,
+    1.122
+   ],
+   "tris": 8338,
+   "tpu": 5311,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 348972,
+   "vtx": 9294,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0355,
+   "thick": 0.0934,
+   "avgTri": 0.00084,
+   "anglePct": 49,
+   "pieces": 36,
+   "vpt": 1.11,
+   "cells": [
+    "15,3",
+    "6,1",
+    "5,2"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "space"
+   ],
+   "thickRel": 0.75,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 1.122 over max 0.9 (char)"
     }
    ]
   },
@@ -324329,7 +326348,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 2.65
+   "thickRel": 2.66
   },
   {
    "kit": "quat-food",
@@ -324370,7 +326389,7 @@
     "qua",
     "special-liquid"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.43
   },
   {
    "kit": "quat-food",
@@ -324960,7 +326979,7 @@
     "wood-mid"
    ],
    "variant": "quat-guns/revolver",
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "quat-guns",
@@ -325188,7 +327207,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.9
   },
   {
    "kit": "quat-interior",
@@ -326034,7 +328053,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/chair-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-interior",
@@ -326074,7 +328093,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/chair-a",
-   "thickRel": 0.79,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -327682,7 +329701,7 @@
     "wood-light"
    ],
    "variant": "quat-interior/shelf-small-a",
-   "thickRel": 2.05
+   "thickRel": 2.12
   },
   {
    "kit": "quat-interior",
@@ -327722,7 +329741,7 @@
     "wood-light"
    ],
    "variant": "quat-interior/shelf-small-a",
-   "thickRel": 1.25
+   "thickRel": 1.29
   },
   {
    "kit": "quat-interior",
@@ -328751,7 +330770,7 @@
     "sailing",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "quat-medieval",
@@ -330548,7 +332567,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.22
   },
   {
    "kit": "quat-megakit",
@@ -331017,7 +333036,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.81
   },
   {
    "kit": "quat-megakit",
@@ -331057,7 +333076,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "quat-megakit",
@@ -337684,7 +339703,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 0.68,
+   "thickRel": 0.69,
    "mark": [
     "centered"
    ]
@@ -338385,7 +340404,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "quat-pirate",
@@ -338451,7 +340470,7 @@
     "Yes"
    ],
    "variant": "quat-pirate/skeleton",
-   "thickRel": 0.64,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "warning",
@@ -338536,7 +340555,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.68,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "warning",
@@ -339880,7 +341899,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.25,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
@@ -340425,7 +342444,7 @@
     "qua"
    ],
    "variant": "quat-props/key-metal",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "quat-props",
@@ -340465,7 +342484,7 @@
     "qua"
    ],
    "variant": "quat-props/key-metal",
-   "thickRel": 1.07
+   "thickRel": 1.09
   },
   {
    "kit": "quat-props",
@@ -343144,7 +345163,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 1.37
+   "thickRel": 1.39
   },
   {
    "kit": "quat-rpg",
@@ -343185,7 +345204,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "quat-rpg",
@@ -343226,7 +345245,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-rpg",
@@ -343267,7 +345286,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "quat-rpg",
@@ -345763,7 +347782,7 @@
     "space"
    ],
    "variant": "quat-scifi/sniper",
-   "thickRel": 1.13
+   "thickRel": 1.08
   },
   {
    "kit": "quat-scifi",
@@ -345811,7 +347830,7 @@
     "space"
    ],
    "variant": "quat-scifi/sniper",
-   "thickRel": 1.35
+   "thickRel": 1.28
   },
   {
    "kit": "quat-ships",
@@ -347065,7 +349084,7 @@
     "qua"
    ],
    "variant": "quat-shoot/grenade",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "quat-shoot",
@@ -347236,7 +349255,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.92
   },
   {
    "kit": "quat-shoot",
@@ -348038,7 +350057,7 @@
     "qua"
    ],
    "variant": "quat-shoot/sniper",
-   "thickRel": 0.76
+   "thickRel": 0.72
   },
   {
    "kit": "quat-shoot",
@@ -348084,7 +350103,7 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/sniper",
-   "thickRel": 0.69
+   "thickRel": 0.66
   },
   {
    "kit": "quat-shoot",
@@ -349487,7 +351506,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "quat-space",
@@ -349621,7 +351640,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "quat-space",
@@ -350636,7 +352655,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 2.28
+   "thickRel": 2.26
   },
   {
    "kit": "quat-space",
@@ -350680,7 +352699,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 1.75
+   "thickRel": 1.73
   },
   {
    "kit": "quat-space",
@@ -351973,7 +353992,7 @@
     "textile-cloth-dark",
     "textile-cloth-light"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-survival",
@@ -352016,7 +354035,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "quat-survival",
@@ -352831,7 +354850,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "quat-survival",
@@ -353206,7 +355225,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.26,
+   "thickRel": 1.25,
    "lint": [
     {
      "level": "error",
@@ -353252,7 +355271,7 @@
     "wood-dark"
    ],
    "variant": "quat-sushi/cabinet-shelves",
-   "thickRel": 0.95
+   "thickRel": 0.99
   },
   {
    "kit": "quat-sushi",
@@ -353291,7 +355310,7 @@
     "wood-dark"
    ],
    "variant": "quat-sushi/cabinet-shelves",
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "quat-sushi",
@@ -365285,7 +367304,7 @@
     "textile-rope",
     "wood-light"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.56
   },
   {
    "kit": "rgp-explosives",
@@ -365329,7 +367348,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "rgp-explosives",
@@ -365458,7 +367477,7 @@
     "textile-rope"
    ],
    "variant": "rgp-explosives/bomb-a",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "rgp-explosives",
@@ -365600,7 +367619,7 @@
     "textile-rope"
    ],
    "variant": "rgp-explosives/dynamite-a",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "rgp-explosives",
@@ -365805,7 +367824,7 @@
     "textile-rope"
    ],
    "variant": "rgp-explosives/dynamite-a",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "rgp-explosives",
@@ -373479,7 +375498,7 @@
     "special-organic",
     "wood-dark"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "rgp-medieval",
@@ -375554,7 +377573,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.85,
+   "thickRel": 0.86,
    "mark": [
     "centered"
    ]
@@ -380104,7 +382123,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1.62
+   "thickRel": 1.76
   },
   {
    "kit": "sq-bank",
@@ -380350,7 +382369,7 @@
     "sq",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.99
+   "thickRel": 1.03
   },
   {
    "kit": "sq-bowling",
@@ -383073,7 +385092,7 @@
     "sq",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "sq-cinema",
@@ -384635,12 +386654,12 @@
     "metal-iron-dark",
     "sq"
    ],
-   "thickRel": 0.43,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     },
     {
      "level": "error",
@@ -384776,7 +386795,7 @@
     "metal-iron-dark",
     "sq"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "sq-lab",
@@ -384908,7 +386927,7 @@
     "metal-iron-mid",
     "sq"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "sq-lab",
@@ -384954,7 +386973,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.99
+   "thickRel": 1.92
   },
   {
    "kit": "sq-lab",
@@ -386642,7 +388661,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "sq-rink",
@@ -389826,7 +391845,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.6,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -392815,7 +394834,7 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 2.77,
+   "thickRel": 2.78,
    "lint": [
     {
      "level": "error",
@@ -393670,7 +395689,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 3.28
+   "thickRel": 3.3
   },
   {
    "kit": "styloo-food",
@@ -394212,7 +396231,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/chair-a",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "styloo-furniture",
@@ -394251,7 +396270,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/chair-a",
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "styloo-furniture",
@@ -394666,7 +396685,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.21
   },
   {
    "kit": "styloo-furniture",
@@ -395105,7 +397124,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.3
   },
   {
    "kit": "styloo-guns",
@@ -395246,7 +397265,7 @@
     "sty"
    ],
    "variant": "styloo-guns/grenade-incendiary",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "styloo-guns",
@@ -395338,7 +397357,7 @@
     "sty"
    ],
    "variant": "styloo-guns/grenade-incendiary",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "styloo-guns",
@@ -395386,7 +397405,7 @@
     "sty"
    ],
    "variant": "styloo-guns/grenade",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "styloo-guns",
@@ -395763,7 +397782,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "styloo-kitchen",
@@ -396527,7 +398546,7 @@
     "ceramic-mid",
     "sty"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.06
   },
   {
    "kit": "styloo-kitchen",
@@ -398876,7 +400895,7 @@
     "sty"
    ],
    "variant": "styloo-school/cafeteria-chair",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "styloo-school",
@@ -398918,7 +400937,7 @@
     "sty"
    ],
    "variant": "styloo-school/cafeteria-chair",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "styloo-school",
@@ -399298,7 +401317,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.77,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "error",
@@ -399513,7 +401532,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "styloo-school",
@@ -399598,7 +401617,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.9
   },
   {
    "kit": "styloo-school",
@@ -400125,7 +402144,7 @@
     "glass-clear",
     "sty"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "styloo-school",
@@ -400376,7 +402395,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "styloo-school",
@@ -400461,7 +402480,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.79,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -400508,7 +402527,7 @@
     "sty"
    ],
    "variant": "styloo-school/locker",
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "styloo-school",
@@ -400551,7 +402570,7 @@
     "sty"
    ],
    "variant": "styloo-school/locker",
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "styloo-school",
@@ -400726,7 +402745,7 @@
     "sty",
     "tba"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.66
   },
   {
    "kit": "styloo-school",
@@ -400780,7 +402799,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.29,
+   "thickRel": 0.28,
    "lint": [
     {
      "level": "warning",
@@ -402104,7 +404123,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.59
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -402375,7 +404394,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "styloo-school",
@@ -402414,7 +404433,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.7
   },
   {
    "kit": "styloo-school",
@@ -402457,7 +404476,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1
+   "thickRel": 1.09
   },
   {
    "kit": "styloo-school",
@@ -402988,7 +405007,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.54
   },
   {
    "kit": "styloo-school",
@@ -412155,7 +414174,7 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/barrel-a",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-asia",
@@ -420584,7 +422603,7 @@
     "wood-mid"
    ],
    "variant": "wizp-mediev/barrel",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "wizp-mediev",
@@ -424367,7 +426386,7 @@
     "plastic"
    ],
    "variant": "zombie-weapons/ammo-box-rifle",
-   "thickRel": 0.83,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "error",
@@ -424420,7 +426439,7 @@
     "plastic"
    ],
    "variant": "zombie-weapons/ammo-box-rifle",
-   "thickRel": 0.7,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -424474,7 +426493,7 @@
     "plastic"
    ],
    "variant": "zombie-weapons/ammo-box-rifle",
-   "thickRel": 0.79,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "error",
@@ -424526,7 +426545,7 @@
     "plastic"
    ],
    "variant": "zombie-weapons/ammo-box-rifle",
-   "thickRel": 0.73,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "error",
@@ -425119,7 +427138,7 @@
     "ct",
     "plastic"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "zombie-weapons",
@@ -426305,7 +428324,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.24
   },
   {
    "kit": "zombie-weapons",
@@ -426451,7 +428470,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.06,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "warning",
