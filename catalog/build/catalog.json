@@ -3572,7 +3572,7 @@
     "none": 4
    },
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 1.07,
     "kinds": 14
    }
   },
@@ -30453,7 +30453,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 145,
+   "count": 146,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -319450,6 +319450,7 @@
     "metal-iron-dark",
     "metal-steel",
     "qua",
+    "scale-small",
     "space"
    ],
    "thickRel": 1.06
@@ -320076,13 +320077,13 @@
   {
    "kit": "quat-essentials",
    "name": "eye-drone",
-   "hash": "2bf2761765",
+   "hash": "b47d3bf33e",
    "kind": "char",
    "size": "s",
    "wdh": [
-    0.464,
-    0.416,
-    0.462
+    0.448,
+    0.402,
+    0.448
    ],
    "tris": 3530,
    "tpu": 10292,
@@ -320094,8 +320095,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.2477,
-   "avgTri": 0.0003,
+   "thick": 0.247,
+   "avgTri": 0.00027,
    "anglePct": 1,
    "pieces": 11,
    "vpt": 0.89,
@@ -320116,7 +320117,14 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.99
+   "thickRel": 1.98,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.448 under min 0.45 (char)"
+    }
+   ]
   },
   {
    "kit": "quat-essentials",
@@ -320755,7 +320763,7 @@
   {
    "kit": "quat-essentials",
    "name": "shelves-thin-tall",
-   "hash": "9a6fa91b6e",
+   "hash": "51628c480a",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -320763,22 +320771,22 @@
     0.171,
     0.643
    ],
-   "tris": 384,
-   "tpu": 1120,
+   "tris": 300,
+   "tpu": 875,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 35704,
+   "bytes": 35200,
    "vtx": 996,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
    "minTube": 0.0131,
-   "thick": 0.0848,
-   "avgTri": 0.00365,
+   "thick": 0.0828,
+   "avgTri": 0.00371,
    "anglePct": 97,
-   "pieces": 28,
-   "vpt": 2.59,
+   "pieces": 22,
+   "vpt": 3.32,
    "cells": [
     "6,1",
     "15,3"
@@ -320794,7 +320802,7 @@
     "space"
    ],
    "variant": "quat-essentials/shelves-thin-short",
-   "thickRel": 0.81
+   "thickRel": 0.79
   },
   {
    "kit": "quat-essentials",
@@ -320843,7 +320851,7 @@
   {
    "kit": "quat-essentials",
    "name": "shelves-wide-tall",
-   "hash": "a6724d04f7",
+   "hash": "afa38006e2",
    "kind": "obj-furnishing-furniture-storage-shelf",
    "size": "m",
    "wdh": [
@@ -320851,22 +320859,22 @@
     0.151,
     0.643
    ],
-   "tris": 384,
-   "tpu": 1120,
+   "tris": 300,
+   "tpu": 875,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 35704,
+   "bytes": 35196,
    "vtx": 996,
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
    "minTube": 0.0146,
-   "thick": 0.0701,
-   "avgTri": 0.00412,
-   "anglePct": 94,
-   "pieces": 28,
-   "vpt": 2.59,
+   "thick": 0.0696,
+   "avgTri": 0.00414,
+   "anglePct": 95,
+   "pieces": 22,
+   "vpt": 3.32,
    "cells": [
     "6,1",
     "15,3"
