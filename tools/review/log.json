@@ -106188,5 +106188,172 @@
   "verdict": "keep",
   "change": "Re-imported reading 7 points per triangle (majority colour). Cone all steel, dark only inside; faces flipped",
   "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/column-pipes",
+  "kind": "str-part-pillar",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "mark": "great",
+  "change": "Rounded-joint frame (4368 tris) rebuilt from plain 0.03 box bars: 4 posts, 5 rings, one zigzag brace per bay over 4 bays (was 6). Frame 0.22 → 0.25 wide so the pipes stay inside. Outer pipes and their red tips kept (same 32 triangles; the swatch drops only because the frame grew); centre pipe a plain 16-sided cylinder (6336 → 1792 tris)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/pipe-holder",
+  "kind": "obj-resource-metal-parts-pipe",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Two rounded-joint side trusses (1496 tris) rebuilt from 0.028 box bars in the same W pattern; cross bars thickened 0.018 → 0.027. Pipes untouched (4400 → 3168 tris)",
+  "comment": "color issues"
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/rail-2",
+  "kind": "str-barrier-railing",
+  "types": [
+   "size",
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Tubes thickened to 0.028, top rail and posts 0.032. Middle straight rail dropped so the rest don't fuse; the kinked lower rail kept, its two risers cut and capped",
+  "comment": "connection issues"
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/rail-round-big",
+  "kind": "str-barrier-railing",
+  "types": [
+   "size",
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Same as rail-2: tubes 0.028, top 0.032, middle rail and its two collars dropped, risers capped",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/rail-round-small",
+  "kind": "str-barrier-railing",
+  "types": [
+   "size",
+   "geometry"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Same as rail-2: tubes 0.028, top 0.032, middle rail and its two collars dropped, risers capped",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/column-metal-support",
+  "kind": "str-part-pillar",
+  "types": [
+   "recolour",
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Flat truss 0.009 → 0.029 thick and every bar widened ~0.013 → 0.028; outer size kept so it still fits the grid",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/column-metal-support-curve",
+  "kind": "str-part-pillar",
+  "types": [
+   "recolour",
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "retry",
+  "change": "Same as the straight truss: 0.029 thick, bars ~0.028 wide, outer size kept",
+  "comment": "color issues"
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/chest",
+  "kind": "obj-container-crate-scifi",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "high",
+  "verdict": "keep",
+  "change": "Lid seam and handle coloured dark slate (seam added on the short sides too, as a thin strip). The source's detail came from texture maps we can't keep",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/platform-round-1",
+  "kind": "str-part-floor-unit",
+  "types": [
+   "geometry"
+  ],
+  "doubt": "low",
+  "verdict": "keep",
+  "change": "Edge that tapered to nothing now ends in a 0.026 upright rim; slope above it raised a little",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/vent-small",
+  "kind": "str-fixture-installation",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "0.02 → 0.036 thick (top kept, grows down); dark plate added under the slats",
+  "comment": "too detailed"
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/vent-wide",
+  "kind": "str-fixture-installation",
+  "types": [
+   "geometry",
+   "recolour"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "0.027 → 0.036 thick; dark plate added under the slats; 4 flipped faces at the slot ends turned (no magenta there now)",
+  "comment": ""
+ },
+ {
+  "at": "2026-10-31",
+  "review": "MegaKit others v3: stylize and detail",
+  "model": "quat-megakit/vent-big",
+  "kind": "str-fixture-installation",
+  "types": [
+   "shape"
+  ],
+  "doubt": "low",
+  "verdict": "retry",
+  "change": "0.031 → 0.036 thick",
+  "comment": ""
  }
 ]
