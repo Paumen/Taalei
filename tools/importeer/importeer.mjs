@@ -18,6 +18,11 @@ const RIJEN = 4;
 const BANDEN = JSON.parse(readFileSync(join(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
 
 const LICHT = 0.15;
+const MONSTERPUNTEN = [
+  [1 / 3, 1 / 3, 1 / 3],
+  [2 / 3, 1 / 6, 1 / 6], [1 / 6, 2 / 3, 1 / 6], [1 / 6, 1 / 6, 2 / 3],
+  [1 / 6, 5 / 12, 5 / 12], [5 / 12, 1 / 6, 5 / 12], [5 / 12, 5 / 12, 1 / 6],
+];
 const SPREIDING = 0.6;
 
 const atlassen = new Map();
@@ -130,7 +135,7 @@ function textuurkaart(uitgepakt) {
   return new Map(Object.entries(JSON.parse(readFileSync(pad, 'utf8'))).map(([bestand, regel]) => [basename(bestand), regel]));
 }
 
-function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt) {
+function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt, monsters = 1) {
   const eigenMap = dirname(join(wortel, model.bestand ?? ''));
   const opNaam = new Map(
     alleBestanden(uitgepakt)
@@ -170,20 +175,75 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepa
         }
         if (langs < 0) hoeken.reverse();
       }
-      let kleur;
+      let kleuren;
       if (textuur && p.uvs) {
-        let u = 0, v = 0;
-        for (let k = 0; k < 3; k++) {
-          u += p.uvs[p.indices[t + k] * 2] / 3;
-          v += p.uvs[p.indices[t + k] * 2 + 1] / 3;
-        }
-        kleur = monster(textuur, u, v);
-      } else kleur = (p.materiaal.kleur ?? [255, 255, 255]).join(',');
-      driehoeken.push({ hoeken, kleur });
+        kleuren = MONSTERPUNTEN.slice(0, monsters).map((w) => {
+          let u = 0, v = 0;
+          for (let k = 0; k < 3; k++) {
+            u += p.uvs[p.indices[t + k] * 2] * w[k];
+            v += p.uvs[p.indices[t + k] * 2 + 1] * w[k];
+          }
+          return monster(textuur, u, v);
+        });
+      } else kleuren = [(p.materiaal.kleur ?? [255, 255, 255]).join(',')];
+      driehoeken.push({ hoeken, kleur: kleuren[0], kleuren });
     }
   }
   keerBinnenstebuiten(posities, driehoeken);
   return { posities, driehoeken };
+}
+
+function kiesMeerderheid(bron, banden) {
+  for (const tri of bron.driehoeken) {
+    const telling = new Map();
+    for (const kleur of tri.kleuren) telling.set(banden[kleur], (telling.get(banden[kleur]) ?? 0) + 1);
+    const band = [...telling].sort((a, b) => b[1] - a[1])[0][0];
+    tri.kleur = tri.kleuren.find((kleur) => banden[kleur] === band);
+  }
+}
+
+function egaliseerVlakken(bron, banden) {
+  const { posities, driehoeken } = bron;
+  const ouder = driehoeken.map((_, f) => f);
+  const wortel = (f) => (ouder[f] === f ? f : (ouder[f] = wortel(ouder[f])));
+  const vlak = driehoeken.map((tri) => {
+    const n = vlakNormaal(posities, ...tri.hoeken);
+    const lengte = Math.hypot(...n);
+    const e = lengte ? n.map((v) => v / lengte) : [0, 0, 0];
+    const a = tri.hoeken[0];
+    return { n: e, d: e[0] * posities[a * 3] + e[1] * posities[a * 3 + 1] + e[2] * posities[a * 3 + 2], oppervlak: lengte / 2 };
+  });
+  const randen = new Map();
+  for (const [f, tri] of driehoeken.entries()) {
+    for (let k = 0; k < 3; k++) {
+      const a = tri.hoeken[k], b = tri.hoeken[(k + 1) % 3];
+      const sleutel = a < b ? `${a},${b}` : `${b},${a}`;
+      if (randen.has(sleutel)) randen.get(sleutel).push(f);
+      else randen.set(sleutel, [f]);
+    }
+  }
+  for (const zijden of randen.values()) {
+    for (let i = 1; i < zijden.length; i++) {
+      const p = vlak[zijden[0]], q = vlak[zijden[i]];
+      const dot = p.n[0] * q.n[0] + p.n[1] * q.n[1] + p.n[2] * q.n[2];
+      if (dot > 0.9998 && Math.abs(p.d - q.d) < 1e-4) ouder[wortel(zijden[i])] = wortel(zijden[0]);
+    }
+  }
+  const groepen = new Map();
+  for (const f of driehoeken.keys()) {
+    const g = wortel(f);
+    if (!groepen.has(g)) groepen.set(g, new Map());
+    const kleuren = groepen.get(g);
+    kleuren.set(driehoeken[f].kleur, (kleuren.get(driehoeken[f].kleur) ?? 0) + vlak[f].oppervlak);
+  }
+  const keuze = new Map();
+  for (const [g, kleuren] of groepen) {
+    const perBand = new Map();
+    for (const [kleur, oppervlak] of kleuren) perBand.set(banden[kleur], (perBand.get(banden[kleur]) ?? 0) + oppervlak);
+    const band = [...perBand].sort((a, b) => b[1] - a[1])[0][0];
+    keuze.set(g, [...kleuren].filter(([kleur]) => banden[kleur] === band).sort((a, b) => b[1] - a[1])[0][0]);
+  }
+  for (const [f, tri] of driehoeken.entries()) tri.kleur = keuze.get(wortel(f));
 }
 
 function bouwGlb(naam, bron, banden, schaal, drempel, bronkitNaam, bronbestand) {
@@ -310,8 +370,13 @@ if (config.licentie && existsSync(join(ROOT, config.licentie))) {
 for (const rij of config.modellen) {
   const model = opBronnaam.get(rij.bron);
   if (!model) throw new Error(`${config.map}: no source model named ${rij.bron}`);
-  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel);
+  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel, config.monsters ?? 1);
   const banden = { ...(config.banden ?? {}), ...(rij.banden ?? {}) };
+  for (const kleur of new Set(bron.driehoeken.flatMap((tri) => tri.kleuren))) {
+    if (!banden[kleur]) throw new Error(`${rij.naam}: no band for source colour ${kleur}`);
+  }
+  kiesMeerderheid(bron, banden);
+  if (rij.vlakken) egaliseerVlakken(bron, banden);
   const { json, bin } = bouwGlb(
     rij.naam,
     bron,
