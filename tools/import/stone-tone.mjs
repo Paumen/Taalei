@@ -30,10 +30,10 @@ slope.
 
   --cells <c;c>    stone cells as col,row (default 14,3;12,3;5,2)
   --top <f>        darkness at the top (default 0.04)
-  --height <f>     darkness added from top to foot (default 0.86)
+  --height <f>     darkness added from top to foot (default 0.72)
   --soft <f>       surfaces whose normals agree past this share recess and
                    overhang, as the facets of a round tower (default 0.7)
-  --up <f>         lighter on faces that look up (default 0.12)
+  --up <f>         lighter on faces that look up (default 0.35)
   --down <f>       darker on faces that look down (default 0.45)
   --recess <f>     darker when fully closed in (default 0.45)
   --overhang <f>   darker when fully covered (default 0.50)
@@ -477,10 +477,11 @@ function tone(file, o) {
       const own = f.high - f.low > 1e-9 ? (f.high - p[i][1]) / (f.high - f.low) : 0.5;
       const ny = f.planar || !n ? f.normal[1] : n[i][1];
       d[i] = o.top + o.height * h - o.up * Math.max(0, ny) + o.down * Math.max(0, -ny)
-        + o.recess * f.recess + o.overhang * f.overhang * (1 - 0.7 * own) - o.trim * f.proud + s.shift;
+        + o.recess * f.recess + o.overhang * f.overhang * (1 - 0.7 * own) - o.trim * (f.proud ?? 0) + s.shift;
       const r = span.get(id) ?? [Infinity, -Infinity];
       span.set(id, [Math.min(r[0], d[i]), Math.max(r[1], d[i])]);
     }
+    for (const t of stoneTris) for (const i of [idx[t], idx[t + 1], idx[t + 2]]) if (Number.isNaN(d[i])) throw new Error(`${file}: no tone for stone vertex ${i}`);
     for (let i = 0; i < count; i++) {
       if (Number.isNaN(d[i])) continue;
       const [a, b] = span.get(surfaces.find(i));
@@ -509,8 +510,8 @@ const take = (flag, fallback) => {
 const num = (flag, fallback) => Number(take(flag, fallback));
 const o = {
   cells: new Set(take('--cells', '14,3;12,3;5,2').split(';')),
-  top: num('--top', 0.04), height: num('--height', 0.86), soft: num('--soft', 0.7),
-  up: num('--up', 0.12), down: num('--down', 0.45), recess: num('--recess', 0.45), overhang: num('--overhang', 0.5),
+  top: num('--top', 0.04), height: num('--height', 0.72), soft: num('--soft', 0.7),
+  up: num('--up', 0.35), down: num('--down', 0.45), recess: num('--recess', 0.45), overhang: num('--overhang', 0.5),
   trim: num('--trim', 0.14), relief: num('--relief', 0.08), variety: num('--variety', 0.05),
   reach: num('--reach', 0.06), lift: num('--lift', 0.25), light: num('--light', 0.03), dark: num('--dark', 0.94),
 };
