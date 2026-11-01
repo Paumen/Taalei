@@ -493,7 +493,7 @@ export function checkModel(model, checks) {
 
   if (model.kind) {
     if (!isExempt(model, vars)) {
-      push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales));
+      if (!vars.sizeExemptModels?.includes(`${model.kit}/${model.name}`)) push('size', null, findingsFor(model, checks.limits.get(model.kind), vars, checks.scales));
       push('tpu', null, tpuFindingsFor(model, checks.limits.get(model.kind), vars));
     }
     if (!exempt('mat')) {
