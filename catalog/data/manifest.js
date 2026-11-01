@@ -1150,6 +1150,12 @@ window.KENNEY_KITS = [
   "note": "Source zip without a licence file or maker."
  },
  {
+  "slug": "vases-pots",
+  "url": "https://opengameart.org/users/fabinhosc",
+  "licenseLabel": "CC0 1.0",
+  "note": "FabinhoSC; public domain (CC0) per the pack's Read.txt."
+ },
+ {
   "slug": "mali",
   "url": null
  }

@@ -137,7 +137,34 @@ function textuurkaart(uitgepakt) {
   return new Map(Object.entries(JSON.parse(readFileSync(pad, 'utf8'))).map(([bestand, regel]) => [basename(bestand), regel]));
 }
 
-function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt, monsters = 1) {
+function cutAlongV(corners, cuts) {
+  let pieces = [corners];
+  for (const c of cuts) {
+    const next = [];
+    for (const poly of pieces) {
+      for (const below of [true, false]) {
+        const inside = (q) => (below ? q.uv[1] < c : q.uv[1] >= c);
+        const out = [];
+        for (let i = 0; i < poly.length; i++) {
+          const a = poly[i], b = poly[(i + 1) % poly.length];
+          if (inside(a)) out.push(a);
+          if (inside(a) !== inside(b)) {
+            const t = (c - a.uv[1]) / (b.uv[1] - a.uv[1]);
+            out.push({
+              pos: a.pos.map((v, k) => v + (b.pos[k] - v) * t),
+              uv: [a.uv[0] + (b.uv[0] - a.uv[0]) * t, c],
+            });
+          }
+        }
+        if (out.length >= 3) next.push(out);
+      }
+    }
+    pieces = next;
+  }
+  return pieces.flatMap((poly) => poly.slice(2).map((_, i) => [poly[0], poly[i + 1], poly[i + 2]]));
+}
+
+function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt, monsters = 1, cuts = []) {
   const eigenMap = dirname(join(wortel, model.bestand ?? ''));
   const opNaam = new Map(
     alleBestanden(uitgepakt)
@@ -176,6 +203,24 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepa
           for (let a = 0; a < 3; a++) langs += vlak[a] * p.normalen[p.indices[t + k] * 3 + a];
         }
         if (langs < 0) hoeken.reverse();
+      }
+      if (textuur && p.uvs && cuts.length) {
+        const flipped = hoeken[0] !== punt(p, p.indices[t]);
+        const corners = [0, 1, 2].map((k) => {
+          const i = p.indices[t + k];
+          return { pos: [0, 1, 2].map((a) => p.posities[i * 3 + a]), uv: [p.uvs[i * 2], p.uvs[i * 2 + 1]] };
+        });
+        for (const piece of cutAlongV(corners, cuts)) {
+          const area = Math.hypot(...vlakNormaal(piece.flatMap((q) => q.pos), 0, 1, 2));
+          if (area < 1e-12) continue;
+          const order = flipped ? [...piece].reverse() : piece;
+          const sub = order.map((q) => punt({ posities: q.pos }, 0));
+          const kleuren = MONSTERPUNTEN.slice(0, monsters).map((w) =>
+            monster(textuur, w.reduce((som, x, k) => som + x * order[k].uv[0], 0), w.reduce((som, x, k) => som + x * order[k].uv[1], 0)),
+          );
+          driehoeken.push({ hoeken: sub, kleur: kleuren[0], kleuren });
+        }
+        continue;
       }
       let kleuren;
       if (textuur && p.uvs) {
@@ -428,7 +473,7 @@ if (config.licentie && existsSync(join(ROOT, config.licentie))) {
 for (const rij of config.modellen) {
   const model = opBronnaam.get(rij.bron);
   if (!model) throw new Error(`${config.map}: no source model named ${rij.bron}`);
-  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel, config.monsters ?? 1);
+  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel, config.monsters ?? 1, rij.cuts ?? config.cuts ?? []);
   const banden = { ...(config.banden ?? {}), ...(rij.banden ?? {}) };
   for (const kleur of new Set(bron.driehoeken.flatMap((tri) => tri.kleuren))) {
     if (!banden[kleur]) throw new Error(`${rij.naam}: no band for source colour ${kleur}`);

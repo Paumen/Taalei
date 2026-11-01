@@ -240,7 +240,7 @@ export const BRONKITS = [
   { map: 'TheBaseMesh_Kitbash', naam: 'The Base Mesh Kitbash', kit: 'm3-base', source: 'm3', formaat: 'glb' },
   { map: 'Coffin_and_Flowers_loafbrr', naam: 'Coffin and Flowers', kit: 'loaf-coffins', formaat: 'glb', splitsPerMesh: true },
   { map: 'Lowbudget_Game_Assets_britdawgmasterfunk', naam: 'Lowbudget Game Assets', kit: 'lowbudget', formaat: 'glb', splitsPerMesh: true },
-  { map: 'Stylized_Vases_And_Pots', naam: 'Stylized Vases And Pots', kit: null, formaat: 'obj', alleMappen: true },
+  { map: 'Stylized_Vases_And_Pots', naam: 'Stylized Vases And Pots', kit: 'vases-pots', formaat: 'obj', alleMappen: true },
   { map: 'Dungeon_Set_2', naam: 'Dungeon Set 2', kit: 'dungeon-2', formaat: 'obj', alleMappen: true },
   { map: 'Mali_Buildings', naam: 'Mali Buildings', kit: 'mali', formaat: 'glb' },
 ];
