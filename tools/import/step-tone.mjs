@@ -9,32 +9,37 @@ Gives each step of a stone staircase its own flat tone, in one band (default
 taupe, cell 14,3). A step is a tread (a flat face looking up) at one height,
 with its risers: side faces whose top edge meets that tread and that are no
 taller than --tall rises. Steps draw --tones tones, --gap v apart from --top
-on, dealt at random (seeded by the file name) in rounds so each is used about
-equally and no two steps in a row share one. A step's risers sit --side darker than its tread. Other stone keeps
-one look: faces looking up --body, sides --body + --side, undersides --under.
+on, dealt at random (seeded by the file name): each tone used about equally,
+two steps in a row at least --near shades apart and never the full span. Every face looking sideways, risers and walls alike, sits at --side,
+always darker than the darkest tread; other faces looking up at --body,
+undersides at --under.
 Detail stays: a face whose old shade stood --mark or more from the model's
 trend for its facing by height keeps that offset (up to 0.3), and within a face
-the shades split in two levels --mark or more apart keep the smaller level as
-a pattern at its own offset, at least --chip, if it holds --least of the face
-and the face's triangles are flat themselves, not graded by half --mark or more.
+the corners' shades split in up to three levels --level or more apart keep
+the smaller levels as a pattern at their own offset, at least --chip: a
+triangle joins a level only with all three corners, and only when the level
+holds --least of the face and the face is not graded by --mark or more.
 Every face and patch is flat; where two differ at a point, the point is doubled.
 
   --cell <c,r>     14,3
   --tones <n>      5
-  --gap <f>        0.08
-  --top <f>        0.12
-  --side <f>       0.24
-  --body <f>       0.30
+  --gap <f>        0.07
+  --top <f>        0.10
+  --near <n>       2      least shades between two steps in a row
+  --side <f>       0.56
+  --body <f>       0.26
+  --lip <f>        0.35   treads closer than this share of a rise are one step
   --under <f>      0.88
   --tall <f>       1.5
   --mark <f>       0.12   against the face's own light-to-dark trend by height
+  --level <f>      0.08   least gap between two shade levels of a pattern
   --least <f>      0.03   least share of a face its pattern level must hold
-  --chip <f>       0.16
+  --chip <f>       0.2
   --dry`;
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { cell: [14, 3], tones: 5, gap: 0.08, top: 0.12, side: 0.24, body: 0.30, under: 0.88, tall: 1.5, mark: 0.12, chip: 0.16, least: 0.03, dry: false };
+const opt = { cell: [14, 3], tones: 5, gap: 0.07, top: 0.10, near: 2, side: 0.56, body: 0.26, under: 0.88, lip: 0.35, tall: 1.5, mark: 0.12, chip: 0.2, least: 0.03, level: 0.08, dry: false };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -91,7 +96,7 @@ function tone(file) {
       const l = Math.hypot(...n);
       if (!l) continue;
       const vs = ids.map((i) => uv[i * 2 + 1] * 4 - cr);
-      const tri = { s, t, ids, pts: [a, b, c], normal: n.map((x) => x / l), area: l / 2, was: v * 4 - cr, spread: Math.max(...vs) - Math.min(...vs) };
+      const tri = { s, t, ids, pts: [a, b, c], normal: n.map((x) => x / l), area: l / 2, was: v * 4 - cr, vs, spread: Math.max(...vs) - Math.min(...vs) };
       s.tris.push(tri);
       tris.push(tri);
     }
@@ -112,6 +117,7 @@ function tone(file) {
   for (const list of byPoint.values()) for (let a = 0; a < list.length; a++) for (let b = a + 1; b < list.length; b++) {
     if (dot(tris[list[a]].normal, tris[list[b]].normal) > 0.97) planes.join(list[a], list[b]);
   }
+  const floorSide = opt.top + (opt.tones - 1) * opt.gap;
   const faces = [];
   const fit = (list, ys, ws, w) => {
     let sw = 0; let sy = 0; let sv = 0;
@@ -131,24 +137,37 @@ function tone(file) {
       const trend = fit(list, ys, list.map((t) => t.was), list.map((t) => t.area));
       const area = list.reduce((x, t) => x + t.area, 0);
       const face = { tris: list, area, kind: facing(list[0].normal), patches: [] };
-      list.forEach((t, i) => { t.face = face; t.d = t.was - trend(ys[i]); t.patch = null; });
-      const sorted = [...list].sort((x, y) => x.d - y.d);
-      let best = null;
-      let la = 0; let ld = 0;
-      for (let i = 0; i < sorted.length - 1; i++) {
-        la += sorted[i].area; ld += sorted[i].d * sorted[i].area;
-        const ha = area - la; const hd = list.reduce((x, t) => x + t.d * t.area, 0) - ld;
-        const gap = hd / ha - ld / la;
-        const score = la * ha * gap * gap;
-        if (!best || score > best.score) best = { score, i, gap, la, ha, lo: ld / la, hi: hd / ha };
-      }
-      const smudge = list.reduce((x, t) => x + t.spread * t.area, 0) / area;
-      if (best && best.gap >= opt.mark && Math.min(best.la, best.ha) >= opt.least * area && smudge < opt.mark / 2) {
+      list.forEach((t, i) => { t.face = face; t.d = t.was - trend(ys[i]); t.vd = t.pts.map((p, k) => t.vs[k] - trend(p[1])); t.patch = null; });
+      const split = (pool) => {
+        const vs = pool.flatMap((t) => t.vd.map((d) => ({ d, w: t.area / 3 }))).sort((x, y) => x.d - y.d);
+        const total = vs.reduce((x, v) => x + v.w, 0);
+        const sum = vs.reduce((x, v) => x + v.d * v.w, 0);
+        let best = null;
+        let la = 0; let ld = 0;
+        for (let i = 0; i < vs.length - 1; i++) {
+          la += vs[i].w; ld += vs[i].d * vs[i].w;
+          const ha = total - la; const hd = sum - ld;
+          const gap = hd / ha - ld / la;
+          const score = la * ha * gap * gap;
+          if (!best || score > best.score) best = { score, at: (vs[i].d + vs[i + 1].d) / 2, gap, la, ha, lo: ld / la, hi: hd / ha };
+        }
+        if (!best || best.gap < opt.level) return null;
         const low = best.la <= best.ha;
-        const off = low ? best.lo - best.hi : best.hi - best.lo;
-        const patch = { id: 0, offset: Math.sign(off) * Math.min(0.35, Math.max(opt.chip, Math.abs(off))) };
+        const minor = pool.filter((t) => t.vd.every((d) => (d < best.at) === low));
+        const ma = minor.reduce((x, t) => x + t.area, 0);
+        if (ma < opt.least * area) return null;
+        return { minor, major: pool.filter((t) => !minor.includes(t)), off: low ? best.lo - best.hi : best.hi - best.lo };
+      };
+      const smudge = list.reduce((x, t) => x + t.spread * t.area, 0) / area;
+      let pool = list;
+      for (let level = 0; level < 2 && smudge < opt.mark; level++) {
+        const cut = split(pool);
+        if (!cut) break;
+        const patch = { id: face.patches.length, offset: Math.sign(cut.off) * Math.min(0.35, Math.max(opt.chip, Math.abs(cut.off))) };
+        if (face.kind === 'side' && patch.offset < 0 && opt.side + patch.offset < floorSide) patch.offset = floorSide - opt.side;
         face.patches.push(patch);
-        sorted.forEach((t, i) => { if ((i <= best.i) === low) t.patch = patch; });
+        for (const t of cut.minor) t.patch = patch;
+        pool = cut.major;
       }
       const pts = list.flatMap((t) => t.pts);
       face.y0 = Math.min(...pts.map((p) => p[1]));
@@ -165,13 +184,19 @@ function tone(file) {
     for (const f of list) { const d = f.was - trend(f.yc); f.offset = Math.abs(d) >= opt.mark ? Math.max(-0.3, Math.min(0.3, d)) : 0; }
   }
 
-  if (process.env.DBG) for (const f of faces) console.log('face', faces.indexOf(f), f.kind, 'n', f.tris[0].normal.map((x) => x.toFixed(2)).join(','), 'area', f.area.toFixed(4), 'y', f.y0.toFixed(3), f.y1.toFixed(3), 'was', f.was.toFixed(2), 'smudge', (f.tris.reduce((x, t) => x + t.spread * t.area, 0) / f.area).toFixed(2), 'tris', f.tris.map((t) => t.was.toFixed(2) + (t.patch ? '*' : '')).join(' '));
+  if (process.env.DBG) for (const f of faces) console.log('face', faces.indexOf(f), f.kind, 'n', f.tris[0].normal.map((x) => x.toFixed(2)).join(','), 'area', f.area.toFixed(4), 'y', f.y0.toFixed(3), f.y1.toFixed(3), 'was', f.was.toFixed(2), 'patches', f.patches.map((p) => p.offset.toFixed(2)).join('/'), 'smudge', (f.tris.reduce((x, t) => x + t.spread * t.area, 0) / f.area).toFixed(2), 'tris', f.tris.map((t) => t.was.toFixed(2) + '/' + t.spread.toFixed(2) + (t.patch ? '*' : '')).join(' '));
   const treads = faces.filter((f) => f.kind === 'up');
-  const levels = [...new Set(treads.map((f) => Math.round(f.y1 / (size * 0.01))))].sort((a, b) => a - b).map((x) => x * size * 0.01);
-  const rises = levels.slice(1).map((y, i) => y - levels[i]).filter((d) => d > size * 0.02);
-  const rise = rises.length ? rises.sort((a, b) => a - b)[Math.floor(rises.length / 2)] : size;
+  const cluster = (tol) => {
+    const out = [];
+    for (const y of treads.map((f) => f.y1).sort((a, b) => a - b)) if (!out.length || y - out[out.length - 1] > tol) out.push(y);
+    return out;
+  };
+  const fine = cluster(size * 0.002);
+  const gaps = fine.slice(1).map((y, i) => y - fine[i]).sort((a, b) => a - b);
+  const rise = gaps.length ? gaps[Math.floor(gaps.length / 2)] : size;
+  const levels = cluster(rise * opt.lip);
   const steps = levels.map((y) => ({ y, faces: [] }));
-  const stepAt = (y) => steps.reduce((best, s) => (Math.abs(s.y - y) < Math.abs(best.y - y) ? s : best));
+  const stepAt = (y) => steps.reduce((best, s) => (s.y <= y + 1e-9 ? s : best), steps[0]);
   for (const f of treads) { const s = stepAt(f.y1); f.step = s; s.faces.push(f); }
   for (const f of faces) {
     if (f.kind !== 'side' || f.y1 - f.y0 > opt.tall * rise) continue;
@@ -181,17 +206,22 @@ function tone(file) {
   const used = steps.filter((s) => s.faces.length);
   const rand = rng(basename(file));
   const deal = [];
+  const count = Array(opt.tones).fill(0);
   while (deal.length < used.length) {
-    const round = Array.from({ length: opt.tones }, (_, i) => i);
-    for (let i = round.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [round[i], round[j]] = [round[j], round[i]]; }
-    if (deal.length && round[0] === deal[deal.length - 1]) round.push(round.shift());
-    deal.push(...round);
+    const last = deal[deal.length - 1];
+    const ok = count.map((_, i) => i).filter((i) => last === undefined || (Math.abs(i - last) >= opt.near && Math.abs(i - last) < opt.tones - 1));
+    const least = Math.min(...ok.map((i) => count[i]));
+    const pick = ok.filter((i) => count[i] === least);
+    const i = pick[Math.floor(rand() * pick.length)];
+    deal.push(i); count[i]++;
   }
   used.forEach((s, i) => { s.v = opt.top + deal[i] * opt.gap; });
 
+  const floor = floorSide;
   for (const f of faces) {
-    const base = f.step ? f.step.v : opt.body;
-    f.v = (f.kind === 'down' ? opt.under : f.kind === 'up' ? base : base + opt.side) + f.offset;
+    if (f.kind === 'up') f.v = (f.step ? f.step.v : opt.body) + f.offset;
+    else if (f.kind === 'down') f.v = opt.under + f.offset;
+    else f.v = Math.max(floor, opt.side + f.offset);
   }
 
   const replaced = new Map();
