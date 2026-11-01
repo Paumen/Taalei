@@ -30654,7 +30654,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3504,
+   "count": 3506,
    "derived": true
   },
   {
@@ -30662,7 +30662,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1232,
+   "count": 1230,
    "derived": true
   },
   {
@@ -197178,7 +197178,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.67
   },
   {
    "kit": "ken-furniture",
@@ -197223,7 +197223,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/television-vintage",
-   "thickRel": 2.18
+   "thickRel": 2.17
   },
   {
    "kit": "ken-furniture",
@@ -257740,7 +257740,7 @@
     "plastic"
    ],
    "variant": "lpa-home/tv-a",
-   "thickRel": 1.62
+   "thickRel": 1.61
   },
   {
    "kit": "lpa-home",
@@ -292954,7 +292954,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 1.8,
+   "thickRel": 1.79,
    "lint": [
     {
      "level": "error",
@@ -318269,30 +318269,30 @@
   {
    "kit": "quat-cyberpunk",
    "name": "computer-large",
-   "hash": "38533cf35e",
+   "hash": "fa0581f0bb",
    "kind": "obj-device-electronics-computer-terminal",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.906,
-    0.483,
-    1.667
+    0.674,
+    0.359,
+    1.25
    ],
-   "tris": 2367,
-   "tpu": 2898,
+   "tris": 2213,
+   "tpu": 3613,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 105628,
-   "vtx": 2809,
+   "bytes": 105632,
+   "vtx": 2511,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0048,
-   "thick": 0.1648,
-   "avgTri": 0.00148,
-   "anglePct": 75,
-   "pieces": 50,
-   "vpt": 1.19,
+   "minEdge": 0.001,
+   "minTube": 0.02,
+   "thick": 0.1661,
+   "avgTri": 0.00095,
+   "anglePct": 73,
+   "pieces": 37,
+   "vpt": 1.13,
    "cells": [
     "6,0",
     "15,3",
@@ -318315,28 +318315,23 @@
     "qua"
    ],
    "backface": {
-    "share": 0.0082,
+    "share": 0.0065,
     "view": "0/50",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.22,
+   "thickRel": 1.23,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1.667 over max 1.2 (obj-device-electronics-computer)"
+     "text": "longest 1.25 over max 1.2 (obj-device-electronics-computer)"
     },
     {
      "level": "error",
      "check": "backface",
-     "text": "0.8% of view 0/50 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0048 wants min 0.012"
+     "text": "0.7% of view 0/50 over 0.5%: open 100.0%"
     }
    ]
   },
@@ -318785,30 +318780,30 @@
   {
    "kit": "quat-cyberpunk",
    "name": "platform-b",
-   "hash": "7da43b3571",
+   "hash": "94266e149b",
    "kind": "str-access-platform",
    "size": "l",
    "wdh": [
-    3.725,
-    1.899,
-    4.311
+    2.239,
+    1.142,
+    2.586
    ],
-   "tris": 12052,
-   "tpu": 395,
+   "tris": 11434,
+   "tpu": 1729,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 549424,
-   "vtx": 14861,
+   "bytes": 562960,
+   "vtx": 13970,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.007,
-   "thick": 0.1049,
-   "avgTri": 0.00422,
-   "anglePct": 81,
-   "pieces": 188,
-   "vpt": 1.23,
+   "minTube": 0.0277,
+   "thick": 0.1035,
+   "avgTri": 0.00184,
+   "anglePct": 77,
+   "pieces": 166,
+   "vpt": 1.22,
    "cells": [
     "15,3",
     "6,1",
@@ -318830,42 +318825,35 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/platform",
-   "thickRel": 1.46,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.007 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.44
   },
   {
    "kit": "quat-cyberpunk",
    "name": "platform-c",
-   "hash": "716be1241d",
+   "hash": "3012854ef7",
    "kind": "str-access-platform",
    "size": "l",
    "wdh": [
-    3.128,
-    2.733,
-    2.631
+    1.88,
+    1.648,
+    1.578
    ],
-   "tris": 13328,
-   "tpu": 593,
+   "tris": 12396,
+   "tpu": 2535,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 617400,
-   "vtx": 16746,
+   "bytes": 625628,
+   "vtx": 15552,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0073,
-   "thick": 0.1329,
-   "avgTri": 0.00501,
-   "anglePct": 84,
-   "pieces": 219,
-   "vpt": 1.26,
+   "minEdge": 0,
+   "minTube": 0.0315,
+   "thick": 0.133,
+   "avgTri": 0.00221,
+   "anglePct": 81,
+   "pieces": 208,
+   "vpt": 1.25,
    "cells": [
     "6,1",
     "6,0",
@@ -318889,42 +318877,50 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/platform",
+   "backface": {
+    "share": 0.001,
+    "view": "315/20",
+    "causes": {
+     "inverted": 0.43,
+     "open": 0.57
+    }
+   },
    "thickRel": 1.85,
    "lint": [
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0073 wants min 0.026"
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 57.0%, inverted 43.0%"
     }
    ]
   },
   {
    "kit": "quat-cyberpunk",
    "name": "platform-d",
-   "hash": "2ee05eefd4",
+   "hash": "262ab3f080",
    "kind": "str-access-platform",
    "size": "l",
    "wdh": [
-    2.316,
-    1.511,
-    2.684
+    1.39,
+    0.908,
+    1.611
    ],
-   "tris": 9921,
-   "tpu": 1056,
+   "tris": 9777,
+   "tpu": 4808,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 438016,
-   "vtx": 11779,
+   "bytes": 444284,
+   "vtx": 11503,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.007,
-   "thick": 0.1216,
-   "avgTri": 0.00291,
-   "anglePct": 80,
-   "pieces": 115,
-   "vpt": 1.19,
+   "minEdge": 0,
+   "minTube": 0.0275,
+   "thick": 0.1222,
+   "avgTri": 0.00123,
+   "anglePct": 76,
+   "pieces": 105,
+   "vpt": 1.18,
    "cells": [
     "15,3",
     "5,2",
@@ -318944,47 +318940,40 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/platform",
-   "thickRel": 1.69,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.007 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.7
   },
   {
    "kit": "quat-cyberpunk",
    "name": "platform",
-   "hash": "08daa714b5",
+   "hash": "720c70e198",
    "kind": "str-access-platform",
    "size": "l",
    "wdh": [
-    2.704,
-    1.211,
-    1.964
+    1.623,
+    0.737,
+    1.179
    ],
-   "tris": 4316,
-   "tpu": 671,
+   "tris": 3932,
+   "tpu": 2788,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 193072,
-   "vtx": 5176,
+   "bytes": 176724,
+   "vtx": 4737,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0077,
-   "thick": 0.0967,
-   "avgTri": 0.00413,
-   "anglePct": 82,
-   "pieces": 49,
+   "minTube": 0.0315,
+   "thick": 0.0965,
+   "avgTri": 0.00179,
+   "anglePct": 78,
+   "pieces": 48,
    "vpt": 1.2,
    "cells": [
-    "15,3",
-    "5,2",
     "6,1",
-    "6,0"
+    "15,3",
+    "6,0",
+    "5,2"
    ],
    "colors": [
     "#3a3e4b",
@@ -318999,14 +318988,7 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/platform",
-   "thickRel": 1.34,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0077 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.34
   },
   {
    "kit": "quat-cyberpunk",
@@ -319846,28 +319828,28 @@
   {
    "kit": "quat-cyberpunk",
    "name": "tv-b",
-   "hash": "c2bb43d993",
+   "hash": "26f0422b12",
    "kind": "obj-device-electronics-screen-tv",
    "size": "m",
    "wdh": [
-    0.842,
-    0.287,
-    0.963
+    0.632,
+    0.226,
+    0.72
    ],
    "tris": 312,
-   "tpu": 661,
+   "tpu": 884,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18428,
+   "bytes": 18396,
    "vtx": 470,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0086,
-   "thick": 0.0997,
-   "avgTri": 0.00267,
-   "anglePct": 93,
+   "minEdge": 0.012,
+   "minTube": 0.0237,
+   "thick": 0.1016,
+   "avgTri": 0.00201,
+   "anglePct": 88,
    "pieces": 14,
    "vpt": 1.51,
    "cells": [
@@ -319885,40 +319867,33 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/tv",
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0086 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.78
   },
   {
    "kit": "quat-cyberpunk",
    "name": "tv-tower",
-   "hash": "6c39be438b",
+   "hash": "644c69f682",
    "kind": "obj-device-electronics-screen-tv",
-   "size": "l",
+   "size": "m",
    "wdh": [
-    0.514,
-    0.442,
-    1.665
+    0.391,
+    0.34,
+    1.248
    ],
    "tris": 564,
-   "tpu": 691,
+   "tpu": 922,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28656,
+   "bytes": 28612,
    "vtx": 742,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.0079,
-   "thick": 0.206,
-   "avgTri": 0.00292,
-   "anglePct": 78,
+   "minEdge": 0.011,
+   "minTube": 0.0263,
+   "thick": 0.2093,
+   "avgTri": 0.00206,
+   "anglePct": 70,
    "pieces": 11,
    "vpt": 1.32,
    "cells": [
@@ -319937,45 +319912,52 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.6,
+   "backface": {
+    "share": 0.004,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.61,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "size",
-     "text": "longest 1.665 over max 1.1 (obj-device-electronics-screen-tv)"
+     "text": "longest 1.248 over max 1.1 (obj-device-electronics-screen-tv)"
     },
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0079 wants min 0.012"
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/20 over 0.1%: open 100.0%"
     }
    ]
   },
   {
    "kit": "quat-cyberpunk",
    "name": "tv",
-   "hash": "d02fc4cc2f",
+   "hash": "21eb97b2db",
    "kind": "obj-device-electronics-screen-tv",
    "size": "m",
    "wdh": [
-    0.565,
-    0.241,
-    0.848
+    0.43,
+    0.191,
+    0.638
    ],
    "tris": 346,
-   "tpu": 833,
+   "tpu": 1009,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20800,
+   "bytes": 20764,
    "vtx": 538,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.0073,
-   "thick": 0.1247,
-   "avgTri": 0.00184,
-   "anglePct": 93,
+   "minEdge": 0.011,
+   "minTube": 0.0203,
+   "thick": 0.126,
+   "avgTri": 0.00138,
+   "anglePct": 90,
    "pieces": 16,
    "vpt": 1.55,
    "cells": [
@@ -319993,14 +319975,7 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/tv",
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0073 wants min 0.012"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "quat-dun-1",
@@ -407438,7 +407413,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.88
+   "thickRel": 1.87
   },
   {
    "kit": "styloo-school",
@@ -407479,7 +407454,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-school",
