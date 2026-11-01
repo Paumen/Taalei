@@ -12,7 +12,7 @@ let checked = 0;
 let skipped = 0;
 
 for (const m of models) {
-  if (!m.kind || isExempt(m, VARS)) { skipped++; continue; }
+  if (!m.kind || isExempt(m, VARS) || VARS.sizeExemptModels?.includes(`${m.kit}/${m.name}`)) { skipped++; continue; }
   checked++;
   for (const f of findingsFor(m, LIMITS.get(m.kind), VARS, SCALES)) {
     findings.push({ ...f, id: `${m.kit}/${m.name}`, kit: m.kit, kind: m.kind });

@@ -3484,18 +3484,23 @@
    "note": "Quaternius; source zip carries no licence file.",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 1,
+   "count": 43,
    "packs": [
     "Cyberpunk Game Kit"
    ],
    "origins": {
-    "Cyberpunk Game Kit": 1
+    "Cyberpunk Game Kit": 43
    },
    "scales": {
-    "0.7": 1
+    "0.7": 43
    },
    "smooth": {
-    "smooth": 1
+    "smooth": 40,
+    "none": 3
+   },
+   "kitCheck": {
+    "factor": 1.2,
+    "kinds": 13
    }
   },
   {
@@ -24521,6 +24526,100 @@
    ]
   },
   {
+   "id": "quat-cyberpunk/air-conditioner",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/air-conditioner",
+   "members": [
+    "quat-cyberpunk/air-conditioner",
+    "quat-cyberpunk/air-conditioner-double",
+    "quat-cyberpunk/ac-stacked"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/cable",
+   "type": "maatvariant",
+   "main": "quat-cyberpunk/cable",
+   "members": [
+    "quat-cyberpunk/cable",
+    "quat-cyberpunk/cable-long"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/platform",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/platform",
+   "members": [
+    "quat-cyberpunk/platform",
+    "quat-cyberpunk/platform-b",
+    "quat-cyberpunk/platform-c",
+    "quat-cyberpunk/platform-d"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/robot-flying",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/robot-flying",
+   "members": [
+    "quat-cyberpunk/robot-flying",
+    "quat-cyberpunk/robot-flying-gun"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/robot-large",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/robot-large",
+   "members": [
+    "quat-cyberpunk/robot-large",
+    "quat-cyberpunk/robot-large-gun"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/robot-legs",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/robot-legs",
+   "members": [
+    "quat-cyberpunk/robot-legs",
+    "quat-cyberpunk/robot-legs-gun"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/streetlight",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/streetlight",
+   "members": [
+    "quat-cyberpunk/streetlight",
+    "quat-cyberpunk/streetlight-double"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/support",
+   "type": "maatvariant",
+   "main": "quat-cyberpunk/support",
+   "members": [
+    "quat-cyberpunk/support",
+    "quat-cyberpunk/support-short"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/tv",
+   "type": "maatvariant",
+   "main": "quat-cyberpunk/tv",
+   "members": [
+    "quat-cyberpunk/tv",
+    "quat-cyberpunk/tv-b"
+   ]
+  },
+  {
+   "id": "quat-cyberpunk/turret-gun",
+   "type": "detail-variant",
+   "main": "quat-cyberpunk/turret-gun",
+   "members": [
+    "quat-cyberpunk/turret-gun",
+    "quat-cyberpunk/turret-gun-double",
+    "quat-cyberpunk/turret-cannon"
+   ]
+  },
+  {
    "id": "dungeon-2/wall-cracked-1",
    "type": "detail-variant",
    "main": "dungeon-2/wall-cracked-1",
@@ -24642,7 +24741,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 891,
+   "count": 917,
    "parent": "metal"
   },
   {
@@ -24650,7 +24749,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2106,
+   "count": 2143,
    "parent": "metal"
   },
   {
@@ -24658,7 +24757,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 326,
+   "count": 328,
    "parent": "metal"
   },
   {
@@ -24810,7 +24909,7 @@
    "name": "Screen",
    "type": "material",
    "description": "Display screens: TV, monitor, phone, laptop, tablet, terminal.",
-   "count": 67,
+   "count": 71,
    "parent": "glass"
   },
   {
@@ -25047,7 +25146,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1490,
+   "count": 1517,
    "parent": "polymer"
   },
   {
@@ -25055,7 +25154,7 @@
    "name": "Rubber",
    "type": "material",
    "description": "Rubber: tyres, belts, seals.",
-   "count": 174,
+   "count": 176,
    "parent": "polymer"
   },
   {
@@ -25085,7 +25184,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 185
+   "count": 188
   },
   {
    "id": "special-food",
@@ -25106,7 +25205,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4831,
+   "count": 4847,
    "color": "#c07c8a"
   },
   {
@@ -25114,7 +25213,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 290
+   "count": 296
   },
   {
    "id": "obj-leisure",
@@ -25240,21 +25339,21 @@
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
-   "count": 150
+   "count": 156
   },
   {
    "id": "obj-device-electronics-component",
    "name": "Component",
    "type": "kind",
    "description": "Loose electronic part: battery, circuit board, microchip, memory module, ssd.",
-   "count": 6
+   "count": 7
   },
   {
    "id": "str-fixture-installation",
    "name": "House electrics",
    "type": "kind",
    "description": "Fixed household electrics, heating and air: light switch, plug socket, fuse box, circuit breaker, smoke detector, fire alarm, light bulb, radiator, air conditioner, vent cover.",
-   "count": 17
+   "count": 19
   },
   {
    "id": "obj-device-electronics-media",
@@ -25282,7 +25381,7 @@
    "name": "Computer",
    "type": "kind",
    "description": "Computer, laptop, keyboard, router or computer desk.",
-   "count": 35
+   "count": 37
   },
   {
    "id": "obj-device-electronics-computer-keyboard",
@@ -25310,7 +25409,7 @@
    "name": "Terminal",
    "type": "kind",
    "description": "computer terminal, control panel, console (computer)",
-   "count": 9
+   "count": 11
   },
   {
    "id": "obj-device-electronics-register",
@@ -25331,7 +25430,7 @@
    "name": "Screen",
    "type": "kind",
    "description": "Standing or hanging display screen or monitor.",
-   "count": 29
+   "count": 32
   },
   {
    "id": "obj-device-electronics-screen-monitor",
@@ -25345,7 +25444,7 @@
    "name": "TV",
    "type": "kind",
    "description": "television, tv antenna, tv",
-   "count": 9
+   "count": 12
   },
   {
    "id": "obj-leisure-game-arcade",
@@ -25380,7 +25479,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 722,
+   "count": 725,
    "color": "#dd9f79"
   },
   {
@@ -25402,14 +25501,14 @@
    "name": "Cylinder",
    "type": "kind",
    "description": "Pressure or chemical cylinder: gas cylinder, chemical vat.",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-container-cylinder-tank",
    "name": "Gas tank",
    "type": "kind",
    "description": "gas tank, propane tank, gas bottle, gas canister",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-container-cylinder-extinguisher",
@@ -25605,7 +25704,7 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 147
+   "count": 148
   },
   {
    "id": "obj-container-crate-cube",
@@ -25640,7 +25739,7 @@
    "name": "Sci-fi crate",
    "type": "kind",
    "description": "Futuristic cargo pod, supply crate or canister.",
-   "count": 22
+   "count": 23
   },
   {
    "id": "obj-container-crate-produce",
@@ -25661,14 +25760,14 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot, amphora",
-   "count": 96
+   "count": 97
   },
   {
    "id": "obj-container-pot-jar",
    "name": "Jar",
    "type": "kind",
    "description": "jar, canister, tin",
-   "count": 22
+   "count": 23
   },
   {
    "id": "obj-container-pot-vase",
@@ -25717,7 +25816,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1173,
+   "count": 1178,
    "color": "#6b5b95"
   },
   {
@@ -26055,7 +26154,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 815,
+   "count": 816,
    "color": "#c07c8a"
   },
   {
@@ -26736,7 +26835,7 @@
    "name": "Light",
    "type": "kind",
    "description": "chandelier, string lights, glow stick",
-   "count": 129,
+   "count": 130,
    "color": "#f2cb45"
   },
   {
@@ -26772,7 +26871,7 @@
    "name": "Lantern",
    "type": "kind",
    "description": "Portable or hanging lantern: hand, hanging, standing or paper lantern, flashlight.",
-   "count": 18
+   "count": 19
   },
   {
    "id": "obj-furnishing-light-lamp",
@@ -26842,7 +26941,7 @@
    "name": "Street light",
    "type": "kind",
    "description": "street light, street lantern",
-   "count": 13
+   "count": 15
   },
   {
    "id": "obj-furnishing-light-torch",
@@ -26955,7 +27054,7 @@
    "name": "Resource",
    "type": "kind",
    "description": "raw stock",
-   "count": 242,
+   "count": 243,
    "color": "#4f7d8c"
   },
   {
@@ -26963,14 +27062,14 @@
    "name": "Metal",
    "type": "kind",
    "description": "bar, nugget, ore lump",
-   "count": 120
+   "count": 121
   },
   {
    "id": "obj-resource-metal-parts",
    "name": "Parts",
    "type": "kind",
    "description": "spare part, gasket",
-   "count": 89
+   "count": 90
   },
   {
    "id": "obj-resource-metal-parts-pipe",
@@ -26984,7 +27083,7 @@
    "name": "Gear",
    "type": "kind",
    "description": "gear, cog, sprocket",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-resource-metal-ingot",
@@ -27068,7 +27167,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 367,
+   "count": 369,
    "color": "#6d738a"
   },
   {
@@ -27104,14 +27203,14 @@
    "name": "Mechanism",
    "type": "kind",
    "description": "Mechanism worked by hand or foot: spring, gear, pulley, crank, jack, trap.",
-   "count": 29
+   "count": 31
   },
   {
    "id": "obj-equipment-tool-mechanism-lever",
    "name": "Lever",
    "type": "kind",
    "description": "Lever pulled or pushed by hand, standing on the floor or fixed to a wall.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-tool-mechanism-lock",
@@ -27125,7 +27224,7 @@
    "name": "Floor button",
    "type": "kind",
    "description": "Button pressed by foot or by stepping on it: floor button, pressure plate, jump pad.",
-   "count": 5
+   "count": 6
   },
   {
    "id": "obj-equipment-tool-stationery",
@@ -27329,14 +27428,14 @@
    "name": "Symbol",
    "type": "kind",
    "description": "Free-standing sign for a thing rather than the thing: icon, heart, star, lightning bolt.",
-   "count": 52
+   "count": 54
   },
   {
    "id": "sym-pickup",
    "name": "Pickup",
    "type": "kind",
    "description": "Game collectible: gem, heart, star or bolt picked up for points or power.",
-   "count": 13
+   "count": 15
   },
   {
    "id": "sym-pointer",
@@ -27518,14 +27617,14 @@
    "name": "Siege",
    "type": "kind",
    "description": "Siege weapon with no leaf that fits.",
-   "count": 29
+   "count": 32
   },
   {
    "id": "obj-equipment-weapon-siege-cannon",
    "name": "Cannon",
    "type": "kind",
    "description": "Cannon. Cast iron.",
-   "count": 7
+   "count": 10
   },
   {
    "id": "obj-equipment-weapon-siege-ammunition",
@@ -27553,7 +27652,7 @@
    "name": "Weapon",
    "type": "kind",
    "description": "Weapon with no leaf that fits.",
-   "count": 450,
+   "count": 453,
    "color": "#4c5468"
   },
   {
@@ -27771,7 +27870,7 @@
    "name": "Character",
    "type": "kind",
    "description": "playable, npc, skeleton (rigged), animal (rigged)",
-   "count": 30,
+   "count": 36,
    "color": "#8a6fb0"
   },
   {
@@ -28136,7 +28235,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "mine entrance",
-   "count": 2719,
+   "count": 2737,
    "color": "#877a63"
   },
   {
@@ -28144,7 +28243,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 576
+   "count": 586
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -28165,7 +28264,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 303,
+   "count": 307,
    "color": "#c98a5a"
   },
   {
@@ -28173,7 +28272,7 @@
    "name": "Street light",
    "type": "kind",
    "description": "Light fixed in place: lamp post, street light, warning beacon.",
-   "count": 45
+   "count": 47
   },
   {
    "id": "str-fixture-light-traffic",
@@ -28271,7 +28370,7 @@
    "name": "Barrier",
    "type": "kind",
    "description": "barricade, curb, kerb, buffer stop",
-   "count": 327,
+   "count": 328,
    "color": "#b08968"
   },
   {
@@ -28322,7 +28421,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 1047,
+   "count": 1050,
    "color": "#a8762a"
   },
   {
@@ -28330,7 +28429,7 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 80
+   "count": 81
   },
   {
    "id": "str-part-door-doorway",
@@ -28344,7 +28443,7 @@
    "name": "Single",
    "type": "kind",
    "description": "The door leaf on its own, without the opening it hangs in.",
-   "count": 62
+   "count": 63
   },
   {
    "id": "str-part-door-trapdoor",
@@ -28456,7 +28555,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support, bracing",
-   "count": 104
+   "count": 106
   },
   {
    "id": "str-part-roof",
@@ -28547,7 +28646,7 @@
    "name": "Marker",
    "type": "kind",
    "description": "milestone, waystone",
-   "count": 228,
+   "count": 229,
    "color": "#ffb349"
   },
   {
@@ -28577,7 +28676,7 @@
    "name": "Sign",
    "type": "kind",
    "description": "sign, signpost, direction arrow",
-   "count": 124
+   "count": 125
   },
   {
    "id": "str-fixture-marker-sign-road",
@@ -28598,7 +28697,7 @@
    "name": "Lettering",
    "type": "kind",
    "description": "Sign spelled out in raised letters, or a marquee.",
-   "count": 40
+   "count": 41
   },
   {
    "id": "str-fixture-marker-sign-signpost",
@@ -28647,7 +28746,7 @@
    "name": "Platform",
    "type": "kind",
    "description": "Platform with no leaf that fits.",
-   "count": 54,
+   "count": 58,
    "color": "#877a63"
   },
   {
@@ -28923,7 +29022,7 @@
    "name": "Utility",
    "type": "kind",
    "description": "Standing works that serve a settlement: utility pole, power line, tank, pipe, solar panel, turbine, antenna, hydrant, well, fountain.",
-   "count": 106,
+   "count": 111,
    "color": "#6e8f86"
   },
   {
@@ -28931,7 +29030,7 @@
    "name": "Antenna",
    "type": "kind",
    "description": "satellite dish, antenna, radar",
-   "count": 8
+   "count": 10
   },
   {
    "id": "str-fixture-utility-turbine",
@@ -28980,7 +29079,7 @@
    "name": "Pipe",
    "type": "kind",
    "description": "Large standing pipework or water channel: straight, bent and branching sections, valves, flume sections.",
-   "count": 37
+   "count": 38
   },
   {
    "id": "str-fixture-machinery-conveyor",
@@ -29072,7 +29171,7 @@
    "name": "Railing",
    "type": "kind",
    "description": "railing, balustrade, baluster, handrail, banister",
-   "count": 54
+   "count": 55
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -29443,14 +29542,14 @@
    "name": "Plural",
    "type": "tag",
    "description": "Several instances of one thing in one model: a stack of bars, a pile of coins, a bundle of arrows (F4).",
-   "count": 355
+   "count": 357
   },
   {
    "id": "pickup",
    "name": "Pickup",
    "type": "tag",
    "description": "Sized to be seen and collected, not to stand in the world: a lone coin, key, ring, potion, armour piece or token.",
-   "count": 169
+   "count": 174
   },
   {
    "id": "broken",
@@ -29471,7 +29570,7 @@
    "name": "Mounted",
    "type": "tag",
    "description": "Not meant to stand on the ground in a scene: hung from a ceiling, beam or post, fixed to a wall, or set high on a building.",
-   "count": 380
+   "count": 386
   },
   {
    "id": "tba",
@@ -30589,7 +30688,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4078,
+   "count": 4087,
    "derived": true
   },
   {
@@ -30597,7 +30696,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3494,
+   "count": 3522,
    "derived": true
   },
   {
@@ -30605,7 +30704,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1224,
+   "count": 1229,
    "derived": true
   },
   {
@@ -30629,7 +30728,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1050,
+   "count": 1092,
    "derived": true
   },
   {
@@ -35644,7 +35743,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.24
   },
   {
    "kit": "3dm-city",
@@ -36504,7 +36603,7 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.77,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "error",
@@ -36602,7 +36701,7 @@
     "glass-clear",
     "plastic"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.42
   },
   {
    "kit": "3dm-electronics",
@@ -36741,7 +36840,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 0.75,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "warning",
@@ -37897,7 +37996,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.44
+   "thickRel": 1.33
   },
   {
    "kit": "3dm-industrial",
@@ -37939,7 +38038,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "3dm-industrial",
@@ -38365,7 +38464,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "3dm-industrial-2",
@@ -38411,7 +38510,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "3dm-industrial-2",
@@ -38668,7 +38767,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.67
+   "thickRel": 1.19
   },
   {
    "kit": "3dm-medieval",
@@ -39285,7 +39384,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "3dm-scifi",
@@ -39331,7 +39430,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1
+   "thickRel": 0.95
   },
   {
    "kit": "3dm-scifi",
@@ -40377,7 +40476,7 @@
     "textile-cloth-light"
    ],
    "variant": "aq-hallow/ghost-a",
-   "thickRel": 2.08
+   "thickRel": 2.03
   },
   {
    "kit": "aq-hallow",
@@ -40423,7 +40522,7 @@
     "textile-cloth-light"
    ],
    "variant": "aq-hallow/ghost-a",
-   "thickRel": 2.09
+   "thickRel": 2.04
   },
   {
    "kit": "aq-hallow",
@@ -40906,7 +41005,7 @@
     "special-emissive"
    ],
    "variant": "aq-hallow/lantern-a",
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "aq-hallow",
@@ -40950,7 +41049,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "aq-hallow",
@@ -40995,7 +41094,7 @@
     "special-emissive"
    ],
    "variant": "aq-hallow/lantern-a",
-   "thickRel": 1.37
+   "thickRel": 1.32
   },
   {
    "kit": "aq-hallow",
@@ -41791,7 +41890,7 @@
     "metal-gold",
     "metal-iron-dark"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.34
   },
   {
    "kit": "aq-hallow",
@@ -43618,7 +43717,7 @@
     "ceramic-mid",
     "special-liquid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.16
   },
   {
    "kit": "aq-pond",
@@ -48019,7 +48118,7 @@
     "ceramic-mid",
     "shm"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.56
   },
   {
    "kit": "clay-props",
@@ -52129,7 +52228,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "dungeon",
@@ -52380,7 +52479,7 @@
     "mounted",
     "wood-dark"
    ],
-   "thickRel": 0.59,
+   "thickRel": 0.56,
    "lint": [
     {
      "level": "error",
@@ -52505,12 +52604,12 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.47,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     },
     {
      "level": "error",
@@ -53754,7 +53853,7 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "dungeon-2",
@@ -54171,7 +54270,7 @@
     "metal-steel",
     "stone-masonry-mid"
    ],
-   "thickRel": 1
+   "thickRel": 0.96
   },
   {
    "kit": "dungeon-2",
@@ -55536,7 +55635,7 @@
     "ceramic-light",
     "cork"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.34
   },
   {
    "kit": "emace-village",
@@ -56815,7 +56914,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.89
   },
   {
    "kit": "emace-village",
@@ -58424,7 +58523,7 @@
    "tags": [
     "ceramic-mid"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.04
   },
   {
    "kit": "emace-village",
@@ -70527,7 +70626,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/door",
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "fs-house",
@@ -70570,7 +70669,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/door",
-   "thickRel": 1.17
+   "thickRel": 1.21
   },
   {
    "kit": "fs-house",
@@ -71643,7 +71742,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/railing",
-   "thickRel": 0.96,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "error",
@@ -72781,12 +72880,12 @@
     "glass-screen",
     "plastic"
    ],
-   "thickRel": 0.51,
+   "thickRel": 0.53,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0118 wants min 0.026"
+     "text": "G27 minTube 0.0118 wants min 0.012"
     }
    ]
   },
@@ -73728,7 +73827,7 @@
     "grid-1-5x0-5x0-5",
     "stone-masonry-light"
    ],
-   "thickRel": 2.63
+   "thickRel": 2.61
   },
   {
    "kit": "fs-temple",
@@ -74388,7 +74487,7 @@
     "stone-masonry-mid",
     "tba"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.15
   },
   {
    "kit": "fs-temple",
@@ -79922,7 +80021,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.72
+   "thickRel": 1.77
   },
   {
    "kit": "fs-temple",
@@ -80054,7 +80153,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.72
+   "thickRel": 1.77
   },
   {
    "kit": "fs-temple",
@@ -80094,7 +80193,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.71
+   "thickRel": 1.76
   },
   {
    "kit": "fs-temple",
@@ -80134,7 +80233,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.73
+   "thickRel": 1.78
   },
   {
    "kit": "fs-temple",
@@ -80177,7 +80276,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.75
+   "thickRel": 1.8
   },
   {
    "kit": "fs-temple",
@@ -81379,7 +81478,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "fs-terrain",
@@ -85780,7 +85879,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.26
   },
   {
    "kit": "fs-town",
@@ -90374,7 +90473,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/wood-railing-corner",
-   "thickRel": 0.77,
+   "thickRel": 0.76,
    "mark": [
     "grounded",
     "centered"
@@ -90460,7 +90559,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/wood-railing-straight",
-   "thickRel": 1.2,
+   "thickRel": 1.19,
    "mark": [
     "grounded",
     "centered"
@@ -90506,7 +90605,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/wood-railing-corner",
-   "thickRel": 0.86,
+   "thickRel": 0.85,
    "mark": [
     "grounded",
     "centered"
@@ -90598,7 +90697,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/wood-railing-straight",
-   "thickRel": 1.32,
+   "thickRel": 1.31,
    "mark": [
     "grounded",
     "centered"
@@ -91595,7 +91694,7 @@
     "ct",
     "metal-iron-mid"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.2
   },
   {
    "kit": "household",
@@ -91637,7 +91736,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.36,
+   "thickRel": 1.31,
    "lint": [
     {
      "level": "error",
@@ -92741,7 +92840,7 @@
     "glass-screen",
     "plastic"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "household",
@@ -93060,7 +93159,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 0.84,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "error",
@@ -94089,7 +94188,7 @@
     "ipoly",
     "metal-iron-dark"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "ipoly-concert",
@@ -97719,7 +97818,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/door-modular",
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "isa-bakery",
@@ -104806,7 +104905,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/door-modular",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "isa-kitchen",
@@ -114975,7 +115074,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.15,
+   "thickRel": 1.12,
    "mark": [
     "centered"
    ]
@@ -115395,7 +115494,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.18,
+   "thickRel": 1.15,
    "mark": [
     "centered"
    ]
@@ -115586,7 +115685,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.03
   },
   {
    "kit": "kay-adventurers",
@@ -115917,7 +116016,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.05,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
@@ -116113,7 +116212,7 @@
     "Working_C"
    ],
    "variant": "kay-adventurers/rogue-hooded",
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "kay-adventurers",
@@ -116304,7 +116403,7 @@
     "Working_C"
    ],
    "variant": "kay-adventurers/rogue-hooded",
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "kay-adventurers",
@@ -120031,7 +120130,7 @@
     "special"
    ],
    "specialBand": "8,0",
-   "thickRel": 2.67
+   "thickRel": 2.63
   },
   {
    "kit": "kay-city",
@@ -122894,7 +122993,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.85,
+   "thickRel": 0.87,
    "mark": [
     "grounded"
    ]
@@ -123797,7 +123896,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-c-decorated",
-   "thickRel": 0.99
+   "thickRel": 0.97
   },
   {
    "kit": "kay-dun-1",
@@ -123836,7 +123935,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-c-decorated",
-   "thickRel": 0.99
+   "thickRel": 0.97
   },
   {
    "kit": "kay-dun-1",
@@ -134832,7 +134931,7 @@
     "wood-dark"
    ],
    "variant": "kay-food/door-a",
-   "thickRel": 1.38
+   "thickRel": 1.42
   },
   {
    "kit": "kay-food",
@@ -134876,7 +134975,7 @@
     "wood-dark"
    ],
    "variant": "kay-food/door-a",
-   "thickRel": 1.38
+   "thickRel": 1.42
   },
   {
    "kit": "kay-food",
@@ -145315,7 +145414,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 1.08,
+   "thickRel": 1.05,
    "mark": [
     "grounded"
    ]
@@ -145364,7 +145463,7 @@
     "metal-steel",
     "special-emissive"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "kay-hallow",
@@ -145711,7 +145810,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 0.97,
+   "thickRel": 0.94,
    "mark": [
     "centered"
    ]
@@ -147294,7 +147393,7 @@
     "metal-iron-dark",
     "scale-big"
    ],
-   "thickRel": 1.93
+   "thickRel": 2.35
   },
   {
    "kit": "kay-hexagon",
@@ -147344,7 +147443,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.87
+   "thickRel": 1.07
   },
   {
    "kit": "kay-hexagon",
@@ -152957,7 +153056,7 @@
     "ceramic-mid",
     "kay"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "kay-holiday",
@@ -153883,7 +153982,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/lightning",
-   "thickRel": 1.07
+   "thickRel": 1.1
   },
   {
    "kit": "kay-minigame",
@@ -154172,7 +154271,7 @@
     "pickup"
    ],
    "variant": "kay-platformer/star",
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "kay-minigame",
@@ -155018,7 +155117,7 @@
     "kay",
     "metal-iron-dark"
    ],
-   "thickRel": 2.5
+   "thickRel": 2.46
   },
   {
    "kit": "kay-mixed",
@@ -156666,7 +156765,7 @@
     "kay",
     "pickup"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.52
   },
   {
    "kit": "kay-platformer",
@@ -157056,7 +157155,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.58
   },
   {
    "kit": "kay-platformer",
@@ -157190,7 +157289,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.04
   },
   {
    "kit": "kay-platformer",
@@ -157237,7 +157336,7 @@
     "tba"
    ],
    "variant": "kay-platformer/lever-wall-a",
-   "thickRel": 1.18
+   "thickRel": 1.13
   },
   {
    "kit": "kay-platformer",
@@ -157285,7 +157384,7 @@
     "tba"
    ],
    "variant": "kay-platformer/lever-wall-a",
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "kay-platformer",
@@ -157326,7 +157425,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/lightning",
-   "thickRel": 1.21
+   "thickRel": 1.25
   },
   {
    "kit": "kay-platformer",
@@ -157508,7 +157607,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.65
+   "thickRel": 1.66
   },
   {
    "kit": "kay-platformer",
@@ -157844,7 +157943,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/platform-arrow-2x2",
-   "thickRel": 2.79
+   "thickRel": 2.75
   },
   {
    "kit": "kay-platformer",
@@ -157887,7 +157986,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/platform-arrow-2x2",
-   "thickRel": 1.79
+   "thickRel": 1.77
   },
   {
    "kit": "kay-platformer",
@@ -157977,7 +158076,7 @@
     "plastic",
     "textile-cloth-light"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "kay-platformer",
@@ -158021,7 +158120,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-corner-double",
-   "thickRel": 0.61
+   "thickRel": 0.6
   },
   {
    "kit": "kay-platformer",
@@ -158065,7 +158164,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-double",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "kay-platformer",
@@ -158111,7 +158210,7 @@
     "plastic",
     "textile-cloth-light"
    ],
-   "thickRel": 1.93
+   "thickRel": 1.91
   },
   {
    "kit": "kay-platformer",
@@ -158155,7 +158254,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/railing-double",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "kay-platformer",
@@ -158593,7 +158692,7 @@
     "pickup"
    ],
    "variant": "kay-platformer/star",
-   "thickRel": 0.76
+   "thickRel": 0.79
   },
   {
    "kit": "kay-platformer",
@@ -159096,7 +159195,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/door-a",
-   "thickRel": 1.06
+   "thickRel": 1.09
   },
   {
    "kit": "kay-proto",
@@ -159139,7 +159238,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/door-a",
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "kay-proto",
@@ -159184,7 +159283,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.32
   },
   {
    "kit": "kay-proto",
@@ -161743,7 +161842,14 @@
     "kay",
     "metal-steel"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "kay-resources",
@@ -163575,7 +163681,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1
+   "thickRel": 0.97
   },
   {
    "kit": "kay-skeleton",
@@ -163763,7 +163869,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "kay-skeleton",
@@ -163947,7 +164053,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.03
   },
   {
    "kit": "kay-skeleton",
@@ -164134,7 +164240,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.08
   },
   {
    "kit": "kay-skeleton",
@@ -165675,7 +165781,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "kay-space",
@@ -165770,7 +165876,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "kay-space",
@@ -165816,7 +165922,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "kay-space",
@@ -165904,7 +166010,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "kay-space",
@@ -167550,7 +167656,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 1.89
+   "thickRel": 1.87
   },
   {
    "kit": "kay-space",
@@ -167596,7 +167702,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "kay-spook",
@@ -168662,7 +168768,7 @@
     "special-organic",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.83
+   "thickRel": 1.78
   },
   {
    "kit": "kay-spook",
@@ -170056,7 +170162,7 @@
     "wax",
     "wick"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "kay-tools",
@@ -175412,7 +175518,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "ken-blaster",
@@ -175456,7 +175562,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.86
+   "thickRel": 0.88
   },
   {
    "kit": "ken-blaster",
@@ -175500,7 +175606,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "ken-blaster",
@@ -178054,7 +178160,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.33,
+   "thickRel": 1.37,
    "lint": [
     {
      "level": "warning",
@@ -178324,7 +178430,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/gate",
-   "thickRel": 0.8
+   "thickRel": 0.82
   },
   {
    "kit": "ken-castle",
@@ -178500,7 +178606,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-ballista",
-   "thickRel": 0.53
+   "thickRel": 0.64
   },
   {
    "kit": "ken-castle",
@@ -178543,7 +178649,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-ballista",
-   "thickRel": 0.73
+   "thickRel": 0.89
   },
   {
    "kit": "ken-castle",
@@ -178587,7 +178693,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-catapult",
-   "thickRel": 0.53
+   "thickRel": 0.65
   },
   {
    "kit": "ken-castle",
@@ -178630,7 +178736,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-catapult",
-   "thickRel": 0.67
+   "thickRel": 0.82
   },
   {
    "kit": "ken-castle",
@@ -178676,7 +178782,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-ram",
-   "thickRel": 0.82
+   "thickRel": 1
   },
   {
    "kit": "ken-castle",
@@ -178724,7 +178830,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-ram",
-   "thickRel": 1.13
+   "thickRel": 1.38
   },
   {
    "kit": "ken-castle",
@@ -178771,7 +178877,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-tower",
-   "thickRel": 0.54
+   "thickRel": 0.66
   },
   {
    "kit": "ken-castle",
@@ -178817,7 +178923,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-tower",
-   "thickRel": 0.63,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "error",
@@ -178870,7 +178976,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-trebuchet",
-   "thickRel": 0.52
+   "thickRel": 0.63
   },
   {
    "kit": "ken-castle",
@@ -178915,7 +179021,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/siege-trebuchet",
-   "thickRel": 0.51
+   "thickRel": 0.62
   },
   {
    "kit": "ken-castle",
@@ -182557,7 +182663,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ken-factory",
@@ -182599,7 +182705,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "ken-factory",
@@ -182641,7 +182747,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "ken-factory",
@@ -182769,7 +182875,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "ken-factory",
@@ -184307,7 +184413,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.13
   },
   {
    "kit": "ken-factory",
@@ -184549,7 +184655,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.83
   },
   {
    "kit": "ken-factory",
@@ -184591,7 +184697,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -184955,7 +185061,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-bend",
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "ken-factory",
@@ -184997,7 +185103,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-bump",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ken-factory",
@@ -185095,7 +185201,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-curve",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-factory",
@@ -185179,7 +185285,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-long",
-   "thickRel": 1.42
+   "thickRel": 1.41
   },
   {
    "kit": "ken-factory",
@@ -185221,7 +185327,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-side",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "ken-factory",
@@ -185266,7 +185372,7 @@
     "plastic"
    ],
    "variant": "ken-factory/pipe-large-valve",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ken-factory",
@@ -185308,7 +185414,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large",
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "ken-factory",
@@ -185348,7 +185454,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-bend",
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "ken-factory",
@@ -185387,7 +185493,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-bump",
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "ken-factory",
@@ -185426,7 +185532,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-cross",
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "ken-factory",
@@ -185472,7 +185578,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.97,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -185519,7 +185625,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-junction",
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "ken-factory",
@@ -185558,7 +185664,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-long",
-   "thickRel": 1.48
+   "thickRel": 1.47
   },
   {
    "kit": "ken-factory",
@@ -185639,7 +185745,7 @@
     "plastic"
    ],
    "variant": "ken-factory/pipe-large-valve",
-   "thickRel": 1.12
+   "thickRel": 1.11
   },
   {
    "kit": "ken-factory",
@@ -185678,7 +185784,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "ken-factory",
@@ -186093,7 +186199,7 @@
     "mounted"
    ],
    "variant": "ken-factory/screen-hanging-wide",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-factory",
@@ -186306,7 +186412,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/screen-small",
-   "thickRel": 1.58
+   "thickRel": 1.57
   },
   {
    "kit": "ken-factory",
@@ -186790,7 +186896,7 @@
     "metal-steel",
     "special-emissive"
    ],
-   "thickRel": 1.54
+   "thickRel": 1.58
   },
   {
    "kit": "ken-factory",
@@ -186838,7 +186944,7 @@
     "plastic",
     "special-emissive"
    ],
-   "thickRel": 1.69
+   "thickRel": 1.72
   },
   {
    "kit": "ken-food",
@@ -192495,7 +192601,7 @@
      "open": 0.77
     }
    },
-   "thickRel": 1,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -194617,7 +194723,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "ken-furniture",
@@ -194802,7 +194908,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-furniture/door",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "ken-furniture",
@@ -194845,7 +194951,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/door",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "ken-furniture",
@@ -196275,7 +196381,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 0.44
+   "thickRel": 0.43
   },
   {
    "kit": "ken-furniture",
@@ -198033,7 +198139,7 @@
     "metal-steel"
    ],
    "variant": "ken-furniture/television-vintage",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "ken-furniture",
@@ -198074,7 +198180,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "ken-furniture",
@@ -198119,7 +198225,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/television-vintage",
-   "thickRel": 2.11
+   "thickRel": 2.17
   },
   {
    "kit": "ken-furniture",
@@ -200828,7 +200934,7 @@
     "wick"
    ],
    "variant": "ken-grave/lantern-candle",
-   "thickRel": 0.75
+   "thickRel": 0.72
   },
   {
    "kit": "ken-grave",
@@ -200877,7 +200983,7 @@
     "special-emissive"
    ],
    "variant": "ken-grave/lantern-candle",
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "ken-grave",
@@ -201695,7 +201801,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-grave/urn-round",
-   "thickRel": 1.05
+   "thickRel": 1.03
   },
   {
    "kit": "ken-grave",
@@ -201738,7 +201844,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-grave/urn-round",
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "ken-holiday",
@@ -203048,7 +203154,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.7
   },
   {
    "kit": "ken-holiday",
@@ -205793,7 +205899,7 @@
     "tba"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "ken-industrial",
@@ -205842,7 +205948,7 @@
     "tba"
    ],
    "variant": "ken-industrial/wind-turbine",
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "ken-market",
@@ -206153,7 +206259,7 @@
     "ken",
     "metal-iron-dark"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "ken-market",
@@ -207133,7 +207239,7 @@
     "wood-mid"
    ],
    "variant": "ken-modular/door-brown-glass",
-   "thickRel": 1.24,
+   "thickRel": 1.28,
    "lint": [
     {
      "level": "warning",
@@ -207183,7 +207289,7 @@
     "wood-mid"
    ],
    "variant": "ken-modular/door-brown-glass",
-   "thickRel": 1.34,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -212530,7 +212636,7 @@
     "pirate",
     "sailing"
    ],
-   "thickRel": 2.37
+   "thickRel": 2.89
   },
   {
    "kit": "ken-pirate",
@@ -212578,7 +212684,7 @@
     "wood-dark"
    ],
    "variant": "ken-pirate/cannon-mobile",
-   "thickRel": 1.53
+   "thickRel": 1.09
   },
   {
    "kit": "ken-pirate",
@@ -215267,7 +215373,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "ken-platformer",
@@ -215313,7 +215419,7 @@
     "wood-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.84
+   "thickRel": 0.87
   },
   {
    "kit": "ken-platformer",
@@ -215794,7 +215900,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "ken-platformer",
@@ -216082,7 +216188,7 @@
     "toggle-off",
     "toggle"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.92
   },
   {
    "kit": "ken-platformer",
@@ -216472,7 +216578,7 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.92
   },
   {
    "kit": "ken-platformer",
@@ -216732,7 +216838,7 @@
     "ken",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "ken-proto",
@@ -216852,7 +216958,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 0.92
+   "thickRel": 0.95
   },
   {
    "kit": "ken-proto",
@@ -216894,7 +217000,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.2
   },
   {
    "kit": "ken-proto",
@@ -217561,7 +217667,7 @@
     "ken",
     "metal-copper"
    ],
-   "thickRel": 2.13
+   "thickRel": 2.11
   },
   {
    "kit": "ken-proto",
@@ -217604,7 +217710,7 @@
     "metal-steel"
    ],
    "variant": "ken-proto/pipe-section",
-   "thickRel": 3.66
+   "thickRel": 3.63
   },
   {
    "kit": "ken-proto",
@@ -217644,7 +217750,7 @@
     "metal-copper"
    ],
    "variant": "ken-proto/pipe",
-   "thickRel": 5.18
+   "thickRel": 5.14
   },
   {
    "kit": "ken-proto",
@@ -217688,7 +217794,7 @@
     "metal-steel"
    ],
    "variant": "ken-proto/pipe-section",
-   "thickRel": 4.41
+   "thickRel": 4.37
   },
   {
    "kit": "ken-proto",
@@ -217727,7 +217833,7 @@
     "ken",
     "metal-copper"
    ],
-   "thickRel": 2.44
+   "thickRel": 2.42
   },
   {
    "kit": "ken-proto",
@@ -217768,7 +217874,7 @@
     "metal-copper"
    ],
    "variant": "ken-proto/pipe",
-   "thickRel": 6.26
+   "thickRel": 6.21
   },
   {
    "kit": "ken-proto",
@@ -220775,7 +220881,7 @@
     "plastic"
    ],
    "variant": "ken-racing/rail",
-   "thickRel": 1.21
+   "thickRel": 1.19
   },
   {
    "kit": "ken-racing",
@@ -220815,7 +220921,7 @@
     "plastic"
    ],
    "variant": "ken-racing/rail",
-   "thickRel": 2.06
+   "thickRel": 2.04
   },
   {
    "kit": "ken-racing",
@@ -220856,7 +220962,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "ken-racing",
@@ -221266,7 +221372,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.22
+   "thickRel": 1.23
   },
   {
    "kit": "ken-roads",
@@ -221576,7 +221682,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 1.42
+   "thickRel": 1.39
   },
   {
    "kit": "ken-roads",
@@ -221626,7 +221732,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 0.89
+   "thickRel": 0.87
   },
   {
    "kit": "ken-roads",
@@ -221676,7 +221782,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-pole",
-   "thickRel": 0.6
+   "thickRel": 0.59
   },
   {
    "kit": "ken-roads",
@@ -221723,7 +221829,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.68
+   "thickRel": 0.67
   },
   {
    "kit": "ken-roads",
@@ -221770,7 +221876,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "ken-roads",
@@ -221817,7 +221923,7 @@
     "wood-mid"
    ],
    "variant": "ken-roads/electricity-side",
-   "thickRel": 0.56
+   "thickRel": 0.55
   },
   {
    "kit": "ken-roads",
@@ -224396,7 +224502,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "ken-skate",
@@ -227103,7 +227209,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.61
   },
   {
    "kit": "ken-space",
@@ -227147,7 +227253,7 @@
     "space"
    ],
    "variant": "ken-space/desk-computer",
-   "thickRel": 0.78
+   "thickRel": 0.74
   },
   {
    "kit": "ken-space",
@@ -227190,7 +227296,7 @@
     "space"
    ],
    "variant": "ken-space/desk-computer",
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "ken-space",
@@ -228496,7 +228602,7 @@
     "space"
    ],
    "variant": "ken-space/platform-high",
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "ken-space",
@@ -228543,7 +228649,7 @@
     "space"
    ],
    "variant": "ken-space/platform-high",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "ken-space",
@@ -228641,7 +228747,7 @@
     "space"
    ],
    "variant": "ken-space/rail",
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "ken-space",
@@ -229843,7 +229949,7 @@
     "tba"
    ],
    "variant": "ken-space/turret-single",
-   "thickRel": 1.61
+   "thickRel": 1.16
   },
   {
    "kit": "ken-space",
@@ -229892,7 +229998,7 @@
     "tba"
    ],
    "variant": "ken-space/turret-single",
-   "thickRel": 1.4
+   "thickRel": 1
   },
   {
    "kit": "ken-space",
@@ -230158,7 +230264,7 @@
     "space"
    ],
    "variant": "ken-station/balcony-rail",
-   "thickRel": 1.97
+   "thickRel": 1.95
   },
   {
    "kit": "ken-station",
@@ -230202,7 +230308,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "ken-station",
@@ -230249,7 +230355,7 @@
     "space"
    ],
    "variant": "ken-station/balcony-rail",
-   "thickRel": 1.16
+   "thickRel": 1.14
   },
   {
    "kit": "ken-station",
@@ -230841,7 +230947,7 @@
     "space"
    ],
    "variant": "ken-station/computer",
-   "thickRel": 0.65
+   "thickRel": 0.62
   },
   {
    "kit": "ken-station",
@@ -230891,7 +230997,7 @@
     "plastic",
     "space"
    ],
-   "thickRel": 1.57
+   "thickRel": 1.49
   },
   {
    "kit": "ken-station",
@@ -230941,7 +231047,7 @@
     "space"
    ],
    "variant": "ken-station/computer",
-   "thickRel": 0.71
+   "thickRel": 0.67
   },
   {
    "kit": "ken-station",
@@ -230990,7 +231096,7 @@
     "space"
    ],
    "variant": "ken-station/computer",
-   "thickRel": 1.35
+   "thickRel": 1.28
   },
   {
    "kit": "ken-station",
@@ -231084,7 +231190,7 @@
     "space"
    ],
    "variant": "ken-station/display-wall",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-station",
@@ -231261,7 +231367,7 @@
     "space"
    ],
    "variant": "ken-station/door-single-closed",
-   "thickRel": 1.35
+   "thickRel": 1.39
   },
   {
    "kit": "ken-station",
@@ -231306,7 +231412,7 @@
     "space"
    ],
    "variant": "ken-station/door-single-closed",
-   "thickRel": 1.33
+   "thickRel": 1.37
   },
   {
    "kit": "ken-station",
@@ -231347,7 +231453,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.36
   },
   {
    "kit": "ken-station",
@@ -231481,7 +231587,7 @@
     "space"
    ],
    "variant": "ken-station/rail",
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "ken-station",
@@ -231525,7 +231631,7 @@
     "space"
    ],
    "variant": "ken-station/rail",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ken-station",
@@ -231755,7 +231861,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "ken-station",
@@ -232255,7 +232361,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "ken-station",
@@ -248851,7 +248957,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-8",
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "loaf-coffins",
@@ -253530,7 +253636,7 @@
     "metal-steel"
    ],
    "variant": "lpa-construction/steel-a",
-   "thickRel": 1.97
+   "thickRel": 1.57
   },
   {
    "kit": "lpa-construction",
@@ -254181,7 +254287,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-desert",
@@ -256152,7 +256258,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.35
   },
   {
    "kit": "lpa-home",
@@ -256193,7 +256299,7 @@
     "plastic"
    ],
    "variant": "lpa-home/console-c",
-   "thickRel": 0.86
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-home",
@@ -256232,7 +256338,7 @@
     "plastic"
    ],
    "variant": "lpa-home/console-c",
-   "thickRel": 0.82
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-home",
@@ -256882,7 +256988,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.01
   },
   {
    "kit": "lpa-home",
@@ -257044,7 +257150,7 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.58
   },
   {
    "kit": "lpa-home",
@@ -257558,7 +257664,7 @@
     "mounted"
    ],
    "variant": "lpa-home/radiator-a",
-   "thickRel": 1.17
+   "thickRel": 1.08
   },
   {
    "kit": "lpa-home",
@@ -257600,7 +257706,7 @@
     "mounted"
    ],
    "variant": "lpa-home/radiator-a",
-   "thickRel": 0.93
+   "thickRel": 0.86
   },
   {
    "kit": "lpa-home",
@@ -258638,7 +258744,7 @@
     "plastic"
    ],
    "variant": "lpa-home/tv-a",
-   "thickRel": 1.56
+   "thickRel": 1.61
   },
   {
    "kit": "lpa-home",
@@ -258681,14 +258787,7 @@
     "plastic"
    ],
    "variant": "lpa-home/tv-a",
-   "thickRel": 0.76,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0244 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.78
   },
   {
    "kit": "lpa-home",
@@ -259968,7 +260067,7 @@
     "scale-big",
     "wood-mid"
    ],
-   "thickRel": 5.97
+   "thickRel": 7.28
   },
   {
    "kit": "lpa-weapons",
@@ -260017,7 +260116,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-weapons",
@@ -260104,7 +260203,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.37
   },
   {
    "kit": "lpa-weapons",
@@ -260230,7 +260329,7 @@
     "stone-rock"
    ],
    "variant": "lpa-weapons/catapult-boulder",
-   "thickRel": 2.35
+   "thickRel": 2.86
   },
   {
    "kit": "lpa-weapons",
@@ -260279,7 +260378,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-weapons",
@@ -261481,7 +261580,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.55,
+   "thickRel": 0.67,
    "lint": [
     {
      "level": "error",
@@ -261829,7 +261928,7 @@
     "stone-rock"
    ],
    "variant": "lpa-weapons/catapult-boulder",
-   "thickRel": 2.32
+   "thickRel": 2.83
   },
   {
    "kit": "lpa-weapons",
@@ -261876,7 +261975,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.6,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "error",
@@ -263094,7 +263193,7 @@
     "lpa",
     "metal-iron-dark"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "lpa-west",
@@ -263526,7 +263625,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/door-a",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "lpa-west",
@@ -263675,7 +263774,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/door-a",
-   "thickRel": 0.58,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -265235,7 +265334,7 @@
     "metal-iron-mid",
     "special-emissive"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.78
   },
   {
    "kit": "lpa-west",
@@ -268044,7 +268143,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/metal-twist-01",
-   "thickRel": 1.53
+   "thickRel": 1.21
   },
   {
    "kit": "m3-base",
@@ -268167,7 +268266,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/metal-twist-01",
-   "thickRel": 1.84
+   "thickRel": 1.46
   },
   {
    "kit": "m3-base",
@@ -271820,7 +271919,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.81
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -272133,7 +272232,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.28
   },
   {
    "kit": "m3-base",
@@ -272554,7 +272653,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -273268,7 +273367,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -273394,7 +273493,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -274058,7 +274157,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "m3-base",
@@ -274592,7 +274691,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.81,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "warning",
@@ -274637,7 +274736,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.62
   },
   {
    "kit": "m3-base",
@@ -275285,7 +275384,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.82,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -275411,7 +275510,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.88,
+   "thickRel": 1.86,
    "lint": [
     {
      "level": "error",
@@ -276540,7 +276639,7 @@
     "m3",
     "pickup"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.52
   },
   {
    "kit": "m3-base",
@@ -276993,7 +277092,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.84
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -277032,7 +277131,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.85
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -277072,7 +277171,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.84
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -278510,7 +278609,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -279895,7 +279994,7 @@
      "inside-out": 0.31
     }
    },
-   "thickRel": 1.24,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -280794,7 +280893,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 2.62
+   "thickRel": 2.61
   },
   {
    "kit": "m3-base",
@@ -281381,7 +281480,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -283529,7 +283628,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.7,
+   "thickRel": 1.74,
    "lint": [
     {
      "level": "warning",
@@ -283576,7 +283675,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/japanese-stone-lantern-01",
-   "thickRel": 0.99
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -286649,7 +286748,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.77
+   "thickRel": 1.64
   },
   {
    "kit": "m3-base",
@@ -287921,7 +288020,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -291493,7 +291592,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -292727,7 +292826,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.76
+   "thickRel": 1.74
   },
   {
    "kit": "m3-base",
@@ -293334,7 +293433,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/metal-twist-01",
-   "thickRel": 1.47
+   "thickRel": 1.17
   },
   {
    "kit": "m3-base",
@@ -293807,7 +293906,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.97,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "error",
@@ -293859,12 +293958,12 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 1.74,
+   "thickRel": 1.79,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0056 wants min 0.026"
+     "text": "G27 minTube 0.0056 wants min 0.012"
     }
    ]
   },
@@ -294696,7 +294795,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -294813,7 +294912,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.21
+   "thickRel": 0.2
   },
   {
    "kit": "m3-base",
@@ -295653,7 +295752,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.05,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "error",
@@ -295998,7 +296097,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.85,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "warning",
@@ -296052,7 +296151,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.82,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -296261,7 +296360,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/gear-01",
-   "thickRel": 0.21
+   "thickRel": 0.17
   },
   {
    "kit": "m3-base",
@@ -297717,7 +297816,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.61
   },
   {
    "kit": "m3-base",
@@ -300317,7 +300416,7 @@
     "metal-iron-dark",
     "stone-masonry-light"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.48
   },
   {
    "kit": "m3-base",
@@ -301906,7 +302005,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.38
   },
   {
    "kit": "m3-base",
@@ -303639,7 +303738,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-jug-01",
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "m3-base",
@@ -303678,7 +303777,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-jug-01",
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "m3-base",
@@ -304043,7 +304142,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -304608,7 +304707,7 @@
     "textile-rope",
     "wood-mid"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -306273,7 +306372,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/door",
-   "thickRel": 0.73
+   "thickRel": 0.75
   },
   {
    "kit": "medieval-forge",
@@ -306314,7 +306413,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/door",
-   "thickRel": 0.67
+   "thickRel": 0.69
   },
   {
    "kit": "medieval-forge",
@@ -312738,7 +312837,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.59,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "warning",
@@ -313031,7 +313130,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.14,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -313508,7 +313607,7 @@
      "open": 1
     }
    },
-   "thickRel": 3.47,
+   "thickRel": 3.46,
    "lint": [
     {
      "level": "error",
@@ -315964,7 +316063,7 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.36
+   "thickRel": 0.35
   },
   {
    "kit": "props",
@@ -317023,7 +317122,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 2.08
+   "thickRel": 2.05
   },
   {
    "kit": "quat-apocalypse",
@@ -317707,7 +317806,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.57,
+   "thickRel": 0.56,
    "lint": [
     {
      "level": "warning",
@@ -317768,7 +317867,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.71
   },
   {
    "kit": "quat-apocalypse",
@@ -317820,7 +317919,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.73,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "error",
@@ -317888,7 +317987,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.76,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -318350,7 +318449,7 @@
     "skin",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.3
   },
   {
    "kit": "quat-cars",
@@ -318757,7 +318856,2130 @@
     "plastic",
     "plural",
     "qua"
+   ],
+   "variant": "quat-cyberpunk/air-conditioner"
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "air-conditioner-double",
+   "hash": "ca1664da56",
+   "kind": "str-fixture-installation",
+   "size": "m",
+   "wdh": [
+    0.622,
+    0.297,
+    0.327
+   ],
+   "tris": 934,
+   "tpu": 2723,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 45836,
+   "vtx": 1208,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.185,
+   "avgTri": 0.00103,
+   "anglePct": 86,
+   "pieces": 20,
+   "vpt": 1.29,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "plural",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/air-conditioner",
+   "backface": {
+    "share": 0.0139,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.4% of view 225/20 over 0.5%: open 100.0%"
+    }
    ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "air-conditioner",
+   "hash": "3e4cc87a89",
+   "kind": "str-fixture-installation",
+   "size": "s",
+   "wdh": [
+    0.404,
+    0.297,
+    0.274
+   ],
+   "tris": 946,
+   "tpu": 2758,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 44764,
+   "vtx": 1173,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0268,
+   "thick": 0.1783,
+   "avgTri": 0.00067,
+   "anglePct": 82,
+   "pieces": 13,
+   "vpt": 1.24,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/air-conditioner",
+   "backface": {
+    "share": 0.0348,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.12,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "3.5% of view 180/20 over 0.5%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "antenna-dish",
+   "hash": "1eb083dd0e",
+   "kind": "str-fixture-utility-antenna",
+   "size": "m",
+   "wdh": [
+    0.609,
+    0.646,
+    0.704
+   ],
+   "tris": 412,
+   "tpu": 1194,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 16176,
+   "vtx": 380,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "minTube": 0.0341,
+   "thick": 0.0636,
+   "avgTri": 0.00242,
+   "anglePct": 1,
+   "pieces": 6,
+   "vpt": 0.92,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "mounted",
+    "qua"
+   ],
+   "thickRel": 0.76
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "antenna",
+   "hash": "06ee7ae34d",
+   "kind": "str-fixture-utility-antenna",
+   "size": "m",
+   "wdh": [
+    0.416,
+    0.073,
+    1.06
+   ],
+   "tris": 88,
+   "tpu": 169,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 7492,
+   "vtx": 170,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.027,
+   "minTube": 0.0377,
+   "thick": 0.1021,
+   "avgTri": 0.00522,
+   "anglePct": 85,
+   "pieces": 7,
+   "vpt": 1.93,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua"
+   ],
+   "thickRel": 1.23
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "cable-long",
+   "hash": "927ea49101",
+   "kind": "str-fixture-utility",
+   "size": "m",
+   "wdh": [
+    0.269,
+    0.164,
+    1.247
+   ],
+   "tris": 774,
+   "tpu": 1267,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 34080,
+   "vtx": 873,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0593,
+   "thick": 0.2278,
+   "avgTri": 0.00093,
+   "anglePct": 0,
+   "pieces": 2,
+   "vpt": 1.13,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "mounted",
+    "qua",
+    "rubber"
+   ],
+   "variant": "quat-cyberpunk/cable",
+   "backface": {
+    "share": 0.0516,
+    "view": "225/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.62,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "5.2% of view 225/50 over 0.5%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "cable",
+   "hash": "63f5018ad5",
+   "kind": "str-fixture-utility",
+   "size": "m",
+   "wdh": [
+    0.195,
+    0.139,
+    0.795
+   ],
+   "tris": 390,
+   "tpu": 1001,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 17584,
+   "vtx": 429,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1672,
+   "avgTri": 0.00053,
+   "anglePct": 1,
+   "pieces": 1,
+   "vpt": 1.1,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "mounted",
+    "qua",
+    "rubber"
+   ],
+   "variant": "quat-cyberpunk/cable",
+   "backface": {
+    "share": 0.0358,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.92,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "3.6% of view 135/50 over 0.5%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "collectible-board",
+   "hash": "c32949e34b",
+   "kind": "obj-device-electronics-component",
+   "size": "s",
+   "wdh": [
+    0.2,
+    0.026,
+    0.182
+   ],
+   "tris": 280,
+   "tpu": 816,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 18980,
+   "vtx": 492,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.0683,
+   "avgTri": 0.00022,
+   "anglePct": 55,
+   "pieces": 4,
+   "vpt": 1.76,
+   "cells": [
+    "1,1",
+    "6,1",
+    "6,0",
+    "15,3"
+   ],
+   "colors": [
+    "#21552a",
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "metal-iron-dark",
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "collectible-gear",
+   "hash": "d4c001588e",
+   "kind": "obj-resource-metal-parts-gear",
+   "size": "s",
+   "wdh": [
+    0.246,
+    0.223,
+    0.278
+   ],
+   "tris": 440,
+   "tpu": 1283,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 20152,
+   "vtx": 500,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "thick": 0.0831,
+   "avgTri": 0.00032,
+   "anglePct": 0,
+   "pieces": 1,
+   "vpt": 1.14,
+   "cells": [
+    "6,0"
+   ],
+   "colors": [
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "pickup",
+    "qua"
+   ],
+   "thickRel": 0.3,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.3 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "computer-large",
+   "hash": "fa0581f0bb",
+   "kind": "obj-device-electronics-computer-terminal",
+   "size": "m",
+   "wdh": [
+    0.674,
+    0.359,
+    1.25
+   ],
+   "tris": 2213,
+   "tpu": 3613,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 105632,
+   "vtx": 2511,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.02,
+   "thick": 0.1661,
+   "avgTri": 0.00095,
+   "anglePct": 73,
+   "pieces": 37,
+   "vpt": 1.13,
+   "cells": [
+    "6,0",
+    "15,3",
+    "4,2",
+    "5,2",
+    "6,1"
+   ],
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-screen",
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.0065,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.23,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.25 over max 1.2 (obj-device-electronics-computer)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.7% of view 0/50 over 0.5%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "computer",
+   "hash": "b1720a4aa5",
+   "kind": "obj-device-electronics-computer-terminal",
+   "size": "m",
+   "wdh": [
+    0.329,
+    0.44,
+    0.705
+   ],
+   "tris": 1005,
+   "tpu": 2909,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 44060,
+   "vtx": 1141,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0119,
+   "thick": 0.1705,
+   "avgTri": 0.0015,
+   "anglePct": 51,
+   "pieces": 6,
+   "vpt": 1.14,
+   "cells": [
+    "15,3",
+    "6,0",
+    "4,2"
+   ],
+   "colors": [
+    "#1564a4",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.0029,
+    "view": "45/50",
+    "causes": {
+     "inverted": 0.52,
+     "open": 0.48
+    }
+   },
+   "thickRel": 1.26,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 45/50 over 0.1%: inverted 52.0%, open 48.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0119 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "door",
+   "hash": "f21907e788",
+   "kind": "str-part-door-single",
+   "size": "m",
+   "wdh": [
+    0.483,
+    0.071,
+    0.814
+   ],
+   "tris": 326,
+   "tpu": 817,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 17728,
+   "vtx": 446,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "minTube": 0.0176,
+   "thick": 0.0921,
+   "avgTri": 0.00341,
+   "anglePct": 81,
+   "pieces": 6,
+   "vpt": 1.37,
+   "cells": [
+    "15,3",
+    "6,0",
+    "4,2"
+   ],
+   "colors": [
+    "#1564a4",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0176 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "lever",
+   "hash": "8cf7097af4",
+   "kind": "obj-equipment-tool-mechanism-lever",
+   "size": "s",
+   "wdh": [
+    0.279,
+    0.464,
+    0.312
+   ],
+   "tris": 328,
+   "tpu": 956,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 16732,
+   "vtx": 414,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "minTube": 0.066,
+   "thick": 0.1834,
+   "avgTri": 0.00253,
+   "anglePct": 86,
+   "pieces": 4,
+   "vpt": 1.26,
+   "cells": [
+    "15,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua"
+   ],
+   "thickRel": 1.27
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "light-square",
+   "hash": "fa17bcf1e3",
+   "kind": "obj-furnishing-light-lantern",
+   "size": "s",
+   "wdh": [
+    0.19,
+    0.19,
+    0.346
+   ],
+   "tris": 148,
+   "tpu": 431,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 11900,
+   "vtx": 296,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "minTube": 0.0167,
+   "thick": 0.2451,
+   "avgTri": 0.00366,
+   "anglePct": 92,
+   "pieces": 13,
+   "vpt": 2,
+   "cells": [
+    "6,1",
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "qua",
+    "special-emissive"
+   ],
+   "thickRel": 1.15
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "lootbox",
+   "hash": "0b99a6577b",
+   "kind": "obj-container-crate-scifi",
+   "size": "s",
+   "wdh": [
+    0.414,
+    0.426,
+    0.358
+   ],
+   "tris": 940,
+   "tpu": 2741,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 48408,
+   "vtx": 1289,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "minTube": 0.0202,
+   "thick": 0.2297,
+   "avgTri": 0.00197,
+   "anglePct": 90,
+   "pieces": 10,
+   "vpt": 1.37,
+   "cells": [
+    "6,1",
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.88
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "pickup-health",
+   "hash": "a96fd208ce",
+   "kind": "sym-pickup",
+   "size": "s",
+   "wdh": [
+    0.296,
+    0.296,
+    0.296
+   ],
+   "tris": 752,
+   "tpu": 2192,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 38984,
+   "vtx": 1030,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.0592,
+   "avgTri": 0.00077,
+   "anglePct": 97,
+   "pieces": 8,
+   "vpt": 1.37,
+   "cells": [
+    "15,3",
+    "3,1"
+   ],
+   "colors": [
+    "#66852a",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.43,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "pickup-heart",
+   "hash": "7e6a286e6d",
+   "kind": "sym-pickup",
+   "size": "s",
+   "wdh": [
+    0.302,
+    0.302,
+    0.296
+   ],
+   "tris": 784,
+   "tpu": 2286,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 39016,
+   "vtx": 1024,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0476,
+   "thick": 0.062,
+   "avgTri": 0.00073,
+   "anglePct": 91,
+   "pieces": 8,
+   "vpt": 1.31,
+   "cells": [
+    "15,3",
+    "8,0"
+   ],
+   "colors": [
+    "#7a8491",
+    "#873a27"
+   ],
+   "tags": [
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "pickup-tank",
+   "hash": "3962870187",
+   "kind": "obj-container-pot-jar",
+   "size": "s",
+   "wdh": [
+    0.14,
+    0.14,
+    0.185
+   ],
+   "tris": 654,
+   "tpu": 1907,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 35020,
+   "vtx": 924,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.2469,
+   "avgTri": 0.00017,
+   "anglePct": 56,
+   "pieces": 7,
+   "vpt": 1.41,
+   "cells": [
+    "15,3",
+    "6,0",
+    "3,1"
+   ],
+   "colors": [
+    "#66852a",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "pickup",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.96
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "pipe",
+   "hash": "7232c4e4c4",
+   "kind": "str-fixture-utility-pipe",
+   "size": "m",
+   "wdh": [
+    0.87,
+    0.198,
+    0.076
+   ],
+   "tris": 230,
+   "tpu": 671,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11596,
+   "vtx": 272,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2107,
+   "avgTri": 0.00111,
+   "anglePct": 2,
+   "pieces": 1,
+   "vpt": 1.18,
+   "cells": [
+    "6,0"
+   ],
+   "colors": [
+    "#f1a63b"
+   ],
+   "tags": [
+    "plastic",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.0815,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 3.51,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "8.2% of view 225/20 over 0.5%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "platform-b",
+   "hash": "94266e149b",
+   "kind": "str-access-platform",
+   "size": "l",
+   "wdh": [
+    2.239,
+    1.142,
+    2.586
+   ],
+   "tris": 11434,
+   "tpu": 1729,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 562960,
+   "vtx": 13970,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0277,
+   "thick": 0.1035,
+   "avgTri": 0.00184,
+   "anglePct": 77,
+   "pieces": 166,
+   "vpt": 1.22,
+   "cells": [
+    "15,3",
+    "6,1",
+    "6,0",
+    "4,2",
+    "8,0"
+   ],
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/platform",
+   "thickRel": 1.44
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "platform-c",
+   "hash": "3012854ef7",
+   "kind": "str-access-platform",
+   "size": "l",
+   "wdh": [
+    1.88,
+    1.648,
+    1.578
+   ],
+   "tris": 12396,
+   "tpu": 2535,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 625628,
+   "vtx": 15552,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0315,
+   "thick": 0.133,
+   "avgTri": 0.00221,
+   "anglePct": 81,
+   "pieces": 208,
+   "vpt": 1.25,
+   "cells": [
+    "6,1",
+    "6,0",
+    "15,3",
+    "3,1",
+    "4,2",
+    "8,0"
+   ],
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#66852a",
+    "#7a8491",
+    "#873a27",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/platform",
+   "backface": {
+    "share": 0.001,
+    "view": "315/20",
+    "causes": {
+     "inverted": 0.43,
+     "open": 0.57
+    }
+   },
+   "thickRel": 1.85,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 57.0%, inverted 43.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "platform-d",
+   "hash": "262ab3f080",
+   "kind": "str-access-platform",
+   "size": "l",
+   "wdh": [
+    1.39,
+    0.908,
+    1.611
+   ],
+   "tris": 9777,
+   "tpu": 4808,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 444284,
+   "vtx": 11503,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0275,
+   "thick": 0.1222,
+   "avgTri": 0.00123,
+   "anglePct": 76,
+   "pieces": 105,
+   "vpt": 1.18,
+   "cells": [
+    "15,3",
+    "5,2",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/platform",
+   "thickRel": 1.7
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "platform",
+   "hash": "720c70e198",
+   "kind": "str-access-platform",
+   "size": "l",
+   "wdh": [
+    1.623,
+    0.737,
+    1.179
+   ],
+   "tris": 3932,
+   "tpu": 2788,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 176724,
+   "vtx": 4737,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0315,
+   "thick": 0.0965,
+   "avgTri": 0.00179,
+   "anglePct": 78,
+   "pieces": 48,
+   "vpt": 1.2,
+   "cells": [
+    "6,1",
+    "15,3",
+    "6,0",
+    "5,2"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/platform",
+   "thickRel": 1.34
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "rail",
+   "hash": "d145d94200",
+   "kind": "str-barrier-railing",
+   "size": "m",
+   "wdh": [
+    0.731,
+    0.029,
+    0.08
+   ],
+   "tris": 256,
+   "tpu": 746,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 12844,
+   "vtx": 306,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0264,
+   "thick": 0.3672,
+   "avgTri": 0.00051,
+   "anglePct": 0,
+   "pieces": 2,
+   "vpt": 1.2,
+   "cells": [
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "qua"
+   ],
+   "thickRel": 3.45
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "robot-flying-gun",
+   "hash": "a0e29cb432",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.906,
+    0.49,
+    0.278
+   ],
+   "tris": 4634,
+   "tpu": 13510,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 219104,
+   "vtx": 5929,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0269,
+   "thick": 0.1035,
+   "avgTri": 0.00013,
+   "anglePct": 35,
+   "pieces": 41,
+   "vpt": 1.28,
+   "cells": [
+    "15,3",
+    "6,0",
+    "5,2",
+    "6,1",
+    "8,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/robot-flying",
+   "thickRel": 0.81
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "robot-flying",
+   "hash": "b2f099a4d4",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.906,
+    0.192,
+    0.257
+   ],
+   "tris": 4632,
+   "tpu": 13504,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 214408,
+   "vtx": 5783,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0308,
+   "thick": 0.2055,
+   "avgTri": 0.0001,
+   "anglePct": 19,
+   "pieces": 33,
+   "vpt": 1.25,
+   "cells": [
+    "15,3",
+    "6,0",
+    "5,2",
+    "6,1",
+    "8,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/robot-flying",
+   "thickRel": 1.61
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "robot-large-gun",
+   "hash": "5512e969bd",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.81,
+    0.558,
+    0.716
+   ],
+   "tris": 6866,
+   "tpu": 19570,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 320508,
+   "vtx": 8680,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0271,
+   "thick": 0.1413,
+   "avgTri": 0.00057,
+   "anglePct": 49,
+   "pieces": 56,
+   "vpt": 1.26,
+   "cells": [
+    "5,2",
+    "15,3",
+    "6,0",
+    "8,0",
+    "3,1",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#66852a",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/robot-large",
+   "thickRel": 1.11
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "robot-large",
+   "hash": "1dcf77fab6",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.81,
+    0.437,
+    0.542
+   ],
+   "tris": 4232,
+   "tpu": 12338,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 180936,
+   "vtx": 4812,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0275,
+   "thick": 0.209,
+   "avgTri": 0.00025,
+   "anglePct": 3,
+   "pieces": 22,
+   "vpt": 1.14,
+   "cells": [
+    "5,2",
+    "15,3",
+    "6,0",
+    "8,0",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/robot-large",
+   "thickRel": 1.64
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "robot-legs-gun",
+   "hash": "178c9c1cb1",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.698,
+    0.481,
+    0.513
+   ],
+   "tris": 4678,
+   "tpu": 13638,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 211692,
+   "vtx": 5690,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.027,
+   "thick": 0.1221,
+   "avgTri": 0.0002,
+   "anglePct": 35,
+   "pieces": 29,
+   "vpt": 1.22,
+   "cells": [
+    "15,3",
+    "6,0",
+    "5,2",
+    "6,1",
+    "8,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/robot-legs",
+   "thickRel": 0.96
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "robot-legs",
+   "hash": "d5844e58eb",
+   "kind": "char",
+   "size": "m",
+   "wdh": [
+    0.698,
+    0.249,
+    0.383
+   ],
+   "tris": 4356,
+   "tpu": 12700,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 195188,
+   "vtx": 5235,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.027,
+   "thick": 0.1713,
+   "avgTri": 0.00013,
+   "anglePct": 6,
+   "pieces": 21,
+   "vpt": 1.2,
+   "cells": [
+    "15,3",
+    "6,0",
+    "5,2",
+    "6,1",
+    "8,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#873a27",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/robot-legs",
+   "thickRel": 1.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.383 under min 0.45 (char)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "signs",
+   "hash": "76e1d8671c",
+   "kind": "str-fixture-marker-sign-lettering",
+   "size": "l",
+   "wdh": [
+    3.58,
+    1.237,
+    2.449
+   ],
+   "tris": 1418,
+   "tpu": 131,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 73972,
+   "vtx": 1998,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "minTube": 0.0208,
+   "thick": 0.0502,
+   "avgTri": 0.01052,
+   "anglePct": 74,
+   "pieces": 26,
+   "vpt": 1.41,
+   "cells": [
+    "4,2",
+    "15,3",
+    "8,0",
+    "3,1",
+    "6,1",
+    "6,0"
+   ],
+   "colors": [
+    "#1564a4",
+    "#3a3e4b",
+    "#66852a",
+    "#7a8491",
+    "#873a27",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "mounted",
+    "plastic",
+    "plural",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.0038,
+    "view": "90/20",
+    "causes": {
+     "other": 0.99,
+     "inverted": 0.01
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/20 over 0.1%: other 99.0%, inverted 1.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "streetlight-double",
+   "hash": "c627f3e523",
+   "kind": "str-fixture-light-street",
+   "size": "m",
+   "wdh": [
+    0.892,
+    0.784,
+    1.274
+   ],
+   "tris": 664,
+   "tpu": 745,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 30184,
+   "vtx": 770,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.0887,
+   "thick": 0.0636,
+   "avgTri": 0.00126,
+   "anglePct": 14,
+   "pieces": 9,
+   "vpt": 1.16,
+   "cells": [
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "special-emissive"
+   ],
+   "variant": "quat-cyberpunk/streetlight",
+   "thickRel": 0.69
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "streetlight",
+   "hash": "e2034933b1",
+   "kind": "str-fixture-light-street",
+   "size": "m",
+   "wdh": [
+    0.142,
+    0.502,
+    1.325
+   ],
+   "tris": 526,
+   "tpu": 810,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22916,
+   "vtx": 570,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.0902,
+   "thick": 0.1203,
+   "avgTri": 0.00101,
+   "anglePct": 14,
+   "pieces": 5,
+   "vpt": 1.08,
+   "cells": [
+    "15,3",
+    "6,0"
+   ],
+   "colors": [
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "special-emissive"
+   ],
+   "variant": "quat-cyberpunk/streetlight",
+   "thickRel": 1.3
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "support-short",
+   "hash": "b1ef9dff74",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.444,
+    0.046,
+    0.876
+   ],
+   "tris": 288,
+   "tpu": 671,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 14240,
+   "vtx": 344,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "minTube": 0.028,
+   "thick": 0.0856,
+   "avgTri": 0.00188,
+   "anglePct": 79,
+   "pieces": 5,
+   "vpt": 1.19,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/support",
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.34 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "support",
+   "hash": "8caa0a8ea9",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.358,
+    0.036,
+    1.113
+   ],
+   "tris": 524,
+   "tpu": 961,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 23592,
+   "vtx": 592,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0281,
+   "thick": 0.1043,
+   "avgTri": 0.00132,
+   "anglePct": 84,
+   "pieces": 6,
+   "vpt": 1.13,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/support",
+   "thickRel": 0.42,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.42 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "tank",
+   "hash": "9e887c540a",
+   "kind": "obj-container-cylinder-tank",
+   "size": "m",
+   "wdh": [
+    0.398,
+    0.433,
+    0.582
+   ],
+   "tris": 1392,
+   "tpu": 4058,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 64148,
+   "vtx": 1696,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1413,
+   "avgTri": 0.00075,
+   "anglePct": 20,
+   "pieces": 11,
+   "vpt": 1.22,
+   "cells": [
+    "15,3",
+    "6,0",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.0847,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.51,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "8.5% of view 180/20 over 0.5%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "teleporter",
+   "hash": "db4e46dae0",
+   "kind": "obj-equipment-tool-mechanism-button",
+   "size": "m",
+   "wdh": [
+    0.811,
+    0.78,
+    0.163
+   ],
+   "tris": 1136,
+   "tpu": 2565,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 50716,
+   "vtx": 1324,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0698,
+   "avgTri": 0.0018,
+   "anglePct": 43,
+   "pieces": 17,
+   "vpt": 1.17,
+   "cells": [
+    "6,1",
+    "6,0",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.59
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "turret-cannon",
+   "hash": "7bef07c527",
+   "kind": "obj-equipment-weapon-siege-cannon",
+   "size": "m",
+   "wdh": [
+    0.811,
+    0.78,
+    0.453
+   ],
+   "tris": 1318,
+   "tpu": 2976,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 60672,
+   "vtx": 1601,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0554,
+   "thick": 0.0845,
+   "avgTri": 0.00228,
+   "anglePct": 61,
+   "pieces": 25,
+   "vpt": 1.21,
+   "cells": [
+    "6,1",
+    "6,0",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/turret-gun",
+   "thickRel": 0.57
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "turret-gun-double",
+   "hash": "f078964ee7",
+   "kind": "obj-equipment-weapon-siege-cannon",
+   "size": "m",
+   "wdh": [
+    0.811,
+    0.815,
+    0.411
+   ],
+   "tris": 1504,
+   "tpu": 3251,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 72428,
+   "vtx": 1933,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0315,
+   "thick": 0.0815,
+   "avgTri": 0.00213,
+   "anglePct": 60,
+   "pieces": 33,
+   "vpt": 1.29,
+   "cells": [
+    "6,1",
+    "6,0",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/turret-gun",
+   "thickRel": 0.55
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "turret-gun",
+   "hash": "8ae8af65ed",
+   "kind": "obj-equipment-weapon-siege-cannon",
+   "size": "m",
+   "wdh": [
+    0.811,
+    0.815,
+    0.411
+   ],
+   "tris": 1182,
+   "tpu": 2555,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 55844,
+   "vtx": 1476,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0315,
+   "thick": 0.0795,
+   "avgTri": 0.00216,
+   "anglePct": 55,
+   "pieces": 24,
+   "vpt": 1.25,
+   "cells": [
+    "6,1",
+    "6,0",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/turret-gun",
+   "thickRel": 0.54
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "tv-b",
+   "hash": "26f0422b12",
+   "kind": "obj-device-electronics-screen-tv",
+   "size": "m",
+   "wdh": [
+    0.632,
+    0.226,
+    0.72
+   ],
+   "tris": 312,
+   "tpu": 884,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 18396,
+   "vtx": 470,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "minTube": 0.0237,
+   "thick": 0.1016,
+   "avgTri": 0.00201,
+   "anglePct": 88,
+   "pieces": 14,
+   "vpt": 1.51,
+   "cells": [
+    "15,3",
+    "5,2"
+   ],
+   "colors": [
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-screen",
+    "metal-steel",
+    "mounted",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/tv",
+   "thickRel": 0.78
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "tv-tower",
+   "hash": "644c69f682",
+   "kind": "obj-device-electronics-screen-tv",
+   "size": "m",
+   "wdh": [
+    0.391,
+    0.34,
+    1.248
+   ],
+   "tris": 564,
+   "tpu": 922,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 28612,
+   "vtx": 742,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "minTube": 0.0263,
+   "thick": 0.2093,
+   "avgTri": 0.00206,
+   "anglePct": 70,
+   "pieces": 11,
+   "vpt": 1.32,
+   "cells": [
+    "15,3",
+    "6,1",
+    "5,2"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-screen",
+    "metal-iron-dark",
+    "metal-steel",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.004,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.61,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.248 over max 1.1 (obj-device-electronics-screen-tv)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-cyberpunk",
+   "name": "tv",
+   "hash": "21eb97b2db",
+   "kind": "obj-device-electronics-screen-tv",
+   "size": "m",
+   "wdh": [
+    0.43,
+    0.191,
+    0.638
+   ],
+   "tris": 346,
+   "tpu": 1009,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 20764,
+   "vtx": 538,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.011,
+   "minTube": 0.0203,
+   "thick": 0.126,
+   "avgTri": 0.00138,
+   "anglePct": 90,
+   "pieces": 16,
+   "vpt": 1.55,
+   "cells": [
+    "15,3",
+    "5,2"
+   ],
+   "colors": [
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-screen",
+    "metal-steel",
+    "mounted",
+    "qua"
+   ],
+   "variant": "quat-cyberpunk/tv",
+   "thickRel": 0.97
   },
   {
    "kit": "quat-dun-1",
@@ -320755,7 +322977,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "quat-essentials",
@@ -320796,7 +323018,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate",
-   "thickRel": 1.23,
+   "thickRel": 1.27,
    "lint": [
     {
      "level": "warning",
@@ -320851,7 +323073,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate-tarp",
-   "thickRel": 1.11,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -320906,7 +323128,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate-tarp",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "quat-essentials",
@@ -320946,7 +323168,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate",
-   "thickRel": 0.94,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "warning",
@@ -321126,7 +323348,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.98,
+   "thickRel": 1.94,
    "lint": [
     {
      "level": "warning",
@@ -321549,7 +323771,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.61,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -322127,7 +324349,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.73
   },
   {
    "kit": "quat-farms",
@@ -329421,7 +331643,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.36
   },
   {
    "kit": "quat-interior",
@@ -329462,7 +331684,7 @@
     "qua"
    ],
    "variant": "quat-interior/door-panelled",
-   "thickRel": 1.27
+   "thickRel": 1.3
   },
   {
    "kit": "quat-interior",
@@ -329503,7 +331725,7 @@
     "qua"
    ],
    "variant": "quat-interior/door-panelled",
-   "thickRel": 1.2
+   "thickRel": 1.24
   },
   {
    "kit": "quat-interior",
@@ -332178,7 +334400,7 @@
     "wood-mid"
    ],
    "variant": "quat-medieval/door-round",
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "quat-medieval",
@@ -332230,7 +334452,7 @@
     "wood-mid"
    ],
    "variant": "quat-medieval/door-round",
-   "thickRel": 1.07
+   "thickRel": 1.1
   },
   {
    "kit": "quat-medieval",
@@ -333457,7 +335679,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.25
   },
   {
    "kit": "quat-megakit",
@@ -333880,7 +336102,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.65,
+   "thickRel": 1.57,
    "lint": [
     {
      "level": "warning",
@@ -333926,7 +336148,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.84
   },
   {
    "kit": "quat-megakit",
@@ -333966,7 +336188,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "quat-megakit",
@@ -334009,7 +336231,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-metal",
-   "thickRel": 0.76
+   "thickRel": 0.78
   },
   {
    "kit": "quat-megakit",
@@ -334276,7 +336498,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-metal",
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "quat-megakit",
@@ -334319,12 +336541,12 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.39 wants min 0.5"
     }
    ]
   },
@@ -334513,7 +336735,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.05
+   "thickRel": 0.83
   },
   {
    "kit": "quat-megakit",
@@ -334725,7 +336947,7 @@
     "space"
    ],
    "variant": "quat-megakit/platform-ramp-4",
-   "thickRel": 1.3
+   "thickRel": 1.28
   },
   {
    "kit": "quat-megakit",
@@ -334772,7 +336994,7 @@
     "space"
    ],
    "variant": "quat-megakit/platform-ramp-4",
-   "thickRel": 1.3
+   "thickRel": 1.29
   },
   {
    "kit": "quat-megakit",
@@ -334816,7 +337038,7 @@
     "space"
    ],
    "variant": "quat-megakit/platform-ramp-4",
-   "thickRel": 2.4
+   "thickRel": 2.38
   },
   {
    "kit": "quat-megakit",
@@ -335244,7 +337466,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "quat-megakit",
@@ -335383,7 +337605,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.55
   },
   {
    "kit": "quat-megakit",
@@ -335425,12 +337647,12 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.44 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -335475,7 +337697,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.4
   },
   {
    "kit": "quat-nature",
@@ -339401,7 +341623,7 @@
     "sailing",
     "wood-dark"
    ],
-   "thickRel": 1.23
+   "thickRel": 0.88
   },
   {
    "kit": "quat-pirate",
@@ -339441,7 +341663,7 @@
     "qua",
     "sailing"
    ],
-   "thickRel": 2.43
+   "thickRel": 2.96
   },
   {
    "kit": "quat-pirate",
@@ -340517,7 +342739,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 0.77,
+   "thickRel": 0.75,
    "mark": [
     "centered"
    ]
@@ -340593,7 +342815,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 0.69,
+   "thickRel": 0.67,
    "mark": [
     "centered"
    ]
@@ -340666,7 +342888,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 0.73,
+   "thickRel": 0.72,
    "mark": [
     "centered"
    ]
@@ -341360,7 +343582,7 @@
     "Yes"
    ],
    "variant": "quat-pirate/skeleton",
-   "thickRel": 0.65,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "warning",
@@ -341445,7 +343667,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.69,
+   "thickRel": 0.67,
    "lint": [
     {
      "level": "warning",
@@ -346012,7 +348234,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.52
   },
   {
    "kit": "quat-rpg",
@@ -348003,7 +350225,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "quat-rpg",
@@ -349158,7 +351380,7 @@
      "open": 0.01
     }
    },
-   "thickRel": 0.81,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -349226,7 +351448,7 @@
      "open": 0
     }
    },
-   "thickRel": 0.6,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "warning",
@@ -349328,7 +351550,7 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/barrier",
-   "thickRel": 0.61
+   "thickRel": 0.6
   },
   {
    "kit": "quat-shoot",
@@ -352396,7 +354618,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.96
   },
   {
    "kit": "quat-space",
@@ -352574,7 +354796,7 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.96
   },
   {
    "kit": "quat-space",
@@ -352616,12 +354838,12 @@
     "space",
     "tba"
    ],
-   "thickRel": 0.43,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -355009,7 +357231,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.24
   },
   {
    "kit": "quat-survival",
@@ -355436,7 +357658,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "quat-survival",
@@ -357536,12 +359758,12 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -358010,7 +360232,7 @@
     "textile-cloth-light"
    ],
    "specialBand": "13,3",
-   "thickRel": 0.94
+   "thickRel": 0.92
   },
   {
    "kit": "quat-sushi",
@@ -358138,7 +360360,7 @@
     "textile-cloth-light"
    ],
    "specialBand": "5,2",
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "quat-sushi",
@@ -365733,7 +367955,7 @@
     "textile-rope"
    ],
    "variant": "rgp-asia/lantern-paper-a",
-   "thickRel": 1.06,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "error",
@@ -365784,7 +368006,7 @@
     "textile-rope"
    ],
    "variant": "rgp-asia/lantern-paper-a",
-   "thickRel": 1.37
+   "thickRel": 1.33
   },
   {
    "kit": "rgp-asia",
@@ -367125,7 +369347,7 @@
     "rgp",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.42
   },
   {
    "kit": "rgp-asia",
@@ -370344,7 +372566,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "rgp-medieval",
@@ -370390,7 +372612,7 @@
     "stone-masonry-mid",
     "wood-light"
    ],
-   "thickRel": 0.67,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -370444,7 +372666,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.53
+   "thickRel": 0.55
   },
   {
    "kit": "rgp-medieval",
@@ -370490,7 +372712,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.64
   },
   {
    "kit": "rgp-medieval",
@@ -371428,7 +373650,7 @@
     "leather",
     "rgp"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "rgp-medieval",
@@ -383211,7 +385433,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.25
   },
   {
    "kit": "sq-bank",
@@ -383856,7 +386078,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.53
+   "thickRel": 1.52
   },
   {
    "kit": "sq-bowling",
@@ -385358,7 +387580,7 @@
     "metal-gold",
     "sq"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.65
   },
   {
    "kit": "sq-casino",
@@ -386659,7 +388881,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "sq-gym",
@@ -387456,7 +389678,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.81,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "warning",
@@ -387971,7 +390193,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 2.37
+   "thickRel": 2.36
   },
   {
    "kit": "sq-laundry",
@@ -388926,7 +391148,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 4.88,
+   "thickRel": 4.81,
    "lint": [
     {
      "level": "error",
@@ -397297,7 +399519,7 @@
     "rubber",
     "sty"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "styloo-furniture",
@@ -402555,7 +404777,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.73
   },
   {
    "kit": "styloo-school",
@@ -403003,7 +405225,7 @@
     "rubber",
     "sty"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "styloo-school",
@@ -403203,7 +405425,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.11
   },
   {
    "kit": "styloo-school",
@@ -403746,7 +405968,7 @@
     "sty"
    ],
    "variant": "styloo-school/monitor",
-   "thickRel": 2.09
+   "thickRel": 2.08
   },
   {
    "kit": "styloo-school",
@@ -404205,7 +406427,7 @@
     "sty"
    ],
    "variant": "styloo-school/pc-tower",
-   "thickRel": 1.03
+   "thickRel": 0.99
   },
   {
    "kit": "styloo-school",
@@ -404247,7 +406469,7 @@
     "sty"
    ],
    "variant": "styloo-school/pc-tower",
-   "thickRel": 1.48
+   "thickRel": 1.43
   },
   {
    "kit": "styloo-school",
@@ -405066,7 +407288,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.23
   },
   {
    "kit": "styloo-school",
@@ -405196,7 +407418,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.14,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "error",
@@ -406203,7 +408425,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.82
+   "thickRel": 1.87
   },
   {
    "kit": "styloo-school",
@@ -406244,7 +408466,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-school",
@@ -408900,7 +411122,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.03
   },
   {
    "kit": "taalei-kit",
@@ -411099,7 +413321,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.5
   },
   {
    "kit": "taalei-kit",
@@ -411143,7 +413365,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.27
   },
   {
    "kit": "taalei-kit",
@@ -414276,7 +416498,7 @@
     "metal-iron-mid",
     "special-emissive"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "western",
@@ -417880,7 +420102,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pot-large",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "wizp-asia",
@@ -417921,7 +420143,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pot-large",
-   "thickRel": 1.26
+   "thickRel": 1.24
   },
   {
    "kit": "wizp-asia",
@@ -418793,7 +421015,7 @@
     "stone-masonry-mid",
     "wizp"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.17
   },
   {
    "kit": "wizp-asia",
@@ -419017,7 +421239,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "wizp-asia",
@@ -419058,7 +421280,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "wizp-asia",
@@ -421104,7 +423326,7 @@
     "special-emissive",
     "wizp"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "wizp-grave",
@@ -427000,7 +429222,7 @@
     "wizp"
    ],
    "variant": "wizp-village/pot-stone-a",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "wizp-village",
@@ -427040,7 +429262,7 @@
     "wizp"
    ],
    "variant": "wizp-village/pot-stone-a",
-   "thickRel": 1.26
+   "thickRel": 1.24
   },
   {
    "kit": "wizp-village",
