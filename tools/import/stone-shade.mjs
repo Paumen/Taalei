@@ -40,6 +40,15 @@ height, both by the whole model.
   --split <0|1>    0      1: a hard edge at the cut line instead of a fade
   --flat <f>       0.97   faces this close in direction share one shadow tone
   --budget <f>     0.08   most tris cut lines may add, as a share of the model's
+  --add <0|1>      0      1: keep each vertex's own v and add the shading on top,
+                          so --base and --keep do nothing
+  --shift <f>      0      with --add, added to every v of the band
+  --jitter <f>     0      each piece a fixed random tone within +-f
+  --fjitter <f>    0      each flat face region a fixed random tone within +-f
+  --seed <n>       1
+  --side <f>       0      faces turned toward --sidedir lighter, away darker
+  --sidedir <x,z>  -0.4,1 horizontal light direction for --side
+  --holddark <f>   1      with --add, a vertex whose own v is at least this only gets darker
   --dry`;
 
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
@@ -436,6 +445,10 @@ function shade(file, o) {
     if (x > hi - k) return hi - k * Math.exp((hi - k - x) / k);
     return x;
   };
+  const rnd = (k) => { let h = 2166136261 ^ o.seed; for (const ch of String(k)) h = Math.imul(h ^ ch.charCodeAt(0), 16777619); return ((h >>> 0) / 4294967295) * 2 - 1; };
+  const sd = (() => { const [x, z] = String(o.sidedir).split(',').map(Number); const l = Math.hypot(x, z) || 1; return [x / l, z / l]; })();
+  let rid = 0;
+  for (const g of region.values()) g.id = rid++;
   let moved = 0;
   for (const v of verts) {
     const pc = pieces.get(v.piece);
@@ -455,6 +468,10 @@ function shade(file, o) {
       - o.up * Math.max(0, v.n[1]) * (1 - recess * (1 - sky)) + o.down * Math.max(0, -v.n[1])
       + o.shadow * Math.max(recess * (1 - own), overhang) + o.keep * dev;
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
+    if (o.add) val = v.was + val - o.base - o.keep * dev + o.shift;
+    val -= o.side * (v.n[0] * sd[0] + v.n[2] * sd[1]);
+    if (o.add && v.was >= o.holddark) val = Math.max(val, v.was);
+    val += o.jitter * rnd(`p${v.piece}`) + (v.region ? o.fjitter * rnd(`r${v.region.id}`) : 0);
     val = soft(val) + pc.trim + (v.region ? v.region.step : proud ? -o.trim : 0);
     val = Math.max(0.04, Math.min(0.94, val));
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
@@ -471,14 +488,14 @@ function shade(file, o) {
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, keep: 1, split: 0, dry: false };
+const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, keep: 1, split: 0, add: 0, shift: 0, jitter: 0, fjitter: 0, seed: 1, side: 0, sidedir: '-0.4,1', holddark: 1, dry: false };
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') { opts.dry = true; continue; }
   if (!a.startsWith('--')) continue;
   const k = a.slice(2);
   if (!(k in opts)) throw new Error(`unknown ${a}`);
-  opts[k] = k === 'cell' ? args[i + 1] : Number(args[i + 1]);
+  opts[k] = k === 'cell' || k === 'sidedir' ? args[i + 1] : Number(args[i + 1]);
   args[i + 1] = '';
   i++;
 }
