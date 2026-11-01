@@ -89421,6 +89421,83 @@
   ]
  },
  {
+  "slug": "str-building-religious",
+  "name": "Structure › Building › Religious",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "mali",
+    "model": "temple",
+    "hash": "3316d67258",
+    "wdh": [
+     3.9,
+     3.3,
+     3.3
+    ],
+    "tags": [
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "wonder",
+    "hash": "ec46a16ddb",
+    "wdh": [
+     6.05,
+     5.6,
+     2.45
+    ],
+    "tags": [
+     "earth-sand",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "stepped-pyramid",
+    "hash": "0cdae9911a",
+    "wdh": [
+     9.2,
+     9.2,
+     6.5
+    ],
+    "tags": [
+     "gemstone",
+     "metal-gold",
+     "stone-masonry-dark",
+     "stone-masonry-light",
+     "storeys-6"
+    ],
+    "colors": [
+     "#21552a",
+     "#57493d",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-building-religious-crypt",
   "name": "Structure › Building › Religious › Crypt",
   "category": "str-gen",
@@ -89501,84 +89578,6 @@
     "colors": [
      "#57493d",
      "#88735f"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-building-work-agricultural-coop",
-  "name": "Structure › Building › Work › Agricultural › Coop",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "hutch",
-    "hash": "f62d9873df",
-    "wdh": [
-     0.95,
-     1,
-     0.95
-    ],
-    "tags": [
-     "storeys-0-5",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "kennel-01",
-    "hash": "7a0b5dc9c4",
-    "wdh": [
-     0.5,
-     0.65,
-     0.6
-    ],
-    "tags": [
-     "ceramic-dark",
-     "m3",
-     "storeys-0-5",
-     "wood-mid"
-    ],
-    "colors": [
-     "#873a27",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "quat-farms",
-    "collection": "quat-medieval",
-    "model": "chicken-coop",
-    "hash": "417b321c99",
-    "wdh": [
-     0.85,
-     0.75,
-     0.55
-    ],
-    "tags": [
-     "ceramic-dark",
-     "qua",
-     "storeys-0-5",
-     "wood-dark",
-     "wood-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#9e6d44",
-     "#ca9f6e"
     ]
    }
   ]
@@ -90162,8 +90161,8 @@
   ]
  },
  {
-  "slug": "str-building-work-agricultural",
-  "name": "Structure › Building › Work › Agricultural",
+  "slug": "str-building-work-agricultural-coop",
+  "name": "Structure › Building › Work › Agricultural › Coop",
   "category": "str-gen",
   "limits": {
    "high.max": 8,
@@ -90173,106 +90172,90 @@
   },
   "items": [
    {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "farm-2-a",
-    "hash": "7b3780dd86",
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "hutch",
+    "hash": "f62d9873df",
     "wdh": [
-     3.65,
-     2.2,
-     2.15
+     0.95,
+     1,
+     0.95
+    ],
+    "tags": [
+     "storeys-0-5",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "kennel-01",
+    "hash": "7a0b5dc9c4",
+    "wdh": [
+     0.5,
+     0.65,
+     0.6
     ],
     "tags": [
      "ceramic-dark",
-     "earth-soil",
-     "qua",
-     "stone-masonry-mid",
+     "m3",
+     "storeys-0-5",
+     "wood-mid"
+    ],
+    "colors": [
+     "#873a27",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "corral",
+    "hash": "f60af2e0ca",
+    "wdh": [
+     1.85,
+     3.05,
+     1.25
+    ],
+    "tags": [
+     "earth-sand",
      "storeys-2",
      "wood-dark",
-     "wood-light"
+     "wood-mid"
     ],
     "colors": [
-     "#57493d",
+     "#59534e",
      "#713e14",
-     "#873a27",
      "#88735f",
+     "#9e6d44",
      "#ca9f6e"
     ]
    },
    {
-    "slug": "quat-town",
+    "slug": "quat-farms",
     "collection": "quat-medieval",
-    "model": "farm-2-b",
-    "hash": "41f78e4902",
+    "model": "chicken-coop",
+    "hash": "417b321c99",
     "wdh": [
-     3.65,
-     2.9,
-     2.6
+     0.85,
+     0.75,
+     0.55
     ],
     "tags": [
      "ceramic-dark",
-     "earth-soil",
      "qua",
-     "stone-masonry-mid",
-     "storeys-2",
+     "storeys-0-5",
      "wood-dark",
-     "wood-light"
+     "wood-light",
+     "wood-mid"
     ],
     "colors": [
-     "#57493d",
      "#713e14",
      "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "farm-2-c",
-    "hash": "ea35490ed0",
-    "wdh": [
-     3.8,
-     3.95,
-     3.65
-    ],
-    "tags": [
-     "ceramic-dark",
-     "earth-soil",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "shelter",
-    "hash": "f867f94ea4",
-    "wdh": [
-     2.65,
-     1.45,
-     1.8
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "rgp",
-     "storeys-1",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#713e14",
+     "#9e6d44",
      "#ca9f6e"
     ]
    }
@@ -91146,6 +91129,149 @@
      "#873a27",
      "#b5d5e3",
      "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-work-agricultural",
+  "name": "Structure › Building › Work › Agricultural",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "mali",
+    "model": "farmstead",
+    "hash": "f8f03d6256",
+    "wdh": [
+     3.65,
+     2.95,
+     2.55
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "farm-2-a",
+    "hash": "7b3780dd86",
+    "wdh": [
+     3.65,
+     2.2,
+     2.15
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-soil",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "farm-2-b",
+    "hash": "41f78e4902",
+    "wdh": [
+     3.65,
+     2.9,
+     2.6
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-soil",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "farm-2-c",
+    "hash": "ea35490ed0",
+    "wdh": [
+     3.8,
+     3.95,
+     3.65
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-soil",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "shelter",
+    "hash": "f867f94ea4",
+    "wdh": [
+     2.65,
+     1.45,
+     1.8
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "rgp",
+     "storeys-1",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#ca9f6e"
     ]
    }
   ]
@@ -96872,250 +96998,6 @@
   ]
  },
  {
-  "slug": "str-building-tower-watch",
-  "name": "Structure › Building › Tower › Watch",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "watchtower",
-    "hash": "53b080c065",
-    "wdh": [
-     3.4,
-     3.7,
-     4.55
-    ],
-    "tags": [
-     "storeys-2",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "watchtower",
-    "hash": "0e06d71765",
-    "wdh": [
-     1.85,
-     3.25,
-     3.8
-    ],
-    "tags": [
-     "earth-soil",
-     "kay",
-     "stone-masonry-mid",
-     "storeys-4",
-     "wood-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "watchtower-1-a",
-    "hash": "90224e9ae0",
-    "wdh": [
-     0.95,
-     1.05,
-     1.7
-    ],
-    "tags": [
-     "qua",
-     "storeys-2",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "watchtower-1-b",
-    "hash": "079704c47c",
-    "wdh": [
-     1,
-     1.05,
-     2.95
-    ],
-    "tags": [
-     "qua",
-     "storeys-3",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "watchtower-1-c",
-    "hash": "5927ebaaf9",
-    "wdh": [
-     1.45,
-     1.35,
-     3.25
-    ],
-    "tags": [
-     "qua",
-     "storeys-3",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "watchtower-2-a",
-    "hash": "f58c7c1619",
-    "wdh": [
-     1.7,
-     1.45,
-     2.4
-    ],
-    "tags": [
-     "ceramic-dark",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "watchtower-2-b",
-    "hash": "be470d607a",
-    "wdh": [
-     1.7,
-     1.25,
-     2.7
-    ],
-    "tags": [
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "textile-cloth-dark",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "watchtower-2-c",
-    "hash": "8eefb20539",
-    "wdh": [
-     1.65,
-     1.8,
-     2.9
-    ],
-    "tags": [
-     "leaf-light",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "textile-cloth-dark",
-     "wood-dark"
-    ],
-    "colors": [
-     "#66852a",
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "watchtower-hut",
-    "hash": "55c34531c5",
-    "wdh": [
-     1.8,
-     1.75,
-     3.35
-    ],
-    "tags": [
-     "bark",
-     "rgp",
-     "special-organic",
-     "storeys-2",
-     "textile-rope",
-     "wood-light"
-    ],
-    "colors": [
-     "#472715",
-     "#907a66",
-     "#9e6d44",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "watchtower",
-    "hash": "a0242b25ca",
-    "wdh": [
-     2.65,
-     2,
-     2.9
-    ],
-    "tags": [
-     "bark",
-     "rgp",
-     "storeys-1-5",
-     "textile-rope",
-     "wood-light"
-    ],
-    "colors": [
-     "#472715",
-     "#907a66",
-     "#ca9f6e"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-fixture-fire-brazier",
   "name": "Structure › Fixture › Fire › Brazier",
   "category": "str-gen",
@@ -97993,270 +97875,285 @@
   ]
  },
  {
-  "slug": "str-access-platform-dock",
-  "name": "Structure › Access › Platform › Dock",
+  "slug": "str-building-tower-watch",
+  "name": "Structure › Building › Tower › Watch",
   "category": "str-gen",
-  "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 1.15,
-   "longest.max": 4,
-   "tpu.max": 5000
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
   },
   "items": [
    {
     "slug": "emace-village",
     "collection": "emace",
-    "model": "pier-bench",
-    "hash": "3e12e4a1e8",
+    "model": "watchtower",
+    "hash": "53b080c065",
     "wdh": [
-     1.7,
-     1.3,
-     0.75
+     3.4,
+     3.7,
+     4.55
     ],
     "tags": [
+     "storeys-2",
      "wood-dark",
      "wood-mid"
     ],
     "colors": [
-     "#713e14"
-    ]
-   },
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "pier",
-    "hash": "50c0aeead6",
-    "wdh": [
-     2,
-     0.8,
-     0.65
-    ],
-    "tags": [
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14"
-    ]
-   },
-   {
-    "slug": "quat-fishing",
-    "collection": "quat-sea",
-    "model": "dock-long-bare",
-    "hash": "73932a3474",
-    "wdh": [
-     1,
-     2.4,
-     0.6
-    ],
-    "tags": [
-     "qua",
-     "sailing",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
      "#713e14",
-     "#ca9f6e"
+     "#9e6d44"
     ]
    },
    {
-    "slug": "quat-fishing",
-    "collection": "quat-sea",
-    "model": "dock-long",
-    "hash": "bd553bb7d8",
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "watchtower",
+    "hash": "0e06d71765",
     "wdh": [
-     1,
-     2.4,
-     0.85
+     1.85,
+     3.25,
+     3.8
     ],
     "tags": [
-     "qua",
-     "sailing",
-     "textile-rope",
-     "wood-dark",
-     "wood-light"
+     "earth-soil",
+     "kay",
+     "stone-masonry-mid",
+     "storeys-4",
+     "wood-dark"
     ],
     "colors": [
+     "#57493d",
      "#713e14",
-     "#907a66",
-     "#ca9f6e"
+     "#88735f"
     ]
    },
    {
-    "slug": "quat-fishing",
-    "collection": "quat-sea",
-    "model": "dock-wide",
-    "hash": "f093a1825a",
+    "slug": "mali",
+    "model": "defense-tower",
+    "hash": "d1da428ed7",
     "wdh": [
-     1.6,
-     2.4,
-     0.85
+     0.9,
+     1.05,
+     3.25
     ],
     "tags": [
-     "qua",
-     "sailing",
-     "textile-rope",
-     "wood-dark",
-     "wood-light"
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-5"
     ],
     "colors": [
-     "#713e14",
-     "#907a66",
-     "#ca9f6e"
+     "#59534e",
+     "#88735f",
+     "#ca9f6e",
+     "#d8cfb7"
     ]
    },
    {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "dock-1",
-    "hash": "d63deed606",
+    "slug": "mali",
+    "model": "sentry-tower",
+    "hash": "eafa9435c3",
     "wdh": [
      1.05,
-     2.45,
-     0.95
+     1.25,
+     2.6
     ],
     "tags": [
-     "qua",
-     "wood-dark",
-     "wood-light"
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-4"
     ],
     "colors": [
-     "#713e14",
+     "#59534e",
+     "#88735f",
      "#ca9f6e"
     ]
    },
    {
     "slug": "quat-town",
     "collection": "quat-medieval",
-    "model": "port-1-a",
-    "hash": "019ed3eb9d",
+    "model": "watchtower-1-a",
+    "hash": "90224e9ae0",
+    "wdh": [
+     0.95,
+     1.05,
+     1.7
+    ],
+    "tags": [
+     "qua",
+     "storeys-2",
+     "textile-cloth-dark",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "watchtower-1-b",
+    "hash": "079704c47c",
+    "wdh": [
+     1,
+     1.05,
+     2.95
+    ],
+    "tags": [
+     "qua",
+     "storeys-3",
+     "textile-cloth-dark",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "watchtower-1-c",
+    "hash": "5927ebaaf9",
     "wdh": [
      1.45,
-     2.6,
-     1.95
+     1.35,
+     3.25
     ],
     "tags": [
      "qua",
-     "textile-cloth-light",
+     "storeys-3",
+     "textile-cloth-dark",
      "wood-dark",
      "wood-light"
     ],
     "colors": [
      "#713e14",
-     "#ca9f6e",
-     "#d8cfb7"
+     "#873a27",
+     "#ca9f6e"
     ]
    },
    {
     "slug": "quat-town",
     "collection": "quat-medieval",
-    "model": "port-1-b",
-    "hash": "24689b050f",
+    "model": "watchtower-2-a",
+    "hash": "f58c7c1619",
     "wdh": [
-     3.7,
-     3.95,
-     1.95
+     1.7,
+     1.45,
+     2.4
     ],
     "tags": [
+     "ceramic-dark",
      "qua",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-light"
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
     ],
     "colors": [
      "#713e14",
-     "#ca9f6e",
-     "#d8cfb7"
+     "#873a27",
+     "#88735f"
     ]
    },
    {
     "slug": "quat-town",
     "collection": "quat-medieval",
-    "model": "port-1-c",
-    "hash": "a1eaff822c",
+    "model": "watchtower-2-b",
+    "hash": "be470d607a",
     "wdh": [
-     3.7,
-     3.95,
-     2
+     1.7,
+     1.25,
+     2.7
     ],
     "tags": [
      "qua",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-light"
+     "stone-masonry-mid",
+     "storeys-4",
+     "textile-cloth-dark",
+     "wood-dark"
     ],
     "colors": [
      "#713e14",
-     "#ca9f6e",
-     "#d8cfb7"
+     "#873a27",
+     "#88735f"
     ]
    },
    {
-    "slug": "wizp-fish",
-    "collection": "wizp-western",
-    "model": "jetty-a",
-    "hash": "349a538510",
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "watchtower-2-c",
+    "hash": "8eefb20539",
     "wdh": [
-     1.5,
-     3.15,
-     1.4
+     1.65,
+     1.8,
+     2.9
     ],
     "tags": [
-     "sailing",
+     "leaf-light",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-4",
+     "textile-cloth-dark",
+     "wood-dark"
+    ],
+    "colors": [
+     "#66852a",
+     "#713e14",
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "watchtower-hut",
+    "hash": "55c34531c5",
+    "wdh": [
+     1.8,
+     1.75,
+     3.35
+    ],
+    "tags": [
+     "bark",
+     "rgp",
      "special-organic",
-     "wizp",
-     "wood-dark",
+     "storeys-2",
+     "textile-rope",
      "wood-light"
     ],
     "colors": [
-     "#713e14",
-     "#88735f",
+     "#472715",
+     "#907a66",
      "#9e6d44",
      "#ca9f6e"
     ]
    },
    {
-    "slug": "wizp-fish",
-    "collection": "wizp-western",
-    "model": "jetty-b",
-    "hash": "d43d6e7cfc",
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "watchtower",
+    "hash": "a0242b25ca",
     "wdh": [
-     1.55,
-     3.05,
-     1.4
+     2.65,
+     2,
+     2.9
     ],
     "tags": [
-     "sailing",
-     "special-organic",
-     "wizp",
-     "wood-dark",
+     "bark",
+     "rgp",
+     "storeys-1-5",
+     "textile-rope",
      "wood-light"
     ],
     "colors": [
-     "#713e14",
-     "#88735f",
-     "#9e6d44",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "wizp-fish",
-    "collection": "wizp-western",
-    "model": "jetty-deck",
-    "hash": "12aa76adc0",
-    "wdh": [
-     1.15,
-     3.15,
-     0.1
-    ],
-    "tags": [
-     "sailing",
-     "wizp",
-     "wood-light"
-    ],
-    "colors": [
+     "#472715",
+     "#907a66",
      "#ca9f6e"
     ]
    }
@@ -98760,6 +98657,299 @@
     ],
     "colors": [
      "#7a8491"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-access-platform-dock",
+  "name": "Structure › Access › Platform › Dock",
+  "category": "str-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 1.15,
+   "longest.max": 4,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "pier-bench",
+    "hash": "3e12e4a1e8",
+    "wdh": [
+     1.7,
+     1.3,
+     0.75
+    ],
+    "tags": [
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "pier",
+    "hash": "50c0aeead6",
+    "wdh": [
+     2,
+     0.8,
+     0.65
+    ],
+    "tags": [
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "dock",
+    "hash": "b8d193e87e",
+    "wdh": [
+     4.35,
+     2.75,
+     1.95
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-sand",
+     "stone-masonry-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "collection": "quat-sea",
+    "model": "dock-long-bare",
+    "hash": "73932a3474",
+    "wdh": [
+     1,
+     2.4,
+     0.6
+    ],
+    "tags": [
+     "qua",
+     "sailing",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "collection": "quat-sea",
+    "model": "dock-long",
+    "hash": "bd553bb7d8",
+    "wdh": [
+     1,
+     2.4,
+     0.85
+    ],
+    "tags": [
+     "qua",
+     "sailing",
+     "textile-rope",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#907a66",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-fishing",
+    "collection": "quat-sea",
+    "model": "dock-wide",
+    "hash": "f093a1825a",
+    "wdh": [
+     1.6,
+     2.4,
+     0.85
+    ],
+    "tags": [
+     "qua",
+     "sailing",
+     "textile-rope",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#907a66",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "dock-1",
+    "hash": "d63deed606",
+    "wdh": [
+     1.05,
+     2.45,
+     0.95
+    ],
+    "tags": [
+     "qua",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "port-1-a",
+    "hash": "019ed3eb9d",
+    "wdh": [
+     1.45,
+     2.6,
+     1.95
+    ],
+    "tags": [
+     "qua",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "port-1-b",
+    "hash": "24689b050f",
+    "wdh": [
+     3.7,
+     3.95,
+     1.95
+    ],
+    "tags": [
+     "qua",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "port-1-c",
+    "hash": "a1eaff822c",
+    "wdh": [
+     3.7,
+     3.95,
+     2
+    ],
+    "tags": [
+     "qua",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "wizp-fish",
+    "collection": "wizp-western",
+    "model": "jetty-a",
+    "hash": "349a538510",
+    "wdh": [
+     1.5,
+     3.15,
+     1.4
+    ],
+    "tags": [
+     "sailing",
+     "special-organic",
+     "wizp",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#88735f",
+     "#9e6d44",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "wizp-fish",
+    "collection": "wizp-western",
+    "model": "jetty-b",
+    "hash": "d43d6e7cfc",
+    "wdh": [
+     1.55,
+     3.05,
+     1.4
+    ],
+    "tags": [
+     "sailing",
+     "special-organic",
+     "wizp",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#88735f",
+     "#9e6d44",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "wizp-fish",
+    "collection": "wizp-western",
+    "model": "jetty-deck",
+    "hash": "12aa76adc0",
+    "wdh": [
+     1.15,
+     3.15,
+     0.1
+    ],
+    "tags": [
+     "sailing",
+     "wizp",
+     "wood-light"
+    ],
+    "colors": [
+     "#ca9f6e"
     ]
    }
   ]
@@ -99286,295 +99476,6 @@
     "colors": [
      "#ce7954",
      "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-barrier-wall",
-  "name": "Structure › Barrier › Wall",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "brick-wall-curve-small",
-    "hash": "5e89d46123",
-    "wdh": [
-     0.9,
-     0.9,
-     0.65
-    ],
-    "tags": [
-     "ceramic-mid",
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#88735f",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "brick-wall-curve",
-    "hash": "6dfe0c773a",
-    "wdh": [
-     0.9,
-     0.9,
-     0.65
-    ],
-    "tags": [
-     "ceramic-mid",
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#88735f",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "brick-wall-end",
-    "hash": "86c939c35a",
-    "wdh": [
-     0.9,
-     0.4,
-     0.75
-    ],
-    "tags": [
-     "ceramic-mid",
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#88735f",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "brick-wall",
-    "hash": "ac258409c5",
-    "wdh": [
-     0.9,
-     0.25,
-     0.65
-    ],
-    "tags": [
-     "ceramic-mid",
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#88735f",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "stone-wall-column",
-    "hash": "ee27e568c7",
-    "wdh": [
-     0.9,
-     0.3,
-     0.75
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "stone-wall-curve",
-    "hash": "1474e755a4",
-    "wdh": [
-     0.9,
-     0.9,
-     0.65
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "stone-wall",
-    "hash": "9b0da41d25",
-    "wdh": [
-     0.9,
-     0.2,
-     0.65
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "garden-wall-a",
-    "hash": "f89410256a",
-    "wdh": [
-     1.2,
-     0.25,
-     0.55
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "garden-wall-b",
-    "hash": "6f7fcaef22",
-    "wdh": [
-     1.2,
-     0.25,
-     0.55
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "garden-wall-c",
-    "hash": "8165c36ec7",
-    "wdh": [
-     1.2,
-     0.25,
-     0.55
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "garden-wall-d",
-    "hash": "f91bdec0a7",
-    "wdh": [
-     1.2,
-     0.25,
-     0.55
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "garden-wall-e",
-    "hash": "9ba0e088eb",
-    "wdh": [
-     1.2,
-     0.25,
-     0.4
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "wizp-village",
-    "collection": "wizp-eastern",
-    "model": "wall-stone-low",
-    "hash": "1f731b43ed",
-    "wdh": [
-     1.2,
-     0.25,
-     0.4
-    ],
-    "tags": [
-     "stone-masonry-mid",
-     "wizp"
-    ],
-    "colors": [
-     "#88735f"
     ]
    }
   ]
@@ -100140,423 +100041,308 @@
   ]
  },
  {
-  "slug": "str-building-work-industrial-workshop",
-  "name": "Structure › Building › Work › Industrial › Workshop",
+  "slug": "str-barrier-wall",
+  "name": "Structure › Barrier › Wall",
   "category": "str-gen",
   "limits": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 10000
+   "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "lumbermill",
-    "hash": "a861037d91",
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "brick-wall-curve-small",
+    "hash": "5e89d46123",
     "wdh": [
-     3.5,
-     3.1,
+     0.9,
+     0.9,
+     0.65
+    ],
+    "tags": [
+     "ceramic-mid",
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#88735f",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "brick-wall-curve",
+    "hash": "6dfe0c773a",
+    "wdh": [
+     0.9,
+     0.9,
+     0.65
+    ],
+    "tags": [
+     "ceramic-mid",
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#88735f",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "brick-wall-end",
+    "hash": "86c939c35a",
+    "wdh": [
+     0.9,
+     0.4,
+     0.75
+    ],
+    "tags": [
+     "ceramic-mid",
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#88735f",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "brick-wall",
+    "hash": "ac258409c5",
+    "wdh": [
+     0.9,
+     0.25,
+     0.65
+    ],
+    "tags": [
+     "ceramic-mid",
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#88735f",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "stone-wall-column",
+    "hash": "ee27e568c7",
+    "wdh": [
+     0.9,
+     0.3,
+     0.75
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "stone-wall-curve",
+    "hash": "1474e755a4",
+    "wdh": [
+     0.9,
+     0.9,
+     0.65
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "stone-wall",
+    "hash": "9b0da41d25",
+    "wdh": [
+     0.9,
+     0.2,
+     0.65
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "wall-short",
+    "hash": "8a0554d756",
+    "wdh": [
+     2.1,
+     1.5,
      2.75
     ],
     "tags": [
-     "ceramic-dark",
-     "kay",
-     "metal-iron-dark",
-     "stone-masonry-mid",
-     "storeys-2",
-     "textile-cloth-mid",
+     "earth-sand",
      "wood-dark"
     ],
     "colors": [
-     "#3a3e4b",
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "garden-wall-a",
+    "hash": "f89410256a",
+    "wdh": [
+     1.2,
+     0.25,
+     0.55
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "stone-masonry-mid",
+     "wizp"
+    ],
+    "colors": [
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "garden-wall-b",
+    "hash": "6f7fcaef22",
+    "wdh": [
+     1.2,
+     0.25,
+     0.55
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "stone-masonry-mid",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
      "#713e14",
      "#873a27",
      "#88735f"
     ]
    },
    {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "blacksmith-anim",
-    "hash": "002ec7ff80",
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "garden-wall-c",
+    "hash": "8165c36ec7",
     "wdh": [
-     2.3,
-     2.25,
-     2.95
+     1.2,
+     0.25,
+     0.55
     ],
     "tags": [
-     "animation",
+     "asia",
      "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "metal-iron-dark",
-     "metal-steel",
-     "special",
-     "special-emissive",
      "stone-masonry-mid",
-     "storeys-1",
-     "wood-dark",
-     "wood-mid"
+     "wizp"
     ],
     "colors": [
-     "#3a3e4b",
-     "#713e14",
-     "#7a8491",
      "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3",
-     "#d4d8dd",
-     "#f1a63b"
+     "#88735f"
     ]
    },
    {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "blacksmith",
-    "hash": "fb28e0da8c",
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "garden-wall-d",
+    "hash": "f91bdec0a7",
     "wdh": [
-     2.3,
-     2.25,
-     1.8
+     1.2,
+     0.25,
+     0.55
     ],
     "tags": [
+     "asia",
      "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "metal-iron-dark",
-     "metal-steel",
-     "special",
-     "special-emissive",
      "stone-masonry-mid",
-     "storeys-1",
-     "wood-dark",
-     "wood-mid"
+     "wizp"
     ],
     "colors": [
-     "#3a3e4b",
-     "#713e14",
-     "#7a8491",
      "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3",
-     "#f1a63b"
+     "#88735f"
     ]
    },
    {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "lumbermill-anim",
-    "hash": "6f9fb3da9e",
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "garden-wall-e",
+    "hash": "9ba0e088eb",
     "wdh": [
-     2.45,
-     2.15,
-     3.1
+     1.2,
+     0.25,
+     0.4
     ],
     "tags": [
-     "animation",
+     "asia",
      "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "metal-iron-mid",
-     "stone-masonry-dark",
      "stone-masonry-mid",
-     "storeys-3",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-mid"
+     "wizp"
     ],
     "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
      "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3"
+     "#88735f"
     ]
    },
    {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "lumbermill",
-    "hash": "4b16ec2871",
+    "slug": "wizp-village",
+    "collection": "wizp-eastern",
+    "model": "wall-stone-low",
+    "hash": "1f731b43ed",
     "wdh": [
-     2.45,
-     2.15,
-     3.1
+     1.2,
+     0.25,
+     0.4
     ],
     "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "metal-iron-mid",
-     "stone-masonry-dark",
      "stone-masonry-mid",
-     "storeys-3",
-     "tba",
-     "textile-cloth-dark",
-     "wood-dark",
-     "wood-mid"
+     "wizp"
     ],
     "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "blacksmith",
-    "hash": "a728e22fa5",
-    "wdh": [
-     4.3,
-     3.65,
-     2.8
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "metal-iron-mid",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "fantasy-sawmill",
-    "hash": "b5c649f099",
-    "wdh": [
-     4.85,
-     3.6,
-     2.7
-    ],
-    "tags": [
-     "bark",
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "metal-steel",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#472715",
-     "#713e14",
-     "#7a8491",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter-large-anim",
-    "hash": "3a859be132",
-    "wdh": [
-     2.7,
-     3.65,
-     3.3
-    ],
-    "tags": [
-     "animation",
-     "hero",
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-2",
-     "sty",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#d4d8dd",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter-large",
-    "hash": "87e3c98a55",
-    "wdh": [
-     2.7,
-     3.65,
-     2.3
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-2",
-     "sty",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter-medium",
-    "hash": "a7eb2f993f",
-    "wdh": [
-     2.1,
-     3,
-     0.95
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-1",
-     "sty"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "smelter",
-    "hash": "29df46d895",
-    "wdh": [
-     1.95,
-     1.35,
-     0.95
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "storeys-1",
-     "sty"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "sawmill",
-    "hash": "f481c027ae",
-    "wdh": [
-     2.55,
-     2.05,
-     1.05
-    ],
-    "tags": [
-     "ceramic-dark",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "storeys-1",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "smithy-anim",
-    "hash": "79697bfeeb",
-    "wdh": [
-     2.1,
-     2.55,
-     2.7
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "hero",
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "textile-cloth-dark",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d4d8dd",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "smithy",
-    "hash": "04c36c3076",
-    "wdh": [
-     2.1,
-     2.55,
-     1.65
-    ],
-    "tags": [
-     "ceramic-dark",
-     "hero",
-     "metal-iron-dark",
-     "special-emissive",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "textile-cloth-dark",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#f1a63b"
+     "#88735f"
     ]
    }
   ]
@@ -101469,6 +101255,451 @@
     ],
     "colors": [
      "#873a27"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-work-industrial-workshop",
+  "name": "Structure › Building › Work › Industrial › Workshop",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "lumbermill",
+    "hash": "a861037d91",
+    "wdh": [
+     3.5,
+     3.1,
+     2.75
+    ],
+    "tags": [
+     "ceramic-dark",
+     "kay",
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "blacksmith-anim",
+    "hash": "002ec7ff80",
+    "wdh": [
+     2.3,
+     2.25,
+     2.95
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-dark",
+     "metal-steel",
+     "special",
+     "special-emissive",
+     "stone-masonry-mid",
+     "storeys-1",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3",
+     "#d4d8dd",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "blacksmith",
+    "hash": "fb28e0da8c",
+    "wdh": [
+     2.3,
+     2.25,
+     1.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-dark",
+     "metal-steel",
+     "special",
+     "special-emissive",
+     "stone-masonry-mid",
+     "storeys-1",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "lumbermill-anim",
+    "hash": "6f9fb3da9e",
+    "wdh": [
+     2.45,
+     2.15,
+     3.1
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "textile-cloth-dark",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "lumbermill",
+    "hash": "4b16ec2871",
+    "wdh": [
+     2.45,
+     2.15,
+     3.1
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "tba",
+     "textile-cloth-dark",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "blacksmith",
+    "hash": "ab89ec34c1",
+    "wdh": [
+     2.85,
+     3.05,
+     1.9
+    ],
+    "tags": [
+     "earth-sand",
+     "metal-iron-mid",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "blacksmith",
+    "hash": "a728e22fa5",
+    "wdh": [
+     4.3,
+     3.65,
+     2.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "metal-iron-mid",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "fantasy-sawmill",
+    "hash": "b5c649f099",
+    "wdh": [
+     4.85,
+     3.6,
+     2.7
+    ],
+    "tags": [
+     "bark",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "metal-steel",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#472715",
+     "#713e14",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter-large-anim",
+    "hash": "3a859be132",
+    "wdh": [
+     2.7,
+     3.65,
+     3.3
+    ],
+    "tags": [
+     "animation",
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-2",
+     "sty",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#d4d8dd",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter-large",
+    "hash": "87e3c98a55",
+    "wdh": [
+     2.7,
+     3.65,
+     2.3
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-2",
+     "sty",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter-medium",
+    "hash": "a7eb2f993f",
+    "wdh": [
+     2.1,
+     3,
+     0.95
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-1",
+     "sty"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "smelter",
+    "hash": "29df46d895",
+    "wdh": [
+     1.95,
+     1.35,
+     0.95
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "storeys-1",
+     "sty"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "sawmill",
+    "hash": "f481c027ae",
+    "wdh": [
+     2.55,
+     2.05,
+     1.05
+    ],
+    "tags": [
+     "ceramic-dark",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "storeys-1",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "smithy-anim",
+    "hash": "79697bfeeb",
+    "wdh": [
+     2.1,
+     2.55,
+     2.7
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "textile-cloth-dark",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d4d8dd",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "smithy",
+    "hash": "04c36c3076",
+    "wdh": [
+     2.1,
+     2.55,
+     1.65
+    ],
+    "tags": [
+     "ceramic-dark",
+     "hero",
+     "metal-iron-dark",
+     "special-emissive",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "textile-cloth-dark",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#f1a63b"
     ]
    }
   ]
@@ -103425,553 +103656,6 @@
   ]
  },
  {
-  "slug": "str-building-military-barracks",
-  "name": "Structure › Building › Military › Barracks",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "archery-range",
-    "hash": "4fd6979f2d",
-    "wdh": [
-     3.35,
-     2.9,
-     2.95
-    ],
-    "tags": [
-     "ceramic-dark",
-     "earth-soil",
-     "kay",
-     "stone-masonry-mid",
-     "storeys-2",
-     "textile-cloth-light",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "barracks",
-    "hash": "6eabb64cd5",
-    "wdh": [
-     3.75,
-     3,
-     2.5
-    ],
-    "tags": [
-     "ceramic-dark",
-     "kay",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-2",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "archery-range",
-    "hash": "64a05fb18b",
-    "wdh": [
-     3,
-     2.8,
-     3.25
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "kay",
-     "metal-iron-mid",
-     "stone-masonry-mid",
-     "storeys-3",
-     "textile-cloth-light",
-     "textile-cloth-mid",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "barracks",
-    "hash": "5a3a9140fa",
-    "wdh": [
-     2.6,
-     2.8,
-     2.95
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "metal-gold",
-     "metal-iron-mid",
-     "stone-masonry-mid",
-     "storeys-2",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "fantasy-barracks",
-    "hash": "fc13483f38",
-    "wdh": [
-     2.15,
-     2.35,
-     1.95
-    ],
-    "tags": [
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "fantasy-stable",
-    "hash": "406fd1ef7e",
-    "wdh": [
-     5.2,
-     3.7,
-     2.35
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-2",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "archery-1-a",
-    "hash": "323111c32a",
-    "wdh": [
-     2.45,
-     2,
-     2.3
-    ],
-    "tags": [
-     "qua",
-     "storeys-2",
-     "textile-cloth-dark",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "archery-1-b",
-    "hash": "aa3687fe0e",
-    "wdh": [
-     3.3,
-     2,
-     3
-    ],
-    "tags": [
-     "qua",
-     "storeys-4",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "archery-1-c",
-    "hash": "66494a44cb",
-    "wdh": [
-     3.75,
-     2.55,
-     3
-    ],
-    "tags": [
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "textile-cloth-light",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "archery-2-a",
-    "hash": "39f92278c4",
-    "wdh": [
-     2.75,
-     2,
-     2.5
-    ],
-    "tags": [
-     "ceramic-dark",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-2",
-     "textile-cloth-light",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "archery-2-b",
-    "hash": "636626291f",
-    "wdh": [
-     3.85,
-     3.3,
-     3
-    ],
-    "tags": [
-     "ceramic-dark",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "textile-cloth-light",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "archery-2-c",
-    "hash": "1a3add6bd3",
-    "wdh": [
-     3.9,
-     3.2,
-     3.9
-    ],
-    "tags": [
-     "ceramic-dark",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "textile-cloth-light",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "barracks-1-a",
-    "hash": "d6a98c6d31",
-    "wdh": [
-     2,
-     2.15,
-     1.45
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "plastic",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "textile-cloth-mid",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#713e14",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "barracks-1-b",
-    "hash": "8ba8f9f6fb",
-    "wdh": [
-     3.6,
-     3.15,
-     1.8
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "plastic",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "textile-cloth-mid",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#713e14",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "barracks-1-c",
-    "hash": "31fb95db57",
-    "wdh": [
-     4.65,
-     3.15,
-     2.95
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "plastic",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "textile-cloth-mid",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#713e14",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "barracks-2-a",
-    "hash": "2dc6f44e56",
-    "wdh": [
-     2,
-     2.8,
-     1.8
-    ],
-    "tags": [
-     "ceramic-dark",
-     "metal-iron-dark",
-     "qua",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "barracks-2-b",
-    "hash": "a641c7cf0b",
-    "wdh": [
-     3.4,
-     3.3,
-     2.7
-    ],
-    "tags": [
-     "ceramic-dark",
-     "metal-iron-dark",
-     "qua",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-4",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "barracks-2-c",
-    "hash": "9dd1b61100",
-    "wdh": [
-     3.4,
-     3.3,
-     3.7
-    ],
-    "tags": [
-     "ceramic-dark",
-     "metal-iron-dark",
-     "qua",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-4",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "stable",
-    "hash": "15ff4e8678",
-    "wdh": [
-     3.4,
-     1.85,
-     1.8
-    ],
-    "tags": [
-     "rgp",
-     "special-organic",
-     "storeys-1",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "weapon-shop",
-    "hash": "005753ba3e",
-    "wdh": [
-     3.65,
-     2.1,
-     2.1
-    ],
-    "tags": [
-     "ceramic-dark",
-     "special-emissive",
-     "stone-masonry-mid",
-     "storeys-2",
-     "textile-cloth-dark",
-     "wizp",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e",
-     "#f1a63b"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-building-work-industrial-factory",
   "name": "Structure › Building › Work › Industrial › Factory",
   "category": "str-gen",
@@ -105473,6 +105157,573 @@
      "#713e14",
      "#9e6d44",
      "#ca9f6e"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-military-barracks",
+  "name": "Structure › Building › Military › Barracks",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "archery-range",
+    "hash": "4fd6979f2d",
+    "wdh": [
+     3.35,
+     2.9,
+     2.95
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-soil",
+     "kay",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-light",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "barracks",
+    "hash": "6eabb64cd5",
+    "wdh": [
+     3.75,
+     3,
+     2.5
+    ],
+    "tags": [
+     "ceramic-dark",
+     "kay",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "archery-range",
+    "hash": "64a05fb18b",
+    "wdh": [
+     3,
+     2.8,
+     3.25
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-mid",
+     "storeys-3",
+     "textile-cloth-light",
+     "textile-cloth-mid",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "barracks",
+    "hash": "5a3a9140fa",
+    "wdh": [
+     2.6,
+     2.8,
+     2.95
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "metal-gold",
+     "metal-iron-mid",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "barracks",
+    "hash": "5db86b2fce",
+    "wdh": [
+     3.4,
+     3.15,
+     1.95
+    ],
+    "tags": [
+     "earth-sand",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "fantasy-barracks",
+    "hash": "fc13483f38",
+    "wdh": [
+     2.15,
+     2.35,
+     1.95
+    ],
+    "tags": [
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "fantasy-stable",
+    "hash": "406fd1ef7e",
+    "wdh": [
+     5.2,
+     3.7,
+     2.35
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "archery-1-a",
+    "hash": "323111c32a",
+    "wdh": [
+     2.45,
+     2,
+     2.3
+    ],
+    "tags": [
+     "qua",
+     "storeys-2",
+     "textile-cloth-dark",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "archery-1-b",
+    "hash": "aa3687fe0e",
+    "wdh": [
+     3.3,
+     2,
+     3
+    ],
+    "tags": [
+     "qua",
+     "storeys-4",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "archery-1-c",
+    "hash": "66494a44cb",
+    "wdh": [
+     3.75,
+     2.55,
+     3
+    ],
+    "tags": [
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "textile-cloth-light",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "archery-2-a",
+    "hash": "39f92278c4",
+    "wdh": [
+     2.75,
+     2,
+     2.5
+    ],
+    "tags": [
+     "ceramic-dark",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-light",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "archery-2-b",
+    "hash": "636626291f",
+    "wdh": [
+     3.85,
+     3.3,
+     3
+    ],
+    "tags": [
+     "ceramic-dark",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-4",
+     "textile-cloth-light",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "archery-2-c",
+    "hash": "1a3add6bd3",
+    "wdh": [
+     3.9,
+     3.2,
+     3.9
+    ],
+    "tags": [
+     "ceramic-dark",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-4",
+     "textile-cloth-light",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "barracks-1-a",
+    "hash": "d6a98c6d31",
+    "wdh": [
+     2,
+     2.15,
+     1.45
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "textile-cloth-mid",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "barracks-1-b",
+    "hash": "8ba8f9f6fb",
+    "wdh": [
+     3.6,
+     3.15,
+     1.8
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "textile-cloth-mid",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "barracks-1-c",
+    "hash": "31fb95db57",
+    "wdh": [
+     4.65,
+     3.15,
+     2.95
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "textile-cloth-mid",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "barracks-2-a",
+    "hash": "2dc6f44e56",
+    "wdh": [
+     2,
+     2.8,
+     1.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "metal-iron-dark",
+     "qua",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "barracks-2-b",
+    "hash": "a641c7cf0b",
+    "wdh": [
+     3.4,
+     3.3,
+     2.7
+    ],
+    "tags": [
+     "ceramic-dark",
+     "metal-iron-dark",
+     "qua",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-4",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "barracks-2-c",
+    "hash": "9dd1b61100",
+    "wdh": [
+     3.4,
+     3.3,
+     3.7
+    ],
+    "tags": [
+     "ceramic-dark",
+     "metal-iron-dark",
+     "qua",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-4",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "stable",
+    "hash": "15ff4e8678",
+    "wdh": [
+     3.4,
+     1.85,
+     1.8
+    ],
+    "tags": [
+     "rgp",
+     "special-organic",
+     "storeys-1",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "weapon-shop",
+    "hash": "005753ba3e",
+    "wdh": [
+     3.65,
+     2.1,
+     2.1
+    ],
+    "tags": [
+     "ceramic-dark",
+     "special-emissive",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-dark",
+     "wizp",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e",
+     "#f1a63b"
     ]
    }
   ]
@@ -109281,6 +109532,32 @@
     ]
    },
    {
+    "slug": "mali",
+    "model": "storehouse",
+    "hash": "08ce993366",
+    "wdh": [
+     3.15,
+     2.8,
+     2.15
+    ],
+    "tags": [
+     "earth-sand",
+     "leather",
+     "stone-masonry-mid",
+     "storeys-2",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#472715",
+     "#59534e",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
     "slug": "quat-space",
     "model": "base-large",
     "hash": "69b3716fc7",
@@ -109508,723 +109785,6 @@
      "#7a8491",
      "#873a27",
      "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-building-work-commercial",
-  "name": "Structure › Building › Work › Commercial",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "town-hall",
-    "hash": "eb9b01303b",
-    "wdh": [
-     8.65,
-     5,
-     4.75
-    ],
-    "tags": [
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "storeys-2",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "tavern",
-    "hash": "994392b82e",
-    "wdh": [
-     2.05,
-     2.4,
-     2.4
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "stone-masonry-dark",
-     "storeys-3",
-     "textile-cloth-mid",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-a",
-    "hash": "10929b3553",
-    "wdh": [
-     1.95,
-     2.05,
-     2.85
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-b",
-    "hash": "a40a549343",
-    "wdh": [
-     2.15,
-     2.05,
-     2.85
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-c",
-    "hash": "3d2a7198a1",
-    "wdh": [
-     1.95,
-     2.4,
-     1.95
-    ],
-    "tags": [
-     "earth-soil",
-     "glass-clear",
-     "ken",
-     "leaf-dark",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-2"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-d",
-    "hash": "c590793771",
-    "wdh": [
-     1.85,
-     2,
-     2.85
-    ],
-    "tags": [
-     "earth-soil",
-     "glass-clear",
-     "ken",
-     "leaf-light",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#66852a",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-e",
-    "hash": "1d8c1d3ace",
-    "wdh": [
-     3.6,
-     2.2,
-     1.95
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-2"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-f",
-    "hash": "efd3937492",
-    "wdh": [
-     1.85,
-     2.25,
-     3.75
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "leaf-dark",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-4"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-g",
-    "hash": "b476df97a5",
-    "wdh": [
-     2.15,
-     2.05,
-     3.75
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-4"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-h",
-    "hash": "6ab8ec6977",
-    "wdh": [
-     1.95,
-     2.2,
-     2.85
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-i",
-    "hash": "a220ec57d4",
-    "wdh": [
-     2.75,
-     2.85,
-     3.7
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-4"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-j",
-    "hash": "db9bb6a2bb",
-    "wdh": [
-     4.6,
-     2.95,
-     3.75
-    ],
-    "tags": [
-     "earth-soil",
-     "glass-clear",
-     "ken",
-     "leaf-light",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-4"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#66852a",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-k",
-    "hash": "d2ff27ee71",
-    "wdh": [
-     4.6,
-     2.05,
-     3.25
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-l",
-    "hash": "d72fbea43d",
-    "wdh": [
-     3,
-     3.1,
-     5
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-5"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-m",
-    "hash": "ebdee00715",
-    "wdh": [
-     2.75,
-     2.75,
-     6.95
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-6"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-commercial",
-    "collection": "ken-city",
-    "model": "building-n",
-    "hash": "78fc6fb71e",
-    "wdh": [
-     5.1,
-     4,
-     5.45
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-6"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-racing",
-    "model": "pits-garage-closed",
-    "hash": "ef4cc6d88f",
-    "wdh": [
-     1.5,
-     1.6,
-     1.05
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-mid",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-1"
-    ],
-    "colors": [
-     "#59534e",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-racing",
-    "model": "pits-garage-corner",
-    "hash": "b0163add11",
-    "wdh": [
-     1.55,
-     1.5,
-     1.05
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-1"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-racing",
-    "model": "pits-garage",
-    "hash": "3c0d801510",
-    "wdh": [
-     1.5,
-     1.6,
-     1.05
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-mid",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-1"
-    ],
-    "colors": [
-     "#59534e",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-racing",
-    "model": "pits-office-corner",
-    "hash": "7e6e647228",
-    "wdh": [
-     1.55,
-     1.55,
-     0.75
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "stone-masonry-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-1"
-    ],
-    "colors": [
-     "#57493d",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-racing",
-    "model": "pits-office-roof",
-    "hash": "a1d9ae7eae",
-    "wdh": [
-     1.5,
-     1.55,
-     1.25
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "ken",
-     "stone-masonry-light",
-     "storeys-1-5"
-    ],
-    "colors": [
-     "#873a27",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-racing",
-    "model": "pits-office",
-    "hash": "0b0ce15819",
-    "wdh": [
-     1.5,
-     1.55,
-     0.75
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "stone-masonry-dark",
-     "stone-masonry-light",
-     "stone-masonry-mid",
-     "storeys-1"
-    ],
-    "colors": [
-     "#57493d",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "pm-store",
-    "model": "shop",
-    "hash": "2b64ec91ca",
-    "wdh": [
-     3.95,
-     5.9,
-     3.35
-    ],
-    "tags": [
-     "asia",
-     "glass-clear",
-     "pm",
-     "stone-masonry-light",
-     "storeys-1",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "fantasy-inn",
-    "hash": "d333cc7d11",
-    "wdh": [
-     4.5,
-     4.45,
-     3.3
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "market-house",
-    "hash": "f0b4d559db",
-    "wdh": [
-     1.35,
-     1.1,
-     1.25
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "storeys-1-5",
-     "wizp",
-     "wood-dark",
-     "wood-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "wizp-village",
-    "collection": "wizp-eastern",
-    "model": "shop",
-    "hash": "d853d8642b",
-    "wdh": [
-     1.35,
-     1.1,
-     1.25
-    ],
-    "tags": [
-     "asia",
-     "ceramic-light",
-     "metal-gold",
-     "paper-sheet",
-     "storeys-1-5",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#d8cfb7",
-     "#f1a63b"
     ]
    }
   ]
@@ -111268,6 +110828,798 @@
      "#3a3e4b",
      "#59534e",
      "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-building-work-commercial",
+  "name": "Structure › Building › Work › Commercial",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "town-hall",
+    "hash": "eb9b01303b",
+    "wdh": [
+     8.65,
+     5,
+     4.75
+    ],
+    "tags": [
+     "ceramic-dark",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "tavern",
+    "hash": "994392b82e",
+    "wdh": [
+     2.05,
+     2.4,
+     2.4
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "stone-masonry-dark",
+     "storeys-3",
+     "textile-cloth-mid",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-a",
+    "hash": "10929b3553",
+    "wdh": [
+     1.95,
+     2.05,
+     2.85
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-b",
+    "hash": "a40a549343",
+    "wdh": [
+     2.15,
+     2.05,
+     2.85
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-c",
+    "hash": "3d2a7198a1",
+    "wdh": [
+     1.95,
+     2.4,
+     1.95
+    ],
+    "tags": [
+     "earth-soil",
+     "glass-clear",
+     "ken",
+     "leaf-dark",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-2"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-d",
+    "hash": "c590793771",
+    "wdh": [
+     1.85,
+     2,
+     2.85
+    ],
+    "tags": [
+     "earth-soil",
+     "glass-clear",
+     "ken",
+     "leaf-light",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#66852a",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-e",
+    "hash": "1d8c1d3ace",
+    "wdh": [
+     3.6,
+     2.2,
+     1.95
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-2"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-f",
+    "hash": "efd3937492",
+    "wdh": [
+     1.85,
+     2.25,
+     3.75
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "leaf-dark",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-4"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-g",
+    "hash": "b476df97a5",
+    "wdh": [
+     2.15,
+     2.05,
+     3.75
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-4"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-h",
+    "hash": "6ab8ec6977",
+    "wdh": [
+     1.95,
+     2.2,
+     2.85
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-i",
+    "hash": "a220ec57d4",
+    "wdh": [
+     2.75,
+     2.85,
+     3.7
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-4"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-j",
+    "hash": "db9bb6a2bb",
+    "wdh": [
+     4.6,
+     2.95,
+     3.75
+    ],
+    "tags": [
+     "earth-soil",
+     "glass-clear",
+     "ken",
+     "leaf-light",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-4"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#66852a",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-k",
+    "hash": "d2ff27ee71",
+    "wdh": [
+     4.6,
+     2.05,
+     3.25
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-l",
+    "hash": "d72fbea43d",
+    "wdh": [
+     3,
+     3.1,
+     5
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-5"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-m",
+    "hash": "ebdee00715",
+    "wdh": [
+     2.75,
+     2.75,
+     6.95
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-6"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-commercial",
+    "collection": "ken-city",
+    "model": "building-n",
+    "hash": "78fc6fb71e",
+    "wdh": [
+     5.1,
+     4,
+     5.45
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-6"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-racing",
+    "model": "pits-garage-closed",
+    "hash": "ef4cc6d88f",
+    "wdh": [
+     1.5,
+     1.6,
+     1.05
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-mid",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-1"
+    ],
+    "colors": [
+     "#59534e",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-racing",
+    "model": "pits-garage-corner",
+    "hash": "b0163add11",
+    "wdh": [
+     1.55,
+     1.5,
+     1.05
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-iron-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-1"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-racing",
+    "model": "pits-garage",
+    "hash": "3c0d801510",
+    "wdh": [
+     1.5,
+     1.6,
+     1.05
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-mid",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-1"
+    ],
+    "colors": [
+     "#59534e",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-racing",
+    "model": "pits-office-corner",
+    "hash": "7e6e647228",
+    "wdh": [
+     1.55,
+     1.55,
+     0.75
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "stone-masonry-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-1"
+    ],
+    "colors": [
+     "#57493d",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-racing",
+    "model": "pits-office-roof",
+    "hash": "a1d9ae7eae",
+    "wdh": [
+     1.5,
+     1.55,
+     1.25
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "ken",
+     "stone-masonry-light",
+     "storeys-1-5"
+    ],
+    "colors": [
+     "#873a27",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-racing",
+    "model": "pits-office",
+    "hash": "0b0ce15819",
+    "wdh": [
+     1.5,
+     1.55,
+     0.75
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "stone-masonry-dark",
+     "stone-masonry-light",
+     "stone-masonry-mid",
+     "storeys-1"
+    ],
+    "colors": [
+     "#57493d",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "civic-center",
+    "hash": "76806afdd3",
+    "wdh": [
+     2.75,
+     2.8,
+     1.6
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "library",
+    "hash": "08aebbd29e",
+    "wdh": [
+     2.8,
+     2.4,
+     1.95
+    ],
+    "tags": [
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "market",
+    "hash": "8f6b8d9525",
+    "wdh": [
+     3.05,
+     3,
+     1.3
+    ],
+    "tags": [
+     "ceramic-dark",
+     "earth-sand",
+     "leather",
+     "stone-masonry-mid",
+     "storeys-1",
+     "textile-cloth-dark",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#472715",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "pm-store",
+    "model": "shop",
+    "hash": "2b64ec91ca",
+    "wdh": [
+     3.95,
+     5.9,
+     3.35
+    ],
+    "tags": [
+     "asia",
+     "glass-clear",
+     "pm",
+     "stone-masonry-light",
+     "storeys-1",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "fantasy-inn",
+    "hash": "d333cc7d11",
+    "wdh": [
+     4.5,
+     4.45,
+     3.3
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "market-house",
+    "hash": "f0b4d559db",
+    "wdh": [
+     1.35,
+     1.1,
+     1.25
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "stone-masonry-mid",
+     "storeys-1-5",
+     "wizp",
+     "wood-dark",
+     "wood-light",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "wizp-village",
+    "collection": "wizp-eastern",
+    "model": "shop",
+    "hash": "d853d8642b",
+    "wdh": [
+     1.35,
+     1.1,
+     1.25
+    ],
+    "tags": [
+     "asia",
+     "ceramic-light",
+     "metal-gold",
+     "paper-sheet",
+     "storeys-1-5",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#d8cfb7",
+     "#f1a63b"
     ]
    }
   ]
@@ -119253,6 +119605,94 @@
     ]
    },
    {
+    "slug": "mali",
+    "model": "house-1",
+    "hash": "9b14ede883",
+    "wdh": [
+     2.75,
+     2.75,
+     1.95
+    ],
+    "tags": [
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "house-2",
+    "hash": "ff31865764",
+    "wdh": [
+     2.65,
+     2.8,
+     1.85
+    ],
+    "tags": [
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "house-3",
+    "hash": "6a5db20df0",
+    "wdh": [
+     2.75,
+     2.7,
+     1.9
+    ],
+    "tags": [
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "house-4",
+    "hash": "3f53c6daed",
+    "wdh": [
+     2.75,
+     2.75,
+     1.95
+    ],
+    "tags": [
+     "earth-sand",
+     "stone-masonry-mid",
+     "storeys-2",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
     "slug": "nature-assets",
     "model": "house-anim",
     "hash": "abbb554cc5",
@@ -127103,6 +127543,24 @@
     ],
     "colors": [
      "#713e14"
+    ]
+   },
+   {
+    "slug": "mali",
+    "model": "wall-gate",
+    "hash": "8ee496e68c",
+    "wdh": [
+     6.6,
+     2.15,
+     2.75
+    ],
+    "tags": [
+     "earth-sand",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e"
     ]
    },
    {

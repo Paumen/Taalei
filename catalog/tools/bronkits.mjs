@@ -242,5 +242,5 @@ export const BRONKITS = [
   { map: 'Lowbudget_Game_Assets_britdawgmasterfunk', naam: 'Lowbudget Game Assets', kit: 'lowbudget', formaat: 'glb', splitsPerMesh: true },
   { map: 'Stylized_Vases_And_Pots', naam: 'Stylized Vases And Pots', kit: 'vases-pots', formaat: 'obj', alleMappen: true },
   { map: 'Dungeon_Set_2', naam: 'Dungeon Set 2', kit: 'dungeon-2', formaat: 'obj', alleMappen: true },
-  { map: 'Mali_Buildings', naam: 'Mali Buildings', kit: null, formaat: 'glb' },
+  { map: 'Mali_Buildings', naam: 'Mali Buildings', kit: 'mali', formaat: 'glb' },
 ];
